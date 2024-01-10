@@ -33,11 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.EMS
     ///  
     /// <para>
     /// You can query to receive all the containers in one response. Or you can include the
-    /// <code>MaxResults</code> parameter to receive a limited number of containers in each
-    /// response. In this case, the response includes a token. To get the next set of containers,
-    /// send the command again, this time with the <code>NextToken</code> parameter (with
-    /// the returned token as its value). The next set of responses appears, with a token
-    /// if there are still more containers to receive. 
+    /// <c>MaxResults</c> parameter to receive a limited number of containers in each response.
+    /// In this case, the response includes a token. To get the next set of containers, send
+    /// the command again, this time with the <c>NextToken</c> parameter (with the returned
+    /// token as its value). The next set of responses appears, with a token if there are
+    /// still more containers to receive. 
     /// </para><para>
     /// See also <a>DescribeContainer</a>, which gets the properties of one container. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -74,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.EMS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Only if you used <code>MaxResults</code> in the first command, enter the token (which
-        /// was included in the previous response) to obtain the next set of containers. This
-        /// token is included in a response only if there actually are more containers to list.</para>
+        /// <para>Only if you used <c>MaxResults</c> in the first command, enter the token (which was
+        /// included in the previous response) to obtain the next set of containers. This token
+        /// is included in a response only if there actually are more containers to list.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     /// Creates an Amazon Web Services Migration Hub Refactor Spaces route. The account owner
     /// of the service resource is always the environment owner, regardless of which account
     /// creates the route. Routes target a service in the application. If an application does
-    /// not have any routes, then the first route must be created as a <code>DEFAULT</code><code>RouteType</code>.
+    /// not have any routes, then the first route must be created as a <c>DEFAULT</c><c>RouteType</c>.
     /// 
     ///  
     /// <para>
@@ -51,16 +51,16 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     /// domain is also publicly resolvable. 
     /// </para><para>
     /// Refactor Spaces automatically resolves the public Domain Name System (DNS) names that
-    /// are set in <code>CreateService:UrlEndpoint </code>when you create a service. The DNS
-    /// names resolve when the DNS time-to-live (TTL) expires, or every 60 seconds for TTLs
-    /// less than 60 seconds. This periodic DNS resolution ensures that the route configuration
+    /// are set in <c>CreateService:UrlEndpoint </c>when you create a service. The DNS names
+    /// resolve when the DNS time-to-live (TTL) expires, or every 60 seconds for TTLs less
+    /// than 60 seconds. This periodic DNS resolution ensures that the route configuration
     /// remains up-to-date. 
     /// </para><para><b>One-time health check</b></para><para>
     /// A one-time health check is performed on the service when either the route is updated
     /// from inactive to active, or when it is created with an active state. If the health
-    /// check fails, the route transitions the route state to <code>FAILED</code>, an error
-    /// code of <code>SERVICE_ENDPOINT_HEALTH_CHECK_FAILURE</code> is provided, and no traffic
-    /// is sent to the service.
+    /// check fails, the route transitions the route state to <c>FAILED</c>, an error code
+    /// of <c>SERVICE_ENDPOINT_HEALTH_CHECK_FAILURE</c> is provided, and no traffic is sent
+    /// to the service.
     /// </para><para>
     /// For private URLs, a target group is created on the Network Load Balancer and the load
     /// balancer target group runs default target health checks. By default, the health check
@@ -78,8 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     /// </para><para>
     /// The Lambda function state is checked. If the function is not active, the function
     /// configuration is updated so that Lambda resources are provisioned. If the Lambda state
-    /// is <code>Failed</code>, then the route creation fails. For more information, see the
-    /// <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html#SSS-GetFunctionConfiguration-response-State">GetFunctionConfiguration's
+    /// is <c>Failed</c>, then the route creation fails. For more information, see the <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html#SSS-GetFunctionConfiguration-response-State">GetFunctionConfiguration's
     /// State response parameter</a> in the <i>Lambda Developer Guide</i>.
     /// </para><para>
     /// A check is performed to determine that a Lambda function with the specified ARN exists.
@@ -87,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     /// to the public endpoint. If the URL is not reachable, the health check fails. 
     /// </para></li></ul><para><b>Environments without a network bridge</b></para><para>
     /// When you create environments without a network bridge (<a href="https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateEnvironment.html#migrationhubrefactorspaces-CreateEnvironment-request-NetworkFabricType">CreateEnvironment:NetworkFabricType</a>
-    /// is <code>NONE)</code> and you use your own networking infrastructure, you need to
-    /// configure <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.html">VPC
+    /// is <c>NONE)</c> and you use your own networking infrastructure, you need to configure
+    /// <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.html">VPC
     /// to VPC connectivity</a> between your network and the application proxy VPC. Route
     /// creation from the application proxy to service endpoints will fail if your network
     /// is not configured to connect to the application proxy VPC. For more information, see
@@ -114,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         #region Parameter DefaultRoute_ActivationState
         /// <summary>
         /// <para>
-        /// <para>If set to <code>ACTIVE</code>, traffic is forwarded to this route’s service after
-        /// the route is created. </para>
+        /// <para>If set to <c>ACTIVE</c>, traffic is forwarded to this route’s service after the route
+        /// is created. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         #region Parameter UriPathRoute_ActivationState
         /// <summary>
         /// <para>
-        /// <para>If set to <code>ACTIVE</code>, traffic is forwarded to this route’s service after
-        /// the route is created. </para>
+        /// <para>If set to <c>ACTIVE</c>, traffic is forwarded to this route’s service after the route
+        /// is created. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,8 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         #region Parameter UriPathRoute_AppendSourcePath
         /// <summary>
         /// <para>
-        /// <para>If set to <code>true</code>, this option appends the source path to the service URL
-        /// endpoint.</para>
+        /// <para>If set to <c>true</c>, this option appends the source path to the service URL endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         /// <summary>
         /// <para>
         /// <para>Indicates whether to match all subpaths of the given source path. If this value is
-        /// <code>false</code>, requests must match the source path exactly before they are forwarded
+        /// <c>false</c>, requests must match the source path exactly before they are forwarded
         /// to this route's service. </para>
         /// </para>
         /// </summary>
@@ -209,10 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         #region Parameter RouteType
         /// <summary>
         /// <para>
-        /// <para>The route type of the route. <code>DEFAULT</code> indicates that all traffic that
-        /// does not match another route is forwarded to the default route. Applications must
-        /// have a default route before any other routes can be created. <code>URI_PATH</code>
-        /// indicates a route that is based on a URI path.</para>
+        /// <para>The route type of the route. <c>DEFAULT</c> indicates that all traffic that does not
+        /// match another route is forwarded to the default route. Applications must have a default
+        /// route before any other routes can be created. <c>URI_PATH</c> indicates a route that
+        /// is based on a URI path.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -248,9 +246,9 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         /// <summary>
         /// <para>
         /// <para>This is the path that Refactor Spaces uses to match traffic. Paths must start with
-        /// <code>/</code> and are relative to the base of the application. To use path parameters
-        /// in the source path, add a variable in curly braces. For example, the resource path
-        /// {user} represents a path parameter called 'user'.</para>
+        /// <c>/</c> and are relative to the base of the application. To use path parameters in
+        /// the source path, add a variable in curly braces. For example, the resource path {user}
+        /// represents a path parameter called 'user'.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

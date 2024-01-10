@@ -33,13 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  
     /// <para>
-    /// If the <code>UserName</code> is not specified, the user name is determined implicitly
-    /// based on the Amazon Web Services access key ID used to sign the request. If a temporary
-    /// access key is used, then <code>UserName</code> is required. If a long-term key is
-    /// assigned to the user, then <code>UserName</code> is not required. This operation works
-    /// for access keys under the Amazon Web Services account. Consequently, you can use this
-    /// operation to manage Amazon Web Services account root user credentials even if the
-    /// Amazon Web Services account has no associated users.
+    /// If the <c>UserName</c> is not specified, the user name is determined implicitly based
+    /// on the Amazon Web Services access key ID used to sign the request. If a temporary
+    /// access key is used, then <c>UserName</c> is required. If a long-term key is assigned
+    /// to the user, then <c>UserName</c> is not required. This operation works for access
+    /// keys under the Amazon Web Services account. Consequently, you can use this operation
+    /// to manage Amazon Web Services account root user credentials even if the Amazon Web
+    /// Services account has no associated users.
     /// </para><para>
     /// For information about rotating keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html">Managing
     /// keys and certificates</a> in the <i>IAM User Guide</i>.
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para> The status you want to assign to the secret access key. <code>Active</code> means
-        /// that the key can be used for programmatic calls to Amazon Web Services, while <code>Inactive</code>
+        /// <para> The status you want to assign to the secret access key. <c>Active</c> means that
+        /// the key can be used for programmatic calls to Amazon Web Services, while <c>Inactive</c>
         /// means that the key cannot be used.</para>
         /// </para>
         /// </summary>

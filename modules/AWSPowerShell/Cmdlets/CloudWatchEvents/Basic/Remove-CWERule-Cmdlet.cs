@@ -38,12 +38,12 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// Allow a short period of time for changes to take effect.
     /// </para><para>
     /// If you call delete rule multiple times for the same rule, all calls will succeed.
-    /// When you call delete rule for a non-existent custom eventbus, <code>ResourceNotFoundException</code>
+    /// When you call delete rule for a non-existent custom eventbus, <c>ResourceNotFoundException</c>
     /// is returned.
     /// </para><para>
     /// Managed rules are rules created and managed by another Amazon Web Services service
     /// on your behalf. These rules are created by those other Amazon Web Services services
-    /// to support functionality in those services. You can delete these rules using the <code>Force</code>
+    /// to support functionality in those services. You can delete these rules using the <c>Force</c>
     /// option, but you should do so only if you are sure the other service is not still using
     /// that rule.
     /// </para>
@@ -75,10 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <summary>
         /// <para>
         /// <para>If this is a managed rule, created by an Amazon Web Services service on your behalf,
-        /// you must specify <code>Force</code> as <code>True</code> to delete the rule. This
-        /// parameter is ignored for rules that are not managed rules. You can check whether a
-        /// rule is a managed rule by using <code>DescribeRule</code> or <code>ListRules</code>
-        /// and checking the <code>ManagedBy</code> field of the response.</para>
+        /// you must specify <c>Force</c> as <c>True</c> to delete the rule. This parameter is
+        /// ignored for rules that are not managed rules. You can check whether a rule is a managed
+        /// rule by using <c>DescribeRule</c> or <c>ListRules</c> and checking the <c>ManagedBy</c>
+        /// field of the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

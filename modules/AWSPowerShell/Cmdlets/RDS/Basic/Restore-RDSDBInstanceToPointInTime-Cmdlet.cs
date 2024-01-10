@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Restores a DB instance to an arbitrary point in time. You can restore to any point
-    /// in time before the time identified by the <code>LatestRestorableTime</code> property.
-    /// You can restore to a point up to the number of days specified by the <code>BackupRetentionPeriod</code>
+    /// in time before the time identified by the <c>LatestRestorableTime</c> property. You
+    /// can restore to a point up to the number of days specified by the <c>BackupRetentionPeriod</c>
     /// property.
     /// 
     ///  
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// and not a single-AZ deployment.
     /// </para><note><para>
     /// This operation doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use
-    /// <code>RestoreDBClusterToPointInTime</code>.
+    /// <c>RestoreDBClusterToPointInTime</c>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Restore", "RDSDBInstanceToPointInTime", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of storage (in gibibytes) to allocate initially for the DB instance. Follow
-        /// the allocation rules specified in <code>CreateDBInstance</code>.</para><note><para>Be sure to allocate enough storage for your new DB instance so that the restore operation
+        /// the allocation rules specified in <c>CreateDBInstance</c>.</para><note><para>Be sure to allocate enough storage for your new DB instance so that the restore operation
         /// can succeed. You can also allocate additional storage for future growth.</para></note>
         /// </para>
         /// </summary>
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone (AZ) where the DB instance will be created.</para><para>Default: A random, system-chosen Availability Zone.</para><para>Constraints:</para><ul><li><para>You can't specify the <code>AvailabilityZone</code> parameter if the DB instance is
-        /// a Multi-AZ deployment.</para></li></ul><para>Example: <code>us-east-1a</code></para>
+        /// <para>The Availability Zone (AZ) where the DB instance will be created.</para><para>Default: A random, system-chosen Availability Zone.</para><para>Constraints:</para><ul><li><para>You can't specify the <c>AvailabilityZone</c> parameter if the DB instance is a Multi-AZ
+        /// deployment.</para></li></ul><para>Example: <c>us-east-1a</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The location for storing automated backups and manual snapshots for the restored DB
-        /// instance.</para><para>Valid Values:</para><ul><li><para><code>outposts</code> (Amazon Web Services Outposts)</para></li><li><para><code>region</code> (Amazon Web Services Region)</para></li></ul><para>Default: <code>region</code></para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
+        /// instance.</para><para>Valid Values:</para><ul><li><para><c>outposts</c> (Amazon Web Services Outposts)</para></li><li><para><c>region</c> (Amazon Web Services Region)</para></li></ul><para>Default: <c>region</c></para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
         /// with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The instance profile associated with the underlying Amazon EC2 instance of an RDS
         /// Custom DB instance. The instance profile must meet the following requirements:</para><ul><li><para>The profile must exist in your account.</para></li><li><para>The profile must have an IAM role that Amazon EC2 has permissions to assume.</para></li><li><para>The instance profile name and the associated IAM role name must start with the prefix
-        /// <code>AWSRDSCustom</code>.</para></li></ul><para>For the list of permissions required for the IAM role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc">
+        /// <c>AWSRDSCustom</c>.</para></li></ul><para>For the list of permissions required for the IAM role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc">
         /// Configure IAM and your VPC</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting is required for RDS Custom.</para>
         /// </para>
         /// </summary>
@@ -155,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB parameter group to associate with this DB instance.</para><para>If you do not specify a value for <code>DBParameterGroupName</code>, then the default
-        /// <code>DBParameterGroup</code> for the specified DB engine is used.</para><para>This setting doesn't apply to RDS Custom.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DB parameter group.</para></li><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
+        /// <para>The name of the DB parameter group to associate with this DB instance.</para><para>If you do not specify a value for <c>DBParameterGroupName</c>, then the default <c>DBParameterGroup</c>
+        /// for the specified DB engine is used.</para><para>This setting doesn't apply to RDS Custom.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DB parameter group.</para></li><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The DB subnet group name to use for the new instance.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DB subnet group.</para></li></ul><para>Example: <code>mydbsubnetgroup</code></para>
+        /// <para>The DB subnet group name to use for the new instance.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DB subnet group.</para></li></ul><para>Example: <c>mydbsubnetgroup</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The ARN for the Secrets Manager secret with the credentials for the user joining the
-        /// domain.</para><para>Constraints:</para><ul><li><para>Can't be longer than 64 characters.</para></li></ul><para>Example: <code>arn:aws:secretsmanager:region:account-number:secret:myselfmanagedADtestsecret-123456</code></para>
+        /// domain.</para><para>Constraints:</para><ul><li><para>Can't be longer than 64 characters.</para></li></ul><para>Example: <c>arn:aws:secretsmanager:region:account-number:secret:myselfmanagedADtestsecret-123456</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.</para><para>Constraints:</para><ul><li><para>Two IP addresses must be provided. If there isn't a secondary domain controller, use
-        /// the IP address of the primary domain controller for both entries in the list.</para></li></ul><para>Example: <code>123.124.125.126,234.235.236.237</code></para>
+        /// the IP address of the primary domain controller for both entries in the list.</para></li></ul><para>Example: <c>123.124.125.126,234.235.236.237</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DomainFqdn
         /// <summary>
         /// <para>
-        /// <para>The fully qualified domain name (FQDN) of an Active Directory domain.</para><para>Constraints:</para><ul><li><para>Can't be longer than 64 characters.</para></li></ul><para>Example: <code>mymanagedADtest.mymanagedAD.mydomain</code></para>
+        /// <para>The fully qualified domain name (FQDN) of an Active Directory domain.</para><para>Constraints:</para><ul><li><para>Can't be longer than 64 characters.</para></li></ul><para>Example: <c>mymanagedADtest.mymanagedAD.mydomain</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DomainOu
         /// <summary>
         /// <para>
-        /// <para>The Active Directory organizational unit for your DB instance to join.</para><para>Constraints:</para><ul><li><para>Must be in the distinguished name format.</para></li><li><para>Can't be longer than 64 characters.</para></li></ul><para>Example: <code>OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain</code></para>
+        /// <para>The Active Directory organizational unit for your DB instance to join.</para><para>Constraints:</para><ul><li><para>Must be in the distinguished name format.</para></li><li><para>Can't be longer than 64 characters.</para></li></ul><para>Example: <c>OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -307,7 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The database engine to use for the new instance.</para><para>This setting doesn't apply to RDS Custom.</para><para>Valid Values:</para><ul><li><para><code>db2-ae</code></para></li><li><para><code>db2-se</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-ee-cdb</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se2-cdb</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul><para>Default: The same as source</para><para>Constraints:</para><ul><li><para>Must be compatible with the engine of the source.</para></li></ul>
+        /// <para>The database engine to use for the new instance.</para><para>This setting doesn't apply to RDS Custom.</para><para>Valid Values:</para><ul><li><para><c>db2-ae</c></para></li><li><para><c>db2-se</c></para></li><li><para><c>mariadb</c></para></li><li><para><c>mysql</c></para></li><li><para><c>oracle-ee</c></para></li><li><para><c>oracle-ee-cdb</c></para></li><li><para><c>oracle-se2</c></para></li><li><para><c>oracle-se2-cdb</c></para></li><li><para><c>postgres</c></para></li><li><para><c>sqlserver-ee</c></para></li><li><para><c>sqlserver-se</c></para></li><li><para><c>sqlserver-ex</c></para></li><li><para><c>sqlserver-web</c></para></li></ul><para>Default: The same as source</para><para>Constraints:</para><ul><li><para>Must be compatible with the engine of the source.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -328,8 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter LicenseModel
         /// <summary>
         /// <para>
-        /// <para>The license model information for the restored DB instance.</para><para>This setting doesn't apply to RDS Custom.</para><para>Valid Values: <code>license-included</code> | <code>bring-your-own-license</code>
-        /// | <code>general-public-license</code></para><para>Default: Same as the source.</para>
+        /// <para>The license model information for the restored DB instance.</para><para>This setting doesn't apply to RDS Custom.</para><para>Valid Values: <c>license-included</c> | <c>bring-your-own-license</c> | <c>general-public-license</c></para><para>Default: Same as the source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -353,8 +352,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MultiAZ
         /// <summary>
         /// <para>
-        /// <para>Secifies whether the DB instance is a Multi-AZ deployment.</para><para>This setting doesn't apply to RDS Custom.</para><para>Constraints:</para><ul><li><para>You can't specify the <code>AvailabilityZone</code> parameter if the DB instance is
-        /// a Multi-AZ deployment.</para></li></ul>
+        /// <para>Secifies whether the DB instance is a Multi-AZ deployment.</para><para>This setting doesn't apply to RDS Custom.</para><para>Constraints:</para><ul><li><para>You can't specify the <c>AvailabilityZone</c> parameter if the DB instance is a Multi-AZ
+        /// deployment.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -364,10 +363,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>The network type of the DB instance.</para><para>The network type is determined by the <code>DBSubnetGroup</code> specified for the
-        /// DB instance. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the
-        /// IPv4 and the IPv6 protocols (<code>DUAL</code>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
-        /// Working with a DB instance in a VPC</a> in the <i>Amazon RDS User Guide.</i></para><para>Valid Values:</para><ul><li><para><code>IPV4</code></para></li><li><para><code>DUAL</code></para></li></ul>
+        /// <para>The network type of the DB instance.</para><para>The network type is determined by the <c>DBSubnetGroup</c> specified for the DB instance.
+        /// A <c>DBSubnetGroup</c> can support only the IPv4 protocol or the IPv4 and the IPv6
+        /// protocols (<c>DUAL</c>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+        /// Working with a DB instance in a VPC</a> in the <i>Amazon RDS User Guide.</i></para><para>Valid Values:</para><ul><li><para><c>IPV4</c></para></li><li><para><c>DUAL</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -389,7 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the database accepts connections.</para><para>Default: The same port as the original DB instance.</para><para>Constraints:</para><ul><li><para>The value must be <code>1150-65535</code>.</para></li></ul>
+        /// <para>The port number on which the database accepts connections.</para><para>Default: The same port as the original DB instance.</para><para>Constraints:</para><ul><li><para>The value must be <c>1150-65535</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -427,7 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter UtcRestoreTime
         /// <summary>
         /// <para>
-        /// <para>The date and time to restore from.</para><para>Constraints:</para><ul><li><para>Must be a time in Universal Coordinated Time (UTC) format.</para></li><li><para>Must be before the latest restorable time for the DB instance.</para></li><li><para>Can't be specified if the <code>UseLatestRestorableTime</code> parameter is enabled.</para></li></ul><para>Example: <code>2009-09-07T23:45:00Z</code></para>
+        /// <para>The date and time to restore from.</para><para>Constraints:</para><ul><li><para>Must be a time in Universal Coordinated Time (UTC) format.</para></li><li><para>Must be before the latest restorable time for the DB instance.</para></li><li><para>Can't be specified if the <c>UseLatestRestorableTime</c> parameter is enabled.</para></li></ul><para>Example: <c>2009-09-07T23:45:00Z</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -438,7 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the replicated automated backups from which to restore,
-        /// for example, <code>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// for example, <c>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</c>.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -478,9 +477,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>The storage type to associate with the DB instance.</para><para>Valid Values: <code>gp2 | gp3 | io1 | standard</code></para><para>Default: <code>io1</code>, if the <code>Iops</code> parameter is specified. Otherwise,
-        /// <code>gp2</code>.</para><para>Constraints:</para><ul><li><para>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value
-        /// for the <code>Iops</code> parameter.</para></li></ul>
+        /// <para>The storage type to associate with the DB instance.</para><para>Valid Values: <c>gp2 | gp3 | io1 | standard</c></para><para>Default: <c>io1</c>, if the <c>Iops</c> parameter is specified. Otherwise, <c>gp2</c>.</para><para>Constraints:</para><ul><li><para>If you specify <c>io1</c> or <c>gp3</c>, you must also include a value for the <c>Iops</c>
+        /// parameter.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -551,7 +549,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies whether the DB instance is restored from the latest backup time. By default,
-        /// the DB instance isn't restored from the latest backup time.</para><para>Constraints:</para><ul><li><para>Can't be specified if the <code>RestoreTime</code> parameter is provided.</para></li></ul>
+        /// the DB instance isn't restored from the latest backup time.</para><para>Constraints:</para><ul><li><para>Can't be specified if the <c>RestoreTime</c> parameter is provided.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -577,7 +575,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// or RestoreTimeUtc results in both RestoreTime and RestoreTimeUtc being assigned, the
         /// latest assignment to either one of the two property is reflected in the value of both.
         /// RestoreTime is provided for backwards compatibility only and assigning a non-Utc DateTime
-        /// to it results in the wrong timestamp being passed to the service.</para><para>The date and time to restore from.</para><para>Constraints:</para><ul><li><para>Must be a time in Universal Coordinated Time (UTC) format.</para></li><li><para>Must be before the latest restorable time for the DB instance.</para></li><li><para>Can't be specified if the <code>UseLatestRestorableTime</code> parameter is enabled.</para></li></ul><para>Example: <code>2009-09-07T23:45:00Z</code></para>
+        /// to it results in the wrong timestamp being passed to the service.</para><para>The date and time to restore from.</para><para>Constraints:</para><ul><li><para>Must be a time in Universal Coordinated Time (UTC) format.</para></li><li><para>Must be before the latest restorable time for the DB instance.</para></li><li><para>Can't be specified if the <c>UseLatestRestorableTime</c> parameter is enabled.</para></li></ul><para>Example: <c>2009-09-07T23:45:00Z</c></para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

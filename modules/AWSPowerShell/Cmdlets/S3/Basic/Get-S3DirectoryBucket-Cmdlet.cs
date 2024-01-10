@@ -34,18 +34,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// 
     ///  <note><para><b>Directory buckets </b> - For directory buckets, you must make requests for this
     /// API operation to the Regional endpoint. These endpoints support path-style requests
-    /// in the format <code>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i></code>. Virtual-hosted-style requests aren't supported. For more information, see
-    /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional
+    /// in the format <c>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i></c>. Virtual-hosted-style requests aren't supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional
     /// and Zonal endpoints</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></note><dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3express:ListAllMyDirectoryBuckets</code> permission in an
-    /// IAM identity-based policy instead of a bucket policy. Cross-account access to this
-    /// API operation isn't supported. This operation can only be performed by the Amazon
-    /// Web Services account that owns the resource. For more information about directory
-    /// bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon
+    /// You must have the <c>s3express:ListAllMyDirectoryBuckets</c> permission in an IAM
+    /// identity-based policy instead of a bucket policy. Cross-account access to this API
+    /// operation isn't supported. This operation can only be performed by the Amazon Web
+    /// Services account that owns the resource. For more information about directory bucket
+    /// policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon
     /// Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the
     /// <i>Amazon S3 User Guide</i>.
-    /// </para></dd><dt>HTTP Host header syntax</dt><dd><para><b>Directory buckets </b> - The HTTP Host header syntax is <code>s3express-control.<i>region</i>.amazonaws.com</code>.
+    /// </para></dd><dt>HTTP Host header syntax</dt><dd><para><b>Directory buckets </b> - The HTTP Host header syntax is <c>s3express-control.<i>region</i>.amazonaws.com</c>.
     /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Get", "S3DirectoryBucket")]

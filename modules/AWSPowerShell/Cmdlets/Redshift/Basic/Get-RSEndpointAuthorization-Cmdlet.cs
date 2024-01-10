@@ -46,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services account ID of either the cluster owner (grantor) or grantee.
-        /// If <code>Grantee</code> parameter is true, then the <code>Account</code> value is
-        /// of the grantor.</para>
+        /// If <c>Grantee</c> parameter is true, then the <c>Account</c> value is of the grantor.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>An optional pagination token provided by a previous <code>DescribeEndpointAuthorization</code>
+        /// <para>An optional pagination token provided by a previous <c>DescribeEndpointAuthorization</c>
         /// request. If this parameter is specified, the response includes only records beyond
-        /// the marker, up to the value specified by the <code>MaxRecords</code> parameter.</para>
+        /// the marker, up to the value specified by the <c>MaxRecords</c> parameter.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -97,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token called a <code>Marker</code>
-        /// is included in the response so that the remaining results can be retrieved.</para>
+        /// the specified <c>MaxRecords</c> value, a pagination token called a <c>Marker</c> is
+        /// included in the response so that the remaining results can be retrieved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

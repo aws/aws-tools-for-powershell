@@ -28,8 +28,8 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a <code>Domain</code>. A domain consists of an associated Amazon Elastic File
-    /// System (EFS) volume, a list of authorized users, and a variety of security, application,
+    /// Creates a <c>Domain</c>. A domain consists of an associated Amazon Elastic File System
+    /// (EFS) volume, a list of authorized users, and a variety of security, application,
     /// policy, and Amazon Virtual Private Cloud (VPC) configurations. Users within a domain
     /// can share notebook files and other artifacts with each other.
     /// 
@@ -46,13 +46,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// Data at Rest Using Encryption</a>.
     /// </para><para><b>VPC configuration</b></para><para>
     /// All traffic between the domain and the EFS volume is through the specified VPC and
-    /// subnets. For other traffic, you can specify the <code>AppNetworkAccessType</code>
-    /// parameter. <code>AppNetworkAccessType</code> corresponds to the network access type
-    /// that you choose when you onboard to the domain. The following options are available:
-    /// </para><ul><li><para><code>PublicInternetOnly</code> - Non-EFS traffic goes through a VPC managed by Amazon
+    /// subnets. For other traffic, you can specify the <c>AppNetworkAccessType</c> parameter.
+    /// <c>AppNetworkAccessType</c> corresponds to the network access type that you choose
+    /// when you onboard to the domain. The following options are available:
+    /// </para><ul><li><para><c>PublicInternetOnly</c> - Non-EFS traffic goes through a VPC managed by Amazon
     /// SageMaker, which allows internet access. This is the default value.
-    /// </para></li><li><para><code>VpcOnly</code> - All traffic is through the specified VPC and subnets. Internet
-    /// access is disabled by default. To allow internet access, you must specify a NAT gateway.
+    /// </para></li><li><para><c>VpcOnly</c> - All traffic is through the specified VPC and subnets. Internet access
+    /// is disabled by default. To allow internet access, you must specify a NAT gateway.
     /// </para><para>
     /// When internet access is disabled, you won't be able to run a Amazon SageMaker Studio
     /// notebook or to train or host models unless your VPC has an interface endpoint to the
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AppNetworkAccessType
         /// <summary>
         /// <para>
-        /// <para>Specifies the VPC used for non-EFS traffic. The default value is <code>PublicInternetOnly</code>.</para><ul><li><para><code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon
-        /// SageMaker, which allows direct internet access</para></li><li><para><code>VpcOnly</code> - All traffic is through the specified VPC and subnets</para></li></ul>
+        /// <para>Specifies the VPC used for non-EFS traffic. The default value is <c>PublicInternetOnly</c>.</para><ul><li><para><c>PublicInternetOnly</c> - Non-EFS traffic is through a VPC managed by Amazon SageMaker,
+        /// which allows direct internet access</para></li><li><para><c>VpcOnly</c> - All traffic is through the specified VPC and subnets</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,10 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The entity that creates and manages the required security groups for inter-app communication
-        /// in <code>VPCOnly</code> mode. Required when <code>CreateDomain.AppNetworkAccessType</code>
-        /// is <code>VPCOnly</code> and <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code>
+        /// in <c>VPCOnly</c> mode. Required when <c>CreateDomain.AppNetworkAccessType</c> is
+        /// <c>VPCOnly</c> and <c>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</c>
         /// is provided. If setting up the domain for use with RStudio, this value must be set
-        /// to <code>Service</code>.</para>
+        /// to <c>Service</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,10 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultUserSetting
         /// <summary>
         /// <para>
-        /// <para>The default settings to use to create a user profile when <code>UserSettings</code>
-        /// isn't specified in the call to the <code>CreateUserProfile</code> API.</para><para><code>SecurityGroups</code> is aggregated when specified in both calls. For all other
-        /// settings in <code>UserSettings</code>, the values specified in <code>CreateUserProfile</code>
-        /// take precedence over those specified in <code>CreateDomain</code>.</para>
+        /// <para>The default settings to use to create a user profile when <c>UserSettings</c> isn't
+        /// specified in the call to the <c>CreateUserProfile</c> API.</para><para><c>SecurityGroups</c> is aggregated when specified in both calls. For all other settings
+        /// in <c>UserSettings</c>, the values specified in <c>CreateUserProfile</c> take precedence
+        /// over those specified in <c>CreateDomain</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RStudioServerProDomainSettings_DomainExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the execution role for the <code>RStudioServerPro</code> Domain-level app.</para>
+        /// <para>The ARN of the execution role for the <c>RStudioServerPro</c> Domain-level app.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <code>system</code> value.</para><para>For <b>KernelGateway apps</b>, the <code>system</code> value is translated to <code>ml.t3.medium</code>.
+        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <c>system</c> value.</para><para>For <b>KernelGateway apps</b>, the <c>system</c> value is translated to <c>ml.t3.medium</c>.
         /// KernelGateway apps also support all other values for available instance types.</para></note>
         /// </para>
         /// </summary>
@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <code>system</code> value.</para><para>For <b>KernelGateway apps</b>, the <code>system</code> value is translated to <code>ml.t3.medium</code>.
+        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <c>system</c> value.</para><para>For <b>KernelGateway apps</b>, the <c>system</c> value is translated to <c>ml.t3.medium</c>.
         /// KernelGateway apps also support all other values for available instance types.</para></note>
         /// </para>
         /// </summary>
@@ -254,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultResourceSpec_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <code>system</code> value.</para><para>For <b>KernelGateway apps</b>, the <code>system</code> value is translated to <code>ml.t3.medium</code>.
+        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <c>system</c> value.</para><para>For <b>KernelGateway apps</b>, the <c>system</c> value is translated to <c>ml.t3.medium</c>.
         /// KernelGateway apps also support all other values for available instance types.</para></note>
         /// </para>
         /// </summary>
@@ -311,9 +311,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the JupyterServerApp.
-        /// If you use this parameter, the <code>DefaultResourceSpec</code> parameter is also
-        /// required.</para><note><para>To remove a Lifecycle Config, you must set <code>LifecycleConfigArns</code> to an
-        /// empty list.</para></note>
+        /// If you use this parameter, the <c>DefaultResourceSpec</c> parameter is also required.</para><note><para>To remove a Lifecycle Config, you must set <c>LifecycleConfigArns</c> to an empty
+        /// list.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -325,8 +324,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the the
-        /// user profile or domain.</para><note><para>To remove a Lifecycle Config, you must set <code>LifecycleConfigArns</code> to an
-        /// empty list.</para></note>
+        /// user profile or domain.</para><note><para>To remove a Lifecycle Config, you must set <c>LifecycleConfigArns</c> to an empty
+        /// list.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -454,8 +453,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DomainSettings_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code>
-        /// uses for communication between Domain-level apps and user apps.</para>
+        /// <para>The security groups for the Amazon Virtual Private Cloud that the <c>Domain</c> uses
+        /// for communication between Domain-level apps and user apps.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -497,7 +496,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Tags to associated with the Domain. Each tag consists of a key and an optional value.
-        /// Tag keys must be unique per resource. Tags are searchable using the <code>Search</code>
+        /// Tag keys must be unique per resource. Tags are searchable using the <c>Search</c>
         /// API.</para><para>Tags that you specify for the Domain are also added to all Apps that the Domain launches.</para>
         /// </para>
         /// </summary>
@@ -538,7 +537,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HomeEfsFileSystemKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Use <code>KmsKeyId</code>.</para>
+        /// <para>Use <c>KmsKeyId</c>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

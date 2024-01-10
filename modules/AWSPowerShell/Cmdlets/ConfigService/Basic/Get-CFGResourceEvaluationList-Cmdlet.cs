@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>Filters all resource evaluations results based on an evaluation mode. the valid value
-        /// for this API is <code>Proactive</code>.</para>
+        /// for this API is <c>Proactive</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
-        /// the next page of results in a paginated response.</para>
+        /// <para>The <c>nextToken</c> string returned on a previous page that you use to get the next
+        /// page of results in a paginated response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

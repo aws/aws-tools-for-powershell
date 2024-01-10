@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>If specified, this value is the backtrack identifier of the backtrack to be described.</para><para>Constraints:</para><ul><li><para>Must contain a valid universally unique identifier (UUID). For more information about
         /// UUIDs, see <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">Universally
-        /// unique identifier</a>.</para></li></ul><para>Example: <code>123e4567-e89b-12d3-a456-426655440000</code></para>
+        /// unique identifier</a>.</para></li></ul><para>Example: <c>123e4567-e89b-12d3-a456-426655440000</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The DB cluster identifier of the DB cluster to be described. This parameter is stored
-        /// as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster1</code></para>
+        /// as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <c>my-cluster1</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,9 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A filter that specifies one or more DB clusters to describe. Supported filters include
-        /// the following:</para><ul><li><para><code>db-cluster-backtrack-id</code> - Accepts backtrack identifiers. The results
-        /// list includes information about only the backtracks identified by these identifiers.</para></li><li><para><code>db-cluster-backtrack-status</code> - Accepts any of the following backtrack
-        /// status values:</para><ul><li><para><code>applying</code></para></li><li><para><code>completed</code></para></li><li><para><code>failed</code></para></li><li><para><code>pending</code></para></li></ul><para>The results list includes information about only the backtracks identified by these
+        /// the following:</para><ul><li><para><c>db-cluster-backtrack-id</c> - Accepts backtrack identifiers. The results list
+        /// includes information about only the backtracks identified by these identifiers.</para></li><li><para><c>db-cluster-backtrack-status</c> - Accepts any of the following backtrack status
+        /// values:</para><ul><li><para><c>applying</c></para></li><li><para><c>completed</c></para></li><li><para><c>failed</c></para></li><li><para><c>pending</c></para></li></ul><para>The results list includes information about only the backtracks identified by these
         /// values.</para></li></ul>
         /// </para>
         /// </summary>
@@ -98,9 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>An optional pagination token provided by a previous <code>DescribeDBClusterBacktracks</code>
+        /// <para>An optional pagination token provided by a previous <c>DescribeDBClusterBacktracks</c>
         /// request. If this parameter is specified, the response includes only records beyond
-        /// the marker, up to the value specified by <code>MaxRecords</code>.</para>
+        /// the marker, up to the value specified by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -116,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// the specified <c>MaxRecords</c> value, a pagination token called a marker is included
+        /// in the response so you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

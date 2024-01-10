@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter EventReference
         /// <summary>
         /// <para>
-        /// <para>Adds one or more references to the <code>TimelineEvent</code>. A reference is an Amazon
+        /// <para>Adds one or more references to the <c>TimelineEvent</c>. A reference is an Amazon
         /// Web Services resource involved or associated with the incident. To specify a reference,
         /// enter its Amazon Resource Name (ARN). You can also specify a related item associated
         /// with a resource. For example, to specify an Amazon DynamoDB (DynamoDB) table as a
@@ -96,10 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter EventType
         /// <summary>
         /// <para>
-        /// <para>The type of event. You can create timeline events of type <code>Custom Event</code>
-        /// and <code>Note</code>.</para><para>To make a Note-type event appear on the <i>Incident notes</i> panel in the console,
-        /// specify <code>eventType</code> as <code>Note</code>and enter the Amazon Resource Name
-        /// (ARN) of the incident as the value for <code>eventReference</code>.</para>
+        /// <para>The type of event. You can create timeline events of type <c>Custom Event</c> and
+        /// <c>Note</c>.</para><para>To make a Note-type event appear on the <i>Incident notes</i> panel in the console,
+        /// specify <c>eventType</c> as <c>Note</c>and enter the Amazon Resource Name (ARN) of
+        /// the incident as the value for <c>eventReference</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

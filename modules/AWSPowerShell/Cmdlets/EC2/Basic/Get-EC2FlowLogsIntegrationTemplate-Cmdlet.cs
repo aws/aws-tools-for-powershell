@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Create a table partitioned between two timestamps in the past
     /// </para></li><li><para>
     /// Create a set of named queries in Athena that you can use to get started quickly
-    /// </para></li></ul><note><para><code>GetFlowLogsIntegrationTemplate</code> does not support integration between
-    /// Amazon Web Services Transit Gateway Flow Logs and Amazon Athena.
+    /// </para></li></ul><note><para><c>GetFlowLogsIntegrationTemplate</c> does not support integration between Amazon
+    /// Web Services Transit Gateway Flow Logs and Amazon Athena.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "EC2FlowLogsIntegrationTemplate")]

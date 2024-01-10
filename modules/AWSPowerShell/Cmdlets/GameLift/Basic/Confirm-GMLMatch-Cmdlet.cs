@@ -36,25 +36,25 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  
     /// <para>
     /// When FlexMatch builds a match, all the matchmaking tickets involved in the proposed
-    /// match are placed into status <code>REQUIRES_ACCEPTANCE</code>. This is a trigger for
-    /// your game to get acceptance from all players in each ticket. Calls to this action
-    /// are only valid for tickets that are in this status; calls for tickets not in this
-    /// status result in an error.
+    /// match are placed into status <c>REQUIRES_ACCEPTANCE</c>. This is a trigger for your
+    /// game to get acceptance from all players in each ticket. Calls to this action are only
+    /// valid for tickets that are in this status; calls for tickets not in this status result
+    /// in an error.
     /// </para><para>
     /// To register acceptance, specify the ticket ID, one or more players, and an acceptance
     /// response. When all players have accepted, Amazon GameLift advances the matchmaking
-    /// tickets to status <code>PLACING</code>, and attempts to create a new game session
-    /// for the match. 
+    /// tickets to status <c>PLACING</c>, and attempts to create a new game session for the
+    /// match. 
     /// </para><para>
     /// If any player rejects the match, or if acceptances are not received before a specified
     /// timeout, the proposed match is dropped. Each matchmaking ticket in the failed match
     /// is handled as follows: 
     /// </para><ul><li><para>
     /// If the ticket has one or more players who rejected the match or failed to respond,
-    /// the ticket status is set <code>CANCELLED</code> and processing is terminated.
+    /// the ticket status is set <c>CANCELLED</c> and processing is terminated.
     /// </para></li><li><para>
     /// If all players in the ticket accepted the match, the ticket status is returned to
-    /// <code>SEARCHING</code> to find a new match. 
+    /// <c>SEARCHING</c> to find a new match. 
     /// </para></li></ul><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
     /// Add FlexMatch to a game client</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html">
     /// FlexMatch events</a> (reference)
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter TicketId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a matchmaking ticket. The ticket must be in status <code>REQUIRES_ACCEPTANCE</code>;
+        /// <para>A unique identifier for a matchmaking ticket. The ticket must be in status <c>REQUIRES_ACCEPTANCE</c>;
         /// otherwise this request will fail.</para>
         /// </para>
         /// </summary>

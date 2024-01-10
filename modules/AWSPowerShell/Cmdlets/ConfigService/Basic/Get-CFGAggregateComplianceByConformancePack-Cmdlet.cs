@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// and rules that cannot be evaluated due to insufficient data.
     /// 
     ///  <note><para>
-    /// The results can return an empty result page, but if you have a <code>nextToken</code>,
-    /// the results are displayed on the next page.
+    /// The results can return an empty result page, but if you have a <c>nextToken</c>, the
+    /// results are displayed on the next page.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGAggregateComplianceByConformancePack")]
@@ -122,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
-        /// the next page of results in a paginated response.</para>
+        /// <para>The <c>nextToken</c> string returned on a previous page that you use to get the next
+        /// page of results in a paginated response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

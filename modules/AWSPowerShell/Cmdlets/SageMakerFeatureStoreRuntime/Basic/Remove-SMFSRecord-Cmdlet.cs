@@ -28,27 +28,25 @@ using Amazon.SageMakerFeatureStoreRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.SMFS
 {
     /// <summary>
-    /// Deletes a <code>Record</code> from a <code>FeatureGroup</code> in the <code>OnlineStore</code>.
-    /// Feature Store supports both <code>SoftDelete</code> and <code>HardDelete</code>. For
-    /// <code>SoftDelete</code> (default), feature columns are set to <code>null</code> and
-    /// the record is no longer retrievable by <code>GetRecord</code> or <code>BatchGetRecord</code>.
-    /// For <code>HardDelete</code>, the complete <code>Record</code> is removed from the
-    /// <code>OnlineStore</code>. In both cases, Feature Store appends the deleted record
-    /// marker to the <code>OfflineStore</code> with feature values set to <code>null</code>,
-    /// <code>is_deleted</code> value set to <code>True</code>, and <code>EventTime</code>
-    /// set to the delete input <code>EventTime</code>.
+    /// Deletes a <c>Record</c> from a <c>FeatureGroup</c> in the <c>OnlineStore</c>. Feature
+    /// Store supports both <c>SoftDelete</c> and <c>HardDelete</c>. For <c>SoftDelete</c>
+    /// (default), feature columns are set to <c>null</c> and the record is no longer retrievable
+    /// by <c>GetRecord</c> or <c>BatchGetRecord</c>. For <c>HardDelete</c>, the complete
+    /// <c>Record</c> is removed from the <c>OnlineStore</c>. In both cases, Feature Store
+    /// appends the deleted record marker to the <c>OfflineStore</c> with feature values set
+    /// to <c>null</c>, <c>is_deleted</c> value set to <c>True</c>, and <c>EventTime</c> set
+    /// to the delete input <c>EventTime</c>.
     /// 
     ///  
     /// <para>
-    /// Note that the <code>EventTime</code> specified in <code>DeleteRecord</code> should
-    /// be set later than the <code>EventTime</code> of the existing record in the <code>OnlineStore</code>
-    /// for that <code>RecordIdentifer</code>. If it is not, the deletion does not occur:
+    /// Note that the <c>EventTime</c> specified in <c>DeleteRecord</c> should be set later
+    /// than the <c>EventTime</c> of the existing record in the <c>OnlineStore</c> for that
+    /// <c>RecordIdentifer</c>. If it is not, the deletion does not occur:
     /// </para><ul><li><para>
-    /// For <code>SoftDelete</code>, the existing (undeleted) record remains in the <code>OnlineStore</code>,
-    /// though the delete record marker is still written to the <code>OfflineStore</code>.
-    /// </para></li><li><para><code>HardDelete</code> returns <code>EventTime</code>: <code>400 ValidationException</code>
-    /// to indicate that the delete operation failed. No delete record marker is written to
-    /// the <code>OfflineStore</code>.
+    /// For <c>SoftDelete</c>, the existing (undeleted) record remains in the <c>OnlineStore</c>,
+    /// though the delete record marker is still written to the <c>OfflineStore</c>.
+    /// </para></li><li><para><c>HardDelete</c> returns <c>EventTime</c>: <c>400 ValidationException</c> to indicate
+    /// that the delete operation failed. No delete record marker is written to the <c>OfflineStore</c>.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "SMFSRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -67,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         /// <summary>
         /// <para>
         /// <para>The name of the deletion mode for deleting the record. By default, the deletion mode
-        /// is set to <code>SoftDelete</code>.</para>
+        /// is set to <c>SoftDelete</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         #region Parameter EventTime
         /// <summary>
         /// <para>
-        /// <para>Timestamp indicating when the deletion event occurred. <code>EventTime</code> can
-        /// be used to query data at a certain point in time.</para>
+        /// <para>Timestamp indicating when the deletion event occurred. <c>EventTime</c> can be used
+        /// to query data at a certain point in time.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -114,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         #region Parameter RecordIdentifierValueAsString
         /// <summary>
         /// <para>
-        /// <para>The value for the <code>RecordIdentifier</code> that uniquely identifies the record,
-        /// in string format. </para>
+        /// <para>The value for the <c>RecordIdentifier</c> that uniquely identifies the record, in
+        /// string format. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -133,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         /// <summary>
         /// <para>
         /// <para>A list of stores from which you're deleting the record. By default, Feature Store
-        /// deletes the record from all of the stores that you're using for the <code>FeatureGroup</code>.</para>
+        /// deletes the record from all of the stores that you're using for the <c>FeatureGroup</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -105,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Schema
         /// <summary>
         /// <para>
-        /// <para>The schema for the model. For <code>application/json</code> models, this should be
-        /// JSON schema draft 4 model.</para>
+        /// <para>The schema for the model. For <c>application/json</c> models, this should be JSON
+        /// schema draft 4 model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

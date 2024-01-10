@@ -28,7 +28,7 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Returns the details of the profile that's specified by the <code>ProfileId</code>.
+    /// Returns the details of the profile that's specified by the <c>ProfileId</c>.
     /// </summary>
     [Cmdlet("Get", "TFRProfile")]
     [OutputType("Amazon.Transfer.Model.DescribedProfile")]

@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Indicates when you want a change data capture (CDC) operation to start. Use either
-        /// <code>CdcStartPosition</code> or <code>CdcStartTime</code> to specify when you want
-        /// a CDC operation to start. Specifying both values results in an error.</para><para>The value can be in date, checkpoint, or LSN/SCN format.</para>
+        /// <c>CdcStartPosition</c> or <c>CdcStartTime</c> to specify when you want a CDC operation
+        /// to start. Specifying both values results in an error.</para><para>The value can be in date, checkpoint, or LSN/SCN format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter CdcStartTime
         /// <summary>
         /// <para>
-        /// <para>Indicates the start time for a change data capture (CDC) operation. Use either <code>CdcStartTime</code>
-        /// or <code>CdcStartPosition</code> to specify when you want a CDC operation to start.
-        /// Specifying both values results in an error.</para>
+        /// <para>Indicates the start time for a change data capture (CDC) operation. Use either <c>CdcStartTime</c>
+        /// or <c>CdcStartPosition</c> to specify when you want a CDC operation to start. Specifying
+        /// both values results in an error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

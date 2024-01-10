@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     ///  
     /// <para>
     /// This action requires the ID of the association. You can get the ID from the response
-    /// to the <code>CreatePodIdentityAssocation</code> for newly created associations. Or,
-    /// you can list the IDs for associations with <code>ListPodIdentityAssociations</code>
-    /// and filter the list by namespace or service account.
+    /// to the <c>CreatePodIdentityAssocation</c> for newly created associations. Or, you
+    /// can list the IDs for associations with <c>ListPodIdentityAssociations</c> and filter
+    /// the list by namespace or service account.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EKSPodIdentityAssociation")]

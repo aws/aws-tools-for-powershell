@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>This is the Amazon Resource Name (ARN) that uniquely identifies the child (nested)
-        /// recovery point; for example, <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.</code></para>
+        /// recovery point; for example, <c>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

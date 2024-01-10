@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of the capability. Currently, only <code>edi</code> is supported.</para>
+        /// <para>Specifies the type of the capability. Currently, only <c>edi</c> is supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         /// <summary>
         /// <para>
         /// <para>Returns the version to use for the specified X12 transaction set. Supported versions
-        /// are <code>4010</code>, <code>4030</code>, and <code>5010</code>.</para>
+        /// are <c>4010</c>, <c>4030</c>, and <c>5010</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

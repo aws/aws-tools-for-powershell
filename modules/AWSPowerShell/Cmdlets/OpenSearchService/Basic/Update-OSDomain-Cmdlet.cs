@@ -45,10 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter AdvancedOption
         /// <summary>
         /// <para>
-        /// <para>Only supports the <code>override_main_response_version</code> parameter and not other
-        /// advanced options. You can only include this option when upgrading to an OpenSearch
-        /// version. Specifies whether the domain reports its version as 7.10 so that it continues
-        /// to work with Elasticsearch OSS clients and plugins.</para>
+        /// <para>Only supports the <c>override_main_response_version</c> parameter and not other advanced
+        /// options. You can only include this option when upgrading to an OpenSearch version.
+        /// Specifies whether the domain reports its version as 7.10 so that it continues to work
+        /// with Elasticsearch OSS clients and plugins.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

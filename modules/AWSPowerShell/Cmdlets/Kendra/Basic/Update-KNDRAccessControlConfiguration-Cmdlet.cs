@@ -45,12 +45,12 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// your documents as circumstances change.
     /// </para><para>
     /// You call the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a>
-    /// API to apply the updated access control configuration, with the <code>AccessControlConfigurationId</code>
+    /// API to apply the updated access control configuration, with the <c>AccessControlConfigurationId</c>
     /// included in the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>
     /// object. If you use an S3 bucket as a data source, you synchronize your data source
-    /// to apply the <code>AccessControlConfigurationId</code> in the <code>.metadata.json</code>
-    /// file. Amazon Kendra currently only supports access control configuration for S3 data
-    /// sources and documents indexed using the <code>BatchPutDocument</code> API.
+    /// to apply the <c>AccessControlConfigurationId</c> in the <c>.metadata.json</c> file.
+    /// Amazon Kendra currently only supports access control configuration for S3 data sources
+    /// and documents indexed using the <c>BatchPutDocument</c> API.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "KNDRAccessControlConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

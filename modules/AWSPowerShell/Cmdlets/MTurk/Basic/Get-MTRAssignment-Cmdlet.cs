@@ -28,7 +28,7 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>GetAssignment</code> operation retrieves the details of the specified Assignment.
+    /// The <c>GetAssignment</c> operation retrieves the details of the specified Assignment.
     /// </summary>
     [Cmdlet("Get", "MTRAssignment")]
     [OutputType("Amazon.MTurk.Model.GetAssignmentResponse")]

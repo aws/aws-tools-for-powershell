@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// 
     ///  
     /// <para>
-    /// These settings are set with the <code>SetSMSAttributes</code> action.
+    /// These settings are set with the <c>SetSMSAttributes</c> action.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SNSSMSAttribute")]
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>A list of the individual attribute names, such as <code>MonthlySpendLimit</code>,
-        /// for which you want values.</para><para>For all attribute names, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html">SetSMSAttributes</a>.</para><para>If you don't use this parameter, Amazon SNS returns all SMS attributes.</para>
+        /// <para>A list of the individual attribute names, such as <c>MonthlySpendLimit</c>, for which
+        /// you want values.</para><para>For all attribute names, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html">SetSMSAttributes</a>.</para><para>If you don't use this parameter, Amazon SNS returns all SMS attributes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

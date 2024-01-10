@@ -31,19 +31,19 @@ namespace Amazon.PowerShell.Cmdlets.KV
     /// An asynchronous API that updates a stream’s existing edge configuration. The Kinesis
     /// Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass
     /// component that runs on an IoT Hub Device, setup at your premise. The time to sync
-    /// can vary and depends on the connectivity of the Hub Device. The <code>SyncStatus</code>
+    /// can vary and depends on the connectivity of the Hub Device. The <c>SyncStatus</c>
     /// will be updated as the edge configuration is acknowledged, and synced with the Edge
     /// Agent. 
     /// 
     ///  
     /// <para>
     /// If this API is invoked for the first time, a new edge configuration will be created
-    /// for the stream, and the sync status will be set to <code>SYNCING</code>. You will
-    /// have to wait for the sync status to reach a terminal state such as: <code>IN_SYNC</code>,
-    /// or <code>SYNC_FAILED</code>, before using this API again. If you invoke this API during
-    /// the syncing process, a <code>ResourceInUseException</code> will be thrown. The connectivity
-    /// of the stream’s edge configuration and the Edge Agent will be retried for 15 minutes.
-    /// After 15 minutes, the status will transition into the <code>SYNC_FAILED</code> state.
+    /// for the stream, and the sync status will be set to <c>SYNCING</c>. You will have to
+    /// wait for the sync status to reach a terminal state such as: <c>IN_SYNC</c>, or <c>SYNC_FAILED</c>,
+    /// before using this API again. If you invoke this API during the syncing process, a
+    /// <c>ResourceInUseException</c> will be thrown. The connectivity of the stream’s edge
+    /// configuration and the Edge Agent will be retried for 15 minutes. After 15 minutes,
+    /// the status will transition into the <c>SYNC_FAILED</c> state.
     /// </para><para>
     /// To move an edge configuration from one device to another, use <a>DeleteEdgeConfiguration</a>
     /// to delete the current edge configuration. You can then invoke StartEdgeConfigurationUpdate
@@ -68,13 +68,13 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter DeletionConfig_DeleteAfterUpload
         /// <summary>
         /// <para>
-        /// <para>The <code>boolean</code> value used to indicate whether or not you want to mark the
-        /// media for deletion, once it has been uploaded to the Kinesis Video Stream cloud. The
-        /// media files can be deleted if any of the deletion configuration values are set to
-        /// <code>true</code>, such as when the limit for the <code>EdgeRetentionInHours</code>,
-        /// or the <code>MaxLocalMediaSizeInMB</code>, has been reached. </para><para>Since the default value is set to <code>true</code>, configure the uploader schedule
-        /// such that the media files are not being deleted before they are initially uploaded
-        /// to the Amazon Web Services cloud.</para>
+        /// <para>The <c>boolean</c> value used to indicate whether or not you want to mark the media
+        /// for deletion, once it has been uploaded to the Kinesis Video Stream cloud. The media
+        /// files can be deleted if any of the deletion configuration values are set to <c>true</c>,
+        /// such as when the limit for the <c>EdgeRetentionInHours</c>, or the <c>MaxLocalMediaSizeInMB</c>,
+        /// has been reached. </para><para>Since the default value is set to <c>true</c>, configure the uploader schedule such
+        /// that the media files are not being deleted before they are initially uploaded to the
+        /// Amazon Web Services cloud.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter EdgeConfig_RecorderConfig_ScheduleConfig_DurationInSeconds
         /// <summary>
         /// <para>
-        /// <para>The total duration to record the media. If the <code>ScheduleExpression</code> attribute
-        /// is provided, then the <code>DurationInSeconds</code> attribute should also be specified.</para>
+        /// <para>The total duration to record the media. If the <c>ScheduleExpression</c> attribute
+        /// is provided, then the <c>DurationInSeconds</c> attribute should also be specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter EdgeConfig_UploaderConfig_ScheduleConfig_DurationInSeconds
         /// <summary>
         /// <para>
-        /// <para>The total duration to record the media. If the <code>ScheduleExpression</code> attribute
-        /// is provided, then the <code>DurationInSeconds</code> attribute should also be specified.</para>
+        /// <para>The total duration to record the media. If the <c>ScheduleExpression</c> attribute
+        /// is provided, then the <c>DurationInSeconds</c> attribute should also be specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,8 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter MediaSourceConfig_MediaUriType
         /// <summary>
         /// <para>
-        /// <para>The Uniform Resource Identifier (URI) type. The <code>FILE_URI</code> value can be
-        /// used to stream local media files.</para><note><para>Preview only supports the <code>RTSP_URI</code> media source URI format .</para></note>
+        /// <para>The Uniform Resource Identifier (URI) type. The <c>FILE_URI</c> value can be used
+        /// to stream local media files.</para><note><para>Preview only supports the <c>RTSP_URI</c> media source URI format .</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -187,9 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The Quartz cron expression that takes care of scheduling jobs to record from the camera,
-        /// or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is
-        /// not provided for the <code>RecorderConfig</code>, then the Edge Agent will always
-        /// be set to recording mode.</para><para>For more information about Quartz, refer to the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"><i>Cron Trigger Tutorial</i></a> page to understand the valid expressions and its
+        /// or local media file, onto the Edge Agent. If the <c>ScheduleExpression</c> is not
+        /// provided for the <c>RecorderConfig</c>, then the Edge Agent will always be set to
+        /// recording mode.</para><para>For more information about Quartz, refer to the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"><i>Cron Trigger Tutorial</i></a> page to understand the valid expressions and its
         /// use.</para>
         /// </para>
         /// </summary>
@@ -201,9 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The Quartz cron expression that takes care of scheduling jobs to record from the camera,
-        /// or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is
-        /// not provided for the <code>RecorderConfig</code>, then the Edge Agent will always
-        /// be set to recording mode.</para><para>For more information about Quartz, refer to the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"><i>Cron Trigger Tutorial</i></a> page to understand the valid expressions and its
+        /// or local media file, onto the Edge Agent. If the <c>ScheduleExpression</c> is not
+        /// provided for the <c>RecorderConfig</c>, then the Edge Agent will always be set to
+        /// recording mode.</para><para>For more information about Quartz, refer to the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"><i>Cron Trigger Tutorial</i></a> page to understand the valid expressions and its
         /// use.</para>
         /// </para>
         /// </summary>
@@ -214,8 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter LocalSizeConfig_StrategyOnFullSize
         /// <summary>
         /// <para>
-        /// <para>The strategy to perform when a stream’s <code>MaxLocalMediaSizeInMB</code> limit is
-        /// reached.</para>
+        /// <para>The strategy to perform when a stream’s <c>MaxLocalMediaSizeInMB</c> limit is reached.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,8 +226,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter StreamARN
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the stream. Specify either the <code>StreamName</code>
-        /// or the <code>StreamARN</code>.</para>
+        /// <para> The Amazon Resource Name (ARN) of the stream. Specify either the <c>StreamName</c>
+        /// or the <c>StreamARN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -239,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The name of the stream whose edge configuration you want to update. Specify either
-        /// the <code>StreamName</code> or the <code>StreamARN</code>.</para>
+        /// the <c>StreamName</c> or the <c>StreamARN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

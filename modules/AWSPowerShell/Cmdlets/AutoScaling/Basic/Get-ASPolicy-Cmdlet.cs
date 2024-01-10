@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter PolicyType
         /// <summary>
         /// <para>
-        /// <para>One or more policy types. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>,
-        /// <code>TargetTrackingScaling</code>, and <code>PredictiveScaling</code>.</para>
+        /// <para>One or more policy types. The valid values are <c>SimpleScaling</c>, <c>StepScaling</c>,
+        /// <c>TargetTrackingScaling</c>, and <c>PredictiveScaling</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to be returned with each call. The default value is <code>50</code>
-        /// and the maximum value is <code>100</code>.</para>
+        /// <para>The maximum number of items to be returned with each call. The default value is <c>50</c>
+        /// and the maximum value is <c>100</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

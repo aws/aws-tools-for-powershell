@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     /// <summary>
     /// Use this operation to define the identity provider (IdP) that this workspace authenticates
     /// users from, using SAML. You can also map SAML assertion attributes to workspace user
-    /// information and define which groups in the assertion attribute are to have the <code>Admin</code>
-    /// and <code>Editor</code> roles in the workspace.
+    /// information and define which groups in the assertion attribute are to have the <c>Admin</c>
+    /// and <c>Editor</c> roles in the workspace.
     /// 
     ///  <note><para>
     /// Changes to the authentication method for a workspace may take a few minutes to take
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter RoleValues_Admin
         /// <summary>
         /// <para>
-        /// <para>A list of groups from the SAML assertion attribute to grant the Grafana <code>Admin</code>
+        /// <para>A list of groups from the SAML assertion attribute to grant the Grafana <c>Admin</c>
         /// role to.</para>
         /// </para>
         /// </summary>
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter RoleValues_Editor
         /// <summary>
         /// <para>
-        /// <para>A list of groups from the SAML assertion attribute to grant the Grafana <code>Editor</code>
+        /// <para>A list of groups from the SAML assertion attribute to grant the Grafana <c>Editor</c>
         /// role to.</para>
         /// </para>
         /// </summary>

@@ -54,10 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ApplyImmediately
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, this parameter causes the modifications in this request and
-        /// any pending modifications to be applied, asynchronously and as soon as possible, regardless
-        /// of the <code>PreferredMaintenanceWindow</code> setting for the replication group.</para><para>If <code>false</code>, changes to the nodes in the replication group are applied on
-        /// the next maintenance reboot, or the next failure reboot, whichever occurs first.</para><para>Valid values: <code>true</code> | <code>false</code></para><para>Default: <code>false</code></para>
+        /// <para>If <c>true</c>, this parameter causes the modifications in this request and any pending
+        /// modifications to be applied, asynchronously and as soon as possible, regardless of
+        /// the <c>PreferredMaintenanceWindow</c> setting for the replication group.</para><para>If <c>false</c>, changes to the nodes in the replication group are applied on the
+        /// next maintenance reboot, or the next failure reboot, whichever occurs first.</para><para>Valid values: <c>true</c> | <c>false</c></para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Reserved parameter. The password used to access a password protected server. This
-        /// parameter must be specified with the <code>auth-token-update-strategy </code> parameter.
+        /// parameter must be specified with the <c>auth-token-update-strategy </c> parameter.
         /// Password constraints:</para><ul><li><para>Must be only printable ASCII characters</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length</para></li><li><para>Cannot contain any of the following characters: '/', '"', or '@', '%'</para></li></ul><para> For more information, see AUTH password at <a href="http://redis.io/commands/AUTH">AUTH</a>.</para>
         /// </para>
         /// </summary>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Specifies the strategy to use to update the AUTH token. This parameter must be specified
-        /// with the <code>auth-token</code> parameter. Possible values:</para><ul><li><para>Rotate</para></li><li><para>Set</para></li></ul><para> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating
+        /// with the <c>auth-token</c> parameter. Possible values:</para><ul><li><para>Rotate</para></li><li><para>Set</para></li></ul><para> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating
         /// Users with Redis AUTH</a></para>
         /// </para>
         /// </summary>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Determines whether a read replica is automatically promoted to read/write primary
-        /// if the existing primary encounters a failure.</para><para>Valid values: <code>true</code> | <code>false</code></para>
+        /// if the existing primary encounters a failure.</para><para>Valid values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,8 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The name of the cache parameter group to apply to all of the clusters in this replication
         /// group. This change is asynchronously applied as soon as possible for parameters when
-        /// the <code>ApplyImmediately</code> parameter is specified as <code>true</code> for
-        /// this request.</para>
+        /// the <c>ApplyImmediately</c> parameter is specified as <c>true</c> for this request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>A list of cache security group names to authorize for the clusters in this replication
         /// group. This change is asynchronously applied as soon as possible.</para><para>This parameter can be used only with replication group containing clusters running
-        /// outside of an Amazon Virtual Private Cloud (Amazon VPC).</para><para>Constraints: Must contain no more than 255 alphanumeric characters. Must not be <code>Default</code>.</para>
+        /// outside of an Amazon Virtual Private Cloud (Amazon VPC).</para><para>Constraints: Must contain no more than 255 alphanumeric characters. Must not be <c>Default</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter IpDiscovery
         /// <summary>
         /// <para>
-        /// <para>The network type you choose when modifying a cluster, either <code>ipv4</code> | <code>ipv6</code>.
+        /// <para>The network type you choose when modifying a cluster, either <c>ipv4</c> | <c>ipv6</c>.
         /// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached
         /// engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro
         /// system</a>.</para>
@@ -227,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The status of the Amazon SNS notification topic for the replication group. Notifications
-        /// are sent only if the status is <code>active</code>.</para><para>Valid values: <code>active</code> | <code>inactive</code></para>
+        /// are sent only if the status is <c>active</c>.</para><para>Valid values: <c>active</c> | <c>inactive</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>Specifies the weekly time range during which maintenance on the cluster is performed.
         /// It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
-        /// The minimum maintenance window is a 60 minute period.</para><para>Valid values for <code>ddd</code> are:</para><ul><li><para><code>sun</code></para></li><li><para><code>mon</code></para></li><li><para><code>tue</code></para></li><li><para><code>wed</code></para></li><li><para><code>thu</code></para></li><li><para><code>fri</code></para></li><li><para><code>sat</code></para></li></ul><para>Example: <code>sun:23:00-mon:01:30</code></para>
+        /// The minimum maintenance window is a 60 minute period.</para><para>Valid values for <c>ddd</c> are:</para><ul><li><para><c>sun</c></para></li><li><para><c>mon</c></para></li><li><para><c>tue</c></para></li><li><para><c>wed</c></para></li><li><para><c>thu</c></para></li><li><para><c>fri</c></para></li><li><para><c>sat</c></para></li></ul><para>Example: <c>sun:23:00-mon:01:30</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -313,8 +312,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The number of days for which ElastiCache retains automatic node group (shard) snapshots
-        /// before deleting them. For example, if you set <code>SnapshotRetentionLimit</code>
-        /// to 5, a snapshot that was taken today is retained for 5 days before being deleted.</para><para><b>Important</b> If the value of SnapshotRetentionLimit is set to zero (0), backups
+        /// before deleting them. For example, if you set <c>SnapshotRetentionLimit</c> to 5,
+        /// a snapshot that was taken today is retained for 5 days before being deleted.</para><para><b>Important</b> If the value of SnapshotRetentionLimit is set to zero (0), backups
         /// are turned off.</para>
         /// </para>
         /// </summary>
@@ -337,7 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot
-        /// of the node group (shard) specified by <code>SnapshottingClusterId</code>.</para><para>Example: <code>05:00-09:00</code></para><para>If you do not specify this parameter, ElastiCache automatically chooses an appropriate
+        /// of the node group (shard) specified by <c>SnapshottingClusterId</c>.</para><para>Example: <c>05:00-09:00</c></para><para>If you do not specify this parameter, ElastiCache automatically chooses an appropriate
         /// time range.</para>
         /// </para>
         /// </summary>
@@ -349,8 +348,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A flag that enables in-transit encryption when set to true. If you are enabling in-transit
-        /// encryption for an existing cluster, you must also set <code>TransitEncryptionMode</code>
-        /// to <code>preferred</code>.</para>
+        /// encryption for an existing cluster, you must also set <c>TransitEncryptionMode</c>
+        /// to <c>preferred</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -361,14 +360,13 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A setting that allows you to migrate your clients to use in-transit encryption, with
-        /// no downtime.</para><para>You must set <code>TransitEncryptionEnabled</code> to <code>true</code>, for your
-        /// existing cluster, and set <code>TransitEncryptionMode</code> to <code>preferred</code>
-        /// in the same request to allow both encrypted and unencrypted connections at the same
-        /// time. Once you migrate all your Redis clients to use encrypted connections you can
-        /// set the value to <code>required</code> to allow encrypted connections only.</para><para>Setting <code>TransitEncryptionMode</code> to <code>required</code> is a two-step
-        /// process that requires you to first set the <code>TransitEncryptionMode</code> to <code>preferred</code>,
-        /// after that you can set <code>TransitEncryptionMode</code> to <code>required</code>.
-        /// </para>
+        /// no downtime.</para><para>You must set <c>TransitEncryptionEnabled</c> to <c>true</c>, for your existing cluster,
+        /// and set <c>TransitEncryptionMode</c> to <c>preferred</c> in the same request to allow
+        /// both encrypted and unencrypted connections at the same time. Once you migrate all
+        /// your Redis clients to use encrypted connections you can set the value to <c>required</c>
+        /// to allow encrypted connections only.</para><para>Setting <c>TransitEncryptionMode</c> to <c>required</c> is a two-step process that
+        /// requires you to first set the <c>TransitEncryptionMode</c> to <c>preferred</c>, after
+        /// that you can set <c>TransitEncryptionMode</c> to <c>required</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

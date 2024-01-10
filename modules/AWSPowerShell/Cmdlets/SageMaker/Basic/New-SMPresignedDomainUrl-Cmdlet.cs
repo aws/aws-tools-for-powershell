@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-interface-endpoint.html">Connect
     /// to Amazon SageMaker Studio Through an Interface VPC Endpoint</a> .
     /// </para><note><para>
-    /// The URL that you get from a call to <code>CreatePresignedDomainUrl</code> has a default
-    /// timeout of 5 minutes. You can configure this value using <code>ExpiresInSeconds</code>.
+    /// The URL that you get from a call to <c>CreatePresignedDomainUrl</c> has a default
+    /// timeout of 5 minutes. You can configure this value using <c>ExpiresInSeconds</c>.
     /// If you try to use the URL after the timeout limit expires, you are directed to the
     /// Amazon Web Services console sign-in page.
     /// </para></note>
@@ -97,12 +97,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The landing page that the user is directed to when accessing the presigned URL. Using
         /// this value, users can access Studio or Studio Classic, even if it is not the default
-        /// experience for the domain. The supported values are:</para><ul><li><para><code>studio::relative/path</code>: Directs users to the relative path in Studio.</para></li><li><para><code>app:JupyterServer:relative/path</code>: Directs users to the relative path
-        /// in the Studio Classic application.</para></li><li><para><code>app:JupyterLab:relative/path</code>: Directs users to the relative path in
-        /// the JupyterLab application.</para></li><li><para><code>app:RStudioServerPro:relative/path</code>: Directs users to the relative path
-        /// in the RStudio application.</para></li><li><para><code>app:CodeEditor:relative/path</code>: Directs users to the relative path in
-        /// the Code Editor, based on Code-OSS, Visual Studio Code - Open Source application.</para></li><li><para><code>app:Canvas:relative/path</code>: Directs users to the relative path in the
-        /// Canvas application.</para></li></ul>
+        /// experience for the domain. The supported values are:</para><ul><li><para><c>studio::relative/path</c>: Directs users to the relative path in Studio.</para></li><li><para><c>app:JupyterServer:relative/path</c>: Directs users to the relative path in the
+        /// Studio Classic application.</para></li><li><para><c>app:JupyterLab:relative/path</c>: Directs users to the relative path in the JupyterLab
+        /// application.</para></li><li><para><c>app:RStudioServerPro:relative/path</c>: Directs users to the relative path in
+        /// the RStudio application.</para></li><li><para><c>app:CodeEditor:relative/path</c>: Directs users to the relative path in the Code
+        /// Editor, based on Code-OSS, Visual Studio Code - Open Source application.</para></li><li><para><c>app:Canvas:relative/path</c>: Directs users to the relative path in the Canvas
+        /// application.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

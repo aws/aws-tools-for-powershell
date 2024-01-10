@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Modifies the specified Traffic Mirror rule.
     /// 
     ///  
-    /// <para><code>DestinationCidrBlock</code> and <code>SourceCidrBlock</code> must both be an
-    /// IPv4 range or an IPv6 range.
+    /// <para><c>DestinationCidrBlock</c> and <c>SourceCidrBlock</c> must both be an IPv4 range
+    /// or an IPv6 range.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2TrafficMirrorFilterRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// option values.
     /// 
     ///  <note><para>
-    /// If a property (for example, <code>ApplicationName</code>) is not provided, its value
-    /// remains unchanged. To clear such properties, specify an empty string.
+    /// If a property (for example, <c>ApplicationName</c>) is not provided, its value remains
+    /// unchanged. To clear such properties, specify an empty string.
     /// </para></note><para>
     /// Related Topics
     /// </para><ul><li><para><a>DescribeConfigurationOptions</a></para></li></ul>
@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of the application associated with the configuration template to update.</para><para> If no application is found with this name, <code>UpdateConfigurationTemplate</code>
-        /// returns an <code>InvalidParameterValue</code> error. </para>
+        /// <para>The name of the application associated with the configuration template to update.</para><para> If no application is found with this name, <c>UpdateConfigurationTemplate</c> returns
+        /// an <c>InvalidParameterValue</c> error. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter OptionsToRemove
         /// <summary>
         /// <para>
-        /// <para>A list of configuration options to remove from the configuration set.</para><para> Constraint: You can remove only <code>UserDefined</code> configuration options. </para>
+        /// <para>A list of configuration options to remove from the configuration set.</para><para> Constraint: You can remove only <c>UserDefined</c> configuration options. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
@@ -101,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration template to update.</para><para> If no configuration template is found with this name, <code>UpdateConfigurationTemplate</code>
-        /// returns an <code>InvalidParameterValue</code> error. </para>
+        /// <para>The name of the configuration template to update.</para><para> If no configuration template is found with this name, <c>UpdateConfigurationTemplate</c>
+        /// returns an <c>InvalidParameterValue</c> error. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

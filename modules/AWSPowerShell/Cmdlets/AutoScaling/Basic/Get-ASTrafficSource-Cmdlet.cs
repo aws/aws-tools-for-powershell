@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter TrafficSourceType
         /// <summary>
         /// <para>
-        /// <para>The traffic source type that you want to describe.</para><para>The following lists the valid values:</para><ul><li><para><code>elb</code> if the traffic source is a Classic Load Balancer.</para></li><li><para><code>elbv2</code> if the traffic source is a Application Load Balancer, Gateway
-        /// Load Balancer, or Network Load Balancer.</para></li><li><para><code>vpc-lattice</code> if the traffic source is VPC Lattice.</para></li></ul>
+        /// <para>The traffic source type that you want to describe.</para><para>The following lists the valid values:</para><ul><li><para><c>elb</c> if the traffic source is a Classic Load Balancer.</para></li><li><para><c>elbv2</c> if the traffic source is a Application Load Balancer, Gateway Load Balancer,
+        /// or Network Load Balancer.</para></li><li><para><c>vpc-lattice</c> if the traffic source is VPC Lattice.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return with this call. The maximum value is <code>50</code>.</para>
+        /// <para>The maximum number of items to return with this call. The maximum value is <c>50</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

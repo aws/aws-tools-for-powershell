@@ -34,13 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// </para></note><para>
     /// Describes a predictor created using the <a>CreatePredictor</a> operation.
     /// </para><para>
-    /// In addition to listing the properties provided in the <code>CreatePredictor</code>
-    /// request, this operation lists the following properties:
-    /// </para><ul><li><para><code>DatasetImportJobArns</code> - The dataset import jobs used to import training
-    /// data.
-    /// </para></li><li><para><code>AutoMLAlgorithmArns</code> - If AutoML is performed, the algorithms that were
-    /// evaluated.
-    /// </para></li><li><para><code>CreationTime</code></para></li><li><para><code>LastModificationTime</code></para></li><li><para><code>Status</code></para></li><li><para><code>Message</code> - If an error occurred, information about the error.
+    /// In addition to listing the properties provided in the <c>CreatePredictor</c> request,
+    /// this operation lists the following properties:
+    /// </para><ul><li><para><c>DatasetImportJobArns</c> - The dataset import jobs used to import training data.
+    /// </para></li><li><para><c>AutoMLAlgorithmArns</c> - If AutoML is performed, the algorithms that were evaluated.
+    /// </para></li><li><para><c>CreationTime</c></para></li><li><para><c>LastModificationTime</c></para></li><li><para><c>Status</c></para></li><li><para><c>Message</c> - If an error occurred, information about the error.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "FRCPredictor")]

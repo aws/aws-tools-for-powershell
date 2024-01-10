@@ -28,32 +28,31 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Returns the description of a specific Amazon FSx backup, if a <code>BackupIds</code>
-    /// value is provided for that backup. Otherwise, it returns all backups owned by your
-    /// Amazon Web Services account in the Amazon Web Services Region of the endpoint that
-    /// you're calling.
+    /// Returns the description of a specific Amazon FSx backup, if a <c>BackupIds</c> value
+    /// is provided for that backup. Otherwise, it returns all backups owned by your Amazon
+    /// Web Services account in the Amazon Web Services Region of the endpoint that you're
+    /// calling.
     /// 
     ///  
     /// <para>
-    /// When retrieving all backups, you can optionally specify the <code>MaxResults</code>
-    /// parameter to limit the number of backups in a response. If more backups remain, Amazon
-    /// FSx returns a <code>NextToken</code> value in the response. In this case, send a later
-    /// request with the <code>NextToken</code> request parameter set to the value of the
-    /// <code>NextToken</code> value from the last response.
+    /// When retrieving all backups, you can optionally specify the <c>MaxResults</c> parameter
+    /// to limit the number of backups in a response. If more backups remain, Amazon FSx returns
+    /// a <c>NextToken</c> value in the response. In this case, send a later request with
+    /// the <c>NextToken</c> request parameter set to the value of the <c>NextToken</c> value
+    /// from the last response.
     /// </para><para>
     /// This operation is used in an iterative process to retrieve a list of your backups.
-    /// <code>DescribeBackups</code> is called first without a <code>NextToken</code> value.
-    /// Then the operation continues to be called with the <code>NextToken</code> parameter
-    /// set to the value of the last <code>NextToken</code> value until a response has no
-    /// <code>NextToken</code> value.
+    /// <c>DescribeBackups</c> is called first without a <c>NextToken</c> value. Then the
+    /// operation continues to be called with the <c>NextToken</c> parameter set to the value
+    /// of the last <c>NextToken</c> value until a response has no <c>NextToken</c> value.
     /// </para><para>
     /// When using this operation, keep the following in mind:
     /// </para><ul><li><para>
-    /// The operation might return fewer than the <code>MaxResults</code> value of backup
-    /// descriptions while still including a <code>NextToken</code> value.
+    /// The operation might return fewer than the <c>MaxResults</c> value of backup descriptions
+    /// while still including a <c>NextToken</c> value.
     /// </para></li><li><para>
-    /// The order of the backups returned in the response of one <code>DescribeBackups</code>
-    /// call and the order of the backups returned across the responses of a multi-call iteration
+    /// The order of the backups returned in the response of one <c>DescribeBackups</c> call
+    /// and the order of the backups returned across the responses of a multi-call iteration
     /// is unspecified.
     /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -75,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>The IDs of the backups that you want to retrieve. This parameter value overrides any
-        /// filters. If any IDs aren't found, a <code>BackupNotFound</code> error occurs.</para>
+        /// filters. If any IDs aren't found, a <c>BackupNotFound</c> error occurs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters structure. The supported names are <code>file-system-id</code>, <code>backup-type</code>,
-        /// <code>file-system-type</code>, and <code>volume-id</code>.</para>
+        /// <para>The filters structure. The supported names are <c>file-system-id</c>, <c>backup-type</c>,
+        /// <c>file-system-type</c>, and <c>volume-id</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Maximum number of backups to return in the response. This parameter value must be
         /// greater than 0. The number of items that Amazon FSx returns is the minimum of the
-        /// <code>MaxResults</code> parameter specified in the request and the service's internal
-        /// maximum number of items per page.</para>
+        /// <c>MaxResults</c> parameter specified in the request and the service's internal maximum
+        /// number of items per page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -117,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An opaque pagination token returned from a previous <code>DescribeBackups</code> operation.
+        /// <para>An opaque pagination token returned from a previous <c>DescribeBackups</c> operation.
         /// If a token is present, the operation continues the list from where the returning call
         /// left off.</para>
         /// </para>

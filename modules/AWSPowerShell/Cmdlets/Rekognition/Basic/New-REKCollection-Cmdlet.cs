@@ -34,18 +34,18 @@ namespace Amazon.PowerShell.Cmdlets.REK
     ///  
     /// <para>
     /// For example, you might create collections, one for each of your application users.
-    /// A user can then index faces using the <code>IndexFaces</code> operation and persist
-    /// results in a specific collection. Then, a user can search the collection for faces
-    /// in the user-specific container. 
+    /// A user can then index faces using the <c>IndexFaces</c> operation and persist results
+    /// in a specific collection. Then, a user can search the collection for faces in the
+    /// user-specific container. 
     /// </para><para>
     /// When you create a collection, it is associated with the latest version of the face
     /// model version.
     /// </para><note><para>
     /// Collection names are case-sensitive.
     /// </para></note><para>
-    /// This operation requires permissions to perform the <code>rekognition:CreateCollection</code>
+    /// This operation requires permissions to perform the <c>rekognition:CreateCollection</c>
     /// action. If you want to tag your collection, you also require permission to perform
-    /// the <code>rekognition:TagResource</code> operation.
+    /// the <c>rekognition:TagResource</c> operation.
     /// </para>
     /// </summary>
     [Cmdlet("New", "REKCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

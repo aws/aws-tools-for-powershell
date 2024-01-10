@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter BasePath
         /// <summary>
         /// <para>
-        /// <para>The base path of the BasePathMapping resource to change.</para><para>To specify an empty base path, set this parameter to <code>'(none)'</code>.</para>
+        /// <para>The base path of the BasePathMapping resource to change.</para><para>To specify an empty base path, set this parameter to <c>'(none)'</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

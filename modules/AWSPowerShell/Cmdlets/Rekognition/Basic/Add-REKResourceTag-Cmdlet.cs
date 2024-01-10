@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions to perform the <code>rekognition:TagResource</code>
+    /// This operation requires permissions to perform the <c>rekognition:TagResource</c>
     /// action. 
     /// </para>
     /// </summary>

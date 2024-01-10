@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the cluster on which logging is to be started.</para><para>Example: <code>examplecluster</code></para>
+        /// <para>The identifier of the cluster on which logging is to be started.</para><para>Example: <c>examplecluster</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter LogDestinationType
         /// <summary>
         /// <para>
-        /// <para>The log destination type. An enum with possible values of <code>s3</code> and <code>cloudwatch</code>.</para>
+        /// <para>The log destination type. An enum with possible values of <c>s3</c> and <c>cloudwatch</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter LogExport
         /// <summary>
         /// <para>
-        /// <para>The collection of exported log types. Possible values are <code>connectionlog</code>,
-        /// <code>useractivitylog</code>, and <code>userlog</code>.</para>
+        /// <para>The collection of exported log types. Possible values are <c>connectionlog</c>, <c>useractivitylog</c>,
+        /// and <c>userlog</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

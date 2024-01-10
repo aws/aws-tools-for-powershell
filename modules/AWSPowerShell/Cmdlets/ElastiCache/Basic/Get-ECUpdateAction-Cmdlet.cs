@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>An optional marker returned from a prior request. Use this marker for pagination of
         /// results from this operation. If this parameter is specified, the response includes
-        /// only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</para>
+        /// only records beyond the marker, up to the value specified by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

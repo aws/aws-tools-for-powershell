@@ -50,16 +50,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// account used by the application. It is also scoped by Amazon Web Services Region.
     /// That is, two streams in two different accounts can have the same name, and two streams
     /// in the same account, but in two different Regions, can have the same name.
-    /// </para><para><code>CreateStream</code> is an asynchronous operation. Upon receiving a <code>CreateStream</code>
-    /// request, Kinesis Data Streams immediately returns and sets the stream status to <code>CREATING</code>.
-    /// After the stream is created, Kinesis Data Streams sets the stream status to <code>ACTIVE</code>.
-    /// You should perform read and write operations only on an <code>ACTIVE</code> stream.
-    /// 
+    /// </para><para><c>CreateStream</c> is an asynchronous operation. Upon receiving a <c>CreateStream</c>
+    /// request, Kinesis Data Streams immediately returns and sets the stream status to <c>CREATING</c>.
+    /// After the stream is created, Kinesis Data Streams sets the stream status to <c>ACTIVE</c>.
+    /// You should perform read and write operations only on an <c>ACTIVE</c> stream. 
     /// </para><para>
-    /// You receive a <code>LimitExceededException</code> when making a <code>CreateStream</code>
-    /// request when you try to do one of the following:
+    /// You receive a <c>LimitExceededException</c> when making a <c>CreateStream</c> request
+    /// when you try to do one of the following:
     /// </para><ul><li><para>
-    /// Have more than five streams in the <code>CREATING</code> state at any point in time.
+    /// Have more than five streams in the <c>CREATING</c> state at any point in time.
     /// </para></li><li><para>
     /// Create more shards than are authorized for your account.
     /// </para></li></ul><para>
@@ -69,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// Amazon Web Services Support</a>.
     /// </para><para>
     /// You can use <a>DescribeStreamSummary</a> to check the stream status, which is returned
-    /// in <code>StreamStatus</code>.
+    /// in <c>StreamStatus</c>.
     /// </para><para><a>CreateStream</a> has a limit of five transactions per second per account.
     /// </para>
     /// </summary>

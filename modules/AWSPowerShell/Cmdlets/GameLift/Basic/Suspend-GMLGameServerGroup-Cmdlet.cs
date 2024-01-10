@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// utilization metrics, and capacity scaling activities continue to be active. 
     /// </para></li></ul><para>
     /// To suspend activity, specify a game server group ARN and the type of activity to be
-    /// suspended. If successful, a <code>GameServerGroup</code> object is returned showing
-    /// that the activity is listed in <code>SuspendedActions</code>.
+    /// suspended. If successful, a <c>GameServerGroup</c> object is returned showing that
+    /// the activity is listed in <c>SuspendedActions</c>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon
     /// GameLift FleetIQ Guide</a></para>
     /// </summary>

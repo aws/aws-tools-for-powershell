@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the new resource. The available types are <code>equipment</code> and <code>room</code>.</para>
+        /// <para>The type of the new resource. The available types are <c>equipment</c> and <c>room</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

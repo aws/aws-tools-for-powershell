@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     /// 
     ///  <note><para>
     /// Control insights are listed only if the control belongs to the control domain that
-    /// was specified and the control collected evidence on the <code>lastUpdated</code> date
-    /// of <code>controlInsightsMetadata</code>. If neither of these conditions are met, no
-    /// data is listed for that control. 
+    /// was specified and the control collected evidence on the <c>lastUpdated</c> date of
+    /// <c>controlInsightsMetadata</c>. If neither of these conditions are met, no data is
+    /// listed for that control. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "AUDMControlInsightsByControlDomainList")]

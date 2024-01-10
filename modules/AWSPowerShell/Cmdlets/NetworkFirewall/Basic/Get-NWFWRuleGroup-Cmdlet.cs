@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>Indicates whether you want Network Firewall to analyze the stateless rules in the
-        /// rule group for rule behavior such as asymmetric routing. If set to <code>TRUE</code>,
-        /// Network Firewall runs the analysis.</para>
+        /// rule group for rule behavior such as asymmetric routing. If set to <c>TRUE</c>, Network
+        /// Firewall runs the analysis.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>Indicates whether the rule group is stateless or stateful. If the rule group is stateless,
-        /// it contains stateless rules. If it is stateful, it contains stateful rules. </para><note><para>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</para></note>
+        /// it contains stateless rules. If it is stateful, it contains stateful rules. </para><note><para>This setting is required for requests that do not include the <c>RuleGroupARN</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

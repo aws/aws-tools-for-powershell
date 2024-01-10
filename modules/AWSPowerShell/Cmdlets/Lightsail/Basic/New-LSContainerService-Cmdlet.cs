@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The number of consecutive health checks successes required before moving the container
-        /// to the <code>Healthy</code> state. The default value is <code>2</code>.</para>
+        /// to the <c>Healthy</c> state. The default value is <c>2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The approximate interval, in seconds, between health checks of an individual container.
-        /// You can specify between 5 and 300 seconds. The default value is <code>5</code>.</para>
+        /// You can specify between 5 and 300 seconds. The default value is <c>5</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The path on the container on which to perform the health check. The default value
-        /// is <code>/</code>.</para>
+        /// is <c>/</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,11 +133,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The power specification for the container service.</para><para>The power specifies the amount of memory, vCPUs, and base monthly cost of each node
-        /// of the container service. The <code>power</code> and <code>scale</code> of a container
-        /// service makes up its configured capacity. To determine the monthly price of your container
-        /// service, multiply the base price of the <code>power</code> with the <code>scale</code>
-        /// (the number of nodes) of the service.</para><para>Use the <code>GetContainerServicePowers</code> action to get a list of power options
-        /// that you can specify using this parameter, and their base monthly cost.</para>
+        /// of the container service. The <c>power</c> and <c>scale</c> of a container service
+        /// makes up its configured capacity. To determine the monthly price of your container
+        /// service, multiply the base price of the <c>power</c> with the <c>scale</c> (the number
+        /// of nodes) of the service.</para><para>Use the <c>GetContainerServicePowers</c> action to get a list of power options that
+        /// you can specify using this parameter, and their base monthly cost.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -154,14 +154,13 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PublicDomainName
         /// <summary>
         /// <para>
-        /// <para>The public domain names to use with the container service, such as <code>example.com</code>
-        /// and <code>www.example.com</code>.</para><para>You can specify up to four public domain names for a container service. The domain
+        /// <para>The public domain names to use with the container service, such as <c>example.com</c>
+        /// and <c>www.example.com</c>.</para><para>You can specify up to four public domain names for a container service. The domain
         /// names that you specify are used when you create a deployment with a container configured
         /// as the public endpoint of your container service.</para><para>If you don't specify public domain names, then you can use the default domain of the
         /// container service.</para><important><para>You must create and validate an SSL/TLS certificate before you can use public domain
-        /// names with your container service. Use the <code>CreateCertificate</code> action to
-        /// create a certificate for the public domain names you want to use with your container
-        /// service.</para></important><para>You can specify public domain names using a string to array map as shown in the example
+        /// names with your container service. Use the <c>CreateCertificate</c> action to create
+        /// a certificate for the public domain names you want to use with your container service.</para></important><para>You can specify public domain names using a string to array map as shown in the example
         /// later on this page.</para>
         /// </para>
         /// </summary>
@@ -173,10 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Scale
         /// <summary>
         /// <para>
-        /// <para>The scale specification for the container service.</para><para>The scale specifies the allocated compute nodes of the container service. The <code>power</code>
-        /// and <code>scale</code> of a container service makes up its configured capacity. To
-        /// determine the monthly price of your container service, multiply the base price of
-        /// the <code>power</code> with the <code>scale</code> (the number of nodes) of the service.</para>
+        /// <para>The scale specification for the container service.</para><para>The scale specifies the allocated compute nodes of the container service. The <c>power</c>
+        /// and <c>scale</c> of a container service makes up its configured capacity. To determine
+        /// the monthly price of your container service, multiply the base price of the <c>power</c>
+        /// with the <c>scale</c> (the number of nodes) of the service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -193,10 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The name for the container service.</para><para>The name that you specify for your container service will make up part of its default
-        /// domain. The default domain of a container service is typically <code>https://&lt;ServiceName&gt;.&lt;RandomGUID&gt;.&lt;AWSRegion&gt;.cs.amazonlightsail.com</code>.
-        /// If the name of your container service is <code>container-service-1</code>, and it's
-        /// located in the US East (Ohio) Amazon Web Services Region (<code>us-east-2</code>),
-        /// then the domain for your container service will be like the following example: <code>https://container-service-1.ur4EXAMPLE2uq.us-east-2.cs.amazonlightsail.com</code></para><para>The following are the requirements for container service names:</para><ul><li><para>Must be unique within each Amazon Web Services Region in your Lightsail account.</para></li><li><para>Must contain 1 to 63 characters.</para></li><li><para>Must contain only alphanumeric characters and hyphens.</para></li><li><para>A hyphen (-) can separate words but cannot be at the start or end of the name.</para></li></ul>
+        /// domain. The default domain of a container service is typically <c>https://&lt;ServiceName&gt;.&lt;RandomGUID&gt;.&lt;AWSRegion&gt;.cs.amazonlightsail.com</c>.
+        /// If the name of your container service is <c>container-service-1</c>, and it's located
+        /// in the US East (Ohio) Amazon Web Services Region (<c>us-east-2</c>), then the domain
+        /// for your container service will be like the following example: <c>https://container-service-1.ur4EXAMPLE2uq.us-east-2.cs.amazonlightsail.com</c></para><para>The following are the requirements for container service names:</para><ul><li><para>Must be unique within each Amazon Web Services Region in your Lightsail account.</para></li><li><para>Must contain 1 to 63 characters.</para></li><li><para>Must contain only alphanumeric characters and hyphens.</para></li><li><para>A hyphen (-) can separate words but cannot be at the start or end of the name.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -214,9 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The HTTP codes to use when checking for a successful response from a container. You
-        /// can specify values between <code>200</code> and <code>499</code>. You can specify
-        /// multiple values (for example, <code>200,202</code>) or a range of values (for example,
-        /// <code>200-299</code>).</para>
+        /// can specify values between <c>200</c> and <c>499</c>. You can specify multiple values
+        /// (for example, <c>200,202</c>) or a range of values (for example, <c>200-299</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys and optional values to add to the container service during create.</para><para>Use the <code>TagResource</code> action to tag a resource after it's created.</para><para>For more information about tags in Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon
+        /// <para>The tag keys and optional values to add to the container service during create.</para><para>Use the <c>TagResource</c> action to tag a resource after it's created.</para><para>For more information about tags in Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon
         /// Lightsail Developer Guide</a>.</para>
         /// </para>
         /// </summary>
@@ -240,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, during which no response means a failed health check.
-        /// You can specify between 2 and 60 seconds. The default value is <code>2</code>.</para>
+        /// You can specify between 2 and 60 seconds. The default value is <c>2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The number of consecutive health check failures required before moving the container
-        /// to the <code>Unhealthy</code> state. The default value is <code>2</code>.</para>
+        /// to the <c>Unhealthy</c> state. The default value is <c>2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

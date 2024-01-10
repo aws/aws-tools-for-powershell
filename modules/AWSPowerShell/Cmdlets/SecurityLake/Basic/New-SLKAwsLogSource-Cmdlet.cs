@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     ///  
     /// <para>
     /// You can use this API only to enable natively supported Amazon Web Services as a source.
-    /// Use <code>CreateCustomLogSource</code> to enable data collection from a custom source.
+    /// Use <c>CreateCustomLogSource</c> to enable data collection from a custom source.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SLKAwsLogSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

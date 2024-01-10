@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <summary>
         /// <para>
         /// <para>The path of the source attribute in the JWT from the trusted token issuer. The attribute
-        /// mapped by this JMESPath expression is compared against the attribute mapped by <code>IdentityStoreAttributePath</code>
+        /// mapped by this JMESPath expression is compared against the attribute mapped by <c>IdentityStoreAttributePath</c>
         /// when a trusted token issuer token is exchanged for an IAM Identity Center token.</para>
         /// </para>
         /// </summary>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <summary>
         /// <para>
         /// <para>The path of the destination attribute in a JWT from IAM Identity Center. The attribute
-        /// mapped by this JMESPath expression is compared against the attribute mapped by <code>ClaimAttributePath</code>
+        /// mapped by this JMESPath expression is compared against the attribute mapped by <c>ClaimAttributePath</c>
         /// when a trusted token issuer token is exchanged for an IAM Identity Center token.</para>
         /// </para>
         /// </summary>

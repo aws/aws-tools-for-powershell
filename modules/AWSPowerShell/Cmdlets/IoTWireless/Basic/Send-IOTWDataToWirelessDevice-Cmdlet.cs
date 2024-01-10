@@ -160,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter TransmitMode
         /// <summary>
         /// <para>
-        /// <para>The transmit mode to use to send data to the wireless device. Can be: <code>0</code>
-        /// for UM (unacknowledge mode) or <code>1</code> for AM (acknowledge mode).</para>
+        /// <para>The transmit mode to use to send data to the wireless device. Can be: <c>0</c> for
+        /// UM (unacknowledge mode) or <c>1</c> for AM (acknowledge mode).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

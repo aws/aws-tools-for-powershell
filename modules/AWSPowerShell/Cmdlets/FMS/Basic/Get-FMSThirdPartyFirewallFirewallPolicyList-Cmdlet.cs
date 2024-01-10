@@ -65,10 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <para>
         /// <para>The maximum number of third-party firewall policies that you want Firewall Manager
         /// to return. If the specified third-party firewall vendor is associated with more than
-        /// <code>MaxResults</code> firewall policies, the response includes a <code>NextToken</code>
-        /// element. <code>NextToken</code> contains an encrypted token that identifies the first
-        /// third-party firewall policies that Firewall Manager will return if you submit another
-        /// request.</para>
+        /// <c>MaxResults</c> firewall policies, the response includes a <c>NextToken</c> element.
+        /// <c>NextToken</c> contains an encrypted token that identifies the first third-party
+        /// firewall policies that Firewall Manager will return if you submit another request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,12 +84,12 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the previous response included a <code>NextToken</code> element, the specified
-        /// third-party firewall vendor is associated with more third-party firewall policies.
-        /// To get more third-party firewall policies, submit another <code>ListThirdPartyFirewallFirewallPoliciesRequest</code>
-        /// request.</para><para> For the value of <code>NextToken</code>, specify the value of <code>NextToken</code>
-        /// from the previous response. If the previous response didn't include a <code>NextToken</code>
-        /// element, there are no more third-party firewall policies to get. </para>
+        /// <para>If the previous response included a <c>NextToken</c> element, the specified third-party
+        /// firewall vendor is associated with more third-party firewall policies. To get more
+        /// third-party firewall policies, submit another <c>ListThirdPartyFirewallFirewallPoliciesRequest</c>
+        /// request.</para><para> For the value of <c>NextToken</c>, specify the value of <c>NextToken</c> from the
+        /// previous response. If the previous response didn't include a <c>NextToken</c> element,
+        /// there are no more third-party firewall policies to get. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

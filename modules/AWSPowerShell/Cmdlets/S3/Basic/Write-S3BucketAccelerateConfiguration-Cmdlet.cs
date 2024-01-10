@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// is a bucket-level feature that enables you to perform faster data transfers to Amazon
     /// S3.
     /// </para><para>
-    ///  To use this operation, you must have permission to perform the <code>s3:PutAccelerateConfiguration</code>
+    ///  To use this operation, you must have permission to perform the <c>s3:PutAccelerateConfiguration</c>
     /// action. The bucket owner has this permission by default. The bucket owner can grant
     /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     ///  For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer
     /// Acceleration</a>.
     /// </para><para>
-    /// The following operations are related to <code>PutBucketAccelerateConfiguration</code>:
+    /// The following operations are related to <c>PutBucketAccelerateConfiguration</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html">GetBucketAccelerateConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketAccelerateConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

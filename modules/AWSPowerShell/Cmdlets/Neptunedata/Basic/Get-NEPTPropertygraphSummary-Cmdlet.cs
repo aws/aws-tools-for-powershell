@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter Mode
         /// <summary>
         /// <para>
-        /// <para>Mode can take one of two values: <code>BASIC</code> (the default), and <code>DETAILED</code>.</para>
+        /// <para>Mode can take one of two values: <c>BASIC</c> (the default), and <c>DETAILED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

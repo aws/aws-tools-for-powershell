@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
     /// <summary>
     /// Disassociates the fraudsters from the watchlist specified. Voice ID always expects
     /// a fraudster to be a part of at least one watchlist. If you try to disassociate a fraudster
-    /// from its only watchlist, a <code>ValidationException</code> is thrown.
+    /// from its only watchlist, a <c>ValidationException</c> is thrown.
     /// </summary>
     [Cmdlet("Remove", "VIDFraudsterAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.VoiceID.Model.Fraudster")]

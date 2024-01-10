@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         /// <summary>
         /// <para>
         /// <para> The severity levels that you want to receive notifications for. For example, you
-        /// can choose to receive notifications only for insights with <code>HIGH</code> and <code>MEDIUM</code>
+        /// can choose to receive notifications only for insights with <c>HIGH</c> and <c>MEDIUM</c>
         /// severity levels. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
         /// insight severities</a>. </para>
         /// </para>

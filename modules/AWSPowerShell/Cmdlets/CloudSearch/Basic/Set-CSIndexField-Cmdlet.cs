@@ -28,13 +28,12 @@ using Amazon.CloudSearch.Model;
 namespace Amazon.PowerShell.Cmdlets.CS
 {
     /// <summary>
-    /// Configures an <code><a>IndexField</a></code> for the search domain. Used to create
-    /// new fields and modify existing ones. You must specify the name of the domain you are
-    /// configuring and an index field configuration. The index field configuration specifies
-    /// a unique name, the index field type, and the options you want to configure for the
-    /// field. The options you can specify depend on the <code><a>IndexFieldType</a></code>.
-    /// If the field exists, the new configuration replaces the old one. For more information,
-    /// see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html" target="_blank">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer
+    /// Configures an <c><a>IndexField</a></c> for the search domain. Used to create new fields
+    /// and modify existing ones. You must specify the name of the domain you are configuring
+    /// and an index field configuration. The index field configuration specifies a unique
+    /// name, the index field type, and the options you want to configure for the field. The
+    /// options you can specify depend on the <c><a>IndexFieldType</a></c>. If the field exists,
+    /// the new configuration replaces the old one. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html" target="_blank">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer
     /// Guide</i>.
     /// </summary>
     [Cmdlet("Set", "CSIndexField", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         #region Parameter TextArrayOptions_AnalysisScheme
         /// <summary>
         /// <para>
-        /// <para>The name of an analysis scheme for a <code>text-array</code> field.</para>
+        /// <para>The name of an analysis scheme for a <c>text-array</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         #region Parameter TextOptions_AnalysisScheme
         /// <summary>
         /// <para>
-        /// <para>The name of an analysis scheme for a <code>text</code> field.</para>
+        /// <para>The name of an analysis scheme for a <c>text</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -353,8 +352,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// indexing options. </para><para>Regular field names begin with a letter and can contain the following characters:
         /// a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with
         /// a wildcard (*). The wildcard can also be the only character in a dynamic field name.
-        /// Multiple wildcards, and wildcards embedded within a string are not supported. </para><para>The name <code>score</code> is reserved and cannot be used as a field name. To reference
-        /// a document's ID, you can use the name <code>_id</code>. </para>
+        /// Multiple wildcards, and wildcards embedded within a string are not supported. </para><para>The name <c>score</c> is reserved and cannot be used as a field name. To reference
+        /// a document's ID, you can use the name <c>_id</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

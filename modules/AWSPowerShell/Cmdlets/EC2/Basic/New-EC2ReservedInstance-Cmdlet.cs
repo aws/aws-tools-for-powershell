@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LimitPrice_CurrencyCode
         /// <summary>
         /// <para>
-        /// <para>The currency in which the <code>limitPrice</code> amount is specified. At this time,
-        /// the only supported currency is <code>USD</code>.</para>
+        /// <para>The currency in which the <c>limitPrice</c> amount is specified. At this time, the
+        /// only supported currency is <c>USD</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.NS
     /// 
     ///  
     /// <para>
-    /// Invoke this operation to poll the resource after invoking <code>CreateStreamingSessionStream</code>.
+    /// Invoke this operation to poll the resource after invoking <c>CreateStreamingSessionStream</c>.
     /// </para><para>
-    /// After the <code>StreamingSessionStream</code> changes to the <code>READY</code> state,
-    /// the url property will contain a stream to be used with the DCV streaming client.
+    /// After the <c>StreamingSessionStream</c> changes to the <c>READY</c> state, the url
+    /// property will contain a stream to be used with the DCV streaming client.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "NSStreamingSessionStream")]

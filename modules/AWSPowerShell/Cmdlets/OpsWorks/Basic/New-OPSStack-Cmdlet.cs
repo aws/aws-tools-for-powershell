@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AgentVersion
         /// <summary>
         /// <para>
-        /// <para>The default AWS OpsWorks Stacks agent version. You have the following options:</para><ul><li><para>Auto-update - Set this parameter to <code>LATEST</code>. AWS OpsWorks Stacks automatically
+        /// <para>The default AWS OpsWorks Stacks agent version. You have the following options:</para><ul><li><para>Auto-update - Set this parameter to <c>LATEST</c>. AWS OpsWorks Stacks automatically
         /// installs new agent versions on the stack's instances as soon as they are available.</para></li><li><para>Fixed version - Set this parameter to your preferred agent version. To update the
         /// agent version, you must edit the stack configuration and specify a new version. AWS
         /// OpsWorks Stacks then automatically installs that version on the stack's instances.</para></li></ul><para>The default setting is the most recent release of the agent. To specify an agent version,
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>A string that contains user-defined, custom JSON. It can be used to override the corresponding
         /// default stack configuration attribute values or to pass data to recipes. The string
-        /// should be in the following format:</para><para><code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code></para><para>For more information about custom JSON, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
+        /// should be in the following format:</para><para><c>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</c></para><para>For more information about custom JSON, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
         /// Custom JSON to Modify the Stack Configuration Attributes</a>.</para>
         /// </para>
         /// </summary>
@@ -106,9 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>The stack's default Availability Zone, which must be in the specified region. For
         /// more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions
-        /// and Endpoints</a>. If you also specify a value for <code>DefaultSubnetId</code>, the
-        /// subnet must be in the same zone. For more information, see the <code>VpcId</code>
-        /// parameter description. </para>
+        /// and Endpoints</a>. If you also specify a value for <c>DefaultSubnetId</c>, the subnet
+        /// must be in the same zone. For more information, see the <c>VpcId</c> parameter description.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,15 +139,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>The stack's default operating system, which is installed on every instance unless
         /// you specify a different operating system when you create the instance. You can specify
-        /// one of the following.</para><ul><li><para>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon
-        /// Linux 2018.03</code>, <code>Amazon Linux 2017.09</code>, <code>Amazon Linux 2017.03</code>,
-        /// <code>Amazon Linux 2016.09</code>, <code>Amazon Linux 2016.03</code>, <code>Amazon
-        /// Linux 2015.09</code>, or <code>Amazon Linux 2015.03</code>.</para></li><li><para>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu
-        /// 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</para></li><li><para><code>CentOS Linux 7</code></para></li><li><para><code>Red Hat Enterprise Linux 7</code></para></li><li><para>A supported Windows operating system, such as <code>Microsoft Windows Server 2012
-        /// R2 Base</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Express</code>,
-        /// <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft
-        /// Windows Server 2012 R2 with SQL Server Web</code>.</para></li><li><para>A custom AMI: <code>Custom</code>. You specify the custom AMI you want to use when
-        /// you create instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">
+        /// one of the following.</para><ul><li><para>A supported Linux operating system: An Amazon Linux version, such as <c>Amazon Linux
+        /// 2018.03</c>, <c>Amazon Linux 2017.09</c>, <c>Amazon Linux 2017.03</c>, <c>Amazon Linux
+        /// 2016.09</c>, <c>Amazon Linux 2016.03</c>, <c>Amazon Linux 2015.09</c>, or <c>Amazon
+        /// Linux 2015.03</c>.</para></li><li><para>A supported Ubuntu operating system, such as <c>Ubuntu 16.04 LTS</c>, <c>Ubuntu 14.04
+        /// LTS</c>, or <c>Ubuntu 12.04 LTS</c>.</para></li><li><para><c>CentOS Linux 7</c></para></li><li><para><c>Red Hat Enterprise Linux 7</c></para></li><li><para>A supported Windows operating system, such as <c>Microsoft Windows Server 2012 R2
+        /// Base</c>, <c>Microsoft Windows Server 2012 R2 with SQL Server Express</c>, <c>Microsoft
+        /// Windows Server 2012 R2 with SQL Server Standard</c>, or <c>Microsoft Windows Server
+        /// 2012 R2 with SQL Server Web</c>.</para></li><li><para>A custom AMI: <c>Custom</c>. You specify the custom AMI you want to use when you create
+        /// instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">
         /// Using Custom AMIs</a>.</para></li></ul><para>The default option is the current Amazon Linux version. For more information about
         /// supported operating systems, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
         /// OpsWorks Stacks Operating Systems</a>.</para>
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>The default root device type. This value is the default for all instances in the stack,
-        /// but you can override it when you create an instance. The default option is <code>instance-store</code>.
+        /// but you can override it when you create an instance. The default option is <c>instance-store</c>.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage
         /// for the Root Device</a>.</para>
         /// </para>
@@ -192,11 +192,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>The stack's default VPC subnet ID. This parameter is required if you specify a value
-        /// for the <code>VpcId</code> parameter. All instances are launched into this subnet
-        /// unless you specify otherwise when you create the instance. If you also specify a value
-        /// for <code>DefaultAvailabilityZone</code>, the subnet must be in that zone. For information
-        /// on default values and when this parameter is required, see the <code>VpcId</code>
-        /// parameter description. </para>
+        /// for the <c>VpcId</c> parameter. All instances are launched into this subnet unless
+        /// you specify otherwise when you create the instance. If you also specify a value for
+        /// <c>DefaultAvailabilityZone</c>, the subnet must be in that zone. For information on
+        /// default values and when this parameter is required, see the <c>VpcId</c> parameter
+        /// description. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,9 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>The stack's host name theme, with spaces replaced by underscores. The theme is used
-        /// to generate host names for the stack's instances. By default, <code>HostnameTheme</code>
-        /// is set to <code>Layer_Dependent</code>, which creates host names by appending integers
-        /// to the layer's short name. The other themes are:</para><ul><li><para><code>Baked_Goods</code></para></li><li><para><code>Clouds</code></para></li><li><para><code>Europe_Cities</code></para></li><li><para><code>Fruits</code></para></li><li><para><code>Greek_Deities_and_Titans</code></para></li><li><para><code>Legendary_creatures_from_Japan</code></para></li><li><para><code>Planets_and_Moons</code></para></li><li><para><code>Roman_Deities</code></para></li><li><para><code>Scottish_Islands</code></para></li><li><para><code>US_Cities</code></para></li><li><para><code>Wild_Cats</code></para></li></ul><para>To obtain a generated host name, call <code>GetHostNameSuggestion</code>, which returns
+        /// to generate host names for the stack's instances. By default, <c>HostnameTheme</c>
+        /// is set to <c>Layer_Dependent</c>, which creates host names by appending integers to
+        /// the layer's short name. The other themes are:</para><ul><li><para><c>Baked_Goods</c></para></li><li><para><c>Clouds</c></para></li><li><para><c>Europe_Cities</c></para></li><li><para><c>Fruits</c></para></li><li><para><c>Greek_Deities_and_Titans</c></para></li><li><para><c>Legendary_creatures_from_Japan</c></para></li><li><para><c>Planets_and_Moons</c></para></li><li><para><c>Roman_Deities</c></para></li><li><para><c>Scottish_Islands</c></para></li><li><para><c>US_Cities</c></para></li><li><para><c>Wild_Cats</c></para></li></ul><para>To obtain a generated host name, call <c>GetHostNameSuggestion</c>, which returns
         /// a host name based on the current theme.</para>
         /// </para>
         /// </summary>
@@ -257,9 +257,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CustomCookbooksSource_Password
         /// <summary>
         /// <para>
-        /// <para>When included in a request, the parameter depends on the repository type.</para><ul><li><para>For Amazon S3 bundles, set <code>Password</code> to the appropriate IAM secret access
-        /// key.</para></li><li><para>For HTTP bundles and Subversion repositories, set <code>Password</code> to the password.</para></li></ul><para>For more information on how to safely handle IAM credentials, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</para><para>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code> instead
-        /// of the actual value.</para>
+        /// <para>When included in a request, the parameter depends on the repository type.</para><ul><li><para>For Amazon S3 bundles, set <c>Password</c> to the appropriate IAM secret access key.</para></li><li><para>For HTTP bundles and Subversion repositories, set <c>Password</c> to the password.</para></li></ul><para>For more information on how to safely handle IAM credentials, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</para><para>In responses, AWS OpsWorks Stacks returns <c>*****FILTERED*****</c> instead of the
+        /// actual value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -269,23 +268,22 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter StackRegion
         /// <summary>
         /// <para>
-        /// <para>The stack's AWS region, such as <code>ap-south-1</code>. For more information about
-        /// Amazon regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions
-        /// and Endpoints</a>.</para><note><para>In the AWS CLI, this API maps to the <code>--stack-region</code> parameter. If the
-        /// <code>--stack-region</code> parameter and the AWS CLI common parameter <code>--region</code>
-        /// are set to the same value, the stack uses a <i>regional</i> endpoint. If the <code>--stack-region</code>
-        /// parameter is not set, but the AWS CLI <code>--region</code> parameter is, this also
-        /// results in a stack with a <i>regional</i> endpoint. However, if the <code>--region</code>
-        /// parameter is set to <code>us-east-1</code>, and the <code>--stack-region</code> parameter
-        /// is set to one of the following, then the stack uses a legacy or <i>classic</i> region:
-        /// <code>us-west-1, us-west-2, sa-east-1, eu-central-1, eu-west-1, ap-northeast-1, ap-southeast-1,
-        /// ap-southeast-2</code>. In this case, the actual API endpoint of the stack is in <code>us-east-1</code>.
-        /// Only the preceding regions are supported as classic regions in the <code>us-east-1</code>
-        /// API endpoint. Because it is a best practice to choose the regional endpoint that is
-        /// closest to where you manage AWS, we recommend that you use regional endpoints for
-        /// new stacks. The AWS CLI common <code>--region</code> parameter always specifies a
-        /// regional API endpoint; it cannot be used to specify a classic AWS OpsWorks Stacks
-        /// region.</para></note>
+        /// <para>The stack's AWS region, such as <c>ap-south-1</c>. For more information about Amazon
+        /// regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions
+        /// and Endpoints</a>.</para><note><para>In the AWS CLI, this API maps to the <c>--stack-region</c> parameter. If the <c>--stack-region</c>
+        /// parameter and the AWS CLI common parameter <c>--region</c> are set to the same value,
+        /// the stack uses a <i>regional</i> endpoint. If the <c>--stack-region</c> parameter
+        /// is not set, but the AWS CLI <c>--region</c> parameter is, this also results in a stack
+        /// with a <i>regional</i> endpoint. However, if the <c>--region</c> parameter is set
+        /// to <c>us-east-1</c>, and the <c>--stack-region</c> parameter is set to one of the
+        /// following, then the stack uses a legacy or <i>classic</i> region: <c>us-west-1, us-west-2,
+        /// sa-east-1, eu-central-1, eu-west-1, ap-northeast-1, ap-southeast-1, ap-southeast-2</c>.
+        /// In this case, the actual API endpoint of the stack is in <c>us-east-1</c>. Only the
+        /// preceding regions are supported as classic regions in the <c>us-east-1</c> API endpoint.
+        /// Because it is a best practice to choose the regional endpoint that is closest to where
+        /// you manage AWS, we recommend that you use regional endpoints for new stacks. The AWS
+        /// CLI common <c>--region</c> parameter always specifies a regional API endpoint; it
+        /// cannot be used to specify a classic AWS OpsWorks Stacks region.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -335,8 +333,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CustomCookbooksSource_SshKey
         /// <summary>
         /// <para>
-        /// <para>In requests, the repository's SSH key.</para><para>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code> instead
-        /// of the actual value.</para>
+        /// <para>In requests, the repository's SSH key.</para><para>In responses, AWS OpsWorks Stacks returns <c>*****FILTERED*****</c> instead of the
+        /// actual value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -357,7 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CustomCookbooksSource_Url
         /// <summary>
         /// <para>
-        /// <para>The source URL. The following is an example of an Amazon S3 source URL: <code>https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz</code>.</para>
+        /// <para>The source URL. The following is an example of an Amazon S3 source URL: <c>https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -380,8 +378,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's
         /// layers.</para><para>AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each
-        /// layer, which are associated with layers by default. With <code>UseOpsworksSecurityGroups</code>
-        /// you can instead provide your own custom security groups. <code>UseOpsworksSecurityGroups</code>
+        /// layer, which are associated with layers by default. With <c>UseOpsworksSecurityGroups</c>
+        /// you can instead provide your own custom security groups. <c>UseOpsworksSecurityGroups</c>
         /// has the following settings: </para><ul><li><para>True - AWS OpsWorks Stacks automatically associates the appropriate built-in security
         /// group with each layer (default setting). You can associate additional security groups
         /// with a layer after you create it, but you cannot delete the built-in security group.</para></li><li><para>False - AWS OpsWorks Stacks does not associate built-in security groups with layers.
@@ -400,8 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CustomCookbooksSource_Username
         /// <summary>
         /// <para>
-        /// <para>This parameter depends on the repository type.</para><ul><li><para>For Amazon S3 bundles, set <code>Username</code> to the appropriate IAM access key
-        /// ID.</para></li><li><para>For HTTP bundles, Git repositories, and Subversion repositories, set <code>Username</code>
+        /// <para>This parameter depends on the repository type.</para><ul><li><para>For Amazon S3 bundles, set <c>Username</c> to the appropriate IAM access key ID.</para></li><li><para>For HTTP bundles, Git repositories, and Subversion repositories, set <c>Username</c>
         /// to the user name.</para></li></ul>
         /// </para>
         /// </summary>
@@ -424,12 +421,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>The ID of the VPC that the stack is to be launched into. The VPC must be in the stack's
-        /// region. All instances are launched into this VPC. You cannot change the ID later.</para><ul><li><para>If your account supports EC2-Classic, the default value is <code>no VPC</code>.</para></li><li><para>If your account does not support EC2-Classic, the default value is the default VPC
-        /// for the specified region.</para></li></ul><para>If the VPC ID corresponds to a default VPC and you have specified either the <code>DefaultAvailabilityZone</code>
-        /// or the <code>DefaultSubnetId</code> parameter only, AWS OpsWorks Stacks infers the
-        /// value of the other parameter. If you specify neither parameter, AWS OpsWorks Stacks
-        /// sets these parameters to the first valid Availability Zone for the specified region
-        /// and the corresponding default VPC subnet ID, respectively.</para><para>If you specify a nondefault VPC ID, note the following:</para><ul><li><para>It must belong to a VPC in your account that is in the specified region.</para></li><li><para>You must specify a value for <code>DefaultSubnetId</code>.</para></li></ul><para>For more information about how to use AWS OpsWorks Stacks with a VPC, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html">Running
+        /// region. All instances are launched into this VPC. You cannot change the ID later.</para><ul><li><para>If your account supports EC2-Classic, the default value is <c>no VPC</c>.</para></li><li><para>If your account does not support EC2-Classic, the default value is the default VPC
+        /// for the specified region.</para></li></ul><para>If the VPC ID corresponds to a default VPC and you have specified either the <c>DefaultAvailabilityZone</c>
+        /// or the <c>DefaultSubnetId</c> parameter only, AWS OpsWorks Stacks infers the value
+        /// of the other parameter. If you specify neither parameter, AWS OpsWorks Stacks sets
+        /// these parameters to the first valid Availability Zone for the specified region and
+        /// the corresponding default VPC subnet ID, respectively.</para><para>If you specify a nondefault VPC ID, note the following:</para><ul><li><para>It must belong to a VPC in your account that is in the specified region.</para></li><li><para>You must specify a value for <c>DefaultSubnetId</c>.</para></li></ul><para>For more information about how to use AWS OpsWorks Stacks with a VPC, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html">Running
         /// a Stack in a VPC</a>. For more information about default VPC and EC2-Classic, see
         /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
         /// Platforms</a>. </para>

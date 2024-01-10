@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>Incident Manager supports three types of contact channels:</para><ul><li><para><code>SMS</code></para></li><li><para><code>VOICE</code></para></li><li><para><code>EMAIL</code></para></li></ul>
+        /// <para>Incident Manager supports three types of contact channels:</para><ul><li><para><c>SMS</c></para></li><li><para><c>VOICE</c></para></li><li><para><c>EMAIL</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AccessLogs_LogVersion
         /// <summary>
         /// <para>
-        /// <para>The logging version.</para><para>Valid values: <code>ocsf-0.1</code> | <code>ocsf-1.0.0-rc.2</code></para>
+        /// <para>The logging version.</para><para>Valid values: <c>ocsf-0.1</c> | <c>ocsf-1.0.0-rc.2</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

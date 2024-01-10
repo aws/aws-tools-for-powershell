@@ -61,10 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource to add a tag to.</para><para>You can specify any of the following taggable resources.</para><ul><li><para>Amazon Web Services account – specify the account ID number.</para></li><li><para>Organizational unit – specify the OU ID that begins with <code>ou-</code> and looks
-        /// similar to: <code>ou-<i>1a2b-34uvwxyz</i></code></para></li><li><para>Root – specify the root ID that begins with <code>r-</code> and looks similar to:
-        /// <code>r-<i>1a2b</i></code></para></li><li><para>Policy – specify the policy ID that begins with <code>p-</code> andlooks similar to:
-        /// <code>p-<i>12abcdefg3</i></code></para></li></ul>
+        /// <para>The ID of the resource to add a tag to.</para><para>You can specify any of the following taggable resources.</para><ul><li><para>Amazon Web Services account – specify the account ID number.</para></li><li><para>Organizational unit – specify the OU ID that begins with <c>ou-</c> and looks similar
+        /// to: <c>ou-<i>1a2b-34uvwxyz</i></c></para></li><li><para>Root – specify the root ID that begins with <c>r-</c> and looks similar to: <c>r-<i>1a2b</i></c></para></li><li><para>Policy – specify the policy ID that begins with <c>p-</c> andlooks similar to: <c>p-<i>12abcdefg3</i></c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <summary>
         /// <para>
         /// <para>A list of tags to add to the specified resource.</para><para>For each tag in the list, you must specify both a tag key and a value. The value can
-        /// be an empty string, but you can't set it to <code>null</code>.</para><note><para>If any one of the tags is not valid or if you exceed the maximum allowed number of
+        /// be an empty string, but you can't set it to <c>null</c>.</para><note><para>If any one of the tags is not valid or if you exceed the maximum allowed number of
         /// tags for a resource, then the entire request fails.</para></note>
         /// </para>
         /// </summary>

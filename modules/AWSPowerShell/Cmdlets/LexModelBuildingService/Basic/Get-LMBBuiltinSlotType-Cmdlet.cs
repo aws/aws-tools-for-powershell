@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// For a list of built-in slot types, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference">Slot
     /// Type Reference</a> in the <i>Alexa Skills Kit</i>.
     /// </para><para>
-    /// This operation requires permission for the <code>lex:GetBuiltInSlotTypes</code> action.
+    /// This operation requires permission for the <c>lex:GetBuiltInSlotTypes</c> action.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LMBBuiltinSlotType")]

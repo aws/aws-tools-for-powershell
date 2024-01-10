@@ -28,17 +28,17 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Creates a new view with the possible status of <code>SAVED</code> or <code>PUBLISHED</code>.
+    /// Creates a new view with the possible status of <c>SAVED</c> or <c>PUBLISHED</c>.
     /// 
     ///  
     /// <para>
     /// The views will have a unique name for each connect instance.
     /// </para><para>
-    /// It performs basic content validation if the status is <code>SAVED</code> or full content
-    /// validation if the status is set to <code>PUBLISHED</code>. An error is returned if
-    /// validation fails. It associates either the <code>$SAVED</code> qualifier or both of
-    /// the <code>$SAVED</code> and <code>$LATEST</code> qualifiers with the provided view
-    /// content based on the status. The view is idempotent if ClientToken is provided.
+    /// It performs basic content validation if the status is <c>SAVED</c> or full content
+    /// validation if the status is set to <c>PUBLISHED</c>. An error is returned if validation
+    /// fails. It associates either the <c>$SAVED</c> qualifier or both of the <c>$SAVED</c>
+    /// and <c>$LATEST</c> qualifiers with the provided view content based on the status.
+    /// The view is idempotent if ClientToken is provided.
     /// </para>
     /// </summary>
     [Cmdlet("New", "CONNView", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -116,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>.
-        /// The <code>PUBLISHED</code> status will initiate validation on the content.</para>
+        /// <para>Indicates the view status as either <c>SAVED</c> or <c>PUBLISHED</c>. The <c>PUBLISHED</c>
+        /// status will initiate validation on the content.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

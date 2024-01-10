@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <para>
     /// You can't delete a delivery source if any current deliveries are associated with it.
     /// To find whether any deliveries are associated with this delivery source, use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html">DescribeDeliveries</a>
-    /// operation and check the <code>deliverySourceName</code> field in the results.
+    /// operation and check the <c>deliverySourceName</c> field in the results.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CWLDeliverySource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

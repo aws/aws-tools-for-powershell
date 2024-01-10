@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter IndexName
         /// <summary>
         /// <para>
-        /// <para>The dynamic thing group index to update.</para><note><para>Currently one index is supported: <code>AWS_Things</code>.</para></note>
+        /// <para>The dynamic thing group index to update.</para><note><para>Currently one index is supported: <c>AWS_Things</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

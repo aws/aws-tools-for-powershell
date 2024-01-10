@@ -46,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Filters_CreatedAfter
         /// <summary>
         /// <para>
-        /// <para>Filter the lineage entities connected to the <code>StartArn</code>(s) after the create
-        /// date.</para>
+        /// <para>Filter the lineage entities connected to the <c>StartArn</c>(s) after the create date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Filters_CreatedBefore
         /// <summary>
         /// <para>
-        /// <para>Filter the lineage entities connected to the <code>StartArn</code>(s) by created date.</para>
+        /// <para>Filter the lineage entities connected to the <c>StartArn</c>(s) by created date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,10 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter IncludeEdge
         /// <summary>
         /// <para>
-        /// <para> Setting this value to <code>True</code> retrieves not only the entities of interest
-        /// but also the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking-entities.html">Associations</a>
-        /// and lineage entities on the path. Set to <code>False</code> to only return lineage
-        /// entities that match your query.</para>
+        /// <para> Setting this value to <c>True</c> retrieves not only the entities of interest but
+        /// also the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking-entities.html">Associations</a>
+        /// and lineage entities on the path. Set to <c>False</c> to only return lineage entities
+        /// that match your query.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Filters_LineageType
         /// <summary>
         /// <para>
-        /// <para>Filter the lineage entities connected to the <code>StartArn</code>(s) by the type
-        /// of the lineage entity.</para>
+        /// <para>Filter the lineage entities connected to the <c>StartArn</c>(s) by the type of the
+        /// lineage entity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,9 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MaxDepth
         /// <summary>
         /// <para>
-        /// <para>The maximum depth in lineage relationships from the <code>StartArns</code> that are
-        /// traversed. Depth is a measure of the number of <code>Associations</code> from the
-        /// <code>StartArn</code> entity to the matched results.</para>
+        /// <para>The maximum depth in lineage relationships from the <c>StartArns</c> that are traversed.
+        /// Depth is a measure of the number of <c>Associations</c> from the <c>StartArn</c> entity
+        /// to the matched results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Filters_ModifiedAfter
         /// <summary>
         /// <para>
-        /// <para>Filter the lineage entities connected to the <code>StartArn</code>(s) after the last
-        /// modified date.</para>
+        /// <para>Filter the lineage entities connected to the <c>StartArn</c>(s) after the last modified
+        /// date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Filters_ModifiedBefore
         /// <summary>
         /// <para>
-        /// <para>Filter the lineage entities connected to the <code>StartArn</code>(s) before the last
-        /// modified date.</para>
+        /// <para>Filter the lineage entities connected to the <c>StartArn</c>(s) before the last modified
+        /// date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,9 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Filters_Property
         /// <summary>
         /// <para>
-        /// <para>Filter the lineage entities connected to the <code>StartArn</code>(s) by a set if
-        /// property key value pairs. If multiple pairs are provided, an entity is included in
-        /// the results if it matches any of the provided pairs.</para>
+        /// <para>Filter the lineage entities connected to the <c>StartArn</c>(s) by a set if property
+        /// key value pairs. If multiple pairs are provided, an entity is included in the results
+        /// if it matches any of the provided pairs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Filters_Type
         /// <summary>
         /// <para>
-        /// <para>Filter the lineage entities connected to the <code>StartArn</code> by type. For example:
-        /// <code>DataSet</code>, <code>Model</code>, <code>Endpoint</code>, or <code>ModelDeployment</code>.</para>
+        /// <para>Filter the lineage entities connected to the <c>StartArn</c> by type. For example:
+        /// <c>DataSet</c>, <c>Model</c>, <c>Endpoint</c>, or <c>ModelDeployment</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,8 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Limits the number of vertices in the results. Use the <code>NextToken</code> in a
-        /// response to to retrieve the next page of results.</para>
+        /// <para>Limits the number of vertices in the results. Use the <c>NextToken</c> in a response
+        /// to to retrieve the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,8 +187,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Limits the number of vertices in the request. Use the <code>NextToken</code> in a
-        /// response to to retrieve the next page of results.</para>
+        /// <para>Limits the number of vertices in the request. Use the <c>NextToken</c> in a response
+        /// to to retrieve the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

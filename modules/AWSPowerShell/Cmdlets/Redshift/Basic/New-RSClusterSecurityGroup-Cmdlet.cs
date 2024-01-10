@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The name for the security group. Amazon Redshift stores the value as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain no more than 255 alphanumeric characters or hyphens.</para></li><li><para>Must not be "Default".</para></li><li><para>Must be unique for all security groups that are created by your Amazon Web Services
-        /// account.</para></li></ul><para>Example: <code>examplesecuritygroup</code></para>
+        /// account.</para></li></ul><para>Example: <c>examplesecuritygroup</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>The option to consider RI or Savings Plans discount benefits in your savings calculation.
-        /// The default value is <code>TRUE</code>. </para>
+        /// The default value is <c>TRUE</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>The option to see recommendations within the same instance family or recommendations
-        /// for instances across other families. The default value is <code>SAME_INSTANCE_FAMILY</code>.
+        /// for instances across other families. The default value is <c>SAME_INSTANCE_FAMILY</c>.
         /// </para>
         /// </para>
         /// </summary>
@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Service
         /// <summary>
         /// <para>
-        /// <para>The specific service that you want recommendations for. The only valid value for <code>GetRightsizingRecommendation</code>
-        /// is "<code>AmazonEC2</code>".</para>
+        /// <para>The specific service that you want recommendations for. The only valid value for <c>GetRightsizingRecommendation</c>
+        /// is "<c>AmazonEC2</c>".</para>
         /// </para>
         /// </summary>
         #if !MODULAR

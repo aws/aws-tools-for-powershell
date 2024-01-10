@@ -33,31 +33,31 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     ///  
     /// <para>
     /// The Amazon EKS control plane consists of control plane instances that run the Kubernetes
-    /// software, such as <code>etcd</code> and the API server. The control plane runs in
-    /// an account managed by Amazon Web Services, and the Kubernetes API is exposed by the
-    /// Amazon EKS API server endpoint. Each Amazon EKS cluster control plane is single tenant
-    /// and unique. It runs on its own set of Amazon EC2 instances.
+    /// software, such as <c>etcd</c> and the API server. The control plane runs in an account
+    /// managed by Amazon Web Services, and the Kubernetes API is exposed by the Amazon EKS
+    /// API server endpoint. Each Amazon EKS cluster control plane is single tenant and unique.
+    /// It runs on its own set of Amazon EC2 instances.
     /// </para><para>
     /// The cluster control plane is provisioned across multiple Availability Zones and fronted
     /// by an Elastic Load Balancing Network Load Balancer. Amazon EKS also provisions elastic
     /// network interfaces in your VPC subnets to provide connectivity from the control plane
-    /// instances to the nodes (for example, to support <code>kubectl exec</code>, <code>logs</code>,
-    /// and <code>proxy</code> data flows).
+    /// instances to the nodes (for example, to support <c>kubectl exec</c>, <c>logs</c>,
+    /// and <c>proxy</c> data flows).
     /// </para><para>
     /// Amazon EKS nodes run in your Amazon Web Services account and connect to your cluster's
     /// control plane over the Kubernetes API server endpoint and a certificate file that
     /// is created for your cluster.
     /// </para><para>
-    /// You can use the <code>endpointPublicAccess</code> and <code>endpointPrivateAccess</code>
-    /// parameters to enable or disable public and private access to your cluster's Kubernetes
-    /// API server endpoint. By default, public access is enabled, and private access is disabled.
-    /// For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon
+    /// You can use the <c>endpointPublicAccess</c> and <c>endpointPrivateAccess</c> parameters
+    /// to enable or disable public and private access to your cluster's Kubernetes API server
+    /// endpoint. By default, public access is enabled, and private access is disabled. For
+    /// more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon
     /// EKS Cluster Endpoint Access Control</a> in the <i><i>Amazon EKS User Guide</i></i>.
     /// 
     /// </para><para>
-    /// You can use the <code>logging</code> parameter to enable or disable exporting the
-    /// Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster
-    /// control plane logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon
+    /// You can use the <c>logging</c> parameter to enable or disable exporting the Kubernetes
+    /// control plane logs for your cluster to CloudWatch Logs. By default, cluster control
+    /// plane logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon
     /// EKS Cluster Control Plane Logs</a> in the <i><i>Amazon EKS User Guide</i></i>.
     /// </para><note><para>
     /// CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported
@@ -87,9 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The desired authentication mode for the cluster. If you create a cluster by using
-        /// the EKS API, Amazon Web Services SDKs, or CloudFormation, the default is <code>CONFIG_MAP</code>.
+        /// the EKS API, Amazon Web Services SDKs, or CloudFormation, the default is <c>CONFIG_MAP</c>.
         /// If you create the cluster by using the Amazon Web Services Management Console, the
-        /// default value is <code>API_AND_CONFIG_MAP</code>.</para>
+        /// default value is <c>API_AND_CONFIG_MAP</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>Specifies whether or not the cluster creator IAM principal was set as a cluster admin
-        /// access entry during cluster creation time. The default value is <code>true</code>.</para>
+        /// access entry during cluster creation time. The default value is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,18 +171,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>Specify which IP family is used to assign Kubernetes pod and service IP addresses.
-        /// If you don't specify a value, <code>ipv4</code> is used by default. You can only specify
+        /// If you don't specify a value, <c>ipv4</c> is used by default. You can only specify
         /// an IP family when you create a cluster and can't change this value once the cluster
-        /// is created. If you specify <code>ipv6</code>, the VPC and subnets that you specify
-        /// for cluster creation must have both <code>IPv4</code> and <code>IPv6</code> CIDR blocks
-        /// assigned to them. You can't specify <code>ipv6</code> for clusters in China Regions.</para><para>You can only specify <code>ipv6</code> for <code>1.21</code> and later clusters that
-        /// use version <code>1.10.1</code> or later of the Amazon VPC CNI add-on. If you specify
-        /// <code>ipv6</code>, then ensure that your VPC meets the requirements listed in the
-        /// considerations listed in <a href="https://docs.aws.amazon.com/eks/latest/userguide/cni-ipv6.html">Assigning
+        /// is created. If you specify <c>ipv6</c>, the VPC and subnets that you specify for cluster
+        /// creation must have both <c>IPv4</c> and <c>IPv6</c> CIDR blocks assigned to them.
+        /// You can't specify <c>ipv6</c> for clusters in China Regions.</para><para>You can only specify <c>ipv6</c> for <c>1.21</c> and later clusters that use version
+        /// <c>1.10.1</c> or later of the Amazon VPC CNI add-on. If you specify <c>ipv6</c>, then
+        /// ensure that your VPC meets the requirements listed in the considerations listed in
+        /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/cni-ipv6.html">Assigning
         /// IPv6 addresses to pods and services</a> in the Amazon EKS User Guide. Kubernetes assigns
-        /// services <code>IPv6</code> addresses from the unique local address range <code>(fc00::/7)</code>.
-        /// You can't specify a custom <code>IPv6</code> CIDR block. Pod addresses are assigned
-        /// from the subnet's <code>IPv6</code> CIDR.</para>
+        /// services <c>IPv6</c> addresses from the unique local address range <c>(fc00::/7)</c>.
+        /// You can't specify a custom <c>IPv6</c> CIDR block. Pod addresses are assigned from
+        /// the subnet's <c>IPv6</c> CIDR.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -264,13 +264,13 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter KubernetesNetworkConfig_ServiceIpv4Cidr
         /// <summary>
         /// <para>
-        /// <para>Don't specify a value if you select <code>ipv6</code> for <b>ipFamily</b>. The CIDR
-        /// block to assign Kubernetes service IP addresses from. If you don't specify a block,
-        /// Kubernetes assigns addresses from either the <code>10.100.0.0/16</code> or <code>172.20.0.0/16</code>
-        /// CIDR blocks. We recommend that you specify a block that does not overlap with resources
+        /// <para>Don't specify a value if you select <c>ipv6</c> for <b>ipFamily</b>. The CIDR block
+        /// to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes
+        /// assigns addresses from either the <c>10.100.0.0/16</c> or <c>172.20.0.0/16</c> CIDR
+        /// blocks. We recommend that you specify a block that does not overlap with resources
         /// in other networks that are peered or connected to your VPC. The block must meet the
-        /// following requirements:</para><ul><li><para>Within one of the following private IP address blocks: <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>,
-        /// or <code>192.168.0.0/16</code>.</para></li><li><para>Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.</para></li><li><para>Between <code>/24</code> and <code>/12</code>.</para></li></ul><important><para>You can only specify a custom CIDR block when you create a cluster. You can't change
+        /// following requirements:</para><ul><li><para>Within one of the following private IP address blocks: <c>10.0.0.0/8</c>, <c>172.16.0.0/12</c>,
+        /// or <c>192.168.0.0/16</c>.</para></li><li><para>Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.</para></li><li><para>Between <c>/24</c> and <c>/12</c>.</para></li></ul><important><para>You can only specify a custom CIDR block when you create a cluster. You can't change
         /// this value after the cluster is created.</para></important>
         /// </para>
         /// </summary>

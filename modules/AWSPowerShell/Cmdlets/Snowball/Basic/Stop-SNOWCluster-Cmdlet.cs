@@ -28,7 +28,7 @@ using Amazon.Snowball.Model;
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
-    /// Cancels a cluster job. You can only cancel a cluster job while it's in the <code>AwaitingQuorum</code>
+    /// Cancels a cluster job. You can only cancel a cluster job while it's in the <c>AwaitingQuorum</c>
     /// status. You'll have at least an hour after creating a cluster job to cancel it.
     /// </summary>
     [Cmdlet("Stop", "SNOWCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter ClusterId
         /// <summary>
         /// <para>
-        /// <para>The 39-character ID for the cluster that you want to cancel, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</para>
+        /// <para>The 39-character ID for the cluster that you want to cancel, for example <c>CID123e4567-e89b-12d3-a456-426655440000</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

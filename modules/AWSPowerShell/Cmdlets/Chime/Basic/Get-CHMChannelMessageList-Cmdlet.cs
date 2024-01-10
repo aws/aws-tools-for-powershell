@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>.
+    /// List all the messages in a channel. Returns a paginated list of <c>ChannelMessages</c>.
     /// By default, sorted by creation timestamp in descending order.
     /// 
     ///  <note><para>
@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// deleted. Deleted messages do not appear in the results. This action always returns
     /// the latest version of an edited message.
     /// </para><para>
-    /// Also, the x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code>
+    /// Also, the x-amz-chime-bearer request header is mandatory. Use the <c>AppInstanceUserArn</c>
     /// of the user that makes the API call as the value in the header.
     /// </para></note><important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
     /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMessages.html">ListChannelMessages</a>,
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// <para>The <c>AppInstanceUserArn</c> of the user that makes the API call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

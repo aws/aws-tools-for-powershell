@@ -28,8 +28,8 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Gets detailed information for an image. Images are specified with either an <code>imageTag</code>
-    /// or <code>imageDigest</code>.
+    /// Gets detailed information for an image. Images are specified with either an <c>imageTag</c>
+    /// or <c>imageDigest</c>.
     /// 
     ///  
     /// <para>
@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter AcceptedMediaType
         /// <summary>
         /// <para>
-        /// <para>The accepted media types for the request.</para><para>Valid values: <code>application/vnd.docker.distribution.manifest.v1+json</code> |
-        /// <code>application/vnd.docker.distribution.manifest.v2+json</code> | <code>application/vnd.oci.image.manifest.v1+json</code></para>
+        /// <para>The accepted media types for the request.</para><para>Valid values: <c>application/vnd.docker.distribution.manifest.v1+json</c> | <c>application/vnd.docker.distribution.manifest.v2+json</c>
+        /// | <c>application/vnd.oci.image.manifest.v1+json</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>A list of image ID references that correspond to images to describe. The format of
-        /// the <code>imageIds</code> reference is <code>imageTag=tag</code> or <code>imageDigest=digest</code>.</para>
+        /// the <c>imageIds</c> reference is <c>imageTag=tag</c> or <c>imageDigest=digest</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

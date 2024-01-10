@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter PackageID
         /// <summary>
         /// <para>
-        /// <para>Internal ID of the package to associate with a domain. Use <code>DescribePackages</code>
+        /// <para>Internal ID of the package to associate with a domain. Use <c>DescribePackages</c>
         /// to find this value. </para>
         /// </para>
         /// </summary>

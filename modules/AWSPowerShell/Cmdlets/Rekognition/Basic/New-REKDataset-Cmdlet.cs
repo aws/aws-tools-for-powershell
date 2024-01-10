@@ -35,27 +35,27 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// using an Amazon Sagemaker format manifest file or by copying an existing Amazon Rekognition
     /// Custom Labels dataset.
     /// </para><para>
-    /// To create a training dataset for a project, specify <code>TRAIN</code> for the value
-    /// of <code>DatasetType</code>. To create the test dataset for a project, specify <code>TEST</code>
-    /// for the value of <code>DatasetType</code>. 
+    /// To create a training dataset for a project, specify <c>TRAIN</c> for the value of
+    /// <c>DatasetType</c>. To create the test dataset for a project, specify <c>TEST</c>
+    /// for the value of <c>DatasetType</c>. 
     /// </para><para>
-    /// The response from <code>CreateDataset</code> is the Amazon Resource Name (ARN) for
-    /// the dataset. Creating a dataset takes a while to complete. Use <a>DescribeDataset</a>
-    /// to check the current status. The dataset created successfully if the value of <code>Status</code>
-    /// is <code>CREATE_COMPLETE</code>. 
+    /// The response from <c>CreateDataset</c> is the Amazon Resource Name (ARN) for the dataset.
+    /// Creating a dataset takes a while to complete. Use <a>DescribeDataset</a> to check
+    /// the current status. The dataset created successfully if the value of <c>Status</c>
+    /// is <c>CREATE_COMPLETE</c>. 
     /// </para><para>
     /// To check if any non-terminal errors occurred, call <a>ListDatasetEntries</a> and check
-    /// for the presence of <code>errors</code> lists in the JSON Lines.
+    /// for the presence of <c>errors</c> lists in the JSON Lines.
     /// </para><para>
-    /// Dataset creation fails if a terminal error occurs (<code>Status</code> = <code>CREATE_FAILED</code>).
+    /// Dataset creation fails if a terminal error occurs (<c>Status</c> = <c>CREATE_FAILED</c>).
     /// Currently, you can't access the terminal error information. 
     /// </para><para>
     /// For more information, see Creating dataset in the <i>Amazon Rekognition Custom Labels
     /// Developer Guide</i>.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:CreateDataset</code>
+    /// This operation requires permissions to perform the <c>rekognition:CreateDataset</c>
     /// action. If you want to copy an existing dataset, you also require permission to perform
-    /// the <code>rekognition:ListDatasetEntries</code> action.
+    /// the <c>rekognition:ListDatasetEntries</c> action.
     /// </para>
     /// </summary>
     [Cmdlet("New", "REKDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -94,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter DatasetType
         /// <summary>
         /// <para>
-        /// <para> The type of the dataset. Specify <code>TRAIN</code> to create a training dataset.
-        /// Specify <code>TEST</code> to create a test dataset. </para>
+        /// <para> The type of the dataset. Specify <c>TRAIN</c> to create a training dataset. Specify
+        /// <c>TEST</c> to create a test dataset. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

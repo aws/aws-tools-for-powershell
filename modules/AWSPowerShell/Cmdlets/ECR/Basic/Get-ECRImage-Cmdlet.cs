@@ -32,12 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// 
     ///  
     /// <para>
-    /// You can filter images based on whether or not they are tagged by using the <code>tagStatus</code>
-    /// filter and specifying either <code>TAGGED</code>, <code>UNTAGGED</code> or <code>ANY</code>.
-    /// For example, you can filter your results to return only <code>UNTAGGED</code> images
-    /// and then pipe that result to a <a>BatchDeleteImage</a> operation to delete them. Or,
-    /// you can filter your results to return only <code>TAGGED</code> images to list all
-    /// of the tags in your repository.
+    /// You can filter images based on whether or not they are tagged by using the <c>tagStatus</c>
+    /// filter and specifying either <c>TAGGED</c>, <c>UNTAGGED</c> or <c>ANY</c>. For example,
+    /// you can filter your results to return only <c>UNTAGGED</c> images and then pipe that
+    /// result to a <a>BatchDeleteImage</a> operation to delete them. Or, you can filter your
+    /// results to return only <c>TAGGED</c> images to list all of the tags in your repository.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ECRImage")]
@@ -85,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>The tag status with which to filter your <a>ListImages</a> results. You can filter
-        /// results based on whether they are <code>TAGGED</code> or <code>UNTAGGED</code>.</para>
+        /// results based on whether they are <c>TAGGED</c> or <c>UNTAGGED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,13 +95,13 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of image results returned by <code>ListImages</code> in paginated
-        /// output. When this parameter is used, <code>ListImages</code> only returns <code>maxResults</code>
-        /// results in a single page along with a <code>nextToken</code> response element. The
-        /// remaining results of the initial request can be seen by sending another <code>ListImages</code>
-        /// request with the returned <code>nextToken</code> value. This value can be between
-        /// 1 and 1000. If this parameter is not used, then <code>ListImages</code> returns up
-        /// to 100 results and a <code>nextToken</code> value, if applicable.</para>
+        /// <para>The maximum number of image results returned by <c>ListImages</c> in paginated output.
+        /// When this parameter is used, <c>ListImages</c> only returns <c>maxResults</c> results
+        /// in a single page along with a <c>nextToken</c> response element. The remaining results
+        /// of the initial request can be seen by sending another <c>ListImages</c> request with
+        /// the returned <c>nextToken</c> value. This value can be between 1 and 1000. If this
+        /// parameter is not used, then <c>ListImages</c> returns up to 100 results and a <c>nextToken</c>
+        /// value, if applicable.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -118,11 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListImages</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>ListImages</c> request
+        /// where <c>maxResults</c> was used and the results exceeded the value of that parameter.
+        /// Pagination continues from the end of the previous results that returned the <c>nextToken</c>
+        /// value. This value is <c>null</c> when there are no more results to return.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

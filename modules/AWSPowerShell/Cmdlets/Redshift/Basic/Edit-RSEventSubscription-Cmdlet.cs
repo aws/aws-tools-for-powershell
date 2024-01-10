@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Enabled
         /// <summary>
         /// <para>
-        /// <para>A Boolean value indicating if the subscription is enabled. <code>true</code> indicates
-        /// the subscription is enabled </para>
+        /// <para>A Boolean value indicating if the subscription is enabled. <c>true</c> indicates the
+        /// subscription is enabled </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

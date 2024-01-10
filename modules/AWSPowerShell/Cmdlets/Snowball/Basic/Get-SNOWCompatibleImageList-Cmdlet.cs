@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <summary>
         /// <para>
         /// <para>HTTP requests are stateless. To identify what object comes "next" in the list of compatible
-        /// images, you can specify a value for <code>NextToken</code> as the starting point for
-        /// your list of returned images.</para>
+        /// images, you can specify a value for <c>NextToken</c> as the starting point for your
+        /// list of returned images.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

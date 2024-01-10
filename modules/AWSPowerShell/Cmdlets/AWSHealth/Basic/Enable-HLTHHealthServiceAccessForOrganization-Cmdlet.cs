@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon
     /// Web Services Support</a> to use the Health API. If you call the Health API from an
     /// Amazon Web Services account that doesn't have a Business, Enterprise On-Ramp, or Enterprise
-    /// Support plan, you receive a <code>SubscriptionRequiredException</code> error.
+    /// Support plan, you receive a <c>SubscriptionRequiredException</c> error.
     /// </para></li><li><para>
     /// You must have permission to call this operation from the organization's management
     /// account. For example IAM policies, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html">Health

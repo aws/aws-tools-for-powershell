@@ -35,13 +35,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
-    /// You must specify either <code>anomalyId</code> or <code>patternId</code>, but you
-    /// can't specify both parameters in the same operation.
+    /// You must specify either <c>anomalyId</c> or <c>patternId</c>, but you can't specify
+    /// both parameters in the same operation.
     /// </para><para>
     /// If you have previously used this operation to suppress detection of a pattern or anomaly,
     /// you can use it again to cause CloudWatch Logs to end the suppression. To do this,
     /// use this operation and specify the anomaly or pattern to stop suppressing, and omit
-    /// the <code>suppressionType</code> and <code>suppressionPeriod</code> parameters.
+    /// the <c>suppressionType</c> and <c>suppressionPeriod</c> parameters.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "CWLAnomaly", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -101,9 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>Use this to specify whether the suppression to be temporary or infinite. If you specify
-        /// <code>LIMITED</code>, you must also specify a <code>suppressionPeriod</code>. If you
-        /// specify <code>INFINITE</code>, any value for <code>suppressionPeriod</code> is ignored.
-        /// </para>
+        /// <c>LIMITED</c>, you must also specify a <c>suppressionPeriod</c>. If you specify <c>INFINITE</c>,
+        /// any value for <c>suppressionPeriod</c> is ignored. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter SuppressionPeriod_SuppressionUnit
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the value of <code>value</code> is in seconds, minutes, or hours.</para>
+        /// <para>Specifies whether the value of <c>value</c> is in seconds, minutes, or hours.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

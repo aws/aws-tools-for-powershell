@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
     /// Configures the delegated administrator account with the provided values. You must
-    /// provide a value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>,
+    /// provide a value for either <c>autoEnableOrganizationMembers</c> or <c>autoEnable</c>,
     /// but not both. 
     /// 
     ///  
@@ -91,13 +91,13 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <summary>
         /// <para>
         /// <para>Indicates the auto-enablement configuration of GuardDuty for the member accounts in
-        /// the organization. You must provide a value for either <code>autoEnableOrganizationMembers</code>
-        /// or <code>autoEnable</code>. </para><para>Use one of the following configuration values for <code>autoEnableOrganizationMembers</code>:</para><ul><li><para><code>NEW</code>: Indicates that when a new account joins the organization, they
-        /// will have GuardDuty enabled automatically. </para></li><li><para><code>ALL</code>: Indicates that all accounts in the organization have GuardDuty
-        /// enabled automatically. This includes <code>NEW</code> accounts that join the organization
-        /// and accounts that may have been suspended or removed from the organization in GuardDuty.</para><para>It may take up to 24 hours to update the configuration for all the member accounts.</para></li><li><para><code>NONE</code>: Indicates that GuardDuty will not be automatically enabled for
-        /// any account in the organization. The administrator must manage GuardDuty for each
-        /// account in the organization individually.</para></li></ul>
+        /// the organization. You must provide a value for either <c>autoEnableOrganizationMembers</c>
+        /// or <c>autoEnable</c>. </para><para>Use one of the following configuration values for <c>autoEnableOrganizationMembers</c>:</para><ul><li><para><c>NEW</c>: Indicates that when a new account joins the organization, they will have
+        /// GuardDuty enabled automatically. </para></li><li><para><c>ALL</c>: Indicates that all accounts in the organization have GuardDuty enabled
+        /// automatically. This includes <c>NEW</c> accounts that join the organization and accounts
+        /// that may have been suspended or removed from the organization in GuardDuty.</para><para>It may take up to 24 hours to update the configuration for all the member accounts.</para></li><li><para><c>NONE</c>: Indicates that GuardDuty will not be automatically enabled for any account
+        /// in the organization. The administrator must manage GuardDuty for each account in the
+        /// organization individually.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,9 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter AutoEnable
         /// <summary>
         /// <para>
-        /// <para>Represents whether or not to automatically enable member accounts in the organization.</para><para>Even though this is still supported, we recommend using <code>AutoEnableOrganizationMembers</code>
-        /// to achieve the similar results. You must provide a value for either <code>autoEnableOrganizationMembers</code>
-        /// or <code>autoEnable</code>.</para>
+        /// <para>Represents whether or not to automatically enable member accounts in the organization.</para><para>Even though this is still supported, we recommend using <c>AutoEnableOrganizationMembers</c>
+        /// to achieve the similar results. You must provide a value for either <c>autoEnableOrganizationMembers</c>
+        /// or <c>autoEnable</c>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

@@ -56,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CIDRIP
         /// <summary>
         /// <para>
-        /// <para>The IP range to revoke access from. Must be a valid CIDR range. If <code>CIDRIP</code>
-        /// is specified, <code>EC2SecurityGroupName</code>, <code>EC2SecurityGroupId</code> and
-        /// <code>EC2SecurityGroupOwnerId</code> can't be provided.</para>
+        /// <para>The IP range to revoke access from. Must be a valid CIDR range. If <c>CIDRIP</c> is
+        /// specified, <c>EC2SecurityGroupName</c>, <c>EC2SecurityGroupId</c> and <c>EC2SecurityGroupOwnerId</c>
+        /// can't be provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -86,9 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The id of the EC2 security group to revoke access from. For VPC DB security groups,
-        /// <code>EC2SecurityGroupId</code> must be provided. Otherwise, EC2SecurityGroupOwnerId
-        /// and either <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must
-        /// be provided.</para>
+        /// <c>EC2SecurityGroupId</c> must be provided. Otherwise, EC2SecurityGroupOwnerId and
+        /// either <c>EC2SecurityGroupName</c> or <c>EC2SecurityGroupId</c> must be provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,9 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the EC2 security group to revoke access from. For VPC DB security groups,
-        /// <code>EC2SecurityGroupId</code> must be provided. Otherwise, EC2SecurityGroupOwnerId
-        /// and either <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must
-        /// be provided.</para>
+        /// <c>EC2SecurityGroupId</c> must be provided. Otherwise, EC2SecurityGroupOwnerId and
+        /// either <c>EC2SecurityGroupName</c> or <c>EC2SecurityGroupId</c> must be provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,10 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services account number of the owner of the EC2 security group specified
-        /// in the <code>EC2SecurityGroupName</code> parameter. The Amazon Web Services access
-        /// key ID isn't an acceptable value. For VPC DB security groups, <code>EC2SecurityGroupId</code>
-        /// must be provided. Otherwise, EC2SecurityGroupOwnerId and either <code>EC2SecurityGroupName</code>
-        /// or <code>EC2SecurityGroupId</code> must be provided.</para>
+        /// in the <c>EC2SecurityGroupName</c> parameter. The Amazon Web Services access key ID
+        /// isn't an acceptable value. For VPC DB security groups, <c>EC2SecurityGroupId</c> must
+        /// be provided. Otherwise, EC2SecurityGroupOwnerId and either <c>EC2SecurityGroupName</c>
+        /// or <c>EC2SecurityGroupId</c> must be provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

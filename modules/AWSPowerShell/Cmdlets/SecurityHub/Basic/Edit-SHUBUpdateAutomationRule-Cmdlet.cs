@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> An array of ARNs for the rules that are to be updated. Optionally, you can also include
-        /// <code>RuleStatus</code> and <code>RuleOrder</code>. </para>
+        /// <c>RuleStatus</c> and <c>RuleOrder</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

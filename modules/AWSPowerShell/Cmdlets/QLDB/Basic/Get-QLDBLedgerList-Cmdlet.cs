@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     /// 
     ///  
     /// <para>
-    /// This action returns a maximum of <code>MaxResults</code> items and is paginated so
-    /// that you can retrieve all the items by calling <code>ListLedgers</code> multiple times.
+    /// This action returns a maximum of <c>MaxResults</c> items and is paginated so that
+    /// you can retrieve all the items by calling <c>ListLedgers</c> multiple times.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QLDBLedgerList")]
@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in a single <code>ListLedgers</code> request.
-        /// (The actual number of results returned might be fewer.)</para>
+        /// <para>The maximum number of results to return in a single <c>ListLedgers</c> request. (The
+        /// actual number of results returned might be fewer.)</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         /// <summary>
         /// <para>
         /// <para>A pagination token, indicating that you want to retrieve the next page of results.
-        /// If you received a value for <code>NextToken</code> in the response from a previous
-        /// <code>ListLedgers</code> call, then you should use that value as input here.</para>
+        /// If you received a value for <c>NextToken</c> in the response from a previous <c>ListLedgers</c>
+        /// call, then you should use that value as input here.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

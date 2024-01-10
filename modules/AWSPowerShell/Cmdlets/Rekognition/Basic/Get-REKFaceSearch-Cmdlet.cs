@@ -35,30 +35,30 @@ namespace Amazon.PowerShell.Cmdlets.REK
     ///  
     /// <para>
     /// Face search in a video is an asynchronous operation. You start face search by calling
-    /// to <a>StartFaceSearch</a> which returns a job identifier (<code>JobId</code>). When
-    /// the search operation finishes, Amazon Rekognition Video publishes a completion status
+    /// to <a>StartFaceSearch</a> which returns a job identifier (<c>JobId</c>). When the
+    /// search operation finishes, Amazon Rekognition Video publishes a completion status
     /// to the Amazon Simple Notification Service topic registered in the initial call to
-    /// <code>StartFaceSearch</code>. To get the search results, first check that the status
-    /// value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetFaceSearch</code>
-    /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>.
+    /// <c>StartFaceSearch</c>. To get the search results, first check that the status value
+    /// published to the Amazon SNS topic is <c>SUCCEEDED</c>. If so, call <c>GetFaceSearch</c>
+    /// and pass the job identifier (<c>JobId</c>) from the initial call to <c>StartFaceSearch</c>.
     /// </para><para>
     /// For more information, see Searching Faces in a Collection in the Amazon Rekognition
     /// Developer Guide.
     /// </para><para>
-    /// The search results are retured in an array, <code>Persons</code>, of <a>PersonMatch</a>
-    /// objects. Each<code>PersonMatch</code> element contains details about the matching
-    /// faces in the input collection, person information (facial attributes, bounding boxes,
-    /// and person identifer) for the matched person, and the time the person was matched
-    /// in the video.
-    /// </para><note><para><code>GetFaceSearch</code> only returns the default facial attributes (<code>BoundingBox</code>,
-    /// <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>).
-    /// The other facial attributes listed in the <code>Face</code> object of the following
-    /// response syntax are not returned. For more information, see FaceDetail in the Amazon
-    /// Rekognition Developer Guide. 
+    /// The search results are retured in an array, <c>Persons</c>, of <a>PersonMatch</a>
+    /// objects. Each<c>PersonMatch</c> element contains details about the matching faces
+    /// in the input collection, person information (facial attributes, bounding boxes, and
+    /// person identifer) for the matched person, and the time the person was matched in the
+    /// video.
+    /// </para><note><para><c>GetFaceSearch</c> only returns the default facial attributes (<c>BoundingBox</c>,
+    /// <c>Confidence</c>, <c>Landmarks</c>, <c>Pose</c>, and <c>Quality</c>). The other facial
+    /// attributes listed in the <c>Face</c> object of the following response syntax are not
+    /// returned. For more information, see FaceDetail in the Amazon Rekognition Developer
+    /// Guide. 
     /// </para></note><para>
-    /// By default, the <code>Persons</code> array is sorted by the time, in milliseconds
-    /// from the start of the video, persons are matched. You can also sort by persons by
-    /// specifying <code>INDEX</code> for the <code>SORTBY</code> input parameter.
+    /// By default, the <c>Persons</c> array is sorted by the time, in milliseconds from the
+    /// start of the video, persons are matched. You can also sort by persons by specifying
+    /// <c>INDEX</c> for the <c>SORTBY</c> input parameter.
     /// </para><br/><br/>In the AWS.Tools.Rekognition module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "REKFaceSearch")]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>The job identifer for the search request. You get the job identifier from an initial
-        /// call to <code>StartFaceSearch</code>.</para>
+        /// call to <c>StartFaceSearch</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,9 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>Sort to use for grouping faces in the response. Use <code>TIMESTAMP</code> to group
-        /// faces by the time that they are recognized. Use <code>INDEX</code> to sort by recognized
-        /// faces. </para>
+        /// <para>Sort to use for grouping faces in the response. Use <c>TIMESTAMP</c> to group faces
+        /// by the time that they are recognized. Use <c>INDEX</c> to sort by recognized faces.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

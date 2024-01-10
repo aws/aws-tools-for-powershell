@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
     /// cross-account observability</a>.
     /// </para><para>
-    /// You can specify the log group to search by using either <code>logGroupIdentifier</code>
-    /// or <code>logGroupName</code>. You must include one of these two parameters, but you
-    /// can't include both. 
+    /// You can specify the log group to search by using either <c>logGroupIdentifier</c>
+    /// or <c>logGroupName</c>. You must include one of these two parameters, but you can't
+    /// include both. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWLLogEvent")]
@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The end of the time range, expressed as the number of milliseconds after <code>Jan
-        /// 1, 1970 00:00:00 UTC</code>. Events with a timestamp equal to or later than this time
-        /// are not included.</para>
+        /// <para>The end of the time range, expressed as the number of milliseconds after <c>Jan 1,
+        /// 1970 00:00:00 UTC</c>. Events with a timestamp equal to or later than this time are
+        /// not included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>Specify either the name or ARN of the log group to view events from. If the log group
         /// is in a source account and you are using a monitoring account, you must use the log
-        /// group ARN.</para><note><para> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>,
-        /// but not both. </para></note>
+        /// group ARN.</para><note><para> You must include either <c>logGroupIdentifier</c> or <c>logGroupName</c>, but not
+        /// both. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group.</para><note><para> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>,
-        /// but not both. </para></note>
+        /// <para>The name of the log group.</para><note><para> You must include either <c>logGroupIdentifier</c> or <c>logGroupName</c>, but not
+        /// both. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -116,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>If the value is true, the earliest log events are returned first. If the value is
-        /// false, the latest log events are returned first. The default value is false.</para><para>If you are using a previous <code>nextForwardToken</code> value as the <code>nextToken</code>
-        /// in this operation, you must specify <code>true</code> for <code>startFromHead</code>.</para>
+        /// false, the latest log events are returned first. The default value is false.</para><para>If you are using a previous <c>nextForwardToken</c> value as the <c>nextToken</c>
+        /// in this operation, you must specify <c>true</c> for <c>startFromHead</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The start of the time range, expressed as the number of milliseconds after <code>Jan
-        /// 1, 1970 00:00:00 UTC</code>. Events with a timestamp equal to this time or later than
+        /// <para>The start of the time range, expressed as the number of milliseconds after <c>Jan
+        /// 1, 1970 00:00:00 UTC</c>. Events with a timestamp equal to this time or later than
         /// this time are included. Events with a timestamp earlier than this time are not included.</para>
         /// </para>
         /// </summary>
@@ -139,9 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Unmask
         /// <summary>
         /// <para>
-        /// <para>Specify <code>true</code> to display the log event fields with all sensitive data
-        /// unmasked and visible. The default is <code>false</code>.</para><para>To use this operation with this parameter, you must be signed into an account with
-        /// the <code>logs:Unmask</code> permission.</para>
+        /// <para>Specify <c>true</c> to display the log event fields with all sensitive data unmasked
+        /// and visible. The default is <c>false</c>.</para><para>To use this operation with this parameter, you must be signed into an account with
+        /// the <c>logs:Unmask</c> permission.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
 {
     /// <summary>
     /// Create a scheduled query that will be run on your behalf at the configured schedule.
-    /// Timestream assumes the execution role provided as part of the <code>ScheduledQueryExecutionRoleArn</code>
-    /// parameter to run the query. You can use the <code>NotificationConfiguration</code>
-    /// parameter to configure notification for your scheduled query operations.
+    /// Timestream assumes the execution role provided as part of the <c>ScheduledQueryExecutionRoleArn</c>
+    /// parameter to run the query. You can use the <c>NotificationConfiguration</c> parameter
+    /// to configure notification for your scheduled query operations.
     /// </summary>
     [Cmdlet("New", "TSQScheduledQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -107,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         /// <para>The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon
         /// KMS key is not specified, the scheduled query resource will be encrypted with a Timestream
         /// owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or
-        /// alias ARN. When using an alias name, prefix the name with <i>alias/</i></para><para>If ErrorReportConfiguration uses <code>SSE_KMS</code> as encryption type, the same
-        /// KmsKeyId is used to encrypt the error report at rest.</para>
+        /// alias ARN. When using an alias name, prefix the name with <i>alias/</i></para><para>If ErrorReportConfiguration uses <c>SSE_KMS</c> as encryption type, the same KmsKeyId
+        /// is used to encrypt the error report at rest.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,13 +181,13 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         #region Parameter QueryString
         /// <summary>
         /// <para>
-        /// <para>The query string to run. Parameter names can be specified in the query string <code>@</code>
-        /// character followed by an identifier. The named Parameter <code>@scheduled_runtime</code>
+        /// <para>The query string to run. Parameter names can be specified in the query string <c>@</c>
+        /// character followed by an identifier. The named Parameter <c>@scheduled_runtime</c>
         /// is reserved and can be used in the query to get the time at which the query is scheduled
         /// to run.</para><para>The timestamp calculated according to the ScheduleConfiguration parameter, will be
-        /// the value of <code>@scheduled_runtime</code> paramater for each query run. For example,
+        /// the value of <c>@scheduled_runtime</c> paramater for each query run. For example,
         /// consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this
-        /// instance, the <code>@scheduled_runtime</code> parameter is initialized to the timestamp
+        /// instance, the <c>@scheduled_runtime</c> parameter is initialized to the timestamp
         /// 2021-12-01 00:00:00 when invoking the query.</para>
         /// </para>
         /// </summary>
@@ -309,9 +309,9 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         /// <para>
         /// <para>Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words,
         /// making the same request repeatedly will produce the same result. Making multiple identical
-        /// CreateScheduledQuery requests has the same effect as making a single request. </para><ul><li><para> If CreateScheduledQuery is called without a <code>ClientToken</code>, the Query SDK
-        /// generates a <code>ClientToken</code> on your behalf.</para></li><li><para> After 8 hours, any request with the same <code>ClientToken</code> is treated as a
-        /// new request. </para></li></ul>
+        /// CreateScheduledQuery requests has the same effect as making a single request. </para><ul><li><para> If CreateScheduledQuery is called without a <c>ClientToken</c>, the Query SDK generates
+        /// a <c>ClientToken</c> on your behalf.</para></li><li><para> After 8 hours, any request with the same <c>ClientToken</c> is treated as a new request.
+        /// </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

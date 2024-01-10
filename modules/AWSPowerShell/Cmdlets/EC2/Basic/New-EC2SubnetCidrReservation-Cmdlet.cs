@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The type of reservation. The reservation type determines how the reserved IP addresses
-        /// are assigned to resources.</para><ul><li><para><code>prefix</code> - Amazon Web Services assigns the reserved IP addresses to network
-        /// interfaces.</para></li><li><para><code>explicit</code> - You assign the reserved IP addresses to network interfaces.</para></li></ul>
+        /// are assigned to resources.</para><ul><li><para><c>prefix</c> - Amazon Web Services assigns the reserved IP addresses to network
+        /// interfaces.</para></li><li><para><c>explicit</c> - You assign the reserved IP addresses to network interfaces.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

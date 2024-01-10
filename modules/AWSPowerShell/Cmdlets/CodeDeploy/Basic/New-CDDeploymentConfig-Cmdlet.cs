@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter TimeBasedCanary_CanaryInterval
         /// <summary>
         /// <para>
-        /// <para>The number of minutes between the first and second traffic shifts of a <code>TimeBasedCanary</code>
+        /// <para>The number of minutes between the first and second traffic shifts of a <c>TimeBasedCanary</c>
         /// deployment.</para>
         /// </para>
         /// </summary>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter TimeBasedCanary_CanaryPercentage
         /// <summary>
         /// <para>
-        /// <para>The percentage of traffic to shift in the first increment of a <code>TimeBasedCanary</code>
+        /// <para>The percentage of traffic to shift in the first increment of a <c>TimeBasedCanary</c>
         /// deployment.</para>
         /// </para>
         /// </summary>
@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ComputePlatform
         /// <summary>
         /// <para>
-        /// <para>The destination platform type for the deployment (<code>Lambda</code>, <code>Server</code>,
-        /// or <code>ECS</code>).</para>
+        /// <para>The destination platform type for the deployment (<c>Lambda</c>, <c>Server</c>, or
+        /// <c>ECS</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// to the <i>first</i> Availability Zone. CodeDeploy will wait this amount of time before
         /// starting a deployment to the second Availability Zone. You might set this option if
         /// you want to allow extra bake time for the first Availability Zone. If you don't specify
-        /// a value for <code>firstZoneMonitorDurationInSeconds</code>, then CodeDeploy uses the
-        /// <code>monitorDurationInSeconds</code> value for the first Availability Zone.</para><para>For more information about the zonal configuration feature, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config">zonal
+        /// a value for <c>firstZoneMonitorDurationInSeconds</c>, then CodeDeploy uses the <c>monitorDurationInSeconds</c>
+        /// value for the first Availability Zone.</para><para>For more information about the zonal configuration feature, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config">zonal
         /// configuration</a> in the <i>CodeDeploy User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter TimeBasedLinear_LinearInterval
         /// <summary>
         /// <para>
-        /// <para>The number of minutes between each incremental traffic shift of a <code>TimeBasedLinear</code>
+        /// <para>The number of minutes between each incremental traffic shift of a <c>TimeBasedLinear</c>
         /// deployment.</para>
         /// </para>
         /// </summary>
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter TimeBasedLinear_LinearPercentage
         /// <summary>
         /// <para>
-        /// <para>The percentage of traffic that is shifted at the start of each increment of a <code>TimeBasedLinear</code>
+        /// <para>The percentage of traffic that is shifted at the start of each increment of a <c>TimeBasedLinear</c>
         /// deployment.</para>
         /// </para>
         /// </summary>
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// to an Availability Zone. CodeDeploy will wait this amount of time before starting
         /// a deployment to the next Availability Zone. Consider adding a monitor duration to
         /// give the deployment some time to prove itself (or 'bake') in one Availability Zone
-        /// before it is released in the next zone. If you don't specify a <code>monitorDurationInSeconds</code>,
+        /// before it is released in the next zone. If you don't specify a <c>monitorDurationInSeconds</c>,
         /// CodeDeploy starts deploying to the next Availability Zone immediately.</para><para>For more information about the zonal configuration feature, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config">zonal
         /// configuration</a> in the <i>CodeDeploy User Guide</i>.</para>
         /// </para>
@@ -156,13 +156,13 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter MinimumHealthyHosts_Type
         /// <summary>
         /// <para>
-        /// <para>The minimum healthy instance type:</para><ul><li><para><code>HOST_COUNT</code>: The minimum number of healthy instances as an absolute value.</para></li><li><para><code>FLEET_PERCENT</code>: The minimum number of healthy instances as a percentage
-        /// of the total number of instances in the deployment.</para></li></ul><para>In an example of nine instances, if a HOST_COUNT of six is specified, deploy to up
+        /// <para>The minimum healthy instance type:</para><ul><li><para><c>HOST_COUNT</c>: The minimum number of healthy instances as an absolute value.</para></li><li><para><c>FLEET_PERCENT</c>: The minimum number of healthy instances as a percentage of
+        /// the total number of instances in the deployment.</para></li></ul><para>In an example of nine instances, if a HOST_COUNT of six is specified, deploy to up
         /// to three instances at a time. The deployment is successful if six or more instances
         /// are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT
         /// of 40 is specified, deploy to up to five instances at a time. The deployment is successful
         /// if four or more instances are deployed to successfully. Otherwise, the deployment
-        /// fails.</para><note><para>In a call to the <code>GetDeploymentConfig</code>, CodeDeployDefault.OneAtATime returns
+        /// fails.</para><note><para>In a call to the <c>GetDeploymentConfig</c>, CodeDeployDefault.OneAtATime returns
         /// a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a
         /// deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY,
         /// only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime,
@@ -181,8 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter TrafficRoutingConfig_Type
         /// <summary>
         /// <para>
-        /// <para>The type of traffic shifting (<code>TimeBasedCanary</code> or <code>TimeBasedLinear</code>)
-        /// used by a deployment configuration.</para>
+        /// <para>The type of traffic shifting (<c>TimeBasedCanary</c> or <c>TimeBasedLinear</c>) used
+        /// by a deployment configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,8 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter MinimumHealthyHostsPerZone_Type
         /// <summary>
         /// <para>
-        /// <para>The <code>type</code> associated with the <code>MinimumHealthyHostsPerZone</code>
-        /// option.</para>
+        /// <para>The <c>type</c> associated with the <c>MinimumHealthyHostsPerZone</c> option.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,8 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter MinimumHealthyHostsPerZone_Value
         /// <summary>
         /// <para>
-        /// <para>The <code>value</code> associated with the <code>MinimumHealthyHostsPerZone</code>
-        /// option.</para>
+        /// <para>The <c>value</c> associated with the <c>MinimumHealthyHostsPerZone</c> option.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

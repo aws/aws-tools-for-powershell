@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Associate one or more <code>DBProxyTarget</code> data structures with a <code>DBProxyTargetGroup</code>.
+    /// Associate one or more <c>DBProxyTarget</c> data structures with a <c>DBProxyTargetGroup</c>.
     /// </summary>
     [Cmdlet("Register", "RDSDBProxyTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBProxyTarget")]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBProxyName
         /// <summary>
         /// <para>
-        /// <para>The identifier of the <code>DBProxy</code> that is associated with the <code>DBProxyTargetGroup</code>.</para>
+        /// <para>The identifier of the <c>DBProxy</c> that is associated with the <c>DBProxyTargetGroup</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TargetGroupName
         /// <summary>
         /// <para>
-        /// <para>The identifier of the <code>DBProxyTargetGroup</code>.</para>
+        /// <para>The identifier of the <c>DBProxyTargetGroup</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

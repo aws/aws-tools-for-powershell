@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     /// 
     ///  
     /// <para>
-    /// Specify a <code>listener</code> for any inbound traffic that your virtual router receives.
+    /// Specify a <c>listener</c> for any inbound traffic that your virtual router receives.
     /// Create a virtual router for each protocol and port that you need to route. Virtual
     /// routers handle traffic for one or more virtual services within your mesh. After you
     /// create your virtual router, create and associate routes for your virtual router that

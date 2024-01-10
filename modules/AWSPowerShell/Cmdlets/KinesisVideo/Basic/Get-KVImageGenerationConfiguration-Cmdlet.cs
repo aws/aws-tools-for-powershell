@@ -28,7 +28,7 @@ using Amazon.KinesisVideo.Model;
 namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
-    /// Gets the <code>ImageGenerationConfiguration</code> for a given Kinesis video stream.
+    /// Gets the <c>ImageGenerationConfiguration</c> for a given Kinesis video stream.
     /// </summary>
     [Cmdlet("Get", "KVImageGenerationConfiguration")]
     [OutputType("Amazon.KinesisVideo.Model.ImageGenerationConfiguration")]
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Kinesis video stream from which to retrieve
-        /// the image generation configuration. You must specify either the <code>StreamName</code>
-        /// or the <code>StreamARN</code>.</para>
+        /// the image generation configuration. You must specify either the <c>StreamName</c>
+        /// or the <c>StreamARN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -58,8 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The name of the stream from which to retrieve the image generation configuration.
-        /// You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.
-        /// </para>
+        /// You must specify either the <c>StreamName</c> or the <c>StreamARN</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter AvailabilityZoneFilter
         /// <summary>
         /// <para>
-        /// <para>Filters the results by Availability Zone (for example, <code>us-east-1a</code>).</para>
+        /// <para>Filters the results by Availability Zone (for example, <c>us-east-1a</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter AvailabilityZoneIdFilter
         /// <summary>
         /// <para>
-        /// <para>Filters the results by AZ ID (for example, <code>use1-az1</code>).</para>
+        /// <para>Filters the results by AZ ID (for example, <c>use1-az1</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

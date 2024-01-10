@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DestinationProperties_DestinationArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource to publish to.</para><para>To specify an S3 bucket folder use the following format: <code>arn:aws:s3:::DOC-EXAMPLE-BUCKET/myFolder/</code></para>
+        /// <para>The ARN of the resource to publish to.</para><para>To specify an S3 bucket folder use the following format: <c>arn:aws:s3:::DOC-EXAMPLE-BUCKET/myFolder/</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

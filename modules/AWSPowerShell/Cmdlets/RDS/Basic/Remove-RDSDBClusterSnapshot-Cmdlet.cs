@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// is terminated.
     /// 
     ///  <note><para>
-    /// The DB cluster snapshot must be in the <code>available</code> state to be deleted.
+    /// The DB cluster snapshot must be in the <c>available</c> state to be deleted.
     /// </para></note><para>
     /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
     /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the DB cluster snapshot to delete.</para><para>Constraints: Must be the name of an existing DB cluster snapshot in the <code>available</code>
+        /// <para>The identifier of the DB cluster snapshot to delete.</para><para>Constraints: Must be the name of an existing DB cluster snapshot in the <c>available</c>
         /// state.</para>
         /// </para>
         /// </summary>

@@ -41,10 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// an Amazon Web Services managed key that has an attached attestation-based key policy.
     /// </para><para>
     /// To enable the IAM role to access the Amazon S3 object, you must grant it permission
-    /// to call <code>s3:GetObject</code> on the Amazon S3 bucket returned by the command.
-    /// To enable the IAM role to access the KMS key, you must grant it permission to call
-    /// <code>kms:Decrypt</code> on the KMS key returned by the command. For more information,
-    /// see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy">
+    /// to call <c>s3:GetObject</c> on the Amazon S3 bucket returned by the command. To enable
+    /// the IAM role to access the KMS key, you must grant it permission to call <c>kms:Decrypt</c>
+    /// on the KMS key returned by the command. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy">
     /// Grant the role permission to access the certificate and encryption key</a> in the
     /// <i>Amazon Web Services Nitro Enclaves User Guide</i>.
     /// </para>

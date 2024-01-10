@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Create a dimension that you can use to limit the scope of a metric used in a security
-    /// profile for IoT Device Defender. For example, using a <code>TOPIC_FILTER</code> dimension,
+    /// profile for IoT Device Defender. For example, using a <c>TOPIC_FILTER</c> dimension,
     /// you can narrow down the scope of the metric only to MQTT topics whose name match the
     /// pattern specified in the dimension.
     /// 
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter StringValue
         /// <summary>
         /// <para>
-        /// <para>Specifies the value or list of values for the dimension. For <code>TOPIC_FILTER</code>
-        /// dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").</para>
+        /// <para>Specifies the value or list of values for the dimension. For <c>TOPIC_FILTER</c> dimensions,
+        /// this is a pattern used to match the MQTT topic (for example, "admin/#").</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of dimension. Supported types: <code>TOPIC_FILTER.</code></para>
+        /// <para>Specifies the type of dimension. Supported types: <c>TOPIC_FILTER.</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

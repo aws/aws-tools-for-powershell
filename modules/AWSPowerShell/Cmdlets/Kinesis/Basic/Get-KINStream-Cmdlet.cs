@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// API to list the shards in a specified data stream and obtain information about each
     /// shard. 
     /// </para></note><note><para>
-    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
-    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
-    /// parameter when you invoke this API.
+    /// When invoking this API, you must use either the <c>StreamARN</c> or the <c>StreamName</c>
+    /// parameter, or both. It is recommended that you use the <c>StreamARN</c> input parameter
+    /// when you invoke this API.
     /// </para></note><para>
     /// The information returned includes the stream name, Amazon Resource Name (ARN), creation
     /// time, enhanced metric configuration, and shard map. The shard map is an array of shard
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <summary>
         /// <para>
         /// <para>The shard ID of the shard to start with.</para><para>Specify this parameter to indicate that you want to describe the stream starting with
-        /// the shard whose ID immediately follows <code>ExclusiveStartShardId</code>.</para><para>If you don't specify this parameter, the default behavior for <code>DescribeStream</code>
+        /// the shard whose ID immediately follows <c>ExclusiveStartShardId</c>.</para><para>If you don't specify this parameter, the default behavior for <c>DescribeStream</c>
         /// is to describe the stream starting with the first shard in the stream.</para>
         /// </para>
         /// </summary>

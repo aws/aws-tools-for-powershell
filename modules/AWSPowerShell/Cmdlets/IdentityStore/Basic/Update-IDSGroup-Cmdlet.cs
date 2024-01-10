@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter Operation
         /// <summary>
         /// <para>
-        /// <para>A list of <code>AttributeOperation</code> objects to apply to the requested group.
-        /// These operations might add, replace, or remove an attribute.</para>
+        /// <para>A list of <c>AttributeOperation</c> objects to apply to the requested group. These
+        /// operations might add, replace, or remove an attribute.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

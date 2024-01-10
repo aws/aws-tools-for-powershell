@@ -33,10 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
-    /// CloudWatch Logs doesn’t support IAM policies that control access to the <code>DescribeLogGroups</code>
-    /// action by using the <code>aws:ResourceTag/<i>key-name</i></code> condition key. Other
-    /// CloudWatch Logs actions do support the use of the <code>aws:ResourceTag/<i>key-name</i></code> condition key to control access. For more information about using tags to
-    /// control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling
+    /// CloudWatch Logs doesn’t support IAM policies that control access to the <c>DescribeLogGroups</c>
+    /// action by using the <c>aws:ResourceTag/<i>key-name</i></c> condition key. Other CloudWatch
+    /// Logs actions do support the use of the <c>aws:ResourceTag/<i>key-name</i></c> condition
+    /// key to control access. For more information about using tags to control access, see
+    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling
     /// access to Amazon Web Services resources using tags</a>.
     /// </para><para>
     /// If you are using CloudWatch cross-account observability, you can use this operation
@@ -60,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter AccountIdentifier
         /// <summary>
         /// <para>
-        /// <para>When <code>includeLinkedAccounts</code> is set to <code>True</code>, use this parameter
-        /// to specify the list of accounts to search. You can specify as many as 20 account IDs
-        /// in the array. </para>
+        /// <para>When <c>includeLinkedAccounts</c> is set to <c>True</c>, use this parameter to specify
+        /// the list of accounts to search. You can specify as many as 20 account IDs in the array.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,11 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter IncludeLinkedAccount
         /// <summary>
         /// <para>
-        /// <para>If you are using a monitoring account, set this to <code>True</code> to have the operation
-        /// return log groups in the accounts listed in <code>accountIdentifiers</code>.</para><para>If this parameter is set to <code>true</code> and <code>accountIdentifiers</code>
-        /// contains a null value, the operation returns all log groups in the monitoring account
-        /// and all log groups in all source accounts that are linked to the monitoring account.
-        /// </para>
+        /// <para>If you are using a monitoring account, set this to <c>True</c> to have the operation
+        /// return log groups in the accounts listed in <c>accountIdentifiers</c>.</para><para>If this parameter is set to <c>true</c> and <c>accountIdentifiers</c> contains a null
+        /// value, the operation returns all log groups in the monitoring account and all log
+        /// groups in all source accounts that are linked to the monitoring account. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupClass
         /// <summary>
         /// <para>
-        /// <para>Specifies the log group class for this log group. There are two classes:</para><ul><li><para>The <code>Standard</code> log class supports all CloudWatch Logs features.</para></li><li><para>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs
-        /// features and incurs lower costs.</para></li></ul><para>For details about the features supported by each class, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log
+        /// <para>Specifies the log group class for this log group. There are two classes:</para><ul><li><para>The <c>Standard</c> log class supports all CloudWatch Logs features.</para></li><li><para>The <c>Infrequent Access</c> log class supports a subset of CloudWatch Logs features
+        /// and incurs lower costs.</para></li></ul><para>For details about the features supported by each class, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log
         /// classes</a></para>
         /// </para>
         /// </summary>
@@ -103,12 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>If you specify a string for this parameter, the operation returns only log groups
         /// that have names that match the string based on a case-sensitive substring search.
-        /// For example, if you specify <code>Foo</code>, log groups named <code>FooBar</code>,
-        /// <code>aws/Foo</code>, and <code>GroupFoo</code> would match, but <code>foo</code>,
-        /// <code>F/o/o</code> and <code>Froo</code> would not match.</para><para>If you specify <code>logGroupNamePattern</code> in your request, then only <code>arn</code>,
-        /// <code>creationTime</code>, and <code>logGroupName</code> are included in the response.
-        /// </para><note><para><code>logGroupNamePattern</code> and <code>logGroupNamePrefix</code> are mutually
-        /// exclusive. Only one of these parameters can be passed. </para></note>
+        /// For example, if you specify <c>Foo</c>, log groups named <c>FooBar</c>, <c>aws/Foo</c>,
+        /// and <c>GroupFoo</c> would match, but <c>foo</c>, <c>F/o/o</c> and <c>Froo</c> would
+        /// not match.</para><para>If you specify <c>logGroupNamePattern</c> in your request, then only <c>arn</c>, <c>creationTime</c>,
+        /// and <c>logGroupName</c> are included in the response. </para><note><para><c>logGroupNamePattern</c> and <c>logGroupNamePrefix</c> are mutually exclusive.
+        /// Only one of these parameters can be passed. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupNamePrefix
         /// <summary>
         /// <para>
-        /// <para>The prefix to match.</para><note><para><code>logGroupNamePrefix</code> and <code>logGroupNamePattern</code> are mutually
-        /// exclusive. Only one of these parameters can be passed. </para></note>
+        /// <para>The prefix to match.</para><note><para><c>logGroupNamePrefix</c> and <c>logGroupNamePattern</c> are mutually exclusive.
+        /// Only one of these parameters can be passed. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

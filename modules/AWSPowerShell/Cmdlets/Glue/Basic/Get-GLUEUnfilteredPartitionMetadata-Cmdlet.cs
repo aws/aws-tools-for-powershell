@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// 
     ///  
     /// <para>
-    /// For IAM authorization, the public IAM action associated with this API is <code>glue:GetPartition</code>.
+    /// For IAM authorization, the public IAM action associated with this API is <c>glue:GetPartition</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "GLUEUnfilteredPartitionMetadata")]

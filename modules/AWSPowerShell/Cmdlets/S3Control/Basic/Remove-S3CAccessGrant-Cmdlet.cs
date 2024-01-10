@@ -32,8 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// grant deletion and the grantee will no longer have access to the S3 data.
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3:DeleteAccessGrant</code> permission to use this operation.
-    /// 
+    /// You must have the <c>s3:DeleteAccessGrant</c> permission to use this operation. 
     /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Remove", "S3CAccessGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -30,9 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
     /// <summary>
     /// Gets information about the index fields configured for the search domain. Can be limited
     /// to specific fields by name. By default, shows all fields and includes any pending
-    /// changes to the configuration. Set the <code>Deployed</code> option to <code>true</code>
-    /// to show the active configuration and exclude pending changes. For more information,
-    /// see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html" target="_blank">Getting Domain Information</a> in the <i>Amazon CloudSearch Developer
+    /// changes to the configuration. Set the <c>Deployed</c> option to <c>true</c> to show
+    /// the active configuration and exclude pending changes. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html" target="_blank">Getting Domain Information</a> in the <i>Amazon CloudSearch Developer
     /// Guide</i>.
     /// </summary>
     [Cmdlet("Get", "CSIndexField")]
@@ -50,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
         #region Parameter Deployed
         /// <summary>
         /// <para>
-        /// <para>Whether to display the deployed configuration (<code>true</code>) or include any pending
-        /// changes (<code>false</code>). Defaults to <code>false</code>.</para>
+        /// <para>Whether to display the deployed configuration (<c>true</c>) or include any pending
+        /// changes (<c>false</c>). Defaults to <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

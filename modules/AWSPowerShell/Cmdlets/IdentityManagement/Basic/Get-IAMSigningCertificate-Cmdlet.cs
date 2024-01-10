@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     /// Although each user is limited to a small number of signing certificates, you can still
-    /// paginate the results using the <code>MaxItems</code> and <code>Marker</code> parameters.
+    /// paginate the results using the <c>MaxItems</c> and <c>Marker</c> parameters.
     /// </para><para>
-    /// If the <code>UserName</code> field is not specified, the user name is determined implicitly
+    /// If the <c>UserName</c> field is not specified, the user name is determined implicitly
     /// based on the Amazon Web Services access key ID used to sign the request for this operation.
     /// This operation works for access keys under the Amazon Web Services account. Consequently,
     /// you can use this operation to manage Amazon Web Services account root user credentials
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only after you receive a response
-        /// indicating that the results are truncated. Set it to the value of the <code>Marker</code>
+        /// indicating that the results are truncated. Set it to the value of the <c>Marker</c>
         /// element in the response that you received to indicate where the next call should start.</para>
         /// </para>
         /// <para>
@@ -89,11 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
         /// want in the response. If additional items exist beyond the maximum you specify, the
-        /// <code>IsTruncated</code> response element is <code>true</code>.</para><para>If you do not include this parameter, the number of items defaults to 100. Note that
+        /// <c>IsTruncated</c> response element is <c>true</c>.</para><para>If you do not include this parameter, the number of items defaults to 100. Note that
         /// IAM might return fewer results, even when there are more results available. In that
-        /// case, the <code>IsTruncated</code> response element returns <code>true</code>, and
-        /// <code>Marker</code> contains a value to include in the subsequent call that tells
-        /// the service where to continue from.</para>
+        /// case, the <c>IsTruncated</c> response element returns <c>true</c>, and <c>Marker</c>
+        /// contains a value to include in the subsequent call that tells the service where to
+        /// continue from.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

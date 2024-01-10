@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter MessageId
         /// <summary>
         /// <para>
-        /// <para>If message ID is <code>"*"</code>, it cleares the entire downlink queue for a given
-        /// device, specified by the wireless device ID. Otherwise, the downlink message with
-        /// the specified message ID will be deleted.</para>
+        /// <para>If message ID is <c>"*"</c>, it cleares the entire downlink queue for a given device,
+        /// specified by the wireless device ID. Otherwise, the downlink message with the specified
+        /// message ID will be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.ChimeSDKIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMID
 {
     /// <summary>
-    /// Deletes an <code>AppInstanceUser</code>.
+    /// Deletes an <c>AppInstanceUser</c>.
     /// </summary>
     [Cmdlet("Remove", "CHMIDAppInstanceUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

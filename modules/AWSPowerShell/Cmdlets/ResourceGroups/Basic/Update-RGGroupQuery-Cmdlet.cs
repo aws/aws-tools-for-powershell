@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     ///  
     /// <para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para><code>resource-groups:UpdateGroupQuery</code></para></li></ul>
+    /// </para><ul><li><para><c>resource-groups:UpdateGroupQuery</c></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "RGGroupQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResourceGroups.Model.GroupQuery")]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// <summary>
         /// <para>
         /// <para>The resource query to determine which Amazon Web Services resources are members of
-        /// this resource group.</para><note><para>A resource group can contain either a <code>Configuration</code> or a <code>ResourceQuery</code>,
+        /// this resource group.</para><note><para>A resource group can contain either a <c>Configuration</c> or a <c>ResourceQuery</c>,
         /// but not both.</para></note>
         /// </para>
         /// </summary>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>Don't use this parameter. Use <code>Group</code> instead.</para>
+        /// <para>Don't use this parameter. Use <c>Group</c> instead.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

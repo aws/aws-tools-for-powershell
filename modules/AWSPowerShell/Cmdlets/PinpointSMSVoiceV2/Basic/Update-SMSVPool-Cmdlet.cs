@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
     /// Updates the configuration of an existing pool. You can update the opt-out list, enable
-    /// or disable two-way messaging, change the <code>TwoWayChannelArn</code>, enable or
-    /// disable self-managed opt-outs, enable or disable deletion protection, and enable or
-    /// disable shared routes.
+    /// or disable two-way messaging, change the <c>TwoWayChannelArn</c>, enable or disable
+    /// self-managed opt-outs, enable or disable deletion protection, and enable or disable
+    /// shared routes.
     /// </summary>
     [Cmdlet("Update", "SMSVPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.UpdatePoolResponse")]

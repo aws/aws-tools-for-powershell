@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
     /// <summary>
     /// Creates and returns access and refresh tokens for clients and applications that are
     /// authenticated using IAM entities. The access token can be used to fetch short-term
-    /// credentials for the assigned AWS accounts or to access application APIs using <code>bearer</code>
+    /// credentials for the assigned AWS accounts or to access application APIs using <c>bearer</c>
     /// authentication.
     /// </summary>
     [Cmdlet("New", "SSOOIDCTokenWithIAM", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         /// <para>
         /// <para>Supports the following OAuth grant types: Authorization Code, Refresh Token, JWT Bearer,
         /// and Token Exchange. Specify one of the following values, depending on the grant type
-        /// that you want:</para><para>* Authorization Code - <code>authorization_code</code></para><para>* Refresh Token - <code>refresh_token</code></para><para>* JWT Bearer - <code>urn:ietf:params:oauth:grant-type:jwt-bearer</code></para><para>* Token Exchange - <code>urn:ietf:params:oauth:grant-type:token-exchange</code></para>
+        /// that you want:</para><para>* Authorization Code - <c>authorization_code</c></para><para>* Refresh Token - <c>refresh_token</c></para><para>* JWT Bearer - <c>urn:ietf:params:oauth:grant-type:jwt-bearer</c></para><para>* Token Exchange - <c>urn:ietf:params:oauth:grant-type:token-exchange</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         /// <summary>
         /// <para>
         /// <para>Used only when calling this API for the Token Exchange grant type. This value specifies
-        /// the type of token that the requester can receive. The following values are supported:</para><para>* Access Token - <code>urn:ietf:params:oauth:token-type:access_token</code></para><para>* Refresh Token - <code>urn:ietf:params:oauth:token-type:refresh_token</code></para>
+        /// the type of token that the requester can receive. The following values are supported:</para><para>* Access Token - <c>urn:ietf:params:oauth:token-type:access_token</c></para><para>* Refresh Token - <c>urn:ietf:params:oauth:token-type:refresh_token</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         /// <para>The list of scopes for which authorization is requested. The access token that is
         /// issued is limited to the scopes that are granted. If the value is not specified, IAM
         /// Identity Center authorizes all scopes configured for the application, including the
-        /// following default scopes: <code>openid</code>, <code>aws</code>, <code>sts:identity_context</code>.</para>
+        /// following default scopes: <c>openid</c>, <c>aws</c>, <c>sts:identity_context</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         /// <para>
         /// <para>Used only when calling this API for the Token Exchange grant type. This value specifies
         /// the type of token that is passed as the subject of the exchange. The following value
-        /// is supported:</para><para>* Access Token - <code>urn:ietf:params:oauth:token-type:access_token</code></para>
+        /// is supported:</para><para>* Access Token - <c>urn:ietf:params:oauth:token-type:access_token</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions to perform the <code>lookoutvision:TagResource</code>
+    /// This operation requires permissions to perform the <c>lookoutvision:TagResource</c>
     /// operation.
     /// </para>
     /// </summary>

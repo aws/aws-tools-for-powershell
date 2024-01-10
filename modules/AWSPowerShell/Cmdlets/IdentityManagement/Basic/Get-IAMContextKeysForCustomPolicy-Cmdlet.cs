@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <para>
     /// Context keys are variables maintained by Amazon Web Services and its services that
     /// provide details about the context of an API query request. Context keys can be evaluated
-    /// by testing against a value specified in an IAM policy. Use <code>GetContextKeysForCustomPolicy</code>
+    /// by testing against a value specified in an IAM policy. Use <c>GetContextKeysForCustomPolicy</c>
     /// to understand what key names and values you must supply when you call <a>SimulateCustomPolicy</a>.
     /// Note that all parameters are shown in unencoded form here for clarity but must be
     /// URL encoded to be included as a part of a real HTML request.
@@ -60,10 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>A list of policies for which you want the list of context keys referenced in those
         /// policies. Each document is specified as a string containing the complete, valid JSON
         /// text of an IAM policy.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
-        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<code>\u0020</code>)
-        /// through the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
-        /// <code>\u00FF</code>)</para></li><li><para>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>),
-        /// and carriage return (<code>\u000D</code>)</para></li></ul>
+        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<c>\u0020</c>) through
+        /// the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// <c>\u00FF</c>)</para></li><li><para>The special characters tab (<c>\u0009</c>), line feed (<c>\u000A</c>), and carriage
+        /// return (<c>\u000D</c>)</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

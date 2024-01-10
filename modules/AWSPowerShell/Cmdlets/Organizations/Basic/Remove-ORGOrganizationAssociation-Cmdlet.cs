@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </para><important><ul><li><para>
     /// The management account in an organization with all features enabled can set service
     /// control policies (SCPs) that can restrict what administrators of member accounts can
-    /// do. This includes preventing them from successfully calling <code>LeaveOrganization</code>
+    /// do. This includes preventing them from successfully calling <c>LeaveOrganization</c>
     /// and leaving the organization.
     /// </para></li><li><para>
     /// You can leave an organization as a member account only if the account is configured
@@ -78,9 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// If you get an error that indicates that a wait period is required, then try again
     /// in a few days.
     /// </para></li><li><para>
-    /// If you are using an organization principal to call <code>LeaveOrganization</code>
-    /// across multiple accounts, you can only do this up to 5 accounts per second in a single
-    /// organization.
+    /// If you are using an organization principal to call <c>LeaveOrganization</c> across
+    /// multiple accounts, you can only do this up to 5 accounts per second in a single organization.
     /// </para></li></ul></important>
     /// </summary>
     [Cmdlet("Remove", "ORGOrganizationAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

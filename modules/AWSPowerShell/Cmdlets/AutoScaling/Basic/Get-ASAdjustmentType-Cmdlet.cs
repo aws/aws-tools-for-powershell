@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// The following adjustment types are supported:
-    /// </para><ul><li><para><code>ChangeInCapacity</code></para></li><li><para><code>ExactCapacity</code></para></li><li><para><code>PercentChangeInCapacity</code></para></li></ul>
+    /// </para><ul><li><para><c>ChangeInCapacity</c></para></li><li><para><c>ExactCapacity</c></para></li><li><para><c>PercentChangeInCapacity</c></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "ASAdjustmentType")]
     [OutputType("Amazon.AutoScaling.Model.AdjustmentType")]

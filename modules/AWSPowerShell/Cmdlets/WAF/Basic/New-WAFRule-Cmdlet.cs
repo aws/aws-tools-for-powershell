@@ -35,39 +35,38 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Creates a <code>Rule</code>, which contains the <code>IPSet</code> objects, <code>ByteMatchSet</code>
+    /// Creates a <c>Rule</c>, which contains the <c>IPSet</c> objects, <c>ByteMatchSet</c>
     /// objects, and other predicates that identify the requests that you want to block. If
-    /// you add more than one predicate to a <code>Rule</code>, a request must match all of
-    /// the specifications to be allowed or blocked. For example, suppose that you add the
-    /// following to a <code>Rule</code>:
+    /// you add more than one predicate to a <c>Rule</c>, a request must match all of the
+    /// specifications to be allowed or blocked. For example, suppose that you add the following
+    /// to a <c>Rule</c>:
     /// </para><ul><li><para>
-    /// An <code>IPSet</code> that matches the IP address <code>192.0.2.44/32</code></para></li><li><para>
-    /// A <code>ByteMatchSet</code> that matches <code>BadBot</code> in the <code>User-Agent</code>
-    /// header
+    /// An <c>IPSet</c> that matches the IP address <c>192.0.2.44/32</c></para></li><li><para>
+    /// A <c>ByteMatchSet</c> that matches <c>BadBot</c> in the <c>User-Agent</c> header
     /// </para></li></ul><para>
-    /// You then add the <code>Rule</code> to a <code>WebACL</code> and specify that you want
-    /// to blocks requests that satisfy the <code>Rule</code>. For a request to be blocked,
-    /// it must come from the IP address 192.0.2.44 <i>and</i> the <code>User-Agent</code>
-    /// header in the request must contain the value <code>BadBot</code>.
+    /// You then add the <c>Rule</c> to a <c>WebACL</c> and specify that you want to blocks
+    /// requests that satisfy the <c>Rule</c>. For a request to be blocked, it must come from
+    /// the IP address 192.0.2.44 <i>and</i> the <c>User-Agent</c> header in the request must
+    /// contain the value <c>BadBot</c>.
     /// </para><para>
-    /// To create and configure a <code>Rule</code>, perform the following steps:
+    /// To create and configure a <c>Rule</c>, perform the following steps:
     /// </para><ol><li><para>
-    /// Create and update the predicates that you want to include in the <code>Rule</code>.
-    /// For more information, see <a>CreateByteMatchSet</a>, <a>CreateIPSet</a>, and <a>CreateSqlInjectionMatchSet</a>.
+    /// Create and update the predicates that you want to include in the <c>Rule</c>. For
+    /// more information, see <a>CreateByteMatchSet</a>, <a>CreateIPSet</a>, and <a>CreateSqlInjectionMatchSet</a>.
     /// </para></li><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>CreateRule</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of a <c>CreateRule</c> request.
     /// </para></li><li><para>
-    /// Submit a <code>CreateRule</code> request.
+    /// Submit a <c>CreateRule</c> request.
     /// </para></li><li><para>
-    /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
+    /// Use <c>GetChangeToken</c> to get the change token that you provide in the <c>ChangeToken</c>
     /// parameter of an <a>UpdateRule</a> request.
     /// </para></li><li><para>
-    /// Submit an <code>UpdateRule</code> request to specify the predicates that you want
-    /// to include in the <code>Rule</code>.
+    /// Submit an <c>UpdateRule</c> request to specify the predicates that you want to include
+    /// in the <c>Rule</c>.
     /// </para></li><li><para>
-    /// Create and update a <code>WebACL</code> that contains the <code>Rule</code>. For more
-    /// information, see <a>CreateWebACL</a>.
+    /// Create and update a <c>WebACL</c> that contains the <c>Rule</c>. For more information,
+    /// see <a>CreateWebACL</a>.
     /// </para></li></ol><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
     /// see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
@@ -105,11 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// <para>A friendly name or description for the metrics for this <code>Rule</code>. The name
-        /// can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128
-        /// and minimum length one. It can't contain whitespace or metric names reserved for AWS
-        /// WAF, including "All" and "Default_Action." You can't change the name of the metric
-        /// after you create the <code>Rule</code>.</para>
+        /// <para>A friendly name or description for the metrics for this <c>Rule</c>. The name can
+        /// contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and
+        /// minimum length one. It can't contain whitespace or metric names reserved for AWS WAF,
+        /// including "All" and "Default_Action." You can't change the name of the metric after
+        /// you create the <c>Rule</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -127,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <summary>
         /// <para>
         /// <para>A friendly name or description of the <a>Rule</a>. You can't change the name of a
-        /// <code>Rule</code> after you create it.</para>
+        /// <c>Rule</c> after you create it.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -45,37 +45,36 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Context
         /// <summary>
         /// <para>
-        /// <para>The context for the call to <code>GetDimensionValues</code>. This can be <code>RESERVATIONS</code>
-        /// or <code>COST_AND_USAGE</code>. The default value is <code>COST_AND_USAGE</code>.
-        /// If the context is set to <code>RESERVATIONS</code>, the resulting dimension values
-        /// can be used in the <code>GetReservationUtilization</code> operation. If the context
-        /// is set to <code>COST_AND_USAGE</code>, the resulting dimension values can be used
-        /// in the <code>GetCostAndUsage</code> operation.</para><para>If you set the context to <code>COST_AND_USAGE</code>, you can use the following dimensions
-        /// for searching:</para><ul><li><para>AZ - The Availability Zone. An example is <code>us-east-1a</code>.</para></li><li><para>BILLING_ENTITY - The Amazon Web Services seller that your account is with. Possible
+        /// <para>The context for the call to <c>GetDimensionValues</c>. This can be <c>RESERVATIONS</c>
+        /// or <c>COST_AND_USAGE</c>. The default value is <c>COST_AND_USAGE</c>. If the context
+        /// is set to <c>RESERVATIONS</c>, the resulting dimension values can be used in the <c>GetReservationUtilization</c>
+        /// operation. If the context is set to <c>COST_AND_USAGE</c>, the resulting dimension
+        /// values can be used in the <c>GetCostAndUsage</c> operation.</para><para>If you set the context to <c>COST_AND_USAGE</c>, you can use the following dimensions
+        /// for searching:</para><ul><li><para>AZ - The Availability Zone. An example is <c>us-east-1a</c>.</para></li><li><para>BILLING_ENTITY - The Amazon Web Services seller that your account is with. Possible
         /// values are the following:</para><para>- Amazon Web Services(Amazon Web Services): The entity that sells Amazon Web Services.</para><para>- AISPL (Amazon Internet Services Pvt. Ltd.): The local Indian entity that's an acting
         /// reseller for Amazon Web Services in India.</para><para>- Amazon Web Services Marketplace: The entity that supports the sale of solutions
         /// that are built on Amazon Web Services by third-party software providers.</para></li><li><para>CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are Windows or Linux.</para></li><li><para>DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service deployments. Valid
-        /// values are <code>SingleAZ</code> and <code>MultiAZ</code>.</para></li><li><para>DATABASE_ENGINE - The Amazon Relational Database Service database. Examples are Aurora
-        /// or MySQL.</para></li><li><para>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is <code>m4.xlarge</code>.</para></li><li><para>INSTANCE_TYPE_FAMILY - A family of instance types optimized to fit different use cases.
-        /// Examples are <code>Compute Optimized</code> (for example, <code>C4</code>, <code>C5</code>,
-        /// <code>C6g</code>, and <code>C7g</code>), <code>Memory Optimization</code> (for example,
-        /// <code>R4</code>, <code>R5n</code>, <code>R5b</code>, and <code>R6g</code>).</para></li><li><para>INVOICING_ENTITY - The name of the entity that issues the Amazon Web Services invoice.</para></li><li><para>LEGAL_ENTITY_NAME - The name of the organization that sells you Amazon Web Services
+        /// values are <c>SingleAZ</c> and <c>MultiAZ</c>.</para></li><li><para>DATABASE_ENGINE - The Amazon Relational Database Service database. Examples are Aurora
+        /// or MySQL.</para></li><li><para>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is <c>m4.xlarge</c>.</para></li><li><para>INSTANCE_TYPE_FAMILY - A family of instance types optimized to fit different use cases.
+        /// Examples are <c>Compute Optimized</c> (for example, <c>C4</c>, <c>C5</c>, <c>C6g</c>,
+        /// and <c>C7g</c>), <c>Memory Optimization</c> (for example, <c>R4</c>, <c>R5n</c>, <c>R5b</c>,
+        /// and <c>R6g</c>).</para></li><li><para>INVOICING_ENTITY - The name of the entity that issues the Amazon Web Services invoice.</para></li><li><para>LEGAL_ENTITY_NAME - The name of the organization that sells you Amazon Web Services
         /// services, such as Amazon Web Services.</para></li><li><para>LINKED_ACCOUNT - The description in the attribute map that includes the full name
         /// of the member account. The value field contains the Amazon Web Services ID of the
-        /// member account.</para></li><li><para>OPERATING_SYSTEM - The operating system. Examples are Windows or Linux.</para></li><li><para>OPERATION - The action performed. Examples include <code>RunInstance</code> and <code>CreateBucket</code>.</para></li><li><para>PLATFORM - The Amazon EC2 operating system. Examples are Windows or Linux.</para></li><li><para>PURCHASE_TYPE - The reservation type of the purchase that this usage is related to.
+        /// member account.</para></li><li><para>OPERATING_SYSTEM - The operating system. Examples are Windows or Linux.</para></li><li><para>OPERATION - The action performed. Examples include <c>RunInstance</c> and <c>CreateBucket</c>.</para></li><li><para>PLATFORM - The Amazon EC2 operating system. Examples are Windows or Linux.</para></li><li><para>PURCHASE_TYPE - The reservation type of the purchase that this usage is related to.
         /// Examples include On-Demand Instances and Standard Reserved Instances.</para></li><li><para>RESERVATION_ID - The unique identifier for an Amazon Web Services Reservation Instance.</para></li><li><para>SAVINGS_PLAN_ARN - The unique identifier for your Savings Plans.</para></li><li><para>SAVINGS_PLANS_TYPE - Type of Savings Plans (EC2 Instance or Compute).</para></li><li><para>SERVICE - The Amazon Web Services service such as Amazon DynamoDB.</para></li><li><para>TENANCY - The tenancy of a resource. Examples are shared or dedicated.</para></li><li><para>USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes. The response
-        /// for the <code>GetDimensionValues</code> operation includes a unit attribute. Examples
-        /// include GB and Hrs.</para></li><li><para>USAGE_TYPE_GROUP - The grouping of common usage types. An example is Amazon EC2: CloudWatch
+        /// for the <c>GetDimensionValues</c> operation includes a unit attribute. Examples include
+        /// GB and Hrs.</para></li><li><para>USAGE_TYPE_GROUP - The grouping of common usage types. An example is Amazon EC2: CloudWatch
         /// – Alarms. The response for this operation includes a unit attribute.</para></li><li><para>REGION - The Amazon Web Services Region.</para></li><li><para>RECORD_TYPE - The different types of charges such as Reserved Instance (RI) fees,
         /// usage costs, tax refunds, and credits.</para></li><li><para>RESOURCE_ID - The unique identifier of the resource. ResourceId is an opt-in feature
-        /// only available for last 14 days for EC2-Compute Service.</para></li></ul><para>If you set the context to <code>RESERVATIONS</code>, you can use the following dimensions
-        /// for searching:</para><ul><li><para>AZ - The Availability Zone. An example is <code>us-east-1a</code>.</para></li><li><para>CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are Windows or Linux.</para></li><li><para>DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service deployments. Valid
-        /// values are <code>SingleAZ</code> and <code>MultiAZ</code>.</para></li><li><para>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is <code>m4.xlarge</code>.</para></li><li><para>LINKED_ACCOUNT - The description in the attribute map that includes the full name
+        /// only available for last 14 days for EC2-Compute Service.</para></li></ul><para>If you set the context to <c>RESERVATIONS</c>, you can use the following dimensions
+        /// for searching:</para><ul><li><para>AZ - The Availability Zone. An example is <c>us-east-1a</c>.</para></li><li><para>CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are Windows or Linux.</para></li><li><para>DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service deployments. Valid
+        /// values are <c>SingleAZ</c> and <c>MultiAZ</c>.</para></li><li><para>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is <c>m4.xlarge</c>.</para></li><li><para>LINKED_ACCOUNT - The description in the attribute map that includes the full name
         /// of the member account. The value field contains the Amazon Web Services ID of the
         /// member account.</para></li><li><para>PLATFORM - The Amazon EC2 operating system. Examples are Windows or Linux.</para></li><li><para>REGION - The Amazon Web Services Region.</para></li><li><para>SCOPE (Utilization only) - The scope of a Reserved Instance (RI). Values are regional
-        /// or a single Availability Zone.</para></li><li><para>TAG (Coverage only) - The tags that are associated with a Reserved Instance (RI).</para></li><li><para>TENANCY - The tenancy of a resource. Examples are shared or dedicated.</para></li></ul><para>If you set the context to <code>SAVINGS_PLANS</code>, you can use the following dimensions
+        /// or a single Availability Zone.</para></li><li><para>TAG (Coverage only) - The tags that are associated with a Reserved Instance (RI).</para></li><li><para>TENANCY - The tenancy of a resource. Examples are shared or dedicated.</para></li></ul><para>If you set the context to <c>SAVINGS_PLANS</c>, you can use the following dimensions
         /// for searching:</para><ul><li><para>SAVINGS_PLANS_TYPE - Type of Savings Plans (EC2 Instance or Compute)</para></li><li><para>PAYMENT_OPTION - The payment option for the given Savings Plans (for example, All
-        /// Upfront)</para></li><li><para>REGION - The Amazon Web Services Region.</para></li><li><para>INSTANCE_TYPE_FAMILY - The family of instances (For example, <code>m5</code>)</para></li><li><para>LINKED_ACCOUNT - The description in the attribute map that includes the full name
+        /// Upfront)</para></li><li><para>REGION - The Amazon Web Services Region.</para></li><li><para>INSTANCE_TYPE_FAMILY - The family of instances (For example, <c>m5</c>)</para></li><li><para>LINKED_ACCOUNT - The description in the attribute map that includes the full name
         /// of the member account. The value field contains the Amazon Web Services ID of the
         /// member account.</para></li><li><para>SAVINGS_PLAN_ARN - The unique identifier for your Savings Plans.</para></li></ul>
         /// </para>
@@ -88,9 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Dimension
         /// <summary>
         /// <para>
-        /// <para>The name of the dimension. Each <code>Dimension</code> is available for a different
-        /// <code>Context</code>. For more information, see <code>Context</code>. <code>LINK_ACCOUNT_NAME</code>
-        /// and <code>SERVICE_CODE</code> can only be used in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html">CostCategoryRule</a>.
+        /// <para>The name of the dimension. Each <c>Dimension</c> is available for a different <c>Context</c>.
+        /// For more information, see <c>Context</c>. <c>LINK_ACCOUNT_NAME</c> and <c>SERVICE_CODE</c>
+        /// can only be used in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html">CostCategoryRule</a>.
         /// </para>
         /// </para>
         /// </summary>
@@ -128,10 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The value that you want to sort the data by.</para><para>The key represents cost and usage metrics. The following values are supported:</para><ul><li><para><code>BlendedCost</code></para></li><li><para><code>UnblendedCost</code></para></li><li><para><code>AmortizedCost</code></para></li><li><para><code>NetAmortizedCost</code></para></li><li><para><code>NetUnblendedCost</code></para></li><li><para><code>UsageQuantity</code></para></li><li><para><code>NormalizedUsageAmount</code></para></li></ul><para>The supported values for the <code>SortOrder</code> key are <code>ASCENDING</code>
-        /// or <code>DESCENDING</code>.</para><para>When you specify a <code>SortBy</code> paramater, the context must be <code>COST_AND_USAGE</code>.
-        /// Further, when using <code>SortBy</code>, <code>NextPageToken</code> and <code>SearchString</code>
-        /// aren't supported.</para>
+        /// <para>The value that you want to sort the data by.</para><para>The key represents cost and usage metrics. The following values are supported:</para><ul><li><para><c>BlendedCost</c></para></li><li><para><c>UnblendedCost</c></para></li><li><para><c>AmortizedCost</c></para></li><li><para><c>NetAmortizedCost</c></para></li><li><para><c>NetUnblendedCost</c></para></li><li><para><c>UsageQuantity</c></para></li><li><para><c>NormalizedUsageAmount</c></para></li></ul><para>The supported values for the <c>SortOrder</c> key are <c>ASCENDING</c> or <c>DESCENDING</c>.</para><para>When you specify a <c>SortBy</c> paramater, the context must be <c>COST_AND_USAGE</c>.
+        /// Further, when using <c>SortBy</c>, <c>NextPageToken</c> and <c>SearchString</c> aren't
+        /// supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,10 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>The start date and end date for retrieving the dimension values. The start date is
-        /// inclusive, but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code>
-        /// and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is retrieved
-        /// from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including
-        /// <code>2017-05-01</code>.</para>
+        /// inclusive, but the end date is exclusive. For example, if <c>start</c> is <c>2017-01-01</c>
+        /// and <c>end</c> is <c>2017-05-01</c>, then the cost and usage data is retrieved from
+        /// <c>2017-01-01</c> up to and including <c>2017-04-30</c> but not including <c>2017-05-01</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -163,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>
         /// <para>This field is only used when SortBy is provided in the request. The maximum number
         /// of objects that are returned for this request. If MaxResults isn't specified with
-        /// SortBy, the request returns 1000 results as the default value for this parameter.</para><para>For <code>GetDimensionValues</code>, MaxResults has an upper limit of 1000.</para>
+        /// SortBy, the request returns 1000 results as the default value for this parameter.</para><para>For <c>GetDimensionValues</c>, MaxResults has an upper limit of 1000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -34,12 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// <para>
     /// This operation is asynchronous and returns before the WorkSpaces are created.
     /// </para><note><ul><li><para>
-    /// The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces
-    /// Core. Contact your account team to be allow-listed to use this value. For more information,
+    /// The <c>MANUAL</c> running mode value is only supported by Amazon WorkSpaces Core.
+    /// Contact your account team to be allow-listed to use this value. For more information,
     /// see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.
     /// </para></li><li><para>
-    /// You don't need to specify the <code>PCOIP</code> protocol for Linux bundles because
-    /// <code>WSP</code> is the default protocol for those bundles.
+    /// You don't need to specify the <c>PCOIP</c> protocol for Linux bundles because <c>WSP</c>
+    /// is the default protocol for those bundles.
     /// </para></li><li><para>
     /// Ensure you review your running mode to ensure you are using a running mode that is
     /// optimal for your needs and budget. For more information on switching running modes,

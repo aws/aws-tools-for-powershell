@@ -28,10 +28,10 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Deletes a previously provisioned cluster. <code>DeleteCacheCluster</code> deletes
-    /// all associated cache nodes, node endpoints and the cluster itself. When you receive
-    /// a successful response from this operation, Amazon ElastiCache immediately begins deleting
-    /// the cluster; you cannot cancel or revert this operation.
+    /// Deletes a previously provisioned cluster. <c>DeleteCacheCluster</c> deletes all associated
+    /// cache nodes, node endpoints and the cluster itself. When you receive a successful
+    /// response from this operation, Amazon ElastiCache immediately begins deleting the cluster;
+    /// you cannot cancel or revert this operation.
     /// 
     ///  
     /// <para>
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </para></li><li><para>
     /// A cluster from a Redis (cluster mode enabled) replication group
     /// </para></li><li><para>
-    /// A cluster that is not in the <code>available</code> state
+    /// A cluster that is not in the <c>available</c> state
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "ECCacheCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

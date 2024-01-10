@@ -65,8 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The value that you want to sort the data by.</para><para>The key represents cost and usage metrics. The following values are supported:</para><ul><li><para><code>BlendedCost</code></para></li><li><para><code>UnblendedCost</code></para></li><li><para><code>AmortizedCost</code></para></li><li><para><code>NetAmortizedCost</code></para></li><li><para><code>NetUnblendedCost</code></para></li><li><para><code>UsageQuantity</code></para></li><li><para><code>NormalizedUsageAmount</code></para></li></ul><para>The supported values for <code>SortOrder</code> are <code>ASCENDING</code> and <code>DESCENDING</code>.</para><para>When you use <code>SortBy</code>, <code>NextPageToken</code> and <code>SearchString</code>
-        /// aren't supported.</para>
+        /// <para>The value that you want to sort the data by.</para><para>The key represents cost and usage metrics. The following values are supported:</para><ul><li><para><c>BlendedCost</c></para></li><li><para><c>UnblendedCost</c></para></li><li><para><c>AmortizedCost</c></para></li><li><para><c>NetAmortizedCost</c></para></li><li><para><c>NetUnblendedCost</c></para></li><li><para><c>UsageQuantity</c></para></li><li><para><c>NormalizedUsageAmount</c></para></li></ul><para>The supported values for <c>SortOrder</c> are <c>ASCENDING</c> and <c>DESCENDING</c>.</para><para>When you use <c>SortBy</c>, <c>NextPageToken</c> and <c>SearchString</c> aren't supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,10 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>The start and end dates for retrieving the dimension values. The start date is inclusive,
-        /// but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code>
-        /// and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is retrieved
-        /// from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including
-        /// <code>2017-05-01</code>.</para>
+        /// but the end date is exclusive. For example, if <c>start</c> is <c>2017-01-01</c> and
+        /// <c>end</c> is <c>2017-05-01</c>, then the cost and usage data is retrieved from <c>2017-01-01</c>
+        /// up to and including <c>2017-04-30</c> but not including <c>2017-05-01</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>
         /// <para>This field is only used when SortBy is provided in the request. The maximum number
         /// of objects that are returned for this request. If MaxResults isn't specified with
-        /// SortBy, the request returns 1000 results as the default value for this parameter.</para><para>For <code>GetTags</code>, MaxResults has an upper quota of 1000.</para>
+        /// SortBy, the request returns 1000 results as the default value for this parameter.</para><para>For <c>GetTags</c>, MaxResults has an upper quota of 1000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

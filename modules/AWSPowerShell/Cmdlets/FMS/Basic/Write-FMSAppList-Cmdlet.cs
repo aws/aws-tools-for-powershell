@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter AppsList_PreviousAppsList
         /// <summary>
         /// <para>
-        /// <para>A map of previous version numbers to their corresponding <code>App</code> object arrays.</para>
+        /// <para>A map of previous version numbers to their corresponding <c>App</c> object arrays.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

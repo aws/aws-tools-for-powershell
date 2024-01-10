@@ -45,9 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><para>
     /// In order to enable MFA Delete, you must be the bucket owner. If you are the bucket
     /// owner and want to enable MFA Delete in the bucket versioning configuration, you must
-    /// include the <code>x-amz-mfa request</code> header and the <code>Status</code> and
-    /// the <code>MfaDelete</code> request elements in a request to set the versioning state
-    /// of the bucket.
+    /// include the <c>x-amz-mfa request</c> header and the <c>Status</c> and the <c>MfaDelete</c>
+    /// request elements in a request to set the versioning state of the bucket.
     /// </para><important><para>
     /// If you have an object expiration lifecycle configuration in your non-versioned bucket
     /// and you want to maintain the same permanent delete behavior when you enable versioning,
@@ -57,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// versions.) For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-and-other-bucket-config">Lifecycle
     /// and Versioning</a>.
     /// </para></important><para>
-    /// The following operations are related to <code>PutBucketVersioning</code>:
+    /// The following operations are related to <c>PutBucketVersioning</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketVersioning", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

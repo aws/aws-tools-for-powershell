@@ -28,9 +28,9 @@ using Amazon.NetworkMonitor.Model;
 namespace Amazon.PowerShell.Cmdlets.CWNM
 {
     /// <summary>
-    /// Updates a monitor probe. This action requires both the <code>monitorName</code> and
-    /// <code>probeId</code> parameters. Run <code>ListMonitors</code> to get a list of monitor
-    /// names. Run <code>GetMonitor</code> to get a list of probes and probe IDs.
+    /// Updates a monitor probe. This action requires both the <c>monitorName</c> and <c>probeId</c>
+    /// parameters. Run <c>ListMonitors</c> to get a list of monitor names. Run <c>GetMonitor</c>
+    /// to get a list of probes and probe IDs.
     /// </summary>
     [Cmdlet("Update", "CWNMProbe", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NetworkMonitor.Model.UpdateProbeResponse")]
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         #region Parameter DestinationPort
         /// <summary>
         /// <para>
-        /// <para>The updated port for the probe destination. This is required only if the <code>protocol</code>
-        /// is <code>TCP</code> and must be a number between <code>1</code> and <code>65536</code>.</para>
+        /// <para>The updated port for the probe destination. This is required only if the <c>protocol</c>
+        /// is <c>TCP</c> and must be a number between <c>1</c> and <c>65536</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         /// <summary>
         /// <para>
         /// <para>he updated packets size for network traffic between the source and destination. This
-        /// must be a number between <code>56</code> and <code>8500</code>.</para>
+        /// must be a number between <c>56</c> and <c>8500</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         #region Parameter ProbeId
         /// <summary>
         /// <para>
-        /// <para>Run <code>GetMonitor</code> to get a list of probes and probe IDs.</para>
+        /// <para>Run <c>GetMonitor</c> to get a list of probes and probe IDs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -113,9 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         #region Parameter Protocol
         /// <summary>
         /// <para>
-        /// <para>The updated network protocol for the destination. This can be either <code>TCP</code>
-        /// or <code>ICMP</code>. If the protocol is <code>TCP</code>, then <code>port</code>
-        /// is also required.</para>
+        /// <para>The updated network protocol for the destination. This can be either <c>TCP</c> or
+        /// <c>ICMP</c>. If the protocol is <c>TCP</c>, then <c>port</c> is also required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// 
     ///  
     /// <para>
-    /// The <code>GetBotChannelAssociations</code> operation requires permissions for the
-    /// <code>lex:GetBotChannelAssociations</code> action.
+    /// The <c>GetBotChannelAssociations</c> operation requires permissions for the <c>lex:GetBotChannelAssociations</c>
+    /// action.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LMBBotChannelAssociationList")]
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <para>
         /// <para>Substring to match in channel association names. An association will be returned if
         /// any part of its name matches the substring. For example, "xyz" matches both "xyzabc"
-        /// and "abcxyz." To return all bot channel associations, use a hyphen ("-") as the <code>nameContains</code>
+        /// and "abcxyz." To return all bot channel associations, use a hyphen ("-") as the <c>nameContains</c>
         /// parameter.</para>
         /// </para>
         /// </summary>

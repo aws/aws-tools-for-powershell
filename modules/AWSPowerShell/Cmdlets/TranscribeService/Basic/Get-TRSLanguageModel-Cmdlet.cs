@@ -37,8 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// model, you can create a new custom language model using the updated base model.
     /// </para><para>
     /// If you tried to create a new custom language model and the request wasn't successful,
-    /// you can use <code>DescribeLanguageModel</code> to help identify the reason for this
-    /// failure.
+    /// you can use <c>DescribeLanguageModel</c> to help identify the reason for this failure.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "TRSLanguageModel")]

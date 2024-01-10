@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter AliasName
         /// <summary>
         /// <para>
-        /// <para>A friendly name that you can use to refer to a key. An alias must begin with <code>alias/</code>
-        /// followed by a name, for example <code>alias/ExampleAlias</code>. It can contain only
-        /// alphanumeric characters, forward slashes (/), underscores (_), and dashes (-).</para><important><para>Don't include personal, confidential or sensitive information in this field. This
+        /// <para>A friendly name that you can use to refer to a key. An alias must begin with <c>alias/</c>
+        /// followed by a name, for example <c>alias/ExampleAlias</c>. It can contain only alphanumeric
+        /// characters, forward slashes (/), underscores (_), and dashes (-).</para><important><para>Don't include personal, confidential or sensitive information in this field. This
         /// field may be displayed in plaintext in CloudTrail logs and other output.</para></important>
         /// </para>
         /// </summary>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter KeyArn
         /// <summary>
         /// <para>
-        /// <para>The <code>KeyARN</code> of the key to associate with the alias.</para>
+        /// <para>The <c>KeyARN</c> of the key to associate with the alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

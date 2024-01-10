@@ -28,7 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Deletes the insight specified by the <code>InsightArn</code>.
+    /// Deletes the insight specified by the <c>InsightArn</c>.
     /// </summary>
     [Cmdlet("Remove", "SHUBInsight", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

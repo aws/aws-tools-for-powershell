@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking
         /// the extension.</para><para>For CloudFormation to assume the specified execution role, the role must contain a
-        /// trust relationship with the CloudFormation service principal (<code>resources.cloudformation.amazonaws.com</code>).
+        /// trust relationship with the CloudFormation service principal (<c>resources.cloudformation.amazonaws.com</c>).
         /// For more information about adding trust relationships, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy">Modifying
         /// a role trust policy</a> in the <i>Identity and Access Management User Guide</i>.</para><para>If your extension calls Amazon Web Services APIs in any of its handlers, you must
         /// create an <i><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The name of the extension being registered.</para><para>We suggest that extension names adhere to the following patterns:</para><ul><li><para>For resource types, <i>company_or_organization</i>::<i>service</i>::<i>type</i>.</para></li><li><para>For modules, <i>company_or_organization</i>::<i>service</i>::<i>type</i>::MODULE.</para></li><li><para>For hooks, <i>MyCompany</i>::<i>Testing</i>::<i>MyTestHook</i>.</para></li></ul><note><para>The following organization namespaces are reserved and can't be used in your extension
-        /// names:</para><ul><li><para><code>Alexa</code></para></li><li><para><code>AMZN</code></para></li><li><para><code>Amazon</code></para></li><li><para><code>AWS</code></para></li><li><para><code>Custom</code></para></li><li><para><code>Dev</code></para></li></ul></note>
+        /// names:</para><ul><li><para><c>Alexa</c></para></li><li><para><c>AMZN</c></para></li><li><para><c>Amazon</c></para></li><li><para><c>AWS</c></para></li><li><para><c>Custom</c></para></li><li><para><c>Dev</c></para></li></ul></note>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// up CodeCommit for SSH connections</a> in the <i>CodeCommit User Guide</i>.
     /// </para><para>
     /// Although each user is limited to a small number of keys, you can still paginate the
-    /// results using the <code>MaxItems</code> and <code>Marker</code> parameters.
+    /// results using the <c>MaxItems</c> and <c>Marker</c> parameters.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IAMSSHPublicKeyList")]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the IAM user to list SSH public keys for. If none is specified, the <code>UserName</code>
+        /// <para>The name of the IAM user to list SSH public keys for. If none is specified, the <c>UserName</c>
         /// field is determined implicitly based on the Amazon Web Services access key used to
         /// sign the request.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
         /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only after you receive a response
-        /// indicating that the results are truncated. Set it to the value of the <code>Marker</code>
+        /// indicating that the results are truncated. Set it to the value of the <c>Marker</c>
         /// element in the response that you received to indicate where the next call should start.</para>
         /// </para>
         /// <para>
@@ -90,11 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
         /// want in the response. If additional items exist beyond the maximum you specify, the
-        /// <code>IsTruncated</code> response element is <code>true</code>.</para><para>If you do not include this parameter, the number of items defaults to 100. Note that
+        /// <c>IsTruncated</c> response element is <c>true</c>.</para><para>If you do not include this parameter, the number of items defaults to 100. Note that
         /// IAM might return fewer results, even when there are more results available. In that
-        /// case, the <code>IsTruncated</code> response element returns <code>true</code>, and
-        /// <code>Marker</code> contains a value to include in the subsequent call that tells
-        /// the service where to continue from.</para>
+        /// case, the <c>IsTruncated</c> response element returns <c>true</c>, and <c>Marker</c>
+        /// contains a value to include in the subsequent call that tells the service where to
+        /// continue from.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

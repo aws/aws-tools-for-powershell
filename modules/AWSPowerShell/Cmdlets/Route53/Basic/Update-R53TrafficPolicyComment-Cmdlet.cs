@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The value of <code>Id</code> for the traffic policy that you want to update the comment
+        /// <para>The value of <c>Id</c> for the traffic policy that you want to update the comment
         /// for.</para>
         /// </para>
         /// </summary>
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>The value of <code>Version</code> for the traffic policy that you want to update the
-        /// comment for.</para>
+        /// <para>The value of <c>Version</c> for the traffic policy that you want to update the comment
+        /// for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

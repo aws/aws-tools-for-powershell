@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </para><para>
     /// To obtain routing control changes and failover requests, use the Amazon S3 failover
     /// control infrastructure endpoints in these five Amazon Web Services Regions:
-    /// </para><ul><li><para><code>us-east-1</code></para></li><li><para><code>us-west-2</code></para></li><li><para><code>ap-southeast-2</code></para></li><li><para><code>ap-northeast-1</code></para></li><li><para><code>eu-west-1</code></para></li></ul><note><para>
+    /// </para><ul><li><para><c>us-east-1</c></para></li><li><para><c>us-west-2</c></para></li><li><para><c>ap-southeast-2</c></para></li><li><para><c>ap-northeast-1</c></para></li><li><para><c>eu-west-1</c></para></li></ul><note><para>
     /// Your Amazon S3 bucket does not need to be in these five Regions.
     /// </para></note>
     /// </summary>

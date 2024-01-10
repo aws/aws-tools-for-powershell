@@ -29,17 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.XR
 {
     /// <summary>
     /// Retrieves IDs and annotations for traces available for a specified time frame using
-    /// an optional filter. To get the full traces, pass the trace IDs to <code>BatchGetTraces</code>.
+    /// an optional filter. To get the full traces, pass the trace IDs to <c>BatchGetTraces</c>.
     /// 
     ///  
     /// <para>
     /// A filter expression can target traced requests that hit specific service nodes or
     /// edges, have errors, or come from a known user. For example, the following filter expression
-    /// targets traces that pass through <code>api.example.com</code>:
-    /// </para><para><code>service("api.example.com")</code></para><para>
-    /// This filter expression finds traces that have an annotation named <code>account</code>
-    /// with the value <code>12345</code>:
-    /// </para><para><code>annotation.account = "12345"</code></para><para>
+    /// targets traces that pass through <c>api.example.com</c>:
+    /// </para><para><c>service("api.example.com")</c></para><para>
+    /// This filter expression finds traces that have an annotation named <c>account</c> with
+    /// the value <c>12345</c>:
+    /// </para><para><c>annotation.account = "12345"</c></para><para>
     /// For a full list of indexed fields and keywords that you can use in filter expressions,
     /// see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html">Using
     /// Filter Expressions</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #region Parameter Sampling
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to get summaries for only a subset of available traces.</para>
+        /// <para>Set to <c>true</c> to get summaries for only a subset of available traces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

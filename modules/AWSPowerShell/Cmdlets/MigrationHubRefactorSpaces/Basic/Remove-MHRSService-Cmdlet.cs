@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         #region Parameter ApplicationIdentifier
         /// <summary>
         /// <para>
-        /// <para>Deletes a Refactor Spaces service.</para><note><para>The <code>RefactorSpacesSecurityGroup</code> security group must be removed from all
-        /// Amazon Web Services resources in the virtual private cloud (VPC) prior to deleting
-        /// a service with a URL endpoint in a VPC.</para></note>
+        /// <para>Deletes a Refactor Spaces service.</para><note><para>The <c>RefactorSpacesSecurityGroup</c> security group must be removed from all Amazon
+        /// Web Services resources in the virtual private cloud (VPC) prior to deleting a service
+        /// with a URL endpoint in a VPC.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

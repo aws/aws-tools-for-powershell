@@ -28,8 +28,8 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Returns a <code>BatchPrediction</code> that includes detailed metadata, status, and
-    /// data file information for a <code>Batch Prediction</code> request.
+    /// Returns a <c>BatchPrediction</c> that includes detailed metadata, status, and data
+    /// file information for a <c>Batch Prediction</c> request.
     /// </summary>
     [Cmdlet("Get", "MLBatchPrediction")]
     [OutputType("Amazon.MachineLearning.Model.GetBatchPredictionResponse")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter BatchPredictionId
         /// <summary>
         /// <para>
-        /// <para>An ID assigned to the <code>BatchPrediction</code> at creation.</para>
+        /// <para>An ID assigned to the <c>BatchPrediction</c> at creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
     /// Lists all imported portfolios for which account-to-account shares were accepted by
-    /// this account. By specifying the <code>PortfolioShareType</code>, you can list portfolios
+    /// this account. By specifying the <c>PortfolioShareType</c>, you can list portfolios
     /// for which organizational shares were accepted by this account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SCAcceptedPortfolioShareList")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><c>jp</c> - Japanese</para></li><li><para><c>zh</c> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PortfolioShareType
         /// <summary>
         /// <para>
-        /// <para>The type of shared portfolios to list. The default is to list imported portfolios.</para><ul><li><para><code>AWS_ORGANIZATIONS</code> - List portfolios accepted and shared via organizational
-        /// sharing by the management account or delegated administrator of your organization.</para></li><li><para><code>AWS_SERVICECATALOG</code> - Deprecated type.</para></li><li><para><code>IMPORTED</code> - List imported portfolios that have been accepted and shared
-        /// through account-to-account sharing.</para></li></ul>
+        /// <para>The type of shared portfolios to list. The default is to list imported portfolios.</para><ul><li><para><c>AWS_ORGANIZATIONS</c> - List portfolios accepted and shared via organizational
+        /// sharing by the management account or delegated administrator of your organization.</para></li><li><para><c>AWS_SERVICECATALOG</c> - Deprecated type.</para></li><li><para><c>IMPORTED</c> - List imported portfolios that have been accepted and shared through
+        /// account-to-account sharing.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -33,13 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// 
     ///  
     /// <para>
-    /// You can override some of these settings for a single message when you use the <code>Publish</code>
-    /// action with the <code>MessageAttributes.entry.N</code> parameter. For more information,
+    /// You can override some of these settings for a single message when you use the <c>Publish</c>
+    /// action with the <c>MessageAttributes.entry.N</c> parameter. For more information,
     /// see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing
     /// to a mobile phone</a> in the <i>Amazon SNS Developer Guide</i>.
     /// </para><note><para>
-    /// To use this operation, you must grant the Amazon SNS service principal (<code>sns.amazonaws.com</code>)
-    /// permission to perform the <code>s3:ListBucket</code> action. 
+    /// To use this operation, you must grant the Amazon SNS service principal (<c>sns.amazonaws.com</c>)
+    /// permission to perform the <c>s3:ListBucket</c> action. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Set", "SNSSMSAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,37 +58,34 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>The default settings for sending SMS messages from your Amazon Web Services account.
-        /// You can set values for the following attribute names:</para><para><code>MonthlySpendLimit</code> – The maximum amount in USD that you are willing to
-        /// spend each month to send SMS messages. When Amazon SNS determines that sending an
-        /// SMS message would incur a cost that exceeds this limit, it stops sending SMS messages
-        /// within minutes.</para><important><para>Amazon SNS stops sending SMS messages within minutes of the limit being crossed. During
+        /// You can set values for the following attribute names:</para><para><c>MonthlySpendLimit</c> – The maximum amount in USD that you are willing to spend
+        /// each month to send SMS messages. When Amazon SNS determines that sending an SMS message
+        /// would incur a cost that exceeds this limit, it stops sending SMS messages within minutes.</para><important><para>Amazon SNS stops sending SMS messages within minutes of the limit being crossed. During
         /// that interval, if you continue to send SMS messages, you will incur costs that exceed
         /// your limit.</para></important><para>By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want
         /// to raise the limit, submit an <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&amp;limitType=service-code-sns">SNS
         /// Limit Increase case</a>. For <b>New limit value</b>, enter your desired monthly spend
         /// limit. In the <b>Use Case Description</b> field, explain that you are requesting an
-        /// SMS monthly spend limit increase.</para><para><code>DeliveryStatusIAMRole</code> – The ARN of the IAM role that allows Amazon SNS
-        /// to write logs about SMS deliveries in CloudWatch Logs. For each SMS message that you
+        /// SMS monthly spend limit increase.</para><para><c>DeliveryStatusIAMRole</c> – The ARN of the IAM role that allows Amazon SNS to
+        /// write logs about SMS deliveries in CloudWatch Logs. For each SMS message that you
         /// send, Amazon SNS writes a log that includes the message price, the success or failure
         /// status, the reason for failure (if the message failed), the message dwell time, and
-        /// other information.</para><para><code>DeliveryStatusSuccessSamplingRate</code> – The percentage of successful SMS
-        /// deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value can
-        /// be an integer from 0 - 100. For example, to write logs only for failed deliveries,
-        /// set this value to <code>0</code>. To write logs for 10% of your successful deliveries,
-        /// set it to <code>10</code>.</para><para><code>DefaultSenderID</code> – A string, such as your business brand, that is displayed
+        /// other information.</para><para><c>DeliveryStatusSuccessSamplingRate</c> – The percentage of successful SMS deliveries
+        /// for which Amazon SNS will write logs in CloudWatch Logs. The value can be an integer
+        /// from 0 - 100. For example, to write logs only for failed deliveries, set this value
+        /// to <c>0</c>. To write logs for 10% of your successful deliveries, set it to <c>10</c>.</para><para><c>DefaultSenderID</c> – A string, such as your business brand, that is displayed
         /// as the sender on the receiving device. Support for sender IDs varies by country. The
         /// sender ID can be 1 - 11 alphanumeric characters, and it must contain at least one
-        /// letter.</para><para><code>DefaultSMSType</code> – The type of SMS message that you will send by default.
-        /// You can assign the following values:</para><ul><li><para><code>Promotional</code> – (Default) Noncritical messages, such as marketing messages.
-        /// Amazon SNS optimizes the message delivery to incur the lowest cost.</para></li><li><para><code>Transactional</code> – Critical messages that support customer transactions,
-        /// such as one-time passcodes for multi-factor authentication. Amazon SNS optimizes the
-        /// message delivery to achieve the highest reliability.</para></li></ul><para><code>UsageReportS3Bucket</code> – The name of the Amazon S3 bucket to receive daily
-        /// SMS usage reports from Amazon SNS. Each day, Amazon SNS will deliver a usage report
-        /// as a CSV file to the bucket. The report includes the following information for each
-        /// SMS message that was successfully delivered by your Amazon Web Services account:</para><ul><li><para>Time that the message was published (in UTC)</para></li><li><para>Message ID</para></li><li><para>Destination phone number</para></li><li><para>Message type</para></li><li><para>Delivery status</para></li><li><para>Message price (in USD)</para></li><li><para>Part number (a message is split into multiple parts if it is too long for a single
+        /// letter.</para><para><c>DefaultSMSType</c> – The type of SMS message that you will send by default. You
+        /// can assign the following values:</para><ul><li><para><c>Promotional</c> – (Default) Noncritical messages, such as marketing messages.
+        /// Amazon SNS optimizes the message delivery to incur the lowest cost.</para></li><li><para><c>Transactional</c> – Critical messages that support customer transactions, such
+        /// as one-time passcodes for multi-factor authentication. Amazon SNS optimizes the message
+        /// delivery to achieve the highest reliability.</para></li></ul><para><c>UsageReportS3Bucket</c> – The name of the Amazon S3 bucket to receive daily SMS
+        /// usage reports from Amazon SNS. Each day, Amazon SNS will deliver a usage report as
+        /// a CSV file to the bucket. The report includes the following information for each SMS
+        /// message that was successfully delivered by your Amazon Web Services account:</para><ul><li><para>Time that the message was published (in UTC)</para></li><li><para>Message ID</para></li><li><para>Destination phone number</para></li><li><para>Message type</para></li><li><para>Delivery status</para></li><li><para>Message price (in USD)</para></li><li><para>Part number (a message is split into multiple parts if it is too long for a single
         /// message)</para></li><li><para>Total number of parts</para></li></ul><para>To receive the report, the bucket must have a policy that allows the Amazon SNS service
-        /// principal to perform the <code>s3:PutObject</code> and <code>s3:GetBucketLocation</code>
-        /// actions.</para><para>For an example bucket policy and usage report, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html">Monitoring
+        /// principal to perform the <c>s3:PutObject</c> and <c>s3:GetBucketLocation</c> actions.</para><para>For an example bucket policy and usage report, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html">Monitoring
         /// SMS Activity</a> in the <i>Amazon SNS Developer Guide</i>.</para>
         /// </para>
         /// </summary>

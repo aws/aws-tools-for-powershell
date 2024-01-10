@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The <code>accountId</code> that is associated with the budget whose notifications
-        /// you want descriptions of.</para>
+        /// <para>The <c>accountId</c> that is associated with the budget whose notifications you want
+        /// descriptions of.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

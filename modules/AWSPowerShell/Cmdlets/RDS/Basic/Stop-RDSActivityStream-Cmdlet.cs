@@ -29,8 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Stops a database activity stream that was started using the Amazon Web Services console,
-    /// the <code>start-activity-stream</code> CLI command, or the <code>StartActivityStream</code>
-    /// operation.
+    /// the <c>start-activity-stream</c> CLI command, or the <c>StartActivityStream</c> operation.
     /// 
     ///  
     /// <para>
@@ -67,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the DB cluster for the database activity stream.
-        /// For example, <code>arn:aws:rds:us-east-1:12345667890:cluster:das-cluster</code>.</para>
+        /// For example, <c>arn:aws:rds:us-east-1:12345667890:cluster:das-cluster</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

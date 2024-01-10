@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
         /// <summary>
         /// <para>
         /// <para>The type of environment member permissions to get information about. Available values
-        /// include:</para><ul><li><para><code>owner</code>: Owns the environment.</para></li><li><para><code>read-only</code>: Has read-only access to the environment.</para></li><li><para><code>read-write</code>: Has read-write access to the environment.</para></li></ul><para>If no value is specified, information about all environment members are returned.</para>
+        /// include:</para><ul><li><para><c>owner</c>: Owns the environment.</para></li><li><para><c>read-only</c>: Has read-only access to the environment.</para></li><li><para><c>read-write</c>: Has read-write access to the environment.</para></li></ul><para>If no value is specified, information about all environment members are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

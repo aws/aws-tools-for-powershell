@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     /// 
     ///  <note><para>
     /// Beginning with Docker version 1.9, the Docker client compresses image layers before
-    /// pushing them to a V2 Docker registry. The output of the <code>docker images</code>
-    /// command shows the uncompressed image size. Therefore, it might return a larger image
-    /// size than the image sizes that are returned by <a>DescribeImages</a>.
+    /// pushing them to a V2 Docker registry. The output of the <c>docker images</c> command
+    /// shows the uncompressed image size. Therefore, it might return a larger image size
+    /// than the image sizes that are returned by <a>DescribeImages</a>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "ECRPImage")]
@@ -92,14 +92,14 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of repository results that's returned by <code>DescribeImages</code>
-        /// in paginated output. When this parameter is used, <code>DescribeImages</code> only
-        /// returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-        /// response element. You can see the remaining results of the initial request by sending
-        /// another <code>DescribeImages</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 1000. If this parameter isn't used, then <code>DescribeImages</code>
-        /// returns up to 100 results and a <code>nextToken</code> value, if applicable. If you
-        /// specify images with <code>imageIds</code>, you can't use this option.</para>
+        /// <para>The maximum number of repository results that's returned by <c>DescribeImages</c>
+        /// in paginated output. When this parameter is used, <c>DescribeImages</c> only returns
+        /// <c>maxResults</c> results in a single page along with a <c>nextToken</c> response
+        /// element. You can see the remaining results of the initial request by sending another
+        /// <c>DescribeImages</c> request with the returned <c>nextToken</c> value. This value
+        /// can be between 1 and 1000. If this parameter isn't used, then <c>DescribeImages</c>
+        /// returns up to 100 results and a <c>nextToken</c> value, if applicable. If you specify
+        /// images with <c>imageIds</c>, you can't use this option.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,12 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value that's returned from a previous paginated <code>DescribeImages</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. If there are no more results to return,
-        /// this value is <code>null</code>. If you specify images with <code>imageIds</code>,
-        /// you can't use this option.</para>
+        /// <para>The <c>nextToken</c> value that's returned from a previous paginated <c>DescribeImages</c>
+        /// request where <c>maxResults</c> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <c>nextToken</c> value. If there are no more results to return, this value is
+        /// <c>null</c>. If you specify images with <c>imageIds</c>, you can't use this option.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

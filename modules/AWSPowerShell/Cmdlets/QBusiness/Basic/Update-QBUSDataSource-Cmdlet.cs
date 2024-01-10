@@ -165,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>The identifier of the document attribute used for the condition.</para><para>For example, 'Source_URI' could be an identifier for the attribute or metadata field
-        /// that contains source URIs associated with the documents.</para><para>Amazon Q currently doesn't support <code>_document_body</code> as an attribute key
-        /// used for the condition.</para>
+        /// that contains source URIs associated with the documents.</para><para>Amazon Q currently doesn't support <c>_document_body</c> as an attribute key used
+        /// for the condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,8 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>The identifier of the document attribute used for the condition.</para><para>For example, 'Source_URI' could be an identifier for the attribute or metadata field
-        /// that contains source URIs associated with the documents.</para><para>Amazon Q currently doesn't support <code>_document_body</code> as an attribute key
-        /// used for the condition.</para>
+        /// that contains source URIs associated with the documents.</para><para>Amazon Q currently doesn't support <c>_document_body</c> as an attribute key used
+        /// for the condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,8 +239,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>The identifier of the document attribute used for the condition.</para><para>For example, 'Source_URI' could be an identifier for the attribute or metadata field
-        /// that contains source URIs associated with the documents.</para><para>Amazon Kendra currently does not support <code>_document_body</code> as an attribute
-        /// key used for the condition.</para>
+        /// that contains source URIs associated with the documents.</para><para>Amazon Kendra currently does not support <c>_document_body</c> as an attribute key
+        /// used for the condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,8 +253,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>The identifier of the document attribute used for the condition.</para><para>For example, 'Source_URI' could be an identifier for the attribute or metadata field
-        /// that contains source URIs associated with the documents.</para><para>Amazon Kendra currently does not support <code>_document_body</code> as an attribute
-        /// key used for the condition.</para>
+        /// that contains source URIs associated with the documents.</para><para>Amazon Kendra currently does not support <c>_document_body</c> as an attribute key
+        /// used for the condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,9 +266,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter PostExtractionHookConfiguration_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a role with permission to run <code>PreExtractionHookConfiguration</code>
-        /// and <code>PostExtractionHookConfiguration</code> for altering document metadata and
-        /// content during the document ingestion process.</para>
+        /// <para>The Amazon Resource Name (ARN) of a role with permission to run <c>PreExtractionHookConfiguration</c>
+        /// and <c>PostExtractionHookConfiguration</c> for altering document metadata and content
+        /// during the document ingestion process.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -279,9 +279,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter PreExtractionHookConfiguration_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a role with permission to run <code>PreExtractionHookConfiguration</code>
-        /// and <code>PostExtractionHookConfiguration</code> for altering document metadata and
-        /// content during the document ingestion process.</para>
+        /// <para>The Amazon Resource Name (ARN) of a role with permission to run <c>PreExtractionHookConfiguration</c>
+        /// and <c>PostExtractionHookConfiguration</c> for altering document metadata and content
+        /// during the document ingestion process.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

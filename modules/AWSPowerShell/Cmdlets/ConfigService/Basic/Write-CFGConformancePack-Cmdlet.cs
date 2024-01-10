@@ -34,12 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// 
     ///  
     /// <para>
-    /// This API creates a service-linked role <code>AWSServiceRoleForConfigConforms</code>
-    /// in your account. The service-linked role is created only when the role does not exist
-    /// in your account. 
+    /// This API creates a service-linked role <c>AWSServiceRoleForConfigConforms</c> in your
+    /// account. The service-linked role is created only when the role does not exist in your
+    /// account. 
     /// </para><note><para>
-    /// You must specify only one of the follow parameters: <code>TemplateS3Uri</code>, <code>TemplateBody</code>
-    /// or <code>TemplateSSMDocumentDetails</code>.
+    /// You must specify only one of the follow parameters: <c>TemplateS3Uri</c>, <c>TemplateBody</c>
+    /// or <c>TemplateSSMDocumentDetails</c>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGConformancePack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConformancePackInputParameter
         /// <summary>
         /// <para>
-        /// <para>A list of <code>ConformancePackInputParameter</code> objects.</para>
+        /// <para>A list of <c>ConformancePackInputParameter</c> objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>A string containing the full conformance pack template body. The structure containing
-        /// the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.</para><note><para>You can use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>)
-        /// and remediation action (<code>AWS::Config::RemediationConfiguration</code>).</para></note>
+        /// the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.</para><note><para>You can use a YAML template with two resource types: Config rule (<c>AWS::Config::ConfigRule</c>)
+        /// and remediation action (<c>AWS::Config::RemediationConfiguration</c>).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter TemplateS3Uri
         /// <summary>
         /// <para>
-        /// <para>The location of the file containing the template body (<code>s3://bucketname/prefix</code>).
+        /// <para>The location of the file containing the template body (<c>s3://bucketname/prefix</c>).
         /// The uri must point to a conformance pack template (max size: 300 KB) that is located
         /// in an Amazon S3 bucket in the same Region as the conformance pack. </para><note><para>You must have access to read Amazon S3 bucket. In addition, in order to ensure a successful
         /// deployment, the template object must not be in an <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">archived

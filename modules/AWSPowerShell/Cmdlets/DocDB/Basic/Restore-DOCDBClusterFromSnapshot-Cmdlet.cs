@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The name of the cluster to create from the snapshot or cluster snapshot. This parameter
-        /// isn't case sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
+        /// isn't case sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <c>my-snapshot-id</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the subnet group to use for the new cluster.</para><para>Constraints: If provided, must match the name of an existing <code>DBSubnetGroup</code>.</para><para>Example: <code>mySubnetgroup</code></para>
+        /// <para>The name of the subnet group to use for the new cluster.</para><para>Constraints: If provided, must match the name of an existing <c>DBSubnetGroup</c>.</para><para>Example: <c>mySubnetgroup</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,10 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
-        /// <para>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code>
-        /// is enabled, the cluster cannot be deleted unless it is modified and <code>DeletionProtection</code>
-        /// is disabled. <code>DeletionProtection</code> protects clusters from being accidentally
-        /// deleted.</para>
+        /// <para>Specifies whether this cluster can be deleted. If <c>DeletionProtection</c> is enabled,
+        /// the cluster cannot be deleted unless it is modified and <c>DeletionProtection</c>
+        /// is disabled. <c>DeletionProtection</c> protects clusters from being accidentally deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,11 +162,11 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// or cluster snapshot.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
         /// If you are restoring a cluster with the same Amazon Web Services account that owns
         /// the KMS encryption key used to encrypt the new cluster, then you can use the KMS key
-        /// alias instead of the ARN for the KMS encryption key.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
-        /// occurs:</para><ul><li><para>If the snapshot or cluster snapshot in <code>SnapshotIdentifier</code> is encrypted,
-        /// then the restored cluster is encrypted using the KMS key that was used to encrypt
-        /// the snapshot or the cluster snapshot.</para></li><li><para>If the snapshot or the cluster snapshot in <code>SnapshotIdentifier</code> is not
-        /// encrypted, then the restored DB cluster is not encrypted.</para></li></ul>
+        /// alias instead of the ARN for the KMS encryption key.</para><para>If you do not specify a value for the <c>KmsKeyId</c> parameter, then the following
+        /// occurs:</para><ul><li><para>If the snapshot or cluster snapshot in <c>SnapshotIdentifier</c> is encrypted, then
+        /// the restored cluster is encrypted using the KMS key that was used to encrypt the snapshot
+        /// or the cluster snapshot.</para></li><li><para>If the snapshot or the cluster snapshot in <c>SnapshotIdentifier</c> is not encrypted,
+        /// then the restored DB cluster is not encrypted.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the new cluster accepts connections.</para><para>Constraints: Must be a value from <code>1150</code> to <code>65535</code>.</para><para>Default: The same port as the original cluster.</para>
+        /// <para>The port number on which the new cluster accepts connections.</para><para>Constraints: Must be a value from <c>1150</c> to <c>65535</c>.</para><para>Default: The same port as the original cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The storage type to associate with the DB cluster.</para><para>For information on storage types for Amazon DocumentDB clusters, see Cluster storage
-        /// configurations in the <i>Amazon DocumentDB Developer Guide</i>.</para><para>Valid values for storage type - <code>standard | iopt1</code></para><para>Default value is <code>standard </code></para>
+        /// configurations in the <i>Amazon DocumentDB Developer Guide</i>.</para><para>Valid values for storage type - <c>standard | iopt1</c></para><para>Default value is <c>standard </c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

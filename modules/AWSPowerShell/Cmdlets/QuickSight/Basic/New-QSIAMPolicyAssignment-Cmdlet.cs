@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AssignmentStatus
         /// <summary>
         /// <para>
-        /// <para>The status of the assignment. Possible values are as follows:</para><ul><li><para><code>ENABLED</code> - Anything specified in this assignment is used when creating
-        /// the data source.</para></li><li><para><code>DISABLED</code> - This assignment isn't used when creating the data source.</para></li><li><para><code>DRAFT</code> - This assignment is an unfinished draft and isn't used when creating
+        /// <para>The status of the assignment. Possible values are as follows:</para><ul><li><para><c>ENABLED</c> - Anything specified in this assignment is used when creating the
+        /// data source.</para></li><li><para><c>DISABLED</c> - This assignment isn't used when creating the data source.</para></li><li><para><c>DRAFT</c> - This assignment is an unfinished draft and isn't used when creating
         /// the data source.</para></li></ul>
         /// </para>
         /// </summary>

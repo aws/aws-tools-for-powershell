@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>Contains the UTF-8 encoded YAML document content for the workflow. Alternatively,
-        /// you can specify the <code>uri</code> of a YAML document file stored in Amazon S3.
-        /// However, you cannot specify both properties.</para>
+        /// you can specify the <c>uri</c> of a YAML document file stored in Amazon S3. However,
+        /// you cannot specify both properties.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,9 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Uri
         /// <summary>
         /// <para>
-        /// <para>The <code>uri</code> of a YAML component document file. This must be an S3 URL (<code>s3://bucket/key</code>),
+        /// <para>The <c>uri</c> of a YAML component document file. This must be an S3 URL (<c>s3://bucket/key</c>),
         /// and the requester must have permission to access the S3 bucket it points to. If you
-        /// use Amazon S3, you can specify component content up to your service quota.</para><para>Alternatively, you can specify the YAML document inline, using the component <code>data</code>
+        /// use Amazon S3, you can specify component content up to your service quota.</para><para>Alternatively, you can specify the YAML document inline, using the component <c>data</c>
         /// property. You cannot specify both properties.</para>
         /// </para>
         /// </summary>

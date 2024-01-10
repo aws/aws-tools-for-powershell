@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para></li><li><para>
     /// New client connections are disallowed
     /// </para></li><li><para>
-    /// The Client VPN endpoint's status changes to <code>pending-associate</code></para></li></ul>
+    /// The Client VPN endpoint's status changes to <c>pending-associate</c></para></li></ul>
     /// </summary>
     [Cmdlet("Unregister", "EC2ClientVpnTargetNetwork", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.DisassociateClientVpnTargetNetworkResponse")]

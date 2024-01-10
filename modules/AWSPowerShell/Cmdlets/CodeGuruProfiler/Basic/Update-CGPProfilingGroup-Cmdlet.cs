@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter AgentOrchestrationConfig_ProfilingEnabled
         /// <summary>
         /// <para>
-        /// <para> A <code>Boolean</code> that specifies whether the profiling agent collects profiling
-        /// data or not. Set to <code>true</code> to enable profiling. </para>
+        /// <para> A <c>Boolean</c> that specifies whether the profiling agent collects profiling data
+        /// or not. Set to <c>true</c> to enable profiling. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

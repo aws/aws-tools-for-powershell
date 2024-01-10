@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their
-    /// <code>JoinToken</code>. Attendees are automatically deleted when a Amazon Chime SDK
-    /// meeting is deleted. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+    /// <c>JoinToken</c>. Attendees are automatically deleted when a Amazon Chime SDK meeting
+    /// is deleted. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
     /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>.
     /// 
     ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using

@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>The app's virtual host settings, with multiple domains separated by commas. For example:
-        /// <code>'www.example.com, example.com'</code></para>
+        /// <c>'www.example.com, example.com'</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter Environment
         /// <summary>
         /// <para>
-        /// <para>An array of <code>EnvironmentVariable</code> objects that specify environment variables
+        /// <para>An array of <c>EnvironmentVariable</c> objects that specify environment variables
         /// to be associated with the app. After you deploy the app, these variables are defined
         /// on the associated app server instances.For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment">
         /// Environment Variables</a>.</para><para>There is no specific limit on the number of environment variables. However, the size
@@ -172,9 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AppSource_Password
         /// <summary>
         /// <para>
-        /// <para>When included in a request, the parameter depends on the repository type.</para><ul><li><para>For Amazon S3 bundles, set <code>Password</code> to the appropriate IAM secret access
-        /// key.</para></li><li><para>For HTTP bundles and Subversion repositories, set <code>Password</code> to the password.</para></li></ul><para>For more information on how to safely handle IAM credentials, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</para><para>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code> instead
-        /// of the actual value.</para>
+        /// <para>When included in a request, the parameter depends on the repository type.</para><ul><li><para>For Amazon S3 bundles, set <c>Password</c> to the appropriate IAM secret access key.</para></li><li><para>For HTTP bundles and Subversion repositories, set <c>Password</c> to the password.</para></li></ul><para>For more information on how to safely handle IAM credentials, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</para><para>In responses, AWS OpsWorks Stacks returns <c>*****FILTERED*****</c> instead of the
+        /// actual value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,8 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AppSource_SshKey
         /// <summary>
         /// <para>
-        /// <para>In requests, the repository's SSH key.</para><para>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code> instead
-        /// of the actual value.</para>
+        /// <para>In requests, the repository's SSH key.</para><para>In responses, AWS OpsWorks Stacks returns <c>*****FILTERED*****</c> instead of the
+        /// actual value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AppSource_Url
         /// <summary>
         /// <para>
-        /// <para>The source URL. The following is an example of an Amazon S3 source URL: <code>https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz</code>.</para>
+        /// <para>The source URL. The following is an example of an Amazon S3 source URL: <c>https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -249,8 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AppSource_Username
         /// <summary>
         /// <para>
-        /// <para>This parameter depends on the repository type.</para><ul><li><para>For Amazon S3 bundles, set <code>Username</code> to the appropriate IAM access key
-        /// ID.</para></li><li><para>For HTTP bundles, Git repositories, and Subversion repositories, set <code>Username</code>
+        /// <para>This parameter depends on the repository type.</para><ul><li><para>For Amazon S3 bundles, set <c>Username</c> to the appropriate IAM access key ID.</para></li><li><para>For HTTP bundles, Git repositories, and Subversion repositories, set <c>Username</c>
         /// to the user name.</para></li></ul>
         /// </para>
         /// </summary>

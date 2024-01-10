@@ -32,11 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// 
     ///  
     /// <para>
-    /// There are a few modes for updating a component. The <code>deploymentType</code> field
-    /// defines the mode.
+    /// There are a few modes for updating a component. The <c>deploymentType</c> field defines
+    /// the mode.
     /// </para><note><para>
     /// You can't update a component while its deployment status, or the deployment status
-    /// of a service instance attached to it, is <code>IN_PROGRESS</code>.
+    /// of a service instance attached to it, is <c>IN_PROGRESS</c>.
     /// </para></note><para>
     /// For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
     /// components</a> in the <i>Proton User Guide</i>.
@@ -61,10 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter DeploymentType
         /// <summary>
         /// <para>
-        /// <para>The deployment type. It defines the mode for updating a component, as follows:</para><dl><dt /><dd><para><code>NONE</code></para><para>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters
-        /// are updated. You can only specify <code>description</code> in this mode.</para></dd><dt /><dd><para><code>CURRENT_VERSION</code></para><para>In this mode, the component is deployed and updated with the new <code>serviceSpec</code>,
-        /// <code>templateSource</code>, and/or <code>type</code> that you provide. Only requested
-        /// parameters are updated.</para></dd></dl>
+        /// <para>The deployment type. It defines the mode for updating a component, as follows:</para><dl><dt /><dd><para><c>NONE</c></para><para>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters
+        /// are updated. You can only specify <c>description</c> in this mode.</para></dd><dt /><dd><para><c>CURRENT_VERSION</c></para><para>In this mode, the component is deployed and updated with the new <c>serviceSpec</c>,
+        /// <c>templateSource</c>, and/or <c>type</c> that you provide. Only requested parameters
+        /// are updated.</para></dd></dl>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -111,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>The name of the service instance that you want to attach this component to. Don't
         /// specify to keep the component's current service instance attachment. Specify an empty
         /// string to detach the component from the service instance it's attached to. Specify
-        /// non-empty values for both <code>serviceInstanceName</code> and <code>serviceName</code>
-        /// or for neither of them.</para>
+        /// non-empty values for both <c>serviceInstanceName</c> and <c>serviceName</c> or for
+        /// neither of them.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,11 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter ServiceName
         /// <summary>
         /// <para>
-        /// <para>The name of the service that <code>serviceInstanceName</code> is associated with.
-        /// Don't specify to keep the component's current service instance attachment. Specify
-        /// an empty string to detach the component from the service instance it's attached to.
-        /// Specify non-empty values for both <code>serviceInstanceName</code> and <code>serviceName</code>
-        /// or for neither of them.</para>
+        /// <para>The name of the service that <c>serviceInstanceName</c> is associated with. Don't
+        /// specify to keep the component's current service instance attachment. Specify an empty
+        /// string to detach the component from the service instance it's attached to. Specify
+        /// non-empty values for both <c>serviceInstanceName</c> and <c>serviceName</c> or for
+        /// neither of them.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

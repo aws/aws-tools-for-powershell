@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     ///  
     /// <para>
     /// Unlike the private key of an asymmetric key, which never leaves Amazon Web Services
-    /// Payment Cryptography unencrypted, callers with <code>GetPublicKeyCertificate</code>
-    /// permission can download the public key certificate of the asymmetric key. You can
-    /// share the public key certificate to allow others to encrypt messages and verify signatures
-    /// outside of Amazon Web Services Payment Cryptography
+    /// Payment Cryptography unencrypted, callers with <c>GetPublicKeyCertificate</c> permission
+    /// can download the public key certificate of the asymmetric key. You can share the public
+    /// key certificate to allow others to encrypt messages and verify signatures outside
+    /// of Amazon Web Services Payment Cryptography
     /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
     /// </para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter KeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>KeyARN</code> of the asymmetric key pair.</para>
+        /// <para>The <c>KeyARN</c> of the asymmetric key pair.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

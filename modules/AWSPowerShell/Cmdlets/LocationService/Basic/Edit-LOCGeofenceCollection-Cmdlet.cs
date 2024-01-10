@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</para>
+        /// <para>No longer used. If included, the only allowed value is <c>RequestBasedUsage</c>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

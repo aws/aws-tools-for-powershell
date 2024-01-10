@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// DB instance.
     /// 
     ///  <note><para>
-    /// To add a role to a DB instance, the status of the DB instance must be <code>available</code>.
+    /// To add a role to a DB instance, the status of the DB instance must be <c>available</c>.
     /// </para></note><para>
     /// This command doesn't apply to RDS Custom.
     /// </para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role to associate with the DB instance,
-        /// for example <code>arn:aws:iam::123456789012:role/AccessRole</code>.</para>
+        /// for example <c>arn:aws:iam::123456789012:role/AccessRole</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

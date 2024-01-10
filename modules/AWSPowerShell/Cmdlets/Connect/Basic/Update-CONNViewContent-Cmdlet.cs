@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// 
     ///  
     /// <para>
-    /// It performs content validation if <code>Status</code> is set to <code>SAVED</code>
-    /// and performs full content validation if <code>Status</code> is <code>PUBLISHED</code>.
-    /// Note that the <code>$SAVED</code> alias' content will always be updated, but the <code>$LATEST</code>
-    /// alias' content will only be updated if <code>Status</code> is <code>PUBLISHED</code>.
+    /// It performs content validation if <c>Status</c> is set to <c>SAVED</c> and performs
+    /// full content validation if <c>Status</c> is <c>PUBLISHED</c>. Note that the <c>$SAVED</c>
+    /// alias' content will always be updated, but the <c>$LATEST</c> alias' content will
+    /// only be updated if <c>Status</c> is <c>PUBLISHED</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "CONNViewContent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>.
-        /// The <code>PUBLISHED</code> status will initiate validation on the content.</para>
+        /// <para>Indicates the view status as either <c>SAVED</c> or <c>PUBLISHED</c>. The <c>PUBLISHED</c>
+        /// status will initiate validation on the content.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -113,8 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ViewId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can
-        /// be used.</para>
+        /// <para>The identifier of the view. Both <c>ViewArn</c> and <c>ViewId</c> can be used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

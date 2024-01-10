@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// Insights events</a> that are captured by CloudTrail. You can look up events that occurred
     /// in a Region within the last 90 days.
     /// 
-    ///  <note><para><code>LookupEvents</code> returns recent Insights events for trails that enable Insights.
+    ///  <note><para><c>LookupEvents</c> returns recent Insights events for trails that enable Insights.
     /// To view Insights events for an event data store, you can run queries on your Insights
     /// event data store, and you can also view the Lake dashboard for Insights.
     /// </para></note><para>
@@ -98,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies the event category. If you do not specify an event category, events of the
-        /// category are not returned in the response. For example, if you do not specify <code>insight</code>
-        /// as the value of <code>EventCategory</code>, no Insights events are returned.</para>
+        /// category are not returned in the response. For example, if you do not specify <c>insight</c>
+        /// as the value of <c>EventCategory</c>, no Insights events are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

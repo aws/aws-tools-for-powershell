@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
-    /// You can use the <code>queryDefinitionNamePrefix</code> parameter to limit the results
-    /// to only the query definitions that have names that start with a certain string.
+    /// You can use the <c>queryDefinitionNamePrefix</c> parameter to limit the results to
+    /// only the query definitions that have names that start with a certain string.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWLQueryDefinition")]

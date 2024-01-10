@@ -33,8 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions for the <code>elasticfilesystem:TagResource</code>
-    /// action.
+    /// This operation requires permissions for the <c>elasticfilesystem:TagResource</c> action.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "EFSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -69,8 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of <code>Tag</code> objects to add. Each <code>Tag</code> object is a key-value
-        /// pair.</para>
+        /// <para>An array of <c>Tag</c> objects to add. Each <c>Tag</c> object is a key-value pair.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

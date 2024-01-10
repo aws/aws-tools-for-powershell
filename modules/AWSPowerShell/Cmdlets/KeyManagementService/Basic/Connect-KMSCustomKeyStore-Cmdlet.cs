@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Connects or reconnects a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
-    /// key store</a> to its backing key store. For an CloudHSM key store, <code>ConnectCustomKeyStore</code>
+    /// key store</a> to its backing key store. For an CloudHSM key store, <c>ConnectCustomKeyStore</c>
     /// connects the key store to its associated CloudHSM cluster. For an external key store,
-    /// <code>ConnectCustomKeyStore</code> connects the key store to the external key store
-    /// proxy that communicates with your external key manager.
+    /// <c>ConnectCustomKeyStore</c> connects the key store to the external key store proxy
+    /// that communicates with your external key manager.
     /// 
     ///  
     /// <para>
@@ -51,24 +51,24 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// key stores</a> feature in KMS, which combines the convenience and extensive integration
     /// of KMS with the isolation and control of a key store that you own and manage.
     /// </para><para>
-    /// The <code>ConnectCustomKeyStore</code> operation might fail for various reasons. To
-    /// find the reason, use the <a>DescribeCustomKeyStores</a> operation and see the <code>ConnectionErrorCode</code>
-    /// in the response. For help interpreting the <code>ConnectionErrorCode</code>, see <a>CustomKeyStoresListEntry</a>.
+    /// The <c>ConnectCustomKeyStore</c> operation might fail for various reasons. To find
+    /// the reason, use the <a>DescribeCustomKeyStores</a> operation and see the <c>ConnectionErrorCode</c>
+    /// in the response. For help interpreting the <c>ConnectionErrorCode</c>, see <a>CustomKeyStoresListEntry</a>.
     /// </para><para>
     /// To fix the failure, use the <a>DisconnectCustomKeyStore</a> operation to disconnect
     /// the custom key store, correct the error, use the <a>UpdateCustomKeyStore</a> operation
-    /// if necessary, and then use <code>ConnectCustomKeyStore</code> again.
+    /// if necessary, and then use <c>ConnectCustomKeyStore</c> again.
     /// </para><para><b>CloudHSM key store</b></para><para>
     /// During the connection process for an CloudHSM key store, KMS finds the CloudHSM cluster
     /// that is associated with the custom key store, creates the connection infrastructure,
-    /// connects to the cluster, logs into the CloudHSM client as the <code>kmsuser</code>
-    /// CU, and rotates its password.
+    /// connects to the cluster, logs into the CloudHSM client as the <c>kmsuser</c> CU, and
+    /// rotates its password.
     /// </para><para>
     /// To connect an CloudHSM key store, its associated CloudHSM cluster must have at least
     /// one active HSM. To get the number of active HSMs in a cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
     /// operation. To add HSMs to the cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">CreateHsm</a>
-    /// operation. Also, the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser"><code>kmsuser</code> crypto user</a> (CU) must not be logged into the cluster. This
-    /// prevents KMS from using this account to log in.
+    /// operation. Also, the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser"><c>kmsuser</c> crypto user</a> (CU) must not be logged into the cluster. This prevents
+    /// KMS from using this account to log in.
     /// </para><para>
     /// If you are having trouble connecting or disconnecting a CloudHSM key store, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting
     /// an CloudHSM key store</a> in the <i>Key Management Service Developer Guide</i>.

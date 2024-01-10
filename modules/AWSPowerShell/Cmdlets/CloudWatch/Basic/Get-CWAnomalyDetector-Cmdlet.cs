@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// metric anomaly detectors, you can list all of the models in your account or filter
     /// the results to only the models that are related to a certain namespace, metric name,
     /// or metric dimension. For metric math anomaly detectors, you can list them by adding
-    /// <code>METRIC_MATH</code> to the <code>AnomalyDetectorTypes</code> array. This will
-    /// return all metric math anomaly detectors in your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// <c>METRIC_MATH</c> to the <c>AnomalyDetectorTypes</c> array. This will return all
+    /// metric math anomaly detectors in your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWAnomalyDetector")]
     [OutputType("Amazon.CloudWatch.Model.AnomalyDetector")]
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AnomalyDetectorType
         /// <summary>
         /// <para>
-        /// <para>The anomaly detector types to request when using <code>DescribeAnomalyDetectorsInput</code>.
-        /// If empty, defaults to <code>SINGLE_METRIC</code>.</para>
+        /// <para>The anomaly detector types to request when using <c>DescribeAnomalyDetectorsInput</c>.
+        /// If empty, defaults to <c>SINGLE_METRIC</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return in one operation. The maximum value that you
-        /// can specify is 100.</para><para>To retrieve the remaining results, make another call with the returned <code>NextToken</code>
+        /// can specify is 100.</para><para>To retrieve the remaining results, make another call with the returned <c>NextToken</c>
         /// value. </para>
         /// </para>
         /// </summary>

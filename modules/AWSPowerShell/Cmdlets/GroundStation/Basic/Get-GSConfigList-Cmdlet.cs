@@ -28,7 +28,7 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Returns a list of <code>Config</code> objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of <c>Config</c> objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GSConfigList")]
     [OutputType("Amazon.GroundStation.Model.ConfigListItem")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of <code>Configs</code> returned.</para>
+        /// <para>Maximum number of <c>Configs</c> returned.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Next token returned in the request of a previous <code>ListConfigs</code> call. Used
-        /// to get the next page of results.</para>
+        /// <para>Next token returned in the request of a previous <c>ListConfigs</c> call. Used to
+        /// get the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

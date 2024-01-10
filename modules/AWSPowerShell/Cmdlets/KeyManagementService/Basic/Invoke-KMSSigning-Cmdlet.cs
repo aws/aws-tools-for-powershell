@@ -43,18 +43,18 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// key can verify that the message was signed with that particular private key and that
     /// the message hasn't changed since it was signed. 
     /// </para><para>
-    /// To use the <code>Sign</code> operation, provide the following information:
+    /// To use the <c>Sign</c> operation, provide the following information:
     /// </para><ul><li><para>
-    /// Use the <code>KeyId</code> parameter to identify an asymmetric KMS key with a <code>KeyUsage</code>
-    /// value of <code>SIGN_VERIFY</code>. To get the <code>KeyUsage</code> value of a KMS
-    /// key, use the <a>DescribeKey</a> operation. The caller must have <code>kms:Sign</code>
-    /// permission on the KMS key.
+    /// Use the <c>KeyId</c> parameter to identify an asymmetric KMS key with a <c>KeyUsage</c>
+    /// value of <c>SIGN_VERIFY</c>. To get the <c>KeyUsage</c> value of a KMS key, use the
+    /// <a>DescribeKey</a> operation. The caller must have <c>kms:Sign</c> permission on the
+    /// KMS key.
     /// </para></li><li><para>
-    /// Use the <code>Message</code> parameter to specify the message or message digest to
-    /// sign. You can submit messages of up to 4096 bytes. To sign a larger message, generate
-    /// a hash digest of the message, and then provide the hash digest in the <code>Message</code>
+    /// Use the <c>Message</c> parameter to specify the message or message digest to sign.
+    /// You can submit messages of up to 4096 bytes. To sign a larger message, generate a
+    /// hash digest of the message, and then provide the hash digest in the <c>Message</c>
     /// parameter. To indicate whether the message is a full message or a digest, use the
-    /// <code>MessageType</code> parameter.
+    /// <c>MessageType</c> parameter.
     /// </para></li><li><para>
     /// Choose a signing algorithm that is compatible with the KMS key. 
     /// </para></li></ul><important><para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different
     /// Amazon Web Services account, specify the key ARN or alias ARN in the value of the
-    /// <code>KeyId</code> parameter.
+    /// <c>KeyId</c> parameter.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:Sign</a>
     /// (key policy)
     /// </para><para><b>Related operations</b>: <a>Verify</a></para><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
@@ -101,8 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.
-        /// </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
+        /// <para>Checks if your request will succeed. <c>DryRun</c> is an optional parameter. </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
         /// your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -128,10 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Identifies an asymmetric KMS key. KMS uses the private key in the asymmetric KMS key
-        /// to sign the message. The <code>KeyUsage</code> type of the KMS key must be <code>SIGN_VERIFY</code>.
-        /// To find the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
-        /// an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different
-        /// Amazon Web Services account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.
+        /// to sign the message. The <c>KeyUsage</c> type of the KMS key must be <c>SIGN_VERIFY</c>.
+        /// To find the <c>KeyUsage</c> of a KMS key, use the <a>DescribeKey</a> operation.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
+        /// an alias name, prefix it with <c>"alias/"</c>. To specify a KMS key in a different
+        /// Amazon Web Services account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Alias name: <c>alias/ExampleAlias</c></para></li><li><para>Alias ARN: <c>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.
         /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>
         /// </para>
         /// </summary>
@@ -150,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To
-        /// sign a larger message, provide a message digest.</para><para>If you provide a message digest, use the <code>DIGEST</code> value of <code>MessageType</code>
+        /// sign a larger message, provide a message digest.</para><para>If you provide a message digest, use the <c>DIGEST</c> value of <c>MessageType</c>
         /// to prevent the digest from being hashed again while signing.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
@@ -169,17 +168,16 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter MessageType
         /// <summary>
         /// <para>
-        /// <para>Tells KMS whether the value of the <code>Message</code> parameter should be hashed
-        /// as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use
-        /// <code>DIGEST</code> for message digests, which are already hashed.</para><para>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard
-        /// signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>,
-        /// KMS skips the hashing step in the signing algorithm.</para><important><para>Use the <code>DIGEST</code> value only when the value of the <code>Message</code>
-        /// parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed
-        /// message, the security of the signing operation can be compromised.</para></important><para>When the value of <code>MessageType</code>is <code>DIGEST</code>, the length of the
-        /// <code>Message</code> value must match the length of hashed messages for the specified
-        /// signing algorithm.</para><para>You can submit a message digest and omit the <code>MessageType</code> or specify <code>RAW</code>
+        /// <para>Tells KMS whether the value of the <c>Message</c> parameter should be hashed as part
+        /// of the signing algorithm. Use <c>RAW</c> for unhashed messages; use <c>DIGEST</c>
+        /// for message digests, which are already hashed.</para><para>When the value of <c>MessageType</c> is <c>RAW</c>, KMS uses the standard signing
+        /// algorithm, which begins with a hash function. When the value is <c>DIGEST</c>, KMS
+        /// skips the hashing step in the signing algorithm.</para><important><para>Use the <c>DIGEST</c> value only when the value of the <c>Message</c> parameter is
+        /// a message digest. If you use the <c>DIGEST</c> value with an unhashed message, the
+        /// security of the signing operation can be compromised.</para></important><para>When the value of <c>MessageType</c>is <c>DIGEST</c>, the length of the <c>Message</c>
+        /// value must match the length of hashed messages for the specified signing algorithm.</para><para>You can submit a message digest and omit the <c>MessageType</c> or specify <c>RAW</c>
         /// so the digest is hashed again while signing. However, this can cause verification
-        /// failures when verifying with a system that assumes a single hash.</para><para>The hashing algorithm in that <code>Sign</code> uses is based on the <code>SigningAlgorithm</code>
+        /// failures when verifying with a system that assumes a single hash.</para><para>The hashing algorithm in that <c>Sign</c> uses is based on the <c>SigningAlgorithm</c>
         /// value.</para><ul><li><para>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</para></li><li><para>Signing algorithms that end in SHA_384 use the SHA_384 hashing algorithm.</para></li><li><para>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</para></li><li><para>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline
         /// verification with SM2 key pairs</a>.</para></li></ul>
         /// </para>

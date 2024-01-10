@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// Lists the subjects in the authenticated account and Amazon Web Services Region.
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:ListSubjects</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:ListSubjects</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMRASubjectList")]

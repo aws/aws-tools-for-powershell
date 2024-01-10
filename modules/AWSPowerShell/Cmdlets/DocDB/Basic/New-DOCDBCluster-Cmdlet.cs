@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The cluster identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens. </para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens. </para></li></ul><para>Example: <code>my-cluster</code></para>
+        /// <para>The cluster identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens. </para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens. </para></li></ul><para>Example: <c>my-cluster</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>A subnet group to associate with this cluster.</para><para>Constraints: Must match the name of an existing <code>DBSubnetGroup</code>. Must not
-        /// be default.</para><para>Example: <code>mySubnetgroup</code></para>
+        /// <para>A subnet group to associate with this cluster.</para><para>Constraints: Must match the name of an existing <c>DBSubnetGroup</c>. Must not be
+        /// default.</para><para>Example: <c>mySubnetgroup</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,10 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
-        /// <para>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code>
-        /// is enabled, the cluster cannot be deleted unless it is modified and <code>DeletionProtection</code>
-        /// is disabled. <code>DeletionProtection</code> protects clusters from being accidentally
-        /// deleted.</para>
+        /// <para>Specifies whether this cluster can be deleted. If <c>DeletionProtection</c> is enabled,
+        /// the cluster cannot be deleted unless it is modified and <c>DeletionProtection</c>
+        /// is disabled. <c>DeletionProtection</c> protects clusters from being accidentally deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this cluster.</para><para>Valid values: <code>docdb</code></para>
+        /// <para>The name of the database engine to be used for this cluster.</para><para>Valid values: <c>docdb</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -150,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to use. The <code>--engine-version</code>
-        /// will default to the latest major engine version. For production workloads, we recommend
+        /// <para>The version number of the database engine to use. The <c>--engine-version</c> will
+        /// default to the latest major engine version. For production workloads, we recommend
         /// explicitly declaring this parameter with the intended major engine version.</para>
         /// </para>
         /// </summary>
@@ -175,8 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>The KMS key identifier for an encrypted cluster.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
         /// If you are creating a cluster using the same Amazon Web Services account that owns
         /// the KMS encryption key that is used to encrypt the new cluster, you can use the KMS
-        /// key alias instead of the ARN for the KMS encryption key.</para><para>If an encryption key is not specified in <code>KmsKeyId</code>: </para><ul><li><para>If the <code>StorageEncrypted</code> parameter is <code>true</code>, Amazon DocumentDB
-        /// uses your default encryption key. </para></li></ul><para>KMS creates the default encryption key for your Amazon Web Services account. Your
+        /// key alias instead of the ARN for the KMS encryption key.</para><para>If an encryption key is not specified in <c>KmsKeyId</c>: </para><ul><li><para>If the <c>StorageEncrypted</c> parameter is <c>true</c>, Amazon DocumentDB uses your
+        /// default encryption key. </para></li></ul><para>KMS creates the default encryption key for your Amazon Web Services account. Your
         /// Amazon Web Services account has a different default encryption key for each Amazon
         /// Web Services Regions.</para>
         /// </para>
@@ -220,8 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The daily time range during which automated backups are created if automated backups
-        /// are enabled using the <code>BackupRetentionPeriod</code> parameter. </para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each Amazon Web Services Region. </para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window. </para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// are enabled using the <c>BackupRetentionPeriod</c> parameter. </para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// for each Amazon Web Services Region. </para><para>Constraints:</para><ul><li><para>Must be in the format <c>hh24:mi-hh24:mi</c>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window. </para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
-        /// Time (UTC).</para><para>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// Time (UTC).</para><para>Format: <c>ddd:hh24:mi-ddd:hh24:mi</c></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Web Services Region, occurring on a random day of the week.</para><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>
@@ -276,9 +275,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The storage type to associate with the DB cluster.</para><para>For information on storage types for Amazon DocumentDB clusters, see Cluster storage
-        /// configurations in the <i>Amazon DocumentDB Developer Guide</i>.</para><para>Valid values for storage type - <code>standard | iopt1</code></para><para>Default value is <code>standard </code></para><note><para>When you create a DocumentDB DB cluster with the storage type set to <code>iopt1</code>,
+        /// configurations in the <i>Amazon DocumentDB Developer Guide</i>.</para><para>Valid values for storage type - <c>standard | iopt1</c></para><para>Default value is <c>standard </c></para><note><para>When you create a DocumentDB DB cluster with the storage type set to <c>iopt1</c>,
         /// the storage type is returned in the response. The storage type isn't returned when
-        /// you set it to <code>standard</code>.</para></note>
+        /// you set it to <c>standard</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

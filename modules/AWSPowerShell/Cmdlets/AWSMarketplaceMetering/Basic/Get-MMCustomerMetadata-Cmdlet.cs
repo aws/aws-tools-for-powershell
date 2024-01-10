@@ -28,17 +28,17 @@ using Amazon.AWSMarketplaceMetering.Model;
 namespace Amazon.PowerShell.Cmdlets.MM
 {
     /// <summary>
-    /// <code>ResolveCustomer</code> is called by a SaaS application during the registration
-    /// process. When a buyer visits your website during the registration process, the buyer
-    /// submits a registration token through their browser. The registration token is resolved
-    /// through this API to obtain a <code>CustomerIdentifier</code> along with the <code>CustomerAWSAccountId</code>
-    /// and <code>ProductCode</code>.
+    /// <c>ResolveCustomer</c> is called by a SaaS application during the registration process.
+    /// When a buyer visits your website during the registration process, the buyer submits
+    /// a registration token through their browser. The registration token is resolved through
+    /// this API to obtain a <c>CustomerIdentifier</c> along with the <c>CustomerAWSAccountId</c>
+    /// and <c>ProductCode</c>.
     /// 
     ///  <note><para>
     /// The API needs to called from the seller account id used to publish the SaaS application
     /// to successfully resolve the token.
     /// </para><para>
-    /// For an example of using <code>ResolveCustomer</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-resolvecustomer-example">
+    /// For an example of using <c>ResolveCustomer</c>, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-resolvecustomer-example">
     /// ResolveCustomer code example</a> in the <i>AWS Marketplace Seller Guide</i>.
     /// </para></note>
     /// </summary>
@@ -58,8 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
         /// <para>
         /// <para>When a buyer visits your website during the registration process, the buyer submits
         /// a registration token through the browser. The registration token is resolved to obtain
-        /// a <code>CustomerIdentifier</code> along with the <code>CustomerAWSAccountId</code>
-        /// and <code>ProductCode</code>.</para>
+        /// a <c>CustomerIdentifier</c> along with the <c>CustomerAWSAccountId</c> and <c>ProductCode</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

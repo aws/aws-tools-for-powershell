@@ -57,11 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>The action for Amazon SES to take if it cannot successfully read the required MX record
-        /// when you send an email. If you choose <code>UseDefaultValue</code>, Amazon SES uses
-        /// amazonses.com (or a subdomain of that) as the MAIL FROM domain. If you choose <code>RejectMessage</code>,
-        /// Amazon SES returns a <code>MailFromDomainNotVerified</code> error and not send the
-        /// email.</para><para>The action specified in <code>BehaviorOnMXFailure</code> is taken when the custom
-        /// MAIL FROM domain setup is in the <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
+        /// when you send an email. If you choose <c>UseDefaultValue</c>, Amazon SES uses amazonses.com
+        /// (or a subdomain of that) as the MAIL FROM domain. If you choose <c>RejectMessage</c>,
+        /// Amazon SES returns a <c>MailFromDomainNotVerified</c> error and not send the email.</para><para>The action specified in <c>BehaviorOnMXFailure</c> is taken when the custom MAIL FROM
+        /// domain setup is in the <c>Pending</c>, <c>Failed</c>, and <c>TemporaryFailure</c>
         /// states.</para>
         /// </para>
         /// </summary>
@@ -94,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// must 1) be a subdomain of the verified identity, 2) not be used in a "From" address
         /// if the MAIL FROM domain is the destination of email feedback forwarding (for more
         /// information, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/mail-from.html">Amazon
-        /// SES Developer Guide</a>), and 3) not be used to receive emails. A value of <code>null</code>
+        /// SES Developer Guide</a>), and 3) not be used to receive emails. A value of <c>null</c>
         /// disables the custom MAIL FROM setting for the identity.</para>
         /// </para>
         /// </summary>

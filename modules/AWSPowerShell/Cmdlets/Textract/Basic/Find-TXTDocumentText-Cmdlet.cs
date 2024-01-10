@@ -30,18 +30,17 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// <summary>
     /// Detects text in the input document. Amazon Textract can detect lines of text and the
     /// words that make up a line of text. The input document must be in one of the following
-    /// image formats: JPEG, PNG, PDF, or TIFF. <code>DetectDocumentText</code> returns the
-    /// detected text in an array of <a>Block</a> objects. 
+    /// image formats: JPEG, PNG, PDF, or TIFF. <c>DetectDocumentText</c> returns the detected
+    /// text in an array of <a>Block</a> objects. 
     /// 
     ///  
     /// <para>
-    /// Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE
-    /// <code>Block</code> object is the parent of LINE <code>Block</code> objects that represent
-    /// the lines of detected text on a page. A LINE <code>Block</code> object is a parent
-    /// for each word that makes up the line. Words are represented by <code>Block</code>
-    /// objects of type WORD.
-    /// </para><para><code>DetectDocumentText</code> is a synchronous operation. To analyze documents
-    /// asynchronously, use <a>StartDocumentTextDetection</a>.
+    /// Each document page has as an associated <c>Block</c> of type PAGE. Each PAGE <c>Block</c>
+    /// object is the parent of LINE <c>Block</c> objects that represent the lines of detected
+    /// text on a page. A LINE <c>Block</c> object is a parent for each word that makes up
+    /// the line. Words are represented by <c>Block</c> objects of type WORD.
+    /// </para><para><c>DetectDocumentText</c> is a synchronous operation. To analyze documents asynchronously,
+    /// use <a>StartDocumentTextDetection</a>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document
     /// Text Detection</a>.
@@ -75,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// <para>
         /// <para>A blob of base64-encoded document bytes. The maximum size of a document that's provided
         /// in a blob of bytes is 5 MB. The document bytes must be in PNG or JPEG format.</para><para>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode
-        /// image bytes passed using the <code>Bytes</code> field. </para>
+        /// image bytes passed using the <c>Bytes</c> field. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

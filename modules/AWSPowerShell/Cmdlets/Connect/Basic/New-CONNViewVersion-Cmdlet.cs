@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// </para><para>
     /// It returns the highest version if there is no change in content compared to that version.
     /// An error is displayed if the supplied ViewContentSha256 is different from the ViewContentSha256
-    /// of the <code>$LATEST</code> alias.
+    /// of the <c>$LATEST</c> alias.
     /// </para>
     /// </summary>
     [Cmdlet("New", "CONNViewVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -94,8 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ViewId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can
-        /// be used.</para>
+        /// <para>The identifier of the view. Both <c>ViewArn</c> and <c>ViewId</c> can be used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

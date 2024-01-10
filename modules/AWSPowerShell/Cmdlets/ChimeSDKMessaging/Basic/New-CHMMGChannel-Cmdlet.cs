@@ -33,9 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     ///  
     /// <para><b>Restriction</b>: You can't change a channel's privacy.
     /// </para><note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
-    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
-    /// as the value in the header.
+    /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the ARN of the <c>AppInstanceUser</c>
+    /// or <c>AppInstanceBot</c> that makes the API call as the value in the header.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "CHMMGChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -82,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        /// the API call.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c> or <c>AppInstanceBot</c> that makes the API
+        /// call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>The client token for the request. An <code>Idempotency</code> token.</para>
+        /// <para>The client token for the request. An <c>Idempotency</c> token.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,9 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter Mode
         /// <summary>
         /// <para>
-        /// <para>The channel mode: <code>UNRESTRICTED</code> or <code>RESTRICTED</code>. Administrators,
-        /// moderators, and channel members can add themselves and other members to unrestricted
-        /// channels. Only administrators and moderators can add members to restricted channels.</para>
+        /// <para>The channel mode: <c>UNRESTRICTED</c> or <c>RESTRICTED</c>. Administrators, moderators,
+        /// and channel members can add themselves and other members to unrestricted channels.
+        /// Only administrators and moderators can add members to restricted channels.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,9 +215,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter Privacy
         /// <summary>
         /// <para>
-        /// <para>The channel's privacy level: <code>PUBLIC</code> or <code>PRIVATE</code>. Private
-        /// channels aren't discoverable by users outside the channel. Public channels are discoverable
-        /// by anyone in the <code>AppInstance</code>.</para>
+        /// <para>The channel's privacy level: <c>PUBLIC</c> or <c>PRIVATE</c>. Private channels aren't
+        /// discoverable by users outside the channel. Public channels are discoverable by anyone
+        /// in the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

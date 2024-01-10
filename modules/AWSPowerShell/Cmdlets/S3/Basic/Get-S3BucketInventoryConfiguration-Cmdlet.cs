@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Returns an inventory configuration (identified by the inventory configuration ID)
     /// from the bucket.
     /// </para><para>
-    /// To use this operation, you must have permissions to perform the <code>s3:GetInventoryConfiguration</code>
+    /// To use this operation, you must have permissions to perform the <c>s3:GetInventoryConfiguration</c>
     /// action. The bucket owner has this permission by default and can grant this permission
     /// to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For information about the Amazon S3 inventory feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html">Amazon
     /// S3 Inventory</a>.
     /// </para><para>
-    /// The following operations are related to <code>GetBucketInventoryConfiguration</code>:
+    /// The following operations are related to <c>GetBucketInventoryConfiguration</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketInventoryConfiguration.html">DeleteBucketInventoryConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html">ListBucketInventoryConfigurations</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html">PutBucketInventoryConfiguration</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketInventoryConfiguration")]

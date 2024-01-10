@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The order to list build IDs. Valid values include:</para><ul><li><para><code>ASCENDING</code>: List the build IDs in ascending order by build ID.</para></li><li><para><code>DESCENDING</code>: List the build IDs in descending order by build ID.</para></li></ul>
+        /// <para>The order to list build IDs. Valid values include:</para><ul><li><para><c>ASCENDING</c>: List the build IDs in ascending order by build ID.</para></li><li><para><c>DESCENDING</c>: List the build IDs in descending order by build ID.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>An optional string that, if supplied, must be copied from the output of a previous
-        /// call to <code>ListExports</code>. When provided in this manner, the API fetches the
-        /// next page of results.</para>
+        /// call to <c>ListExports</c>. When provided in this manner, the API fetches the next
+        /// page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

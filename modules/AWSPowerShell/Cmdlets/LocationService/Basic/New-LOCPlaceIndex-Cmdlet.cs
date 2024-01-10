@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
     /// Creates a place index resource in your Amazon Web Services account. Use a place index
-    /// resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code>
-    /// operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code>
-    /// operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code>
+    /// resource to geocode addresses and other text queries by using the <c>SearchPlaceIndexForText</c>
+    /// operation, and reverse geocode coordinates by using the <c>SearchPlaceIndexForPosition</c>
+    /// operation, and enable autosuggestions by using the <c>SearchPlaceIndexForSuggestions</c>
     /// operation.
     /// 
     ///  <note><para>
@@ -56,15 +56,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Specifies the geospatial data provider for the new place index.</para><note><para>This field is case-sensitive. Enter the valid values as shown. For example, entering
-        /// <code>HERE</code> returns an error.</para></note><para>Valid values include:</para><ul><li><para><code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s
+        /// <c>HERE</c> returns an error.</para></note><para>Valid values include:</para><ul><li><para><c>Esri</c> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s
         /// coverage in your region of interest, see <a href="https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm">Esri
-        /// details on geocoding coverage</a>.</para></li><li><para><code>Grab</code> – Grab provides place index functionality for Southeast Asia. For
-        /// additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>'
+        /// details on geocoding coverage</a>.</para></li><li><para><c>Grab</c> – Grab provides place index functionality for Southeast Asia. For additional
+        /// information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>'
         /// coverage, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps
-        /// countries and areas covered</a>.</para></li><li><para><code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
+        /// countries and areas covered</a>.</para></li><li><para><c>Here</c> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
         /// Technologies</a>' coverage in your region of interest, see <a href="https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html">HERE
-        /// details on goecoding coverage</a>.</para><important><para>If you specify HERE Technologies (<code>Here</code>) as the data provider, you may
-        /// not <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store
+        /// details on goecoding coverage</a>.</para><important><para>If you specify HERE Technologies (<c>Here</c>) as the data provider, you may not <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store
         /// results</a> for locations in Japan. For more information, see the <a href="http://aws.amazon.com/service-terms/">Amazon
         /// Web Services Service Terms</a> for Amazon Location Service.</para></important></li></ul><para>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data
         /// providers</a> on the <i>Amazon Location Service Developer Guide</i>.</para>
@@ -95,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>The name of the place index resource. </para><para>Requirements:</para><ul><li><para>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and
-        /// underscores (_).</para></li><li><para>Must be a unique place index resource name.</para></li><li><para>No spaces allowed. For example, <code>ExamplePlaceIndex</code>.</para></li></ul>
+        /// underscores (_).</para></li><li><para>Must be a unique place index resource name.</para></li><li><para>No spaces allowed. For example, <c>ExamplePlaceIndex</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -112,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter DataSourceConfiguration_IntendedUse
         /// <summary>
         /// <para>
-        /// <para>Specifies how the results of an operation will be stored by the caller. </para><para>Valid values include:</para><ul><li><para><code>SingleUse</code> specifies that the results won't be stored. </para></li><li><para><code>Storage</code> specifies that the result can be cached or stored in a database.</para></li></ul><para>Default value: <code>SingleUse</code></para>
+        /// <para>Specifies how the results of an operation will be stored by the caller. </para><para>Valid values include:</para><ul><li><para><c>SingleUse</c> specifies that the results won't be stored. </para></li><li><para><c>Storage</c> specifies that the result can be cached or stored in a database.</para></li></ul><para>Default value: <c>SingleUse</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Applies one or more tags to the place index resource. A tag is a key-value pair that
-        /// helps you manage, identify, search, and filter your resources.</para><para>Format: <code>"key" : "value"</code></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource.</para></li><li><para>Each tag key must be unique and must have exactly one associated value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8.</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8.</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
+        /// helps you manage, identify, search, and filter your resources.</para><para>Format: <c>"key" : "value"</c></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource.</para></li><li><para>Each tag key must be unique and must have exactly one associated value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8.</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8.</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
         /// = . _ : / @</para></li><li><para>Cannot use "aws:" as a prefix for a key.</para></li></ul>
         /// </para>
         /// </summary>
@@ -136,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</para>
+        /// <para>No longer used. If included, the only allowed value is <c>RequestBasedUsage</c>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

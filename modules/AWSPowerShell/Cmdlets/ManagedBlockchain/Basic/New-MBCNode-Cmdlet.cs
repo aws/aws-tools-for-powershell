@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter NetworkId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the network for the node.</para><para>Ethereum public networks have the following <code>NetworkId</code>s:</para><ul><li><para><code>n-ethereum-mainnet</code></para></li><li><para><code>n-ethereum-goerli</code></para></li></ul>
+        /// <para>The unique identifier of the network for the node.</para><para>Ethereum public networks have the following <c>NetworkId</c>s:</para><ul><li><para><c>n-ethereum-mainnet</c></para></li><li><para><c>n-ethereum-goerli</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -129,9 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter NodeConfiguration_StateDB
         /// <summary>
         /// <para>
-        /// <para>The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>.
+        /// <para>The state database that the node uses. Values are <c>LevelDB</c> or <c>CouchDB</c>.
         /// When using an Amazon Managed Blockchain network with Hyperledger Fabric version 1.4
-        /// or later, the default is <code>CouchDB</code>.</para><para>Applies only to Hyperledger Fabric.</para>
+        /// or later, the default is <c>CouchDB</c>.</para><para>Applies only to Hyperledger Fabric.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

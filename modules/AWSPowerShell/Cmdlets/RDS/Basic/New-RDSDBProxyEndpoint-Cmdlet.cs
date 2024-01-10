@@ -28,8 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates a <code>DBProxyEndpoint</code>. Only applies to proxies that are associated
-    /// with Aurora DB clusters. You can use DB proxy endpoints to specify read/write or read-only
+    /// Creates a <c>DBProxyEndpoint</c>. Only applies to proxies that are associated with
+    /// Aurora DB clusters. You can use DB proxy endpoints to specify read/write or read-only
     /// access to the DB cluster. You can also use DB proxy endpoints to access a DB proxy
     /// through a different VPC than the proxy's default VPC.
     /// </summary>
@@ -94,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The role of the DB proxy endpoint. The role determines whether the endpoint can be
-        /// used for read/write or only read operations. The default is <code>READ_WRITE</code>.
-        /// The only role that proxies for RDS for Microsoft SQL Server support is <code>READ_WRITE</code>.</para>
+        /// used for read/write or only read operations. The default is <c>READ_WRITE</c>. The
+        /// only role that proxies for RDS for Microsoft SQL Server support is <c>READ_WRITE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

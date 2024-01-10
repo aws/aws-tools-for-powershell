@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Creates a <code>Type</code> object.
+    /// Creates a <c>Type</c> object.
     /// </summary>
     [Cmdlet("New", "ASYNType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppSync.Model.Type")]

@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter AccessScope_Namespace
         /// <summary>
         /// <para>
-        /// <para>A Kubernetes <code>namespace</code> that an access policy is scoped to. A value is
-        /// required if you specified <code>namespace</code> for <code>Type</code>.</para>
+        /// <para>A Kubernetes <c>namespace</c> that an access policy is scoped to. A value is required
+        /// if you specified <c>namespace</c> for <c>Type</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AccessPolicy</code> that you're associating. For a list of ARNs,
-        /// use <code>ListAccessPolicies</code>.</para>
+        /// <para>The ARN of the <c>AccessPolicy</c> that you're associating. For a list of ARNs, use
+        /// <c>ListAccessPolicies</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter PrincipalArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM user or role for the <code>AccessEntry</code>
+        /// <para>The Amazon Resource Name (ARN) of the IAM user or role for the <c>AccessEntry</c>
         /// that you're associating the access policy to. </para>
         /// </para>
         /// </summary>

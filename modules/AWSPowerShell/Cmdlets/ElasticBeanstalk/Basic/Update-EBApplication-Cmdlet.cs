@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// Updates the specified application to have the specified properties.
     /// 
     ///  <note><para>
-    /// If a property (for example, <code>description</code>) is not provided, the value remains
+    /// If a property (for example, <c>description</c>) is not provided, the value remains
     /// unchanged. To clear these properties, specify an empty string.
     /// </para></note>
     /// </summary>
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of the application to update. If no such application is found, <code>UpdateApplication</code>
-        /// returns an <code>InvalidParameterValue</code> error. </para>
+        /// <para>The name of the application to update. If no such application is found, <c>UpdateApplication</c>
+        /// returns an <c>InvalidParameterValue</c> error. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

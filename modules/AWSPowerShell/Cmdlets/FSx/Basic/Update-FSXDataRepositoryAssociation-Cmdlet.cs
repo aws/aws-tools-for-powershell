@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// <summary>
     /// Updates the configuration of an existing data repository association on an Amazon
     /// FSx for Lustre file system. Data repository associations are supported on all FSx
-    /// for Lustre 2.12 and 2.15 file systems, excluding <code>scratch_1</code> deployment
-    /// type.
+    /// for Lustre 2.12 and 2.15 file systems, excluding <c>scratch_1</c> deployment type.
     /// </summary>
     [Cmdlet("Update", "FSXDataRepositoryAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FSx.Model.DataRepositoryAssociation")]
@@ -75,10 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter AutoExportPolicy_Event
         /// <summary>
         /// <para>
-        /// <para>The <code>AutoExportPolicy</code> can have the following event values:</para><ul><li><para><code>NEW</code> - New files and directories are automatically exported to the data
-        /// repository as they are added to the file system.</para></li><li><para><code>CHANGED</code> - Changes to files and directories on the file system are automatically
-        /// exported to the data repository.</para></li><li><para><code>DELETED</code> - Files and directories are automatically deleted on the data
-        /// repository when they are deleted on the file system.</para></li></ul><para>You can define any combination of event types for your <code>AutoExportPolicy</code>.</para>
+        /// <para>The <c>AutoExportPolicy</c> can have the following event values:</para><ul><li><para><c>NEW</c> - New files and directories are automatically exported to the data repository
+        /// as they are added to the file system.</para></li><li><para><c>CHANGED</c> - Changes to files and directories on the file system are automatically
+        /// exported to the data repository.</para></li><li><para><c>DELETED</c> - Files and directories are automatically deleted on the data repository
+        /// when they are deleted on the file system.</para></li></ul><para>You can define any combination of event types for your <c>AutoExportPolicy</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,10 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter AutoImportPolicy_Event
         /// <summary>
         /// <para>
-        /// <para>The <code>AutoImportPolicy</code> can have the following event values:</para><ul><li><para><code>NEW</code> - Amazon FSx automatically imports metadata of files added to the
-        /// linked S3 bucket that do not currently exist in the FSx file system.</para></li><li><para><code>CHANGED</code> - Amazon FSx automatically updates file metadata and invalidates
-        /// existing file content on the file system as files change in the data repository.</para></li><li><para><code>DELETED</code> - Amazon FSx automatically deletes files on the file system
-        /// as corresponding files are deleted in the data repository.</para></li></ul><para>You can define any combination of event types for your <code>AutoImportPolicy</code>.</para>
+        /// <para>The <c>AutoImportPolicy</c> can have the following event values:</para><ul><li><para><c>NEW</c> - Amazon FSx automatically imports metadata of files added to the linked
+        /// S3 bucket that do not currently exist in the FSx file system.</para></li><li><para><c>CHANGED</c> - Amazon FSx automatically updates file metadata and invalidates existing
+        /// file content on the file system as files change in the data repository.</para></li><li><para><c>DELETED</c> - Amazon FSx automatically deletes files on the file system as corresponding
+        /// files are deleted in the data repository.</para></li></ul><para>You can define any combination of event types for your <c>AutoImportPolicy</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

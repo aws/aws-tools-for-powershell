@@ -30,16 +30,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// <summary>
     /// Deletes an analysis from Amazon QuickSight. You can optionally include a recovery
     /// window during which you can restore the analysis. If you don't specify a recovery
-    /// window value, the operation defaults to 30 days. Amazon QuickSight attaches a <code>DeletionTime</code>
+    /// window value, the operation defaults to 30 days. Amazon QuickSight attaches a <c>DeletionTime</c>
     /// stamp to the response that specifies the end of the recovery window. At the end of
     /// the recovery window, Amazon QuickSight deletes the analysis permanently.
     /// 
     ///  
     /// <para>
-    /// At any time before recovery window ends, you can use the <code>RestoreAnalysis</code>
-    /// API operation to remove the <code>DeletionTime</code> stamp and cancel the deletion
-    /// of the analysis. The analysis remains visible in the API until it's deleted, so you
-    /// can describe it but you can't make a template from it.
+    /// At any time before recovery window ends, you can use the <c>RestoreAnalysis</c> API
+    /// operation to remove the <c>DeletionTime</c> stamp and cancel the deletion of the analysis.
+    /// The analysis remains visible in the API until it's deleted, so you can describe it
+    /// but you can't make a template from it.
     /// </para><para>
     /// An analysis that's scheduled for deletion isn't accessible in the Amazon QuickSight
     /// console. To access it in the console, restore it. Deleting an analysis doesn't delete
@@ -94,9 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ForceDeleteWithoutRecovery
         /// <summary>
         /// <para>
-        /// <para>This option defaults to the value <code>NoForceDeleteWithoutRecovery</code>. To immediately
-        /// delete the analysis, add the <code>ForceDeleteWithoutRecovery</code> option. You can't
-        /// restore an analysis after it's deleted. </para>
+        /// <para>This option defaults to the value <c>NoForceDeleteWithoutRecovery</c>. To immediately
+        /// delete the analysis, add the <c>ForceDeleteWithoutRecovery</c> option. You can't restore
+        /// an analysis after it's deleted. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A value that specifies the number of days that Amazon QuickSight waits before it deletes
-        /// the analysis. You can't use this parameter with the <code>ForceDeleteWithoutRecovery</code>
+        /// the analysis. You can't use this parameter with the <c>ForceDeleteWithoutRecovery</c>
         /// option in the same API call. The default value is 30.</para>
         /// </para>
         /// </summary>

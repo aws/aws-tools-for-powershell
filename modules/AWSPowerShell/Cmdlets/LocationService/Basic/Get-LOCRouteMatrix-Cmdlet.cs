@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
     /// <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html">
-    /// Calculates a route matrix</a> given the following required parameters: <code>DeparturePositions</code>
-    /// and <code>DestinationPositions</code>. <code>CalculateRouteMatrix</code> calculates
-    /// routes and returns the travel time and travel distance from each departure position
-    /// to each destination position in the request. For example, given departure positions
-    /// A and B, and destination positions X and Y, <code>CalculateRouteMatrix</code> will
-    /// return time and distance for routes from A to X, A to Y, B to X, and B to Y (in that
-    /// order). The number of results returned (and routes calculated) will be the number
-    /// of <code>DeparturePositions</code> times the number of <code>DestinationPositions</code>.
+    /// Calculates a route matrix</a> given the following required parameters: <c>DeparturePositions</c>
+    /// and <c>DestinationPositions</c>. <c>CalculateRouteMatrix</c> calculates routes and
+    /// returns the travel time and travel distance from each departure position to each destination
+    /// position in the request. For example, given departure positions A and B, and destination
+    /// positions X and Y, <c>CalculateRouteMatrix</c> will return time and distance for routes
+    /// from A to X, A to Y, B to X, and B to Y (in that order). The number of results returned
+    /// (and routes calculated) will be the number of <c>DeparturePositions</c> times the
+    /// number of <c>DestinationPositions</c>.
     /// 
     ///  <note><para>
     /// Your account is charged for each route calculated, not the number of requests.
@@ -49,16 +49,15 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// </para><para>
     /// Additional options include:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">
-    /// Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartNow</code>.
+    /// Specifying a departure time</a> using either <c>DepartureTime</c> or <c>DepartNow</c>.
     /// This calculates routes based on predictive traffic data at the given time. 
     /// </para><note><para>
-    /// You can't specify both <code>DepartureTime</code> and <code>DepartNow</code> in a
-    /// single request. Specifying both parameters returns a validation error.
+    /// You can't specify both <c>DepartureTime</c> and <c>DepartNow</c> in a single request.
+    /// Specifying both parameters returns a validation error.
     /// </para></note></li><li><para><a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying
     /// a travel mode</a> using TravelMode sets the transportation mode used to calculate
-    /// the routes. This also lets you specify additional route preferences in <code>CarModeOptions</code>
-    /// if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by
-    /// <code>Truck</code>.
+    /// the routes. This also lets you specify additional route preferences in <c>CarModeOptions</c>
+    /// if traveling by <c>Car</c>, or <c>TruckModeOptions</c> if traveling by <c>Truck</c>.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "LOCRouteMatrix")]
@@ -77,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter CarModeOptions_AvoidFerry
         /// <summary>
         /// <para>
-        /// <para>Avoids ferries when calculating routes.</para><para>Default Value: <code>false</code></para><para>Valid Values: <code>false</code> | <code>true</code></para>
+        /// <para>Avoids ferries when calculating routes.</para><para>Default Value: <c>false</c></para><para>Valid Values: <c>false</c> | <c>true</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter TruckModeOptions_AvoidFerry
         /// <summary>
         /// <para>
-        /// <para>Avoids ferries when calculating routes.</para><para>Default Value: <code>false</code></para><para>Valid Values: <code>false</code> | <code>true</code></para>
+        /// <para>Avoids ferries when calculating routes.</para><para>Default Value: <c>false</c></para><para>Valid Values: <c>false</c> | <c>true</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter CarModeOptions_AvoidToll
         /// <summary>
         /// <para>
-        /// <para>Avoids tolls when calculating routes.</para><para>Default Value: <code>false</code></para><para>Valid Values: <code>false</code> | <code>true</code></para>
+        /// <para>Avoids tolls when calculating routes.</para><para>Default Value: <c>false</c></para><para>Valid Values: <c>false</c> | <c>true</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter TruckModeOptions_AvoidToll
         /// <summary>
         /// <para>
-        /// <para>Avoids tolls when calculating routes.</para><para>Default Value: <code>false</code></para><para>Valid Values: <code>false</code> | <code>true</code></para>
+        /// <para>Avoids tolls when calculating routes.</para><para>Default Value: <c>false</c></para><para>Valid Values: <c>false</c> | <c>true</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,9 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Sets the time of departure as the current time. Uses the current time to calculate
-        /// the route matrix. You can't set both <code>DepartureTime</code> and <code>DepartNow</code>.
-        /// If neither is set, the best time of day to travel with the best traffic conditions
-        /// is used to calculate the route matrix.</para><para>Default Value: <code>false</code></para><para>Valid Values: <code>false</code> | <code>true</code></para>
+        /// the route matrix. You can't set both <c>DepartureTime</c> and <c>DepartNow</c>. If
+        /// neither is set, the best time of day to travel with the best traffic conditions is
+        /// used to calculate the route matrix.</para><para>Default Value: <c>false</c></para><para>Valid Values: <c>false</c> | <c>true</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,12 +153,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>
         /// <para>The list of departure (origin) positions for the route matrix. An array of points,
         /// each of which is itself a 2-value array defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS
-        /// 84</a> format: <code>[longitude, latitude]</code>. For example, <code>[-123.115, 49.285]</code>.</para><important><para>Depending on the data provider selected in the route calculator resource there may
+        /// 84</a> format: <c>[longitude, latitude]</c>. For example, <c>[-123.115, 49.285]</c>.</para><important><para>Depending on the data provider selected in the route calculator resource there may
         /// be additional restrictions on the inputs you can choose. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html#matrix-routing-position-limits">
         /// Position restrictions</a> in the <i>Amazon Location Service Developer Guide</i>.</para></important><note><para>For route calculators that use Esri as the data provider, if you specify a departure
         /// that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">
         /// moves the position to the nearest road</a>. The snapped value is available in the
-        /// result in <code>SnappedDeparturePositions</code>.</para></note><para>Valid Values: <code>[-180 to 180,-90 to 90]</code></para>
+        /// result in <c>SnappedDeparturePositions</c>.</para></note><para>Valid Values: <c>[-180 to 180,-90 to 90]</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -178,11 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Specifies the desired time of departure. Uses the given time to calculate the route
-        /// matrix. You can't set both <code>DepartureTime</code> and <code>DepartNow</code>.
-        /// If neither is set, the best time of day to travel with the best traffic conditions
-        /// is used to calculate the route matrix.</para><note><para>Setting a departure time in the past returns a <code>400 ValidationException</code>
-        /// error.</para></note><ul><li><para>In <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
-        /// <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. For example, <code>2020–07-2T12:15:20.000Z+01:00</code></para></li></ul>
+        /// matrix. You can't set both <c>DepartureTime</c> and <c>DepartNow</c>. If neither is
+        /// set, the best time of day to travel with the best traffic conditions is used to calculate
+        /// the route matrix.</para><note><para>Setting a departure time in the past returns a <c>400 ValidationException</c> error.</para></note><ul><li><para>In <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
+        /// <c>YYYY-MM-DDThh:mm:ss.sssZ</c>. For example, <c>2020–07-2T12:15:20.000Z+01:00</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,12 +192,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>
         /// <para>The list of destination positions for the route matrix. An array of points, each of
         /// which is itself a 2-value array defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS
-        /// 84</a> format: <code>[longitude, latitude]</code>. For example, <code>[-122.339, 47.615]</code></para><important><para>Depending on the data provider selected in the route calculator resource there may
+        /// 84</a> format: <c>[longitude, latitude]</c>. For example, <c>[-122.339, 47.615]</c></para><important><para>Depending on the data provider selected in the route calculator resource there may
         /// be additional restrictions on the inputs you can choose. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html#matrix-routing-position-limits">
         /// Position restrictions</a> in the <i>Amazon Location Service Developer Guide</i>.</para></important><note><para>For route calculators that use Esri as the data provider, if you specify a destination
         /// that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">
         /// moves the position to the nearest road</a>. The snapped value is available in the
-        /// result in <code>SnappedDestinationPositions</code>.</para></note><para>Valid Values: <code>[-180 to 180,-90 to 90]</code></para>
+        /// result in <c>SnappedDestinationPositions</c>.</para></note><para>Valid Values: <c>[-180 to 180,-90 to 90]</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -217,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter DistanceUnit
         /// <summary>
         /// <para>
-        /// <para>Set the unit system to specify the distance.</para><para>Default Value: <code>Kilometers</code></para>
+        /// <para>Set the unit system to specify the distance.</para><para>Default Value: <c>Kilometers</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -228,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Dimensions_Height
         /// <summary>
         /// <para>
-        /// <para>The height of the truck.</para><ul><li><para>For example, <code>4.5</code>.</para></li></ul><note><para> For routes calculated with a HERE resource, this value must be between 0 and 50 meters.
+        /// <para>The height of the truck.</para><ul><li><para>For example, <c>4.5</c>.</para></li></ul><note><para> For routes calculated with a HERE resource, this value must be between 0 and 50 meters.
         /// </para></note>
         /// </para>
         /// </summary>
@@ -251,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Dimensions_Length
         /// <summary>
         /// <para>
-        /// <para>The length of the truck.</para><ul><li><para>For example, <code>15.5</code>.</para></li></ul><note><para> For routes calculated with a HERE resource, this value must be between 0 and 300
+        /// <para>The length of the truck.</para><ul><li><para>For example, <c>15.5</c>.</para></li></ul><note><para> For routes calculated with a HERE resource, this value must be between 0 and 300
         /// meters. </para></note>
         /// </para>
         /// </summary>
@@ -263,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Weight_Total
         /// <summary>
         /// <para>
-        /// <para>The total weight of the truck. </para><ul><li><para>For example, <code>3500</code>.</para></li></ul>
+        /// <para>The total weight of the truck. </para><ul><li><para>For example, <c>3500</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,10 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Specifies the mode of transport when calculating a route. Used in estimating the speed
-        /// of travel and road compatibility.</para><para>The <code>TravelMode</code> you specify also determines how you specify route preferences:
-        /// </para><ul><li><para>If traveling by <code>Car</code> use the <code>CarModeOptions</code> parameter.</para></li><li><para>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code> parameter.</para></li></ul><note><para><code>Bicycle</code> or <code>Motorcycle</code> are only valid when using <code>Grab</code>
-        /// as a data provider, and only within Southeast Asia.</para><para><code>Truck</code> is not available for Grab.</para><para>For more information about using Grab as a data provider, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>
-        /// in the <i>Amazon Location Service Developer Guide</i>.</para></note><para>Default Value: <code>Car</code></para>
+        /// of travel and road compatibility.</para><para>The <c>TravelMode</c> you specify also determines how you specify route preferences:
+        /// </para><ul><li><para>If traveling by <c>Car</c> use the <c>CarModeOptions</c> parameter.</para></li><li><para>If traveling by <c>Truck</c> use the <c>TruckModeOptions</c> parameter.</para></li></ul><note><para><c>Bicycle</c> or <c>Motorcycle</c> are only valid when using <c>Grab</c> as a data
+        /// provider, and only within Southeast Asia.</para><para><c>Truck</c> is not available for Grab.</para><para>For more information about using Grab as a data provider, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>
+        /// in the <i>Amazon Location Service Developer Guide</i>.</para></note><para>Default Value: <c>Car</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -289,7 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Dimensions_Unit
         /// <summary>
         /// <para>
-        /// <para> Specifies the unit of measurement for the truck dimensions.</para><para>Default Value: <code>Meters</code></para>
+        /// <para> Specifies the unit of measurement for the truck dimensions.</para><para>Default Value: <c>Meters</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -301,7 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Weight_Unit
         /// <summary>
         /// <para>
-        /// <para>The unit of measurement to use for the truck weight.</para><para>Default Value: <code>Kilograms</code></para>
+        /// <para>The unit of measurement to use for the truck weight.</para><para>Default Value: <c>Kilograms</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -313,7 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Dimensions_Width
         /// <summary>
         /// <para>
-        /// <para>The width of the truck.</para><ul><li><para>For example, <code>4.5</code>.</para></li></ul><note><para> For routes calculated with a HERE resource, this value must be between 0 and 50 meters.
+        /// <para>The width of the truck.</para><ul><li><para>For example, <c>4.5</c>.</para></li></ul><note><para> For routes calculated with a HERE resource, this value must be between 0 and 50 meters.
         /// </para></note>
         /// </para>
         /// </summary>

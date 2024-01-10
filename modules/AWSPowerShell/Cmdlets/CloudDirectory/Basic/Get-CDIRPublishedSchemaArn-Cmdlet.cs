@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
     /// Lists the major version families of each published schema. If a major version ARN
-    /// is provided as <code>SchemaArn</code>, the minor version revisions in that family
-    /// are listed instead.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// is provided as <c>SchemaArn</c>, the minor version revisions in that family are listed
+    /// instead.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CDIRPublishedSchemaArn")]
     [OutputType("System.String")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter SchemaArn
         /// <summary>
         /// <para>
-        /// <para>The response for <code>ListPublishedSchemaArns</code> when this parameter is used
-        /// will list all minor version ARNs for a major version.</para>
+        /// <para>The response for <c>ListPublishedSchemaArns</c> when this parameter is used will list
+        /// all minor version ARNs for a major version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

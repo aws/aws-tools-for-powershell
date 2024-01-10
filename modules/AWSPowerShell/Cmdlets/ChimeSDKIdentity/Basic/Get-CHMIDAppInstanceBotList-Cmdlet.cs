@@ -28,7 +28,7 @@ using Amazon.ChimeSDKIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMID
 {
     /// <summary>
-    /// Lists all <code>AppInstanceBots</code> created under a single <code>AppInstance</code>.
+    /// Lists all <c>AppInstanceBots</c> created under a single <c>AppInstance</c>.
     /// </summary>
     [Cmdlet("Get", "CHMIDAppInstanceBotList")]
     [OutputType("Amazon.ChimeSDKIdentity.Model.ListAppInstanceBotsResponse")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstance</code>.</para>
+        /// <para>The ARN of the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

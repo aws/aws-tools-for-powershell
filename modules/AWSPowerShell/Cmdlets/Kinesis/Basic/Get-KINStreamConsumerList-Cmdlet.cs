@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of consumers that you want a single call of <code>ListStreamConsumers</code>
+        /// <para>The maximum number of consumers that you want a single call of <c>ListStreamConsumers</c>
         /// to return. The default value is 100. If you specify a value greater than 100, at most
         /// 100 results are returned. </para>
         /// </para>
@@ -102,21 +102,20 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <summary>
         /// <para>
         /// <para>When the number of consumers that are registered with the data stream is greater than
-        /// the default value for the <code>MaxResults</code> parameter, or if you explicitly
-        /// specify a value for <code>MaxResults</code> that is less than the number of consumers
-        /// that are registered with the data stream, the response includes a pagination token
-        /// named <code>NextToken</code>. You can specify this <code>NextToken</code> value in
-        /// a subsequent call to <code>ListStreamConsumers</code> to list the next set of registered
-        /// consumers.</para><para>Don't specify <code>StreamName</code> or <code>StreamCreationTimestamp</code> if you
-        /// specify <code>NextToken</code> because the latter unambiguously identifies the stream.</para><para>You can optionally specify a value for the <code>MaxResults</code> parameter when
-        /// you specify <code>NextToken</code>. If you specify a <code>MaxResults</code> value
-        /// that is less than the number of consumers that the operation returns if you don't
-        /// specify <code>MaxResults</code>, the response will contain a new <code>NextToken</code>
-        /// value. You can use the new <code>NextToken</code> value in a subsequent call to the
-        /// <code>ListStreamConsumers</code> operation to list the next set of consumers.</para><important><para>Tokens expire after 300 seconds. When you obtain a value for <code>NextToken</code>
-        /// in the response to a call to <code>ListStreamConsumers</code>, you have 300 seconds
-        /// to use that value. If you specify an expired token in a call to <code>ListStreamConsumers</code>,
-        /// you get <code>ExpiredNextTokenException</code>.</para></important>
+        /// the default value for the <c>MaxResults</c> parameter, or if you explicitly specify
+        /// a value for <c>MaxResults</c> that is less than the number of consumers that are registered
+        /// with the data stream, the response includes a pagination token named <c>NextToken</c>.
+        /// You can specify this <c>NextToken</c> value in a subsequent call to <c>ListStreamConsumers</c>
+        /// to list the next set of registered consumers.</para><para>Don't specify <c>StreamName</c> or <c>StreamCreationTimestamp</c> if you specify <c>NextToken</c>
+        /// because the latter unambiguously identifies the stream.</para><para>You can optionally specify a value for the <c>MaxResults</c> parameter when you specify
+        /// <c>NextToken</c>. If you specify a <c>MaxResults</c> value that is less than the number
+        /// of consumers that the operation returns if you don't specify <c>MaxResults</c>, the
+        /// response will contain a new <c>NextToken</c> value. You can use the new <c>NextToken</c>
+        /// value in a subsequent call to the <c>ListStreamConsumers</c> operation to list the
+        /// next set of consumers.</para><important><para>Tokens expire after 300 seconds. When you obtain a value for <c>NextToken</c> in the
+        /// response to a call to <c>ListStreamConsumers</c>, you have 300 seconds to use that
+        /// value. If you specify an expired token in a call to <c>ListStreamConsumers</c>, you
+        /// get <c>ExpiredNextTokenException</c>.</para></important>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

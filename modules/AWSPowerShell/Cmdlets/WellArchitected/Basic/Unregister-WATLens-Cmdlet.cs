@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     /// <para>
     /// Up to 10 lenses can be disassociated from a workload in a single API operation.
     /// </para><note><para>
-    /// The Amazon Web Services Well-Architected Framework lens (<code>wellarchitected</code>)
-    /// cannot be removed from a workload.
+    /// The Amazon Web Services Well-Architected Framework lens (<c>wellarchitected</c>) cannot
+    /// be removed from a workload.
     /// </para></note>
     /// </summary>
     [Cmdlet("Unregister", "WATLens", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>gre-key</code> - The ID of a trunk interface association.</para></li><li><para><code>interface-protocol</code> - The interface protocol. Valid values are <code>VLAN</code>
-        /// and <code>GRE</code>.</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><c>gre-key</c> - The ID of a trunk interface association.</para></li><li><para><c>interface-protocol</c> - The interface protocol. Valid values are <c>VLAN</c>
+        /// and <c>GRE</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

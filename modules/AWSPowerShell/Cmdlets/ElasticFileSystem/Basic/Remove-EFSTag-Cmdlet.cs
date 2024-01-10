@@ -29,16 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
     /// <note><para>
-    /// DEPRECATED - <code>DeleteTags</code> is deprecated and not maintained. To remove tags
-    /// from EFS resources, use the API action.
+    /// DEPRECATED - <c>DeleteTags</c> is deprecated and not maintained. To remove tags from
+    /// EFS resources, use the API action.
     /// </para></note><para>
-    /// Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
-    /// includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an
-    /// error. For more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag
+    /// Deletes the specified tags from a file system. If the <c>DeleteTags</c> request includes
+    /// a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an error. For
+    /// more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag
     /// restrictions</a> in the <i>Billing and Cost Management User Guide</i>.
     /// </para><para>
-    /// This operation requires permissions for the <code>elasticfilesystem:DeleteTags</code>
-    /// action.
+    /// This operation requires permissions for the <c>elasticfilesystem:DeleteTags</c> action.
     /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "EFSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -114,15 +114,14 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         /// <summary>
         /// <para>
         /// <para>License rules. The syntax is #name=value (for example, #allowedTenancy=EC2-DedicatedHost).
-        /// The available rules vary by dimension, as follows.</para><ul><li><para><code>Cores</code> dimension: <code>allowedTenancy</code> | <code>licenseAffinityToHost</code>
-        /// | <code>maximumCores</code> | <code>minimumCores</code></para></li><li><para><code>Instances</code> dimension: <code>allowedTenancy</code> | <code>maximumCores</code>
-        /// | <code>minimumCores</code> | <code>maximumSockets</code> | <code>minimumSockets</code>
-        /// | <code>maximumVcpus</code> | <code>minimumVcpus</code></para></li><li><para><code>Sockets</code> dimension: <code>allowedTenancy</code> | <code>licenseAffinityToHost</code>
-        /// | <code>maximumSockets</code> | <code>minimumSockets</code></para></li><li><para><code>vCPUs</code> dimension: <code>allowedTenancy</code> | <code>honorVcpuOptimization</code>
-        /// | <code>maximumVcpus</code> | <code>minimumVcpus</code></para></li></ul><para>The unit for <code>licenseAffinityToHost</code> is days and the range is 1 to 180.
-        /// The possible values for <code>allowedTenancy</code> are <code>EC2-Default</code>,
-        /// <code>EC2-DedicatedHost</code>, and <code>EC2-DedicatedInstance</code>. The possible
-        /// values for <code>honorVcpuOptimization</code> are <code>True</code> and <code>False</code>.</para>
+        /// The available rules vary by dimension, as follows.</para><ul><li><para><c>Cores</c> dimension: <c>allowedTenancy</c> | <c>licenseAffinityToHost</c> | <c>maximumCores</c>
+        /// | <c>minimumCores</c></para></li><li><para><c>Instances</c> dimension: <c>allowedTenancy</c> | <c>maximumCores</c> | <c>minimumCores</c>
+        /// | <c>maximumSockets</c> | <c>minimumSockets</c> | <c>maximumVcpus</c> | <c>minimumVcpus</c></para></li><li><para><c>Sockets</c> dimension: <c>allowedTenancy</c> | <c>licenseAffinityToHost</c> |
+        /// <c>maximumSockets</c> | <c>minimumSockets</c></para></li><li><para><c>vCPUs</c> dimension: <c>allowedTenancy</c> | <c>honorVcpuOptimization</c> | <c>maximumVcpus</c>
+        /// | <c>minimumVcpus</c></para></li></ul><para>The unit for <c>licenseAffinityToHost</c> is days and the range is 1 to 180. The possible
+        /// values for <c>allowedTenancy</c> are <c>EC2-Default</c>, <c>EC2-DedicatedHost</c>,
+        /// and <c>EC2-DedicatedInstance</c>. The possible values for <c>honorVcpuOptimization</c>
+        /// are <c>True</c> and <c>False</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

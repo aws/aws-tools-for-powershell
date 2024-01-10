@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of <code>ListLongTermPricing</code> objects to return.</para>
+        /// <para>The maximum number of <c>ListLongTermPricing</c> objects to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <summary>
         /// <para>
         /// <para>Because HTTP requests are stateless, this is the starting point for your next list
-        /// of <code>ListLongTermPricing</code> to return.</para>
+        /// of <c>ListLongTermPricing</c> to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

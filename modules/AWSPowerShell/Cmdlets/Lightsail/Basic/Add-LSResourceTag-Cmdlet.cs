@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  
     /// <para>
-    /// The <code>tag resource</code> operation supports tag-based access control via request
-    /// tags and resource tags applied to the resource identified by <code>resource name</code>.
-    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// The <c>tag resource</c> operation supports tag-based access control via request tags
+    /// and resource tags applied to the resource identified by <c>resource name</c>. For
+    /// more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>

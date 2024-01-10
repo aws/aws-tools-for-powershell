@@ -28,7 +28,7 @@ using Amazon.IdentityStore.Model;
 namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// Retrieves the <code>UserId</code> in an identity store.
+    /// Retrieves the <c>UserId</c> in an identity store.
     /// 
     ///  <note><para>
     /// If you have administrator access to a member account, you can use this API from the
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter UniqueAttribute_AttributeValue
         /// <summary>
         /// <para>
-        /// <para>The value of the attribute. This is a <code>Document</code> type. This type is not
-        /// supported by Java V1, Go V1, and older versions of the CLI.</para>
+        /// <para>The value of the attribute. This is a <c>Document</c> type. This type is not supported
+        /// by Java V1, Go V1, and older versions of the CLI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

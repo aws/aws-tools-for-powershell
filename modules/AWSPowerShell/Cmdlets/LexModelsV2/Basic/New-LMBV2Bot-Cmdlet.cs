@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A list of tags to add to the bot. You can only add tags when you create a bot. You
-        /// can't use the <code>UpdateBot</code> operation to update tags. To update tags, use
-        /// the <code>TagResource</code> operation.</para>
+        /// can't use the <c>UpdateBot</c> operation to update tags. To update tags, use the <c>TagResource</c>
+        /// operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,23 +100,22 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// specify whether your use of Amazon Lex is related to a website, program, or other
         /// application that is directed or targeted, in whole or in part, to children under age
         /// 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying
-        /// <code>true</code> or <code>false</code> in the <code>childDirected</code> field. By
-        /// specifying <code>true</code> in the <code>childDirected</code> field, you confirm
-        /// that your use of Amazon Lex <b>is</b> related to a website, program, or other application
-        /// that is directed or targeted, in whole or in part, to children under age 13 and subject
-        /// to COPPA. By specifying <code>false</code> in the <code>childDirected</code> field,
-        /// you confirm that your use of Amazon Lex <b>is not</b> related to a website, program,
-        /// or other application that is directed or targeted, in whole or in part, to children
-        /// under age 13 and subject to COPPA. You may not specify a default value for the <code>childDirected</code>
-        /// field that does not accurately reflect whether your use of Amazon Lex is related to
-        /// a website, program, or other application that is directed or targeted, in whole or
-        /// in part, to children under age 13 and subject to COPPA. If your use of Amazon Lex
-        /// relates to a website, program, or other application that is directed in whole or in
-        /// part, to children under age 13, you must obtain any required verifiable parental consent
-        /// under COPPA. For information regarding the use of Amazon Lex in connection with websites,
-        /// programs, or other applications that are directed or targeted, in whole or in part,
-        /// to children under age 13, see the <a href="http://aws.amazon.com/lex/faqs#data-security">Amazon
-        /// Lex FAQ</a>.</para>
+        /// <c>true</c> or <c>false</c> in the <c>childDirected</c> field. By specifying <c>true</c>
+        /// in the <c>childDirected</c> field, you confirm that your use of Amazon Lex <b>is</b>
+        /// related to a website, program, or other application that is directed or targeted,
+        /// in whole or in part, to children under age 13 and subject to COPPA. By specifying
+        /// <c>false</c> in the <c>childDirected</c> field, you confirm that your use of Amazon
+        /// Lex <b>is not</b> related to a website, program, or other application that is directed
+        /// or targeted, in whole or in part, to children under age 13 and subject to COPPA. You
+        /// may not specify a default value for the <c>childDirected</c> field that does not accurately
+        /// reflect whether your use of Amazon Lex is related to a website, program, or other
+        /// application that is directed or targeted, in whole or in part, to children under age
+        /// 13 and subject to COPPA. If your use of Amazon Lex relates to a website, program,
+        /// or other application that is directed in whole or in part, to children under age 13,
+        /// you must obtain any required verifiable parental consent under COPPA. For information
+        /// regarding the use of Amazon Lex in connection with websites, programs, or other applications
+        /// that are directed or targeted, in whole or in part, to children under age 13, see
+        /// the <a href="http://aws.amazon.com/lex/faqs#data-security">Amazon Lex FAQ</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -180,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A list of tags to add to the test alias for a bot. You can only add tags when you
-        /// create a bot. You can't use the <code>UpdateAlias</code> operation to update tags.
-        /// To update tags on the test alias, use the <code>TagResource</code> operation.</para>
+        /// create a bot. You can't use the <c>UpdateAlias</c> operation to update tags. To update
+        /// tags on the test alias, use the <c>TagResource</c> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

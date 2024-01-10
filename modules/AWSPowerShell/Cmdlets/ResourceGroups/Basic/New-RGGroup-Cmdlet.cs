@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     ///  
     /// <para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para><code>resource-groups:CreateGroup</code></para></li></ul>
+    /// </para><ul><li><para><c>resource-groups:CreateGroup</c></para></li></ul>
     /// </summary>
     [Cmdlet("New", "RGGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResourceGroups.Model.CreateGroupResponse")]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// and specifies how the service can interact with the resources in the group. A configuration
         /// is an array of <a>GroupConfigurationItem</a> elements. For details about the syntax
         /// of service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service
-        /// configurations for Resource Groups</a>.</para><note><para>A resource group can contain either a <code>Configuration</code> or a <code>ResourceQuery</code>,
+        /// configurations for Resource Groups</a>.</para><note><para>A resource group can contain either a <c>Configuration</c> or a <c>ResourceQuery</c>,
         /// but not both.</para></note>
         /// </para>
         /// </summary>
@@ -83,9 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// <para>The name of the group, which is the identifier of the group in other operations. You
         /// can't change the name of a resource group after you create it. A resource group name
         /// can consist of letters, numbers, hyphens, periods, and underscores. The name cannot
-        /// start with <code>AWS</code> or <code>aws</code>; these are reserved. A resource group
-        /// name must be unique within each Amazon Web Services Region in your Amazon Web Services
-        /// account.</para>
+        /// start with <c>AWS</c> or <c>aws</c>; these are reserved. A resource group name must
+        /// be unique within each Amazon Web Services Region in your Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// <para>
         /// <para>The resource query that determines which Amazon Web Services resources are members
         /// of this group. For more information about resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
-        /// a tag-based group in Resource Groups</a>. </para><note><para>A resource group can contain either a <code>ResourceQuery</code> or a <code>Configuration</code>,
+        /// a tag-based group in Resource Groups</a>. </para><note><para>A resource group can contain either a <c>ResourceQuery</c> or a <c>Configuration</c>,
         /// but not both.</para></note>
         /// </para>
         /// </summary>

@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.NS
     ///  
     /// <para>
     /// After invoking this operation, use GetStreamingSession to poll the resource until
-    /// it transitions to a <code>DELETED</code> state.
+    /// it transitions to a <c>DELETED</c> state.
     /// </para><para>
     /// A streaming session will count against your streaming session quota until it is marked
-    /// <code>DELETED</code>.
+    /// <c>DELETED</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "NSStreamingSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

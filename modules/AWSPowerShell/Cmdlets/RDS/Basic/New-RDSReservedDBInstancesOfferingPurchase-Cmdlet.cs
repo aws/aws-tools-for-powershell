@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceCount
         /// <summary>
         /// <para>
-        /// <para>The number of instances to reserve.</para><para>Default: <code>1</code></para>
+        /// <para>The number of instances to reserve.</para><para>Default: <c>1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

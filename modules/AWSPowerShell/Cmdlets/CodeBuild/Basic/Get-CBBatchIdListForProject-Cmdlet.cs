@@ -55,8 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>Specifies the sort order of the returned items. Valid values include:</para><ul><li><para><code>ASCENDING</code>: List the batch build identifiers in ascending order by identifier.</para></li><li><para><code>DESCENDING</code>: List the batch build identifiers in descending order by
-        /// identifier.</para></li></ul>
+        /// <para>Specifies the sort order of the returned items. Valid values include:</para><ul><li><para><c>ASCENDING</c>: List the batch build identifiers in ascending order by identifier.</para></li><li><para><c>DESCENDING</c>: List the batch build identifiers in descending order by identifier.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous call to <code>ListBuildBatchesForProject</code>.
+        /// <para>The <c>nextToken</c> value returned from a previous call to <c>ListBuildBatchesForProject</c>.
         /// This specifies the next item to return. To return the beginning of the list, exclude
         /// this parameter.</para>
         /// </para>

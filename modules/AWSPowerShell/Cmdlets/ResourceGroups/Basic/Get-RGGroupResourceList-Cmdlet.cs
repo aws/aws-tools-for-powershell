@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     ///  
     /// <para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para><code>resource-groups:ListGroupResources</code></para></li><li><para><code>cloudformation:DescribeStacks</code></para></li><li><para><code>cloudformation:ListStackResources</code></para></li><li><para><code>tag:GetResources</code></para></li></ul><br/><br/>In the AWS.Tools.ResourceGroups module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><ul><li><para><c>resource-groups:ListGroupResources</c></para></li><li><para><c>cloudformation:DescribeStacks</c></para></li><li><para><c>cloudformation:ListStackResources</c></para></li><li><para><c>tag:GetResources</c></para></li></ul><br/><br/>In the AWS.Tools.ResourceGroups module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RGGroupResourceList")]
     [OutputType("Amazon.ResourceGroups.Model.ListGroupResourcesResponse")]
@@ -49,19 +49,19 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters, formatted as <a>ResourceFilter</a> objects, that you want to apply to a <code>ListGroupResources</code>
-        /// operation. Filters the results to include only those of the specified resource types.</para><ul><li><para><code>resource-type</code> - Filter resources by their type. Specify up to five resource
-        /// types in the format <code>AWS::ServiceCode::ResourceType</code>. For example, <code>AWS::EC2::Instance</code>,
-        /// or <code>AWS::S3::Bucket</code>. </para></li></ul><para>When you specify a <code>resource-type</code> filter for <code>ListGroupResources</code>,
-        /// Resource Groups validates your filter resource types against the types that are defined
-        /// in the query associated with the group. For example, if a group contains only S3 buckets
-        /// because its query specifies only that resource type, but your <code>resource-type</code>
+        /// <para>Filters, formatted as <a>ResourceFilter</a> objects, that you want to apply to a <c>ListGroupResources</c>
+        /// operation. Filters the results to include only those of the specified resource types.</para><ul><li><para><c>resource-type</c> - Filter resources by their type. Specify up to five resource
+        /// types in the format <c>AWS::ServiceCode::ResourceType</c>. For example, <c>AWS::EC2::Instance</c>,
+        /// or <c>AWS::S3::Bucket</c>. </para></li></ul><para>When you specify a <c>resource-type</c> filter for <c>ListGroupResources</c>, Resource
+        /// Groups validates your filter resource types against the types that are defined in
+        /// the query associated with the group. For example, if a group contains only S3 buckets
+        /// because its query specifies only that resource type, but your <c>resource-type</c>
         /// filter includes EC2 instances, AWS Resource Groups does not filter for EC2 instances.
-        /// In this case, a <code>ListGroupResources</code> request returns a <code>BadRequestException</code>
-        /// error with a message similar to the following:</para><para><code>The resource types specified as filters in the request are not valid.</code></para><para>The error includes a list of resource types that failed the validation because they
+        /// In this case, a <c>ListGroupResources</c> request returns a <c>BadRequestException</c>
+        /// error with a message similar to the following:</para><para><c>The resource types specified as filters in the request are not valid.</c></para><para>The error includes a list of resource types that failed the validation because they
         /// are not part of the query associated with the group. This validation doesn't occur
-        /// when the group query specifies <code>AWS::AllSupported</code>, because a group based
-        /// on such a query can contain any of the allowed resource types for the query type (tag-based
+        /// when the group query specifies <c>AWS::AllSupported</c>, because a group based on
+        /// such a query can contain any of the allowed resource types for the query type (tag-based
         /// or Amazon CloudFront stack-based queries).</para>
         /// </para>
         /// </summary>
@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <important><para><i><b>Deprecated - don't use this parameter. Use the <code>Group</code> request
-        /// field instead.</b></i></para></important>
+        /// <important><para><i><b>Deprecated - don't use this parameter. Use the <c>Group</c> request field
+        /// instead.</b></i></para></important>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -99,12 +99,12 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// <para>
         /// <para>The total number of results that you want included on each page of the response. If
         /// you do not include this parameter, it defaults to a value that is specific to the
-        /// operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+        /// operation. If additional items exist beyond the maximum you specify, the <c>NextToken</c>
         /// response element is present and has a value (is not null). Include that value as the
-        /// <code>NextToken</code> request parameter in the next call to the operation to get
-        /// the next part of the results. Note that the service might return fewer results than
-        /// the maximum even when there are more results available. You should check <code>NextToken</code>
-        /// after every operation to ensure that you receive all of the results.</para>
+        /// <c>NextToken</c> request parameter in the next call to the operation to get the next
+        /// part of the results. Note that the service might return fewer results than the maximum
+        /// even when there are more results available. You should check <c>NextToken</c> after
+        /// every operation to ensure that you receive all of the results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,10 +115,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The parameter for receiving additional results if you receive a <code>NextToken</code>
-        /// response in a previous request. A <code>NextToken</code> response indicates that more
-        /// output is available. Set this parameter to the value provided by a previous call's
-        /// <code>NextToken</code> response to indicate where the output should continue from.</para>
+        /// <para>The parameter for receiving additional results if you receive a <c>NextToken</c> response
+        /// in a previous request. A <c>NextToken</c> response indicates that more output is available.
+        /// Set this parameter to the value provided by a previous call's <c>NextToken</c> response
+        /// to indicate where the output should continue from.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.ResourceGroups module, this parameter is only used if you are manually controlling output pagination of the service API call.

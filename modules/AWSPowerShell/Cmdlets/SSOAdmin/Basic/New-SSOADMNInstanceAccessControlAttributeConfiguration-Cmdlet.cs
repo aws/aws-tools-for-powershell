@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     /// Access Control</a> in the <i>IAM Identity Center User Guide</i>.
     /// 
     ///  <note><para>
-    /// After a successful response, call <code>DescribeInstanceAccessControlAttributeConfiguration</code>
-    /// to validate that <code>InstanceAccessControlAttributeConfiguration</code> was created.
+    /// After a successful response, call <c>DescribeInstanceAccessControlAttributeConfiguration</c>
+    /// to validate that <c>InstanceAccessControlAttributeConfiguration</c> was created.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "SSOADMNInstanceAccessControlAttributeConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

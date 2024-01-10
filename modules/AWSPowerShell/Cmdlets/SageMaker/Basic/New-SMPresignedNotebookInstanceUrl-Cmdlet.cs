@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Returns a URL that you can use to connect to the Jupyter server from a notebook instance.
-    /// In the SageMaker console, when you choose <code>Open</code> next to a notebook instance,
+    /// In the SageMaker console, when you choose <c>Open</c> next to a notebook instance,
     /// SageMaker opens a new tab showing the Jupyter server home page from the notebook instance.
     /// The console uses this API to get the URL and show the page.
     /// 
@@ -42,9 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// instance.
     /// </para><para>
     /// You can restrict access to this API and to the URL that it returns to a list of IP
-    /// addresses that you specify. Use the <code>NotIpAddress</code> condition operator and
-    /// the <code>aws:SourceIP</code> condition context key to specify the list of IP addresses
-    /// that you want to have access to the notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/security_iam_id-based-policy-examples.html#nbi-ip-filter">Limit
+    /// addresses that you specify. Use the <c>NotIpAddress</c> condition operator and the
+    /// <c>aws:SourceIP</c> condition context key to specify the list of IP addresses that
+    /// you want to have access to the notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/security_iam_id-based-policy-examples.html#nbi-ip-filter">Limit
     /// Access to a Notebook Instance by IP Address</a>.
     /// </para><note><para>
     /// The URL that you get from a call to <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreatePresignedNotebookInstanceUrl.html">CreatePresignedNotebookInstanceUrl</a>

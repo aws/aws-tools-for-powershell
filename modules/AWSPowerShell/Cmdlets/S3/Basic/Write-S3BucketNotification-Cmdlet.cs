@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// detects an event of the specified type.
     /// </para><para>
     /// By default, your bucket has no event notifications configured. That is, the notification
-    /// configuration will be an empty <code>NotificationConfiguration</code>.
-    /// </para><para><code>&lt;NotificationConfiguration&gt;</code></para><para><code>&lt;/NotificationConfiguration&gt;</code></para><para>
+    /// configuration will be an empty <c>NotificationConfiguration</c>.
+    /// </para><para><c>&lt;NotificationConfiguration&gt;</c></para><para><c>&lt;/NotificationConfiguration&gt;</c></para><para>
     /// This action replaces the existing notification configuration with the configuration
     /// you include in the request body.
     /// </para><para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><para>
     /// By default, only the bucket owner can configure notifications on a bucket. However,
     /// bucket owners can use a bucket policy to grant permission to other users to set this
-    /// configuration with the required <code>s3:PutBucketNotification</code> permission.
+    /// configuration with the required <c>s3:PutBucketNotification</c> permission.
     /// </para><note><para>
     /// The PUT notification is an atomic operation. For example, suppose your notification
     /// configuration includes SNS topic, SQS queue, and Lambda function configurations. When
@@ -70,12 +70,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// SNS topic. If the message fails, the entire PUT action will fail, and Amazon S3 will
     /// not add the configuration to your bucket.
     /// </para></note><para>
-    /// If the configuration in the request body includes only one <code>TopicConfiguration</code>
-    /// specifying only the <code>s3:ReducedRedundancyLostObject</code> event type, the response
-    /// will also include the <code>x-amz-sns-test-message-id</code> header containing the
-    /// message ID of the test notification sent to the topic.
+    /// If the configuration in the request body includes only one <c>TopicConfiguration</c>
+    /// specifying only the <c>s3:ReducedRedundancyLostObject</c> event type, the response
+    /// will also include the <c>x-amz-sns-test-message-id</c> header containing the message
+    /// ID of the test notification sent to the topic.
     /// </para><para>
-    /// The following action is related to <code>PutBucketNotificationConfiguration</code>:
+    /// The following action is related to <c>PutBucketNotificationConfiguration</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html">GetBucketNotificationConfiguration</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     /// a location for FSx for OpenZFS</a>.
     /// 
     ///  <note><para>
-    /// Request parameters related to <code>SMB</code> aren't supported with the <code>CreateLocationFsxOpenZfs</code>
+    /// Request parameters related to <c>SMB</c> aren't supported with the <c>CreateLocationFsxOpenZfs</c>
     /// operation.
     /// </para></note>
     /// </summary>
@@ -113,9 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Subdirectory
         /// <summary>
         /// <para>
-        /// <para>A subdirectory in the location's path that must begin with <code>/fsx</code>. DataSync
-        /// uses this subdirectory to read or write data (depending on whether the file system
-        /// is a source or destination location).</para>
+        /// <para>A subdirectory in the location's path that must begin with <c>/fsx</c>. DataSync uses
+        /// this subdirectory to read or write data (depending on whether the file system is a
+        /// source or destination location).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,12 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// metadata that you need in the SVM.</para><para>If you provide a user in your Active Directory, note the following:</para><ul><li><para>If you're using Directory Service for Microsoft Active Directory, the user must be
         /// a member of the Amazon Web Services Delegated FSx Administrators group.</para></li><li><para>If you're using a self-managed Active Directory, the user must be a member of either
         /// the Domain Admins group or a custom group that you specified for file system administration
-        /// when you created your file system.</para></li></ul><para>Make sure that the user has the permissions it needs to copy the data you want:</para><ul><li><para><code>SE_TCB_NAME</code>: Required to set object ownership and file metadata. With
-        /// this privilege, you also can copy NTFS discretionary access lists (DACLs).</para></li><li><para><code>SE_SECURITY_NAME</code>: May be needed to copy NTFS system access control lists
-        /// (SACLs). This operation specifically requires the Windows privilege, which is granted
-        /// to members of the Domain Admins group. If you configure your task to copy SACLs, make
-        /// sure that the user has the required privileges. For information about copying SACLs,
-        /// see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html#configure-ownership-and-permissions">Ownership
+        /// when you created your file system.</para></li></ul><para>Make sure that the user has the permissions it needs to copy the data you want:</para><ul><li><para><c>SE_TCB_NAME</c>: Required to set object ownership and file metadata. With this
+        /// privilege, you also can copy NTFS discretionary access lists (DACLs).</para></li><li><para><c>SE_SECURITY_NAME</c>: May be needed to copy NTFS system access control lists (SACLs).
+        /// This operation specifically requires the Windows privilege, which is granted to members
+        /// of the Domain Admins group. If you configure your task to copy SACLs, make sure that
+        /// the user has the required privileges. For information about copying SACLs, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html#configure-ownership-and-permissions">Ownership
         /// and permissions-related options</a>.</para></li></ul>
         /// </para>
         /// </summary>
@@ -160,11 +159,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the NFS version that you want DataSync to use when mounting your NFS share.
-        /// If the server refuses to use the version specified, the task fails.</para><para>You can specify the following options:</para><ul><li><para><code>AUTOMATIC</code> (default): DataSync chooses NFS version 4.1.</para></li><li><para><code>NFS3</code>: Stateless protocol version that allows for asynchronous writes
-        /// on the server.</para></li><li><para><code>NFSv4_0</code>: Stateful, firewall-friendly protocol version that supports
-        /// delegations and pseudo file systems.</para></li><li><para><code>NFSv4_1</code>: Stateful protocol version that supports sessions, directory
-        /// delegations, and parallel data processing. NFS version 4.1 also includes all features
-        /// available in version 4.0.</para></li></ul><note><para>DataSync currently only supports NFS version 3 with Amazon FSx for NetApp ONTAP locations.</para></note>
+        /// If the server refuses to use the version specified, the task fails.</para><para>You can specify the following options:</para><ul><li><para><c>AUTOMATIC</c> (default): DataSync chooses NFS version 4.1.</para></li><li><para><c>NFS3</c>: Stateless protocol version that allows for asynchronous writes on the
+        /// server.</para></li><li><para><c>NFSv4_0</c>: Stateful, firewall-friendly protocol version that supports delegations
+        /// and pseudo file systems.</para></li><li><para><c>NFSv4_1</c>: Stateful protocol version that supports sessions, directory delegations,
+        /// and parallel data processing. NFS version 4.1 also includes all features available
+        /// in version 4.0.</para></li></ul><note><para>DataSync currently only supports NFS version 3 with Amazon FSx for NetApp ONTAP locations.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,9 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>By default, DataSync automatically chooses an SMB protocol version based on negotiation
         /// with your SMB file server. You also can configure DataSync to use a specific SMB version,
         /// but we recommend doing this only if DataSync has trouble negotiating with the SMB
-        /// file server automatically.</para><para>These are the following options for configuring the SMB version:</para><ul><li><para><code>AUTOMATIC</code> (default): DataSync and the SMB file server negotiate the
-        /// highest version of SMB that they mutually support between 2.1 and 3.1.1.</para><para>This is the recommended option. If you instead choose a specific version that your
-        /// file server doesn't support, you may get an <code>Operation Not Supported</code> error.</para></li><li><para><code>SMB3</code>: Restricts the protocol negotiation to only SMB version 3.0.2.</para></li><li><para><code>SMB2</code>: Restricts the protocol negotiation to only SMB version 2.1.</para></li><li><para><code>SMB2_0</code>: Restricts the protocol negotiation to only SMB version 2.0.</para></li><li><para><code>SMB1</code>: Restricts the protocol negotiation to only SMB version 1.0.</para><note><para>The <code>SMB1</code> option isn't available when <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationFsxOntap.html">creating
+        /// file server automatically.</para><para>These are the following options for configuring the SMB version:</para><ul><li><para><c>AUTOMATIC</c> (default): DataSync and the SMB file server negotiate the highest
+        /// version of SMB that they mutually support between 2.1 and 3.1.1.</para><para>This is the recommended option. If you instead choose a specific version that your
+        /// file server doesn't support, you may get an <c>Operation Not Supported</c> error.</para></li><li><para><c>SMB3</c>: Restricts the protocol negotiation to only SMB version 3.0.2.</para></li><li><para><c>SMB2</c>: Restricts the protocol negotiation to only SMB version 2.1.</para></li><li><para><c>SMB2_0</c>: Restricts the protocol negotiation to only SMB version 2.0.</para></li><li><para><c>SMB1</c>: Restricts the protocol negotiation to only SMB version 1.0.</para><note><para>The <c>SMB1</c> option isn't available when <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationFsxOntap.html">creating
         /// an Amazon FSx for NetApp ONTAP location</a>.</para></note></li></ul>
         /// </para>
         /// </summary>

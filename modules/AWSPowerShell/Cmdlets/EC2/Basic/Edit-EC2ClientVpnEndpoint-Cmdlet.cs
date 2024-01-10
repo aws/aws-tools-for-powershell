@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ClientConnectOptions_Enabled
         /// <summary>
         /// <para>
-        /// <para>Indicates whether client connect options are enabled. The default is <code>false</code>
+        /// <para>Indicates whether client connect options are enabled. The default is <c>false</c>
         /// (not enabled).</para>
         /// </para>
         /// </summary>
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Enable or disable a customizable text banner that will be displayed on Amazon Web
-        /// Services provided clients when a VPN session is established.</para><para>Valid values: <code>true | false</code></para><para>Default value: <code>false</code></para>
+        /// Services provided clients when a VPN session is established.</para><para>Valid values: <c>true | false</c></para><para>Default value: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DnsServers_Enabled
         /// <summary>
         /// <para>
-        /// <para>Indicates whether DNS servers should be used. Specify <code>False</code> to delete
-        /// the existing DNS servers.</para>
+        /// <para>Indicates whether DNS servers should be used. Specify <c>False</c> to delete the existing
+        /// DNS servers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SessionTimeoutHour
         /// <summary>
         /// <para>
-        /// <para>The maximum VPN session duration time in hours.</para><para>Valid values: <code>8 | 10 | 12 | 24</code></para><para>Default value: <code>24</code></para>
+        /// <para>The maximum VPN session duration time in hours.</para><para>Valid values: <c>8 | 10 | 12 | 24</c></para><para>Default value: <c>24</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpnPort
         /// <summary>
         /// <para>
-        /// <para>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</para><para>Valid Values: <code>443</code> | <code>1194</code></para><para>Default Value: <code>443</code></para>
+        /// <para>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</para><para>Valid Values: <c>443</c> | <c>1194</c></para><para>Default Value: <c>443</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

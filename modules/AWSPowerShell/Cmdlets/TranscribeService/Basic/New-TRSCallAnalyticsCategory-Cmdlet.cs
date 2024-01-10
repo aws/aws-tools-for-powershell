@@ -36,12 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// that in order to apply categories to your transcriptions, you must create them before
     /// submitting your transcription request, as categories cannot be applied retroactively.
     /// </para><para>
-    /// When creating a new category, you can use the <code>InputType</code> parameter to
-    /// label the category as a <code>POST_CALL</code> or a <code>REAL_TIME</code> category.
-    /// <code>POST_CALL</code> categories can only be applied to post-call transcriptions
-    /// and <code>REAL_TIME</code> categories can only be applied to real-time transcriptions.
-    /// If you do not include <code>InputType</code>, your category is created as a <code>POST_CALL</code>
-    /// category by default.
+    /// When creating a new category, you can use the <c>InputType</c> parameter to label
+    /// the category as a <c>POST_CALL</c> or a <c>REAL_TIME</c> category. <c>POST_CALL</c>
+    /// categories can only be applied to post-call transcriptions and <c>REAL_TIME</c> categories
+    /// can only be applied to real-time transcriptions. If you do not include <c>InputType</c>,
+    /// your category is created as a <c>POST_CALL</c> category by default.
     /// </para><para>
     /// Call Analytics categories are composed of rules. For each category, you must create
     /// between 1 and 20 rules. Rules can include these parameters: , , , and .
@@ -70,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>A unique name, chosen by you, for your Call Analytics category. It's helpful to use
         /// a detailed naming system that will make sense to you in the future. For example, it's
-        /// better to use <code>sentiment-positive-last30seconds</code> for a category over a
-        /// generic name like <code>test-category</code>.</para><para>Category names are case sensitive.</para>
+        /// better to use <c>sentiment-positive-last30seconds</c> for a category over a generic
+        /// name like <c>test-category</c>.</para><para>Category names are case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,10 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>Choose whether you want to create a real-time or a post-call category for your Call
-        /// Analytics transcription.</para><para>Specifying <code>POST_CALL</code> assigns your category to post-call transcriptions;
-        /// categories with this input type cannot be applied to streaming (real-time) transcriptions.</para><para>Specifying <code>REAL_TIME</code> assigns your category to streaming transcriptions;
-        /// categories with this input type cannot be applied to post-call transcriptions.</para><para>If you do not include <code>InputType</code>, your category is created as a post-call
-        /// category by default.</para>
+        /// Analytics transcription.</para><para>Specifying <c>POST_CALL</c> assigns your category to post-call transcriptions; categories
+        /// with this input type cannot be applied to streaming (real-time) transcriptions.</para><para>Specifying <c>REAL_TIME</c> assigns your category to streaming transcriptions; categories
+        /// with this input type cannot be applied to post-call transcriptions.</para><para>If you do not include <c>InputType</c>, your category is created as a post-call category
+        /// by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

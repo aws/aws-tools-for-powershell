@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     /// 
     ///  
     /// <para>
-    /// You can't specify both <code>cloudWatchLogs</code> and <code>s3Destination</code>
-    /// in the same operation.
+    /// You can't specify both <c>cloudWatchLogs</c> and <c>s3Destination</c> in the same
+    /// operation.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "CWEVDProjectDataDelivery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

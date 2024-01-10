@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// To copy an AMI from one Region to another, specify the source Region using the <b>SourceRegion</b>
     /// parameter, and specify the destination Region using its endpoint. Copies of encrypted
     /// backing snapshots for the AMI are encrypted. Copies of unencrypted backing snapshots
-    /// remain unencrypted, unless you set <code>Encrypted</code> during the copy operation.
-    /// You cannot create an unencrypted copy of an encrypted backing snapshot.
+    /// remain unencrypted, unless you set <c>Encrypted</c> during the copy operation. You
+    /// cannot create an unencrypted copy of an encrypted backing snapshot.
     /// </para><para>
     /// To copy an AMI from a Region to an Outpost, specify the source Region using the <b>SourceRegion</b>
     /// parameter, and specify the ARN of the destination Outpost using <b>DestinationOutpostArn</b>.
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CopyImageTag
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to include your user-defined AMI tags when copying the AMI.</para><para>The following tags will not be copied:</para><ul><li><para>System tags (prefixed with <code>aws:</code>)</para></li><li><para>For public and shared AMIs, user-defined tags that are attached by other Amazon Web
+        /// <para>Indicates whether to include your user-defined AMI tags when copying the AMI.</para><para>The following tags will not be copied:</para><ul><li><para>System tags (prefixed with <c>aws:</c>)</para></li><li><para>For public and shared AMIs, user-defined tags that are attached by other Amazon Web
         /// Services accounts</para></li></ul><para>Default: Your user-defined AMI tags are not copied.</para>
         /// </para>
         /// </summary>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Specifies whether the destination snapshots of the copied image should be encrypted.
         /// You can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted
         /// copy of an encrypted snapshot. The default KMS key for Amazon EBS is used unless you
-        /// specify a non-default Key Management Service (KMS) KMS key using <code>KmsKeyId</code>.
+        /// specify a non-default Key Management Service (KMS) KMS key using <c>KmsKeyId</c>.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
         /// EBS encryption</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The identifier of the symmetric Key Management Service (KMS) KMS key to use when creating
         /// encrypted volumes. If this parameter is not specified, your Amazon Web Services managed
         /// KMS key for Amazon EBS is used. If you specify a KMS key, you must also set the encrypted
-        /// state to <code>true</code>.</para><para>You can specify a KMS key using any of the following:</para><ul><li><para>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Key alias. For example, alias/ExampleAlias.</para></li><li><para>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</para></li></ul><para>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify
+        /// state to <c>true</c>.</para><para>You can specify a KMS key using any of the following:</para><ul><li><para>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Key alias. For example, alias/ExampleAlias.</para></li><li><para>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</para></li></ul><para>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify
         /// an identifier that is not valid, the action can appear to complete, but eventually
         /// fails.</para><para>The specified KMS key must exist in the destination Region.</para><para>Amazon EBS does not support asymmetric KMS keys.</para>
         /// </para>

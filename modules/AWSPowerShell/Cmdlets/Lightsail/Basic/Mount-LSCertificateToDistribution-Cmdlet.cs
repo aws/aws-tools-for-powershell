@@ -36,14 +36,13 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// After the certificate is attached, your distribution accepts HTTPS traffic for all
     /// of the domains that are associated with the certificate.
     /// </para><para>
-    /// Use the <code>CreateCertificate</code> action to create a certificate that you can
-    /// attach to your distribution.
+    /// Use the <c>CreateCertificate</c> action to create a certificate that you can attach
+    /// to your distribution.
     /// </para><important><para>
-    /// Only certificates created in the <code>us-east-1</code> Amazon Web Services Region
-    /// can be attached to Lightsail distributions. Lightsail distributions are global resources
+    /// Only certificates created in the <c>us-east-1</c> Amazon Web Services Region can be
+    /// attached to Lightsail distributions. Lightsail distributions are global resources
     /// that can reference an origin in any Amazon Web Services Region, and distribute its
-    /// content globally. However, all distributions are located in the <code>us-east-1</code>
-    /// Region.
+    /// content globally. However, all distributions are located in the <c>us-east-1</c> Region.
     /// </para></important>
     /// </summary>
     [Cmdlet("Mount", "LSCertificateToDistribution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -61,11 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CertificateName
         /// <summary>
         /// <para>
-        /// <para>The name of the certificate to attach to a distribution.</para><para>Only certificates with a status of <code>ISSUED</code> can be attached to a distribution.</para><para>Use the <code>GetCertificates</code> action to get a list of certificate names that
-        /// you can specify.</para><note><para>This is the name of the certificate resource type and is used only to reference the
+        /// <para>The name of the certificate to attach to a distribution.</para><para>Only certificates with a status of <c>ISSUED</c> can be attached to a distribution.</para><para>Use the <c>GetCertificates</c> action to get a list of certificate names that you
+        /// can specify.</para><note><para>This is the name of the certificate resource type and is used only to reference the
         /// certificate in other API actions. It can be different than the domain name of the
-        /// certificate. For example, your certificate name might be <code>WordPress-Blog-Certificate</code>
-        /// and the domain name of the certificate might be <code>example.com</code>.</para></note>
+        /// certificate. For example, your certificate name might be <c>WordPress-Blog-Certificate</c>
+        /// and the domain name of the certificate might be <c>example.com</c>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DistributionName
         /// <summary>
         /// <para>
-        /// <para>The name of the distribution that the certificate will be attached to.</para><para>Use the <code>GetDistributions</code> action to get a list of distribution names that
-        /// you can specify.</para>
+        /// <para>The name of the distribution that the certificate will be attached to.</para><para>Use the <c>GetDistributions</c> action to get a list of distribution names that you
+        /// can specify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -29,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Returns a list of the requester's topics. Each call returns a limited list of topics,
-    /// up to 100. If there are more topics, a <code>NextToken</code> is also returned. Use
-    /// the <code>NextToken</code> parameter in a new <code>ListTopics</code> call to get
-    /// further results.
+    /// up to 100. If there are more topics, a <c>NextToken</c> is also returned. Use the
+    /// <c>NextToken</c> parameter in a new <c>ListTopics</c> call to get further results.
     /// 
     ///  
     /// <para>
@@ -53,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token returned by the previous <code>ListTopics</code> request.</para>
+        /// <para>Token returned by the previous <c>ListTopics</c> request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -60,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Enforce
         /// <summary>
         /// <para>
-        /// <para>(Optional) If <code>true</code> job executions with status "IN_PROGRESS" and "QUEUED"
-        /// are canceled, otherwise only job executions with status "QUEUED" are canceled. The
-        /// default is <code>false</code>.</para><para>Canceling a job which is "IN_PROGRESS", will cause a device which is executing the
+        /// <para>(Optional) If <c>true</c> job executions with status "IN_PROGRESS" and "QUEUED" are
+        /// canceled, otherwise only job executions with status "QUEUED" are canceled. The default
+        /// is <c>false</c>.</para><para>Canceling a job which is "IN_PROGRESS", will cause a device which is executing the
         /// job to be unable to update the job execution status. Use caution and ensure that each
         /// device executing a job which is canceled is able to recover to a valid state.</para>
         /// </para>

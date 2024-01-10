@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>The policy to create or update. For example, the following policy grants a user authorization
-        /// to restore a snapshot.</para><para><code>"{\"Version\": \"2012-10-17\", \"Statement\" : [{ \"Sid\": \"AllowUserRestoreFromSnapshot\",
+        /// to restore a snapshot.</para><para><c>"{\"Version\": \"2012-10-17\", \"Statement\" : [{ \"Sid\": \"AllowUserRestoreFromSnapshot\",
         /// \"Principal\":{\"AWS\": [\"739247239426\"]}, \"Action\": [\"redshift-serverless:RestoreFromSnapshot\"]
-        /// , \"Effect\": \"Allow\" }]}"</code></para>
+        /// , \"Effect\": \"Allow\" }]}"</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

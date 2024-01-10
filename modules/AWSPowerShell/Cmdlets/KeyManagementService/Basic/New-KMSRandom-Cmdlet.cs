@@ -32,27 +32,27 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// 
     ///  
     /// <para>
-    /// You must use the <code>NumberOfBytes</code> parameter to specify the length of the
-    /// random byte string. There is no default value for string length.
+    /// You must use the <c>NumberOfBytes</c> parameter to specify the length of the random
+    /// byte string. There is no default value for string length.
     /// </para><para>
     /// By default, the random byte string is generated in KMS. To generate the byte string
-    /// in the CloudHSM cluster associated with an CloudHSM key store, use the <code>CustomKeyStoreId</code>
+    /// in the CloudHSM cluster associated with an CloudHSM key store, use the <c>CustomKeyStoreId</c>
     /// parameter.
-    /// </para><para><code>GenerateRandom</code> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon
+    /// </para><para><c>GenerateRandom</c> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon
     /// Web Services Nitro Enclaves</a>, which provide an isolated compute environment in
-    /// Amazon EC2. To call <code>GenerateRandom</code> for a Nitro enclave, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon
-    /// Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code>
+    /// Amazon EC2. To call <c>GenerateRandom</c> for a Nitro enclave, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon
+    /// Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <c>Recipient</c>
     /// parameter to provide the attestation document for the enclave. Instead of plaintext
     /// bytes, the response includes the plaintext bytes encrypted under the public key from
-    /// the attestation document (<code>CiphertextForRecipient</code>).For information about
-    /// the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How
+    /// the attestation document (<c>CiphertextForRecipient</c>).For information about the
+    /// interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How
     /// Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer
     /// Guide</i>.
     /// </para><para>
     /// For more information about entropy and random number generation, see <a href="https://docs.aws.amazon.com/kms/latest/cryptographic-details/">Key
     /// Management Service Cryptographic Details</a>.
-    /// </para><para><b>Cross-account use</b>: Not applicable. <code>GenerateRandom</code> does not use
-    /// any account-specific resources, such as KMS keys.
+    /// </para><para><b>Cross-account use</b>: Not applicable. <c>GenerateRandom</c> does not use any
+    /// account-specific resources, such as KMS keys.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateRandom</a>
     /// (IAM policy)
     /// </para><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>Generates the random byte string in the CloudHSM cluster that is associated with the
         /// specified CloudHSM key store. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a>
         /// operation.</para><para>External key store IDs are not valid for this parameter. If you specify the ID of
-        /// an external key store, <code>GenerateRandom</code> throws an <code>UnsupportedOperationException</code>.</para>
+        /// an external key store, <c>GenerateRandom</c> throws an <c>UnsupportedOperationException</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>The encryption algorithm that KMS should use with the public key for an Amazon Web
         /// Services Nitro Enclave to encrypt plaintext values for the response. The only valid
-        /// value is <code>RSAES_OAEP_SHA_256</code>.</para>
+        /// value is <c>RSAES_OAEP_SHA_256</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

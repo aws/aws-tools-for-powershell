@@ -37,21 +37,21 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// <a>CreateAutoPredictor</a> to create new predictors or upgrade/retrain existing predictors.
     /// </para><para><b>Creating new predictors</b></para><para>
     /// The following parameters are required when creating a new predictor:
-    /// </para><ul><li><para><code>PredictorName</code> - A unique name for the predictor.
-    /// </para></li><li><para><code>DatasetGroupArn</code> - The ARN of the dataset group used to train the predictor.
-    /// </para></li><li><para><code>ForecastFrequency</code> - The granularity of your forecasts (hourly, daily,
-    /// weekly, etc).
-    /// </para></li><li><para><code>ForecastHorizon</code> - The number of time-steps that the model predicts.
-    /// The forecast horizon is also called the prediction length.
+    /// </para><ul><li><para><c>PredictorName</c> - A unique name for the predictor.
+    /// </para></li><li><para><c>DatasetGroupArn</c> - The ARN of the dataset group used to train the predictor.
+    /// </para></li><li><para><c>ForecastFrequency</c> - The granularity of your forecasts (hourly, daily, weekly,
+    /// etc).
+    /// </para></li><li><para><c>ForecastHorizon</c> - The number of time-steps that the model predicts. The forecast
+    /// horizon is also called the prediction length.
     /// </para></li></ul><para>
-    /// When creating a new predictor, do not specify a value for <code>ReferencePredictorArn</code>.
+    /// When creating a new predictor, do not specify a value for <c>ReferencePredictorArn</c>.
     /// </para><para><b>Upgrading and retraining predictors</b></para><para>
     /// The following parameters are required when retraining or upgrading a predictor:
-    /// </para><ul><li><para><code>PredictorName</code> - A unique name for the predictor.
-    /// </para></li><li><para><code>ReferencePredictorArn</code> - The ARN of the predictor to retrain or upgrade.
+    /// </para><ul><li><para><c>PredictorName</c> - A unique name for the predictor.
+    /// </para></li><li><para><c>ReferencePredictorArn</c> - The ARN of the predictor to retrain or upgrade.
     /// </para></li></ul><para>
-    /// When upgrading or retraining a predictor, only specify values for the <code>ReferencePredictorArn</code>
-    /// and <code>PredictorName</code>. 
+    /// When upgrading or retraining a predictor, only specify values for the <c>ReferencePredictorArn</c>
+    /// and <c>PredictorName</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "FRCAutoPredictor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>An array of dimension (field) names that specify how to group the generated forecast.</para><para>For example, if you are generating forecasts for item sales across all your stores,
-        /// and your dataset contains a <code>store_id</code> field, you would specify <code>store_id</code>
+        /// and your dataset contains a <c>store_id</c> field, you would specify <c>store_id</c>
         /// as a dimension to group sales forecasts for each store.</para>
         /// </para>
         /// </summary>
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <para>
         /// <para>The forecast types used to train a predictor. You can specify up to five forecast
         /// types. Forecast types can be quantiles from 0.01 to 0.99, by increments of 0.01 or
-        /// higher. You can also specify the mean forecast with <code>mean</code>.</para>
+        /// higher. You can also specify the mean forecast with <c>mean</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -264,9 +264,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <para>
         /// <para>The ARN of the predictor to retrain or upgrade. This parameter is only used when retraining
         /// or upgrading a predictor. When creating a new predictor, do not specify a value for
-        /// this parameter.</para><para>When upgrading or retraining a predictor, only specify values for the <code>ReferencePredictorArn</code>
-        /// and <code>PredictorName</code>. The value for <code>PredictorName</code> must be a
-        /// unique predictor name.</para>
+        /// this parameter.</para><para>When upgrading or retraining a predictor, only specify values for the <c>ReferencePredictorArn</c>
+        /// and <c>PredictorName</c>. The value for <c>PredictorName</c> must be a unique predictor
+        /// name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM role that Amazon Forecast can assume to access the KMS key.</para><para>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role
-        /// that isn't in your account, you get an <code>InvalidInputException</code> error.</para>
+        /// that isn't in your account, you get an <c>InvalidInputException</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -291,12 +291,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// of a key and an optional value, both of which you define. Tag keys and values are
         /// case sensitive.</para><para>The following restrictions apply to tags:</para><ul><li><para>For each resource, each tag key must be unique and each tag key must have one value.</para></li><li><para>Maximum number of tags per resource: 50.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8.</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8.</para></li><li><para>Accepted characters: all letters and numbers, spaces representable in UTF-8, and +
         /// - = . _ : / @. If your tagging schema is used across other services and resources,
-        /// the character restrictions of those services also apply. </para></li><li><para>Key prefixes cannot include any upper or lowercase combination of <code>aws:</code>
-        /// or <code>AWS:</code>. Values can have this prefix. If a tag value has <code>aws</code>
-        /// as its prefix but the key does not, Forecast considers it to be a user tag and will
-        /// count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code>
-        /// do not count against your tags per resource limit. You cannot edit or delete tag keys
-        /// with this prefix.</para></li></ul>
+        /// the character restrictions of those services also apply. </para></li><li><para>Key prefixes cannot include any upper or lowercase combination of <c>aws:</c> or <c>AWS:</c>.
+        /// Values can have this prefix. If a tag value has <c>aws</c> as its prefix but the key
+        /// does not, Forecast considers it to be a user tag and will count against the limit
+        /// of 50 tags. Tags with only the key prefix of <c>aws</c> do not count against your
+        /// tags per resource limit. You cannot edit or delete tag keys with this prefix.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

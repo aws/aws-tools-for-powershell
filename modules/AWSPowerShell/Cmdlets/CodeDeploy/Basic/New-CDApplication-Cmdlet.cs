@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ComputePlatform
         /// <summary>
         /// <para>
-        /// <para> The destination platform type for the deployment (<code>Lambda</code>, <code>Server</code>,
-        /// or <code>ECS</code>).</para>
+        /// <para> The destination platform type for the deployment (<c>Lambda</c>, <c>Server</c>, or
+        /// <c>ECS</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.ChimeSDKIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMID
 {
     /// <summary>
-    /// Deletes an <code>AppInstanceBot</code>.
+    /// Deletes an <c>AppInstanceBot</c>.
     /// </summary>
     [Cmdlet("Remove", "CHMIDAppInstanceBot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter AppInstanceBotArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceBot</code> being deleted.</para>
+        /// <para>The ARN of the <c>AppInstanceBot</c> being deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

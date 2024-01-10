@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter TargetType
         /// <summary>
         /// <para>
-        /// <para>The type of resource for which you are configuring logging. Must be <code>THING_Group</code>.</para>
+        /// <para>The type of resource for which you are configuring logging. Must be <c>THING_Group</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>To retrieve the next set of results, the <code>nextToken</code> value from a previous
-        /// response; otherwise <b>null</b> to receive the first set of results.</para>
+        /// <para>To retrieve the next set of results, the <c>nextToken</c> value from a previous response;
+        /// otherwise <b>null</b> to receive the first set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

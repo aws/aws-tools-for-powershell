@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// Returns the full details of a single ChannelModerator.
     /// 
     ///  <note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
+    /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the <c>AppInstanceUserArn</c>
     /// of the user that makes the API call as the value in the header.
     /// </para></note>
     /// </summary>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChannelModeratorArn
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the channel moderator.</para>
+        /// <para>The <c>AppInstanceUserArn</c> of the channel moderator.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        /// the API call.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c> or <c>AppInstanceBot</c> that makes the API
+        /// call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

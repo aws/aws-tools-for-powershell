@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// Gets the full details of a channel message.
     /// 
     ///  <note><para>
-    /// The x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code>
+    /// The x-amz-chime-bearer request header is mandatory. Use the <c>AppInstanceUserArn</c>
     /// of the user that makes the API call as the value in the header.
     /// </para></note><important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
     /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetChannelMessage.html">GetChannelMessage</a>,
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// <para>The <c>AppInstanceUserArn</c> of the user that makes the API call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

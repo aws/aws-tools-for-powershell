@@ -32,14 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// hosted zone.
     /// 
     ///  <note><para>
-    /// After you submit a <code>CreateTrafficPolicyInstance</code> or an <code>UpdateTrafficPolicyInstance</code>
+    /// After you submit a <c>CreateTrafficPolicyInstance</c> or an <c>UpdateTrafficPolicyInstance</c>
     /// request, there's a brief delay while Amazon Route 53 creates the resource record sets
     /// that are specified in the traffic policy definition. For more information, see the
-    /// <code>State</code> response element.
+    /// <c>State</c> response element.
     /// </para></note><para>
     /// Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic
-    /// policy instances, you can use the <code>MaxItems</code> parameter to list them in
-    /// groups of up to 100.
+    /// policy instances, you can use the <c>MaxItems</c> parameter to list them in groups
+    /// of up to 100.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "R53TrafficPolicyInstancesByHostedZone")]
@@ -74,13 +74,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter TrafficPolicyInstanceNameMarker
         /// <summary>
         /// <para>
-        /// <para>If the value of <code>IsTruncated</code> in the previous response is true, you have
-        /// more traffic policy instances. To get more traffic policy instances, submit another
-        /// <code>ListTrafficPolicyInstances</code> request. For the value of <code>trafficpolicyinstancename</code>,
-        /// specify the value of <code>TrafficPolicyInstanceNameMarker</code> from the previous
-        /// response, which is the name of the first traffic policy instance in the next group
-        /// of traffic policy instances.</para><para>If the value of <code>IsTruncated</code> in the previous response was <code>false</code>,
-        /// there are no more traffic policy instances to get.</para>
+        /// <para>If the value of <c>IsTruncated</c> in the previous response is true, you have more
+        /// traffic policy instances. To get more traffic policy instances, submit another <c>ListTrafficPolicyInstances</c>
+        /// request. For the value of <c>trafficpolicyinstancename</c>, specify the value of <c>TrafficPolicyInstanceNameMarker</c>
+        /// from the previous response, which is the name of the first traffic policy instance
+        /// in the next group of traffic policy instances.</para><para>If the value of <c>IsTruncated</c> in the previous response was <c>false</c>, there
+        /// are no more traffic policy instances to get.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,13 +89,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter TrafficPolicyInstanceTypeMarker
         /// <summary>
         /// <para>
-        /// <para>If the value of <code>IsTruncated</code> in the previous response is true, you have
-        /// more traffic policy instances. To get more traffic policy instances, submit another
-        /// <code>ListTrafficPolicyInstances</code> request. For the value of <code>trafficpolicyinstancetype</code>,
-        /// specify the value of <code>TrafficPolicyInstanceTypeMarker</code> from the previous
-        /// response, which is the type of the first traffic policy instance in the next group
-        /// of traffic policy instances.</para><para>If the value of <code>IsTruncated</code> in the previous response was <code>false</code>,
-        /// there are no more traffic policy instances to get.</para>
+        /// <para>If the value of <c>IsTruncated</c> in the previous response is true, you have more
+        /// traffic policy instances. To get more traffic policy instances, submit another <c>ListTrafficPolicyInstances</c>
+        /// request. For the value of <c>trafficpolicyinstancetype</c>, specify the value of <c>TrafficPolicyInstanceTypeMarker</c>
+        /// from the previous response, which is the type of the first traffic policy instance
+        /// in the next group of traffic policy instances.</para><para>If the value of <c>IsTruncated</c> in the previous response was <c>false</c>, there
+        /// are no more traffic policy instances to get.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,11 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>The maximum number of traffic policy instances to be included in the response body
-        /// for this request. If you have more than <code>MaxItems</code> traffic policy instances,
-        /// the value of the <code>IsTruncated</code> element in the response is <code>true</code>,
-        /// and the values of <code>HostedZoneIdMarker</code>, <code>TrafficPolicyInstanceNameMarker</code>,
-        /// and <code>TrafficPolicyInstanceTypeMarker</code> represent the first traffic policy
-        /// instance that Amazon Route 53 will return if you submit another request.</para>
+        /// for this request. If you have more than <c>MaxItems</c> traffic policy instances,
+        /// the value of the <c>IsTruncated</c> element in the response is <c>true</c>, and the
+        /// values of <c>HostedZoneIdMarker</c>, <c>TrafficPolicyInstanceNameMarker</c>, and <c>TrafficPolicyInstanceTypeMarker</c>
+        /// represent the first traffic policy instance that Amazon Route 53 will return if you
+        /// submit another request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

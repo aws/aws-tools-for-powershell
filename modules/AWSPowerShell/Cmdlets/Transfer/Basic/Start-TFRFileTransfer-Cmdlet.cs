@@ -32,20 +32,20 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     /// or SFTP server.
     /// 
     ///  <ul><li><para>
-    /// For an AS2 connector, you specify the <code>ConnectorId</code> and one or more <code>SendFilePaths</code>
+    /// For an AS2 connector, you specify the <c>ConnectorId</c> and one or more <c>SendFilePaths</c>
     /// to identify the files you want to transfer.
     /// </para></li><li><para>
     /// For an SFTP connector, the file transfer can be either outbound or inbound. In both
-    /// cases, you specify the <code>ConnectorId</code>. Depending on the direction of the
-    /// transfer, you also specify the following items:
+    /// cases, you specify the <c>ConnectorId</c>. Depending on the direction of the transfer,
+    /// you also specify the following items:
     /// </para><ul><li><para>
     /// If you are transferring file from a partner's SFTP server to Amazon Web Services storage,
-    /// you specify one or more <code>RetreiveFilePaths</code> to identify the files you want
-    /// to transfer, and a <code>LocalDirectoryPath</code> to specify the destination folder.
+    /// you specify one or more <c>RetreiveFilePaths</c> to identify the files you want to
+    /// transfer, and a <c>LocalDirectoryPath</c> to specify the destination folder.
     /// </para></li><li><para>
     /// If you are transferring file to a partner's SFTP server from Amazon Web Services storage,
-    /// you specify one or more <code>SendFilePaths</code> to identify the files you want
-    /// to transfer, and a <code>RemoteDirectoryPath</code> to specify the destination folder.
+    /// you specify one or more <c>SendFilePaths</c> to identify the files you want to transfer,
+    /// and a <c>RemoteDirectoryPath</c> to specify the destination folder.
     /// </para></li></ul></li></ul>
     /// </summary>
     [Cmdlet("Start", "TFRFileTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter LocalDirectoryPath
         /// <summary>
         /// <para>
-        /// <para>For an inbound transfer, the <code>LocaDirectoryPath</code> specifies the destination
-        /// for one or more files that are transferred from the partner's SFTP server.</para>
+        /// <para>For an inbound transfer, the <c>LocaDirectoryPath</c> specifies the destination for
+        /// one or more files that are transferred from the partner's SFTP server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,10 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter RemoteDirectoryPath
         /// <summary>
         /// <para>
-        /// <para>For an outbound transfer, the <code>RemoteDirectoryPath</code> specifies the destination
+        /// <para>For an outbound transfer, the <c>RemoteDirectoryPath</c> specifies the destination
         /// for one or more files that are transferred to the partner's SFTP server. If you don't
-        /// specify a <code>RemoteDirectoryPath</code>, the destination for transferred files
-        /// is the SFTP user's home directory.</para>
+        /// specify a <c>RemoteDirectoryPath</c>, the destination for transferred files is the
+        /// SFTP user's home directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>One or more source paths for the Amazon S3 storage. Each string represents a source
-        /// file path for one outbound file transfer. For example, <code><i>DOC-EXAMPLE-BUCKET</i>/<i>myfile.txt</i></code>.</para><note><para>Replace <code><i>DOC-EXAMPLE-BUCKET</i></code> with one of your actual buckets.</para></note>
+        /// file path for one outbound file transfer. For example, <c><i>DOC-EXAMPLE-BUCKET</i>/<i>myfile.txt</i></c>.</para><note><para>Replace <c><i>DOC-EXAMPLE-BUCKET</i></c> with one of your actual buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

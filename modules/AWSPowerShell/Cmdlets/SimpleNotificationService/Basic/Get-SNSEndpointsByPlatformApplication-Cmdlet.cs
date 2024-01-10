@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Lists the endpoints and endpoint attributes for devices in a supported push notification
-    /// service, such as GCM (Firebase Cloud Messaging) and APNS. The results for <code>ListEndpointsByPlatformApplication</code>
+    /// service, such as GCM (Firebase Cloud Messaging) and APNS. The results for <c>ListEndpointsByPlatformApplication</c>
     /// are paginated and return a limited list of endpoints, up to 100. If additional records
     /// are available after the first page results, then a NextToken string will be returned.
-    /// To receive the next page, you call <code>ListEndpointsByPlatformApplication</code>
-    /// again using the NextToken string received from the previous call. When there are no
-    /// more records to return, NextToken will be null. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
+    /// To receive the next page, you call <c>ListEndpointsByPlatformApplication</c> again
+    /// using the NextToken string received from the previous call. When there are no more
+    /// records to return, NextToken will be null. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
     /// Amazon SNS Mobile Push Notifications</a>. 
     /// 
     ///  

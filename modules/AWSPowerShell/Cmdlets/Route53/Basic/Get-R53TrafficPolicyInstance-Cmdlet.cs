@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// Gets information about a specified traffic policy instance.
     /// 
     ///  <note><para>
-    ///  Use <code>GetTrafficPolicyInstance</code> with the <code>id</code> of new traffic
-    /// policy instance to confirm that the <code>CreateTrafficPolicyInstance</code> or an
-    /// <code>UpdateTrafficPolicyInstance</code> request completed successfully. For more
-    /// information, see the <code>State</code> response element.
+    ///  Use <c>GetTrafficPolicyInstance</c> with the <c>id</c> of new traffic policy instance
+    /// to confirm that the <c>CreateTrafficPolicyInstance</c> or an <c>UpdateTrafficPolicyInstance</c>
+    /// request completed successfully. For more information, see the <c>State</c> response
+    /// element.
     /// </para></note><note><para>
     /// In the Route 53 console, traffic policy instances are known as policy records.
     /// </para></note>

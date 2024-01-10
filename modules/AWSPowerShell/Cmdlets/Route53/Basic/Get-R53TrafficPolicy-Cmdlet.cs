@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    /// For information about how of deleting a traffic policy affects the response from <code>GetTrafficPolicy</code>,
+    /// For information about how of deleting a traffic policy affects the response from <c>GetTrafficPolicy</c>,
     /// see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html">DeleteTrafficPolicy</a>.
     /// 
     /// </para>

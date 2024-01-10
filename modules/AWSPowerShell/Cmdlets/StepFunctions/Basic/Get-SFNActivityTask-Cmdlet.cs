@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// the service holds the HTTP connection open and responds as soon as a task becomes
     /// available (i.e. an execution of a task of this type is needed.) The maximum time the
     /// service holds on to the request before responding is 60 seconds. If no task is available
-    /// within 60 seconds, the poll returns a <code>taskToken</code> with a null string.
+    /// within 60 seconds, the poll returns a <c>taskToken</c> with a null string.
     /// 
     ///  <note><para>
     /// This API action isn't logged in CloudTrail.
@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// Workers should set their client side socket timeout to at least 65 seconds (5 seconds
     /// higher than the maximum time the service may hold the poll request).
     /// </para><para>
-    /// Polling with <code>GetActivityTask</code> can cause latency in some implementations.
-    /// See <a href="https://docs.aws.amazon.com/step-functions/latest/dg/bp-activity-pollers.html">Avoid
+    /// Polling with <c>GetActivityTask</c> can cause latency in some implementations. See
+    /// <a href="https://docs.aws.amazon.com/step-functions/latest/dg/bp-activity-pollers.html">Avoid
     /// Latency When Polling for Activity Tasks</a> in the Step Functions Developer Guide.
     /// </para></important>
     /// </summary>

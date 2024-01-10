@@ -29,19 +29,19 @@ namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
     /// Attempts to cancel a service instance deployment on an <a>UpdateServiceInstance</a>
-    /// action, if the deployment is <code>IN_PROGRESS</code>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-instance-update.html">Update
+    /// action, if the deployment is <c>IN_PROGRESS</c>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-instance-update.html">Update
     /// a service instance</a> in the <i>Proton User guide</i>.
     /// 
     ///  
     /// <para>
     /// The following list includes potential cancellation scenarios.
     /// </para><ul><li><para>
-    /// If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.
+    /// If the cancellation attempt succeeds, the resulting deployment state is <c>CANCELLED</c>.
     /// </para></li><li><para>
-    /// If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.
+    /// If the cancellation attempt fails, the resulting deployment state is <c>FAILED</c>.
     /// </para></li><li><para>
     /// If the current <a>UpdateServiceInstance</a> action succeeds before the cancellation
-    /// attempt starts, the resulting deployment state is <code>SUCCEEDED</code> and the cancellation
+    /// attempt starts, the resulting deployment state is <c>SUCCEEDED</c> and the cancellation
     /// attempt has no effect.
     /// </para></li></ul>
     /// </summary>

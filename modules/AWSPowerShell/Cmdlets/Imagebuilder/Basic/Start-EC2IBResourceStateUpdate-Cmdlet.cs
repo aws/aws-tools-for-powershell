@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter LastLaunched_Value
         /// <summary>
         /// <para>
-        /// <para>The integer number of units for the time period. For example <code>6</code> (months).</para>
+        /// <para>The integer number of units for the time period. For example <c>6</c> (months).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

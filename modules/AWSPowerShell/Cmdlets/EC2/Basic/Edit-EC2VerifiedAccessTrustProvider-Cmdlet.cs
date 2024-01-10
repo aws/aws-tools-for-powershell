@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para> Enable or disable the use of customer managed KMS keys for server side encryption.
-        /// </para><para>Valid values: <code>True</code> | <code>False</code></para>
+        /// </para><para>Valid values: <c>True</c> | <c>False</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,8 +28,8 @@ using Amazon.EventBridge.Model;
 namespace Amazon.PowerShell.Cmdlets.EVB
 {
     /// <summary>
-    /// Running <code>PutPermission</code> permits the specified Amazon Web Services account
-    /// or Amazon Web Services organization to put events to the specified <i>event bus</i>.
+    /// Running <c>PutPermission</c> permits the specified Amazon Web Services account or
+    /// Amazon Web Services organization to put events to the specified <i>event bus</i>.
     /// Amazon EventBridge (CloudWatch Events) rules in your account are triggered by these
     /// events arriving to an event bus in your account. 
     /// 
@@ -39,14 +39,13 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// an EventBridge rule with your account's event bus as a target.
     /// </para><para>
     /// To enable multiple Amazon Web Services accounts to put events to your event bus, run
-    /// <code>PutPermission</code> once for each of these accounts. Or, if all the accounts
-    /// are members of the same Amazon Web Services organization, you can run <code>PutPermission</code>
-    /// once specifying <code>Principal</code> as "*" and specifying the Amazon Web Services
-    /// organization ID in <code>Condition</code>, to grant permissions to all accounts in
-    /// that organization.
+    /// <c>PutPermission</c> once for each of these accounts. Or, if all the accounts are
+    /// members of the same Amazon Web Services organization, you can run <c>PutPermission</c>
+    /// once specifying <c>Principal</c> as "*" and specifying the Amazon Web Services organization
+    /// ID in <c>Condition</c>, to grant permissions to all accounts in that organization.
     /// </para><para>
     /// If you grant permissions using an organization, then accounts in that organization
-    /// must specify a <code>RoleArn</code> with proper permissions when they use <code>PutTarget</code>
+    /// must specify a <c>RoleArn</c> with proper permissions when they use <c>PutTarget</c>
     /// to add your account's event bus as a target. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html">Sending
     /// and Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge
     /// User Guide</i>.
@@ -90,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter Condition_Key
         /// <summary>
         /// <para>
-        /// <para>Specifies the key for the condition. Currently the only supported key is <code>aws:PrincipalOrgID</code>.</para>
+        /// <para>Specifies the key for the condition. Currently the only supported key is <c>aws:PrincipalOrgID</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,9 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>A JSON string that describes the permission policy statement. You can include a <code>Policy</code>
-        /// parameter in the request instead of using the <code>StatementId</code>, <code>Action</code>,
-        /// <code>Principal</code>, or <code>Condition</code> parameters.</para>
+        /// <para>A JSON string that describes the permission policy statement. You can include a <c>Policy</c>
+        /// parameter in the request instead of using the <c>StatementId</c>, <c>Action</c>, <c>Principal</c>,
+        /// or <c>Condition</c> parameters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,11 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// <para>
         /// <para>The 12-digit Amazon Web Services account ID that you are permitting to put events
         /// to your default event bus. Specify "*" to permit any account to put events to your
-        /// default event bus.</para><para>If you specify "*" without specifying <code>Condition</code>, avoid creating rules
-        /// that may match undesirable events. To create more secure rules, make sure that the
-        /// event pattern for each rule contains an <code>account</code> field with a specific
-        /// account ID from which to receive events. Rules with an account field do not match
-        /// any events sent from other accounts.</para>
+        /// default event bus.</para><para>If you specify "*" without specifying <c>Condition</c>, avoid creating rules that
+        /// may match undesirable events. To create more secure rules, make sure that the event
+        /// pattern for each rule contains an <c>account</c> field with a specific account ID
+        /// from which to receive events. Rules with an account field do not match any events
+        /// sent from other accounts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// <para>
         /// <para>An identifier string for the external account that you are granting permissions to.
         /// If you later want to revoke the permission for this external account, specify this
-        /// <code>StatementId</code> when you run <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html">RemovePermission</a>.</para><note><para>Each <code>StatementId</code> must be unique.</para></note>
+        /// <c>StatementId</c> when you run <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html">RemovePermission</a>.</para><note><para>Each <c>StatementId</c> must be unique.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -140,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter Condition_Type
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of condition. Currently the only supported value is <code>StringEquals</code>.</para>
+        /// <para>Specifies the type of condition. Currently the only supported value is <c>StringEquals</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

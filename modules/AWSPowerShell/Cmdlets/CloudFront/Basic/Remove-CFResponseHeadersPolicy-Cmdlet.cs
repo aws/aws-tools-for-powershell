@@ -37,8 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// behaviors, then delete the response headers policy.
     /// </para><para>
     /// To delete a response headers policy, you must provide the policy's identifier and
-    /// version. To get these values, you can use <code>ListResponseHeadersPolicies</code>
-    /// or <code>GetResponseHeadersPolicy</code>.
+    /// version. To get these values, you can use <c>ListResponseHeadersPolicies</c> or <c>GetResponseHeadersPolicy</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CFResponseHeadersPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -56,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier for the response headers policy that you are deleting.</para><para>To get the identifier, you can use <code>ListResponseHeadersPolicies</code>.</para>
+        /// <para>The identifier for the response headers policy that you are deleting.</para><para>To get the identifier, you can use <c>ListResponseHeadersPolicies</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,9 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The version of the response headers policy that you are deleting.</para><para>The version is the response headers policy's <code>ETag</code> value, which you can
-        /// get using <code>ListResponseHeadersPolicies</code>, <code>GetResponseHeadersPolicy</code>,
-        /// or <code>GetResponseHeadersPolicyConfig</code>.</para>
+        /// <para>The version of the response headers policy that you are deleting.</para><para>The version is the response headers policy's <c>ETag</c> value, which you can get
+        /// using <c>ListResponseHeadersPolicies</c>, <c>GetResponseHeadersPolicy</c>, or <c>GetResponseHeadersPolicyConfig</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

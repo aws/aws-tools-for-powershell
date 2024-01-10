@@ -36,19 +36,19 @@ namespace Amazon.PowerShell.Cmdlets.NS
     /// role. These roles are assumed by your users when they log in to the Nimble Studio
     /// portal.
     /// </para><para>
-    /// The user role must have the <code>AmazonNimbleStudio-StudioUser</code> managed policy
+    /// The user role must have the <c>AmazonNimbleStudio-StudioUser</c> managed policy attached
+    /// for the portal to function properly.
+    /// </para><para>
+    /// The admin role must have the <c>AmazonNimbleStudio-StudioAdmin</c> managed policy
     /// attached for the portal to function properly.
     /// </para><para>
-    /// The admin role must have the <code>AmazonNimbleStudio-StudioAdmin</code> managed policy
-    /// attached for the portal to function properly.
-    /// </para><para>
-    /// You may optionally specify a KMS key in the <code>StudioEncryptionConfiguration</code>.
+    /// You may optionally specify a KMS key in the <c>StudioEncryptionConfiguration</c>.
     /// </para><para>
     /// In Nimble Studio, resource names, descriptions, initialization scripts, and other
     /// data you provide are always encrypted at rest using an KMS key. By default, this key
     /// is owned by Amazon Web Services and managed on your behalf. You may provide your own
-    /// KMS key when calling <code>CreateStudio</code> to encrypt this data using a key you
-    /// own and manage.
+    /// KMS key when calling <c>CreateStudio</c> to encrypt this data using a key you own
+    /// and manage.
     /// </para><para>
     /// When providing an KMS key during studio creation, Nimble Studio creates KMS grants
     /// in your account to provide your studio user and admin roles access to these KMS keys.

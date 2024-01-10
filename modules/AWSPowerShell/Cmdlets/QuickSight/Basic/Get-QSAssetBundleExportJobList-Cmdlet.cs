@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// <summary>
     /// Lists all asset bundle export jobs that have been taken place in the last 14 days.
     /// Jobs created more than 14 days ago are deleted forever and are not returned. If you
-    /// are using the same job ID for multiple jobs, <code>ListAssetBundleExportJobs</code>
-    /// only returns the most recent job that uses the repeated job ID.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// are using the same job ID for multiple jobs, <c>ListAssetBundleExportJobs</c> only
+    /// returns the most recent job that uses the repeated job ID.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSAssetBundleExportJobList")]
     [OutputType("Amazon.QuickSight.Model.AssetBundleExportJobSummary")]

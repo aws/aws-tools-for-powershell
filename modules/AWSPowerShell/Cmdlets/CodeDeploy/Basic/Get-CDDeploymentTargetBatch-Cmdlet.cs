@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
     /// Returns an array of one or more targets associated with a deployment. This method
-    /// works with all compute types and should be used instead of the deprecated <code>BatchGetDeploymentInstances</code>.
+    /// works with all compute types and should be used instead of the deprecated <c>BatchGetDeploymentInstances</c>.
     /// The maximum number of targets that can be returned is 25.
     /// 
     ///  
@@ -78,12 +78,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para> The unique IDs of the deployment targets. The compute platform of the deployment
         /// determines the type of the targets and their formats. The maximum number of deployment
         /// target IDs you can specify is 25.</para><ul><li><para> For deployments that use the EC2/On-premises compute platform, the target IDs are
-        /// Amazon EC2 or on-premises instances IDs, and their target type is <code>instanceTarget</code>.
+        /// Amazon EC2 or on-premises instances IDs, and their target type is <c>instanceTarget</c>.
         /// </para></li><li><para> For deployments that use the Lambda compute platform, the target IDs are the names
-        /// of Lambda functions, and their target type is <code>instanceTarget</code>. </para></li><li><para> For deployments that use the Amazon ECS compute platform, the target IDs are pairs
-        /// of Amazon ECS clusters and services specified using the format <code>&lt;clustername&gt;:&lt;servicename&gt;</code>.
-        /// Their target type is <code>ecsTarget</code>. </para></li><li><para> For deployments that are deployed with CloudFormation, the target IDs are CloudFormation
-        /// stack IDs. Their target type is <code>cloudFormationTarget</code>. </para></li></ul>
+        /// of Lambda functions, and their target type is <c>instanceTarget</c>. </para></li><li><para> For deployments that use the Amazon ECS compute platform, the target IDs are pairs
+        /// of Amazon ECS clusters and services specified using the format <c>&lt;clustername&gt;:&lt;servicename&gt;</c>.
+        /// Their target type is <c>ecsTarget</c>. </para></li><li><para> For deployments that are deployed with CloudFormation, the target IDs are CloudFormation
+        /// stack IDs. Their target type is <c>cloudFormationTarget</c>. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

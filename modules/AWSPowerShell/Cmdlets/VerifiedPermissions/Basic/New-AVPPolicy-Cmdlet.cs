@@ -32,13 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     /// either a static policy or a policy linked to a policy template.
     /// 
     ///  <ul><li><para>
-    /// To create a static policy, provide the Cedar policy text in the <code>StaticPolicy</code>
-    /// section of the <code>PolicyDefinition</code>.
+    /// To create a static policy, provide the Cedar policy text in the <c>StaticPolicy</c>
+    /// section of the <c>PolicyDefinition</c>.
     /// </para></li><li><para>
     /// To create a policy that is dynamically linked to a policy template, specify the policy
-    /// template ID and the principal and resource to associate with this policy in the <code>templateLinked</code>
-    /// section of the <code>PolicyDefinition</code>. If the policy template is ever updated,
-    /// any policies linked to the policy template automatically use the updated template.
+    /// template ID and the principal and resource to associate with this policy in the <c>templateLinked</c>
+    /// section of the <c>PolicyDefinition</c>. If the policy template is ever updated, any
+    /// policies linked to the policy template automatically use the updated template.
     /// </para></li></ul><note><para>
     /// Creating a policy causes it to be validated against the schema in the policy store.
     /// If the policy doesn't pass validation, the operation fails and the policy isn't stored.
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter Principal_EntityId
         /// <summary>
         /// <para>
-        /// <para>The identifier of an entity.</para><para><code>"entityId":"<i>identifier</i>"</code></para>
+        /// <para>The identifier of an entity.</para><para><c>"entityId":"<i>identifier</i>"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter Resource_EntityId
         /// <summary>
         /// <para>
-        /// <para>The identifier of an entity.</para><para><code>"entityId":"<i>identifier</i>"</code></para>
+        /// <para>The identifier of an entity.</para><para><c>"entityId":"<i>identifier</i>"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter Principal_EntityType
         /// <summary>
         /// <para>
-        /// <para>The type of an entity.</para><para>Example: <code>"entityType":"<i>typeName</i>"</code></para>
+        /// <para>The type of an entity.</para><para>Example: <c>"entityType":"<i>typeName</i>"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter Resource_EntityType
         /// <summary>
         /// <para>
-        /// <para>The type of an entity.</para><para>Example: <code>"entityType":"<i>typeName</i>"</code></para>
+        /// <para>The type of an entity.</para><para>Example: <c>"entityType":"<i>typeName</i>"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter PolicyStoreId
         /// <summary>
         /// <para>
-        /// <para>Specifies the <code>PolicyStoreId</code> of the policy store you want to store the
-        /// policy in.</para>
+        /// <para>Specifies the <c>PolicyStoreId</c> of the policy store you want to store the policy
+        /// in.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -168,8 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// requires that you also pass the same value for all other parameters. We recommend
         /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
         /// type of value.</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
-        /// you.</para><para>If you retry the operation with the same <code>ClientToken</code>, but with different
-        /// parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</para>
+        /// you.</para><para>If you retry the operation with the same <c>ClientToken</c>, but with different parameters,
+        /// the retry fails with an <c>IdempotentParameterMismatch</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

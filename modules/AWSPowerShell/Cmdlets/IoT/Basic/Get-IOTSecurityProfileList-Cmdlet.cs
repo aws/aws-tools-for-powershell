@@ -35,8 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <para>
     /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSecurityProfiles</a>
     /// action.
-    /// </para><note><para><code>dimensionName</code> and <code>metricName</code> cannot be used in the same
-    /// request.
+    /// </para><note><para><c>dimensionName</c> and <c>metricName</c> cannot be used in the same request.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTSecurityProfileList")]
@@ -55,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>A filter to limit results to the security profiles that use the defined dimension.
-        /// Cannot be used with <code>metricName</code></para>
+        /// Cannot be used with <c>metricName</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// <para> The name of the custom metric. Cannot be used with <code>dimensionName</code>. </para>
+        /// <para> The name of the custom metric. Cannot be used with <c>dimensionName</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

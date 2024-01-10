@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// 
     ///  
     /// <para>
-    /// In addition to listing the properties provided by the user in the <code>CreateForecastExportJob</code>
+    /// In addition to listing the properties provided by the user in the <c>CreateForecastExportJob</c>
     /// request, this operation lists the following properties:
-    /// </para><ul><li><para><code>CreationTime</code></para></li><li><para><code>LastModificationTime</code></para></li><li><para><code>Status</code></para></li><li><para><code>Message</code> - If an error occurred, information about the error.
+    /// </para><ul><li><para><c>CreationTime</c></para></li><li><para><c>LastModificationTime</c></para></li><li><para><c>Status</c></para></li><li><para><c>Message</c> - If an error occurred, information about the error.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "FRCForecastExportJob")]

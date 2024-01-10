@@ -28,7 +28,7 @@ using Amazon.ApplicationInsights.Model;
 namespace Amazon.PowerShell.Cmdlets.CWAI
 {
     /// <summary>
-    /// Describe a specific log pattern from a <code>LogPatternSet</code>.
+    /// Describe a specific log pattern from a <c>LogPatternSet</c>.
     /// </summary>
     [Cmdlet("Get", "CWAILogPattern")]
     [OutputType("Amazon.ApplicationInsights.Model.LogPattern")]

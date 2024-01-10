@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter ServiceType
         /// <summary>
         /// <para>
-        /// <para>The service type for which to get endpoint information about. Can be <code>CUPS</code>
-        /// for the Configuration and Update Server endpoint, or <code>LNS</code> for the LoRaWAN
-        /// Network Server endpoint or <code>CLAIM</code> for the global endpoint.</para>
+        /// <para>The service type for which to get endpoint information about. Can be <c>CUPS</c> for
+        /// the Configuration and Update Server endpoint, or <c>LNS</c> for the LoRaWAN Network
+        /// Server endpoint or <c>CLAIM</c> for the global endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

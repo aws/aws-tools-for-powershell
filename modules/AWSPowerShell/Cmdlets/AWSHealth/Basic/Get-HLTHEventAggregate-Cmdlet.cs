@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// are returned.
     /// 
     ///  <note><para>
-    /// This API operation uses pagination. Specify the <code>nextToken</code> parameter in
-    /// the next request to return more results.
+    /// This API operation uses pagination. Specify the <c>nextToken</c> parameter in the
+    /// next request to return more results.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "HLTHEventAggregate")]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter AggregateField
         /// <summary>
         /// <para>
-        /// <para>The only currently supported value is <code>eventTypeCategory</code>.</para>
+        /// <para>The only currently supported value is <c>eventTypeCategory</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EntityValue
         /// <summary>
         /// <para>
-        /// <para>A list of entity identifiers, such as EC2 instance IDs (<code>i-34ab692e</code>) or
-        /// EBS volumes (<code>vol-426ab23e</code>).</para>
+        /// <para>A list of entity identifiers, such as EC2 instance IDs (<c>i-34ab692e</c>) or EBS
+        /// volumes (<c>vol-426ab23e</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventArn
         /// <summary>
         /// <para>
-        /// <para>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456",
-        /// "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code></para>
+        /// <para>A list of event ARNs (unique identifiers). For example: <c>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456",
+        /// "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,9 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventTypeCategory
         /// <summary>
         /// <para>
-        /// <para>A list of event type category codes. Possible values are <code>issue</code>, <code>accountNotification</code>,
-        /// or <code>scheduledChange</code>. Currently, the <code>investigation</code> value isn't
-        /// supported at this time.</para>
+        /// <para>A list of event type category codes. Possible values are <c>issue</c>, <c>accountNotification</c>,
+        /// or <c>scheduledChange</c>. Currently, the <c>investigation</c> value isn't supported
+        /// at this time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventTypeCode
         /// <summary>
         /// <para>
-        /// <para>A list of unique identifiers for event types. For example, <code>"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".</code></para>
+        /// <para>A list of unique identifiers for event types. For example, <c>"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,8 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Service
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services associated with the event. For example, <code>EC2</code>,
-        /// <code>RDS</code>.</para>
+        /// <para>The Amazon Web Services associated with the event. For example, <c>EC2</c>, <c>RDS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Tag
         /// <summary>
         /// <para>
-        /// <para>A map of entity tags attached to the affected entity.</para><note><para>Currently, the <code>tags</code> property isn't supported.</para></note>
+        /// <para>A map of entity tags attached to the affected entity.</para><note><para>Currently, the <c>tags</c> property isn't supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,8 +233,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         /// <summary>
         /// <para>
         /// <para>If the results of a search are large, only a portion of the results are returned,
-        /// and a <code>nextToken</code> pagination token is returned in the response. To retrieve
-        /// the next batch of results, reissue the search request and include the returned token.
+        /// and a <c>nextToken</c> pagination token is returned in the response. To retrieve the
+        /// next batch of results, reissue the search request and include the returned token.
         /// When all results have been returned, the response does not contain a pagination token
         /// value.</para>
         /// </para>

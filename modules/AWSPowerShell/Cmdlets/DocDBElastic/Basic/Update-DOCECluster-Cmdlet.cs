@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         /// <summary>
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
-        /// Time (UTC).</para><para><i>Format</i>: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para><i>Default</i>: a 30-minute window selected at random from an 8-hour block of time
+        /// Time (UTC).</para><para><i>Format</i>: <c>ddd:hh24:mi-ddd:hh24:mi</c></para><para><i>Default</i>: a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Web Services Region, occurring on a random day of the week.</para><para><i>Valid days</i>: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para><i>Constraints</i>: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>

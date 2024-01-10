@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DhcpOptionsId
         /// <summary>
         /// <para>
-        /// <para>The ID of the DHCP options set, or <code>default</code> to associate no DHCP options
-        /// with the VPC.</para>
+        /// <para>The ID of the DHCP options set, or <c>default</c> to associate no DHCP options with
+        /// the VPC.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

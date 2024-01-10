@@ -56,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>HTTP requests are stateless. To identify what object comes "next" in the list of <code>ListPickupLocationsRequest</code>
-        /// objects, you have the option of specifying <code>NextToken</code> as the starting
-        /// point for your returned list.</para>
+        /// <para>HTTP requests are stateless. To identify what object comes "next" in the list of <c>ListPickupLocationsRequest</c>
+        /// objects, you have the option of specifying <c>NextToken</c> as the starting point
+        /// for your returned list.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

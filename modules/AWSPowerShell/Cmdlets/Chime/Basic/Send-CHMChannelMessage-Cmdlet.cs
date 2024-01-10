@@ -31,11 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// Sends a message to a particular channel that the member is a part of.
     /// 
     ///  <note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
+    /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the <c>AppInstanceUserArn</c>
     /// of the user that makes the API call as the value in the header.
     /// </para><para>
-    /// Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata.
-    /// <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.
+    /// Also, <c>STANDARD</c> messages can contain 4KB of data and the 1KB of metadata. <c>CONTROL</c>
+    /// messages can contain 30 bytes of data and no metadata.
     /// </para></note><important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
     /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_SendChannelMessage.html">SendChannelMessage</a>,
     /// in the Amazon Chime SDK.
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// <para>The <c>AppInstanceUserArn</c> of the user that makes the API call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>The <code>Idempotency</code> token for each client request.</para>
+        /// <para>The <c>Idempotency</c> token for each client request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of message, <code>STANDARD</code> or <code>CONTROL</code>.</para>
+        /// <para>The type of message, <c>STANDARD</c> or <c>CONTROL</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

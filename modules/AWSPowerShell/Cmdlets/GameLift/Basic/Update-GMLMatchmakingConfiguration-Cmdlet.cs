@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>A flag that indicates whether a match that was created with this configuration must
         /// be accepted by the matched players. To require acceptance, set to TRUE. With this
-        /// option enabled, matchmaking tickets use the status <code>REQUIRES_ACCEPTANCE</code>
-        /// to indicate when a completed potential match is waiting for player acceptance. </para>
+        /// option enabled, matchmaking tickets use the status <c>REQUIRES_ACCEPTANCE</c> to indicate
+        /// when a completed potential match is waiting for player acceptance. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// if the configuration's rule set specifies a match for a single 10-person team, and
         /// the additional player count is set to 2, 10 players will be selected for the match
         /// and 2 more player slots will be open for future players. This parameter is not used
-        /// if <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</para>
+        /// if <c>FlexMatchMode</c> is set to <c>STANDALONE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// match backfill feature. Specify AUTOMATIC to have GameLift create a match backfill
         /// request whenever a game session has one or more open slots. Learn more about manual
         /// and automatic backfill in <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">Backfill
-        /// Existing Games with FlexMatch</a>. Automatic backfill is not available when <code>FlexMatchMode</code>
-        /// is set to <code>STANDALONE</code>.</para>
+        /// Existing Games with FlexMatch</a>. Automatic backfill is not available when <c>FlexMatchMode</c>
+        /// is set to <c>STANDALONE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,9 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of key-value pairs that can store custom data in a game session. For example:
-        /// <code>{"Key": "difficulty", "Value": "novice"}</code>. This information is added to
-        /// the new <code>GameSession</code> object that is created for a successful match. This
-        /// parameter is not used if <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</para>
+        /// <c>{"Key": "difficulty", "Value": "novice"}</c>. This information is added to the
+        /// new <c>GameSession</c> object that is created for a successful match. This parameter
+        /// is not used if <c>FlexMatchMode</c> is set to <c>STANDALONE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// data is passed to a game server process with a request to start a new game session
         /// (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
         /// a Game Session</a>). This information is added to the game session that is created
-        /// for a successful match. This parameter is not used if <code>FlexMatchMode</code> is
-        /// set to <code>STANDALONE</code>.</para>
+        /// for a successful match. This parameter is not used if <c>FlexMatchMode</c> is set
+        /// to <c>STANDALONE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,11 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
         /// that is assigned to a Amazon GameLift game session queue resource and uniquely identifies
-        /// it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:&lt;region&gt;::gamesessionqueue/&lt;queue
-        /// name&gt;</code>. Queues can be located in any Region. Queues are used to start new
-        /// Amazon GameLift-hosted game sessions for matches that are created with this matchmaking
-        /// configuration. If <code>FlexMatchMode</code> is set to <code>STANDALONE</code>, do
-        /// not set this parameter.</para>
+        /// it. ARNs are unique across all Regions. Format is <c>arn:aws:gamelift:&lt;region&gt;::gamesessionqueue/&lt;queue
+        /// name&gt;</c>. Queues can be located in any Region. Queues are used to start new Amazon
+        /// GameLift-hosted game sessions for matches that are created with this matchmaking configuration.
+        /// If <c>FlexMatchMode</c> is set to <c>STANDALONE</c>, do not set this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

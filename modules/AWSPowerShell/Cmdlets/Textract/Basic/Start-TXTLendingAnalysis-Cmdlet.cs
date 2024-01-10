@@ -28,26 +28,26 @@ using Amazon.Textract.Model;
 namespace Amazon.PowerShell.Cmdlets.TXT
 {
     /// <summary>
-    /// Starts the classification and analysis of an input document. <code>StartLendingAnalysis</code>
-    /// initiates the classification and analysis of a packet of lending documents. <code>StartLendingAnalysis</code>
+    /// Starts the classification and analysis of an input document. <c>StartLendingAnalysis</c>
+    /// initiates the classification and analysis of a packet of lending documents. <c>StartLendingAnalysis</c>
     /// operates on a document file located in an Amazon S3 bucket.
     /// 
     ///  
-    /// <para><code>StartLendingAnalysis</code> can analyze text in documents that are in one of
-    /// the following formats: JPEG, PNG, TIFF, PDF. Use <code>DocumentLocation</code> to
-    /// specify the bucket name and the file name of the document. 
-    /// </para><para><code>StartLendingAnalysis</code> returns a job identifier (<code>JobId</code>) that
-    /// you use to get the results of the operation. When the text analysis is finished, Amazon
-    /// Textract publishes a completion status to the Amazon Simple Notification Service (Amazon
-    /// SNS) topic that you specify in <code>NotificationChannel</code>. To get the results
-    /// of the text analysis operation, first check that the status value published to the
-    /// Amazon SNS topic is SUCCEEDED. If the status is SUCCEEDED you can call either <code>GetLendingAnalysis</code>
-    /// or <code>GetLendingAnalysisSummary</code> and provide the <code>JobId</code> to obtain
-    /// the results of the analysis.
+    /// <para><c>StartLendingAnalysis</c> can analyze text in documents that are in one of the
+    /// following formats: JPEG, PNG, TIFF, PDF. Use <c>DocumentLocation</c> to specify the
+    /// bucket name and the file name of the document. 
+    /// </para><para><c>StartLendingAnalysis</c> returns a job identifier (<c>JobId</c>) that you use
+    /// to get the results of the operation. When the text analysis is finished, Amazon Textract
+    /// publishes a completion status to the Amazon Simple Notification Service (Amazon SNS)
+    /// topic that you specify in <c>NotificationChannel</c>. To get the results of the text
+    /// analysis operation, first check that the status value published to the Amazon SNS
+    /// topic is SUCCEEDED. If the status is SUCCEEDED you can call either <c>GetLendingAnalysis</c>
+    /// or <c>GetLendingAnalysisSummary</c> and provide the <c>JobId</c> to obtain the results
+    /// of the analysis.
     /// </para><para>
-    /// If using <code>OutputConfig</code> to specify an Amazon S3 bucket, the output will
-    /// be contained within the specified prefix in a directory labeled with the job-id. In
-    /// the directory there are 3 sub-directories: 
+    /// If using <c>OutputConfig</c> to specify an Amazon S3 bucket, the output will be contained
+    /// within the specified prefix in a directory labeled with the job-id. In the directory
+    /// there are 3 sub-directories: 
     /// </para><ul><li><para>
     /// detailedResponse (contains the GetLendingAnalysis response)
     /// </para></li><li><para>
@@ -83,9 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// <summary>
         /// <para>
         /// <para>The idempotent token that you use to identify the start request. If you use the same
-        /// token with multiple <code>StartLendingAnalysis</code> requests, the same <code>JobId</code>
-        /// is returned. Use <code>ClientRequestToken</code> to prevent the same job from being
-        /// accidentally started more than once. For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-sync.html">Calling
+        /// token with multiple <c>StartLendingAnalysis</c> requests, the same <c>JobId</c> is
+        /// returned. Use <c>ClientRequestToken</c> to prevent the same job from being accidentally
+        /// started more than once. For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-sync.html">Calling
         /// Amazon Textract Asynchronous Operations</a>.</para>
         /// </para>
         /// </summary>
@@ -97,9 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// <summary>
         /// <para>
         /// <para>An identifier that you specify to be included in the completion notification published
-        /// to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify
-        /// the type of document that the completion notification corresponds to (such as a tax
-        /// form or a receipt).</para>
+        /// to the Amazon SNS topic. For example, you can use <c>JobTag</c> to identify the type
+        /// of document that the completion notification corresponds to (such as a tax form or
+        /// a receipt).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

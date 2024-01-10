@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     ///  
     /// <para>
     /// To remove a tag, specify the tag key. To change the tag value of an existing tag key,
-    /// use <a href="https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html"><code>TagResource</code></a>. 
+    /// use <a href="https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html"><c>TagResource</c></a>. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "ROBOResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

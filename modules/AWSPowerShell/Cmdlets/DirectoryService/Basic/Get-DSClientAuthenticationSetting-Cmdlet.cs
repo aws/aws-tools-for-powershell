@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// Retrieves information about the type of client authentication for the specified directory,
     /// if the type is specified. If no type is specified, information about all client authentication
     /// types that are supported for the specified directory is retrieved. Currently, only
-    /// <code>SmartCard</code> is supported.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// <c>SmartCard</c> is supported.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DSClientAuthenticationSetting")]
     [OutputType("Amazon.DirectoryService.Model.ClientAuthenticationSettingInfo")]

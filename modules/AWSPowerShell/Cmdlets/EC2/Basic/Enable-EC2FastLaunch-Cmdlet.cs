@@ -92,8 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of instances that Amazon EC2 can launch at the same time to create
-        /// pre-provisioned snapshots for Windows fast launch. Value must be <code>6</code> or
-        /// greater.</para>
+        /// pre-provisioned snapshots for Windows fast launch. Value must be <c>6</c> or greater.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The type of resource to use for pre-provisioning the AMI for Windows fast launch.
-        /// Supported values include: <code>snapshot</code>, which is the default value.</para>
+        /// Supported values include: <c>snapshot</c>, which is the default value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.KinesisVideo.Model;
 namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
-    /// Gets the <code>NotificationConfiguration</code> for a given Kinesis video stream.
+    /// Gets the <c>NotificationConfiguration</c> for a given Kinesis video stream.
     /// </summary>
     [Cmdlet("Get", "KVNotificationConfiguration")]
     [OutputType("Amazon.KinesisVideo.Model.NotificationConfiguration")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to
-        /// retrieve the notification configuration. You must specify either the <code>StreamName</code>
+        /// retrieve the notification configuration. You must specify either the <c>StreamName</c>
         /// or the StreamARN.</para>
         /// </para>
         /// </summary>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The name of the stream from which to retrieve the notification configuration. You
-        /// must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</para>
+        /// must specify either the <c>StreamName</c> or the <c>StreamARN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

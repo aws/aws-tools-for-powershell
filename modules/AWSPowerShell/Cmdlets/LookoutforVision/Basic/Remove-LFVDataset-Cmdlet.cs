@@ -28,7 +28,7 @@ using Amazon.LookoutforVision.Model;
 namespace Amazon.PowerShell.Cmdlets.LFV
 {
     /// <summary>
-    /// Deletes an existing Amazon Lookout for Vision <code>dataset</code>. 
+    /// Deletes an existing Amazon Lookout for Vision <c>dataset</c>. 
     /// 
     ///  
     /// <para>
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// If you delete the training dataset, you must create a training dataset before you
     /// can create a model.
     /// </para></li></ul><para>
-    /// This operation requires permissions to perform the <code>lookoutvision:DeleteDataset</code>
+    /// This operation requires permissions to perform the <c>lookoutvision:DeleteDataset</c>
     /// operation.
     /// </para>
     /// </summary>
@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         #region Parameter DatasetType
         /// <summary>
         /// <para>
-        /// <para>The type of the dataset to delete. Specify <code>train</code> to delete the training
-        /// dataset. Specify <code>test</code> to delete the test dataset. To delete the dataset
-        /// in a single dataset project, specify <code>train</code>.</para>
+        /// <para>The type of the dataset to delete. Specify <c>train</c> to delete the training dataset.
+        /// Specify <c>test</c> to delete the test dataset. To delete the dataset in a single
+        /// dataset project, specify <c>train</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,14 +99,13 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>ClientToken is an idempotency token that ensures a call to <code>DeleteDataset</code>
-        /// completes only once. You choose the value to pass. For example, An issue might prevent
-        /// you from getting a response from <code>DeleteDataset</code>. In this case, safely
-        /// retry your call to <code>DeleteDataset</code> by using the same <code>ClientToken</code>
-        /// parameter value. </para><para>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using
-        /// inserts a value for you. This prevents retries after a network error from making multiple
+        /// <para>ClientToken is an idempotency token that ensures a call to <c>DeleteDataset</c> completes
+        /// only once. You choose the value to pass. For example, An issue might prevent you from
+        /// getting a response from <c>DeleteDataset</c>. In this case, safely retry your call
+        /// to <c>DeleteDataset</c> by using the same <c>ClientToken</c> parameter value. </para><para>If you don't supply a value for <c>ClientToken</c>, the AWS SDK you are using inserts
+        /// a value for you. This prevents retries after a network error from making multiple
         /// deletetion requests. You'll need to provide your own value for other use cases. </para><para>An error occurs if the other input parameters are not the same as in the first request.
-        /// Using a different value for <code>ClientToken</code> is considered a new call to <code>DeleteDataset</code>.
+        /// Using a different value for <c>ClientToken</c> is considered a new call to <c>DeleteDataset</c>.
         /// An idempotency token is active for 8 hours.</para>
         /// </para>
         /// </summary>

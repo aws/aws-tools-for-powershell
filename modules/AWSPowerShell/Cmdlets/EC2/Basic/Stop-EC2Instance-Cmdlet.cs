@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Forces the instances to stop. The instances do not have an opportunity to flush file
         /// system caches or file system metadata. If you use this option, you must perform file
-        /// system check and repair procedures. This option is not recommended for Windows instances.</para><para>Default: <code>false</code></para>
+        /// system check and repair procedures. This option is not recommended for Windows instances.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Hibernates the instance if the instance was enabled for hibernation at launch. If
         /// the instance cannot hibernate successfully, a normal shutdown occurs. For more information,
         /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
-        /// your instance</a> in the <i>Amazon EC2 User Guide</i>.</para><para> Default: <code>false</code></para>
+        /// your instance</a> in the <i>Amazon EC2 User Guide</i>.</para><para> Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

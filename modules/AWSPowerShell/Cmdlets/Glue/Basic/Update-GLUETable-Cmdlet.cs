@@ -74,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SkipArchive
         /// <summary>
         /// <para>
-        /// <para>By default, <code>UpdateTable</code> always creates an archived version of the table
-        /// before updating it. However, if <code>skipArchive</code> is set to true, <code>UpdateTable</code>
-        /// does not create the archived version.</para>
+        /// <para>By default, <c>UpdateTable</c> always creates an archived version of the table before
+        /// updating it. However, if <c>skipArchive</c> is set to true, <c>UpdateTable</c> does
+        /// not create the archived version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter TableInput
         /// <summary>
         /// <para>
-        /// <para>An updated <code>TableInput</code> object to define the metadata table in the catalog.</para>
+        /// <para>An updated <c>TableInput</c> object to define the metadata table in the catalog.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

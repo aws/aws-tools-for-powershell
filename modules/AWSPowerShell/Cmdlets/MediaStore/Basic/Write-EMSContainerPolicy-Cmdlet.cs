@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.EMS
     ///  
     /// <para>
     /// For this release of the REST API, you can create only one policy for a container.
-    /// If you enter <code>PutContainerPolicy</code> twice, the second command modifies the
-    /// existing policy. 
+    /// If you enter <c>PutContainerPolicy</c> twice, the second command modifies the existing
+    /// policy. 
     /// </para>
     /// </summary>
     [Cmdlet("Write", "EMSContainerPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EMS
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The contents of the policy, which includes the following: </para><ul><li><para>One <code>Version</code> tag</para></li><li><para>One <code>Statement</code> tag that contains the standard tags for the policy.</para></li></ul>
+        /// <para>The contents of the policy, which includes the following: </para><ul><li><para>One <c>Version</c> tag</para></li><li><para>One <c>Statement</c> tag that contains the standard tags for the policy.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

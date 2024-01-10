@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// access keys for a bucket in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
     /// Guide</i>.
     /// </para><important><para>
-    /// The <code>secretAccessKey</code> value is returned only in response to the <code>CreateBucketAccessKey</code>
+    /// The <c>secretAccessKey</c> value is returned only in response to the <c>CreateBucketAccessKey</c>
     /// action. You can get a secret access key only when you first create an access key;
     /// you cannot get the secret access key later. If you lose the secret access key, you
     /// must create a new access key.

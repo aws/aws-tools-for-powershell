@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <summary>
         /// <para>
         /// <para>Unique identifier for the client. If you want access to multiple devices on the same
-        /// client, you should pass the same <code>clientId</code> value in each call to <code>CreateRemoteAccessSession</code>.
-        /// This identifier is required only if <code>remoteDebugEnabled</code> is set to <code>true</code>.</para><para>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
+        /// client, you should pass the same <c>clientId</c> value in each call to <c>CreateRemoteAccessSession</c>.
+        /// This identifier is required only if <c>remoteDebugEnabled</c> is set to <c>true</c>.</para><para>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
         /// longer supported</a>.</para>
         /// </para>
         /// </summary>
@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter RemoteDebugEnabled
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> if you want to access devices remotely for debugging in your
-        /// remote access session.</para><para>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
+        /// <para>Set to <c>true</c> if you want to access devices remotely for debugging in your remote
+        /// access session.</para><para>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
         /// longer supported</a>.</para>
         /// </para>
         /// </summary>
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter RemoteRecordEnabled
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to enable remote recording for the remote access session.</para>
+        /// <para>Set to <c>true</c> to enable remote recording for the remote access session.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,8 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter SkipAppResign
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, for private devices, Device Farm does not sign your
-        /// app again. For public devices, Device Farm always signs your apps again.</para><para>For more information on how Device Farm modifies your uploads during tests, see <a href="http://aws.amazon.com/device-farm/faqs/">Do you modify my app?</a></para>
+        /// <para>When set to <c>true</c>, for private devices, Device Farm does not sign your app again.
+        /// For public devices, Device Farm always signs your apps again.</para><para>For more information on how Device Farm modifies your uploads during tests, see <a href="http://aws.amazon.com/device-farm/faqs/">Do you modify my app?</a></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,9 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter SshPublicKey
         /// <summary>
         /// <para>
-        /// <para>Ignored. The public key of the <code>ssh</code> key pair you want to use for connecting
-        /// to remote devices in your remote debugging session. This key is required only if <code>remoteDebugEnabled</code>
-        /// is set to <code>true</code>.</para><para>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
+        /// <para>Ignored. The public key of the <c>ssh</c> key pair you want to use for connecting
+        /// to remote devices in your remote debugging session. This key is required only if <c>remoteDebugEnabled</c>
+        /// is set to <c>true</c>.</para><para>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
         /// longer supported</a>.</para>
         /// </para>
         /// </summary>

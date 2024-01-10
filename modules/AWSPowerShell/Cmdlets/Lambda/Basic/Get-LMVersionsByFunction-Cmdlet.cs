@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The name of the Lambda function.</para><para><b>Name formats</b></para><ul><li><para><b>Function name</b> - <code>MyFunction</code>.</para></li><li><para><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</para></li><li><para><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</para></li></ul><para>The length constraint applies only to the full ARN. If you specify only the function
+        /// <para>The name of the Lambda function.</para><para><b>Name formats</b></para><ul><li><para><b>Function name</b> - <c>MyFunction</c>.</para></li><li><para><b>Function ARN</b> - <c>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</c>.</para></li><li><para><b>Partial ARN</b> - <c>123456789012:function:MyFunction</c>.</para></li></ul><para>The length constraint applies only to the full ARN. If you specify only the function
         /// name, it is limited to 64 characters in length.</para>
         /// </para>
         /// </summary>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>The maximum number of versions to return. Note that <code>ListVersionsByFunction</code>
+        /// <para>The maximum number of versions to return. Note that <c>ListVersionsByFunction</c>
         /// returns a maximum of 50 items in each response, even if you set the number higher.</para>
         /// </para>
         /// <para>

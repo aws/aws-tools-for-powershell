@@ -78,12 +78,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP
-        /// 47</a> language tag, for example, <code>en</code> for English.</para><para>This setting affects the languages used in the results, but not the results themselves.
+        /// 47</a> language tag, for example, <c>en</c> for English.</para><para>This setting affects the languages used in the results, but not the results themselves.
         /// If no language is specified, or not supported for a particular result, the partner
         /// automatically chooses a language for the result.</para><para>For an example, we'll use the Greek language. You search for a location around Athens,
-        /// Greece, with the <code>language</code> parameter set to <code>en</code>. The <code>city</code>
-        /// in the results will most likely be returned as <code>Athens</code>.</para><para>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then
-        /// the <code>city</code> in the results will more likely be returned as <code>Αθήνα</code>.</para><para>If the data provider does not have a value for Greek, the result will be in a language
+        /// Greece, with the <c>language</c> parameter set to <c>en</c>. The <c>city</c> in the
+        /// results will most likely be returned as <c>Athens</c>.</para><para>If you set the <c>language</c> parameter to <c>el</c>, for Greek, then the <c>city</c>
+        /// in the results will more likely be returned as <c>Αθήνα</c>.</para><para>If the data provider does not have a value for Greek, the result will be in a language
         /// that the provider does support.</para>
         /// </para>
         /// </summary>
@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Specifies the longitude and latitude of the position to query.</para><para> This parameter must contain a pair of numbers. The first number represents the X
-        /// coordinate, or longitude; the second number represents the Y coordinate, or latitude.</para><para>For example, <code>[-123.1174, 49.2847]</code> represents a position with longitude
-        /// <code>-123.1174</code> and latitude <code>49.2847</code>.</para>
+        /// coordinate, or longitude; the second number represents the Y coordinate, or latitude.</para><para>For example, <c>[-123.1174, 49.2847]</c> represents a position with longitude <c>-123.1174</c>
+        /// and latitude <c>49.2847</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An optional parameter. The maximum number of results returned per request.</para><para>Default value: <code>50</code></para>
+        /// <para>An optional parameter. The maximum number of results returned per request.</para><para>Default value: <c>50</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

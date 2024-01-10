@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter LogicalResourceId
         /// <summary>
         /// <para>
-        /// <para>If specified, lists only the hooks related to the specified <code>LogicalResourceId</code>.</para>
+        /// <para>If specified, lists only the hooks related to the specified <c>LogicalResourceId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A string, provided by the <code>DescribeChangeSetHooks</code> response output, that
-        /// identifies the next page of information that you want to retrieve.</para>
+        /// <para>A string, provided by the <c>DescribeChangeSetHooks</c> response output, that identifies
+        /// the next page of information that you want to retrieve.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

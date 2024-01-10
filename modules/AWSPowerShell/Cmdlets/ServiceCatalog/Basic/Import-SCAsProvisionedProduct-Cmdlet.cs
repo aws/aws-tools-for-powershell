@@ -38,23 +38,22 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// and non-root nested stacks, are not supported. 
     /// </para><para>
     ///  The CloudFormation stack must have one of the following statuses to be imported:
-    /// <code>CREATE_COMPLETE</code>, <code>UPDATE_COMPLETE</code>, <code>UPDATE_ROLLBACK_COMPLETE</code>,
-    /// <code>IMPORT_COMPLETE</code>, and <code>IMPORT_ROLLBACK_COMPLETE</code>. 
+    /// <c>CREATE_COMPLETE</c>, <c>UPDATE_COMPLETE</c>, <c>UPDATE_ROLLBACK_COMPLETE</c>, <c>IMPORT_COMPLETE</c>,
+    /// and <c>IMPORT_ROLLBACK_COMPLETE</c>. 
     /// </para><para>
     ///  Import of the resource requires that the CloudFormation stack template matches the
     /// associated Service Catalog product provisioning artifact. 
     /// </para><note><para>
     ///  When you import an existing CloudFormation stack into a portfolio, Service Catalog
     /// does not apply the product's associated constraints during the import process. Service
-    /// Catalog applies the constraints after you call <code>UpdateProvisionedProduct</code>
-    /// for the provisioned product. 
+    /// Catalog applies the constraints after you call <c>UpdateProvisionedProduct</c> for
+    /// the provisioned product. 
     /// </para></note><para>
-    ///  The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
-    /// and <code>cloudformation:DescribeStacks</code> IAM policy permissions. 
+    ///  The user or role that performs this operation must have the <c>cloudformation:GetTemplate</c>
+    /// and <c>cloudformation:DescribeStacks</c> IAM policy permissions. 
     /// </para><para>
     /// You can only import one provisioned product at a time. The product's CloudFormation
-    /// stack must have the <code>IMPORT_COMPLETE</code> status before you import another.
-    /// 
+    /// stack must have the <c>IMPORT_COMPLETE</c> status before you import another. 
     /// </para>
     /// </summary>
     [Cmdlet("Import", "SCAsProvisionedProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -72,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><c>jp</c> - Japanese</para></li><li><para><c>zh</c> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

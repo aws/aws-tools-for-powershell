@@ -28,8 +28,8 @@ using Amazon.ChimeSDKIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMID
 {
     /// <summary>
-    /// Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists
-    /// of a unique <code>appInstanceUserId</code> and <code>Name</code> for that user.
+    /// Creates a user under an Amazon Chime <c>AppInstance</c>. The request consists of a
+    /// unique <c>appInstanceUserId</c> and <c>Name</c> for that user.
     /// </summary>
     [Cmdlet("New", "CHMIDAppInstanceUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstance</code> request.</para>
+        /// <para>The ARN of the <c>AppInstance</c> request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter AppInstanceUserId
         /// <summary>
         /// <para>
-        /// <para>The user ID of the <code>AppInstance</code>.</para>
+        /// <para>The user ID of the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the request. Use different tokens to request additional <code>AppInstances</code>.</para>
+        /// <para>The unique ID of the request. Use different tokens to request additional <c>AppInstances</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter ExpirationSettings_ExpirationCriterion
         /// <summary>
         /// <para>
-        /// <para>Specifies the conditions under which an <code>AppInstanceUser</code> will expire.</para>
+        /// <para>Specifies the conditions under which an <c>AppInstanceUser</c> will expire.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,8 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter ExpirationSettings_ExpirationDay
         /// <summary>
         /// <para>
-        /// <para>The period in days after which an <code>AppInstanceUser</code> will be automatically
-        /// deleted.</para>
+        /// <para>The period in days after which an <c>AppInstanceUser</c> will be automatically deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags assigned to the <code>AppInstanceUser</code>.</para>
+        /// <para>Tags assigned to the <c>AppInstanceUser</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

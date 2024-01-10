@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     ///  
     /// <para>
     /// If an Amazon Web Services Region doesn't have a default view configured, then users
-    /// must explicitly specify a view with every <code>Search</code> operation performed
-    /// in that Region.
+    /// must explicitly specify a view with every <c>Search</c> operation performed in that
+    /// Region.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "AREXDefaultView", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

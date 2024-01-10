@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
     /// Creates a block storage disk that can be attached to an Amazon Lightsail instance
-    /// in the same Availability Zone (<code>us-east-2a</code>).
+    /// in the same Availability Zone (<c>us-east-2a</c>).
     /// 
     ///  
     /// <para>
-    /// The <code>create disk</code> operation supports tag-based access control via request
-    /// tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// The <c>create disk</c> operation supports tag-based access control via request tags.
+    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -64,9 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone where you want to create the disk (<code>us-east-2a</code>).
-        /// Use the same Availability Zone as the Lightsail instance to which you want to attach
-        /// the disk.</para><para>Use the <code>get regions</code> operation to list the Availability Zones where Lightsail
+        /// <para>The Availability Zone where you want to create the disk (<c>us-east-2a</c>). Use the
+        /// same Availability Zone as the Lightsail instance to which you want to attach the disk.</para><para>Use the <c>get regions</c> operation to list the Availability Zones where Lightsail
         /// is currently available.</para>
         /// </para>
         /// </summary>
@@ -84,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskName
         /// <summary>
         /// <para>
-        /// <para>The unique Lightsail disk name (<code>my-disk</code>).</para>
+        /// <para>The unique Lightsail disk name (<c>my-disk</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter SizeInGb
         /// <summary>
         /// <para>
-        /// <para>The size of the disk in GB (<code>32</code>).</para>
+        /// <para>The size of the disk in GB (<c>32</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -117,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <code>TagResource</code> action to tag a resource after it's created.</para>
+        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <c>TagResource</c> action to tag a resource after it's created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

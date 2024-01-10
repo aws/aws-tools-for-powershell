@@ -28,9 +28,9 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// Disassociates your AWS account from a partner account. If <code>PartnerAccountId</code>
-    /// and <code>PartnerType</code> are <code>null</code>, disassociates your AWS account
-    /// from all partner accounts.
+    /// Disassociates your AWS account from a partner account. If <c>PartnerAccountId</c>
+    /// and <c>PartnerType</c> are <c>null</c>, disassociates your AWS account from all partner
+    /// accounts.
     /// </summary>
     [Cmdlet("Split", "IOTWAwsAccountFromPartnerAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

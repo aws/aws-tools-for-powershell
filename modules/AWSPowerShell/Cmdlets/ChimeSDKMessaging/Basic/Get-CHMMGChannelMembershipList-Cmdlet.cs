@@ -31,9 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// Lists all channel memberships in a channel.
     /// 
     ///  <note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
-    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
-    /// as the value in the header.
+    /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the ARN of the <c>AppInstanceUser</c>
+    /// or <c>AppInstanceBot</c> that makes the API call as the value in the header.
     /// </para></note><para>
     /// If you want to list the channels to which a specific app instance user belongs, see
     /// the <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html">ListChannelMembershipsForAppInstanceUser</a>
@@ -75,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        /// the API call.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c> or <c>AppInstanceBot</c> that makes the API
+        /// call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,10 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default
-        /// members are returned as part of <code>ListChannelMemberships</code> if no type is
-        /// specified. Hidden members are only returned if the type filter in <code>ListChannelMemberships</code>
-        /// equals <code>HIDDEN</code>.</para>
+        /// <para>The membership type of a user, <c>DEFAULT</c> or <c>HIDDEN</c>. Default members are
+        /// returned as part of <c>ListChannelMemberships</c> if no type is specified. Hidden
+        /// members are only returned if the type filter in <c>ListChannelMemberships</c> equals
+        /// <c>HIDDEN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
     /// 
     ///  
     /// <para>
-    /// If the app authorization was in a <code>connected</code> state, updating the app authorization
-    /// will set it back to a <code>PendingConnect</code> state.
+    /// If the app authorization was in a <c>connected</c> state, updating the app authorization
+    /// will set it back to a <c>PendingConnect</c> state.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "AFABAppAuthorization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter ExpressionType
         /// <summary>
         /// <para>
-        /// <para>The type of value in <code>Expression</code>.</para>
+        /// <para>The type of value in <c>Expression</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

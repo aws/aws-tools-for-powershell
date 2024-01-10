@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         /// <summary>
         /// <para>
         /// <para>The desired MIME type of the inference body in the response. The default value is
-        /// <code>application/json</code>.</para>
+        /// <c>application/json</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// <para>The MIME type of the input data in the request. The default value is <code>application/json</code>.</para>
+        /// <para>The MIME type of the input data in the request. The default value is <c>application/json</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

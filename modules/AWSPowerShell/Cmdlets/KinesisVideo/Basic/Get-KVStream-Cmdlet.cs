@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
     /// Returns the most current information about the specified stream. You must specify
-    /// either the <code>StreamName</code> or the <code>StreamARN</code>.
+    /// either the <c>StreamName</c> or the <c>StreamARN</c>.
     /// </summary>
     [Cmdlet("Get", "KVStream")]
     [OutputType("Amazon.KinesisVideo.Model.StreamInfo")]

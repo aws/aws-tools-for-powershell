@@ -28,20 +28,18 @@ using Amazon.LexModelBuildingService.Model;
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Creates a new version of the bot based on the <code>$LATEST</code> version. If the
-    /// <code>$LATEST</code> version of this resource hasn't changed since you created the
-    /// last version, Amazon Lex doesn't create a new version. It returns the last created
-    /// version.
+    /// Creates a new version of the bot based on the <c>$LATEST</c> version. If the <c>$LATEST</c>
+    /// version of this resource hasn't changed since you created the last version, Amazon
+    /// Lex doesn't create a new version. It returns the last created version.
     /// 
     ///  <note><para>
-    /// You can update only the <code>$LATEST</code> version of the bot. You can't update
-    /// the numbered versions that you create with the <code>CreateBotVersion</code> operation.
+    /// You can update only the <c>$LATEST</c> version of the bot. You can't update the numbered
+    /// versions that you create with the <c>CreateBotVersion</c> operation.
     /// </para></note><para>
     ///  When you create the first version of a bot, Amazon Lex sets the version to 1. Subsequent
     /// versions increment by 1. For more information, see <a>versioning-intro</a>. 
     /// </para><para>
-    ///  This operation requires permission for the <code>lex:CreateBotVersion</code> action.
-    /// 
+    ///  This operation requires permission for the <c>lex:CreateBotVersion</c> action. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "LMBBotVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,11 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter Checksum
         /// <summary>
         /// <para>
-        /// <para>Identifies a specific revision of the <code>$LATEST</code> version of the bot. If
-        /// you specify a checksum and the <code>$LATEST</code> version of the bot has a different
-        /// checksum, a <code>PreconditionFailedException</code> exception is returned and Amazon
-        /// Lex doesn't publish a new version. If you don't specify a checksum, Amazon Lex publishes
-        /// the <code>$LATEST</code> version.</para>
+        /// <para>Identifies a specific revision of the <c>$LATEST</c> version of the bot. If you specify
+        /// a checksum and the <c>$LATEST</c> version of the bot has a different checksum, a <c>PreconditionFailedException</c>
+        /// exception is returned and Amazon Lex doesn't publish a new version. If you don't specify
+        /// a checksum, Amazon Lex publishes the <c>$LATEST</c> version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

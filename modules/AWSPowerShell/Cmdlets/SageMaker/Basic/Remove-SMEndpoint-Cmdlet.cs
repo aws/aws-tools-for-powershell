@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// When you delete your endpoint, SageMaker asynchronously deletes associated endpoint
     /// resources such as KMS key grants. You might still see these resources in your account
     /// for a few minutes after deleting your endpoint. Do not delete or revoke the permissions
-    /// for your <code><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html#sagemaker-CreateModel-request-ExecutionRoleArn">ExecutionRoleArn</a></code>, otherwise SageMaker cannot delete these resources.
+    /// for your <c><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html#sagemaker-CreateModel-request-ExecutionRoleArn">ExecutionRoleArn</a></c>, otherwise SageMaker cannot delete these resources.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SMEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

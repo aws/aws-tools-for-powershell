@@ -45,11 +45,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. The possible values are:</para><ul><li><para><code>options.protocol</code> - The tunnel protocol (<code>gre</code>).</para></li><li><para><code>state</code> - The state of the attachment (<code>initiating</code> | <code>initiatingRequest</code>
-        /// | <code>pendingAcceptance</code> | <code>rollingBack</code> | <code>pending</code>
-        /// | <code>available</code> | <code>modifying</code> | <code>deleting</code> | <code>deleted</code>
-        /// | <code>failed</code> | <code>rejected</code> | <code>rejecting</code> | <code>failing</code>).</para></li><li><para><code>transit-gateway-attachment-id</code> - The ID of the Connect attachment.</para></li><li><para><code>transit-gateway-id</code> - The ID of the transit gateway.</para></li><li><para><code>transport-transit-gateway-attachment-id</code> - The ID of the transit gateway
-        /// attachment from which the Connect attachment was created.</para></li></ul>
+        /// <para>One or more filters. The possible values are:</para><ul><li><para><c>options.protocol</c> - The tunnel protocol (<c>gre</c>).</para></li><li><para><c>state</c> - The state of the attachment (<c>initiating</c> | <c>initiatingRequest</c>
+        /// | <c>pendingAcceptance</c> | <c>rollingBack</c> | <c>pending</c> | <c>available</c>
+        /// | <c>modifying</c> | <c>deleting</c> | <c>deleted</c> | <c>failed</c> | <c>rejected</c>
+        /// | <c>rejecting</c> | <c>failing</c>).</para></li><li><para><c>transit-gateway-attachment-id</c> - The ID of the Connect attachment.</para></li><li><para><c>transit-gateway-id</c> - The ID of the transit gateway.</para></li><li><para><c>transport-transit-gateway-attachment-id</c> - The ID of the transit gateway attachment
+        /// from which the Connect attachment was created.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter ServiceName
         /// <summary>
         /// <para>
-        /// <para>The name of the service that <code>serviceInstanceName</code> is associated to.</para>
+        /// <para>The name of the service that <c>serviceInstanceName</c> is associated to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

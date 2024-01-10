@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The field used to sort results. The default is <code>CreationTime</code>.</para>
+        /// <para>The field used to sort results. The default is <c>CreationTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order, whether <code>Ascending</code> or <code>Descending</code>, of the
-        /// alert history. The default is <code>Descending</code>.</para>
+        /// <para>The sort order, whether <c>Ascending</c> or <c>Descending</c>, of the alert history.
+        /// The default is <c>Descending</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,9 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the result of the previous <code>ListMonitoringAlertHistory</code> request was
-        /// truncated, the response includes a <code>NextToken</code>. To retrieve the next set
-        /// of alerts in the history, use the token in the next request.</para>
+        /// <para>If the result of the previous <c>ListMonitoringAlertHistory</c> request was truncated,
+        /// the response includes a <c>NextToken</c>. To retrieve the next set of alerts in the
+        /// history, use the token in the next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

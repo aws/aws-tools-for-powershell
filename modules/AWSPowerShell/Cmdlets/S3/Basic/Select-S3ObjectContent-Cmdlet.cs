@@ -44,9 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Content from Objects</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference-select.html">SELECT
     /// Command</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3:GetObject</code> permission for this operation. Amazon
-    /// S3 Select does not support anonymous access. For more information about permissions,
-    /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
+    /// You must have the <c>s3:GetObject</c> permission for this operation. Amazon S3 Select
+    /// does not support anonymous access. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
     /// Permissions in a Policy</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></dd><dt>Object Data Formats</dt><dd><para>
     /// You can use Amazon S3 Select to query objects that have the following format properties:
@@ -73,29 +72,28 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Data Using Server-Side Encryption</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></li></ul></dd><dt>Working with the Response Body</dt><dd><para>
     /// Given the response size is unknown, Amazon S3 Select streams the response as a series
-    /// of messages and includes a <code>Transfer-Encoding</code> header with <code>chunked</code>
-    /// as its value in the response. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTSelectObjectAppendix.html">Appendix:
+    /// of messages and includes a <c>Transfer-Encoding</c> header with <c>chunked</c> as
+    /// its value in the response. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTSelectObjectAppendix.html">Appendix:
     /// SelectObjectContent Response</a>.
     /// </para></dd><dt>GetObject Support</dt><dd><para>
-    /// The <code>SelectObjectContent</code> action does not support the following <code>GetObject</code>
+    /// The <c>SelectObjectContent</c> action does not support the following <c>GetObject</c>
     /// functionality. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>.
-    /// </para><ul><li><para><code>Range</code>: Although you can specify a scan range for an Amazon S3 Select
-    /// request (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_SelectObjectContent.html#AmazonS3-SelectObjectContent-request-ScanRange">SelectObjectContentRequest
+    /// </para><ul><li><para><c>Range</c>: Although you can specify a scan range for an Amazon S3 Select request
+    /// (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_SelectObjectContent.html#AmazonS3-SelectObjectContent-request-ScanRange">SelectObjectContentRequest
     /// - ScanRange</a> in the request parameters), you cannot specify the range of bytes
     /// of an object to return. 
     /// </para></li><li><para>
-    /// The <code>GLACIER</code>, <code>DEEP_ARCHIVE</code>, and <code>REDUCED_REDUNDANCY</code>
-    /// storage classes, or the <code>ARCHIVE_ACCESS</code> and <code>DEEP_ARCHIVE_ACCESS</code>
-    /// access tiers of the <code>INTELLIGENT_TIERING</code> storage class: You cannot query
-    /// objects in the <code>GLACIER</code>, <code>DEEP_ARCHIVE</code>, or <code>REDUCED_REDUNDANCY</code>
-    /// storage classes, nor objects in the <code>ARCHIVE_ACCESS</code> or <code>DEEP_ARCHIVE_ACCESS</code>
-    /// access tiers of the <code>INTELLIGENT_TIERING</code> storage class. For more information
-    /// about storage classes, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">Using
+    /// The <c>GLACIER</c>, <c>DEEP_ARCHIVE</c>, and <c>REDUCED_REDUNDANCY</c> storage classes,
+    /// or the <c>ARCHIVE_ACCESS</c> and <c>DEEP_ARCHIVE_ACCESS</c> access tiers of the <c>INTELLIGENT_TIERING</c>
+    /// storage class: You cannot query objects in the <c>GLACIER</c>, <c>DEEP_ARCHIVE</c>,
+    /// or <c>REDUCED_REDUNDANCY</c> storage classes, nor objects in the <c>ARCHIVE_ACCESS</c>
+    /// or <c>DEEP_ARCHIVE_ACCESS</c> access tiers of the <c>INTELLIGENT_TIERING</c> storage
+    /// class. For more information about storage classes, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">Using
     /// Amazon S3 storage classes</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></li></ul></dd><dt>Special Errors</dt><dd><para>
     /// For a list of special errors for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#SelectObjectContentErrorCodeList">List
     /// of SELECT Object Content Error Codes</a></para></dd></dl><para>
-    /// The following operations are related to <code>SelectObjectContent</code>:
+    /// The following operations are related to <c>SelectObjectContent</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a></para></li></ul>
     /// </summary>
     [Cmdlet("Select", "S3ObjectContent")]

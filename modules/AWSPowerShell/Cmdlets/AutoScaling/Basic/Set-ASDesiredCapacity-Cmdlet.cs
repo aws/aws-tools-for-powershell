@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value
-    /// that is lower than the current size of the group, the Auto Scaling group uses its
-    /// termination policy to determine which instances to terminate. 
+    /// If a scale-in activity occurs as a result of a new <c>DesiredCapacity</c> value that
+    /// is lower than the current size of the group, the Auto Scaling group uses its termination
+    /// policy to determine which instances to terminate. 
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-manual-scaling.html">Manual
     /// scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.

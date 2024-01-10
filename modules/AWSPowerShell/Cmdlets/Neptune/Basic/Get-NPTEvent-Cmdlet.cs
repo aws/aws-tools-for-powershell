@@ -93,11 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The identifier of the event source for which events are returned. If not specified,
-        /// then all sources are included in the response.</para><para>Constraints:</para><ul><li><para>If SourceIdentifier is supplied, SourceType must also be provided.</para></li><li><para>If the source type is <code>DBInstance</code>, then a <code>DBInstanceIdentifier</code>
-        /// must be supplied.</para></li><li><para>If the source type is <code>DBSecurityGroup</code>, a <code>DBSecurityGroupName</code>
-        /// must be supplied.</para></li><li><para>If the source type is <code>DBParameterGroup</code>, a <code>DBParameterGroupName</code>
-        /// must be supplied.</para></li><li><para>If the source type is <code>DBSnapshot</code>, a <code>DBSnapshotIdentifier</code>
-        /// must be supplied.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
+        /// then all sources are included in the response.</para><para>Constraints:</para><ul><li><para>If SourceIdentifier is supplied, SourceType must also be provided.</para></li><li><para>If the source type is <c>DBInstance</c>, then a <c>DBInstanceIdentifier</c> must be
+        /// supplied.</para></li><li><para>If the source type is <c>DBSecurityGroup</c>, a <c>DBSecurityGroupName</c> must be
+        /// supplied.</para></li><li><para>If the source type is <c>DBParameterGroup</c>, a <c>DBParameterGroupName</c> must
+        /// be supplied.</para></li><li><para>If the source type is <c>DBSnapshot</c>, a <c>DBSnapshotIdentifier</c> must be supplied.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -152,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para> An optional pagination token provided by a previous DescribeEvents request. If this
         /// parameter is specified, the response includes only records beyond the marker, up to
-        /// the value specified by <code>MaxRecords</code>.</para>
+        /// the value specified by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -168,8 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para> The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// the specified <c>MaxRecords</c> value, a pagination token called a marker is included
+        /// in the response so that the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

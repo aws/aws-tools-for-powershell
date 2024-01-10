@@ -46,9 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The criterion to be used to list build project names. Valid values include:</para><ul><li><para><code>CREATED_TIME</code>: List based on when each build project was created.</para></li><li><para><code>LAST_MODIFIED_TIME</code>: List based on when information about each build
-        /// project was last changed.</para></li><li><para><code>NAME</code>: List based on each build project's name.</para></li></ul><para>Use <code>sortOrder</code> to specify in what order to list the build project names
-        /// based on the preceding criteria.</para>
+        /// <para>The criterion to be used to list build project names. Valid values include:</para><ul><li><para><c>CREATED_TIME</c>: List based on when each build project was created.</para></li><li><para><c>LAST_MODIFIED_TIME</c>: List based on when information about each build project
+        /// was last changed.</para></li><li><para><c>NAME</c>: List based on each build project's name.</para></li></ul><para>Use <c>sortOrder</c> to specify in what order to list the build project names based
+        /// on the preceding criteria.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,8 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The order in which to list build projects. Valid values include:</para><ul><li><para><code>ASCENDING</code>: List in ascending order.</para></li><li><para><code>DESCENDING</code>: List in descending order.</para></li></ul><para>Use <code>sortBy</code> to specify the criterion to be used to list build project
-        /// names.</para>
+        /// <para>The order in which to list build projects. Valid values include:</para><ul><li><para><c>ASCENDING</c>: List in ascending order.</para></li><li><para><c>DESCENDING</c>: List in descending order.</para></li></ul><para>Use <c>sortBy</c> to specify the criterion to be used to list build project names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

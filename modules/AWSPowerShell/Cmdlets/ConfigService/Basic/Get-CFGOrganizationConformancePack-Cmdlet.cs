@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// to see the organizational rule or conformance pack in the organization administrator
     /// account from the delegated administrator account or see the organizational rule or
     /// conformance pack in the delegated administrator account from organization administrator
-    /// account. The <code>DescribeOrganizationConfigRules</code> and <code>DescribeOrganizationConformancePacks</code>
+    /// account. The <c>DescribeOrganizationConfigRules</c> and <c>DescribeOrganizationConformancePacks</c>
     /// APIs can only see and interact with the organization-related resource that were deployed
     /// from within the account calling those APIs.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// Lists the trust anchors in the authenticated account and Amazon Web Services Region.
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:ListTrustAnchors</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:ListTrustAnchors</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMRATrustAnchorList")]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
 {
     /// <summary>
     /// Informs Amazon ECR that the image layer upload is complete for a specified public
-    /// registry, repository name, and upload ID. You can optionally provide a <code>sha256</code>
+    /// registry, repository name, and upload ID. You can optionally provide a <c>sha256</c>
     /// digest of the image layer for data validation purposes.
     /// 
     ///  
@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     /// layer to verify that the upload is complete.
     /// </para><note><para>
     /// This operation is used by the Amazon ECR proxy and is not generally used by customers
-    /// for pulling and pushing images. In most cases, you should use the <code>docker</code>
-    /// CLI to pull, tag, and push images.
+    /// for pulling and pushing images. In most cases, you should use the <c>docker</c> CLI
+    /// to pull, tag, and push images.
     /// </para></note>
     /// </summary>
     [Cmdlet("Complete", "ECRPLayerUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter LayerDigest
         /// <summary>
         /// <para>
-        /// <para>The <code>sha256</code> digest of the image layer.</para>
+        /// <para>The <c>sha256</c> digest of the image layer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

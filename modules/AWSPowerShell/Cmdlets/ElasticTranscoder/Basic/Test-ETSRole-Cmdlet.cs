@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     /// 
     ///  
     /// <para>
-    /// The <code>TestRole</code> action lets you determine whether the IAM role you are using
-    /// has sufficient permissions to let Elastic Transcoder perform tasks associated with
-    /// the transcoding process. The action attempts to assume the specified IAM role, checks
+    /// The <c>TestRole</c> action lets you determine whether the IAM role you are using has
+    /// sufficient permissions to let Elastic Transcoder perform tasks associated with the
+    /// transcoding process. The action attempts to assume the specified IAM role, checks
     /// read access to the input and output buckets, and tries to send a test notification
     /// to Amazon SNS topics that you specify.
     /// </para><br/><br/>This operation is deprecated.

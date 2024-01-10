@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// Gets a list of runs for a machine learning transform. Machine learning task runs are
     /// asynchronous tasks that Glue runs on your behalf as part of various machine learning
     /// workflows. You can get a sortable, filterable list of machine learning task runs by
-    /// calling <code>GetMLTaskRuns</code> with their parent transform's <code>TransformID</code>
-    /// and other optional parameters as documented in this section.
+    /// calling <c>GetMLTaskRuns</c> with their parent transform's <c>TransformID</c> and
+    /// other optional parameters as documented in this section.
     /// 
     ///  
     /// <para>

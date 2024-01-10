@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBParameterGroupFamily
         /// <summary>
         /// <para>
-        /// <para>The name of a specific parameter group family to return details for.</para><para>Constraints:</para><ul><li><para>If provided, must match an existing <code>DBParameterGroupFamily</code>.</para></li></ul>
+        /// <para>The name of a specific parameter group family to return details for.</para><para>Constraints:</para><ul><li><para>If provided, must match an existing <c>DBParameterGroupFamily</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The database engine version to return.</para><para>Example: <code>3.6.0</code></para>
+        /// <para>The database engine version to return.</para><para>Example: <c>3.6.0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,9 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter ListSupportedCharacterSet
         /// <summary>
         /// <para>
-        /// <para>If this parameter is specified and the requested engine supports the <code>CharacterSetName</code>
-        /// parameter for <code>CreateDBInstance</code>, the response includes a list of supported
-        /// character sets for each engine version. </para>
+        /// <para>If this parameter is specified and the requested engine supports the <c>CharacterSetName</c>
+        /// parameter for <c>CreateDBInstance</c>, the response includes a list of supported character
+        /// sets for each engine version. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,9 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter ListSupportedTimezone
         /// <summary>
         /// <para>
-        /// <para>If this parameter is specified and the requested engine supports the <code>TimeZone</code>
-        /// parameter for <code>CreateDBInstance</code>, the response includes a list of supported
-        /// time zones for each engine version. </para>
+        /// <para>If this parameter is specified and the requested engine supports the <c>TimeZone</c>
+        /// parameter for <c>CreateDBInstance</c>, the response includes a list of supported time
+        /// zones for each engine version. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>
         /// <para>An optional pagination token provided by a previous request. If this parameter is
         /// specified, the response includes only records beyond the marker, up to the value specified
-        /// by <code>MaxRecords</code>.</para>
+        /// by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -141,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para> The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token (marker) is included
-        /// in the response so that the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// the specified <c>MaxRecords</c> value, a pagination token (marker) is included in
+        /// the response so that the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

@@ -78,8 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters the crawls by the criteria you specify in a list of <code>CrawlsFilter</code>
-        /// objects.</para>
+        /// <para>Filters the crawls by the criteria you specify in a list of <c>CrawlsFilter</c> objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

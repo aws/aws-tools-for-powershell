@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token returned from the previous call to <code>ListSchemas</code> for getting the
-        /// next set of schemas (if they exist).</para>
+        /// <para>A token returned from the previous call to <c>ListSchemas</c> for getting the next
+        /// set of schemas (if they exist).</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

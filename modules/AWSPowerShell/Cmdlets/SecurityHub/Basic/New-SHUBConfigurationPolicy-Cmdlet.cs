@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> The name of the configuration policy. Alphanumeric characters and the following ASCII
-        /// characters are permitted: <code>-, ., !, *, /</code>. </para>
+        /// characters are permitted: <c>-, ., !, *, /</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

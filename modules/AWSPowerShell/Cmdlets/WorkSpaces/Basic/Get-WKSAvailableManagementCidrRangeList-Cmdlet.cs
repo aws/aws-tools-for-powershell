@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     ///  
     /// <para>
     /// This operation can be run only by Amazon Web Services accounts that are enabled for
-    /// BYOL. If your account isn't enabled for BYOL, you'll receive an <code>AccessDeniedException</code>
+    /// BYOL. If your account isn't enabled for BYOL, you'll receive an <c>AccessDeniedException</c>
     /// error.
     /// </para><para>
     /// The management network interface is connected to a secure Amazon WorkSpaces management
@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If you received a <code>NextToken</code> from a previous call that was paginated,
-        /// provide this token to receive the next set of results.</para>
+        /// <para>If you received a <c>NextToken</c> from a previous call that was paginated, provide
+        /// this token to receive the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

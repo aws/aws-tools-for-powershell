@@ -33,12 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// 
     ///  
     /// <para>
-    /// If you cancel a rotation in progress, it can leave the <code>VersionStage</code> labels
-    /// in an unexpected state. You might need to remove the staging label <code>AWSPENDING</code>
+    /// If you cancel a rotation in progress, it can leave the <c>VersionStage</c> labels
+    /// in an unexpected state. You might need to remove the staging label <c>AWSPENDING</c>
     /// from the partially created version. You also need to determine whether to roll back
-    /// to the previous version of the secret by moving the staging label <code>AWSCURRENT</code>
-    /// to the version that has <code>AWSPENDING</code>. To determine which version has a
-    /// specific staging label, call <a>ListSecretVersionIds</a>. Then use <a>UpdateSecretVersionStage</a>
+    /// to the previous version of the secret by moving the staging label <c>AWSCURRENT</c>
+    /// to the version that has <c>AWSPENDING</c>. To determine which version has a specific
+    /// staging label, call <a>ListSecretVersionIds</a>. Then use <a>UpdateSecretVersionStage</a>
     /// to change staging labels. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">How
     /// rotation works</a>.
     /// </para><para>
@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// include sensitive information in request parameters because it might be logged. For
     /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
     /// Secrets Manager events with CloudTrail</a>.
-    /// </para><para><b>Required permissions: </b><code>secretsmanager:CancelRotateSecret</code>. For
-    /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+    /// </para><para><b>Required permissions: </b><c>secretsmanager:CancelRotateSecret</c>. For more
+    /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
     /// and access control in Secrets Manager</a>. 
     /// </para>

@@ -29,21 +29,21 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Encrypts plaintext of up to 4,096 bytes using a KMS key. You can use a symmetric or
-    /// asymmetric KMS key with a <code>KeyUsage</code> of <code>ENCRYPT_DECRYPT</code>.
+    /// asymmetric KMS key with a <c>KeyUsage</c> of <c>ENCRYPT_DECRYPT</c>.
     /// 
     ///  
     /// <para>
     /// You can use this operation to encrypt small amounts of arbitrary data, such as a personal
     /// identifier or database password, or other sensitive information. You don't need to
-    /// use the <code>Encrypt</code> operation to encrypt a data key. The <a>GenerateDataKey</a>
+    /// use the <c>Encrypt</c> operation to encrypt a data key. The <a>GenerateDataKey</a>
     /// and <a>GenerateDataKeyPair</a> operations return a plaintext data key and an encrypted
     /// copy of that data key.
     /// </para><para>
     /// If you use a symmetric encryption KMS key, you can use an encryption context to add
-    /// additional security to your encryption operation. If you specify an <code>EncryptionContext</code>
+    /// additional security to your encryption operation. If you specify an <c>EncryptionContext</c>
     /// when encrypting data, you must specify the same encryption context (a case-sensitive
     /// exact match) when decrypting the data. Otherwise, the request to decrypt fails with
-    /// an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+    /// an <c>InvalidCiphertextException</c>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
     /// Context</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para>
     /// If you specify an asymmetric KMS key, you must also specify the encryption algorithm.
@@ -64,21 +64,21 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// and the encryption algorithm that you choose.
     /// </para><ul><li><para>
     /// Symmetric encryption KMS keys
-    /// </para><ul><li><para><code>SYMMETRIC_DEFAULT</code>: 4096 bytes
-    /// </para></li></ul></li><li><para><code>RSA_2048</code></para><ul><li><para><code>RSAES_OAEP_SHA_1</code>: 214 bytes
-    /// </para></li><li><para><code>RSAES_OAEP_SHA_256</code>: 190 bytes
-    /// </para></li></ul></li><li><para><code>RSA_3072</code></para><ul><li><para><code>RSAES_OAEP_SHA_1</code>: 342 bytes
-    /// </para></li><li><para><code>RSAES_OAEP_SHA_256</code>: 318 bytes
-    /// </para></li></ul></li><li><para><code>RSA_4096</code></para><ul><li><para><code>RSAES_OAEP_SHA_1</code>: 470 bytes
-    /// </para></li><li><para><code>RSAES_OAEP_SHA_256</code>: 446 bytes
-    /// </para></li></ul></li><li><para><code>SM2PKE</code>: 1024 bytes (China Regions only)
+    /// </para><ul><li><para><c>SYMMETRIC_DEFAULT</c>: 4096 bytes
+    /// </para></li></ul></li><li><para><c>RSA_2048</c></para><ul><li><para><c>RSAES_OAEP_SHA_1</c>: 214 bytes
+    /// </para></li><li><para><c>RSAES_OAEP_SHA_256</c>: 190 bytes
+    /// </para></li></ul></li><li><para><c>RSA_3072</c></para><ul><li><para><c>RSAES_OAEP_SHA_1</c>: 342 bytes
+    /// </para></li><li><para><c>RSAES_OAEP_SHA_256</c>: 318 bytes
+    /// </para></li></ul></li><li><para><c>RSA_4096</c></para><ul><li><para><c>RSAES_OAEP_SHA_1</c>: 470 bytes
+    /// </para></li><li><para><c>RSAES_OAEP_SHA_256</c>: 446 bytes
+    /// </para></li></ul></li><li><para><c>SM2PKE</c>: 1024 bytes (China Regions only)
     /// </para></li></ul><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
     /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
     /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different
     /// Amazon Web Services account, specify the key ARN or alias ARN in the value of the
-    /// <code>KeyId</code> parameter.
+    /// <c>KeyId</c> parameter.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:Encrypt</a>
     /// (key policy)
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>Decrypt</a></para></li><li><para><a>GenerateDataKey</a></para></li><li><para><a>GenerateDataKeyPair</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
@@ -102,8 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.
-        /// </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
+        /// <para>Checks if your request will succeed. <c>DryRun</c> is an optional parameter. </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
         /// your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -115,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Specifies the encryption algorithm that KMS will use to encrypt the plaintext message.
-        /// The algorithm must be compatible with the KMS key that you specify.</para><para>This parameter is required only for asymmetric KMS keys. The default value, <code>SYMMETRIC_DEFAULT</code>,
+        /// The algorithm must be compatible with the KMS key that you specify.</para><para>This parameter is required only for asymmetric KMS keys. The default value, <c>SYMMETRIC_DEFAULT</c>,
         /// is the algorithm used for symmetric encryption KMS keys. If you are using an asymmetric
         /// KMS key, we recommend RSAES_OAEP_SHA_256.</para><para>The SM2PKE algorithm is only available in China Regions.</para>
         /// </para>
@@ -164,10 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Identifies the KMS key to use in the encryption operation. The KMS key must have a
-        /// <code>KeyUsage</code> of <code>ENCRYPT_DECRYPT</code>. To find the <code>KeyUsage</code>
-        /// of a KMS key, use the <a>DescribeKey</a> operation.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
-        /// an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different
-        /// Amazon Web Services account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.
+        /// <c>KeyUsage</c> of <c>ENCRYPT_DECRYPT</c>. To find the <c>KeyUsage</c> of a KMS key,
+        /// use the <a>DescribeKey</a> operation.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
+        /// an alias name, prefix it with <c>"alias/"</c>. To specify a KMS key in a different
+        /// Amazon Web Services account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Alias name: <c>alias/ExampleAlias</c></para></li><li><para>Alias ARN: <c>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.
         /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>
         /// </para>
         /// </summary>

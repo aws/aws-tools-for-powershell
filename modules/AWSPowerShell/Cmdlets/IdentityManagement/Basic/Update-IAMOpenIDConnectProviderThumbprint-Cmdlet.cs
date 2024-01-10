@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// S3 bucket to host a JSON Web Key Set (JWKS) endpoint.
     /// </para></note><note><para>
     /// Trust for the OIDC provider is derived from the provider certificate and is validated
-    /// by the thumbprint. Therefore, it is best to limit access to the <code>UpdateOpenIDConnectProviderThumbprint</code>
+    /// by the thumbprint. Therefore, it is best to limit access to the <c>UpdateOpenIDConnectProviderThumbprint</c>
     /// operation to highly privileged users.
     /// </para></note>
     /// </summary>

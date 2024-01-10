@@ -35,21 +35,21 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// By default, you can create up to 50 delivery streams per Amazon Web Services Region.
     /// </para><para>
     /// This is an asynchronous operation that immediately returns. The initial status of
-    /// the delivery stream is <code>CREATING</code>. After the delivery stream is created,
-    /// its status is <code>ACTIVE</code> and it now accepts data. If the delivery stream
-    /// creation fails, the status transitions to <code>CREATING_FAILED</code>. Attempts to
-    /// send data to a delivery stream that is not in the <code>ACTIVE</code> state cause
-    /// an exception. To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>.
+    /// the delivery stream is <c>CREATING</c>. After the delivery stream is created, its
+    /// status is <c>ACTIVE</c> and it now accepts data. If the delivery stream creation fails,
+    /// the status transitions to <c>CREATING_FAILED</c>. Attempts to send data to a delivery
+    /// stream that is not in the <c>ACTIVE</c> state cause an exception. To check the state
+    /// of a delivery stream, use <a>DescribeDeliveryStream</a>.
     /// </para><para>
-    /// If the status of a delivery stream is <code>CREATING_FAILED</code>, this status doesn't
-    /// change, and you can't invoke <code>CreateDeliveryStream</code> again on it. However,
-    /// you can invoke the <a>DeleteDeliveryStream</a> operation to delete it.
+    /// If the status of a delivery stream is <c>CREATING_FAILED</c>, this status doesn't
+    /// change, and you can't invoke <c>CreateDeliveryStream</c> again on it. However, you
+    /// can invoke the <a>DeleteDeliveryStream</a> operation to delete it.
     /// </para><para>
     /// A Kinesis Data Firehose delivery stream can be configured to receive records directly
     /// from providers using <a>PutRecord</a> or <a>PutRecordBatch</a>, or it can be configured
     /// to use an existing Kinesis stream as its source. To specify a Kinesis data stream
-    /// as input, set the <code>DeliveryStreamType</code> parameter to <code>KinesisStreamAsSource</code>,
-    /// and provide the Kinesis stream Amazon Resource Name (ARN) and role ARN in the <code>KinesisStreamSourceConfiguration</code>
+    /// as input, set the <c>DeliveryStreamType</c> parameter to <c>KinesisStreamAsSource</c>,
+    /// and provide the Kinesis stream Amazon Resource Name (ARN) and role ARN in the <c>KinesisStreamSourceConfiguration</c>
     /// parameter.
     /// </para><para>
     /// To create a delivery stream with server-side encryption (SSE) enabled, include <a>DeliveryStreamEncryptionConfigurationInput</a>
@@ -61,35 +61,34 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// Serverless, Splunk, and any custom HTTP endpoint or HTTP endpoints owned by or supported
     /// by third-party service providers, including Datadog, Dynatrace, LogicMonitor, MongoDB,
     /// New Relic, and Sumo Logic. You must specify only one of the following destination
-    /// configuration parameters: <code>ExtendedS3DestinationConfiguration</code>, <code>S3DestinationConfiguration</code>,
-    /// <code>ElasticsearchDestinationConfiguration</code>, <code>RedshiftDestinationConfiguration</code>,
-    /// or <code>SplunkDestinationConfiguration</code>.
+    /// configuration parameters: <c>ExtendedS3DestinationConfiguration</c>, <c>S3DestinationConfiguration</c>,
+    /// <c>ElasticsearchDestinationConfiguration</c>, <c>RedshiftDestinationConfiguration</c>,
+    /// or <c>SplunkDestinationConfiguration</c>.
     /// </para><para>
-    /// When you specify <code>S3DestinationConfiguration</code>, you can also provide the
-    /// following optional values: BufferingHints, <code>EncryptionConfiguration</code>, and
-    /// <code>CompressionFormat</code>. By default, if no <code>BufferingHints</code> value
-    /// is provided, Kinesis Data Firehose buffers data up to 5 MB or for 5 minutes, whichever
-    /// condition is satisfied first. <code>BufferingHints</code> is a hint, so there are
-    /// some cases where the service cannot adhere to these conditions strictly. For example,
-    /// record boundaries might be such that the size is a little over or under the configured
-    /// buffering size. By default, no encryption is performed. We strongly recommend that
-    /// you enable encryption to ensure secure data storage in Amazon S3.
+    /// When you specify <c>S3DestinationConfiguration</c>, you can also provide the following
+    /// optional values: BufferingHints, <c>EncryptionConfiguration</c>, and <c>CompressionFormat</c>.
+    /// By default, if no <c>BufferingHints</c> value is provided, Kinesis Data Firehose buffers
+    /// data up to 5 MB or for 5 minutes, whichever condition is satisfied first. <c>BufferingHints</c>
+    /// is a hint, so there are some cases where the service cannot adhere to these conditions
+    /// strictly. For example, record boundaries might be such that the size is a little over
+    /// or under the configured buffering size. By default, no encryption is performed. We
+    /// strongly recommend that you enable encryption to ensure secure data storage in Amazon
+    /// S3.
     /// </para><para>
     /// A few notes about Amazon Redshift as a destination:
     /// </para><ul><li><para>
     /// An Amazon Redshift destination requires an S3 bucket as intermediate location. Kinesis
-    /// Data Firehose first delivers data to Amazon S3 and then uses <code>COPY</code> syntax
-    /// to load data into an Amazon Redshift table. This is specified in the <code>RedshiftDestinationConfiguration.S3Configuration</code>
+    /// Data Firehose first delivers data to Amazon S3 and then uses <c>COPY</c> syntax to
+    /// load data into an Amazon Redshift table. This is specified in the <c>RedshiftDestinationConfiguration.S3Configuration</c>
     /// parameter.
     /// </para></li><li><para>
-    /// The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified
-    /// in <code>RedshiftDestinationConfiguration.S3Configuration</code> because the Amazon
-    /// Redshift <code>COPY</code> operation that reads from the S3 bucket doesn't support
-    /// these compression formats.
+    /// The compression formats <c>SNAPPY</c> or <c>ZIP</c> cannot be specified in <c>RedshiftDestinationConfiguration.S3Configuration</c>
+    /// because the Amazon Redshift <c>COPY</c> operation that reads from the S3 bucket doesn't
+    /// support these compression formats.
     /// </para></li><li><para>
     /// We strongly recommend that you use the user name and password you provide exclusively
     /// with Kinesis Data Firehose, and that the permissions for the account are restricted
-    /// for Amazon Redshift <code>INSERT</code> permissions.
+    /// for Amazon Redshift <c>INSERT</c> permissions.
     /// </para></li></ul><para>
     /// Kinesis Data Firehose assumes the IAM role that is configured as part of the destination.
     /// The role should allow the Kinesis Data Firehose principal to assume the role, and
@@ -138,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ElasticsearchDestinationConfiguration_ClusterEndpoint
         /// <summary>
         /// <para>
-        /// <para>The endpoint to use when communicating with the cluster. Specify either this <code>ClusterEndpoint</code>
-        /// or the <code>DomainARN</code> field.</para>
+        /// <para>The endpoint to use when communicating with the cluster. Specify either this <c>ClusterEndpoint</c>
+        /// or the <c>DomainARN</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,16 +194,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter AmazonopensearchserviceDestinationConfiguration_DocumentIdOptions_DefaultDocumentIdFormat
         /// <summary>
         /// <para>
-        /// <para>When the <code>FIREHOSE_DEFAULT</code> option is chosen, Kinesis Data Firehose generates
+        /// <para>When the <c>FIREHOSE_DEFAULT</c> option is chosen, Kinesis Data Firehose generates
         /// a unique document ID for each record based on a unique internal identifier. The generated
         /// document ID is stable across multiple delivery attempts, which helps prevent the same
-        /// record from being indexed multiple times with different document IDs.</para><para>When the <code>NO_DOCUMENT_ID</code> option is chosen, Kinesis Data Firehose does
-        /// not include any document IDs in the requests it sends to the Amazon OpenSearch Service.
-        /// This causes the Amazon OpenSearch Service domain to generate document IDs. In case
-        /// of multiple delivery attempts, this may cause the same record to be indexed more than
-        /// once with different document IDs. This option enables write-heavy operations, such
-        /// as the ingestion of logs and observability data, to consume less resources in the
-        /// Amazon OpenSearch Service domain, resulting in improved performance.</para>
+        /// record from being indexed multiple times with different document IDs.</para><para>When the <c>NO_DOCUMENT_ID</c> option is chosen, Kinesis Data Firehose does not include
+        /// any document IDs in the requests it sends to the Amazon OpenSearch Service. This causes
+        /// the Amazon OpenSearch Service domain to generate document IDs. In case of multiple
+        /// delivery attempts, this may cause the same record to be indexed more than once with
+        /// different document IDs. This option enables write-heavy operations, such as the ingestion
+        /// of logs and observability data, to consume less resources in the Amazon OpenSearch
+        /// Service domain, resulting in improved performance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,16 +214,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DocumentIdOptions_DefaultDocumentIdFormat
         /// <summary>
         /// <para>
-        /// <para>When the <code>FIREHOSE_DEFAULT</code> option is chosen, Kinesis Data Firehose generates
+        /// <para>When the <c>FIREHOSE_DEFAULT</c> option is chosen, Kinesis Data Firehose generates
         /// a unique document ID for each record based on a unique internal identifier. The generated
         /// document ID is stable across multiple delivery attempts, which helps prevent the same
-        /// record from being indexed multiple times with different document IDs.</para><para>When the <code>NO_DOCUMENT_ID</code> option is chosen, Kinesis Data Firehose does
-        /// not include any document IDs in the requests it sends to the Amazon OpenSearch Service.
-        /// This causes the Amazon OpenSearch Service domain to generate document IDs. In case
-        /// of multiple delivery attempts, this may cause the same record to be indexed more than
-        /// once with different document IDs. This option enables write-heavy operations, such
-        /// as the ingestion of logs and observability data, to consume less resources in the
-        /// Amazon OpenSearch Service domain, resulting in improved performance.</para>
+        /// record from being indexed multiple times with different document IDs.</para><para>When the <c>NO_DOCUMENT_ID</c> option is chosen, Kinesis Data Firehose does not include
+        /// any document IDs in the requests it sends to the Amazon OpenSearch Service. This causes
+        /// the Amazon OpenSearch Service domain to generate document IDs. In case of multiple
+        /// delivery attempts, this may cause the same record to be indexed more than once with
+        /// different document IDs. This option enables write-heavy operations, such as the ingestion
+        /// of logs and observability data, to consume less resources in the Amazon OpenSearch
+        /// Service domain, resulting in improved performance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -256,8 +255,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DeliveryStreamType
         /// <summary>
         /// <para>
-        /// <para>The delivery stream type. This parameter can be one of the following values:</para><ul><li><para><code>DirectPut</code>: Provider applications access the delivery stream directly.</para></li><li><para><code>KinesisStreamAsSource</code>: The delivery stream uses a Kinesis data stream
-        /// as a source.</para></li></ul>
+        /// <para>The delivery stream type. This parameter can be one of the following values:</para><ul><li><para><c>DirectPut</c>: Provider applications access the delivery stream directly.</para></li><li><para><c>KinesisStreamAsSource</c>: The delivery stream uses a Kinesis data stream as a
+        /// source.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,10 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ElasticsearchDestinationConfiguration_DomainARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon ES domain. The IAM role must have permissions for <code>DescribeDomain</code>,
-        /// <code>DescribeDomains</code>, and <code>DescribeDomainConfig</code> after assuming
-        /// the role specified in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para><para>Specify either <code>ClusterEndpoint</code> or <code>DomainARN</code>.</para>
+        /// <para>The ARN of the Amazon ES domain. The IAM role must have permissions for <c>DescribeDomain</c>,
+        /// <c>DescribeDomains</c>, and <c>DescribeDomainConfig</c> after assuming the role specified
+        /// in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para><para>Specify either <c>ClusterEndpoint</c> or <c>DomainARN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -482,9 +481,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The Elasticsearch index rotation period. Index rotation appends a timestamp to the
-        /// <code>IndexName</code> to facilitate the expiration of old data. For more information,
-        /// see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index
-        /// Rotation for the Amazon ES Destination</a>. The default value is <code>OneDay</code>.</para>
+        /// <c>IndexName</c> to facilitate the expiration of old data. For more information, see
+        /// <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index
+        /// Rotation for the Amazon ES Destination</a>. The default value is <c>OneDay</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -540,9 +539,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DeliveryStreamEncryptionConfigurationInput_KeyARN
         /// <summary>
         /// <para>
-        /// <para>If you set <code>KeyType</code> to <code>CUSTOMER_MANAGED_CMK</code>, you must specify
-        /// the Amazon Resource Name (ARN) of the CMK. If you set <code>KeyType</code> to <code>Amazon
-        /// Web Services_OWNED_CMK</code>, Kinesis Data Firehose uses a service-account CMK.</para>
+        /// <para>If you set <c>KeyType</c> to <c>CUSTOMER_MANAGED_CMK</c>, you must specify the Amazon
+        /// Resource Name (ARN) of the CMK. If you set <c>KeyType</c> to <c>Amazon Web Services_OWNED_CMK</c>,
+        /// Kinesis Data Firehose uses a service-account CMK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -553,18 +552,18 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>Indicates the type of customer master key (CMK) to use for encryption. The default
-        /// setting is <code>Amazon Web Services_OWNED_CMK</code>. For more information about
-        /// CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer
+        /// setting is <c>Amazon Web Services_OWNED_CMK</c>. For more information about CMKs,
+        /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer
         /// Master Keys (CMKs)</a>. When you invoke <a>CreateDeliveryStream</a> or <a>StartDeliveryStreamEncryption</a>
-        /// with <code>KeyType</code> set to CUSTOMER_MANAGED_CMK, Kinesis Data Firehose invokes
-        /// the Amazon KMS operation <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html">CreateGrant</a>
+        /// with <c>KeyType</c> set to CUSTOMER_MANAGED_CMK, Kinesis Data Firehose invokes the
+        /// Amazon KMS operation <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html">CreateGrant</a>
         /// to create a grant that allows the Kinesis Data Firehose service to use the customer
         /// managed CMK to perform encryption and decryption. Kinesis Data Firehose manages that
         /// grant. </para><para>When you invoke <a>StartDeliveryStreamEncryption</a> to change the CMK for a delivery
         /// stream that is encrypted with a customer managed CMK, Kinesis Data Firehose schedules
         /// the grant it had on the old CMK for retirement.</para><para>You can use a CMK of type CUSTOMER_MANAGED_CMK to encrypt up to 500 delivery streams.
         /// If a <a>CreateDeliveryStream</a> or <a>StartDeliveryStreamEncryption</a> operation
-        /// exceeds this limit, Kinesis Data Firehose throws a <code>LimitExceededException</code>.
+        /// exceeds this limit, Kinesis Data Firehose throws a <c>LimitExceededException</c>.
         /// </para><important><para>To encrypt your delivery stream, use symmetric CMKs. Kinesis Data Firehose doesn't
         /// support asymmetric CMKs. For information about symmetric and asymmetric CMKs, see
         /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html">About
@@ -768,7 +767,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>The ARN of the IAM role that you want the delivery stream to use to create endpoints
         /// in the destination VPC. You can use your existing Kinesis Data Firehose delivery role
         /// or you can specify a new role. In either case, make sure that the role trusts the
-        /// Kinesis Data Firehose service principal and that it grants the following permissions:</para><ul><li><para><code>ec2:DescribeVpcs</code></para></li><li><para><code>ec2:DescribeVpcAttribute</code></para></li><li><para><code>ec2:DescribeSubnets</code></para></li><li><para><code>ec2:DescribeSecurityGroups</code></para></li><li><para><code>ec2:DescribeNetworkInterfaces</code></para></li><li><para><code>ec2:CreateNetworkInterface</code></para></li><li><para><code>ec2:CreateNetworkInterfacePermission</code></para></li><li><para><code>ec2:DeleteNetworkInterface</code></para></li></ul><para>If you revoke these permissions after you create the delivery stream, Kinesis Data
+        /// Kinesis Data Firehose service principal and that it grants the following permissions:</para><ul><li><para><c>ec2:DescribeVpcs</c></para></li><li><para><c>ec2:DescribeVpcAttribute</c></para></li><li><para><c>ec2:DescribeSubnets</c></para></li><li><para><c>ec2:DescribeSecurityGroups</c></para></li><li><para><c>ec2:DescribeNetworkInterfaces</c></para></li><li><para><c>ec2:CreateNetworkInterface</c></para></li><li><para><c>ec2:CreateNetworkInterfacePermission</c></para></li><li><para><c>ec2:DeleteNetworkInterface</c></para></li></ul><para>If you revoke these permissions after you create the delivery stream, Kinesis Data
         /// Firehose can't scale out by creating more ENIs when necessary. You might therefore
         /// see a degradation in performance.</para>
         /// </para>
@@ -794,7 +793,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>The ARN of the IAM role that you want the delivery stream to use to create endpoints
         /// in the destination VPC. You can use your existing Kinesis Data Firehose delivery role
         /// or you can specify a new role. In either case, make sure that the role trusts the
-        /// Kinesis Data Firehose service principal and that it grants the following permissions:</para><ul><li><para><code>ec2:DescribeVpcs</code></para></li><li><para><code>ec2:DescribeVpcAttribute</code></para></li><li><para><code>ec2:DescribeSubnets</code></para></li><li><para><code>ec2:DescribeSecurityGroups</code></para></li><li><para><code>ec2:DescribeNetworkInterfaces</code></para></li><li><para><code>ec2:CreateNetworkInterface</code></para></li><li><para><code>ec2:CreateNetworkInterfacePermission</code></para></li><li><para><code>ec2:DeleteNetworkInterface</code></para></li></ul><para>If you revoke these permissions after you create the delivery stream, Kinesis Data
+        /// Kinesis Data Firehose service principal and that it grants the following permissions:</para><ul><li><para><c>ec2:DescribeVpcs</c></para></li><li><para><c>ec2:DescribeVpcAttribute</c></para></li><li><para><c>ec2:DescribeSubnets</c></para></li><li><para><c>ec2:DescribeSecurityGroups</c></para></li><li><para><c>ec2:DescribeNetworkInterfaces</c></para></li><li><para><c>ec2:CreateNetworkInterface</c></para></li><li><para><c>ec2:CreateNetworkInterfacePermission</c></para></li><li><para><c>ec2:DeleteNetworkInterface</c></para></li></ul><para>If you revoke these permissions after you create the delivery stream, Kinesis Data
         /// Firehose can't scale out by creating more ENIs when necessary. You might therefore
         /// see a degradation in performance.</para>
         /// </para>
@@ -823,7 +822,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>The ARN of the IAM role that you want the delivery stream to use to create endpoints
         /// in the destination VPC. You can use your existing Kinesis Data Firehose delivery role
         /// or you can specify a new role. In either case, make sure that the role trusts the
-        /// Kinesis Data Firehose service principal and that it grants the following permissions:</para><ul><li><para><code>ec2:DescribeVpcs</code></para></li><li><para><code>ec2:DescribeVpcAttribute</code></para></li><li><para><code>ec2:DescribeSubnets</code></para></li><li><para><code>ec2:DescribeSecurityGroups</code></para></li><li><para><code>ec2:DescribeNetworkInterfaces</code></para></li><li><para><code>ec2:CreateNetworkInterface</code></para></li><li><para><code>ec2:CreateNetworkInterfacePermission</code></para></li><li><para><code>ec2:DeleteNetworkInterface</code></para></li></ul><para>If you revoke these permissions after you create the delivery stream, Kinesis Data
+        /// Kinesis Data Firehose service principal and that it grants the following permissions:</para><ul><li><para><c>ec2:DescribeVpcs</c></para></li><li><para><c>ec2:DescribeVpcAttribute</c></para></li><li><para><c>ec2:DescribeSubnets</c></para></li><li><para><c>ec2:DescribeSecurityGroups</c></para></li><li><para><c>ec2:DescribeNetworkInterfaces</c></para></li><li><para><c>ec2:CreateNetworkInterface</c></para></li><li><para><c>ec2:CreateNetworkInterfacePermission</c></para></li><li><para><c>ec2:DeleteNetworkInterface</c></para></li></ul><para>If you revoke these permissions after you create the delivery stream, Kinesis Data
         /// Firehose can't scale out by creating more ENIs when necessary. You might therefore
         /// see a degradation in performance.</para>
         /// </para>
@@ -902,13 +901,13 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ElasticsearchDestinationConfiguration_S3BackupMode
         /// <summary>
         /// <para>
-        /// <para>Defines how documents should be delivered to Amazon S3. When it is set to <code>FailedDocumentsOnly</code>,
+        /// <para>Defines how documents should be delivered to Amazon S3. When it is set to <c>FailedDocumentsOnly</c>,
         /// Kinesis Data Firehose writes any documents that could not be indexed to the configured
-        /// Amazon S3 destination, with <code>AmazonOpenSearchService-failed/</code> appended
-        /// to the key prefix. When set to <code>AllDocuments</code>, Kinesis Data Firehose delivers
-        /// all incoming records to Amazon S3, and also writes failed documents with <code>AmazonOpenSearchService-failed/</code>
+        /// Amazon S3 destination, with <c>AmazonOpenSearchService-failed/</c> appended to the
+        /// key prefix. When set to <c>AllDocuments</c>, Kinesis Data Firehose delivers all incoming
+        /// records to Amazon S3, and also writes failed documents with <c>AmazonOpenSearchService-failed/</c>
         /// appended to the prefix. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup">Amazon
-        /// S3 Backup for the Amazon ES Destination</a>. Default value is <code>FailedDocumentsOnly</code>.</para><para>You can't change this backup mode after you create the delivery stream. </para>
+        /// S3 Backup for the Amazon ES Destination</a>. Default value is <c>FailedDocumentsOnly</c>.</para><para>You can't change this backup mode after you create the delivery stream. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -920,9 +919,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>Describes the S3 bucket backup options for the data that Kinesis Data Firehose delivers
-        /// to the HTTP endpoint destination. You can back up all documents (<code>AllData</code>)
-        /// or only the documents that Kinesis Data Firehose could not deliver to the specified
-        /// HTTP endpoint destination (<code>FailedDataOnly</code>).</para>
+        /// to the HTTP endpoint destination. You can back up all documents (<c>AllData</c>) or
+        /// only the documents that Kinesis Data Firehose could not deliver to the specified HTTP
+        /// endpoint destination (<c>FailedDataOnly</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1198,7 +1197,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para>The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per
         /// index. If you try to specify a new type for an existing index that already has another
-        /// type, Kinesis Data Firehose returns an error during run time.</para><para>For Elasticsearch 7.x, don't specify a <code>TypeName</code>.</para>
+        /// type, Kinesis Data Firehose returns an error during run time.</para><para>For Elasticsearch 7.x, don't specify a <c>TypeName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

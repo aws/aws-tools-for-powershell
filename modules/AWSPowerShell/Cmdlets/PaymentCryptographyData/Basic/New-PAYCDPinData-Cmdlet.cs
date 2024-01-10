@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// <para>
     /// PIN data is never transmitted in clear to or from Amazon Web Services Payment Cryptography.
     /// This operation generates PIN, PVV, or PIN Offset and then encrypts it using Pin Encryption
-    /// Key (PEK) to create an <code>EncryptedPinBlock</code> for transmission from Amazon
-    /// Web Services Payment Cryptography. This operation uses a separate Pin Verification
-    /// Key (PVK) for VISA PVV generation. 
+    /// Key (PEK) to create an <c>EncryptedPinBlock</c> for transmission from Amazon Web Services
+    /// Payment Cryptography. This operation uses a separate Pin Verification Key (PVK) for
+    /// VISA PVV generation. 
     /// </para><para>
     /// For information about valid keys for this operation, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding
     /// key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key
@@ -136,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter EncryptionKeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>keyARN</code> of the PEK that Amazon Web Services Payment Cryptography uses
-        /// to encrypt the PIN Block.</para>
+        /// <para>The <c>keyARN</c> of the PEK that Amazon Web Services Payment Cryptography uses to
+        /// encrypt the PIN Block.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -154,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter GenerationKeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>keyARN</code> of the PEK that Amazon Web Services Payment Cryptography uses
-        /// for pin data generation.</para>
+        /// <para>The <c>keyARN</c> of the PEK that Amazon Web Services Payment Cryptography uses for
+        /// pin data generation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -173,10 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// <summary>
         /// <para>
         /// <para>The PIN encoding format for pin data generation as specified in ISO 9564. Amazon Web
-        /// Services Payment Cryptography supports <code>ISO_Format_0</code> and <code>ISO_Format_3</code>.</para><para>The <code>ISO_Format_0</code> PIN block format is equivalent to the ANSI X9.8, VISA-1,
-        /// and ECI-1 PIN block formats. It is similar to a VISA-4 PIN block format. It supports
-        /// a PIN from 4 to 12 digits in length.</para><para>The <code>ISO_Format_3</code> PIN block format is the same as <code>ISO_Format_0</code>
-        /// except that the fill digits are random values from 10 to 15.</para>
+        /// Services Payment Cryptography supports <c>ISO_Format_0</c> and <c>ISO_Format_3</c>.</para><para>The <c>ISO_Format_0</c> PIN block format is equivalent to the ANSI X9.8, VISA-1, and
+        /// ECI-1 PIN block formats. It is similar to a VISA-4 PIN block format. It supports a
+        /// PIN from 4 to 12 digits in length.</para><para>The <c>ISO_Format_3</c> PIN block format is the same as <c>ISO_Format_0</c> except
+        /// that the fill digits are random values from 10 to 15.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

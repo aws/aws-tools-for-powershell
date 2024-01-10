@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter Scope
         /// <summary>
         /// <para>
-        /// <para>The scope of the components to list.</para><para>Default: <code>PRIVATE</code></para>
+        /// <para>The scope of the components to list.</para><para>Default: <c>PRIVATE</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

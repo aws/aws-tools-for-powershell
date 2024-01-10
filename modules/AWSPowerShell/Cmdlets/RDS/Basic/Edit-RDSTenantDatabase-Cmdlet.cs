@@ -71,9 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The new password for the master user of the specified tenant database in your DB instance.</para><note><para>Amazon RDS operations never return the password, so this action provides a way to
         /// regain access to a tenant database user if the password is lost. This includes restoring
-        /// privileges that might have been accidentally revoked.</para></note><para>Constraints:</para><ul><li><para>Can include any printable ASCII character except <code>/</code>, <code>"</code> (double
-        /// quote), <code>@</code>, <code>&amp;</code> (ampersand), and <code>'</code> (single
-        /// quote).</para></li></ul><para>Length constraints:</para><ul><li><para>Must contain between 8 and 30 characters. </para></li></ul>
+        /// privileges that might have been accidentally revoked.</para></note><para>Constraints:</para><ul><li><para>Can include any printable ASCII character except <c>/</c>, <c>"</c> (double quote),
+        /// <c>@</c>, <c>&amp;</c> (ampersand), and <c>'</c> (single quote).</para></li></ul><para>Length constraints:</para><ul><li><para>Must contain between 8 and 30 characters. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

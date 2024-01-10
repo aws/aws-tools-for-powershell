@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the global endpoint. For example, <code>"Name":"us-east-2-custom_bus_A-endpoint"</code>.</para>
+        /// <para>The name of the global endpoint. For example, <c>"Name":"us-east-2-custom_bus_A-endpoint"</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

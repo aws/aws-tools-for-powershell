@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         #region Parameter ConnectorProfileName
         /// <summary>
         /// <para>
-        /// <para> The name of the connector profile. The name is unique for each <code>ConnectorProfile</code>
+        /// <para> The name of the connector profile. The name is unique for each <c>ConnectorProfile</c>
         /// in the Amazon Web Services account. </para>
         /// </para>
         /// </summary>

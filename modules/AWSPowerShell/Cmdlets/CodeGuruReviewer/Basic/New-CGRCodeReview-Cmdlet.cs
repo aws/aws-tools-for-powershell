@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CGR
 {
     /// <summary>
     /// Use to create a code review with a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html">CodeReviewType</a>
-    /// of <code>RepositoryAnalysis</code>. This type of code review analyzes all code under
-    /// a specified branch in an associated repository. <code>PullRequest</code> code reviews
-    /// are automatically triggered by a pull request.
+    /// of <c>RepositoryAnalysis</c>. This type of code review analyzes all code under a specified
+    /// branch in an associated repository. <c>PullRequest</c> code reviews are automatically
+    /// triggered by a pull request.
     /// </summary>
     [Cmdlet("New", "CGRCodeReview", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeGuruReviewer.Model.CodeReview")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <summary>
         /// <para>
         /// <para>They types of analysis performed during a repository analysis or a pull request review.
-        /// You can specify either <code>Security</code>, <code>CodeQuality</code>, or both.</para>
+        /// You can specify either <c>Security</c>, <c>CodeQuality</c>, or both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter Type_RepositoryAnalysis_RepositoryHead_BranchName
         /// <summary>
         /// <para>
-        /// <para>The name of the branch in an associated repository. The <code>RepositoryHeadSourceCodeType</code>
+        /// <para>The name of the branch in an associated repository. The <c>RepositoryHeadSourceCodeType</c>
         /// specifies the tip of this branch.</para>
         /// </para>
         /// </summary>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter Type_RepositoryAnalysis_SourceCodeType_RepositoryHead_BranchName
         /// <summary>
         /// <para>
-        /// <para>The name of the branch in an associated repository. The <code>RepositoryHeadSourceCodeType</code>
+        /// <para>The name of the branch in an associated repository. The <c>RepositoryHeadSourceCodeType</c>
         /// specifies the tip of this branch.</para>
         /// </para>
         /// </summary>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <summary>
         /// <para>
         /// <para>The name of the S3 bucket used for associating a new S3 repository. It must begin
-        /// with <code>codeguru-reviewer-</code>. </para>
+        /// with <c>codeguru-reviewer-</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,8 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter EventInfo_Name
         /// <summary>
         /// <para>
-        /// <para>The name of the event. The possible names are <code>pull_request</code>, <code>workflow_dispatch</code>,
-        /// <code>schedule</code>, and <code>push</code></para>
+        /// <para>The name of the event. The possible names are <c>pull_request</c>, <c>workflow_dispatch</c>,
+        /// <c>schedule</c>, and <c>push</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter S3BucketRepository_Name
         /// <summary>
         /// <para>
-        /// <para>The name of the repository when the <code>ProviderType</code> is <code>S3Bucket</code>.</para>
+        /// <para>The name of the repository when the <c>ProviderType</c> is <c>S3Bucket</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,8 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <summary>
         /// <para>
         /// <para>An identifier, such as a name or account ID, that is associated with the requester.
-        /// The <code>Requester</code> is used to capture the <code>author/actor</code> name of
-        /// the event request.</para>
+        /// The <c>Requester</c> is used to capture the <c>author/actor</c> name of the event
+        /// request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,9 +287,9 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <para>The name of the repository vendor used to upload code to an S3 bucket for a CI/CD
         /// code review. For example, if code and artifacts are uploaded to an S3 bucket for a
         /// CI/CD code review by GitHub scripts from a GitHub repository, then the repository
-        /// association's <code>ProviderType</code> is <code>S3Bucket</code> and the CI/CD repository
-        /// vendor name is GitHub. For more information, see the definition for <code>ProviderType</code>
-        /// in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a>.</para>
+        /// association's <c>ProviderType</c> is <c>S3Bucket</c> and the CI/CD repository vendor
+        /// name is GitHub. For more information, see the definition for <c>ProviderType</c> in
+        /// <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

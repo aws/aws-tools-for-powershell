@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and that allows failed requests to be
-        /// retried without the risk of running the operation twice. <code>CreatorRequestId</code>
-        /// can be any unique string, for example, a date/time stamp. </para>
+        /// retried without the risk of running the operation twice. <c>CreatorRequestId</c> can
+        /// be any unique string, for example, a date/time stamp. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Direction
         /// <summary>
         /// <para>
-        /// <para>Specify the applicable value:</para><ul><li><para><code>INBOUND</code>: Resolver forwards DNS queries to the DNS service for a VPC
-        /// from your network</para></li><li><para><code>OUTBOUND</code>: Resolver forwards DNS queries from the DNS service for a VPC
-        /// to your network</para></li></ul>
+        /// <para>Specify the applicable value:</para><ul><li><para><c>INBOUND</c>: Resolver forwards DNS queries to the DNS service for a VPC from your
+        /// network</para></li><li><para><c>OUTBOUND</c>: Resolver forwards DNS queries from the DNS service for a VPC to
+        /// your network</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Outpost. If you specify this, you must also
-        /// specify a value for the <code>PreferredInstanceType</code>. </para>
+        /// specify a value for the <c>PreferredInstanceType</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter PreferredInstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type. If you specify this, you must also specify a value for the <code>OutpostArn</code>.</para>
+        /// <para>The instance type. If you specify this, you must also specify a value for the <c>OutpostArn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

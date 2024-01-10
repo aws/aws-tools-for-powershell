@@ -28,8 +28,8 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Accepts a structured query language (SQL) <code>SELECT</code> command, performs the
-    /// corresponding search, and returns resource configurations matching the properties.
+    /// Accepts a structured query language (SQL) <c>SELECT</c> command, performs the corresponding
+    /// search, and returns resource configurations matching the properties.
     /// 
     ///  
     /// <para>
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Expression
         /// <summary>
         /// <para>
-        /// <para>The SQL query <code>SELECT</code> command.</para>
+        /// <para>The SQL query <c>SELECT</c> command.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> string returned in a previous request that you use to request
+        /// <para>The <c>nextToken</c> string returned in a previous request that you use to request
         /// the next page of results in a paginated response. </para>
         /// </para>
         /// <para>

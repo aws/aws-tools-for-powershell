@@ -43,14 +43,14 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// experience a throttling response for these requests. This is to ensure that the file
     /// system does not exceed the stated access point limit.
     /// </para></note><para>
-    /// This operation requires permissions for the <code>elasticfilesystem:CreateAccessPoint</code>
+    /// This operation requires permissions for the <c>elasticfilesystem:CreateAccessPoint</c>
     /// action.
     /// </para><para>
     /// Access points can be tagged on creation. If tags are specified in the creation action,
-    /// IAM performs additional authorization on the <code>elasticfilesystem:TagResource</code>
+    /// IAM performs additional authorization on the <c>elasticfilesystem:TagResource</c>
     /// action to verify if users have permissions to create tags. Therefore, you must grant
-    /// explicit permissions to use the <code>elasticfilesystem:TagResource</code> action.
-    /// For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/using-tags-efs.html#supported-iam-actions-tagging.html">Granting
+    /// explicit permissions to use the <c>elasticfilesystem:TagResource</c> action. For more
+    /// information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/using-tags-efs.html#supported-iam-actions-tagging.html">Granting
     /// permissions to tag resources during creation</a>.
     /// </para>
     /// </summary>
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter CreationInfo_OwnerGid
         /// <summary>
         /// <para>
-        /// <para>Specifies the POSIX group ID to apply to the <code>RootDirectory</code>. Accepts values
+        /// <para>Specifies the POSIX group ID to apply to the <c>RootDirectory</c>. Accepts values
         /// from 0 to 2^32 (4294967295).</para>
         /// </para>
         /// </summary>
@@ -107,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter CreationInfo_OwnerUid
         /// <summary>
         /// <para>
-        /// <para>Specifies the POSIX user ID to apply to the <code>RootDirectory</code>. Accepts values
-        /// from 0 to 2^32 (4294967295).</para>
+        /// <para>Specifies the POSIX user ID to apply to the <c>RootDirectory</c>. Accepts values from
+        /// 0 to 2^32 (4294967295).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <para>
         /// <para>Specifies the path on the EFS file system to expose as the root directory to NFS clients
         /// using the access point to access the EFS file system. A path can have up to four subdirectories.
-        /// If the specified path does not exist, you are required to provide the <code>CreationInfo</code>.</para>
+        /// If the specified path does not exist, you are required to provide the <c>CreationInfo</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter CreationInfo_Permission
         /// <summary>
         /// <para>
-        /// <para>Specifies the POSIX permissions to apply to the <code>RootDirectory</code>, in the
-        /// format of an octal number representing the file's mode bits.</para>
+        /// <para>Specifies the POSIX permissions to apply to the <c>RootDirectory</c>, in the format
+        /// of an octal number representing the file's mode bits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

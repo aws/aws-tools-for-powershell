@@ -146,17 +146,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para> The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
         /// Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute
-        /// instance that hosts the endpoint. The <code>KmsKey</code> can be any of the following
-        /// formats: </para><ul><li><para>KMS key ID</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS key</para><para><code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>KMS key Alias</para><para><code>"alias/ExampleAlias"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS key Alias</para><para><code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code></para></li></ul><para> If you use a KMS key ID or an alias of your KMS key, the Amazon SageMaker execution
-        /// role must include permissions to call <code>kms:Encrypt</code>. If you don't provide
-        /// a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's
-        /// account. Amazon SageMaker uses server-side encryption with KMS managed keys for <code>OutputDataConfig</code>.
-        /// If you use a bucket policy with an <code>s3:PutObject</code> permission that only
-        /// allows objects with server-side encryption, set the condition key of <code>s3:x-amz-server-side-encryption</code>
-        /// to <code>"aws:kms"</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS
+        /// instance that hosts the endpoint. The <c>KmsKey</c> can be any of the following formats:
+        /// </para><ul><li><para>KMS key ID</para><para><c>"1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li><li><para>Amazon Resource Name (ARN) of a KMS key</para><para><c>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li><li><para>KMS key Alias</para><para><c>"alias/ExampleAlias"</c></para></li><li><para>Amazon Resource Name (ARN) of a KMS key Alias</para><para><c>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</c></para></li></ul><para> If you use a KMS key ID or an alias of your KMS key, the Amazon SageMaker execution
+        /// role must include permissions to call <c>kms:Encrypt</c>. If you don't provide a KMS
+        /// key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
+        /// Amazon SageMaker uses server-side encryption with KMS managed keys for <c>OutputDataConfig</c>.
+        /// If you use a bucket policy with an <c>s3:PutObject</c> permission that only allows
+        /// objects with server-side encryption, set the condition key of <c>s3:x-amz-server-side-encryption</c>
+        /// to <c>"aws:kms"</c>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS
         /// managed Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i></para><para> The KMS key policy must grant permission to the IAM role that you specify in your
-        /// <code>CreateEndpoint</code> and <code>UpdateEndpoint</code> requests. For more information,
-        /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
+        /// <c>CreateEndpoint</c> and <c>UpdateEndpoint</c> requests. For more information, see
+        /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
         /// Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management
         /// Service Developer Guide</i>. </para>
         /// </para>
@@ -168,9 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelVariant
         /// <summary>
         /// <para>
-        /// <para> An array of <code>ModelVariantConfig</code> objects. There is one for each variant
-        /// in the inference experiment. Each <code>ModelVariantConfig</code> object in the array
-        /// describes the infrastructure configuration for the corresponding variant. </para>
+        /// <para> An array of <c>ModelVariantConfig</c> objects. There is one for each variant in the
+        /// inference experiment. Each <c>ModelVariantConfig</c> object in the array describes
+        /// the infrastructure configuration for the corresponding variant. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -284,8 +284,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para> The type of the inference experiment that you want to run. The following types of
-        /// experiments are possible: </para><ul><li><para><code>ShadowMode</code>: You can use this type to validate a shadow variant. For
-        /// more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html">Shadow
+        /// experiments are possible: </para><ul><li><para><c>ShadowMode</c>: You can use this type to validate a shadow variant. For more information,
+        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html">Shadow
         /// tests</a>. </para></li></ul>
         /// </para>
         /// </summary>

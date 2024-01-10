@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// You can optionally specify the maximum number of items to receive in the response.
     /// If the total number of items in the list exceeds the maximum that you specify, or
     /// the default maximum, the response is paginated. To get the next page of items, send
-    /// a subsequent request that specifies the <code>NextMarker</code> value from the current
-    /// response as the <code>Marker</code> value in the subsequent request.
+    /// a subsequent request that specifies the <c>NextMarker</c> value from the current response
+    /// as the <c>Marker</c> value in the subsequent request.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CFResponseHeadersPolicyList")]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A filter to get only the specified kind of response headers policies. Valid values
-        /// are:</para><ul><li><para><code>managed</code> – Gets only the managed policies created by Amazon Web Services.</para></li><li><para><code>custom</code> – Gets only the custom policies created in your Amazon Web Services
+        /// are:</para><ul><li><para><c>managed</c> – Gets only the managed policies created by Amazon Web Services.</para></li><li><para><c>custom</c> – Gets only the custom policies created in your Amazon Web Services
         /// account.</para></li></ul>
         /// </para>
         /// </summary>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>Use this field when paginating results to indicate where to begin in your list of
         /// response headers policies. The response includes response headers policies in the
         /// list that occur after the marker. To get the next page of the list, set this field's
-        /// value to the value of <code>NextMarker</code> from the current page's response.</para>
+        /// value to the value of <c>NextMarker</c> from the current page's response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

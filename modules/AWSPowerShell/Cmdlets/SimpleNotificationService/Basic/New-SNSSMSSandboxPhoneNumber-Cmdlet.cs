@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language to use for sending the OTP. The default value is <code>en-US</code>.</para>
+        /// <para>The language to use for sending the OTP. The default value is <c>en-US</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

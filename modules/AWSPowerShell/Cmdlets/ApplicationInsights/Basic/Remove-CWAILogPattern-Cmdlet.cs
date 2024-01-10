@@ -28,7 +28,7 @@ using Amazon.ApplicationInsights.Model;
 namespace Amazon.PowerShell.Cmdlets.CWAI
 {
     /// <summary>
-    /// Removes the specified log pattern from a <code>LogPatternSet</code>.
+    /// Removes the specified log pattern from a <c>LogPatternSet</c>.
     /// </summary>
     [Cmdlet("Remove", "CWAILogPattern", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -28,7 +28,7 @@ using Amazon.CognitoIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CGI
 {
     /// <summary>
-    /// Use <code>GetPrincipalTagAttributeMap</code> to list all mappings between <code>PrincipalTags</code>
+    /// Use <c>GetPrincipalTagAttributeMap</c> to list all mappings between <c>PrincipalTags</c>
     /// and user attributes.
     /// </summary>
     [Cmdlet("Get", "CGIPrincipalTagAttributeMap")]

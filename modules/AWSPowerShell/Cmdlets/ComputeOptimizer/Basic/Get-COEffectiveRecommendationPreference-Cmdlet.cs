@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.CO
     /// 
     ///  
     /// <para>
-    /// When you create a recommendation preference, you can set its status to <code>Active</code>
-    /// or <code>Inactive</code>. Use this action to view the recommendation preferences that
-    /// are in effect, or <code>Active</code>.
+    /// When you create a recommendation preference, you can set its status to <c>Active</c>
+    /// or <c>Inactive</c>. Use this action to view the recommendation preferences that are
+    /// in effect, or <c>Active</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "COEffectiveRecommendationPreference")]

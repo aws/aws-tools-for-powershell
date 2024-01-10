@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter LegalHoldId
         /// <summary>
         /// <para>
-        /// <para>This is the ID required to use <code>GetLegalHold</code>. This unique ID is associated
-        /// with a specific legal hold.</para>
+        /// <para>This is the ID required to use <c>GetLegalHold</c>. This unique ID is associated with
+        /// a specific legal hold.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -47,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the extension for which you want version summary
-        /// information.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
-        /// or <code>Arn</code>.</para>
+        /// information.</para><para>Conditional: You must specify either <c>TypeName</c> and <c>Type</c>, or <c>Arn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The kind of extension.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
-        /// or <code>Arn</code>.</para>
+        /// <para>The kind of extension.</para><para>Conditional: You must specify either <c>TypeName</c> and <c>Type</c>, or <c>Arn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,8 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TypeName
         /// <summary>
         /// <para>
-        /// <para>The name of the extension.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
-        /// or <code>Arn</code>.</para>
+        /// <para>The name of the extension.</para><para>Conditional: You must specify either <c>TypeName</c> and <c>Type</c>, or <c>Arn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

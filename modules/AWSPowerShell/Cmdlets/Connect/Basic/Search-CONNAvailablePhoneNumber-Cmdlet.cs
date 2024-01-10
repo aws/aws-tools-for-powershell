@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// Searches for available phone numbers that you can claim to your Amazon Connect instance
-    /// or traffic distribution group. If the provided <code>TargetArn</code> is a traffic
-    /// distribution group, you can call this API in both Amazon Web Services Regions associated
-    /// with the traffic distribution group.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// or traffic distribution group. If the provided <c>TargetArn</c> is a traffic distribution
+    /// group, you can call this API in both Amazon Web Services Regions associated with the
+    /// traffic distribution group.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "CONNAvailablePhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.AvailableNumberSummary")]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
         /// can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
         /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter
-        /// <code>InstanceId</code> or <code>TargetArn</code>. </para>
+        /// <c>InstanceId</c> or <c>TargetArn</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter PhoneNumberPrefix
         /// <summary>
         /// <para>
-        /// <para>The prefix of the phone number. If provided, it must contain <code>+</code> as part
-        /// of the country code.</para>
+        /// <para>The prefix of the phone number. If provided, it must contain <c>+</c> as part of the
+        /// country code.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution
-        /// groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code>
-        /// or <code>TargetArn</code>. </para>
+        /// groups that phone number inbound traffic is routed through. You must enter <c>InstanceId</c>
+        /// or <c>TargetArn</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

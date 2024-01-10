@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// 
     ///  
     /// <para>
-    /// You cannot reboot a WorkSpace unless its state is <code>AVAILABLE</code> or <code>UNHEALTHY</code>.
+    /// You cannot reboot a WorkSpace unless its state is <c>AVAILABLE</c> or <c>UNHEALTHY</c>.
     /// </para><para>
     /// This operation is asynchronous and returns before the WorkSpaces have rebooted.
     /// </para>

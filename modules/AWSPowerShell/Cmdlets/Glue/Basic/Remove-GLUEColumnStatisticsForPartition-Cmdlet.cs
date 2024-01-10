@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     ///  
     /// <para>
     /// The Identity and Access Management (IAM) permission required for this operation is
-    /// <code>DeletePartition</code>.
+    /// <c>DeletePartition</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "GLUEColumnStatisticsForPartition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

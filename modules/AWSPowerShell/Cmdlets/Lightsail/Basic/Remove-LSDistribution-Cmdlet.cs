@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DistributionName
         /// <summary>
         /// <para>
-        /// <para>The name of the distribution to delete.</para><para>Use the <code>GetDistributions</code> action to get a list of distribution names that
-        /// you can specify.</para>
+        /// <para>The name of the distribution to delete.</para><para>Use the <c>GetDistributions</c> action to get a list of distribution names that you
+        /// can specify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

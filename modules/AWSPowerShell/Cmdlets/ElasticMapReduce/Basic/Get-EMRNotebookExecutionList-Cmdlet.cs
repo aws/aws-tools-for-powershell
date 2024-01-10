@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// Provides summaries of all notebook executions. You can filter the list based on multiple
     /// criteria such as status, time range, and editor id. Returns a maximum of 50 notebook
     /// executions and a marker to track the paging of a longer notebook execution list across
-    /// multiple <code>ListNotebookExecutions</code> calls.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// multiple <c>ListNotebookExecutions</c> calls.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EMRNotebookExecutionList")]
     [OutputType("Amazon.ElasticMapReduce.Model.NotebookExecutionSummary")]
@@ -79,11 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The status filter for listing notebook executions.</para><ul><li><para><code>START_PENDING</code> indicates that the cluster has received the execution
-        /// request but execution has not begun.</para></li><li><para><code>STARTING</code> indicates that the execution is starting on the cluster.</para></li><li><para><code>RUNNING</code> indicates that the execution is being processed by the cluster.</para></li><li><para><code>FINISHING</code> indicates that execution processing is in the final stages.</para></li><li><para><code>FINISHED</code> indicates that the execution has completed without error.</para></li><li><para><code>FAILING</code> indicates that the execution is failing and will not finish
-        /// successfully.</para></li><li><para><code>FAILED</code> indicates that the execution failed.</para></li><li><para><code>STOP_PENDING</code> indicates that the cluster has received a <code>StopNotebookExecution</code>
-        /// request and the stop is pending.</para></li><li><para><code>STOPPING</code> indicates that the cluster is in the process of stopping the
-        /// execution as a result of a <code>StopNotebookExecution</code> request.</para></li><li><para><code>STOPPED</code> indicates that the execution stopped because of a <code>StopNotebookExecution</code>
+        /// <para>The status filter for listing notebook executions.</para><ul><li><para><c>START_PENDING</c> indicates that the cluster has received the execution request
+        /// but execution has not begun.</para></li><li><para><c>STARTING</c> indicates that the execution is starting on the cluster.</para></li><li><para><c>RUNNING</c> indicates that the execution is being processed by the cluster.</para></li><li><para><c>FINISHING</c> indicates that execution processing is in the final stages.</para></li><li><para><c>FINISHED</c> indicates that the execution has completed without error.</para></li><li><para><c>FAILING</c> indicates that the execution is failing and will not finish successfully.</para></li><li><para><c>FAILED</c> indicates that the execution failed.</para></li><li><para><c>STOP_PENDING</c> indicates that the cluster has received a <c>StopNotebookExecution</c>
+        /// request and the stop is pending.</para></li><li><para><c>STOPPING</c> indicates that the cluster is in the process of stopping the execution
+        /// as a result of a <c>StopNotebookExecution</c> request.</para></li><li><para><c>STOPPED</c> indicates that the execution stopped because of a <c>StopNotebookExecution</c>
         /// request.</para></li></ul>
         /// </para>
         /// </summary>
@@ -106,9 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>The pagination token, returned by a previous <code>ListNotebookExecutions</code> call,
-        /// that indicates the start of the list for this <code>ListNotebookExecutions</code>
-        /// call.</para>
+        /// <para>The pagination token, returned by a previous <c>ListNotebookExecutions</c> call, that
+        /// indicates the start of the list for this <c>ListNotebookExecutions</c> call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

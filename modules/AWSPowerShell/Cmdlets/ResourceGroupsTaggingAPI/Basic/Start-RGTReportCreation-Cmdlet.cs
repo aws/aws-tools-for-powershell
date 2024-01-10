@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     ///  
     /// <para>
     /// The generated report is saved to the following location:
-    /// </para><para><code>s3://example-bucket/AwsTagPolicies/o-exampleorgid/YYYY-MM-ddTHH:mm:ssZ/report.csv</code></para><para>
+    /// </para><para><c>s3://example-bucket/AwsTagPolicies/o-exampleorgid/YYYY-MM-ddTHH:mm:ssZ/report.csv</c></para><para>
     /// You can call this operation only from the organization's management account and from
     /// the us-east-1 Region.
     /// </para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         #region Parameter S3Bucket
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon S3 bucket where the report will be stored; for example:</para><para><code>awsexamplebucket</code></para><para>For more information on S3 bucket requirements, including an example bucket policy,
+        /// <para>The name of the Amazon S3 bucket where the report will be stored; for example:</para><para><c>awsexamplebucket</c></para><para>For more information on S3 bucket requirements, including an example bucket policy,
         /// see the example S3 bucket policy on this page.</para>
         /// </para>
         /// </summary>

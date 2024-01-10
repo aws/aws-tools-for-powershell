@@ -44,10 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// see <a>ActivateGateway</a>. Your applications cannot read from or write to the gateway's
     /// storage volumes, and there are no snapshots taken.
     /// </para><note><para>
-    /// When you make a shutdown request, you will get a <code>200 OK</code> success response
-    /// immediately. However, it might take some time for the gateway to shut down. You can
-    /// call the <a>DescribeGatewayInformation</a> API to check the status. For more information,
-    /// see <a>ActivateGateway</a>.
+    /// When you make a shutdown request, you will get a <c>200 OK</c> success response immediately.
+    /// However, it might take some time for the gateway to shut down. You can call the <a>DescribeGatewayInformation</a>
+    /// API to check the status. For more information, see <a>ActivateGateway</a>.
     /// </para></note><para>
     /// If do not intend to use the gateway again, you must delete the gateway (using <a>DeleteGateway</a>)
     /// to no longer pay software charges associated with the gateway.

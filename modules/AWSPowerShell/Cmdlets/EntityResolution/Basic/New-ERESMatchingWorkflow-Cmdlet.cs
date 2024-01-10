@@ -28,10 +28,10 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Creates a <code>MatchingWorkflow</code> object which stores the configuration of the
-    /// data processing job to be run. It is important to note that there should not be a
-    /// pre-existing <code>MatchingWorkflow</code> with the same name. To modify an existing
-    /// workflow, utilize the <code>UpdateMatchingWorkflow</code> API.
+    /// Creates a <c>MatchingWorkflow</c> object which stores the configuration of the data
+    /// processing job to be run. It is important to note that there should not be a pre-existing
+    /// <c>MatchingWorkflow</c> with the same name. To modify an existing workflow, utilize
+    /// the <c>UpdateMatchingWorkflow</c> API.
     /// </summary>
     [Cmdlet("New", "ERESMatchingWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EntityResolution.Model.CreateMatchingWorkflowResponse")]
@@ -47,15 +47,15 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter RuleBasedProperties_AttributeMatchingModel
         /// <summary>
         /// <para>
-        /// <para>The comparison type. You can either choose <code>ONE_TO_ONE</code> or <code>MANY_TO_MANY</code>
-        /// as the AttributeMatchingModel. When choosing <code>MANY_TO_MANY</code>, the system
-        /// can match attributes across the sub-types of an attribute type. For example, if the
-        /// value of the <code>Email</code> field of Profile A and the value of <code>BusinessEmail</code>
-        /// field of Profile B matches, the two profiles are matched on the <code>Email</code>
-        /// type. When choosing <code>ONE_TO_ONE</code> ,the system can only match if the sub-types
-        /// are exact matches. For example, only when the value of the <code>Email</code> field
-        /// of Profile A and the value of the <code>Email</code> field of Profile B matches, the
-        /// two profiles are matched on the <code>Email</code> type.</para>
+        /// <para>The comparison type. You can either choose <c>ONE_TO_ONE</c> or <c>MANY_TO_MANY</c>
+        /// as the AttributeMatchingModel. When choosing <c>MANY_TO_MANY</c>, the system can match
+        /// attributes across the sub-types of an attribute type. For example, if the value of
+        /// the <c>Email</c> field of Profile A and the value of <c>BusinessEmail</c> field of
+        /// Profile B matches, the two profiles are matched on the <c>Email</c> type. When choosing
+        /// <c>ONE_TO_ONE</c> ,the system can only match if the sub-types are exact matches. For
+        /// example, only when the value of the <c>Email</c> field of Profile A and the value
+        /// of the <c>Email</c> field of Profile B matches, the two profiles are matched on the
+        /// <c>Email</c> type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter IncrementalRunConfig_IncrementalRunType
         /// <summary>
         /// <para>
-        /// <para>The type of incremental run. It takes only one value: <code>IMMEDIATE</code>.</para>
+        /// <para>The type of incremental run. It takes only one value: <c>IMMEDIATE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter InputSourceConfig
         /// <summary>
         /// <para>
-        /// <para>A list of <code>InputSource</code> objects, which have the fields <code>InputSourceARN</code>
-        /// and <code>SchemaName</code>.</para>
+        /// <para>A list of <c>InputSource</c> objects, which have the fields <c>InputSourceARN</c>
+        /// and <c>SchemaName</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter IntermediateSourceConfiguration_IntermediateS3Path
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 location (bucket and prefix). For example: <code>s3://provider_bucket/DOC-EXAMPLE-BUCKET</code></para>
+        /// <para>The Amazon S3 location (bucket and prefix). For example: <c>s3://provider_bucket/DOC-EXAMPLE-BUCKET</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter OutputSourceConfig
         /// <summary>
         /// <para>
-        /// <para>A list of <code>OutputSource</code> objects, each of which contains fields <code>OutputS3Path</code>,
-        /// <code>ApplyNormalization</code>, and <code>Output</code>.</para>
+        /// <para>A list of <c>OutputSource</c> objects, each of which contains fields <c>OutputS3Path</c>,
+        /// <c>ApplyNormalization</c>, and <c>Output</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -157,8 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter ResolutionTechniques_ResolutionType
         /// <summary>
         /// <para>
-        /// <para>The type of matching. There are two types of matching: <code>RULE_MATCHING</code>
-        /// and <code>ML_MATCHING</code>.</para>
+        /// <para>The type of matching. There are two types of matching: <c>RULE_MATCHING</c> and <c>ML_MATCHING</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -193,8 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter RuleBasedProperties_Rule
         /// <summary>
         /// <para>
-        /// <para>A list of <code>Rule</code> objects, each of which have fields <code>RuleName</code>
-        /// and <code>MatchingKeys</code>.</para>
+        /// <para>A list of <c>Rule</c> objects, each of which have fields <c>RuleName</c> and <c>MatchingKeys</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,8 +214,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter WorkflowName
         /// <summary>
         /// <para>
-        /// <para>The name of the workflow. There can't be multiple <code>MatchingWorkflows</code> with
-        /// the same name.</para>
+        /// <para>The name of the workflow. There can't be multiple <c>MatchingWorkflows</c> with the
+        /// same name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

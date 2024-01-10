@@ -29,12 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
     /// Lists the attributes for Amazon ECS resources within a specified target type and cluster.
-    /// When you specify a target type and cluster, <code>ListAttributes</code> returns a
-    /// list of attribute objects, one for each attribute on each resource. You can filter
-    /// the list of results to a single attribute name to only return results that have that
-    /// name. You can also filter the results by attribute name and value. You can do this,
-    /// for example, to see which container instances in a cluster are running a Linux AMI
-    /// (<code>ecs.os-type=linux</code>).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// When you specify a target type and cluster, <c>ListAttributes</c> returns a list of
+    /// attribute objects, one for each attribute on each resource. You can filter the list
+    /// of results to a single attribute name to only return results that have that name.
+    /// You can also filter the results by attribute name and value. You can do this, for
+    /// example, to see which container instances in a cluster are running a Linux AMI (<c>ecs.os-type=linux</c>).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ECSAttributeList")]
     [OutputType("Amazon.ECS.Model.Attribute")]
@@ -100,13 +99,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of cluster results that <code>ListAttributes</code> returned in
-        /// paginated output. When this parameter is used, <code>ListAttributes</code> only returns
-        /// <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-        /// response element. The remaining results of the initial request can be seen by sending
-        /// another <code>ListAttributes</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListAttributes</code>
-        /// returns up to 100 results and a <code>nextToken</code> value if applicable.</para>
+        /// <para>The maximum number of cluster results that <c>ListAttributes</c> returned in paginated
+        /// output. When this parameter is used, <c>ListAttributes</c> only returns <c>maxResults</c>
+        /// results in a single page along with a <c>nextToken</c> response element. The remaining
+        /// results of the initial request can be seen by sending another <c>ListAttributes</c>
+        /// request with the returned <c>nextToken</c> value. This value can be between 1 and
+        /// 100. If this parameter isn't used, then <c>ListAttributes</c> returns up to 100 results
+        /// and a <c>nextToken</c> value if applicable.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -122,10 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a <code>ListAttributes</code> request
-        /// indicating that more results are available to fulfill the request and further calls
-        /// are needed. If <code>maxResults</code> was provided, it's possible the number of results
-        /// to be fewer than <code>maxResults</code>.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// <para>The <c>nextToken</c> value returned from a <c>ListAttributes</c> request indicating
+        /// that more results are available to fulfill the request and further calls are needed.
+        /// If <c>maxResults</c> was provided, it's possible the number of results to be fewer
+        /// than <c>maxResults</c>.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter RecipeVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the recipe to be deleted. You can specify a numeric versions (<code>X.Y</code>)
-        /// or <code>LATEST_WORKING</code>. <code>LATEST_PUBLISHED</code> is not supported.</para>
+        /// <para>The version of the recipe to be deleted. You can specify a numeric versions (<c>X.Y</c>)
+        /// or <c>LATEST_WORKING</c>. <c>LATEST_PUBLISHED</c> is not supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

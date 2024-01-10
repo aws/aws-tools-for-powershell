@@ -28,8 +28,8 @@ using Amazon.LexModelBuildingService.Model;
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Deletes all versions of the intent, including the <code>$LATEST</code> version. To
-    /// delete a specific version of the intent, use the <a>DeleteIntentVersion</a> operation.
+    /// Deletes all versions of the intent, including the <c>$LATEST</c> version. To delete
+    /// a specific version of the intent, use the <a>DeleteIntentVersion</a> operation.
     /// 
     ///  
     /// <para>
@@ -37,14 +37,13 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// intent that is referred to in one or more bots (see <a>how-it-works</a>), you must
     /// remove those references first. 
     /// </para><note><para>
-    ///  If you get the <code>ResourceInUseException</code> exception, it provides an example
-    /// reference that shows where the intent is referenced. To remove the reference to the
-    /// intent, either update the bot or delete it. If you get the same exception when you
-    /// attempt to delete the intent again, repeat until the intent has no references and
-    /// the call to <code>DeleteIntent</code> is successful. 
+    ///  If you get the <c>ResourceInUseException</c> exception, it provides an example reference
+    /// that shows where the intent is referenced. To remove the reference to the intent,
+    /// either update the bot or delete it. If you get the same exception when you attempt
+    /// to delete the intent again, repeat until the intent has no references and the call
+    /// to <c>DeleteIntent</c> is successful. 
     /// </para></note><para>
-    ///  This operation requires permission for the <code>lex:DeleteIntent</code> action.
-    /// 
+    ///  This operation requires permission for the <c>lex:DeleteIntent</c> action. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LMBIntent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

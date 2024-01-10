@@ -35,14 +35,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// configurations per bucket.
     /// </para><para>
     /// This action supports list pagination and does not return more than 100 configurations
-    /// at a time. You should always check the <code>IsTruncated</code> element in the response.
-    /// If there are no more configurations to list, <code>IsTruncated</code> is set to false.
-    /// If there are more configurations to list, <code>IsTruncated</code> is set to true,
-    /// and there will be a value in <code>NextContinuationToken</code>. You use the <code>NextContinuationToken</code>
+    /// at a time. You should always check the <c>IsTruncated</c> element in the response.
+    /// If there are no more configurations to list, <c>IsTruncated</c> is set to false. If
+    /// there are more configurations to list, <c>IsTruncated</c> is set to true, and there
+    /// will be a value in <c>NextContinuationToken</c>. You use the <c>NextContinuationToken</c>
     /// value to continue the pagination of the list by passing the value in continuation-token
-    /// in the request to <code>GET</code> the next page.
+    /// in the request to <c>GET</c> the next page.
     /// </para><para>
-    /// To use this operation, you must have permissions to perform the <code>s3:GetAnalyticsConfiguration</code>
+    /// To use this operation, you must have permissions to perform the <c>s3:GetAnalyticsConfiguration</c>
     /// action. The bucket owner has this permission by default. The bucket owner can grant
     /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For information about Amazon S3 analytics feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html">Amazon
     /// S3 Analytics – Storage Class Analysis</a>. 
     /// </para><para>
-    /// The following operations are related to <code>ListBucketAnalyticsConfigurations</code>:
+    /// The following operations are related to <c>ListBucketAnalyticsConfigurations</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAnalyticsConfiguration.html">GetBucketAnalyticsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketAnalyticsConfiguration.html">DeleteBucketAnalyticsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html">PutBucketAnalyticsConfiguration</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketAnalyticsConfigurationList")]

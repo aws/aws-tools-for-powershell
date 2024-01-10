@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter MqttContext_ClientId
         /// <summary>
         /// <para>
-        /// <para>The value of the <code>clientId</code> key in an MQTT authorization request.</para>
+        /// <para>The value of the <c>clientId</c> key in an MQTT authorization request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter MqttContext_Password
         /// <summary>
         /// <para>
-        /// <para>The value of the <code>password</code> key in an MQTT authorization request.</para>
+        /// <para>The value of the <c>password</c> key in an MQTT authorization request.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter TlsContext_ServerName
         /// <summary>
         /// <para>
-        /// <para>The value of the <code>serverName</code> key in a TLS authorization request.</para>
+        /// <para>The value of the <c>serverName</c> key in a TLS authorization request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter MqttContext_Username
         /// <summary>
         /// <para>
-        /// <para>The value of the <code>username</code> key in an MQTT authorization request.</para>
+        /// <para>The value of the <c>username</c> key in an MQTT authorization request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

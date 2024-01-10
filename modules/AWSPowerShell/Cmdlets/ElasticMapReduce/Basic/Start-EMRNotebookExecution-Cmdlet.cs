@@ -191,11 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>The path and file name of the notebook file for this execution, relative to the path
-        /// specified for the Amazon EMR Notebook. For example, if you specify a path of <code>s3://MyBucket/MyNotebooks</code>
-        /// when you create an Amazon EMR Notebook for a notebook with an ID of <code>e-ABCDEFGHIJK1234567890ABCD</code>
-        /// (the <code>EditorID</code> of this request), and you specify a <code>RelativePath</code>
-        /// of <code>my_notebook_executions/notebook_execution.ipynb</code>, the location of the
-        /// file for the notebook execution is <code>s3://MyBucket/MyNotebooks/e-ABCDEFGHIJK1234567890ABCD/my_notebook_executions/notebook_execution.ipynb</code>.</para>
+        /// specified for the Amazon EMR Notebook. For example, if you specify a path of <c>s3://MyBucket/MyNotebooks</c>
+        /// when you create an Amazon EMR Notebook for a notebook with an ID of <c>e-ABCDEFGHIJK1234567890ABCD</c>
+        /// (the <c>EditorID</c> of this request), and you specify a <c>RelativePath</c> of <c>my_notebook_executions/notebook_execution.ipynb</c>,
+        /// the location of the file for the notebook execution is <c>s3://MyBucket/MyNotebooks/e-ABCDEFGHIJK1234567890ABCD/my_notebook_executions/notebook_execution.ipynb</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,8 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ExecutionEngine_Type
         /// <summary>
         /// <para>
-        /// <para>The type of execution engine. A value of <code>EMR</code> specifies an Amazon EMR
-        /// cluster.</para>
+        /// <para>The type of execution engine. A value of <c>EMR</c> specifies an Amazon EMR cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

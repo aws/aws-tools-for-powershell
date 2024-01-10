@@ -90,13 +90,13 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// <para>A unique identifier. This identifier is not the same as the pipeline identifier assigned
         /// by AWS Data Pipeline. You are responsible for defining the format and ensuring the
         /// uniqueness of this identifier. You use this parameter to ensure idempotency during
-        /// repeated calls to <code>CreatePipeline</code>. For example, if the first call to <code>CreatePipeline</code>
+        /// repeated calls to <c>CreatePipeline</c>. For example, if the first call to <c>CreatePipeline</c>
         /// does not succeed, you can pass in the same unique identifier and pipeline name combination
-        /// on a subsequent call to <code>CreatePipeline</code>. <code>CreatePipeline</code> ensures
-        /// that if a pipeline already exists with the same name and unique identifier, a new
-        /// pipeline is not created. Instead, you'll receive the pipeline identifier from the
-        /// previous attempt. The uniqueness of the name and unique identifier combination is
-        /// scoped to the AWS account or IAM user credentials.</para>
+        /// on a subsequent call to <c>CreatePipeline</c>. <c>CreatePipeline</c> ensures that
+        /// if a pipeline already exists with the same name and unique identifier, a new pipeline
+        /// is not created. Instead, you'll receive the pipeline identifier from the previous
+        /// attempt. The uniqueness of the name and unique identifier combination is scoped to
+        /// the AWS account or IAM user credentials.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

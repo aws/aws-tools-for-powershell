@@ -71,14 +71,14 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter AuthorizerUri
         /// <summary>
         /// <para>
-        /// <para>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code>
-        /// or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI,
-        /// for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations</code>.
-        /// In general, the URI has this form <code>arn:aws:apigateway:{region}:lambda:path/{service_api}</code>,
-        /// where <code>{region}</code> is the same as the region hosting the Lambda function,
-        /// <code>path</code> indicates that the remaining substring in the URI should be treated
-        /// as the path to the resource, including the initial <code>/</code>. For Lambda functions,
-        /// this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>.</para>
+        /// <para>Specifies the authorizer's Uniform Resource Identifier (URI). For <c>TOKEN</c> or
+        /// <c>REQUEST</c> authorizers, this must be a well-formed Lambda function URI, for example,
+        /// <c>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations</c>.
+        /// In general, the URI has this form <c>arn:aws:apigateway:{region}:lambda:path/{service_api}</c>,
+        /// where <c>{region}</c> is the same as the region hosting the Lambda function, <c>path</c>
+        /// indicates that the remaining substring in the URI should be treated as the path to
+        /// the resource, including the initial <c>/</c>. For Lambda functions, this is usually
+        /// of the form <c>/2015-03-31/functions/[FunctionARN]/invocations</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,23 +99,22 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter IdentitySource
         /// <summary>
         /// <para>
-        /// <para>The identity source for which authorization is requested. For a <code>TOKEN</code>
-        /// or <code>COGNITO_USER_POOLS</code> authorizer, this is required and specifies the
-        /// request header mapping expression for the custom header holding the authorization
-        /// token submitted by the client. For example, if the token header name is <code>Auth</code>,
-        /// the header mapping expression is <code>method.request.header.Auth</code>. For the
-        /// <code>REQUEST</code> authorizer, this is required when authorization caching is enabled.
-        /// The value is a comma-separated string of one or more mapping expressions of the specified
-        /// request parameters. For example, if an <code>Auth</code> header, a <code>Name</code>
-        /// query string parameter are defined as identity sources, this value is <code>method.request.header.Auth,
-        /// method.request.querystring.Name</code>. These parameters will be used to derive the
-        /// authorization caching key and to perform runtime validation of the <code>REQUEST</code>
-        /// authorizer by verifying all of the identity-related request parameters are present,
-        /// not null and non-empty. Only when this is true does the authorizer invoke the authorizer
-        /// Lambda function, otherwise, it returns a 401 Unauthorized response without calling
-        /// the Lambda function. The valid value is a string of comma-separated mapping expressions
-        /// of the specified request parameters. When the authorization caching is not enabled,
-        /// this property is optional.</para>
+        /// <para>The identity source for which authorization is requested. For a <c>TOKEN</c> or <c>COGNITO_USER_POOLS</c>
+        /// authorizer, this is required and specifies the request header mapping expression for
+        /// the custom header holding the authorization token submitted by the client. For example,
+        /// if the token header name is <c>Auth</c>, the header mapping expression is <c>method.request.header.Auth</c>.
+        /// For the <c>REQUEST</c> authorizer, this is required when authorization caching is
+        /// enabled. The value is a comma-separated string of one or more mapping expressions
+        /// of the specified request parameters. For example, if an <c>Auth</c> header, a <c>Name</c>
+        /// query string parameter are defined as identity sources, this value is <c>method.request.header.Auth,
+        /// method.request.querystring.Name</c>. These parameters will be used to derive the authorization
+        /// caching key and to perform runtime validation of the <c>REQUEST</c> authorizer by
+        /// verifying all of the identity-related request parameters are present, not null and
+        /// non-empty. Only when this is true does the authorizer invoke the authorizer Lambda
+        /// function, otherwise, it returns a 401 Unauthorized response without calling the Lambda
+        /// function. The valid value is a string of comma-separated mapping expressions of the
+        /// specified request parameters. When the authorization caching is not enabled, this
+        /// property is optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,12 +124,12 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter IdentityValidationExpression
         /// <summary>
         /// <para>
-        /// <para>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers,
-        /// this value is a regular expression. For <code>COGNITO_USER_POOLS</code> authorizers,
-        /// API Gateway will match the <code>aud</code> field of the incoming token from the client
-        /// against the specified regular expression. It will invoke the authorizer's Lambda function
+        /// <para>A validation expression for the incoming identity token. For <c>TOKEN</c> authorizers,
+        /// this value is a regular expression. For <c>COGNITO_USER_POOLS</c> authorizers, API
+        /// Gateway will match the <c>aud</c> field of the incoming token from the client against
+        /// the specified regular expression. It will invoke the authorizer's Lambda function
         /// when there is a match. Otherwise, it will return a 401 Unauthorized response without
-        /// calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code>
+        /// calling the Lambda function. The validation expression does not apply to the <c>REQUEST</c>
         /// authorizer.</para>
         /// </para>
         /// </summary>
@@ -158,10 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ProviderARNs
         /// <summary>
         /// <para>
-        /// <para>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code>
-        /// authorizer. Each element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>.
-        /// For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined.
-        /// </para>
+        /// <para>A list of the Amazon Cognito user pool ARNs for the <c>COGNITO_USER_POOLS</c> authorizer.
+        /// Each element is of this format: <c>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</c>.
+        /// For a <c>TOKEN</c> or <c>REQUEST</c> authorizer, this is not defined. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,10 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using
-        /// a single authorization token submitted in a custom header, <code>REQUEST</code> for
-        /// a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code>
-        /// for using an Amazon Cognito user pool.</para>
+        /// <para>The authorizer type. Valid values are <c>TOKEN</c> for a Lambda function using a single
+        /// authorization token submitted in a custom header, <c>REQUEST</c> for a Lambda function
+        /// using incoming request parameters, and <c>COGNITO_USER_POOLS</c> for using an Amazon
+        /// Cognito user pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

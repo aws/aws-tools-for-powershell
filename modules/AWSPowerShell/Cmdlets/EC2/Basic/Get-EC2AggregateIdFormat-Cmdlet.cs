@@ -36,17 +36,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// This request only returns information about resource types that support longer IDs.
     /// </para><para>
-    /// The following resource types support longer IDs: <code>bundle</code> | <code>conversion-task</code>
-    /// | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code>
-    /// | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code>
-    /// | <code>image</code> | <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code>
-    /// | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code>
-    /// | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>reservation</code>
-    /// | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code>
-    /// | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code>
-    /// | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code>
-    /// | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code>
-    /// | <code>vpn-gateway</code>.
+    /// The following resource types support longer IDs: <c>bundle</c> | <c>conversion-task</c>
+    /// | <c>customer-gateway</c> | <c>dhcp-options</c> | <c>elastic-ip-allocation</c> | <c>elastic-ip-association</c>
+    /// | <c>export-task</c> | <c>flow-log</c> | <c>image</c> | <c>import-task</c> | <c>instance</c>
+    /// | <c>internet-gateway</c> | <c>network-acl</c> | <c>network-acl-association</c> |
+    /// <c>network-interface</c> | <c>network-interface-attachment</c> | <c>prefix-list</c>
+    /// | <c>reservation</c> | <c>route-table</c> | <c>route-table-association</c> | <c>security-group</c>
+    /// | <c>snapshot</c> | <c>subnet</c> | <c>subnet-cidr-block-association</c> | <c>volume</c>
+    /// | <c>vpc</c> | <c>vpc-cidr-block-association</c> | <c>vpc-endpoint</c> | <c>vpc-peering-connection</c>
+    /// | <c>vpn-connection</c> | <c>vpn-gateway</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2AggregateIdFormat")]

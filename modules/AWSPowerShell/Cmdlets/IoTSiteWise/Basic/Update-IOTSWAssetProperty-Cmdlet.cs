@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The ID of the asset to be updated. This can be either the actual ID in UUID format,
-        /// or else <code>externalId:</code> followed by the external ID, if it has one. For more
-        /// information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing
+        /// or else <c>externalId:</c> followed by the external ID, if it has one. For more information,
+        /// see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing
         /// objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The alias that identifies the property, such as an OPC-UA server data stream path
-        /// (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information,
+        /// (for example, <c>/company/windfarm/3/turbine/7/temperature</c>). For more information,
         /// see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping
         /// industrial data streams to asset properties</a> in the <i>IoT SiteWise User Guide</i>.</para><para>If you omit this parameter, the alias is removed from the property.</para>
         /// </para>
@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The ID of the asset property to be updated. This can be either the actual ID in UUID
-        /// format, or else <code>externalId:</code> followed by the external ID, if it has one.
-        /// For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing
+        /// format, or else <c>externalId:</c> followed by the external ID, if it has one. For
+        /// more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing
         /// objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <para>The MQTT notification state (enabled or disabled) for this asset property. When the
         /// notification state is enabled, IoT SiteWise publishes property value updates to a
         /// unique MQTT topic. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html">Interacting
-        /// with other services</a> in the <i>IoT SiteWise User Guide</i>.</para><para>If you omit this parameter, the notification state is set to <code>DISABLED</code>.</para>
+        /// with other services</a> in the <i>IoT SiteWise User Guide</i>.</para><para>If you omit this parameter, the notification state is set to <c>DISABLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify
-        /// a value for this parameter, the service uses the value of the <code>assetModelProperty</code>
+        /// a value for this parameter, the service uses the value of the <c>assetModelProperty</c>
         /// in the asset model.</para>
         /// </para>
         /// </summary>

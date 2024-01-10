@@ -56,17 +56,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><code>allocation-id</code> - The allocation ID for the address.</para></li><li><para><code>association-id</code> - The association ID for the address.</para></li><li><para><code>instance-id</code> - The ID of the instance the address is associated with,
-        /// if any.</para></li><li><para><code>network-border-group</code> - A unique set of Availability Zones, Local Zones,
-        /// or Wavelength Zones from where Amazon Web Services advertises IP addresses. </para></li><li><para><code>network-interface-id</code> - The ID of the network interface that the address
-        /// is associated with, if any.</para></li><li><para><code>network-interface-owner-id</code> - The Amazon Web Services account ID of the
-        /// owner.</para></li><li><para><code>private-ip-address</code> - The private IP address associated with the Elastic
-        /// IP address.</para></li><li><para><code>public-ip</code> - The Elastic IP address, or the carrier IP address.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
-        /// resource. Use the tag key in the filter name and the tag value as the filter value.
-        /// For example, to find all resources that have a tag with the key <code>Owner</code>
-        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul>
+        /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><c>allocation-id</c> - The allocation ID for the address.</para></li><li><para><c>association-id</c> - The association ID for the address.</para></li><li><para><c>instance-id</c> - The ID of the instance the address is associated with, if any.</para></li><li><para><c>network-border-group</c> - A unique set of Availability Zones, Local Zones, or
+        /// Wavelength Zones from where Amazon Web Services advertises IP addresses. </para></li><li><para><c>network-interface-id</c> - The ID of the network interface that the address is
+        /// associated with, if any.</para></li><li><para><c>network-interface-owner-id</c> - The Amazon Web Services account ID of the owner.</para></li><li><para><c>private-ip-address</c> - The private IP address associated with the Elastic IP
+        /// address.</para></li><li><para><c>public-ip</c> - The Elastic IP address, or the carrier IP address.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
+        /// Use the tag key in the filter name and the tag value as the filter value. For example,
+        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

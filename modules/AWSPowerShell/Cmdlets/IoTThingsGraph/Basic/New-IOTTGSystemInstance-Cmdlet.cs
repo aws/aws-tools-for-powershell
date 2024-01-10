@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     /// <para>
     /// This action validates the system instance, prepares the deployment-related resources.
     /// For Greengrass deployments, it updates the Greengrass group that is specified by the
-    /// <code>greengrassGroupName</code> parameter. It also adds a file to the S3 bucket specified
-    /// by the <code>s3BucketName</code> parameter. You need to call <code>DeploySystemInstance</code>
+    /// <c>greengrassGroupName</c> parameter. It also adds a file to the S3 bucket specified
+    /// by the <c>s3BucketName</c> parameter. You need to call <c>DeploySystemInstance</c>
     /// after running this action.
     /// </para><para>
     /// For Greengrass deployments, since this action modifies and adds resources to a Greengrass
@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     /// permissions to both the specified Greengrass group and S3 bucket. Otherwise, the call
     /// will fail with an authorization error.
     /// </para><para>
-    /// For cloud deployments, this action requires a <code>flowActionsRoleArn</code> value.
-    /// This is an IAM role that has permissions to access AWS services, such as AWS Lambda
-    /// and AWS IoT, that the flow uses when it executes.
+    /// For cloud deployments, this action requires a <c>flowActionsRoleArn</c> value. This
+    /// is an IAM role that has permissions to access AWS services, such as AWS Lambda and
+    /// AWS IoT, that the flow uses when it executes.
     /// </para><para>
     /// If the definition document doesn't specify a version of the user's namespace, the
     /// latest version will be used by default.
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         /// <para>The ARN of the IAM role that AWS IoT Things Graph will assume when it executes the
         /// flow. This role must have read and write access to AWS Lambda and AWS IoT and any
         /// other AWS services that the flow uses when it executes. This value is required if
-        /// the value of the <code>target</code> parameter is <code>CLOUD</code>.</para>
+        /// the value of the <c>target</c> parameter is <c>CLOUD</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         /// <summary>
         /// <para>
         /// <para>The name of the Greengrass group where the system instance will be deployed. This
-        /// value is required if the value of the <code>target</code> parameter is <code>GREENGRASS</code>.</para>
+        /// value is required if the value of the <c>target</c> parameter is <c>GREENGRASS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter Definition_Language
         /// <summary>
         /// <para>
-        /// <para>The language used to define the entity. <code>GRAPHQL</code> is the only valid value.</para>
+        /// <para>The language used to define the entity. <c>GRAPHQL</c> is the only valid value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         /// <para>
         /// <para>The name of the Amazon Simple Storage Service bucket that will be used to store and
         /// deploy the system instance's resource file. This value is required if the value of
-        /// the <code>target</code> parameter is <code>GREENGRASS</code>.</para>
+        /// the <c>target</c> parameter is <c>GREENGRASS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The target type of the deployment. Valid values are <code>GREENGRASS</code> and <code>CLOUD</code>.</para>
+        /// <para>The target type of the deployment. Valid values are <c>GREENGRASS</c> and <c>CLOUD</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

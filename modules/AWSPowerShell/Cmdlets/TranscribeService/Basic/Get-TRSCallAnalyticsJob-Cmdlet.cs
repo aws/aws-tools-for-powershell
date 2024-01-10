@@ -32,16 +32,16 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// 
     ///  
     /// <para>
-    /// To view the job's status, refer to <code>CallAnalyticsJobStatus</code>. If the status
-    /// is <code>COMPLETED</code>, the job is finished. You can find your completed transcript
-    /// at the URI specified in <code>TranscriptFileUri</code>. If the status is <code>FAILED</code>,
-    /// <code>FailureReason</code> provides details on why your transcription job failed.
+    /// To view the job's status, refer to <c>CallAnalyticsJobStatus</c>. If the status is
+    /// <c>COMPLETED</c>, the job is finished. You can find your completed transcript at the
+    /// URI specified in <c>TranscriptFileUri</c>. If the status is <c>FAILED</c>, <c>FailureReason</c>
+    /// provides details on why your transcription job failed.
     /// </para><para>
     /// If you enabled personally identifiable information (PII) redaction, the redacted transcript
-    /// appears at the location specified in <code>RedactedTranscriptFileUri</code>.
+    /// appears at the location specified in <c>RedactedTranscriptFileUri</c>.
     /// </para><para>
     /// If you chose to redact the audio in your media file, you can find your redacted media
-    /// file at the location specified in <code>RedactedMediaFileUri</code>.
+    /// file at the location specified in <c>RedactedMediaFileUri</c>.
     /// </para><para>
     /// To get a list of your Call Analytics jobs, use the operation.
     /// </para>

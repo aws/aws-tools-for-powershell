@@ -28,7 +28,7 @@ using Amazon.LexModelBuildingService.Model;
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Gets information about an import job started with the <code>StartImport</code> operation.
+    /// Gets information about an import job started with the <c>StartImport</c> operation.
     /// </summary>
     [Cmdlet("Get", "LMBImport")]
     [OutputType("Amazon.LexModelBuildingService.Model.GetImportResponse")]

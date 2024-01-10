@@ -28,11 +28,11 @@ using Amazon.ElasticFileSystem.Model;
 namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
-    /// Returns the <code>FileSystemPolicy</code> for the specified EFS file system.
+    /// Returns the <c>FileSystemPolicy</c> for the specified EFS file system.
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions for the <code>elasticfilesystem:DescribeFileSystemPolicy</code>
+    /// This operation requires permissions for the <c>elasticfilesystem:DescribeFileSystemPolicy</c>
     /// action.
     /// </para>
     /// </summary>
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>Specifies which EFS file system to retrieve the <code>FileSystemPolicy</code> for.</para>
+        /// <para>Specifies which EFS file system to retrieve the <c>FileSystemPolicy</c> for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description to be updated as part of the <code>UpdateEnvironment</code> action.</para>
+        /// <para>The description to be updated as part of the <c>UpdateEnvironment</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter GlossaryTerm
         /// <summary>
         /// <para>
-        /// <para>The glossary terms to be updated as part of the <code>UpdateEnvironment</code> action.</para>
+        /// <para>The glossary terms to be updated as part of the <c>UpdateEnvironment</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name to be updated as part of the <code>UpdateEnvironment</code> action.</para>
+        /// <para>The name to be updated as part of the <c>UpdateEnvironment</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

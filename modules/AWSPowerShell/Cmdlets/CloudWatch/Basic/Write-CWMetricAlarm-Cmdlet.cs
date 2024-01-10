@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// <para>
     /// Alarms based on anomaly detection models cannot have Auto Scaling actions.
     /// </para><para>
-    /// When this operation creates an alarm, the alarm state is immediately set to <code>INSUFFICIENT_DATA</code>.
+    /// When this operation creates an alarm, the alarm state is immediately set to <c>INSUFFICIENT_DATA</c>.
     /// The alarm is then evaluated and its state is set appropriately. Any actions associated
     /// with the new state are then executed.
     /// </para><para>
@@ -46,20 +46,19 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// </para><para>
     /// If you are an IAM user, you must have Amazon EC2 permissions for some alarm operations:
     /// </para><ul><li><para>
-    /// The <code>iam:CreateServiceLinkedRole</code> permission for all alarms with EC2 actions
+    /// The <c>iam:CreateServiceLinkedRole</c> permission for all alarms with EC2 actions
     /// </para></li><li><para>
-    /// The <code>iam:CreateServiceLinkedRole</code> permissions to create an alarm with Systems
+    /// The <c>iam:CreateServiceLinkedRole</c> permissions to create an alarm with Systems
     /// Manager OpsItem or response plan actions.
     /// </para></li></ul><para>
     /// The first time you create an alarm in the Amazon Web Services Management Console,
     /// the CLI, or by using the PutMetricAlarm API, CloudWatch creates the necessary service-linked
-    /// role for you. The service-linked roles are called <code>AWSServiceRoleForCloudWatchEvents</code>
-    /// and <code>AWSServiceRoleForCloudWatchAlarms_ActionSSM</code>. For more information,
-    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Amazon
+    /// role for you. The service-linked roles are called <c>AWSServiceRoleForCloudWatchEvents</c>
+    /// and <c>AWSServiceRoleForCloudWatchAlarms_ActionSSM</c>. For more information, see
+    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Amazon
     /// Web Services service-linked role</a>.
     /// </para><para>
-    /// Each <code>PutMetricAlarm</code> action has a maximum uncompressed payload of 120
-    /// KB.
+    /// Each <c>PutMetricAlarm</c> action has a maximum uncompressed payload of 120 KB.
     /// </para><para><b>Cross-account alarms</b></para><para>
     /// You can set an alarm on metrics in the current account, or in another account. To
     /// create a cross-account alarm that watches a metric in a different account, you must
@@ -96,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>Indicates whether actions should be executed during any changes to the alarm state.
-        /// The default is <code>TRUE</code>.</para>
+        /// The default is <c>TRUE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,9 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmAction
         /// <summary>
         /// <para>
-        /// <para>The actions to execute when this alarm transitions to the <code>ALARM</code> state
-        /// from any other state. Each action is specified as an Amazon Resource Name (ARN). Valid
-        /// values:</para><para><b>EC2 actions:</b></para><ul><li><para><code>arn:aws:automate:<i>region</i>:ec2:stop</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:terminate</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:reboot</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:recover</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code></para></li></ul><para><b>Autoscaling action:</b></para><ul><li><para><code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para></li></ul><para><b>SNS notification action:</b></para><ul><li><para><code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para></li></ul><para><b>SSM integration actions:</b></para><ul><li><para><code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>#CATEGORY=<i>category-name</i></code></para></li><li><para><code>arn:aws:ssm-incidents::<i>account-id</i>:responseplan/<i>response-plan-name</i></code></para></li></ul>
+        /// <para>The actions to execute when this alarm transitions to the <c>ALARM</c> state from
+        /// any other state. Each action is specified as an Amazon Resource Name (ARN). Valid
+        /// values:</para><para><b>EC2 actions:</b></para><ul><li><para><c>arn:aws:automate:<i>region</i>:ec2:stop</c></para></li><li><para><c>arn:aws:automate:<i>region</i>:ec2:terminate</c></para></li><li><para><c>arn:aws:automate:<i>region</i>:ec2:reboot</c></para></li><li><para><c>arn:aws:automate:<i>region</i>:ec2:recover</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</c></para></li></ul><para><b>Autoscaling action:</b></para><ul><li><para><c>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></c></para></li></ul><para><b>SNS notification action:</b></para><ul><li><para><c>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></c></para></li></ul><para><b>SSM integration actions:</b></para><ul><li><para><c>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>#CATEGORY=<i>category-name</i></c></para></li><li><para><c>arn:aws:ssm-incidents::<i>account-id</i>:responseplan/<i>response-plan-name</i></c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,9 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para> The arithmetic operation to use when comparing the specified statistic and threshold.
-        /// The specified statistic value is used as the first operand.</para><para>The values <code>LessThanLowerOrGreaterThanUpperThreshold</code>, <code>LessThanLowerThreshold</code>,
-        /// and <code>GreaterThanUpperThreshold</code> are used only for alarms based on anomaly
-        /// detection models.</para>
+        /// The specified statistic value is used as the first operand.</para><para>The values <c>LessThanLowerOrGreaterThanUpperThreshold</c>, <c>LessThanLowerThreshold</c>,
+        /// and <c>GreaterThanUpperThreshold</c> are used only for alarms based on anomaly detection
+        /// models.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -179,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Dimension
         /// <summary>
         /// <para>
-        /// <para>The dimensions for the metric specified in <code>MetricName</code>.</para>
+        /// <para>The dimensions for the metric specified in <c>MetricName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,12 +189,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter EvaluateLowSampleCountPercentile
         /// <summary>
         /// <para>
-        /// <para> Used only for alarms based on percentiles. If you specify <code>ignore</code>, the
-        /// alarm state does not change during periods with too few data points to be statistically
-        /// significant. If you specify <code>evaluate</code> or omit this parameter, the alarm
-        /// is always evaluated and possibly changes state no matter how many data points are
-        /// available. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
-        /// CloudWatch Alarms and Low Data Samples</a>.</para><para>Valid Values: <code>evaluate | ignore</code></para>
+        /// <para> Used only for alarms based on percentiles. If you specify <c>ignore</c>, the alarm
+        /// state does not change during periods with too few data points to be statistically
+        /// significant. If you specify <c>evaluate</c> or omit this parameter, the alarm is always
+        /// evaluated and possibly changes state no matter how many data points are available.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
+        /// CloudWatch Alarms and Low Data Samples</a>.</para><para>Valid Values: <c>evaluate | ignore</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// are setting an alarm that requires that a number of consecutive data points be breaching
         /// to trigger the alarm, this value specifies that number. If you are setting an "M out
         /// of N" alarm, this value is the N.</para><para>An alarm's total current evaluation period can be no longer than one day, so this
-        /// number multiplied by <code>Period</code> cannot be more than 86,400 seconds.</para>
+        /// number multiplied by <c>Period</c> cannot be more than 86,400 seconds.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -226,9 +225,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter ExtendedStatistic
         /// <summary>
         /// <para>
-        /// <para>The extended statistic for the metric specified in <code>MetricName</code>. When you
-        /// call <code>PutMetricAlarm</code> and specify a <code>MetricName</code>, you must specify
-        /// either <code>Statistic</code> or <code>ExtendedStatistic</code> but not both.</para><para>If you specify <code>ExtendedStatistic</code>, the following are valid values:</para><ul><li><para><code>p90</code></para></li><li><para><code>tm90</code></para></li><li><para><code>tc90</code></para></li><li><para><code>ts90</code></para></li><li><para><code>wm90</code></para></li><li><para><code>IQM</code></para></li><li><para><code>PR(<i>n</i>:<i>m</i>)</code> where n and m are values of the metric</para></li><li><para><code>TC(<i>X</i>%:<i>X</i>%)</code> where X is between 10 and 90 inclusive.</para></li><li><para><code>TM(<i>X</i>%:<i>X</i>%)</code> where X is between 10 and 90 inclusive.</para></li><li><para><code>TS(<i>X</i>%:<i>X</i>%)</code> where X is between 10 and 90 inclusive.</para></li><li><para><code>WM(<i>X</i>%:<i>X</i>%)</code> where X is between 10 and 90 inclusive.</para></li></ul><para>For more information about these extended statistics, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html">CloudWatch
+        /// <para>The extended statistic for the metric specified in <c>MetricName</c>. When you call
+        /// <c>PutMetricAlarm</c> and specify a <c>MetricName</c>, you must specify either <c>Statistic</c>
+        /// or <c>ExtendedStatistic</c> but not both.</para><para>If you specify <c>ExtendedStatistic</c>, the following are valid values:</para><ul><li><para><c>p90</c></para></li><li><para><c>tm90</c></para></li><li><para><c>tc90</c></para></li><li><para><c>ts90</c></para></li><li><para><c>wm90</c></para></li><li><para><c>IQM</c></para></li><li><para><c>PR(<i>n</i>:<i>m</i>)</c> where n and m are values of the metric</para></li><li><para><c>TC(<i>X</i>%:<i>X</i>%)</c> where X is between 10 and 90 inclusive.</para></li><li><para><c>TM(<i>X</i>%:<i>X</i>%)</c> where X is between 10 and 90 inclusive.</para></li><li><para><c>TS(<i>X</i>%:<i>X</i>%)</c> where X is between 10 and 90 inclusive.</para></li><li><para><c>WM(<i>X</i>%:<i>X</i>%)</c> where X is between 10 and 90 inclusive.</para></li></ul><para>For more information about these extended statistics, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html">CloudWatch
         /// statistics definitions</a>.</para>
         /// </para>
         /// </summary>
@@ -239,9 +238,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter InsufficientDataAction
         /// <summary>
         /// <para>
-        /// <para>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code>
+        /// <para>The actions to execute when this alarm transitions to the <c>INSUFFICIENT_DATA</c>
         /// state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-        /// Valid values:</para><para><b>EC2 actions:</b></para><ul><li><para><code>arn:aws:automate:<i>region</i>:ec2:stop</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:terminate</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:reboot</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:recover</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code></para></li></ul><para><b>Autoscaling action:</b></para><ul><li><para><code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para></li></ul><para><b>SNS notification action:</b></para><ul><li><para><code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para></li></ul><para><b>SSM integration actions:</b></para><ul><li><para><code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>#CATEGORY=<i>category-name</i></code></para></li><li><para><code>arn:aws:ssm-incidents::<i>account-id</i>:responseplan/<i>response-plan-name</i></code></para></li></ul>
+        /// Valid values:</para><para><b>EC2 actions:</b></para><ul><li><para><c>arn:aws:automate:<i>region</i>:ec2:stop</c></para></li><li><para><c>arn:aws:automate:<i>region</i>:ec2:terminate</c></para></li><li><para><c>arn:aws:automate:<i>region</i>:ec2:reboot</c></para></li><li><para><c>arn:aws:automate:<i>region</i>:ec2:recover</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</c></para></li></ul><para><b>Autoscaling action:</b></para><ul><li><para><c>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></c></para></li></ul><para><b>SNS notification action:</b></para><ul><li><para><c>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></c></para></li></ul><para><b>SSM integration actions:</b></para><ul><li><para><c>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>#CATEGORY=<i>category-name</i></c></para></li><li><para><c>arn:aws:ssm-incidents::<i>account-id</i>:responseplan/<i>response-plan-name</i></c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,12 +251,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// <para>The name for the metric associated with the alarm. For each <code>PutMetricAlarm</code>
-        /// operation, you must specify either <code>MetricName</code> or a <code>Metrics</code>
-        /// array.</para><para>If you are creating an alarm based on a math expression, you cannot specify this parameter,
-        /// or any of the <code>Namespace</code>, <code>Dimensions</code>, <code>Period</code>,
-        /// <code>Unit</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters.
-        /// Instead, you specify all this information in the <code>Metrics</code> array.</para>
+        /// <para>The name for the metric associated with the alarm. For each <c>PutMetricAlarm</c>
+        /// operation, you must specify either <c>MetricName</c> or a <c>Metrics</c> array.</para><para>If you are creating an alarm based on a math expression, you cannot specify this parameter,
+        /// or any of the <c>Namespace</c>, <c>Dimensions</c>, <c>Period</c>, <c>Unit</c>, <c>Statistic</c>,
+        /// or <c>ExtendedStatistic</c> parameters. Instead, you specify all this information
+        /// in the <c>Metrics</c> array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,17 +265,16 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Metric
         /// <summary>
         /// <para>
-        /// <para>An array of <code>MetricDataQuery</code> structures that enable you to create an alarm
-        /// based on the result of a metric math expression. For each <code>PutMetricAlarm</code>
-        /// operation, you must specify either <code>MetricName</code> or a <code>Metrics</code>
-        /// array.</para><para>Each item in the <code>Metrics</code> array either retrieves a metric or performs
-        /// a math expression.</para><para>One item in the <code>Metrics</code> array is the expression that the alarm watches.
-        /// You designate this expression by setting <code>ReturnData</code> to true for this
-        /// object in the array. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html">MetricDataQuery</a>.</para><para>If you use the <code>Metrics</code> parameter, you cannot include the <code>Namespace</code>,
-        /// <code>MetricName</code>, <code>Dimensions</code>, <code>Period</code>, <code>Unit</code>,
-        /// <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters of <code>PutMetricAlarm</code>
-        /// in the same operation. Instead, you retrieve the metrics you are using in your math
-        /// expression as part of the <code>Metrics</code> array.</para>
+        /// <para>An array of <c>MetricDataQuery</c> structures that enable you to create an alarm based
+        /// on the result of a metric math expression. For each <c>PutMetricAlarm</c> operation,
+        /// you must specify either <c>MetricName</c> or a <c>Metrics</c> array.</para><para>Each item in the <c>Metrics</c> array either retrieves a metric or performs a math
+        /// expression.</para><para>One item in the <c>Metrics</c> array is the expression that the alarm watches. You
+        /// designate this expression by setting <c>ReturnData</c> to true for this object in
+        /// the array. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html">MetricDataQuery</a>.</para><para>If you use the <c>Metrics</c> parameter, you cannot include the <c>Namespace</c>,
+        /// <c>MetricName</c>, <c>Dimensions</c>, <c>Period</c>, <c>Unit</c>, <c>Statistic</c>,
+        /// or <c>ExtendedStatistic</c> parameters of <c>PutMetricAlarm</c> in the same operation.
+        /// Instead, you retrieve the metrics you are using in your math expression as part of
+        /// the <c>Metrics</c> array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -288,7 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace for the metric associated specified in <code>MetricName</code>.</para>
+        /// <para>The namespace for the metric associated specified in <c>MetricName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -298,9 +295,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter OKAction
         /// <summary>
         /// <para>
-        /// <para>The actions to execute when this alarm transitions to an <code>OK</code> state from
-        /// any other state. Each action is specified as an Amazon Resource Name (ARN). Valid
-        /// values:</para><para><b>EC2 actions:</b></para><ul><li><para><code>arn:aws:automate:<i>region</i>:ec2:stop</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:terminate</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:reboot</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:recover</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code></para></li></ul><para><b>Autoscaling action:</b></para><ul><li><para><code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para></li></ul><para><b>SNS notification action:</b></para><ul><li><para><code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para></li></ul><para><b>SSM integration actions:</b></para><ul><li><para><code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>#CATEGORY=<i>category-name</i></code></para></li><li><para><code>arn:aws:ssm-incidents::<i>account-id</i>:responseplan/<i>response-plan-name</i></code></para></li></ul>
+        /// <para>The actions to execute when this alarm transitions to an <c>OK</c> state from any
+        /// other state. Each action is specified as an Amazon Resource Name (ARN). Valid values:</para><para><b>EC2 actions:</b></para><ul><li><para><c>arn:aws:automate:<i>region</i>:ec2:stop</c></para></li><li><para><c>arn:aws:automate:<i>region</i>:ec2:terminate</c></para></li><li><para><c>arn:aws:automate:<i>region</i>:ec2:reboot</c></para></li><li><para><c>arn:aws:automate:<i>region</i>:ec2:recover</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</c></para></li><li><para><c>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</c></para></li></ul><para><b>Autoscaling action:</b></para><ul><li><para><c>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></c></para></li></ul><para><b>SNS notification action:</b></para><ul><li><para><c>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></c></para></li></ul><para><b>SSM integration actions:</b></para><ul><li><para><c>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>#CATEGORY=<i>category-name</i></c></para></li><li><para><c>arn:aws:ssm-incidents::<i>account-id</i>:responseplan/<i>response-plan-name</i></c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -311,19 +307,19 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para>The length, in seconds, used each time the metric specified in <code>MetricName</code>
-        /// is evaluated. Valid values are 10, 30, and any multiple of 60.</para><para><code>Period</code> is required for alarms based on static thresholds. If you are
-        /// creating an alarm based on a metric math expression, you specify the period for each
-        /// metric within the objects in the <code>Metrics</code> array.</para><para>Be sure to specify 10 or 30 only for metrics that are stored by a <code>PutMetricData</code>
-        /// call with a <code>StorageResolution</code> of 1. If you specify a period of 10 or
-        /// 30 for a metric that does not have sub-minute resolution, the alarm still attempts
-        /// to gather data at the period rate that you specify. In this case, it does not receive
-        /// data for the attempts that do not correspond to a one-minute data resolution, and
-        /// the alarm might often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also
-        /// sets this alarm as a high-resolution alarm, which has a higher charge than other alarms.
-        /// For more information about pricing, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon
-        /// CloudWatch Pricing</a>.</para><para>An alarm's total current evaluation period can be no longer than one day, so <code>Period</code>
-        /// multiplied by <code>EvaluationPeriods</code> cannot be more than 86,400 seconds.</para>
+        /// <para>The length, in seconds, used each time the metric specified in <c>MetricName</c> is
+        /// evaluated. Valid values are 10, 30, and any multiple of 60.</para><para><c>Period</c> is required for alarms based on static thresholds. If you are creating
+        /// an alarm based on a metric math expression, you specify the period for each metric
+        /// within the objects in the <c>Metrics</c> array.</para><para>Be sure to specify 10 or 30 only for metrics that are stored by a <c>PutMetricData</c>
+        /// call with a <c>StorageResolution</c> of 1. If you specify a period of 10 or 30 for
+        /// a metric that does not have sub-minute resolution, the alarm still attempts to gather
+        /// data at the period rate that you specify. In this case, it does not receive data for
+        /// the attempts that do not correspond to a one-minute data resolution, and the alarm
+        /// might often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this
+        /// alarm as a high-resolution alarm, which has a higher charge than other alarms. For
+        /// more information about pricing, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon
+        /// CloudWatch Pricing</a>.</para><para>An alarm's total current evaluation period can be no longer than one day, so <c>Period</c>
+        /// multiplied by <c>EvaluationPeriods</c> cannot be more than 86,400 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -333,10 +329,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Statistic
         /// <summary>
         /// <para>
-        /// <para>The statistic for the metric specified in <code>MetricName</code>, other than percentile.
-        /// For percentile statistics, use <code>ExtendedStatistic</code>. When you call <code>PutMetricAlarm</code>
-        /// and specify a <code>MetricName</code>, you must specify either <code>Statistic</code>
-        /// or <code>ExtendedStatistic,</code> but not both.</para>
+        /// <para>The statistic for the metric specified in <c>MetricName</c>, other than percentile.
+        /// For percentile statistics, use <c>ExtendedStatistic</c>. When you call <c>PutMetricAlarm</c>
+        /// and specify a <c>MetricName</c>, you must specify either <c>Statistic</c> or <c>ExtendedStatistic,</c>
+        /// but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -349,7 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>A list of key-value pairs to associate with the alarm. You can associate as many as
         /// 50 tags with an alarm. To be able to associate tags with the alarm when you create
-        /// the alarm, you must have the <code>cloudwatch:TagResource</code> permission.</para><para>Tags can help you organize and categorize your resources. You can also use them to
+        /// the alarm, you must have the <c>cloudwatch:TagResource</c> permission.</para><para>Tags can help you organize and categorize your resources. You can also use them to
         /// scope user permissions by granting a user permission to access or change only resources
         /// with certain tag values.</para><para>If you are using this operation to update an existing alarm, any tags you specify
         /// in this parameter are ignored. To change the tags of an existing alarm, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">TagResource</a>
@@ -376,7 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>If this is an alarm based on an anomaly detection model, make this value match the
-        /// ID of the <code>ANOMALY_DETECTION_BAND</code> function.</para><para>For an example of how to use this parameter, see the <b>Anomaly Detection Model Alarm</b>
+        /// ID of the <c>ANOMALY_DETECTION_BAND</c> function.</para><para>For an example of how to use this parameter, see the <b>Anomaly Detection Model Alarm</b>
         /// example on this page.</para><para>If your alarm uses this parameter, it cannot have Auto Scaling actions.</para>
         /// </para>
         /// </summary>
@@ -387,13 +383,13 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter TreatMissingData
         /// <summary>
         /// <para>
-        /// <para> Sets how this alarm is to handle missing data points. If <code>TreatMissingData</code>
-        /// is omitted, the default behavior of <code>missing</code> is used. For more information,
+        /// <para> Sets how this alarm is to handle missing data points. If <c>TreatMissingData</c>
+        /// is omitted, the default behavior of <c>missing</c> is used. For more information,
         /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring
-        /// How CloudWatch Alarms Treats Missing Data</a>.</para><para>Valid Values: <code>breaching | notBreaching | ignore | missing</code></para><note><para>Alarms that evaluate metrics in the <code>AWS/DynamoDB</code> namespace always <code>ignore</code>
-        /// missing data even if you choose a different option for <code>TreatMissingData</code>.
-        /// When an <code>AWS/DynamoDB</code> metric has missing data, alarms that evaluate that
-        /// metric remain in their current state.</para></note>
+        /// How CloudWatch Alarms Treats Missing Data</a>.</para><para>Valid Values: <c>breaching | notBreaching | ignore | missing</c></para><note><para>Alarms that evaluate metrics in the <c>AWS/DynamoDB</c> namespace always <c>ignore</c>
+        /// missing data even if you choose a different option for <c>TreatMissingData</c>. When
+        /// an <c>AWS/DynamoDB</c> metric has missing data, alarms that evaluate that metric remain
+        /// in their current state.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -409,12 +405,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// Units help provide conceptual meaning to your data. Metric data points that specify
         /// a unit of measure, such as Percent, are aggregated separately. If you are creating
         /// an alarm based on a metric math expression, you can specify the unit for each metric
-        /// (if needed) within the objects in the <code>Metrics</code> array.</para><para>If you don't specify <code>Unit</code>, CloudWatch retrieves all unit types that have
-        /// been published for the metric and attempts to evaluate the alarm. Usually, metrics
-        /// are published with only one unit, so the alarm works as intended.</para><para>However, if the metric is published with multiple types of units and you don't specify
-        /// a unit, the alarm's behavior is not defined and it behaves unpredictably.</para><para>We recommend omitting <code>Unit</code> so that you don't inadvertently specify an
-        /// incorrect unit that is not published for this metric. Doing so causes the alarm to
-        /// be stuck in the <code>INSUFFICIENT DATA</code> state.</para>
+        /// (if needed) within the objects in the <c>Metrics</c> array.</para><para>If you don't specify <c>Unit</c>, CloudWatch retrieves all unit types that have been
+        /// published for the metric and attempts to evaluate the alarm. Usually, metrics are
+        /// published with only one unit, so the alarm works as intended.</para><para>However, if the metric is published with multiple types of units and you don't specify
+        /// a unit, the alarm's behavior is not defined and it behaves unpredictably.</para><para>We recommend omitting <c>Unit</c> so that you don't inadvertently specify an incorrect
+        /// unit that is not published for this metric. Doing so causes the alarm to be stuck
+        /// in the <c>INSUFFICIENT DATA</c> state.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -34,34 +34,33 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// 
     ///  
     /// <para>
-    /// When using <code>PreviousContactId</code> and <code>RelatedContactId</code> input
-    /// parameters, note the following:
-    /// </para><ul><li><para><code>PreviousContactId</code></para><ul><li><para>
+    /// When using <c>PreviousContactId</c> and <c>RelatedContactId</c> input parameters,
+    /// note the following:
+    /// </para><ul><li><para><c>PreviousContactId</c></para><ul><li><para>
     /// Any updates to user-defined task contact attributes on any contact linked through
-    /// the same <code>PreviousContactId</code> will affect every contact in the chain.
+    /// the same <c>PreviousContactId</c> will affect every contact in the chain.
     /// </para></li><li><para>
     /// There can be a maximum of 12 linked task contacts in a chain. That is, 12 task contacts
-    /// can be created that share the same <code>PreviousContactId</code>.
-    /// </para></li></ul></li><li><para><code>RelatedContactId</code></para><ul><li><para>
+    /// can be created that share the same <c>PreviousContactId</c>.
+    /// </para></li></ul></li><li><para><c>RelatedContactId</c></para><ul><li><para>
     /// Copies contact attributes from the related task contact to the new contact.
     /// </para></li><li><para>
     /// Any update on attributes in a new task contact does not update attributes on previous
     /// contact.
     /// </para></li><li><para>
     /// There’s no limit on the number of task contacts that can be created that use the same
-    /// <code>RelatedContactId</code>.
+    /// <c>RelatedContactId</c>.
     /// </para></li></ul></li></ul><para>
-    /// In addition, when calling StartTaskContact include only one of these parameters: <code>ContactFlowID</code>,
-    /// <code>QuickConnectID</code>, or <code>TaskTemplateID</code>. Only one parameter is
-    /// required as long as the task template has a flow configured to run it. If more than
-    /// one parameter is specified, or only the <code>TaskTemplateID</code> is specified but
-    /// it does not have a flow configured, the request returns an error because Amazon Connect
-    /// cannot identify the unique flow to run when the task is created.
+    /// In addition, when calling StartTaskContact include only one of these parameters: <c>ContactFlowID</c>,
+    /// <c>QuickConnectID</c>, or <c>TaskTemplateID</c>. Only one parameter is required as
+    /// long as the task template has a flow configured to run it. If more than one parameter
+    /// is specified, or only the <c>TaskTemplateID</c> is specified but it does not have
+    /// a flow configured, the request returns an error because Amazon Connect cannot identify
+    /// the unique flow to run when the task is created.
     /// </para><para>
-    /// A <code>ServiceQuotaExceededException</code> occurs when the number of open tasks
-    /// exceeds the active tasks quota or there are already 12 tasks referencing the same
-    /// <code>PreviousContactId</code>. For more information about service quotas for task
-    /// contacts, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon
+    /// A <c>ServiceQuotaExceededException</c> occurs when the number of open tasks exceeds
+    /// the active tasks quota or there are already 12 tasks referencing the same <c>PreviousContactId</c>.
+    /// For more information about service quotas for task contacts, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon
     /// Connect service quotas</a> in the <i>Amazon Connect Administrator Guide</i>. 
     /// </para>
     /// </summary>
@@ -155,9 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The identifier of the previous chat, voice, or task contact. Any updates to user-defined
-        /// attributes to task contacts linked using the same <code>PreviousContactID</code> will
-        /// affect every contact in the chain. There can be a maximum of 12 linked task contacts
-        /// in a chain.</para>
+        /// attributes to task contacts linked using the same <c>PreviousContactID</c> will affect
+        /// every contact in the chain. There can be a maximum of 12 linked task contacts in a
+        /// chain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter QuickConnectId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the quick connect. Tasks that are created by using <code>QuickConnectId</code>
+        /// <para>The identifier for the quick connect. Tasks that are created by using <c>QuickConnectId</c>
         /// will use the flow that is defined on agent or queue quick connect. For more information
         /// about quick connects, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/quick-connects.html">Create
         /// quick connects</a>.</para>
@@ -181,9 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks
-        /// can have the following reference types at the time of creation: <code>URL</code> |
-        /// <code>NUMBER</code> | <code>STRING</code> | <code>DATE</code> | <code>EMAIL</code>.
-        /// <code>ATTACHMENT</code> is not a supported reference type during task creation.</para>
+        /// can have the following reference types at the time of creation: <c>URL</c> | <c>NUMBER</c>
+        /// | <c>STRING</c> | <c>DATE</c> | <c>EMAIL</c>. <c>ATTACHMENT</c> is not a supported
+        /// reference type during task creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,11 +194,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The contactId that is <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html#linked-tasks">related</a>
-        /// to this contact. Linking tasks together by using <code>RelatedContactID</code> copies
-        /// over contact attributes from the related task contact to the new task contact. All
-        /// updates to user-defined attributes in the new task contact are limited to the individual
-        /// contact ID, unlike what happens when tasks are linked by using <code>PreviousContactID</code>.
-        /// There are no limits to the number of contacts that can be linked by using <code>RelatedContactId</code>.
+        /// to this contact. Linking tasks together by using <c>RelatedContactID</c> copies over
+        /// contact attributes from the related task contact to the new task contact. All updates
+        /// to user-defined attributes in the new task contact are limited to the individual contact
+        /// ID, unlike what happens when tasks are linked by using <c>PreviousContactID</c>. There
+        /// are no limits to the number of contacts that can be linked by using <c>RelatedContactId</c>.
         /// </para>
         /// </para>
         /// </summary>

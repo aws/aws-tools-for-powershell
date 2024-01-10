@@ -33,21 +33,20 @@ namespace Amazon.PowerShell.Cmdlets.REK
     ///  
     /// <para>
     /// Amazon Rekognition Video can detect segments in a video stored in an Amazon S3 bucket.
-    /// Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartSegmentDetection</code>
-    /// returns a job identifier (<code>JobId</code>) which you use to get the results of
-    /// the operation. When segment detection is finished, Amazon Rekognition Video publishes
-    /// a completion status to the Amazon Simple Notification Service topic that you specify
-    /// in <code>NotificationChannel</code>.
+    /// Use <a>Video</a> to specify the bucket name and the filename of the video. <c>StartSegmentDetection</c>
+    /// returns a job identifier (<c>JobId</c>) which you use to get the results of the operation.
+    /// When segment detection is finished, Amazon Rekognition Video publishes a completion
+    /// status to the Amazon Simple Notification Service topic that you specify in <c>NotificationChannel</c>.
     /// </para><para>
-    /// You can use the <code>Filters</code> (<a>StartSegmentDetectionFilters</a>) input parameter
-    /// to specify the minimum detection confidence returned in the response. Within <code>Filters</code>,
-    /// use <code>ShotFilter</code> (<a>StartShotDetectionFilter</a>) to filter detected shots.
-    /// Use <code>TechnicalCueFilter</code> (<a>StartTechnicalCueDetectionFilter</a>) to filter
+    /// You can use the <c>Filters</c> (<a>StartSegmentDetectionFilters</a>) input parameter
+    /// to specify the minimum detection confidence returned in the response. Within <c>Filters</c>,
+    /// use <c>ShotFilter</c> (<a>StartShotDetectionFilter</a>) to filter detected shots.
+    /// Use <c>TechnicalCueFilter</c> (<a>StartTechnicalCueDetectionFilter</a>) to filter
     /// technical cues. 
     /// </para><para>
     /// To get the results of the segment detection operation, first check that the status
-    /// value published to the Amazon SNS topic is <code>SUCCEEDED</code>. if so, call <a>GetSegmentDetection</a>
-    /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartSegmentDetection</code>.
+    /// value published to the Amazon SNS topic is <c>SUCCEEDED</c>. if so, call <a>GetSegmentDetection</a>
+    /// and pass the job identifier (<c>JobId</c>) from the initial call to <c>StartSegmentDetection</c>.
     /// 
     /// </para><para>
     /// For more information, see Detecting video segments in stored video in the Amazon Rekognition
@@ -70,9 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Idempotent token used to identify the start request. If you use the same token with
-        /// multiple <code>StartSegmentDetection</code> requests, the same <code>JobId</code>
-        /// is returned. Use <code>ClientRequestToken</code> to prevent the same job from being
-        /// accidently started more than once. </para>
+        /// multiple <c>StartSegmentDetection</c> requests, the same <c>JobId</c> is returned.
+        /// Use <c>ClientRequestToken</c> to prevent the same job from being accidently started
+        /// more than once. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>An identifier you specify that's returned in the completion notification that's published
-        /// to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code>
+        /// to your Amazon Simple Notification Service topic. For example, you can use <c>JobTag</c>
         /// to group related jobs and identify them in the completion notification.</para>
         /// </para>
         /// </summary>
@@ -115,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para> The minimum percentage of pixels in a frame that need to have a luminance below the
         /// max_black_pixel_value for a frame to be considered a black frame. Luminance is calculated
         /// using the BT.709 matrix. </para><para>The default value is 99, which means at least 99% of all pixels in the frame are black
-        /// pixels as per the <code>MaxPixelThreshold</code> set. You can reduce this value to
-        /// allow more noise on the black frame.</para>
+        /// pixels as per the <c>MaxPixelThreshold</c> set. You can reduce this value to allow
+        /// more noise on the black frame.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// to return a detected segment. Confidence represents how certain Amazon Rekognition
         /// is that a segment is correctly identified. 0 is the lowest confidence. 100 is the
         /// highest confidence. Amazon Rekognition Video doesn't return any segments with a confidence
-        /// level lower than this specified value.</para><para>If you don't specify <code>MinSegmentConfidence</code>, the <code>GetSegmentDetection</code>
-        /// returns segments with confidence values greater than or equal to 50 percent.</para>
+        /// level lower than this specified value.</para><para>If you don't specify <c>MinSegmentConfidence</c>, the <c>GetSegmentDetection</c> returns
+        /// segments with confidence values greater than or equal to 50 percent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// to return a detected segment. Confidence represents how certain Amazon Rekognition
         /// is that a segment is correctly identified. 0 is the lowest confidence. 100 is the
         /// highest confidence. Amazon Rekognition Video doesn't return any segments with a confidence
-        /// level lower than this specified value.</para><para>If you don't specify <code>MinSegmentConfidence</code>, <code>GetSegmentDetection</code>
-        /// returns segments with confidence values greater than or equal to 50 percent.</para>
+        /// level lower than this specified value.</para><para>If you don't specify <c>MinSegmentConfidence</c>, <c>GetSegmentDetection</c> returns
+        /// segments with confidence values greater than or equal to 50 percent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

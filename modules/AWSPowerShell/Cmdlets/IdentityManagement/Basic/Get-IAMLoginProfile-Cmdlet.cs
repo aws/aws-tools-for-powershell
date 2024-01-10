@@ -31,15 +31,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Retrieves the user name for the specified IAM user. A login profile is created when
     /// you create a password for the user to access the Amazon Web Services Management Console.
     /// If the user does not exist or does not have a password, the operation returns a 404
-    /// (<code>NoSuchEntity</code>) error.
+    /// (<c>NoSuchEntity</c>) error.
     /// 
     ///  
     /// <para>
-    /// If you create an IAM user with access to the console, the <code>CreateDate</code>
-    /// reflects the date you created the initial password for the user.
+    /// If you create an IAM user with access to the console, the <c>CreateDate</c> reflects
+    /// the date you created the initial password for the user.
     /// </para><para>
     /// If you create an IAM user with programmatic access, and then later add a password
-    /// for the user to access the Amazon Web Services Management Console, the <code>CreateDate</code>
+    /// for the user to access the Amazon Web Services Management Console, the <c>CreateDate</c>
     /// reflects the initial password creation date. A user with programmatic access does
     /// not have a login profile unless you create a password for the user to access the Amazon
     /// Web Services Management Console.

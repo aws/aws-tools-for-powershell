@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     ///  
     /// <para>
     /// To retrieve a full description of a particular configuration revision, call and provide
-    /// one of the ARNs returned by <code>ListAutoScalingConfigurations</code>.
+    /// one of the ARNs returned by <c>ListAutoScalingConfigurations</c>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "AARAutoScalingConfigurationList")]
@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter LatestOnly
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to list only the latest revision for each requested configuration
-        /// name.</para><para>Set to <code>false</code> to list all revisions for each requested configuration name.</para><para>Default: <code>true</code></para>
+        /// <para>Set to <c>true</c> to list only the latest revision for each requested configuration
+        /// name.</para><para>Set to <c>false</c> to list all revisions for each requested configuration name.</para><para>Default: <c>true</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to include in each response (result page). It's used
-        /// for a paginated request.</para><para>If you don't specify <code>MaxResults</code>, the request retrieves all available
-        /// results in a single response.</para>
+        /// for a paginated request.</para><para>If you don't specify <c>MaxResults</c>, the request retrieves all available results
+        /// in a single response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,8 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <para>
         /// <para>A token from a previous result page. It's used for a paginated request. The request
         /// retrieves the next result page. All other parameter values must be identical to the
-        /// ones that are specified in the initial request.</para><para>If you don't specify <code>NextToken</code>, the request retrieves the first result
-        /// page.</para>
+        /// ones that are specified in the initial request.</para><para>If you don't specify <c>NextToken</c>, the request retrieves the first result page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

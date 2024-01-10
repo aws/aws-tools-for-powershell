@@ -40,8 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CCA
     /// </para><para>
     /// After you have initiated a resource update request, you can monitor the progress of
     /// your request by calling <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html">GetResourceRequestStatus</a>
-    /// using the <code>RequestToken</code> of the <code>ProgressEvent</code> returned by
-    /// <code>UpdateResource</code>.
+    /// using the <c>RequestToken</c> of the <c>ProgressEvent</c> returned by <c>UpdateResource</c>.
     /// </para><para>
     /// For more information about the properties of a specific resource, refer to the related
     /// topic for the resource in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Resource
@@ -73,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CCA
         /// as JSON.</para><para>For compound primary identifiers (that is, one that consists of multiple resource
         /// properties strung together), to specify the primary identifier as a string, list the
         /// property values <i>in the order they are specified</i> in the primary identifier definition,
-        /// separated by <code>|</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html">Identifying
+        /// separated by <c>|</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html">Identifying
         /// resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -113,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CCA
         /// <para>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role for
         /// Cloud Control API to use when performing this resource operation. The role specified
         /// must have the permissions required for this operation. The necessary permissions for
-        /// each event handler are defined in the <code><a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers">handlers</a></code> section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource
+        /// each event handler are defined in the <c><a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers">handlers</a></c> section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource
         /// type definition schema</a>.</para><para>If you do not specify a role, Cloud Control API uses a temporary session created using
         /// your Amazon Web Services user credentials.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying
         /// credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</para>

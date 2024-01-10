@@ -29,15 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.EBS
 {
     /// <summary>
     /// Writes a block of data to a snapshot. If the specified block contains data, the existing
-    /// data is overwritten. The target snapshot must be in the <code>pending</code> state.
+    /// data is overwritten. The target snapshot must be in the <c>pending</c> state.
     /// 
     ///  
     /// <para>
     /// Data written to a snapshot must be aligned with 512-KiB sectors.
     /// </para><note><para>
-    /// You should always retry requests that receive server (<code>5xx</code>) error responses,
-    /// and <code>ThrottlingException</code> and <code>RequestThrottledException</code> client
-    /// error responses. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error
+    /// You should always retry requests that receive server (<c>5xx</c>) error responses,
+    /// and <c>ThrottlingException</c> and <c>RequestThrottledException</c> client error responses.
+    /// For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error
     /// retries</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para></note>
     /// </summary>
@@ -83,10 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         /// <summary>
         /// <para>
         /// <para>The block index of the block in which to write the data. A block index is a logical
-        /// index in units of <code>512</code> KiB blocks. To identify the block index, divide
-        /// the logical offset of the data in the logical volume by the block size (logical offset
-        /// of data/<code>524288</code>). The logical offset of the data must be <code>512</code>
-        /// KiB aligned.</para>
+        /// index in units of <c>512</c> KiB blocks. To identify the block index, divide the logical
+        /// offset of the data in the logical volume by the block size (logical offset of data/<c>524288</c>).
+        /// The logical offset of the data must be <c>512</c> KiB aligned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         /// <summary>
         /// <para>
         /// <para>The algorithm used to generate the checksum. Currently, the only supported algorithm
-        /// is <code>SHA256</code>.</para>
+        /// is <c>SHA256</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -138,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         /// <summary>
         /// <para>
         /// <para>The size of the data to write to the block, in bytes. Currently, the only supported
-        /// size is <code>524288</code> bytes.</para><para>Valid values: <code>524288</code></para>
+        /// size is <c>524288</c> bytes.</para><para>Valid values: <c>524288</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

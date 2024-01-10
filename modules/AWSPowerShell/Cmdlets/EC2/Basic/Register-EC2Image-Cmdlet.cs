@@ -42,11 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// AMI backed by an instance store volume invalidates its registration. If you make changes
     /// to an image, deregister the previous image and register the new image.
     /// </para><para><b>Register a snapshot of a root device volume</b></para><para>
-    /// You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from
-    /// a snapshot of a root device volume. You specify the snapshot using a block device
-    /// mapping. You can't set the encryption state of the volume using the block device mapping.
-    /// If the snapshot is encrypted, or encryption by default is enabled, the root volume
-    /// of an instance launched from the AMI is encrypted.
+    /// You can use <c>RegisterImage</c> to create an Amazon EBS-backed Linux AMI from a snapshot
+    /// of a root device volume. You specify the snapshot using a block device mapping. You
+    /// can't set the encryption state of the volume using the block device mapping. If the
+    /// snapshot is encrypted, or encryption by default is enabled, the root volume of an
+    /// instance launched from the AMI is encrypted.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create
     /// a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use
@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Architecture
         /// <summary>
         /// <para>
-        /// <para>The architecture of the AMI.</para><para>Default: For Amazon EBS-backed AMIs, <code>i386</code>. For instance store-backed
-        /// AMIs, the architecture specified in the manifest file.</para>
+        /// <para>The architecture of the AMI.</para><para>Default: For Amazon EBS-backed AMIs, <c>i386</c>. For instance store-backed AMIs,
+        /// the architecture specified in the manifest file.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter BootMode
         /// <summary>
         /// <para>
-        /// <para>The boot mode of the AMI. A value of <code>uefi-preferred</code> indicates that the
-        /// AMI supports both UEFI and Legacy BIOS.</para><note><para>The operating system contained in the AMI must be configured to support the specified
+        /// <para>The boot mode of the AMI. A value of <c>uefi-preferred</c> indicates that the AMI
+        /// supports both UEFI and Legacy BIOS.</para><note><para>The operating system contained in the AMI must be configured to support the specified
         /// boot mode.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot
         /// modes</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
@@ -160,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter EnaSupport
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to enable enhanced networking with ENA for the AMI and any
-        /// instances that you launch from the AMI.</para><para>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can
+        /// <para>Set to <c>true</c> to enable enhanced networking with ENA for the AMI and any instances
+        /// that you launch from the AMI.</para><para>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can
         /// make instances launched from the AMI unreachable.</para>
         /// </para>
         /// </summary>
@@ -173,8 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The full path to your AMI manifest in Amazon S3 storage. The specified bucket must
-        /// have the <code>aws-exec-read</code> canned access control list (ACL) to ensure that
-        /// it can be accessed by Amazon EC2. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+        /// have the <c>aws-exec-read</c> canned access control list (ACL) to ensure that it can
+        /// be accessed by Amazon EC2. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
         /// ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -185,12 +185,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ImdsSupport
         /// <summary>
         /// <para>
-        /// <para>Set to <code>v2.0</code> to indicate that IMDSv2 is specified in the AMI. Instances
-        /// launched from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code>
-        /// so that, by default, the instance requires that IMDSv2 is used when requesting instance
-        /// metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
-        /// the AMI</a> in the <i>Amazon EC2 User Guide</i>.</para><note><para>If you set the value to <code>v2.0</code>, make sure that your AMI software can support
+        /// <para>Set to <c>v2.0</c> to indicate that IMDSv2 is specified in the AMI. Instances launched
+        /// from this AMI will have <c>HttpTokens</c> automatically set to <c>required</c> so
+        /// that, by default, the instance requires that IMDSv2 is used when requesting instance
+        /// metadata. In addition, <c>HttpPutResponseHopLimit</c> is set to <c>2</c>. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
+        /// the AMI</a> in the <i>Amazon EC2 User Guide</i>.</para><note><para>If you set the value to <c>v2.0</c>, make sure that your AMI software can support
         /// IMDSv2.</para></note>
         /// </para>
         /// </summary>
@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RootDeviceName
         /// <summary>
         /// <para>
-        /// <para>The device name of the root device volume (for example, <code>/dev/sda1</code>).</para>
+        /// <para>The device name of the root device volume (for example, <c>/dev/sda1</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -251,8 +251,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SriovNetSupport
         /// <summary>
         /// <para>
-        /// <para>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual
-        /// Function interface for the AMI and any instances that you launch from the AMI.</para><para>There is no way to disable <code>sriovNetSupport</code> at this time.</para><para>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can
+        /// <para>Set to <c>simple</c> to enable enhanced networking with the Intel 82599 Virtual Function
+        /// interface for the AMI and any instances that you launch from the AMI.</para><para>There is no way to disable <c>sriovNetSupport</c> at this time.</para><para>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can
         /// make instances launched from the AMI unreachable.</para>
         /// </para>
         /// </summary>
@@ -263,8 +263,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TpmSupport
         /// <summary>
         /// <para>
-        /// <para>Set to <code>v2.0</code> to enable Trusted Platform Module (TPM) support. For more
-        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a>
+        /// <para>Set to <c>v2.0</c> to enable Trusted Platform Module (TPM) support. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a>
         /// in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -290,7 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VirtualizationType
         /// <summary>
         /// <para>
-        /// <para>The type of virtualization (<code>hvm</code> | <code>paravirtual</code>).</para><para>Default: <code>paravirtual</code></para>
+        /// <para>The type of virtualization (<c>hvm</c> | <c>paravirtual</c>).</para><para>Default: <c>paravirtual</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

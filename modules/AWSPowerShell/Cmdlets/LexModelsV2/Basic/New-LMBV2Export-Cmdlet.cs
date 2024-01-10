@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter BotExportSpecification_BotVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the bot that was exported. This will be either <code>DRAFT</code> or
-        /// the version number.</para>
+        /// <para>The version of the bot that was exported. This will be either <c>DRAFT</c> or the
+        /// version number.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

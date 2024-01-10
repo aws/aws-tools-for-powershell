@@ -45,10 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter ComputePlatform
         /// <summary>
         /// <para>
-        /// <para> The compute platform of the profiling group. Use <code>AWSLambda</code> if your application
-        /// runs on AWS Lambda. Use <code>Default</code> if your application runs on a compute
-        /// platform that is not AWS Lambda, such an Amazon EC2 instance, an on-premises server,
-        /// or a different platform. If not specified, <code>Default</code> is used. </para>
+        /// <para> The compute platform of the profiling group. Use <c>AWSLambda</c> if your application
+        /// runs on AWS Lambda. Use <c>Default</c> if your application runs on a compute platform
+        /// that is not AWS Lambda, such an Amazon EC2 instance, an on-premises server, or a different
+        /// platform. If not specified, <c>Default</c> is used. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter AgentOrchestrationConfig_ProfilingEnabled
         /// <summary>
         /// <para>
-        /// <para> A <code>Boolean</code> that specifies whether the profiling agent collects profiling
-        /// data or not. Set to <code>true</code> to enable profiling. </para>
+        /// <para> A <c>Boolean</c> that specifies whether the profiling agent collects profiling data
+        /// or not. Set to <c>true</c> to enable profiling. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

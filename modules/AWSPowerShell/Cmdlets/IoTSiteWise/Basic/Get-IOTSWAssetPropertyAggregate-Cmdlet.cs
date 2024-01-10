@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     /// <para>
     /// To identify an asset property, you must specify one of the following:
     /// </para><ul><li><para>
-    /// The <code>assetId</code> and <code>propertyId</code> of an asset property.
+    /// The <c>assetId</c> and <c>propertyId</c> of an asset property.
     /// </para></li><li><para>
-    /// A <code>propertyAlias</code>, which is a data stream alias (for example, <code>/company/windfarm/3/turbine/7/temperature</code>).
+    /// A <c>propertyAlias</c>, which is a data stream alias (for example, <c>/company/windfarm/3/turbine/7/temperature</c>).
     /// To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.
     /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The alias that identifies the property, such as an OPC-UA server data stream path
-        /// (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information,
+        /// (for example, <c>/company/windfarm/3/turbine/7/temperature</c>). For more information,
         /// see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping
         /// industrial data streams to asset properties</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter TimeOrdering
         /// <summary>
         /// <para>
-        /// <para>The chronological sorting order of the requested information.</para><para>Default: <code>ASCENDING</code></para>
+        /// <para>The chronological sorting order of the requested information.</para><para>Default: <c>ASCENDING</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,8 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return for each paginated request. A result set is
-        /// returned in the two cases, whichever occurs first.</para><ul><li><para>The size of the result set is equal to 1 MB.</para></li><li><para>The number of data points in the result set is equal to the value of <code>maxResults</code>.
-        /// The maximum value of <code>maxResults</code> is 2500.</para></li></ul>
+        /// returned in the two cases, whichever occurs first.</para><ul><li><para>The size of the result set is equal to 1 MB.</para></li><li><para>The number of data points in the result set is equal to the value of <c>maxResults</c>.
+        /// The maximum value of <c>maxResults</c> is 2500.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

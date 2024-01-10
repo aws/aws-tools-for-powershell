@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token returned from a previous call to <code>ListSuppressedDestinations</code> to
-        /// indicate the position in the list of suppressed email addresses.</para>
+        /// <para>A token returned from a previous call to <c>ListSuppressedDestinations</c> to indicate
+        /// the position in the list of suppressed email addresses.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -93,10 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>The number of results to show in a single call to <code>ListSuppressedDestinations</code>.
+        /// <para>The number of results to show in a single call to <c>ListSuppressedDestinations</c>.
         /// If the number of results is larger than the number you specified in this parameter,
-        /// then the response includes a <code>NextToken</code> element, which you can use to
-        /// obtain additional results.</para>
+        /// then the response includes a <c>NextToken</c> element, which you can use to obtain
+        /// additional results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

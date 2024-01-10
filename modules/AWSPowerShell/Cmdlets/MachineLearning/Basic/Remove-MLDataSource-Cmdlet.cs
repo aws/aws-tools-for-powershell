@@ -28,13 +28,13 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Assigns the DELETED status to a <code>DataSource</code>, rendering it unusable.
+    /// Assigns the DELETED status to a <c>DataSource</c>, rendering it unusable.
     /// 
     ///  
     /// <para>
-    /// After using the <code>DeleteDataSource</code> operation, you can use the <a>GetDataSource</a>
-    /// operation to verify that the status of the <code>DataSource</code> changed to DELETED.
-    /// </para><para><b>Caution:</b> The results of the <code>DeleteDataSource</code> operation are irreversible.
+    /// After using the <c>DeleteDataSource</c> operation, you can use the <a>GetDataSource</a>
+    /// operation to verify that the status of the <c>DataSource</c> changed to DELETED.
+    /// </para><para><b>Caution:</b> The results of the <c>DeleteDataSource</c> operation are irreversible.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "MLDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// <para>A user-supplied ID that uniquely identifies the <code>DataSource</code>.</para>
+        /// <para>A user-supplied ID that uniquely identifies the <c>DataSource</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

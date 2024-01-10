@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Auth
         /// <summary>
         /// <para>
-        /// <para>The new authentication settings for the <code>DBProxy</code>.</para>
+        /// <para>The new authentication settings for the <c>DBProxy</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBProxyName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the <code>DBProxy</code> to modify.</para>
+        /// <para>The identifier for the <c>DBProxy</c> to modify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NewDBProxyName
         /// <summary>
         /// <para>
-        /// <para>The new identifier for the <code>DBProxy</code>. An identifier must begin with a letter
+        /// <para>The new identifier for the <c>DBProxy</c>. An identifier must begin with a letter
         /// and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen
         /// or contain two consecutive hyphens.</para>
         /// </para>
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The new list of security groups for the <code>DBProxy</code>.</para>
+        /// <para>The new list of security groups for the <c>DBProxy</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

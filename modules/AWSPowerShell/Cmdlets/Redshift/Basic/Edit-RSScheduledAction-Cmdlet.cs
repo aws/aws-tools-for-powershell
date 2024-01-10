@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>A boolean value indicating whether the resize operation is using the classic resize
-        /// process. If you don't provide this parameter or set the value to <code>false</code>,
-        /// the resize type is elastic. </para>
+        /// process. If you don't provide this parameter or set the value to <c>false</c>, the
+        /// resize type is elastic. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Schedule
         /// <summary>
         /// <para>
-        /// <para>A modified schedule in either <code>at( )</code> or <code>cron( )</code> format. For
-        /// more information about this parameter, see <a>ScheduledAction</a>.</para>
+        /// <para>A modified schedule in either <c>at( )</c> or <c>cron( )</c> format. For more information
+        /// about this parameter, see <a>ScheduledAction</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

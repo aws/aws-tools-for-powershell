@@ -106,8 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         /// <summary>
         /// <para>
         /// <para>The ARN of the role used by the service to access Amazon Web Services resources, including
-        /// <code>Transcribe</code> and <code>Transcribe Call Analytics</code>, on the caller’s
-        /// behalf.</para>
+        /// <c>Transcribe</c> and <c>Transcribe Call Analytics</c>, on the caller’s behalf.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

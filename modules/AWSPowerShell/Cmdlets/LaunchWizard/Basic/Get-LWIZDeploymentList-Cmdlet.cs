@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters to scope the results. The following filters are supported:</para><ul><li><para><code>WORKLOAD_NAME</code></para></li><li><para><code>DEPLOYMENT_STATUS</code></para></li></ul>
+        /// <para>Filters to scope the results. The following filters are supported:</para><ul><li><para><c>WORKLOAD_NAME</c></para></li><li><para><c>DEPLOYMENT_STATUS</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

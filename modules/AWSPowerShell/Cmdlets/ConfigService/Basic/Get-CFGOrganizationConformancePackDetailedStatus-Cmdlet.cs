@@ -75,21 +75,13 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>Indicates deployment status for conformance pack in a member account. When management
-        /// account calls <code>PutOrganizationConformancePack</code> action for the first time,
-        /// conformance pack status is created in the member account. When management account
-        /// calls <code>PutOrganizationConformancePack</code> action for the second time, conformance
-        /// pack status is updated in the member account. Conformance pack status is deleted when
-        /// the management account deletes <code>OrganizationConformancePack</code> and disables
-        /// service access for <code>config-multiaccountsetup.amazonaws.com</code>. </para><para> Config sets the state of the conformance pack to:</para><ul><li><para><code>CREATE_SUCCESSFUL</code> when conformance pack has been created in the member
-        /// account. </para></li><li><para><code>CREATE_IN_PROGRESS</code> when conformance pack is being created in the member
-        /// account.</para></li><li><para><code>CREATE_FAILED</code> when conformance pack creation has failed in the member
-        /// account.</para></li><li><para><code>DELETE_FAILED</code> when conformance pack deletion has failed in the member
-        /// account.</para></li><li><para><code>DELETE_IN_PROGRESS</code> when conformance pack is being deleted in the member
-        /// account.</para></li><li><para><code>DELETE_SUCCESSFUL</code> when conformance pack has been deleted in the member
-        /// account. </para></li><li><para><code>UPDATE_SUCCESSFUL</code> when conformance pack has been updated in the member
-        /// account.</para></li><li><para><code>UPDATE_IN_PROGRESS</code> when conformance pack is being updated in the member
-        /// account.</para></li><li><para><code>UPDATE_FAILED</code> when conformance pack deletion has failed in the member
-        /// account.</para></li></ul>
+        /// account calls <c>PutOrganizationConformancePack</c> action for the first time, conformance
+        /// pack status is created in the member account. When management account calls <c>PutOrganizationConformancePack</c>
+        /// action for the second time, conformance pack status is updated in the member account.
+        /// Conformance pack status is deleted when the management account deletes <c>OrganizationConformancePack</c>
+        /// and disables service access for <c>config-multiaccountsetup.amazonaws.com</c>. </para><para> Config sets the state of the conformance pack to:</para><ul><li><para><c>CREATE_SUCCESSFUL</c> when conformance pack has been created in the member account.
+        /// </para></li><li><para><c>CREATE_IN_PROGRESS</c> when conformance pack is being created in the member account.</para></li><li><para><c>CREATE_FAILED</c> when conformance pack creation has failed in the member account.</para></li><li><para><c>DELETE_FAILED</c> when conformance pack deletion has failed in the member account.</para></li><li><para><c>DELETE_IN_PROGRESS</c> when conformance pack is being deleted in the member account.</para></li><li><para><c>DELETE_SUCCESSFUL</c> when conformance pack has been deleted in the member account.
+        /// </para></li><li><para><c>UPDATE_SUCCESSFUL</c> when conformance pack has been updated in the member account.</para></li><li><para><c>UPDATE_IN_PROGRESS</c> when conformance pack is being updated in the member account.</para></li><li><para><c>UPDATE_FAILED</c> when conformance pack deletion has failed in the member account.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of <code>OrganizationConformancePackDetailedStatuses</code> returned
+        /// <para>The maximum number of <c>OrganizationConformancePackDetailedStatuses</c> returned
         /// on each page. If you do not specify a number, Config uses the default. The default
         /// is 100. </para>
         /// </para>

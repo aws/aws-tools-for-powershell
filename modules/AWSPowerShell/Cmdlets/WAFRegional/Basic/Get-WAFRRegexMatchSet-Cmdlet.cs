@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Returns the <a>RegexMatchSet</a> specified by <code>RegexMatchSetId</code>.
+    /// Returns the <a>RegexMatchSet</a> specified by <c>RegexMatchSetId</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "WAFRRegexMatchSet")]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter RegexMatchSetId
         /// <summary>
         /// <para>
-        /// <para>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to get.
-        /// <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</para>
+        /// <para>The <c>RegexMatchSetId</c> of the <a>RegexMatchSet</a> that you want to get. <c>RegexMatchSetId</c>
+        /// is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

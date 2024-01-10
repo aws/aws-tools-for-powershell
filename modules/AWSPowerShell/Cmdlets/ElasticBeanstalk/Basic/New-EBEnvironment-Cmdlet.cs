@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>A unique name for the environment.</para><para>Constraint: Must be from 4 to 40 characters in length. The name can contain only letters,
         /// numbers, and hyphens. It can't start or end with a hyphen. This name must be unique
         /// within a region in your account. If the specified name already exists in the region,
-        /// Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </para><para>If you don't specify the <code>CNAMEPrefix</code> parameter, the environment name
-        /// becomes part of the CNAME, and therefore part of the visible URL for your application.</para>
+        /// Elastic Beanstalk returns an <c>InvalidParameterValue</c> error. </para><para>If you don't specify the <c>CNAMEPrefix</c> parameter, the environment name becomes
+        /// part of the CNAME, and therefore part of the visible URL for your application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Tier_Name
         /// <summary>
         /// <para>
-        /// <para>The name of this environment tier.</para><para>Valid values:</para><ul><li><para>For <i>Web server tier</i> – <code>WebServer</code></para></li><li><para>For <i>Worker tier</i> – <code>Worker</code></para></li></ul>
+        /// <para>The name of this environment tier.</para><para>Valid values:</para><ul><li><para>For <i>Web server tier</i> – <c>WebServer</c></para></li><li><para>For <i>Worker tier</i> – <c>Worker</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's
         /// operations role. If specified, Elastic Beanstalk uses the operations role for permissions
         /// to downstream services during this call and during subsequent calls acting on this
-        /// environment. To specify an operations role, you must have the <code>iam:PassRole</code>
+        /// environment. To specify an operations role, you must have the <c>iam:PassRole</c>
         /// permission for the role. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations
         /// roles</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</para>
         /// </para>
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the custom platform to use with the environment.
         /// For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html">Custom
-        /// Platforms</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</para><note><para>If you specify <code>PlatformArn</code>, don't specify <code>SolutionStackName</code>.</para></note>
+        /// Platforms</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</para><note><para>If you specify <c>PlatformArn</c>, don't specify <c>SolutionStackName</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,8 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// environment. If specified, Elastic Beanstalk sets the configuration values to the
         /// default values associated with the specified solution stack. For a list of current
         /// solution stacks, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html">Elastic
-        /// Beanstalk Supported Platforms</a> in the <i>AWS Elastic Beanstalk Platforms</i> guide.</para><note><para>If you specify <code>SolutionStackName</code>, don't specify <code>PlatformArn</code>
-        /// or <code>TemplateName</code>.</para></note>
+        /// Beanstalk Supported Platforms</a> in the <i>AWS Elastic Beanstalk Platforms</i> guide.</para><note><para>If you specify <c>SolutionStackName</c>, don't specify <c>PlatformArn</c> or <c>TemplateName</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the Elastic Beanstalk configuration template to use with the environment.</para><note><para>If you specify <code>TemplateName</code>, then don't specify <code>SolutionStackName</code>.</para></note>
+        /// <para>The name of the Elastic Beanstalk configuration template to use with the environment.</para><note><para>If you specify <c>TemplateName</c>, then don't specify <c>SolutionStackName</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Tier_Type
         /// <summary>
         /// <para>
-        /// <para>The type of this environment tier.</para><para>Valid values:</para><ul><li><para>For <i>Web server tier</i> – <code>Standard</code></para></li><li><para>For <i>Worker tier</i> – <code>SQS/HTTP</code></para></li></ul>
+        /// <para>The type of this environment tier.</para><para>Valid values:</para><ul><li><para>For <i>Web server tier</i> – <c>Standard</c></para></li><li><para>For <i>Worker tier</i> – <c>SQS/HTTP</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

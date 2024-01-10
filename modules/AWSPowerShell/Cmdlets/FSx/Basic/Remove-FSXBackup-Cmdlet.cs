@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// 
     ///  
     /// <para>
-    /// The <code>DeleteBackup</code> call returns instantly. The backup won't show up in
-    /// later <code>DescribeBackups</code> calls.
+    /// The <c>DeleteBackup</c> call returns instantly. The backup won't show up in later
+    /// <c>DescribeBackups</c> calls.
     /// </para><important><para>
     /// The data in a deleted backup is also deleted and can't be recovered by any means.
     /// </para></important>

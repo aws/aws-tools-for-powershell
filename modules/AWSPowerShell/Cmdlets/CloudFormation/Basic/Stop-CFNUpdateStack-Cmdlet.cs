@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// stack rolls back the update and reverts to the previous stack configuration.
     /// 
     ///  <note><para>
-    /// You can cancel only stacks that are in the <code>UPDATE_IN_PROGRESS</code> state.
+    /// You can cancel only stacks that are in the <c>UPDATE_IN_PROGRESS</c> state.
     /// </para></note>
     /// </summary>
     [Cmdlet("Stop", "CFNUpdateStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,9 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for this <code>CancelUpdateStack</code> request. Specify this
-        /// token if you plan to retry requests so that CloudFormation knows that you're not attempting
-        /// to cancel an update on a stack with the same name. You might retry <code>CancelUpdateStack</code>
+        /// <para>A unique identifier for this <c>CancelUpdateStack</c> request. Specify this token
+        /// if you plan to retry requests so that CloudFormation knows that you're not attempting
+        /// to cancel an update on a stack with the same name. You might retry <c>CancelUpdateStack</c>
         /// requests to ensure that CloudFormation successfully received them.</para>
         /// </para>
         /// </summary>
@@ -63,10 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <note><para>If you don't pass a parameter to <code>StackName</code>, the API returns a response
-        /// that describes all resources in the account.</para><para>The IAM policy below can be added to IAM policies when you want to limit resource-level
-        /// permissions and avoid returning a response when no parameter is sent in the request:</para><para><code>{ "Version": "2012-10-17", "Statement": [{ "Effect": "Deny", "Action": "cloudformation:DescribeStacks",
-        /// "NotResource": "arn:aws:cloudformation:*:*:stack/*/*" }] }</code></para></note><para>The name or the unique stack ID that's associated with the stack.</para>
+        /// <note><para>If you don't pass a parameter to <c>StackName</c>, the API returns a response that
+        /// describes all resources in the account.</para><para>The IAM policy below can be added to IAM policies when you want to limit resource-level
+        /// permissions and avoid returning a response when no parameter is sent in the request:</para><para><c>{ "Version": "2012-10-17", "Statement": [{ "Effect": "Deny", "Action": "cloudformation:DescribeStacks",
+        /// "NotResource": "arn:aws:cloudformation:*:*:stack/*/*" }] }</c></para></note><para>The name or the unique stack ID that's associated with the stack.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>Returns only custom vocabularies with the specified state. Vocabularies are ordered
-        /// by creation date, with the newest vocabulary first. If you do not include <code>StateEquals</code>,
+        /// by creation date, with the newest vocabulary first. If you do not include <c>StateEquals</c>,
         /// all custom medical vocabularies are returned.</para>
         /// </para>
         /// </summary>
@@ -96,11 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your <code>ListVocabularies</code> request returns more results than can be displayed,
-        /// <code>NextToken</code> is displayed in the response with an associated string. To
-        /// get the next page of results, copy this string and repeat your request, including
-        /// <code>NextToken</code> with the value of the copied string. Repeat as needed to view
-        /// all your results.</para>
+        /// <para>If your <c>ListVocabularies</c> request returns more results than can be displayed,
+        /// <c>NextToken</c> is displayed in the response with an associated string. To get the
+        /// next page of results, copy this string and repeat your request, including <c>NextToken</c>
+        /// with the value of the copied string. Repeat as needed to view all your results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

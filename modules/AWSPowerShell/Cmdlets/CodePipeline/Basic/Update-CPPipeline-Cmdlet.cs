@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
 {
     /// <summary>
     /// Updates a specified pipeline with edits or changes to its structure. Use a JSON file
-    /// with the pipeline structure and <code>UpdatePipeline</code> to provide the full structure
+    /// with the pipeline structure and <c>UpdatePipeline</c> to provide the full structure
     /// of the pipeline. Updating the pipeline increases the version number of the pipeline
     /// by 1.
     /// </summary>

@@ -28,23 +28,23 @@ using Amazon.Textract.Model;
 namespace Amazon.PowerShell.Cmdlets.TXT
 {
     /// <summary>
-    /// Gets summarized results for the <code>StartLendingAnalysis</code> operation, which
-    /// analyzes text in a lending document. The returned summary consists of information
-    /// about documents grouped together by a common document type. Information like detected
-    /// signatures, page numbers, and split documents is returned with respect to the type
-    /// of grouped document. 
+    /// Gets summarized results for the <c>StartLendingAnalysis</c> operation, which analyzes
+    /// text in a lending document. The returned summary consists of information about documents
+    /// grouped together by a common document type. Information like detected signatures,
+    /// page numbers, and split documents is returned with respect to the type of grouped
+    /// document. 
     /// 
     ///  
     /// <para>
-    /// You start asynchronous text analysis by calling <code>StartLendingAnalysis</code>,
-    /// which returns a job identifier (<code>JobId</code>). When the text analysis operation
-    /// finishes, Amazon Textract publishes a completion status to the Amazon Simple Notification
-    /// Service (Amazon SNS) topic that's registered in the initial call to <code>StartLendingAnalysis</code>.
+    /// You start asynchronous text analysis by calling <c>StartLendingAnalysis</c>, which
+    /// returns a job identifier (<c>JobId</c>). When the text analysis operation finishes,
+    /// Amazon Textract publishes a completion status to the Amazon Simple Notification Service
+    /// (Amazon SNS) topic that's registered in the initial call to <c>StartLendingAnalysis</c>.
     /// 
     /// </para><para>
     /// To get the results of the text analysis operation, first check that the status value
-    /// published to the Amazon SNS topic is SUCCEEDED. If so, call <code>GetLendingAnalysisSummary</code>,
-    /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartLendingAnalysis</code>.
+    /// published to the Amazon SNS topic is SUCCEEDED. If so, call <c>GetLendingAnalysisSummary</c>,
+    /// and pass the job identifier (<c>JobId</c>) from the initial call to <c>StartLendingAnalysis</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "TXTLendingAnalysisSummary")]
@@ -61,9 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para> A unique identifier for the lending or text-detection job. The <code>JobId</code>
-        /// is returned from StartLendingAnalysis. A <code>JobId</code> value is only valid for
-        /// 7 days.</para>
+        /// <para> A unique identifier for the lending or text-detection job. The <c>JobId</c> is returned
+        /// from StartLendingAnalysis. A <c>JobId</c> value is only valid for 7 days.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

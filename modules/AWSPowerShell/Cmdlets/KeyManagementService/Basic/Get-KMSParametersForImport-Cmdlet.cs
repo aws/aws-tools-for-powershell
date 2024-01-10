@@ -40,18 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing
     /// key material</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para>
-    /// Before calling <code>GetParametersForImport</code>, use the <a>CreateKey</a> operation
-    /// with an <code>Origin</code> value of <code>EXTERNAL</code> to create a KMS key with
-    /// no key material. You can import key material for a symmetric encryption KMS key, HMAC
-    /// KMS key, asymmetric encryption KMS key, or asymmetric signing KMS key. You can also
-    /// import key material into a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">multi-Region
+    /// Before calling <c>GetParametersForImport</c>, use the <a>CreateKey</a> operation with
+    /// an <c>Origin</c> value of <c>EXTERNAL</c> to create a KMS key with no key material.
+    /// You can import key material for a symmetric encryption KMS key, HMAC KMS key, asymmetric
+    /// encryption KMS key, or asymmetric signing KMS key. You can also import key material
+    /// into a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">multi-Region
     /// key</a> of any supported type. However, you can't import key material into a KMS key
     /// in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
-    /// key store</a>. You can also use <code>GetParametersForImport</code> to get a public
-    /// key and import token to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport
+    /// key store</a>. You can also use <c>GetParametersForImport</c> to get a public key
+    /// and import token to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport
     /// the original key material</a> into a KMS key whose key material expired or was deleted.
-    /// </para><para><code>GetParametersForImport</code> returns the items that you need to import your
-    /// key material.
+    /// </para><para><c>GetParametersForImport</c> returns the items that you need to import your key
+    /// material.
     /// </para><ul><li><para>
     /// The public key (or "wrapping key") of an RSA key pair that KMS generates.
     /// </para><para>
@@ -63,11 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para></li></ul><para>
     /// The public key and its import token are permanently linked and must be used together.
     /// Each public key and import token set is valid for 24 hours. The expiration date and
-    /// time appear in the <code>ParametersValidTo</code> field in the <code>GetParametersForImport</code>
+    /// time appear in the <c>ParametersValidTo</c> field in the <c>GetParametersForImport</c>
     /// response. You cannot use an expired public key or import token in an <a>ImportKeyMaterial</a>
-    /// request. If your key and token expire, send another <code>GetParametersForImport</code>
+    /// request. If your key and token expire, send another <c>GetParametersForImport</c>
     /// request.
-    /// </para><para><code>GetParametersForImport</code> requires the following information:
+    /// </para><para><c>GetParametersForImport</c> requires the following information:
     /// </para><ul><li><para>
     /// The key ID of the KMS key for which you are importing the key material.
     /// </para></li><li><para>
@@ -108,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>The identifier of the KMS key that will be associated with the imported key material.
-        /// The <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</para><para>All KMS key types are supported, including multi-Region keys. However, you cannot
-        /// import key material into a KMS key in a custom key store.</para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// The <c>Origin</c> of the KMS key must be <c>EXTERNAL</c>.</para><para>All KMS key types are supported, including multi-Region keys. However, you cannot
+        /// import key material into a KMS key in a custom key store.</para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -126,8 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter WrappingAlgorithm
         /// <summary>
         /// <para>
-        /// <para>The algorithm you will use with the RSA public key (<code>PublicKey</code>) in the
-        /// response to protect your key material during import. For more information, see <a href="kms/latest/developerguide/importing-keys-get-public-key-and-token.html#select-wrapping-algorithm">Select
+        /// <para>The algorithm you will use with the RSA public key (<c>PublicKey</c>) in the response
+        /// to protect your key material during import. For more information, see <a href="kms/latest/developerguide/importing-keys-get-public-key-and-token.html#select-wrapping-algorithm">Select
         /// a wrapping algorithm</a> in the <i>Key Management Service Developer Guide</i>.</para><para>For RSA_AES wrapping algorithms, you encrypt your key material with an AES key that
         /// you generate, then encrypt your AES key with the RSA public key from KMS. For RSAES
         /// wrapping algorithms, you encrypt your key material directly with the RSA public key

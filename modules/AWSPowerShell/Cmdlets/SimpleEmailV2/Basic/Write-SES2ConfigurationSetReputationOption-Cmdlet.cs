@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ReputationMetricsEnabled
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, tracking of reputation metrics is enabled for the configuration
-        /// set. If <code>false</code>, tracking of reputation metrics is disabled for the configuration
+        /// <para>If <c>true</c>, tracking of reputation metrics is enabled for the configuration set.
+        /// If <c>false</c>, tracking of reputation metrics is disabled for the configuration
         /// set.</para>
         /// </para>
         /// </summary>

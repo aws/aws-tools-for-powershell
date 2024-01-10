@@ -28,11 +28,11 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// You can use the <code>SetKeepJobFlowAliveWhenNoSteps</code> to configure a cluster
-    /// (job flow) to terminate after the step execution, i.e., all your steps are executed.
-    /// If you want a transient cluster that shuts down after the last of the current executing
-    /// steps are completed, you can configure <code>SetKeepJobFlowAliveWhenNoSteps</code>
-    /// to false. If you want a long running cluster, configure <code>SetKeepJobFlowAliveWhenNoSteps</code>
+    /// You can use the <c>SetKeepJobFlowAliveWhenNoSteps</c> to configure a cluster (job
+    /// flow) to terminate after the step execution, i.e., all your steps are executed. If
+    /// you want a transient cluster that shuts down after the last of the current executing
+    /// steps are completed, you can configure <c>SetKeepJobFlowAliveWhenNoSteps</c> to false.
+    /// If you want a long running cluster, configure <c>SetKeepJobFlowAliveWhenNoSteps</c>
     /// to true.
     /// 
     ///  

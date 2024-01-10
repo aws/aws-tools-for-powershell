@@ -37,15 +37,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// ClassicLink enabled, you can link the EC2-Classic instances to that VPC and then register
     /// the linked EC2-Classic instances with the load balancer in the VPC.
     /// </para><para>
-    /// Note that <code>RegisterInstanceWithLoadBalancer</code> completes when the request
-    /// has been registered. Instance registration takes a little time to complete. To check
-    /// the state of the registered instances, use <a>DescribeLoadBalancers</a> or <a>DescribeInstanceHealth</a>.
+    /// Note that <c>RegisterInstanceWithLoadBalancer</c> completes when the request has been
+    /// registered. Instance registration takes a little time to complete. To check the state
+    /// of the registered instances, use <a>DescribeLoadBalancers</a> or <a>DescribeInstanceHealth</a>.
     /// </para><para>
     /// After the instance is registered, it starts receiving traffic and requests from the
     /// load balancer. Any instance that is not in one of the Availability Zones registered
-    /// for the load balancer is moved to the <code>OutOfService</code> state. If an Availability
+    /// for the load balancer is moved to the <c>OutOfService</c> state. If an Availability
     /// Zone is added to the load balancer later, any instances registered with the load balancer
-    /// move to the <code>InService</code> state.
+    /// move to the <c>InService</c> state.
     /// </para><para>
     /// To deregister instances from a load balancer, use <a>DeregisterInstancesFromLoadBalancer</a>.
     /// </para><para>

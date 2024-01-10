@@ -34,14 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// 
     ///  
     /// <para>
-    /// You cannot use <code>RestoreTableFromClusterSnapshot</code> to restore a table with
-    /// the same name as an existing table in an Amazon Redshift cluster. That is, you cannot
+    /// You cannot use <c>RestoreTableFromClusterSnapshot</c> to restore a table with the
+    /// same name as an existing table in an Amazon Redshift cluster. That is, you cannot
     /// overwrite an existing table in a cluster with a restored table. If you want to replace
     /// your original table with a new, restored table, then rename or drop your original
-    /// table before you call <code>RestoreTableFromClusterSnapshot</code>. When you have
-    /// renamed your original table, then you can pass the original name of the table as the
-    /// <code>NewTableName</code> parameter value in the call to <code>RestoreTableFromClusterSnapshot</code>.
-    /// This way, you can replace the original table with the table created from the snapshot.
+    /// table before you call <c>RestoreTableFromClusterSnapshot</c>. When you have renamed
+    /// your original table, then you can pass the original name of the table as the <c>NewTableName</c>
+    /// parameter value in the call to <c>RestoreTableFromClusterSnapshot</c>. This way, you
+    /// can replace the original table with the table created from the snapshot.
     /// </para><para>
     /// You can't use this operation to restore tables with <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved">interleaved
     /// sort keys</a>.
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>Indicates whether name identifiers for database, schema, and table are case sensitive.
-        /// If <code>true</code>, the names are case sensitive. If <code>false</code> (default),
-        /// the names are not case sensitive.</para>
+        /// If <c>true</c>, the names are case sensitive. If <c>false</c> (default), the names
+        /// are not case sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The identifier of the snapshot to restore the table from. This snapshot must have
-        /// been created from the Amazon Redshift cluster specified by the <code>ClusterIdentifier</code>
+        /// been created from the Amazon Redshift cluster specified by the <c>ClusterIdentifier</c>
         /// parameter.</para>
         /// </para>
         /// </summary>
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The name of the source schema that contains the table to restore from. If you do not
-        /// specify a <code>SourceSchemaName</code> value, the default is <code>public</code>.</para>
+        /// specify a <c>SourceSchemaName</c> value, the default is <c>public</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

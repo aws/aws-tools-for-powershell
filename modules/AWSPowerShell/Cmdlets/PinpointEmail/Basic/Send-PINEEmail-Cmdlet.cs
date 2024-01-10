@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         /// <para>The character set for the content. Because of the constraints of the SMTP protocol,
         /// Amazon Pinpoint uses 7-bit ASCII by default. If the text includes characters outside
         /// of the ASCII range, you have to specify a character set. For example, you could specify
-        /// <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</para>
+        /// <c>UTF-8</c>, <c>ISO-8859-1</c>, or <c>Shift_JIS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         /// <para>The character set for the content. Because of the constraints of the SMTP protocol,
         /// Amazon Pinpoint uses 7-bit ASCII by default. If the text includes characters outside
         /// of the ASCII range, you have to specify a character set. For example, you could specify
-        /// <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</para>
+        /// <c>UTF-8</c>, <c>ISO-8859-1</c>, or <c>Shift_JIS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         /// <para>The character set for the content. Because of the constraints of the SMTP protocol,
         /// Amazon Pinpoint uses 7-bit ASCII by default. If the text includes characters outside
         /// of the ASCII range, you have to specify a character set. For example, you could specify
-        /// <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</para>
+        /// <c>UTF-8</c>, <c>ISO-8859-1</c>, or <c>Shift_JIS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,8 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         /// <summary>
         /// <para>
         /// <para>A list of tags, in the form of name/value pairs, to apply to an email that you send
-        /// using the <code>SendEmail</code> operation. Tags correspond to characteristics of
-        /// the email that you define, so that you can publish email sending events. </para>
+        /// using the <c>SendEmail</c> operation. Tags correspond to characteristics of the email
+        /// that you define, so that you can publish email sending events. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

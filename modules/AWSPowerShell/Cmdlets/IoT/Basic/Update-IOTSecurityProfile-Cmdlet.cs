@@ -84,9 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter DeleteAdditionalMetricsToRetain
         /// <summary>
         /// <para>
-        /// <para>If true, delete all <code>additionalMetricsToRetain</code> defined for this security
-        /// profile. If any <code>additionalMetricsToRetain</code> are defined in the current
-        /// invocation, an exception occurs.</para>
+        /// <para>If true, delete all <c>additionalMetricsToRetain</c> defined for this security profile.
+        /// If any <c>additionalMetricsToRetain</c> are defined in the current invocation, an
+        /// exception occurs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,9 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter DeleteAlertTarget
         /// <summary>
         /// <para>
-        /// <para>If true, delete all <code>alertTargets</code> defined for this security profile. If
-        /// any <code>alertTargets</code> are defined in the current invocation, an exception
-        /// occurs.</para>
+        /// <para>If true, delete all <c>alertTargets</c> defined for this security profile. If any
+        /// <c>alertTargets</c> are defined in the current invocation, an exception occurs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter DeleteBehavior
         /// <summary>
         /// <para>
-        /// <para>If true, delete all <code>behaviors</code> defined for this security profile. If any
-        /// <code>behaviors</code> are defined in the current invocation, an exception occurs.</para>
+        /// <para>If true, delete all <c>behaviors</c> defined for this security profile. If any <c>behaviors</c>
+        /// are defined in the current invocation, an exception occurs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>The expected version of the security profile. A new version is generated whenever
         /// the security profile is updated. If you specify a value that is different from the
-        /// actual version, a <code>VersionConflictException</code> is thrown.</para>
+        /// actual version, a <c>VersionConflictException</c> is thrown.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,8 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para><i>Please use <a>UpdateSecurityProfileRequest$additionalMetricsToRetainV2</a> instead.</i></para><para>A list of metrics whose data is retained (stored). By default, data is retained for
-        /// any metric used in the profile's <code>behaviors</code>, but it is also retained for
-        /// any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</para>
+        /// any metric used in the profile's <c>behaviors</c>, but it is also retained for any
+        /// metric specified here. Can be used with custom metrics; cannot be used with dimensions.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

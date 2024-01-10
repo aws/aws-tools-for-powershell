@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     /// For the limits on the number of application inputs and outputs you can configure,
     /// see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html">Limits</a>.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>kinesisanalytics:AddApplicationOutput</code>
+    /// This operation requires permissions to perform the <c>kinesisanalytics:AddApplicationOutput</c>
     /// action.
     /// </para>
     /// </summary>
@@ -94,8 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// <para>Version of the application to which you want to add the output configuration. You
         /// can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
         /// operation to get the current application version. If the version specified is not
-        /// the current version, the <code>ConcurrentModificationException</code> is returned.
-        /// </para>
+        /// the current version, the <c>ConcurrentModificationException</c> is returned. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

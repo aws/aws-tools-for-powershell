@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// <summary>
     /// Adds metadata tags to an Amazon DocumentDB resource. You can use these tags with cost
     /// allocation reporting to track costs that are associated with Amazon DocumentDB resources
-    /// or in a <code>Condition</code> statement in an Identity and Access Management (IAM)
-    /// policy for Amazon DocumentDB.
+    /// or in a <c>Condition</c> statement in an Identity and Access Management (IAM) policy
+    /// for Amazon DocumentDB.
     /// </summary>
     [Cmdlet("Add", "DOCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

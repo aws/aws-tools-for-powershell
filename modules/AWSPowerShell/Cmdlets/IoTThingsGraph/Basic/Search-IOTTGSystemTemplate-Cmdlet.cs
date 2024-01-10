@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An array of filters that limit the result set. The only valid filter is <code>FLOW_TEMPLATE_ID</code>.</para>
+        /// <para>An array of filters that limit the result set. The only valid filter is <c>FLOW_TEMPLATE_ID</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

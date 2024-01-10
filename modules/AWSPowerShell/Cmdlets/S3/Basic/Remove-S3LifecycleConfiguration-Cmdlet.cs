@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// bucket. Your objects never expire, and Amazon S3 no longer automatically deletes any
     /// objects on the basis of rules contained in the deleted lifecycle configuration.
     /// </para><para>
-    /// To use this operation, you must have permission to perform the <code>s3:PutLifecycleConfiguration</code>
+    /// To use this operation, you must have permission to perform the <c>s3:PutLifecycleConfiguration</c>
     /// action. By default, the bucket owner has this permission and the bucket owner can
     /// grant this permission to others.
     /// </para><para>

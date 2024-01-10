@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// results. 
     /// 
     ///  <note><para>
-    /// The results can return an empty result page, but if you have a <code>nextToken</code>,
-    /// the results are displayed on the next page.
+    /// The results can return an empty result page, but if you have a <c>nextToken</c>, the
+    /// results are displayed on the next page.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGAggregateComplianceByConfigRuleList")]
@@ -72,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Filters_ComplianceType
         /// <summary>
         /// <para>
-        /// <para>The rule compliance status.</para><para>For the <code>ConfigRuleComplianceFilters</code> data type, Config supports only <code>COMPLIANT</code>
-        /// and <code>NON_COMPLIANT</code>. Config does not support the <code>NOT_APPLICABLE</code>
-        /// and the <code>INSUFFICIENT_DATA</code> values.</para>
+        /// <para>The rule compliance status.</para><para>For the <c>ConfigRuleComplianceFilters</c> data type, Config supports only <c>COMPLIANT</c>
+        /// and <c>NON_COMPLIANT</c>. Config does not support the <c>NOT_APPLICABLE</c> and the
+        /// <c>INSUFFICIENT_DATA</c> values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
-        /// the next page of results in a paginated response.</para>
+        /// <para>The <c>nextToken</c> string returned on a previous page that you use to get the next
+        /// page of results in a paginated response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

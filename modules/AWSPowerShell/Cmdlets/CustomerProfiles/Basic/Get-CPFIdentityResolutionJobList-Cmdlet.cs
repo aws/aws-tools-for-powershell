@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
     /// Lists all of the Identity Resolution Jobs in your domain. The response sorts the list
-    /// by <code>JobStartTime</code>.
+    /// by <c>JobStartTime</c>.
     /// </summary>
     [Cmdlet("Get", "CPFIdentityResolutionJobList")]
     [OutputType("Amazon.CustomerProfiles.Model.IdentityResolutionJob")]

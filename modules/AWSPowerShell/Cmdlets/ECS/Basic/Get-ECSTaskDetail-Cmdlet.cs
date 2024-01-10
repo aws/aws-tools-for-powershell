@@ -66,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Include
         /// <summary>
         /// <para>
-        /// <para>Specifies whether you want to see the resource tags for the task. If <code>TAGS</code>
-        /// is specified, the tags are included in the response. If this field is omitted, tags
-        /// aren't included in the response.</para>
+        /// <para>Specifies whether you want to see the resource tags for the task. If <c>TAGS</c> is
+        /// specified, the tags are included in the response. If this field is omitted, tags aren't
+        /// included in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

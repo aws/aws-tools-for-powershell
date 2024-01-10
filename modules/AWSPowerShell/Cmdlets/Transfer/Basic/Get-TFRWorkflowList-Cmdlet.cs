@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para><code>ListWorkflows</code> returns the <code>NextToken</code> parameter in the output.
-        /// You can then pass the <code>NextToken</code> parameter in a subsequent command to
-        /// continue listing additional workflows.</para>
+        /// <para><c>ListWorkflows</c> returns the <c>NextToken</c> parameter in the output. You can
+        /// then pass the <c>NextToken</c> parameter in a subsequent command to continue listing
+        /// additional workflows.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -28,9 +28,9 @@ using Amazon.Snowball.Model;
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
-    /// Returns an array of <code>JobListEntry</code> objects of the specified length. Each
-    /// <code>JobListEntry</code> object is for a job in the specified cluster and contains
-    /// a job's state, a job's ID, and other information.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns an array of <c>JobListEntry</c> objects of the specified length. Each <c>JobListEntry</c>
+    /// object is for a job in the specified cluster and contains a job's state, a job's ID,
+    /// and other information.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SNOWClusterJobList")]
     [OutputType("Amazon.Snowball.Model.JobListEntry")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter ClusterId
         /// <summary>
         /// <para>
-        /// <para>The 39-character ID for the cluster that you want to list, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</para>
+        /// <para>The 39-character ID for the cluster that you want to list, for example <c>CID123e4567-e89b-12d3-a456-426655440000</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The number of <code>JobListEntry</code> objects to return.</para>
+        /// <para>The number of <c>JobListEntry</c> objects to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -80,9 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>HTTP requests are stateless. To identify what object comes "next" in the list of <code>JobListEntry</code>
-        /// objects, you have the option of specifying <code>NextToken</code> as the starting
-        /// point for your returned list.</para>
+        /// <para>HTTP requests are stateless. To identify what object comes "next" in the list of <c>JobListEntry</c>
+        /// objects, you have the option of specifying <c>NextToken</c> as the starting point
+        /// for your returned list.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

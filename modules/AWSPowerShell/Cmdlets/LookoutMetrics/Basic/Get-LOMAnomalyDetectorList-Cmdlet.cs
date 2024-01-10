@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the result of the previous request was truncated, the response includes a <code>NextToken</code>.
+        /// <para>If the result of the previous request was truncated, the response includes a <c>NextToken</c>.
         /// To retrieve the next set of results, use the token in the next request. Tokens expire
         /// after 24 hours.</para>
         /// </para>

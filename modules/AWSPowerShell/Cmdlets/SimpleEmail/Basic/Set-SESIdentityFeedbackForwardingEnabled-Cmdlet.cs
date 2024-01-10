@@ -58,12 +58,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter ForwardingEnabled
         /// <summary>
         /// <para>
-        /// <para>Sets whether Amazon SES forwards bounce and complaint notifications as email. <code>true</code>
+        /// <para>Sets whether Amazon SES forwards bounce and complaint notifications as email. <c>true</c>
         /// specifies that Amazon SES forwards bounce and complaint notifications as email, in
-        /// addition to any Amazon SNS topic publishing otherwise specified. <code>false</code>
-        /// specifies that Amazon SES publishes bounce and complaint notifications only through
-        /// Amazon SNS. This value can only be set to <code>false</code> when Amazon SNS topics
-        /// are set for both <code>Bounce</code> and <code>Complaint</code> notification types.</para>
+        /// addition to any Amazon SNS topic publishing otherwise specified. <c>false</c> specifies
+        /// that Amazon SES publishes bounce and complaint notifications only through Amazon SNS.
+        /// This value can only be set to <c>false</c> when Amazon SNS topics are set for both
+        /// <c>Bounce</c> and <c>Complaint</c> notification types.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>The identity for which to set bounce and complaint notification forwarding. Examples:
-        /// <code>user@example.com</code>, <code>example.com</code>.</para>
+        /// <c>user@example.com</c>, <c>example.com</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

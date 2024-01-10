@@ -28,36 +28,36 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// You can use the <code>GetMetricData</code> API to retrieve CloudWatch metric values.
-    /// The operation can also include a CloudWatch Metrics Insights query, and one or more
-    /// metric math functions.
+    /// You can use the <c>GetMetricData</c> API to retrieve CloudWatch metric values. The
+    /// operation can also include a CloudWatch Metrics Insights query, and one or more metric
+    /// math functions.
     /// 
     ///  
     /// <para>
-    /// A <code>GetMetricData</code> operation that does not include a query can retrieve
-    /// as many as 500 different metrics in a single request, with a total of as many as 100,800
-    /// data points. You can also optionally perform metric math expressions on the values
-    /// of the returned statistics, to create new time series that represent new insights
-    /// into your data. For example, using Lambda metrics, you could divide the Errors metric
-    /// by the Invocations metric to get an error rate time series. For more information about
-    /// metric math expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric
+    /// A <c>GetMetricData</c> operation that does not include a query can retrieve as many
+    /// as 500 different metrics in a single request, with a total of as many as 100,800 data
+    /// points. You can also optionally perform metric math expressions on the values of the
+    /// returned statistics, to create new time series that represent new insights into your
+    /// data. For example, using Lambda metrics, you could divide the Errors metric by the
+    /// Invocations metric to get an error rate time series. For more information about metric
+    /// math expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric
     /// Math Syntax and Functions</a> in the <i>Amazon CloudWatch User Guide</i>.
     /// </para><para>
-    /// If you include a Metrics Insights query, each <code>GetMetricData</code> operation
-    /// can include only one query. But the same <code>GetMetricData</code> operation can
-    /// also retrieve other metrics. Metrics Insights queries can query only the most recent
-    /// three hours of metric data. For more information about Metrics Insights, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.html">Query
+    /// If you include a Metrics Insights query, each <c>GetMetricData</c> operation can include
+    /// only one query. But the same <c>GetMetricData</c> operation can also retrieve other
+    /// metrics. Metrics Insights queries can query only the most recent three hours of metric
+    /// data. For more information about Metrics Insights, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.html">Query
     /// your metrics with CloudWatch Metrics Insights</a>.
     /// </para><para>
-    /// Calls to the <code>GetMetricData</code> API have a different pricing structure than
-    /// calls to <code>GetMetricStatistics</code>. For more information about pricing, see
-    /// <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.
+    /// Calls to the <c>GetMetricData</c> API have a different pricing structure than calls
+    /// to <c>GetMetricStatistics</c>. For more information about pricing, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon
+    /// CloudWatch Pricing</a>.
     /// </para><para>
     /// Amazon CloudWatch retains metric data as follows:
     /// </para><ul><li><para>
     /// Data points with a period of less than 60 seconds are available for 3 hours. These
     /// data points are high-resolution metrics and are available only for custom metrics
-    /// that have been defined with a <code>StorageResolution</code> of 1.
+    /// that have been defined with a <c>StorageResolution</c> of 1.
     /// </para></li><li><para>
     /// Data points with a period of 60 seconds (1-minute) are available for 15 days.
     /// </para></li><li><para>
@@ -73,12 +73,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// of 5 minutes. After 63 days, the data is further aggregated and is available with
     /// a resolution of 1 hour.
     /// </para><para>
-    /// If you omit <code>Unit</code> in your request, all data that was collected with any
-    /// unit is returned, along with the corresponding units that were specified when the
-    /// data was reported to CloudWatch. If you specify a unit, the operation returns only
-    /// data that was collected with that unit specified. If you specify a unit that does
-    /// not match the data collected, the results of the operation are null. CloudWatch does
-    /// not perform unit conversions.
+    /// If you omit <c>Unit</c> in your request, all data that was collected with any unit
+    /// is returned, along with the corresponding units that were specified when the data
+    /// was reported to CloudWatch. If you specify a unit, the operation returns only data
+    /// that was collected with that unit specified. If you specify a unit that does not match
+    /// the data collected, the results of the operation are null. CloudWatch does not perform
+    /// unit conversions.
     /// </para><para><b>Using Metrics Insights queries with metric math</b></para><para>
     /// You can't mix a Metric Insights query and metric math syntax in the same expression,
     /// but you can reference results from a Metrics Insights query within other Metric math
@@ -104,11 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The time stamp indicating the latest data to be returned.</para><para>The value specified is exclusive; results include data points up to the specified
-        /// time stamp.</para><para>For better performance, specify <code>StartTime</code> and <code>EndTime</code> values
-        /// that align with the value of the metric's <code>Period</code> and sync up with the
-        /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
-        /// is 5 minutes, specifying 12:05 or 12:30 as <code>EndTime</code> can get a faster response
-        /// from CloudWatch than setting 12:07 or 12:29 as the <code>EndTime</code>.</para>
+        /// time stamp.</para><para>For better performance, specify <c>StartTime</c> and <c>EndTime</c> values that align
+        /// with the value of the metric's <c>Period</c> and sync up with the beginning and end
+        /// of an hour. For example, if the <c>Period</c> of a metric is 5 minutes, specifying
+        /// 12:05 or 12:30 as <c>EndTime</c> can get a faster response from CloudWatch than setting
+        /// 12:07 or 12:29 as the <c>EndTime</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -136,10 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter MetricDataQuery
         /// <summary>
         /// <para>
-        /// <para>The metric queries to be returned. A single <code>GetMetricData</code> call can include
-        /// as many as 500 <code>MetricDataQuery</code> structures. Each of these structures can
-        /// specify either a metric to retrieve, a Metrics Insights query, or a math expression
-        /// to perform on retrieved data. </para>
+        /// <para>The metric queries to be returned. A single <c>GetMetricData</c> call can include
+        /// as many as 500 <c>MetricDataQuery</c> structures. Each of these structures can specify
+        /// either a metric to retrieve, a Metrics Insights query, or a math expression to perform
+        /// on retrieved data. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -157,10 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter ScanBy
         /// <summary>
         /// <para>
-        /// <para>The order in which data points should be returned. <code>TimestampDescending</code>
-        /// returns the newest data first and paginates when the <code>MaxDatapoints</code> limit
-        /// is reached. <code>TimestampAscending</code> returns the oldest data first and paginates
-        /// when the <code>MaxDatapoints</code> limit is reached.</para>
+        /// <para>The order in which data points should be returned. <c>TimestampDescending</c> returns
+        /// the newest data first and paginates when the <c>MaxDatapoints</c> limit is reached.
+        /// <c>TimestampAscending</c> returns the oldest data first and paginates when the <c>MaxDatapoints</c>
+        /// limit is reached.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,17 +175,17 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// stamp. </para><para>CloudWatch rounds the specified time stamp as follows:</para><ul><li><para>Start time less than 15 days ago - Round down to the nearest whole minute. For example,
         /// 12:32:34 is rounded down to 12:32:00.</para></li><li><para>Start time between 15 and 63 days ago - Round down to the nearest 5-minute clock interval.
         /// For example, 12:32:34 is rounded down to 12:30:00.</para></li><li><para>Start time greater than 63 days ago - Round down to the nearest 1-hour clock interval.
-        /// For example, 12:32:34 is rounded down to 12:00:00.</para></li></ul><para>If you set <code>Period</code> to 5, 10, or 30, the start time of your request is
-        /// rounded down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions
+        /// For example, 12:32:34 is rounded down to 12:00:00.</para></li></ul><para>If you set <c>Period</c> to 5, 10, or 30, the start time of your request is rounded
+        /// down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions
         /// of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the previous
         /// 10-second period, the start time of your request is rounded down and you receive data
         /// from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes
         /// of data, using a period of 5 seconds, you receive data timestamped between 15:02:15
-        /// and 15:07:15. </para><para>For better performance, specify <code>StartTime</code> and <code>EndTime</code> values
-        /// that align with the value of the metric's <code>Period</code> and sync up with the
-        /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
-        /// is 5 minutes, specifying 12:05 or 12:30 as <code>StartTime</code> can get a faster
-        /// response from CloudWatch than setting 12:07 or 12:29 as the <code>StartTime</code>.</para>
+        /// and 15:07:15. </para><para>For better performance, specify <c>StartTime</c> and <c>EndTime</c> values that align
+        /// with the value of the metric's <c>Period</c> and sync up with the beginning and end
+        /// of an hour. For example, if the <c>Period</c> of a metric is 5 minutes, specifying
+        /// 12:05 or 12:30 as <c>StartTime</c> can get a faster response from CloudWatch than
+        /// setting 12:07 or 12:29 as the <c>StartTime</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -201,11 +201,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter LabelOptions_Timezone
         /// <summary>
         /// <para>
-        /// <para>The time zone to use for metric data return in this operation. The format is <code>+</code>
-        /// or <code>-</code> followed by four digits. The first two digits indicate the number
-        /// of hours ahead or behind of UTC, and the final two digits are the number of minutes.
-        /// For example, +0130 indicates a time zone that is 1 hour and 30 minutes ahead of UTC.
-        /// The default is +0000. </para>
+        /// <para>The time zone to use for metric data return in this operation. The format is <c>+</c>
+        /// or <c>-</c> followed by four digits. The first two digits indicate the number of hours
+        /// ahead or behind of UTC, and the final two digits are the number of minutes. For example,
+        /// +0130 indicates a time zone that is 1 hour and 30 minutes ahead of UTC. The default
+        /// is +0000. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,11 +221,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// one of the two property is reflected in the value of both. EndTime is provided for
         /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
         /// wrong timestamp being passed to the service.</para><para>The time stamp indicating the latest data to be returned.</para><para>The value specified is exclusive; results include data points up to the specified
-        /// time stamp.</para><para>For better performance, specify <code>StartTime</code> and <code>EndTime</code> values
-        /// that align with the value of the metric's <code>Period</code> and sync up with the
-        /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
-        /// is 5 minutes, specifying 12:05 or 12:30 as <code>EndTime</code> can get a faster response
-        /// from CloudWatch than setting 12:07 or 12:29 as the <code>EndTime</code>.</para>
+        /// time stamp.</para><para>For better performance, specify <c>StartTime</c> and <c>EndTime</c> values that align
+        /// with the value of the metric's <c>Period</c> and sync up with the beginning and end
+        /// of an hour. For example, if the <c>Period</c> of a metric is 5 minutes, specifying
+        /// 12:05 or 12:30 as <c>EndTime</c> can get a faster response from CloudWatch than setting
+        /// 12:07 or 12:29 as the <c>EndTime</c>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -237,8 +237,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Include this value, if it was returned by the previous <code>GetMetricData</code>
-        /// operation, to get the next set of data points.</para>
+        /// <para>Include this value, if it was returned by the previous <c>GetMetricData</c> operation,
+        /// to get the next set of data points.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.CloudWatch module, this parameter is only used if you are manually controlling output pagination of the service API call.
@@ -261,17 +261,17 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// stamp. </para><para>CloudWatch rounds the specified time stamp as follows:</para><ul><li><para>Start time less than 15 days ago - Round down to the nearest whole minute. For example,
         /// 12:32:34 is rounded down to 12:32:00.</para></li><li><para>Start time between 15 and 63 days ago - Round down to the nearest 5-minute clock interval.
         /// For example, 12:32:34 is rounded down to 12:30:00.</para></li><li><para>Start time greater than 63 days ago - Round down to the nearest 1-hour clock interval.
-        /// For example, 12:32:34 is rounded down to 12:00:00.</para></li></ul><para>If you set <code>Period</code> to 5, 10, or 30, the start time of your request is
-        /// rounded down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions
+        /// For example, 12:32:34 is rounded down to 12:00:00.</para></li></ul><para>If you set <c>Period</c> to 5, 10, or 30, the start time of your request is rounded
+        /// down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions
         /// of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the previous
         /// 10-second period, the start time of your request is rounded down and you receive data
         /// from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes
         /// of data, using a period of 5 seconds, you receive data timestamped between 15:02:15
-        /// and 15:07:15. </para><para>For better performance, specify <code>StartTime</code> and <code>EndTime</code> values
-        /// that align with the value of the metric's <code>Period</code> and sync up with the
-        /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
-        /// is 5 minutes, specifying 12:05 or 12:30 as <code>StartTime</code> can get a faster
-        /// response from CloudWatch than setting 12:07 or 12:29 as the <code>StartTime</code>.</para>
+        /// and 15:07:15. </para><para>For better performance, specify <c>StartTime</c> and <c>EndTime</c> values that align
+        /// with the value of the metric's <c>Period</c> and sync up with the beginning and end
+        /// of an hour. For example, if the <c>Period</c> of a metric is 5 minutes, specifying
+        /// 12:05 or 12:30 as <c>StartTime</c> can get a faster response from CloudWatch than
+        /// setting 12:07 or 12:29 as the <c>StartTime</c>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

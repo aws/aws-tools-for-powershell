@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// Backup duration is a function of the amount of changes to the database since the previous
     /// backup. If you plan to promote a read replica to a standalone instance, we recommend
     /// that you enable backups and complete at least one backup prior to promotion. In addition,
-    /// a read replica cannot be promoted to a standalone instance when it is in the <code>backing-up</code>
+    /// a read replica cannot be promoted to a standalone instance when it is in the <c>backing-up</c>
     /// status. If you have enabled backups on your read replica, configure the automated
     /// backup window so that daily backups do not interfere with read replica promotion.
     /// </para></li><li><para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB instance identifier. This value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing read replica DB instance.</para></li></ul><para>Example: <code>mydbinstance</code></para>
+        /// <para>The DB instance identifier. This value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing read replica DB instance.</para></li></ul><para>Example: <c>mydbinstance</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,9 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The daily time range during which automated backups are created if automated backups
-        /// are enabled, using the <code>BackupRetentionPeriod</code> parameter.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// are enabled, using the <c>BackupRetentionPeriod</c> parameter.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Web Services Region. To see the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-        /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <c>hh24:mi-hh24:mi</c>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

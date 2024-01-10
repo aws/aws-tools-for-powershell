@@ -28,7 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Deletes the specified manual snapshot. The snapshot must be in the <code>available</code>
+    /// Deletes the specified manual snapshot. The snapshot must be in the <c>available</c>
     /// state, with no other users authorized to access the snapshot. 
     /// 
     ///  
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the manual snapshot to be deleted.</para><para>Constraints: Must be the name of an existing snapshot that is in the <code>available</code>,
-        /// <code>failed</code>, or <code>cancelled</code> state.</para>
+        /// <para>The unique identifier of the manual snapshot to be deleted.</para><para>Constraints: Must be the name of an existing snapshot that is in the <c>available</c>,
+        /// <c>failed</c>, or <c>cancelled</c> state.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

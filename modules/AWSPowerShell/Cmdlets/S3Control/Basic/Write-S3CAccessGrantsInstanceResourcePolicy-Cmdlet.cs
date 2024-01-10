@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Updates the resource policy of the S3 Access Grants instance. 
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3:PutAccessGrantsInstanceResourcePolicy</code> permission
-    /// to use this operation. 
+    /// You must have the <c>s3:PutAccessGrantsInstanceResourcePolicy</c> permission to use
+    /// this operation. 
     /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Write", "S3CAccessGrantsInstanceResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

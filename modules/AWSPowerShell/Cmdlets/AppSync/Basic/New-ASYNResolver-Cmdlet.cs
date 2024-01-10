@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Creates a <code>Resolver</code> object.
+    /// Creates a <c>Resolver</c> object.
     /// 
     ///  
     /// <para>
@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter CachingConfig_CachingKey
         /// <summary>
         /// <para>
-        /// <para>The caching keys for a resolver that has caching activated.</para><para>Valid values are entries from the <code>$context.arguments</code>, <code>$context.source</code>,
-        /// and <code>$context.identity</code> maps.</para>
+        /// <para>The caching keys for a resolver that has caching activated.</para><para>Valid values are entries from the <c>$context.arguments</c>, <c>$context.source</c>,
+        /// and <c>$context.identity</c> maps.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,9 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Code
         /// <summary>
         /// <para>
-        /// <para>The <code>resolver</code> code that contains the request and response functions. When
-        /// code is used, the <code>runtime</code> is required. The <code>runtime</code> value
-        /// must be <code>APPSYNC_JS</code>.</para>
+        /// <para>The <c>resolver</c> code that contains the request and response functions. When code
+        /// is used, the <c>runtime</c> is required. The <c>runtime</c> value must be <c>APPSYNC_JS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>The Conflict Resolution strategy to perform in the event of a conflict.</para><ul><li><para><b>OPTIMISTIC_CONCURRENCY</b>: Resolve conflicts by rejecting mutations when versions
-        /// don't match the latest version at the server.</para></li><li><para><b>AUTOMERGE</b>: Resolve conflicts with the Automerge conflict resolution strategy.</para></li><li><para><b>LAMBDA</b>: Resolve conflicts with an Lambda function supplied in the <code>LambdaConflictHandlerConfig</code>.</para></li></ul>
+        /// don't match the latest version at the server.</para></li><li><para><b>AUTOMERGE</b>: Resolve conflicts with the Automerge conflict resolution strategy.</para></li><li><para><b>LAMBDA</b>: Resolve conflicts with an Lambda function supplied in the <c>LambdaConflictHandlerConfig</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter PipelineConfig_Function
         /// <summary>
         /// <para>
-        /// <para>A list of <code>Function</code> objects.</para>
+        /// <para>A list of <c>Function</c> objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <para>
         /// <para>The resolver type.</para><ul><li><para><b>UNIT</b>: A UNIT resolver type. A UNIT resolver is the default resolver type.
         /// You can use a UNIT resolver to run a GraphQL query against a single data source.</para></li><li><para><b>PIPELINE</b>: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke
-        /// a series of <code>Function</code> objects in a serial manner. You can use a pipeline
-        /// resolver to run a GraphQL query against multiple data sources.</para></li></ul>
+        /// a series of <c>Function</c> objects in a serial manner. You can use a pipeline resolver
+        /// to run a GraphQL query against multiple data sources.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,8 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Runtime_Name
         /// <summary>
         /// <para>
-        /// <para>The <code>name</code> of the runtime to use. Currently, the only allowed value is
-        /// <code>APPSYNC_JS</code>.</para>
+        /// <para>The <c>name</c> of the runtime to use. Currently, the only allowed value is <c>APPSYNC_JS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,8 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Runtime_RuntimeVersion
         /// <summary>
         /// <para>
-        /// <para>The <code>version</code> of the runtime to use. Currently, the only allowed version
-        /// is <code>1.0.0</code>.</para>
+        /// <para>The <c>version</c> of the runtime to use. Currently, the only allowed version is <c>1.0.0</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter TypeName
         /// <summary>
         /// <para>
-        /// <para>The name of the <code>Type</code>.</para>
+        /// <para>The name of the <c>Type</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

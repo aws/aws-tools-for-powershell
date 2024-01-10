@@ -28,9 +28,9 @@ using Amazon.LakeFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.LKF
 {
     /// <summary>
-    /// Returns the state of a query previously submitted. Clients are expected to poll <code>GetQueryState</code>
+    /// Returns the state of a query previously submitted. Clients are expected to poll <c>GetQueryState</c>
     /// to monitor the current state of the planning before retrieving the work units. A query
-    /// state is only visible to the principal that made the initial call to <code>StartQueryPlanning</code>.
+    /// state is only visible to the principal that made the initial call to <c>StartQueryPlanning</c>.
     /// </summary>
     [Cmdlet("Get", "LKFQueryState")]
     [OutputType("Amazon.LakeFormation.Model.GetQueryStateResponse")]

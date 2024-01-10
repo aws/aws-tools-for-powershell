@@ -33,8 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions for the <code>lex:DeleteSlotTypeVersion</code>
-    /// action.
+    /// This operation requires permissions for the <c>lex:DeleteSlotTypeVersion</c> action.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LMBSlotTypeVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -69,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>The version of the slot type to delete. You cannot delete the <code>$LATEST</code>
-        /// version of the slot type. To delete the <code>$LATEST</code> version, use the <a>DeleteSlotType</a>
+        /// <para>The version of the slot type to delete. You cannot delete the <c>$LATEST</c> version
+        /// of the slot type. To delete the <c>$LATEST</c> version, use the <a>DeleteSlotType</a>
         /// operation.</para>
         /// </para>
         /// </summary>

@@ -33,30 +33,29 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     /// parameters: 
     /// 
     ///  <ul><li><para>
-    /// Secrets Manager - when connecting to a cluster, provide the <code>secret-arn</code>
-    /// of a secret stored in Secrets Manager which has <code>username</code> and <code>password</code>.
-    /// The specified secret contains credentials to connect to the <code>database</code>
-    /// you specify. When you are connecting to a cluster, you also supply the database name,
-    /// If you provide a cluster identifier (<code>dbClusterIdentifier</code>), it must match
-    /// the cluster identifier stored in the secret. When you are connecting to a serverless
-    /// workgroup, you also supply the database name.
+    /// Secrets Manager - when connecting to a cluster, provide the <c>secret-arn</c> of a
+    /// secret stored in Secrets Manager which has <c>username</c> and <c>password</c>. The
+    /// specified secret contains credentials to connect to the <c>database</c> you specify.
+    /// When you are connecting to a cluster, you also supply the database name, If you provide
+    /// a cluster identifier (<c>dbClusterIdentifier</c>), it must match the cluster identifier
+    /// stored in the secret. When you are connecting to a serverless workgroup, you also
+    /// supply the database name.
     /// </para></li><li><para>
     /// Temporary credentials - when connecting to your data warehouse, choose one of the
     /// following options:
     /// </para><ul><li><para>
     /// When connecting to a serverless workgroup, specify the workgroup name and database
-    /// name. The database user name is derived from the IAM identity. For example, <code>arn:iam::123456789012:user:foo</code>
-    /// has the database user name <code>IAM:foo</code>. Also, permission to call the <code>redshift-serverless:GetCredentials</code>
+    /// name. The database user name is derived from the IAM identity. For example, <c>arn:iam::123456789012:user:foo</c>
+    /// has the database user name <c>IAM:foo</c>. Also, permission to call the <c>redshift-serverless:GetCredentials</c>
     /// operation is required.
     /// </para></li><li><para>
     /// When connecting to a cluster as an IAM identity, specify the cluster identifier and
     /// the database name. The database user name is derived from the IAM identity. For example,
-    /// <code>arn:iam::123456789012:user:foo</code> has the database user name <code>IAM:foo</code>.
-    /// Also, permission to call the <code>redshift:GetClusterCredentialsWithIAM</code> operation
-    /// is required.
+    /// <c>arn:iam::123456789012:user:foo</c> has the database user name <c>IAM:foo</c>. Also,
+    /// permission to call the <c>redshift:GetClusterCredentialsWithIAM</c> operation is required.
     /// </para></li><li><para>
     /// When connecting to a cluster as a database user, specify the cluster identifier, the
-    /// database name, and the database user name. Also, permission to call the <code>redshift:GetClusterCredentials</code>
+    /// database name, and the database user name. Also, permission to call the <c>redshift:GetClusterCredentials</c>
     /// operation is required.
     /// </para></li></ul></li></ul><para>
     /// For more information about the Amazon Redshift Data API and CLI usage examples, see
@@ -101,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         #region Parameter Database
         /// <summary>
         /// <para>
-        /// <para>The name of the database that contains the schemas to list. If <code>ConnectedDatabase</code>
+        /// <para>The name of the database that contains the schemas to list. If <c>ConnectedDatabase</c>
         /// is not specified, this is also the database to connect to with your authentication
         /// credentials.</para>
         /// </para>
@@ -167,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         /// <summary>
         /// <para>
         /// <para>The maximum number of schemas to return in the response. If more schemas exist than
-        /// fit in one response, then <code>NextToken</code> is returned to page through the results.
+        /// fit in one response, then <c>NextToken</c> is returned to page through the results.
         /// </para>
         /// </para>
         /// </summary>

@@ -61,13 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>Whether or not to notify components and wait for components to become safe to update.
-        /// Choose from the following options:</para><ul><li><para><code>NOTIFY_COMPONENTS</code> – The deployment notifies each component before it
-        /// stops and updates that component. Components can use the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetocomponentupdates">SubscribeToComponentUpdates</a>
+        /// Choose from the following options:</para><ul><li><para><c>NOTIFY_COMPONENTS</c> – The deployment notifies each component before it stops
+        /// and updates that component. Components can use the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetocomponentupdates">SubscribeToComponentUpdates</a>
         /// IPC operation to receive these notifications. Then, components can respond with the
         /// <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-defercomponentupdate">DeferComponentUpdate</a>
         /// IPC operation. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html">Create
-        /// deployments</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</para></li><li><para><code>SKIP_NOTIFY_COMPONENTS</code> – The deployment doesn't notify components or
-        /// wait for them to be safe to update.</para></li></ul><para>Default: <code>NOTIFY_COMPONENTS</code></para>
+        /// deployments</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</para></li><li><para><c>SKIP_NOTIFY_COMPONENTS</c> – The deployment doesn't notify components or wait
+        /// for them to be safe to update.</para></li></ul><para>Default: <c>NOTIFY_COMPONENTS</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>The failure handling policy for the configuration deployment. This policy defines
-        /// what to do if the deployment fails.</para><para>Default: <code>ROLLBACK</code></para>
+        /// what to do if the deployment fails.</para><para>Default: <c>ROLLBACK</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>The exponential factor to increase the rollout rate for the job.</para><para>This parameter supports up to one digit after the decimal (for example, you can specify
-        /// <code>1.5</code>, but not <code>1.55</code>).</para>
+        /// <c>1.5</c>, but not <c>1.55</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,9 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>The amount of time, in minutes, that devices have to complete the job. The timer starts
-        /// when the job status is set to <code>IN_PROGRESS</code>. If the job status doesn't
-        /// change to a terminal state before the time expires, then the job status is set to
-        /// <code>TIMED_OUT</code>.</para><para>The timeout interval must be between 1 minute and 7 days (10080 minutes).</para>
+        /// when the job status is set to <c>IN_PROGRESS</c>. If the job status doesn't change
+        /// to a terminal state before the time expires, then the job status is set to <c>TIMED_OUT</c>.</para><para>The timeout interval must be between 1 minute and 7 days (10080 minutes).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -241,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <para>
         /// <para>The amount of time in seconds that each component on a device has to report that it's
         /// safe to update. If the component waits for longer than this timeout, then the deployment
-        /// proceeds on the device.</para><para>Default: <code>60</code></para>
+        /// proceeds on the device.</para><para>Default: <c>60</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <para>
         /// <para>The amount of time in seconds that a component can validate its configuration updates.
         /// If the validation time exceeds this timeout, then the deployment proceeds for the
-        /// device.</para><para>Default: <code>30</code></para>
+        /// device.</para><para>Default: <c>30</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

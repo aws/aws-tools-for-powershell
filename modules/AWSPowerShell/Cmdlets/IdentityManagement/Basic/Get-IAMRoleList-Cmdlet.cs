@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para></li></ul><para>
     /// To view all of the information for a role, see <a>GetRole</a>.
     /// </para></note><para>
-    /// You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
-    /// parameters.
+    /// You can paginate the results using the <c>MaxItems</c> and <c>Marker</c> parameters.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IAMRoleList")]
@@ -64,12 +63,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PathPrefix
         /// <summary>
         /// <para>
-        /// <para> The path prefix for filtering the results. For example, the prefix <code>/application_abc/component_xyz/</code>
-        /// gets all roles whose path starts with <code>/application_abc/component_xyz/</code>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/), listing
+        /// <para> The path prefix for filtering the results. For example, the prefix <c>/application_abc/component_xyz/</c>
+        /// gets all roles whose path starts with <c>/application_abc/component_xyz/</c>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/), listing
         /// all roles. This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
         /// pattern</a>) a string of characters consisting of either a forward slash (/) by itself
         /// or a string that must begin and end with forward slashes. In addition, it can contain
-        /// any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>),
+        /// any ASCII character from the ! (<c>\u0021</c>) through the DEL character (<c>\u007F</c>),
         /// including most punctuation characters, digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>
@@ -81,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only after you receive a response
-        /// indicating that the results are truncated. Set it to the value of the <code>Marker</code>
+        /// indicating that the results are truncated. Set it to the value of the <c>Marker</c>
         /// element in the response that you received to indicate where the next call should start.</para>
         /// </para>
         /// <para>
@@ -99,11 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
         /// want in the response. If additional items exist beyond the maximum you specify, the
-        /// <code>IsTruncated</code> response element is <code>true</code>.</para><para>If you do not include this parameter, the number of items defaults to 100. Note that
+        /// <c>IsTruncated</c> response element is <c>true</c>.</para><para>If you do not include this parameter, the number of items defaults to 100. Note that
         /// IAM might return fewer results, even when there are more results available. In that
-        /// case, the <code>IsTruncated</code> response element returns <code>true</code>, and
-        /// <code>Marker</code> contains a value to include in the subsequent call that tells
-        /// the service where to continue from.</para>
+        /// case, the <c>IsTruncated</c> response element returns <c>true</c>, and <c>Marker</c>
+        /// contains a value to include in the subsequent call that tells the service where to
+        /// continue from.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

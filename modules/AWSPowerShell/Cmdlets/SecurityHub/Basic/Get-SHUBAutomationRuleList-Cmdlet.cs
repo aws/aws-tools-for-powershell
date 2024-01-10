@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A token to specify where to start paginating the response. This is the <code>NextToken</code>
-        /// from a previously truncated response. On your first call to the <code>ListAutomationRules</code>
-        /// API, set the value of this parameter to <code>NULL</code>. </para>
+        /// <para> A token to specify where to start paginating the response. This is the <c>NextToken</c>
+        /// from a previously truncated response. On your first call to the <c>ListAutomationRules</c>
+        /// API, set the value of this parameter to <c>NULL</c>. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

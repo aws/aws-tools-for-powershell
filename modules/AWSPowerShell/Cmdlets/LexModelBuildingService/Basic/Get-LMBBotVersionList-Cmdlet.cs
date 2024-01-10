@@ -32,16 +32,15 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// 
     ///  
     /// <para>
-    /// The <code>GetBotVersions</code> operation returns a <code>BotMetadata</code> object
-    /// for each version of a bot. For example, if a bot has three numbered versions, the
-    /// <code>GetBotVersions</code> operation returns four <code>BotMetadata</code> objects
-    /// in the response, one for each numbered version and one for the <code>$LATEST</code>
-    /// version. 
+    /// The <c>GetBotVersions</c> operation returns a <c>BotMetadata</c> object for each version
+    /// of a bot. For example, if a bot has three numbered versions, the <c>GetBotVersions</c>
+    /// operation returns four <c>BotMetadata</c> objects in the response, one for each numbered
+    /// version and one for the <c>$LATEST</c> version. 
     /// </para><para>
-    /// The <code>GetBotVersions</code> operation always returns at least one version, the
-    /// <code>$LATEST</code> version.
+    /// The <c>GetBotVersions</c> operation always returns at least one version, the <c>$LATEST</c>
+    /// version.
     /// </para><para>
-    /// This operation requires permissions for the <code>lex:GetBotVersions</code> action.
+    /// This operation requires permissions for the <c>lex:GetBotVersions</c> action.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LMBBotVersionList")]

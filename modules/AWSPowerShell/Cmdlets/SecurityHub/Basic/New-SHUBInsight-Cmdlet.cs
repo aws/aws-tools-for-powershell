@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// 
     ///  
     /// <para>
-    /// To group the related findings in the insight, use the <code>GroupByAttribute</code>.
+    /// To group the related findings in the insight, use the <c>GroupByAttribute</c>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SHUBInsight", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

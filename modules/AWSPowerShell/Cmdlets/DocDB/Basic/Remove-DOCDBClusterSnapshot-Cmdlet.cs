@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// terminated.
     /// 
     ///  <note><para>
-    /// The cluster snapshot must be in the <code>available</code> state to be deleted.
+    /// The cluster snapshot must be in the <c>available</c> state to be deleted.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "DOCDBClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the cluster snapshot to delete.</para><para>Constraints: Must be the name of an existing cluster snapshot in the <code>available</code>
+        /// <para>The identifier of the cluster snapshot to delete.</para><para>Constraints: Must be the name of an existing cluster snapshot in the <c>available</c>
         /// state.</para>
         /// </para>
         /// </summary>

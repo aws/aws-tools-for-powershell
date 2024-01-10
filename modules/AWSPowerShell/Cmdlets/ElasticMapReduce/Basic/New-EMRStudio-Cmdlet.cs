@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>
         /// <para>The ID of the Amazon EMR Studio Engine security group. The Engine security group allows
         /// inbound network traffic from the Workspace security group, and it must be in the same
-        /// VPC specified by <code>VpcId</code>.</para>
+        /// VPC specified by <c>VpcId</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -128,9 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter IdcUserAssignment
         /// <summary>
         /// <para>
-        /// <para> Specifies whether IAM Identity Center user assignment is <code>REQUIRED</code> or
-        /// <code>OPTIONAL</code>. If the value is set to <code>REQUIRED</code>, users must be
-        /// explicitly assigned to the Studio application to access the Studio. </para>
+        /// <para> Specifies whether IAM Identity Center user assignment is <c>REQUIRED</c> or <c>OPTIONAL</c>.
+        /// If the value is set to <c>REQUIRED</c>, users must be explicitly assigned to the Studio
+        /// application to access the Studio. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,10 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter IdpRelayStateParameterName
         /// <summary>
         /// <para>
-        /// <para>The name that your identity provider (IdP) uses for its <code>RelayState</code> parameter.
-        /// For example, <code>RelayState</code> or <code>TargetSource</code>. Specify this value
-        /// when you use IAM authentication and want to let federated users log in to a Studio
-        /// using the Studio URL. The <code>RelayState</code> parameter differs by IdP.</para>
+        /// <para>The name that your identity provider (IdP) uses for its <c>RelayState</c> parameter.
+        /// For example, <c>RelayState</c> or <c>TargetSource</c>. Specify this value when you
+        /// use IAM authentication and want to let federated users log in to a Studio using the
+        /// Studio URL. The <c>RelayState</c> parameter differs by IdP.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a
-        /// maximum of 5 subnets. The subnets must belong to the VPC specified by <code>VpcId</code>.
+        /// maximum of 5 subnets. The subnets must belong to the VPC specified by <c>VpcId</c>.
         /// Studio users can create a Workspace in any of the specified subnets.</para>
         /// </para>
         /// </summary>
@@ -236,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para> A Boolean indicating whether to enable Trusted identity propagation for the Studio.
-        /// The default value is <code>false</code>. </para>
+        /// The default value is <c>false</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,9 +247,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>The IAM user role that users and groups assume when logged in to an Amazon EMR Studio.
-        /// Only specify a <code>UserRole</code> when you use IAM Identity Center authentication.
-        /// The permissions attached to the <code>UserRole</code> can be scoped down for each
-        /// user or group using session policies.</para>
+        /// Only specify a <c>UserRole</c> when you use IAM Identity Center authentication. The
+        /// permissions attached to the <c>UserRole</c> can be scoped down for each user or group
+        /// using session policies.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -278,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>
         /// <para>The ID of the Amazon EMR Studio Workspace security group. The Workspace security group
         /// allows outbound network traffic to resources in the Engine security group, and it
-        /// must be in the same VPC specified by <code>VpcId</code>.</para>
+        /// must be in the same VPC specified by <c>VpcId</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

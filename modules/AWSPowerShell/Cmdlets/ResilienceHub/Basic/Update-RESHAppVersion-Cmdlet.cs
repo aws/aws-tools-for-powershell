@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     ///  <note><para>
     /// This API updates the Resilience Hub application draft version. To use this information
     /// for running resiliency assessments, you must publish the Resilience Hub application
-    /// using the <code>PublishAppVersion</code> API.
+    /// using the <c>PublishAppVersion</c> API.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "RESHAppVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,10 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <summary>
         /// <para>
         /// <para>Additional configuration parameters for an Resilience Hub application. If you want
-        /// to implement <code>additionalInfo</code> through the Resilience Hub console rather
-        /// than using an API call, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/app-config-param.html">Configure
+        /// to implement <c>additionalInfo</c> through the Resilience Hub console rather than
+        /// using an API call, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/app-config-param.html">Configure
         /// the application configuration parameters</a>.</para><note><para>Currently, this parameter accepts a key-value mapping (in a string format) of only
-        /// one failover region and one associated account.</para><para>Key: <code>"failover-regions"</code></para><para>Value: <code>"[{"region":"&lt;REGION&gt;", "accounts":[{"id":"&lt;ACCOUNT_ID&gt;"}]}]"</code></para></note>
+        /// one failover region and one associated account.</para><para>Key: <c>"failover-regions"</c></para><para>Value: <c>"[{"region":"&lt;REGION&gt;", "accounts":[{"id":"&lt;ACCOUNT_ID&gt;"}]}]"</c></para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <summary>
         /// <para>
         /// <para>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
-        /// ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
+        /// ARN is: arn:<c>partition</c>:resiliencehub:<c>region</c>:<c>account</c>:app/<c>app-id</c>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>
         /// guide.</para>

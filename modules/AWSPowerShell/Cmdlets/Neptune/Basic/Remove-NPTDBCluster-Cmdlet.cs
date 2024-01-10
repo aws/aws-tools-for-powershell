@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     ///  
     /// <para>
     /// Note that the DB Cluster cannot be deleted if deletion protection is enabled. To delete
-    /// it, you must first set its <code>DeletionProtection</code> field to <code>False</code>.
+    /// it, you must first set its <c>DeletionProtection</c> field to <c>False</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "NPTDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter FinalDBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> The DB cluster snapshot identifier of the new DB cluster snapshot created when <code>SkipFinalSnapshot</code>
-        /// is set to <code>false</code>.</para><note><para> Specifying this parameter and also setting the <code>SkipFinalShapshot</code> parameter
+        /// <para> The DB cluster snapshot identifier of the new DB cluster snapshot created when <c>SkipFinalSnapshot</c>
+        /// is set to <c>false</c>.</para><note><para> Specifying this parameter and also setting the <c>SkipFinalShapshot</c> parameter
         /// to true results in an error.</para></note><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
@@ -83,10 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para> Determines whether a final DB cluster snapshot is created before the DB cluster is
-        /// deleted. If <code>true</code> is specified, no DB cluster snapshot is created. If
-        /// <code>false</code> is specified, a DB cluster snapshot is created before the DB cluster
-        /// is deleted.</para><note><para>You must specify a <code>FinalDBSnapshotIdentifier</code> parameter if <code>SkipFinalSnapshot</code>
-        /// is <code>false</code>.</para></note><para>Default: <code>false</code></para>
+        /// deleted. If <c>true</c> is specified, no DB cluster snapshot is created. If <c>false</c>
+        /// is specified, a DB cluster snapshot is created before the DB cluster is deleted.</para><note><para>You must specify a <c>FinalDBSnapshotIdentifier</c> parameter if <c>SkipFinalSnapshot</c>
+        /// is <c>false</c>.</para></note><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

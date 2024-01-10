@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter Clean
         /// <summary>
         /// <para>
-        /// <para>If this flag is set to <code>TRUE</code>, all Neptune ML S3 artifacts should be deleted
-        /// when the job is stopped. The default is <code>FALSE</code>.</para>
+        /// <para>If this flag is set to <c>TRUE</c>, all Neptune ML S3 artifacts should be deleted
+        /// when the job is stopped. The default is <c>FALSE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

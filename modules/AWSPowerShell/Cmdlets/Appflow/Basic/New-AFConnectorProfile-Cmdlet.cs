@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         #region Parameter ConnectorLabel
         /// <summary>
         /// <para>
-        /// <para>The label of the connector. The label is unique for each <code>ConnectorRegistration</code>
+        /// <para>The label of the connector. The label is unique for each <c>ConnectorRegistration</c>
         /// in your Amazon Web Services account. Only needed if calling for CUSTOMCONNECTOR connector
         /// type/.</para>
         /// </para>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         #region Parameter ConnectorProfileName
         /// <summary>
         /// <para>
-        /// <para> The name of the connector profile. The name is unique for each <code>ConnectorProfile</code>
+        /// <para> The name of the connector profile. The name is unique for each <c>ConnectorProfile</c>
         /// in your Amazon Web Services account. </para>
         /// </para>
         /// </summary>
@@ -147,14 +147,14 @@ namespace Amazon.PowerShell.Cmdlets.AF
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The <code>clientToken</code> parameter is an idempotency token. It ensures that your
-        /// <code>CreateConnectorProfile</code> request completes only once. You choose the value
-        /// to pass. For example, if you don't receive a response from your request, you can safely
-        /// retry the request with the same <code>clientToken</code> parameter value.</para><para>If you omit a <code>clientToken</code> value, the Amazon Web Services SDK that you
-        /// are using inserts a value for you. This way, the SDK can safely retry requests multiple
-        /// times after a network error. You must provide your own value for other use cases.</para><para>If you specify input parameters that differ from your first request, an error occurs.
-        /// If you use a different value for <code>clientToken</code>, Amazon AppFlow considers
-        /// it a new call to <code>CreateConnectorProfile</code>. The token is active for 8 hours.</para>
+        /// <para>The <c>clientToken</c> parameter is an idempotency token. It ensures that your <c>CreateConnectorProfile</c>
+        /// request completes only once. You choose the value to pass. For example, if you don't
+        /// receive a response from your request, you can safely retry the request with the same
+        /// <c>clientToken</c> parameter value.</para><para>If you omit a <c>clientToken</c> value, the Amazon Web Services SDK that you are using
+        /// inserts a value for you. This way, the SDK can safely retry requests multiple times
+        /// after a network error. You must provide your own value for other use cases.</para><para>If you specify input parameters that differ from your first request, an error occurs.
+        /// If you use a different value for <c>clientToken</c>, Amazon AppFlow considers it a
+        /// new call to <c>CreateConnectorProfile</c>. The token is active for 8 hours.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

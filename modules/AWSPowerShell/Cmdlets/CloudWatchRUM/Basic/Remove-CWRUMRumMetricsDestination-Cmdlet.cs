@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter Destination
         /// <summary>
         /// <para>
-        /// <para>The type of destination to delete. Valid values are <code>CloudWatch</code> and <code>Evidently</code>.</para>
+        /// <para>The type of destination to delete. Valid values are <c>CloudWatch</c> and <c>Evidently</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,10 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter DestinationArn
         /// <summary>
         /// <para>
-        /// <para>This parameter is required if <code>Destination</code> is <code>Evidently</code>.
-        /// If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter.
-        /// This parameter specifies the ARN of the Evidently experiment that corresponds to the
-        /// destination to delete.</para>
+        /// <para>This parameter is required if <c>Destination</c> is <c>Evidently</c>. If <c>Destination</c>
+        /// is <c>CloudWatch</c>, do not use this parameter. This parameter specifies the ARN
+        /// of the Evidently experiment that corresponds to the destination to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

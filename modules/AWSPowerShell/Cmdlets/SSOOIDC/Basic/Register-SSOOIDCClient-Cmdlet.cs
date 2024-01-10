@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         #region Parameter ClientType
         /// <summary>
         /// <para>
-        /// <para>The type of client. The service supports only <code>public</code> as a client type.
-        /// Anything other than public will be rejected by the service.</para>
+        /// <para>The type of client. The service supports only <c>public</c> as a client type. Anything
+        /// other than public will be rejected by the service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

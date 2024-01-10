@@ -53,18 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// </para><para>
     /// Kinesis Data Firehose buffers records before delivering them to the destination. To
     /// disambiguate the data blobs at the destination, a common solution is to use delimiters
-    /// in the data, such as a newline (<code>\n</code>) or some other character unique within
-    /// the data. This allows the consumer application to parse individual data items when
-    /// reading the data from the destination.
+    /// in the data, such as a newline (<c>\n</c>) or some other character unique within the
+    /// data. This allows the consumer application to parse individual data items when reading
+    /// the data from the destination.
     /// </para><para>
-    /// The <code>PutRecord</code> operation returns a <code>RecordId</code>, which is a unique
-    /// string assigned to each record. Producer applications can use this ID for purposes
-    /// such as auditability and investigation.
+    /// The <c>PutRecord</c> operation returns a <c>RecordId</c>, which is a unique string
+    /// assigned to each record. Producer applications can use this ID for purposes such as
+    /// auditability and investigation.
     /// </para><para>
-    /// If the <code>PutRecord</code> operation throws a <code>ServiceUnavailableException</code>,
-    /// the API is automatically reinvoked (retried) 3 times. If the exception persists, it
-    /// is possible that the throughput limits have been exceeded for the delivery stream.
-    /// 
+    /// If the <c>PutRecord</c> operation throws a <c>ServiceUnavailableException</c>, the
+    /// API is automatically reinvoked (retried) 3 times. If the exception persists, it is
+    /// possible that the throughput limits have been exceeded for the delivery stream. 
     /// </para><para>
     /// Re-invoking the Put API operations (for example, PutRecord and PutRecordBatch) can
     /// result in data duplicates. For larger data assets, allow for a longer time out before

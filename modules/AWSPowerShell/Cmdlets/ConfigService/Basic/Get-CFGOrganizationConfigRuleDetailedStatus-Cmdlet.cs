@@ -57,12 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>Indicates deployment status for Config rule in the member account. When management
-        /// account calls <code>PutOrganizationConfigRule</code> action for the first time, Config
-        /// rule status is created in the member account. When management account calls <code>PutOrganizationConfigRule</code>
+        /// account calls <c>PutOrganizationConfigRule</c> action for the first time, Config rule
+        /// status is created in the member account. When management account calls <c>PutOrganizationConfigRule</c>
         /// action for the second time, Config rule status is updated in the member account. Config
-        /// rule status is deleted when the management account deletes <code>OrganizationConfigRule</code>
-        /// and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
-        /// </para><para>Config sets the state of the rule to:</para><ul><li><para><code>CREATE_SUCCESSFUL</code> when Config rule has been created in the member account.</para></li><li><para><code>CREATE_IN_PROGRESS</code> when Config rule is being created in the member account.</para></li><li><para><code>CREATE_FAILED</code> when Config rule creation has failed in the member account.</para></li><li><para><code>DELETE_FAILED</code> when Config rule deletion has failed in the member account.</para></li><li><para><code>DELETE_IN_PROGRESS</code> when Config rule is being deleted in the member account.</para></li><li><para><code>DELETE_SUCCESSFUL</code> when Config rule has been deleted in the member account.</para></li><li><para><code>UPDATE_SUCCESSFUL</code> when Config rule has been updated in the member account.</para></li><li><para><code>UPDATE_IN_PROGRESS</code> when Config rule is being updated in the member account.</para></li><li><para><code>UPDATE_FAILED</code> when Config rule deletion has failed in the member account.</para></li></ul>
+        /// rule status is deleted when the management account deletes <c>OrganizationConfigRule</c>
+        /// and disables service access for <c>config-multiaccountsetup.amazonaws.com</c>. </para><para>Config sets the state of the rule to:</para><ul><li><para><c>CREATE_SUCCESSFUL</c> when Config rule has been created in the member account.</para></li><li><para><c>CREATE_IN_PROGRESS</c> when Config rule is being created in the member account.</para></li><li><para><c>CREATE_FAILED</c> when Config rule creation has failed in the member account.</para></li><li><para><c>DELETE_FAILED</c> when Config rule deletion has failed in the member account.</para></li><li><para><c>DELETE_IN_PROGRESS</c> when Config rule is being deleted in the member account.</para></li><li><para><c>DELETE_SUCCESSFUL</c> when Config rule has been deleted in the member account.</para></li><li><para><c>UPDATE_SUCCESSFUL</c> when Config rule has been updated in the member account.</para></li><li><para><c>UPDATE_IN_PROGRESS</c> when Config rule is being updated in the member account.</para></li><li><para><c>UPDATE_FAILED</c> when Config rule deletion has failed in the member account.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,9 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of <code>OrganizationConfigRuleDetailedStatus</code> returned on
-        /// each page. If you do not specify a number, Config uses the default. The default is
-        /// 100.</para>
+        /// <para>The maximum number of <c>OrganizationConfigRuleDetailedStatus</c> returned on each
+        /// page. If you do not specify a number, Config uses the default. The default is 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -109,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
-        /// the next page of results in a paginated response. </para>
+        /// <para>The <c>nextToken</c> string returned on a previous page that you use to get the next
+        /// page of results in a paginated response. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

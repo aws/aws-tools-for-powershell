@@ -35,22 +35,21 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Permanently deletes a <a>ByteMatchSet</a>. You can't delete a <code>ByteMatchSet</code>
-    /// if it's still used in any <code>Rules</code> or if it still includes any <a>ByteMatchTuple</a>
+    /// Permanently deletes a <a>ByteMatchSet</a>. You can't delete a <c>ByteMatchSet</c>
+    /// if it's still used in any <c>Rules</c> or if it still includes any <a>ByteMatchTuple</a>
     /// objects (any filters).
     /// </para><para>
-    /// If you just want to remove a <code>ByteMatchSet</code> from a <code>Rule</code>, use
-    /// <a>UpdateRule</a>.
+    /// If you just want to remove a <c>ByteMatchSet</c> from a <c>Rule</c>, use <a>UpdateRule</a>.
     /// </para><para>
-    /// To permanently delete a <code>ByteMatchSet</code>, perform the following steps:
+    /// To permanently delete a <c>ByteMatchSet</c>, perform the following steps:
     /// </para><ol><li><para>
-    /// Update the <code>ByteMatchSet</code> to remove filters, if any. For more information,
-    /// see <a>UpdateByteMatchSet</a>.
+    /// Update the <c>ByteMatchSet</c> to remove filters, if any. For more information, see
+    /// <a>UpdateByteMatchSet</a>.
     /// </para></li><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>DeleteByteMatchSet</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of a <c>DeleteByteMatchSet</c> request.
     /// </para></li><li><para>
-    /// Submit a <code>DeleteByteMatchSet</code> request.
+    /// Submit a <c>DeleteByteMatchSet</c> request.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Remove", "WAFByteMatchSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -68,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter ByteMatchSetId
         /// <summary>
         /// <para>
-        /// <para>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to delete.
-        /// <code>ByteMatchSetId</code> is returned by <a>CreateByteMatchSet</a> and by <a>ListByteMatchSets</a>.</para>
+        /// <para>The <c>ByteMatchSetId</c> of the <a>ByteMatchSet</a> that you want to delete. <c>ByteMatchSetId</c>
+        /// is returned by <a>CreateByteMatchSet</a> and by <a>ListByteMatchSets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -35,22 +35,21 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Permanently deletes a <a>SizeConstraintSet</a>. You can't delete a <code>SizeConstraintSet</code>
-    /// if it's still used in any <code>Rules</code> or if it still includes any <a>SizeConstraint</a>
+    /// Permanently deletes a <a>SizeConstraintSet</a>. You can't delete a <c>SizeConstraintSet</c>
+    /// if it's still used in any <c>Rules</c> or if it still includes any <a>SizeConstraint</a>
     /// objects (any filters).
     /// </para><para>
-    /// If you just want to remove a <code>SizeConstraintSet</code> from a <code>Rule</code>,
-    /// use <a>UpdateRule</a>.
+    /// If you just want to remove a <c>SizeConstraintSet</c> from a <c>Rule</c>, use <a>UpdateRule</a>.
     /// </para><para>
-    /// To permanently delete a <code>SizeConstraintSet</code>, perform the following steps:
+    /// To permanently delete a <c>SizeConstraintSet</c>, perform the following steps:
     /// </para><ol><li><para>
-    /// Update the <code>SizeConstraintSet</code> to remove filters, if any. For more information,
+    /// Update the <c>SizeConstraintSet</c> to remove filters, if any. For more information,
     /// see <a>UpdateSizeConstraintSet</a>.
     /// </para></li><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>DeleteSizeConstraintSet</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of a <c>DeleteSizeConstraintSet</c> request.
     /// </para></li><li><para>
-    /// Submit a <code>DeleteSizeConstraintSet</code> request.
+    /// Submit a <c>DeleteSizeConstraintSet</c> request.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Remove", "WAFSizeConstraintSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -85,9 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter SizeConstraintSetId
         /// <summary>
         /// <para>
-        /// <para>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want
-        /// to delete. <code>SizeConstraintSetId</code> is returned by <a>CreateSizeConstraintSet</a>
-        /// and by <a>ListSizeConstraintSets</a>.</para>
+        /// <para>The <c>SizeConstraintSetId</c> of the <a>SizeConstraintSet</a> that you want to delete.
+        /// <c>SizeConstraintSetId</c> is returned by <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

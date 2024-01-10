@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter FulfillmentCodeHook_Active
         /// <summary>
         /// <para>
-        /// <para>Determines whether the fulfillment code hook is used. When <code>active</code> is
-        /// false, the code hook doesn't run.</para>
+        /// <para>Determines whether the fulfillment code hook is used. When <c>active</c> is false,
+        /// the code hook doesn't run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Determines whether fulfillment updates are sent to the user. When this field is true,
-        /// updates are sent.</para><para>If the <code>active</code> field is set to true, the <code>startResponse</code>, <code>updateResponse</code>,
-        /// and <code>timeoutInSeconds</code> fields are required.</para>
+        /// updates are sent.</para><para>If the <c>active</c> field is set to true, the <c>startResponse</c>, <c>updateResponse</c>,
+        /// and <c>timeoutInSeconds</c> fields are required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_Active
         /// <summary>
         /// <para>
-        /// <para>Determines whether a conditional branch is active. When <code>active</code> is false,
-        /// the conditions are not evaluated.</para>
+        /// <para>Determines whether a conditional branch is active. When <c>active</c> is false, the
+        /// conditions are not evaluated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_Active
         /// <summary>
         /// <para>
-        /// <para>Determines whether a conditional branch is active. When <code>active</code> is false,
-        /// the conditions are not evaluated.</para>
+        /// <para>Determines whether a conditional branch is active. When <c>active</c> is false, the
+        /// conditions are not evaluated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_Active
         /// <summary>
         /// <para>
-        /// <para>Determines whether a conditional branch is active. When <code>active</code> is false,
-        /// the conditions are not evaluated.</para>
+        /// <para>Determines whether a conditional branch is active. When <c>active</c> is false, the
+        /// conditions are not evaluated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_Active
         /// <summary>
         /// <para>
-        /// <para>Determines whether a conditional branch is active. When <code>active</code> is false,
-        /// the conditions are not evaluated.</para>
+        /// <para>Determines whether a conditional branch is active. When <c>active</c> is false, the
+        /// conditions are not evaluated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_Active
         /// <summary>
         /// <para>
-        /// <para>Determines whether a conditional branch is active. When <code>active</code> is false,
-        /// the conditions are not evaluated.</para>
+        /// <para>Determines whether a conditional branch is active. When <c>active</c> is false, the
+        /// conditions are not evaluated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_Active
         /// <summary>
         /// <para>
-        /// <para>Determines whether a conditional branch is active. When <code>active</code> is false,
-        /// the conditions are not evaluated.</para>
+        /// <para>Determines whether a conditional branch is active. When <c>active</c> is false, the
+        /// conditions are not evaluated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter InitialResponseSetting_Conditional_Active
         /// <summary>
         /// <para>
-        /// <para>Determines whether a conditional branch is active. When <code>active</code> is false,
-        /// the conditions are not evaluated.</para>
+        /// <para>Determines whether a conditional branch is active. When <c>active</c> is false, the
+        /// conditions are not evaluated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Specifies whether an intent's closing response is used. When this field is false,
-        /// the closing response isn't sent to the user. If the <code>active</code> field isn't
-        /// specified, the default is true.</para>
+        /// the closing response isn't sent to the user. If the <c>active</c> field isn't specified,
+        /// the default is true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,8 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentClosingSetting_Conditional_Active
         /// <summary>
         /// <para>
-        /// <para>Determines whether a conditional branch is active. When <code>active</code> is false,
-        /// the conditions are not evaluated.</para>
+        /// <para>Determines whether a conditional branch is active. When <c>active</c> is false, the
+        /// conditions are not evaluated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Specifies whether the intent's confirmation is sent to the user. When this field is
-        /// false, confirmation and declination responses aren't sent. If the <code>active</code>
-        /// field isn't specified, the default is true.</para>
+        /// false, confirmation and declination responses aren't sent. If the <c>active</c> field
+        /// isn't specified, the default is true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -200,8 +200,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_Active
         /// <summary>
         /// <para>
-        /// <para>Determines whether a conditional branch is active. When <code>active</code> is false,
-        /// the conditions are not evaluated.</para>
+        /// <para>Determines whether a conditional branch is active. When <c>active</c> is false, the
+        /// conditions are not evaluated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,8 +211,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_Active
         /// <summary>
         /// <para>
-        /// <para>Determines whether a conditional branch is active. When <code>active</code> is false,
-        /// the conditions are not evaluated.</para>
+        /// <para>Determines whether a conditional branch is active. When <c>active</c> is false, the
+        /// conditions are not evaluated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,8 +222,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_Active
         /// <summary>
         /// <para>
-        /// <para>Determines whether a conditional branch is active. When <code>active</code> is false,
-        /// the conditions are not evaluated.</para>
+        /// <para>Determines whether a conditional branch is active. When <c>active</c> is false, the
+        /// conditions are not evaluated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -233,8 +233,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter ConfirmationConditional_Active
         /// <summary>
         /// <para>
-        /// <para>Determines whether a conditional branch is active. When <code>active</code> is false,
-        /// the conditions are not evaluated.</para>
+        /// <para>Determines whether a conditional branch is active. When <c>active</c> is false, the
+        /// conditions are not evaluated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,8 +245,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter DeclinationConditional_Active
         /// <summary>
         /// <para>
-        /// <para>Determines whether a conditional branch is active. When <code>active</code> is false,
-        /// the conditions are not evaluated.</para>
+        /// <para>Determines whether a conditional branch is active. When <c>active</c> is false, the
+        /// conditions are not evaluated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -257,8 +257,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentConfirmationSetting_FailureConditional_Active
         /// <summary>
         /// <para>
-        /// <para>Determines whether a conditional branch is active. When <code>active</code> is false,
-        /// the conditions are not evaluated.</para>
+        /// <para>Determines whether a conditional branch is active. When <c>active</c> is false, the
+        /// conditions are not evaluated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -605,7 +605,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter BotVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the bot that contains the intent. Must be <code>DRAFT</code>.</para>
+        /// <para>The version of the bot that contains the intent. Must be <c>DRAFT</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -957,7 +957,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter KendraConfiguration_KendraIndex
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the <code>AMAZON.KendraSearchIntent</code>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the <c>AMAZON.KendraSearchIntent</c>
         /// intent to search. The index must be in the same account and Region as the Amazon Lex
         /// bot.</para>
         /// </para>
@@ -1688,8 +1688,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter KendraConfiguration_QueryFilterStringEnabled
         /// <summary>
         /// <para>
-        /// <para>Determines whether the <code>AMAZON.KendraSearchIntent</code> intent uses a custom
-        /// query string to query the Amazon Kendra index.</para>
+        /// <para>Determines whether the <c>AMAZON.KendraSearchIntent</c> intent uses a custom query
+        /// string to query the Amazon Kendra index.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2339,8 +2339,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2350,8 +2349,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2361,8 +2359,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2372,8 +2369,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2383,8 +2379,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2394,8 +2389,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2405,8 +2399,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2416,8 +2409,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2427,8 +2419,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2438,8 +2429,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2449,8 +2439,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2460,8 +2449,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2471,8 +2459,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter InitialResponseSetting_Conditional_DefaultBranch_NextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2482,8 +2469,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter InitialResponseSetting_NextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2493,8 +2479,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentClosingSetting_Conditional_DefaultBranch_NextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2504,8 +2489,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentClosingSetting_NextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2515,8 +2499,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2526,8 +2509,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2537,8 +2519,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2548,8 +2529,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2559,8 +2539,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2570,8 +2549,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2581,8 +2559,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2592,8 +2569,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentConfirmationSetting_ConfirmationNextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2603,8 +2579,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2614,8 +2589,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentConfirmationSetting_DeclinationNextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2625,8 +2599,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2636,8 +2609,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter IntentConfirmationSetting_FailureNextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
-        /// <para>If the dialog action is <code>ElicitSlot</code>, defines the slot to elicit from the
-        /// user.</para>
+        /// <para>If the dialog action is <c>ElicitSlot</c>, defines the slot to elicit from the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

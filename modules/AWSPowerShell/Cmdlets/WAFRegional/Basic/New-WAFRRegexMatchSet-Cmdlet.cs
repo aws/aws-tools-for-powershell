@@ -37,25 +37,24 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </para></note><para>
     /// Creates a <a>RegexMatchSet</a>. You then use <a>UpdateRegexMatchSet</a> to identify
     /// the part of a web request that you want AWS WAF to inspect, such as the values of
-    /// the <code>User-Agent</code> header or the query string. For example, you can create
-    /// a <code>RegexMatchSet</code> that contains a <code>RegexMatchTuple</code> that looks
-    /// for any requests with <code>User-Agent</code> headers that match a <code>RegexPatternSet</code>
-    /// with pattern <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those
-    /// requests.
+    /// the <c>User-Agent</c> header or the query string. For example, you can create a <c>RegexMatchSet</c>
+    /// that contains a <c>RegexMatchTuple</c> that looks for any requests with <c>User-Agent</c>
+    /// headers that match a <c>RegexPatternSet</c> with pattern <c>B[a@]dB[o0]t</c>. You
+    /// can then configure AWS WAF to reject those requests.
     /// </para><para>
-    /// To create and configure a <code>RegexMatchSet</code>, perform the following steps:
+    /// To create and configure a <c>RegexMatchSet</c>, perform the following steps:
     /// </para><ol><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>CreateRegexMatchSet</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of a <c>CreateRegexMatchSet</c> request.
     /// </para></li><li><para>
-    /// Submit a <code>CreateRegexMatchSet</code> request.
+    /// Submit a <c>CreateRegexMatchSet</c> request.
     /// </para></li><li><para>
-    /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of an <code>UpdateRegexMatchSet</code> request.
+    /// Use <c>GetChangeToken</c> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of an <c>UpdateRegexMatchSet</c> request.
     /// </para></li><li><para>
     /// Submit an <a>UpdateRegexMatchSet</a> request to specify the part of the request that
     /// you want AWS WAF to inspect (for example, the header or the URI) and the value, using
-    /// a <code>RegexPatternSet</code>, that you want AWS WAF to watch for.
+    /// a <c>RegexPatternSet</c>, that you want AWS WAF to watch for.
     /// </para></li></ol><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
     /// see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
@@ -93,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A friendly name or description of the <a>RegexMatchSet</a>. You can't change <code>Name</code>
-        /// after you create a <code>RegexMatchSet</code>.</para>
+        /// <para>A friendly name or description of the <a>RegexMatchSet</a>. You can't change <c>Name</c>
+        /// after you create a <c>RegexMatchSet</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

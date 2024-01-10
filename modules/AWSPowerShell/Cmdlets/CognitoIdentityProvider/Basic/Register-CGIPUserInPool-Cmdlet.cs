@@ -104,9 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// you use the SignUp API action, Amazon Cognito invokes any functions that are assigned
         /// to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, and <i>post
         /// confirmation</i>. When Amazon Cognito invokes any of these functions, it passes a
-        /// JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code>
+        /// JSON payload, which the function receives as input. This payload contains a <c>clientMetadata</c>
         /// attribute, which provides the data that you assigned to the ClientMetadata parameter
-        /// in your SignUp request. In your function code in Lambda, you can process the <code>clientMetadata</code>
+        /// in your SignUp request. In your function code in Lambda, you can process the <c>clientMetadata</c>
         /// value to enhance your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
         /// Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito
         /// Developer Guide</i>.</para><note><para>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserAttribute
         /// <summary>
         /// <para>
-        /// <para>An array of name-value pairs representing user attributes.</para><para>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute
+        /// <para>An array of name-value pairs representing user attributes.</para><para>For custom attributes, you must prepend the <c>custom:</c> prefix to the attribute
         /// name.</para>
         /// </para>
         /// </summary>

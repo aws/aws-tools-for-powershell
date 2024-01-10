@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// 
     ///  
     /// <para>
-    /// Connections used for creating federated resources require the IAM <code>glue:PassConnection</code>
+    /// Connections used for creating federated resources require the IAM <c>glue:PassConnection</c>
     /// permission.
     /// </para>
     /// </summary>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter ConnectionInput
         /// <summary>
         /// <para>
-        /// <para>A <code>ConnectionInput</code> object defining the connection to create.</para>
+        /// <para>A <c>ConnectionInput</c> object defining the connection to create.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filter tasks using the <code>task-state</code> filter and one of the following values:
-        /// <code>active</code>, <code>completed</code>, <code>deleting</code>, or <code>deleted</code>.</para>
+        /// <para>Filter tasks using the <c>task-state</c> filter and one of the following values: <c>active</c>,
+        /// <c>completed</c>, <c>deleting</c>, or <c>deleted</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

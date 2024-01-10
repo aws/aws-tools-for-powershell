@@ -33,8 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions for the <code>lex:GetBotChannelAssociation</code>
-    /// action.
+    /// This operation requires permissions for the <c>lex:GetBotChannelAssociation</c> action.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "LMBBotChannelAssociation")]

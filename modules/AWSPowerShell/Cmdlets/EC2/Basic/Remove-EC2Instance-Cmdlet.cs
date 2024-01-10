@@ -48,22 +48,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para></li></ul><para>
     /// For example, say you have the following instances:
     /// </para><ul><li><para>
-    /// Instance A: <code>us-east-1a</code>; Not protected
+    /// Instance A: <c>us-east-1a</c>; Not protected
     /// </para></li><li><para>
-    /// Instance B: <code>us-east-1a</code>; Not protected
+    /// Instance B: <c>us-east-1a</c>; Not protected
     /// </para></li><li><para>
-    /// Instance C: <code>us-east-1b</code>; Protected
+    /// Instance C: <c>us-east-1b</c>; Protected
     /// </para></li><li><para>
-    /// Instance D: <code>us-east-1b</code>; not protected
+    /// Instance D: <c>us-east-1b</c>; not protected
     /// </para></li></ul><para>
     /// If you attempt to terminate all of these instances in the same request, the request
     /// reports failure with the following results:
     /// </para><ul><li><para>
     /// Instance A and Instance B are successfully terminated because none of the specified
-    /// instances in <code>us-east-1a</code> are enabled for termination protection.
+    /// instances in <c>us-east-1a</c> are enabled for termination protection.
     /// </para></li><li><para>
     /// Instance C and Instance D fail to terminate because at least one of the specified
-    /// instances in <code>us-east-1b</code> (Instance C) is enabled for termination protection.
+    /// instances in <c>us-east-1b</c> (Instance C) is enabled for termination protection.
     /// </para></li></ul><para>
     /// Terminated instances remain visible after termination (for approximately one hour).
     /// </para><para>
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// store-backed instances. What happens to an instance differs if you stop it or terminate
     /// it. For example, when you stop an instance, the root device and any other devices
     /// attached to the instance persist. When you terminate an instance, any attached EBS
-    /// volumes with the <code>DeleteOnTermination</code> block device mapping parameter set
-    /// to <code>true</code> are automatically deleted. For more information about the differences
+    /// volumes with the <c>DeleteOnTermination</c> block device mapping parameter set to
+    /// <c>true</c> are automatically deleted. For more information about the differences
     /// between stopping and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance
     /// lifecycle</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>

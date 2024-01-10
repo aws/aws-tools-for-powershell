@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// Works on any user. To delete an attribute from your user, submit the attribute in
     /// your API request with a blank value.
     /// </para><para>
-    /// For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute
+    /// For custom attributes, you must prepend the <c>custom:</c> prefix to the attribute
     /// name.
     /// </para><para>
     /// In addition to updating user attributes, this API can also be used to mark phone and
@@ -85,10 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// you use the AdminUpdateUserAttributes API action, Amazon Cognito invokes the function
         /// that is assigned to the <i>custom message</i> trigger. When Amazon Cognito invokes
         /// this function, it passes a JSON payload, which the function receives as input. This
-        /// payload contains a <code>clientMetadata</code> attribute, which provides the data
-        /// that you assigned to the ClientMetadata parameter in your AdminUpdateUserAttributes
-        /// request. In your function code in Lambda, you can process the <code>clientMetadata</code>
-        /// value to enhance your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+        /// payload contains a <c>clientMetadata</c> attribute, which provides the data that you
+        /// assigned to the ClientMetadata parameter in your AdminUpdateUserAttributes request.
+        /// In your function code in Lambda, you can process the <c>clientMetadata</c> value to
+        /// enhance your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
         /// Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito
         /// Developer Guide</i>.</para><note><para>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
         /// following:</para><ul><li><para>Store the ClientMetadata value. This data is available only to Lambda triggers that
@@ -103,18 +103,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserAttribute
         /// <summary>
         /// <para>
-        /// <para>An array of name-value pairs representing user attributes.</para><para>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute
+        /// <para>An array of name-value pairs representing user attributes.</para><para>For custom attributes, you must prepend the <c>custom:</c> prefix to the attribute
         /// name.</para><para>If your user pool requires verification before Amazon Cognito updates an attribute
         /// value that you specify in this request, Amazon Cognito doesn’t immediately update
         /// the value of that attribute. After your user receives and responds to a verification
         /// message to verify the new value, Amazon Cognito updates the attribute value. Your
         /// user can sign in and receive messages with the original attribute value until they
         /// verify the new value.</para><para>To update the value of an attribute that requires verification in the same API request,
-        /// include the <code>email_verified</code> or <code>phone_number_verified</code> attribute,
-        /// with a value of <code>true</code>. If you set the <code>email_verified</code> or <code>phone_number_verified</code>
-        /// value for an <code>email</code> or <code>phone_number</code> attribute that requires
-        /// verification to <code>true</code>, Amazon Cognito doesn’t send a verification message
-        /// to your user.</para>
+        /// include the <c>email_verified</c> or <c>phone_number_verified</c> attribute, with
+        /// a value of <c>true</c>. If you set the <c>email_verified</c> or <c>phone_number_verified</c>
+        /// value for an <c>email</c> or <c>phone_number</c> attribute that requires verification
+        /// to <c>true</c>, Amazon Cognito doesn’t send a verification message to your user.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -134,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The username of the user that you want to query or modify. The value of this parameter
         /// is typically your user's username, but it can be any of their alias attributes. If
-        /// <code>username</code> isn't an alias attribute in your user pool, you can also use
-        /// their <code>sub</code> in this request.</para>
+        /// <c>username</c> isn't an alias attribute in your user pool, you can also use their
+        /// <c>sub</c> in this request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

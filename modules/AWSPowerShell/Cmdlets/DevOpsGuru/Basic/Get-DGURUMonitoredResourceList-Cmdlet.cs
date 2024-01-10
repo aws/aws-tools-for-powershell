@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

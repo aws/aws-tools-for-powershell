@@ -28,10 +28,10 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Replaces the EBS-backed root volume for a <code>running</code> instance with a new
-    /// volume that is restored to the original root volume's launch state, that is restored
-    /// to a specific snapshot taken from the original root volume, or that is restored from
-    /// an AMI that has the same key characteristics as that of the instance.
+    /// Replaces the EBS-backed root volume for a <c>running</c> instance with a new volume
+    /// that is restored to the original root volume's launch state, that is restored to a
+    /// specific snapshot taken from the original root volume, or that is restored from an
+    /// AMI that has the same key characteristics as that of the instance.
     /// 
     ///  
     /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates whether to automatically delete the original root volume after the root
-        /// volume replacement task completes. To delete the original root volume, specify <code>true</code>.
+        /// volume replacement task completes. To delete the original root volume, specify <c>true</c>.
         /// If you choose to keep the original root volume after the replacement task completes,
         /// you must manually delete it when you no longer need it.</para>
         /// </para>

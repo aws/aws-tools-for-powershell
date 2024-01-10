@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><c>jp</c> - Japanese</para></li><li><para><c>zh</c> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,17 +81,14 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>The constraint parameters, in JSON format. The syntax depends on the constraint type
-        /// as follows:</para><dl><dt>LAUNCH</dt><dd><para>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code>
-        /// but can't use both.</para><para>Specify the <code>RoleArn</code> property as follows:</para><para><code>{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}</code></para><para>Specify the <code>LocalRoleName</code> property as follows:</para><para><code>{"LocalRoleName": "SCBasicLaunchRole"}</code></para><para>If you specify the <code>LocalRoleName</code> property, when an account uses the launch
+        /// as follows:</para><dl><dt>LAUNCH</dt><dd><para>You are required to specify either the <c>RoleArn</c> or the <c>LocalRoleName</c>
+        /// but can't use both.</para><para>Specify the <c>RoleArn</c> property as follows:</para><para><c>{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}</c></para><para>Specify the <c>LocalRoleName</c> property as follows:</para><para><c>{"LocalRoleName": "SCBasicLaunchRole"}</c></para><para>If you specify the <c>LocalRoleName</c> property, when an account uses the launch
         /// constraint, the IAM role with that name in the account will be used. This allows launch-role
         /// constraints to be account-agnostic so the administrator can create fewer resources
         /// per shared account.</para><note><para>The given role name must exist in the account used to create the launch constraint
-        /// and the account of the user who launches a product with this launch constraint.</para></note><para>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</para><para>You also cannot have more than one <code>LAUNCH</code> constraint on a product and
-        /// portfolio.</para></dd><dt>NOTIFICATION</dt><dd><para>Specify the <code>NotificationArns</code> property as follows:</para><para><code>{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}</code></para></dd><dt>RESOURCE_UPDATE</dt><dd><para>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</para><para><code>{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}</code></para><para>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of
-        /// <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</para></dd><dt>STACKSET</dt><dd><para>Specify the <code>Parameters</code> property as follows:</para><para><code>{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList":
-        /// [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}</code></para><para>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</para><para>You also cannot have more than one <code>STACKSET</code> constraint on a product and
-        /// portfolio.</para><para>Products with a <code>STACKSET</code> constraint will launch an CloudFormation stack
-        /// set.</para></dd><dt>TEMPLATE</dt><dd><para>Specify the <code>Rules</code> property. For more information, see <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html">Template
+        /// and the account of the user who launches a product with this launch constraint.</para></note><para>You cannot have both a <c>LAUNCH</c> and a <c>STACKSET</c> constraint.</para><para>You also cannot have more than one <c>LAUNCH</c> constraint on a product and portfolio.</para></dd><dt>NOTIFICATION</dt><dd><para>Specify the <c>NotificationArns</c> property as follows:</para><para><c>{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}</c></para></dd><dt>RESOURCE_UPDATE</dt><dd><para>Specify the <c>TagUpdatesOnProvisionedProduct</c> property as follows:</para><para><c>{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}</c></para><para>The <c>TagUpdatesOnProvisionedProduct</c> property accepts a string value of <c>ALLOWED</c>
+        /// or <c>NOT_ALLOWED</c>.</para></dd><dt>STACKSET</dt><dd><para>Specify the <c>Parameters</c> property as follows:</para><para><c>{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList":
+        /// [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}</c></para><para>You cannot have both a <c>LAUNCH</c> and a <c>STACKSET</c> constraint.</para><para>You also cannot have more than one <c>STACKSET</c> constraint on a product and portfolio.</para><para>Products with a <c>STACKSET</c> constraint will launch an CloudFormation stack set.</para></dd><dt>TEMPLATE</dt><dd><para>Specify the <c>Rules</c> property. For more information, see <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html">Template
         /// Constraint Rules</a>.</para></dd></dl>
         /// </para>
         /// </summary>
@@ -144,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of constraint.</para><ul><li><para><code>LAUNCH</code></para></li><li><para><code>NOTIFICATION</code></para></li><li><para><code>RESOURCE_UPDATE</code></para></li><li><para><code>STACKSET</code></para></li><li><para><code>TEMPLATE</code></para></li></ul>
+        /// <para>The type of constraint.</para><ul><li><para><c>LAUNCH</c></para></li><li><para><c>NOTIFICATION</c></para></li><li><para><c>RESOURCE_UPDATE</c></para></li><li><para><c>STACKSET</c></para></li><li><para><c>TEMPLATE</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

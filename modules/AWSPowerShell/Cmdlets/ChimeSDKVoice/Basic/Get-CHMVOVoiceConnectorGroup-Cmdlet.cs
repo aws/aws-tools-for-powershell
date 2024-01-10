@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
     /// Retrieves details for the specified Amazon Chime SDK Voice Connector group, such as
-    /// timestamps,name, and associated <code>VoiceConnectorItems</code>.
+    /// timestamps,name, and associated <c>VoiceConnectorItems</c>.
     /// </summary>
     [Cmdlet("Get", "CHMVOVoiceConnectorGroup")]
     [OutputType("Amazon.ChimeSDKVoice.Model.VoiceConnectorGroup")]

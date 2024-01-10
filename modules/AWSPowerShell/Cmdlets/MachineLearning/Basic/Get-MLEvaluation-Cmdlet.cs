@@ -28,8 +28,8 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Returns an <code>Evaluation</code> that includes metadata as well as the current status
-    /// of the <code>Evaluation</code>.
+    /// Returns an <c>Evaluation</c> that includes metadata as well as the current status
+    /// of the <c>Evaluation</c>.
     /// </summary>
     [Cmdlet("Get", "MLEvaluation")]
     [OutputType("Amazon.MachineLearning.Model.GetEvaluationResponse")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter EvaluationId
         /// <summary>
         /// <para>
-        /// <para>The ID of the <code>Evaluation</code> to retrieve. The evaluation of each <code>MLModel</code>
+        /// <para>The ID of the <c>Evaluation</c> to retrieve. The evaluation of each <c>MLModel</c>
         /// is recorded and cataloged. The ID provides the means to access the information. </para>
         /// </para>
         /// </summary>

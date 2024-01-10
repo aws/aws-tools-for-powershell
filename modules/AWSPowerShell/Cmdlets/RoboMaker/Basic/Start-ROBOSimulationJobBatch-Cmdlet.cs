@@ -28,7 +28,7 @@ using Amazon.RoboMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
-    /// Starts a new simulation job batch. The batch is defined using one or more <code>SimulationJobRequest</code>
+    /// Starts a new simulation job batch. The batch is defined using one or more <c>SimulationJobRequest</c>
     /// objects.
     /// </summary>
     [Cmdlet("Start", "ROBOSimulationJobBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -75,9 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         /// <summary>
         /// <para>
         /// <para>The number of active simulation jobs create as part of the batch that can be in an
-        /// active state at the same time. </para><para>Active states include: <code>Pending</code>,<code>Preparing</code>, <code>Running</code>,
-        /// <code>Restarting</code>, <code>RunningFailed</code> and <code>Terminating</code>.
-        /// All other states are terminal states. </para>
+        /// active state at the same time. </para><para>Active states include: <c>Pending</c>,<c>Preparing</c>, <c>Running</c>, <c>Restarting</c>,
+        /// <c>RunningFailed</c> and <c>Terminating</c>. All other states are terminal states.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,10 +100,10 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, to wait for the batch to complete. </para><para>If a batch times out, and there are pending requests that were failing due to an internal
-        /// failure (like <code>InternalServiceError</code>), they will be moved to the failed
-        /// list and the batch status will be <code>Failed</code>. If the pending requests were
-        /// failing for any other reason, the failed pending requests will be moved to the failed
-        /// list and the batch status will be <code>TimedOut</code>. </para>
+        /// failure (like <c>InternalServiceError</c>), they will be moved to the failed list
+        /// and the batch status will be <c>Failed</c>. If the pending requests were failing for
+        /// any other reason, the failed pending requests will be moved to the failed list and
+        /// the batch status will be <c>TimedOut</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

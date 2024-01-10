@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A list of request parameters whose values API Gateway caches. To be valid values for
-        /// <code>cacheKeyParameters</code>, these parameters must also be specified for Method
-        /// <code>requestParameters</code>.</para>
+        /// <c>cacheKeyParameters</c>, these parameters must also be specified for Method <c>requestParameters</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>Specifies a group of related cached parameters. By default, API Gateway uses the resource
-        /// ID as the <code>cacheNamespace</code>. You can specify the same <code>cacheNamespace</code>
-        /// across resources to return the same cached data for requests to different resources.</para>
+        /// ID as the <c>cacheNamespace</c>. You can specify the same <c>cacheNamespace</c> across
+        /// resources to return the same cached data for requests to different resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>The ID of the VpcLink used for the integration. Specify this value only if you specify
-        /// <code>VPC_LINK</code> as the connection type.</para>
+        /// <c>VPC_LINK</c> as the connection type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,9 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>The type of the network connection to the integration endpoint. The valid value is
-        /// <code>INTERNET</code> for connections through the public routable internet or <code>VPC_LINK</code>
+        /// <c>INTERNET</c> for connections through the public routable internet or <c>VPC_LINK</c>
         /// for private connections between API Gateway and a network load balancer in a VPC.
-        /// The default value is <code>INTERNET</code>.</para>
+        /// The default value is <c>INTERNET</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,9 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>Specifies how to handle request payload content type conversions. Supported values
-        /// are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following
-        /// behaviors:</para><para>If this property is not defined, the request payload will be passed through from the
-        /// method request to integration request without modification, provided that the <code>passthroughBehavior</code>
+        /// are <c>CONVERT_TO_BINARY</c> and <c>CONVERT_TO_TEXT</c>, with the following behaviors:</para><para>If this property is not defined, the request payload will be passed through from the
+        /// method request to integration request without modification, provided that the <c>passthroughBehavior</c>
         /// is configured to support payload pass-through.</para>
         /// </para>
         /// </summary>
@@ -141,10 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// but it enables you to use certificates that are signed by private certificate authorities,
         /// or certificates that are self-signed. If enabled, API Gateway still performs basic
         /// certificate validation, which includes checking the certificate's expiration date,
-        /// hostname, and presence of a root certificate authority. Supported only for <code>HTTP</code>
-        /// and <code>HTTP_PROXY</code> integrations.</para><important><para>Enabling <code>insecureSkipVerification</code> isn't recommended, especially for integrations
-        /// with public HTTPS endpoints. If you enable <code>insecureSkipVerification</code>,
-        /// you increase the risk of man-in-the-middle attacks.</para></important>
+        /// hostname, and presence of a root certificate authority. Supported only for <c>HTTP</c>
+        /// and <c>HTTP_PROXY</c> integrations.</para><important><para>Enabling <c>insecureSkipVerification</c> isn't recommended, especially for integrations
+        /// with public HTTPS endpoints. If you enable <c>insecureSkipVerification</c>, you increase
+        /// the risk of man-in-the-middle attacks.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,9 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>Specifies the pass-through behavior for incoming requests based on the Content-Type
-        /// header in the request, and the available mapping templates specified as the <code>requestTemplates</code>
-        /// property on the Integration resource. There are three valid values: <code>WHEN_NO_MATCH</code>,
-        /// <code>WHEN_NO_TEMPLATES</code>, and <code>NEVER</code>. </para>
+        /// header in the request, and the available mapping templates specified as the <c>requestTemplates</c>
+        /// property on the Integration resource. There are three valid values: <c>WHEN_NO_MATCH</c>,
+        /// <c>WHEN_NO_TEMPLATES</c>, and <c>NEVER</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,9 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// to the back end. The key is an integration request parameter name and the associated
         /// value is a method request parameter value or static value that must be enclosed within
         /// single quotes and pre-encoded as required by the back end. The method request parameter
-        /// value must match the pattern of <code>method.request.{location}.{name}</code>, where
-        /// <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code>
-        /// and <code>name</code> must be a valid and unique method request parameter name.</para>
+        /// value must match the pattern of <c>method.request.{location}.{name}</c>, where <c>location</c>
+        /// is <c>querystring</c>, <c>path</c>, or <c>header</c> and <c>name</c> must be a valid
+        /// and unique method request parameter name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,12 +269,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>Specifies Uniform Resource Identifier (URI) of the integration endpoint. For HTTP
-        /// or <code>HTTP_PROXY</code> integrations, the URI must be a fully formed, encoded HTTP(S)
+        /// or <c>HTTP_PROXY</c> integrations, the URI must be a fully formed, encoded HTTP(S)
         /// URL according to the RFC-3986 specification, for either standard integration, where
-        /// <code>connectionType</code> is not <code>VPC_LINK</code>, or private integration,
-        /// where <code>connectionType</code> is <code>VPC_LINK</code>. For a private HTTP integration,
-        /// the URI is not used for routing. For <code>AWS</code> or <code>AWS_PROXY</code> integrations,
-        /// the URI is of the form <code>arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api</code>}.
+        /// <c>connectionType</c> is not <c>VPC_LINK</c>, or private integration, where <c>connectionType</c>
+        /// is <c>VPC_LINK</c>. For a private HTTP integration, the URI is not used for routing.
+        /// For <c>AWS</c> or <c>AWS_PROXY</c> integrations, the URI is of the form <c>arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api</c>}.
         /// Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name
         /// of the integrated Amazon Web Services service (e.g., s3); and {subdomain} is a designated
         /// subdomain supported by certain Amazon Web Services service for fast host-name lookup.
@@ -285,9 +282,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// required input parameters. Alternatively, path can be used for an Amazon Web Services
         /// service path-based API. The ensuing service_api refers to the path to an Amazon Web
         /// Services service resource, including the region of the integrated Amazon Web Services
-        /// service, if applicable. For example, for integration with the S3 API of <code>GetObject</code>,
-        /// the <code>uri</code> can be either <code>arn:aws:apigateway:us-west-2:s3:action/GetObject&amp;Bucket={bucket}&amp;Key={key}</code>
-        /// or <code>arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}</code>.</para>
+        /// service, if applicable. For example, for integration with the S3 API of <c>GetObject</c>,
+        /// the <c>uri</c> can be either <c>arn:aws:apigateway:us-west-2:s3:action/GetObject&amp;Bucket={bucket}&amp;Key={key}</c>
+        /// or <c>arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

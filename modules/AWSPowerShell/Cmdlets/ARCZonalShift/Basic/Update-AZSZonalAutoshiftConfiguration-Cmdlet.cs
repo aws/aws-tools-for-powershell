@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
     /// You can update the zonal autoshift status for a resource, to enable or disable zonal
-    /// autoshift. When zonal autoshift is <code>ENABLED</code>, Amazon Web Services shifts
-    /// away resource traffic from an Availability Zone, on your behalf, when Amazon Web Services
+    /// autoshift. When zonal autoshift is <c>ENABLED</c>, Amazon Web Services shifts away
+    /// resource traffic from an Availability Zone, on your behalf, when Amazon Web Services
     /// determines that there's an issue in the Availability Zone that could potentially affect
     /// customers.
     /// </summary>

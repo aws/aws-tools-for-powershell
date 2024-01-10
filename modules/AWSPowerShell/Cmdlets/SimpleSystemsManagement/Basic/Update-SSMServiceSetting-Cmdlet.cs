@@ -28,22 +28,21 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services
-    /// service. This setting defines how a user interacts with or uses a service or a feature
-    /// of a service. For example, if an Amazon Web Services service charges money to the
-    /// account based on feature or service usage, then the Amazon Web Services service team
-    /// might create a default setting of "false". This means the user can't use this feature
-    /// unless they change the setting to "true" and intentionally opt in for a paid feature.
+    /// <c>ServiceSetting</c> is an account-level setting for an Amazon Web Services service.
+    /// This setting defines how a user interacts with or uses a service or a feature of a
+    /// service. For example, if an Amazon Web Services service charges money to the account
+    /// based on feature or service usage, then the Amazon Web Services service team might
+    /// create a default setting of "false". This means the user can't use this feature unless
+    /// they change the setting to "true" and intentionally opt in for a paid feature.
     /// 
     ///  
     /// <para>
-    /// Services map a <code>SettingId</code> object to a setting value. Amazon Web Services
-    /// services teams define the default value for a <code>SettingId</code>. You can't create
-    /// a new <code>SettingId</code>, but you can overwrite the default value if you have
-    /// the <code>ssm:UpdateServiceSetting</code> permission for the setting. Use the <a>GetServiceSetting</a>
-    /// API operation to view the current value. Or, use the <a>ResetServiceSetting</a> to
-    /// change the value back to the original value defined by the Amazon Web Services service
-    /// team.
+    /// Services map a <c>SettingId</c> object to a setting value. Amazon Web Services services
+    /// teams define the default value for a <c>SettingId</c>. You can't create a new <c>SettingId</c>,
+    /// but you can overwrite the default value if you have the <c>ssm:UpdateServiceSetting</c>
+    /// permission for the setting. Use the <a>GetServiceSetting</a> API operation to view
+    /// the current value. Or, use the <a>ResetServiceSetting</a> to change the value back
+    /// to the original value defined by the Amazon Web Services service team.
     /// </para><para>
     /// Update the service setting for the account. 
     /// </para>
@@ -63,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SettingId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the service setting to update. For example, <code>arn:aws:ssm:us-east-1:111122223333:servicesetting/ssm/parameter-store/high-throughput-enabled</code>.
-        /// The setting ID can be one of the following.</para><ul><li><para><code>/ssm/managed-instance/default-ec2-instance-management-role</code></para></li><li><para><code>/ssm/automation/customer-script-log-destination</code></para></li><li><para><code>/ssm/automation/customer-script-log-group-name</code></para></li><li><para><code>/ssm/documents/console/public-sharing-permission</code></para></li><li><para><code>/ssm/managed-instance/activation-tier</code></para></li><li><para><code>/ssm/opsinsights/opscenter</code></para></li><li><para><code>/ssm/parameter-store/default-parameter-tier</code></para></li><li><para><code>/ssm/parameter-store/high-throughput-enabled</code></para></li></ul><note><para>Permissions to update the <code>/ssm/managed-instance/default-ec2-instance-management-role</code>
+        /// <para>The Amazon Resource Name (ARN) of the service setting to update. For example, <c>arn:aws:ssm:us-east-1:111122223333:servicesetting/ssm/parameter-store/high-throughput-enabled</c>.
+        /// The setting ID can be one of the following.</para><ul><li><para><c>/ssm/managed-instance/default-ec2-instance-management-role</c></para></li><li><para><c>/ssm/automation/customer-script-log-destination</c></para></li><li><para><c>/ssm/automation/customer-script-log-group-name</c></para></li><li><para><c>/ssm/documents/console/public-sharing-permission</c></para></li><li><para><c>/ssm/managed-instance/activation-tier</c></para></li><li><para><c>/ssm/opsinsights/opscenter</c></para></li><li><para><c>/ssm/parameter-store/default-parameter-tier</c></para></li><li><para><c>/ssm/parameter-store/high-throughput-enabled</c></para></li></ul><note><para>Permissions to update the <c>/ssm/managed-instance/default-ec2-instance-management-role</c>
         /// setting should only be provided to administrators. Implement least privilege access
         /// when allowing individuals to configure or modify the Default Host Management Configuration.</para></note>
         /// </para>
@@ -84,14 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The new value to specify for the service setting. The following list specifies the
-        /// available values for each setting.</para><ul><li><para>For <code>/ssm/managed-instance/default-ec2-instance-management-role</code>, enter
-        /// the name of an IAM role. </para></li><li><para>For <code>/ssm/automation/customer-script-log-destination</code>, enter <code>CloudWatch</code>.</para></li><li><para>For <code>/ssm/automation/customer-script-log-group-name</code>, enter the name of
-        /// an Amazon CloudWatch Logs log group.</para></li><li><para>For <code>/ssm/documents/console/public-sharing-permission</code>, enter <code>Enable</code>
-        /// or <code>Disable</code>.</para></li><li><para>For <code>/ssm/managed-instance/activation-tier</code>, enter <code>standard</code>
-        /// or <code>advanced</code>.</para></li><li><para> For <code>/ssm/opsinsights/opscenter</code>, enter <code>Enabled</code> or <code>Disabled</code>.
-        /// </para></li><li><para>For <code>/ssm/parameter-store/default-parameter-tier</code>, enter <code>Standard</code>,
-        /// <code>Advanced</code>, or <code>Intelligent-Tiering</code></para></li><li><para>For <code>/ssm/parameter-store/high-throughput-enabled</code>, enter <code>true</code>
-        /// or <code>false</code>.</para></li></ul>
+        /// available values for each setting.</para><ul><li><para>For <c>/ssm/managed-instance/default-ec2-instance-management-role</c>, enter the name
+        /// of an IAM role. </para></li><li><para>For <c>/ssm/automation/customer-script-log-destination</c>, enter <c>CloudWatch</c>.</para></li><li><para>For <c>/ssm/automation/customer-script-log-group-name</c>, enter the name of an Amazon
+        /// CloudWatch Logs log group.</para></li><li><para>For <c>/ssm/documents/console/public-sharing-permission</c>, enter <c>Enable</c> or
+        /// <c>Disable</c>.</para></li><li><para>For <c>/ssm/managed-instance/activation-tier</c>, enter <c>standard</c> or <c>advanced</c>.</para></li><li><para> For <c>/ssm/opsinsights/opscenter</c>, enter <c>Enabled</c> or <c>Disabled</c>. </para></li><li><para>For <c>/ssm/parameter-store/default-parameter-tier</c>, enter <c>Standard</c>, <c>Advanced</c>,
+        /// or <c>Intelligent-Tiering</c></para></li><li><para>For <c>/ssm/parameter-store/high-throughput-enabled</c>, enter <c>true</c> or <c>false</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the database subnet group to delete.</para><note><para>You can't delete the default subnet group.</para></note><para>Constraints:</para><para>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</para><para>Example: <code>mySubnetgroup</code></para>
+        /// <para>The name of the database subnet group to delete.</para><note><para>You can't delete the default subnet group.</para></note><para>Constraints:</para><para>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</para><para>Example: <c>mySubnetgroup</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

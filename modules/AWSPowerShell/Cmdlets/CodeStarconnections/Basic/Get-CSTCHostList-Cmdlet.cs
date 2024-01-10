@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return in a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token that was returned from the previous <code>ListHosts</code> call, which can
-        /// be used to return the next set of hosts in the list.</para>
+        /// <para>The token that was returned from the previous <c>ListHosts</c> call, which can be
+        /// used to return the next set of hosts in the list.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

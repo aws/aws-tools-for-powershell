@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// starts a full retraining of the models backing your recommender. While the update
     /// completes, you can still get recommendations from the recommender. The recommender
     /// uses the previous configuration until the update completes. To track the status of
-    /// this update, use the <code>latestRecommenderUpdate</code> returned in the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html">DescribeRecommender</a>
+    /// this update, use the <c>latestRecommenderUpdate</c> returned in the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html">DescribeRecommender</a>
     /// operation.
     /// </summary>
     [Cmdlet("Update", "PERSRecommender", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -82,9 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter RecommenderConfig_ItemExplorationConfig
         /// <summary>
         /// <para>
-        /// <para>Specifies the exploration configuration hyperparameters, including <code>explorationWeight</code>
-        /// and <code>explorationItemAgeCutOff</code>, you want to use to configure the amount
-        /// of item exploration Amazon Personalize uses when recommending items. Provide <code>itemExplorationConfig</code>
+        /// <para>Specifies the exploration configuration hyperparameters, including <c>explorationWeight</c>
+        /// and <c>explorationItemAgeCutOff</c>, you want to use to configure the amount of item
+        /// exploration Amazon Personalize uses when recommending items. Provide <c>itemExplorationConfig</c>
         /// data only if your recommenders generate personalized recommendations for a user (not
         /// popular items or similar items).</para>
         /// </para>
@@ -97,10 +97,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>Specifies the requested minimum provisioned recommendation requests per second that
-        /// Amazon Personalize will support. A high <code>minRecommendationRequestsPerSecond</code>
-        /// will increase your bill. We recommend starting with 1 for <code>minRecommendationRequestsPerSecond</code>
+        /// Amazon Personalize will support. A high <c>minRecommendationRequestsPerSecond</c>
+        /// will increase your bill. We recommend starting with 1 for <c>minRecommendationRequestsPerSecond</c>
         /// (the default). Track your usage using Amazon CloudWatch metrics, and increase the
-        /// <code>minRecommendationRequestsPerSecond</code> as necessary.</para>
+        /// <c>minRecommendationRequestsPerSecond</c> as necessary.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

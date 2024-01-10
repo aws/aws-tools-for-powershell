@@ -29,13 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
     /// Creates an Amazon Kendra index. Index creation is an asynchronous API. To determine
-    /// if index creation has completed, check the <code>Status</code> field returned from
-    /// a call to <code>DescribeIndex</code>. The <code>Status</code> field is set to <code>ACTIVE</code>
-    /// when the index is ready to use.
+    /// if index creation has completed, check the <c>Status</c> field returned from a call
+    /// to <c>DescribeIndex</c>. The <c>Status</c> field is set to <c>ACTIVE</c> when the
+    /// index is ready to use.
     /// 
     ///  
     /// <para>
-    /// Once the index is active, you can index your documents using the <code>BatchPutDocument</code>
+    /// Once the index is active, you can index your documents using the <c>BatchPutDocument</c>
     /// API or using one of the supported <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-sources.html">data
     /// sources</a>.
     /// </para><para>
@@ -72,10 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Edition
         /// <summary>
         /// <para>
-        /// <para>The Amazon Kendra edition to use for the index. Choose <code>DEVELOPER_EDITION</code>
-        /// for indexes intended for development, testing, or proof of concept. Use <code>ENTERPRISE_EDITION</code>
-        /// for production. Once you set the edition for an index, it can't be changed.</para><para>The <code>Edition</code> parameter is optional. If you don't supply a value, the default
-        /// is <code>ENTERPRISE_EDITION</code>.</para><para>For more information on quota limits for Enterprise and Developer editions, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</para>
+        /// <para>The Amazon Kendra edition to use for the index. Choose <c>DEVELOPER_EDITION</c> for
+        /// indexes intended for development, testing, or proof of concept. Use <c>ENTERPRISE_EDITION</c>
+        /// for production. Once you set the edition for an index, it can't be changed.</para><para>The <c>Edition</c> parameter is optional. If you don't supply a value, the default
+        /// is <c>ENTERPRISE_EDITION</c>.</para><para>For more information on quota limits for Enterprise and Developer editions, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The user context policy.</para><dl><dt>ATTRIBUTE_FILTER</dt><dd><para>All indexed content is searchable and displayable for all users. If you want to filter
-        /// search results on user context, you can use the attribute filters of <code>_user_id</code>
-        /// and <code>_group_ids</code> or you can provide user and group information in <code>UserContext</code>.
+        /// search results on user context, you can use the attribute filters of <c>_user_id</c>
+        /// and <c>_group_ids</c> or you can provide user and group information in <c>UserContext</c>.
         /// </para></dd><dt>USER_TOKEN</dt><dd><para>Enables token-based user access control to filter search results on user context.
         /// All documents with no access control and all documents accessible to the user will
         /// be searchable and displayable. </para></dd></dl>
@@ -186,8 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>A token that you provide to identify the request to create an index. Multiple calls
-        /// to the <code>CreateIndex</code> API with the same client token will create only one
-        /// index.</para>
+        /// to the <c>CreateIndex</c> API with the same client token will create only one index.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

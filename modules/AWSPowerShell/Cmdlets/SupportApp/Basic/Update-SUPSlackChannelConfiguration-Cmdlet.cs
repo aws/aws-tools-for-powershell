@@ -94,9 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.SUP
         #region Parameter NotifyOnCaseSeverity
         /// <summary>
         /// <para>
-        /// <para>The case severity for a support case that you want to receive notifications.</para><para>If you specify <code>high</code> or <code>all</code>, at least one of the following
-        /// parameters must be <code>true</code>:</para><ul><li><para><code>notifyOnAddCorrespondenceToCase</code></para></li><li><para><code>notifyOnCreateOrReopenCase</code></para></li><li><para><code>notifyOnResolveCase</code></para></li></ul><para>If you specify <code>none</code>, any of the following parameters that you specify
-        /// in your request must be <code>false</code>:</para><ul><li><para><code>notifyOnAddCorrespondenceToCase</code></para></li><li><para><code>notifyOnCreateOrReopenCase</code></para></li><li><para><code>notifyOnResolveCase</code></para></li></ul><note><para>If you don't specify these parameters in your request, the Amazon Web Services Support
+        /// <para>The case severity for a support case that you want to receive notifications.</para><para>If you specify <c>high</c> or <c>all</c>, at least one of the following parameters
+        /// must be <c>true</c>:</para><ul><li><para><c>notifyOnAddCorrespondenceToCase</c></para></li><li><para><c>notifyOnCreateOrReopenCase</c></para></li><li><para><c>notifyOnResolveCase</c></para></li></ul><para>If you specify <c>none</c>, any of the following parameters that you specify in your
+        /// request must be <c>false</c>:</para><ul><li><para><c>notifyOnAddCorrespondenceToCase</c></para></li><li><para><c>notifyOnCreateOrReopenCase</c></para></li><li><para><c>notifyOnResolveCase</c></para></li></ul><note><para>If you don't specify these parameters in your request, the Amazon Web Services Support
         /// App uses the current values by default.</para></note>
         /// </para>
         /// </summary>
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.SUP
         #region Parameter TeamId
         /// <summary>
         /// <para>
-        /// <para>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as <code>T012ABCDEFG</code>.</para>
+        /// <para>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as <c>T012ABCDEFG</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

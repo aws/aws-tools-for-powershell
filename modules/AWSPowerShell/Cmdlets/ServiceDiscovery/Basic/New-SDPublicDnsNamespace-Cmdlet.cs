@@ -29,17 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.SD
 {
     /// <summary>
     /// Creates a public namespace based on DNS, which is visible on the internet. The namespace
-    /// defines your service naming scheme. For example, if you name your namespace <code>example.com</code>
-    /// and name your service <code>backend</code>, the resulting DNS name for the service
-    /// is <code>backend.example.com</code>. You can discover instances that were registered
-    /// with a public DNS namespace by using either a <code>DiscoverInstances</code> request
-    /// or using DNS. For the current quota on the number of namespaces that you can create
-    /// using the same Amazon Web Services account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud
+    /// defines your service naming scheme. For example, if you name your namespace <c>example.com</c>
+    /// and name your service <c>backend</c>, the resulting DNS name for the service is <c>backend.example.com</c>.
+    /// You can discover instances that were registered with a public DNS namespace by using
+    /// either a <c>DiscoverInstances</c> request or using DNS. For the current quota on the
+    /// number of namespaces that you can create using the same Amazon Web Services account,
+    /// see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud
     /// Map quotas</a> in the <i>Cloud Map Developer Guide</i>.
     /// 
     ///  <important><para>
-    /// The <code>CreatePublicDnsNamespace</code> API operation is not supported in the Amazon
-    /// Web Services GovCloud (US) Regions.
+    /// The <c>CreatePublicDnsNamespace</c> API operation is not supported in the Amazon Web
+    /// Services GovCloud (US) Regions.
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "SDPublicDnsNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter CreatorRequestId
         /// <summary>
         /// <para>
-        /// <para>A unique string that identifies the request and that allows failed <code>CreatePublicDnsNamespace</code>
-        /// requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code>
+        /// <para>A unique string that identifies the request and that allows failed <c>CreatePublicDnsNamespace</c>
+        /// requests to be retried without the risk of running the operation twice. <c>CreatorRequestId</c>
         /// can be any unique string (for example, a date/timestamp).</para>
         /// </para>
         /// </summary>

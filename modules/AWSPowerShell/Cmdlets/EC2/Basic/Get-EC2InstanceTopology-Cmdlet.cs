@@ -42,10 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Local Zone
     /// </para></li></ul></li><li><para>
     /// Supported instance types
-    /// </para><ul><li><para><code>hpc6a.48xlarge</code> | <code>hpc6id.32xlarge</code> | <code>hpc7a.12xlarge</code>
-    /// | <code>hpc7a.24xlarge</code> | <code>hpc7a.48xlarge</code> | <code>hpc7a.96xlarge</code>
-    /// | <code>hpc7g.4xlarge</code> | <code>hpc7g.8xlarge</code> | <code>hpc7g.16xlarge</code></para></li><li><para><code>p3dn.24xlarge</code> | <code>p4d.24xlarge</code> | <code>p4de.24xlarge</code>
-    /// | <code>p5.48xlarge</code></para></li><li><para><code>trn1.2xlarge</code> | <code>trn1.32xlarge</code> | <code>trn1n.32xlarge</code></para></li></ul></li></ul><para>
+    /// </para><ul><li><para><c>hpc6a.48xlarge</c> | <c>hpc6id.32xlarge</c> | <c>hpc7a.12xlarge</c> | <c>hpc7a.24xlarge</c>
+    /// | <c>hpc7a.48xlarge</c> | <c>hpc7a.96xlarge</c> | <c>hpc7g.4xlarge</c> | <c>hpc7g.8xlarge</c>
+    /// | <c>hpc7g.16xlarge</c></para></li><li><para><c>p3dn.24xlarge</c> | <c>p4d.24xlarge</c> | <c>p4de.24xlarge</c> | <c>p5.48xlarge</c></para></li><li><para><c>trn1.2xlarge</c> | <c>trn1.32xlarge</c> | <c>trn1n.32xlarge</c></para></li></ul></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html">Amazon
     /// EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -65,13 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>availability-zone</code> - The name of the Availability Zone (for example,
-        /// <code>us-west-2a</code>) or Local Zone (for example, <code>us-west-2-lax-1b</code>)
-        /// that the instance is in.</para></li><li><para><code>instance-type</code> - The instance type (for example, <code>p4d.24xlarge</code>)
-        /// or instance family (for example, <code>p4d*</code>). You can use the <code>*</code>
-        /// wildcard to match zero or more characters, or the <code>?</code> wildcard to match
-        /// zero or one character.</para></li><li><para><code>zone-id</code> - The ID of the Availability Zone (for example, <code>usw2-az2</code>)
-        /// or Local Zone (for example, <code>usw2-lax1-az1</code>) that the instance is in.</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>availability-zone</c> - The name of the Availability Zone (for example, <c>us-west-2a</c>)
+        /// or Local Zone (for example, <c>us-west-2-lax-1b</c>) that the instance is in.</para></li><li><para><c>instance-type</c> - The instance type (for example, <c>p4d.24xlarge</c>) or instance
+        /// family (for example, <c>p4d*</c>). You can use the <c>*</c> wildcard to match zero
+        /// or more characters, or the <c>?</c> wildcard to match zero or one character.</para></li><li><para><c>zone-id</c> - The ID of the Availability Zone (for example, <c>usw2-az2</c>) or
+        /// Local Zone (for example, <c>usw2-lax1-az1</c>) that the instance is in.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The maximum number of items to return for this request. To get the next page of items,
         /// make another request with the token returned in the output. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para><para>You can't specify this parameter and the instance IDs parameter in the same request.</para><para>Default: <code>20</code></para>
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para><para>You can't specify this parameter and the instance IDs parameter in the same request.</para><para>Default: <c>20</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

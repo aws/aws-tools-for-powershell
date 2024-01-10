@@ -28,7 +28,7 @@ using Amazon.IdentityStore.Model;
 namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// Retrieves the <code>MembershipId</code> in an identity store.
+    /// Retrieves the <c>MembershipId</c> in an identity store.
     /// 
     ///  <note><para>
     /// If you have administrator access to a member account, you can use this API from the

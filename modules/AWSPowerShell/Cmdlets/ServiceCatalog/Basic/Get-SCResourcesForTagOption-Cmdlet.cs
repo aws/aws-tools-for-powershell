@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource type.</para><ul><li><para><code>Portfolio</code></para></li><li><para><code>Product</code></para></li></ul>
+        /// <para>The resource type.</para><ul><li><para><c>Portfolio</c></para></li><li><para><c>Product</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

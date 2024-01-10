@@ -51,9 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The address of your Oracle Automatic Storage Management (ASM) server. You can set
-        /// this value from the <code>asm_server</code> value. You set <code>asm_server</code>
-        /// as part of the extra connection attribute string to access an Oracle server with Binary
-        /// Reader that uses ASM. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration">Configuration
+        /// this value from the <c>asm_server</c> value. You set <c>asm_server</c> as part of
+        /// the extra connection attribute string to access an Oracle server with Binary Reader
+        /// that uses ASM. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration">Configuration
         /// for change data capture (CDC) on an Oracle source database</a>.</para>
         /// </para>
         /// </summary>
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MongoDbSettings_AuthSource
         /// <summary>
         /// <para>
-        /// <para> The MongoDB database name. This setting isn't used when <code>AuthType</code> is
-        /// set to <code>"no"</code>. </para><para>The default is <code>"admin"</code>.</para>
+        /// <para> The MongoDB database name. This setting isn't used when <c>AuthType</c> is set to
+        /// <c>"no"</c>. </para><para>The default is <c>"admin"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -285,11 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
-        /// <code>"aurora-postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-        /// <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>,
-        /// and <code>docdb</code>. A value of <code>"aurora"</code> represents Amazon Aurora
-        /// MySQL-Compatible Edition.</para>
+        /// <para>The type of database engine for the data provider. Valid values include <c>"aurora"</c>,
+        /// <c>"aurora-postgresql"</c>, <c>"mysql"</c>, <c>"oracle"</c>, <c>"postgres"</c>, <c>"sqlserver"</c>,
+        /// <c>redshift</c>, <c>mariadb</c>, <c>mongodb</c>, and <c>docdb</c>. A value of <c>"aurora"</c>
+        /// represents Amazon Aurora MySQL-Compatible Edition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -299,10 +298,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ExactSetting
         /// <summary>
         /// <para>
-        /// <para>If this attribute is Y, the current call to <code>ModifyDataProvider</code> replaces
-        /// all existing data provider settings with the exact settings that you specify in this
-        /// call. If this attribute is N, the current call to <code>ModifyDataProvider</code>
-        /// does two things: </para><ul><li><para>It replaces any data provider settings that already exist with new values, for settings
+        /// <para>If this attribute is Y, the current call to <c>ModifyDataProvider</c> replaces all
+        /// existing data provider settings with the exact settings that you specify in this call.
+        /// If this attribute is N, the current call to <c>ModifyDataProvider</c> does two things:
+        /// </para><ul><li><para>It replaces any data provider settings that already exist with new values, for settings
         /// with the same names.</para></li><li><para>It creates new data provider settings that you specify in the call, for settings with
         /// different names. </para></li></ul>
         /// </para>
@@ -541,7 +540,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The SSL mode used to connect to the DocumentDB data provider. The default value is
-        /// <code>none</code>.</para>
+        /// <c>none</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -553,7 +552,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MariaDbSettings_SslMode
         /// <summary>
         /// <para>
-        /// <para>The SSL mode used to connect to the MariaDB data provider. The default value is <code>none</code>.</para>
+        /// <para>The SSL mode used to connect to the MariaDB data provider. The default value is <c>none</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -566,7 +565,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The SSL mode used to connect to the Microsoft SQL Server data provider. The default
-        /// value is <code>none</code>.</para>
+        /// value is <c>none</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -578,7 +577,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MongoDbSettings_SslMode
         /// <summary>
         /// <para>
-        /// <para>The SSL mode used to connect to the MongoDB data provider. The default value is <code>none</code>.</para>
+        /// <para>The SSL mode used to connect to the MongoDB data provider. The default value is <c>none</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -590,7 +589,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MySqlSettings_SslMode
         /// <summary>
         /// <para>
-        /// <para>The SSL mode used to connect to the MySQL data provider. The default value is <code>none</code>.</para>
+        /// <para>The SSL mode used to connect to the MySQL data provider. The default value is <c>none</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -602,7 +601,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_SslMode
         /// <summary>
         /// <para>
-        /// <para>The SSL mode used to connect to the Oracle data provider. The default value is <code>none</code>.</para>
+        /// <para>The SSL mode used to connect to the Oracle data provider. The default value is <c>none</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -615,7 +614,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The SSL mode used to connect to the PostgreSQL data provider. The default value is
-        /// <code>none</code>.</para>
+        /// <c>none</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

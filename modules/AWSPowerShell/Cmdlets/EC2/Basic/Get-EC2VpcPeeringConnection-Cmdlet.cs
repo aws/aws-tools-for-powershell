@@ -45,18 +45,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>accepter-vpc-info.cidr-block</code> - The IPv4 CIDR block of the accepter VPC.</para></li><li><para><code>accepter-vpc-info.owner-id</code> - The ID of the Amazon Web Services account
-        /// that owns the accepter VPC.</para></li><li><para><code>accepter-vpc-info.vpc-id</code> - The ID of the accepter VPC.</para></li><li><para><code>expiration-time</code> - The expiration date and time for the VPC peering connection.</para></li><li><para><code>requester-vpc-info.cidr-block</code> - The IPv4 CIDR block of the requester's
-        /// VPC.</para></li><li><para><code>requester-vpc-info.owner-id</code> - The ID of the Amazon Web Services account
-        /// that owns the requester VPC.</para></li><li><para><code>requester-vpc-info.vpc-id</code> - The ID of the requester VPC.</para></li><li><para><code>status-code</code> - The status of the VPC peering connection (<code>pending-acceptance</code>
-        /// | <code>failed</code> | <code>expired</code> | <code>provisioning</code> | <code>active</code>
-        /// | <code>deleting</code> | <code>deleted</code> | <code>rejected</code>).</para></li><li><para><code>status-message</code> - A message that provides more information about the
-        /// status of the VPC peering connection, if applicable.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
-        /// resource. Use the tag key in the filter name and the tag value as the filter value.
-        /// For example, to find all resources that have a tag with the key <code>Owner</code>
-        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>vpc-peering-connection-id</code> - The ID of the VPC peering connection.</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>accepter-vpc-info.cidr-block</c> - The IPv4 CIDR block of the accepter VPC.</para></li><li><para><c>accepter-vpc-info.owner-id</c> - The ID of the Amazon Web Services account that
+        /// owns the accepter VPC.</para></li><li><para><c>accepter-vpc-info.vpc-id</c> - The ID of the accepter VPC.</para></li><li><para><c>expiration-time</c> - The expiration date and time for the VPC peering connection.</para></li><li><para><c>requester-vpc-info.cidr-block</c> - The IPv4 CIDR block of the requester's VPC.</para></li><li><para><c>requester-vpc-info.owner-id</c> - The ID of the Amazon Web Services account that
+        /// owns the requester VPC.</para></li><li><para><c>requester-vpc-info.vpc-id</c> - The ID of the requester VPC.</para></li><li><para><c>status-code</c> - The status of the VPC peering connection (<c>pending-acceptance</c>
+        /// | <c>failed</c> | <c>expired</c> | <c>provisioning</c> | <c>active</c> | <c>deleting</c>
+        /// | <c>deleted</c> | <c>rejected</c>).</para></li><li><para><c>status-message</c> - A message that provides more information about the status
+        /// of the VPC peering connection, if applicable.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
+        /// Use the tag key in the filter name and the tag value as the filter value. For example,
+        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>vpc-peering-connection-id</c> - The ID of the VPC peering connection.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -149,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter StatementId
         /// <summary>
         /// <para>
-        /// <para>The name of the statement. The ID is the same as the <code>Sid</code> IAM property.
-        /// The statement name must be unique within the policy. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_sid.html">IAM
+        /// <para>The name of the statement. The ID is the same as the <c>Sid</c> IAM property. The
+        /// statement name must be unique within the policy. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_sid.html">IAM
         /// JSON policy elements: Sid</a>. </para>
         /// </para>
         /// </summary>

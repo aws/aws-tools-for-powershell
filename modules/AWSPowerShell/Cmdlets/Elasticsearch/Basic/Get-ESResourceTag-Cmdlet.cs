@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter ARN
         /// <summary>
         /// <para>
-        /// <para> Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached
+        /// <para> Specify the <c>ARN</c> for the Elasticsearch domain to which the tags are attached
         /// that you want to view.</para>
         /// </para>
         /// </summary>

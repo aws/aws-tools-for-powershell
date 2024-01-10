@@ -28,10 +28,10 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Deletes a model. The <code>DeleteModel</code> API deletes only the model entry that
-    /// was created in SageMaker when you called the <code>CreateModel</code> API. It does
-    /// not delete model artifacts, inference code, or the IAM role that you specified when
-    /// creating the model.
+    /// Deletes a model. The <c>DeleteModel</c> API deletes only the model entry that was
+    /// created in SageMaker when you called the <c>CreateModel</c> API. It does not delete
+    /// model artifacts, inference code, or the IAM role that you specified when creating
+    /// the model.
     /// </summary>
     [Cmdlet("Remove", "SMModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

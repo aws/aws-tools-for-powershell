@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><c>jp</c> - Japanese</para></li><li><para><c>zh</c> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter OrganizationNodeType
         /// <summary>
         /// <para>
-        /// <para>The organization node type that will be returned in the output.</para><ul><li><para><code>ORGANIZATION</code> - Organization that has access to the portfolio. </para></li><li><para><code>ORGANIZATIONAL_UNIT</code> - Organizational unit that has access to the portfolio
-        /// within your organization.</para></li><li><para><code>ACCOUNT</code> - Account that has access to the portfolio within your organization.</para></li></ul>
+        /// <para>The organization node type that will be returned in the output.</para><ul><li><para><c>ORGANIZATION</c> - Organization that has access to the portfolio. </para></li><li><para><c>ORGANIZATIONAL_UNIT</c> - Organizational unit that has access to the portfolio
+        /// within your organization.</para></li><li><para><c>ACCOUNT</c> - Account that has access to the portfolio within your organization.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PortfolioId
         /// <summary>
         /// <para>
-        /// <para>The portfolio identifier. For example, <code>port-2abcdext3y5fk</code>.</para>
+        /// <para>The portfolio identifier. For example, <c>port-2abcdext3y5fk</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

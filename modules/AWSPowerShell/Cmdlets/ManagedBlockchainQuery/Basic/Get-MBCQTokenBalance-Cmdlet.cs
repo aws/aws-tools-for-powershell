@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         #region Parameter AtBlockchainInstant_Time
         /// <summary>
         /// <para>
-        /// <para>The container of the <code>Timestamp</code> of the blockchain instant.</para><note><para>This <code>timestamp</code> will only be recorded up to the second.</para></note>
+        /// <para>The container of the <c>Timestamp</c> of the blockchain instant.</para><note><para>This <c>timestamp</c> will only be recorded up to the second.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,9 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         #region Parameter TokenIdentifier_TokenId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the token.</para><note><para>You must specify this container with <code>btc</code> for the native BTC token, and
-        /// <code>eth</code> for the native ETH token. For all other token types you must specify
-        /// the <code>tokenId</code> in the 64 character hexadecimal <code>tokenid</code> format.</para></note>
+        /// <para>The unique identifier of the token.</para><note><para>You must specify this container with <c>btc</c> for the native BTC token, and <c>eth</c>
+        /// for the native ETH token. For all other token types you must specify the <c>tokenId</c>
+        /// in the 64 character hexadecimal <c>tokenid</c> format.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

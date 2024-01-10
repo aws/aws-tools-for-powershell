@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// <summary>
         /// <para>
         /// <para>The number of availability zones you want to assign per cluster. Currently, FinSpace
-        /// only support <code>SINGLE</code> for volumes.</para>
+        /// only support <c>SINGLE</c> for volumes.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -158,9 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter VolumeType
         /// <summary>
         /// <para>
-        /// <para> The type of file system volume. Currently, FinSpace only supports <code>NAS_1</code>
-        /// volume type. When you select <code>NAS_1</code> volume type, you must also provide
-        /// <code>nas1Configuration</code>. </para>
+        /// <para> The type of file system volume. Currently, FinSpace only supports <c>NAS_1</c> volume
+        /// type. When you select <c>NAS_1</c> volume type, you must also provide <c>nas1Configuration</c>.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

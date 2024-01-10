@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <para>
         /// <para>Enables or disables the automatic warm-up feature for dedicated IP addresses that
         /// are associated with your Amazon SES account in the current Amazon Web Services Region.
-        /// Set to <code>true</code> to enable the automatic warm-up feature, or set to <code>false</code>
+        /// Set to <c>true</c> to enable the automatic warm-up feature, or set to <c>false</c>
         /// to disable it.</para>
         /// </para>
         /// </summary>

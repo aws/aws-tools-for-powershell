@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>A value that indicates whether minor engine upgrades are applied automatically to
         /// the replication instance during the maintenance window. This parameter defaults to
-        /// <code>true</code>.</para><para>Default: <code>true</code></para>
+        /// <c>true</c>.</para><para>Default: <c>true</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>The Availability Zone where the replication instance will be created. The default
         /// value is a random, system-chosen Availability Zone in the endpoint's Amazon Web Services
-        /// Region, for example: <code>us-east-1d</code>.</para>
+        /// Region, for example: <c>us-east-1d</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>A list of custom DNS name servers supported for the replication instance to access
         /// your on-premise source or target database. This list overrides the default name servers
         /// supported by the replication instance. You can specify a comma-separated list of internet
-        /// addresses for up to four on-premise DNS name servers. For example: <code>"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"</code></para>
+        /// addresses for up to four on-premise DNS name servers. For example: <c>"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>An KMS key identifier that is used to encrypt the data on the replication instance.</para><para>If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses
-        /// your default encryption key.</para><para>KMS creates the default encryption key for your Amazon Web Services account. Your
+        /// <para>An KMS key identifier that is used to encrypt the data on the replication instance.</para><para>If you don't specify a value for the <c>KmsKeyId</c> parameter, then DMS uses your
+        /// default encryption key.</para><para>KMS creates the default encryption key for your Amazon Web Services account. Your
         /// Amazon Web Services account has a different default encryption key for each Amazon
         /// Web Services Region.</para>
         /// </para>
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> Specifies whether the replication instance is a Multi-AZ deployment. You can't set
-        /// the <code>AvailabilityZone</code> parameter if the Multi-AZ parameter is set to <code>true</code>.
+        /// the <c>AvailabilityZone</c> parameter if the Multi-AZ parameter is set to <c>true</c>.
         /// </para>
         /// </para>
         /// </summary>
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
-        /// Time (UTC).</para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>Default: A 30-minute window selected at random from an 8-hour block of time per Amazon
+        /// Time (UTC).</para><para> Format: <c>ddd:hh24:mi-ddd:hh24:mi</c></para><para>Default: A 30-minute window selected at random from an 8-hour block of time per Amazon
         /// Web Services Region, occurring on a random day of the week.</para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>
@@ -168,9 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para> Specifies the accessibility options for the replication instance. A value of <code>true</code>
-        /// represents an instance with a public IP address. A value of <code>false</code> represents
-        /// an instance with a private IP address. The default value is <code>true</code>. </para>
+        /// <para> Specifies the accessibility options for the replication instance. A value of <c>true</c>
+        /// represents an instance with a public IP address. A value of <c>false</c> represents
+        /// an instance with a private IP address. The default value is <c>true</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>The compute and memory capacity of the replication instance as defined for the specified
         /// replication instance class. For example to specify the instance class dms.c4.large,
-        /// set this parameter to <code>"dms.c4.large"</code>.</para><para>For more information on the settings and capacities for the available replication
+        /// set this parameter to <c>"dms.c4.large"</c>.</para><para>For more information on the settings and capacities for the available replication
         /// instance classes, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html&#xD;&#xA;            "> Choosing the right DMS replication instance</a>; and, <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_BestPractices.SizingReplicationInstance.html">Selecting
         /// the best size for a replication instance</a>. </para>
         /// </para>
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The replication instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain 1-63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>myrepinstance</code></para>
+        /// <para>The replication instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain 1-63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <c>myrepinstance</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -228,14 +228,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>A friendly name for the resource identifier at the end of the <code>EndpointArn</code>
-        /// response parameter that is returned in the created <code>Endpoint</code> object. The
-        /// value for this parameter can have up to 31 characters. It can contain only ASCII letters,
-        /// digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive
-        /// hyphens, and can only begin with a letter, such as <code>Example-App-ARN1</code>.
-        /// For example, this value might result in the <code>EndpointArn</code> value <code>arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1</code>.
-        /// If you don't specify a <code>ResourceIdentifier</code> value, DMS generates a default
-        /// identifier value for the end of <code>EndpointArn</code>.</para>
+        /// <para>A friendly name for the resource identifier at the end of the <c>EndpointArn</c> response
+        /// parameter that is returned in the created <c>Endpoint</c> object. The value for this
+        /// parameter can have up to 31 characters. It can contain only ASCII letters, digits,
+        /// and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens,
+        /// and can only begin with a letter, such as <c>Example-App-ARN1</c>. For example, this
+        /// value might result in the <c>EndpointArn</c> value <c>arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1</c>.
+        /// If you don't specify a <c>ResourceIdentifier</c> value, DMS generates a default identifier
+        /// value for the end of <c>EndpointArn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

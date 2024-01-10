@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter Channel
         /// <summary>
         /// <para>
-        /// <para>The ARN or <code>UUID</code> of a channel.</para>
+        /// <para>The ARN or <c>UUID</c> of a channel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  <note><para>
     /// Completed bundle tasks are listed for only a limited time. If your bundle task is
-    /// no longer in the list, you can still register an AMI from it. Just use <code>RegisterImage</code>
+    /// no longer in the list, you can still register an AMI from it. Just use <c>RegisterImage</c>
     /// with the Amazon S3 bucket name and image manifest name you provided to the bundle
     /// task.
     /// </para></note>
@@ -65,10 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>bundle-id</code> - The ID of the bundle task.</para></li><li><para><code>error-code</code> - If the task failed, the error code returned.</para></li><li><para><code>error-message</code> - If the task failed, the error message returned.</para></li><li><para><code>instance-id</code> - The ID of the instance.</para></li><li><para><code>progress</code> - The level of task completion, as a percentage (for example,
-        /// 20%).</para></li><li><para><code>s3-bucket</code> - The Amazon S3 bucket to store the AMI.</para></li><li><para><code>s3-prefix</code> - The beginning of the AMI name.</para></li><li><para><code>start-time</code> - The time the task started (for example, 2013-09-15T17:15:20.000Z).</para></li><li><para><code>state</code> - The state of the task (<code>pending</code> | <code>waiting-for-shutdown</code>
-        /// | <code>bundling</code> | <code>storing</code> | <code>cancelling</code> | <code>complete</code>
-        /// | <code>failed</code>).</para></li><li><para><code>update-time</code> - The time of the most recent update for the task.</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>bundle-id</c> - The ID of the bundle task.</para></li><li><para><c>error-code</c> - If the task failed, the error code returned.</para></li><li><para><c>error-message</c> - If the task failed, the error message returned.</para></li><li><para><c>instance-id</c> - The ID of the instance.</para></li><li><para><c>progress</c> - The level of task completion, as a percentage (for example, 20%).</para></li><li><para><c>s3-bucket</c> - The Amazon S3 bucket to store the AMI.</para></li><li><para><c>s3-prefix</c> - The beginning of the AMI name.</para></li><li><para><c>start-time</c> - The time the task started (for example, 2013-09-15T17:15:20.000Z).</para></li><li><para><c>state</c> - The state of the task (<c>pending</c> | <c>waiting-for-shutdown</c>
+        /// | <c>bundling</c> | <c>storing</c> | <c>cancelling</c> | <c>complete</c> | <c>failed</c>).</para></li><li><para><c>update-time</c> - The time of the most recent update for the task.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

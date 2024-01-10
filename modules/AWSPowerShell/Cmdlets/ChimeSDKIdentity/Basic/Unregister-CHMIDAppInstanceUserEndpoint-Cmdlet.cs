@@ -28,7 +28,7 @@ using Amazon.ChimeSDKIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMID
 {
     /// <summary>
-    /// Deregisters an <code>AppInstanceUserEndpoint</code>.
+    /// Deregisters an <c>AppInstanceUserEndpoint</c>.
     /// </summary>
     [Cmdlet("Unregister", "CHMIDAppInstanceUserEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter AppInstanceUserArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code>.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter EndpointId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</para>
+        /// <para>The unique identifier of the <c>AppInstanceUserEndpoint</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

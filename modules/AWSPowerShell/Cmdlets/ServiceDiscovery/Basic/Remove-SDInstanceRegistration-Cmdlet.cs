@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The value that you specified for <code>Id</code> in the <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a>
+        /// <para>The value that you specified for <c>Id</c> in the <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a>
         /// request.</para>
         /// </para>
         /// </summary>

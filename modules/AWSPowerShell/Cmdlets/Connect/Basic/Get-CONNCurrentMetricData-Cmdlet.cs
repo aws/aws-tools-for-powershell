@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// contact</a></para></dd><dt>AGENTS_ON_CONTACT</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#on-call-real-time">On
         /// contact</a></para></dd><dt>AGENTS_ONLINE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#online-real-time">Online</a></para></dd><dt>AGENTS_STAFFED</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#staffed-real-time">Staffed</a></para></dd><dt>CONTACTS_IN_QUEUE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#in-queue-real-time">In
         /// queue</a></para></dd><dt>CONTACTS_SCHEDULED</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#scheduled-real-time">Scheduled</a></para></dd><dt>OLDEST_CONTACT_AGE</dt><dd><para>Unit: SECONDS</para><para>When you use groupings, Unit says SECONDS and the Value is returned in SECONDS. </para><para>When you do not use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS.
-        /// For example, if you get a response like this:</para><para><code>{ "Metric": { "Name": "OLDEST_CONTACT_AGE", "Unit": "SECONDS" }, "Value": 24113.0
-        /// </code>}</para><para>The actual OLDEST_CONTACT_AGE is 24 seconds.</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#oldest-real-time">Oldest</a></para></dd><dt>SLOTS_ACTIVE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#active-real-time">Active</a></para></dd><dt>SLOTS_AVAILABLE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#availability-real-time">Availability</a></para></dd></dl>
+        /// For example, if you get a response like this:</para><para><c>{ "Metric": { "Name": "OLDEST_CONTACT_AGE", "Unit": "SECONDS" }, "Value": 24113.0
+        /// </c>}</para><para>The actual OLDEST_CONTACT_AGE is 24 seconds.</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#oldest-real-time">Oldest</a></para></dd><dt>SLOTS_ACTIVE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#active-real-time">Active</a></para></dd><dt>SLOTS_AVAILABLE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#availability-real-time">Availability</a></para></dd></dl>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,11 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Grouping
         /// <summary>
         /// <para>
-        /// <para>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>,
-        /// the metrics returned apply to each queue rather than aggregated for all queues. </para><ul><li><para>If you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE,
-        /// CHAT, and TASK channels are supported.</para></li><li><para>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing
-        /// profile filter. In addition, a routing profile filter is required for metrics <code>CONTACTS_SCHEDULED</code>,
-        /// <code>CONTACTS_IN_QUEUE</code>, and <code> OLDEST_CONTACT_AGE</code>.</para></li><li><para>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</para></li></ul>
+        /// <para>The grouping applied to the metrics returned. For example, when grouped by <c>QUEUE</c>,
+        /// the metrics returned apply to each queue rather than aggregated for all queues. </para><ul><li><para>If you group by <c>CHANNEL</c>, you should include a Channels filter. VOICE, CHAT,
+        /// and TASK channels are supported.</para></li><li><para>If you group by <c>ROUTING_PROFILE</c>, you must include either a queue or routing
+        /// profile filter. In addition, a routing profile filter is required for metrics <c>CONTACTS_SCHEDULED</c>,
+        /// <c>CONTACTS_IN_QUEUE</c>, and <c> OLDEST_CONTACT_AGE</c>.</para></li><li><para>If no <c>Grouping</c> is included in the request, a summary of metrics is returned.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,9 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The queues to use to filter the metrics. You should specify at least one queue, and
-        /// can specify up to 100 queues per request. The <code>GetCurrentMetricsData</code> API
-        /// in particular requires a queue when you include a <code>Filter</code> in your request.
-        /// </para>
+        /// can specify up to 100 queues per request. The <c>GetCurrentMetricsData</c> API in
+        /// particular requires a queue when you include a <c>Filter</c> in your request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The way to sort the resulting response based on metrics. You can enter one sort criteria.
-        /// By default resources are sorted based on <code>AGENTS_ONLINE</code>, <code>DESCENDING</code>.
-        /// The metric collection is sorted based on the input metrics.</para><para>Note the following:</para><ul><li><para>Sorting on <code>SLOTS_ACTIVE</code> and <code>SLOTS_AVAILABLE</code> is not supported.</para></li></ul>
+        /// By default resources are sorted based on <c>AGENTS_ONLINE</c>, <c>DESCENDING</c>.
+        /// The metric collection is sorted based on the input metrics.</para><para>Note the following:</para><ul><li><para>Sorting on <c>SLOTS_ACTIVE</c> and <c>SLOTS_AVAILABLE</c> is not supported.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

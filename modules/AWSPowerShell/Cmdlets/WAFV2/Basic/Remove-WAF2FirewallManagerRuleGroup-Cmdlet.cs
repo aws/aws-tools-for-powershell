@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// 
     ///  
     /// <para>
-    /// You can only use this if <code>ManagedByFirewallManager</code> is false in the specified
+    /// You can only use this if <c>ManagedByFirewallManager</c> is false in the specified
     /// <a>WebACL</a>. 
     /// </para>
     /// </summary>
@@ -69,14 +69,13 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter WebACLLockToken
         /// <summary>
         /// <para>
-        /// <para>A token used for optimistic locking. WAF returns a token to your <code>get</code>
-        /// and <code>list</code> requests, to mark the state of the entity at the time of the
-        /// request. To make changes to the entity associated with the token, you provide the
-        /// token to operations like <code>update</code> and <code>delete</code>. WAF uses the
-        /// token to ensure that no changes have been made to the entity since you last retrieved
-        /// it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>.
-        /// If this happens, perform another <code>get</code>, and use the new token returned
-        /// by that operation. </para>
+        /// <para>A token used for optimistic locking. WAF returns a token to your <c>get</c> and <c>list</c>
+        /// requests, to mark the state of the entity at the time of the request. To make changes
+        /// to the entity associated with the token, you provide the token to operations like
+        /// <c>update</c> and <c>delete</c>. WAF uses the token to ensure that no changes have
+        /// been made to the entity since you last retrieved it. If a change has been made, the
+        /// update fails with a <c>WAFOptimisticLockException</c>. If this happens, perform another
+        /// <c>get</c>, and use the new token returned by that operation. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

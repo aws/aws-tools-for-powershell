@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// When you use <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html">register-image</a>
     /// to create an AMI, you can create an exact copy of your variable store by passing the
-    /// UEFI data in the <code>UefiData</code> parameter. You can modify the UEFI data by
-    /// using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a>
+    /// UEFI data in the <c>UefiData</c> parameter. You can modify the UEFI data by using
+    /// the <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a>
     /// on GitHub. You can use the tool to convert the UEFI data into a human-readable format
     /// (JSON), which you can inspect and modify, and then convert back into the binary format
     /// to use with register-image.

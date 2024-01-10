@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return in a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>NextToken</code> value.</para>
+        /// results, make another call with the returned <c>NextToken</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

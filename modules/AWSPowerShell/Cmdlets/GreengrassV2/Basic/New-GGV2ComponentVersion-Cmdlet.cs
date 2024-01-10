@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     /// information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/component-recipe-reference.html">IoT
     /// Greengrass component recipe reference</a> in the <i>IoT Greengrass V2 Developer Guide</i>.
     /// </para><para>
-    /// To create a component from a recipe, specify <code>inlineRecipe</code> when you call
-    /// this operation.
+    /// To create a component from a recipe, specify <c>inlineRecipe</c> when you call this
+    /// operation.
     /// </para></li><li><para><b>Create components from Lambda functions</b></para><para>
     /// Create a component from an Lambda function that runs on IoT Greengrass. This creates
     /// a recipe and artifacts from the Lambda function's deployment package. You can use
@@ -52,17 +52,17 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     /// </para><para>
     /// This function only accepts Lambda functions that use the following runtimes:
     /// </para><ul><li><para>
-    /// Python 2.7 – <code>python2.7</code></para></li><li><para>
-    /// Python 3.7 – <code>python3.7</code></para></li><li><para>
-    /// Python 3.8 – <code>python3.8</code></para></li><li><para>
-    /// Python 3.9 – <code>python3.9</code></para></li><li><para>
-    /// Java 8 – <code>java8</code></para></li><li><para>
-    /// Java 11 – <code>java11</code></para></li><li><para>
-    /// Node.js 10 – <code>nodejs10.x</code></para></li><li><para>
-    /// Node.js 12 – <code>nodejs12.x</code></para></li><li><para>
-    /// Node.js 14 – <code>nodejs14.x</code></para></li></ul><para>
-    /// To create a component from a Lambda function, specify <code>lambdaFunction</code>
-    /// when you call this operation.
+    /// Python 2.7 – <c>python2.7</c></para></li><li><para>
+    /// Python 3.7 – <c>python3.7</c></para></li><li><para>
+    /// Python 3.8 – <c>python3.8</c></para></li><li><para>
+    /// Python 3.9 – <c>python3.9</c></para></li><li><para>
+    /// Java 8 – <c>java8</c></para></li><li><para>
+    /// Java 11 – <c>java11</c></para></li><li><para>
+    /// Node.js 10 – <c>nodejs10.x</c></para></li><li><para>
+    /// Node.js 12 – <c>nodejs12.x</c></para></li><li><para>
+    /// Node.js 14 – <c>nodejs14.x</c></para></li></ul><para>
+    /// To create a component from a Lambda function, specify <c>lambdaFunction</c> when you
+    /// call this operation.
     /// </para><note><para>
     /// IoT Greengrass currently supports Lambda functions on only Linux core devices.
     /// </para></note></li></ul>
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>The version of the component.</para><para>Defaults to the version of the Lambda function as a semantic version. For example,
-        /// if your function version is <code>3</code>, the component version becomes <code>3.0.0</code>.</para>
+        /// if your function version is <c>3</c>, the component version becomes <c>3.0.0</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>The recipe to use to create the component. The recipe defines the component's metadata,
-        /// parameters, dependencies, lifecycle, artifacts, and platform compatibility.</para><para>You must specify either <code>inlineRecipe</code> or <code>lambdaFunction</code>.</para>
+        /// parameters, dependencies, lifecycle, artifacts, and platform compatibility.</para><para>You must specify either <c>inlineRecipe</c> or <c>lambdaFunction</c>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter ComponentLambdaParameters_InputPayloadEncodingType
         /// <summary>
         /// <para>
-        /// <para>The encoding type that the Lambda function supports.</para><para>Default: <code>json</code></para>
+        /// <para>The encoding type that the Lambda function supports.</para><para>Default: <c>json</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <para>
         /// <para>The isolation mode for the process that contains the Lambda function. The process
         /// can run in an isolated runtime environment inside the IoT Greengrass container, or
-        /// as a regular process outside any container.</para><para>Default: <code>GreengrassContainer</code></para>
+        /// as a regular process outside any container.</para><para>Default: <c>GreengrassContainer</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>
         /// of the Lambda function. The ARN must include the version of the function to import.
-        /// You can't use version aliases like <code>$LATEST</code>.</para>
+        /// You can't use version aliases like <c>$LATEST</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter ContainerParams_MemorySizeInKB
         /// <summary>
         /// <para>
-        /// <para>The memory size of the container, expressed in kilobytes.</para><para>Default: <code>16384</code> (16 MB)</para>
+        /// <para>The memory size of the container, expressed in kilobytes.</para><para>Default: <c>16384</c> (16 MB)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,8 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter ContainerParams_MountROSysf
         /// <summary>
         /// <para>
-        /// <para>Whether or not the container can read information from the device's <code>/sys</code>
-        /// folder.</para><para>Default: <code>false</code></para>
+        /// <para>Whether or not the container can read information from the device's <c>/sys</c> folder.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -285,8 +284,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <para>
         /// <para>Whether or not the Lambda function is pinned, or long-lived.</para><ul><li><para>A pinned Lambda function starts when IoT Greengrass starts and keeps running in its
         /// own container.</para></li><li><para>A non-pinned Lambda function starts only when it receives a work item and exists after
-        /// it idles for <code>maxIdleTimeInSeconds</code>. If the function has multiple work
-        /// items, the IoT Greengrass Core software creates multiple instances of the function.</para></li></ul><para>Default: <code>true</code></para>
+        /// it idles for <c>maxIdleTimeInSeconds</c>. If the function has multiple work items,
+        /// the IoT Greengrass Core software creates multiple instances of the function.</para></li></ul><para>Default: <c>true</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

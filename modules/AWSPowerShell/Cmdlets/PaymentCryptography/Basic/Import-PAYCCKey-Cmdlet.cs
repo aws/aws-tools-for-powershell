@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     ///  
     /// <para>
     /// Amazon Web Services Payment Cryptography simplifies key exchange by replacing the
-    /// existing paper-based approach with a modern electronic approach. With <code>ImportKey</code>
+    /// existing paper-based approach with a modern electronic approach. With <c>ImportKey</c>
     /// you can import symmetric keys using either symmetric and asymmetric key exchange mechanisms.
     /// </para><para>
     /// For symmetric key exchange, Amazon Web Services Payment Cryptography uses the ANSI
@@ -64,18 +64,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// your Amazon Web Services Payment Cryptography account.
     /// </para><para>
     /// Set the following parameters:
-    /// </para><ul><li><para><code>KeyMaterial</code>: <code>RootCertificatePublicKey</code></para></li><li><para><code>KeyClass</code>: <code>PUBLIC_KEY</code></para></li><li><para><code>KeyModesOfUse</code>: <code>Verify</code></para></li><li><para><code>KeyUsage</code>: <code>TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE</code></para></li><li><para><code>PublicKeyCertificate</code>: The public key certificate in PEM format (base64
-    /// encoded) of the private root key under import.
+    /// </para><ul><li><para><c>KeyMaterial</c>: <c>RootCertificatePublicKey</c></para></li><li><para><c>KeyClass</c>: <c>PUBLIC_KEY</c></para></li><li><para><c>KeyModesOfUse</c>: <c>Verify</c></para></li><li><para><c>KeyUsage</c>: <c>TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE</c></para></li><li><para><c>PublicKeyCertificate</c>: The public key certificate in PEM format (base64 encoded)
+    /// of the private root key under import.
     /// </para></li></ul><para><b>To import a trusted public key certificate</b></para><para>
     /// The root public key certificate must be in place and operational before you import
     /// a trusted public key certificate. Set the following parameters:
-    /// </para><ul><li><para><code>KeyMaterial</code>: <code>TrustedCertificatePublicKey</code></para></li><li><para><code>CertificateAuthorityPublicKeyIdentifier</code>: <code>KeyArn</code> of the
-    /// <code>RootCertificatePublicKey</code>.
-    /// </para></li><li><para><code>KeyModesOfUse</code> and <code>KeyUsage</code>: Corresponding to the cryptographic
-    /// operations such as wrap, sign, or encrypt that you will allow the trusted public key
-    /// certificate to perform.
-    /// </para></li><li><para><code>PublicKeyCertificate</code>: The trusted public key certificate in PEM format
-    /// (base64 encoded) under import.
+    /// </para><ul><li><para><c>KeyMaterial</c>: <c>TrustedCertificatePublicKey</c></para></li><li><para><c>CertificateAuthorityPublicKeyIdentifier</c>: <c>KeyArn</c> of the <c>RootCertificatePublicKey</c>.
+    /// </para></li><li><para><c>KeyModesOfUse</c> and <c>KeyUsage</c>: Corresponding to the cryptographic operations
+    /// such as wrap, sign, or encrypt that you will allow the trusted public key certificate
+    /// to perform.
+    /// </para></li><li><para><c>PublicKeyCertificate</c>: The trusted public key certificate in PEM format (base64
+    /// encoded) under import.
     /// </para></li></ul><para><b>To import KEK or ZMK using TR-34</b></para><para>
     /// Using this operation, you can import initial key using TR-34 asymmetric key exchange.
     /// In TR-34 terminology, the sending party of the key is called Key Distribution Host
@@ -94,33 +93,33 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// Next the KDH generates a key pair for the purpose of signing the encrypted KDH key
     /// and provides the public certificate of the signing key to Amazon Web Services Payment
     /// Cryptography. The KDH will also need to import the root certificate chain of the KDH
-    /// signing certificate by calling <code>ImportKey</code> for <code>RootCertificatePublicKey</code>.
+    /// signing certificate by calling <c>ImportKey</c> for <c>RootCertificatePublicKey</c>.
     /// For more information on TR-34 key import, see section <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-import.html">Importing
     /// symmetric keys</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.
     /// </para><para>
     /// Set the following parameters:
-    /// </para><ul><li><para><code>KeyMaterial</code>: Use <code>Tr34KeyBlock</code> parameters.
-    /// </para></li><li><para><code>CertificateAuthorityPublicKeyIdentifier</code>: The <code>KeyARN</code> of
-    /// the certificate chain that signed the KDH signing key certificate.
-    /// </para></li><li><para><code>ImportToken</code>: Obtained from KRD by calling <a>GetParametersForImport</a>.
-    /// </para></li><li><para><code>WrappedKeyBlock</code>: The TR-34 wrapped key material from KDH. It contains
-    /// the KDH key under import, wrapped with KRD wrapping certificate and signed by KDH
-    /// signing private key. This TR-34 key block is typically generated by the KDH Hardware
-    /// Security Module (HSM) outside of Amazon Web Services Payment Cryptography.
-    /// </para></li><li><para><code>SigningKeyCertificate</code>: The public key certificate in PEM format (base64
-    /// encoded) of the KDH signing key generated under the root certificate (CertificateAuthorityPublicKeyIdentifier)
+    /// </para><ul><li><para><c>KeyMaterial</c>: Use <c>Tr34KeyBlock</c> parameters.
+    /// </para></li><li><para><c>CertificateAuthorityPublicKeyIdentifier</c>: The <c>KeyARN</c> of the certificate
+    /// chain that signed the KDH signing key certificate.
+    /// </para></li><li><para><c>ImportToken</c>: Obtained from KRD by calling <a>GetParametersForImport</a>.
+    /// </para></li><li><para><c>WrappedKeyBlock</c>: The TR-34 wrapped key material from KDH. It contains the
+    /// KDH key under import, wrapped with KRD wrapping certificate and signed by KDH signing
+    /// private key. This TR-34 key block is typically generated by the KDH Hardware Security
+    /// Module (HSM) outside of Amazon Web Services Payment Cryptography.
+    /// </para></li><li><para><c>SigningKeyCertificate</c>: The public key certificate in PEM format (base64 encoded)
+    /// of the KDH signing key generated under the root certificate (CertificateAuthorityPublicKeyIdentifier)
     /// imported in Amazon Web Services Payment Cryptography.
     /// </para></li></ul><para><b>To import WK (Working Key) using TR-31</b></para><para>
     /// Amazon Web Services Payment Cryptography uses TR-31 symmetric key exchange norm to
     /// import working keys. A KEK must be established within Amazon Web Services Payment
     /// Cryptography by using TR-34 key import or by using <a>CreateKey</a>. To initiate a
     /// TR-31 key import, set the following parameters:
-    /// </para><ul><li><para><code>KeyMaterial</code>: Use <code>Tr31KeyBlock</code> parameters.
-    /// </para></li><li><para><code>WrappedKeyBlock</code>: The TR-31 wrapped key material. It contains the key
-    /// under import, encrypted using KEK. The TR-31 key block is typically generated by a
-    /// HSM outside of Amazon Web Services Payment Cryptography. 
-    /// </para></li><li><para><code>WrappingKeyIdentifier</code>: The <code>KeyArn</code> of the KEK that Amazon
-    /// Web Services Payment Cryptography uses to decrypt or unwrap the key under import.
+    /// </para><ul><li><para><c>KeyMaterial</c>: Use <c>Tr31KeyBlock</c> parameters.
+    /// </para></li><li><para><c>WrappedKeyBlock</c>: The TR-31 wrapped key material. It contains the key under
+    /// import, encrypted using KEK. The TR-31 key block is typically generated by a HSM outside
+    /// of Amazon Web Services Payment Cryptography. 
+    /// </para></li><li><para><c>WrappingKeyIdentifier</c>: The <c>KeyArn</c> of the KEK that Amazon Web Services
+    /// Payment Cryptography uses to decrypt or unwrap the key under import.
     /// </para></li></ul><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>ExportKey</a></para></li><li><para><a>GetParametersForImport</a></para></li></ul>
@@ -142,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>KeyARN</code> of the certificate chain that signs the signing key certificate
+        /// <para>The <c>KeyARN</c> of the certificate chain that signs the signing key certificate
         /// during TR-34 key import.</para>
         /// </para>
         /// </summary>
@@ -154,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter TrustedCertificatePublicKey_CertificateAuthorityPublicKeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>KeyARN</code> of the root public key certificate or certificate chain that
-        /// signs the trusted public key certificate import.</para>
+        /// <para>The <c>KeyARN</c> of the root public key certificate or certificate chain that signs
+        /// the trusted public key certificate import.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -282,9 +281,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <summary>
         /// <para>
         /// <para>The key algorithm to be use during creation of an Amazon Web Services Payment Cryptography
-        /// key.</para><para>For symmetric keys, Amazon Web Services Payment Cryptography supports <code>AES</code>
-        /// and <code>TDES</code> algorithms. For asymmetric keys, Amazon Web Services Payment
-        /// Cryptography supports <code>RSA</code> and <code>ECC_NIST</code> algorithms.</para>
+        /// key.</para><para>For symmetric keys, Amazon Web Services Payment Cryptography supports <c>AES</c> and
+        /// <c>TDES</c> algorithms. For asymmetric keys, Amazon Web Services Payment Cryptography
+        /// supports <c>RSA</c> and <c>ECC_NIST</c> algorithms.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -296,9 +295,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <summary>
         /// <para>
         /// <para>The key algorithm to be use during creation of an Amazon Web Services Payment Cryptography
-        /// key.</para><para>For symmetric keys, Amazon Web Services Payment Cryptography supports <code>AES</code>
-        /// and <code>TDES</code> algorithms. For asymmetric keys, Amazon Web Services Payment
-        /// Cryptography supports <code>RSA</code> and <code>ECC_NIST</code> algorithms.</para>
+        /// key.</para><para>For symmetric keys, Amazon Web Services Payment Cryptography supports <c>AES</c> and
+        /// <c>TDES</c> algorithms. For asymmetric keys, Amazon Web Services Payment Cryptography
+        /// supports <c>RSA</c> and <c>ECC_NIST</c> algorithms.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -310,7 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter Tr34KeyBlock_KeyBlockFormat
         /// <summary>
         /// <para>
-        /// <para>The key block format to use during key import. The only value allowed is <code>X9_TR34_2012</code>.</para>
+        /// <para>The key block format to use during key import. The only value allowed is <c>X9_TR34_2012</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -390,7 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <summary>
         /// <para>
         /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key has no special restrictions
-        /// other than the restrictions implied by <code>KeyUsage</code>.</para>
+        /// other than the restrictions implied by <c>KeyUsage</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -401,7 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <summary>
         /// <para>
         /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key has no special restrictions
-        /// other than the restrictions implied by <code>KeyUsage</code>.</para>
+        /// other than the restrictions implied by <c>KeyUsage</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -590,7 +589,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter Tr31KeyBlock_WrappingKeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>KeyARN</code> of the key that will decrypt or unwrap a TR-31 key block during
+        /// <para>The <c>KeyARN</c> of the key that will decrypt or unwrap a TR-31 key block during
         /// import.</para>
         /// </para>
         /// </summary>

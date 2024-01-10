@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         #region Parameter ExternalMeetingId
         /// <summary>
         /// <para>
-        /// <para>The external meeting ID.</para><para>Pattern: <code>[-_&amp;@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code></para><para>Values that begin with <code>aws:</code> are reserved. You can't configure a value
-        /// that uses this prefix. Case insensitive.</para>
+        /// <para>The external meeting ID.</para><para>Pattern: <c>[-_&amp;@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</c></para><para>Values that begin with <c>aws:</c> are reserved. You can't configure a value that
+        /// uses this prefix. Case insensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         #region Parameter Content_MaxResolution
         /// <summary>
         /// <para>
-        /// <para>The maximum resolution for the meeting content.</para><note><para>Defaults to <code>FHD</code>. To use <code>UHD</code>, you must also provide a <code>MeetingFeatures:Attendee:MaxCount</code>
+        /// <para>The maximum resolution for the meeting content.</para><note><para>Defaults to <c>FHD</c>. To use <c>UHD</c>, you must also provide a <c>MeetingFeatures:Attendee:MaxCount</c>
         /// value and override the default size limit of 250 attendees.</para></note>
         /// </para>
         /// </summary>
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         #region Parameter Video_MaxResolution
         /// <summary>
         /// <para>
-        /// <para>The maximum video resolution for the meeting. Applies to all attendees.</para><note><para>Defaults to <code>HD</code>. To use <code>FHD</code>, you must also provide a <code>MeetingFeatures:Attendee:MaxCount</code>
+        /// <para>The maximum video resolution for the meeting. Applies to all attendees.</para><note><para>Defaults to <c>HD</c>. To use <c>FHD</c>, you must also provide a <c>MeetingFeatures:Attendee:MaxCount</c>
         /// value and override the default size limit of 250 attendees.</para></note>
         /// </para>
         /// </summary>
@@ -141,13 +141,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         #region Parameter MediaRegion
         /// <summary>
         /// <para>
-        /// <para>The Region in which to create the meeting.</para><para> Available values: <code>af-south-1</code>, <code>ap-northeast-1</code>, <code>ap-northeast-2</code>,
-        /// <code>ap-south-1</code>, <code>ap-southeast-1</code>, <code>ap-southeast-2</code>,
-        /// <code>ca-central-1</code>, <code>eu-central-1</code>, <code>eu-north-1</code>, <code>eu-south-1</code>,
-        /// <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>, <code>sa-east-1</code>,
-        /// <code>us-east-1</code>, <code>us-east-2</code>, <code>us-west-1</code>, <code>us-west-2</code>.
-        /// </para><para>Available values in Amazon Web Services GovCloud (US) Regions: <code>us-gov-east-1</code>,
-        /// <code>us-gov-west-1</code>.</para>
+        /// <para>The Region in which to create the meeting.</para><para> Available values: <c>af-south-1</c>, <c>ap-northeast-1</c>, <c>ap-northeast-2</c>,
+        /// <c>ap-south-1</c>, <c>ap-southeast-1</c>, <c>ap-southeast-2</c>, <c>ca-central-1</c>,
+        /// <c>eu-central-1</c>, <c>eu-north-1</c>, <c>eu-south-1</c>, <c>eu-west-1</c>, <c>eu-west-2</c>,
+        /// <c>eu-west-3</c>, <c>sa-east-1</c>, <c>us-east-1</c>, <c>us-east-2</c>, <c>us-west-1</c>,
+        /// <c>us-west-2</c>. </para><para>Available values in Amazon Web Services GovCloud (US) Regions: <c>us-gov-east-1</c>,
+        /// <c>us-gov-west-1</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -214,13 +213,13 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         /// the resource belongs to as well as permissions for adding tags. For more information,
         /// see the documentation for each service.</para></li></ul><important><para>Do not store personally identifiable information (PII) or other confidential or sensitive
         /// information in tags. We use tags to provide you with billing and administration services.
-        /// Tags are not intended to be used for private or sensitive data.</para></important><para><b>Minimum permissions</b></para><para>In addition to the <code>tag:TagResources</code> permission required by this operation,
+        /// Tags are not intended to be used for private or sensitive data.</para></important><para><b>Minimum permissions</b></para><para>In addition to the <c>tag:TagResources</c> permission required by this operation,
         /// you must also have the tagging permission defined by the service that created the
-        /// resource. For example, to tag a <code>ChimeSDKMeetings</code> instance using the <code>TagResources</code>
-        /// operation, you must have both of the following permissions:</para><para><code>tag:TagResources</code></para><para><code>ChimeSDKMeetings:CreateTags</code></para><note><para>Some services might have specific requirements for tagging some resources. For example,
-        /// to tag an Amazon S3 bucket, you must also have the <code>s3:GetBucketTagging</code>
-        /// permission. If the expected minimum permissions don't work, check the documentation
-        /// for that service's tagging APIs for more information.</para></note>
+        /// resource. For example, to tag a <c>ChimeSDKMeetings</c> instance using the <c>TagResources</c>
+        /// operation, you must have both of the following permissions:</para><para><c>tag:TagResources</c></para><para><c>ChimeSDKMeetings:CreateTags</c></para><note><para>Some services might have specific requirements for tagging some resources. For example,
+        /// to tag an Amazon S3 bucket, you must also have the <c>s3:GetBucketTagging</c> permission.
+        /// If the expected minimum permissions don't work, check the documentation for that service's
+        /// tagging APIs for more information.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

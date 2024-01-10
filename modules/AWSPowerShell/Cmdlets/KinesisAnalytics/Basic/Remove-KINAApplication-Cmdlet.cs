@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     /// and deletes the application, including any application artifacts (such as in-application
     /// streams, reference table, and application code).
     /// </para><para>
-    /// This operation requires permissions to perform the <code>kinesisanalytics:DeleteApplication</code>
+    /// This operation requires permissions to perform the <c>kinesisanalytics:DeleteApplication</c>
     /// action.
     /// </para>
     /// </summary>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter CreateTimestamp
         /// <summary>
         /// <para>
-        /// <para> You can use the <code>DescribeApplication</code> operation to get this value. </para>
+        /// <para> You can use the <c>DescribeApplication</c> operation to get this value. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

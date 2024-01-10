@@ -32,20 +32,20 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// 
     ///  
     /// <para>
-    /// There are four modes for updating a service pipeline. The <code>deploymentType</code>
-    /// field defines the mode.
-    /// </para><dl><dt /><dd><para><code>NONE</code></para><para>
+    /// There are four modes for updating a service pipeline. The <c>deploymentType</c> field
+    /// defines the mode.
+    /// </para><dl><dt /><dd><para><c>NONE</c></para><para>
     /// In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters
     /// are updated.
-    /// </para></dd><dt /><dd><para><code>CURRENT_VERSION</code></para><para>
+    /// </para></dd><dt /><dd><para><c>CURRENT_VERSION</c></para><para>
     /// In this mode, the service pipeline is deployed and updated with the new spec that
     /// you provide. Only requested parameters are updated. <i>Don’t</i> include major or
-    /// minor version parameters when you use this <code>deployment-type</code>.
-    /// </para></dd><dt /><dd><para><code>MINOR_VERSION</code></para><para>
+    /// minor version parameters when you use this <c>deployment-type</c>.
+    /// </para></dd><dt /><dd><para><c>MINOR_VERSION</c></para><para>
     /// In this mode, the service pipeline is deployed and updated with the published, recommended
     /// (latest) minor version of the current major version in use, by default. You can specify
     /// a different minor version of the current major version in use.
-    /// </para></dd><dt /><dd><para><code>MAJOR_VERSION</code></para><para>
+    /// </para></dd><dt /><dd><para><c>MAJOR_VERSION</c></para><para>
     /// In this mode, the service pipeline is deployed and updated with the published, recommended
     /// (latest) major and minor version of the current template by default. You can specify
     /// a different major version that's higher than the major version in use and a minor
@@ -71,13 +71,13 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter DeploymentType
         /// <summary>
         /// <para>
-        /// <para>The deployment type.</para><para>There are four modes for updating a service pipeline. The <code>deploymentType</code>
-        /// field defines the mode.</para><dl><dt /><dd><para><code>NONE</code></para><para>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters
-        /// are updated.</para></dd><dt /><dd><para><code>CURRENT_VERSION</code></para><para>In this mode, the service pipeline is deployed and updated with the new spec that
+        /// <para>The deployment type.</para><para>There are four modes for updating a service pipeline. The <c>deploymentType</c> field
+        /// defines the mode.</para><dl><dt /><dd><para><c>NONE</c></para><para>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters
+        /// are updated.</para></dd><dt /><dd><para><c>CURRENT_VERSION</c></para><para>In this mode, the service pipeline is deployed and updated with the new spec that
         /// you provide. Only requested parameters are updated. <i>Don’t</i> include major or
-        /// minor version parameters when you use this <code>deployment-type</code>.</para></dd><dt /><dd><para><code>MINOR_VERSION</code></para><para>In this mode, the service pipeline is deployed and updated with the published, recommended
+        /// minor version parameters when you use this <c>deployment-type</c>.</para></dd><dt /><dd><para><c>MINOR_VERSION</c></para><para>In this mode, the service pipeline is deployed and updated with the published, recommended
         /// (latest) minor version of the current major version in use, by default. You can specify
-        /// a different minor version of the current major version in use.</para></dd><dt /><dd><para><code>MAJOR_VERSION</code></para><para>In this mode, the service pipeline is deployed and updated with the published, recommended
+        /// a different minor version of the current major version in use.</para></dd><dt /><dd><para><c>MAJOR_VERSION</c></para><para>In this mode, the service pipeline is deployed and updated with the published, recommended
         /// (latest) major and minor version of the current template, by default. You can specify
         /// a different major version that's higher than the major version in use and a minor
         /// version.</para></dd></dl>

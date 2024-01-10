@@ -43,46 +43,45 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para><para>
     /// To get the number of faces in a collection, call <a>DescribeCollection</a>. 
     /// </para><para>
-    /// If you're using version 1.0 of the face detection model, <code>IndexFaces</code> indexes
+    /// If you're using version 1.0 of the face detection model, <c>IndexFaces</c> indexes
     /// the 15 largest faces in the input image. Later versions of the face detection model
     /// index the 100 largest faces in the input image. 
     /// </para><para>
     /// If you're using version 4 or later of the face model, image orientation information
-    /// is not returned in the <code>OrientationCorrection</code> field. 
+    /// is not returned in the <c>OrientationCorrection</c> field. 
     /// </para><para>
     /// To determine which version of the model you're using, call <a>DescribeCollection</a>
     /// and supply the collection ID. You can also get the model version from the value of
-    /// <code>FaceModelVersion</code> in the response from <code>IndexFaces</code></para><para>
+    /// <c>FaceModelVersion</c> in the response from <c>IndexFaces</c></para><para>
     /// For more information, see Model Versioning in the Amazon Rekognition Developer Guide.
     /// </para><para>
-    /// If you provide the optional <code>ExternalImageId</code> for the input image you provided,
+    /// If you provide the optional <c>ExternalImageId</c> for the input image you provided,
     /// Amazon Rekognition associates this ID with all faces that it detects. When you call
     /// the <a>ListFaces</a> operation, the response returns the external ID. You can use
     /// this external image ID to create a client-side index to associate the faces with each
     /// image. You can then use the index to find all faces in an image.
     /// </para><para>
-    /// You can specify the maximum number of faces to index with the <code>MaxFaces</code>
-    /// input parameter. This is useful when you want to index the largest faces in an image
-    /// and don't want to index smaller faces, such as those belonging to people standing
-    /// in the background.
+    /// You can specify the maximum number of faces to index with the <c>MaxFaces</c> input
+    /// parameter. This is useful when you want to index the largest faces in an image and
+    /// don't want to index smaller faces, such as those belonging to people standing in the
+    /// background.
     /// </para><para>
-    /// The <code>QualityFilter</code> input parameter allows you to filter out detected faces
-    /// that don’t meet a required quality bar. The quality bar is based on a variety of common
-    /// use cases. By default, <code>IndexFaces</code> chooses the quality bar that's used
-    /// to filter faces. You can also explicitly choose the quality bar. Use <code>QualityFilter</code>,
-    /// to set the quality bar by specifying <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>.
-    /// If you do not want to filter detected faces, specify <code>NONE</code>. 
+    /// The <c>QualityFilter</c> input parameter allows you to filter out detected faces that
+    /// don’t meet a required quality bar. The quality bar is based on a variety of common
+    /// use cases. By default, <c>IndexFaces</c> chooses the quality bar that's used to filter
+    /// faces. You can also explicitly choose the quality bar. Use <c>QualityFilter</c>, to
+    /// set the quality bar by specifying <c>LOW</c>, <c>MEDIUM</c>, or <c>HIGH</c>. If you
+    /// do not want to filter detected faces, specify <c>NONE</c>. 
     /// </para><note><para>
     /// To use quality filtering, you need a collection associated with version 3 of the face
     /// model or higher. To get the version of the face model associated with a collection,
     /// call <a>DescribeCollection</a>. 
     /// </para></note><para>
     /// Information about faces detected in an image, but not indexed, is returned in an array
-    /// of <a>UnindexedFace</a> objects, <code>UnindexedFaces</code>. Faces aren't indexed
-    /// for reasons such as:
+    /// of <a>UnindexedFace</a> objects, <c>UnindexedFaces</c>. Faces aren't indexed for reasons
+    /// such as:
     /// </para><ul><li><para>
-    /// The number of faces detected exceeds the value of the <code>MaxFaces</code> request
-    /// parameter.
+    /// The number of faces detected exceeds the value of the <c>MaxFaces</c> request parameter.
     /// </para></li><li><para>
     /// The face is too small compared to the image dimensions.
     /// </para></li><li><para>
@@ -94,35 +93,34 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para></li><li><para>
     /// The face doesn’t have enough detail to be suitable for face search.
     /// </para></li></ul><para>
-    /// In response, the <code>IndexFaces</code> operation returns an array of metadata for
-    /// all detected faces, <code>FaceRecords</code>. This includes: 
+    /// In response, the <c>IndexFaces</c> operation returns an array of metadata for all
+    /// detected faces, <c>FaceRecords</c>. This includes: 
     /// </para><ul><li><para>
-    /// The bounding box, <code>BoundingBox</code>, of the detected face. 
+    /// The bounding box, <c>BoundingBox</c>, of the detected face. 
     /// </para></li><li><para>
-    /// A confidence value, <code>Confidence</code>, which indicates the confidence that the
-    /// bounding box contains a face.
+    /// A confidence value, <c>Confidence</c>, which indicates the confidence that the bounding
+    /// box contains a face.
     /// </para></li><li><para>
-    /// A face ID, <code>FaceId</code>, assigned by the service for each face that's detected
-    /// and stored.
+    /// A face ID, <c>FaceId</c>, assigned by the service for each face that's detected and
+    /// stored.
     /// </para></li><li><para>
-    /// An image ID, <code>ImageId</code>, assigned by the service for the input image.
+    /// An image ID, <c>ImageId</c>, assigned by the service for the input image.
     /// </para></li></ul><para>
-    /// If you request <code>ALL</code> or specific facial attributes (e.g., <code>FACE_OCCLUDED</code>)
+    /// If you request <c>ALL</c> or specific facial attributes (e.g., <c>FACE_OCCLUDED</c>)
     /// by using the detectionAttributes parameter, Amazon Rekognition returns detailed facial
     /// attributes, such as facial landmarks (for example, location of eye and mouth), facial
     /// occlusion, and other facial attributes.
     /// </para><para>
     /// If you provide the same image, specify the same collection, and use the same external
-    /// ID in the <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate
-    /// face metadata.
+    /// ID in the <c>IndexFaces</c> operation, Amazon Rekognition doesn't save duplicate face
+    /// metadata.
     /// </para><para>
     /// The input image is passed either as base64-encoded image bytes, or as a reference
     /// to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition
     /// operations, passing image bytes isn't supported. The image must be formatted as a
     /// PNG or JPEG file. 
     /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:IndexFaces</code>
-    /// action.
+    /// This operation requires permissions to perform the <c>rekognition:IndexFaces</c> action.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "REKDetectedFacesToCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -150,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Blob of image bytes up to 5 MBs. Note that the maximum image size you can pass to
-        /// <code>DetectCustomLabels</code> is 4MB. </para>
+        /// <c>DetectCustomLabels</c> is 4MB. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -180,14 +178,13 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter DetectionAttribute
         /// <summary>
         /// <para>
-        /// <para>An array of facial attributes you want to be returned. A <code>DEFAULT</code> subset
-        /// of facial attributes - <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>,
-        /// <code>Quality</code>, and <code>Landmarks</code> - will always be returned. You can
-        /// request for specific facial attributes (in addition to the default list) - by using
-        /// <code>["DEFAULT", "FACE_OCCLUDED"]</code> or just <code>["FACE_OCCLUDED"]</code>.
-        /// You can request for all facial attributes by using <code>["ALL"]</code>. Requesting
-        /// more attributes may increase response time.</para><para>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND
-        /// operator to determine which attributes to return (in this case, all attributes). </para>
+        /// <para>An array of facial attributes you want to be returned. A <c>DEFAULT</c> subset of
+        /// facial attributes - <c>BoundingBox</c>, <c>Confidence</c>, <c>Pose</c>, <c>Quality</c>,
+        /// and <c>Landmarks</c> - will always be returned. You can request for specific facial
+        /// attributes (in addition to the default list) - by using <c>["DEFAULT", "FACE_OCCLUDED"]</c>
+        /// or just <c>["FACE_OCCLUDED"]</c>. You can request for all facial attributes by using
+        /// <c>["ALL"]</c>. Requesting more attributes may increase response time.</para><para>If you provide both, <c>["ALL", "DEFAULT"]</c>, the service uses a logical AND operator
+        /// to determine which attributes to return (in this case, all attributes). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,16 +205,15 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter MaxFace
         /// <summary>
         /// <para>
-        /// <para>The maximum number of faces to index. The value of <code>MaxFaces</code> must be greater
-        /// than or equal to 1. <code>IndexFaces</code> returns no more than 100 detected faces
-        /// in an image, even if you specify a larger value for <code>MaxFaces</code>.</para><para>If <code>IndexFaces</code> detects more faces than the value of <code>MaxFaces</code>,
-        /// the faces with the lowest quality are filtered out first. If there are still more
-        /// faces than the value of <code>MaxFaces</code>, the faces with the smallest bounding
-        /// boxes are filtered out (up to the number that's needed to satisfy the value of <code>MaxFaces</code>).
-        /// Information about the unindexed faces is available in the <code>UnindexedFaces</code>
-        /// array. </para><para>The faces that are returned by <code>IndexFaces</code> are sorted by the largest face
-        /// bounding box size to the smallest size, in descending order.</para><para><code>MaxFaces</code> can be used with a collection associated with any version of
-        /// the face model.</para>
+        /// <para>The maximum number of faces to index. The value of <c>MaxFaces</c> must be greater
+        /// than or equal to 1. <c>IndexFaces</c> returns no more than 100 detected faces in an
+        /// image, even if you specify a larger value for <c>MaxFaces</c>.</para><para>If <c>IndexFaces</c> detects more faces than the value of <c>MaxFaces</c>, the faces
+        /// with the lowest quality are filtered out first. If there are still more faces than
+        /// the value of <c>MaxFaces</c>, the faces with the smallest bounding boxes are filtered
+        /// out (up to the number that's needed to satisfy the value of <c>MaxFaces</c>). Information
+        /// about the unindexed faces is available in the <c>UnindexedFaces</c> array. </para><para>The faces that are returned by <c>IndexFaces</c> are sorted by the largest face bounding
+        /// box size to the smallest size, in descending order.</para><para><c>MaxFaces</c> can be used with a collection associated with any version of the
+        /// face model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,14 +235,13 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>A filter that specifies a quality bar for how much filtering is done to identify faces.
-        /// Filtered faces aren't indexed. If you specify <code>AUTO</code>, Amazon Rekognition
-        /// chooses the quality bar. If you specify <code>LOW</code>, <code>MEDIUM</code>, or
-        /// <code>HIGH</code>, filtering removes all faces that don’t meet the chosen quality
-        /// bar. The default value is <code>AUTO</code>. The quality bar is based on a variety
-        /// of common use cases. Low-quality detections can occur for a number of reasons. Some
-        /// examples are an object that's misidentified as a face, a face that's too blurry, or
-        /// a face with a pose that's too extreme to use. If you specify <code>NONE</code>, no
-        /// filtering is performed. </para><para>To use quality filtering, the collection you are using must be associated with version
+        /// Filtered faces aren't indexed. If you specify <c>AUTO</c>, Amazon Rekognition chooses
+        /// the quality bar. If you specify <c>LOW</c>, <c>MEDIUM</c>, or <c>HIGH</c>, filtering
+        /// removes all faces that don’t meet the chosen quality bar. The default value is <c>AUTO</c>.
+        /// The quality bar is based on a variety of common use cases. Low-quality detections
+        /// can occur for a number of reasons. Some examples are an object that's misidentified
+        /// as a face, a face that's too blurry, or a face with a pose that's too extreme to use.
+        /// If you specify <c>NONE</c>, no filtering is performed. </para><para>To use quality filtering, the collection you are using must be associated with version
         /// 3 of the face model or higher.</para>
         /// </para>
         /// </summary>

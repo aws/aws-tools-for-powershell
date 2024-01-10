@@ -28,7 +28,7 @@ using Amazon.ChimeSDKIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMID
 {
     /// <summary>
-    /// Updates the details of an <code>AppInstanceUser</code>. You can update names and metadata.
+    /// Updates the details of an <c>AppInstanceUser</c>. You can update names and metadata.
     /// </summary>
     [Cmdlet("Update", "CHMIDAppInstanceUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter AppInstanceUserArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code>.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter Metadata
         /// <summary>
         /// <para>
-        /// <para>The metadata of the <code>AppInstanceUser</code>.</para>
+        /// <para>The metadata of the <c>AppInstanceUser</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the <code>AppInstanceUser</code>.</para>
+        /// <para>The name of the <c>AppInstanceUser</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -85,8 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Refresh
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, DMS loads metadata for the specified objects from the source
-        /// database.</para>
+        /// <para>If <c>true</c>, DMS loads metadata for the specified objects from the source database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

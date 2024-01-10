@@ -34,34 +34,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// can specify. For more information about the options, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC
     /// 2132</a>.
     /// 
-    ///  <ul><li><para><code>domain-name-servers</code> - The IP addresses of up to four domain name servers,
+    ///  <ul><li><para><c>domain-name-servers</c> - The IP addresses of up to four domain name servers,
     /// or AmazonProvidedDNS. The default DHCP option set specifies AmazonProvidedDNS. If
     /// specifying more than one domain name server, specify the IP addresses in a single
     /// parameter, separated by commas. To have your instance receive a custom DNS hostname
-    /// as specified in <code>domain-name</code>, you must set <code>domain-name-servers</code>
-    /// to a custom DNS server.
-    /// </para></li><li><para><code>domain-name</code> - If you're using AmazonProvidedDNS in <code>us-east-1</code>,
-    /// specify <code>ec2.internal</code>. If you're using AmazonProvidedDNS in another Region,
-    /// specify <code>region.compute.internal</code> (for example, <code>ap-northeast-1.compute.internal</code>).
-    /// Otherwise, specify a domain name (for example, <code>ExampleCompany.com</code>). This
-    /// value is used to complete unqualified DNS hostnames. <b>Important</b>: Some Linux
-    /// operating systems accept multiple domain names separated by spaces. However, Windows
-    /// and other Linux operating systems treat the value as a single domain, which results
-    /// in unexpected behavior. If your DHCP options set is associated with a VPC that has
-    /// instances with multiple operating systems, specify only one domain name.
-    /// </para></li><li><para><code>ntp-servers</code> - The IP addresses of up to four Network Time Protocol (NTP)
-    /// servers.
-    /// </para></li><li><para><code>netbios-name-servers</code> - The IP addresses of up to four NetBIOS name servers.
-    /// </para></li><li><para><code>netbios-node-type</code> - The NetBIOS node type (1, 2, 4, or 8). We recommend
-    /// that you specify 2 (broadcast and multicast are not currently supported). For more
-    /// information about these node types, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC
-    /// 2132</a>.
+    /// as specified in <c>domain-name</c>, you must set <c>domain-name-servers</c> to a custom
+    /// DNS server.
+    /// </para></li><li><para><c>domain-name</c> - If you're using AmazonProvidedDNS in <c>us-east-1</c>, specify
+    /// <c>ec2.internal</c>. If you're using AmazonProvidedDNS in another Region, specify
+    /// <c>region.compute.internal</c> (for example, <c>ap-northeast-1.compute.internal</c>).
+    /// Otherwise, specify a domain name (for example, <c>ExampleCompany.com</c>). This value
+    /// is used to complete unqualified DNS hostnames. <b>Important</b>: Some Linux operating
+    /// systems accept multiple domain names separated by spaces. However, Windows and other
+    /// Linux operating systems treat the value as a single domain, which results in unexpected
+    /// behavior. If your DHCP options set is associated with a VPC that has instances with
+    /// multiple operating systems, specify only one domain name.
+    /// </para></li><li><para><c>ntp-servers</c> - The IP addresses of up to four Network Time Protocol (NTP) servers.
+    /// </para></li><li><para><c>netbios-name-servers</c> - The IP addresses of up to four NetBIOS name servers.
+    /// </para></li><li><para><c>netbios-node-type</c> - The NetBIOS node type (1, 2, 4, or 8). We recommend that
+    /// you specify 2 (broadcast and multicast are not currently supported). For more information
+    /// about these node types, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.
     /// </para></li></ul><para>
     /// Your VPC automatically starts out with a set of DHCP options that includes only a
     /// DNS server that we provide (AmazonProvidedDNS). If you create a set of options, and
-    /// if your VPC has an internet gateway, make sure to set the <code>domain-name-servers</code>
-    /// option either to <code>AmazonProvidedDNS</code> or to a domain name server of your
-    /// choice. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP
+    /// if your VPC has an internet gateway, make sure to set the <c>domain-name-servers</c>
+    /// option either to <c>AmazonProvidedDNS</c> or to a domain name server of your choice.
+    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP
     /// options sets</a> in the <i>Amazon VPC User Guide</i>.
     /// </para>
     /// </summary>

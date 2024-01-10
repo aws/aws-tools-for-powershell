@@ -45,9 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. The possible values are:</para><ul><li><para><code>resource-id</code> - The ID of the resource.</para></li><li><para><code>resource-type</code> - The resource type. Valid values are <code>vpc</code>
-        /// | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code> |
-        /// <code>connect</code>.</para></li><li><para><code>transit-gateway-attachment-id</code> - The ID of the attachment.</para></li></ul>
+        /// <para>One or more filters. The possible values are:</para><ul><li><para><c>resource-id</c> - The ID of the resource.</para></li><li><para><c>resource-type</c> - The resource type. Valid values are <c>vpc</c> | <c>vpn</c>
+        /// | <c>direct-connect-gateway</c> | <c>peering</c> | <c>connect</c>.</para></li><li><para><c>transit-gateway-attachment-id</c> - The ID of the attachment.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

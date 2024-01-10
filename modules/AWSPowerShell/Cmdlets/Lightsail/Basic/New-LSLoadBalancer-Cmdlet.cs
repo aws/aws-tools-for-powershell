@@ -36,11 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
     ///  
     /// <para>
     /// When you create a load balancer, you can specify a unique name and port settings.
-    /// To change additional load balancer settings, use the <code>UpdateLoadBalancerAttribute</code>
+    /// To change additional load balancer settings, use the <c>UpdateLoadBalancerAttribute</c>
     /// operation.
     /// </para><para>
-    /// The <code>create load balancer</code> operation supports tag-based access control
-    /// via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// The <c>create load balancer</c> operation supports tag-based access control via request
+    /// tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -60,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The optional alternative domains and subdomains to use with your SSL/TLS certificate
-        /// (<code>www.example.com</code>, <code>example.com</code>, <code>m.example.com</code>,
-        /// <code>blog.example.com</code>).</para>
+        /// (<c>www.example.com</c>, <c>example.com</c>, <c>m.example.com</c>, <c>blog.example.com</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CertificateDomainName
         /// <summary>
         /// <para>
-        /// <para>The domain name with which your certificate is associated (<code>example.com</code>).</para><para>If you specify <code>certificateDomainName</code>, then <code>certificateName</code>
-        /// is required (and vice-versa).</para>
+        /// <para>The domain name with which your certificate is associated (<c>example.com</c>).</para><para>If you specify <c>certificateDomainName</c>, then <c>certificateName</c> is required
+        /// (and vice-versa).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CertificateName
         /// <summary>
         /// <para>
-        /// <para>The name of the SSL/TLS certificate.</para><para>If you specify <code>certificateName</code>, then <code>certificateDomainName</code>
-        /// is required (and vice-versa).</para>
+        /// <para>The name of the SSL/TLS certificate.</para><para>If you specify <c>certificateName</c>, then <c>certificateDomainName</c> is required
+        /// (and vice-versa).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The path you provided to perform the load balancer health check. If you didn't specify
-        /// a health check path, Lightsail uses the root path of your website (<code>"/"</code>).</para><para>You may want to specify a custom health check path other than the root of your application
+        /// a health check path, Lightsail uses the root path of your website (<c>"/"</c>).</para><para>You may want to specify a custom health check path other than the root of your application
         /// if your home page loads slowly or has a lot of media or scripting on it.</para>
         /// </para>
         /// </summary>
@@ -122,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The IP address type for the load balancer.</para><para>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code>
-        /// for IPv4 and IPv6.</para><para>The default value is <code>dualstack</code>.</para>
+        /// <para>The IP address type for the load balancer.</para><para>The possible values are <c>ipv4</c> for IPv4 only, and <c>dualstack</c> for IPv4 and
+        /// IPv6.</para><para>The default value is <c>dualstack</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <code>TagResource</code> action to tag a resource after it's created.</para>
+        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <c>TagResource</c> action to tag a resource after it's created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

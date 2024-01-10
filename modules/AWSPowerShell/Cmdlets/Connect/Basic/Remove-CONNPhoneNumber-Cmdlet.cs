@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// the number was claimed.
     /// 
     ///  <important><para>
-    /// To release phone numbers from a traffic distribution group, use the <code>ReleasePhoneNumber</code>
+    /// To release phone numbers from a traffic distribution group, use the <c>ReleasePhoneNumber</c>
     /// API, not the Amazon Connect admin website.
     /// </para><para>
     /// After releasing a phone number, the phone number enters into a cooldown period of

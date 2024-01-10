@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// the world. When you perform a predictive inbox placement test, you provide a sample
     /// message that contains the content that you plan to send to your customers. Amazon
     /// SES then sends that message to special email addresses spread across several major
-    /// email providers. After about 24 hours, the test is complete, and you can use the <code>GetDeliverabilityTestReport</code>
+    /// email providers. After about 24 hours, the test is complete, and you can use the <c>GetDeliverabilityTestReport</c>
     /// operation to view the results of the test.
     /// </summary>
     [Cmdlet("New", "SES2DeliverabilityTestReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <para>The character set for the content. Because of the constraints of the SMTP protocol,
         /// Amazon SES uses 7-bit ASCII by default. If the text includes characters outside of
         /// the ASCII range, you have to specify a character set. For example, you could specify
-        /// <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</para>
+        /// <c>UTF-8</c>, <c>ISO-8859-1</c>, or <c>Shift_JIS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <para>The character set for the content. Because of the constraints of the SMTP protocol,
         /// Amazon SES uses 7-bit ASCII by default. If the text includes characters outside of
         /// the ASCII range, you have to specify a character set. For example, you could specify
-        /// <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</para>
+        /// <c>UTF-8</c>, <c>ISO-8859-1</c>, or <c>Shift_JIS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <para>The character set for the content. Because of the constraints of the SMTP protocol,
         /// Amazon SES uses 7-bit ASCII by default. If the text includes characters outside of
         /// the ASCII range, you have to specify a character set. For example, you could specify
-        /// <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</para>
+        /// <c>UTF-8</c>, <c>ISO-8859-1</c>, or <c>Shift_JIS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,8 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>The name of the template. You will refer to this name when you send email using the
-        /// <code>SendTemplatedEmail</code> or <code>SendBulkTemplatedEmail</code> operations.
-        /// </para>
+        /// <c>SendTemplatedEmail</c> or <c>SendBulkTemplatedEmail</c> operations. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

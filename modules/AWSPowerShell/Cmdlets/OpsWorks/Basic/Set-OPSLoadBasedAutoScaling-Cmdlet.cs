@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes
         /// a list of up to five alarm names, which are case sensitive and must be in the same
-        /// region as the stack.</para><note><para>To use custom alarms, you must update your service role to allow <code>cloudwatch:DescribeAlarms</code>.
+        /// region as the stack.</para><note><para>To use custom alarms, you must update your service role to allow <c>cloudwatch:DescribeAlarms</c>.
         /// You can either have AWS OpsWorks Stacks update the role for you when you first use
         /// this feature or you can edit the role manually. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html">Allowing
         /// AWS OpsWorks Stacks to Act on Your Behalf</a>.</para></note>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes
         /// a list of up to five alarm names, which are case sensitive and must be in the same
-        /// region as the stack.</para><note><para>To use custom alarms, you must update your service role to allow <code>cloudwatch:DescribeAlarms</code>.
+        /// region as the stack.</para><note><para>To use custom alarms, you must update your service role to allow <c>cloudwatch:DescribeAlarms</c>.
         /// You can either have AWS OpsWorks Stacks update the role for you when you first use
         /// this feature or you can edit the role manually. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html">Allowing
         /// AWS OpsWorks Stacks to Act on Your Behalf</a>.</para></note>
@@ -126,8 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// Stacks adds new instances following an upscaling event but the instances won't start
         /// reducing the load until they have been booted and configured. There is no point in
         /// raising additional scaling events during that operation, which typically takes several
-        /// minutes. <code>IgnoreMetricsTime</code> allows you to direct AWS OpsWorks Stacks to
-        /// suppress scaling events long enough to get the new instances online.</para>
+        /// minutes. <c>IgnoreMetricsTime</c> allows you to direct AWS OpsWorks Stacks to suppress
+        /// scaling events long enough to get the new instances online.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// Stacks adds new instances following an upscaling event but the instances won't start
         /// reducing the load until they have been booted and configured. There is no point in
         /// raising additional scaling events during that operation, which typically takes several
-        /// minutes. <code>IgnoreMetricsTime</code> allows you to direct AWS OpsWorks Stacks to
-        /// suppress scaling events long enough to get the new instances online.</para>
+        /// minutes. <c>IgnoreMetricsTime</c> allows you to direct AWS OpsWorks Stacks to suppress
+        /// scaling events long enough to get the new instances online.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

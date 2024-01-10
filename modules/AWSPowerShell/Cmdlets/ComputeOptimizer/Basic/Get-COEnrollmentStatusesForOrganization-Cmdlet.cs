@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para>The maximum number of account enrollment statuses to return with a single request.
-        /// You can specify up to 100 statuses to return with each request.</para><para>To retrieve the remaining results, make another request with the returned <code>nextToken</code>
+        /// You can specify up to 100 statuses to return with each request.</para><para>To retrieve the remaining results, make another request with the returned <c>nextToken</c>
         /// value.</para>
         /// </para>
         /// </summary>

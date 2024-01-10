@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
 {
     /// <summary>
     /// Creates a new Neptune ML model training job. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-modeltraining.html">Model
-    /// training using the <code>modeltraining</code> command</a>.
+    /// training using the <c>modeltraining</c> command</a>.
     /// 
     ///  
     /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// <summary>
         /// <para>
         /// <para>Optimizes the cost of training machine-learning models by using Amazon Elastic Compute
-        /// Cloud spot instances. The default is <code>False</code>.</para>
+        /// Cloud spot instances. The default is <c>False</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// <para>Maximum total number of training jobs to start for the hyperparameter tuning job.
         /// The default is 2. Neptune ML automatically tunes the hyperparameters of the machine
         /// learning model. To obtain a model that performs well, use at least 10 jobs (in other
-        /// words, set <code>maxHPONumberOfTrainingJobs</code> to 10). In general, the more tuning
-        /// runs, the better the results.</para>
+        /// words, set <c>maxHPONumberOfTrainingJobs</c> to 10). In general, the more tuning runs,
+        /// the better the results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// <para>
         /// <para>The path to the Amazon S3 location where the Python module implementing your model
         /// is located. This must point to a valid existing Amazon S3 location that contains,
-        /// at a minimum, a training script, a transform script, and a <code>model-hpo-configuration.json</code>
+        /// at a minimum, a training script, a transform script, and a <c>model-hpo-configuration.json</c>
         /// file.</para>
         /// </para>
         /// </summary>
@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// <para>
         /// <para>The name of the entry point in your module of a script that performs model training
         /// and takes hyperparameters as command-line arguments, including fixed hyperparameters.
-        /// The default is <code>training.py</code>.</para>
+        /// The default is <c>training.py</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,8 +224,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// <summary>
         /// <para>
         /// <para>The type of ML instance used for model training. All Neptune ML models support CPU,
-        /// GPU, and multiGPU training. The default is <code>ml.p3.2xlarge</code>. Choosing the
-        /// right instance type for training depends on the task type, graph size, and your budget.</para>
+        /// GPU, and multiGPU training. The default is <c>ml.p3.2xlarge</c>. Choosing the right
+        /// instance type for training depends on the task type, graph size, and your budget.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -279,7 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// <para>The name of the entry point in your module of a script that should be run after the
         /// best model from the hyperparameter search has been identified, to compute the model
         /// artifacts necessary for model deployment. It should be able to run with no command-line
-        /// arguments.The default is <code>transform.py</code>.</para>
+        /// arguments.The default is <c>transform.py</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter UpdatedEarlierThan
         /// <summary>
         /// <para>
-        /// <para>The timestamp identifier used for the latest <code>PUT</code> or <code>DELETE</code>
-        /// action for mapping users to their groups.</para>
+        /// <para>The timestamp identifier used for the latest <c>PUT</c> or <c>DELETE</c> action for
+        /// mapping users to their groups.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

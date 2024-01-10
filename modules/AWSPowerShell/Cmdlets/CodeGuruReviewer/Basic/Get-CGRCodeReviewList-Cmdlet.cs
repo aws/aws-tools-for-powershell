@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <summary>
         /// <para>
         /// <para>List of provider types for filtering that needs to be applied before displaying the
-        /// result. For example, <code>providerTypes=[GitHub]</code> lists code reviews from GitHub.</para>
+        /// result. For example, <c>providerTypes=[GitHub]</c> lists code reviews from GitHub.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <summary>
         /// <para>
         /// <para>List of states for filtering that needs to be applied before displaying the result.
-        /// For example, <code>states=[Pending]</code> lists code reviews in the Pending state.</para><para>The valid code review states are:</para><ul><li><para><code>Completed</code>: The code review is complete.</para></li><li><para><code>Pending</code>: The code review started and has not completed or failed.</para></li><li><para><code>Failed</code>: The code review failed.</para></li><li><para><code>Deleting</code>: The code review is being deleted.</para></li></ul>
+        /// For example, <c>states=[Pending]</c> lists code reviews in the Pending state.</para><para>The valid code review states are:</para><ul><li><para><c>Completed</c>: The code review is complete.</para></li><li><para><c>Pending</c>: The code review started and has not completed or failed.</para></li><li><para><c>Failed</c>: The code review failed.</para></li><li><para><c>Deleting</c>: The code review is being deleted.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,10 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If <code>nextToken</code> is returned, there are more results available. The value
-        /// of <code>nextToken</code> is a unique pagination token for each page. Make the call
-        /// again using the returned token to retrieve the next page. Keep all other arguments
-        /// unchanged.</para>
+        /// <para>If <c>nextToken</c> is returned, there are more results available. The value of <c>nextToken</c>
+        /// is a unique pagination token for each page. Make the call again using the returned
+        /// token to retrieve the next page. Keep all other arguments unchanged.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

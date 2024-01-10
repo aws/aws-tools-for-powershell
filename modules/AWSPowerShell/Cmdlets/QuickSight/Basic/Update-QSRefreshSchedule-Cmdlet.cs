@@ -111,12 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ScheduleFrequency_Interval
         /// <summary>
         /// <para>
-        /// <para>The interval between scheduled refreshes. Valid values are as follows:</para><ul><li><para><code>MINUTE15</code>: The dataset refreshes every 15 minutes. This value is only
-        /// supported for incremental refreshes. This interval can only be used for one schedule
-        /// per dataset.</para></li><li><para><code>MINUTE30</code>:The dataset refreshes every 30 minutes. This value is only
-        /// supported for incremental refreshes. This interval can only be used for one schedule
-        /// per dataset.</para></li><li><para><code>HOURLY</code>: The dataset refreshes every hour. This interval can only be
-        /// used for one schedule per dataset.</para></li><li><para><code>DAILY</code>: The dataset refreshes every day.</para></li><li><para><code>WEEKLY</code>: The dataset refreshes every week.</para></li><li><para><code>MONTHLY</code>: The dataset refreshes every month.</para></li></ul>
+        /// <para>The interval between scheduled refreshes. Valid values are as follows:</para><ul><li><para><c>MINUTE15</c>: The dataset refreshes every 15 minutes. This value is only supported
+        /// for incremental refreshes. This interval can only be used for one schedule per dataset.</para></li><li><para><c>MINUTE30</c>:The dataset refreshes every 30 minutes. This value is only supported
+        /// for incremental refreshes. This interval can only be used for one schedule per dataset.</para></li><li><para><c>HOURLY</c>: The dataset refreshes every hour. This interval can only be used for
+        /// one schedule per dataset.</para></li><li><para><c>DAILY</c>: The dataset refreshes every day.</para></li><li><para><c>WEEKLY</c>: The dataset refreshes every week.</para></li><li><para><c>MONTHLY</c>: The dataset refreshes every month.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -134,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Schedule_RefreshType
         /// <summary>
         /// <para>
-        /// <para>The type of refresh that a datset undergoes. Valid values are as follows:</para><ul><li><para><code>FULL_REFRESH</code>: A complete refresh of a dataset.</para></li><li><para><code>INCREMENTAL_REFRESH</code>: A partial refresh of some rows of a dataset, based
-        /// on the time window specified.</para></li></ul><para>For more information on full and incremental refreshes, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html">Refreshing
+        /// <para>The type of refresh that a datset undergoes. Valid values are as follows:</para><ul><li><para><c>FULL_REFRESH</c>: A complete refresh of a dataset.</para></li><li><para><c>INCREMENTAL_REFRESH</c>: A partial refresh of some rows of a dataset, based on
+        /// the time window specified.</para></li></ul><para>For more information on full and incremental refreshes, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html">Refreshing
         /// SPICE data</a> in the <i>Amazon QuickSight User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -170,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Schedule_StartAfterDateTime
         /// <summary>
         /// <para>
-        /// <para>Time after which the refresh schedule can be started, expressed in <code>YYYY-MM-DDTHH:MM:SS</code>
+        /// <para>Time after which the refresh schedule can be started, expressed in <c>YYYY-MM-DDTHH:MM:SS</c>
         /// format.</para>
         /// </para>
         /// </summary>
@@ -194,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The timezone that you want the refresh schedule to use. The timezone ID must match
-        /// a corresponding ID found on <code>java.util.time.getAvailableIDs()</code>.</para>
+        /// a corresponding ID found on <c>java.util.time.getAvailableIDs()</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

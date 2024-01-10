@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
-    /// The task must be in the <code>PENDING</code> or <code>RUNNING</code> state.
+    /// The task must be in the <c>PENDING</c> or <c>RUNNING</c> state.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "CWLExportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

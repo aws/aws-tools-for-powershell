@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CCA
         #region Parameter RequestToken
         /// <summary>
         /// <para>
-        /// <para>A unique token used to track the progress of the resource operation request.</para><para>Request tokens are included in the <code>ProgressEvent</code> type returned by a resource
+        /// <para>A unique token used to track the progress of the resource operation request.</para><para>Request tokens are included in the <c>ProgressEvent</c> type returned by a resource
         /// operation request.</para>
         /// </para>
         /// </summary>

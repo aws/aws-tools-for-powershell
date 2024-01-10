@@ -28,8 +28,8 @@ using Amazon.KinesisVideo.Model;
 namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
-    /// Returns the most current information about the channel. Specify the <code>ChannelName</code>
-    /// or <code>ChannelARN</code> in the input.
+    /// Returns the most current information about the channel. Specify the <c>ChannelName</c>
+    /// or <c>ChannelARN</c> in the input.
     /// </summary>
     [Cmdlet("Get", "KVMediaStorageConfiguration")]
     [OutputType("Amazon.KinesisVideo.Model.MediaStorageConfiguration")]

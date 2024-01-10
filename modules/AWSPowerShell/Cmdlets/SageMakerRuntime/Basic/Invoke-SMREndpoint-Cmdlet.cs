@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SMR
     /// SageMaker might add additional headers. You should not rely on the behavior of headers
     /// outside those enumerated in the request syntax. 
     /// </para><para>
-    /// Calls to <code>InvokeEndpoint</code> are authenticated by using Amazon Web Services
-    /// Signature Version 4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
+    /// Calls to <c>InvokeEndpoint</c> are authenticated by using Amazon Web Services Signature
+    /// Version 4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
     /// Requests (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>.
     /// </para><para>
     /// A customer's model containers must respond to requests within 60 seconds. The model
@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         #region Parameter Body
         /// <summary>
         /// <para>
-        /// <para>Provides input data, in the format specified in the <code>ContentType</code> request
-        /// header. Amazon SageMaker passes all of the data in the body to the model. </para><para>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common
+        /// <para>Provides input data, in the format specified in the <c>ContentType</c> request header.
+        /// Amazon SageMaker passes all of the data in the body to the model. </para><para>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common
         /// Data Formats-Inference</a>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
@@ -122,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         /// 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). </para><para>The code in your model is responsible for setting or updating any custom attributes
         /// in the response. If your code does not set this value in the response, an empty value
         /// is returned. For example, if a custom attribute represents the trace ID, your model
-        /// can prepend the custom attribute with <code>Trace ID:</code> in your post-processing
-        /// function. </para><para>This feature is currently supported in the Amazon Web Services SDKs but not in the
+        /// can prepend the custom attribute with <c>Trace ID:</c> in your post-processing function.
+        /// </para><para>This feature is currently supported in the Amazon Web Services SDKs but not in the
         /// Amazon SageMaker Python SDK. </para>
         /// </para>
         /// </summary>
@@ -135,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         #region Parameter EnableExplanation
         /// <summary>
         /// <para>
-        /// <para>An optional JMESPath expression used to override the <code>EnableExplanations</code>
-        /// parameter of the <code>ClarifyExplainerConfig</code> API. See the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable">EnableExplanations</a>
+        /// <para>An optional JMESPath expression used to override the <c>EnableExplanations</c> parameter
+        /// of the <c>ClarifyExplainerConfig</c> API. See the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable">EnableExplanations</a>
         /// section in the developer guide for more information. </para>
         /// </para>
         /// </summary>

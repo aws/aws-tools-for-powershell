@@ -28,14 +28,14 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Starts a Synchronous Express state machine execution. <code>StartSyncExecution</code>
-    /// is not available for <code>STANDARD</code> workflows.
+    /// Starts a Synchronous Express state machine execution. <c>StartSyncExecution</c> is
+    /// not available for <c>STANDARD</c> workflows.
     /// 
-    ///  <note><para><code>StartSyncExecution</code> will return a <code>200 OK</code> response, even
-    /// if your execution fails, because the status code in the API response doesn't reflect
-    /// function errors. Error codes are reserved for errors that prevent your execution from
-    /// running, such as permissions errors, limit errors, or issues with your state machine
-    /// code and configuration. 
+    ///  <note><para><c>StartSyncExecution</c> will return a <c>200 OK</c> response, even if your execution
+    /// fails, because the status code in the API response doesn't reflect function errors.
+    /// Error codes are reserved for errors that prevent your execution from running, such
+    /// as permissions errors, limit errors, or issues with your state machine code and configuration.
+    /// 
     /// </para></note><note><para>
     /// This API action isn't logged in CloudTrail.
     /// </para></note>
@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Input
         /// <summary>
         /// <para>
-        /// <para>The string that contains the JSON input data for the execution, for example:</para><para><code>"input": "{\"first_name\" : \"test\"}"</code></para><note><para>If you don't include any JSON input data, you still must include the two braces, for
-        /// example: <code>"input": "{}"</code></para></note><para>Length constraints apply to the payload size, and are expressed as bytes in UTF-8
+        /// <para>The string that contains the JSON input data for the execution, for example:</para><para><c>"input": "{\"first_name\" : \"test\"}"</c></para><note><para>If you don't include any JSON input data, you still must include the two braces, for
+        /// example: <c>"input": "{}"</c></para></note><para>Length constraints apply to the payload size, and are expressed as bytes in UTF-8
         /// encoding.</para>
         /// </para>
         /// </summary>

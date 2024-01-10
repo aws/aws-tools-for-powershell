@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
     /// 
     ///  
     /// <para>
-    /// To read table metadata using <code>GetTable</code>, <code>Select</code> action permissions
-    /// for the table and system tables are required to complete the operation.
+    /// To read table metadata using <c>GetTable</c>, <c>Select</c> action permissions for
+    /// the table and system tables are required to complete the operation.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "KSTable")]

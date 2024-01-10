@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         #region Parameter Provider
         /// <summary>
         /// <para>
-        /// <para>The third-party provider for the token. The only valid value is <code>figma</code>.</para>
+        /// <para>The third-party provider for the token. The only valid value is <c>figma</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

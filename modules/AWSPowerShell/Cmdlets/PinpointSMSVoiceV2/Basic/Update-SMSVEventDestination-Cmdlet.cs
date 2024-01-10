@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter MatchingEventType
         /// <summary>
         /// <para>
-        /// <para>An array of event types that determine which events to log.</para><note><para>The <code>TEXT_SENT</code> event type is not supported.</para></note>
+        /// <para>An array of event types that determine which events to log.</para><note><para>The <c>TEXT_SENT</c> event type is not supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

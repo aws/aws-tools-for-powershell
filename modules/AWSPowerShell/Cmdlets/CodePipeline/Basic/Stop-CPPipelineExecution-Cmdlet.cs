@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// Stops the specified pipeline execution. You choose to either stop the pipeline execution
     /// by completing in-progress actions without starting subsequent actions, or by abandoning
     /// in-progress actions. While completing or abandoning in-progress actions, the pipeline
-    /// execution is in a <code>Stopping</code> state. After all in-progress actions are completed
-    /// or abandoned, the pipeline execution is in a <code>Stopped</code> state.
+    /// execution is in a <c>Stopping</c> state. After all in-progress actions are completed
+    /// or abandoned, the pipeline execution is in a <c>Stopped</c> state.
     /// </summary>
     [Cmdlet("Stop", "CPPipelineExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter PipelineExecutionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the pipeline execution to be stopped in the current stage. Use the <code>GetPipelineState</code>
+        /// <para>The ID of the pipeline execution to be stopped in the current stage. Use the <c>GetPipelineState</c>
         /// action to retrieve the current pipelineExecutionId.</para>
         /// </para>
         /// </summary>

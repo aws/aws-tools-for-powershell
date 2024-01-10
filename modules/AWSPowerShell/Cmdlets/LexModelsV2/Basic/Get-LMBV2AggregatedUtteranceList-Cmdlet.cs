@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     /// </para><para>
     /// Utterances statistics are not generated under the following conditions:
     /// </para><ul><li><para>
-    /// The <code>childDirected</code> field was set to true when the bot was created.
+    /// The <c>childDirected</c> field was set to true when the bot was created.
     /// </para></li><li><para>
     /// You are using slot obfuscation with one or more slots.
     /// </para></li><li><para>
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter RelativeAggregationDuration_TimeDimension
         /// <summary>
         /// <para>
-        /// <para>The type of time period that the <code>timeValue</code> field represents. </para>
+        /// <para>The type of time period that the <c>timeValue</c> field represents. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>The period of the time window to gather statistics for. The valid value depends on
-        /// the setting of the <code>timeDimension</code> field.</para><ul><li><para><code>Hours</code> - 1/3/6/12/24</para></li><li><para><code>Days</code> - 3</para></li><li><para><code>Weeks</code> - 1/2</para></li></ul>
+        /// the setting of the <c>timeDimension</c> field.</para><ul><li><para><c>Hours</c> - 1/3/6/12/24</para></li><li><para><c>Days</c> - 3</para></li><li><para><c>Weeks</c> - 1/2</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <para>
         /// <para>The maximum number of utterances to return in each page of results. If there are fewer
         /// results than the maximum page size, only the actual number of results are returned.
-        /// If you don't specify the <code>maxResults</code> parameter, 1,000 results are returned.</para>
+        /// If you don't specify the <c>maxResults</c> parameter, 1,000 results are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,10 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the response from the <code>ListAggregatedUtterances</code> operation contains
-        /// more results that specified in the <code>maxResults</code> parameter, a token is returned
-        /// in the response. Use that token in the <code>nextToken</code> parameter to return
-        /// the next page of results.</para>
+        /// <para>If the response from the <c>ListAggregatedUtterances</c> operation contains more results
+        /// that specified in the <c>maxResults</c> parameter, a token is returned in the response.
+        /// Use that token in the <c>nextToken</c> parameter to return the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

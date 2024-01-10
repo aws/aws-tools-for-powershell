@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// 
     ///  
     /// <para>
-    /// You can call <code>DescribeBackup</code> at a maximum rate of 10 times per second.
+    /// You can call <c>DescribeBackup</c> at a maximum rate of 10 times per second.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "DDBBackup")]

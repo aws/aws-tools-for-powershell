@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Returns the <a>IPSet</a> that is specified by <code>IPSetId</code>.
+    /// Returns the <a>IPSet</a> that is specified by <c>IPSetId</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "WAFRIPSet")]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter IPSetId
         /// <summary>
         /// <para>
-        /// <para>The <code>IPSetId</code> of the <a>IPSet</a> that you want to get. <code>IPSetId</code>
-        /// is returned by <a>CreateIPSet</a> and by <a>ListIPSets</a>.</para>
+        /// <para>The <c>IPSetId</c> of the <a>IPSet</a> that you want to get. <c>IPSetId</c> is returned
+        /// by <a>CreateIPSet</a> and by <a>ListIPSets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

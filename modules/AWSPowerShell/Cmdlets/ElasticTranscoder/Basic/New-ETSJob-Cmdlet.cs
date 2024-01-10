@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para>The file to be used as album art. There can be multiple artworks associated with an
-        /// audio file, to a maximum of 20. Valid formats are <code>.jpg</code> and <code>.png</code></para>
+        /// audio file, to a maximum of 20. Valid formats are <c>.jpg</c> and <c>.png</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,10 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para> The aspect ratio of the input file. If you want Elastic Transcoder to automatically
-        /// detect the aspect ratio of the input file, specify <code>auto</code>. If you want
-        /// to specify the aspect ratio for the output file, enter one of the following values:
-        /// </para><para><code>1:1</code>, <code>4:3</code>, <code>3:2</code>, <code>16:9</code></para><para> If you specify a value other than <code>auto</code>, Elastic Transcoder disables
-        /// automatic detection of the aspect ratio. </para>
+        /// detect the aspect ratio of the input file, specify <c>auto</c>. If you want to specify
+        /// the aspect ratio for the output file, enter one of the following values: </para><para><c>1:1</c>, <c>4:3</c>, <c>3:2</c>, <c>16:9</c></para><para> If you specify a value other than <c>auto</c>, Elastic Transcoder disables automatic
+        /// detection of the aspect ratio. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para>Source files for the input sidecar captions used during the transcoding process. To
-        /// omit all sidecar captions, leave <code>CaptionSources</code> blank.</para>
+        /// omit all sidecar captions, leave <c>CaptionSources</c> blank.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,12 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para>The container type for the input file. If you want Elastic Transcoder to automatically
-        /// detect the container type of the input file, specify <code>auto</code>. If you want
-        /// to specify the container type for the input file, enter one of the following values:
-        /// </para><para><code>3gp</code>, <code>aac</code>, <code>asf</code>, <code>avi</code>, <code>divx</code>,
-        /// <code>flv</code>, <code>m4a</code>, <code>mkv</code>, <code>mov</code>, <code>mp3</code>,
-        /// <code>mp4</code>, <code>mpeg</code>, <code>mpeg-ps</code>, <code>mpeg-ts</code>, <code>mxf</code>,
-        /// <code>ogg</code>, <code>vob</code>, <code>wav</code>, <code>webm</code></para>
+        /// detect the container type of the input file, specify <c>auto</c>. If you want to specify
+        /// the container type for the input file, enter one of the following values: </para><para><c>3gp</c>, <c>aac</c>, <c>asf</c>, <c>avi</c>, <c>divx</c>, <c>flv</c>, <c>m4a</c>,
+        /// <c>mkv</c>, <c>mov</c>, <c>mp3</c>, <c>mp4</c>, <c>mpeg</c>, <c>mpeg-ps</c>, <c>mpeg-ts</c>,
+        /// <c>mxf</c>, <c>ogg</c>, <c>vob</c>, <c>wav</c>, <c>webm</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,9 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para>The frame rate of the input file. If you want Elastic Transcoder to automatically
-        /// detect the frame rate of the input file, specify <code>auto</code>. If you want to
-        /// specify the frame rate for the input file, enter one of the following values: </para><para><code>10</code>, <code>15</code>, <code>23.97</code>, <code>24</code>, <code>25</code>,
-        /// <code>29.97</code>, <code>30</code>, <code>60</code></para><para>If you specify a value other than <code>auto</code>, Elastic Transcoder disables automatic
+        /// detect the frame rate of the input file, specify <c>auto</c>. If you want to specify
+        /// the frame rate for the input file, enter one of the following values: </para><para><c>10</c>, <c>15</c>, <c>23.97</c>, <c>24</c>, <c>25</c>, <c>29.97</c>, <c>30</c>,
+        /// <c>60</c></para><para>If you specify a value other than <c>auto</c>, Elastic Transcoder disables automatic
         /// detection of the frame rate.</para>
         /// </para>
         /// </summary>
@@ -247,8 +244,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para>Whether the input file is interlaced. If you want Elastic Transcoder to automatically
-        /// detect whether the input file is interlaced, specify <code>auto</code>. If you want
-        /// to specify whether the input file is interlaced, enter one of the following values:</para><para><code>true</code>, <code>false</code></para><para>If you specify a value other than <code>auto</code>, Elastic Transcoder disables automatic
+        /// detect whether the input file is interlaced, specify <c>auto</c>. If you want to specify
+        /// whether the input file is interlaced, enter one of the following values:</para><para><c>true</c>, <c>false</c></para><para>If you specify a value other than <c>auto</c>, Elastic Transcoder disables automatic
         /// detection of interlacing.</para>
         /// </para>
         /// </summary>
@@ -261,7 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>
         /// <para>The data encryption key that you want Elastic Transcoder to use to encrypt your output
         /// file, or that was used to encrypt your input file. The key must be base64-encoded
-        /// and it must be one of the following bit lengths before being base64-encoded:</para><para><code>128</code>, <code>192</code>, or <code>256</code>. </para><para>The key must also be encrypted by using the Amazon Key Management Service.</para>
+        /// and it must be one of the following bit lengths before being base64-encoded:</para><para><c>128</c>, <c>192</c>, or <c>256</c>. </para><para>The key must also be encrypted by using the Amazon Key Management Service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -273,11 +270,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para> The name of the file to transcode. Elsewhere in the body of the JSON block is the
-        /// the ID of the pipeline to use for processing the job. The <code>InputBucket</code>
-        /// object in that pipeline tells Elastic Transcoder which Amazon S3 bucket to get the
-        /// file from. </para><para>If the file name includes a prefix, such as <code>cooking/lasagna.mpg</code>, include
-        /// the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder
-        /// returns an error.</para>
+        /// the ID of the pipeline to use for processing the job. The <c>InputBucket</c> object
+        /// in that pipeline tells Elastic Transcoder which Amazon S3 bucket to get the file from.
+        /// </para><para>If the file name includes a prefix, such as <c>cooking/lasagna.mpg</c>, include the
+        /// prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns
+        /// an error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -289,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>
         /// <para>The data encryption key that you want Elastic Transcoder to use to encrypt your output
         /// file, or that was used to encrypt your input file. The key must be base64-encoded
-        /// and it must be one of the following bit lengths before being base64-encoded:</para><para><code>128</code>, <code>192</code>, or <code>256</code>. </para><para>The key must also be encrypted by using the Amazon Key Management Service.</para>
+        /// and it must be one of the following bit lengths before being base64-encoded:</para><para><c>128</c>, <c>192</c>, or <c>256</c>. </para><para>The key must also be encrypted by using the Amazon Key Management Service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -301,8 +298,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para> The name to assign to the transcoded file. Elastic Transcoder saves the file in the
-        /// Amazon S3 bucket specified by the <code>OutputBucket</code> object in the pipeline
-        /// that is specified by the pipeline ID. If a file with the specified name already exists
+        /// Amazon S3 bucket specified by the <c>OutputBucket</c> object in the pipeline that
+        /// is specified by the pipeline ID. If a file with the specified name already exists
         /// in the output bucket, the job fails. </para>
         /// </para>
         /// </summary>
@@ -315,7 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>
         /// <para>The data encryption key that you want Elastic Transcoder to use to encrypt your output
         /// file, or that was used to encrypt your input file. The key must be base64-encoded
-        /// and it must be one of the following bit lengths before being base64-encoded:</para><para><code>128</code>, <code>192</code>, or <code>256</code>. </para><para>The key must also be encrypted by using the Amazon Key Management Service.</para>
+        /// and it must be one of the following bit lengths before being base64-encoded:</para><para><c>128</c>, <c>192</c>, or <c>256</c>. </para><para>The key must also be encrypted by using the Amazon Key Management Service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -375,9 +372,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// captions for that language.</para></li><li><para><b>MergeRetain:</b> Elastic Transcoder transcodes both embedded and sidecar captions
         /// into outputs. If captions for a language are embedded in the input file and also appear
         /// in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar
-        /// captions for that language. If <code>CaptionSources</code> is empty, Elastic Transcoder
+        /// captions for that language. If <c>CaptionSources</c> is empty, Elastic Transcoder
         /// omits all sidecar captions from the output files.</para></li><li><para><b>Override:</b> Elastic Transcoder transcodes only the sidecar captions that you
-        /// specify in <code>CaptionSources</code>.</para></li></ul><para><code>MergePolicy</code> cannot be null.</para>
+        /// specify in <c>CaptionSources</c>.</para></li></ul><para><c>MergePolicy</c> cannot be null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -389,8 +386,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para>A policy that determines how Elastic Transcoder handles the existence of multiple
-        /// album artwork files.</para><ul><li><para><code>Replace:</code> The specified album art replaces any existing album art.</para></li><li><para><code>Prepend:</code> The specified album art is placed in front of any existing
-        /// album art.</para></li><li><para><code>Append:</code> The specified album art is placed after any existing album art.</para></li><li><para><code>Fallback:</code> If the original input file contains artwork, Elastic Transcoder
+        /// album artwork files.</para><ul><li><para><c>Replace:</c> The specified album art replaces any existing album art.</para></li><li><para><c>Prepend:</c> The specified album art is placed in front of any existing album
+        /// art.</para></li><li><para><c>Append:</c> The specified album art is placed after any existing album art.</para></li><li><para><c>Fallback:</c> If the original input file contains artwork, Elastic Transcoder
         /// uses that artwork for the output. If the original input does not contain artwork,
         /// Elastic Transcoder uses the specified album art file.</para></li></ul>
         /// </para>
@@ -406,7 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>The specific server-side encryption mode that you want Elastic Transcoder to use when
         /// decrypting your input files or encrypting your output files. Elastic Transcoder supports
         /// the following options:</para><ul><li><para><b>s3:</b> Amazon S3 creates and manages the keys used for encrypting your files.</para></li><li><para><b>s3-aws-kms:</b> Amazon S3 calls the Amazon Key Management Service, which creates
-        /// and manages the keys that are used for encrypting your files. If you specify <code>s3-aws-kms</code>
+        /// and manages the keys that are used for encrypting your files. If you specify <c>s3-aws-kms</c>
         /// and you don't want to use the default key, you must add the AWS-KMS key that you want
         /// to use to your pipeline.</para></li><li><para><b>aes-cbc-pkcs7:</b> A padded cipher-block mode of operation originally used for
         /// HLS files.</para></li><li><para><b>aes-ctr:</b> AES Counter Mode.</para></li><li><para><b>aes-gcm:</b> AES Galois Counter Mode, a mode of operation that is an authenticated
@@ -428,7 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>The specific server-side encryption mode that you want Elastic Transcoder to use when
         /// decrypting your input files or encrypting your output files. Elastic Transcoder supports
         /// the following options:</para><ul><li><para><b>s3:</b> Amazon S3 creates and manages the keys used for encrypting your files.</para></li><li><para><b>s3-aws-kms:</b> Amazon S3 calls the Amazon Key Management Service, which creates
-        /// and manages the keys that are used for encrypting your files. If you specify <code>s3-aws-kms</code>
+        /// and manages the keys that are used for encrypting your files. If you specify <c>s3-aws-kms</c>
         /// and you don't want to use the default key, you must add the AWS-KMS key that you want
         /// to use to your pipeline.</para></li><li><para><b>aes-cbc-pkcs7:</b> A padded cipher-block mode of operation originally used for
         /// HLS files.</para></li><li><para><b>aes-ctr:</b> AES Counter Mode.</para></li><li><para><b>aes-gcm:</b> AES Galois Counter Mode, a mode of operation that is an authenticated
@@ -450,7 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>The specific server-side encryption mode that you want Elastic Transcoder to use when
         /// decrypting your input files or encrypting your output files. Elastic Transcoder supports
         /// the following options:</para><ul><li><para><b>s3:</b> Amazon S3 creates and manages the keys used for encrypting your files.</para></li><li><para><b>s3-aws-kms:</b> Amazon S3 calls the Amazon Key Management Service, which creates
-        /// and manages the keys that are used for encrypting your files. If you specify <code>s3-aws-kms</code>
+        /// and manages the keys that are used for encrypting your files. If you specify <c>s3-aws-kms</c>
         /// and you don't want to use the default key, you must add the AWS-KMS key that you want
         /// to use to your pipeline.</para></li><li><para><b>aes-cbc-pkcs7:</b> A padded cipher-block mode of operation originally used for
         /// HLS files.</para></li><li><para><b>aes-ctr:</b> AES Counter Mode.</para></li><li><para><b>aes-gcm:</b> AES Galois Counter Mode, a mode of operation that is an authenticated
@@ -481,7 +478,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para> A section of the request body that provides information about the transcoded (target)
-        /// files. We recommend that you use the <code>Outputs</code> syntax instead of the <code>Output</code>
+        /// files. We recommend that you use the <c>Outputs</c> syntax instead of the <c>Output</c>
         /// syntax. </para>
         /// </para>
         /// </summary>
@@ -493,7 +490,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter PipelineId
         /// <summary>
         /// <para>
-        /// <para>The <code>Id</code> of the pipeline that you want Elastic Transcoder to use for transcoding.
+        /// <para>The <c>Id</c> of the pipeline that you want Elastic Transcoder to use for transcoding.
         /// The pipeline determines several settings, including the Amazon S3 bucket from which
         /// Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder
         /// puts the transcoded files.</para>
@@ -513,7 +510,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter Playlist
         /// <summary>
         /// <para>
-        /// <para>If you specify a preset in <code>PresetId</code> for which the value of <code>Container</code>
+        /// <para>If you specify a preset in <c>PresetId</c> for which the value of <c>Container</c>
         /// is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information about the
         /// master playlists that you want Elastic Transcoder to create.</para><para>The maximum number of master playlists in a job is 30.</para>
         /// </para>
@@ -526,9 +523,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter Output_PresetId
         /// <summary>
         /// <para>
-        /// <para> The <code>Id</code> of the preset to use for this job. The preset determines the
-        /// audio, video, and thumbnail settings that Elastic Transcoder uses for transcoding.
-        /// </para>
+        /// <para> The <c>Id</c> of the preset to use for this job. The preset determines the audio,
+        /// video, and thumbnail settings that Elastic Transcoder uses for transcoding. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -538,8 +534,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter Input_Resolution
         /// <summary>
         /// <para>
-        /// <para>This value must be <code>auto</code>, which causes Elastic Transcoder to automatically
-        /// detect the resolution of the input file.</para>
+        /// <para>This value must be <c>auto</c>, which causes Elastic Transcoder to automatically detect
+        /// the resolution of the input file.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -550,10 +546,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para> The number of degrees clockwise by which you want Elastic Transcoder to rotate the
-        /// output relative to the input. Enter one of the following values: <code>auto</code>,
-        /// <code>0</code>, <code>90</code>, <code>180</code>, <code>270</code>. The value <code>auto</code>
-        /// generally works only if the file that you're transcoding contains rotation metadata.
-        /// </para>
+        /// output relative to the input. Enter one of the following values: <c>auto</c>, <c>0</c>,
+        /// <c>90</c>, <c>180</c>, <c>270</c>. The value <c>auto</c> generally works only if the
+        /// file that you're transcoding contains rotation metadata. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -563,17 +558,17 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter Output_SegmentDuration
         /// <summary>
         /// <para>
-        /// <important><para>(Outputs in Fragmented MP4 or MPEG-TS format only.</para></important><para>If you specify a preset in <code>PresetId</code> for which the value of <code>Container</code>
-        /// is <code>fmp4</code> (Fragmented MP4) or <code>ts</code> (MPEG-TS), <code>SegmentDuration</code>
-        /// is the target maximum duration of each segment in seconds. For <code>HLSv3</code>
-        /// format playlists, each media segment is stored in a separate <code>.ts</code> file.
-        /// For <code>HLSv4</code> and <code>Smooth</code> playlists, all media segments for an
-        /// output are stored in a single file. Each segment is approximately the length of the
-        /// <code>SegmentDuration</code>, though individual segments might be shorter or longer.</para><para>The range of valid values is 1 to 60 seconds. If the duration of the video is not
-        /// evenly divisible by <code>SegmentDuration</code>, the duration of the last segment
-        /// is the remainder of total length/SegmentDuration.</para><para>Elastic Transcoder creates an output-specific playlist for each output <code>HLS</code>
+        /// <important><para>(Outputs in Fragmented MP4 or MPEG-TS format only.</para></important><para>If you specify a preset in <c>PresetId</c> for which the value of <c>Container</c>
+        /// is <c>fmp4</c> (Fragmented MP4) or <c>ts</c> (MPEG-TS), <c>SegmentDuration</c> is
+        /// the target maximum duration of each segment in seconds. For <c>HLSv3</c> format playlists,
+        /// each media segment is stored in a separate <c>.ts</c> file. For <c>HLSv4</c> and <c>Smooth</c>
+        /// playlists, all media segments for an output are stored in a single file. Each segment
+        /// is approximately the length of the <c>SegmentDuration</c>, though individual segments
+        /// might be shorter or longer.</para><para>The range of valid values is 1 to 60 seconds. If the duration of the video is not
+        /// evenly divisible by <c>SegmentDuration</c>, the duration of the last segment is the
+        /// remainder of total length/SegmentDuration.</para><para>Elastic Transcoder creates an output-specific playlist for each output <c>HLS</c>
         /// output that you specify in OutputKeys. To add an output to the master playlist for
-        /// this job, include it in the <code>OutputKeys</code> of the associated playlist.</para>
+        /// this job, include it in the <c>OutputKeys</c> of the associated playlist.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -600,20 +595,19 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>Whether you want Elastic Transcoder to create thumbnails for your videos and, if so,
         /// how you want Elastic Transcoder to name the files.</para><para>If you don't want Elastic Transcoder to create thumbnails, specify "".</para><para>If you do want Elastic Transcoder to create thumbnails, specify the information that
         /// you want to include in the file name for each thumbnail. You can specify the following
-        /// values in any sequence:</para><ul><li><para><b><code>{count}</code> (Required)</b>: If you want to create thumbnails, you must
-        /// include <code>{count}</code> in the <code>ThumbnailPattern</code> object. Wherever
-        /// you specify <code>{count}</code>, Elastic Transcoder adds a five-digit sequence number
-        /// (beginning with <b>00001</b>) to thumbnail file names. The number indicates where
-        /// a given thumbnail appears in the sequence of thumbnails for a transcoded file. </para><important><para>If you specify a literal value and/or <code>{resolution}</code> but you omit <code>{count}</code>,
+        /// values in any sequence:</para><ul><li><para><b><c>{count}</c> (Required)</b>: If you want to create thumbnails, you must include
+        /// <c>{count}</c> in the <c>ThumbnailPattern</c> object. Wherever you specify <c>{count}</c>,
+        /// Elastic Transcoder adds a five-digit sequence number (beginning with <b>00001</b>)
+        /// to thumbnail file names. The number indicates where a given thumbnail appears in the
+        /// sequence of thumbnails for a transcoded file. </para><important><para>If you specify a literal value and/or <c>{resolution}</c> but you omit <c>{count}</c>,
         /// Elastic Transcoder returns a validation error and does not create the job.</para></important></li><li><para><b>Literal values (Optional)</b>: You can specify literal values anywhere in the
-        /// <code>ThumbnailPattern</code> object. For example, you can include them as a file
-        /// name prefix or as a delimiter between <code>{resolution}</code> and <code>{count}</code>.
-        /// </para></li><li><para><b><code>{resolution}</code> (Optional)</b>: If you want Elastic Transcoder to include
-        /// the resolution in the file name, include <code>{resolution}</code> in the <code>ThumbnailPattern</code>
+        /// <c>ThumbnailPattern</c> object. For example, you can include them as a file name prefix
+        /// or as a delimiter between <c>{resolution}</c> and <c>{count}</c>. </para></li><li><para><b><c>{resolution}</c> (Optional)</b>: If you want Elastic Transcoder to include
+        /// the resolution in the file name, include <c>{resolution}</c> in the <c>ThumbnailPattern</c>
         /// object. </para></li></ul><para>When creating thumbnails, Elastic Transcoder automatically saves the files in the
-        /// format (.jpg or .png) that appears in the preset that you specified in the <code>PresetID</code>
-        /// value of <code>CreateJobOutput</code>. Elastic Transcoder also appends the applicable
-        /// file name extension.</para>
+        /// format (.jpg or .png) that appears in the preset that you specified in the <c>PresetID</c>
+        /// value of <c>CreateJobOutput</c>. Elastic Transcoder also appends the applicable file
+        /// name extension.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -624,9 +618,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para>User-defined metadata that you want to associate with an Elastic Transcoder job. You
-        /// specify metadata in <code>key/value</code> pairs, and you can add up to 10 <code>key/value</code>
-        /// pairs per job. Elastic Transcoder does not guarantee that <code>key/value</code> pairs
-        /// are returned in the same order in which you specify them.</para>
+        /// specify metadata in <c>key/value</c> pairs, and you can add up to 10 <c>key/value</c>
+        /// pairs per job. Elastic Transcoder does not guarantee that <c>key/value</c> pairs are
+        /// returned in the same order in which you specify them.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -661,7 +655,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para>Source files for the input sidecar captions used during the transcoding process. To
-        /// omit all sidecar captions, leave <code>CaptionSources</code> blank.</para>
+        /// omit all sidecar captions, leave <c>CaptionSources</c> blank.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -697,9 +691,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// captions for that language.</para></li><li><para><b>MergeRetain:</b> Elastic Transcoder transcodes both embedded and sidecar captions
         /// into outputs. If captions for a language are embedded in the input file and also appear
         /// in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar
-        /// captions for that language. If <code>CaptionSources</code> is empty, Elastic Transcoder
+        /// captions for that language. If <c>CaptionSources</c> is empty, Elastic Transcoder
         /// omits all sidecar captions from the output files.</para></li><li><para><b>Override:</b> Elastic Transcoder transcodes only the sidecar captions that you
-        /// specify in <code>CaptionSources</code>.</para></li></ul><para><code>MergePolicy</code> cannot be null.</para>
+        /// specify in <c>CaptionSources</c>.</para></li></ul><para><c>MergePolicy</c> cannot be null.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

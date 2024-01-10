@@ -35,27 +35,26 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Inserts or deletes <a>ActivatedRule</a> objects in a <code>RuleGroup</code>.
+    /// Inserts or deletes <a>ActivatedRule</a> objects in a <c>RuleGroup</c>.
     /// </para><para>
-    /// You can only insert <code>REGULAR</code> rules into a rule group.
+    /// You can only insert <c>REGULAR</c> rules into a rule group.
     /// </para><para>
     /// You can have a maximum of ten rules per rule group.
     /// </para><para>
-    /// To create and configure a <code>RuleGroup</code>, perform the following steps:
+    /// To create and configure a <c>RuleGroup</c>, perform the following steps:
     /// </para><ol><li><para>
-    /// Create and update the <code>Rules</code> that you want to include in the <code>RuleGroup</code>.
+    /// Create and update the <c>Rules</c> that you want to include in the <c>RuleGroup</c>.
     /// See <a>CreateRule</a>.
     /// </para></li><li><para>
-    /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
+    /// Use <c>GetChangeToken</c> to get the change token that you provide in the <c>ChangeToken</c>
     /// parameter of an <a>UpdateRuleGroup</a> request.
     /// </para></li><li><para>
-    /// Submit an <code>UpdateRuleGroup</code> request to add <code>Rules</code> to the <code>RuleGroup</code>.
+    /// Submit an <c>UpdateRuleGroup</c> request to add <c>Rules</c> to the <c>RuleGroup</c>.
     /// </para></li><li><para>
-    /// Create and update a <code>WebACL</code> that contains the <code>RuleGroup</code>.
-    /// See <a>CreateWebACL</a>.
+    /// Create and update a <c>WebACL</c> that contains the <c>RuleGroup</c>. See <a>CreateWebACL</a>.
     /// </para></li></ol><para>
-    /// If you want to replace one <code>Rule</code> with another, you delete the existing
-    /// one and add the new one.
+    /// If you want to replace one <c>Rule</c> with another, you delete the existing one and
+    /// add the new one.
     /// </para><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
     /// see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
@@ -94,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter RuleGroupId
         /// <summary>
         /// <para>
-        /// <para>The <code>RuleGroupId</code> of the <a>RuleGroup</a> that you want to update. <code>RuleGroupId</code>
+        /// <para>The <c>RuleGroupId</c> of the <a>RuleGroup</a> that you want to update. <c>RuleGroupId</c>
         /// is returned by <a>CreateRuleGroup</a> and by <a>ListRuleGroups</a>.</para>
         /// </para>
         /// </summary>
@@ -112,11 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter Update
         /// <summary>
         /// <para>
-        /// <para>An array of <code>RuleGroupUpdate</code> objects that you want to insert into or delete
-        /// from a <a>RuleGroup</a>.</para><para>You can only insert <code>REGULAR</code> rules into a rule group.</para><para><code>ActivatedRule|OverrideAction</code> applies only when updating or adding a
-        /// <code>RuleGroup</code> to a <code>WebACL</code>. In this case you do not use <code>ActivatedRule|Action</code>.
-        /// For all other update requests, <code>ActivatedRule|Action</code> is used instead of
-        /// <code>ActivatedRule|OverrideAction</code>.</para>
+        /// <para>An array of <c>RuleGroupUpdate</c> objects that you want to insert into or delete
+        /// from a <a>RuleGroup</a>.</para><para>You can only insert <c>REGULAR</c> rules into a rule group.</para><para><c>ActivatedRule|OverrideAction</c> applies only when updating or adding a <c>RuleGroup</c>
+        /// to a <c>WebACL</c>. In this case you do not use <c>ActivatedRule|Action</c>. For all
+        /// other update requests, <c>ActivatedRule|Action</c> is used instead of <c>ActivatedRule|OverrideAction</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

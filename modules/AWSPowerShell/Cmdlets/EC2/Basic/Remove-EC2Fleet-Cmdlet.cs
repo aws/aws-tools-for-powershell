@@ -35,19 +35,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// After you delete an EC2 Fleet, it launches no new instances.
     /// </para><para>
     /// You must also specify whether a deleted EC2 Fleet should terminate its instances.
-    /// If you choose to terminate the instances, the EC2 Fleet enters the <code>deleted_terminating</code>
-    /// state. Otherwise, the EC2 Fleet enters the <code>deleted_running</code> state, and
-    /// the instances continue to run until they are interrupted or you terminate them manually.
+    /// If you choose to terminate the instances, the EC2 Fleet enters the <c>deleted_terminating</c>
+    /// state. Otherwise, the EC2 Fleet enters the <c>deleted_running</c> state, and the instances
+    /// continue to run until they are interrupted or you terminate them manually.
     /// </para><para>
-    /// For <code>instant</code> fleets, EC2 Fleet must terminate the instances when the fleet
-    /// is deleted. A deleted <code>instant</code> fleet with running instances is not supported.
+    /// For <c>instant</c> fleets, EC2 Fleet must terminate the instances when the fleet is
+    /// deleted. A deleted <c>instant</c> fleet with running instances is not supported.
     /// </para><para><b>Restrictions</b></para><ul><li><para>
-    /// You can delete up to 25 <code>instant</code> fleets in a single request. If you exceed
-    /// this number, no <code>instant</code> fleets are deleted and an error is returned.
-    /// There is no restriction on the number of fleets of type <code>maintain</code> or <code>request</code>
-    /// that can be deleted in a single request.
+    /// You can delete up to 25 <c>instant</c> fleets in a single request. If you exceed this
+    /// number, no <c>instant</c> fleets are deleted and an error is returned. There is no
+    /// restriction on the number of fleets of type <c>maintain</c> or <c>request</c> that
+    /// can be deleted in a single request.
     /// </para></li><li><para>
-    /// Up to 1000 instances can be terminated in a single request to delete <code>instant</code>
+    /// Up to 1000 instances can be terminated in a single request to delete <c>instant</c>
     /// fleets.
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Delete
@@ -87,9 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates whether to terminate the associated instances when the EC2 Fleet is deleted.
-        /// The default is to terminate the instances.</para><para>To let the instances continue to run after the EC2 Fleet is deleted, specify <code>no-terminate-instances</code>.
-        /// Supported only for fleets of type <code>maintain</code> and <code>request</code>.</para><para>For <code>instant</code> fleets, you cannot specify <code>NoTerminateInstances</code>.
-        /// A deleted <code>instant</code> fleet with running instances is not supported.</para>
+        /// The default is to terminate the instances.</para><para>To let the instances continue to run after the EC2 Fleet is deleted, specify <c>no-terminate-instances</c>.
+        /// Supported only for fleets of type <c>maintain</c> and <c>request</c>.</para><para>For <c>instant</c> fleets, you cannot specify <c>NoTerminateInstances</c>. A deleted
+        /// <c>instant</c> fleet with running instances is not supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

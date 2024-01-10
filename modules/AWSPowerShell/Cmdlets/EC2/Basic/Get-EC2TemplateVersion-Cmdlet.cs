@@ -49,13 +49,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>create-time</code> - The time the launch template version was created.</para></li><li><para><code>ebs-optimized</code> - A boolean that indicates whether the instance is optimized
-        /// for Amazon EBS I/O.</para></li><li><para><code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on your
-        /// instances is enabled (<code>enabled</code> | <code>disabled</code>).</para></li><li><para><code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the instance
-        /// metadata service is enabled (<code>enabled</code> | <code>disabled</code>).</para></li><li><para><code>host-resource-group-arn</code> - The ARN of the host resource group in which
-        /// to launch the instances.</para></li><li><para><code>http-tokens</code> - The state of token usage for your instance metadata requests
-        /// (<code>optional</code> | <code>required</code>).</para></li><li><para><code>iam-instance-profile</code> - The ARN of the IAM instance profile.</para></li><li><para><code>image-id</code> - The ID of the AMI.</para></li><li><para><code>instance-type</code> - The instance type.</para></li><li><para><code>is-default-version</code> - A boolean that indicates whether the launch template
-        /// version is the default version.</para></li><li><para><code>kernel-id</code> - The kernel ID.</para></li><li><para><code>license-configuration-arn</code> - The ARN of the license configuration.</para></li><li><para><code>network-card-index</code> - The index of the network card.</para></li><li><para><code>ram-disk-id</code> - The RAM disk ID.</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><c>create-time</c> - The time the launch template version was created.</para></li><li><para><c>ebs-optimized</c> - A boolean that indicates whether the instance is optimized
+        /// for Amazon EBS I/O.</para></li><li><para><c>http-endpoint</c> - Indicates whether the HTTP metadata endpoint on your instances
+        /// is enabled (<c>enabled</c> | <c>disabled</c>).</para></li><li><para><c>http-protocol-ipv4</c> - Indicates whether the IPv4 endpoint for the instance
+        /// metadata service is enabled (<c>enabled</c> | <c>disabled</c>).</para></li><li><para><c>host-resource-group-arn</c> - The ARN of the host resource group in which to launch
+        /// the instances.</para></li><li><para><c>http-tokens</c> - The state of token usage for your instance metadata requests
+        /// (<c>optional</c> | <c>required</c>).</para></li><li><para><c>iam-instance-profile</c> - The ARN of the IAM instance profile.</para></li><li><para><c>image-id</c> - The ID of the AMI.</para></li><li><para><c>instance-type</c> - The instance type.</para></li><li><para><c>is-default-version</c> - A boolean that indicates whether the launch template
+        /// version is the default version.</para></li><li><para><c>kernel-id</c> - The kernel ID.</para></li><li><para><c>license-configuration-arn</c> - The ARN of the license configuration.</para></li><li><para><c>network-card-index</c> - The index of the network card.</para></li><li><para><c>ram-disk-id</c> - The RAM disk ID.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,8 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ID of the launch template.</para><para>To describe one or more versions of a specified launch template, you must specify
-        /// either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but
-        /// not both.</para><para>To describe all the latest or default launch template versions in your account, you
+        /// either the <c>LaunchTemplateId</c> or the <c>LaunchTemplateName</c>, but not both.</para><para>To describe all the latest or default launch template versions in your account, you
         /// must omit this parameter.</para>
         /// </para>
         /// </summary>
@@ -80,8 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The name of the launch template.</para><para>To describe one or more versions of a specified launch template, you must specify
-        /// either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but
-        /// not both.</para><para>To describe all the latest or default launch template versions in your account, you
+        /// either the <c>LaunchTemplateName</c> or the <c>LaunchTemplateId</c>, but not both.</para><para>To describe all the latest or default launch template versions in your account, you
         /// must omit this parameter.</para>
         /// </para>
         /// </summary>
@@ -112,11 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ResolveAlias
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>,
-        /// the AMI ID is displayed in the response for <code>imageId</code>.</para><para>If <code>false</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>,
-        /// the parameter is displayed in the response for <code>imageId</code>.</para><para> For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use
+        /// <para>If <c>true</c>, and if a Systems Manager parameter is specified for <c>ImageId</c>,
+        /// the AMI ID is displayed in the response for <c>imageId</c>.</para><para>If <c>false</c>, and if a Systems Manager parameter is specified for <c>ImageId</c>,
+        /// the parameter is displayed in the response for <c>imageId</c>.</para><para> For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use
         /// a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute
-        /// Cloud User Guide</i>.</para><para>Default: <code>false</code></para>
+        /// Cloud User Guide</i>.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,11 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>One or more versions of the launch template. Valid values depend on whether you are
         /// describing a specified launch template (by ID or name) or all launch templates in
         /// your account.</para><para>To describe one or more versions of a specified launch template, valid values are
-        /// <code>$Latest</code>, <code>$Default</code>, and numbers.</para><para>To describe all launch templates in your account that are defined as the latest version,
-        /// the valid value is <code>$Latest</code>. To describe all launch templates in your
-        /// account that are defined as the default version, the valid value is <code>$Default</code>.
-        /// You can specify <code>$Latest</code> and <code>$Default</code> in the same request.
-        /// You cannot specify numbers.</para>
+        /// <c>$Latest</c>, <c>$Default</c>, and numbers.</para><para>To describe all launch templates in your account that are defined as the latest version,
+        /// the valid value is <c>$Latest</c>. To describe all launch templates in your account
+        /// that are defined as the default version, the valid value is <c>$Default</c>. You can
+        /// specify <c>$Latest</c> and <c>$Default</c> in the same request. You cannot specify
+        /// numbers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return in a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>NextToken</code> value. This value
-        /// can be between 1 and 200.</para>
+        /// results, make another call with the returned <c>NextToken</c> value. This value can
+        /// be between 1 and 200.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

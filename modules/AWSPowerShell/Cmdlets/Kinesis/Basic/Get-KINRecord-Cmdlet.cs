@@ -31,15 +31,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// Gets data records from a Kinesis data stream's shard.
     /// 
     ///  <note><para>
-    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
-    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
-    /// parameter when you invoke this API.
+    /// When invoking this API, you must use either the <c>StreamARN</c> or the <c>StreamName</c>
+    /// parameter, or both. It is recommended that you use the <c>StreamARN</c> input parameter
+    /// when you invoke this API.
     /// </para></note><para>
-    /// Specify a shard iterator using the <code>ShardIterator</code> parameter. The shard
-    /// iterator specifies the position in the shard from which you want to start reading
-    /// data records sequentially. If there are no records available in the portion of the
-    /// shard that the iterator points to, <a>GetRecords</a> returns an empty list. It might
-    /// take multiple calls to get to a portion of the shard that contains records.
+    /// Specify a shard iterator using the <c>ShardIterator</c> parameter. The shard iterator
+    /// specifies the position in the shard from which you want to start reading data records
+    /// sequentially. If there are no records available in the portion of the shard that the
+    /// iterator points to, <a>GetRecords</a> returns an empty list. It might take multiple
+    /// calls to get to a portion of the shard that contains records.
     /// </para><para>
     /// You can scale by provisioning multiple shards per stream while considering service
     /// limits (for more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Amazon
@@ -47,46 +47,45 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// Your application should have one thread per shard, each reading continuously from
     /// its stream. To read from a stream continually, call <a>GetRecords</a> in a loop. Use
     /// <a>GetShardIterator</a> to get the shard iterator to specify in the first <a>GetRecords</a>
-    /// call. <a>GetRecords</a> returns a new shard iterator in <code>NextShardIterator</code>.
-    /// Specify the shard iterator returned in <code>NextShardIterator</code> in subsequent
-    /// calls to <a>GetRecords</a>. If the shard has been closed, the shard iterator can't
-    /// return more data and <a>GetRecords</a> returns <code>null</code> in <code>NextShardIterator</code>.
-    /// You can terminate the loop when the shard is closed, or when the shard iterator reaches
+    /// call. <a>GetRecords</a> returns a new shard iterator in <c>NextShardIterator</c>.
+    /// Specify the shard iterator returned in <c>NextShardIterator</c> in subsequent calls
+    /// to <a>GetRecords</a>. If the shard has been closed, the shard iterator can't return
+    /// more data and <a>GetRecords</a> returns <c>null</c> in <c>NextShardIterator</c>. You
+    /// can terminate the loop when the shard is closed, or when the shard iterator reaches
     /// the record with the sequence number or other attribute that marks it as the last record
     /// to process.
     /// </para><para>
     /// Each data record can be up to 1 MiB in size, and each shard can read up to 2 MiB per
     /// second. You can ensure that your calls don't exceed the maximum supported size or
-    /// throughput by using the <code>Limit</code> parameter to specify the maximum number
-    /// of records that <a>GetRecords</a> can return. Consider your average record size when
-    /// determining this limit. The maximum number of records that can be returned per call
-    /// is 10,000.
+    /// throughput by using the <c>Limit</c> parameter to specify the maximum number of records
+    /// that <a>GetRecords</a> can return. Consider your average record size when determining
+    /// this limit. The maximum number of records that can be returned per call is 10,000.
     /// </para><para>
     /// The size of the data returned by <a>GetRecords</a> varies depending on the utilization
     /// of the shard. It is recommended that consumer applications retrieve records via the
-    /// <code>GetRecords</code> command using the 5 TPS limit to remain caught up. Retrieving
-    /// records less frequently can lead to consumer applications falling behind. The maximum
-    /// size of data that <a>GetRecords</a> can return is 10 MiB. If a call returns this amount
-    /// of data, subsequent calls made within the next 5 seconds throw <code>ProvisionedThroughputExceededException</code>.
+    /// <c>GetRecords</c> command using the 5 TPS limit to remain caught up. Retrieving records
+    /// less frequently can lead to consumer applications falling behind. The maximum size
+    /// of data that <a>GetRecords</a> can return is 10 MiB. If a call returns this amount
+    /// of data, subsequent calls made within the next 5 seconds throw <c>ProvisionedThroughputExceededException</c>.
     /// If there is insufficient provisioned throughput on the stream, subsequent calls made
-    /// within the next 1 second throw <code>ProvisionedThroughputExceededException</code>.
-    /// <a>GetRecords</a> doesn't return any data when it throws an exception. For this reason,
-    /// we recommend that you wait 1 second between calls to <a>GetRecords</a>. However, it's
-    /// possible that the application will get exceptions for longer than 1 second.
+    /// within the next 1 second throw <c>ProvisionedThroughputExceededException</c>. <a>GetRecords</a>
+    /// doesn't return any data when it throws an exception. For this reason, we recommend
+    /// that you wait 1 second between calls to <a>GetRecords</a>. However, it's possible
+    /// that the application will get exceptions for longer than 1 second.
     /// </para><para>
     /// To detect whether the application is falling behind in processing, you can use the
-    /// <code>MillisBehindLatest</code> response attribute. You can also monitor the stream
-    /// using CloudWatch metrics and other mechanisms (see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring.html">Monitoring</a>
+    /// <c>MillisBehindLatest</c> response attribute. You can also monitor the stream using
+    /// CloudWatch metrics and other mechanisms (see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring.html">Monitoring</a>
     /// in the <i>Amazon Kinesis Data Streams Developer Guide</i>).
     /// </para><para>
-    /// Each Amazon Kinesis record includes a value, <code>ApproximateArrivalTimestamp</code>,
-    /// that is set when a stream successfully receives and stores a record. This is commonly
-    /// referred to as a server-side time stamp, whereas a client-side time stamp is set when
-    /// a data producer creates or sends the record to a stream (a data producer is any data
-    /// source putting data records into a stream, for example with <a>PutRecords</a>). The
-    /// time stamp has millisecond precision. There are no guarantees about the time stamp
-    /// accuracy, or that the time stamp is always increasing. For example, records in a shard
-    /// or across a stream might have time stamps that are out of order.
+    /// Each Amazon Kinesis record includes a value, <c>ApproximateArrivalTimestamp</c>, that
+    /// is set when a stream successfully receives and stores a record. This is commonly referred
+    /// to as a server-side time stamp, whereas a client-side time stamp is set when a data
+    /// producer creates or sends the record to a stream (a data producer is any data source
+    /// putting data records into a stream, for example with <a>PutRecords</a>). The time
+    /// stamp has millisecond precision. There are no guarantees about the time stamp accuracy,
+    /// or that the time stamp is always increasing. For example, records in a shard or across
+    /// a stream might have time stamps that are out of order.
     /// </para><para>
     /// This operation has a limit of five transactions per second per shard.
     /// </para>
@@ -135,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to return. Specify a value of up to 10,000. If you specify
-        /// a value that is greater than 10,000, <a>GetRecords</a> throws <code>InvalidArgumentException</code>.
+        /// a value that is greater than 10,000, <a>GetRecords</a> throws <c>InvalidArgumentException</c>.
         /// The default value is 10,000.</para>
         /// </para>
         /// </summary>

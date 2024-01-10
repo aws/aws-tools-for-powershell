@@ -34,13 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// 
     ///  
     /// <para>
-    /// Specify a commit in an AWS CodeCommit repository with <code>SourceBuildInformation</code>.
+    /// Specify a commit in an AWS CodeCommit repository with <c>SourceBuildInformation</c>.
     /// </para><para>
-    /// Specify a build in an AWS CodeBuild with <code>SourceBuildInformation</code> and <code>BuildConfiguration</code>.
+    /// Specify a build in an AWS CodeBuild with <c>SourceBuildInformation</c> and <c>BuildConfiguration</c>.
     /// </para><para>
-    /// Specify a source bundle in S3 with <code>SourceBundle</code></para><para>
-    /// Omit both <code>SourceBuildInformation</code> and <code>SourceBundle</code> to use
-    /// the default sample application.
+    /// Specify a source bundle in S3 with <c>SourceBundle</c></para><para>
+    /// Omit both <c>SourceBuildInformation</c> and <c>SourceBundle</c> to use the default
+    /// sample application.
     /// </para><note><para>
     /// After you create an application version with a specified Amazon S3 bucket and key
     /// location, you can't change that Amazon S3 location. If you change the Amazon S3 location,
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para> The name of the application. If no application is found with this name, and <code>AutoCreateApplication</code>
-        /// is <code>false</code>, returns an <code>InvalidParameterValue</code> error. </para>
+        /// <para> The name of the application. If no application is found with this name, and <c>AutoCreateApplication</c>
+        /// is <c>false</c>, returns an <c>InvalidParameterValue</c> error. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter AutoCreateApplication
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to create an application with the specified name if it doesn't
+        /// <para>Set to <c>true</c> to create an application with the specified name if it doesn't
         /// already exist.</para>
         /// </para>
         /// </summary>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter BuildConfiguration_ComputeType
         /// <summary>
         /// <para>
-        /// <para>Information about the compute resources the build project will use.</para><ul><li><para><code>BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds</code></para></li><li><para><code>BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds</code></para></li><li><para><code>BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds</code></para></li></ul>
+        /// <para>Information about the compute resources the build project will use.</para><ul><li><para><c>BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds</c></para></li><li><para><c>BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds</c></para></li><li><para><c>BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,14 +148,13 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Process
         /// <summary>
         /// <para>
-        /// <para>Pre-processes and validates the environment manifest (<code>env.yaml</code>) and configuration
-        /// files (<code>*.config</code> files in the <code>.ebextensions</code> folder) in the
-        /// source bundle. Validating configuration files can identify issues prior to deploying
-        /// the application version to an environment.</para><para>You must turn processing on for application versions that you create using AWS CodeBuild
+        /// <para>Pre-processes and validates the environment manifest (<c>env.yaml</c>) and configuration
+        /// files (<c>*.config</c> files in the <c>.ebextensions</c> folder) in the source bundle.
+        /// Validating configuration files can identify issues prior to deploying the application
+        /// version to an environment.</para><para>You must turn processing on for application versions that you create using AWS CodeBuild
         /// or AWS CodeCommit. For application versions built from a source bundle in Amazon S3,
-        /// processing is optional.</para><note><para>The <code>Process</code> option validates Elastic Beanstalk configuration files. It
-        /// doesn't validate your application's configuration files, like proxy server or Docker
-        /// configuration.</para></note>
+        /// processing is optional.</para><note><para>The <c>Process</c> option validates Elastic Beanstalk configuration files. It doesn't
+        /// validate your application's configuration files, like proxy server or Docker configuration.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,9 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>The location of the source code, as a formatted string, depending on the value of
-        /// <code>SourceRepository</code></para><ul><li><para>For <code>CodeCommit</code>, the format is the repository name and commit ID, separated
-        /// by a forward slash. For example, <code>my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a</code>.</para></li><li><para>For <code>S3</code>, the format is the S3 bucket name and object key, separated by
-        /// a forward slash. For example, <code>my-s3-bucket/Folders/my-source-file</code>.</para></li></ul>
+        /// <c>SourceRepository</c></para><ul><li><para>For <c>CodeCommit</c>, the format is the repository name and commit ID, separated
+        /// by a forward slash. For example, <c>my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a</c>.</para></li><li><para>For <c>S3</c>, the format is the S3 bucket name and object key, separated by a forward
+        /// slash. For example, <c>my-s3-bucket/Folders/my-source-file</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter SourceBuildInformation_SourceRepository
         /// <summary>
         /// <para>
-        /// <para>Location where the repository is stored.</para><ul><li><para><code>CodeCommit</code></para></li><li><para><code>S3</code></para></li></ul>
+        /// <para>Location where the repository is stored.</para><ul><li><para><c>CodeCommit</c></para></li><li><para><c>S3</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter SourceBuildInformation_SourceType
         /// <summary>
         /// <para>
-        /// <para>The type of repository.</para><ul><li><para><code>Git</code></para></li><li><para><code>Zip</code></para></li></ul>
+        /// <para>The type of repository.</para><ul><li><para><c>Git</c></para></li><li><para><c>Zip</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>A label identifying this version.</para><para>Constraint: Must be unique per application. If an application version already exists
-        /// with this label for the specified application, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code>
+        /// with this label for the specified application, AWS Elastic Beanstalk returns an <c>InvalidParameterValue</c>
         /// error. </para>
         /// </para>
         /// </summary>

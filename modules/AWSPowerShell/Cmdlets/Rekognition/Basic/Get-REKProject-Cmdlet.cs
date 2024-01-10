@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions to perform the <code>rekognition:DescribeProjects</code>
+    /// This operation requires permissions to perform the <c>rekognition:DescribeProjects</c>
     /// action.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

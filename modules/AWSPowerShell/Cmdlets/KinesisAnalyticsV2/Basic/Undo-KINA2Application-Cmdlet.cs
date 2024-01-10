@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
     /// 
     ///  
     /// <para>
-    /// You can roll back an application only if it is in the <code>UPDATING</code> or <code>AUTOSCALING</code>
+    /// You can roll back an application only if it is in the <c>UPDATING</c> or <c>AUTOSCALING</c>
     /// status.
     /// </para><para>
     /// When you rollback an application, it loads state data from the last successful snapshot.

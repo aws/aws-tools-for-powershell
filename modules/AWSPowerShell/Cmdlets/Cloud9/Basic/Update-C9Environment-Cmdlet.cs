@@ -75,9 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.C9
         /// <summary>
         /// <para>
         /// <para>Allows the environment owner to turn on or turn off the Amazon Web Services managed
-        /// temporary credentials for an Cloud9 environment by using one of the following values:</para><ul><li><para><code>ENABLE</code></para></li><li><para><code>DISABLE</code></para></li></ul><note><para>Only the environment owner can change the status of managed temporary credentials.
-        /// An <code>AccessDeniedException</code> is thrown if an attempt to turn on or turn off
-        /// managed temporary credentials is made by an account that's not the environment owner.</para></note>
+        /// temporary credentials for an Cloud9 environment by using one of the following values:</para><ul><li><para><c>ENABLE</c></para></li><li><para><c>DISABLE</c></para></li></ul><note><para>Only the environment owner can change the status of managed temporary credentials.
+        /// An <c>AccessDeniedException</c> is thrown if an attempt to turn on or turn off managed
+        /// temporary credentials is made by an account that's not the environment owner.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

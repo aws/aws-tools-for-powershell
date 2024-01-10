@@ -138,9 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         /// <summary>
         /// <para>
         /// <para>Configures the maintenance window that you want for the runtime environment. The maintenance
-        /// window must have the format <code>ddd:hh24:mi-ddd:hh24:mi</code> and must be less
-        /// than 24 hours. The following two examples are valid maintenance windows: <code>sun:23:45-mon:00:15</code>
-        /// or <code>sat:01:00-sat:03:00</code>. </para><para>If you do not provide a value, a random system-generated value will be assigned.</para>
+        /// window must have the format <c>ddd:hh24:mi-ddd:hh24:mi</c> and must be less than 24
+        /// hours. The following two examples are valid maintenance windows: <c>sun:23:45-mon:00:15</c>
+        /// or <c>sat:01:00-sat:03:00</c>. </para><para>If you do not provide a value, a random system-generated value will be assigned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -46,9 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your initial <code>ListVpcEndpoints</code> operation returns a <code>nextToken</code>,
-        /// you can include the returned <code>nextToken</code> in subsequent <code>ListVpcEndpoints</code>
-        /// operations, which returns results in the next page.</para>
+        /// <para>If your initial <c>ListVpcEndpoints</c> operation returns a <c>nextToken</c>, you
+        /// can include the returned <c>nextToken</c> in subsequent <c>ListVpcEndpoints</c> operations,
+        /// which returns results in the next page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -37,17 +37,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// You can generate an encryption key within Amazon Web Services Payment Cryptography
     /// by calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a>.
     /// You can import your own encryption key by calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a>.
-    /// For this operation, the key must have <code>KeyModesOfUse</code> set to <code>Encrypt</code>.
+    /// For this operation, the key must have <c>KeyModesOfUse</c> set to <c>Encrypt</c>.
     /// In asymmetric encryption, plaintext is encrypted using public component. You can import
     /// the public component of an asymmetric key pair created outside Amazon Web Services
     /// Payment Cryptography by calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a>).
     /// 
     /// </para><para>
     /// for symmetric and DUKPT encryption, Amazon Web Services Payment Cryptography supports
-    /// <code>TDES</code> and <code>AES</code> algorithms. For asymmetric encryption, Amazon
-    /// Web Services Payment Cryptography supports <code>RSA</code>. To encrypt using DUKPT,
-    /// you must already have a DUKPT key in your account with <code>KeyModesOfUse</code>
-    /// set to <code>DeriveKey</code>, or you can generate a new DUKPT key by calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a>.
+    /// <c>TDES</c> and <c>AES</c> algorithms. For asymmetric encryption, Amazon Web Services
+    /// Payment Cryptography supports <c>RSA</c>. To encrypt using DUKPT, you must already
+    /// have a DUKPT key in your account with <c>KeyModesOfUse</c> set to <c>DeriveKey</c>,
+    /// or you can generate a new DUKPT key by calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a>.
     /// </para><para>
     /// For information about valid keys for this operation, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding
     /// key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key
@@ -77,8 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// <para>
         /// <para>The key type encrypted using DUKPT from a Base Derivation Key (BDK) and Key Serial
         /// Number (KSN). This must be less than or equal to the strength of the BDK. For example,
-        /// you can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code>
-        /// or <code>TDES_2KEY</code></para>
+        /// you can't use <c>AES_128</c> as a derivation type for a BDK of <c>AES_128</c> or <c>TDES_2KEY</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// <summary>
         /// <para>
         /// <para>An input to cryptographic primitive used to provide the intial state. Typically the
-        /// <code>InitializationVector</code> must have a random or psuedo-random value, but sometimes
+        /// <c>InitializationVector</c> must have a random or psuedo-random value, but sometimes
         /// it only needs to be unpredictable or unique. If you don't provide a value, Amazon
         /// Web Services Payment Cryptography generates a random value.</para>
         /// </para>
@@ -117,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter Symmetric_InitializationVector
         /// <summary>
         /// <para>
-        /// <para>An input to cryptographic primitive used to provide the intial state. The <code>InitializationVector</code>
+        /// <para>An input to cryptographic primitive used to provide the intial state. The <c>InitializationVector</c>
         /// is typically required have a random or psuedo-random value, but sometimes it only
         /// needs to be unpredictable or unique. If a value is not provided, Amazon Web Services
         /// Payment Cryptography generates a random value.</para>
@@ -131,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter KeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>keyARN</code> of the encryption key that Amazon Web Services Payment Cryptography
+        /// <para>The <c>keyARN</c> of the encryption key that Amazon Web Services Payment Cryptography
         /// uses for plaintext encryption.</para>
         /// </para>
         /// </summary>

@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// List <code>FeatureGroup</code>s based on given filter and order.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List <c>FeatureGroup</c>s based on given filter and order.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMFeatureGroupList")]
     [OutputType("Amazon.SageMaker.Model.FeatureGroupSummary")]
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CreationTimeAfter
         /// <summary>
         /// <para>
-        /// <para>Use this parameter to search for <code>FeatureGroups</code>s created after a specific
-        /// date and time.</para>
+        /// <para>Use this parameter to search for <c>FeatureGroups</c>s created after a specific date
+        /// and time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CreationTimeBefore
         /// <summary>
         /// <para>
-        /// <para>Use this parameter to search for <code>FeatureGroups</code>s created before a specific
-        /// date and time.</para>
+        /// <para>Use this parameter to search for <c>FeatureGroups</c>s created before a specific date
+        /// and time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter FeatureGroupStatusEqual
         /// <summary>
         /// <para>
-        /// <para>A <code>FeatureGroup</code> status. Filters by <code>FeatureGroup</code> status. </para>
+        /// <para>A <c>FeatureGroup</c> status. Filters by <c>FeatureGroup</c> status. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NameContain
         /// <summary>
         /// <para>
-        /// <para>A string that partially matches one or more <code>FeatureGroup</code>s names. Filters
-        /// <code>FeatureGroup</code>s by name. </para>
+        /// <para>A string that partially matches one or more <c>FeatureGroup</c>s names. Filters <c>FeatureGroup</c>s
+        /// by name. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,8 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OfflineStoreStatusEqual
         /// <summary>
         /// <para>
-        /// <para>An <code>OfflineStore</code> status. Filters by <code>OfflineStore</code> status.
-        /// </para>
+        /// <para>An <c>OfflineStore</c> status. Filters by <c>OfflineStore</c> status. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results returned by <code>ListFeatureGroups</code>.</para>
+        /// <para>The maximum number of results returned by <c>ListFeatureGroups</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to resume pagination of <code>ListFeatureGroups</code> results.</para>
+        /// <para>A token to resume pagination of <c>ListFeatureGroups</c> results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

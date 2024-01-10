@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// Fetches the queries that are suggested to your users.
     /// 
     ///  
-    /// <para><code>GetQuerySuggestions</code> is currently not supported in the Amazon Web Services
+    /// <para><c>GetQuerySuggestions</c> is currently not supported in the Amazon Web Services
     /// GovCloud (US-West) region.
     /// </para>
     /// </summary>

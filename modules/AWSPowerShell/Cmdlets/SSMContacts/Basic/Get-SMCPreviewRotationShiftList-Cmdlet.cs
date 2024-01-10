@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         /// <para>
         /// <para>The number of contacts, or shift team members designated to be on call concurrently
         /// during a shift. For example, in an on-call schedule containing ten contacts, a value
-        /// of <code>2</code> designates that two of them are on call at any given time.</para>
+        /// of <c>2</c> designates that two of them are on call at any given time.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

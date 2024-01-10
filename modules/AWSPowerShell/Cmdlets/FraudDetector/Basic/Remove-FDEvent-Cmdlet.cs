@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.FD
     ///  
     /// <para>
     /// When you delete an event, Amazon Fraud Detector permanently deletes that event and
-    /// the event data is no longer stored in Amazon Fraud Detector. If <code>deleteAuditHistory</code>
-    /// is <code>True</code>, event data is available through search for up to 30 seconds
-    /// after the delete operation is completed.
+    /// the event data is no longer stored in Amazon Fraud Detector. If <c>deleteAuditHistory</c>
+    /// is <c>True</c>, event data is available through search for up to 30 seconds after
+    /// the delete operation is completed.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "FDEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         /// <summary>
         /// <para>
         /// <para>Specifies whether or not to delete any predictions associated with the event. If set
-        /// to <code>True</code>, </para>
+        /// to <c>True</c>, </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

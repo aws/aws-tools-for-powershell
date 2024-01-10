@@ -31,8 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Associates a group with a continuous job. The following criteria must be met: 
     /// 
     ///  <ul><li><para>
-    /// The job must have been created with the <code>targetSelection</code> field set to
-    /// "CONTINUOUS".
+    /// The job must have been created with the <c>targetSelection</c> field set to "CONTINUOUS".
     /// </para></li><li><para>
     /// The job status must currently be "IN_PROGRESS".
     /// </para></li><li><para>
@@ -84,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The namespace used to indicate that a job is a customer-managed job.</para><para>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs
-        /// notifications to MQTT topics that contain the value in the following format.</para><para><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></para><note><para>The <code>namespaceId</code> feature is in public preview.</para></note>
+        /// notifications to MQTT topics that contain the value in the following format.</para><para><c>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</c></para><note><para>The <c>namespaceId</c> feature is in public preview.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

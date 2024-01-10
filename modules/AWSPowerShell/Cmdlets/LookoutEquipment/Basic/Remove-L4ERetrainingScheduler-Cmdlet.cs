@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
     /// Deletes a retraining scheduler from a model. The retraining scheduler must be in the
-    /// <code>STOPPED</code> status.
+    /// <c>STOPPED</c> status.
     /// </summary>
     [Cmdlet("Remove", "L4ERetrainingScheduler", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

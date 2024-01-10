@@ -49,14 +49,14 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>An array of filters. For each filter, you provide a condition and a match statement.
-        /// The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether
-        /// to include or exclude the what-if analysis jobs that match the statement from the
-        /// list, respectively. The match statement consists of a key and a value.</para><para><b>Filter properties</b></para><ul><li><para><code>Condition</code> - The condition to apply. Valid values are <code>IS</code>
-        /// and <code>IS_NOT</code>. To include the what-if analysis jobs that match the statement,
-        /// specify <code>IS</code>. To exclude matching what-if analysis jobs, specify <code>IS_NOT</code>.</para></li><li><para><code>Key</code> - The name of the parameter to filter on. Valid values are <code>WhatIfAnalysisArn</code>
-        /// and <code>Status</code>.</para></li><li><para><code>Value</code> - The value to match.</para></li></ul><para>For example, to list all jobs that export a forecast named <i>electricityWhatIf</i>,
-        /// specify the following filter:</para><para><code>"Filters": [ { "Condition": "IS", "Key": "WhatIfAnalysisArn", "Value": "arn:aws:forecast:us-west-2:&lt;acct-id&gt;:forecast/electricityWhatIf"
-        /// } ]</code></para>
+        /// The condition is either <c>IS</c> or <c>IS_NOT</c>, which specifies whether to include
+        /// or exclude the what-if analysis jobs that match the statement from the list, respectively.
+        /// The match statement consists of a key and a value.</para><para><b>Filter properties</b></para><ul><li><para><c>Condition</c> - The condition to apply. Valid values are <c>IS</c> and <c>IS_NOT</c>.
+        /// To include the what-if analysis jobs that match the statement, specify <c>IS</c>.
+        /// To exclude matching what-if analysis jobs, specify <c>IS_NOT</c>.</para></li><li><para><c>Key</c> - The name of the parameter to filter on. Valid values are <c>WhatIfAnalysisArn</c>
+        /// and <c>Status</c>.</para></li><li><para><c>Value</c> - The value to match.</para></li></ul><para>For example, to list all jobs that export a forecast named <i>electricityWhatIf</i>,
+        /// specify the following filter:</para><para><c>"Filters": [ { "Condition": "IS", "Key": "WhatIfAnalysisArn", "Value": "arn:aws:forecast:us-west-2:&lt;acct-id&gt;:forecast/electricityWhatIf"
+        /// } ]</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the result of the previous request was truncated, the response includes a <code>NextToken</code>.
+        /// <para>If the result of the previous request was truncated, the response includes a <c>NextToken</c>.
         /// To retrieve the next set of results, use the token in the next request. Tokens expire
         /// after 24 hours.</para>
         /// </para>

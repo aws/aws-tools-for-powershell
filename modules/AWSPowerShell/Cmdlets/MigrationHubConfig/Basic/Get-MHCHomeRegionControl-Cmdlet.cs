@@ -28,8 +28,7 @@ using Amazon.MigrationHubConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.MHC
 {
     /// <summary>
-    /// This API permits filtering on the <code>ControlId</code> and <code>HomeRegion</code>
-    /// fields.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// This API permits filtering on the <c>ControlId</c> and <c>HomeRegion</c> fields.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MHCHomeRegionControl")]
     [OutputType("Amazon.MigrationHubConfig.Model.HomeRegionControl")]
@@ -46,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.MHC
         #region Parameter ControlId
         /// <summary>
         /// <para>
-        /// <para>The <code>ControlID</code> is a unique identifier string of your <code>HomeRegionControl</code>
+        /// <para>The <c>ControlID</c> is a unique identifier string of your <c>HomeRegionControl</c>
         /// object.</para>
         /// </para>
         /// </summary>
@@ -67,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.MHC
         #region Parameter Target_Id
         /// <summary>
         /// <para>
-        /// <para>The <code>TargetID</code> is a 12-character identifier of the <code>ACCOUNT</code>
-        /// for which the control was created. (This must be the current account.) </para>
+        /// <para>The <c>TargetID</c> is a 12-character identifier of the <c>ACCOUNT</c> for which the
+        /// control was created. (This must be the current account.) </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.MHC
         #region Parameter Target_Type
         /// <summary>
         /// <para>
-        /// <para>The target type is always an <code>ACCOUNT</code>.</para>
+        /// <para>The target type is always an <c>ACCOUNT</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,9 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.MHC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If a <code>NextToken</code> was returned by a previous call, more results are available.
+        /// <para>If a <c>NextToken</c> was returned by a previous call, more results are available.
         /// To retrieve the next page of results, make the call again using the returned token
-        /// in <code>NextToken</code>.</para>
+        /// in <c>NextToken</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

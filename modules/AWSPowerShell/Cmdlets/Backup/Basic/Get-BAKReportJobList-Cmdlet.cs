@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ByStatus
         /// <summary>
         /// <para>
-        /// <para>Returns only report jobs that are in the specified status. The statuses are:</para><para><code>CREATED | RUNNING | COMPLETED | FAILED</code></para>
+        /// <para>Returns only report jobs that are in the specified status. The statuses are:</para><para><c>CREATED | RUNNING | COMPLETED | FAILED</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>A boolean flag that determines whether SDL should be generated for introspected types
-        /// or not. If set to <code>true</code>, each model will contain an <code>sdl</code> property
-        /// that contains the SDL for that type. The SDL only contains the type data and no additional
+        /// or not. If set to <c>true</c>, each model will contain an <c>sdl</c> property that
+        /// contains the SDL for that type. The SDL only contains the type data and no additional
         /// metadata or directives. </para>
         /// </para>
         /// </summary>
@@ -89,8 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>Determines the number of types to be returned in a single response before paginating.
-        /// This value is typically taken from <code>nextToken</code> value from the previous
-        /// response.</para>
+        /// This value is typically taken from <c>nextToken</c> value from the previous response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

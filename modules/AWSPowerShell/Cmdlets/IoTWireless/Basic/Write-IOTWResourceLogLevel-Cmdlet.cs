@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of the resource, which can be <code>WirelessDevice</code> or <code>WirelessGateway</code>.</para>
+        /// <para>The type of the resource, which can be <c>WirelessDevice</c> or <c>WirelessGateway</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

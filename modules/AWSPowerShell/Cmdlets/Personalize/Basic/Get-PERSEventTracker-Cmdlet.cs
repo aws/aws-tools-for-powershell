@@ -28,9 +28,8 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Describes an event tracker. The response includes the <code>trackingId</code> and
-    /// <code>status</code> of the event tracker. For more information on event trackers,
-    /// see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>.
+    /// Describes an event tracker. The response includes the <c>trackingId</c> and <c>status</c>
+    /// of the event tracker. For more information on event trackers, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>.
     /// </summary>
     [Cmdlet("Get", "PERSEventTracker")]
     [OutputType("Amazon.Personalize.Model.EventTracker")]

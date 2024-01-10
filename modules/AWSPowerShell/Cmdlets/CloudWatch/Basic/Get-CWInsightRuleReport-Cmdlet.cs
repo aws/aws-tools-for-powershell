@@ -35,23 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// <para>
     /// You can also optionally return one or more statistics about each data point in the
     /// time series. These statistics can include the following:
-    /// </para><ul><li><para><code>UniqueContributors</code> -- the number of unique contributors for each data
-    /// point.
-    /// </para></li><li><para><code>MaxContributorValue</code> -- the value of the top contributor for each data
-    /// point. The identity of the contributor might change for each data point in the graph.
+    /// </para><ul><li><para><c>UniqueContributors</c> -- the number of unique contributors for each data point.
+    /// </para></li><li><para><c>MaxContributorValue</c> -- the value of the top contributor for each data point.
+    /// The identity of the contributor might change for each data point in the graph.
     /// </para><para>
     /// If this rule aggregates by COUNT, the top contributor for each data point is the contributor
     /// with the most occurrences in that period. If the rule aggregates by SUM, the top contributor
-    /// is the contributor with the highest sum in the log field specified by the rule's <code>Value</code>,
+    /// is the contributor with the highest sum in the log field specified by the rule's <c>Value</c>,
     /// during that period.
-    /// </para></li><li><para><code>SampleCount</code> -- the number of data points matched by the rule.
-    /// </para></li><li><para><code>Sum</code> -- the sum of the values from all contributors during the time period
+    /// </para></li><li><para><c>SampleCount</c> -- the number of data points matched by the rule.
+    /// </para></li><li><para><c>Sum</c> -- the sum of the values from all contributors during the time period
     /// represented by that data point.
-    /// </para></li><li><para><code>Minimum</code> -- the minimum value from a single observation during the time
-    /// period represented by that data point.
-    /// </para></li><li><para><code>Maximum</code> -- the maximum value from a single observation during the time
-    /// period represented by that data point.
-    /// </para></li><li><para><code>Average</code> -- the average value from all contributors during the time period
+    /// </para></li><li><para><c>Minimum</c> -- the minimum value from a single observation during the time period
+    /// represented by that data point.
+    /// </para></li><li><para><c>Maximum</c> -- the maximum value from a single observation during the time period
+    /// represented by that data point.
+    /// </para></li><li><para><c>Average</c> -- the average value from all contributors during the time period
     /// represented by that data point.
     /// </para></li></ul>
     /// </summary>
@@ -70,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The end time of the data to use in the report. When used in a raw HTTP Query API,
-        /// it is formatted as <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example, <code>2019-07-01T23:59:59</code>.</para>
+        /// it is formatted as <c>yyyy-MM-dd'T'HH:mm:ss</c>. For example, <c>2019-07-01T23:59:59</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,15 +97,14 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>Specifies which metrics to use for aggregation of contributor values for the report.
-        /// You can specify one or more of the following metrics:</para><ul><li><para><code>UniqueContributors</code> -- the number of unique contributors for each data
-        /// point.</para></li><li><para><code>MaxContributorValue</code> -- the value of the top contributor for each data
-        /// point. The identity of the contributor might change for each data point in the graph.</para><para>If this rule aggregates by COUNT, the top contributor for each data point is the contributor
+        /// You can specify one or more of the following metrics:</para><ul><li><para><c>UniqueContributors</c> -- the number of unique contributors for each data point.</para></li><li><para><c>MaxContributorValue</c> -- the value of the top contributor for each data point.
+        /// The identity of the contributor might change for each data point in the graph.</para><para>If this rule aggregates by COUNT, the top contributor for each data point is the contributor
         /// with the most occurrences in that period. If the rule aggregates by SUM, the top contributor
-        /// is the contributor with the highest sum in the log field specified by the rule's <code>Value</code>,
-        /// during that period.</para></li><li><para><code>SampleCount</code> -- the number of data points matched by the rule.</para></li><li><para><code>Sum</code> -- the sum of the values from all contributors during the time period
-        /// represented by that data point.</para></li><li><para><code>Minimum</code> -- the minimum value from a single observation during the time
-        /// period represented by that data point.</para></li><li><para><code>Maximum</code> -- the maximum value from a single observation during the time
-        /// period represented by that data point.</para></li><li><para><code>Average</code> -- the average value from all contributors during the time period
+        /// is the contributor with the highest sum in the log field specified by the rule's <c>Value</c>,
+        /// during that period.</para></li><li><para><c>SampleCount</c> -- the number of data points matched by the rule.</para></li><li><para><c>Sum</c> -- the sum of the values from all contributors during the time period
+        /// represented by that data point.</para></li><li><para><c>Minimum</c> -- the minimum value from a single observation during the time period
+        /// represented by that data point.</para></li><li><para><c>Maximum</c> -- the maximum value from a single observation during the time period
+        /// represented by that data point.</para></li><li><para><c>Average</c> -- the average value from all contributors during the time period
         /// represented by that data point.</para></li></ul>
         /// </para>
         /// </summary>
@@ -118,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter OrderBy
         /// <summary>
         /// <para>
-        /// <para>Determines what statistic to use to rank the contributors. Valid values are <code>Sum</code>
-        /// and <code>Maximum</code>.</para>
+        /// <para>Determines what statistic to use to rank the contributors. Valid values are <c>Sum</c>
+        /// and <c>Maximum</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para>The period, in seconds, to use for the statistics in the <code>InsightRuleMetricDatapoint</code>
+        /// <para>The period, in seconds, to use for the statistics in the <c>InsightRuleMetricDatapoint</c>
         /// results.</para>
         /// </para>
         /// </summary>
@@ -164,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The start time of the data to use in the report. When used in a raw HTTP Query API,
-        /// it is formatted as <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example, <code>2019-07-01T23:59:59</code>.</para>
+        /// it is formatted as <c>yyyy-MM-dd'T'HH:mm:ss</c>. For example, <c>2019-07-01T23:59:59</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

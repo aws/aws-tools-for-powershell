@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>
         /// <para>A list of augmented manifest files that provide training data for your custom model.
         /// An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker
-        /// Ground Truth.</para><para>This parameter is required if you set <code>DataFormat</code> to <code>AUGMENTED_MANIFEST</code>.</para>
+        /// Ground Truth.</para><para>This parameter is required if you set <c>DataFormat</c> to <c>AUGMENTED_MANIFEST</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,13 +90,13 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter InputDataConfig_DataFormat
         /// <summary>
         /// <para>
-        /// <para>The format of your training data:</para><ul><li><para><code>COMPREHEND_CSV</code>: A two-column CSV file, where labels are provided in
-        /// the first column, and documents are provided in the second. If you use this value,
-        /// you must provide the <code>S3Uri</code> parameter in your request.</para></li><li><para><code>AUGMENTED_MANIFEST</code>: A labeled dataset that is produced by Amazon SageMaker
+        /// <para>The format of your training data:</para><ul><li><para><c>COMPREHEND_CSV</c>: A two-column CSV file, where labels are provided in the first
+        /// column, and documents are provided in the second. If you use this value, you must
+        /// provide the <c>S3Uri</c> parameter in your request.</para></li><li><para><c>AUGMENTED_MANIFEST</c>: A labeled dataset that is produced by Amazon SageMaker
         /// Ground Truth. This file is in JSON lines format. Each line is a complete JSON object
-        /// that contains a training document and its associated labels. </para><para>If you use this value, you must provide the <code>AugmentedManifests</code> parameter
-        /// in your request.</para></li></ul><para>If you don't specify a value, Amazon Comprehend uses <code>COMPREHEND_CSV</code> as
-        /// the default.</para>
+        /// that contains a training document and its associated labels. </para><para>If you use this value, you must provide the <c>AugmentedManifests</c> parameter in
+        /// your request.</para></li></ul><para>If you don't specify a value, Amazon Comprehend uses <c>COMPREHEND_CSV</c> as the
+        /// default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>This field defines the Amazon Textract API operation that Amazon Comprehend uses to
-        /// extract text from PDF files and image files. Enter one of the following values:</para><ul><li><para><code>TEXTRACT_DETECT_DOCUMENT_TEXT</code> - The Amazon Comprehend service uses the
-        /// <code>DetectDocumentText</code> API operation. </para></li><li><para><code>TEXTRACT_ANALYZE_DOCUMENT</code> - The Amazon Comprehend service uses the <code>AnalyzeDocument</code>
+        /// extract text from PDF files and image files. Enter one of the following values:</para><ul><li><para><c>TEXTRACT_DETECT_DOCUMENT_TEXT</c> - The Amazon Comprehend service uses the <c>DetectDocumentText</c>
+        /// API operation. </para></li><li><para><c>TEXTRACT_ANALYZE_DOCUMENT</c> - The Amazon Comprehend service uses the <c>AnalyzeDocument</c>
         /// API operation. </para></li></ul>
         /// </para>
         /// </summary>
@@ -139,9 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DocumentReaderConfig_DocumentReadMode
         /// <summary>
         /// <para>
-        /// <para>Determines the text extraction actions for PDF files. Enter one of the following values:</para><ul><li><para><code>SERVICE_DEFAULT</code> - use the Amazon Comprehend service defaults for PDF
-        /// files.</para></li><li><para><code>FORCE_DOCUMENT_READ_ACTION</code> - Amazon Comprehend uses the Textract API
-        /// specified by DocumentReadAction for all PDF files, including digital PDF files. </para></li></ul>
+        /// <para>Determines the text extraction actions for PDF files. Enter one of the following values:</para><ul><li><para><c>SERVICE_DEFAULT</c> - use the Amazon Comprehend service defaults for PDF files.</para></li><li><para><c>FORCE_DOCUMENT_READ_ACTION</c> - Amazon Comprehend uses the Textract API specified
+        /// by DocumentReadAction for all PDF files, including digital PDF files. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,10 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DocumentReaderConfig_FeatureType
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of Amazon Textract features to apply. If you chose <code>TEXTRACT_ANALYZE_DOCUMENT</code>
-        /// as the read action, you must specify one or both of the following values:</para><ul><li><para><code>TABLES</code> - Returns additional information about any tables that are detected
-        /// in the input document. </para></li><li><para><code>FORMS</code> - Returns additional information about any forms that are detected
-        /// in the input document. </para></li></ul>
+        /// <para>Specifies the type of Amazon Textract features to apply. If you chose <c>TEXTRACT_ANALYZE_DOCUMENT</c>
+        /// as the read action, you must specify one or both of the following values:</para><ul><li><para><c>TABLES</c> - Returns additional information about any tables that are detected
+        /// in the input document. </para></li><li><para><c>FORMS</c> - Returns additional information about any forms that are detected in
+        /// the input document. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>
         /// <para>ID for the Amazon Web Services Key Management Service (KMS) key that Amazon Comprehend
         /// uses to encrypt the output results from an analysis job. The KmsKeyId can be one of
-        /// the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>KMS Key Alias: <code>"alias/ExampleAlias"</code></para></li><li><para>ARN of a KMS Key Alias: <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code></para></li></ul>
+        /// the following formats:</para><ul><li><para>KMS Key ID: <c>"1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <c>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li><li><para>KMS Key Alias: <c>"alias/ExampleAlias"</c></para></li><li><para>ARN of a KMS Key Alias: <c>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -251,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>ID for the KMS key that Amazon Comprehend uses to encrypt trained custom models. The
-        /// ModelKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// ModelKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <c>"1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <c>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,8 +265,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// model.</para><para>Provide your policy as a JSON body that you enter as a UTF-8 encoded string without
         /// line breaks. To provide valid JSON, enclose the attribute names and values in double
         /// quotes. If the JSON body is also enclosed in double quotes, then you must escape the
-        /// double quotes that are inside the policy:</para><para><code>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</code></para><para>To avoid escaping quotes, you can use single quotes to enclose the policy and double
-        /// quotes to enclose the JSON names and values:</para><para><code>'{"attribute": "value", "attribute": ["value"]}'</code></para>
+        /// double quotes that are inside the policy:</para><para><c>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</c></para><para>To avoid escaping quotes, you can use single quotes to enclose the policy and double
+        /// quotes to enclose the JSON names and values:</para><para><c>'{"attribute": "value", "attribute": ["value"]}'</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -290,9 +289,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>
         /// <para>The Amazon S3 URI for the input data. The S3 bucket must be in the same Region as
         /// the API endpoint that you are calling. The URI can point to a single input file or
-        /// it can provide the prefix for a collection of input files.</para><para>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix
-        /// is a single file, Amazon Comprehend uses that file as input. If more than one file
-        /// begins with the prefix, Amazon Comprehend uses all of them as input.</para><para>This parameter is required if you set <code>DataFormat</code> to <code>COMPREHEND_CSV</code>.</para>
+        /// it can provide the prefix for a collection of input files.</para><para>For example, if you use the URI <c>S3://bucketName/prefix</c>, if the prefix is a
+        /// single file, Amazon Comprehend uses that file as input. If more than one file begins
+        /// with the prefix, Amazon Comprehend uses all of them as input.</para><para>This parameter is required if you set <c>DataFormat</c> to <c>COMPREHEND_CSV</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -302,14 +301,14 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter OutputDataConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>When you use the <code>OutputDataConfig</code> object while creating a custom classifier,
+        /// <para>When you use the <c>OutputDataConfig</c> object while creating a custom classifier,
         /// you specify the Amazon S3 location where you want to write the confusion matrix and
         /// other output files. The URI must be in the same Region as the API endpoint that you
         /// are calling. The location is used as the prefix for the actual location of this output
         /// file.</para><para>When the custom classifier job is finished, the service creates the output file in
-        /// a directory specific to the job. The <code>S3Uri</code> field contains the location
-        /// of the output file, called <code>output.tar.gz</code>. It is a compressed archive
-        /// that contains the confusion matrix.</para>
+        /// a directory specific to the job. The <c>S3Uri</c> field contains the location of the
+        /// output file, called <c>output.tar.gz</c>. It is a compressed archive that contains
+        /// the confusion matrix.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -403,7 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>
         /// <para>ID for the Amazon Web Services Key Management Service (KMS) key that Amazon Comprehend
         /// uses to encrypt data on the storage volume attached to the ML compute instance(s)
-        /// that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <c>"1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <c>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

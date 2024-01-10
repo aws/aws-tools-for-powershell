@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><code>description</code> - The description of the authorization rule.</para></li><li><para><code>destination-cidr</code> - The CIDR of the network to which the authorization
-        /// rule applies.</para></li><li><para><code>group-id</code> - The ID of the Active Directory group to which the authorization
+        /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><c>description</c> - The description of the authorization rule.</para></li><li><para><c>destination-cidr</c> - The CIDR of the network to which the authorization rule
+        /// applies.</para></li><li><para><c>group-id</c> - The ID of the Active Directory group to which the authorization
         /// rule grants access.</para></li></ul>
         /// </para>
         /// </summary>

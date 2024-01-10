@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter Filter_Principal_Identifier_EntityId
         /// <summary>
         /// <para>
-        /// <para>The identifier of an entity.</para><para><code>"entityId":"<i>identifier</i>"</code></para>
+        /// <para>The identifier of an entity.</para><para><c>"entityId":"<i>identifier</i>"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter Filter_Resource_Identifier_EntityId
         /// <summary>
         /// <para>
-        /// <para>The identifier of an entity.</para><para><code>"entityId":"<i>identifier</i>"</code></para>
+        /// <para>The identifier of an entity.</para><para><c>"entityId":"<i>identifier</i>"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter Filter_Principal_Identifier_EntityType
         /// <summary>
         /// <para>
-        /// <para>The type of an entity.</para><para>Example: <code>"entityType":"<i>typeName</i>"</code></para>
+        /// <para>The type of an entity.</para><para>Example: <c>"entityType":"<i>typeName</i>"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter Filter_Resource_Identifier_EntityType
         /// <summary>
         /// <para>
-        /// <para>The type of an entity.</para><para>Example: <code>"entityType":"<i>typeName</i>"</code></para>
+        /// <para>The type of an entity.</para><para>Example: <c>"entityType":"<i>typeName</i>"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,11 +157,11 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <summary>
         /// <para>
         /// <para>Specifies the total number of results that you want included in each response. If
-        /// additional items exist beyond the number you specify, the <code>NextToken</code> response
-        /// element is returned with a value (not null). Include the specified value as the <code>NextToken</code>
+        /// additional items exist beyond the number you specify, the <c>NextToken</c> response
+        /// element is returned with a value (not null). Include the specified value as the <c>NextToken</c>
         /// request parameter in the next call to the operation to get the next set of results.
         /// Note that the service might return fewer results than the maximum even when there
-        /// are more results available. You should check <code>NextToken</code> after every operation
+        /// are more results available. You should check <c>NextToken</c> after every operation
         /// to ensure that you receive all of the results.</para><para>If you do not specify this parameter, the operation defaults to 10 policies per response.
         /// You can specify a maximum of 50 policies per response.</para>
         /// </para>
@@ -175,9 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <summary>
         /// <para>
         /// <para>Specifies that you want to receive the next page of results. Valid only if you received
-        /// a <code>NextToken</code> response in the previous request. If you did, it indicates
-        /// that more output is available. Set this parameter to the value provided by the previous
-        /// call's <code>NextToken</code> response to request the next page of results.</para>
+        /// a <c>NextToken</c> response in the previous request. If you did, it indicates that
+        /// more output is available. Set this parameter to the value provided by the previous
+        /// call's <c>NextToken</c> response to request the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

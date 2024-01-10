@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// </para><ul><li><para>
     /// Data points with a period of less than 60 seconds are available for 3 hours. These
     /// data points are high-resolution metrics and are available only for custom metrics
-    /// that have been defined with a <code>StorageResolution</code> of 1.
+    /// that have been defined with a <c>StorageResolution</c> of 1.
     /// </para></li><li><para>
     /// Data points with a period of 60 seconds (1-minute) are available for 15 days.
     /// </para></li><li><para>
@@ -132,10 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter ExtendedStatistic
         /// <summary>
         /// <para>
-        /// <para>The percentile statistics. Specify values between p0.0 and p100. When calling <code>GetMetricStatistics</code>,
-        /// you must specify either <code>Statistics</code> or <code>ExtendedStatistics</code>,
-        /// but not both. Percentile statistics are not available for metrics when any of the
-        /// metric values are negative numbers.</para>
+        /// <para>The percentile statistics. Specify values between p0.0 and p100. When calling <c>GetMetricStatistics</c>,
+        /// you must specify either <c>Statistics</c> or <c>ExtendedStatistics</c>, but not both.
+        /// Percentile statistics are not available for metrics when any of the metric values
+        /// are negative numbers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,10 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// resolution, a period can be as short as one minute (60 seconds) and must be a multiple
         /// of 60. For high-resolution metrics that are collected at intervals of less than one
         /// minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution
-        /// metrics are those metrics stored by a <code>PutMetricData</code> call that includes
-        /// a <code>StorageResolution</code> of 1 second.</para><para>If the <code>StartTime</code> parameter specifies a time stamp that is greater than
-        /// 3 hours ago, you must specify the period as follows or no data points in that time
-        /// range is returned:</para><ul><li><para>Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).</para></li><li><para>Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).</para></li><li><para>Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).</para></li></ul>
+        /// metrics are those metrics stored by a <c>PutMetricData</c> call that includes a <c>StorageResolution</c>
+        /// of 1 second.</para><para>If the <c>StartTime</c> parameter specifies a time stamp that is greater than 3 hours
+        /// ago, you must specify the period as follows or no data points in that time range is
+        /// returned:</para><ul><li><para>Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).</para></li><li><para>Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).</para></li><li><para>Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -209,8 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// 2016-10-03T23:00:00Z).</para><para>CloudWatch rounds the specified time stamp as follows:</para><ul><li><para>Start time less than 15 days ago - Round down to the nearest whole minute. For example,
         /// 12:32:34 is rounded down to 12:32:00.</para></li><li><para>Start time between 15 and 63 days ago - Round down to the nearest 5-minute clock interval.
         /// For example, 12:32:34 is rounded down to 12:30:00.</para></li><li><para>Start time greater than 63 days ago - Round down to the nearest 1-hour clock interval.
-        /// For example, 12:32:34 is rounded down to 12:00:00.</para></li></ul><para>If you set <code>Period</code> to 5, 10, or 30, the start time of your request is
-        /// rounded down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions
+        /// For example, 12:32:34 is rounded down to 12:00:00.</para></li></ul><para>If you set <c>Period</c> to 5, 10, or 30, the start time of your request is rounded
+        /// down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions
         /// of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the previous
         /// 10-second period, the start time of your request is rounded down and you receive data
         /// from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes
@@ -231,9 +231,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Statistic
         /// <summary>
         /// <para>
-        /// <para>The metric statistics, other than percentile. For percentile statistics, use <code>ExtendedStatistics</code>.
-        /// When calling <code>GetMetricStatistics</code>, you must specify either <code>Statistics</code>
-        /// or <code>ExtendedStatistics</code>, but not both.</para>
+        /// <para>The metric statistics, other than percentile. For percentile statistics, use <c>ExtendedStatistics</c>.
+        /// When calling <c>GetMetricStatistics</c>, you must specify either <c>Statistics</c>
+        /// or <c>ExtendedStatistics</c>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Unit
         /// <summary>
         /// <para>
-        /// <para>The unit for a given metric. If you omit <code>Unit</code>, all data that was collected
+        /// <para>The unit for a given metric. If you omit <c>Unit</c>, all data that was collected
         /// with any unit is returned, along with the corresponding units that were specified
         /// when the data was reported to CloudWatch. If you specify a unit, the operation returns
         /// only data that was collected with that unit specified. If you specify a unit that
@@ -290,8 +290,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// 2016-10-03T23:00:00Z).</para><para>CloudWatch rounds the specified time stamp as follows:</para><ul><li><para>Start time less than 15 days ago - Round down to the nearest whole minute. For example,
         /// 12:32:34 is rounded down to 12:32:00.</para></li><li><para>Start time between 15 and 63 days ago - Round down to the nearest 5-minute clock interval.
         /// For example, 12:32:34 is rounded down to 12:30:00.</para></li><li><para>Start time greater than 63 days ago - Round down to the nearest 1-hour clock interval.
-        /// For example, 12:32:34 is rounded down to 12:00:00.</para></li></ul><para>If you set <code>Period</code> to 5, 10, or 30, the start time of your request is
-        /// rounded down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions
+        /// For example, 12:32:34 is rounded down to 12:00:00.</para></li></ul><para>If you set <c>Period</c> to 5, 10, or 30, the start time of your request is rounded
+        /// down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions
         /// of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the previous
         /// 10-second period, the start time of your request is rounded down and you receive data
         /// from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes

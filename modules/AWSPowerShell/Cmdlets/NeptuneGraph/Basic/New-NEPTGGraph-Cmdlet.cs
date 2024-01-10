@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// <summary>
         /// <para>
         /// <para>Indicates whether or not to enable deletion protection on the graph. The graph can’t
-        /// be deleted when deletion protection is enabled. (<code>true</code> or <code>false</code>).</para>
+        /// be deleted when deletion protection is enabled. (<c>true</c> or <c>false</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,8 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// <summary>
         /// <para>
         /// <para>Specifies whether or not the graph can be reachable over the internet. All access
-        /// to graphs IAM authenticated. (<code>true</code> to enable, or <code>false</code> to
-        /// disable.</para>
+        /// to graphs IAM authenticated. (<c>true</c> to enable, or <c>false</c> to disable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -34,8 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     /// 
     ///  
     /// <para>
-    /// Don't use <code>CreateWorkspace</code> to modify an existing workspace. Instead, use
-    /// <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspace.html">UpdateWorkspace</a>.
+    /// Don't use <c>CreateWorkspace</c> to modify an existing workspace. Instead, use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspace.html">UpdateWorkspace</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "MGRFWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -59,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <para>
         /// <para>Specifies whether the workspace can access Amazon Web Services resources in this Amazon
         /// Web Services account only, or whether it can also access Amazon Web Services resources
-        /// in other accounts in the same organization. If you specify <code>ORGANIZATION</code>,
-        /// you must specify which organizational units the workspace can access in the <code>workspaceOrganizationalUnits</code>
+        /// in other accounts in the same organization. If you specify <c>ORGANIZATION</c>, you
+        /// must specify which organizational units the workspace can access in the <c>workspaceOrganizationalUnits</c>
         /// parameter.</para>
         /// </para>
         /// </summary>
@@ -111,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter GrafanaVersion
         /// <summary>
         /// <para>
-        /// <para>Specifies the version of Grafana to support in the new workspace.</para><para>To get a list of supported version, use the <code>ListVersions</code> operation.</para>
+        /// <para>Specifies the version of Grafana to support in the new workspace.</para><para>To get a list of supported version, use the <c>ListVersions</c> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,11 +133,11 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <para>
         /// <para>When creating a workspace through the Amazon Web Services API, CLI or Amazon Web Services
         /// CloudFormation, you must manage IAM roles and provision the permissions that the workspace
-        /// needs to use Amazon Web Services data sources and notification channels.</para><para>You must also specify a <code>workspaceRoleArn</code> for a role that you will manage
-        /// for the workspace to use when accessing those datasources and notification channels.</para><para>The ability for Amazon Managed Grafana to create and update IAM roles on behalf of
+        /// needs to use Amazon Web Services data sources and notification channels.</para><para>You must also specify a <c>workspaceRoleArn</c> for a role that you will manage for
+        /// the workspace to use when accessing those datasources and notification channels.</para><para>The ability for Amazon Managed Grafana to create and update IAM roles on behalf of
         /// the user is supported only in the Amazon Managed Grafana console, where this value
-        /// may be set to <code>SERVICE_MANAGED</code>.</para><note><para>Use only the <code>CUSTOMER_MANAGED</code> permission type when creating a workspace
-        /// with the API, CLI or Amazon Web Services CloudFormation. </para></note><para>For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html">Amazon
+        /// may be set to <c>SERVICE_MANAGED</c>.</para><note><para>Use only the <c>CUSTOMER_MANAGED</c> permission type when creating a workspace with
+        /// the API, CLI or Amazon Web Services CloudFormation. </para></note><para>For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html">Amazon
         /// Managed Grafana permissions and policies for Amazon Web Services data sources and
         /// notification channels</a>.</para>
         /// </para>
@@ -160,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <para>An array of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses.
         /// The IP addresses specified are allowed to access your workspace. If the list is not
         /// included in the configuration (passed an empty array) then no IP addresses are allowed
-        /// to access the workspace. You create a prefix list using the Amazon VPC console.</para><para>Prefix list IDs have the format <code>pl-<i>1a2b3c4d</i></code>.</para><para>For more information about prefix lists, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html">Group
+        /// to access the workspace. You create a prefix list using the Amazon VPC console.</para><para>Prefix list IDs have the format <c>pl-<i>1a2b3c4d</i></c>.</para><para>For more information about prefix lists, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html">Group
         /// CIDR blocks using managed prefix lists</a>in the <i>Amazon Virtual Private Cloud User
         /// Guide</i>.</para>
         /// </para>
@@ -220,12 +219,12 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <summary>
         /// <para>
         /// <para>An array of Amazon VPC endpoint IDs for the workspace. You can create VPC endpoints
-        /// to your Amazon Managed Grafana workspace for access from within a VPC. If a <code>NetworkAccessConfiguration</code>
+        /// to your Amazon Managed Grafana workspace for access from within a VPC. If a <c>NetworkAccessConfiguration</c>
         /// is specified then only VPC endpoints specified here are allowed to access the workspace.
-        /// If you pass in an empty array of strings, then no VPCs are allowed to access the workspace.</para><para>VPC endpoint IDs have the format <code>vpce-<i>1a2b3c4d</i></code>.</para><para>For more information about creating an interface VPC endpoint, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/VPC-endpoints">Interface
+        /// If you pass in an empty array of strings, then no VPCs are allowed to access the workspace.</para><para>VPC endpoint IDs have the format <c>vpce-<i>1a2b3c4d</i></c>.</para><para>For more information about creating an interface VPC endpoint, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/VPC-endpoints">Interface
         /// VPC endpoints</a> in the <i>Amazon Managed Grafana User Guide</i>.</para><note><para>The only VPC endpoints that can be specified here are interface VPC endpoints for
-        /// Grafana workspaces (using the <code>com.amazonaws.[region].grafana-workspace</code>
-        /// service endpoint). Other VPC endpoints are ignored.</para></note>
+        /// Grafana workspaces (using the <c>com.amazonaws.[region].grafana-workspace</c> service
+        /// endpoint). Other VPC endpoints are ignored.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter WorkspaceDescription
         /// <summary>
         /// <para>
-        /// <para>A description for the workspace. This is used only to help you identify this workspace.</para><para>Pattern: <code>^[\\p{L}\\p{Z}\\p{N}\\p{P}]{0,2048}$</code></para>
+        /// <para>A description for the workspace. This is used only to help you identify this workspace.</para><para>Pattern: <c>^[\\p{L}\\p{Z}\\p{N}\\p{P}]{0,2048}$</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

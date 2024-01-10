@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>An optional description of this specific cluster, for example <code>Environmental
-        /// Data Cluster-01</code>.</para>
+        /// <para>An optional description of this specific cluster, for example <c>Environmental Data
+        /// Cluster-01</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <para>
         /// <para>&gt;Fault tolerance level of the cluster. This indicates the number of nodes that
         /// can go down without degrading the performance of the cluster. This additional input
-        /// helps when the specified <code>StorageLimit</code> matches more than one Amazon S3
-        /// compatible storage on Snow family devices service configuration.</para>
+        /// helps when the specified <c>StorageLimit</c> matches more than one Amazon S3 compatible
+        /// storage on Snow family devices service configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <para>Force to create cluster when user attempts to overprovision or underprovision a cluster.
         /// A cluster is overprovisioned or underprovisioned if the initial size of the cluster
         /// is more (overprovisioned) or less (underprovisioned) than what needed to meet capacity
-        /// requirement specified with <code>OnDeviceServiceConfiguration</code>.</para>
+        /// requirement specified with <c>OnDeviceServiceConfiguration</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <summary>
         /// <para>
         /// <para>The type of job for this cluster. Currently, the only job type supported for clusters
-        /// is <code>LOCAL_USE</code>.</para><para>For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html"
+        /// is <c>LOCAL_USE</c>.</para><para>For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html"
         /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html"
         /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</para>
         /// </para>
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter KmsKeyARN
         /// <summary>
         /// <para>
-        /// <para>The <code>KmsKeyARN</code> value that you want to associate with this cluster. <code>KmsKeyARN</code>
+        /// <para>The <c>KmsKeyARN</c> value that you want to associate with this cluster. <c>KmsKeyARN</c>
         /// values are created by using the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
         /// API action in Key Management Service (KMS). </para>
         /// </para>
@@ -256,9 +256,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <summary>
         /// <para>
         /// <para>Allows you to securely operate and manage Snow devices in a cluster remotely from
-        /// outside of your internal network. When set to <code>INSTALLED_AUTOSTART</code>, remote
-        /// management will automatically be available when the device arrives at your location.
-        /// Otherwise, you need to use the Snowball Client to manage the device.</para>
+        /// outside of your internal network. When set to <c>INSTALLED_AUTOSTART</c>, remote management
+        /// will automatically be available when the device arrives at your location. Otherwise,
+        /// you need to use the Snowball Client to manage the device.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -269,8 +269,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter RoleARN
         /// <summary>
         /// <para>
-        /// <para>The <code>RoleARN</code> that you want to associate with this cluster. <code>RoleArn</code>
-        /// values are created by using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+        /// <para>The <c>RoleARN</c> that you want to associate with this cluster. <c>RoleArn</c> values
+        /// are created by using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
         /// API action in Identity and Access Management (IAM).</para>
         /// </para>
         /// </summary>
@@ -281,7 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Resources_S3Resource
         /// <summary>
         /// <para>
-        /// <para>An array of <code>S3Resource</code> objects.</para>
+        /// <para>An array of <c>S3Resource</c> objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -347,7 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter SnowballType
         /// <summary>
         /// <para>
-        /// <para>The type of Snow Family devices to use for this cluster. </para><note><para>For cluster jobs, Amazon Web Services Snow Family currently supports only the <code>EDGE</code>
+        /// <para>The type of Snow Family devices to use for this cluster. </para><note><para>For cluster jobs, Amazon Web Services Snow Family currently supports only the <c>EDGE</c>
         /// device type.</para></note><para>For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html"
         /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html"
         /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</para>
@@ -367,8 +367,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Notification_SnsTopicARN
         /// <summary>
         /// <para>
-        /// <para>The new SNS <code>TopicArn</code> that you want to associate with this job. You can
-        /// create Amazon Resource Names (ARNs) for topics by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html">CreateTopic</a>
+        /// <para>The new SNS <c>TopicArn</c> that you want to associate with this job. You can create
+        /// Amazon Resource Names (ARNs) for topics by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html">CreateTopic</a>
         /// Amazon SNS API action.</para><para>You can subscribe email addresses to an Amazon SNS topic through the Amazon Web Services
         /// Management Console, or by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html">Subscribe</a>
         /// Amazon Simple Notification Service (Amazon SNS) API action.</para>

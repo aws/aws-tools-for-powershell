@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SUP
     /// to have access to. See <a href="https://docs.aws.amazon.com/awssupport/latest/user/authorize-slack-workspace.html">Authorize
     /// a Slack workspace</a> in the <i>Amazon Web Services Support User Guide</i>.
     /// </para></li><li><para>
-    /// Call the <code>RegisterSlackWorkspaceForOrganization</code> API to authorize each
-    /// Slack workspace for the organization.
+    /// Call the <c>RegisterSlackWorkspaceForOrganization</c> API to authorize each Slack
+    /// workspace for the organization.
     /// </para></li></ol><para>
     /// After the management account authorizes the Slack workspace, member accounts can call
     /// this API to authorize the same Slack workspace for their individual accounts. Member
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SUP
         #region Parameter TeamId
         /// <summary>
         /// <para>
-        /// <para>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as <code>T012ABCDEFG</code>.
+        /// <para>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as <c>T012ABCDEFG</c>.
         /// Specify the Slack workspace that you want to use for your organization.</para>
         /// </para>
         /// </summary>

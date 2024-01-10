@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// of working with grants in several programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming
     /// grants</a>. 
     /// </para><para>
-    /// The <code>CreateGrant</code> operation returns a <code>GrantToken</code> and a <code>GrantId</code>.
+    /// The <c>CreateGrant</c> operation returns a <c>GrantToken</c> and a <c>GrantId</c>.
     /// </para><ul><li><para>
     /// When you create, retire, or revoke a grant, there might be a brief delay, usually
     /// less than five minutes, until the grant is available throughout KMS. This state is
@@ -52,20 +52,20 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// the grantee principal can use the permissions in the grant without identifying the
     /// grant. 
     /// </para><para>
-    /// However, to use the permissions in the grant immediately, use the <code>GrantToken</code>
-    /// that <code>CreateGrant</code> returns. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using
+    /// However, to use the permissions in the grant immediately, use the <c>GrantToken</c>
+    /// that <c>CreateGrant</c> returns. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using
     /// a grant token</a> in the <i><i>Key Management Service Developer Guide</i></i>.
     /// </para></li><li><para>
-    /// The <code>CreateGrant</code> operation also returns a <code>GrantId</code>. You can
-    /// use the <code>GrantId</code> and a key identifier to identify the grant in the <a>RetireGrant</a>
-    /// and <a>RevokeGrant</a> operations. To find the grant ID, use the <a>ListGrants</a>
-    /// or <a>ListRetirableGrants</a> operations.
+    /// The <c>CreateGrant</c> operation also returns a <c>GrantId</c>. You can use the <c>GrantId</c>
+    /// and a key identifier to identify the grant in the <a>RetireGrant</a> and <a>RevokeGrant</a>
+    /// operations. To find the grant ID, use the <a>ListGrants</a> or <a>ListRetirableGrants</a>
+    /// operations.
     /// </para></li></ul><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
     /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
     /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: Yes. To perform this operation on a KMS key in a different
-    /// Amazon Web Services account, specify the key ARN in the value of the <code>KeyId</code>
+    /// Amazon Web Services account, specify the key ARN in the value of the <c>KeyId</c>
     /// parameter. 
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateGrant</a>
     /// (key policy)
@@ -88,8 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.
-        /// </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
+        /// <para>Checks if your request will succeed. <c>DryRun</c> is an optional parameter. </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
         /// your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -163,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Identifies the KMS key for the grant. The grant gives principals permission to use
         /// this KMS key.</para><para>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different
-        /// Amazon Web Services account, you must use the key ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// Amazon Web Services account, you must use the key ARN.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -182,14 +181,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>A friendly name for the grant. Use this value to prevent the unintended creation of
         /// duplicate grants when retrying this request.</para><important><para>Do not include confidential or sensitive information in this field. This field may
-        /// be displayed in plaintext in CloudTrail logs and other output.</para></important><para>When this value is absent, all <code>CreateGrant</code> requests result in a new grant
-        /// with a unique <code>GrantId</code> even if all the supplied parameters are identical.
-        /// This can result in unintended duplicates when you retry the <code>CreateGrant</code>
-        /// request.</para><para>When this value is present, you can retry a <code>CreateGrant</code> request with
-        /// identical parameters; if the grant already exists, the original <code>GrantId</code>
-        /// is returned without creating a new grant. Note that the returned grant token is unique
-        /// with every <code>CreateGrant</code> request, even when a duplicate <code>GrantId</code>
-        /// is returned. All grant tokens for the same grant ID can be used interchangeably.</para>
+        /// be displayed in plaintext in CloudTrail logs and other output.</para></important><para>When this value is absent, all <c>CreateGrant</c> requests result in a new grant with
+        /// a unique <c>GrantId</c> even if all the supplied parameters are identical. This can
+        /// result in unintended duplicates when you retry the <c>CreateGrant</c> request.</para><para>When this value is present, you can retry a <c>CreateGrant</c> request with identical
+        /// parameters; if the grant already exists, the original <c>GrantId</c> is returned without
+        /// creating a new grant. Note that the returned grant token is unique with every <c>CreateGrant</c>
+        /// request, even when a duplicate <c>GrantId</c> is returned. All grant tokens for the
+        /// same grant ID can be used interchangeably.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// must be supported on the KMS key. For example, you cannot create a grant for a symmetric
         /// encryption KMS key that allows the <a>Sign</a> operation, or a grant for an asymmetric
         /// KMS key that allows the <a>GenerateDataKey</a> operation. If you try, KMS returns
-        /// a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant
+        /// a <c>ValidationError</c> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant
         /// operations</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>

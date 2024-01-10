@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         /// <summary>
         /// <para>
         /// <para>The WorkMail organization user chosen to test the impersonation role. The following
-        /// identity formats are available:</para><ul><li><para>User ID: <code>12345678-1234-1234-1234-123456789012</code> or <code>S-1-1-12-1234567890-123456789-123456789-1234</code></para></li><li><para>Email address: <code>user@domain.tld</code></para></li><li><para>User name: <code>user</code></para></li></ul>
+        /// identity formats are available:</para><ul><li><para>User ID: <c>12345678-1234-1234-1234-123456789012</c> or <c>S-1-1-12-1234567890-123456789-123456789-1234</c></para></li><li><para>Email address: <c>user@domain.tld</c></para></li><li><para>User name: <c>user</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         #region Parameter QueryId
         /// <summary>
         /// <para>
-        /// <para>The ID of the query that you want to stop. A <code>QueryId</code> is an internally-generated
+        /// <para>The ID of the query that you want to stop. A <c>QueryId</c> is an internally-generated
         /// identifier for a specific query.</para>
         /// </para>
         /// </summary>

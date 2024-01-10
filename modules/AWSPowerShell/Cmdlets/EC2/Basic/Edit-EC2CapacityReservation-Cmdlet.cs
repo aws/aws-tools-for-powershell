@@ -88,11 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The date and time at which the Capacity Reservation expires. When a Capacity Reservation
         /// expires, the reserved capacity is released and you can no longer launch instances
-        /// into it. The Capacity Reservation's state changes to <code>expired</code> when it
-        /// reaches its end date and time.</para><para>The Capacity Reservation is cancelled within an hour from the specified time. For
+        /// into it. The Capacity Reservation's state changes to <c>expired</c> when it reaches
+        /// its end date and time.</para><para>The Capacity Reservation is cancelled within an hour from the specified time. For
         /// example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed
-        /// to end between 13:30:55 and 14:30:55 on 5/31/2019.</para><para>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is <code>limited</code>.
-        /// Omit <code>EndDate</code> if <code>EndDateType</code> is <code>unlimited</code>.</para>
+        /// to end between 13:30:55 and 14:30:55 on 5/31/2019.</para><para>You must provide an <c>EndDate</c> value if <c>EndDateType</c> is <c>limited</c>.
+        /// Omit <c>EndDate</c> if <c>EndDateType</c> is <c>unlimited</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,11 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can
-        /// have one of the following end types:</para><ul><li><para><code>unlimited</code> - The Capacity Reservation remains active until you explicitly
-        /// cancel it. Do not provide an <code>EndDate</code> value if <code>EndDateType</code>
-        /// is <code>unlimited</code>.</para></li><li><para><code>limited</code> - The Capacity Reservation expires automatically at a specified
-        /// date and time. You must provide an <code>EndDate</code> value if <code>EndDateType</code>
-        /// is <code>limited</code>.</para></li></ul>
+        /// have one of the following end types:</para><ul><li><para><c>unlimited</c> - The Capacity Reservation remains active until you explicitly cancel
+        /// it. Do not provide an <c>EndDate</c> value if <c>EndDateType</c> is <c>unlimited</c>.</para></li><li><para><c>limited</c> - The Capacity Reservation expires automatically at a specified date
+        /// and time. You must provide an <c>EndDate</c> value if <c>EndDateType</c> is <c>limited</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of instances for which to reserve capacity. The number of instances can't
-        /// be increased or decreased by more than <code>1000</code> in a single request.</para>
+        /// be increased or decreased by more than <c>1000</c> in a single request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para> Enable or disable the use of customer managed KMS keys for server side encryption.
-        /// </para><para>Valid values: <code>True</code> | <code>False</code></para>
+        /// </para><para>Valid values: <c>True</c> | <c>False</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The type of device-based trust provider. This parameter is required when the provider
-        /// type is <code>device</code>.</para>
+        /// type is <c>device</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The type of user-based trust provider. This parameter is required when the provider
-        /// type is <code>user</code>.</para>
+        /// type is <c>user</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

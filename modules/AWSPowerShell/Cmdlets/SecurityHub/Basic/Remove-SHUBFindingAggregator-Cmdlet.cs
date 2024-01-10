@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter FindingAggregatorArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the finding aggregator to delete. To obtain the ARN, use <code>ListFindingAggregators</code>.</para>
+        /// <para>The ARN of the finding aggregator to delete. To obtain the ARN, use <c>ListFindingAggregators</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

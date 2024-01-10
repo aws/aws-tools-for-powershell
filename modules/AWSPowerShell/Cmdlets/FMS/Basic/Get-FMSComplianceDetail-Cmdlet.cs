@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter PolicyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the policy that you want to get the details for. <code>PolicyId</code> is
-        /// returned by <code>PutPolicy</code> and by <code>ListPolicies</code>.</para>
+        /// <para>The ID of the policy that you want to get the details for. <c>PolicyId</c> is returned
+        /// by <c>PutPolicy</c> and by <c>ListPolicies</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

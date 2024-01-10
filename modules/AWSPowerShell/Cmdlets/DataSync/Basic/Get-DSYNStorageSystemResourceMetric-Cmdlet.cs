@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies a time within the total duration that the discovery job ran. To see information
-        /// gathered during a certain time frame, use this parameter with <code>StartTime</code>.</para>
+        /// gathered during a certain time frame, use this parameter with <c>StartTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies a time within the total duration that the discovery job ran. To see information
-        /// gathered during a certain time frame, use this parameter with <code>EndTime</code>.</para>
+        /// gathered during a certain time frame, use this parameter with <c>EndTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

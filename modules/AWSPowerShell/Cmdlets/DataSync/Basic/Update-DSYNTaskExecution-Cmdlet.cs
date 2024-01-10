@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     /// Updates the configuration of a running DataSync task execution.
     /// 
     ///  <note><para>
-    /// Currently, the only <code>Option</code> that you can modify with <code>UpdateTaskExecution</code>
-    /// is <code><a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond">BytesPerSecond</a></code>, which throttles bandwidth for a running or queued task execution.
+    /// Currently, the only <c>Option</c> that you can modify with <c>UpdateTaskExecution</c>
+    /// is <c><a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond">BytesPerSecond</a></c>, which throttles bandwidth for a running or queued task execution.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "DSYNTaskExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Date
         /// <summary>
         /// <para>
-        /// <para>The date of the automatic snapshot to delete in <code>YYYY-MM-DD</code> format. Use
-        /// the <code>get auto snapshots</code> operation to get the available automatic snapshots
-        /// for a resource.</para>
+        /// <para>The date of the automatic snapshot to delete in <c>YYYY-MM-DD</c> format. Use the
+        /// <c>get auto snapshots</c> operation to get the available automatic snapshots for a
+        /// resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

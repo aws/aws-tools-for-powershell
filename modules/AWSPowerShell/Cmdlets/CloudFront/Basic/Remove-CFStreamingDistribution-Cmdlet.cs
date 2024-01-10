@@ -36,33 +36,30 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// </para><ol><li><para>
     /// Disable the RTMP distribution.
     /// </para></li><li><para>
-    /// Submit a <code>GET Streaming Distribution Config</code> request to get the current
-    /// configuration and the <code>Etag</code> header for the distribution. 
+    /// Submit a <c>GET Streaming Distribution Config</c> request to get the current configuration
+    /// and the <c>Etag</c> header for the distribution. 
     /// </para></li><li><para>
-    /// Update the XML document that was returned in the response to your <code>GET Streaming
-    /// Distribution Config</code> request to change the value of <code>Enabled</code> to
-    /// <code>false</code>.
+    /// Update the XML document that was returned in the response to your <c>GET Streaming
+    /// Distribution Config</c> request to change the value of <c>Enabled</c> to <c>false</c>.
     /// </para></li><li><para>
-    /// Submit a <code>PUT Streaming Distribution Config</code> request to update the configuration
+    /// Submit a <c>PUT Streaming Distribution Config</c> request to update the configuration
     /// for your distribution. In the request body, include the XML document that you updated
-    /// in Step 3. Then set the value of the HTTP <code>If-Match</code> header to the value
-    /// of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET
-    /// Streaming Distribution Config</code> request in Step 2.
+    /// in Step 3. Then set the value of the HTTP <c>If-Match</c> header to the value of the
+    /// <c>ETag</c> header that CloudFront returned when you submitted the <c>GET Streaming
+    /// Distribution Config</c> request in Step 2.
     /// </para></li><li><para>
-    /// Review the response to the <code>PUT Streaming Distribution Config</code> request
-    /// to confirm that the distribution was successfully disabled.
+    /// Review the response to the <c>PUT Streaming Distribution Config</c> request to confirm
+    /// that the distribution was successfully disabled.
     /// </para></li><li><para>
-    /// Submit a <code>GET Streaming Distribution Config</code> request to confirm that your
-    /// changes have propagated. When propagation is complete, the value of <code>Status</code>
-    /// is <code>Deployed</code>.
+    /// Submit a <c>GET Streaming Distribution Config</c> request to confirm that your changes
+    /// have propagated. When propagation is complete, the value of <c>Status</c> is <c>Deployed</c>.
     /// </para></li><li><para>
-    /// Submit a <code>DELETE Streaming Distribution</code> request. Set the value of the
-    /// HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that
-    /// CloudFront returned when you submitted the <code>GET Streaming Distribution Config</code>
-    /// request in Step 2.
+    /// Submit a <c>DELETE Streaming Distribution</c> request. Set the value of the HTTP <c>If-Match</c>
+    /// header to the value of the <c>ETag</c> header that CloudFront returned when you submitted
+    /// the <c>GET Streaming Distribution Config</c> request in Step 2.
     /// </para></li><li><para>
-    /// Review the response to your <code>DELETE Streaming Distribution</code> request to
-    /// confirm that the distribution was successfully deleted.
+    /// Review the response to your <c>DELETE Streaming Distribution</c> request to confirm
+    /// that the distribution was successfully deleted.
     /// </para></li></ol><para>
     /// For information about deleting a distribution using the CloudFront console, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html">Deleting
     /// a Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.
@@ -100,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The value of the <code>ETag</code> header that you received when you disabled the
-        /// streaming distribution. For example: <code>E2QWRUHAPOMQZL</code>.</para>
+        /// <para>The value of the <c>ETag</c> header that you received when you disabled the streaming
+        /// distribution. For example: <c>E2QWRUHAPOMQZL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

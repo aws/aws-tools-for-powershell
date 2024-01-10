@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Sends email to a maximum of 50 users, inviting them to the specified Amazon Chime
-    /// <code>Team</code> account. Only <code>Team</code> account types are currently supported
-    /// for this action.
+    /// <c>Team</c> account. Only <c>Team</c> account types are currently supported for this
+    /// action.
     /// </summary>
     [Cmdlet("Send", "CHMUserInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.Invite")]

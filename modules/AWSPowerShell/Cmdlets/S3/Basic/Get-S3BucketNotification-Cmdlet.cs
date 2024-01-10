@@ -33,22 +33,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></note><para>
     /// Returns the notification configuration of a bucket.
     /// </para><para>
-    /// If notifications are not enabled on the bucket, the action returns an empty <code>NotificationConfiguration</code>
+    /// If notifications are not enabled on the bucket, the action returns an empty <c>NotificationConfiguration</c>
     /// element.
     /// </para><para>
     /// By default, you must be the bucket owner to read the notification configuration of
     /// a bucket. However, the bucket owner can use a bucket policy to grant permission to
-    /// other users to read this configuration with the <code>s3:GetBucketNotification</code>
-    /// permission.
+    /// other users to read this configuration with the <c>s3:GetBucketNotification</c> permission.
     /// </para><para>
     /// When you use this API operation with an access point, provide the alias of the access
     /// point in place of the bucket name.
     /// </para><para>
     /// When you use this API operation with an Object Lambda access point, provide the alias
     /// of the Object Lambda access point in place of the bucket name. If the Object Lambda
-    /// access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code>
-    /// is returned. For more information about <code>InvalidAccessPointAliasError</code>,
-    /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List
+    /// access point alias in a request is not valid, the error code <c>InvalidAccessPointAliasError</c>
+    /// is returned. For more information about <c>InvalidAccessPointAliasError</c>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List
     /// of Error Codes</a>.
     /// </para><para>
     /// For more information about setting and reading the notification configuration on a
@@ -57,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using
     /// Bucket Policies</a>.
     /// </para><para>
-    /// The following action is related to <code>GetBucketNotification</code>:
+    /// The following action is related to <c>GetBucketNotification</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotification.html">PutBucketNotification</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketNotification")]

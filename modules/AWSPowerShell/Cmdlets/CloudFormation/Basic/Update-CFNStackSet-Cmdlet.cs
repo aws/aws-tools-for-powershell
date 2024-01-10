@@ -55,14 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Limit deployment targets to individual accounts or include additional accounts with
-        /// provided OUs.</para><para>The following is a list of possible values for the <code>AccountFilterType</code>
-        /// operation.</para><ul><li><para><code>INTERSECTION</code>: StackSets deploys to the accounts specified in <code>Accounts</code>
-        /// parameter. </para></li><li><para><code>DIFFERENCE</code>: StackSets excludes the accounts specified in <code>Accounts</code>
-        /// parameter. This enables user to avoid certain accounts within an OU such as suspended
-        /// accounts.</para></li><li><para><code>UNION</code>: StackSets includes additional accounts deployment targets. </para><para>This is the default value if <code>AccountFilterType</code> is not provided. This
-        /// enables user to update an entire OU and individual accounts from a different OU in
-        /// one request, which used to be two separate requests.</para></li><li><para><code>NONE</code>: Deploys to all the accounts in specified organizational units
-        /// (OU).</para></li></ul>
+        /// provided OUs.</para><para>The following is a list of possible values for the <c>AccountFilterType</c> operation.</para><ul><li><para><c>INTERSECTION</c>: StackSets deploys to the accounts specified in <c>Accounts</c>
+        /// parameter. </para></li><li><para><c>DIFFERENCE</c>: StackSets excludes the accounts specified in <c>Accounts</c> parameter.
+        /// This enables user to avoid certain accounts within an OU such as suspended accounts.</para></li><li><para><c>UNION</c>: StackSets includes additional accounts deployment targets. </para><para>This is the default value if <c>AccountFilterType</c> is not provided. This enables
+        /// user to update an entire OU and individual accounts from a different OU in one request,
+        /// which used to be two separate requests.</para></li><li><para><c>NONE</c>: Deploys to all the accounts in specified organizational units (OU).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,14 +73,13 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>[Self-managed permissions] The accounts in which to update associated stack instances.
         /// If you specify accounts, you must also specify the Amazon Web Services Regions in
         /// which to update stack set instances.</para><para>To update <i>all</i> the stack instances associated with this stack set, don't specify
-        /// the <code>Accounts</code> or <code>Regions</code> properties.</para><para>If the stack set update includes changes to the template (that is, if the <code>TemplateBody</code>
-        /// or <code>TemplateURL</code> properties are specified), or the <code>Parameters</code>
-        /// property, CloudFormation marks all stack instances with a status of <code>OUTDATED</code>
-        /// prior to updating the stack instances in the specified accounts and Amazon Web Services
-        /// Regions. If the stack set update does not include changes to the template or parameters,
-        /// CloudFormation updates the stack instances in the specified accounts and Amazon Web
-        /// Services Regions, while leaving all other stack instances with their existing stack
-        /// instance status.</para>
+        /// the <c>Accounts</c> or <c>Regions</c> properties.</para><para>If the stack set update includes changes to the template (that is, if the <c>TemplateBody</c>
+        /// or <c>TemplateURL</c> properties are specified), or the <c>Parameters</c> property,
+        /// CloudFormation marks all stack instances with a status of <c>OUTDATED</c> prior to
+        /// updating the stack instances in the specified accounts and Amazon Web Services Regions.
+        /// If the stack set update does not include changes to the template or parameters, CloudFormation
+        /// updates the stack instances in the specified accounts and Amazon Web Services Regions,
+        /// while leaving all other stack instances with their existing stack instance status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeploymentTargets_AccountsUrl
         /// <summary>
         /// <para>
-        /// <para>Returns the value of the <code>AccountsUrl</code> property.</para>
+        /// <para>Returns the value of the <c>AccountsUrl</c> property.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,11 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter ManagedExecution_Active
         /// <summary>
         /// <para>
-        /// <para>When <code>true</code>, StackSets performs non-conflicting operations concurrently
-        /// and queues conflicting operations. After conflicting operations finish, StackSets
-        /// starts queued operations in request order.</para><note><para>If there are already running or queued operations, StackSets queues all incoming operations
+        /// <para>When <c>true</c>, StackSets performs non-conflicting operations concurrently and queues
+        /// conflicting operations. After conflicting operations finish, StackSets starts queued
+        /// operations in request order.</para><note><para>If there are already running or queued operations, StackSets queues all incoming operations
         /// even if they are non-conflicting.</para><para>You can't modify your stack set's execution configuration while there are running
-        /// or queued operations for that stack set.</para></note><para>When <code>false</code> (default), StackSets performs one operation at a time in request
+        /// or queued operations for that stack set.</para></note><para>When <c>false</c> (default), StackSets performs one operation at a time in request
         /// order.</para>
         /// </para>
         /// </summary>
@@ -148,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>[Service-managed permissions] Specifies whether you are acting as an account administrator
         /// in the organization's management account or as a delegated administrator in a member
-        /// account.</para><para>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
-        /// self-managed permissions.</para><ul><li><para>If you are signed in to the management account, specify <code>SELF</code>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</para><para>Your Amazon Web Services account must be registered as a delegated administrator in
+        /// account.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for stack sets with self-managed
+        /// permissions.</para><ul><li><para>If you are signed in to the management account, specify <c>SELF</c>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <c>DELEGATED_ADMIN</c>.</para><para>Your Amazon Web Services account must be registered as a delegated administrator in
         /// the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
         /// a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</para></li></ul>
         /// </para>
@@ -164,11 +160,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>In some cases, you must explicitly acknowledge that your stack template contains certain
         /// capabilities in order for CloudFormation to update the stack set and its associated
-        /// stack instances.</para><ul><li><para><code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code></para><para>Some stack templates might include resources that can affect permissions in your Amazon
+        /// stack instances.</para><ul><li><para><c>CAPABILITY_IAM</c> and <c>CAPABILITY_NAMED_IAM</c></para><para>Some stack templates might include resources that can affect permissions in your Amazon
         /// Web Services account; for example, by creating new Identity and Access Management
         /// (IAM) users. For those stacks sets, you must explicitly acknowledge this by specifying
-        /// one of these capabilities.</para><para>The following IAM resources require you to specify either the <code>CAPABILITY_IAM</code>
-        /// or <code>CAPABILITY_NAMED_IAM</code> capability.</para><ul><li><para>If you have IAM resources, you can specify either capability.</para></li><li><para>If you have IAM resources with custom names, you <i>must</i> specify <code>CAPABILITY_NAMED_IAM</code>.</para></li><li><para>If you don't specify either of these capabilities, CloudFormation returns an <code>InsufficientCapabilities</code>
+        /// one of these capabilities.</para><para>The following IAM resources require you to specify either the <c>CAPABILITY_IAM</c>
+        /// or <c>CAPABILITY_NAMED_IAM</c> capability.</para><ul><li><para>If you have IAM resources, you can specify either capability.</para></li><li><para>If you have IAM resources with custom names, you <i>must</i> specify <c>CAPABILITY_NAMED_IAM</c>.</para></li><li><para>If you don't specify either of these capabilities, CloudFormation returns an <c>InsufficientCapabilities</c>
         /// error.</para></li></ul><para>If your stack template contains these resources, we recommend that you review all
         /// permissions associated with them and edit their permissions if necessary.</para><ul><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
         /// AWS::IAM::AccessKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
@@ -178,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// AWS::IAM::Role</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">
         /// AWS::IAM::User</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">
         /// AWS::IAM::UserToGroupAddition</a></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
-        /// IAM Resources in CloudFormation Templates</a>.</para></li><li><para><code>CAPABILITY_AUTO_EXPAND</code></para><para>Some templates reference macros. If your stack set template references one or more
+        /// IAM Resources in CloudFormation Templates</a>.</para></li><li><para><c>CAPABILITY_AUTO_EXPAND</c></para><para>Some templates reference macros. If your stack set template references one or more
         /// macros, you must update the stack set directly from the processed template, without
         /// first reviewing the resulting changes in a change set. To update the stack set directly,
         /// you must acknowledge this capability. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using
@@ -208,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter AutoDeployment_Enabled
         /// <summary>
         /// <para>
-        /// <para>If set to <code>true</code>, StackSets automatically deploys additional stack instances
+        /// <para>If set to <c>true</c>, StackSets automatically deploys additional stack instances
         /// to Organizations accounts that are added to a target organization or organizational
         /// unit (OU) in the specified Regions. If an account is removed from a target organization
         /// or OU, StackSets deletes stack instances from the account in the specified Regions.</para>
@@ -222,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The name of the IAM execution role to use to update the stack set. If you do not specify
-        /// an execution role, CloudFormation uses the <code>AWSCloudFormationStackSetExecutionRole</code>
+        /// an execution role, CloudFormation uses the <c>AWSCloudFormationStackSetExecutionRole</c>
         /// role for the stack set operation.</para><para>Specify an IAM role only if you are using customized execution roles to control which
         /// stack resources users and groups can include in their stack sets.</para><para>If you specify a customized execution role, CloudFormation uses that role to update
         /// the stack. If you do not specify a customized execution role, CloudFormation performs
@@ -241,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// performs the stack set operation only once, even if you retry the request multiple
         /// times. You might retry stack set operation requests to ensure that CloudFormation
         /// successfully received them.</para><para>If you don't specify an operation ID, CloudFormation generates one automatically.</para><para>Repeating this stack set operation with a new operation ID retries all stack instances
-        /// whose status is <code>OUTDATED</code>.</para>
+        /// whose status is <c>OUTDATED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -285,12 +281,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Describes how the IAM roles required for stack set operations are created. You cannot
-        /// modify <code>PermissionModel</code> if there are stack instances associated with your
-        /// stack set.</para><ul><li><para>With <code>self-managed</code> permissions, you must create the administrator and
-        /// execution roles required to deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
-        /// Self-Managed Stack Set Permissions</a>.</para></li><li><para>With <code>service-managed</code> permissions, StackSets automatically creates the
-        /// IAM roles required to deploy to accounts managed by Organizations. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant
+        /// modify <c>PermissionModel</c> if there are stack instances associated with your stack
+        /// set.</para><ul><li><para>With <c>self-managed</c> permissions, you must create the administrator and execution
+        /// roles required to deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
+        /// Self-Managed Stack Set Permissions</a>.</para></li><li><para>With <c>service-managed</c> permissions, StackSets automatically creates the IAM roles
+        /// required to deploy to accounts managed by Organizations. For more information, see
+        /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant
         /// Service-Managed Stack Set Permissions</a>.</para></li></ul>
         /// </para>
         /// </summary>
@@ -304,13 +300,13 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The Amazon Web Services Regions in which to update associated stack instances. If
         /// you specify Regions, you must also specify accounts in which to update stack set instances.</para><para>To update <i>all</i> the stack instances associated with this stack set, do not specify
-        /// the <code>Accounts</code> or <code>Regions</code> properties.</para><para>If the stack set update includes changes to the template (that is, if the <code>TemplateBody</code>
-        /// or <code>TemplateURL</code> properties are specified), or the <code>Parameters</code>
-        /// property, CloudFormation marks all stack instances with a status of <code>OUTDATED</code>
-        /// prior to updating the stack instances in the specified accounts and Regions. If the
-        /// stack set update does not include changes to the template or parameters, CloudFormation
-        /// updates the stack instances in the specified accounts and Regions, while leaving all
-        /// other stack instances with their existing stack instance status.</para>
+        /// the <c>Accounts</c> or <c>Regions</c> properties.</para><para>If the stack set update includes changes to the template (that is, if the <c>TemplateBody</c>
+        /// or <c>TemplateURL</c> properties are specified), or the <c>Parameters</c> property,
+        /// CloudFormation marks all stack instances with a status of <c>OUTDATED</c> prior to
+        /// updating the stack instances in the specified accounts and Regions. If the stack set
+        /// update does not include changes to the template or parameters, CloudFormation updates
+        /// the stack instances in the specified accounts and Regions, while leaving all other
+        /// stack instances with their existing stack instance status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -320,9 +316,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter AutoDeployment_RetainStacksOnAccountRemoval
         /// <summary>
         /// <para>
-        /// <para>If set to <code>true</code>, stack resources are retained when an account is removed
-        /// from a target organization or OU. If set to <code>false</code>, stack resources are
-        /// deleted. Specify only if <code>Enabled</code> is set to <code>True</code>.</para>
+        /// <para>If set to <c>true</c>, stack resources are retained when an account is removed from
+        /// a target organization or OU. If set to <c>false</c>, stack resources are deleted.
+        /// Specify only if <c>Enabled</c> is set to <c>True</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -356,13 +352,13 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// tags that you want associated with this stack set, even tags you've specified before
         /// (for example, when creating the stack set or during a previous update of the stack
         /// set.). Any tags that you don't include in the updated list of tags are removed from
-        /// the stack set, and therefore from the stacks and resources as well.</para></li><li><para>If you specify an empty value, CloudFormation removes all currently associated tags.</para></li></ul><para>If you specify new tags as part of an <code>UpdateStackSet</code> action, CloudFormation
+        /// the stack set, and therefore from the stacks and resources as well.</para></li><li><para>If you specify an empty value, CloudFormation removes all currently associated tags.</para></li></ul><para>If you specify new tags as part of an <c>UpdateStackSet</c> action, CloudFormation
         /// checks to see if you have the required IAM permission to tag resources. If you omit
         /// tags that are currently associated with the stack set from the list of tags you specify,
         /// CloudFormation assumes that you want to remove those tags from the stack set, and
         /// checks to see if you have permission to untag resources. If you don't have the necessary
-        /// permission(s), the entire <code>UpdateStackSet</code> action fails with an <code>access
-        /// denied</code> error, and the stack set is not updated.</para>
+        /// permission(s), the entire <c>UpdateStackSet</c> action fails with an <c>access denied</c>
+        /// error, and the stack set is not updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -375,8 +371,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The structure that contains the template body, with a minimum length of 1 byte and
         /// a maximum length of 51,200 bytes. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the CloudFormation User Guide.</para><para>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code>
-        /// or <code>TemplateURL</code>—or set <code>UsePreviousTemplate</code> to true.</para>
+        /// Anatomy</a> in the CloudFormation User Guide.</para><para>Conditional: You must specify only one of the following parameters: <c>TemplateBody</c>
+        /// or <c>TemplateURL</c>—or set <c>UsePreviousTemplate</c> to true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -389,8 +385,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The location of the file that contains the template body. The URL must point to a
         /// template (maximum size: 460,800 bytes) that is located in an Amazon S3 bucket or a
         /// Systems Manager document. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the CloudFormation User Guide.</para><para>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code>
-        /// or <code>TemplateURL</code>—or set <code>UsePreviousTemplate</code> to true.</para>
+        /// Anatomy</a> in the CloudFormation User Guide.</para><para>Conditional: You must specify only one of the following parameters: <c>TemplateBody</c>
+        /// or <c>TemplateURL</c>—or set <c>UsePreviousTemplate</c> to true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -400,8 +396,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter UsePreviousTemplate
         /// <summary>
         /// <para>
-        /// <para>Use the existing template that's associated with the stack set that you're updating.</para><para>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code>
-        /// or <code>TemplateURL</code>—or set <code>UsePreviousTemplate</code> to true.</para>
+        /// <para>Use the existing template that's associated with the stack set that you're updating.</para><para>Conditional: You must specify only one of the following parameters: <c>TemplateBody</c>
+        /// or <c>TemplateURL</c>—or set <c>UsePreviousTemplate</c> to true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

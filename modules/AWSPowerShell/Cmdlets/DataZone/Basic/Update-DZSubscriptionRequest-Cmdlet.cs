@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter RequestReason
         /// <summary>
         /// <para>
-        /// <para>The reason for the <code>UpdateSubscriptionRequest</code> action.</para>
+        /// <para>The reason for the <c>UpdateSubscriptionRequest</c> action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

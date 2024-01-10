@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
 {
     /// <summary>
     /// Creates an empty Git-based source repository in a specified project. The repository
-    /// is created with an initial empty commit with a default branch named <code>main</code>.
+    /// is created with an initial empty commit with a default branch named <c>main</c>.
     /// </summary>
     [Cmdlet("New", "CCATSourceRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeCatalyst.Model.CreateSourceRepositoryResponse")]

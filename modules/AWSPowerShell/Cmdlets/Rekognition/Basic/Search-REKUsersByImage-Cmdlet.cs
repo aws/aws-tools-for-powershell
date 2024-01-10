@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// box for the face found in the input image. 
     /// </para><para>
     /// Information about faces detected in the supplied image, but not used for the search,
-    /// is returned in an array of <code>UnsearchedFace</code> objects. If no valid face is
-    /// detected in the image, the response will contain an empty <code>UserMatches</code>
-    /// list and no <code>SearchedFace</code> object. 
+    /// is returned in an array of <c>UnsearchedFace</c> objects. If no valid face is detected
+    /// in the image, the response will contain an empty <c>UserMatches</c> list and no <c>SearchedFace</c>
+    /// object. 
     /// </para>
     /// </summary>
     [Cmdlet("Search", "REKUsersByImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Blob of image bytes up to 5 MBs. Note that the maximum image size you can pass to
-        /// <code>DetectCustomLabels</code> is 4MB. </para>
+        /// <c>DetectCustomLabels</c> is 4MB. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

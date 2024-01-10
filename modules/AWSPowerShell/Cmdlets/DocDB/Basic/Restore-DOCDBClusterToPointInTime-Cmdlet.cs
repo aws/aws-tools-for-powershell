@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
     /// Restores a cluster to an arbitrary point in time. Users can restore to any point in
-    /// time before <code>LatestRestorableTime</code> for up to <code>BackupRetentionPeriod</code>
-    /// days. The target cluster is created from the source cluster with the same configuration
+    /// time before <c>LatestRestorableTime</c> for up to <c>BackupRetentionPeriod</c> days.
+    /// The target cluster is created from the source cluster with the same configuration
     /// as the original cluster, except that the new cluster is created with the default security
     /// group.
     /// </summary>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The subnet group name to use for the new cluster.</para><para>Constraints: If provided, must match the name of an existing <code>DBSubnetGroup</code>.</para><para>Example: <code>mySubnetgroup</code></para>
+        /// <para>The subnet group name to use for the new cluster.</para><para>Constraints: If provided, must match the name of an existing <c>DBSubnetGroup</c>.</para><para>Example: <c>mySubnetgroup</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,10 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
-        /// <para>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code>
-        /// is enabled, the cluster cannot be deleted unless it is modified and <code>DeletionProtection</code>
-        /// is disabled. <code>DeletionProtection</code> protects clusters from being accidentally
-        /// deleted.</para>
+        /// <para>Specifies whether this cluster can be deleted. If <c>DeletionProtection</c> is enabled,
+        /// the cluster cannot be deleted unless it is modified and <c>DeletionProtection</c>
+        /// is disabled. <c>DeletionProtection</c> protects clusters from being accidentally deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,10 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// the KMS encryption key used to encrypt the new cluster, then you can use the KMS key
         /// alias instead of the ARN for the KMS encryption key.</para><para>You can restore to a new cluster and encrypt the new cluster with an KMS key that
         /// is different from the KMS key used to encrypt the source cluster. The new DB cluster
-        /// is encrypted with the KMS key identified by the <code>KmsKeyId</code> parameter.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
+        /// is encrypted with the KMS key identified by the <c>KmsKeyId</c> parameter.</para><para>If you do not specify a value for the <c>KmsKeyId</c> parameter, then the following
         /// occurs:</para><ul><li><para>If the cluster is encrypted, then the restored cluster is encrypted using the KMS
-        /// key that was used to encrypt the source cluster.</para></li><li><para>If the cluster is not encrypted, then the restored cluster is not encrypted.</para></li></ul><para>If <code>DBClusterIdentifier</code> refers to a cluster that is not encrypted, then
-        /// the restore request is rejected.</para>
+        /// key that was used to encrypt the source cluster.</para></li><li><para>If the cluster is not encrypted, then the restored cluster is not encrypted.</para></li></ul><para>If <c>DBClusterIdentifier</c> refers to a cluster that is not encrypted, then the
+        /// restore request is rejected.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the new cluster accepts connections.</para><para>Constraints: Must be a value from <code>1150</code> to <code>65535</code>. </para><para>Default: The default port for the engine.</para>
+        /// <para>The port number on which the new cluster accepts connections.</para><para>Constraints: Must be a value from <c>1150</c> to <c>65535</c>. </para><para>Default: The default port for the engine.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter RestoreToTime
         /// <summary>
         /// <para>
-        /// <para>The date and time to restore the cluster to.</para><para>Valid values: A time in Universal Coordinated Time (UTC) format.</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the instance.</para></li><li><para>Must be specified if the <code>UseLatestRestorableTime</code> parameter is not provided.</para></li><li><para>Cannot be specified if the <code>UseLatestRestorableTime</code> parameter is <code>true</code>.</para></li><li><para>Cannot be specified if the <code>RestoreType</code> parameter is <code>copy-on-write</code>.</para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
+        /// <para>The date and time to restore the cluster to.</para><para>Valid values: A time in Universal Coordinated Time (UTC) format.</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the instance.</para></li><li><para>Must be specified if the <c>UseLatestRestorableTime</c> parameter is not provided.</para></li><li><para>Cannot be specified if the <c>UseLatestRestorableTime</c> parameter is <c>true</c>.</para></li><li><para>Cannot be specified if the <c>RestoreType</c> parameter is <c>copy-on-write</c>.</para></li></ul><para>Example: <c>2015-03-07T23:45:00Z</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,11 +138,11 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter RestoreType
         /// <summary>
         /// <para>
-        /// <para>The type of restore to be performed. You can specify one of the following values:</para><ul><li><para><code>full-copy</code> - The new DB cluster is restored as a full copy of the source
-        /// DB cluster.</para></li><li><para><code>copy-on-write</code> - The new DB cluster is restored as a clone of the source
-        /// DB cluster.</para></li></ul><para>Constraints: You can't specify <code>copy-on-write</code> if the engine version of
-        /// the source DB cluster is earlier than 1.11.</para><para>If you don't specify a <code>RestoreType</code> value, then the new DB cluster is
-        /// restored as a full copy of the source DB cluster.</para>
+        /// <para>The type of restore to be performed. You can specify one of the following values:</para><ul><li><para><c>full-copy</c> - The new DB cluster is restored as a full copy of the source DB
+        /// cluster.</para></li><li><para><c>copy-on-write</c> - The new DB cluster is restored as a clone of the source DB
+        /// cluster.</para></li></ul><para>Constraints: You can't specify <c>copy-on-write</c> if the engine version of the source
+        /// DB cluster is earlier than 1.11.</para><para>If you don't specify a <c>RestoreType</c> value, then the new DB cluster is restored
+        /// as a full copy of the source DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter SourceDBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the source cluster from which to restore.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <code>DBCluster</code>.</para></li></ul>
+        /// <para>The identifier of the source cluster from which to restore.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <c>DBCluster</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -171,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The storage type to associate with the DB cluster.</para><para>For information on storage types for Amazon DocumentDB clusters, see Cluster storage
-        /// configurations in the <i>Amazon DocumentDB Developer Guide</i>.</para><para>Valid values for storage type - <code>standard | iopt1</code></para><para>Default value is <code>standard </code></para>
+        /// configurations in the <i>Amazon DocumentDB Developer Guide</i>.</para><para>Valid values for storage type - <c>standard | iopt1</c></para><para>Default value is <c>standard </c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,8 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter UseLatestRestorableTime
         /// <summary>
         /// <para>
-        /// <para>A value that is set to <code>true</code> to restore the cluster to the latest restorable
-        /// backup time, and <code>false</code> otherwise. </para><para>Default: <code>false</code></para><para>Constraints: Cannot be specified if the <code>RestoreToTime</code> parameter is provided.</para>
+        /// <para>A value that is set to <c>true</c> to restore the cluster to the latest restorable
+        /// backup time, and <c>false</c> otherwise. </para><para>Default: <c>false</c></para><para>Constraints: Cannot be specified if the <c>RestoreToTime</c> parameter is provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

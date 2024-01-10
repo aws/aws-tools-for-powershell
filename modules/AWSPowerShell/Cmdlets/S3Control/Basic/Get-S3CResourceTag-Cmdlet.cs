@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Tags can help you manage, identify, organize, search for, and filter resources. 
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3:ListTagsForResource</code> permission to use this operation.
+    /// You must have the <c>s3:ListTagsForResource</c> permission to use this operation.
     /// 
     /// </para></dd></dl><note><para>
     /// This operation is only supported for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html">S3

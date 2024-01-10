@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// Guide</i>.</a></para><note><para>
     /// This API doesn't support root users. If you try to invoke GetFederationToken with
     /// root credentials, an error message similar to the following one appears: 
-    /// </para><para><code>Provided identity: Principal: .... User: .... cannot be used for federation
-    /// with Amazon Connect</code></para></note>
+    /// </para><para><c>Provided identity: Principal: .... User: .... cannot be used for federation with
+    /// Amazon Connect</c></para></note>
     /// </summary>
     [Cmdlet("Get", "CONNFederationToken")]
     [OutputType("Amazon.Connect.Model.Credentials")]

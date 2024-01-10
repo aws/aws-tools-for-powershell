@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para>Required. The catalog related to the request. Fixed value: <code>AWSMarketplace</code></para>
+        /// <para>Required. The catalog related to the request. Fixed value: <c>AWSMarketplace</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

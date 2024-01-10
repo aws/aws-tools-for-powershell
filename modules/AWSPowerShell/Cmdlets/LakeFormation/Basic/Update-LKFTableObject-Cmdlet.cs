@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter WriteOperation
         /// <summary>
         /// <para>
-        /// <para>A list of <code>WriteOperation</code> objects that define an object to add to or delete
+        /// <para>A list of <c>WriteOperation</c> objects that define an object to add to or delete
         /// from the manifest for a governed table.</para>
         /// </para>
         /// </summary>

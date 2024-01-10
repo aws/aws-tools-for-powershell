@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></note><para>
     /// Deletes an inventory configuration (identified by the inventory ID) from the bucket.
     /// </para><para>
-    /// To use this operation, you must have permissions to perform the <code>s3:PutInventoryConfiguration</code>
+    /// To use this operation, you must have permissions to perform the <c>s3:PutInventoryConfiguration</c>
     /// action. The bucket owner has this permission by default. The bucket owner can grant
     /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For information about the Amazon S3 inventory feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html">Amazon
     /// S3 Inventory</a>.
     /// </para><para>
-    /// Operations related to <code>DeleteBucketInventoryConfiguration</code> include: 
+    /// Operations related to <c>DeleteBucketInventoryConfiguration</c> include: 
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketInventoryConfiguration.html">GetBucketInventoryConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html">PutBucketInventoryConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html">ListBucketInventoryConfigurations</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3BucketInventoryConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

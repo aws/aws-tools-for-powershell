@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster to use when filtering
-        /// the <code>ListServices</code> results. If you do not specify a cluster, the default
-        /// cluster is assumed.</para>
+        /// the <c>ListServices</c> results. If you do not specify a cluster, the default cluster
+        /// is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LaunchType
         /// <summary>
         /// <para>
-        /// <para>The launch type to use when filtering the <code>ListServices</code> results.</para>
+        /// <para>The launch type to use when filtering the <c>ListServices</c> results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter SchedulingStrategy
         /// <summary>
         /// <para>
-        /// <para>The scheduling strategy to use when filtering the <code>ListServices</code> results.</para>
+        /// <para>The scheduling strategy to use when filtering the <c>ListServices</c> results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,13 +80,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of service results that <code>ListServices</code> returned in paginated
-        /// output. When this parameter is used, <code>ListServices</code> only returns <code>maxResults</code>
-        /// results in a single page along with a <code>nextToken</code> response element. The
-        /// remaining results of the initial request can be seen by sending another <code>ListServices</code>
-        /// request with the returned <code>nextToken</code> value. This value can be between
-        /// 1 and 100. If this parameter isn't used, then <code>ListServices</code> returns up
-        /// to 10 results and a <code>nextToken</code> value if applicable.</para>
+        /// <para>The maximum number of service results that <c>ListServices</c> returned in paginated
+        /// output. When this parameter is used, <c>ListServices</c> only returns <c>maxResults</c>
+        /// results in a single page along with a <c>nextToken</c> response element. The remaining
+        /// results of the initial request can be seen by sending another <c>ListServices</c>
+        /// request with the returned <c>nextToken</c> value. This value can be between 1 and
+        /// 100. If this parameter isn't used, then <c>ListServices</c> returns up to 10 results
+        /// and a <c>nextToken</c> value if applicable.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -102,10 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a <code>ListServices</code> request
-        /// indicating that more results are available to fulfill the request and further calls
-        /// will be needed. If <code>maxResults</code> was provided, it is possible the number
-        /// of results to be fewer than <code>maxResults</code>.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// <para>The <c>nextToken</c> value returned from a <c>ListServices</c> request indicating
+        /// that more results are available to fulfill the request and further calls will be needed.
+        /// If <c>maxResults</c> was provided, it is possible the number of results to be fewer
+        /// than <c>maxResults</c>.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

@@ -28,16 +28,15 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Saves a new query or updates an existing saved query. The <code>QueryName</code> must
-    /// be unique for a single Amazon Web Services account and a single Amazon Web Services
-    /// Region. You can create upto 300 queries in a single Amazon Web Services account and
-    /// a single Amazon Web Services Region.
+    /// Saves a new query or updates an existing saved query. The <c>QueryName</c> must be
+    /// unique for a single Amazon Web Services account and a single Amazon Web Services Region.
+    /// You can create upto 300 queries in a single Amazon Web Services account and a single
+    /// Amazon Web Services Region.
     /// 
-    ///  <note><para><code>PutStoredQuery</code> is an idempotent API. Subsequent requests won’t create
-    /// a duplicate resource if one was already created. If a following request has different
-    /// <code>tags</code> values, Config will ignore these differences and treat it as an
-    /// idempotent request of the previous. In this case, <code>tags</code> will not be updated,
-    /// even if they are different.
+    ///  <note><para><c>PutStoredQuery</c> is an idempotent API. Subsequent requests won’t create a duplicate
+    /// resource if one was already created. If a following request has different <c>tags</c>
+    /// values, Config will ignore these differences and treat it as an idempotent request
+    /// of the previous. In this case, <c>tags</c> will not be updated, even if they are different.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGStoredQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter StoredQuery_Expression
         /// <summary>
         /// <para>
-        /// <para>The expression of the query. For example, <code>SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status
+        /// <para>The expression of the query. For example, <c>SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status
         /// WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status
-        /// = 'Off'.</code></para>
+        /// = 'Off'.</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of <code>Tags</code> object.</para>
+        /// <para>A list of <c>Tags</c> object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

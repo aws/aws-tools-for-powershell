@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <para>
         /// <para>The date and time specifying the end of the requested time series query range. The
         /// value specified is <i>exclusive</i>. Thus, the command returns data points less than
-        /// (but not equal to) <code>EndTime</code>.</para><para>The value for <code>EndTime</code> must be later than the value for <code>StartTime</code>.</para>
+        /// (but not equal to) <c>EndTime</c>.</para><para>The value for <c>EndTime</c> must be later than the value for <c>StartTime</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <para>
         /// <para>An immutable identifier for a data source that is unique for an Amazon Web Services
         /// Region. Performance Insights gathers metrics from this data source. In the console,
-        /// the identifier is shown as <i>ResourceID</i>. When you call <code>DescribeDBInstances</code>,
-        /// the identifier is returned as <code>DbiResourceId</code>.</para><para>To use a DB instance as a data source, specify its <code>DbiResourceId</code> value.
-        /// For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.</para>
+        /// the identifier is shown as <i>ResourceID</i>. When you call <c>DescribeDBInstances</c>,
+        /// the identifier is returned as <c>DbiResourceId</c>.</para><para>To use a DB instance as a data source, specify its <c>DbiResourceId</c> value. For
+        /// example, specify <c>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <summary>
         /// <para>
         /// <para>The returned timestamp which is the start or end time of the time periods. The default
-        /// value is <code>END_TIME</code>.</para>
+        /// value is <c>END_TIME</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,9 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <para>
         /// <para>The granularity, in seconds, of the data points returned from Performance Insights.
         /// A period can be as short as one second, or as long as one day (86400 seconds). Valid
-        /// values are:</para><ul><li><para><code>1</code> (one second)</para></li><li><para><code>60</code> (one minute)</para></li><li><para><code>300</code> (five minutes)</para></li><li><para><code>3600</code> (one hour)</para></li><li><para><code>86400</code> (twenty-four hours)</para></li></ul><para>If you don't specify <code>PeriodInSeconds</code>, then Performance Insights will
-        /// choose a value for you, with a goal of returning roughly 100-200 data points in the
-        /// response.</para>
+        /// values are:</para><ul><li><para><c>1</c> (one second)</para></li><li><para><c>60</c> (one minute)</para></li><li><para><c>300</c> (five minutes)</para></li><li><para><c>3600</c> (one hour)</para></li><li><para><c>86400</c> (twenty-four hours)</para></li></ul><para>If you don't specify <c>PeriodInSeconds</c>, then Performance Insights will choose
+        /// a value for you, with a goal of returning roughly 100-200 data points in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services service for which Performance Insights returns metrics. Valid
-        /// values are as follows:</para><ul><li><para><code>RDS</code></para></li><li><para><code>DOCDB</code></para></li></ul>
+        /// values are as follows:</para><ul><li><para><c>RDS</c></para></li><li><para><c>DOCDB</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -155,10 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <summary>
         /// <para>
         /// <para>The date and time specifying the beginning of the requested time series query range.
-        /// You can't specify a <code>StartTime</code> that is earlier than 7 days ago. By default,
+        /// You can't specify a <c>StartTime</c> that is earlier than 7 days ago. By default,
         /// Performance Insights has 7 days of retention, but you can extend this range up to
         /// 2 years. The value specified is <i>inclusive</i>. Thus, the command returns data points
-        /// equal to or greater than <code>StartTime</code>.</para><para>The value for <code>StartTime</code> must be earlier than the value for <code>EndTime</code>.</para>
+        /// equal to or greater than <c>StartTime</c>.</para><para>The value for <c>StartTime</c> must be earlier than the value for <c>EndTime</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -175,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return in the response. If more items exist than the
-        /// specified <code>MaxRecords</code> value, a pagination token is included in the response
+        /// specified <c>MaxRecords</c> value, a pagination token is included in the response
         /// so that the remaining results can be retrieved. </para>
         /// </para>
         /// </summary>
@@ -189,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <para>
         /// <para>An optional pagination token provided by a previous request. If this parameter is
         /// specified, the response includes only records beyond the token, up to the value specified
-        /// by <code>MaxRecords</code>.</para>
+        /// by <c>MaxRecords</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

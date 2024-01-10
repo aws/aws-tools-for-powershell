@@ -36,11 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// in the specified bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
     /// Objects</a>. 
     /// </para><note><ul><li><para>
-    /// The <code>DefaultRetention</code> settings require both a mode and a period.
+    /// The <c>DefaultRetention</c> settings require both a mode and a period.
     /// </para></li><li><para>
-    /// The <code>DefaultRetention</code> period can be either <code>Days</code> or <code>Years</code>
-    /// but you must select one. You cannot specify <code>Days</code> and <code>Years</code>
-    /// at the same time.
+    /// The <c>DefaultRetention</c> period can be either <c>Days</c> or <c>Years</c> but you
+    /// must select one. You cannot specify <c>Days</c> and <c>Years</c> at the same time.
     /// </para></li><li><para>
     /// You can enable Object Lock for new or existing buckets. For more information, see
     /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html">Configuring

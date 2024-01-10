@@ -28,14 +28,14 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Changes the state of a file transfer protocol-enabled server from <code>OFFLINE</code>
-    /// to <code>ONLINE</code>. It has no impact on a server that is already <code>ONLINE</code>.
-    /// An <code>ONLINE</code> server can accept and process file transfer jobs.
+    /// Changes the state of a file transfer protocol-enabled server from <c>OFFLINE</c> to
+    /// <c>ONLINE</c>. It has no impact on a server that is already <c>ONLINE</c>. An <c>ONLINE</c>
+    /// server can accept and process file transfer jobs.
     /// 
     ///  
     /// <para>
-    /// The state of <code>STARTING</code> indicates that the server is in an intermediate
-    /// state, either not fully able to respond, or not fully online. The values of <code>START_FAILED</code>
+    /// The state of <c>STARTING</c> indicates that the server is in an intermediate state,
+    /// either not fully able to respond, or not fully online. The values of <c>START_FAILED</c>
     /// can indicate an error condition.
     /// </para><para>
     /// No response is returned from this call.

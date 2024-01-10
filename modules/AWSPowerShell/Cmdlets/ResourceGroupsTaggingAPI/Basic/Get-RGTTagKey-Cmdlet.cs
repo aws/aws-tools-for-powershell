@@ -34,11 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     ///  
     /// <para>
     /// This operation supports pagination, where the response can be sent in multiple pages.
-    /// You should check the <code>PaginationToken</code> response parameter to determine
-    /// if there are additional results available to return. Repeat the query, passing the
-    /// <code>PaginationToken</code> response parameter value as an input to the next request
-    /// until you recieve a <code>null</code> value. A null value for <code>PaginationToken</code>
-    /// indicates that there are no more results waiting to be returned.
+    /// You should check the <c>PaginationToken</c> response parameter to determine if there
+    /// are additional results available to return. Repeat the query, passing the <c>PaginationToken</c>
+    /// response parameter value as an input to the next request until you recieve a <c>null</c>
+    /// value. A null value for <c>PaginationToken</c> indicates that there are no more results
+    /// waiting to be returned.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RGTTagKey")]
@@ -56,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         #region Parameter PaginationToken
         /// <summary>
         /// <para>
-        /// <para>Specifies a <code>PaginationToken</code> response value from a previous request to
-        /// indicate that you want the next page of results. Leave this parameter empty in your
-        /// initial request.</para>
+        /// <para>Specifies a <c>PaginationToken</c> response value from a previous request to indicate
+        /// that you want the next page of results. Leave this parameter empty in your initial
+        /// request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

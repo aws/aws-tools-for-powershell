@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// Config is recording three resource types in the US East (Ohio) Region for your account:
     /// 25 EC2 instances, 20 IAM users, and 15 S3 buckets.
     /// </para></li><li><para>
-    /// You make a call to the <code>GetDiscoveredResourceCounts</code> action and specify
-    /// that you want all resource types. 
+    /// You make a call to the <c>GetDiscoveredResourceCounts</c> action and specify that
+    /// you want all resource types. 
     /// </para></li><li><para>
     /// Config returns the following:
     /// </para><ul><li><para>
@@ -49,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// The total number of all resources (60).
     /// </para></li></ul></li></ol><para>
     /// The response is paginated. By default, Config lists 100 <a>ResourceCount</a> objects
-    /// on each page. You can customize this number with the <code>limit</code> parameter.
-    /// The response includes a <code>nextToken</code> string. To get the next page of results,
-    /// run the request again and specify the string for the <code>nextToken</code> parameter.
+    /// on each page. You can customize this number with the <c>limit</c> parameter. The response
+    /// includes a <c>nextToken</c> string. To get the next page of results, run the request
+    /// again and specify the string for the <c>nextToken</c> parameter.
     /// </para><note><para>
     /// If you make a call to the <a>GetDiscoveredResourceCounts</a> action, you might not
     /// immediately receive resource counts in the following situations:
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The comma-separated list that specifies the resource types that you want Config to
-        /// return (for example, <code>"AWS::EC2::Instance"</code>, <code>"AWS::IAM::User"</code>).</para><para>If a value for <code>resourceTypes</code> is not specified, Config returns all resource
+        /// return (for example, <c>"AWS::EC2::Instance"</c>, <c>"AWS::IAM::User"</c>).</para><para>If a value for <c>resourceTypes</c> is not specified, Config returns all resource
         /// types that Config is recording in the region for your account.</para><note><para>If the configuration recorder is turned off, Config returns an empty list of <a>ResourceCount</a>
         /// objects. If the configuration recorder is not recording a specific resource type (for
         /// example, S3 buckets), that resource type is not returned in the list of <a>ResourceCount</a>
@@ -113,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
-        /// the next page of results in a paginated response.</para>
+        /// <para>The <c>nextToken</c> string returned on a previous page that you use to get the next
+        /// page of results in a paginated response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></note><para>
     ///  Deletes the replication configuration from the bucket.
     /// </para><para>
-    /// To use this operation, you must have permissions to perform the <code>s3:PutReplicationConfiguration</code>
+    /// To use this operation, you must have permissions to perform the <c>s3:PutReplicationConfiguration</c>
     /// action. The bucket owner has these permissions by default and can grant it to others.
     /// For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     ///  For information about replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a>
     /// in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
-    /// The following operations are related to <code>DeleteBucketReplication</code>:
+    /// The following operations are related to <c>DeleteBucketReplication</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html">PutBucketReplication</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html">GetBucketReplication</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3BucketReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

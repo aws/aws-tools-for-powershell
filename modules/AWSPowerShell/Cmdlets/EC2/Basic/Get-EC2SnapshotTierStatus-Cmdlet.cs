@@ -45,11 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>snapshot-id</code> - The snapshot ID.</para></li><li><para><code>volume-id</code> - The ID of the volume the snapshot is for.</para></li><li><para><code>last-tiering-operation</code> - The state of the last archive or restore action.
-        /// (<code>archival-in-progress</code> | <code>archival-completed</code> | <code>archival-failed</code>
-        /// | <code>permanent-restore-in-progress</code> | <code>permanent-restore-completed</code>
-        /// | <code>permanent-restore-failed</code> | <code>temporary-restore-in-progress</code>
-        /// | <code>temporary-restore-completed</code> | <code>temporary-restore-failed</code>)</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>snapshot-id</c> - The snapshot ID.</para></li><li><para><c>volume-id</c> - The ID of the volume the snapshot is for.</para></li><li><para><c>last-tiering-operation</c> - The state of the last archive or restore action.
+        /// (<c>archival-in-progress</c> | <c>archival-completed</c> | <c>archival-failed</c>
+        /// | <c>permanent-restore-in-progress</c> | <c>permanent-restore-completed</c> | <c>permanent-restore-failed</c>
+        /// | <c>temporary-restore-in-progress</c> | <c>temporary-restore-completed</c> | <c>temporary-restore-failed</c>)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

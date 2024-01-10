@@ -135,7 +135,7 @@ $CWL_Completers = {
             ($_ -eq "Write-CWLAccountPolicy/PolicyType")
         }
         {
-            $v = "DATA_PROTECTION_POLICY"
+            $v = "DATA_PROTECTION_POLICY","SUBSCRIPTION_FILTER_POLICY"
             break
         }
 

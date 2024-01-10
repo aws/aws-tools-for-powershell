@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Updates the content and status of IP rules. To use this operation, you must provide
-    /// the entire map of rules. You can use the <code>DescribeIpRestriction</code> operation
-    /// to get the current rule map.
+    /// the entire map of rules. You can use the <c>DescribeIpRestriction</c> operation to
+    /// get the current rule map.
     /// </summary>
     [Cmdlet("Update", "QSIpRestriction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

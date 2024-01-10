@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     /// <summary>
     /// Allows you to create a workflow with specified steps and step details the workflow
     /// invokes after file transfer completes. After creating a workflow, you can associate
-    /// the workflow created with any transfer servers by specifying the <code>workflow-details</code>
-    /// field in <code>CreateServer</code> and <code>UpdateServer</code> operations.
+    /// the workflow created with any transfer servers by specifying the <c>workflow-details</c>
+    /// field in <c>CreateServer</c> and <c>UpdateServer</c> operations.
     /// </summary>
     [Cmdlet("New", "TFRWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -59,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>Specifies the steps (actions) to take if errors are encountered during execution of
-        /// the workflow.</para><note><para>For custom steps, the Lambda function needs to send <code>FAILURE</code> to the call
-        /// back API to kick off the exception steps. Additionally, if the Lambda does not send
-        /// <code>SUCCESS</code> before it times out, the exception steps are executed.</para></note>
+        /// the workflow.</para><note><para>For custom steps, the Lambda function needs to send <c>FAILURE</c> to the call back
+        /// API to kick off the exception steps. Additionally, if the Lambda does not send <c>SUCCESS</c>
+        /// before it times out, the exception steps are executed.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter Step
         /// <summary>
         /// <para>
-        /// <para>Specifies the details for the steps that are in the specified workflow.</para><para> The <code>TYPE</code> specifies which of the following actions is being taken for
-        /// this step. </para><ul><li><para><b><code>COPY</code></b> - Copy the file to another location.</para></li><li><para><b><code>CUSTOM</code></b> - Perform a custom step with an Lambda function target.</para></li><li><para><b><code>DECRYPT</code></b> - Decrypt a file that was encrypted before it was uploaded.</para></li><li><para><b><code>DELETE</code></b> - Delete the file.</para></li><li><para><b><code>TAG</code></b> - Add a tag to the file.</para></li></ul><note><para> Currently, copying and tagging are supported only on S3. </para></note><para> For file location, you specify either the Amazon S3 bucket and key, or the Amazon
+        /// <para>Specifies the details for the steps that are in the specified workflow.</para><para> The <c>TYPE</c> specifies which of the following actions is being taken for this
+        /// step. </para><ul><li><para><b><c>COPY</c></b> - Copy the file to another location.</para></li><li><para><b><c>CUSTOM</c></b> - Perform a custom step with an Lambda function target.</para></li><li><para><b><c>DECRYPT</c></b> - Decrypt a file that was encrypted before it was uploaded.</para></li><li><para><b><c>DELETE</c></b> - Delete the file.</para></li><li><para><b><c>TAG</c></b> - Add a tag to the file.</para></li></ul><note><para> Currently, copying and tagging are supported only on S3. </para></note><para> For file location, you specify either the Amazon S3 bucket and key, or the Amazon
         /// EFS file system ID and path. </para>
         /// </para>
         /// </summary>

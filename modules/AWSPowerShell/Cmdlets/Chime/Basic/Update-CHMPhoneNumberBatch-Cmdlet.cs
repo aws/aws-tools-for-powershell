@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Updates phone number product types or calling names. You can update one attribute
-    /// at a time for each <code>UpdatePhoneNumberRequestItem</code>. For example, you can
-    /// update the product type or the calling name.
+    /// at a time for each <c>UpdatePhoneNumberRequestItem</c>. For example, you can update
+    /// the product type or the calling name.
     /// 
     ///  
     /// <para>

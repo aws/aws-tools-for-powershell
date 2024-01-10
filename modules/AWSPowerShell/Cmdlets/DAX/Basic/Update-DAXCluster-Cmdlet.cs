@@ -106,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         /// <summary>
         /// <para>
         /// <para>A range of time when maintenance of DAX cluster software will be performed. For example:
-        /// <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than 30
-        /// minutes, and is performed automatically within the maintenance window.</para>
+        /// <c>sun:01:00-sun:09:00</c>. Cluster maintenance normally takes less than 30 minutes,
+        /// and is performed automatically within the maintenance window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

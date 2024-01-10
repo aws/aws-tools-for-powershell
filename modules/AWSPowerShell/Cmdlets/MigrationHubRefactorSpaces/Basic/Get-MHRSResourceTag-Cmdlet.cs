@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
 {
     /// <summary>
     /// Lists the tags of a resource. The caller account must be the same as the resource’s
-    /// <code>OwnerAccountId</code>. Listing tags in other accounts is not supported.
+    /// <c>OwnerAccountId</c>. Listing tags in other accounts is not supported.
     /// </summary>
     [Cmdlet("Get", "MHRSResourceTag")]
     [OutputType("System.String")]

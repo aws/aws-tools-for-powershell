@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>A name of the Amazon CloudWatch metric dimension. The name can contain only the characters:
         /// A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters
         /// long. It can't contain whitespace or metric names that are reserved for WAF, for example
-        /// <code>All</code> and <code>Default_Action</code>. </para>
+        /// <c>All</c> and <c>Default_Action</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -198,8 +198,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// application. A regional application can be an Application Load Balancer (ALB), an
         /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
         /// an App Runner service, or an Amazon Web Services Verified Access instance. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
-        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
-        /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
+        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <c>--scope=CLOUDFRONT
+        /// --region=us-east-1</c>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -33,14 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     ///  
     /// <para>
     /// An attachment set is a temporary container for attachments that you add to a case
-    /// or case communication. The set is available for 1 hour after it's created. The <code>expiryTime</code>
+    /// or case communication. The set is available for 1 hour after it's created. The <c>expiryTime</c>
     /// returned in the response is when the set expires. 
     /// </para><note><ul><li><para>
     /// You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the
     /// Amazon Web Services Support API. 
     /// </para></li><li><para>
     /// If you call the Amazon Web Services Support API from an account that doesn't have
-    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <code>SubscriptionRequiredException</code>
+    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <c>SubscriptionRequiredException</c>
     /// error message appears. For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon
     /// Web Services Support</a>.
     /// </para></li></ul></note>
@@ -60,11 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// <summary>
         /// <para>
         /// <para>One or more attachments to add to the set. You can add up to three attachments per
-        /// set. The size limit is 5 MB per attachment.</para><para>In the <code>Attachment</code> object, use the <code>data</code> parameter to specify
-        /// the contents of the attachment file. In the previous request syntax, the value for
-        /// <code>data</code> appear as <code>blob</code>, which is represented as a base64-encoded
-        /// string. The value for <code>fileName</code> is the name of the attachment, such as
-        /// <code>troubleshoot-screenshot.png</code>.</para>
+        /// set. The size limit is 5 MB per attachment.</para><para>In the <c>Attachment</c> object, use the <c>data</c> parameter to specify the contents
+        /// of the attachment file. In the previous request syntax, the value for <c>data</c>
+        /// appear as <c>blob</c>, which is represented as a base64-encoded string. The value
+        /// for <c>fileName</c> is the name of the attachment, such as <c>troubleshoot-screenshot.png</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,10 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter AttachmentSetId
         /// <summary>
         /// <para>
-        /// <para>The ID of the attachment set. If an <code>attachmentSetId</code> is not specified,
-        /// a new attachment set is created, and the ID of the set is returned in the response.
-        /// If an <code>attachmentSetId</code> is specified, the attachments are added to the
-        /// specified set, if it exists.</para>
+        /// <para>The ID of the attachment set. If an <c>attachmentSetId</c> is not specified, a new
+        /// attachment set is created, and the ID of the set is returned in the response. If an
+        /// <c>attachmentSetId</c> is specified, the attachments are added to the specified set,
+        /// if it exists.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

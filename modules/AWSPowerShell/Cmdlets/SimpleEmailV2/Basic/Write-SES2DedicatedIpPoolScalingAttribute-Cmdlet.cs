@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// <summary>
     /// Used to convert a dedicated IP pool to a different scaling mode.
     /// 
-    ///  <note><para><code>MANAGED</code> pools cannot be converted to <code>STANDARD</code> scaling mode.
+    ///  <note><para><c>MANAGED</c> pools cannot be converted to <c>STANDARD</c> scaling mode.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "SES2DedicatedIpPoolScalingAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,8 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ScalingMode
         /// <summary>
         /// <para>
-        /// <para>The scaling mode to apply to the dedicated IP pool.</para><note><para>Changing the scaling mode from <code>MANAGED</code> to <code>STANDARD</code> is not
-        /// supported.</para></note>
+        /// <para>The scaling mode to apply to the dedicated IP pool.</para><note><para>Changing the scaling mode from <c>MANAGED</c> to <c>STANDARD</c> is not supported.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -89,9 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter FinalDBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB cluster snapshot identifier of the new DB cluster snapshot created when <code>SkipFinalSnapshot</code>
+        /// <para>The DB cluster snapshot identifier of the new DB cluster snapshot created when <c>SkipFinalSnapshot</c>
         /// is disabled.</para><note><para>Specifying this parameter and also skipping the creation of a final DB cluster snapshot
-        /// with the <code>SkipFinalShapshot</code> parameter results in an error.</para></note><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// with the <c>SkipFinalShapshot</c> parameter results in an error.</para></note><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// cluster is deleted. If skip is specified, no DB cluster snapshot is created. If skip
         /// isn't specified, a DB cluster snapshot is created before the DB cluster is deleted.
         /// By default, skip isn't specified, and the DB cluster snapshot is created. By default,
-        /// this parameter is disabled.</para><note><para>You must specify a <code>FinalDBSnapshotIdentifier</code> parameter if <code>SkipFinalSnapshot</code>
+        /// this parameter is disabled.</para><note><para>You must specify a <c>FinalDBSnapshotIdentifier</c> parameter if <c>SkipFinalSnapshot</c>
         /// is disabled.</para></note>
         /// </para>
         /// </summary>

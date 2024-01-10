@@ -37,13 +37,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// releasing it, use <a>DisassociateAddress</a>.
     /// </para><para>
     /// [Nondefault VPC] You must use <a>DisassociateAddress</a> to disassociate the Elastic
-    /// IP address before you can release it. Otherwise, Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).
+    /// IP address before you can release it. Otherwise, Amazon EC2 returns an error (<c>InvalidIPAddress.InUse</c>).
     /// </para><para>
     /// After releasing an Elastic IP address, it is released to the IP address pool. Be sure
     /// to update your DNS records and any servers or devices that communicate with the address.
     /// If you attempt to release an Elastic IP address that you already released, you'll
-    /// get an <code>AuthFailure</code> error if the address is already allocated to another
-    /// Amazon Web Services account.
+    /// get an <c>AuthFailure</c> error if the address is already allocated to another Amazon
+    /// Web Services account.
     /// </para><para>
     /// After you release an Elastic IP address, you might be able to recover it. For more
     /// information, see <a>AllocateAddress</a>.
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon
-        /// Web Services advertises IP addresses.</para><para>If you provide an incorrect network border group, you receive an <code>InvalidAddress.NotFound</code>
+        /// Web Services advertises IP addresses.</para><para>If you provide an incorrect network border group, you receive an <c>InvalidAddress.NotFound</c>
         /// error.</para>
         /// </para>
         /// </summary>

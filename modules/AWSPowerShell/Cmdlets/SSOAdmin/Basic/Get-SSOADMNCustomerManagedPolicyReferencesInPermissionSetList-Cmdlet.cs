@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter PermissionSetArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>PermissionSet</code>. </para>
+        /// <para>The ARN of the <c>PermissionSet</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

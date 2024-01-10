@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter EventId
         /// <summary>
         /// <para>
-        /// <para>The ID of the event. You can get an event's ID when you create it, or by using <code>ListTimelineEvents</code>.</para>
+        /// <para>The ID of the event. You can get an event's ID when you create it, or by using <c>ListTimelineEvents</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

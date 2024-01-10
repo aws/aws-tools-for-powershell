@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         /// <summary>
         /// <para>
         /// <para>The ARN of the transit gateway route table for the attachment request. For example,
-        /// <code>"TransitGatewayRouteTableArn": "arn:aws:ec2:us-west-2:123456789012:transit-gateway-route-table/tgw-rtb-9876543210123456"</code>.</para>
+        /// <c>"TransitGatewayRouteTableArn": "arn:aws:ec2:us-west-2:123456789012:transit-gateway-route-table/tgw-rtb-9876543210123456"</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

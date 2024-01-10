@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
     /// Creates a signaling channel. 
     /// 
     ///  
-    /// <para><code>CreateSignalingChannel</code> is an asynchronous operation.
+    /// <para><c>CreateSignalingChannel</c> is an asynchronous operation.
     /// </para>
     /// </summary>
     [Cmdlet("New", "KVSignalingChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter ChannelType
         /// <summary>
         /// <para>
-        /// <para>A type of the signaling channel that you are creating. Currently, <code>SINGLE_MASTER</code>
+        /// <para>A type of the signaling channel that you are creating. Currently, <c>SINGLE_MASTER</c>
         /// is the only supported channel type. </para>
         /// </para>
         /// </summary>

@@ -28,7 +28,7 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Generates a prediction for the observation using the specified <code>ML Model</code>.
+    /// Generates a prediction for the observation using the specified <c>ML Model</c>.
     /// 
     ///  
     /// <para><b>Note:</b> Not all response parameters will be populated. Whether a response parameter
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter MLModelId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier of the <code>MLModel</code>.</para>
+        /// <para>A unique identifier of the <c>MLModel</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,18 +28,18 @@ using Amazon.DataPipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.DP
 {
     /// <summary>
-    /// Task runners call <code>ReportTaskProgress</code> when assigned a task to acknowledge
-    /// that it has the task. If the web service does not receive this acknowledgement within
-    /// 2 minutes, it assigns the task in a subsequent <a>PollForTask</a> call. After this
-    /// initial acknowledgement, the task runner only needs to report progress every 15 minutes
-    /// to maintain its ownership of the task. You can change this reporting time from 15
-    /// minutes by specifying a <code>reportProgressTimeout</code> field in your pipeline.
+    /// Task runners call <c>ReportTaskProgress</c> when assigned a task to acknowledge that
+    /// it has the task. If the web service does not receive this acknowledgement within 2
+    /// minutes, it assigns the task in a subsequent <a>PollForTask</a> call. After this initial
+    /// acknowledgement, the task runner only needs to report progress every 15 minutes to
+    /// maintain its ownership of the task. You can change this reporting time from 15 minutes
+    /// by specifying a <c>reportProgressTimeout</c> field in your pipeline.
     /// 
     ///  
     /// <para>
     /// If a task runner does not report its status after 5 minutes, AWS Data Pipeline assumes
     /// that the task runner is unable to process the task and reassigns the task in a subsequent
-    /// response to <a>PollForTask</a>. Task runners should call <code>ReportTaskProgress</code>
+    /// response to <a>PollForTask</a>. Task runners should call <c>ReportTaskProgress</c>
     /// every 60 seconds.
     /// </para>
     /// </summary>

@@ -32,16 +32,16 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// 
     ///  
     /// <para>
-    /// The <code>GetSlotTypeVersions</code> operation returns a <code>SlotTypeMetadata</code>
-    /// object for each version of a slot type. For example, if a slot type has three numbered
-    /// versions, the <code>GetSlotTypeVersions</code> operation returns four <code>SlotTypeMetadata</code>
-    /// objects in the response, one for each numbered version and one for the <code>$LATEST</code>
-    /// version. 
+    /// The <c>GetSlotTypeVersions</c> operation returns a <c>SlotTypeMetadata</c> object
+    /// for each version of a slot type. For example, if a slot type has three numbered versions,
+    /// the <c>GetSlotTypeVersions</c> operation returns four <c>SlotTypeMetadata</c> objects
+    /// in the response, one for each numbered version and one for the <c>$LATEST</c> version.
+    /// 
     /// </para><para>
-    /// The <code>GetSlotTypeVersions</code> operation always returns at least one version,
-    /// the <code>$LATEST</code> version.
+    /// The <c>GetSlotTypeVersions</c> operation always returns at least one version, the
+    /// <c>$LATEST</c> version.
     /// </para><para>
-    /// This operation requires permissions for the <code>lex:GetSlotTypeVersions</code> action.
+    /// This operation requires permissions for the <c>lex:GetSlotTypeVersions</c> action.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LMBSlotTypeVersionList")]

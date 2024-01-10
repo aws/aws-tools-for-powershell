@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// 
     ///  
     /// <para>
-    /// If finding aggregation is enabled, then when you call <code>GetFindings</code> from
-    /// the aggregation Region, the results include all of the matching findings from both
-    /// the aggregation Region and the linked Regions.
+    /// If finding aggregation is enabled, then when you call <c>GetFindings</c> from the
+    /// aggregation Region, the results include all of the matching findings from both the
+    /// aggregation Region and the linked Regions.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBFinding")]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>The finding attributes used to define a condition to filter the returned findings.</para><para>You can filter by up to 10 finding attributes. For each attribute, you can provide
-        /// up to 20 filter values.</para><para>Note that in the available filter fields, <code>WorkflowState</code> is deprecated.
-        /// To search for a finding based on its workflow status, use <code>WorkflowStatus</code>.</para>
+        /// up to 20 filter values.</para><para>Note that in the available filter fields, <c>WorkflowState</c> is deprecated. To search
+        /// for a finding based on its workflow status, use <c>WorkflowStatus</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token that is required for pagination. On your first call to the <code>GetFindings</code>
-        /// operation, set the value of this parameter to <code>NULL</code>.</para><para>For subsequent calls to the operation, to continue listing data, set the value of
+        /// <para>The token that is required for pagination. On your first call to the <c>GetFindings</c>
+        /// operation, set the value of this parameter to <c>NULL</c>.</para><para>For subsequent calls to the operation, to continue listing data, set the value of
         /// this parameter to the value returned from the previous response.</para>
         /// </para>
         /// <para>

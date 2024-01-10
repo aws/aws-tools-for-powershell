@@ -35,17 +35,16 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// 
     ///  
     /// <para>
-    /// You can associate only one <code>RoleArn</code> with your subscription. If you submit
-    /// an <code>AssociateDRTRole</code> request for an account that already has an associated
-    /// role, the new <code>RoleArn</code> will replace the existing <code>RoleArn</code>.
-    /// 
+    /// You can associate only one <c>RoleArn</c> with your subscription. If you submit an
+    /// <c>AssociateDRTRole</c> request for an account that already has an associated role,
+    /// the new <c>RoleArn</c> will replace the existing <c>RoleArn</c>. 
     /// </para><para>
-    /// Prior to making the <code>AssociateDRTRole</code> request, you must attach the <code>AWSShieldDRTAccessPolicy</code>
+    /// Prior to making the <c>AssociateDRTRole</c> request, you must attach the <c>AWSShieldDRTAccessPolicy</c>
     /// managed policy to the role that you'll specify in the request. You can access this
     /// policy in the IAM console at <a href="https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy">AWSShieldDRTAccessPolicy</a>.
     /// For more information see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html">Adding
     /// and removing IAM identity permissions</a>. The role must also trust the service principal
-    /// <code>drt.shield.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">IAM
+    /// <c>drt.shield.amazonaws.com</c>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">IAM
     /// JSON policy elements: Principal</a>.
     /// </para><para>
     /// The SRT will have access only to your WAF and Shield resources. By submitting this
@@ -53,12 +52,12 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// and update WAF rules and web ACLs on your behalf. The SRT takes these actions only
     /// if explicitly authorized by you.
     /// </para><para>
-    /// You must have the <code>iam:PassRole</code> permission to make an <code>AssociateDRTRole</code>
+    /// You must have the <c>iam:PassRole</c> permission to make an <c>AssociateDRTRole</c>
     /// request. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting
     /// a user permissions to pass a role to an Amazon Web Services service</a>. 
     /// </para><para>
-    /// To use the services of the SRT and make an <code>AssociateDRTRole</code> request,
-    /// you must be subscribed to the <a href="http://aws.amazon.com/premiumsupport/business-support/">Business
+    /// To use the services of the SRT and make an <c>AssociateDRTRole</c> request, you must
+    /// be subscribed to the <a href="http://aws.amazon.com/premiumsupport/business-support/">Business
     /// Support plan</a> or the <a href="http://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise
     /// Support plan</a>.
     /// </para>
@@ -79,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the role the SRT will use to access your Amazon
-        /// Web Services account.</para><para>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href="https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy">AWSShieldDRTAccessPolicy</a>
+        /// Web Services account.</para><para>Prior to making the <c>AssociateDRTRole</c> request, you must attach the <a href="https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy">AWSShieldDRTAccessPolicy</a>
         /// managed policy to this role. For more information see <a href=" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html">Attaching
         /// and Detaching IAM Policies</a>.</para>
         /// </para>

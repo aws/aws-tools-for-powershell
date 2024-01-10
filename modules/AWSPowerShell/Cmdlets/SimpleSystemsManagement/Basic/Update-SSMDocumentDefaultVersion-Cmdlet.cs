@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// 
     ///  <note><para>
     /// If you change a document version for a State Manager association, Systems Manager
-    /// immediately runs the association unless you previously specifed the <code>apply-only-at-cron-interval</code>
+    /// immediately runs the association unless you previously specifed the <c>apply-only-at-cron-interval</c>
     /// parameter.
     /// </para></note>
     /// </summary>

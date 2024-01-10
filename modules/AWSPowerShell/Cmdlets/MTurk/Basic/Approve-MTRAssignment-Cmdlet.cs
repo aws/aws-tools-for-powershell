@@ -28,8 +28,8 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>ApproveAssignment</code> operation approves the results of a completed
-    /// assignment. 
+    /// The <c>ApproveAssignment</c> operation approves the results of a completed assignment.
+    /// 
     /// 
     ///  
     /// <para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         /// <summary>
         /// <para>
         /// <para> A flag indicating that an assignment should be approved even if it was previously
-        /// rejected. Defaults to <code>False</code>. </para>
+        /// rejected. Defaults to <c>False</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DissociateAccessGrantsIdentityCenter.html">DissociateAccessGrantsIdentityCenter</a>.
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3:DeleteAccessGrantsInstance</code> permission to use this
-    /// operation. 
+    /// You must have the <c>s3:DeleteAccessGrantsInstance</c> permission to use this operation.
+    /// 
     /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Remove", "S3CAccessGrantsInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

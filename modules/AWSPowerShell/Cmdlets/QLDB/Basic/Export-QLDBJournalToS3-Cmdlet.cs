@@ -35,13 +35,13 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     /// 
     ///  
     /// <para>
-    /// If the ledger with the given <code>Name</code> doesn't exist, then throws <code>ResourceNotFoundException</code>.
+    /// If the ledger with the given <c>Name</c> doesn't exist, then throws <c>ResourceNotFoundException</c>.
     /// </para><para>
-    /// If the ledger with the given <code>Name</code> is in <code>CREATING</code> status,
-    /// then throws <code>ResourcePreconditionNotMetException</code>.
+    /// If the ledger with the given <c>Name</c> is in <c>CREATING</c> status, then throws
+    /// <c>ResourcePreconditionNotMetException</c>.
     /// </para><para>
     /// You can initiate up to two concurrent journal export requests for each ledger. Beyond
-    /// this limit, journal export requests throw <code>LimitExceededException</code>.
+    /// this limit, journal export requests throw <c>LimitExceededException</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Export", "QLDBJournalToS3", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -78,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter ExclusiveEndTime
         /// <summary>
         /// <para>
-        /// <para>The exclusive end date and time for the range of journal contents to export.</para><para>The <code>ExclusiveEndTime</code> must be in <code>ISO 8601</code> date and time format
-        /// and in Universal Coordinated Time (UTC). For example: <code>2019-06-13T21:36:34Z</code>.</para><para>The <code>ExclusiveEndTime</code> must be less than or equal to the current UTC date
-        /// and time.</para>
+        /// <para>The exclusive end date and time for the range of journal contents to export.</para><para>The <c>ExclusiveEndTime</c> must be in <c>ISO 8601</c> date and time format and in
+        /// Universal Coordinated Time (UTC). For example: <c>2019-06-13T21:36:34Z</c>.</para><para>The <c>ExclusiveEndTime</c> must be less than or equal to the current UTC date and
+        /// time.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter InclusiveStartTime
         /// <summary>
         /// <para>
-        /// <para>The inclusive start date and time for the range of journal contents to export.</para><para>The <code>InclusiveStartTime</code> must be in <code>ISO 8601</code> date and time
-        /// format and in Universal Coordinated Time (UTC). For example: <code>2019-06-13T21:36:34Z</code>.</para><para>The <code>InclusiveStartTime</code> must be before <code>ExclusiveEndTime</code>.</para><para>If you provide an <code>InclusiveStartTime</code> that is before the ledger's <code>CreationDateTime</code>,
-        /// Amazon QLDB defaults it to the ledger's <code>CreationDateTime</code>.</para>
+        /// <para>The inclusive start date and time for the range of journal contents to export.</para><para>The <c>InclusiveStartTime</c> must be in <c>ISO 8601</c> date and time format and
+        /// in Universal Coordinated Time (UTC). For example: <c>2019-06-13T21:36:34Z</c>.</para><para>The <c>InclusiveStartTime</c> must be before <c>ExclusiveEndTime</c>.</para><para>If you provide an <c>InclusiveStartTime</c> that is before the ledger's <c>CreationDateTime</c>,
+        /// Amazon QLDB defaults it to the ledger's <c>CreationDateTime</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,9 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a symmetric encryption key in Key Management Service
-        /// (KMS). Amazon S3 does not support asymmetric KMS keys.</para><para>You must provide a <code>KmsKeyArn</code> if you specify <code>SSE_KMS</code> as the
-        /// <code>ObjectEncryptionType</code>.</para><para><code>KmsKeyArn</code> is not required if you specify <code>SSE_S3</code> as the
-        /// <code>ObjectEncryptionType</code>.</para>
+        /// (KMS). Amazon S3 does not support asymmetric KMS keys.</para><para>You must provide a <c>KmsKeyArn</c> if you specify <c>SSE_KMS</c> as the <c>ObjectEncryptionType</c>.</para><para><c>KmsKeyArn</c> is not required if you specify <c>SSE_S3</c> as the <c>ObjectEncryptionType</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         /// <para>
         /// <para>The output format of your exported journal data. A journal export job can write the
         /// data objects in either the text or binary representation of <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/ion.html">Amazon
-        /// Ion</a> format, or in <a href="https://jsonlines.org/">JSON Lines</a> text format.</para><para>Default: <code>ION_TEXT</code></para><para>In JSON Lines format, each journal block in an exported data object is a valid JSON
+        /// Ion</a> format, or in <a href="https://jsonlines.org/">JSON Lines</a> text format.</para><para>Default: <c>ION_TEXT</c></para><para>In JSON Lines format, each journal block in an exported data object is a valid JSON
         /// object that is delimited by a newline. You can use this format to directly integrate
         /// JSON exports with analytics tools such as Amazon Athena and Glue because these services
         /// can parse newline-delimited JSON automatically.</para>
@@ -183,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         /// <para>The prefix for the Amazon S3 bucket in which a journal export job writes the journal
         /// contents.</para><para>The prefix must comply with Amazon S3 key naming rules and restrictions. For more
         /// information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html">Object
-        /// Key and Metadata</a> in the <i>Amazon S3 Developer Guide</i>.</para><para>The following are examples of valid <code>Prefix</code> values:</para><ul><li><para><code>JournalExports-ForMyLedger/Testing/</code></para></li><li><para><code>JournalExports</code></para></li><li><para><code>My:Tests/</code></para></li></ul>
+        /// Key and Metadata</a> in the <i>Amazon S3 Developer Guide</i>.</para><para>The following are examples of valid <c>Prefix</c> values:</para><ul><li><para><c>JournalExports-ForMyLedger/Testing/</c></para></li><li><para><c>JournalExports</c></para></li><li><para><c>My:Tests/</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -203,8 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         /// <para>The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a
         /// journal export job to do the following:</para><ul><li><para>Write objects into your Amazon S3 bucket.</para></li><li><para>(Optional) Use your customer managed key in Key Management Service (KMS) for server-side
         /// encryption of your exported data.</para></li></ul><para>To pass a role to QLDB when requesting a journal export, you must have permissions
-        /// to perform the <code>iam:PassRole</code> action on the IAM role resource. This is
-        /// required for all journal export requests.</para>
+        /// to perform the <c>iam:PassRole</c> action on the IAM role resource. This is required
+        /// for all journal export requests.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter NamespaceName
         /// <summary>
         /// <para>
-        /// <para>The name of the user's namespace. Set this to <code>aws</code> to get the public namespace.</para>
+        /// <para>The name of the user's namespace. Set this to <c>aws</c> to get the public namespace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para>String that contains a certificate ARN in the following format:</para><para><code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// <para>String that contains a certificate ARN in the following format:</para><para><c>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</c></para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs)</a>.</para>
         /// </para>
         /// </summary>

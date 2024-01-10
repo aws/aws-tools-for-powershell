@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// Disables a certificate revocation list (CRL).
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:DisableCrl</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:DisableCrl</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Disable", "IAMRACrl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

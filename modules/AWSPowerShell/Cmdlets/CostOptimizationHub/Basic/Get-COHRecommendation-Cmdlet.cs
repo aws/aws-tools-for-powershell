@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.COH
     /// 
     ///  
     /// <para>
-    /// The <code>recommendationId</code> is only valid for up to a maximum of 24 hours as
-    /// recommendations are refreshed daily. To retrieve the <code>recommendationId</code>,
-    /// use the <code>ListRecommendations</code> API.
+    /// The <c>recommendationId</c> is only valid for up to a maximum of 24 hours as recommendations
+    /// are refreshed daily. To retrieve the <c>recommendationId</c>, use the <c>ListRecommendations</c>
+    /// API.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "COHRecommendation")]

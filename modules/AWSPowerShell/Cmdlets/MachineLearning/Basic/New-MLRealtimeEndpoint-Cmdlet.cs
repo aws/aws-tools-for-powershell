@@ -28,9 +28,9 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Creates a real-time endpoint for the <code>MLModel</code>. The endpoint contains the
-    /// URI of the <code>MLModel</code>; that is, the location to send real-time prediction
-    /// requests for the specified <code>MLModel</code>.
+    /// Creates a real-time endpoint for the <c>MLModel</c>. The endpoint contains the URI
+    /// of the <c>MLModel</c>; that is, the location to send real-time prediction requests
+    /// for the specified <c>MLModel</c>.
     /// </summary>
     [Cmdlet("New", "MLRealtimeEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MachineLearning.Model.CreateRealtimeEndpointResponse")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter MLModelId
         /// <summary>
         /// <para>
-        /// <para>The ID assigned to the <code>MLModel</code> during creation.</para>
+        /// <para>The ID assigned to the <c>MLModel</c> during creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

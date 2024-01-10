@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// 
     ///  
     /// <para>
-    /// You can also quickly create a directory using a managed schema, called the <code>QuickStartSchema</code>.
+    /// You can also quickly create a directory using a managed schema, called the <c>QuickStartSchema</c>.
     /// For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_managed.html">Managed
     /// Schema</a> in the <i>Amazon Cloud Directory Developer Guide</i>.
     /// </para>

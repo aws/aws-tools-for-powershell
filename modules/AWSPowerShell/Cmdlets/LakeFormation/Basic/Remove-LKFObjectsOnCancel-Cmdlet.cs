@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     /// 
     ///  
     /// <para>
-    ///  The Glue ETL library function <code>write_dynamic_frame.from_catalog()</code> includes
-    /// an option to automatically call <code>DeleteObjectsOnCancel</code> before writes.
-    /// For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/transactions-data-operations.html#rolling-back-writes">Rolling
+    ///  The Glue ETL library function <c>write_dynamic_frame.from_catalog()</c> includes
+    /// an option to automatically call <c>DeleteObjectsOnCancel</c> before writes. For more
+    /// information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/transactions-data-operations.html#rolling-back-writes">Rolling
     /// Back Amazon S3 Writes</a>. 
     /// </para>
     /// </summary>

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
     /// Retrieves the resource-based policy attached to a private CA. If either the private
-    /// CA resource or the policy cannot be found, this action returns a <code>ResourceNotFoundException</code>.
+    /// CA resource or the policy cannot be found, this action returns a <c>ResourceNotFoundException</c>.
     /// 
     /// 
     ///  

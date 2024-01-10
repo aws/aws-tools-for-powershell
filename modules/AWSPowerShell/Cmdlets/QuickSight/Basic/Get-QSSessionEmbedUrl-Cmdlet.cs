@@ -29,14 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Generates a session URL and authorization code that you can use to embed the Amazon
-    /// Amazon QuickSight console in your web server code. Use <code>GetSessionEmbedUrl</code>
-    /// where you want to provide an authoring portal that allows users to create data sources,
+    /// Amazon QuickSight console in your web server code. Use <c>GetSessionEmbedUrl</c> where
+    /// you want to provide an authoring portal that allows users to create data sources,
     /// datasets, analyses, and dashboards. The users who access an embedded Amazon QuickSight
     /// console need belong to the author or admin security cohort. If you want to restrict
     /// permissions to some of these features, add a custom permissions profile to the user
-    /// with the <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html">UpdateUser</a></code> API operation. Use <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html">RegisterUser</a></code> API operation to add a new user with a custom permission profile attached.
-    /// For more information, see the following sections in the <i>Amazon QuickSight User
-    /// Guide</i>:
+    /// with the <c><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html">UpdateUser</a></c> API operation. Use <c><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html">RegisterUser</a></c> API operation to add a new user with a custom permission profile attached. For
+    /// more information, see the following sections in the <i>Amazon QuickSight User Guide</i>:
     /// 
     ///  <ul><li><para><a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedding
     /// Analytics</a></para></li><li><para><a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing
@@ -78,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The URL you use to access the embedded session. The entry point URL is constrained
-        /// to the following paths:</para><ul><li><para><code>/start</code></para></li><li><para><code>/start/analyses</code></para></li><li><para><code>/start/dashboards</code></para></li><li><para><code>/start/favorites</code></para></li><li><para><code>/dashboards/<i>DashboardId</i></code> - where <code>DashboardId</code> is
-        /// the actual ID key from the Amazon QuickSight console URL of the dashboard</para></li><li><para><code>/analyses/<i>AnalysisId</i></code> - where <code>AnalysisId</code> is the
-        /// actual ID key from the Amazon QuickSight console URL of the analysis</para></li></ul>
+        /// to the following paths:</para><ul><li><para><c>/start</c></para></li><li><para><c>/start/analyses</c></para></li><li><para><c>/start/dashboards</c></para></li><li><para><c>/start/favorites</c></para></li><li><para><c>/dashboards/<i>DashboardId</i></c> - where <c>DashboardId</c> is the actual ID
+        /// key from the Amazon QuickSight console URL of the dashboard</para></li><li><para><c>/analyses/<i>AnalysisId</i></c> - where <c>AnalysisId</c> is the actual ID key
+        /// from the Amazon QuickSight console URL of the analysis</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter UserArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code>
+        /// <para>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <c>QUICKSIGHT</c>
         /// identity type. You can use this for any type of Amazon QuickSight users in your account
         /// (readers, authors, or admins). They need to be authenticated as one of the following:</para><ol><li><para>Active Directory (AD) users or group members</para></li><li><para>Invited nonfederated users</para></li><li><para>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On
         /// using SAML, OpenID Connect, or IAM federation</para></li></ol><para>Omit this parameter for users in the third group, IAM users and IAM role-based sessions.</para>

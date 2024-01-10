@@ -60,11 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The data to be exported from the snapshot or cluster. If this parameter isn't provided,
-        /// all of the data is exported.</para><para>Valid Values:</para><ul><li><para><code>database</code> - Export all the data from a specified database.</para></li><li><para><code>database.table</code><i>table-name</i> - Export a table of the snapshot or
-        /// cluster. This format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora
-        /// MySQL.</para></li><li><para><code>database.schema</code><i>schema-name</i> - Export a database schema of the
-        /// snapshot or cluster. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</para></li><li><para><code>database.schema.table</code><i>table-name</i> - Export a table of the database
-        /// schema. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</para></li></ul>
+        /// all of the data is exported.</para><para>Valid Values:</para><ul><li><para><c>database</c> - Export all the data from a specified database.</para></li><li><para><c>database.table</c><i>table-name</i> - Export a table of the snapshot or cluster.
+        /// This format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora MySQL.</para></li><li><para><c>database.schema</c><i>schema-name</i> - Export a database schema of the snapshot
+        /// or cluster. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</para></li><li><para><c>database.schema.table</c><i>table-name</i> - Export a table of the database schema.
+        /// This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// a snapshot or cluster.</para><para>In the IAM policy attached to your IAM role, include the following required actions
         /// to allow the transfer of files from Amazon RDS or Amazon Aurora to an S3 bucket:</para><ul><li><para>s3:PutObject*</para></li><li><para>s3:GetObject*</para></li><li><para>s3:ListBucket</para></li><li><para>s3:DeleteObject*</para></li><li><para>s3:GetBucketLocation </para></li></ul><para>In the policy, include the resources to identify the S3 bucket and objects in the
         /// bucket. The following list of resources shows the Amazon Resource Name (ARN) format
-        /// for accessing S3:</para><ul><li><para><code>arn:aws:s3:::<i>your-s3-bucket</i></code></para></li><li><para><code>arn:aws:s3:::<i>your-s3-bucket</i>/*</code></para></li></ul>
+        /// for accessing S3:</para><ul><li><para><c>arn:aws:s3:::<i>your-s3-bucket</i></c></para></li><li><para><c>arn:aws:s3:::<i>your-s3-bucket</i>/*</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

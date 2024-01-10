@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
 {
     /// <summary>
     /// Downloads the object at the specified path. If the object’s upload availability is
-    /// set to <code>streaming</code>, AWS Elemental MediaStore downloads the object even
-    /// if it’s still uploading the object.
+    /// set to <c>streaming</c>, AWS Elemental MediaStore downloads the object even if it’s
+    /// still uploading the object.
     /// </summary>
     [Cmdlet("Get", "EMSDObject")]
     [OutputType("Amazon.MediaStoreData.Model.GetObjectResponse")]
@@ -47,12 +47,12 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
         /// <summary>
         /// <para>
         /// <para>The path (including the file name) where the object is stored in the container. Format:
-        /// &lt;folder name&gt;/&lt;folder name&gt;/&lt;file name&gt;</para><para>For example, to upload the file <code>mlaw.avi</code> to the folder path <code>premium\canada</code>
-        /// in the container <code>movies</code>, enter the path <code>premium/canada/mlaw.avi</code>.</para><para>Do not include the container name in this path.</para><para>If the path includes any folders that don't exist yet, the service creates them. For
-        /// example, suppose you have an existing <code>premium/usa</code> subfolder. If you specify
-        /// <code>premium/canada</code>, the service creates a <code>canada</code> subfolder in
-        /// the <code>premium</code> folder. You then have two subfolders, <code>usa</code> and
-        /// <code>canada</code>, in the <code>premium</code> folder. </para><para>There is no correlation between the path to the source and the path (folders) in the
+        /// &lt;folder name&gt;/&lt;folder name&gt;/&lt;file name&gt;</para><para>For example, to upload the file <c>mlaw.avi</c> to the folder path <c>premium\canada</c>
+        /// in the container <c>movies</c>, enter the path <c>premium/canada/mlaw.avi</c>.</para><para>Do not include the container name in this path.</para><para>If the path includes any folders that don't exist yet, the service creates them. For
+        /// example, suppose you have an existing <c>premium/usa</c> subfolder. If you specify
+        /// <c>premium/canada</c>, the service creates a <c>canada</c> subfolder in the <c>premium</c>
+        /// folder. You then have two subfolders, <c>usa</c> and <c>canada</c>, in the <c>premium</c>
+        /// folder. </para><para>There is no correlation between the path to the source and the path (folders) in the
         /// container in AWS Elemental MediaStore.</para><para>For more information about folders and how they exist in a container, see the <a href="http://docs.aws.amazon.com/mediastore/latest/ug/">AWS
         /// Elemental MediaStore User Guide</a>.</para><para>The file name is the name that is assigned to the file that you upload. The file can
         /// have the same name inside and outside of AWS Elemental MediaStore, or it can have
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
         #region Parameter Range
         /// <summary>
         /// <para>
-        /// <para>The range bytes of an object to retrieve. For more information about the <code>Range</code>
+        /// <para>The range bytes of an object to retrieve. For more information about the <c>Range</c>
         /// header, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>.
         /// AWS Elemental MediaStore ignores this header for partially uploaded objects that have
         /// streaming upload availability.</para>

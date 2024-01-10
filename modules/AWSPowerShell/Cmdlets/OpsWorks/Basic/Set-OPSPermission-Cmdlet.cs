@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>The user's permission level, which must be set to one of the following strings. You
-        /// cannot set your own permissions level.</para><ul><li><para><code>deny</code></para></li><li><para><code>show</code></para></li><li><para><code>deploy</code></para></li><li><para><code>manage</code></para></li><li><para><code>iam_only</code></para></li></ul><para>For more information about the permissions associated with these levels, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
+        /// cannot set your own permissions level.</para><ul><li><para><c>deny</c></para></li><li><para><c>show</c></para></li><li><para><c>deploy</c></para></li><li><para><c>manage</c></para></li><li><para><c>iam_only</c></para></li></ul><para>For more information about the permissions associated with these levels, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
         /// User Permissions</a>.</para>
         /// </para>
         /// </summary>

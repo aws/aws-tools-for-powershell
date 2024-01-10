@@ -37,10 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// <para>
     ///  Use this API to deploy models using SageMaker hosting services. 
     /// </para><note><para>
-    ///  You must not delete an <code>EndpointConfig</code> that is in use by an endpoint
-    /// that is live or while the <code>UpdateEndpoint</code> or <code>CreateEndpoint</code>
-    /// operations are being performed on the endpoint. To update an endpoint, you must create
-    /// a new <code>EndpointConfig</code>.
+    ///  You must not delete an <c>EndpointConfig</c> that is in use by an endpoint that is
+    /// live or while the <c>UpdateEndpoint</c> or <c>CreateEndpoint</c> operations are being
+    /// performed on the endpoint. To update an endpoint, you must create a new <c>EndpointConfig</c>.
     /// </para></note><para>
     /// The endpoint name must be unique within an Amazon Web Services Region in your Amazon
     /// Web Services account. 
@@ -50,18 +49,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// </para><note><para>
     /// When you call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a>,
     /// a load call is made to DynamoDB to verify that your endpoint configuration exists.
-    /// When you read data from a DynamoDB table supporting <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html"><code>Eventually Consistent Reads</code></a>, the response might not reflect the
-    /// results of a recently completed write operation. The response might include some stale
-    /// data. If the dependent entities are not yet in DynamoDB, this causes a validation
-    /// error. If you repeat your read request after a short time, the response should return
-    /// the latest data. So retry logic is recommended to handle these possible issues. We
-    /// also recommend that customers call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html">DescribeEndpointConfig</a>
+    /// When you read data from a DynamoDB table supporting <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html"><c>Eventually Consistent Reads</c></a>, the response might not reflect the results
+    /// of a recently completed write operation. The response might include some stale data.
+    /// If the dependent entities are not yet in DynamoDB, this causes a validation error.
+    /// If you repeat your read request after a short time, the response should return the
+    /// latest data. So retry logic is recommended to handle these possible issues. We also
+    /// recommend that customers call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html">DescribeEndpointConfig</a>
     /// before calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a>
     /// to minimize the potential impact of a DynamoDB eventually consistent read.
     /// </para></note><para>
-    /// When SageMaker receives the request, it sets the endpoint status to <code>Creating</code>.
-    /// After it creates the endpoint, it sets the status to <code>InService</code>. SageMaker
-    /// can then process incoming requests for inferences. To check the status of an endpoint,
+    /// When SageMaker receives the request, it sets the endpoint status to <c>Creating</c>.
+    /// After it creates the endpoint, it sets the status to <c>InService</c>. SageMaker can
+    /// then process incoming requests for inferences. To check the status of an endpoint,
     /// use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a>
     /// API.
     /// </para><para>
@@ -80,12 +79,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a>
     /// API operations, add the following policies to the role. 
     /// </para><ul><li><para>
-    /// Option 1: For a full SageMaker access, search and attach the <code>AmazonSageMakerFullAccess</code>
+    /// Option 1: For a full SageMaker access, search and attach the <c>AmazonSageMakerFullAccess</c>
     /// policy.
     /// </para></li><li><para>
     /// Option 2: For granting a limited access to an IAM role, paste the following Action
     /// elements manually into the JSON file of the IAM role: 
-    /// </para><para><code>"Action": ["sagemaker:CreateEndpoint", "sagemaker:CreateEndpointConfig"]</code></para><para><code>"Resource": [</code></para><para><code>"arn:aws:sagemaker:region:account-id:endpoint/endpointName"</code></para><para><code>"arn:aws:sagemaker:region:account-id:endpoint-config/endpointConfigName"</code></para><para><code>]</code></para><para>
+    /// </para><para><c>"Action": ["sagemaker:CreateEndpoint", "sagemaker:CreateEndpointConfig"]</c></para><para><c>"Resource": [</c></para><para><c>"arn:aws:sagemaker:region:account-id:endpoint/endpointName"</c></para><para><c>"arn:aws:sagemaker:region:account-id:endpoint-config/endpointConfigName"</c></para><para><c>]</c></para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html">SageMaker
     /// API Permissions: Actions, Permissions, and Resources Reference</a>.
     /// </para></li></ul></note>
@@ -137,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of the endpoint.The name must be unique within an Amazon Web Services Region
-        /// in your Amazon Web Services account. The name is case-insensitive in <code>CreateEndpoint</code>,
+        /// in your Amazon Web Services account. The name is case-insensitive in <c>CreateEndpoint</c>,
         /// but the case is preserved and must be matched in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html">InvokeEndpoint</a>.</para>
         /// </para>
         /// </summary>
@@ -156,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Maximum execution timeout for the deployment. Note that the timeout value should be
-        /// larger than the total waiting time specified in <code>TerminationWaitInSeconds</code>
-        /// and <code>WaitIntervalInSeconds</code>.</para>
+        /// larger than the total waiting time specified in <c>TerminationWaitInSeconds</c> and
+        /// <c>WaitIntervalInSeconds</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CanarySize_Type
         /// <summary>
         /// <para>
-        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><code>INSTANCE_COUNT</code>: The endpoint activates based on the number of instances.</para></li><li><para><code>CAPACITY_PERCENT</code>: The endpoint activates based on the specified percentage
+        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><c>INSTANCE_COUNT</c>: The endpoint activates based on the number of instances.</para></li><li><para><c>CAPACITY_PERCENT</c>: The endpoint activates based on the specified percentage
         /// of capacity.</para></li></ul>
         /// </para>
         /// </summary>
@@ -218,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter LinearStepSize_Type
         /// <summary>
         /// <para>
-        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><code>INSTANCE_COUNT</code>: The endpoint activates based on the number of instances.</para></li><li><para><code>CAPACITY_PERCENT</code>: The endpoint activates based on the specified percentage
+        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><c>INSTANCE_COUNT</c>: The endpoint activates based on the number of instances.</para></li><li><para><c>CAPACITY_PERCENT</c>: The endpoint activates based on the specified percentage
         /// of capacity.</para></li></ul>
         /// </para>
         /// </summary>
@@ -231,10 +230,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TrafficRoutingConfiguration_Type
         /// <summary>
         /// <para>
-        /// <para>Traffic routing strategy type.</para><ul><li><para><code>ALL_AT_ONCE</code>: Endpoint traffic shifts to the new fleet in a single step.
-        /// </para></li><li><para><code>CANARY</code>: Endpoint traffic shifts to the new fleet in two steps. The first
-        /// step is the canary, which is a small portion of the traffic. The second step is the
-        /// remainder of the traffic. </para></li><li><para><code>LINEAR</code>: Endpoint traffic shifts to the new fleet in n steps of a configurable
+        /// <para>Traffic routing strategy type.</para><ul><li><para><c>ALL_AT_ONCE</c>: Endpoint traffic shifts to the new fleet in a single step. </para></li><li><para><c>CANARY</c>: Endpoint traffic shifts to the new fleet in two steps. The first step
+        /// is the canary, which is a small portion of the traffic. The second step is the remainder
+        /// of the traffic. </para></li><li><para><c>LINEAR</c>: Endpoint traffic shifts to the new fleet in n steps of a configurable
         /// size. </para></li></ul>
         /// </para>
         /// </summary>
@@ -247,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MaximumBatchSize_Type
         /// <summary>
         /// <para>
-        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><code>INSTANCE_COUNT</code>: The endpoint activates based on the number of instances.</para></li><li><para><code>CAPACITY_PERCENT</code>: The endpoint activates based on the specified percentage
+        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><c>INSTANCE_COUNT</c>: The endpoint activates based on the number of instances.</para></li><li><para><c>CAPACITY_PERCENT</c>: The endpoint activates based on the specified percentage
         /// of capacity.</para></li></ul>
         /// </para>
         /// </summary>
@@ -260,7 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RollbackMaximumBatchSize_Type
         /// <summary>
         /// <para>
-        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><code>INSTANCE_COUNT</code>: The endpoint activates based on the number of instances.</para></li><li><para><code>CAPACITY_PERCENT</code>: The endpoint activates based on the specified percentage
+        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><c>INSTANCE_COUNT</c>: The endpoint activates based on the number of instances.</para></li><li><para><c>CAPACITY_PERCENT</c>: The endpoint activates based on the specified percentage
         /// of capacity.</para></li></ul>
         /// </para>
         /// </summary>

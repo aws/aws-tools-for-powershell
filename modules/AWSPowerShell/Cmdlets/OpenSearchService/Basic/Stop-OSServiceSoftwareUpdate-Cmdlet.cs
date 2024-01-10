@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
     /// Cancels a scheduled service software update for an Amazon OpenSearch Service domain.
-    /// You can only perform this operation before the <code>AutomatedUpdateDate</code> and
-    /// when the domain's <code>UpdateStatus</code> is <code>PENDING_UPDATE</code>. For more
-    /// information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service
+    /// You can only perform this operation before the <c>AutomatedUpdateDate</c> and when
+    /// the domain's <c>UpdateStatus</c> is <c>PENDING_UPDATE</c>. For more information, see
+    /// <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service
     /// software updates in Amazon OpenSearch Service</a>.
     /// </summary>
     [Cmdlet("Stop", "OSServiceSoftwareUpdate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

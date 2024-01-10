@@ -44,10 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Accept
         /// <summary>
         /// <para>
-        /// <para>The content-type of the export, for example <code>application/json</code>. Currently
-        /// <code>application/json</code> and <code>application/yaml</code> are supported for
-        /// <code>exportType</code> of<code>oas30</code> and <code>swagger</code>. This should
-        /// be specified in the <code>Accept</code> header for direct API requests.</para>
+        /// <para>The content-type of the export, for example <c>application/json</c>. Currently <c>application/json</c>
+        /// and <c>application/yaml</c> are supported for <c>exportType</c> of<c>oas30</c> and
+        /// <c>swagger</c>. This should be specified in the <c>Accept</c> header for direct API
+        /// requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,12 +77,12 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A key-value map of query string parameters that specify properties of the export,
-        /// depending on the requested <code>exportType</code>. For <code>exportType</code><code>oas30</code>
-        /// and <code>swagger</code>, any combination of the following parameters are supported:
-        /// <code>extensions='integrations'</code> or <code>extensions='apigateway'</code> will
-        /// export the API with x-amazon-apigateway-integration extensions. <code>extensions='authorizers'</code>
-        /// will export the API with x-amazon-apigateway-authorizer extensions. <code>postman</code>
-        /// will export the API with Postman extensions, allowing for import to the Postman tool</para>
+        /// depending on the requested <c>exportType</c>. For <c>exportType</c><c>oas30</c> and
+        /// <c>swagger</c>, any combination of the following parameters are supported: <c>extensions='integrations'</c>
+        /// or <c>extensions='apigateway'</c> will export the API with x-amazon-apigateway-integration
+        /// extensions. <c>extensions='authorizers'</c> will export the API with x-amazon-apigateway-authorizer
+        /// extensions. <c>postman</c> will export the API with Postman extensions, allowing for
+        /// import to the Postman tool</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

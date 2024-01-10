@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies whether you want DataSync to use Transport Layer Security (TLS) 1.2 encryption
-        /// when it copies data to or from the Amazon EFS file system.</para><para>If you specify an access point using <code>AccessPointArn</code> or an IAM role using
-        /// <code>FileSystemAccessRoleArn</code>, you must set this parameter to <code>TLS1_2</code>.</para>
+        /// when it copies data to or from the Amazon EFS file system.</para><para>If you specify an access point using <c>AccessPointArn</c> or an IAM role using <c>FileSystemAccessRoleArn</c>,
+        /// you must set this parameter to <c>TLS1_2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>Specifies a mount path for your Amazon EFS file system. This is where DataSync reads
         /// or writes data (depending on if this is a source or destination location). By default,
-        /// DataSync uses the root directory, but you can also include subdirectories.</para><note><para>You must specify a value with forward slashes (for example, <code>/path/to/folder</code>).</para></note>
+        /// DataSync uses the root directory, but you can also include subdirectories.</para><note><para>You must specify a value with forward slashes (for example, <c>/path/to/folder</c>).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

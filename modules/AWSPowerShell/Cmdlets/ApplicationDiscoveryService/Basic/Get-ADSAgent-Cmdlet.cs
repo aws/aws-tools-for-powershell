@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
     /// Lists agents or collectors as specified by ID or other filters. All agents/collectors
-    /// associated with your user can be listed if you call <code>DescribeAgents</code> as
-    /// is without passing any parameters.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// associated with your user can be listed if you call <c>DescribeAgents</c> as is without
+    /// passing any parameters.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ADSAgent")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.AgentInfo")]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para>You can filter the request using various logical operators and a <i>key</i>-<i>value</i>
-        /// format. For example: </para><para><code>{"key": "collectionStatus", "value": "STARTED"}</code></para>
+        /// format. For example: </para><para><c>{"key": "collectionStatus", "value": "STARTED"}</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para>Token to retrieve the next set of results. For example, if you previously specified
-        /// 100 IDs for <code>DescribeAgentsRequest$agentIds</code> but set <code>DescribeAgentsRequest$maxResults</code>
+        /// 100 IDs for <c>DescribeAgentsRequest$agentIds</c> but set <c>DescribeAgentsRequest$maxResults</c>
         /// to 10, you received a set of 10 results along with a token. Use that token in this
         /// query to get the next set of 10.</para>
         /// </para>

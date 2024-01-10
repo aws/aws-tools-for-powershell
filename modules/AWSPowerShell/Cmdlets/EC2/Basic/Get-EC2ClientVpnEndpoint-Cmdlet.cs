@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><code>endpoint-id</code> - The ID of the Client VPN endpoint.</para></li><li><para><code>transport-protocol</code> - The transport protocol (<code>tcp</code> | <code>udp</code>).</para></li></ul>
+        /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><c>endpoint-id</c> - The ID of the Client VPN endpoint.</para></li><li><para><c>transport-protocol</c> - The transport protocol (<c>tcp</c> | <c>udp</c>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

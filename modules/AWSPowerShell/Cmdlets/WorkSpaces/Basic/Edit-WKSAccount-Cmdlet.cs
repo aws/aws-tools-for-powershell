@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// interface. Specify an IP address range that is compatible with your network and in
         /// CIDR notation (that is, specify the range as an IPv4 CIDR block). The CIDR block size
         /// must be /16 (for example, 203.0.113.25/16). It must also be specified as available
-        /// by the <code>ListAvailableManagementCidrRanges</code> operation.</para>
+        /// by the <c>ListAvailableManagementCidrRanges</c> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,8 +28,8 @@ using Amazon.EKSAuth.Model;
 namespace Amazon.PowerShell.Cmdlets.EKSAU
 {
     /// <summary>
-    /// The Amazon EKS Auth API and the <code>AssumeRoleForPodIdentity</code> action are only
-    /// used by the EKS Pod Identity Agent.
+    /// The Amazon EKS Auth API and the <c>AssumeRoleForPodIdentity</c> action are only used
+    /// by the EKS Pod Identity Agent.
     /// 
     ///  
     /// <para>

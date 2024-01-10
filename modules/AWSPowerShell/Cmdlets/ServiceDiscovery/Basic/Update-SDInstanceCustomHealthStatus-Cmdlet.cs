@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// 
     ///  
     /// <para>
-    /// You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only
-    /// for custom health checks, which you define using <code>HealthCheckCustomConfig</code>
-    /// when you create a service. You can't use it to change the status for Route 53 health
-    /// checks, which you define using <code>HealthCheckConfig</code>.
+    /// You can use <c>UpdateInstanceCustomHealthStatus</c> to change the status only for
+    /// custom health checks, which you define using <c>HealthCheckCustomConfig</c> when you
+    /// create a service. You can't use it to change the status for Route 53 health checks,
+    /// which you define using <c>HealthCheckConfig</c>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html">HealthCheckCustomConfig</a>.
     /// </para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.</para>
+        /// <para>The new status of the instance, <c>HEALTHY</c> or <c>UNHEALTHY</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

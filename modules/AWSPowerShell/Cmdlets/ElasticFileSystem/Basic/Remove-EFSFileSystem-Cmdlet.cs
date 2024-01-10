@@ -45,13 +45,13 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// mount targets, you must first delete them. For more information, see <a>DescribeMountTargets</a>
     /// and <a>DeleteMountTarget</a>. 
     /// </para><note><para>
-    /// The <code>DeleteFileSystem</code> call returns while the file system state is still
-    /// <code>deleting</code>. You can check the file system deletion status by calling the
-    /// <a>DescribeFileSystems</a> operation, which returns a list of file systems in your
-    /// account. If you pass file system ID or creation token for the deleted file system,
-    /// the <a>DescribeFileSystems</a> returns a <code>404 FileSystemNotFound</code> error.
+    /// The <c>DeleteFileSystem</c> call returns while the file system state is still <c>deleting</c>.
+    /// You can check the file system deletion status by calling the <a>DescribeFileSystems</a>
+    /// operation, which returns a list of file systems in your account. If you pass file
+    /// system ID or creation token for the deleted file system, the <a>DescribeFileSystems</a>
+    /// returns a <c>404 FileSystemNotFound</c> error.
     /// </para></note><para>
-    /// This operation requires permissions for the <code>elasticfilesystem:DeleteFileSystem</code>
+    /// This operation requires permissions for the <c>elasticfilesystem:DeleteFileSystem</c>
     /// action.
     /// </para>
     /// </summary>

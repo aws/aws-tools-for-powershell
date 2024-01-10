@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>Specifies whether to enable the Deliverability dashboard. To enable the dashboard,
-        /// set this value to <code>true</code>.</para>
+        /// set this value to <c>true</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

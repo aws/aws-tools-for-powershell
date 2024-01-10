@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Protocol
         /// <summary>
         /// <para>
-        /// <para>The protocol to verify, such as <code>Email</code> or <code>SMS</code> (text messaging).</para>
+        /// <para>The protocol to verify, such as <c>Email</c> or <c>SMS</c> (text messaging).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

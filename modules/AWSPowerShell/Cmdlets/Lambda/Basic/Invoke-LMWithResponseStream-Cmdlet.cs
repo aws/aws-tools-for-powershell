@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The name of the Lambda function.</para><para><b>Name formats</b></para><ul><li><para><b>Function name</b> – <code>my-function</code>.</para></li><li><para><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</para></li><li><para><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</para></li></ul><para>The length constraint applies only to the full ARN. If you specify only the function
+        /// <para>The name of the Lambda function.</para><para><b>Name formats</b></para><ul><li><para><b>Function name</b> – <c>my-function</c>.</para></li><li><para><b>Function ARN</b> – <c>arn:aws:lambda:us-west-2:123456789012:function:my-function</c>.</para></li><li><para><b>Partial ARN</b> – <c>123456789012:function:my-function</c>.</para></li></ul><para>The length constraint applies only to the full ARN. If you specify only the function
         /// name, it is limited to 64 characters in length.</para>
         /// </para>
         /// </summary>
@@ -85,10 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter InvocationType
         /// <summary>
         /// <para>
-        /// <para>Use one of the following options:</para><ul><li><para><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep
-        /// the connection open until the function returns a response or times out. The API operation
-        /// response includes the function response and additional data.</para></li><li><para><code>DryRun</code> – Validate parameter values and verify that the IAM user or role
-        /// has permission to invoke the function.</para></li></ul>
+        /// <para>Use one of the following options:</para><ul><li><para><c>RequestResponse</c> (default) – Invoke the function synchronously. Keep the connection
+        /// open until the function returns a response or times out. The API operation response
+        /// includes the function response and additional data.</para></li><li><para><c>DryRun</c> – Validate parameter values and verify that the IAM user or role has
+        /// permission to invoke the function.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter LogType
         /// <summary>
         /// <para>
-        /// <para>Set to <code>Tail</code> to include the execution log in the response. Applies to
-        /// synchronously invoked functions only.</para>
+        /// <para>Set to <c>Tail</c> to include the execution log in the response. Applies to synchronously
+        /// invoked functions only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Payload
         /// <summary>
         /// <para>
-        /// <para>The JSON that you want to provide to your Lambda function as input.</para><para>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>.
-        /// You can also specify a file path. For example, <code>--payload file://payload.json</code>.</para>
+        /// <para>The JSON that you want to provide to your Lambda function as input.</para><para>You can enter the JSON directly. For example, <c>--payload '{ "key": "value" }'</c>.
+        /// You can also specify a file path. For example, <c>--payload file://payload.json</c>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

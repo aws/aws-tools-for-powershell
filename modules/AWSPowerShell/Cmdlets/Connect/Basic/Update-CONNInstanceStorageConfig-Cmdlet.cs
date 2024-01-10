@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter StorageConfigKinesisVideoStreamConfigEncryptionConfigKeyId
         /// <summary>
         /// <para>
-        /// <para>The full ARN of the encryption key. </para><note><para>Be sure to provide the full ARN of the encryption key, not just the ID.</para><para>Amazon Connect supports only KMS keys with the default key spec of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default"><code>SYMMETRIC_DEFAULT</code></a>. </para></note>
+        /// <para>The full ARN of the encryption key. </para><note><para>Be sure to provide the full ARN of the encryption key, not just the ID.</para><para>Amazon Connect supports only KMS keys with the default key spec of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default"><c>SYMMETRIC_DEFAULT</c></a>. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter StorageConfigS3ConfigEncryptionConfigKeyId
         /// <summary>
         /// <para>
-        /// <para>The full ARN of the encryption key. </para><note><para>Be sure to provide the full ARN of the encryption key, not just the ID.</para><para>Amazon Connect supports only KMS keys with the default key spec of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default"><code>SYMMETRIC_DEFAULT</code></a>. </para></note>
+        /// <para>The full ARN of the encryption key. </para><note><para>Be sure to provide the full ARN of the encryption key, not just the ID.</para><para>Amazon Connect supports only KMS keys with the default key spec of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default"><c>SYMMETRIC_DEFAULT</c></a>. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

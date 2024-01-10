@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter CatalogId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier, consisting of <code><i>account_id</i></code>.</para>
+        /// <para>A unique identifier, consisting of <c><i>account_id</i></c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,14 +67,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>A list of key-value pairs, and a comparator used to filter the search results. Returns
-        /// all entities matching the predicate.</para><para>The <code>Comparator</code> member of the <code>PropertyPredicate</code> struct is
-        /// used only for time fields, and can be omitted for other field types. Also, when comparing
-        /// string values, such as when <code>Key=Name</code>, a fuzzy match algorithm is used.
-        /// The <code>Key</code> field (for example, the value of the <code>Name</code> field)
-        /// is split on certain punctuation characters, for example, -, :, #, etc. into tokens.
-        /// Then each token is exact-match compared with the <code>Value</code> member of <code>PropertyPredicate</code>.
-        /// For example, if <code>Key=Name</code> and <code>Value=link</code>, tables named <code>customer-link</code>
-        /// and <code>xx-link-yy</code> are returned, but <code>xxlinkyy</code> is not returned.</para>
+        /// all entities matching the predicate.</para><para>The <c>Comparator</c> member of the <c>PropertyPredicate</c> struct is used only for
+        /// time fields, and can be omitted for other field types. Also, when comparing string
+        /// values, such as when <c>Key=Name</c>, a fuzzy match algorithm is used. The <c>Key</c>
+        /// field (for example, the value of the <c>Name</c> field) is split on certain punctuation
+        /// characters, for example, -, :, #, etc. into tokens. Then each token is exact-match
+        /// compared with the <c>Value</c> member of <c>PropertyPredicate</c>. For example, if
+        /// <c>Key=Name</c> and <c>Value=link</c>, tables named <c>customer-link</c> and <c>xx-link-yy</c>
+        /// are returned, but <c>xxlinkyy</c> is not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>Allows you to specify that you want to search the tables shared with your account.
-        /// The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </para><ul><li><para>If set to <code>FOREIGN</code>, will search the tables shared with your account. </para></li><li><para>If set to <code>ALL</code>, will search the tables shared with your account, as well
-        /// as the tables in yor local account. </para></li></ul>
+        /// The allowable values are <c>FOREIGN</c> or <c>ALL</c>. </para><ul><li><para>If set to <c>FOREIGN</c>, will search the tables shared with your account. </para></li><li><para>If set to <c>ALL</c>, will search the tables shared with your account, as well as
+        /// the tables in yor local account. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

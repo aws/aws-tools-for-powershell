@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. The possible values are:</para><ul><li><para><code>state</code> - The state of the transit gateway multicast domain. Valid values
-        /// are <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>.</para></li><li><para><code>transit-gateway-id</code> - The ID of the transit gateway.</para></li><li><para><code>transit-gateway-multicast-domain-id</code> - The ID of the transit gateway
-        /// multicast domain.</para></li></ul>
+        /// <para>One or more filters. The possible values are:</para><ul><li><para><c>state</c> - The state of the transit gateway multicast domain. Valid values are
+        /// <c>pending</c> | <c>available</c> | <c>deleting</c> | <c>deleted</c>.</para></li><li><para><c>transit-gateway-id</c> - The ID of the transit gateway.</para></li><li><para><c>transit-gateway-multicast-domain-id</c> - The ID of the transit gateway multicast
+        /// domain.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

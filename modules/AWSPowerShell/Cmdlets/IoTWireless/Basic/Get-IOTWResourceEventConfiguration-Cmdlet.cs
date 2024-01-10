@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter PartnerType
         /// <summary>
         /// <para>
-        /// <para>Partner type of the resource if the identifier type is <code>PartnerAccountId</code>.</para>
+        /// <para>Partner type of the resource if the identifier type is <c>PartnerAccountId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

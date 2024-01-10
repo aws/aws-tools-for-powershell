@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Creates an Object Lambda Access Point. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming
     /// objects with Object Lambda Access Points</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
-    /// The following actions are related to <code>CreateAccessPointForObjectLambda</code>:
+    /// The following actions are related to <c>CreateAccessPointForObjectLambda</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointForObjectLambda.html">DeleteAccessPointForObjectLambda</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointForObjectLambda.html">GetAccessPointForObjectLambda</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html">ListAccessPointsForObjectLambda</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "S3CAccessPointForObjectLambda", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Configuration_AllowedFeature
         /// <summary>
         /// <para>
-        /// <para>A container for allowed features. Valid inputs are <code>GetObject-Range</code>, <code>GetObject-PartNumber</code>,
-        /// <code>HeadObject-Range</code>, and <code>HeadObject-PartNumber</code>.</para>
+        /// <para>A container for allowed features. Valid inputs are <c>GetObject-Range</c>, <c>GetObject-PartNumber</c>,
+        /// <c>HeadObject-Range</c>, and <c>HeadObject-PartNumber</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

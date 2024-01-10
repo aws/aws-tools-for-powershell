@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
     /// Updates a campaign to deploy a retrained solution version with an existing campaign,
-    /// change your campaign's <code>minProvisionedTPS</code>, or modify your campaign's configuration,
+    /// change your campaign's <c>minProvisionedTPS</c>, or modify your campaign's configuration,
     /// such as the exploration configuration. 
     /// 
     ///  
@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// </para><note><para>
     /// You can still get recommendations from a campaign while an update is in progress.
     /// The campaign will use the previous solution version and campaign configuration to
-    /// generate recommendations until the latest campaign update status is <code>Active</code>.
+    /// generate recommendations until the latest campaign update status is <c>Active</c>.
     /// 
     /// </para></note><para>
     /// For more information about updating a campaign, including code samples, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/update-campaigns.html">Updating
@@ -96,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter CampaignConfig_ItemExplorationConfig
         /// <summary>
         /// <para>
-        /// <para>Specifies the exploration configuration hyperparameters, including <code>explorationWeight</code>
-        /// and <code>explorationItemAgeCutOff</code>, you want to use to configure the amount
-        /// of item exploration Amazon Personalize uses when recommending items. Provide <code>itemExplorationConfig</code>
+        /// <para>Specifies the exploration configuration hyperparameters, including <c>explorationWeight</c>
+        /// and <c>explorationItemAgeCutOff</c>, you want to use to configure the amount of item
+        /// exploration Amazon Personalize uses when recommending items. Provide <c>itemExplorationConfig</c>
         /// data only if your solution uses the <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>
         /// recipe.</para>
         /// </para>
@@ -111,9 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>Specifies the requested minimum provisioned transactions (recommendations) per second
-        /// that Amazon Personalize will support. A high <code>minProvisionedTPS</code> will increase
-        /// your bill. We recommend starting with 1 for <code>minProvisionedTPS</code> (the default).
-        /// Track your usage using Amazon CloudWatch metrics, and increase the <code>minProvisionedTPS</code>
+        /// that Amazon Personalize will support. A high <c>minProvisionedTPS</c> will increase
+        /// your bill. We recommend starting with 1 for <c>minProvisionedTPS</c> (the default).
+        /// Track your usage using Amazon CloudWatch metrics, and increase the <c>minProvisionedTPS</c>
         /// as necessary.</para>
         /// </para>
         /// </summary>

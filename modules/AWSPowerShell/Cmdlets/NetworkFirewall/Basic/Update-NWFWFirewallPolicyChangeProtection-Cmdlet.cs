@@ -28,8 +28,8 @@ using Amazon.NetworkFirewall.Model;
 namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
-    /// Modifies the flag, <code>ChangeProtection</code>, which indicates whether it is possible
-    /// to change the firewall. If the flag is set to <code>TRUE</code>, the firewall is protected
+    /// Modifies the flag, <c>ChangeProtection</c>, which indicates whether it is possible
+    /// to change the firewall. If the flag is set to <c>TRUE</c>, the firewall is protected
     /// from changes. This setting helps protect against accidentally changing a firewall
     /// that's in use.
     /// </summary>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>A setting indicating whether the firewall is protected against a change to the firewall
         /// policy association. Use this setting to protect against accidentally modifying the
         /// firewall policy for a firewall that is in use. When you create a firewall, the operation
-        /// initializes this setting to <code>TRUE</code>.</para>
+        /// initializes this setting to <c>TRUE</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// Without the token, Network Firewall performs your updates regardless of whether the
         /// firewall has changed since you last retrieved it.</para><para>To make a conditional change to the firewall, provide the token in your update request.
         /// Network Firewall uses the token to ensure that the firewall hasn't changed since you
-        /// last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>.
+        /// last retrieved it. If it has changed, the operation fails with an <c>InvalidTokenException</c>.
         /// If this happens, retrieve the firewall again to get a current copy of it with a new
         /// token. Reapply your changes as needed, then try the operation again using the new
         /// token. </para>

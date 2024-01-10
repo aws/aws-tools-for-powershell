@@ -35,11 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// 
     ///  
     /// <para>
-    /// When you call this API, Service Catalog calls <code>organizations:EnableAWSServiceAccess</code>
+    /// When you call this API, Service Catalog calls <c>organizations:EnableAWSServiceAccess</c>
     /// on your behalf so that your shares stay in sync with any changes in your Organizations
     /// structure.
     /// </para><para>
-    /// Note that a delegated administrator is not authorized to invoke <code>EnableAWSOrganizationsAccess</code>.
+    /// Note that a delegated administrator is not authorized to invoke <c>EnableAWSOrganizationsAccess</c>.
     /// </para><important><para>
     /// If you have previously disabled Organizations access for Service Catalog, and then
     /// enable access again, the portfolio access permissions might not sync with the latest

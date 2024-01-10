@@ -28,9 +28,9 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// A session is an instance of a browser created through a <code>RemoteWebDriver</code>
-    /// with the URL from <a>CreateTestGridUrlResult$url</a>. You can use the following to
-    /// look up sessions:
+    /// A session is an instance of a browser created through a <c>RemoteWebDriver</c> with
+    /// the URL from <a>CreateTestGridUrlResult$url</a>. You can use the following to look
+    /// up sessions:
     /// 
     ///  <ul><li><para>
     /// The session ARN (<a>GetTestGridSessionRequest$sessionArn</a>).

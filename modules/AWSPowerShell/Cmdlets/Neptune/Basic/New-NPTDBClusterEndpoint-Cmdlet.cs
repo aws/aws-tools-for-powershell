@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EndpointType
         /// <summary>
         /// <para>
-        /// <para>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>ANY</code>.</para>
+        /// <para>The type of the endpoint. One of: <c>READER</c>, <c>WRITER</c>, <c>ANY</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

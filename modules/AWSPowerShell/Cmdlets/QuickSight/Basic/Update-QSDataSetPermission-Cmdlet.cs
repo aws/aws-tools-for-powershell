@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// 
     ///  
     /// <para>
-    /// The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.
+    /// The permissions resource is <c>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "QSDataSetPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

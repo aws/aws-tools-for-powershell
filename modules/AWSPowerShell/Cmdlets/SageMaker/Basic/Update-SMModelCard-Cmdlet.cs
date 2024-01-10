@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The approval status of the model card within your organization. Different organizations
-        /// might have different criteria for model card review and approval.</para><ul><li><para><code>Draft</code>: The model card is a work in progress.</para></li><li><para><code>PendingReview</code>: The model card is pending review.</para></li><li><para><code>Approved</code>: The model card is approved.</para></li><li><para><code>Archived</code>: The model card is archived. No more updates should be made
-        /// to the model card, but it can still be exported.</para></li></ul>
+        /// might have different criteria for model card review and approval.</para><ul><li><para><c>Draft</c>: The model card is a work in progress.</para></li><li><para><c>PendingReview</c>: The model card is pending review.</para></li><li><para><c>Approved</c>: The model card is approved.</para></li><li><para><c>Archived</c>: The model card is archived. No more updates should be made to the
+        /// model card, but it can still be exported.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

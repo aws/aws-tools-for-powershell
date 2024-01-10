@@ -39,9 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     /// Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly
     /// as strings of characters.
     /// </para><para>
-    /// You can use the <code>TagResource</code> action with a resource that already has tags.
-    /// If you specify a new tag key for the resource, this tag is appended to the list of
-    /// tags associated with the resource. If you specify a tag key that is already associated
+    /// You can use the <c>TagResource</c> action with a resource that already has tags. If
+    /// you specify a new tag key for the resource, this tag is appended to the list of tags
+    /// associated with the resource. If you specify a tag key that is already associated
     /// with the resource, the new tag value that you specify replaces the previous value
     /// for that tag.
     /// </para><para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the canary or group that you're adding tags to.</para><para>The ARN format of a canary is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i></code>.</para><para>The ARN format of a group is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:group:<i>group-name</i></code></para>
+        /// <para>The ARN of the canary or group that you're adding tags to.</para><para>The ARN format of a canary is <c>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i></c>.</para><para>The ARN format of a group is <c>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:group:<i>group-name</i></c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

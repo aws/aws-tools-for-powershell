@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// sending input and receiving outputs.
     /// 
     ///  <note><para>
-    /// Amazon Web Services CLI usage: <code>start-session</code> is an interactive command
-    /// that requires the Session Manager plugin to be installed on the client machine making
-    /// the call. For information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">Install
+    /// Amazon Web Services CLI usage: <c>start-session</c> is an interactive command that
+    /// requires the Session Manager plugin to be installed on the client machine making the
+    /// call. For information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">Install
     /// the Session Manager plugin for the Amazon Web Services CLI</a> in the <i>Amazon Web
     /// Services Systems Manager User Guide</i>.
     /// </para><para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The name of the SSM document you want to use to define the type of session, input
-        /// parameters, or preferences for the session. For example, <code>SSM-SessionManagerRunShell</code>.
+        /// parameters, or preferences for the session. For example, <c>SSM-SessionManagerRunShell</c>.
         /// You can call the <a>GetDocument</a> API to verify the document exists before attempting
         /// to start a session. If no document name is provided, a shell to the managed node is
         /// launched by default. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html">Start

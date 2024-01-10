@@ -51,14 +51,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>activity-status</code> - The progress of the EC2 Fleet ( <code>error</code>
-        /// | <code>pending-fulfillment</code> | <code>pending-termination</code> | <code>fulfilled</code>).</para></li><li><para><code>excess-capacity-termination-policy</code> - Indicates whether to terminate
-        /// running instances if the target capacity is decreased below the current EC2 Fleet
-        /// size (<code>true</code> | <code>false</code>).</para></li><li><para><code>fleet-state</code> - The state of the EC2 Fleet (<code>submitted</code> | <code>active</code>
-        /// | <code>deleted</code> | <code>failed</code> | <code>deleted-running</code> | <code>deleted-terminating</code>
-        /// | <code>modifying</code>).</para></li><li><para><code>replace-unhealthy-instances</code> - Indicates whether EC2 Fleet should replace
-        /// unhealthy instances (<code>true</code> | <code>false</code>).</para></li><li><para><code>type</code> - The type of request (<code>instant</code> | <code>request</code>
-        /// | <code>maintain</code>).</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>activity-status</c> - The progress of the EC2 Fleet ( <c>error</c> | <c>pending-fulfillment</c>
+        /// | <c>pending-termination</c> | <c>fulfilled</c>).</para></li><li><para><c>excess-capacity-termination-policy</c> - Indicates whether to terminate running
+        /// instances if the target capacity is decreased below the current EC2 Fleet size (<c>true</c>
+        /// | <c>false</c>).</para></li><li><para><c>fleet-state</c> - The state of the EC2 Fleet (<c>submitted</c> | <c>active</c>
+        /// | <c>deleted</c> | <c>failed</c> | <c>deleted-running</c> | <c>deleted-terminating</c>
+        /// | <c>modifying</c>).</para></li><li><para><c>replace-unhealthy-instances</c> - Indicates whether EC2 Fleet should replace unhealthy
+        /// instances (<c>true</c> | <c>false</c>).</para></li><li><para><c>type</c> - The type of request (<c>instant</c> | <c>request</c> | <c>maintain</c>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the EC2 Fleets.</para><note><para>If a fleet is of type <code>instant</code>, you must specify the fleet ID, otherwise
-        /// it does not appear in the response.</para></note>
+        /// <para>The IDs of the EC2 Fleets.</para><note><para>If a fleet is of type <c>instant</c>, you must specify the fleet ID, otherwise it
+        /// does not appear in the response.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Removes the entire tag set from the specified S3 Batch Operations job.
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// To use the <code>DeleteJobTagging</code> operation, you must have permission to perform
-    /// the <code>s3:DeleteJobTagging</code> action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
+    /// To use the <c>DeleteJobTagging</c> operation, you must have permission to perform
+    /// the <c>s3:DeleteJobTagging</c> action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
     /// access and labeling jobs using tags</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></dd></dl><para>
     /// Related actions include:

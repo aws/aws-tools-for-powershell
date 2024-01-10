@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Delete the entire registry including schema and all of its versions. To get the status
-    /// of the delete operation, you can call the <code>GetRegistry</code> API after the asynchronous
+    /// of the delete operation, you can call the <c>GetRegistry</c> API after the asynchronous
     /// call. Deleting a registry will deactivate all online operations for the registry such
-    /// as the <code>UpdateRegistry</code>, <code>CreateSchema</code>, <code>UpdateSchema</code>,
-    /// and <code>RegisterSchemaVersion</code> APIs.
+    /// as the <c>UpdateRegistry</c>, <c>CreateSchema</c>, <c>UpdateSchema</c>, and <c>RegisterSchemaVersion</c>
+    /// APIs.
     /// </summary>
     [Cmdlet("Remove", "GLUERegistry", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Glue.Model.DeleteRegistryResponse")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter RegistryId_RegistryArn
         /// <summary>
         /// <para>
-        /// <para>Arn of the registry to be updated. One of <code>RegistryArn</code> or <code>RegistryName</code>
+        /// <para>Arn of the registry to be updated. One of <c>RegistryArn</c> or <c>RegistryName</c>
         /// has to be provided.</para>
         /// </para>
         /// </summary>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter RegistryId_RegistryName
         /// <summary>
         /// <para>
-        /// <para>Name of the registry. Used only for lookup. One of <code>RegistryArn</code> or <code>RegistryName</code>
+        /// <para>Name of the registry. Used only for lookup. One of <c>RegistryArn</c> or <c>RegistryName</c>
         /// has to be provided. </para>
         /// </para>
         /// </summary>

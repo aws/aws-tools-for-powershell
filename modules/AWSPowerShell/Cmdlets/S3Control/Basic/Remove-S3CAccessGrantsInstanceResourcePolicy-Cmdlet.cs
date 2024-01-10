@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// instance. 
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3:DeleteAccessGrantsInstanceResourcePolicy</code> permission
-    /// to use this operation. 
+    /// You must have the <c>s3:DeleteAccessGrantsInstanceResourcePolicy</c> permission to
+    /// use this operation. 
     /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Remove", "S3CAccessGrantsInstanceResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

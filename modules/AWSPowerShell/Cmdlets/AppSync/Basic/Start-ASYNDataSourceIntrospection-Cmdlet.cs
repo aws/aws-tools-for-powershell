@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Creates a new introspection. Returns the <code>introspectionId</code> of the new introspection
+    /// Creates a new introspection. Returns the <c>introspectionId</c> of the new introspection
     /// after its creation.
     /// </summary>
     [Cmdlet("Start", "ASYNDataSourceIntrospection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

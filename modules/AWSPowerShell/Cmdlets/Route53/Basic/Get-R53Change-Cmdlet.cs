@@ -31,11 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// Returns the current status of a change batch request. The status is one of the following
     /// values:
     /// 
-    ///  <ul><li><para><code>PENDING</code> indicates that the changes in this request have not propagated
-    /// to all Amazon Route 53 DNS servers managing the hosted zone. This is the initial status
+    ///  <ul><li><para><c>PENDING</c> indicates that the changes in this request have not propagated to
+    /// all Amazon Route 53 DNS servers managing the hosted zone. This is the initial status
     /// of all change batch requests.
-    /// </para></li><li><para><code>INSYNC</code> indicates that the changes have propagated to all Route 53 DNS
-    /// servers managing the hosted zone. 
+    /// </para></li><li><para><c>INSYNC</c> indicates that the changes have propagated to all Route 53 DNS servers
+    /// managing the hosted zone. 
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "R53Change")]
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>The ID of the change batch request. The value that you specify here is the value that
-        /// <code>ChangeResourceRecordSets</code> returned in the <code>Id</code> element when
-        /// you submitted the request.</para>
+        /// <c>ChangeResourceRecordSets</c> returned in the <c>Id</c> element when you submitted
+        /// the request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

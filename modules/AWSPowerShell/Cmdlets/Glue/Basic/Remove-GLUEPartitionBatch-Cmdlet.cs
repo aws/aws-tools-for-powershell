@@ -73,8 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter PartitionsToDelete
         /// <summary>
         /// <para>
-        /// <para>A list of <code>PartitionInput</code> structures that define the partitions to be
-        /// deleted.</para>
+        /// <para>A list of <c>PartitionInput</c> structures that define the partitions to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

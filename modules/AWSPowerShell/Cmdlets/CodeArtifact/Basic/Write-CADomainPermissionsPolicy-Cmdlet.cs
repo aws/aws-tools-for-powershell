@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.CA
     /// 
     ///  
     /// <para>
-    ///  When you call <code>PutDomainPermissionsPolicy</code>, the resource policy on the
-    /// domain is ignored when evaluting permissions. This ensures that the owner of a domain
-    /// cannot lock themselves out of the domain, which would prevent them from being able
-    /// to update the resource policy. 
+    ///  When you call <c>PutDomainPermissionsPolicy</c>, the resource policy on the domain
+    /// is ignored when evaluting permissions. This ensures that the owner of a domain cannot
+    /// lock themselves out of the domain, which would prevent them from being able to update
+    /// the resource policy. 
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CADomainPermissionsPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

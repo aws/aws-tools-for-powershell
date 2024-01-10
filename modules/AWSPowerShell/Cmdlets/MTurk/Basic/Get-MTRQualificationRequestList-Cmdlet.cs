@@ -28,7 +28,7 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>ListQualificationRequests</code> operation retrieves requests for Qualifications
+    /// The <c>ListQualificationRequests</c> operation retrieves requests for Qualifications
     /// of a particular Qualification type. The owner of the Qualification type calls this
     /// operation to poll for pending requests, and accepts them using the AcceptQualification
     /// operation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

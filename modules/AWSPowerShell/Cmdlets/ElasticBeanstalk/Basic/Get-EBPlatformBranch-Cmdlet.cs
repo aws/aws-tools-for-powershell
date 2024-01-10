@@ -53,13 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>Criteria for restricting the resulting list of platform branches. The filter is evaluated
-        /// as a logical conjunction (AND) of the separate <code>SearchFilter</code> terms.</para><para>The following list shows valid attribute values for each of the <code>SearchFilter</code>
-        /// terms. Most operators take a single value. The <code>in</code> and <code>not_in</code>
-        /// operators can take multiple values.</para><ul><li><para><code>Attribute = BranchName</code>:</para><ul><li><para><code>Operator</code>: <code>=</code> | <code>!=</code> | <code>begins_with</code>
-        /// | <code>ends_with</code> | <code>contains</code> | <code>in</code> | <code>not_in</code></para></li></ul></li><li><para><code>Attribute = LifecycleState</code>:</para><ul><li><para><code>Operator</code>: <code>=</code> | <code>!=</code> | <code>in</code> | <code>not_in</code></para></li><li><para><code>Values</code>: <code>beta</code> | <code>supported</code> | <code>deprecated</code>
-        /// | <code>retired</code></para></li></ul></li><li><para><code>Attribute = PlatformName</code>:</para><ul><li><para><code>Operator</code>: <code>=</code> | <code>!=</code> | <code>begins_with</code>
-        /// | <code>ends_with</code> | <code>contains</code> | <code>in</code> | <code>not_in</code></para></li></ul></li><li><para><code>Attribute = TierType</code>:</para><ul><li><para><code>Operator</code>: <code>=</code> | <code>!=</code></para></li><li><para><code>Values</code>: <code>WebServer/Standard</code> | <code>Worker/SQS/HTTP</code></para></li></ul></li></ul><para>Array size: limited to 10 <code>SearchFilter</code> objects.</para><para>Within each <code>SearchFilter</code> item, the <code>Values</code> array is limited
-        /// to 10 items.</para>
+        /// as a logical conjunction (AND) of the separate <c>SearchFilter</c> terms.</para><para>The following list shows valid attribute values for each of the <c>SearchFilter</c>
+        /// terms. Most operators take a single value. The <c>in</c> and <c>not_in</c> operators
+        /// can take multiple values.</para><ul><li><para><c>Attribute = BranchName</c>:</para><ul><li><para><c>Operator</c>: <c>=</c> | <c>!=</c> | <c>begins_with</c> | <c>ends_with</c> | <c>contains</c>
+        /// | <c>in</c> | <c>not_in</c></para></li></ul></li><li><para><c>Attribute = LifecycleState</c>:</para><ul><li><para><c>Operator</c>: <c>=</c> | <c>!=</c> | <c>in</c> | <c>not_in</c></para></li><li><para><c>Values</c>: <c>beta</c> | <c>supported</c> | <c>deprecated</c> | <c>retired</c></para></li></ul></li><li><para><c>Attribute = PlatformName</c>:</para><ul><li><para><c>Operator</c>: <c>=</c> | <c>!=</c> | <c>begins_with</c> | <c>ends_with</c> | <c>contains</c>
+        /// | <c>in</c> | <c>not_in</c></para></li></ul></li><li><para><c>Attribute = TierType</c>:</para><ul><li><para><c>Operator</c>: <c>=</c> | <c>!=</c></para></li><li><para><c>Values</c>: <c>WebServer/Standard</c> | <c>Worker/SQS/HTTP</c></para></li></ul></li></ul><para>Array size: limited to 10 <c>SearchFilter</c> objects.</para><para>Within each <c>SearchFilter</c> item, the <c>Values</c> array is limited to 10 items.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para>For a paginated request. Specify a token from a previous response page to retrieve
         /// the next response page. All other parameter values must be identical to the ones specified
-        /// in the initial request.</para><para>If no <code>NextToken</code> is specified, the first page is retrieved.</para>
+        /// in the initial request.</para><para>If no <c>NextToken</c> is specified, the first page is retrieved.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

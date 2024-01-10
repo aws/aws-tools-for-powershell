@@ -48,12 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// This operation can be used in the following ways: 
     /// </para><ul><li><para>
     /// To update capacity for a fleet's home Region, or if the fleet has no remote locations,
-    /// omit the <code>Location</code> parameter. The fleet must be in <code>ACTIVE</code>
-    /// status. 
+    /// omit the <c>Location</c> parameter. The fleet must be in <c>ACTIVE</c> status. 
     /// </para></li><li><para>
-    /// To update capacity for a fleet's remote location, include the <code>Location</code>
-    /// parameter set to the location to be updated. The location must be in <code>ACTIVE</code>
-    /// status.
+    /// To update capacity for a fleet's remote location, include the <c>Location</c> parameter
+    /// set to the location to be updated. The location must be in <c>ACTIVE</c> status.
     /// </para></li></ul><para>
     /// If successful, capacity settings are updated immediately. In response a change in
     /// desired capacity, Amazon GameLift initiates steps to start new instances or terminate
@@ -62,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// current capacity by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html">DescribeFleetCapacity</a>
     /// or <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html">DescribeFleetLocationCapacity</a>.
     /// If the requested desired instance count is higher than the instance type's limit,
-    /// the <code>LimitExceeded</code> exception occurs.
+    /// the <c>LimitExceeded</c> exception occurs.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-manage-capacity.html">Scaling
     /// fleet capacity</a></para>
     /// </summary>
@@ -114,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The name of a remote location to update fleet capacity settings for, in the form of
-        /// an Amazon Web Services Region code such as <code>us-west-2</code>.</para>
+        /// an Amazon Web Services Region code such as <c>us-west-2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>GetHIT</code> operation retrieves the details of the specified HIT.
+    /// The <c>GetHIT</c> operation retrieves the details of the specified HIT.
     /// </summary>
     [Cmdlet("Get", "MTRHIT")]
     [OutputType("Amazon.MTurk.Model.HIT")]

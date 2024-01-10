@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Creates a new Amazon Web Services secret access key and corresponding Amazon Web
     /// Services access key ID for the specified user. The default status for new keys is
-    /// <code>Active</code>.
+    /// <c>Active</c>.
     /// 
     ///  
     /// <para>

@@ -34,14 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     ///  
     /// <para>
     /// Call this operation as the first step in the process of using a machine learning transform
-    /// (such as the <code>FindMatches</code> transform) for deduplicating data. You can provide
-    /// an optional <code>Description</code>, in addition to the parameters that you want
-    /// to use for your algorithm.
+    /// (such as the <c>FindMatches</c> transform) for deduplicating data. You can provide
+    /// an optional <c>Description</c>, in addition to the parameters that you want to use
+    /// for your algorithm.
     /// </para><para>
     /// You must also specify certain parameters for the tasks that Glue runs on your behalf
     /// as part of learning from your data and creating a high-quality machine learning transform.
-    /// These parameters include <code>Role</code>, and optionally, <code>AllocatedCapacity</code>,
-    /// <code>Timeout</code>, and <code>MaxRetries</code>. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html">Jobs</a>.
+    /// These parameters include <c>Role</c>, and optionally, <c>AllocatedCapacity</c>, <c>Timeout</c>,
+    /// and <c>MaxRetries</c>. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html">Jobs</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "GLUEMLTransform", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// and cost. A value of 0.5 means that the system balances accuracy and cost concerns.
         /// A value of 1.0 means a bias purely for accuracy, which typically results in a higher
         /// cost, sometimes substantially higher. A value of 0.0 means a bias purely for cost,
-        /// which results in a less accurate <code>FindMatches</code> transform, sometimes with
-        /// unacceptable accuracy.</para><para>Accuracy measures how well the transform finds true positives and true negatives.
+        /// which results in a less accurate <c>FindMatches</c> transform, sometimes with unacceptable
+        /// accuracy.</para><para>Accuracy measures how well the transform finds true positives and true negatives.
         /// Increasing accuracy requires more machine resources and cost. But it also results
         /// in increased recall. </para><para>Cost measures how many compute resources, and thus money, are consumed to run the
         /// transform.</para>
@@ -90,11 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The value to switch on or off to force the output to match the provided labels from
-        /// users. If the value is <code>True</code>, the <code>find matches</code> transform
-        /// forces the output to match the provided labels. The results override the normal conflation
-        /// results. If the value is <code>False</code>, the <code>find matches</code> transform
-        /// does not ensure all the labels provided are respected, and the results rely on the
-        /// trained model.</para><para>Note that setting this value to true may increase the conflation execution time.</para>
+        /// users. If the value is <c>True</c>, the <c>find matches</c> transform forces the output
+        /// to match the provided labels. The results override the normal conflation results.
+        /// If the value is <c>False</c>, the <c>find matches</c> transform does not ensure all
+        /// the labels provided are respected, and the results rely on the trained model.</para><para>Note that setting this value to true may increase the conflation execution time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,13 +150,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a
         /// relative measure of processing power that consists of 4 vCPUs of compute capacity
         /// and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
-        /// pricing page</a>. </para><para><code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code>
-        /// and <code>WorkerType</code>.</para><ul><li><para>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code>
-        /// cannot be set.</para></li><li><para>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code>
-        /// can be set.</para></li><li><para>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and
-        /// vice versa).</para></li><li><para><code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</para></li></ul><para>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>,
-        /// the <code>MaxCapacity</code> field is set automatically and becomes read-only.</para><para>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>,
-        /// the <code>MaxCapacity</code> field is set automatically and becomes read-only.</para>
+        /// pricing page</a>. </para><para><c>MaxCapacity</c> is a mutually exclusive option with <c>NumberOfWorkers</c> and
+        /// <c>WorkerType</c>.</para><ul><li><para>If either <c>NumberOfWorkers</c> or <c>WorkerType</c> is set, then <c>MaxCapacity</c>
+        /// cannot be set.</para></li><li><para>If <c>MaxCapacity</c> is set then neither <c>NumberOfWorkers</c> or <c>WorkerType</c>
+        /// can be set.</para></li><li><para>If <c>WorkerType</c> is set, then <c>NumberOfWorkers</c> is required (and vice versa).</para></li><li><para><c>MaxCapacity</c> and <c>NumberOfWorkers</c> must both be at least 1.</para></li></ul><para>When the <c>WorkerType</c> field is set to a value other than <c>Standard</c>, the
+        /// <c>MaxCapacity</c> field is set automatically and becomes read-only.</para><para>When the <c>WorkerType</c> field is set to a value other than <c>Standard</c>, the
+        /// <c>MaxCapacity</c> field is set automatically and becomes read-only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,9 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter NumberOfWorker
         /// <summary>
         /// <para>
-        /// <para>The number of workers of a defined <code>workerType</code> that are allocated when
-        /// this task runs.</para><para>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and
-        /// vice versa).</para>
+        /// <para>The number of workers of a defined <c>workerType</c> that are allocated when this
+        /// task runs.</para><para>If <c>WorkerType</c> is set, then <c>NumberOfWorkers</c> is required (and vice versa).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -298,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para>
         /// <para>The timeout of the task run for this transform in minutes. This is the maximum time
         /// that a task run for this transform can consume resources before it is terminated and
-        /// enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</para>
+        /// enters <c>TIMEOUT</c> status. The default is 2,880 minutes (48 hours).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -327,14 +324,13 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The type of predefined worker that is allocated when this task runs. Accepts a value
-        /// of Standard, G.1X, or G.2X.</para><ul><li><para>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory
-        /// and a 50GB disk, and 2 executors per worker.</para></li><li><para>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory
-        /// and a 64GB disk, and 1 executor per worker.</para></li><li><para>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory
-        /// and a 128GB disk, and 1 executor per worker.</para></li></ul><para><code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code>
-        /// and <code>WorkerType</code>.</para><ul><li><para>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code>
-        /// cannot be set.</para></li><li><para>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code>
-        /// can be set.</para></li><li><para>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and
-        /// vice versa).</para></li><li><para><code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</para></li></ul>
+        /// of Standard, G.1X, or G.2X.</para><ul><li><para>For the <c>Standard</c> worker type, each worker provides 4 vCPU, 16 GB of memory
+        /// and a 50GB disk, and 2 executors per worker.</para></li><li><para>For the <c>G.1X</c> worker type, each worker provides 4 vCPU, 16 GB of memory and
+        /// a 64GB disk, and 1 executor per worker.</para></li><li><para>For the <c>G.2X</c> worker type, each worker provides 8 vCPU, 32 GB of memory and
+        /// a 128GB disk, and 1 executor per worker.</para></li></ul><para><c>MaxCapacity</c> is a mutually exclusive option with <c>NumberOfWorkers</c> and
+        /// <c>WorkerType</c>.</para><ul><li><para>If either <c>NumberOfWorkers</c> or <c>WorkerType</c> is set, then <c>MaxCapacity</c>
+        /// cannot be set.</para></li><li><para>If <c>MaxCapacity</c> is set then neither <c>NumberOfWorkers</c> or <c>WorkerType</c>
+        /// can be set.</para></li><li><para>If <c>WorkerType</c> is set, then <c>NumberOfWorkers</c> is required (and vice versa).</para></li><li><para><c>MaxCapacity</c> and <c>NumberOfWorkers</c> must both be at least 1.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

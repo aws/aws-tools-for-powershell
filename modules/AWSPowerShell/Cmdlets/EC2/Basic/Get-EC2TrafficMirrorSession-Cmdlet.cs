@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. The possible values are:</para><ul><li><para><code>description</code>: The Traffic Mirror session description.</para></li><li><para><code>network-interface-id</code>: The ID of the Traffic Mirror session network interface.</para></li><li><para><code>owner-id</code>: The ID of the account that owns the Traffic Mirror session.</para></li><li><para><code>packet-length</code>: The assigned number of packets to mirror. </para></li><li><para><code>session-number</code>: The assigned session number. </para></li><li><para><code>traffic-mirror-filter-id</code>: The ID of the Traffic Mirror filter.</para></li><li><para><code>traffic-mirror-session-id</code>: The ID of the Traffic Mirror session.</para></li><li><para><code>traffic-mirror-target-id</code>: The ID of the Traffic Mirror target.</para></li><li><para><code>virtual-network-id</code>: The virtual network ID of the Traffic Mirror session.</para></li></ul>
+        /// <para>One or more filters. The possible values are:</para><ul><li><para><c>description</c>: The Traffic Mirror session description.</para></li><li><para><c>network-interface-id</c>: The ID of the Traffic Mirror session network interface.</para></li><li><para><c>owner-id</c>: The ID of the account that owns the Traffic Mirror session.</para></li><li><para><c>packet-length</c>: The assigned number of packets to mirror. </para></li><li><para><c>session-number</c>: The assigned session number. </para></li><li><para><c>traffic-mirror-filter-id</c>: The ID of the Traffic Mirror filter.</para></li><li><para><c>traffic-mirror-session-id</c>: The ID of the Traffic Mirror session.</para></li><li><para><c>traffic-mirror-target-id</c>: The ID of the Traffic Mirror target.</para></li><li><para><c>virtual-network-id</c>: The virtual network ID of the Traffic Mirror session.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

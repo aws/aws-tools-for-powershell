@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <para>Specifies whether to only return associated members or to return all members (including
         /// members who haven't been invited yet or have been disassociated). Member accounts
         /// must have been previously associated with the GuardDuty administrator account using
-        /// <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html"><code>Create Members</code></a>. </para>
+        /// <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html"><c>Create Members</c></a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

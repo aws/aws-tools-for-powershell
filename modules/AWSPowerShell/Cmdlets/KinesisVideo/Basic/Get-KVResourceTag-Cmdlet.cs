@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If you specify this parameter and the result of a <code>ListTagsForResource</code>
-        /// call is truncated, the response includes a token that you can use in the next request
-        /// to fetch the next batch of tags. </para>
+        /// <para>If you specify this parameter and the result of a <c>ListTagsForResource</c> call
+        /// is truncated, the response includes a token that you can use in the next request to
+        /// fetch the next batch of tags. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

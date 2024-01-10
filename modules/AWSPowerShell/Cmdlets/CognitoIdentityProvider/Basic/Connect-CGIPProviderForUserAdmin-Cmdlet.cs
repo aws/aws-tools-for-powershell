@@ -28,12 +28,12 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Links an existing user account in a user pool (<code>DestinationUser</code>) to an
-    /// identity from an external IdP (<code>SourceUser</code>) based on a specified attribute
-    /// name and value from the external IdP. This allows you to create a link from the existing
-    /// user account to an external federated user identity that has not yet been used to
-    /// sign in. You can then use the federated user identity to sign in as the existing user
-    /// account. 
+    /// Links an existing user account in a user pool (<c>DestinationUser</c>) to an identity
+    /// from an external IdP (<c>SourceUser</c>) based on a specified attribute name and value
+    /// from the external IdP. This allows you to create a link from the existing user account
+    /// to an external federated user identity that has not yet been used to sign in. You
+    /// can then use the federated user identity to sign in as the existing user account.
+    /// 
     /// 
     ///  
     /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DestinationUser_ProviderAttributeName
         /// <summary>
         /// <para>
-        /// <para>The name of the provider attribute to link to, such as <code>NameID</code>.</para>
+        /// <para>The name of the provider attribute to link to, such as <c>NameID</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter SourceUser_ProviderAttributeName
         /// <summary>
         /// <para>
-        /// <para>The name of the provider attribute to link to, such as <code>NameID</code>.</para>
+        /// <para>The name of the provider attribute to link to, such as <c>NameID</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DestinationUser_ProviderAttributeValue
         /// <summary>
         /// <para>
-        /// <para>The value of the provider attribute to link to, such as <code>xxxxx_account</code>.</para>
+        /// <para>The value of the provider attribute to link to, such as <c>xxxxx_account</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter SourceUser_ProviderAttributeValue
         /// <summary>
         /// <para>
-        /// <para>The value of the provider attribute to link to, such as <code>xxxxx_account</code>.</para>
+        /// <para>The value of the provider attribute to link to, such as <c>xxxxx_account</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

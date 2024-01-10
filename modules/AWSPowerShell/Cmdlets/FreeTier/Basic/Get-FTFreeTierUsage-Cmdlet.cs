@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.FT
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An expression that specifies the conditions that you want each <code>FreeTierUsage</code>
+        /// <para>An expression that specifies the conditions that you want each <c>FreeTierUsage</c>
         /// object to meet.</para>
         /// </para>
         /// </summary>
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.FT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in the response. <code>MaxResults</code> means
-        /// that there can be up to the specified number of values, but there might be fewer results
+        /// <para>The maximum number of results to return in the response. <c>MaxResults</c> means that
+        /// there can be up to the specified number of values, but there might be fewer results
         /// based on your filters.</para>
         /// </para>
         /// </summary>

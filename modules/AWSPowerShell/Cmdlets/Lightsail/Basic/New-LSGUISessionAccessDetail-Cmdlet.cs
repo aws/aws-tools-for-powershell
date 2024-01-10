@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  
     /// <para>
-    /// Use <code>StartGUISession</code> to open the session.
+    /// Use <c>StartGUISession</c> to open the session.
     /// </para>
     /// </summary>
     [Cmdlet("New", "LSGUISessionAccessDetail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

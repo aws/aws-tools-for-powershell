@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter IncludeWaiting
         /// <summary>
         /// <para>
-        /// <para>If set to <code>TRUE</code>, the list returned includes waiting queries. The default
-        /// is <code>FALSE</code>;</para>
+        /// <para>If set to <c>TRUE</c>, the list returned includes waiting queries. The default is
+        /// <c>FALSE</c>;</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

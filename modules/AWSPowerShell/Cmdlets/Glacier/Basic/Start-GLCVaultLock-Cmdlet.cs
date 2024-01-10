@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     ///  <ul><li><para>
     /// Installing a vault lock policy on the specified vault.
     /// </para></li><li><para>
-    /// Setting the lock state of vault lock to <code>InProgress</code>.
+    /// Setting the lock state of vault lock to <c>InProgress</c>.
     /// </para></li><li><para>
     /// Returning a lock ID, which is used to complete the vault locking process.
     /// </para></li></ul><para>
@@ -42,24 +42,23 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     /// Glacier Access Control with Vault Lock Policies</a>. 
     /// </para><para>
     /// You must complete the vault locking process within 24 hours after the vault lock enters
-    /// the <code>InProgress</code> state. After the 24 hour window ends, the lock ID expires,
-    /// the vault automatically exits the <code>InProgress</code> state, and the vault lock
-    /// policy is removed from the vault. You call <a>CompleteVaultLock</a> to complete the
-    /// vault locking process by setting the state of the vault lock to <code>Locked</code>.
-    /// 
+    /// the <c>InProgress</c> state. After the 24 hour window ends, the lock ID expires, the
+    /// vault automatically exits the <c>InProgress</c> state, and the vault lock policy is
+    /// removed from the vault. You call <a>CompleteVaultLock</a> to complete the vault locking
+    /// process by setting the state of the vault lock to <c>Locked</c>. 
     /// </para><para>
-    /// After a vault lock is in the <code>Locked</code> state, you cannot initiate a new
-    /// vault lock for the vault.
+    /// After a vault lock is in the <c>Locked</c> state, you cannot initiate a new vault
+    /// lock for the vault.
     /// </para><para>
     /// You can abort the vault locking process by calling <a>AbortVaultLock</a>. You can
     /// get the state of the vault lock by calling <a>GetVaultLock</a>. For more information
     /// about the vault locking process, <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html">Amazon
     /// Glacier Vault Lock</a>.
     /// </para><para>
-    /// If this operation is called when the vault lock is in the <code>InProgress</code>
-    /// state, the operation returns an <code>AccessDeniedException</code> error. When the
-    /// vault lock is in the <code>InProgress</code> state you must call <a>AbortVaultLock</a>
-    /// before you can initiate a new vault lock policy. 
+    /// If this operation is called when the vault lock is in the <c>InProgress</c> state,
+    /// the operation returns an <c>AccessDeniedException</c> error. When the vault lock is
+    /// in the <c>InProgress</c> state you must call <a>AbortVaultLock</a> before you can
+    /// initiate a new vault lock policy. 
     /// </para>
     /// </summary>
     [Cmdlet("Start", "GLCVaultLock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -77,12 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The <code>AccountId</code> value is the AWS account ID. This value must match the
-        /// AWS account ID associated with the credentials used to sign the request. You can either
-        /// specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which
-        /// case Amazon Glacier uses the AWS account ID associated with the credentials used to
-        /// sign the request. If you specify your account ID, do not include any hyphens ('-')
-        /// in the ID.</para>
+        /// <para>The <c>AccountId</c> value is the AWS account ID. This value must match the AWS account
+        /// ID associated with the credentials used to sign the request. You can either specify
+        /// an AWS account ID or optionally a single '<c>-</c>' (hyphen), in which case Amazon
+        /// Glacier uses the AWS account ID associated with the credentials used to sign the request.
+        /// If you specify your account ID, do not include any hyphens ('-') in the ID.</para>
         /// </para>
         /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>-</b>'.</para>
         /// </summary>

@@ -29,13 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
     /// Starts a specific database from a stopped state in Amazon Lightsail. To restart a
-    /// database, use the <code>reboot relational database</code> operation.
+    /// database, use the <c>reboot relational database</c> operation.
     /// 
     ///  
     /// <para>
-    /// The <code>start relational database</code> operation supports tag-based access control
-    /// via resource tags applied to the resource identified by relationalDatabaseName. For
-    /// more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// The <c>start relational database</c> operation supports tag-based access control via
+    /// resource tags applied to the resource identified by relationalDatabaseName. For more
+    /// information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>

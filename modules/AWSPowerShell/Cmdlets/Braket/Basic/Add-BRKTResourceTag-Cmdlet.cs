@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>Specify the <code>resourceArn</code> of the resource to which a tag will be added.</para>
+        /// <para>Specify the <c>resourceArn</c> of the resource to which a tag will be added.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

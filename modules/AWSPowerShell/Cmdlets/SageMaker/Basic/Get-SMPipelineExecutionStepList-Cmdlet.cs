@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Gets a list of <code>PipeLineExecutionStep</code> objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets a list of <c>PipeLineExecutionStep</c> objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMPipelineExecutionStepList")]
     [OutputType("Amazon.SageMaker.Model.PipelineExecutionStep")]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The field by which to sort results. The default is <code>CreatedTime</code>.</para>
+        /// <para>The field by which to sort results. The default is <c>CreatedTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the result of the previous <code>ListPipelineExecutionSteps</code> request was
-        /// truncated, the response includes a <code>NextToken</code>. To retrieve the next set
-        /// of pipeline execution steps, use the token in the next request.</para>
+        /// <para>If the result of the previous <c>ListPipelineExecutionSteps</c> request was truncated,
+        /// the response includes a <c>NextToken</c>. To retrieve the next set of pipeline execution
+        /// steps, use the token in the next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

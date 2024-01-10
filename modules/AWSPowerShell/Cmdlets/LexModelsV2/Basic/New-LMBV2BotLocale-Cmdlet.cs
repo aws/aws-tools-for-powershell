@@ -125,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction
-        /// with the user. For more information, see the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine"><code>engine</code> parameter of the <code>SynthesizeSpeech</code> operation</a> in
-        /// the <i>Amazon Polly developer guide</i>.</para><para>If you do not specify a value, the default is <code>standard</code>.</para>
+        /// with the user. For more information, see the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine"><c>engine</c> parameter of the <c>SynthesizeSpeech</c> operation</a> in the <i>Amazon
+        /// Polly developer guide</i>.</para><para>If you do not specify a value, the default is <c>standard</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,13 +188,13 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter NluIntentConfidenceThreshold
         /// <summary>
         /// <para>
-        /// <para>Determines the threshold where Amazon Lex will insert the <code>AMAZON.FallbackIntent</code>,
-        /// <code>AMAZON.KendraSearchIntent</code>, or both when returning alternative intents.
-        /// <code>AMAZON.FallbackIntent</code> and <code>AMAZON.KendraSearchIntent</code> are
-        /// only inserted if they are configured for the bot.</para><para>For example, suppose a bot is configured with the confidence threshold of 0.80 and
-        /// the <code>AMAZON.FallbackIntent</code>. Amazon Lex returns three alternative intents
-        /// with the following confidence scores: IntentA (0.70), IntentB (0.60), IntentC (0.50).
-        /// The response from the <code>RecognizeText</code> operation would be:</para><ul><li><para>AMAZON.FallbackIntent</para></li><li><para>IntentA</para></li><li><para>IntentB</para></li><li><para>IntentC</para></li></ul>
+        /// <para>Determines the threshold where Amazon Lex will insert the <c>AMAZON.FallbackIntent</c>,
+        /// <c>AMAZON.KendraSearchIntent</c>, or both when returning alternative intents. <c>AMAZON.FallbackIntent</c>
+        /// and <c>AMAZON.KendraSearchIntent</c> are only inserted if they are configured for
+        /// the bot.</para><para>For example, suppose a bot is configured with the confidence threshold of 0.80 and
+        /// the <c>AMAZON.FallbackIntent</c>. Amazon Lex returns three alternative intents with
+        /// the following confidence scores: IntentA (0.70), IntentB (0.60), IntentC (0.50). The
+        /// response from the <c>RecognizeText</c> operation would be:</para><ul><li><para>AMAZON.FallbackIntent</para></li><li><para>IntentA</para></li><li><para>IntentB</para></li><li><para>IntentC</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

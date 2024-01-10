@@ -113,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The impersonation role's type. The available impersonation role types are <code>READ_ONLY</code>
-        /// or <code>FULL_ACCESS</code>.</para>
+        /// <para>The impersonation role's type. The available impersonation role types are <c>READ_ONLY</c>
+        /// or <c>FULL_ACCESS</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

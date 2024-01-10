@@ -28,8 +28,8 @@ using Amazon.ChimeSDKMeetings.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMTG
 {
     /// <summary>
-    /// Stops transcription for the specified <code>meetingId</code>. For more information,
-    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html">
+    /// Stops transcription for the specified <c>meetingId</c>. For more information, refer
+    /// to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html">
     /// Using Amazon Chime SDK live transcription </a> in the <i>Amazon Chime SDK Developer
     /// Guide</i>.
     /// 

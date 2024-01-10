@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// unchanged.
     /// 
     ///  <note><para>
-    /// For information about valid key-value pairs in <code>PatchFilters</code> for each
-    /// supported operating system type, see <a>PatchFilter</a>.
+    /// For information about valid key-value pairs in <c>PatchFilters</c> for each supported
+    /// operating system type, see <a>PatchFilter</a>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "SSMPatchBaseline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Indicates whether the list of approved patches includes non-security updates that
-        /// should be applied to the managed nodes. The default value is <code>false</code>. Applies
+        /// should be applied to the managed nodes. The default value is <c>false</c>. Applies
         /// to Linux managed nodes only.</para>
         /// </para>
         /// </summary>
@@ -164,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RejectedPatchesAction
         /// <summary>
         /// <para>
-        /// <para>The action for Patch Manager to take on patches included in the <code>RejectedPackages</code>
-        /// list.</para><ul><li><para><b><code>ALLOW_AS_DEPENDENCY</code></b>: A package in the <code>Rejected</code>
-        /// patches list is installed only if it is a dependency of another package. It is considered
-        /// compliant with the patch baseline, and its status is reported as <code>InstalledOther</code>.
-        /// This is the default action if no option is specified.</para></li><li><para><b><code>BLOCK</code></b>: Packages in the <code>RejectedPatches</code> list, and
-        /// packages that include them as dependencies, aren't installed under any circumstances.
-        /// If a package was installed before it was added to the <code>Rejected</code> patches
-        /// list, it is considered non-compliant with the patch baseline, and its status is reported
-        /// as <code>InstalledRejected</code>.</para></li></ul>
+        /// <para>The action for Patch Manager to take on patches included in the <c>RejectedPackages</c>
+        /// list.</para><ul><li><para><b><c>ALLOW_AS_DEPENDENCY</c></b>: A package in the <c>Rejected</c> patches list
+        /// is installed only if it is a dependency of another package. It is considered compliant
+        /// with the patch baseline, and its status is reported as <c>InstalledOther</c>. This
+        /// is the default action if no option is specified.</para></li><li><para><b><c>BLOCK</c></b>: Packages in the <c>RejectedPatches</c> list, and packages
+        /// that include them as dependencies, aren't installed under any circumstances. If a
+        /// package was installed before it was added to the <c>Rejected</c> patches list, it
+        /// is considered non-compliant with the patch baseline, and its status is reported as
+        /// <c>InstalledRejected</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

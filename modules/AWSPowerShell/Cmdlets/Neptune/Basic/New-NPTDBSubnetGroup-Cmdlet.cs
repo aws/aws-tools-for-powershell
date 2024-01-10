@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The name for the DB subnet group. This value is stored as a lowercase string.</para><para>Constraints: Must contain no more than 255 letters, numbers, periods, underscores,
-        /// spaces, or hyphens. Must not be default.</para><para>Example: <code>mySubnetgroup</code></para>
+        /// spaces, or hyphens. Must not be default.</para><para>Example: <c>mySubnetgroup</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

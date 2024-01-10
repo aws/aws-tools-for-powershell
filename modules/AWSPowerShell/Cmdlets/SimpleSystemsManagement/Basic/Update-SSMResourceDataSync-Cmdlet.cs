@@ -30,14 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <summary>
     /// Update a resource data sync. After you create a resource data sync for a Region, you
     /// can't change the account options for that sync. For example, if you create a sync
-    /// in the us-east-2 (Ohio) Region and you choose the <code>Include only the current account</code>
-    /// option, you can't edit that sync later and choose the <code>Include all accounts from
-    /// my Organizations configuration</code> option. Instead, you must delete the first resource
+    /// in the us-east-2 (Ohio) Region and you choose the <c>Include only the current account</c>
+    /// option, you can't edit that sync later and choose the <c>Include all accounts from
+    /// my Organizations configuration</c> option. Instead, you must delete the first resource
     /// data sync, and create a new one.
     /// 
     ///  <note><para>
     /// This API operation only supports a resource data sync that was created with a SyncFromSource
-    /// <code>SyncType</code>.
+    /// <c>SyncType</c>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "SSMResourceDataSync", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -94,10 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter AwsOrganizationsSource_OrganizationSourceType
         /// <summary>
         /// <para>
-        /// <para>If an Amazon Web Services organization is present, this is either <code>OrganizationalUnits</code>
-        /// or <code>EntireOrganization</code>. For <code>OrganizationalUnits</code>, the data
-        /// is aggregated from a set of organization units. For <code>EntireOrganization</code>,
-        /// the data is aggregated from the entire Amazon Web Services organization.</para>
+        /// <para>If an Amazon Web Services organization is present, this is either <c>OrganizationalUnits</c>
+        /// or <c>EntireOrganization</c>. For <c>OrganizationalUnits</c>, the data is aggregated
+        /// from a set of organization units. For <c>EntireOrganization</c>, the data is aggregated
+        /// from the entire Amazon Web Services organization.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,8 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SyncSource_SourceRegion
         /// <summary>
         /// <para>
-        /// <para>The <code>SyncSource</code> Amazon Web Services Regions included in the resource data
-        /// sync.</para>
+        /// <para>The <c>SyncSource</c> Amazon Web Services Regions included in the resource data sync.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -127,9 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SyncSource_SourceType
         /// <summary>
         /// <para>
-        /// <para>The type of data source for the resource data sync. <code>SourceType</code> is either
-        /// <code>AwsOrganizations</code> (if an organization is present in Organizations) or
-        /// <code>SingleAccountMultiRegions</code>.</para>
+        /// <para>The type of data source for the resource data sync. <c>SourceType</c> is either <c>AwsOrganizations</c>
+        /// (if an organization is present in Organizations) or <c>SingleAccountMultiRegions</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -163,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SyncType
         /// <summary>
         /// <para>
-        /// <para>The type of resource data sync. The supported <code>SyncType</code> is SyncFromSource.</para>
+        /// <para>The type of resource data sync. The supported <c>SyncType</c> is SyncFromSource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

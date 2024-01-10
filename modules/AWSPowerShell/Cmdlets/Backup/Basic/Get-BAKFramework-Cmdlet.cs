@@ -28,7 +28,7 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Returns the framework details for the specified <code>FrameworkName</code>.
+    /// Returns the framework details for the specified <c>FrameworkName</c>.
     /// </summary>
     [Cmdlet("Get", "BAKFramework")]
     [OutputType("Amazon.Backup.Model.DescribeFrameworkResponse")]

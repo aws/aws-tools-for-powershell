@@ -50,14 +50,14 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     /// </para></li><li><para>
     /// A version is being used by a job.
     /// </para></li><li><para>
-    /// You specify <code>LATEST_WORKING</code>, but it's being used by a project.
+    /// You specify <c>LATEST_WORKING</c>, but it's being used by a project.
     /// </para></li><li><para>
     /// The version fails to be deleted.
     /// </para></li></ul><para>
-    /// The <code>LATEST_WORKING</code> version will only be deleted if the recipe has no
-    /// other versions. If you try to delete <code>LATEST_WORKING</code> while other versions
-    /// exist (or if they can't be deleted), then <code>LATEST_WORKING</code> will be listed
-    /// as partial failure in the response.
+    /// The <c>LATEST_WORKING</c> version will only be deleted if the recipe has no other
+    /// versions. If you try to delete <c>LATEST_WORKING</c> while other versions exist (or
+    /// if they can't be deleted), then <c>LATEST_WORKING</c> will be listed as partial failure
+    /// in the response.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "GDBRecipeVersionBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <summary>
         /// <para>
         /// <para>An array of version identifiers, for the recipe versions to be deleted. You can specify
-        /// numeric versions (<code>X.Y</code>) or <code>LATEST_WORKING</code>. <code>LATEST_PUBLISHED</code>
-        /// is not supported.</para>
+        /// numeric versions (<c>X.Y</c>) or <c>LATEST_WORKING</c>. <c>LATEST_PUBLISHED</c> is
+        /// not supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

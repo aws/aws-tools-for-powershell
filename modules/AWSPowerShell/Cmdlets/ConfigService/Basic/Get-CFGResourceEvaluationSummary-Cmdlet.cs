@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ResourceEvaluationId
         /// <summary>
         /// <para>
-        /// <para>The unique <code>ResourceEvaluationId</code> of Amazon Web Services resource execution
-        /// for which you want to retrieve the evaluation summary.</para>
+        /// <para>The unique <c>ResourceEvaluationId</c> of Amazon Web Services resource execution for
+        /// which you want to retrieve the evaluation summary.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.MediaStore.Model;
 namespace Amazon.PowerShell.Cmdlets.EMS
 {
     /// <summary>
-    /// Deletes the specified container. Before you make a <code>DeleteContainer</code> request,
+    /// Deletes the specified container. Before you make a <c>DeleteContainer</c> request,
     /// delete any objects in the container or in any folders in the container. You can delete
     /// only empty containers.
     /// </summary>

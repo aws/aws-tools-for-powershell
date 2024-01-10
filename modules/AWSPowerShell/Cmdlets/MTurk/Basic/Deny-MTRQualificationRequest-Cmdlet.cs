@@ -28,8 +28,8 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>RejectQualificationRequest</code> operation rejects a user's request for
-    /// a Qualification. 
+    /// The <c>RejectQualificationRequest</c> operation rejects a user's request for a Qualification.
+    /// 
     /// 
     ///  
     /// <para>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         #region Parameter QualificationRequestId
         /// <summary>
         /// <para>
-        /// <para> The ID of the Qualification request, as returned by the <code>ListQualificationRequests</code>
+        /// <para> The ID of the Qualification request, as returned by the <c>ListQualificationRequests</c>
         /// operation. </para>
         /// </para>
         /// </summary>

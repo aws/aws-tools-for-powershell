@@ -42,12 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li></ul><para>
     /// To request player sessions, specify either a player session ID, game session ID, or
     /// player ID. You can filter this request by player session status. If you provide a
-    /// specific <code>PlayerSessionId</code> or <code>PlayerId</code>, Amazon GameLift ignores
-    /// the filter criteria. Use the pagination parameters to retrieve results as a set of
-    /// sequential pages. 
+    /// specific <c>PlayerSessionId</c> or <c>PlayerId</c>, Amazon GameLift ignores the filter
+    /// criteria. Use the pagination parameters to retrieve results as a set of sequential
+    /// pages. 
     /// </para><para>
-    /// If successful, a <code>PlayerSession</code> object is returned for each session that
-    /// matches the request.
+    /// If successful, a <c>PlayerSession</c> object is returned for each session that matches
+    /// the request.
     /// </para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
+        /// <para>The maximum number of results to return. Use this parameter with <c>NextToken</c>
         /// to get results as a set of sequential pages. If a player session ID is specified,
         /// this parameter is ignored.</para>
         /// </para>

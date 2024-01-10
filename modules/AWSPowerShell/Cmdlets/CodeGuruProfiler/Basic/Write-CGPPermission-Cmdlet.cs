@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     /// Adds permissions to a profiling group's resource-based policy that are provided using
     /// an action group. If a profiling group doesn't have a resource-based policy, one is
     /// created for it using the permissions in the action group and the roles and users in
-    /// the <code>principals</code> parameter. 
+    /// the <c>principals</c> parameter. 
     /// 
-    ///  <pre><code> &lt;p&gt; The one supported action group that can be added is &lt;code&gt;agentPermission&lt;/code&gt;
+    ///  <pre><c> &lt;p&gt; The one supported action group that can be added is &lt;code&gt;agentPermission&lt;/code&gt;
     /// which grants &lt;code&gt;ConfigureAgent&lt;/code&gt; and &lt;code&gt;PostAgent&lt;/code&gt;
     /// permissions. For more information, see &lt;a href="https://docs.aws.amazon.com/codeguru/latest/profiler-ug/resource-based-policies.html"&gt;Resource-based
     /// policies in CodeGuru Profiler&lt;/a&gt; in the &lt;i&gt;Amazon CodeGuru Profiler User
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     /// policy. Subsequent calls must provide a &lt;code&gt;revisionId&lt;/code&gt; to specify
     /// which revision of the resource-based policy to add the permissions to. &lt;/p&gt;
     /// &lt;p&gt; The response contains the profiling group's JSON-formatted resource policy.
-    /// &lt;/p&gt; </code></pre>
+    /// &lt;/p&gt; </c></pre>
     /// </summary>
     [Cmdlet("Write", "CGPPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeGuruProfiler.Model.PutPermissionResponse")]
@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         /// <summary>
         /// <para>
         /// <para> Specifies an action group that contains permissions to add to a profiling group resource.
-        /// One action group is supported, <code>agentPermissions</code>, which grants permission
-        /// to perform actions required by the profiling agent, <code>ConfigureAgent</code> and
-        /// <code>PostAgentProfile</code> permissions. </para>
+        /// One action group is supported, <c>agentPermissions</c>, which grants permission to
+        /// perform actions required by the profiling agent, <c>ConfigureAgent</c> and <c>PostAgentProfile</c>
+        /// permissions. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         /// <para> A universally unique identifier (UUID) for the revision of the policy you are adding
         /// to the profiling group. Do not specify this when you add permissions to a profiling
         /// group for the first time. If a policy already exists on the profiling group, you must
-        /// specify the <code>revisionId</code>. </para>
+        /// specify the <c>revisionId</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

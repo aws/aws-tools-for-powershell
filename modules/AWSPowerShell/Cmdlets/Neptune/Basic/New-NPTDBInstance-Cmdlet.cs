@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>Indicates that minor engine upgrades are applied automatically to the DB instance
-        /// during the maintenance window.</para><para>Default: <code>true</code></para>
+        /// during the maintenance window.</para><para>Default: <c>true</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para> The EC2 Availability Zone that the DB instance is created in</para><para>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Region.</para><para> Example: <code>us-east-1d</code></para><para> Constraint: The AvailabilityZone parameter can't be specified if the MultiAZ parameter
-        /// is set to <code>true</code>. The specified Availability Zone must be in the same Amazon
+        /// <para> The EC2 Availability Zone that the DB instance is created in</para><para>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Region.</para><para> Example: <c>us-east-1d</c></para><para> Constraint: The AvailabilityZone parameter can't be specified if the MultiAZ parameter
+        /// is set to <c>true</c>. The specified Availability Zone must be in the same Amazon
         /// Region as the current endpoint.</para>
         /// </para>
         /// </summary>
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para>The compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
+        /// <para>The compute and memory capacity of the DB instance, for example, <c>db.m4.large</c>.
         /// Not all DB instance classes are available in all Amazon Regions.</para>
         /// </para>
         /// </summary>
@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
+        /// <para>The DB instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <c>mydbinstance</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -273,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this instance.</para><para>Valid Values: <code>neptune</code></para>
+        /// <para>The name of the database engine to be used for this instance.</para><para>Valid Values: <c>neptune</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -316,10 +316,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// If you are creating a DB instance with the same Amazon account that owns the KMS encryption
         /// key used to encrypt the new DB instance, then you can use the KMS key alias instead
         /// of the ARN for the KM encryption key.</para><para>Not applicable. The KMS key identifier is managed by the DB cluster. For more information,
-        /// see <a>CreateDBCluster</a>.</para><para>If the <code>StorageEncrypted</code> parameter is true, and you do not specify a value
-        /// for the <code>KmsKeyId</code> parameter, then Amazon Neptune will use your default
-        /// encryption key. Amazon KMS creates the default encryption key for your Amazon account.
-        /// Your Amazon account has a different default encryption key for each Amazon Region.</para>
+        /// see <a>CreateDBCluster</a>.</para><para>If the <c>StorageEncrypted</c> parameter is true, and you do not specify a value for
+        /// the <c>KmsKeyId</c> parameter, then Amazon Neptune will use your default encryption
+        /// key. Amazon KMS creates the default encryption key for your Amazon account. Your Amazon
+        /// account has a different default encryption key for each Amazon Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -329,8 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter LicenseModel
         /// <summary>
         /// <para>
-        /// <para>License model information for this DB instance.</para><para> Valid values: <code>license-included</code> | <code>bring-your-own-license</code>
-        /// | <code>general-public-license</code></para>
+        /// <para>License model information for this DB instance.</para><para> Valid values: <c>license-included</c> | <c>bring-your-own-license</c> | <c>general-public-license</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -362,8 +361,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
         /// for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0.
-        /// The default is 0.</para><para>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
-        /// to a value other than 0.</para><para>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code></para>
+        /// The default is 0.</para><para>If <c>MonitoringRoleArn</c> is specified, then you must also set <c>MonitoringInterval</c>
+        /// to a value other than 0.</para><para>Valid Values: <c>0, 1, 5, 10, 15, 30, 60</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -374,8 +373,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The ARN for the IAM role that permits Neptune to send enhanced monitoring metrics
-        /// to Amazon CloudWatch Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>.</para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
-        /// a <code>MonitoringRoleArn</code> value.</para>
+        /// to Amazon CloudWatch Logs. For example, <c>arn:aws:iam:123456789012:role/emaccess</c>.</para><para>If <c>MonitoringInterval</c> is set to a value other than 0, then you must supply
+        /// a <c>MonitoringRoleArn</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -416,7 +415,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the database accepts connections.</para><para>Not applicable. The port is managed by the DB cluster. For more information, see <a>CreateDBCluster</a>.</para><para> Default: <code>8182</code></para><para>Type: Integer</para>
+        /// <para>The port number on which the database accepts connections.</para><para>Not applicable. The port is managed by the DB cluster. For more information, see <a>CreateDBCluster</a>.</para><para> Default: <c>8182</c></para><para>Type: Integer</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -438,7 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The time range each week during which system maintenance can occur, in Universal Coordinated
-        /// Time (UTC).</para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// Time (UTC).</para><para> Format: <c>ddd:hh24:mi-ddd:hh24:mi</c></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Region, occurring on a random day of the week.</para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>

@@ -28,21 +28,19 @@ using Amazon.LexModelBuildingService.Model;
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Creates a new version of a slot type based on the <code>$LATEST</code> version of
-    /// the specified slot type. If the <code>$LATEST</code> version of this resource has
-    /// not changed since the last version that you created, Amazon Lex doesn't create a new
-    /// version. It returns the last version that you created. 
+    /// Creates a new version of a slot type based on the <c>$LATEST</c> version of the specified
+    /// slot type. If the <c>$LATEST</c> version of this resource has not changed since the
+    /// last version that you created, Amazon Lex doesn't create a new version. It returns
+    /// the last version that you created. 
     /// 
     ///  <note><para>
-    /// You can update only the <code>$LATEST</code> version of a slot type. You can't update
-    /// the numbered versions that you create with the <code>CreateSlotTypeVersion</code>
-    /// operation.
+    /// You can update only the <c>$LATEST</c> version of a slot type. You can't update the
+    /// numbered versions that you create with the <c>CreateSlotTypeVersion</c> operation.
     /// </para></note><para>
     /// When you create a version of a slot type, Amazon Lex sets the version to 1. Subsequent
     /// versions increment by 1. For more information, see <a>versioning-intro</a>. 
     /// </para><para>
-    /// This operation requires permissions for the <code>lex:CreateSlotTypeVersion</code>
-    /// action.
+    /// This operation requires permissions for the <c>lex:CreateSlotTypeVersion</c> action.
     /// </para>
     /// </summary>
     [Cmdlet("New", "LMBSlotTypeVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -59,11 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter Checksum
         /// <summary>
         /// <para>
-        /// <para>Checksum for the <code>$LATEST</code> version of the slot type that you want to publish.
-        /// If you specify a checksum and the <code>$LATEST</code> version of the slot type has
-        /// a different checksum, Amazon Lex returns a <code>PreconditionFailedException</code>
-        /// exception and doesn't publish the new version. If you don't specify a checksum, Amazon
-        /// Lex publishes the <code>$LATEST</code> version.</para>
+        /// <para>Checksum for the <c>$LATEST</c> version of the slot type that you want to publish.
+        /// If you specify a checksum and the <c>$LATEST</c> version of the slot type has a different
+        /// checksum, Amazon Lex returns a <c>PreconditionFailedException</c> exception and doesn't
+        /// publish the new version. If you don't specify a checksum, Amazon Lex publishes the
+        /// <c>$LATEST</c> version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -35,21 +35,20 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Permanently deletes a <a>Rule</a>. You can't delete a <code>Rule</code> if it's still
-    /// used in any <code>WebACL</code> objects or if it still includes any predicates, such
-    /// as <code>ByteMatchSet</code> objects.
+    /// Permanently deletes a <a>Rule</a>. You can't delete a <c>Rule</c> if it's still used
+    /// in any <c>WebACL</c> objects or if it still includes any predicates, such as <c>ByteMatchSet</c>
+    /// objects.
     /// </para><para>
-    /// If you just want to remove a <code>Rule</code> from a <code>WebACL</code>, use <a>UpdateWebACL</a>.
+    /// If you just want to remove a <c>Rule</c> from a <c>WebACL</c>, use <a>UpdateWebACL</a>.
     /// </para><para>
-    /// To permanently delete a <code>Rule</code> from AWS WAF, perform the following steps:
+    /// To permanently delete a <c>Rule</c> from AWS WAF, perform the following steps:
     /// </para><ol><li><para>
-    /// Update the <code>Rule</code> to remove predicates, if any. For more information, see
-    /// <a>UpdateRule</a>.
+    /// Update the <c>Rule</c> to remove predicates, if any. For more information, see <a>UpdateRule</a>.
     /// </para></li><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>DeleteRule</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of a <c>DeleteRule</c> request.
     /// </para></li><li><para>
-    /// Submit a <code>DeleteRule</code> request.
+    /// Submit a <c>DeleteRule</c> request.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Remove", "WAFRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -84,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter RuleId
         /// <summary>
         /// <para>
-        /// <para>The <code>RuleId</code> of the <a>Rule</a> that you want to delete. <code>RuleId</code>
-        /// is returned by <a>CreateRule</a> and by <a>ListRules</a>.</para>
+        /// <para>The <c>RuleId</c> of the <a>Rule</a> that you want to delete. <c>RuleId</c> is returned
+        /// by <a>CreateRule</a> and by <a>ListRules</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

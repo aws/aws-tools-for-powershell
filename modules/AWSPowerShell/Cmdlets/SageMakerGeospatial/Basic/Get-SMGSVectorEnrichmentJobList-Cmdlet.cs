@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>An optional value that specifies whether you want the results sorted in <code>Ascending</code>
-        /// or <code>Descending</code> order.</para>
+        /// <para>An optional value that specifies whether you want the results sorted in <c>Ascending</c>
+        /// or <c>Descending</c> order.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

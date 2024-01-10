@@ -93,10 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter PlaybackMode
         /// <summary>
         /// <para>
-        /// <para>The type of playback mode to use for this channel.</para><para><code>LINEAR</code> - The programs in the schedule play once back-to-back in the
-        /// schedule.</para><para><code>LOOP</code> - The programs in the schedule play back-to-back in an endless
-        /// loop. When the last program in the schedule stops playing, playback loops back to
-        /// the first program in the schedule.</para>
+        /// <para>The type of playback mode to use for this channel.</para><para><c>LINEAR</c> - The programs in the schedule play once back-to-back in the schedule.</para><para><c>LOOP</c> - The programs in the schedule play back-to-back in an endless loop.
+        /// When the last program in the schedule stops playing, playback loops back to the first
+        /// program in the schedule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

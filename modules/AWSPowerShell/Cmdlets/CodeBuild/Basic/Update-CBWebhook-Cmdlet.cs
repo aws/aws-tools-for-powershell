@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     /// Updates the webhook associated with an CodeBuild build project. 
     /// 
     ///  <note><para>
-    ///  If you use Bitbucket for your repository, <code>rotateSecret</code> is ignored. 
+    ///  If you use Bitbucket for your repository, <c>rotateSecret</c> is ignored. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "CBWebhook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para>A regular expression used to determine which repository branches are built when a
         /// webhook is triggered. If the name of a branch matches the regular expression, then
-        /// it is built. If <code>branchFilter</code> is empty, then all branches are built.</para><note><para> It is recommended that you use <code>filterGroups</code> instead of <code>branchFilter</code>.
+        /// it is built. If <c>branchFilter</c> is empty, then all branches are built.</para><note><para> It is recommended that you use <c>filterGroups</c> instead of <c>branchFilter</c>.
         /// </para></note>
         /// </para>
         /// </summary>
@@ -73,8 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter FilterGroup
         /// <summary>
         /// <para>
-        /// <para> An array of arrays of <code>WebhookFilter</code> objects used to determine if a webhook
-        /// event can trigger a build. A filter group must contain at least one <code>EVENT</code><code>WebhookFilter</code>. </para>
+        /// <para> An array of arrays of <c>WebhookFilter</c> objects used to determine if a webhook
+        /// event can trigger a build. A filter group must contain at least one <c>EVENT</c><c>WebhookFilter</c>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para> A boolean value that specifies whether the associated GitHub repository's secret
-        /// token should be updated. If you use Bitbucket for your repository, <code>rotateSecret</code>
+        /// token should be updated. If you use Bitbucket for your repository, <c>rotateSecret</c>
         /// is ignored. </para>
         /// </para>
         /// </summary>

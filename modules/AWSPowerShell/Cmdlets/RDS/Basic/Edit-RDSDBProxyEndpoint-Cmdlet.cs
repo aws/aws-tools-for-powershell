@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NewDBProxyEndpointName
         /// <summary>
         /// <para>
-        /// <para>The new identifier for the <code>DBProxyEndpoint</code>. An identifier must begin
-        /// with a letter and must contain only ASCII letters, digits, and hyphens; it can't end
-        /// with a hyphen or contain two consecutive hyphens.</para>
+        /// <para>The new identifier for the <c>DBProxyEndpoint</c>. An identifier must begin with a
+        /// letter and must contain only ASCII letters, digits, and hyphens; it can't end with
+        /// a hyphen or contain two consecutive hyphens.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

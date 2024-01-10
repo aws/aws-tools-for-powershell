@@ -55,10 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         /// <summary>
         /// <para>
         /// <para>Indicates whether a profile should be created when data is received if one doesn’t
-        /// exist for an object of this type. The default is <code>FALSE</code>. If the AllowProfileCreation
-        /// flag is set to <code>FALSE</code>, then the service tries to fetch a standard profile
-        /// and associate this object with the profile. If it is set to <code>TRUE</code>, and
-        /// if no match is found, then the service creates a new standard profile.</para>
+        /// exist for an object of this type. The default is <c>FALSE</c>. If the AllowProfileCreation
+        /// flag is set to <c>FALSE</c>, then the service tries to fetch a standard profile and
+        /// associate this object with the profile. If it is set to <c>TRUE</c>, and if no match
+        /// is found, then the service creates a new standard profile.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,8 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter SourceLastUpdatedTimestampFormat
         /// <summary>
         /// <para>
-        /// <para>The format of your <code>sourceLastUpdatedTimestamp</code> that was previously set
-        /// up. </para>
+        /// <para>The format of your <c>sourceLastUpdatedTimestamp</c> that was previously set up. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,10 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         /// <para>
         /// <para>A unique identifier for the object template. For some attributes in the request, the
         /// service will use the default value from the object template when TemplateId is present.
-        /// If these attributes are present in the request, the service may return a <code>BadRequestException</code>.
+        /// If these attributes are present in the request, the service may return a <c>BadRequestException</c>.
         /// These attributes include: AllowProfileCreation, SourceLastUpdatedTimestampFormat,
         /// Fields, and Keys. For example, if AllowProfileCreation is set to true when TemplateId
-        /// is set, the service may return a <code>BadRequestException</code>.</para>
+        /// is set, the service may return a <c>BadRequestException</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

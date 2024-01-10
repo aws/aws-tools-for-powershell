@@ -28,7 +28,7 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Returns the <code>IdMappingWorkflow</code> with a given name, if it exists.
+    /// Returns the <c>IdMappingWorkflow</c> with a given name, if it exists.
     /// </summary>
     [Cmdlet("Get", "ERESIdMappingWorkflow")]
     [OutputType("Amazon.EntityResolution.Model.GetIdMappingWorkflowResponse")]

@@ -28,7 +28,7 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Returns detailed information for five of the most recent <code>SetupInstanceHttps</code>
+    /// Returns detailed information for five of the most recent <c>SetupInstanceHttps</c>
     /// requests that were ran on the target instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LSSetupHistory")]
@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>The token to advance to the next page of results from your request.</para><para>To get a page token, perform an initial <code>GetSetupHistory</code> request. If your
-        /// results are paginated, the response will return a next page token that you can specify
-        /// as the page token in a subsequent request.</para>
+        /// <para>The token to advance to the next page of results from your request.</para><para>To get a page token, perform an initial <c>GetSetupHistory</c> request. If your results
+        /// are paginated, the response will return a next page token that you can specify as
+        /// the page token in a subsequent request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

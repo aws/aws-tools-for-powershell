@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter StringValue
         /// <summary>
         /// <para>
-        /// <para>Specifies the value or list of values for the dimension. For <code>TOPIC_FILTER</code>
-        /// dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").</para>
+        /// <para>Specifies the value or list of values for the dimension. For <c>TOPIC_FILTER</c> dimensions,
+        /// this is a pattern used to match the MQTT topic (for example, "admin/#").</para>
         /// </para>
         /// </summary>
         #if !MODULAR

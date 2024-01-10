@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     /// 
     ///  <note><para>
     /// This API accepts only one of the following parameters to descibe the resource:
-    /// </para><ul><li><para><code>resourceName</code></para></li><li><para><code>logicalResourceId</code></para></li><li><para><code>physicalResourceId</code> (Along with <code>physicalResourceId</code>, you
-    /// can also provide <code>awsAccountId</code>, and <code>awsRegion</code>)
+    /// </para><ul><li><para><c>resourceName</c></para></li><li><para><c>logicalResourceId</c></para></li><li><para><c>physicalResourceId</c> (Along with <c>physicalResourceId</c>, you can also provide
+    /// <c>awsAccountId</c>, and <c>awsRegion</c>)
     /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Get", "RESHAppVersionResource")]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <summary>
         /// <para>
         /// <para>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
-        /// ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
+        /// ARN is: arn:<c>partition</c>:resiliencehub:<c>region</c>:<c>account</c>:app/<c>app-id</c>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>
         /// guide.</para>

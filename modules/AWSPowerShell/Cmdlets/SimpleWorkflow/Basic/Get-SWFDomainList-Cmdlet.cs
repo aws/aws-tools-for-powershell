@@ -39,18 +39,18 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     /// You can use IAM policies to control this action's access to Amazon SWF resources as
     /// follows:
     /// </para><ul><li><para>
-    /// Use a <code>Resource</code> element with the domain name to limit the action to only
-    /// specified domains. The element must be set to <code>arn:aws:swf::AccountID:domain/*</code>,
-    /// where <i>AccountID</i> is the account ID, with no dashes.
+    /// Use a <c>Resource</c> element with the domain name to limit the action to only specified
+    /// domains. The element must be set to <c>arn:aws:swf::AccountID:domain/*</c>, where
+    /// <i>AccountID</i> is the account ID, with no dashes.
     /// </para></li><li><para>
-    /// Use an <code>Action</code> element to allow or deny permission to call this action.
+    /// Use an <c>Action</c> element to allow or deny permission to call this action.
     /// </para></li><li><para>
     /// You cannot use an IAM policy to constrain this action's parameters.
     /// </para></li></ul><para>
     /// If the caller doesn't have sufficient permissions to invoke the action, or the parameter
     /// values fall outside the specified constraints, the action fails. The associated event
-    /// attribute's <code>cause</code> parameter is set to <code>OPERATION_NOT_PERMITTED</code>.
-    /// For details and example IAM policies, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
+    /// attribute's <c>cause</c> parameter is set to <c>OPERATION_NOT_PERMITTED</c>. For details
+    /// and example IAM policies, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
     /// IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         #region Parameter ReverseOrder
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, returns the results in reverse order. By default, the
-        /// results are returned in ascending alphabetical order by <code>name</code> of the domains.</para>
+        /// <para>When set to <c>true</c>, returns the results in reverse order. By default, the results
+        /// are returned in ascending alphabetical order by <c>name</c> of the domains.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         #region Parameter MaximumPageSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results that are returned per call. Use <code>nextPageToken</code>
+        /// <para>The maximum number of results that are returned per call. Use <c>nextPageToken</c>
         /// to obtain further pages of results. </para>
         /// </para>
         /// <para>
@@ -114,12 +114,12 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         #region Parameter NextPageToken
         /// <summary>
         /// <para>
-        /// <para>If <code>NextPageToken</code> is returned there are more results available. The value
-        /// of <code>NextPageToken</code> is a unique pagination token for each page. Make the
-        /// call again using the returned token to retrieve the next page. Keep all other arguments
-        /// unchanged. Each pagination token expires after 24 hours. Using an expired pagination
-        /// token will return a <code>400</code> error: "<code>Specified token has exceeded its
-        /// maximum lifetime</code>". </para><para>The configured <code>maximumPageSize</code> determines how many results can be returned
+        /// <para>If <c>NextPageToken</c> is returned there are more results available. The value of
+        /// <c>NextPageToken</c> is a unique pagination token for each page. Make the call again
+        /// using the returned token to retrieve the next page. Keep all other arguments unchanged.
+        /// Each pagination token expires after 24 hours. Using an expired pagination token will
+        /// return a <c>400</c> error: "<c>Specified token has exceeded its maximum lifetime</c>".
+        /// </para><para>The configured <c>maximumPageSize</c> determines how many results can be returned
         /// in a single call. </para>
         /// </para>
         /// <para>

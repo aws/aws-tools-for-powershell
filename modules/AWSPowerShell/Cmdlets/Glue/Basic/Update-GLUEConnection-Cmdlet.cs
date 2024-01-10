@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter ConnectionInput
         /// <summary>
         /// <para>
-        /// <para>A <code>ConnectionInput</code> object that redefines the connection in question.</para>
+        /// <para>A <c>ConnectionInput</c> object that redefines the connection in question.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

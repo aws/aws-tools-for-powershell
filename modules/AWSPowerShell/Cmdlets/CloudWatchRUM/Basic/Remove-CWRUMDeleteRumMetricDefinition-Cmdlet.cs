@@ -32,11 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
     /// 
     ///  
     /// <para>
-    /// If some metric definition IDs specified in a <code>BatchDeleteRumMetricDefinitions</code>
+    /// If some metric definition IDs specified in a <c>BatchDeleteRumMetricDefinitions</c>
     /// operations are not valid, those metric definitions fail and return errors, but all
     /// valid metric definition IDs in the same operation are still deleted.
     /// </para><para>
-    /// The maximum number of metric definitions that you can specify in one <code>BatchDeleteRumMetricDefinitions</code>
+    /// The maximum number of metric definitions that you can specify in one <c>BatchDeleteRumMetricDefinitions</c>
     /// operation is 200.
     /// </para>
     /// </summary>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <summary>
         /// <para>
         /// <para>Defines the destination where you want to stop sending the specified metrics. Valid
-        /// values are <code>CloudWatch</code> and <code>Evidently</code>. If you specify <code>Evidently</code>,
+        /// values are <c>CloudWatch</c> and <c>Evidently</c>. If you specify <c>Evidently</c>,
         /// you must also specify the ARN of the CloudWatchEvidently experiment that is to be
         /// the destination and an IAM role that has permission to write to the experiment.</para>
         /// </para>
@@ -91,9 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter DestinationArn
         /// <summary>
         /// <para>
-        /// <para>This parameter is required if <code>Destination</code> is <code>Evidently</code>.
-        /// If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter.
-        /// </para><para>This parameter specifies the ARN of the Evidently experiment that was receiving the
+        /// <para>This parameter is required if <c>Destination</c> is <c>Evidently</c>. If <c>Destination</c>
+        /// is <c>CloudWatch</c>, do not use this parameter. </para><para>This parameter specifies the ARN of the Evidently experiment that was receiving the
         /// metrics that are being deleted.</para>
         /// </para>
         /// </summary>

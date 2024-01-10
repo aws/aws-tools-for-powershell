@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// </para></li><li><para>
     /// An array job ID to return a list of the children for that job
     /// </para></li></ul><para>
-    /// You can filter the results by job status with the <code>jobStatus</code> parameter.
-    /// If you don't specify a status, only <code>RUNNING</code> jobs are returned.
+    /// You can filter the results by job status with the <c>jobStatus</c> parameter. If you
+    /// don't specify a status, only <c>RUNNING</c> jobs are returned.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BATJobList")]
@@ -71,27 +71,27 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The filter to apply to the query. Only one filter can be used at a time. When the
-        /// filter is used, <code>jobStatus</code> is ignored. The filter doesn't apply to child
-        /// jobs in an array or multi-node parallel (MNP) jobs. The results are sorted by the
-        /// <code>createdAt</code> field, with the most recent jobs being first.</para><dl><dt>JOB_NAME</dt><dd><para>The value of the filter is a case-insensitive match for the job name. If the value
+        /// filter is used, <c>jobStatus</c> is ignored. The filter doesn't apply to child jobs
+        /// in an array or multi-node parallel (MNP) jobs. The results are sorted by the <c>createdAt</c>
+        /// field, with the most recent jobs being first.</para><dl><dt>JOB_NAME</dt><dd><para>The value of the filter is a case-insensitive match for the job name. If the value
         /// ends with an asterisk (*), the filter matches any job name that begins with the string
-        /// before the '*'. This corresponds to the <code>jobName</code> value. For example, <code>test1</code>
-        /// matches both <code>Test1</code> and <code>test1</code>, and <code>test1*</code> matches
-        /// both <code>test1</code> and <code>Test10</code>. When the <code>JOB_NAME</code> filter
-        /// is used, the results are grouped by the job name and version.</para></dd><dt>JOB_DEFINITION</dt><dd><para>The value for the filter is the name or Amazon Resource Name (ARN) of the job definition.
-        /// This corresponds to the <code>jobDefinition</code> value. The value is case sensitive.
-        /// When the value for the filter is the job definition name, the results include all
-        /// the jobs that used any revision of that job definition name. If the value ends with
-        /// an asterisk (*), the filter matches any job definition name that begins with the string
-        /// before the '*'. For example, <code>jd1</code> matches only <code>jd1</code>, and <code>jd1*</code>
-        /// matches both <code>jd1</code> and <code>jd1A</code>. The version of the job definition
-        /// that's used doesn't affect the sort order. When the <code>JOB_DEFINITION</code> filter
-        /// is used and the ARN is used (which is in the form <code>arn:${Partition}:batch:${Region}:${Account}:job-definition/${JobDefinitionName}:${Revision}</code>),
+        /// before the '*'. This corresponds to the <c>jobName</c> value. For example, <c>test1</c>
+        /// matches both <c>Test1</c> and <c>test1</c>, and <c>test1*</c> matches both <c>test1</c>
+        /// and <c>Test10</c>. When the <c>JOB_NAME</c> filter is used, the results are grouped
+        /// by the job name and version.</para></dd><dt>JOB_DEFINITION</dt><dd><para>The value for the filter is the name or Amazon Resource Name (ARN) of the job definition.
+        /// This corresponds to the <c>jobDefinition</c> value. The value is case sensitive. When
+        /// the value for the filter is the job definition name, the results include all the jobs
+        /// that used any revision of that job definition name. If the value ends with an asterisk
+        /// (*), the filter matches any job definition name that begins with the string before
+        /// the '*'. For example, <c>jd1</c> matches only <c>jd1</c>, and <c>jd1*</c> matches
+        /// both <c>jd1</c> and <c>jd1A</c>. The version of the job definition that's used doesn't
+        /// affect the sort order. When the <c>JOB_DEFINITION</c> filter is used and the ARN is
+        /// used (which is in the form <c>arn:${Partition}:batch:${Region}:${Account}:job-definition/${JobDefinitionName}:${Revision}</c>),
         /// the results include jobs that used the specified revision of the job definition. Asterisk
         /// (*) isn't supported when the ARN is used.</para></dd><dt>BEFORE_CREATED_AT</dt><dd><para>The value for the filter is the time that's before the job was created. This corresponds
-        /// to the <code>createdAt</code> value. The value is a string representation of the number
+        /// to the <c>createdAt</c> value. The value is a string representation of the number
         /// of milliseconds since 00:00:00 UTC (midnight) on January 1, 1970.</para></dd><dt>AFTER_CREATED_AT</dt><dd><para>The value for the filter is the time that's after the job was created. This corresponds
-        /// to the <code>createdAt</code> value. The value is a string representation of the number
+        /// to the <c>createdAt</c> value. The value is a string representation of the number
         /// of milliseconds since 00:00:00 UTC (midnight) on January 1, 1970.</para></dd></dl>
         /// </para>
         /// </summary>
@@ -113,10 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobStatus
         /// <summary>
         /// <para>
-        /// <para>The job status used to filter jobs in the specified queue. If the <code>filters</code>
-        /// parameter is specified, the <code>jobStatus</code> parameter is ignored and jobs with
-        /// any status are returned. If you don't specify a status, only <code>RUNNING</code>
-        /// jobs are returned.</para>
+        /// <para>The job status used to filter jobs in the specified queue. If the <c>filters</c> parameter
+        /// is specified, the <c>jobStatus</c> parameter is ignored and jobs with any status are
+        /// returned. If you don't specify a status, only <c>RUNNING</c> jobs are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,13 +137,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results returned by <code>ListJobs</code> in paginated output.
-        /// When this parameter is used, <code>ListJobs</code> only returns <code>maxResults</code>
-        /// results in a single page and a <code>nextToken</code> response element. The remaining
-        /// results of the initial request can be seen by sending another <code>ListJobs</code>
-        /// request with the returned <code>nextToken</code> value. This value can be between
-        /// 1 and 100. If this parameter isn't used, then <code>ListJobs</code> returns up to
-        /// 100 results and a <code>nextToken</code> value if applicable.</para>
+        /// <para>The maximum number of results returned by <c>ListJobs</c> in paginated output. When
+        /// this parameter is used, <c>ListJobs</c> only returns <c>maxResults</c> results in
+        /// a single page and a <c>nextToken</c> response element. The remaining results of the
+        /// initial request can be seen by sending another <c>ListJobs</c> request with the returned
+        /// <c>nextToken</c> value. This value can be between 1 and 100. If this parameter isn't
+        /// used, then <c>ListJobs</c> returns up to 100 results and a <c>nextToken</c> value
+        /// if applicable.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -160,11 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListJobs</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return.</para><note><para>Treat this token as an opaque identifier that's only used to retrieve the next items
+        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>ListJobs</c> request
+        /// where <c>maxResults</c> was used and the results exceeded the value of that parameter.
+        /// Pagination continues from the end of the previous results that returned the <c>nextToken</c>
+        /// value. This value is <c>null</c> when there are no more results to return.</para><note><para>Treat this token as an opaque identifier that's only used to retrieve the next items
         /// in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

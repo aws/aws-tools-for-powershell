@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The name of the CloudWatch Logs log group where you want to send command output. If
         /// you don't specify a group name, Amazon Web Services Systems Manager automatically
-        /// creates a log group for you. The log group uses the following naming format:</para><para><code>aws/ssm/<i>SystemsManagerDocumentName</i></code></para>
+        /// creates a log group for you. The log group uses the following naming format:</para><para><c>aws/ssm/<i>SystemsManagerDocumentName</i></c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// to another account, specify the document Amazon Resource Name (ARN). For more information
         /// about how to use shared documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html">Using
         /// shared SSM documents</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para><note><para>If you specify a document name or ARN that hasn't been shared with your account, you
-        /// receive an <code>InvalidDocument</code> error. </para></note>
+        /// receive an <c>InvalidDocument</c> error. </para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The IDs of the managed nodes where the command should run. Specifying managed node
         /// IDs is most useful when you are targeting a limited number of managed nodes, though
         /// you can specify up to 50 IDs.</para><para>To target a larger number of managed nodes, or if you prefer not to list individual
-        /// node IDs, we recommend using the <code>Targets</code> option instead. Using <code>Targets</code>,
+        /// node IDs, we recommend using the <c>Targets</c> option instead. Using <c>Targets</c>,
         /// which accepts tag key-value pairs to identify the managed nodes to send commands to,
         /// you can a send command to tens, hundreds, or thousands of nodes at once.</para><para>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Using
         /// targets and rate controls to send commands to a fleet</a> in the <i>Amazon Web Services
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>(Optional) The maximum number of managed nodes that are allowed to run the command
         /// at the same time. You can specify a number such as 10 or a percentage such as 10%.
-        /// The default value is <code>50</code>. For more information about how to use <code>MaxConcurrency</code>,
+        /// The default value is <c>50</c>. For more information about how to use <c>MaxConcurrency</c>,
         /// see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity">Using
         /// concurrency controls</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>
@@ -195,10 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The maximum number of errors allowed without the command failing. When the command
-        /// fails one more time beyond the value of <code>MaxErrors</code>, the systems stops
-        /// sending the command to additional targets. You can specify a number like 10 or a percentage
-        /// like 10%. The default value is <code>0</code>. For more information about how to use
-        /// <code>MaxErrors</code>, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-maxerrors">Using
+        /// fails one more time beyond the value of <c>MaxErrors</c>, the systems stops sending
+        /// the command to additional targets. You can specify a number like 10 or a percentage
+        /// like 10%. The default value is <c>0</c>. For more information about how to use <c>MaxErrors</c>,
+        /// see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-maxerrors">Using
         /// error controls</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter NotificationConfig_NotificationType
         /// <summary>
         /// <para>
-        /// <para>The type of notification.</para><ul><li><para><code>Command</code>: Receive notification when the status of a command changes.</para></li><li><para><code>Invocation</code>: For commands sent to multiple managed nodes, receive notification
+        /// <para>The type of notification.</para><ul><li><para><c>Command</c>: Receive notification when the status of a command changes.</para></li><li><para><c>Invocation</c>: For commands sent to multiple managed nodes, receive notification
         /// on a per-node basis when the status of a command changes. </para></li></ul>
         /// </para>
         /// </summary>
@@ -291,8 +291,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The ARN of the Identity and Access Management (IAM) service role to use to publish
-        /// Amazon Simple Notification Service (Amazon SNS) notifications for Run Command commands.</para><para>This role must provide the <code>sns:Publish</code> permission for your notification
-        /// topic. For information about creating and using this service role, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring
+        /// Amazon Simple Notification Service (Amazon SNS) notifications for Run Command commands.</para><para>This role must provide the <c>sns:Publish</c> permission for your notification topic.
+        /// For information about creating and using this service role, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring
         /// Systems Manager status changes using Amazon SNS notifications</a> in the <i>Amazon
         /// Web Services Systems Manager User Guide</i>.</para>
         /// </para>
@@ -304,11 +304,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>An array of search criteria that targets managed nodes using a <code>Key,Value</code>
-        /// combination that you specify. Specifying targets is most useful when you want to send
-        /// a command to a large number of managed nodes at once. Using <code>Targets</code>,
-        /// which accepts tag key-value pairs to identify managed nodes, you can send a command
-        /// to tens, hundreds, or thousands of nodes at once.</para><para>To send a command to a smaller number of managed nodes, you can use the <code>InstanceIds</code>
+        /// <para>An array of search criteria that targets managed nodes using a <c>Key,Value</c> combination
+        /// that you specify. Specifying targets is most useful when you want to send a command
+        /// to a large number of managed nodes at once. Using <c>Targets</c>, which accepts tag
+        /// key-value pairs to identify managed nodes, you can send a command to tens, hundreds,
+        /// or thousands of nodes at once.</para><para>To send a command to a smaller number of managed nodes, you can use the <c>InstanceIds</c>
         /// option instead.</para><para>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending
         /// commands to a fleet</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>

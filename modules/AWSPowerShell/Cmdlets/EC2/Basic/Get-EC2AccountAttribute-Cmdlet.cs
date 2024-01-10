@@ -31,18 +31,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Describes attributes of your Amazon Web Services account. The following are the supported
     /// account attributes:
     /// 
-    ///  <ul><li><para><code>default-vpc</code>: The ID of the default VPC for your account, or <code>none</code>.
-    /// </para></li><li><para><code>max-instances</code>: This attribute is no longer supported. The returned value
-    /// does not reflect your actual vCPU limit for running On-Demand Instances. For more
-    /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-on-demand-instances.html#ec2-on-demand-instances-limits">On-Demand
+    ///  <ul><li><para><c>default-vpc</c>: The ID of the default VPC for your account, or <c>none</c>.
+    /// </para></li><li><para><c>max-instances</c>: This attribute is no longer supported. The returned value does
+    /// not reflect your actual vCPU limit for running On-Demand Instances. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-on-demand-instances.html#ec2-on-demand-instances-limits">On-Demand
     /// Instance Limits</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para></li><li><para><code>max-elastic-ips</code>: The maximum number of Elastic IP addresses that you
-    /// can allocate.
-    /// </para></li><li><para><code>supported-platforms</code>: This attribute is deprecated.
-    /// </para></li><li><para><code>vpc-max-elastic-ips</code>: The maximum number of Elastic IP addresses that
-    /// you can allocate.
-    /// </para></li><li><para><code>vpc-max-security-groups-per-interface</code>: The maximum number of security
-    /// groups that you can assign to a network interface.
+    /// </para></li><li><para><c>max-elastic-ips</c>: The maximum number of Elastic IP addresses that you can allocate.
+    /// </para></li><li><para><c>supported-platforms</c>: This attribute is deprecated.
+    /// </para></li><li><para><c>vpc-max-elastic-ips</c>: The maximum number of Elastic IP addresses that you can
+    /// allocate.
+    /// </para></li><li><para><c>vpc-max-security-groups-per-interface</c>: The maximum number of security groups
+    /// that you can assign to a network interface.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "EC2AccountAttribute")]

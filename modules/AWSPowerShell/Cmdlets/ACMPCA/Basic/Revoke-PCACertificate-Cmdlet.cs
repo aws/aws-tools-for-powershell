@@ -35,8 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// typically updated approximately 30 minutes after a certificate is revoked. If for
     /// any reason the CRL update fails, Amazon Web Services Private CA attempts makes further
     /// attempts every 15 minutes. With Amazon CloudWatch, you can create alarms for the metrics
-    /// <code>CRLGenerated</code> and <code>MisconfiguredCRLBucket</code>. For more information,
-    /// see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaCloudWatch.html">Supported
+    /// <c>CRLGenerated</c> and <c>MisconfiguredCRLBucket</c>. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaCloudWatch.html">Supported
     /// CloudWatch Metrics</a>.
     /// 
     ///  <note><para>
@@ -68,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked.
-        /// This must be of the form:</para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code></para>
+        /// This must be of the form:</para><para><c>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// with the Amazon Resource Name (ARN) of the certificate you want and the ARN of your
         /// private CA. The <b>GetCertificate</b> action retrieves the certificate in the PEM
         /// format. You can use the following OpenSSL command to list the certificate in text
-        /// format and copy the hexadecimal serial number. </para><para><code>openssl x509 -in <i>file_path</i> -text -noout</code></para><para>You can also copy the serial number from the console or use the <a href="https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html">DescribeCertificate</a>
+        /// format and copy the hexadecimal serial number. </para><para><c>openssl x509 -in <i>file_path</i> -text -noout</c></para><para>You can also copy the serial number from the console or use the <a href="https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html">DescribeCertificate</a>
         /// action in the <i>Certificate Manager API Reference</i>. </para>
         /// </para>
         /// </summary>

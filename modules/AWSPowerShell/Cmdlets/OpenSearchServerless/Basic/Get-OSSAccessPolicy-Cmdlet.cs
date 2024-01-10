@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>Tye type of policy. Currently, the only supported value is <code>data</code>.</para>
+        /// <para>Tye type of policy. Currently, the only supported value is <c>data</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

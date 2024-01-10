@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter ActivateDeepInspection
         /// <summary>
         /// <para>
-        /// <para>Specify <code>TRUE</code> to activate Amazon Inspector deep inspection in your account,
-        /// or <code>FALSE</code> to deactivate. Member accounts in an organization cannot deactivate
+        /// <para>Specify <c>TRUE</c> to activate Amazon Inspector deep inspection in your account,
+        /// or <c>FALSE</c> to deactivate. Member accounts in an organization cannot deactivate
         /// deep inspection, instead the delegated administrator for the organization can deactivate
         /// a member account using <a href="https://docs.aws.amazon.com/inspector/v2/APIReference/API_BatchUpdateMemberEc2DeepInspectionStatus.html">BatchUpdateMemberEc2DeepInspectionStatus</a>.</para>
         /// </para>

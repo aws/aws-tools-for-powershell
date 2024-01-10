@@ -49,37 +49,37 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// Forecast ARN.
     /// </para><para><b>CreateExplainability with a Predictor ARN</b></para><note><para>
     /// You can only have one Explainability resource per predictor. If you already enabled
-    /// <code>ExplainPredictor</code> in <a>CreateAutoPredictor</a>, that predictor already
-    /// has an Explainability resource.
+    /// <c>ExplainPredictor</c> in <a>CreateAutoPredictor</a>, that predictor already has
+    /// an Explainability resource.
     /// </para></note><para>
     /// The following parameters are required when providing a Predictor ARN:
-    /// </para><ul><li><para><code>ExplainabilityName</code> - A unique name for the Explainability.
-    /// </para></li><li><para><code>ResourceArn</code> - The Arn of the predictor.
-    /// </para></li><li><para><code>TimePointGranularity</code> - Must be set to “ALL”.
-    /// </para></li><li><para><code>TimeSeriesGranularity</code> - Must be set to “ALL”.
+    /// </para><ul><li><para><c>ExplainabilityName</c> - A unique name for the Explainability.
+    /// </para></li><li><para><c>ResourceArn</c> - The Arn of the predictor.
+    /// </para></li><li><para><c>TimePointGranularity</c> - Must be set to “ALL”.
+    /// </para></li><li><para><c>TimeSeriesGranularity</c> - Must be set to “ALL”.
     /// </para></li></ul><para>
     /// Do not specify a value for the following parameters:
-    /// </para><ul><li><para><code>DataSource</code> - Only valid when TimeSeriesGranularity is “SPECIFIC”.
-    /// </para></li><li><para><code>Schema</code> - Only valid when TimeSeriesGranularity is “SPECIFIC”.
-    /// </para></li><li><para><code>StartDateTime</code> - Only valid when TimePointGranularity is “SPECIFIC”.
-    /// </para></li><li><para><code>EndDateTime</code> - Only valid when TimePointGranularity is “SPECIFIC”.
+    /// </para><ul><li><para><c>DataSource</c> - Only valid when TimeSeriesGranularity is “SPECIFIC”.
+    /// </para></li><li><para><c>Schema</c> - Only valid when TimeSeriesGranularity is “SPECIFIC”.
+    /// </para></li><li><para><c>StartDateTime</c> - Only valid when TimePointGranularity is “SPECIFIC”.
+    /// </para></li><li><para><c>EndDateTime</c> - Only valid when TimePointGranularity is “SPECIFIC”.
     /// </para></li></ul><para><b>CreateExplainability with a Forecast ARN</b></para><note><para>
     /// You can specify a maximum of 50 time series and 500 time points.
     /// </para></note><para>
     /// The following parameters are required when providing a Predictor ARN:
-    /// </para><ul><li><para><code>ExplainabilityName</code> - A unique name for the Explainability.
-    /// </para></li><li><para><code>ResourceArn</code> - The Arn of the forecast.
-    /// </para></li><li><para><code>TimePointGranularity</code> - Either “ALL” or “SPECIFIC”.
-    /// </para></li><li><para><code>TimeSeriesGranularity</code> - Either “ALL” or “SPECIFIC”.
+    /// </para><ul><li><para><c>ExplainabilityName</c> - A unique name for the Explainability.
+    /// </para></li><li><para><c>ResourceArn</c> - The Arn of the forecast.
+    /// </para></li><li><para><c>TimePointGranularity</c> - Either “ALL” or “SPECIFIC”.
+    /// </para></li><li><para><c>TimeSeriesGranularity</c> - Either “ALL” or “SPECIFIC”.
     /// </para></li></ul><para>
     /// If you set TimeSeriesGranularity to “SPECIFIC”, you must also provide the following:
-    /// </para><ul><li><para><code>DataSource</code> - The S3 location of the CSV file specifying your time series.
-    /// </para></li><li><para><code>Schema</code> - The Schema defines the attributes and attribute types listed
-    /// in the Data Source.
+    /// </para><ul><li><para><c>DataSource</c> - The S3 location of the CSV file specifying your time series.
+    /// </para></li><li><para><c>Schema</c> - The Schema defines the attributes and attribute types listed in the
+    /// Data Source.
     /// </para></li></ul><para>
     /// If you set TimePointGranularity to “SPECIFIC”, you must also provide the following:
-    /// </para><ul><li><para><code>StartDateTime</code> - The first timestamp in the range of time points.
-    /// </para></li><li><para><code>EndDateTime</code> - The last timestamp in the range of time points.
+    /// </para><ul><li><para><c>StartDateTime</c> - The first timestamp in the range of time points.
+    /// </para></li><li><para><c>EndDateTime</c> - The last timestamp in the range of time points.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "FRCExplainability", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -121,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter EndDateTime
         /// <summary>
         /// <para>
-        /// <para>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the last
-        /// time point for the Explainability.</para><para>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example: 2015-01-01T20:00:00)</para>
+        /// <para>If <c>TimePointGranularity</c> is set to <c>SPECIFIC</c>, define the last time point
+        /// for the Explainability.</para><para>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example: 2015-01-01T20:00:00)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,9 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The ARN of the Identity and Access Management (IAM) role that Amazon Forecast can
-        /// assume to access the Amazon S3 bucket or files. If you provide a value for the <code>KMSKeyArn</code>
+        /// assume to access the Amazon S3 bucket or files. If you provide a value for the <c>KMSKeyArn</c>
         /// key, the role must allow access to the key.</para><para>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role
-        /// that isn't in your account, you get an <code>InvalidInputException</code> error.</para>
+        /// that isn't in your account, you get an <c>InvalidInputException</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,8 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter StartDateTime
         /// <summary>
         /// <para>
-        /// <para>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the first
-        /// point for the Explainability.</para><para>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example: 2015-01-01T20:00:00)</para>
+        /// <para>If <c>TimePointGranularity</c> is set to <c>SPECIFIC</c>, define the first point for
+        /// the Explainability.</para><para>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example: 2015-01-01T20:00:00)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -218,12 +218,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// of a key and an optional value, both of which you define. Tag keys and values are
         /// case sensitive.</para><para>The following restrictions apply to tags:</para><ul><li><para>For each resource, each tag key must be unique and each tag key must have one value.</para></li><li><para>Maximum number of tags per resource: 50.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8.</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8.</para></li><li><para>Accepted characters: all letters and numbers, spaces representable in UTF-8, and +
         /// - = . _ : / @. If your tagging schema is used across other services and resources,
-        /// the character restrictions of those services also apply. </para></li><li><para>Key prefixes cannot include any upper or lowercase combination of <code>aws:</code>
-        /// or <code>AWS:</code>. Values can have this prefix. If a tag value has <code>aws</code>
-        /// as its prefix but the key does not, Forecast considers it to be a user tag and will
-        /// count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code>
-        /// do not count against your tags per resource limit. You cannot edit or delete tag keys
-        /// with this prefix.</para></li></ul>
+        /// the character restrictions of those services also apply. </para></li><li><para>Key prefixes cannot include any upper or lowercase combination of <c>aws:</c> or <c>AWS:</c>.
+        /// Values can have this prefix. If a tag value has <c>aws</c> as its prefix but the key
+        /// does not, Forecast considers it to be a user tag and will count against the limit
+        /// of 50 tags. Tags with only the key prefix of <c>aws</c> do not count against your
+        /// tags per resource limit. You cannot edit or delete tag keys with this prefix.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,10 +233,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter ExplainabilityConfig_TimePointGranularity
         /// <summary>
         /// <para>
-        /// <para>To create an Explainability for all time points in your forecast horizon, use <code>ALL</code>.
+        /// <para>To create an Explainability for all time points in your forecast horizon, use <c>ALL</c>.
         /// To create an Explainability for specific time points in your forecast horizon, use
-        /// <code>SPECIFIC</code>.</para><para>Specify time points with the <code>StartDateTime</code> and <code>EndDateTime</code>
-        /// parameters within the <a>CreateExplainability</a> operation.</para>
+        /// <c>SPECIFIC</c>.</para><para>Specify time points with the <c>StartDateTime</c> and <c>EndDateTime</c> parameters
+        /// within the <a>CreateExplainability</a> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -254,8 +253,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter ExplainabilityConfig_TimeSeriesGranularity
         /// <summary>
         /// <para>
-        /// <para>To create an Explainability for all time series in your datasets, use <code>ALL</code>.
-        /// To create an Explainability for specific time series in your datasets, use <code>SPECIFIC</code>.</para><para>Specify time series by uploading a CSV or Parquet file to an Amazon S3 bucket and
+        /// <para>To create an Explainability for all time series in your datasets, use <c>ALL</c>.
+        /// To create an Explainability for specific time series in your datasets, use <c>SPECIFIC</c>.</para><para>Specify time series by uploading a CSV or Parquet file to an Amazon S3 bucket and
         /// set the location within the <a>DataDestination</a> data type.</para>
         /// </para>
         /// </summary>

@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// a migration task. This API has the following traits:
     /// 
     ///  <ul><li><para>
-    /// Migration tools will call the <code>NotifyMigrationTaskState</code> API to share the
-    /// latest progress and status.
-    /// </para></li><li><para><code>MigrationTaskName</code> is used for addressing updates to the correct target.
-    /// </para></li><li><para><code>ProgressUpdateStream</code> is used for access control and to provide a namespace
+    /// Migration tools will call the <c>NotifyMigrationTaskState</c> API to share the latest
+    /// progress and status.
+    /// </para></li><li><para><c>MigrationTaskName</c> is used for addressing updates to the correct target.
+    /// </para></li><li><para><c>ProgressUpdateStream</c> is used for access control and to provide a namespace
     /// for each migration tool.
     /// </para></li></ul>
     /// </summary>

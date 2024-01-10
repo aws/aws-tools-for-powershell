@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The job ID of the job whose shipment date you want to update, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</para>
+        /// <para>The job ID of the job whose shipment date you want to update, for example <c>JID123e4567-e89b-12d3-a456-426655440000</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter ShipmentState
         /// <summary>
         /// <para>
-        /// <para>The state of a device when it is being shipped. </para><para>Set to <code>RECEIVED</code> when the device arrives at your location.</para><para>Set to <code>RETURNED</code> when you have returned the device to Amazon Web Services.</para>
+        /// <para>The state of a device when it is being shipped. </para><para>Set to <c>RECEIVED</c> when the device arrives at your location.</para><para>Set to <c>RETURNED</c> when you have returned the device to Amazon Web Services.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

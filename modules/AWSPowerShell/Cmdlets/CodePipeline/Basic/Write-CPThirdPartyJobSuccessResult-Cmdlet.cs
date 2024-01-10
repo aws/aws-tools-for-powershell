@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The ID of the job that successfully completed. This is the same ID returned from <code>PollForThirdPartyJobs</code>.</para>
+        /// <para>The ID of the job that successfully completed. This is the same ID returned from <c>PollForThirdPartyJobs</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

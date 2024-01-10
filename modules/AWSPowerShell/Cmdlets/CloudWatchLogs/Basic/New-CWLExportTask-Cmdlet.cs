@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Creates an export task so that you can efficiently export data from a log group to
-    /// an Amazon S3 bucket. When you perform a <code>CreateExportTask</code> operation, you
-    /// must use credentials that have permission to write to the S3 bucket that you specify
-    /// as the destination.
+    /// an Amazon S3 bucket. When you perform a <c>CreateExportTask</c> operation, you must
+    /// use credentials that have permission to write to the S3 bucket that you specify as
+    /// the destination.
     /// 
     ///  
     /// <para>
@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// This is an asynchronous call. If all the required information is provided, this operation
     /// initiates an export task and responds with the ID of the task. After the task has
     /// started, you can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.html">DescribeExportTasks</a>
-    /// to get the status of the export task. Each account can only have one active (<code>RUNNING</code>
-    /// or <code>PENDING</code>) export task at a time. To cancel an export task, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.html">CancelExportTask</a>.
+    /// to get the status of the export task. Each account can only have one active (<c>RUNNING</c>
+    /// or <c>PENDING</c>) export task at a time. To cancel an export task, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.html">CancelExportTask</a>.
     /// </para><para>
     /// You can export logs from multiple log groups or multiple time ranges to the same S3
     /// bucket. To separate log data for each export task, specify a prefix to be used as
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The prefix used as the start of the key for every object exported. If you don't specify
-        /// a value, the default is <code>exportedlogs</code>.</para>
+        /// a value, the default is <c>exportedlogs</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The start time of the range for the request, expressed as the number of milliseconds
-        /// after <code>Jan 1, 1970 00:00:00 UTC</code>. Events with a timestamp earlier than
-        /// this time are not exported.</para>
+        /// after <c>Jan 1, 1970 00:00:00 UTC</c>. Events with a timestamp earlier than this time
+        /// are not exported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -156,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The end time of the range for the request, expressed as the number of milliseconds
-        /// after <code>Jan 1, 1970 00:00:00 UTC</code>. Events with a timestamp later than this
-        /// time are not exported.</para><para>You must specify a time that is not earlier than when this log group was created.</para>
+        /// after <c>Jan 1, 1970 00:00:00 UTC</c>. Events with a timestamp later than this time
+        /// are not exported.</para><para>You must specify a time that is not earlier than when this log group was created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

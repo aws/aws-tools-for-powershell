@@ -35,15 +35,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// parameters as selection criteria to return metadata about a subset of all the object
     /// versions.
     /// </para><important><para>
-    ///  To use this operation, you must have permission to perform the <code>s3:ListBucketVersions</code>
+    ///  To use this operation, you must have permission to perform the <c>s3:ListBucketVersions</c>
     /// action. Be aware of the name difference. 
     /// </para></important><note><para>
-    ///  A <code>200 OK</code> response can contain valid or invalid XML. Make sure to design
-    /// your application to parse the contents of the response and handle it appropriately.
+    ///  A <c>200 OK</c> response can contain valid or invalid XML. Make sure to design your
+    /// application to parse the contents of the response and handle it appropriately.
     /// </para></note><para>
     /// To use this operation, you must have READ access to the bucket.
     /// </para><para>
-    /// The following operations are related to <code>ListObjectVersions</code>:
+    /// The following operations are related to <c>ListObjectVersions</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html">ListObjectsV2</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html">DeleteObject</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3Version")]

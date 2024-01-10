@@ -44,19 +44,18 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// grants</a>. 
     /// </para><para><b>Cross-account use</b>: You must specify a principal in your Amazon Web Services
     /// account. This operation returns a list of grants where the retiring principal specified
-    /// in the <code>ListRetirableGrants</code> request is the same retiring principal on
-    /// the grant. This can include grants on KMS keys owned by other Amazon Web Services
-    /// accounts, but you do not need <code>kms:ListRetirableGrants</code> permission (or
-    /// any other additional permission) in any Amazon Web Services account other than your
-    /// own.
+    /// in the <c>ListRetirableGrants</c> request is the same retiring principal on the grant.
+    /// This can include grants on KMS keys owned by other Amazon Web Services accounts, but
+    /// you do not need <c>kms:ListRetirableGrants</c> permission (or any other additional
+    /// permission) in any Amazon Web Services account other than your own.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListRetirableGrants</a>
     /// (IAM policy) in your Amazon Web Services account.
     /// </para><note><para>
-    /// KMS authorizes <code>ListRetirableGrants</code> requests by evaluating the caller
-    /// account's kms:ListRetirableGrants permissions. The authorized resource in <code>ListRetirableGrants</code>
+    /// KMS authorizes <c>ListRetirableGrants</c> requests by evaluating the caller account's
+    /// kms:ListRetirableGrants permissions. The authorized resource in <c>ListRetirableGrants</c>
     /// calls is the retiring principal specified in the request. KMS does not evaluate the
     /// caller's permissions to verify their access to any KMS keys or grants that might be
-    /// returned by the <code>ListRetirableGrants</code> call.
+    /// returned by the <c>ListRetirableGrants</c> call.
     /// </para></note><para><b>Related operations:</b></para><ul><li><para><a>CreateGrant</a></para></li><li><para><a>ListGrants</a></para></li><li><para><a>RetireGrant</a></para></li><li><para><a>RevokeGrant</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
     /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
     /// eventual consistency</a>.
@@ -119,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Use this parameter in a subsequent request after you receive a response with truncated
-        /// results. Set it to the value of <code>NextMarker</code> from the truncated response
-        /// you just received.</para>
+        /// results. Set it to the value of <c>NextMarker</c> from the truncated response you
+        /// just received.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

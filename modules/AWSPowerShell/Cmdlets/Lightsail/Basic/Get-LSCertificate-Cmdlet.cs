@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// Returns information about one or more Amazon Lightsail SSL/TLS certificates.
     /// 
     ///  <note><para>
-    /// To get a summary of a certificate, omit <code>includeCertificateDetails</code> from
-    /// your request. The response will include only the certificate Amazon Resource Name
-    /// (ARN), certificate name, domain name, and tags.
+    /// To get a summary of a certificate, omit <c>includeCertificateDetails</c> from your
+    /// request. The response will include only the certificate Amazon Resource Name (ARN),
+    /// certificate name, domain name, and tags.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LSCertificate")]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CertificateStatus
         /// <summary>
         /// <para>
-        /// <para>The status of the certificates for which to return information.</para><para>For example, specify <code>ISSUED</code> to return only certificates with an <code>ISSUED</code>
+        /// <para>The status of the certificates for which to return information.</para><para>For example, specify <c>ISSUED</c> to return only certificates with an <c>ISSUED</c>
         /// status.</para><para>When omitted, the response includes all of your certificates in the Amazon Web Services
         /// Region where the request is made, regardless of their current status.</para>
         /// </para>
@@ -87,9 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>The token to advance to the next page of results from your request.</para><para>To get a page token, perform an initial <code>GetCertificates</code> request. If your
-        /// results are paginated, the response will return a next page token that you can specify
-        /// as the page token in a subsequent request.</para>
+        /// <para>The token to advance to the next page of results from your request.</para><para>To get a page token, perform an initial <c>GetCertificates</c> request. If your results
+        /// are paginated, the response will return a next page token that you can specify as
+        /// the page token in a subsequent request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

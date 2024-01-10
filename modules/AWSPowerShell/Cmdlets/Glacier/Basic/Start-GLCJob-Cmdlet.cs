@@ -47,11 +47,11 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The <code>AccountId</code> value is the AWS account ID of the account that owns the
-        /// vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-        /// (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with
-        /// the credentials used to sign the request. If you use an account ID, do not include
-        /// any hyphens ('-') in the ID.</para>
+        /// <para>The <c>AccountId</c> value is the AWS account ID of the account that owns the vault.
+        /// You can either specify an AWS account ID or optionally a single '<c>-</c>' (hyphen),
+        /// in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials
+        /// used to sign the request. If you use an account ID, do not include any hyphens ('-')
+        /// in the ID.</para>
         /// </para>
         /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>-</b>'.</para>
         /// </summary>
@@ -62,10 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         #region Parameter ArchiveId
         /// <summary>
         /// <para>
-        /// <para>The ID of the archive that you want to retrieve. This field is required only if <code>Type</code>
-        /// is set to <code>select</code> or <code>archive-retrieval</code>code&gt;. An error
-        /// occurs if you specify this request parameter for an inventory retrieval job request.
-        /// </para>
+        /// <para>The ID of the archive that you want to retrieve. This field is required only if <c>Type</c>
+        /// is set to <c>select</c> or <c>archive-retrieval</c>code&gt;. An error occurs if you
+        /// specify this request parameter for an inventory retrieval job request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,8 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         #region Parameter Tier
         /// <summary>
         /// <para>
-        /// <para>The tier to use for a select or an archive retrieval job. Valid values are <code>Expedited</code>,
-        /// <code>Standard</code>, or <code>Bulk</code>. <code>Standard</code> is the default.</para>
+        /// <para>The tier to use for a select or an archive retrieval job. Valid values are <c>Expedited</c>,
+        /// <c>Standard</c>, or <c>Bulk</c>. <c>Standard</c> is the default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

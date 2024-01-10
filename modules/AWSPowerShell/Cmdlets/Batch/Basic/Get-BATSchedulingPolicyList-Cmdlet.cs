@@ -45,13 +45,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results that's returned by <code>ListSchedulingPolicies</code>
-        /// in paginated output. When this parameter is used, <code>ListSchedulingPolicies</code>
-        /// only returns <code>maxResults</code> results in a single page and a <code>nextToken</code>
-        /// response element. You can see the remaining results of the initial request by sending
-        /// another <code>ListSchedulingPolicies</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 100. If this parameter isn't used, <code>ListSchedulingPolicies</code>
-        /// returns up to 100 results and a <code>nextToken</code> value if applicable.</para>
+        /// <para>The maximum number of results that's returned by <c>ListSchedulingPolicies</c> in
+        /// paginated output. When this parameter is used, <c>ListSchedulingPolicies</c> only
+        /// returns <c>maxResults</c> results in a single page and a <c>nextToken</c> response
+        /// element. You can see the remaining results of the initial request by sending another
+        /// <c>ListSchedulingPolicies</c> request with the returned <c>nextToken</c> value. This
+        /// value can be between 1 and 100. If this parameter isn't used, <c>ListSchedulingPolicies</c>
+        /// returns up to 100 results and a <c>nextToken</c> value if applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,11 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value that's returned from a previous paginated <code>ListSchedulingPolicies</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return.</para><note><para>Treat this token as an opaque identifier that's only used to retrieve the next items
+        /// <para>The <c>nextToken</c> value that's returned from a previous paginated <c>ListSchedulingPolicies</c>
+        /// request where <c>maxResults</c> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <c>nextToken</c> value. This value is <c>null</c> when there are no more results
+        /// to return.</para><note><para>Treat this token as an opaque identifier that's only used to retrieve the next items
         /// in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

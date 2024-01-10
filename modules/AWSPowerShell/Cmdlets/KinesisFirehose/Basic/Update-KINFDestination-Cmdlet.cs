@@ -47,19 +47,18 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// parameters specified with the destination configuration that already exists on the
     /// delivery stream. If any of the parameters are not specified in the call, the existing
     /// values are retained. For example, in the Amazon S3 destination, if <a>EncryptionConfiguration</a>
-    /// is not specified, then the existing <code>EncryptionConfiguration</code> is maintained
-    /// on the destination.
+    /// is not specified, then the existing <c>EncryptionConfiguration</c> is maintained on
+    /// the destination.
     /// </para><para>
     /// If the destination type is not the same, for example, changing the destination from
     /// Amazon S3 to Amazon Redshift, Kinesis Data Firehose does not merge any parameters.
     /// In this case, all parameters must be specified.
     /// </para><para>
-    /// Kinesis Data Firehose uses <code>CurrentDeliveryStreamVersionId</code> to avoid race
-    /// conditions and conflicting merges. This is a required field, and the service updates
-    /// the configuration only if the existing configuration has a version ID that matches.
-    /// After the update is applied successfully, the version ID is updated, and can be retrieved
-    /// using <a>DescribeDeliveryStream</a>. Use the new version ID to set <code>CurrentDeliveryStreamVersionId</code>
-    /// in the next call.
+    /// Kinesis Data Firehose uses <c>CurrentDeliveryStreamVersionId</c> to avoid race conditions
+    /// and conflicting merges. This is a required field, and the service updates the configuration
+    /// only if the existing configuration has a version ID that matches. After the update
+    /// is applied successfully, the version ID is updated, and can be retrieved using <a>DescribeDeliveryStream</a>.
+    /// Use the new version ID to set <c>CurrentDeliveryStreamVersionId</c> in the next call.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "KINFDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -101,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ElasticsearchDestinationUpdate_ClusterEndpoint
         /// <summary>
         /// <para>
-        /// <para>The endpoint to use when communicating with the cluster. Specify either this <code>ClusterEndpoint</code>
-        /// or the <code>DomainARN</code> field.</para>
+        /// <para>The endpoint to use when communicating with the cluster. Specify either this <c>ClusterEndpoint</c>
+        /// or the <c>DomainARN</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,12 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter CurrentDeliveryStreamVersionId
         /// <summary>
         /// <para>
-        /// <para>Obtain this value from the <code>VersionId</code> result of <a>DeliveryStreamDescription</a>.
+        /// <para>Obtain this value from the <c>VersionId</c> result of <a>DeliveryStreamDescription</a>.
         /// This value is required, and helps the service perform conditional operations. For
         /// example, if there is an interleaving update and this value is null, then the update
-        /// destination fails. After the update is successful, the <code>VersionId</code> value
-        /// is updated. The service then performs a merge of the old configuration with the new
-        /// configuration.</para>
+        /// destination fails. After the update is successful, the <c>VersionId</c> value is updated.
+        /// The service then performs a merge of the old configuration with the new configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -168,16 +166,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter AmazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat
         /// <summary>
         /// <para>
-        /// <para>When the <code>FIREHOSE_DEFAULT</code> option is chosen, Kinesis Data Firehose generates
+        /// <para>When the <c>FIREHOSE_DEFAULT</c> option is chosen, Kinesis Data Firehose generates
         /// a unique document ID for each record based on a unique internal identifier. The generated
         /// document ID is stable across multiple delivery attempts, which helps prevent the same
-        /// record from being indexed multiple times with different document IDs.</para><para>When the <code>NO_DOCUMENT_ID</code> option is chosen, Kinesis Data Firehose does
-        /// not include any document IDs in the requests it sends to the Amazon OpenSearch Service.
-        /// This causes the Amazon OpenSearch Service domain to generate document IDs. In case
-        /// of multiple delivery attempts, this may cause the same record to be indexed more than
-        /// once with different document IDs. This option enables write-heavy operations, such
-        /// as the ingestion of logs and observability data, to consume less resources in the
-        /// Amazon OpenSearch Service domain, resulting in improved performance.</para>
+        /// record from being indexed multiple times with different document IDs.</para><para>When the <c>NO_DOCUMENT_ID</c> option is chosen, Kinesis Data Firehose does not include
+        /// any document IDs in the requests it sends to the Amazon OpenSearch Service. This causes
+        /// the Amazon OpenSearch Service domain to generate document IDs. In case of multiple
+        /// delivery attempts, this may cause the same record to be indexed more than once with
+        /// different document IDs. This option enables write-heavy operations, such as the ingestion
+        /// of logs and observability data, to consume less resources in the Amazon OpenSearch
+        /// Service domain, resulting in improved performance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,16 +186,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DocumentIdOptions_DefaultDocumentIdFormat
         /// <summary>
         /// <para>
-        /// <para>When the <code>FIREHOSE_DEFAULT</code> option is chosen, Kinesis Data Firehose generates
+        /// <para>When the <c>FIREHOSE_DEFAULT</c> option is chosen, Kinesis Data Firehose generates
         /// a unique document ID for each record based on a unique internal identifier. The generated
         /// document ID is stable across multiple delivery attempts, which helps prevent the same
-        /// record from being indexed multiple times with different document IDs.</para><para>When the <code>NO_DOCUMENT_ID</code> option is chosen, Kinesis Data Firehose does
-        /// not include any document IDs in the requests it sends to the Amazon OpenSearch Service.
-        /// This causes the Amazon OpenSearch Service domain to generate document IDs. In case
-        /// of multiple delivery attempts, this may cause the same record to be indexed more than
-        /// once with different document IDs. This option enables write-heavy operations, such
-        /// as the ingestion of logs and observability data, to consume less resources in the
-        /// Amazon OpenSearch Service domain, resulting in improved performance.</para>
+        /// record from being indexed multiple times with different document IDs.</para><para>When the <c>NO_DOCUMENT_ID</c> option is chosen, Kinesis Data Firehose does not include
+        /// any document IDs in the requests it sends to the Amazon OpenSearch Service. This causes
+        /// the Amazon OpenSearch Service domain to generate document IDs. In case of multiple
+        /// delivery attempts, this may cause the same record to be indexed more than once with
+        /// different document IDs. This option enables write-heavy operations, such as the ingestion
+        /// of logs and observability data, to consume less resources in the Amazon OpenSearch
+        /// Service domain, resulting in improved performance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -255,10 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ElasticsearchDestinationUpdate_DomainARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon ES domain. The IAM role must have permissions for <code>DescribeDomain</code>,
-        /// <code>DescribeDomains</code>, and <code>DescribeDomainConfig</code> after assuming
-        /// the IAM role specified in <code>RoleARN</code>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para><para>Specify either <code>ClusterEndpoint</code> or <code>DomainARN</code>.</para>
+        /// <para>The ARN of the Amazon ES domain. The IAM role must have permissions for <c>DescribeDomain</c>,
+        /// <c>DescribeDomains</c>, and <c>DescribeDomainConfig</c> after assuming the IAM role
+        /// specified in <c>RoleARN</c>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para><para>Specify either <c>ClusterEndpoint</c> or <c>DomainARN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -456,9 +454,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ElasticsearchDestinationUpdate_IndexRotationPeriod
         /// <summary>
         /// <para>
-        /// <para>The Elasticsearch index rotation period. Index rotation appends a timestamp to <code>IndexName</code>
+        /// <para>The Elasticsearch index rotation period. Index rotation appends a timestamp to <c>IndexName</c>
         /// to facilitate the expiration of old data. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index
-        /// Rotation for the Amazon ES Destination</a>. Default value is <code>OneDay</code>.</para>
+        /// Rotation for the Amazon ES Destination</a>. Default value is <c>OneDay</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -716,9 +714,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>Describes the S3 bucket backup options for the data that Kinesis Firehose delivers
-        /// to the HTTP endpoint destination. You can back up all documents (<code>AllData</code>)
-        /// or only the documents that Kinesis Data Firehose could not deliver to the specified
-        /// HTTP endpoint destination (<code>FailedDataOnly</code>).</para>
+        /// to the HTTP endpoint destination. You can back up all documents (<c>AllData</c>) or
+        /// only the documents that Kinesis Data Firehose could not deliver to the specified HTTP
+        /// endpoint destination (<c>FailedDataOnly</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -852,7 +850,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// type, Kinesis Data Firehose returns an error during runtime.</para><para>If you upgrade Elasticsearch from 6.x to 7.x and don’t update your delivery stream,
         /// Kinesis Data Firehose still delivers data to Elasticsearch with the old index name
         /// and type name. If you want to update your delivery stream with a new index name, provide
-        /// an empty string for <code>TypeName</code>. </para>
+        /// an empty string for <c>TypeName</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

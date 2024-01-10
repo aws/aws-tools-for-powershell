@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ExportDestination_DataFormat
         /// <summary>
         /// <para>
-        /// <para>The data format of the final export job file, can be one of the following:</para><ul><li><para><code>CSV</code> - A comma-separated values file.</para></li><li><para><code>JSON</code> - A Json file.</para></li></ul>
+        /// <para>The data format of the final export job file, can be one of the following:</para><ul><li><para><c>CSV</c> - A comma-separated values file.</para></li><li><para><c>JSON</c> - A Json file.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter MetricsDataSource_Dimension
         /// <summary>
         /// <para>
-        /// <para>An object that contains a mapping between a <code>MetricDimensionName</code> and <code>MetricDimensionValue</code>
+        /// <para>An object that contains a mapping between a <c>MetricDimensionName</c> and <c>MetricDimensionValue</c>
         /// to filter metrics by. Must contain a least 1 dimension but no more than 3 unique ones.</para>
         /// </para>
         /// </summary>
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter Exclude_Isp
         /// <summary>
         /// <para>
-        /// <para>The recipient's ISP (e.g., <code>Gmail</code>, <code>Yahoo</code>, etc.).</para>
+        /// <para>The recipient's ISP (e.g., <c>Gmail</c>, <c>Yahoo</c>, etc.).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter Include_Isp
         /// <summary>
         /// <para>
-        /// <para>The recipient's ISP (e.g., <code>Gmail</code>, <code>Yahoo</code>, etc.).</para>
+        /// <para>The recipient's ISP (e.g., <c>Gmail</c>, <c>Yahoo</c>, etc.).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,8 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para> The last delivery-related event for the email, where the ordering is as follows:
-        /// <code>SEND</code> &lt; <code>BOUNCE</code> &lt; <code>DELIVERY</code> &lt; <code>COMPLAINT</code>.
-        /// </para>
+        /// <c>SEND</c> &lt; <c>BOUNCE</c> &lt; <c>DELIVERY</c> &lt; <c>COMPLAINT</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,8 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para> The last delivery-related event for the email, where the ordering is as follows:
-        /// <code>SEND</code> &lt; <code>BOUNCE</code> &lt; <code>DELIVERY</code> &lt; <code>COMPLAINT</code>.
-        /// </para>
+        /// <c>SEND</c> &lt; <c>BOUNCE</c> &lt; <c>DELIVERY</c> &lt; <c>COMPLAINT</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para> The last engagement-related event for the email, where the ordering is as follows:
-        /// <code>OPEN</code> &lt; <code>CLICK</code>. </para><para> Engagement events are only available if <a href="https://docs.aws.amazon.com/ses/latest/dg/vdm-settings.html">Engagement
+        /// <c>OPEN</c> &lt; <c>CLICK</c>. </para><para> Engagement events are only available if <a href="https://docs.aws.amazon.com/ses/latest/dg/vdm-settings.html">Engagement
         /// tracking</a> is enabled. </para>
         /// </para>
         /// </summary>
@@ -207,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para> The last engagement-related event for the email, where the ordering is as follows:
-        /// <code>OPEN</code> &lt; <code>CLICK</code>. </para><para> Engagement events are only available if <a href="https://docs.aws.amazon.com/ses/latest/dg/vdm-settings.html">Engagement
+        /// <c>OPEN</c> &lt; <c>CLICK</c>. </para><para> Engagement events are only available if <a href="https://docs.aws.amazon.com/ses/latest/dg/vdm-settings.html">Engagement
         /// tracking</a> is enabled. </para>
         /// </para>
         /// </summary>
@@ -230,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter MetricsDataSource_Metric
         /// <summary>
         /// <para>
-        /// <para>A list of <code>ExportMetric</code> objects to export.</para>
+        /// <para>A list of <c>ExportMetric</c> objects to export.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -241,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter MetricsDataSource_Namespace
         /// <summary>
         /// <para>
-        /// <para>The metrics namespace - e.g., <code>VDM</code>.</para>
+        /// <para>The metrics namespace - e.g., <c>VDM</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

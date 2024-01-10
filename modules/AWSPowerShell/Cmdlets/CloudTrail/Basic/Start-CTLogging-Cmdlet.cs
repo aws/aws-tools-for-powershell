@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs Amazon
-        /// Web Services API calls. The following is the format of a trail ARN.</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
+        /// Web Services API calls. The following is the format of a trail ARN.</para><para><c>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

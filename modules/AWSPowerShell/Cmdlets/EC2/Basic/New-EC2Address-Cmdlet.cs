@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>The network (<code>vpc</code>).</para>
+        /// <para>The network (<c>vpc</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The ID of an address pool that you own. Use this parameter to let Amazon EC2 select
         /// an address from the address pool. To specify a specific address from the address pool,
-        /// use the <code>Address</code> parameter instead.</para>
+        /// use the <c>Address</c> parameter instead.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
     /// 
     ///  
     /// <para>
-    /// In the request, you must specify the Edge Agent <code>HubDeviceArn</code>.
+    /// In the request, you must specify the Edge Agent <c>HubDeviceArn</c>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KVEdgeAgentConfigurationList")]
@@ -81,9 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If you specify this parameter, when the result of a <code>ListEdgeAgentConfigurations</code>
-        /// operation is truncated, the call returns the <code>NextToken</code> in the response.
-        /// To get another batch of edge configurations, provide this token in your next request.
+        /// <para>If you specify this parameter, when the result of a <c>ListEdgeAgentConfigurations</c>
+        /// operation is truncated, the call returns the <c>NextToken</c> in the response. To
+        /// get another batch of edge configurations, provide this token in your next request.
         /// </para>
         /// </para>
         /// <para>

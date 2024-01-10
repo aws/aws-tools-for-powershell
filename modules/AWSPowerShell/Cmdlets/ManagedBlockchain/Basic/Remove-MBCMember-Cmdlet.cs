@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
     /// Deletes a member. Deleting a member removes the member and all associated resources
-    /// from the network. <code>DeleteMember</code> can only be called for a specified <code>MemberId</code>
+    /// from the network. <c>DeleteMember</c> can only be called for a specified <c>MemberId</c>
     /// if the principal performing the action is associated with the Amazon Web Services
-    /// account that owns the member. In all other cases, the <code>DeleteMember</code> action
-    /// is carried out as the result of an approved proposal to remove a member. If <code>MemberId</code>
+    /// account that owns the member. In all other cases, the <c>DeleteMember</c> action is
+    /// carried out as the result of an approved proposal to remove a member. If <c>MemberId</c>
     /// is the last member in a network specified by the last Amazon Web Services account,
     /// the network is deleted also.
     /// 

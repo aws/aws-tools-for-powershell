@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         #region Parameter Capability
         /// <summary>
         /// <para>
-        /// <para>Set of capabilities that the user is allowed to perform in the stage. Default: <code>PUBLISH,
-        /// SUBSCRIBE</code>.</para>
+        /// <para>Set of capabilities that the user is allowed to perform in the stage. Default: <c>PUBLISH,
+        /// SUBSCRIBE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

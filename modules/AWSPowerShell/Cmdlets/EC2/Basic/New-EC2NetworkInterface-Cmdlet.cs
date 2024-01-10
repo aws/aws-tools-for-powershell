@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InterfaceType
         /// <summary>
         /// <para>
-        /// <para>The type of network interface. The default is <code>interface</code>.</para><para>The only supported values are <code>interface</code>, <code>efa</code>, and <code>trunk</code>.</para>
+        /// <para>The type of network interface. The default is <c>interface</c>.</para><para>The only supported values are <c>interface</c>, <c>efa</c>, and <c>trunk</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically
         /// selects the IPv6 addresses from the subnet range.</para><para>You can't specify a count of IPv6 addresses using this parameter if you've specified
         /// one of the following: specific IPv6 addresses, specific IPv6 prefixes, or a count
-        /// of IPv6 prefixes.</para><para>If your subnet has the <code>AssignIpv6AddressOnCreation</code> attribute set, you
-        /// can override that setting by specifying 0 as the IPv6 address count.</para>
+        /// of IPv6 prefixes.</para><para>If your subnet has the <c>AssignIpv6AddressOnCreation</c> attribute set, you can override
+        /// that setting by specifying 0 as the IPv6 address count.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The primary private IPv4 address of the network interface. If you don't specify an
         /// IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If
-        /// you specify an IP address, you cannot indicate any IP addresses specified in <code>privateIpAddresses</code>
+        /// you specify an IP address, you cannot indicate any IP addresses specified in <c>privateIpAddresses</c>
         /// as primary (only one IP address can be designated as primary).</para>
         /// </para>
         /// </summary>
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The number of secondary private IPv4 addresses to assign to a network interface. When
         /// you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses
         /// within the subnet's IPv4 CIDR range. You can't specify this option and specify more
-        /// than one private IP address using <code>privateIpAddresses</code>.</para><para>You can't specify a count of private IPv4 addresses if you've specified one of the
+        /// than one private IP address using <c>privateIpAddresses</c>.</para><para>You can't specify a count of private IPv4 addresses if you've specified one of the
         /// following: specific private IPv4 addresses, specific IPv4 prefixes, or a count of
         /// IPv4 prefixes.</para>
         /// </para>

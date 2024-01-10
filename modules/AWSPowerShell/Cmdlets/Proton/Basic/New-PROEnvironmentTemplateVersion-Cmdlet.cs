@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter MajorVersion
         /// <summary>
         /// <para>
-        /// <para>To create a new minor version of the environment template, include <code>major Version</code>.</para><para>To create a new major and minor version of the environment template, exclude <code>major
-        /// Version</code>.</para>
+        /// <para>To create a new minor version of the environment template, include <c>major Version</c>.</para><para>To create a new major and minor version of the environment template, exclude <c>major
+        /// Version</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

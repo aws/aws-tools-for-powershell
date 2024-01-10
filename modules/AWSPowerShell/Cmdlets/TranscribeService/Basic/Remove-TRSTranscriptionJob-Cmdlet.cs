@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
     /// Deletes a transcription job. To use this operation, specify the name of the job you
-    /// want to delete using <code>TranscriptionJobName</code>. Job names are case sensitive.
+    /// want to delete using <c>TranscriptionJobName</c>. Job names are case sensitive.
     /// </summary>
     [Cmdlet("Remove", "TRSTranscriptionJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

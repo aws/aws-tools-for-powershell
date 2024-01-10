@@ -28,8 +28,8 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Creates a new table optimizer for a specific function. <code>compaction</code> is
-    /// the only currently supported optimizer type.
+    /// Creates a new table optimizer for a specific function. <c>compaction</c> is the only
+    /// currently supported optimizer type.
     /// </summary>
     [Cmdlet("New", "GLUETableOptimizer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of table optimizer. Currently, the only valid value is <code>compaction</code>.</para>
+        /// <para>The type of table optimizer. Currently, the only valid value is <c>compaction</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

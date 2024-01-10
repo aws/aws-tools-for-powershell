@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter OneTimePassword
         /// <summary>
         /// <para>
-        /// <para>The OTP sent to the destination number from the <code>CreateSMSSandBoxPhoneNumber</code>
+        /// <para>The OTP sent to the destination number from the <c>CreateSMSSandBoxPhoneNumber</c>
         /// call.</para>
         /// </para>
         /// </summary>

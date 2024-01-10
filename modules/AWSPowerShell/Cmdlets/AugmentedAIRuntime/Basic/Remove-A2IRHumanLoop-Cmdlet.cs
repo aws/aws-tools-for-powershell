@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
     /// 
     ///  
     /// <para>
-    /// If the human loop was deleted, this operation will return a <code>ResourceNotFoundException</code>.
+    /// If the human loop was deleted, this operation will return a <c>ResourceNotFoundException</c>.
     /// 
     /// </para>
     /// </summary>

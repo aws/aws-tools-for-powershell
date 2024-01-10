@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter AdvancedOption
         /// <summary>
         /// <para>
-        /// <para> Option to allow references to indices in an HTTP request body. Must be <code>false</code>
-        /// when configuring access to individual sub-resources. By default, the value is <code>true</code>.
+        /// <para> Option to allow references to indices in an HTTP request body. Must be <c>false</c>
+        /// when configuring access to individual sub-resources. By default, the value is <c>true</c>.
         /// See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options" target="_blank">Configuration Advanced Options</a> for more information.</para>
         /// </para>
         /// </summary>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// <summary>
         /// <para>
         /// <para>Specifies the time, in UTC format, when the service takes a daily automated snapshot
-        /// of the specified Elasticsearch domain. Default value is <code>0</code> hours.</para>
+        /// of the specified Elasticsearch domain. Default value is <c>0</c> hours.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -357,8 +357,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter LogPublishingOption
         /// <summary>
         /// <para>
-        /// <para>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing
-        /// options to publish a given type of Elasticsearch log.</para>
+        /// <para>Map of <c>LogType</c> and <c>LogPublishingOption</c>, each containing options to publish
+        /// a given type of Elasticsearch log.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -516,7 +516,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter TagList
         /// <summary>
         /// <para>
-        /// <para>A list of <code>Tag</code> added during domain creation.</para>
+        /// <para>A list of <c>Tag</c> added during domain creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

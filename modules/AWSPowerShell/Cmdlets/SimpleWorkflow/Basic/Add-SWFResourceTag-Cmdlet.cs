@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The list of tags to add to a domain. </para><para>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_
-        /// . : / = + - @</code>.</para>
+        /// <para>The list of tags to add to a domain. </para><para>Tags may only contain unicode letters, digits, whitespace, or these symbols: <c>_
+        /// . : / = + - @</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

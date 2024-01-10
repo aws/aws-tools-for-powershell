@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// <para>
     /// An Asset Bundle export job exports specified Amazon QuickSight assets. You can also
     /// choose to export any asset dependencies in the same job. Export jobs run asynchronously
-    /// and can be polled with a <code>DescribeAssetBundleExportJob</code> API call. When
-    /// a job is successfully completed, a download URL that contains the exported assets
-    /// is returned. The URL is valid for 5 minutes and can be refreshed with a <code>DescribeAssetBundleExportJob</code>
+    /// and can be polled with a <c>DescribeAssetBundleExportJob</c> API call. When a job
+    /// is successfully completed, a download URL that contains the exported assets is returned.
+    /// The URL is valid for 5 minutes and can be refreshed with a <c>DescribeAssetBundleExportJob</c>
     /// API call. Each Amazon QuickSight account can run up to 5 export jobs concurrently.
     /// </para><para>
     /// The API caller must have the necessary permissions in their IAM role to access each
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter CloudFormationOverridePropertyConfiguration_Analyses
         /// <summary>
         /// <para>
-        /// <para>An optional list of structures that control how <code>Analysis</code> resources are
-        /// parameterized in the returned CloudFormation template.</para>
+        /// <para>An optional list of structures that control how <c>Analysis</c> resources are parameterized
+        /// in the returned CloudFormation template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter CloudFormationOverridePropertyConfiguration_Dashboard
         /// <summary>
         /// <para>
-        /// <para>An optional list of structures that control how <code>Dashboard</code> resources are
-        /// parameterized in the returned CloudFormation template.</para>
+        /// <para>An optional list of structures that control how <c>Dashboard</c> resources are parameterized
+        /// in the returned CloudFormation template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter CloudFormationOverridePropertyConfiguration_DataSet
         /// <summary>
         /// <para>
-        /// <para>An optional list of structures that control how <code>DataSet</code> resources are
-        /// parameterized in the returned CloudFormation template.</para>
+        /// <para>An optional list of structures that control how <c>DataSet</c> resources are parameterized
+        /// in the returned CloudFormation template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter CloudFormationOverridePropertyConfiguration_DataSource
         /// <summary>
         /// <para>
-        /// <para>An optional list of structures that control how <code>DataSource</code> resources
-        /// are parameterized in the returned CloudFormation template.</para>
+        /// <para>An optional list of structures that control how <c>DataSource</c> resources are parameterized
+        /// in the returned CloudFormation template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,10 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A Boolean that determines whether all dependencies of each resource ARN are recursively
-        /// exported with the job. For example, say you provided a Dashboard ARN to the <code>ResourceArns</code>
-        /// parameter. If you set <code>IncludeAllDependencies</code> to <code>TRUE</code>, any
-        /// theme, dataset, and data source resource that is a dependency of the dashboard is
-        /// also exported.</para>
+        /// exported with the job. For example, say you provided a Dashboard ARN to the <c>ResourceArns</c>
+        /// parameter. If you set <c>IncludeAllDependencies</c> to <c>TRUE</c>, any theme, dataset,
+        /// and data source resource that is a dependency of the dashboard is also exported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,8 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A Boolean that determines whether all permissions for each resource ARN are exported
-        /// with the job. If you set <code>IncludePermissions</code> to <code>TRUE</code>, any
-        /// permissions associated with each resource are exported. </para>
+        /// with the job. If you set <c>IncludePermissions</c> to <c>TRUE</c>, any permissions
+        /// associated with each resource are exported. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,8 +184,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para> A Boolean that determines whether all tags for each resource ARN are exported with
-        /// the job. If you set <code>IncludeTags</code> to <code>TRUE</code>, any tags associated
-        /// with each resource are exported.</para>
+        /// the job. If you set <c>IncludeTags</c> to <c>TRUE</c>, any tags associated with each
+        /// resource are exported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,8 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter CloudFormationOverridePropertyConfiguration_RefreshSchedule
         /// <summary>
         /// <para>
-        /// <para>An optional list of structures that control how <code>RefreshSchedule</code> resources
-        /// are parameterized in the returned CloudFormation template.</para>
+        /// <para>An optional list of structures that control how <c>RefreshSchedule</c> resources are
+        /// parameterized in the returned CloudFormation template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>An array of resource ARNs to export. The following resources are supported.</para><ul><li><para><code>Analysis</code></para></li><li><para><code>Dashboard</code></para></li><li><para><code>DataSet</code></para></li><li><para><code>DataSource</code></para></li><li><para><code>RefreshSchedule</code></para></li><li><para><code>Theme</code></para></li><li><para><code>VPCConnection</code></para></li></ul><para>The API caller must have the necessary permissions in their IAM role to access each
+        /// <para>An array of resource ARNs to export. The following resources are supported.</para><ul><li><para><c>Analysis</c></para></li><li><para><c>Dashboard</c></para></li><li><para><c>DataSet</c></para></li><li><para><c>DataSource</c></para></li><li><para><c>RefreshSchedule</c></para></li><li><para><c>Theme</c></para></li><li><para><c>VPCConnection</c></para></li></ul><para>The API caller must have the necessary permissions in their IAM role to access each
         /// resource before the resources can be exported.</para>
         /// </para>
         /// </summary>
@@ -253,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter CloudFormationOverridePropertyConfiguration_Theme
         /// <summary>
         /// <para>
-        /// <para>An optional list of structures that control how <code>Theme</code> resources are parameterized
+        /// <para>An optional list of structures that control how <c>Theme</c> resources are parameterized
         /// in the returned CloudFormation template.</para>
         /// </para>
         /// </summary>
@@ -265,8 +264,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter CloudFormationOverridePropertyConfiguration_VPCConnection
         /// <summary>
         /// <para>
-        /// <para>An optional list of structures that control how <code>VPCConnection</code> resources
-        /// are parameterized in the returned CloudFormation template.</para>
+        /// <para>An optional list of structures that control how <c>VPCConnection</c> resources are
+        /// parameterized in the returned CloudFormation template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

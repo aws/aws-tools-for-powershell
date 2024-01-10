@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>Specifies the type of your user identity directory. Currently, this supports users
-        /// with an identity type of <code>QUICKSIGHT</code>.</para>
+        /// with an identity type of <c>QUICKSIGHT</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

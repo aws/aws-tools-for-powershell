@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6
     /// CIDR address range, or from the instances that are associated with the specified destination
     /// security groups. When specifying an inbound rule for your security group in a VPC,
-    /// the <code>IpPermissions</code> must include a source for the traffic.
+    /// the <c>IpPermissions</c> must include a source for the traffic.
     /// </para><para>
     /// You specify a protocol for each rule (for example, TCP). For TCP and UDP, you must
     /// also specify the destination port or port range. For ICMP/ICMPv6, you must also specify

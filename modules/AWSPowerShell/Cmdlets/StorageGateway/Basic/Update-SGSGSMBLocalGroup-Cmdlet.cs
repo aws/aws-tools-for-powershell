@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A list of Active Directory users and groups that have local Gateway Admin permissions.
-        /// Acceptable formats include: <code>DOMAIN\User1</code>, <code>user1</code>, <code>DOMAIN\group1</code>,
-        /// and <code>group1</code>.</para><para>Gateway Admins can use the Shared Folders Microsoft Management Console snap-in to
+        /// Acceptable formats include: <c>DOMAIN\User1</c>, <c>user1</c>, <c>DOMAIN\group1</c>,
+        /// and <c>group1</c>.</para><para>Gateway Admins can use the Shared Folders Microsoft Management Console snap-in to
         /// force-close files that are open and locked.</para>
         /// </para>
         /// </summary>

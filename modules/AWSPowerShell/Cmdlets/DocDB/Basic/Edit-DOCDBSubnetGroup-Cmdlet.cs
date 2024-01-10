@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The name for the subnet group. This value is stored as a lowercase string. You can't
-        /// modify the default subnet group. </para><para>Constraints: Must match the name of an existing <code>DBSubnetGroup</code>. Must not
-        /// be default.</para><para>Example: <code>mySubnetgroup</code></para>
+        /// modify the default subnet group. </para><para>Constraints: Must match the name of an existing <c>DBSubnetGroup</c>. Must not be
+        /// default.</para><para>Example: <c>mySubnetgroup</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

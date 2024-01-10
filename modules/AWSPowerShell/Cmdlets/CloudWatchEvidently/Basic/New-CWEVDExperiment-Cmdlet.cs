@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     /// data and analyzes it by statistical methods, and provides clear recommendations about
     /// which variations perform better.
     /// </para><para>
-    /// You can optionally specify a <code>segment</code> to have the experiment consider
-    /// only certain audience types in the experiment, such as using only user sessions from
-    /// a certain location or who use a certain internet browser.
+    /// You can optionally specify a <c>segment</c> to have the experiment consider only certain
+    /// audience types in the experiment, such as using only user sessions from a certain
+    /// location or who use a certain internet browser.
     /// </para><para>
     /// Don't use this operation to update an existing experiment. Instead, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateExperiment.html">UpdateExperiment</a>.
     /// 
@@ -137,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// <para>
         /// <para>When Evidently assigns a particular user session to an experiment, it must use a randomization
         /// ID to determine which variation the user session is served. This randomization ID
-        /// is a combination of the entity ID and <code>randomizationSalt</code>. If you omit
-        /// <code>randomizationSalt</code>, Evidently uses the experiment name as the <code>randomizationSalt</code>.</para>
+        /// is a combination of the entity ID and <c>randomizationSalt</c>. If you omit <c>randomizationSalt</c>,
+        /// Evidently uses the experiment name as the <c>randomizationSalt</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

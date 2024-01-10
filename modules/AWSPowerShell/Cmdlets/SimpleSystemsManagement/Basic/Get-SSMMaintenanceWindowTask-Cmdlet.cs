@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// 
     ///  <note><para>
     /// For maintenance window tasks without a specified target, you can't supply values for
-    /// <code>--max-errors</code> and <code>--max-concurrency</code>. Instead, the system
-    /// inserts a placeholder value of <code>1</code>, which may be reported in the response
-    /// to this command. These values don't affect the running of your task and can be ignored.
+    /// <c>--max-errors</c> and <c>--max-concurrency</c>. Instead, the system inserts a placeholder
+    /// value of <c>1</c>, which may be reported in the response to this command. These values
+    /// don't affect the running of your task and can be ignored.
     /// </para></note><para>
     /// To retrieve a list of tasks in a maintenance window, instead use the <a>DescribeMaintenanceWindowTasks</a>
     /// command.

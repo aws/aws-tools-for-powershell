@@ -36,15 +36,15 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     ///  
     /// <para>
     /// Create multiple revisions of a configuration by calling this action multiple times
-    /// using the same <code>ObservabilityConfigurationName</code>. The call returns incremental
-    /// <code>ObservabilityConfigurationRevision</code> values. When you create a service
-    /// and configure an observability configuration resource, the service uses the latest
-    /// active revision of the observability configuration by default. You can optionally
-    /// configure the service to use a specific revision.
+    /// using the same <c>ObservabilityConfigurationName</c>. The call returns incremental
+    /// <c>ObservabilityConfigurationRevision</c> values. When you create a service and configure
+    /// an observability configuration resource, the service uses the latest active revision
+    /// of the observability configuration by default. You can optionally configure the service
+    /// to use a specific revision.
     /// </para><para>
     /// The observability configuration resource is designed to configure multiple features
     /// (currently one feature, tracing). This action takes optional parameters that describe
-    /// the configuration of these features (currently one parameter, <code>TraceConfiguration</code>).
+    /// the configuration of these features (currently one parameter, <c>TraceConfiguration</c>).
     /// If you don't specify a feature parameter, App Runner doesn't enable the feature.
     /// </para>
     /// </summary>
@@ -64,10 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>A name for the observability configuration. When you use it for the first time in
-        /// an Amazon Web Services Region, App Runner creates revision number <code>1</code> of
-        /// this name. When you use the same name in subsequent calls, App Runner creates incremental
-        /// revisions of the configuration.</para><note><para>The name <code>DefaultConfiguration</code> is reserved. You can't use it to create
-        /// a new observability configuration, and you can't create a revision of it.</para><para>When you want to use your own observability configuration for your App Runner service,
+        /// an Amazon Web Services Region, App Runner creates revision number <c>1</c> of this
+        /// name. When you use the same name in subsequent calls, App Runner creates incremental
+        /// revisions of the configuration.</para><note><para>The name <c>DefaultConfiguration</c> is reserved. You can't use it to create a new
+        /// observability configuration, and you can't create a revision of it.</para><para>When you want to use your own observability configuration for your App Runner service,
         /// <i>create a configuration with a different name</i>, and then provide it when you
         /// create or update your service.</para></note>
         /// </para>

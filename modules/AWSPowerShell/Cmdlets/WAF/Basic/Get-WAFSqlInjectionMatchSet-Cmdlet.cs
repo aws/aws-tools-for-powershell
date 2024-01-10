@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Returns the <a>SqlInjectionMatchSet</a> that is specified by <code>SqlInjectionMatchSetId</code>.
+    /// Returns the <a>SqlInjectionMatchSet</a> that is specified by <c>SqlInjectionMatchSetId</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "WAFSqlInjectionMatchSet")]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter SqlInjectionMatchSetId
         /// <summary>
         /// <para>
-        /// <para>The <code>SqlInjectionMatchSetId</code> of the <a>SqlInjectionMatchSet</a> that you
-        /// want to get. <code>SqlInjectionMatchSetId</code> is returned by <a>CreateSqlInjectionMatchSet</a>
+        /// <para>The <c>SqlInjectionMatchSetId</c> of the <a>SqlInjectionMatchSet</a> that you want
+        /// to get. <c>SqlInjectionMatchSetId</c> is returned by <a>CreateSqlInjectionMatchSet</a>
         /// and by <a>ListSqlInjectionMatchSets</a>.</para>
         /// </para>
         /// </summary>

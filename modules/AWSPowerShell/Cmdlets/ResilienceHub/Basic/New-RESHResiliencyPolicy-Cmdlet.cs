@@ -31,12 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     /// Creates a resiliency policy for an application.
     /// 
     ///  <note><para>
-    /// Resilience Hub allows you to provide a value of zero for <code>rtoInSecs</code> and
-    /// <code>rpoInSecs</code> of your resiliency policy. But, while assessing your application,
-    /// the lowest possible assessment result is near zero. Hence, if you provide value zero
-    /// for <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated workload RTO
-    /// and estimated workload RPO result will be near zero and the <b>Compliance status</b>
-    /// for your application will be set to <b>Policy breached</b>.
+    /// Resilience Hub allows you to provide a value of zero for <c>rtoInSecs</c> and <c>rpoInSecs</c>
+    /// of your resiliency policy. But, while assessing your application, the lowest possible
+    /// assessment result is near zero. Hence, if you provide value zero for <c>rtoInSecs</c>
+    /// and <c>rpoInSecs</c>, the estimated workload RTO and estimated workload RPO result
+    /// will be near zero and the <b>Compliance status</b> for your application will be set
+    /// to <b>Policy breached</b>.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "RESHResiliencyPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -127,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter Tier
         /// <summary>
         /// <para>
-        /// <para>The tier for this resiliency policy, ranging from the highest severity (<code>MissionCritical</code>)
-        /// to lowest (<code>NonCritical</code>).</para>
+        /// <para>The tier for this resiliency policy, ranging from the highest severity (<c>MissionCritical</c>)
+        /// to lowest (<c>NonCritical</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

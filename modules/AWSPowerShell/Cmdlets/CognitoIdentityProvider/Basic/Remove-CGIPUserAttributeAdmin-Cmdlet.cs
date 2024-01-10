@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserAttributeName
         /// <summary>
         /// <para>
-        /// <para>An array of strings representing the user attribute names you want to delete.</para><para>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute
+        /// <para>An array of strings representing the user attribute names you want to delete.</para><para>For custom attributes, you must prepend the <c>custom:</c> prefix to the attribute
         /// name.</para>
         /// </para>
         /// </summary>
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The username of the user that you want to query or modify. The value of this parameter
         /// is typically your user's username, but it can be any of their alias attributes. If
-        /// <code>username</code> isn't an alias attribute in your user pool, you can also use
-        /// their <code>sub</code> in this request.</para>
+        /// <c>username</c> isn't an alias attribute in your user pool, you can also use their
+        /// <c>sub</c> in this request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

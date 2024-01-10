@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     /// SFTP connectors</a>.
     /// 
     ///  <note><para>
-    /// You must specify exactly one configuration object: either for AS2 (<code>As2Config</code>)
-    /// or SFTP (<code>SftpConfig</code>).
+    /// You must specify exactly one configuration object: either for AS2 (<c>As2Config</c>)
+    /// or SFTP (<c>SftpConfig</c>).
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "TFRConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,23 +58,22 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>Connectors are used to send files using either the AS2 or SFTP protocol. For the access
         /// role, provide the Amazon Resource Name (ARN) of the Identity and Access Management
-        /// role to use.</para><para><b>For AS2 connectors</b></para><para>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying
-        /// the file paths in the request parameter, <code>SendFilePaths</code>. We use the file’s
-        /// parent directory (for example, for <code>--send-file-paths /bucket/dir/file.txt</code>,
-        /// parent directory is <code>/bucket/dir/</code>) to temporarily store a processed AS2
-        /// message file, store the MDN when we receive them from the partner, and write a final
-        /// JSON file containing relevant metadata of the transmission. So, the <code>AccessRole</code>
-        /// needs to provide read and write access to the parent directory of the file location
-        /// used in the <code>StartFileTransfer</code> request. Additionally, you need to provide
-        /// read and write access to the parent directory of the files that you intend to send
-        /// with <code>StartFileTransfer</code>.</para><para>If you are using Basic authentication for your AS2 connector, the access role requires
-        /// the <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret
+        /// role to use.</para><para><b>For AS2 connectors</b></para><para>With AS2, you can send files by calling <c>StartFileTransfer</c> and specifying the
+        /// file paths in the request parameter, <c>SendFilePaths</c>. We use the file’s parent
+        /// directory (for example, for <c>--send-file-paths /bucket/dir/file.txt</c>, parent
+        /// directory is <c>/bucket/dir/</c>) to temporarily store a processed AS2 message file,
+        /// store the MDN when we receive them from the partner, and write a final JSON file containing
+        /// relevant metadata of the transmission. So, the <c>AccessRole</c> needs to provide
+        /// read and write access to the parent directory of the file location used in the <c>StartFileTransfer</c>
+        /// request. Additionally, you need to provide read and write access to the parent directory
+        /// of the files that you intend to send with <c>StartFileTransfer</c>.</para><para>If you are using Basic authentication for your AS2 connector, the access role requires
+        /// the <c>secretsmanager:GetSecretValue</c> permission for the secret. If the secret
         /// is encrypted using a customer-managed key instead of the Amazon Web Services managed
-        /// key in Secrets Manager, then the role also needs the <code>kms:Decrypt</code> permission
+        /// key in Secrets Manager, then the role also needs the <c>kms:Decrypt</c> permission
         /// for that key.</para><para><b>For SFTP connectors</b></para><para>Make sure that the access role provides read and write access to the parent directory
-        /// of the file location that's used in the <code>StartFileTransfer</code> request. Additionally,
-        /// make sure that the role provides <code>secretsmanager:GetSecretValue</code> permission
-        /// to Secrets Manager.</para>
+        /// of the file location that's used in the <c>StartFileTransfer</c> request. Additionally,
+        /// make sure that the role provides <c>secretsmanager:GetSecretValue</c> permission to
+        /// Secrets Manager.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,16 +91,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>Provides Basic authentication support to the AS2 Connectors API. To use Basic authentication,
-        /// you must provide the name or Amazon Resource Name (ARN) of a secret in Secrets Manager.</para><para>The default value for this parameter is <code>null</code>, which indicates that Basic
-        /// authentication is not enabled for the connector.</para><para>If the connector should use Basic authentication, the secret needs to be in the following
-        /// format:</para><para><code>{ "Username": "user-name", "Password": "user-password" }</code></para><para>Replace <code>user-name</code> and <code>user-password</code> with the credentials
-        /// for the actual user that is being authenticated.</para><para>Note the following:</para><ul><li><para>You are storing these credentials in Secrets Manager, <i>not passing them directly</i>
+        /// you must provide the name or Amazon Resource Name (ARN) of a secret in Secrets Manager.</para><para>The default value for this parameter is <c>null</c>, which indicates that Basic authentication
+        /// is not enabled for the connector.</para><para>If the connector should use Basic authentication, the secret needs to be in the following
+        /// format:</para><para><c>{ "Username": "user-name", "Password": "user-password" }</c></para><para>Replace <c>user-name</c> and <c>user-password</c> with the credentials for the actual
+        /// user that is being authenticated.</para><para>Note the following:</para><ul><li><para>You are storing these credentials in Secrets Manager, <i>not passing them directly</i>
         /// into this API.</para></li><li><para>If you are using the API, SDKs, or CloudFormation to configure your connector, then
         /// you must create the secret before you can enable Basic authentication. However, if
         /// you are using the Amazon Web Services management console, you can have the system
         /// create the secret for you.</para></li></ul><para>If you have previously enabled Basic authentication for a connector, you can disable
-        /// it by using the <code>UpdateConnector</code> API call. For example, if you are using
-        /// the CLI, you can run the following command to remove Basic authentication:</para><para><code>update-connector --connector-id my-connector-id --as2-config 'BasicAuthSecretId=""'</code></para>
+        /// it by using the <c>UpdateConnector</c> API call. For example, if you are using the
+        /// CLI, you can run the following command to remove Basic authentication:</para><para><c>update-connector --connector-id my-connector-id --as2-config 'BasicAuthSecretId=""'</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter As2Config_EncryptionAlgorithm
         /// <summary>
         /// <para>
-        /// <para>The algorithm that is used to encrypt the file.</para><note><para>You can only specify <code>NONE</code> if the URL for your connector uses HTTPS. This
-        /// ensures that no traffic is sent in clear text.</para></note>
+        /// <para>The algorithm that is used to encrypt the file.</para><note><para>You can only specify <c>NONE</c> if the URL for your connector uses HTTPS. This ensures
+        /// that no traffic is sent in clear text.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>Used for outbound requests (from an Transfer Family server to a partner AS2 server)
         /// to determine whether the partner response for transfers is synchronous or asynchronous.
-        /// Specify either of the following values:</para><ul><li><para><code>SYNC</code>: The system expects a synchronous MDN response, confirming that
-        /// the file was transferred successfully (or not).</para></li><li><para><code>NONE</code>: Specifies that no MDN response is required.</para></li></ul>
+        /// Specify either of the following values:</para><ul><li><para><c>SYNC</c>: The system expects a synchronous MDN response, confirming that the file
+        /// was transferred successfully (or not).</para></li><li><para><c>NONE</c>: Specifies that no MDN response is required.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,8 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter As2Config_MdnSigningAlgorithm
         /// <summary>
         /// <para>
-        /// <para>The signing algorithm for the MDN response.</para><note><para>If set to DEFAULT (or not set at all), the value for <code>SigningAlgorithm</code>
-        /// is used.</para></note>
+        /// <para>The signing algorithm for the MDN response.</para><note><para>If set to DEFAULT (or not set at all), the value for <c>SigningAlgorithm</c> is used.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,8 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter As2Config_MessageSubject
         /// <summary>
         /// <para>
-        /// <para>Used as the <code>Subject</code> HTTP header attribute in AS2 messages that are being
-        /// sent with the connector.</para>
+        /// <para>Used as the <c>Subject</c> HTTP header attribute in AS2 messages that are being sent
+        /// with the connector.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,13 +225,13 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>The public portion of the host key, or keys, that are used to identify the external
-        /// server to which you are connecting. You can use the <code>ssh-keyscan</code> command
-        /// against the SFTP server to retrieve the necessary key.</para><para>The three standard SSH public key format elements are <code>&lt;key type&gt;</code>,
-        /// <code>&lt;body base64&gt;</code>, and an optional <code>&lt;comment&gt;</code>, with
-        /// spaces between each element. Specify only the <code>&lt;key type&gt;</code> and <code>&lt;body
-        /// base64&gt;</code>: do not enter the <code>&lt;comment&gt;</code> portion of the key.</para><para>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</para><ul><li><para>For RSA keys, the <code>&lt;key type&gt;</code> string is <code>ssh-rsa</code>.</para></li><li><para>For ECDSA keys, the <code>&lt;key type&gt;</code> string is either <code>ecdsa-sha2-nistp256</code>,
-        /// <code>ecdsa-sha2-nistp384</code>, or <code>ecdsa-sha2-nistp521</code>, depending on
-        /// the size of the key you generated.</para></li></ul>
+        /// server to which you are connecting. You can use the <c>ssh-keyscan</c> command against
+        /// the SFTP server to retrieve the necessary key.</para><para>The three standard SSH public key format elements are <c>&lt;key type&gt;</c>, <c>&lt;body
+        /// base64&gt;</c>, and an optional <c>&lt;comment&gt;</c>, with spaces between each element.
+        /// Specify only the <c>&lt;key type&gt;</c> and <c>&lt;body base64&gt;</c>: do not enter
+        /// the <c>&lt;comment&gt;</c> portion of the key.</para><para>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</para><ul><li><para>For RSA keys, the <c>&lt;key type&gt;</c> string is <c>ssh-rsa</c>.</para></li><li><para>For ECDSA keys, the <c>&lt;key type&gt;</c> string is either <c>ecdsa-sha2-nistp256</c>,
+        /// <c>ecdsa-sha2-nistp384</c>, or <c>ecdsa-sha2-nistp521</c>, depending on the size of
+        /// the key you generated.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

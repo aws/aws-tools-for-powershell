@@ -29,28 +29,27 @@ namespace Amazon.PowerShell.Cmdlets.AVP
 {
     /// <summary>
     /// Makes a series of decisions about multiple authorization requests for one principal
-    /// or resource. Each request contains the equivalent content of an <code>IsAuthorized</code>
-    /// request: principal, action, resource, and context. Either the <code>principal</code>
-    /// or the <code>resource</code> parameter must be identical across all requests. For
-    /// example, Verified Permissions won't evaluate a pair of requests where <code>bob</code>
-    /// views <code>photo1</code> and <code>alice</code> views <code>photo2</code>. Authorization
-    /// of <code>bob</code> to view <code>photo1</code> and <code>photo2</code>, or <code>bob</code>
-    /// and <code>alice</code> to view <code>photo1</code>, are valid batches. 
+    /// or resource. Each request contains the equivalent content of an <c>IsAuthorized</c>
+    /// request: principal, action, resource, and context. Either the <c>principal</c> or
+    /// the <c>resource</c> parameter must be identical across all requests. For example,
+    /// Verified Permissions won't evaluate a pair of requests where <c>bob</c> views <c>photo1</c>
+    /// and <c>alice</c> views <c>photo2</c>. Authorization of <c>bob</c> to view <c>photo1</c>
+    /// and <c>photo2</c>, or <c>bob</c> and <c>alice</c> to view <c>photo1</c>, are valid
+    /// batches. 
     /// 
     ///  
     /// <para>
     /// The request is evaluated against all policies in the specified policy store that match
-    /// the entities that you declare. The result of the decisions is a series of <code>Allow</code>
-    /// or <code>Deny</code> responses, along with the IDs of the policies that produced each
-    /// decision.
+    /// the entities that you declare. The result of the decisions is a series of <c>Allow</c>
+    /// or <c>Deny</c> responses, along with the IDs of the policies that produced each decision.
     /// </para><para>
-    /// The <code>entities</code> of a <code>BatchIsAuthorized</code> API request can contain
-    /// up to 100 principals and up to 100 resources. The <code>requests</code> of a <code>BatchIsAuthorized</code>
+    /// The <c>entities</c> of a <c>BatchIsAuthorized</c> API request can contain up to 100
+    /// principals and up to 100 resources. The <c>requests</c> of a <c>BatchIsAuthorized</c>
     /// API request can contain up to 30 requests.
     /// </para><note><para>
-    /// The <code>BatchIsAuthorized</code> operation doesn't have its own IAM permission.
-    /// To authorize this operation for Amazon Web Services principals, include the permission
-    /// <code>verifiedpermissions:IsAuthorized</code> in their IAM policies.
+    /// The <c>BatchIsAuthorized</c> operation doesn't have its own IAM permission. To authorize
+    /// this operation for Amazon Web Services principals, include the permission <c>verifiedpermissions:IsAuthorized</c>
+    /// in their IAM policies.
     /// </para></note>
     /// </summary>
     [Cmdlet("Test", "AVPBatchAuthorization")]

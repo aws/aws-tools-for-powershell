@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// Retrieves the runtime management configuration for a function's version. If the runtime
     /// update mode is <b>Manual</b>, this includes the ARN of the runtime version and the
     /// runtime update mode. If the runtime update mode is <b>Auto</b> or <b>Function update</b>,
-    /// this includes the runtime update mode and <code>null</code> is returned for the ARN.
-    /// For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html">Runtime
+    /// this includes the runtime update mode and <c>null</c> is returned for the ARN. For
+    /// more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html">Runtime
     /// updates</a>.
     /// </summary>
     [Cmdlet("Get", "LMRuntimeManagementConfig")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The name of the Lambda function.</para><para><b>Name formats</b></para><ul><li><para><b>Function name</b> – <code>my-function</code>.</para></li><li><para><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</para></li><li><para><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</para></li></ul><para>The length constraint applies only to the full ARN. If you specify only the function
+        /// <para>The name of the Lambda function.</para><para><b>Name formats</b></para><ul><li><para><b>Function name</b> – <c>my-function</c>.</para></li><li><para><b>Function ARN</b> – <c>arn:aws:lambda:us-west-2:123456789012:function:my-function</c>.</para></li><li><para><b>Partial ARN</b> – <c>123456789012:function:my-function</c>.</para></li></ul><para>The length constraint applies only to the full ARN. If you specify only the function
         /// name, it is limited to 64 characters in length.</para>
         /// </para>
         /// </summary>
@@ -67,9 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Qualifier
         /// <summary>
         /// <para>
-        /// <para>Specify a version of the function. This can be <code>$LATEST</code> or a published
-        /// version number. If no value is specified, the configuration for the <code>$LATEST</code>
-        /// version is returned.</para>
+        /// <para>Specify a version of the function. This can be <c>$LATEST</c> or a published version
+        /// number. If no value is specified, the configuration for the <c>$LATEST</c> version
+        /// is returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

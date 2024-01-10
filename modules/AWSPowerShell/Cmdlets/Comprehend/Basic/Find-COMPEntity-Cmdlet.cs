@@ -41,10 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     /// upload a single-page input document (text, PDF, Word, or image). 
     /// </para><para>
     /// If the system detects errors while processing a page in the input document, the API
-    /// response includes an entry in <code>Errors</code> for each error. 
+    /// response includes an entry in <c>Errors</c> for each error. 
     /// </para><para>
     /// If the system detects a document-level error in your input document, the API returns
-    /// an <code>InvalidRequestException</code> error response. For details about this exception,
+    /// an <c>InvalidRequestException</c> error response. For details about this exception,
     /// see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html">
     /// Errors in semi-structured documents</a> in the Comprehend Developer Guide. 
     /// </para>
@@ -67,15 +67,14 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>This field applies only when you use a custom entity recognition model that was trained
-        /// with PDF annotations. For other cases, enter your text input in the <code>Text</code>
-        /// field.</para><para> Use the <code>Bytes</code> parameter to input a text, PDF, Word or image file. Using
-        /// a plain-text file in the <code>Bytes</code> parameter is equivelent to using the <code>Text</code>
-        /// parameter (the <code>Entities</code> field in the response is identical).</para><para>You can also use the <code>Bytes</code> parameter to input an Amazon Textract <code>DetectDocumentText</code>
-        /// or <code>AnalyzeDocument</code> output file.</para><para>Provide the input document as a sequence of base64-encoded bytes. If your code uses
+        /// with PDF annotations. For other cases, enter your text input in the <c>Text</c> field.</para><para> Use the <c>Bytes</c> parameter to input a text, PDF, Word or image file. Using a
+        /// plain-text file in the <c>Bytes</c> parameter is equivelent to using the <c>Text</c>
+        /// parameter (the <c>Entities</c> field in the response is identical).</para><para>You can also use the <c>Bytes</c> parameter to input an Amazon Textract <c>DetectDocumentText</c>
+        /// or <c>AnalyzeDocument</c> output file.</para><para>Provide the input document as a sequence of base64-encoded bytes. If your code uses
         /// an Amazon Web Services SDK to detect entities, the SDK may encode the document file
         /// bytes for you. </para><para>The maximum length of this field depends on the input document type. For details,
         /// see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync.html">
-        /// Inputs for real-time custom analysis</a> in the Comprehend Developer Guide. </para><para>If you use the <code>Bytes</code> parameter, do not use the <code>Text</code> parameter.</para>
+        /// Inputs for real-time custom analysis</a> in the Comprehend Developer Guide. </para><para>If you use the <c>Bytes</c> parameter, do not use the <c>Text</c> parameter.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -89,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>This field defines the Amazon Textract API operation that Amazon Comprehend uses to
-        /// extract text from PDF files and image files. Enter one of the following values:</para><ul><li><para><code>TEXTRACT_DETECT_DOCUMENT_TEXT</code> - The Amazon Comprehend service uses the
-        /// <code>DetectDocumentText</code> API operation. </para></li><li><para><code>TEXTRACT_ANALYZE_DOCUMENT</code> - The Amazon Comprehend service uses the <code>AnalyzeDocument</code>
+        /// extract text from PDF files and image files. Enter one of the following values:</para><ul><li><para><c>TEXTRACT_DETECT_DOCUMENT_TEXT</c> - The Amazon Comprehend service uses the <c>DetectDocumentText</c>
+        /// API operation. </para></li><li><para><c>TEXTRACT_ANALYZE_DOCUMENT</c> - The Amazon Comprehend service uses the <c>AnalyzeDocument</c>
         /// API operation. </para></li></ul>
         /// </para>
         /// </summary>
@@ -102,9 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DocumentReaderConfig_DocumentReadMode
         /// <summary>
         /// <para>
-        /// <para>Determines the text extraction actions for PDF files. Enter one of the following values:</para><ul><li><para><code>SERVICE_DEFAULT</code> - use the Amazon Comprehend service defaults for PDF
-        /// files.</para></li><li><para><code>FORCE_DOCUMENT_READ_ACTION</code> - Amazon Comprehend uses the Textract API
-        /// specified by DocumentReadAction for all PDF files, including digital PDF files. </para></li></ul>
+        /// <para>Determines the text extraction actions for PDF files. Enter one of the following values:</para><ul><li><para><c>SERVICE_DEFAULT</c> - use the Amazon Comprehend service defaults for PDF files.</para></li><li><para><c>FORCE_DOCUMENT_READ_ACTION</c> - Amazon Comprehend uses the Textract API specified
+        /// by DocumentReadAction for all PDF files, including digital PDF files. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,10 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DocumentReaderConfig_FeatureType
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of Amazon Textract features to apply. If you chose <code>TEXTRACT_ANALYZE_DOCUMENT</code>
-        /// as the read action, you must specify one or both of the following values:</para><ul><li><para><code>TABLES</code> - Returns additional information about any tables that are detected
-        /// in the input document. </para></li><li><para><code>FORMS</code> - Returns additional information about any forms that are detected
-        /// in the input document. </para></li></ul>
+        /// <para>Specifies the type of Amazon Textract features to apply. If you chose <c>TEXTRACT_ANALYZE_DOCUMENT</c>
+        /// as the read action, you must specify one or both of the following values:</para><ul><li><para><c>TABLES</c> - Returns additional information about any tables that are detected
+        /// in the input document. </para></li><li><para><c>FORMS</c> - Returns additional information about any forms that are detected in
+        /// the input document. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>A UTF-8 text string. The maximum string size is 100 KB. If you enter text using this
-        /// parameter, do not use the <code>Bytes</code> parameter.</para>
+        /// parameter, do not use the <c>Bytes</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

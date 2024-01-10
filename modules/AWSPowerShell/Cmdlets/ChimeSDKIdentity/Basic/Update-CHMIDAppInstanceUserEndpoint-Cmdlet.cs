@@ -28,8 +28,8 @@ using Amazon.ChimeSDKIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMID
 {
     /// <summary>
-    /// Updates the details of an <code>AppInstanceUserEndpoint</code>. You can update the
-    /// name and <code>AllowMessage</code> values.
+    /// Updates the details of an <c>AppInstanceUserEndpoint</c>. You can update the name
+    /// and <c>AllowMessage</c> values.
     /// </summary>
     [Cmdlet("Update", "CHMIDAppInstanceUserEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKIdentity.Model.UpdateAppInstanceUserEndpointResponse")]
@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter AllowMessage
         /// <summary>
         /// <para>
-        /// <para>Boolean that controls whether the <code>AppInstanceUserEndpoint</code> is opted in
-        /// to receive messages. <code>ALL</code> indicates the endpoint will receive all messages.
-        /// <code>NONE</code> indicates the endpoint will receive no messages.</para>
+        /// <para>Boolean that controls whether the <c>AppInstanceUserEndpoint</c> is opted in to receive
+        /// messages. <c>ALL</c> indicates the endpoint will receive all messages. <c>NONE</c>
+        /// indicates the endpoint will receive no messages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter AppInstanceUserArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code>.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter EndpointId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</para>
+        /// <para>The unique identifier of the <c>AppInstanceUserEndpoint</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the <code>AppInstanceUserEndpoint</code>.</para>
+        /// <para>The name of the <c>AppInstanceUserEndpoint</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

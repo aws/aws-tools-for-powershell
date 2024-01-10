@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// 
     ///  
     /// <para>
-    /// Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_
-    /// . : / = + - @</code>.
+    /// Tags may only contain Unicode letters, digits, white space, or these symbols: <c>_
+    /// . : / = + - @</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SFNResourceTag")]

@@ -98,12 +98,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DestinationRegion
         /// <summary>
         /// <para>
-        /// <para>The destination Region to use in the <code>PresignedUrl</code> parameter of a snapshot
-        /// copy operation. This parameter is only valid for specifying the destination Region
-        /// in a <code>PresignedUrl</code> parameter, where it is required.</para><para>The snapshot copy is sent to the regional endpoint that you sent the HTTP request
-        /// to (for example, <code>ec2.us-east-1.amazonaws.com</code>). With the CLI, this is
-        /// specified using the <code>--region</code> parameter or the default Region in your
-        /// Amazon Web Services configuration file.</para>
+        /// <para>The destination Region to use in the <c>PresignedUrl</c> parameter of a snapshot copy
+        /// operation. This parameter is only valid for specifying the destination Region in a
+        /// <c>PresignedUrl</c> parameter, where it is required.</para><para>The snapshot copy is sent to the regional endpoint that you sent the HTTP request
+        /// to (for example, <c>ec2.us-east-1.amazonaws.com</c>). With the CLI, this is specified
+        /// using the <c>--region</c> parameter or the default Region in your Amazon Web Services
+        /// configuration file.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The identifier of the Key Management Service (KMS) KMS key to use for Amazon EBS encryption.
-        /// If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code>
-        /// is specified, the encrypted state must be <code>true</code>.</para><para>You can specify the KMS key using any of the following:</para><ul><li><para>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Key alias. For example, alias/ExampleAlias.</para></li><li><para>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</para></li></ul><para>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify
+        /// If this parameter is not specified, your KMS key for Amazon EBS is used. If <c>KmsKeyId</c>
+        /// is specified, the encrypted state must be <c>true</c>.</para><para>You can specify the KMS key using any of the following:</para><ul><li><para>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Key alias. For example, alias/ExampleAlias.</para></li><li><para>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</para></li></ul><para>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify
         /// an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually
         /// fails.</para>
         /// </para>

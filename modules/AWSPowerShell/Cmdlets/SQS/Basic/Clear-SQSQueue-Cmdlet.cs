@@ -29,20 +29,20 @@ namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
     /// Deletes available messages in a queue (including in-flight messages) specified by
-    /// the <code>QueueURL</code> parameter.
+    /// the <c>QueueURL</c> parameter.
     /// 
     ///  <important><para>
-    /// When you use the <code>PurgeQueue</code> action, you can't retrieve any messages deleted
+    /// When you use the <c>PurgeQueue</c> action, you can't retrieve any messages deleted
     /// from a queue.
     /// </para><para>
     /// The message deletion process takes up to 60 seconds. We recommend waiting for 60 seconds
     /// regardless of your queue's size. 
     /// </para></important><para>
-    /// Messages sent to the queue <i>before</i> you call <code>PurgeQueue</code> might be
-    /// received but are deleted within the next minute.
+    /// Messages sent to the queue <i>before</i> you call <c>PurgeQueue</c> might be received
+    /// but are deleted within the next minute.
     /// </para><para>
-    /// Messages sent to the queue <i>after</i> you call <code>PurgeQueue</code> might be
-    /// deleted while the queue is being purged.
+    /// Messages sent to the queue <i>after</i> you call <c>PurgeQueue</c> might be deleted
+    /// while the queue is being purged.
     /// </para>
     /// </summary>
     [Cmdlet("Clear", "SQSQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of the queue from which the <code>PurgeQueue</code> action deletes messages.</para><para>Queue URLs and names are case-sensitive.</para>
+        /// <para>The URL of the queue from which the <c>PurgeQueue</c> action deletes messages.</para><para>Queue URLs and names are case-sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

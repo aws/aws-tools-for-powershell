@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter Filter_FilteredStatus
         /// <summary>
         /// <para>
-        /// <para>The status by which you are filtering: <code>OPT_IN</code> or <code>OPT_OUT</code>.</para>
+        /// <para>The status by which you are filtering: <c>OPT_IN</c> or <c>OPT_OUT</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,9 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <para>
         /// <para>The number of contacts that may be returned at once, which is dependent on if there
         /// are more or less contacts than the value of the PageSize. Use this parameter to paginate
-        /// results. If additional contacts exist beyond the specified limit, the <code>NextToken</code>
-        /// element is sent in the response. Use the <code>NextToken</code> value in subsequent
-        /// requests to retrieve additional contacts.</para>
+        /// results. If additional contacts exist beyond the specified limit, the <c>NextToken</c>
+        /// element is sent in the response. Use the <c>NextToken</c> value in subsequent requests
+        /// to retrieve additional contacts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

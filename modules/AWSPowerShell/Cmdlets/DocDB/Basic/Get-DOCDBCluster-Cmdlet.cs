@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// Returns information about provisioned Amazon DocumentDB clusters. This API operation
     /// supports pagination. For certain management features such as cluster and instance
     /// lifecycle management, Amazon DocumentDB leverages operational technology that is shared
-    /// with Amazon RDS and Amazon Neptune. Use the <code>filterName=engine,Values=docdb</code>
+    /// with Amazon RDS and Amazon Neptune. Use the <c>filterName=engine,Values=docdb</c>
     /// filter parameter to return only Amazon DocumentDB clusters.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DOCDBCluster")]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The user-provided cluster identifier. If this parameter is specified, information
-        /// from only the specific cluster is returned. This parameter isn't case sensitive.</para><para>Constraints:</para><ul><li><para>If provided, must match an existing <code>DBClusterIdentifier</code>.</para></li></ul>
+        /// from only the specific cluster is returned. This parameter isn't case sensitive.</para><para>Constraints:</para><ul><li><para>If provided, must match an existing <c>DBClusterIdentifier</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -60,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter that specifies one or more clusters to describe.</para><para>Supported filters:</para><ul><li><para><code>db-cluster-id</code> - Accepts cluster identifiers and cluster Amazon Resource
-        /// Names (ARNs). The results list only includes information about the clusters identified
-        /// by these ARNs.</para></li></ul>
+        /// <para>A filter that specifies one or more clusters to describe.</para><para>Supported filters:</para><ul><li><para><c>db-cluster-id</c> - Accepts cluster identifiers and cluster Amazon Resource Names
+        /// (ARNs). The results list only includes information about the clusters identified by
+        /// these ARNs.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>
         /// <para>An optional pagination token provided by a previous request. If this parameter is
         /// specified, the response includes only records beyond the marker, up to the value specified
-        /// by <code>MaxRecords</code>.</para>
+        /// by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para> The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token (marker) is included
-        /// in the response so that the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// the specified <c>MaxRecords</c> value, a pagination token (marker) is included in
+        /// the response so that the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

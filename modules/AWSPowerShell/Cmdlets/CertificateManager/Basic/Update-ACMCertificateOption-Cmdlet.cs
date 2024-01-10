@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the requested certificate to update. This must be of the form:</para><para><code>arn:aws:acm:us-east-1:<i>account</i>:certificate/<i>12345678-1234-1234-1234-123456789012</i></code></para>
+        /// <para>ARN of the requested certificate to update. This must be of the form:</para><para><c>arn:aws:acm:us-east-1:<i>account</i>:certificate/<i>12345678-1234-1234-1234-123456789012</i></c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter Options_CertificateTransparencyLoggingPreference
         /// <summary>
         /// <para>
-        /// <para>You can opt out of certificate transparency logging by specifying the <code>DISABLED</code>
-        /// option. Opt in by specifying <code>ENABLED</code>. </para>
+        /// <para>You can opt out of certificate transparency logging by specifying the <c>DISABLED</c>
+        /// option. Opt in by specifying <c>ENABLED</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     ///  <note><para>
     /// If you do not need to know details about the content of an Analysis, for instance
     /// if you are trying to check the status of a recently created or updated Analysis, use
-    /// the <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAnalysis.html"><code>DescribeAnalysis</code></a> instead. 
+    /// the <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAnalysis.html"><c>DescribeAnalysis</c></a> instead. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "QSAnalysisDefinition")]

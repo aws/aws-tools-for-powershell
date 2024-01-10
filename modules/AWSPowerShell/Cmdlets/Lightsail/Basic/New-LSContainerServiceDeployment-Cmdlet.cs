@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The number of consecutive health checks successes required before moving the container
-        /// to the <code>Healthy</code> state. The default value is <code>2</code>.</para>
+        /// to the <c>Healthy</c> state. The default value is <c>2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The approximate interval, in seconds, between health checks of an individual container.
-        /// You can specify between 5 and 300 seconds. The default value is <code>5</code>.</para>
+        /// You can specify between 5 and 300 seconds. The default value is <c>5</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The path on the container on which to perform the health check. The default value
-        /// is <code>/</code>.</para>
+        /// is <c>/</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,9 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The HTTP codes to use when checking for a successful response from a container. You
-        /// can specify values between <code>200</code> and <code>499</code>. You can specify
-        /// multiple values (for example, <code>200,202</code>) or a range of values (for example,
-        /// <code>200-299</code>).</para>
+        /// can specify values between <c>200</c> and <c>499</c>. You can specify multiple values
+        /// (for example, <c>200,202</c>) or a range of values (for example, <c>200-299</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, during which no response means a failed health check.
-        /// You can specify between 2 and 60 seconds. The default value is <code>2</code>.</para>
+        /// You can specify between 2 and 60 seconds. The default value is <c>2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The number of consecutive health check failures required before moving the container
-        /// to the <code>Unhealthy</code> state. The default value is <code>2</code>.</para>
+        /// to the <c>Unhealthy</c> state. The default value is <c>2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

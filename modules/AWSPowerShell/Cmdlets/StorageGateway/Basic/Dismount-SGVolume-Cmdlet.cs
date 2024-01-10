@@ -49,10 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter ForceDetach
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to forcibly remove the iSCSI connection of the target volume
-        /// and detach the volume. The default is <code>false</code>. If this value is set to
-        /// <code>false</code>, you must manually disconnect the iSCSI connection from the target
-        /// volume.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// <para>Set to <c>true</c> to forcibly remove the iSCSI connection of the target volume and
+        /// detach the volume. The default is <c>false</c>. If this value is set to <c>false</c>,
+        /// you must manually disconnect the iSCSI connection from the target volume.</para><para>Valid Values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

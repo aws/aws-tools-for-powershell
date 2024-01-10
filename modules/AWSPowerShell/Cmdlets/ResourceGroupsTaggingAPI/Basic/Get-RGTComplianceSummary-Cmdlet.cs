@@ -39,11 +39,11 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     /// the us-east-1 Region.
     /// </para><para>
     /// This operation supports pagination, where the response can be sent in multiple pages.
-    /// You should check the <code>PaginationToken</code> response parameter to determine
-    /// if there are additional results available to return. Repeat the query, passing the
-    /// <code>PaginationToken</code> response parameter value as an input to the next request
-    /// until you recieve a <code>null</code> value. A null value for <code>PaginationToken</code>
-    /// indicates that there are no more results waiting to be returned.
+    /// You should check the <c>PaginationToken</c> response parameter to determine if there
+    /// are additional results available to return. Repeat the query, passing the <c>PaginationToken</c>
+    /// response parameter value as an input to the next request until you recieve a <c>null</c>
+    /// value. A null value for <c>PaginationToken</c> indicates that there are no more results
+    /// waiting to be returned.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RGTComplianceSummary")]
@@ -86,9 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// <summary>
         /// <para>
         /// <para>Specifies that you want the response to include information for only resources of
-        /// the specified types. The format of each resource type is <code>service[:resourceType]</code>.
-        /// For example, specifying a resource type of <code>ec2</code> returns all Amazon EC2
-        /// resources (which includes EC2 instances). Specifying a resource type of <code>ec2:instance</code>
+        /// the specified types. The format of each resource type is <c>service[:resourceType]</c>.
+        /// For example, specifying a resource type of <c>ec2</c> returns all Amazon EC2 resources
+        /// (which includes EC2 instances). Specifying a resource type of <c>ec2:instance</c>
         /// returns only EC2 instances.</para><para>The string for each service name and resource type is the same as that embedded in
         /// a resource's Amazon Resource Name (ARN). Consult the <i><a href="https://docs.aws.amazon.com/general/latest/gr/">Amazon
         /// Web Services General Reference</a></i> for the following:</para><ul><li><para>For a list of service name strings, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon
@@ -135,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// <para>
         /// <para>Specifies the maximum number of results to be returned in each page. A query can return
         /// fewer than this maximum, even if there are more results still to return. You should
-        /// always check the <code>PaginationToken</code> response value to see if there are more
-        /// results. You can specify a minimum of 1 and a maximum value of 100.</para>
+        /// always check the <c>PaginationToken</c> response value to see if there are more results.
+        /// You can specify a minimum of 1 and a maximum value of 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,9 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         #region Parameter PaginationToken
         /// <summary>
         /// <para>
-        /// <para>Specifies a <code>PaginationToken</code> response value from a previous request to
-        /// indicate that you want the next page of results. Leave this parameter empty in your
-        /// initial request.</para>
+        /// <para>Specifies a <c>PaginationToken</c> response value from a previous request to indicate
+        /// that you want the next page of results. Leave this parameter empty in your initial
+        /// request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

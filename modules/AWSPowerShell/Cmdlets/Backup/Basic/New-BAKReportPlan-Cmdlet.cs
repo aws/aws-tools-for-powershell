@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     /// 
     ///  
     /// <para>
-    /// If you call <code>CreateReportPlan</code> with a plan that already exists, you receive
-    /// an <code>AlreadyExistsException</code> exception.
+    /// If you call <c>CreateReportPlan</c> with a plan that already exists, you receive an
+    /// <c>AlreadyExistsException</c> exception.
     /// </para>
     /// </summary>
     [Cmdlet("New", "BAKReportPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ReportDeliveryChannel_Format
         /// <summary>
         /// <para>
-        /// <para>A list of the format of your reports: <code>CSV</code>, <code>JSON</code>, or both.
-        /// If not specified, the default format is <code>CSV</code>.</para>
+        /// <para>A list of the format of your reports: <c>CSV</c>, <c>JSON</c>, or both. If not specified,
+        /// the default format is <c>CSV</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>A customer-chosen string that you can use to distinguish between otherwise identical
-        /// calls to <code>CreateReportPlanInput</code>. Retrying a successful request with the
-        /// same idempotency token results in a success message with no action taken.</para>
+        /// calls to <c>CreateReportPlanInput</c>. Retrying a successful request with the same
+        /// idempotency token results in a success message with no action taken.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,8 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Identifies the report template for the report. Reports are built using a report template.
-        /// The report templates are:</para><para><code>RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT
-        /// | COPY_JOB_REPORT | RESTORE_JOB_REPORT</code></para>
+        /// The report templates are:</para><para><c>RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT
+        /// | RESTORE_JOB_REPORT</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The
-        /// prefix is this part of the following path: s3://your-bucket-name/<code>prefix</code>/Backup/us-west-2/year/month/day/report-name.
+        /// prefix is this part of the following path: s3://your-bucket-name/<c>prefix</c>/Backup/us-west-2/year/month/day/report-name.
         /// If not specified, there is no prefix.</para>
         /// </para>
         /// </summary>

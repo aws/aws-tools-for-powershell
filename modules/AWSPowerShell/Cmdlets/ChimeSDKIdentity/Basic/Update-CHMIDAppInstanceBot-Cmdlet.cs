@@ -28,7 +28,7 @@ using Amazon.ChimeSDKIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMID
 {
     /// <summary>
-    /// Updates the name and metadata of an <code>AppInstanceBot</code>.
+    /// Updates the name and metadata of an <c>AppInstanceBot</c>.
     /// </summary>
     [Cmdlet("Update", "CHMIDAppInstanceBot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter AppInstanceBotArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceBot</code>.</para>
+        /// <para>The ARN of the <c>AppInstanceBot</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter Lex_LexBotAliasArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon Lex V2 bot's alias. The ARN uses this format: <code>arn:aws:lex:REGION:ACCOUNT:bot-alias/MYBOTID/MYBOTALIAS</code></para>
+        /// <para>The ARN of the Amazon Lex V2 bot's alias. The ARN uses this format: <c>arn:aws:lex:REGION:ACCOUNT:bot-alias/MYBOTID/MYBOTALIAS</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter Metadata
         /// <summary>
         /// <para>
-        /// <para>The metadata of the <code>AppInstanceBot</code>.</para>
+        /// <para>The metadata of the <c>AppInstanceBot</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the <code>AppInstanceBot</code>.</para>
+        /// <para>The name of the <c>AppInstanceBot</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter Lex_RespondsTo
         /// <summary>
         /// <para>
-        /// <important><para><b>Deprecated</b>. Use <code>InvokedBy</code> instead.</para></important><para>Determines whether the Amazon Lex V2 bot responds to all standard messages. Control
+        /// <important><para><b>Deprecated</b>. Use <c>InvokedBy</c> instead.</para></important><para>Determines whether the Amazon Lex V2 bot responds to all standard messages. Control
         /// messages are not supported.</para>
         /// </para>
         /// </summary>
@@ -136,10 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter InvokedBy_StandardMessage
         /// <summary>
         /// <para>
-        /// <para>Sets standard messages as the bot trigger. For standard messages:</para><ul><li><para><code>ALL</code>: The bot processes all standard messages.</para></li><li><para><code>AUTO</code>: The bot responds to ALL messages when the channel has one other
-        /// non-hidden member, and responds to MENTIONS when the channel has more than one other
-        /// non-hidden member.</para></li><li><para><code>MENTIONS</code>: The bot processes all standard messages that have a message
-        /// attribute with <code>CHIME.mentions</code> and a value of the bot ARN.</para></li><li><para><code>NONE</code>: The bot processes no standard messages.</para></li></ul>
+        /// <para>Sets standard messages as the bot trigger. For standard messages:</para><ul><li><para><c>ALL</c>: The bot processes all standard messages.</para></li><li><para><c>AUTO</c>: The bot responds to ALL messages when the channel has one other non-hidden
+        /// member, and responds to MENTIONS when the channel has more than one other non-hidden
+        /// member.</para></li><li><para><c>MENTIONS</c>: The bot processes all standard messages that have a message attribute
+        /// with <c>CHIME.mentions</c> and a value of the bot ARN.</para></li><li><para><c>NONE</c>: The bot processes no standard messages.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter InvokedBy_TargetedMessage
         /// <summary>
         /// <para>
-        /// <para>Sets targeted messages as the bot trigger. For targeted messages:</para><ul><li><para><code>ALL</code>: The bot processes all <code>TargetedMessages</code> sent to it.
-        /// The bot then responds with a targeted message back to the sender. </para></li><li><para><code>NONE</code>: The bot processes no targeted messages.</para></li></ul>
+        /// <para>Sets targeted messages as the bot trigger. For targeted messages:</para><ul><li><para><c>ALL</c>: The bot processes all <c>TargetedMessages</c> sent to it. The bot then
+        /// responds with a targeted message back to the sender. </para></li><li><para><c>NONE</c>: The bot processes no targeted messages.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

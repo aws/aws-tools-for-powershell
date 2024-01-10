@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Returns the <a>SizeConstraintSet</a> specified by <code>SizeConstraintSetId</code>.
+    /// Returns the <a>SizeConstraintSet</a> specified by <c>SizeConstraintSetId</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "WAFSizeConstraintSet")]
@@ -53,9 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter SizeConstraintSetId
         /// <summary>
         /// <para>
-        /// <para>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want
-        /// to get. <code>SizeConstraintSetId</code> is returned by <a>CreateSizeConstraintSet</a>
-        /// and by <a>ListSizeConstraintSets</a>.</para>
+        /// <para>The <c>SizeConstraintSetId</c> of the <a>SizeConstraintSet</a> that you want to get.
+        /// <c>SizeConstraintSetId</c> is returned by <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

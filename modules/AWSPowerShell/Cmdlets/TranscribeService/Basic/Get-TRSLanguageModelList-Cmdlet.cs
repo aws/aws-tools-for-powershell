@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>Returns only custom language models with the specified status. Language models are
-        /// ordered by creation date, with the newest model first. If you do not include <code>StatusEquals</code>,
+        /// ordered by creation date, with the newest model first. If you do not include <c>StatusEquals</c>,
         /// all custom language models are returned.</para>
         /// </para>
         /// </summary>
@@ -90,11 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your <code>ListLanguageModels</code> request returns more results than can be displayed,
-        /// <code>NextToken</code> is displayed in the response with an associated string. To
-        /// get the next page of results, copy this string and repeat your request, including
-        /// <code>NextToken</code> with the value of the copied string. Repeat as needed to view
-        /// all your results.</para>
+        /// <para>If your <c>ListLanguageModels</c> request returns more results than can be displayed,
+        /// <c>NextToken</c> is displayed in the response with an associated string. To get the
+        /// next page of results, copy this string and repeat your request, including <c>NextToken</c>
+        /// with the value of the copied string. Repeat as needed to view all your results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -214,8 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         /// <summary>
         /// <para>
         /// <para>The status of whether Internet Monitor creates a health event based on a threshold
-        /// percentage set for a local health score. The status can be <code>ENABLED</code> or
-        /// <code>DISABLED</code>.</para>
+        /// percentage set for a local health score. The status can be <c>ENABLED</c> or <c>DISABLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -228,8 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         /// <summary>
         /// <para>
         /// <para>The status of whether Internet Monitor creates a health event based on a threshold
-        /// percentage set for a local health score. The status can be <code>ENABLED</code> or
-        /// <code>DISABLED</code>.</para>
+        /// percentage set for a local health score. The status can be <c>ENABLED</c> or <c>DISABLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

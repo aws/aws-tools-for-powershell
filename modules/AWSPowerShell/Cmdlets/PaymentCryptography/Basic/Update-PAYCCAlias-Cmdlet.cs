@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter KeyArn
         /// <summary>
         /// <para>
-        /// <para>The <code>KeyARN</code> for the key that you are updating or removing from the alias.</para>
+        /// <para>The <c>KeyARN</c> for the key that you are updating or removing from the alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

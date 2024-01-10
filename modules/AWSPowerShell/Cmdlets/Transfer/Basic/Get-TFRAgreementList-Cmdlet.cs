@@ -28,11 +28,11 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Returns a list of the agreements for the server that's identified by the <code>ServerId</code>
+    /// Returns a list of the agreements for the server that's identified by the <c>ServerId</c>
     /// that you supply. If you want to limit the results to a certain number, supply a value
-    /// for the <code>MaxResults</code> parameter. If you ran the command previously and received
-    /// a value for <code>NextToken</code>, you can supply that value to continue listing
-    /// agreements from where you left off.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// for the <c>MaxResults</c> parameter. If you ran the command previously and received
+    /// a value for <c>NextToken</c>, you can supply that value to continue listing agreements
+    /// from where you left off.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TFRAgreementList")]
     [OutputType("Amazon.Transfer.Model.ListedAgreement")]
@@ -77,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When you can get additional results from the <code>ListAgreements</code> call, a <code>NextToken</code>
+        /// <para>When you can get additional results from the <c>ListAgreements</c> call, a <c>NextToken</c>
         /// parameter is returned in the output. You can then pass in a subsequent command to
-        /// the <code>NextToken</code> parameter to continue listing additional agreements.</para>
+        /// the <c>NextToken</c> parameter to continue listing additional agreements.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

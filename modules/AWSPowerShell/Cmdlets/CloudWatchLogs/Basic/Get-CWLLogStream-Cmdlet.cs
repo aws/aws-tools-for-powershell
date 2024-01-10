@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
-    /// You can specify the log group to search by using either <code>logGroupIdentifier</code>
-    /// or <code>logGroupName</code>. You must include one of these two parameters, but you
-    /// can't include both. 
+    /// You can specify the log group to search by using either <c>logGroupIdentifier</c>
+    /// or <c>logGroupName</c>. You must include one of these two parameters, but you can't
+    /// include both. 
     /// </para><para>
     /// This operation has a limit of five transactions per second, after which transactions
     /// are throttled.
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>Specify either the name or ARN of the log group to view. If the log group is in a
         /// source account and you are using a monitoring account, you must use the log group
-        /// ARN.</para><note><para> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>,
-        /// but not both. </para></note>
+        /// ARN.</para><note><para> You must include either <c>logGroupIdentifier</c> or <c>logGroupName</c>, but not
+        /// both. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group.</para><note><para> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>,
-        /// but not both. </para></note>
+        /// <para>The name of the log group.</para><note><para> You must include either <c>logGroupIdentifier</c> or <c>logGroupName</c>, but not
+        /// both. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogStreamNamePrefix
         /// <summary>
         /// <para>
-        /// <para>The prefix to match.</para><para>If <code>orderBy</code> is <code>LastEventTime</code>, you cannot specify this parameter.</para>
+        /// <para>The prefix to match.</para><para>If <c>orderBy</c> is <c>LastEventTime</c>, you cannot specify this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,14 +106,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter OrderBy
         /// <summary>
         /// <para>
-        /// <para>If the value is <code>LogStreamName</code>, the results are ordered by log stream
-        /// name. If the value is <code>LastEventTime</code>, the results are ordered by the event
-        /// time. The default value is <code>LogStreamName</code>.</para><para>If you order the results by event time, you cannot specify the <code>logStreamNamePrefix</code>
-        /// parameter.</para><para><code>lastEventTimestamp</code> represents the time of the most recent log event
-        /// in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds
-        /// after <code>Jan 1, 1970 00:00:00 UTC</code>. <code>lastEventTimestamp</code> updates
-        /// on an eventual consistency basis. It typically updates in less than an hour from ingestion,
-        /// but in rare situations might take longer.</para>
+        /// <para>If the value is <c>LogStreamName</c>, the results are ordered by log stream name.
+        /// If the value is <c>LastEventTime</c>, the results are ordered by the event time. The
+        /// default value is <c>LogStreamName</c>.</para><para>If you order the results by event time, you cannot specify the <c>logStreamNamePrefix</c>
+        /// parameter.</para><para><c>lastEventTimestamp</c> represents the time of the most recent log event in the
+        /// log stream in CloudWatch Logs. This number is expressed as the number of milliseconds
+        /// after <c>Jan 1, 1970 00:00:00 UTC</c>. <c>lastEventTimestamp</c> updates on an eventual
+        /// consistency basis. It typically updates in less than an hour from ingestion, but in
+        /// rare situations might take longer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
     /// </para></li><li><para>
     /// Lists all token balances for a given token.
     /// </para></li></ul><note><para>
-    /// You must always specify the network property of the <code>tokenFilter</code> when
-    /// using this operation.
+    /// You must always specify the network property of the <c>tokenFilter</c> when using
+    /// this operation.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "MBCQTokenBalanceList")]

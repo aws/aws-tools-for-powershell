@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions for the <code>lex:GetBotAliases</code> action.
+    /// This operation requires permissions for the <c>lex:GetBotAliases</c> action.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LMBBotAliasList")]

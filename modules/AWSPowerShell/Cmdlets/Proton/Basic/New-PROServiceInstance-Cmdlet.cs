@@ -113,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter TemplateMajorVersion
         /// <summary>
         /// <para>
-        /// <para>To create a new major and minor version of the service template, <i>exclude</i><code>major
-        /// Version</code>.</para>
+        /// <para>To create a new major and minor version of the service template, <i>exclude</i><c>major
+        /// Version</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter TemplateMinorVersion
         /// <summary>
         /// <para>
-        /// <para>To create a new minor version of the service template, include a <code>major Version</code>.</para>
+        /// <para>To create a new minor version of the service template, include a <c>major Version</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

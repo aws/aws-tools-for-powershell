@@ -99,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Configuration_BillingMethod
         /// <summary>
         /// <para>
-        /// <para>Specifies the billing method for a test run: <code>metered</code> or <code>unmetered</code>.
-        /// If the parameter is not specified, the default value is <code>metered</code>.</para><note><para>If you have purchased unmetered device slots, you must set this parameter to <code>unmetered</code>
+        /// <para>Specifies the billing method for a test run: <c>metered</c> or <c>unmetered</c>. If
+        /// the parameter is not specified, the default value is <c>metered</c>.</para><note><para>If you have purchased unmetered device slots, you must set this parameter to <c>unmetered</c>
         /// to make use of them. Otherwise, your run counts against your metered time.</para></note>
         /// </para>
         /// </summary>
@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <para>
         /// <para>Used to dynamically select a set of devices for a test run. A filter is made up of
         /// an attribute, an operator, and one or more values.</para><ul><li><para><b>Attribute</b></para><para>The aspect of a device such as platform or model used as the selection criteria in
-        /// a device filter.</para><para>Allowed values include:</para><ul><li><para>ARN: The Amazon Resource Name (ARN) of the device (for example, <code>arn:aws:devicefarm:us-west-2::device:12345Example</code>).</para></li><li><para>PLATFORM: The device platform. Valid values are ANDROID or IOS.</para></li><li><para>OS_VERSION: The operating system version (for example, 10.3.2).</para></li><li><para>MODEL: The device model (for example, iPad 5th Gen).</para></li><li><para>AVAILABILITY: The current availability of the device. Valid values are AVAILABLE,
+        /// a device filter.</para><para>Allowed values include:</para><ul><li><para>ARN: The Amazon Resource Name (ARN) of the device (for example, <c>arn:aws:devicefarm:us-west-2::device:12345Example</c>).</para></li><li><para>PLATFORM: The device platform. Valid values are ANDROID or IOS.</para></li><li><para>OS_VERSION: The operating system version (for example, 10.3.2).</para></li><li><para>MODEL: The device model (for example, iPad 5th Gen).</para></li><li><para>AVAILABILITY: The current availability of the device. Valid values are AVAILABLE,
         /// HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.</para></li><li><para>FORM_FACTOR: The device form factor. Valid values are PHONE or TABLET.</para></li><li><para>MANUFACTURER: The device manufacturer (for example, Apple).</para></li><li><para>REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access. Valid values
         /// are TRUE or FALSE.</para></li><li><para>REMOTE_DEBUG_ENABLED: Whether the device is enabled for remote debugging. Valid values
         /// are TRUE or FALSE. Because remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
@@ -294,8 +294,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <summary>
         /// <para>
         /// <para>The test's parameters, such as test framework parameters and fixture settings. Parameters
-        /// are represented by name-value pairs of strings.</para><para>For all tests:</para><ul><li><para><code>app_performance_monitoring</code>: Performance monitoring is enabled by default.
-        /// Set this parameter to false to disable it.</para></li></ul><para>For Calabash tests:</para><ul><li><para>profile: A cucumber profile (for example, <code>my_profile_name</code>).</para></li><li><para>tags: You can limit execution to features or scenarios that have (or don't have) certain
+        /// are represented by name-value pairs of strings.</para><para>For all tests:</para><ul><li><para><c>app_performance_monitoring</c>: Performance monitoring is enabled by default.
+        /// Set this parameter to false to disable it.</para></li></ul><para>For Calabash tests:</para><ul><li><para>profile: A cucumber profile (for example, <c>my_profile_name</c>).</para></li><li><para>tags: You can limit execution to features or scenarios that have (or don't have) certain
         /// tags (for example, @smoke or @smoke,~@wip).</para></li></ul><para>For Appium tests (all types):</para><ul><li><para>appium_version: The Appium version. Currently supported values are 1.6.5 (and later),
         /// latest, and default.</para><ul><li><para>latest runs the latest Appium version supported by Device Farm (1.9.1).</para></li><li><para>For default, Device Farm selects a compatible version of Appium for the device. The
         /// current behavior is to run 1.7.2 on Android devices and iOS 9 and earlier and 1.7.2
@@ -304,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// events.</para></li><li><para>seed: A seed to use for randomizing the UI fuzz test. Using the same seed value between
         /// tests ensures identical event sequences.</para></li></ul><para>For Explorer tests:</para><ul><li><para>username: A user name to use if the Explorer encounters a login form. If not supplied,
         /// no user name is inserted.</para></li><li><para>password: A password to use if the Explorer encounters a login form. If not supplied,
-        /// no password is inserted.</para></li></ul><para>For Instrumentation:</para><ul><li><para>filter: A test filter string. Examples:</para><ul><li><para>Running a single test case: <code>com.android.abc.Test1</code></para></li><li><para>Running a single test: <code>com.android.abc.Test1#smoke</code></para></li><li><para>Running multiple tests: <code>com.android.abc.Test1,com.android.abc.Test2</code></para></li></ul></li></ul><para>For XCTest and XCTestUI:</para><ul><li><para>filter: A test filter string. Examples:</para><ul><li><para>Running a single test class: <code>LoginTests</code></para></li><li><para>Running a multiple test classes: <code>LoginTests,SmokeTests</code></para></li><li><para>Running a single test: <code>LoginTests/testValid</code></para></li><li><para>Running multiple tests: <code>LoginTests/testValid,LoginTests/testInvalid</code></para></li></ul></li></ul><para>For UIAutomator:</para><ul><li><para>filter: A test filter string. Examples:</para><ul><li><para>Running a single test case: <code>com.android.abc.Test1</code></para></li><li><para>Running a single test: <code>com.android.abc.Test1#smoke</code></para></li><li><para>Running multiple tests: <code>com.android.abc.Test1,com.android.abc.Test2</code></para></li></ul></li></ul>
+        /// no password is inserted.</para></li></ul><para>For Instrumentation:</para><ul><li><para>filter: A test filter string. Examples:</para><ul><li><para>Running a single test case: <c>com.android.abc.Test1</c></para></li><li><para>Running a single test: <c>com.android.abc.Test1#smoke</c></para></li><li><para>Running multiple tests: <c>com.android.abc.Test1,com.android.abc.Test2</c></para></li></ul></li></ul><para>For XCTest and XCTestUI:</para><ul><li><para>filter: A test filter string. Examples:</para><ul><li><para>Running a single test class: <c>LoginTests</c></para></li><li><para>Running a multiple test classes: <c>LoginTests,SmokeTests</c></para></li><li><para>Running a single test: <c>LoginTests/testValid</c></para></li><li><para>Running multiple tests: <c>LoginTests/testValid,LoginTests/testInvalid</c></para></li></ul></li></ul><para>For UIAutomator:</para><ul><li><para>filter: A test filter string. Examples:</para><ul><li><para>Running a single test case: <c>com.android.abc.Test1</c></para></li><li><para>Running a single test: <c>com.android.abc.Test1#smoke</c></para></li><li><para>Running multiple tests: <c>com.android.abc.Test1,com.android.abc.Test2</c></para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -332,8 +332,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter ExecutionConfiguration_SkipAppResign
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, for private devices, Device Farm does not sign your
-        /// app again. For public devices, Device Farm always signs your apps again.</para><para>For more information about how Device Farm re-signs your apps, see <a href="http://aws.amazon.com/device-farm/faqs/">Do
+        /// <para>When set to <c>true</c>, for private devices, Device Farm does not sign your app again.
+        /// For public devices, Device Farm always signs your apps again.</para><para>For more information about how Device Farm re-signs your apps, see <a href="http://aws.amazon.com/device-farm/faqs/">Do
         /// you modify my app?</a> in the <i>AWS Device Farm FAQs</i>.</para>
         /// </para>
         /// </summary>

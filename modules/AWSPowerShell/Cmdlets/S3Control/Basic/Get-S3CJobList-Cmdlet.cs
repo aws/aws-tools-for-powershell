@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Batch Operations</a> in the <i>Amazon S3 User Guide</i>.
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// To use the <code>ListJobs</code> operation, you must have permission to perform the
-    /// <code>s3:ListJobs</code> action.
+    /// To use the <c>ListJobs</c> operation, you must have permission to perform the <c>s3:ListJobs</c>
+    /// action.
     /// </para></dd></dl><para>
     /// Related actions include:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html">CreateJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html">DescribeJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html">UpdateJobPriority</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a></para></li></ul>
@@ -72,8 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter JobStatus
         /// <summary>
         /// <para>
-        /// <para>The <code>List Jobs</code> request returns jobs that match the statuses listed in
-        /// this element.</para>
+        /// <para>The <c>List Jobs</c> request returns jobs that match the statuses listed in this element.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,10 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of jobs that Amazon S3 will include in the <code>List Jobs</code>
-        /// response. If there are more jobs than this number, the response will include a pagination
-        /// token in the <code>NextToken</code> field to enable you to retrieve the next page
-        /// of results.</para>
+        /// <para>The maximum number of jobs that Amazon S3 will include in the <c>List Jobs</c> response.
+        /// If there are more jobs than this number, the response will include a pagination token
+        /// in the <c>NextToken</c> field to enable you to retrieve the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>A pagination token to request the next page of results. Use the token that Amazon
-        /// S3 returned in the <code>NextToken</code> element of the <code>ListJobsResult</code>
-        /// from the previous <code>List Jobs</code> request.</para>
+        /// S3 returned in the <c>NextToken</c> element of the <c>ListJobsResult</c> from the
+        /// previous <c>List Jobs</c> request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

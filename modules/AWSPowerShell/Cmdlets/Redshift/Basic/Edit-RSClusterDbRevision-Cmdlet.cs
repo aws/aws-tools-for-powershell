@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of a cluster whose database revision you want to modify. </para><para>Example: <code>examplecluster</code></para>
+        /// <para>The unique identifier of a cluster whose database revision you want to modify. </para><para>Example: <c>examplecluster</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

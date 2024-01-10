@@ -50,9 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging
     /// IAM resources</a> in the <i>IAM User Guide</i>.
     /// </para></li><li><para>
-    /// Amazon Web Services always interprets the tag <code>Value</code> as a single string.
-    /// If you need to store an array, you can store comma-separated values in the string.
-    /// However, you must interpret the value in your code.
+    /// Amazon Web Services always interprets the tag <c>Value</c> as a single string. If
+    /// you need to store an array, you can store comma-separated values in the string. However,
+    /// you must interpret the value in your code.
     /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Add", "IAMPolicyTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

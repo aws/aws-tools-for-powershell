@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DeleteProperty
         /// <summary>
         /// <para>
-        /// <para>A list of properties to delete. Only the <code>Description</code> and <code>DisplayName</code>
+        /// <para>A list of properties to delete. Only the <c>Description</c> and <c>DisplayName</c>
         /// properties can be deleted.</para>
         /// </para>
         /// </summary>

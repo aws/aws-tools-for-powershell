@@ -46,9 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheParameterGroupFamily
         /// <summary>
         /// <para>
-        /// <para>The name of the cache parameter group family.</para><para>Valid values are: <code>memcached1.4</code> | <code>memcached1.5</code> | <code>memcached1.6</code>
-        /// | <code>redis2.6</code> | <code>redis2.8</code> | <code>redis3.2</code> | <code>redis4.0</code>
-        /// | <code>redis5.0</code> | <code>redis6.x</code> | <code>redis6.2</code> | <code>redis7</code></para>
+        /// <para>The name of the cache parameter group family.</para><para>Valid values are: <c>memcached1.4</c> | <c>memcached1.5</c> | <c>memcached1.6</c>
+        /// | <c>redis2.6</c> | <c>redis2.8</c> | <c>redis3.2</c> | <c>redis4.0</c> | <c>redis5.0</c>
+        /// | <c>redis6.x</c> | <c>redis6.2</c> | <c>redis7</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>An optional marker returned from a prior request. Use this marker for pagination of
         /// results from this operation. If this parameter is specified, the response includes
-        /// only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</para>
+        /// only records beyond the marker, up to the value specified by <c>MaxRecords</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a marker is included in the response
-        /// so that the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints: minimum 20; maximum 100.</para>
+        /// the specified <c>MaxRecords</c> value, a marker is included in the response so that
+        /// the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints: minimum 20; maximum 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

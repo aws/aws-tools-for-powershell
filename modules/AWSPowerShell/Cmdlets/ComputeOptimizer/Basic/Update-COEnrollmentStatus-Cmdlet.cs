@@ -72,14 +72,14 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The new enrollment status of the account.</para><para>The following status options are available:</para><ul><li><para><code>Active</code> - Opts in your account to the Compute Optimizer service. Compute
-        /// Optimizer begins analyzing the configuration and utilization metrics of your Amazon
-        /// Web Services resources after you opt in. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html">Metrics
-        /// analyzed by Compute Optimizer</a> in the <i>Compute Optimizer User Guide</i>.</para></li><li><para><code>Inactive</code> - Opts out your account from the Compute Optimizer service.
-        /// Your account's recommendations and related metrics data will be deleted from Compute
-        /// Optimizer after you opt out.</para></li></ul><note><para>The <code>Pending</code> and <code>Failed</code> options cannot be used to update
-        /// the enrollment status of an account. They are returned in the response of a request
-        /// to update the enrollment status of an account.</para></note>
+        /// <para>The new enrollment status of the account.</para><para>The following status options are available:</para><ul><li><para><c>Active</c> - Opts in your account to the Compute Optimizer service. Compute Optimizer
+        /// begins analyzing the configuration and utilization metrics of your Amazon Web Services
+        /// resources after you opt in. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html">Metrics
+        /// analyzed by Compute Optimizer</a> in the <i>Compute Optimizer User Guide</i>.</para></li><li><para><c>Inactive</c> - Opts out your account from the Compute Optimizer service. Your
+        /// account's recommendations and related metrics data will be deleted from Compute Optimizer
+        /// after you opt out.</para></li></ul><note><para>The <c>Pending</c> and <c>Failed</c> options cannot be used to update the enrollment
+        /// status of an account. They are returned in the response of a request to update the
+        /// enrollment status of an account.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

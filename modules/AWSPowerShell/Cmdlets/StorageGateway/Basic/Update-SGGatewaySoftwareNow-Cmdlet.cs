@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// the software update.
     /// 
     ///  <note><para>
-    /// When you make this request, you get a <code>200 OK</code> success response immediately.
+    /// When you make this request, you get a <c>200 OK</c> success response immediately.
     /// However, it might take some time for the update to complete. You can call <a>DescribeGatewayInformation</a>
-    /// to verify the gateway is in the <code>STATE_RUNNING</code> state.
+    /// to verify the gateway is in the <c>STATE_RUNNING</c> state.
     /// </para></note><important><para>
     /// A software update forces a system restart of your gateway. You can minimize the chance
     /// of any disruption to your applications by increasing your iSCSI Initiators' timeouts.

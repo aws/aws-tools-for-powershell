@@ -52,18 +52,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>amazon-side-asn</code> - The Autonomous System Number (ASN) for the Amazon
-        /// side of the gateway.</para></li><li><para><code>attachment.state</code> - The current state of the attachment between the gateway
-        /// and the VPC (<code>attaching</code> | <code>attached</code> | <code>detaching</code>
-        /// | <code>detached</code>).</para></li><li><para><code>attachment.vpc-id</code> - The ID of an attached VPC.</para></li><li><para><code>availability-zone</code> - The Availability Zone for the virtual private gateway
-        /// (if applicable).</para></li><li><para><code>state</code> - The state of the virtual private gateway (<code>pending</code>
-        /// | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
-        /// resource. Use the tag key in the filter name and the tag value as the filter value.
-        /// For example, to find all resources that have a tag with the key <code>Owner</code>
-        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>type</code> - The type of virtual private gateway. Currently the only supported
-        /// type is <code>ipsec.1</code>.</para></li><li><para><code>vpn-gateway-id</code> - The ID of the virtual private gateway.</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><c>amazon-side-asn</c> - The Autonomous System Number (ASN) for the Amazon side of
+        /// the gateway.</para></li><li><para><c>attachment.state</c> - The current state of the attachment between the gateway
+        /// and the VPC (<c>attaching</c> | <c>attached</c> | <c>detaching</c> | <c>detached</c>).</para></li><li><para><c>attachment.vpc-id</c> - The ID of an attached VPC.</para></li><li><para><c>availability-zone</c> - The Availability Zone for the virtual private gateway
+        /// (if applicable).</para></li><li><para><c>state</c> - The state of the virtual private gateway (<c>pending</c> | <c>available</c>
+        /// | <c>deleting</c> | <c>deleted</c>).</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
+        /// Use the tag key in the filter name and the tag value as the filter value. For example,
+        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>type</c> - The type of virtual private gateway. Currently the only supported type
+        /// is <c>ipsec.1</c>.</para></li><li><para><c>vpn-gateway-id</c> - The ID of the virtual private gateway.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

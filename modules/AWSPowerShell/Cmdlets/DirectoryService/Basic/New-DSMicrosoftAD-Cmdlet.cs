@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// <summary>
         /// <para>
         /// <para>A description for the directory. This label will appear on the Amazon Web Services
-        /// console <code>Directory Details</code> page after the directory is created.</para>
+        /// console <c>Directory Details</c> page after the directory is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Edition
         /// <summary>
         /// <para>
-        /// <para>Managed Microsoft AD is available in two editions: <code>Standard</code> and <code>Enterprise</code>.
-        /// <code>Enterprise</code> is the default.</para>
+        /// <para>Managed Microsoft AD is available in two editions: <c>Standard</c> and <c>Enterprise</c>.
+        /// <c>Enterprise</c> is the default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The fully qualified domain name for the Managed Microsoft AD directory, such as <code>corp.example.com</code>.
+        /// <para>The fully qualified domain name for the Managed Microsoft AD directory, such as <c>corp.example.com</c>.
         /// This name will resolve inside your VPC only. It does not need to be publicly resolvable.</para>
         /// </para>
         /// </summary>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Password
         /// <summary>
         /// <para>
-        /// <para>The password for the default administrative user named <code>Admin</code>.</para><para>If you need to change the password for the administrator account, you can use the
+        /// <para>The password for the default administrative user named <c>Admin</c>.</para><para>If you need to change the password for the administrator account, you can use the
         /// <a>ResetUserPassword</a> API call.</para>
         /// </para>
         /// </summary>
@@ -116,9 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter ShortName
         /// <summary>
         /// <para>
-        /// <para>The NetBIOS name for your domain, such as <code>CORP</code>. If you don't specify
-        /// a NetBIOS name, it will default to the first part of your directory DNS. For example,
-        /// <code>CORP</code> for the directory DNS <code>corp.example.com</code>. </para>
+        /// <para>The NetBIOS name for your domain, such as <c>CORP</c>. If you don't specify a NetBIOS
+        /// name, it will default to the first part of your directory DNS. For example, <c>CORP</c>
+        /// for the directory DNS <c>corp.example.com</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

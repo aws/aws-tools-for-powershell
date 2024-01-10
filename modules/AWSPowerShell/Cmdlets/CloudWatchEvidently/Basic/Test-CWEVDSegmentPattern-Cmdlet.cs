@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         #region Parameter Payload
         /// <summary>
         /// <para>
-        /// <para>A sample <code>evaluationContext</code> JSON block to test against the specified pattern.</para>
+        /// <para>A sample <c>evaluationContext</c> JSON block to test against the specified pattern.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

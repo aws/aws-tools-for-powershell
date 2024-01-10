@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>reserved-instances-id</code> - The ID of the Reserved Instances.</para></li><li><para><code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</para></li><li><para><code>status</code> - The status of the Reserved Instance listing (<code>pending</code>
-        /// | <code>active</code> | <code>cancelled</code> | <code>closed</code>).</para></li><li><para><code>status-message</code> - The reason for the status.</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><c>reserved-instances-id</c> - The ID of the Reserved Instances.</para></li><li><para><c>reserved-instances-listing-id</c> - The ID of the Reserved Instances listing.</para></li><li><para><c>status</c> - The status of the Reserved Instance listing (<c>pending</c> | <c>active</c>
+        /// | <c>cancelled</c> | <c>closed</c>).</para></li><li><para><c>status-message</c> - The reason for the status.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         /// <para>
         /// <para>The list of Amazon Web Services account identifiers for the member account for which
         /// to return member details. You can request details for up to 50 member accounts at
-        /// a time.</para><para>You cannot use <code>GetMembers</code> to retrieve information about member accounts
-        /// that were removed from the behavior graph.</para>
+        /// a time.</para><para>You cannot use <c>GetMembers</c> to retrieve information about member accounts that
+        /// were removed from the behavior graph.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

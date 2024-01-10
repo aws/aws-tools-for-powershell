@@ -28,9 +28,9 @@ using Amazon.Athena.Model;
 namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Imports a single <code>ipynb</code> file to a Spark enabled workgroup. The maximum
-    /// file size that can be imported is 10 megabytes. If an <code>ipynb</code> file with
-    /// the same name already exists in the workgroup, throws an error.
+    /// Imports a single <c>ipynb</c> file to a Spark enabled workgroup. The maximum file
+    /// size that can be imported is 10 megabytes. If an <c>ipynb</c> file with the same name
+    /// already exists in the workgroup, throws an error.
     /// </summary>
     [Cmdlet("Import", "ATHNotebook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The notebook content type. Currently, the only valid type is <code>IPYNB</code>.</para>
+        /// <para>The notebook content type. Currently, the only valid type is <c>IPYNB</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

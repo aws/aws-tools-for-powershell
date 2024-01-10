@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     /// </para></li><li><para>
     /// When the core device receives a deployment from the Amazon Web Services Cloud
     /// </para></li><li><para>
-    /// When the status of any component on the core device becomes <code>BROKEN</code></para></li><li><para>
+    /// When the status of any component on the core device becomes <c>BROKEN</c></para></li><li><para>
     /// At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular
     /// interval that you can configure</a>, which defaults to 24 hours
     /// </para></li><li><para>
@@ -67,9 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>The core device status by which to filter. If you specify this parameter, the list
-        /// includes only core devices that have this status. Choose one of the following options:</para><ul><li><para><code>HEALTHY</code> – The IoT Greengrass Core software and all components run on
-        /// the core device without issue.</para></li><li><para><code>UNHEALTHY</code> – The IoT Greengrass Core software or a component is in a
-        /// failed state on the core device.</para></li></ul>
+        /// includes only core devices that have this status. Choose one of the following options:</para><ul><li><para><c>HEALTHY</c> – The IoT Greengrass Core software and all components run on the core
+        /// device without issue.</para></li><li><para><c>UNHEALTHY</c> – The IoT Greengrass Core software or a component is in a failed
+        /// state on the core device.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// Lists the tags attached to the resource.
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:ListTagsForResource</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:ListTagsForResource</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMRAResourceTag")]

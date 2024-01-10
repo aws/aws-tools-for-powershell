@@ -47,34 +47,28 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>A comma-separated list of fonts to load glyphs from in order of preference. For example,
-        /// <code>Noto Sans Regular, Arial Unicode</code>.</para><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>
-        /// styles: </para><ul><li><para>VectorEsriDarkGrayCanvas – <code>Ubuntu Medium Italic</code> | <code>Ubuntu Medium</code>
-        /// | <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> | <code>Ubuntu Bold</code></para></li><li><para>VectorEsriLightGrayCanvas – <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code>
-        /// | <code>Ubuntu Light</code> | <code>Ubuntu Bold</code></para></li><li><para>VectorEsriTopographic – <code>Noto Sans Italic</code> | <code>Noto Sans Regular</code>
-        /// | <code>Noto Sans Bold</code> | <code>Noto Serif Regular</code> | <code>Roboto Condensed
-        /// Light Italic</code></para></li><li><para>VectorEsriStreets – <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial
-        /// Bold</code></para></li><li><para>VectorEsriNavigation – <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial
-        /// Bold</code></para></li></ul><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
-        /// Technologies</a> styles:</para><ul><li><para>VectorHereContrast – <code>Fira GO Regular</code> | <code>Fira GO Bold</code></para></li><li><para>VectorHereExplore, VectorHereExploreTruck, HybridHereExploreSatellite – <code>Fira
-        /// GO Italic</code> | <code>Fira GO Map</code> | <code>Fira GO Map Bold</code> | <code>Noto
-        /// Sans CJK JP Bold</code> | <code>Noto Sans CJK JP Light</code> | <code>Noto Sans CJK
-        /// JP Regular</code></para></li></ul><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>
-        /// styles:</para><ul><li><para>VectorGrabStandardLight, VectorGrabStandardDark – <code>Noto Sans Regular</code> |
-        /// <code>Noto Sans Medium</code> | <code>Noto Sans Bold</code></para></li></ul><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open
+        /// <c>Noto Sans Regular, Arial Unicode</c>.</para><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>
+        /// styles: </para><ul><li><para>VectorEsriDarkGrayCanvas – <c>Ubuntu Medium Italic</c> | <c>Ubuntu Medium</c> | <c>Ubuntu
+        /// Italic</c> | <c>Ubuntu Regular</c> | <c>Ubuntu Bold</c></para></li><li><para>VectorEsriLightGrayCanvas – <c>Ubuntu Italic</c> | <c>Ubuntu Regular</c> | <c>Ubuntu
+        /// Light</c> | <c>Ubuntu Bold</c></para></li><li><para>VectorEsriTopographic – <c>Noto Sans Italic</c> | <c>Noto Sans Regular</c> | <c>Noto
+        /// Sans Bold</c> | <c>Noto Serif Regular</c> | <c>Roboto Condensed Light Italic</c></para></li><li><para>VectorEsriStreets – <c>Arial Regular</c> | <c>Arial Italic</c> | <c>Arial Bold</c></para></li><li><para>VectorEsriNavigation – <c>Arial Regular</c> | <c>Arial Italic</c> | <c>Arial Bold</c></para></li></ul><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
+        /// Technologies</a> styles:</para><ul><li><para>VectorHereContrast – <c>Fira GO Regular</c> | <c>Fira GO Bold</c></para></li><li><para>VectorHereExplore, VectorHereExploreTruck, HybridHereExploreSatellite – <c>Fira GO
+        /// Italic</c> | <c>Fira GO Map</c> | <c>Fira GO Map Bold</c> | <c>Noto Sans CJK JP Bold</c>
+        /// | <c>Noto Sans CJK JP Light</c> | <c>Noto Sans CJK JP Regular</c></para></li></ul><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>
+        /// styles:</para><ul><li><para>VectorGrabStandardLight, VectorGrabStandardDark – <c>Noto Sans Regular</c> | <c>Noto
+        /// Sans Medium</c> | <c>Noto Sans Bold</c></para></li></ul><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open
         /// Data</a> styles:</para><ul><li><para>VectorOpenDataStandardLight, VectorOpenDataStandardDark, VectorOpenDataVisualizationLight,
-        /// VectorOpenDataVisualizationDark – <code>Amazon Ember Regular,Noto Sans Regular</code>
-        /// | <code>Amazon Ember Bold,Noto Sans Bold</code> | <code>Amazon Ember Medium,Noto Sans
-        /// Medium</code> | <code>Amazon Ember Regular Italic,Noto Sans Italic</code> | <code>Amazon
-        /// Ember Condensed RC Regular,Noto Sans Regular</code> | <code>Amazon Ember Condensed
-        /// RC Bold,Noto Sans Bold</code> | <code>Amazon Ember Regular,Noto Sans Regular,Noto
-        /// Sans Arabic Regular</code> | <code>Amazon Ember Condensed RC Bold,Noto Sans Bold,Noto
-        /// Sans Arabic Condensed Bold</code> | <code>Amazon Ember Bold,Noto Sans Bold,Noto Sans
-        /// Arabic Bold</code> | <code>Amazon Ember Regular Italic,Noto Sans Italic,Noto Sans
-        /// Arabic Regular</code> | <code>Amazon Ember Condensed RC Regular,Noto Sans Regular,Noto
-        /// Sans Arabic Condensed Regular</code> | <code>Amazon Ember Medium,Noto Sans Medium,Noto
-        /// Sans Arabic Medium</code></para></li></ul><note><para>The fonts used by the Open Data map styles are combined fonts that use <code>Amazon
-        /// Ember</code> for most glyphs but <code>Noto Sans</code> for glyphs unsupported by
-        /// <code>Amazon Ember</code>.</para></note>
+        /// VectorOpenDataVisualizationDark – <c>Amazon Ember Regular,Noto Sans Regular</c> |
+        /// <c>Amazon Ember Bold,Noto Sans Bold</c> | <c>Amazon Ember Medium,Noto Sans Medium</c>
+        /// | <c>Amazon Ember Regular Italic,Noto Sans Italic</c> | <c>Amazon Ember Condensed
+        /// RC Regular,Noto Sans Regular</c> | <c>Amazon Ember Condensed RC Bold,Noto Sans Bold</c>
+        /// | <c>Amazon Ember Regular,Noto Sans Regular,Noto Sans Arabic Regular</c> | <c>Amazon
+        /// Ember Condensed RC Bold,Noto Sans Bold,Noto Sans Arabic Condensed Bold</c> | <c>Amazon
+        /// Ember Bold,Noto Sans Bold,Noto Sans Arabic Bold</c> | <c>Amazon Ember Regular Italic,Noto
+        /// Sans Italic,Noto Sans Arabic Regular</c> | <c>Amazon Ember Condensed RC Regular,Noto
+        /// Sans Regular,Noto Sans Arabic Condensed Regular</c> | <c>Amazon Ember Medium,Noto
+        /// Sans Medium,Noto Sans Arabic Medium</c></para></li></ul><note><para>The fonts used by the Open Data map styles are combined fonts that use <c>Amazon Ember</c>
+        /// for most glyphs but <c>Noto Sans</c> for glyphs unsupported by <c>Amazon Ember</c>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>A Unicode range of characters to download glyphs for. Each response will contain 256
-        /// characters. For example, 0–255 includes all characters from range <code>U+0000</code>
-        /// to <code>00FF</code>. Must be aligned to multiples of 256.</para>
+        /// characters. For example, 0–255 includes all characters from range <c>U+0000</c> to
+        /// <c>00FF</c>. Must be aligned to multiples of 256.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

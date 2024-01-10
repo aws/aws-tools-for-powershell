@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
     /// 
     ///  
     /// <para>
-    /// If <code>statusList</code> contains AVAILABLE, the request must include <code>groundStation</code>,
-    /// <code>missionprofileArn</code>, and <code>satelliteArn</code>. 
+    /// If <c>statusList</c> contains AVAILABLE, the request must include <c>groundStation</c>,
+    /// <c>missionprofileArn</c>, and <c>satelliteArn</c>. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GSContactList")]
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Next token returned in the request of a previous <code>ListContacts</code> call. Used
-        /// to get the next page of results.</para>
+        /// <para>Next token returned in the request of a previous <c>ListContacts</c> call. Used to
+        /// get the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -29,13 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Updates the finding aggregation configuration. Used to update the Region linking mode
-    /// and the list of included or excluded Regions. You cannot use <code>UpdateFindingAggregator</code>
+    /// and the list of included or excluded Regions. You cannot use <c>UpdateFindingAggregator</c>
     /// to change the aggregation Region.
     /// 
     ///  
     /// <para>
-    /// You must run <code>UpdateFindingAggregator</code> from the current aggregation Region.
-    /// 
+    /// You must run <c>UpdateFindingAggregator</c> from the current aggregation Region. 
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SHUBFindingAggregator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter FindingAggregatorArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the finding aggregator. To obtain the ARN, use <code>ListFindingAggregators</code>.</para>
+        /// <para>The ARN of the finding aggregator. To obtain the ARN, use <c>ListFindingAggregators</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,16 +71,15 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>Indicates whether to aggregate findings from all of the available Regions in the current
         /// partition. Also determines whether to automatically aggregate findings from new Regions
         /// as Security Hub supports them and you opt into them.</para><para>The selected option also determines how to use the Regions provided in the Regions
-        /// list.</para><para>The options are as follows:</para><ul><li><para><code>ALL_REGIONS</code> - Indicates to aggregate findings from all of the Regions
-        /// where Security Hub is enabled. When you choose this option, Security Hub also automatically
+        /// list.</para><para>The options are as follows:</para><ul><li><para><c>ALL_REGIONS</c> - Indicates to aggregate findings from all of the Regions where
+        /// Security Hub is enabled. When you choose this option, Security Hub also automatically
         /// aggregates findings from new Regions as Security Hub supports them and you opt into
-        /// them. </para></li><li><para><code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Indicates to aggregate findings from
-        /// all of the Regions where Security Hub is enabled, except for the Regions listed in
-        /// the <code>Regions</code> parameter. When you choose this option, Security Hub also
-        /// automatically aggregates findings from new Regions as Security Hub supports them and
-        /// you opt into them. </para></li><li><para><code>SPECIFIED_REGIONS</code> - Indicates to aggregate findings only from the Regions
-        /// listed in the <code>Regions</code> parameter. Security Hub does not automatically
-        /// aggregate findings from new Regions. </para></li></ul>
+        /// them. </para></li><li><para><c>ALL_REGIONS_EXCEPT_SPECIFIED</c> - Indicates to aggregate findings from all of
+        /// the Regions where Security Hub is enabled, except for the Regions listed in the <c>Regions</c>
+        /// parameter. When you choose this option, Security Hub also automatically aggregates
+        /// findings from new Regions as Security Hub supports them and you opt into them. </para></li><li><para><c>SPECIFIED_REGIONS</c> - Indicates to aggregate findings only from the Regions
+        /// listed in the <c>Regions</c> parameter. Security Hub does not automatically aggregate
+        /// findings from new Regions. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,10 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter RegionList
         /// <summary>
         /// <para>
-        /// <para>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then
-        /// this is a space-separated list of Regions that do not aggregate findings to the aggregation
-        /// Region.</para><para>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is
-        /// a space-separated list of Regions that do aggregate findings to the aggregation Region.</para>
+        /// <para>If <c>RegionLinkingMode</c> is <c>ALL_REGIONS_EXCEPT_SPECIFIED</c>, then this is a
+        /// space-separated list of Regions that do not aggregate findings to the aggregation
+        /// Region.</para><para>If <c>RegionLinkingMode</c> is <c>SPECIFIED_REGIONS</c>, then this is a space-separated
+        /// list of Regions that do aggregate findings to the aggregation Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

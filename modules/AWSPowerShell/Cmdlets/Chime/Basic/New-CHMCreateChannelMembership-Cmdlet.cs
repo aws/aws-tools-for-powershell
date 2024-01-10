@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// <para>The <c>AppInstanceUserArn</c> of the user that makes the API call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,11 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default
-        /// members are always returned as part of <code>ListChannelMemberships</code>. Hidden
-        /// members are only returned if the type filter in <code>ListChannelMemberships</code>
-        /// equals <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only
-        /// supported by moderators.</para>
+        /// <para>The membership type of a user, <c>DEFAULT</c> or <c>HIDDEN</c>. Default members are
+        /// always returned as part of <c>ListChannelMemberships</c>. Hidden members are only
+        /// returned if the type filter in <c>ListChannelMemberships</c> equals <c>HIDDEN</c>.
+        /// Otherwise hidden members are not returned. This is only supported by moderators.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

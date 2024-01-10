@@ -53,13 +53,13 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AgentVersion
         /// <summary>
         /// <para>
-        /// <para>The default AWS OpsWorks Stacks agent version. You have the following options:</para><ul><li><para><code>INHERIT</code> - Use the stack's default agent version setting.</para></li><li><para><i>version_number</i> - Use the specified agent version. This value overrides the
+        /// <para>The default AWS OpsWorks Stacks agent version. You have the following options:</para><ul><li><para><c>INHERIT</c> - Use the stack's default agent version setting.</para></li><li><para><i>version_number</i> - Use the specified agent version. This value overrides the
         /// stack's default setting. To update the agent version, edit the instance configuration
         /// and specify a new version. AWS OpsWorks Stacks then automatically installs that version
-        /// on the instance.</para></li></ul><para>The default setting is <code>INHERIT</code>. To specify an agent version, you must
-        /// use the complete version number, not the abbreviated number shown on the console.
-        /// For a list of available agent version numbers, call <a>DescribeAgentVersions</a>.
-        /// AgentVersion cannot be set to Chef 12.2.</para>
+        /// on the instance.</para></li></ul><para>The default setting is <c>INHERIT</c>. To specify an agent version, you must use the
+        /// complete version number, not the abbreviated number shown on the console. For a list
+        /// of available agent version numbers, call <a>DescribeAgentVersions</a>. AgentVersion
+        /// cannot be set to Chef 12.2.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>A custom AMI ID to be used to create the instance. The AMI should be based on one
         /// of the supported operating systems. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using
-        /// Custom AMIs</a>.</para><note><para>If you specify a custom AMI, you must set <code>Os</code> to <code>Custom</code>.</para></note>
+        /// Custom AMIs</a>.</para><note><para>If you specify a custom AMI, you must set <c>Os</c> to <c>Custom</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,9 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter Architecture
         /// <summary>
         /// <para>
-        /// <para>The instance architecture. The default option is <code>x86_64</code>. Instance types
-        /// do not necessarily support both architectures. For a list of the architectures that
-        /// are supported by the different instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
+        /// <para>The instance architecture. The default option is <c>x86_64</c>. Instance types do
+        /// not necessarily support both architectures. For a list of the architectures that are
+        /// supported by the different instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
         /// Families and Types</a>.</para>
         /// </para>
         /// </summary>
@@ -118,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter BlockDeviceMapping
         /// <summary>
         /// <para>
-        /// <para>An array of <code>BlockDeviceMapping</code> objects that specify the instance's block
-        /// devices. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block
+        /// <para>An array of <c>BlockDeviceMapping</c> objects that specify the instance's block devices.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block
         /// Device Mapping</a>. Note that block device mappings are not supported for custom AMIs.</para>
         /// </para>
         /// </summary>
@@ -152,12 +152,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>Whether to install operating system and package updates when the instance boots. The
-        /// default value is <code>true</code>. To control when updates are installed, set this
-        /// value to <code>false</code>. You must then update your instances manually by using
-        /// <a>CreateDeployment</a> to run the <code>update_dependencies</code> stack command
-        /// or by manually running <code>yum</code> (Amazon Linux) or <code>apt-get</code> (Ubuntu)
-        /// on the instances. </para><note><para>We strongly recommend using the default value of <code>true</code> to ensure that
-        /// your instances have the latest security updates.</para></note>
+        /// default value is <c>true</c>. To control when updates are installed, set this value
+        /// to <c>false</c>. You must then update your instances manually by using <a>CreateDeployment</a>
+        /// to run the <c>update_dependencies</c> stack command or by manually running <c>yum</c>
+        /// (Amazon Linux) or <c>apt-get</c> (Ubuntu) on the instances. </para><note><para>We strongly recommend using the default value of <c>true</c> to ensure that your instances
+        /// have the latest security updates.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type, such as <code>t2.micro</code>. For a list of supported instance
-        /// types, open the stack in the console, choose <b>Instances</b>, and choose <b>+ Instance</b>.
+        /// <para>The instance type, such as <c>t2.micro</c>. For a list of supported instance types,
+        /// open the stack in the console, choose <b>Instances</b>, and choose <b>+ Instance</b>.
         /// The <b>Size</b> list contains the currently supported types. For more information,
         /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
         /// Families and Types</a>. The parameter values that you use to specify the various types
@@ -207,19 +206,19 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter Os
         /// <summary>
         /// <para>
-        /// <para>The instance's operating system, which must be set to one of the following.</para><ul><li><para>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon
-        /// Linux 2018.03</code>, <code>Amazon Linux 2017.09</code>, <code>Amazon Linux 2017.03</code>,
-        /// <code>Amazon Linux 2016.09</code>, <code>Amazon Linux 2016.03</code>, <code>Amazon
-        /// Linux 2015.09</code>, or <code>Amazon Linux 2015.03</code>.</para></li><li><para>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu
-        /// 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</para></li><li><para><code>CentOS Linux 7</code></para></li><li><para><code>Red Hat Enterprise Linux 7</code></para></li><li><para>A supported Windows operating system, such as <code>Microsoft Windows Server 2012
-        /// R2 Base</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Express</code>,
-        /// <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft
-        /// Windows Server 2012 R2 with SQL Server Web</code>.</para></li><li><para>A custom AMI: <code>Custom</code>.</para></li></ul><para>For more information about the supported operating systems, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
+        /// <para>The instance's operating system, which must be set to one of the following.</para><ul><li><para>A supported Linux operating system: An Amazon Linux version, such as <c>Amazon Linux
+        /// 2018.03</c>, <c>Amazon Linux 2017.09</c>, <c>Amazon Linux 2017.03</c>, <c>Amazon Linux
+        /// 2016.09</c>, <c>Amazon Linux 2016.03</c>, <c>Amazon Linux 2015.09</c>, or <c>Amazon
+        /// Linux 2015.03</c>.</para></li><li><para>A supported Ubuntu operating system, such as <c>Ubuntu 16.04 LTS</c>, <c>Ubuntu 14.04
+        /// LTS</c>, or <c>Ubuntu 12.04 LTS</c>.</para></li><li><para><c>CentOS Linux 7</c></para></li><li><para><c>Red Hat Enterprise Linux 7</c></para></li><li><para>A supported Windows operating system, such as <c>Microsoft Windows Server 2012 R2
+        /// Base</c>, <c>Microsoft Windows Server 2012 R2 with SQL Server Express</c>, <c>Microsoft
+        /// Windows Server 2012 R2 with SQL Server Standard</c>, or <c>Microsoft Windows Server
+        /// 2012 R2 with SQL Server Web</c>.</para></li><li><para>A custom AMI: <c>Custom</c>.</para></li></ul><para>For more information about the supported operating systems, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
         /// OpsWorks Stacks Operating Systems</a>.</para><para>The default option is the current Amazon Linux version. If you set this parameter
-        /// to <code>Custom</code>, you must use the <a>CreateInstance</a> action's AmiId parameter
+        /// to <c>Custom</c>, you must use the <a>CreateInstance</a> action's AmiId parameter
         /// to specify the custom AMI that you want to use. Block device mappings are not supported
-        /// if the value is <code>Custom</code>. For more information about supported operating
-        /// systems, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">Operating
+        /// if the value is <c>Custom</c>. For more information about supported operating systems,
+        /// see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">Operating
         /// Systems</a>For more information about how to use custom AMIs with AWS OpsWorks Stacks,
         /// see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using
         /// Custom AMIs</a>.</para>
@@ -285,9 +284,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>The instance's tenancy option. The default option is no tenancy, or if the instance
         /// is running in a VPC, inherit tenancy settings from the VPC. The following are valid
-        /// values for this parameter: <code>dedicated</code>, <code>default</code>, or <code>host</code>.
-        /// Because there are costs associated with changes in tenancy options, we recommend that
-        /// you research tenancy options before choosing them for your instances. For more information
+        /// values for this parameter: <c>dedicated</c>, <c>default</c>, or <c>host</c>. Because
+        /// there are costs associated with changes in tenancy options, we recommend that you
+        /// research tenancy options before choosing them for your instances. For more information
         /// about dedicated hosts, see <a href="http://aws.amazon.com/ec2/dedicated-hosts/">Dedicated
         /// Hosts Overview</a> and <a href="http://aws.amazon.com/ec2/dedicated-hosts/">Amazon
         /// EC2 Dedicated Hosts</a>. For more information about dedicated instances, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html">Dedicated
@@ -302,7 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter VirtualizationType
         /// <summary>
         /// <para>
-        /// <para>The instance's virtualization type, <code>paravirtual</code> or <code>hvm</code>.</para>
+        /// <para>The instance's virtualization type, <c>paravirtual</c> or <c>hvm</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

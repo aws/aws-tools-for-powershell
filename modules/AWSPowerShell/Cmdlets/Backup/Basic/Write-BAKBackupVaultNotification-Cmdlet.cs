@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>
         /// <para>An array of events that indicate the status of jobs to back up resources to the backup
         /// vault.</para><para>For common use cases and code samples, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/sns-notifications.html">Using
-        /// Amazon SNS to track Backup events</a>.</para><para>The following events are supported:</para><ul><li><para><code>BACKUP_JOB_STARTED</code> | <code>BACKUP_JOB_COMPLETED</code></para></li><li><para><code>COPY_JOB_STARTED</code> | <code>COPY_JOB_SUCCESSFUL</code> | <code>COPY_JOB_FAILED</code></para></li><li><para><code>RESTORE_JOB_STARTED</code> | <code>RESTORE_JOB_COMPLETED</code> | <code>RECOVERY_POINT_MODIFIED</code></para></li><li><para><code>S3_BACKUP_OBJECT_FAILED</code> | <code>S3_RESTORE_OBJECT_FAILED</code></para></li></ul><note><para>The list below shows items that are deprecated events (for reference) and are no longer
+        /// Amazon SNS to track Backup events</a>.</para><para>The following events are supported:</para><ul><li><para><c>BACKUP_JOB_STARTED</c> | <c>BACKUP_JOB_COMPLETED</c></para></li><li><para><c>COPY_JOB_STARTED</c> | <c>COPY_JOB_SUCCESSFUL</c> | <c>COPY_JOB_FAILED</c></para></li><li><para><c>RESTORE_JOB_STARTED</c> | <c>RESTORE_JOB_COMPLETED</c> | <c>RECOVERY_POINT_MODIFIED</c></para></li><li><para><c>S3_BACKUP_OBJECT_FAILED</c> | <c>S3_RESTORE_OBJECT_FAILED</c></para></li></ul><note><para>The list below shows items that are deprecated events (for reference) and are no longer
         /// in use. They are no longer supported and will not return statuses or notifications.
         /// Refer to the list above for current supported events.</para></note>
         /// </para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events;
-        /// for example, <code>arn:aws:sns:us-west-2:111122223333:MyVaultTopic</code>.</para>
+        /// for example, <c>arn:aws:sns:us-west-2:111122223333:MyVaultTopic</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// 2019.11.21</a> you can use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html">DescribeTable</a>
     /// instead. 
     /// </para><para>
-    ///  Although you can use <code>UpdateGlobalTable</code> to add replicas and remove replicas
+    ///  Although you can use <c>UpdateGlobalTable</c> to add replicas and remove replicas
     /// in a single request, for simplicity we recommend that you issue separate requests
     /// for adding or removing replicas. 
     /// </para></note><para>

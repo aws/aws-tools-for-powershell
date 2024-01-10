@@ -35,19 +35,19 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// This operation always returns an empty response because geofences are asynchronously
     /// evaluated. The evaluation determines if the device has entered or exited a geofenced
     /// area, and then publishes one of the following events to Amazon EventBridge:
-    /// </para><ul><li><para><code>ENTER</code> if Amazon Location determines that the tracked device has entered
-    /// a geofenced area.
-    /// </para></li><li><para><code>EXIT</code> if Amazon Location determines that the tracked device has exited
-    /// a geofenced area.
+    /// </para><ul><li><para><c>ENTER</c> if Amazon Location determines that the tracked device has entered a
+    /// geofenced area.
+    /// </para></li><li><para><c>EXIT</c> if Amazon Location determines that the tracked device has exited a geofenced
+    /// area.
     /// </para></li></ul><note><para>
     /// The last geofence that a device was observed within is tracked for 30 days after the
     /// most recent device position update.
     /// </para></note><note><para>
     /// Geofence evaluation uses the given device position. It does not account for the optional
-    /// <code>Accuracy</code> of a <code>DevicePositionUpdate</code>.
+    /// <c>Accuracy</c> of a <c>DevicePositionUpdate</c>.
     /// </para></note><note><para>
-    /// The <code>DeviceID</code> is used as a string to represent the device. You do not
-    /// need to have a <code>Tracker</code> associated with the <code>DeviceID</code>.
+    /// The <c>DeviceID</c> is used as a string to represent the device. You do not need to
+    /// have a <c>Tracker</c> associated with the <c>DeviceID</c>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Submit", "LOCGeofenceEvaluationBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

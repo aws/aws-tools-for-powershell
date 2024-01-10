@@ -89,9 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>A value that indicates the starting point for the next set of response records in
         /// a subsequent request. If a value is returned in a response, you can retrieve the next
-        /// set of records by providing this returned marker value in the <code>marker</code>
-        /// parameter and retrying the command. If the <code>marker</code> field is empty, all
-        /// response records have been retrieved for the request.</para>
+        /// set of records by providing this returned marker value in the <c>marker</c> parameter
+        /// and retrying the command. If the <c>marker</c> field is empty, all response records
+        /// have been retrieved for the request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -107,9 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The maximum number or response records to return in each call. If the number of remaining
-        /// response records exceeds the specified <code>MaxRecords</code> value, a value is returned
-        /// in a <code>marker</code> field of the response. You can retrieve the next set of records
-        /// by retrying the command with the returned <code>marker</code> value.</para>
+        /// response records exceeds the specified <c>MaxRecords</c> value, a value is returned
+        /// in a <c>marker</c> field of the response. You can retrieve the next set of records
+        /// by retrying the command with the returned <c>marker</c> value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

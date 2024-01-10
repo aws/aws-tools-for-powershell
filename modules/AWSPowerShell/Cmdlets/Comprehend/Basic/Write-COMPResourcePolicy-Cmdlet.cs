@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// a UTF-8 encoded string without line breaks. To provide valid JSON for your policy,
         /// enclose the attribute names and values in double quotes. If the JSON body is also
         /// enclosed in double quotes, then you must escape the double quotes that are inside
-        /// the policy:</para><para><code>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</code></para><para>To avoid escaping quotes, you can use single quotes to enclose the policy and double
-        /// quotes to enclose the JSON names and values:</para><para><code>'{"attribute": "value", "attribute": ["value"]}'</code></para>
+        /// the policy:</para><para><c>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</c></para><para>To avoid escaping quotes, you can use single quotes to enclose the policy and double
+        /// quotes to enclose the JSON names and values:</para><para><c>'{"attribute": "value", "attribute": ["value"]}'</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

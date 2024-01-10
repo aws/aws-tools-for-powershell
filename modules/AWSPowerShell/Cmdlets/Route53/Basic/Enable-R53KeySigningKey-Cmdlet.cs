@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// Activates a key-signing key (KSK) so that it can be used for signing by DNSSEC. This
-    /// operation changes the KSK status to <code>ACTIVE</code>.
+    /// operation changes the KSK status to <c>ACTIVE</c>.
     /// </summary>
     [Cmdlet("Enable", "R53KeySigningKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.ChangeInfo")]
@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A string used to identify a key-signing key (KSK). <code>Name</code> can include numbers,
-        /// letters, and underscores (_). <code>Name</code> must be unique for each key-signing
-        /// key in the same hosted zone.</para>
+        /// <para>A string used to identify a key-signing key (KSK). <c>Name</c> can include numbers,
+        /// letters, and underscores (_). <c>Name</c> must be unique for each key-signing key
+        /// in the same hosted zone.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

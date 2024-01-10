@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Creates a <code>Function</code> object.
+    /// Creates a <c>Function</c> object.
     /// 
     ///  
     /// <para>
@@ -68,9 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Code
         /// <summary>
         /// <para>
-        /// <para>The <code>function</code> code that contains the request and response functions. When
-        /// code is used, the <code>runtime</code> is required. The <code>runtime</code> value
-        /// must be <code>APPSYNC_JS</code>.</para>
+        /// <para>The <c>function</c> code that contains the request and response functions. When code
+        /// is used, the <c>runtime</c> is required. The <c>runtime</c> value must be <c>APPSYNC_JS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>The Conflict Resolution strategy to perform in the event of a conflict.</para><ul><li><para><b>OPTIMISTIC_CONCURRENCY</b>: Resolve conflicts by rejecting mutations when versions
-        /// don't match the latest version at the server.</para></li><li><para><b>AUTOMERGE</b>: Resolve conflicts with the Automerge conflict resolution strategy.</para></li><li><para><b>LAMBDA</b>: Resolve conflicts with an Lambda function supplied in the <code>LambdaConflictHandlerConfig</code>.</para></li></ul>
+        /// don't match the latest version at the server.</para></li><li><para><b>AUTOMERGE</b>: Resolve conflicts with the Automerge conflict resolution strategy.</para></li><li><para><b>LAMBDA</b>: Resolve conflicts with an Lambda function supplied in the <c>LambdaConflictHandlerConfig</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter DataSourceName
         /// <summary>
         /// <para>
-        /// <para>The <code>Function</code><code>DataSource</code> name.</para>
+        /// <para>The <c>Function</c><c>DataSource</c> name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The <code>Function</code> description.</para>
+        /// <para>The <c>Function</c> description.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter FunctionVersion
         /// <summary>
         /// <para>
-        /// <para>The <code>version</code> of the request mapping template. Currently, the supported
-        /// value is 2018-05-29. Note that when using VTL and mapping templates, the <code>functionVersion</code>
+        /// <para>The <c>version</c> of the request mapping template. Currently, the supported value
+        /// is 2018-05-29. Note that when using VTL and mapping templates, the <c>functionVersion</c>
         /// is required.</para>
         /// </para>
         /// </summary>
@@ -163,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The <code>Function</code> name. The function name does not have to be unique.</para>
+        /// <para>The <c>Function</c> name. The function name does not have to be unique.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -180,8 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Runtime_Name
         /// <summary>
         /// <para>
-        /// <para>The <code>name</code> of the runtime to use. Currently, the only allowed value is
-        /// <code>APPSYNC_JS</code>.</para>
+        /// <para>The <c>name</c> of the runtime to use. Currently, the only allowed value is <c>APPSYNC_JS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter RequestMappingTemplate
         /// <summary>
         /// <para>
-        /// <para>The <code>Function</code> request mapping template. Functions support only the 2018-05-29
+        /// <para>The <c>Function</c> request mapping template. Functions support only the 2018-05-29
         /// version of the request mapping template.</para>
         /// </para>
         /// </summary>
@@ -203,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter ResponseMappingTemplate
         /// <summary>
         /// <para>
-        /// <para>The <code>Function</code> response mapping template.</para>
+        /// <para>The <c>Function</c> response mapping template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,8 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Runtime_RuntimeVersion
         /// <summary>
         /// <para>
-        /// <para>The <code>version</code> of the runtime to use. Currently, the only allowed version
-        /// is <code>1.0.0</code>.</para>
+        /// <para>The <c>version</c> of the runtime to use. Currently, the only allowed version is <c>1.0.0</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

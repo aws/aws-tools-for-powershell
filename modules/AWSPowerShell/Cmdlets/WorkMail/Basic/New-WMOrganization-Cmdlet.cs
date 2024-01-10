@@ -101,9 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter EnableInteroperability
         /// <summary>
         /// <para>
-        /// <para>When <code>true</code>, allows organization interoperability between WorkMail and
-        /// Microsoft Exchange. If <code>true</code>, you must include a AD Connector directory
-        /// ID in the request.</para>
+        /// <para>When <c>true</c>, allows organization interoperability between WorkMail and Microsoft
+        /// Exchange. If <c>true</c>, you must include a AD Connector directory ID in the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

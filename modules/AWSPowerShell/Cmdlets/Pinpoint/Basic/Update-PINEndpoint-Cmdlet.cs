@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The case insensitive unique identifier for the endpoint. The identifier can't contain
-        /// <code>$</code>, <code>{</code> or <code>}</code>.</para>
+        /// <c>$</c>, <c>{</c> or <c>}</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

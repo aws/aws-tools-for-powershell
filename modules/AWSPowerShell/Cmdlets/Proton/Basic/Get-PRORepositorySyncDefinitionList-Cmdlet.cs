@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter SyncType
         /// <summary>
         /// <para>
-        /// <para>The sync type. The only supported value is <code>TEMPLATE_SYNC</code>.</para>
+        /// <para>The sync type. The only supported value is <c>TEMPLATE_SYNC</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

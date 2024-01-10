@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><code>destination-cidr</code> - The CIDR of the route destination.</para></li><li><para><code>origin</code> - How the route was associated with the Client VPN endpoint (<code>associate</code>
-        /// | <code>add-route</code>).</para></li><li><para><code>target-subnet</code> - The ID of the subnet through which traffic is routed.</para></li></ul>
+        /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><c>destination-cidr</c> - The CIDR of the route destination.</para></li><li><para><c>origin</c> - How the route was associated with the Client VPN endpoint (<c>associate</c>
+        /// | <c>add-route</c>).</para></li><li><para><c>target-subnet</c> - The ID of the subnet through which traffic is routed.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

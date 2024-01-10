@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>Whether to automatically create tasks using this task definition for all gateways
-        /// with the specified current version. If <code>false</code>, the task must me created
-        /// by calling <code>CreateWirelessGatewayTask</code>.</para>
+        /// with the specified current version. If <c>false</c>, the task must me created by calling
+        /// <c>CreateWirelessGatewayTask</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
     /// Deletes a trail. This operation must be called from the Region in which the trail
-    /// was created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated
+    /// was created. <c>DeleteTrail</c> cannot be called on the shadow trails (replicated
     /// trails in other Regions) of a trail that is enabled in all Regions.
     /// </summary>
     [Cmdlet("Remove", "CTTrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies the name or the CloudTrail ARN of the trail to be deleted. The following
-        /// is the format of a trail ARN. <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
+        /// is the format of a trail ARN. <c>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

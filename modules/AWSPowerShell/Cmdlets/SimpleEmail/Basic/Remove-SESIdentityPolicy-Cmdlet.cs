@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>The identity that is associated with the policy to delete. You can specify the identity
-        /// by using its name or by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>,
-        /// <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</para><para>To successfully call this operation, you must own the identity.</para>
+        /// by using its name or by using its Amazon Resource Name (ARN). Examples: <c>user@example.com</c>,
+        /// <c>example.com</c>, <c>arn:aws:ses:us-east-1:123456789012:identity/example.com</c>.</para><para>To successfully call this operation, you must own the identity.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

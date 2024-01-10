@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     /// You can find examples for reference policies and learn how to set up and run a custom
     /// policy check for new access in the <a href="https://github.com/aws-samples/iam-access-analyzer-custom-policy-check-samples">IAM
     /// Access Analyzer custom policy checks samples</a> repository on GitHub. The reference
-    /// policies in this repository are meant to be passed to the <code>existingPolicyDocument</code>
+    /// policies in this repository are meant to be passed to the <c>existingPolicyDocument</c>
     /// request parameter.
     /// </para>
     /// </summary>

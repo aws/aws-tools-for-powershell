@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>The identity (email address or domain) for the Amazon SNS topic.</para><important><para>You can only specify a verified identity for this parameter.</para></important><para>You can specify an identity by using its name or by using its Amazon Resource Name
-        /// (ARN). The following examples are all valid identities: <code>sender@example.com</code>,
-        /// <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</para>
+        /// (ARN). The following examples are all valid identities: <c>sender@example.com</c>,
+        /// <c>example.com</c>, <c>arn:aws:ses:us-east-1:123456789012:identity/example.com</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted
-        /// from the request or a null value is passed, <code>SnsTopic</code> is cleared and publishing
+        /// from the request or a null value is passed, <c>SnsTopic</c> is cleared and publishing
         /// is disabled.</para>
         /// </para>
         /// </summary>

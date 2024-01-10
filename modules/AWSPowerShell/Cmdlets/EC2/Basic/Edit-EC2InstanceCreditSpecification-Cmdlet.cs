@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Modifies the credit option for CPU usage on a running or stopped burstable performance
-    /// instance. The credit options are <code>standard</code> and <code>unlimited</code>.
+    /// instance. The credit options are <c>standard</c> and <c>unlimited</c>.
     /// 
     ///  
     /// <para>

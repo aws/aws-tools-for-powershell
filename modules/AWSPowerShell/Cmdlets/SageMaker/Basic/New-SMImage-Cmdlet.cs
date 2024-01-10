@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The display name of the image. If not provided, <code>ImageName</code> is displayed.</para>
+        /// <para>The display name of the image. If not provided, <c>ImageName</c> is displayed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

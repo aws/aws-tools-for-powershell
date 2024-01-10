@@ -78,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <para>
         /// <para> The encryption key for the domain. This is used to encrypt content stored in a domain.
         /// An encryption key can be a key ID, a key Amazon Resource Name (ARN), a key alias,
-        /// or a key alias ARN. To specify an <code>encryptionKey</code>, your IAM role must have
-        /// <code>kms:DescribeKey</code> and <code>kms:CreateGrant</code> permissions on the encryption
-        /// key that is used. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestSyntax">DescribeKey</a>
+        /// or a key alias ARN. To specify an <c>encryptionKey</c>, your IAM role must have <c>kms:DescribeKey</c>
+        /// and <c>kms:CreateGrant</c> permissions on the encryption key that is used. For more
+        /// information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestSyntax">DescribeKey</a>
         /// in the <i>Key Management Service API Reference</i> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">Key
         /// Management Service API Permissions Reference</a> in the <i>Key Management Service
         /// Developer Guide</i>. </para><important><para> CodeArtifact supports only symmetric CMKs. Do not associate an asymmetric CMK with

@@ -28,8 +28,8 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Promotes an <code>AppInstanceUser</code> to an <code>AppInstanceAdmin</code>. The
-    /// promoted user can perform the following actions. 
+    /// Promotes an <c>AppInstanceUser</c> to an <c>AppInstanceAdmin</c>. The promoted user
+    /// can perform the following actions. 
     /// 
     ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
     /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceAdmin.html">CreateAppInstanceAdmin</a>,
@@ -38,11 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// Using the latest version requires migrating to a dedicated namespace. For more information,
     /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
     /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
-    /// </para></important><ul><li><para><code>ChannelModerator</code> actions across all channels in the <code>AppInstance</code>.
-    /// </para></li><li><para><code>DeleteChannelMessage</code> actions.
+    /// </para></important><ul><li><para><c>ChannelModerator</c> actions across all channels in the <c>AppInstance</c>.
+    /// </para></li><li><para><c>DeleteChannelMessage</c> actions.
     /// </para></li></ul><para>
-    /// Only an <code>AppInstanceUser</code> can be promoted to an <code>AppInstanceAdmin</code>
-    /// role.
+    /// Only an <c>AppInstanceUser</c> can be promoted to an <c>AppInstanceAdmin</c> role.
     /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "CHMAppInstanceAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -62,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceAdminArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the administrator of the current <code>AppInstance</code>.</para>
+        /// <para>The ARN of the administrator of the current <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstance</code>.</para>
+        /// <para>The ARN of the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

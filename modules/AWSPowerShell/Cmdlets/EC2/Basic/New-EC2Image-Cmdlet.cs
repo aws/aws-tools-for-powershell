@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// volume size, you must first change the volume size of the source instance.</para></li><li><para>You can't modify the encryption status of existing volumes or snapshots. To create
         /// an AMI with volumes or snapshots that have a different encryption status (for example,
         /// where the source volume and snapshots are unencrypted, and you want to create an AMI
-        /// with encrypted volumes or snapshots), use the <a>CopyImage</a> action.</para></li><li><para>The only option that can be changed for existing mappings or snapshots is <code>DeleteOnTermination</code>.</para></li></ul>
+        /// with encrypted volumes or snapshots), use the <a>CopyImage</a> action.</para></li><li><para>The only option that can be changed for existing mappings or snapshots is <c>DeleteOnTermination</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
@@ -119,12 +119,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates whether or not the instance should be automatically rebooted before creating
-        /// the image. Specify one of the following values:</para><ul><li><para><code>true</code> - The instance is not rebooted before creating the image. This
-        /// creates crash-consistent snapshots that include only the data that has been written
-        /// to the volumes at the time the snapshots are created. Buffered data and data in memory
-        /// that has not yet been written to the volumes is not included in the snapshots.</para></li><li><para><code>false</code> - The instance is rebooted before creating the image. This ensures
-        /// that all buffered data and data in memory is written to the volumes before the snapshots
-        /// are created.</para></li></ul><para>Default: <code>false</code></para>
+        /// the image. Specify one of the following values:</para><ul><li><para><c>true</c> - The instance is not rebooted before creating the image. This creates
+        /// crash-consistent snapshots that include only the data that has been written to the
+        /// volumes at the time the snapshots are created. Buffered data and data in memory that
+        /// has not yet been written to the volumes is not included in the snapshots.</para></li><li><para><c>false</c> - The instance is rebooted before creating the image. This ensures that
+        /// all buffered data and data in memory is written to the volumes before the snapshots
+        /// are created.</para></li></ul><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
@@ -135,9 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The tags to apply to the AMI and snapshots on creation. You can tag the AMI, the snapshots,
-        /// or both.</para><ul><li><para>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>.</para></li><li><para>To tag the snapshots that are created of the root volume and of other Amazon EBS volumes
-        /// that are attached to the instance, the value for <code>ResourceType</code> must be
-        /// <code>snapshot</code>. The same tag is applied to all of the snapshots that are created.</para></li></ul><para>If you specify other values for <code>ResourceType</code>, the request fails.</para><para>To tag an AMI or snapshot after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.
+        /// or both.</para><ul><li><para>To tag the AMI, the value for <c>ResourceType</c> must be <c>image</c>.</para></li><li><para>To tag the snapshots that are created of the root volume and of other Amazon EBS volumes
+        /// that are attached to the instance, the value for <c>ResourceType</c> must be <c>snapshot</c>.
+        /// The same tag is applied to all of the snapshots that are created.</para></li></ul><para>If you specify other values for <c>ResourceType</c>, the request fails.</para><para>To tag an AMI or snapshot after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.
         /// </para>
         /// </para>
         /// </summary>

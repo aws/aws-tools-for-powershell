@@ -68,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// address, unless you disabled the option to assign a public IPv4 address on the subnet.
         /// If the instance is launched into a nondefault subnet, the default is not to assign
         /// a public IPv4 address, unless you enabled the option to assign a public IPv4 address
-        /// on the subnet.</para><para>If you specify <code>true</code>, each instance in the Auto Scaling group receives
-        /// a unique public IPv4 address. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching
-        /// Auto Scaling instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>If you specify this property, you must specify at least one subnet for <code>VPCZoneIdentifier</code>
+        /// on the subnet.</para><para>If you specify <c>true</c>, each instance in the Auto Scaling group receives a unique
+        /// public IPv4 address. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching
+        /// Auto Scaling instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>If you specify this property, you must specify at least one subnet for <c>VPCZoneIdentifier</c>
         /// when you create your group.</para>
         /// </para>
         /// </summary>
@@ -116,13 +116,13 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter EbsOptimized
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the launch configuration is optimized for EBS I/O (<code>true</code>)
-        /// or not (<code>false</code>). The optimization provides dedicated throughput to Amazon
-        /// EBS and an optimized configuration stack to provide optimal I/O performance. This
-        /// optimization is not available with all instance types. Additional fees are incurred
-        /// when you enable EBS optimization for an instance type that is not EBS-optimized by
-        /// default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon
-        /// EBS-optimized instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>The default value is <code>false</code>.</para>
+        /// <para>Specifies whether the launch configuration is optimized for EBS I/O (<c>true</c>)
+        /// or not (<c>false</c>). The optimization provides dedicated throughput to Amazon EBS
+        /// and an optimized configuration stack to provide optimal I/O performance. This optimization
+        /// is not available with all instance types. Additional fees are incurred when you enable
+        /// EBS optimization for an instance type that is not EBS-optimized by default. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon
+        /// EBS-optimized instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>The default value is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,8 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter InstanceMonitoring_Enabled
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, detailed monitoring is enabled. Otherwise, basic monitoring
-        /// is enabled.</para>
+        /// <para>If <c>true</c>, detailed monitoring is enabled. Otherwise, basic monitoring is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>This parameter enables or disables the HTTP metadata endpoint on your instances. If
-        /// the parameter is not specified, the default state is <code>enabled</code>.</para><note><para>If you specify a value of <code>disabled</code>, you will not be able to access your
-        /// instance metadata. </para></note>
+        /// the parameter is not specified, the default state is <c>enabled</c>.</para><note><para>If you specify a value of <c>disabled</c>, you will not be able to access your instance
+        /// metadata. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,13 +167,13 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The state of token usage for your instance metadata requests. If the parameter is
-        /// not specified in the request, the default state is <code>optional</code>.</para><para>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-        /// with or without a signed token header on your request. If you retrieve the IAM role
-        /// credentials without a token, the version 1.0 role credentials are returned. If you
-        /// retrieve the IAM role credentials using a valid signed token, the version 2.0 role
-        /// credentials are returned.</para><para>If the state is <code>required</code>, you must send a signed token header with any
-        /// instance metadata retrieval requests. In this state, retrieving the IAM role credentials
-        /// always returns the version 2.0 credentials; the version 1.0 credentials are not available.</para>
+        /// not specified in the request, the default state is <c>optional</c>.</para><para>If the state is <c>optional</c>, you can choose to retrieve instance metadata with
+        /// or without a signed token header on your request. If you retrieve the IAM role credentials
+        /// without a token, the version 1.0 role credentials are returned. If you retrieve the
+        /// IAM role credentials using a valid signed token, the version 2.0 role credentials
+        /// are returned.</para><para>If the state is <c>required</c>, you must send a signed token header with any instance
+        /// metadata retrieval requests. In this state, retrieving the IAM role credentials always
+        /// returns the version 2.0 credentials; the version 1.0 credentials are not available.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The ID of the Amazon Machine Image (AMI) that was assigned during registration. For
         /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding
-        /// a Linux AMI</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>If you specify <code>InstanceId</code>, an <code>ImageId</code> is not required.</para>
+        /// a Linux AMI</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>If you specify <c>InstanceId</c>, an <c>ImageId</c> is not required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -228,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>Specifies the instance type of the EC2 instance. For information about available instance
         /// types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">Available
-        /// instance types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>If you specify <code>InstanceId</code>, an <code>InstanceType</code> is not required.</para>
+        /// instance types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>If you specify <c>InstanceId</c>, an <c>InstanceType</c> is not required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -278,15 +277,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter PlacementTenancy
         /// <summary>
         /// <para>
-        /// <para>The tenancy of the instance, either <code>default</code> or <code>dedicated</code>.
-        /// An instance with <code>dedicated</code> tenancy runs on isolated, single-tenant hardware
-        /// and can only be launched into a VPC. To launch dedicated instances into a shared tenancy
-        /// VPC (a VPC with the instance placement tenancy attribute set to <code>default</code>),
-        /// you must set the value of this property to <code>dedicated</code>. For more information,
-        /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html">Configuring
+        /// <para>The tenancy of the instance, either <c>default</c> or <c>dedicated</c>. An instance
+        /// with <c>dedicated</c> tenancy runs on isolated, single-tenant hardware and can only
+        /// be launched into a VPC. To launch dedicated instances into a shared tenancy VPC (a
+        /// VPC with the instance placement tenancy attribute set to <c>default</c>), you must
+        /// set the value of this property to <c>dedicated</c>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html">Configuring
         /// instance tenancy with Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling
-        /// User Guide</i>.</para><para>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet
-        /// for <code>VPCZoneIdentifier</code> when you create your group.</para><para>Valid values: <code>default</code> | <code>dedicated</code></para>
+        /// User Guide</i>.</para><para>If you specify <c>PlacementTenancy</c>, you must specify at least one subnet for <c>VPCZoneIdentifier</c>
+        /// when you create your group.</para><para>Valid values: <c>default</c> | <c>dedicated</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter DeviceId
         /// <summary>
         /// <para>
-        /// <para>Devices whose position history you want to delete.</para><ul><li><para>For example, for two devices: <code>“DeviceIds” : [DeviceId1,DeviceId2]</code></para></li></ul>
+        /// <para>Devices whose position history you want to delete.</para><ul><li><para>For example, for two devices: <c>“DeviceIds” : [DeviceId1,DeviceId2]</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

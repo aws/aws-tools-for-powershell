@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// 
     ///  
     /// <para>
-    /// The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/*</code>.
+    /// The permissions resource is <c>arn:aws:quicksight:region:aws-account-id:dataset/*</c>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSDataSetList")]

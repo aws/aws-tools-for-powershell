@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
     /// Retrieves a list of configuration items that have tags as specified by the key-value
-    /// pairs, name and value, passed to the optional parameter <code>filters</code>.
+    /// pairs, name and value, passed to the optional parameter <c>filters</c>.
     /// 
     ///  
     /// <para>
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// configurationId
     /// </para></li></ul><para>
     /// Also, all configuration items associated with your user that have tags can be listed
-    /// if you call <code>DescribeTags</code> as is without passing any parameters.
+    /// if you call <c>DescribeTags</c> as is without passing any parameters.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ADSTag")]
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para>You can filter the list using a <i>key</i>-<i>value</i> format. You can separate these
-        /// items by using logical operators. Allowed filters include <code>tagKey</code>, <code>tagValue</code>,
-        /// and <code>configurationId</code>. </para>
+        /// items by using logical operators. Allowed filters include <c>tagKey</c>, <c>tagValue</c>,
+        /// and <c>configurationId</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

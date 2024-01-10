@@ -28,8 +28,8 @@ using Amazon.IoTEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTE
 {
     /// <summary>
-    /// Describes a detector model. If the <code>version</code> parameter is not specified,
-    /// information about the latest version is returned.
+    /// Describes a detector model. If the <c>version</c> parameter is not specified, information
+    /// about the latest version is returned.
     /// </summary>
     [Cmdlet("Get", "IOTEDetectorModel")]
     [OutputType("Amazon.IoTEvents.Model.DetectorModel")]

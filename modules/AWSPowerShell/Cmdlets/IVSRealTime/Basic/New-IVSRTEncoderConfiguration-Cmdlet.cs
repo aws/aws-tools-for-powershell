@@ -65,9 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         #region Parameter Video_Height
         /// <summary>
         /// <para>
-        /// <para>Video-resolution height. Note that the maximum value is determined by <code>width</code>
-        /// times <code>height</code>, such that the maximum total pixels is 2073600 (1920x1080
-        /// or 1080x1920). Default: 720.</para>
+        /// <para>Video-resolution height. Note that the maximum value is determined by <c>width</c>
+        /// times <c>height</c>, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920).
+        /// Default: 720.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags attached to the resource. Array of maps, each of the form <code>string:string
-        /// (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// <para>Tags attached to the resource. Array of maps, each of the form <c>string:string (key:value)</c>.
+        /// See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
         /// AWS Resources</a> for details, including restrictions that apply to tags and "Tag
         /// naming limits and requirements"; Amazon IVS has no constraints on tags beyond what
         /// is documented there.</para>
@@ -102,9 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         #region Parameter Video_Width
         /// <summary>
         /// <para>
-        /// <para>Video-resolution width. Note that the maximum value is determined by <code>width</code>
-        /// times <code>height</code>, such that the maximum total pixels is 2073600 (1920x1080
-        /// or 1080x1920). Default: 1280.</para>
+        /// <para>Video-resolution width. Note that the maximum value is determined by <c>width</c>
+        /// times <c>height</c>, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920).
+        /// Default: 1280.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

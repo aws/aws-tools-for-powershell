@@ -51,9 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>The ID for the health check that you want the current status for. When you created
-        /// the health check, <code>CreateHealthCheck</code> returned the ID in the response,
-        /// in the <code>HealthCheckId</code> element.</para><note><para>If you want to check the status of a calculated health check, you must use the Amazon
-        /// Route 53 console or the CloudWatch console. You can't use <code>GetHealthCheckStatus</code>
+        /// the health check, <c>CreateHealthCheck</c> returned the ID in the response, in the
+        /// <c>HealthCheckId</c> element.</para><note><para>If you want to check the status of a calculated health check, you must use the Amazon
+        /// Route 53 console or the CloudWatch console. You can't use <c>GetHealthCheckStatus</c>
         /// to get the status of a calculated health check.</para></note>
         /// </para>
         /// </summary>

@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </para><para>
     /// The use of this operation has a limit of five transactions per second per account.
     /// Also, only 5 consumers can be created simultaneously. In other words, you cannot have
-    /// more than 5 consumers in a <code>CREATING</code> status at the same time. Registering
-    /// a 6th consumer while there are 5 in a <code>CREATING</code> status results in a <code>LimitExceededException</code>.
+    /// more than 5 consumers in a <c>CREATING</c> status at the same time. Registering a
+    /// 6th consumer while there are 5 in a <c>CREATING</c> status results in a <c>LimitExceededException</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "KINStreamConsumer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

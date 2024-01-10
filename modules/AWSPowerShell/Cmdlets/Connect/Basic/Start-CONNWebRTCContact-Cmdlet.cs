@@ -130,9 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks
-        /// can have the following reference types at the time of creation: <code>URL</code> |
-        /// <code>NUMBER</code> | <code>STRING</code> | <code>DATE</code> | <code>EMAIL</code>.
-        /// <code>ATTACHMENT</code> is not a supported reference type during task creation.</para>
+        /// can have the following reference types at the time of creation: <c>URL</c> | <c>NUMBER</c>
+        /// | <c>STRING</c> | <c>DATE</c> | <c>EMAIL</c>. <c>ATTACHMENT</c> is not a supported
+        /// reference type during task creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

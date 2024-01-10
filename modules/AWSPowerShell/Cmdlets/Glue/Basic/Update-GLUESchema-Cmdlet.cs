@@ -35,10 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// <para>
     /// For updating the compatibility setting, the call will not validate compatibility for
     /// the entire set of schema versions with the new compatibility setting. If the value
-    /// for <code>Compatibility</code> is provided, the <code>VersionNumber</code> (a checkpoint)
-    /// is also required. The API will validate the checkpoint version number for consistency.
+    /// for <c>Compatibility</c> is provided, the <c>VersionNumber</c> (a checkpoint) is also
+    /// required. The API will validate the checkpoint version number for consistency.
     /// </para><para>
-    /// If the value for the <code>VersionNumber</code> (checkpoint) is provided, <code>Compatibility</code>
+    /// If the value for the <c>VersionNumber</c> (checkpoint) is provided, <c>Compatibility</c>
     /// is optional and this can be used to set/reset a checkpoint for the schema.
     /// </para><para>
     /// This update will happen only if the schema is in the AVAILABLE state.
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SchemaId_SchemaArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code>
+        /// <para>The Amazon Resource Name (ARN) of the schema. One of <c>SchemaArn</c> or <c>SchemaName</c>
         /// has to be provided.</para>
         /// </para>
         /// </summary>
@@ -110,8 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SchemaId_SchemaName
         /// <summary>
         /// <para>
-        /// <para>The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has
-        /// to be provided.</para>
+        /// <para>The name of the schema. One of <c>SchemaArn</c> or <c>SchemaName</c> has to be provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

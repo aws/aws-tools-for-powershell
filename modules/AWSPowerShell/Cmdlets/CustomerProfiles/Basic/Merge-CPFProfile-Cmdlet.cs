@@ -31,15 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     /// Runs an AWS Lambda job that does the following:
     /// 
     ///  <ol><li><para>
-    /// All the profileKeys in the <code>ProfileToBeMerged</code> will be moved to the main
-    /// profile.
+    /// All the profileKeys in the <c>ProfileToBeMerged</c> will be moved to the main profile.
     /// </para></li><li><para>
-    /// All the objects in the <code>ProfileToBeMerged</code> will be moved to the main profile.
+    /// All the objects in the <c>ProfileToBeMerged</c> will be moved to the main profile.
     /// </para></li><li><para>
-    /// All the <code>ProfileToBeMerged</code> will be deleted at the end.
+    /// All the <c>ProfileToBeMerged</c> will be deleted at the end.
     /// </para></li><li><para>
-    /// All the profileKeys in the <code>ProfileIdsToBeMerged</code> will be moved to the
-    /// main profile.
+    /// All the profileKeys in the <c>ProfileIdsToBeMerged</c> will be moved to the main profile.
     /// </para></li><li><para>
     /// Standard fields are merged as follows:
     /// </para><ol><li><para>
@@ -47,11 +45,11 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     /// </para></li><li><para>
     /// When there are conflicting fields:
     /// </para><ol><li><para>
-    /// If no <code>SourceProfileIds</code> entry is specified, the main Profile value is
-    /// always taken. 
+    /// If no <c>SourceProfileIds</c> entry is specified, the main Profile value is always
+    /// taken. 
     /// </para></li><li><para>
-    /// If a <code>SourceProfileIds</code> entry is specified, the specified profileId is
-    /// always taken, even if it is a NULL value.
+    /// If a <c>SourceProfileIds</c> entry is specified, the specified profileId is always
+    /// taken, even if it is a NULL value.
     /// </para></li></ol></li></ol></li></ol><para>
     /// You can use MergeProfiles together with <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>,
     /// which returns potentially matching profiles, or use it with the results of another

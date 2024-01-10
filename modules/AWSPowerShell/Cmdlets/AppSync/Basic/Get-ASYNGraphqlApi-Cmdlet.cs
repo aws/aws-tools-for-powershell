@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Retrieves a <code>GraphqlApi</code> object.
+    /// Retrieves a <c>GraphqlApi</c> object.
     /// </summary>
     [Cmdlet("Get", "ASYNGraphqlApi")]
     [OutputType("Amazon.AppSync.Model.GraphqlApi")]

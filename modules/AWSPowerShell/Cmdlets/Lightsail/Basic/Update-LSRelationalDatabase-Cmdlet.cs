@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// Updates are applied immediately, or in cases where the updates could result in an
     /// outage, are applied during the database's predefined maintenance window.
     /// </para><para>
-    /// The <code>update relational database</code> operation supports tag-based access control
+    /// The <c>update relational database</c> operation supports tag-based access control
     /// via resource tags applied to the resource identified by relationalDatabaseName. For
     /// more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter ApplyImmediately
         /// <summary>
         /// <para>
-        /// <para>When <code>true</code>, applies changes immediately. When <code>false</code>, applies
-        /// changes during the preferred maintenance window. Some changes may cause an outage.</para><para>Default: <code>false</code></para>
+        /// <para>When <c>true</c>, applies changes immediately. When <c>false</c>, applies changes
+        /// during the preferred maintenance window. Some changes may cause an outage.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DisableBackupRetention
         /// <summary>
         /// <para>
-        /// <para>When <code>true</code>, disables automated backup retention for your database.</para><para>Disabling backup retention deletes all automated database backups. Before disabling
-        /// this, you may want to create a snapshot of your database using the <code>create relational
-        /// database snapshot</code> operation.</para><para>Updates are applied during the next maintenance window because this can result in
+        /// <para>When <c>true</c>, disables automated backup retention for your database.</para><para>Disabling backup retention deletes all automated database backups. Before disabling
+        /// this, you may want to create a snapshot of your database using the <c>create relational
+        /// database snapshot</c> operation.</para><para>Updates are applied during the next maintenance window because this can result in
         /// an outage.</para>
         /// </para>
         /// </summary>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter EnableBackupRetention
         /// <summary>
         /// <para>
-        /// <para>When <code>true</code>, enables automated backup retention for your database.</para><para>Updates are applied during the next maintenance window because this can result in
+        /// <para>When <c>true</c>, enables automated backup retention for your database.</para><para>Updates are applied during the next maintenance window because this can result in
         /// an outage.</para>
         /// </para>
         /// </summary>
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The daily time range during which automated backups are created for your database
-        /// if automated backups are enabled.</para><para>Constraints:</para><ul><li><para>Must be in the <code>hh24:mi-hh24:mi</code> format.</para><para>Example: <code>16:00-16:30</code></para></li><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// if automated backups are enabled.</para><para>Constraints:</para><ul><li><para>Must be in the <c>hh24:mi-hh24:mi</c> format.</para><para>Example: <c>16:00-16:30</c></para></li><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur on your database.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each Amazon Web Services Region, occurring on a random day of the week.</para><para>Constraints:</para><ul><li><para>Must be in the <code>ddd:hh24:mi-ddd:hh24:mi</code> format.</para></li><li><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para></li><li><para>Must be at least 30 minutes.</para></li><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Example: <code>Tue:17:00-Tue:17:30</code></para></li></ul>
+        /// for each Amazon Web Services Region, occurring on a random day of the week.</para><para>Constraints:</para><ul><li><para>Must be in the <c>ddd:hh24:mi-ddd:hh24:mi</c> format.</para></li><li><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para></li><li><para>Must be at least 30 minutes.</para></li><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Example: <c>Tue:17:00-Tue:17:30</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,10 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>Specifies the accessibility options for your database. A value of <code>true</code>
-        /// specifies a database that is available to resources outside of your Lightsail account.
-        /// A value of <code>false</code> specifies a database that is available only to your
-        /// Lightsail resources in the same region as your database.</para>
+        /// <para>Specifies the accessibility options for your database. A value of <c>true</c> specifies
+        /// a database that is available to resources outside of your Lightsail account. A value
+        /// of <c>false</c> specifies a database that is available only to your Lightsail resources
+        /// in the same region as your database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,9 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter RotateMasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>When <code>true</code>, the master user password is changed to a new strong password
-        /// generated by Lightsail.</para><para>Use the <code>get relational database master user password</code> operation to get
-        /// the new password.</para>
+        /// <para>When <c>true</c>, the master user password is changed to a new strong password generated
+        /// by Lightsail.</para><para>Use the <c>get relational database master user password</c> operation to get the new
+        /// password.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Returns a list of the custom models that you have created with the <code>CreateModelCustomizationJob</code>
+    /// Returns a list of the custom models that you have created with the <c>CreateModelCustomizationJob</c>
     /// operation.
     /// 
     ///  

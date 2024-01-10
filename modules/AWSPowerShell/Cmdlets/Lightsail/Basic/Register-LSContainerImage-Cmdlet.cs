@@ -71,15 +71,15 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The label for the container image when it's registered to the container service.</para><para>Use a descriptive label that you can use to track the different versions of your registered
-        /// container images.</para><para>Use the <code>GetContainerImages</code> action to return the container images registered
-        /// to a Lightsail container service. The label is the <code>&lt;imagelabel&gt;</code>
-        /// portion of the following image name example:</para><ul><li><para><code>:container-service-1.&lt;imagelabel&gt;.1</code></para></li></ul><para>If the name of your container service is <code>mycontainerservice</code>, and the
-        /// label that you specify is <code>mystaticwebsite</code>, then the name of the registered
-        /// container image will be <code>:mycontainerservice.mystaticwebsite.1</code>.</para><para>The number at the end of these image name examples represents the version of the registered
+        /// container images.</para><para>Use the <c>GetContainerImages</c> action to return the container images registered
+        /// to a Lightsail container service. The label is the <c>&lt;imagelabel&gt;</c> portion
+        /// of the following image name example:</para><ul><li><para><c>:container-service-1.&lt;imagelabel&gt;.1</c></para></li></ul><para>If the name of your container service is <c>mycontainerservice</c>, and the label
+        /// that you specify is <c>mystaticwebsite</c>, then the name of the registered container
+        /// image will be <c>:mycontainerservice.mystaticwebsite.1</c>.</para><para>The number at the end of these image name examples represents the version of the registered
         /// container image. If you push and register another container image to the same Lightsail
         /// container service, with the same label, then the version number for the new registered
-        /// container image will be <code>2</code>. If you push and register another container
-        /// image, the version number will be <code>3</code>, and so on.</para>
+        /// container image will be <c>2</c>. If you push and register another container image,
+        /// the version number will be <c>3</c>, and so on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

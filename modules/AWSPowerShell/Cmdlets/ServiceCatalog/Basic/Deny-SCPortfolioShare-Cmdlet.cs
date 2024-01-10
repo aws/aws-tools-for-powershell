@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><c>jp</c> - Japanese</para></li><li><para><c>zh</c> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PortfolioShareType
         /// <summary>
         /// <para>
-        /// <para>The type of shared portfolios to reject. The default is to reject imported portfolios.</para><ul><li><para><code>AWS_ORGANIZATIONS</code> - Reject portfolios shared by the management account
-        /// of your organization.</para></li><li><para><code>IMPORTED</code> - Reject imported portfolios.</para></li><li><para><code>AWS_SERVICECATALOG</code> - Not supported. (Throws ResourceNotFoundException.)</para></li></ul><para>For example, <code>aws servicecatalog reject-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk"
-        /// --portfolio-share-type AWS_ORGANIZATIONS</code></para>
+        /// <para>The type of shared portfolios to reject. The default is to reject imported portfolios.</para><ul><li><para><c>AWS_ORGANIZATIONS</c> - Reject portfolios shared by the management account of
+        /// your organization.</para></li><li><para><c>IMPORTED</c> - Reject imported portfolios.</para></li><li><para><c>AWS_SERVICECATALOG</c> - Not supported. (Throws ResourceNotFoundException.)</para></li></ul><para>For example, <c>aws servicecatalog reject-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk"
+        /// --portfolio-share-type AWS_ORGANIZATIONS</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

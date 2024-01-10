@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, Fleet Advisor includes a pagination token
-        /// in the response so that you can retrieve the remaining results.</para>
+        /// the specified <c>MaxRecords</c> value, Fleet Advisor includes a pagination token in
+        /// the response so that you can retrieve the remaining results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,10 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Specifies the unique pagination token that makes it possible to display the next page
         /// of results. If this parameter is specified, the response includes only records beyond
-        /// the marker, up to the value specified by <code>MaxRecords</code>.</para><para>If <code>NextToken</code> is returned by a previous response, there are more results
-        /// available. The value of <code>NextToken</code> is a unique pagination token for each
-        /// page. Make the call again using the returned token to retrieve the next page. Keep
-        /// all other arguments unchanged.</para>
+        /// the marker, up to the value specified by <c>MaxRecords</c>.</para><para>If <c>NextToken</c> is returned by a previous response, there are more results available.
+        /// The value of <c>NextToken</c> is a unique pagination token for each page. Make the
+        /// call again using the returned token to retrieve the next page. Keep all other arguments
+        /// unchanged.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

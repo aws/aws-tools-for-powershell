@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether major version upgrades are allowed.</para><para>Constraints: You must allow major version upgrades when specifying a value for the
-        /// <code>EngineVersion</code> parameter that is a different major version than the DB
-        /// cluster's current version.</para>
+        /// <c>EngineVersion</c> parameter that is a different major version than the DB cluster's
+        /// current version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,13 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>A value that specifies whether the changes in this request and any pending changes
-        /// are asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code>
-        /// setting for the cluster. If this parameter is set to <code>false</code>, changes to
-        /// the cluster are applied during the next maintenance window.</para><para>The <code>ApplyImmediately</code> parameter affects only the <code>NewDBClusterIdentifier</code>
-        /// and <code>MasterUserPassword</code> values. If you set this parameter value to <code>false</code>,
-        /// the changes to the <code>NewDBClusterIdentifier</code> and <code>MasterUserPassword</code>
-        /// values are applied during the next maintenance window. All other changes are applied
-        /// immediately, regardless of the value of the <code>ApplyImmediately</code> parameter.</para><para>Default: <code>false</code></para>
+        /// are asynchronously applied as soon as possible, regardless of the <c>PreferredMaintenanceWindow</c>
+        /// setting for the cluster. If this parameter is set to <c>false</c>, changes to the
+        /// cluster are applied during the next maintenance window.</para><para>The <c>ApplyImmediately</c> parameter affects only the <c>NewDBClusterIdentifier</c>
+        /// and <c>MasterUserPassword</c> values. If you set this parameter value to <c>false</c>,
+        /// the changes to the <c>NewDBClusterIdentifier</c> and <c>MasterUserPassword</c> values
+        /// are applied during the next maintenance window. All other changes are applied immediately,
+        /// regardless of the value of the <c>ApplyImmediately</c> parameter.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The cluster identifier for the cluster that is being modified. This parameter is not
-        /// case sensitive.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <code>DBCluster</code>.</para></li></ul>
+        /// case sensitive.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <c>DBCluster</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,10 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DeletionProtection
         /// <summary>
         /// <para>
-        /// <para>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code>
-        /// is enabled, the cluster cannot be deleted unless it is modified and <code>DeletionProtection</code>
-        /// is disabled. <code>DeletionProtection</code> protects clusters from being accidentally
-        /// deleted.</para>
+        /// <para>Specifies whether this cluster can be deleted. If <c>DeletionProtection</c> is enabled,
+        /// the cluster cannot be deleted unless it is modified and <c>DeletionProtection</c>
+        /// is disabled. <c>DeletionProtection</c> protects clusters from being accidentally deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>
         /// <para>The version number of the database engine to which you want to upgrade. Changing this
         /// parameter results in an outage. The change is applied during the next maintenance
-        /// window unless <code>ApplyImmediately</code> is enabled.</para><para>To list all of the available engine versions for Amazon DocumentDB use the following
-        /// command:</para><para><code>aws docdb describe-db-engine-versions --engine docdb --query "DBEngineVersions[].EngineVersion"</code></para>
+        /// window unless <c>ApplyImmediately</c> is enabled.</para><para>To list all of the available engine versions for Amazon DocumentDB use the following
+        /// command:</para><para><c>aws docdb describe-db-engine-versions --engine docdb --query "DBEngineVersions[].EngineVersion"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The new cluster identifier for the cluster when renaming a cluster. This value is
-        /// stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster2</code></para>
+        /// stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <c>my-cluster2</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the cluster accepts connections.</para><para>Constraints: Must be a value from <code>1150</code> to <code>65535</code>. </para><para>Default: The same port as the original cluster.</para>
+        /// <para>The port number on which the cluster accepts connections.</para><para>Constraints: Must be a value from <c>1150</c> to <c>65535</c>. </para><para>Default: The same port as the original cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,8 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The daily time range during which automated backups are created if automated backups
-        /// are enabled, using the <code>BackupRetentionPeriod</code> parameter. </para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each Amazon Web Services Region. </para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// are enabled, using the <c>BackupRetentionPeriod</c> parameter. </para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// for each Amazon Web Services Region. </para><para>Constraints:</para><ul><li><para>Must be in the format <c>hh24:mi-hh24:mi</c>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
-        /// Time (UTC).</para><para>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// Time (UTC).</para><para>Format: <c>ddd:hh24:mi-ddd:hh24:mi</c></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Web Services Region, occurring on a random day of the week. </para><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>
@@ -220,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The storage type to associate with the DB cluster.</para><para>For information on storage types for Amazon DocumentDB clusters, see Cluster storage
-        /// configurations in the <i>Amazon DocumentDB Developer Guide</i>.</para><para>Valid values for storage type - <code>standard | iopt1</code></para><para>Default value is <code>standard </code></para>
+        /// configurations in the <i>Amazon DocumentDB Developer Guide</i>.</para><para>Valid values for storage type - <c>standard | iopt1</c></para><para>Default value is <c>standard </c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

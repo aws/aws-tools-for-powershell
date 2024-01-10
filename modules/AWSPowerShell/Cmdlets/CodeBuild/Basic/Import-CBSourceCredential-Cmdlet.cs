@@ -84,9 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ShouldOverwrite
         /// <summary>
         /// <para>
-        /// <para> Set to <code>false</code> to prevent overwriting the repository source credentials.
-        /// Set to <code>true</code> to overwrite the repository source credentials. The default
-        /// value is <code>true</code>. </para>
+        /// <para> Set to <c>false</c> to prevent overwriting the repository source credentials. Set
+        /// to <c>true</c> to overwrite the repository source credentials. The default value is
+        /// <c>true</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para> The Bitbucket username when the <code>authType</code> is BASIC_AUTH. This parameter
-        /// is not valid for other types of source providers or connections. </para>
+        /// <para> The Bitbucket username when the <c>authType</c> is BASIC_AUTH. This parameter is
+        /// not valid for other types of source providers or connections. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

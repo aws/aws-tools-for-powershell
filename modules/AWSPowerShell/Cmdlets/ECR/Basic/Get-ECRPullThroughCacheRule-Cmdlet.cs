@@ -70,14 +70,13 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of pull through cache rules returned by <code>DescribePullThroughCacheRulesRequest</code>
-        /// in paginated output. When this parameter is used, <code>DescribePullThroughCacheRulesRequest</code>
-        /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
+        /// <para>The maximum number of pull through cache rules returned by <c>DescribePullThroughCacheRulesRequest</c>
+        /// in paginated output. When this parameter is used, <c>DescribePullThroughCacheRulesRequest</c>
+        /// only returns <c>maxResults</c> results in a single page along with a <c>nextToken</c>
         /// response element. The remaining results of the initial request can be seen by sending
-        /// another <code>DescribePullThroughCacheRulesRequest</code> request with the returned
-        /// <code>nextToken</code> value. This value can be between 1 and 1000. If this parameter
-        /// is not used, then <code>DescribePullThroughCacheRulesRequest</code> returns up to
-        /// 100 results and a <code>nextToken</code> value, if applicable.</para>
+        /// another <c>DescribePullThroughCacheRulesRequest</c> request with the returned <c>nextToken</c>
+        /// value. This value can be between 1 and 1000. If this parameter is not used, then <c>DescribePullThroughCacheRulesRequest</c>
+        /// returns up to 100 results and a <c>nextToken</c> value, if applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,11 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>DescribePullThroughCacheRulesRequest</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. This value is null when there are no more
-        /// results to return.</para>
+        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>DescribePullThroughCacheRulesRequest</c>
+        /// request where <c>maxResults</c> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <c>nextToken</c> value. This value is null when there are no more results to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

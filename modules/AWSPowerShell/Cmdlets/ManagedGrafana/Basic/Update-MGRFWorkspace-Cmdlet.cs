@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     /// To modify the user authentication methods that the workspace uses, such as SAML or
     /// IAM Identity Center, use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html">UpdateWorkspaceAuthentication</a>.
     /// </para><para>
-    /// To modify which users in the workspace have the <code>Admin</code> and <code>Editor</code>
-    /// Grafana roles, use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html">UpdatePermissions</a>.
+    /// To modify which users in the workspace have the <c>Admin</c> and <c>Editor</c> Grafana
+    /// roles, use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html">UpdatePermissions</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "MGRFWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <para>
         /// <para>Specifies whether the workspace can access Amazon Web Services resources in this Amazon
         /// Web Services account only, or whether it can also access Amazon Web Services resources
-        /// in other accounts in the same organization. If you specify <code>ORGANIZATION</code>,
-        /// you must specify which organizational units the workspace can access in the <code>workspaceOrganizationalUnits</code>
+        /// in other accounts in the same organization. If you specify <c>ORGANIZATION</c>, you
+        /// must specify which organizational units the workspace can access in the <c>workspaceOrganizationalUnits</c>
         /// parameter.</para>
         /// </para>
         /// </summary>
@@ -75,8 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <summary>
         /// <para>
         /// <para>The name of an IAM role that already exists to use to access resources through Organizations.
-        /// This can only be used with a workspace that has the <code>permissionType</code> set
-        /// to <code>CUSTOMER_MANAGED</code>.</para>
+        /// This can only be used with a workspace that has the <c>permissionType</c> set to <c>CUSTOMER_MANAGED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,17 +85,17 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter PermissionType
         /// <summary>
         /// <para>
-        /// <para>Use this parameter if you want to change a workspace from <code>SERVICE_MANAGED</code>
-        /// to <code>CUSTOMER_MANAGED</code>. This allows you to manage the permissions that the
-        /// workspace uses to access datasources and notification channels. If the workspace is
-        /// in a member Amazon Web Services account of an organization, and that account is not
-        /// a delegated administrator account, and you want the workspace to access data sources
-        /// in other Amazon Web Services accounts in the organization, you must choose <code>CUSTOMER_MANAGED</code>.</para><para>If you specify this as <code>CUSTOMER_MANAGED</code>, you must also specify a <code>workspaceRoleArn</code>
+        /// <para>Use this parameter if you want to change a workspace from <c>SERVICE_MANAGED</c> to
+        /// <c>CUSTOMER_MANAGED</c>. This allows you to manage the permissions that the workspace
+        /// uses to access datasources and notification channels. If the workspace is in a member
+        /// Amazon Web Services account of an organization, and that account is not a delegated
+        /// administrator account, and you want the workspace to access data sources in other
+        /// Amazon Web Services accounts in the organization, you must choose <c>CUSTOMER_MANAGED</c>.</para><para>If you specify this as <c>CUSTOMER_MANAGED</c>, you must also specify a <c>workspaceRoleArn</c>
         /// that the workspace will use for accessing Amazon Web Services resources.</para><para>For more information on the role and permissions needed, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html">Amazon
         /// Managed Grafana permissions and policies for Amazon Web Services data sources and
-        /// notification channels</a></para><note><para>Do not use this to convert a <code>CUSTOMER_MANAGED</code> workspace to <code>SERVICE_MANAGED</code>.
-        /// Do not include this parameter if you want to leave the workspace as <code>SERVICE_MANAGED</code>.</para><para>You can convert a <code>CUSTOMER_MANAGED</code> workspace to <code>SERVICE_MANAGED</code>
-        /// using the Amazon Managed Grafana console. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html">Managing
+        /// notification channels</a></para><note><para>Do not use this to convert a <c>CUSTOMER_MANAGED</c> workspace to <c>SERVICE_MANAGED</c>.
+        /// Do not include this parameter if you want to leave the workspace as <c>SERVICE_MANAGED</c>.</para><para>You can convert a <c>CUSTOMER_MANAGED</c> workspace to <c>SERVICE_MANAGED</c> using
+        /// the Amazon Managed Grafana console. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html">Managing
         /// permissions for data sources and notification channels</a>.</para></note>
         /// </para>
         /// </summary>
@@ -111,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <para>An array of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses.
         /// The IP addresses specified are allowed to access your workspace. If the list is not
         /// included in the configuration (passed an empty array) then no IP addresses are allowed
-        /// to access the workspace. You create a prefix list using the Amazon VPC console.</para><para>Prefix list IDs have the format <code>pl-<i>1a2b3c4d</i></code>.</para><para>For more information about prefix lists, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html">Group
+        /// to access the workspace. You create a prefix list using the Amazon VPC console.</para><para>Prefix list IDs have the format <c>pl-<i>1a2b3c4d</i></c>.</para><para>For more information about prefix lists, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html">Group
         /// CIDR blocks using managed prefix lists</a>in the <i>Amazon Virtual Private Cloud User
         /// Guide</i>.</para>
         /// </para>
@@ -124,9 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter RemoveNetworkAccessConfiguration
         /// <summary>
         /// <para>
-        /// <para>Whether to remove the network access configuration from the workspace.</para><para>Setting this to <code>true</code> and providing a <code>networkAccessControl</code>
-        /// to set will return an error.</para><para>If you remove this configuration by setting this to <code>true</code>, then all IP
-        /// addresses and VPC endpoints will be allowed. Standard Grafana authentication and authorization
+        /// <para>Whether to remove the network access configuration from the workspace.</para><para>Setting this to <c>true</c> and providing a <c>networkAccessControl</c> to set will
+        /// return an error.</para><para>If you remove this configuration by setting this to <c>true</c>, then all IP addresses
+        /// and VPC endpoints will be allowed. Standard Grafana authentication and authorization
         /// will still be required.</para>
         /// </para>
         /// </summary>
@@ -137,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter RemoveVpcConfiguration
         /// <summary>
         /// <para>
-        /// <para>Whether to remove the VPC configuration from the workspace.</para><para>Setting this to <code>true</code> and providing a <code>vpcConfiguration</code> to
-        /// set will return an error.</para>
+        /// <para>Whether to remove the VPC configuration from the workspace.</para><para>Setting this to <c>true</c> and providing a <c>vpcConfiguration</c> to set will return
+        /// an error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,12 +183,12 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <summary>
         /// <para>
         /// <para>An array of Amazon VPC endpoint IDs for the workspace. You can create VPC endpoints
-        /// to your Amazon Managed Grafana workspace for access from within a VPC. If a <code>NetworkAccessConfiguration</code>
+        /// to your Amazon Managed Grafana workspace for access from within a VPC. If a <c>NetworkAccessConfiguration</c>
         /// is specified then only VPC endpoints specified here are allowed to access the workspace.
-        /// If you pass in an empty array of strings, then no VPCs are allowed to access the workspace.</para><para>VPC endpoint IDs have the format <code>vpce-<i>1a2b3c4d</i></code>.</para><para>For more information about creating an interface VPC endpoint, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/VPC-endpoints">Interface
+        /// If you pass in an empty array of strings, then no VPCs are allowed to access the workspace.</para><para>VPC endpoint IDs have the format <c>vpce-<i>1a2b3c4d</i></c>.</para><para>For more information about creating an interface VPC endpoint, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/VPC-endpoints">Interface
         /// VPC endpoints</a> in the <i>Amazon Managed Grafana User Guide</i>.</para><note><para>The only VPC endpoints that can be specified here are interface VPC endpoints for
-        /// Grafana workspaces (using the <code>com.amazonaws.[region].grafana-workspace</code>
-        /// service endpoint). Other VPC endpoints are ignored.</para></note>
+        /// Grafana workspaces (using the <c>com.amazonaws.[region].grafana-workspace</c> service
+        /// endpoint). Other VPC endpoints are ignored.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <para>
         /// <para>Specifies an IAM role that grants permissions to Amazon Web Services resources that
         /// the workspace accesses, such as data sources and notification channels. If this workspace
-        /// has <code>permissionType</code><code>CUSTOMER_MANAGED</code>, then this role is required.</para>
+        /// has <c>permissionType</c><c>CUSTOMER_MANAGED</c>, then this role is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

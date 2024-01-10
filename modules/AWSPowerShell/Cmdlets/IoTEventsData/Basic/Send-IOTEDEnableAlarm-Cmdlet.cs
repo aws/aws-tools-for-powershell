@@ -28,8 +28,8 @@ using Amazon.IoTEventsData.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTED
 {
     /// <summary>
-    /// Enables one or more alarms. The alarms change to the <code>NORMAL</code> state after
-    /// you enable them.
+    /// Enables one or more alarms. The alarms change to the <c>NORMAL</c> state after you
+    /// enable them.
     /// </summary>
     [Cmdlet("Send", "IOTEDEnableAlarm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTEventsData.Model.BatchAlarmActionErrorEntry")]

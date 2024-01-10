@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
     /// Update the list of tags applied to an AWS Elastic Beanstalk resource. Two lists can
-    /// be passed: <code>TagsToAdd</code> for tags to add or update, and <code>TagsToRemove</code>.
+    /// be passed: <c>TagsToAdd</c> for tags to add or update, and <c>TagsToRemove</c>.
     /// 
     ///  
     /// <para>
@@ -40,11 +40,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// If you create a custom IAM user policy to control permission to this operation, specify
     /// one of the following two virtual actions (or both) instead of the API operation name:
     /// </para><dl><dt>elasticbeanstalk:AddTags</dt><dd><para>
-    /// Controls permission to call <code>UpdateTagsForResource</code> and pass a list of
-    /// tags to add in the <code>TagsToAdd</code> parameter.
+    /// Controls permission to call <c>UpdateTagsForResource</c> and pass a list of tags to
+    /// add in the <c>TagsToAdd</c> parameter.
     /// </para></dd><dt>elasticbeanstalk:RemoveTags</dt><dd><para>
-    /// Controls permission to call <code>UpdateTagsForResource</code> and pass a list of
-    /// tag keys to remove in the <code>TagsToRemove</code> parameter.
+    /// Controls permission to call <c>UpdateTagsForResource</c> and pass a list of tag keys
+    /// to remove in the <c>TagsToRemove</c> parameter.
     /// </para></dd></dl><para>
     /// For details about creating a custom user policy, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#AWSHowTo.iam.policies">Creating
     /// a Custom User Policy</a>.
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>A list of tags to add or update. If a key of an existing tag is added, the tag's value
-        /// is updated.</para><para>Specify at least one of these parameters: <code>TagsToAdd</code>, <code>TagsToRemove</code>.</para>
+        /// is updated.</para><para>Specify at least one of these parameters: <c>TagsToAdd</c>, <c>TagsToRemove</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter TagsToRemove
         /// <summary>
         /// <para>
-        /// <para>A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored.</para><para>Specify at least one of these parameters: <code>TagsToAdd</code>, <code>TagsToRemove</code>.</para>
+        /// <para>A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored.</para><para>Specify at least one of these parameters: <c>TagsToAdd</c>, <c>TagsToRemove</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

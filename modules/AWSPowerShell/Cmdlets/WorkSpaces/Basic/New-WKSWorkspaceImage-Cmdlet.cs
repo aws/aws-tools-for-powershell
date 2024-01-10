@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>
         /// <para>The tags that you want to add to the new WorkSpace image. To add tags when you're
         /// creating the image, you must create an IAM policy that grants your IAM user permission
-        /// to use <code>workspaces:CreateTags</code>.</para>
+        /// to use <c>workspaces:CreateTags</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

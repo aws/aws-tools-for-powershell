@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>The maximum number of instances that you want Cloud Map to return in the response
-        /// to a <code>ListInstances</code> request. If you don't specify a value for <code>MaxResults</code>,
+        /// to a <c>ListInstances</c> request. If you don't specify a value for <c>MaxResults</c>,
         /// Cloud Map returns up to 100 instances.</para>
         /// </para>
         /// <para>
@@ -81,10 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>For the first <code>ListInstances</code> request, omit this value.</para><para>If more than <code>MaxResults</code> instances match the specified criteria, you can
-        /// submit another <code>ListInstances</code> request to get the next group of results.
-        /// Specify the value of <code>NextToken</code> from the previous response in the next
-        /// request.</para>
+        /// <para>For the first <c>ListInstances</c> request, omit this value.</para><para>If more than <c>MaxResults</c> instances match the specified criteria, you can submit
+        /// another <c>ListInstances</c> request to get the next group of results. Specify the
+        /// value of <c>NextToken</c> from the previous response in the next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

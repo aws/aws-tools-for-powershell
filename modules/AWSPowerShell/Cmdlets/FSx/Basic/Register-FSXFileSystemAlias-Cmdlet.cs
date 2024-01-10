@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>An array of one or more DNS alias names to associate with the file system. The alias
-        /// name has to comply with the following formatting requirements:</para><ul><li><para>Formatted as a fully-qualified domain name (FQDN), <i><code>hostname.domain</code></i>, for example, <code>accounting.corp.example.com</code>.</para></li><li><para>Can contain alphanumeric characters and the hyphen (-).</para></li><li><para>Cannot start or end with a hyphen.</para></li><li><para>Can start with a numeric.</para></li></ul><para>For DNS alias names, Amazon FSx stores alphabetic characters as lowercase letters
+        /// name has to comply with the following formatting requirements:</para><ul><li><para>Formatted as a fully-qualified domain name (FQDN), <i><c>hostname.domain</c></i>,
+        /// for example, <c>accounting.corp.example.com</c>.</para></li><li><para>Can contain alphanumeric characters and the hyphen (-).</para></li><li><para>Cannot start or end with a hyphen.</para></li><li><para>Can start with a numeric.</para></li></ul><para>For DNS alias names, Amazon FSx stores alphabetic characters as lowercase letters
         /// (a-z), regardless of how you specify them: as uppercase letters, lowercase letters,
         /// or the corresponding letters in escape codes.</para>
         /// </para>

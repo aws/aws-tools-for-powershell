@@ -55,9 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter EventBridgeEnabled
         /// <summary>
         /// <para>
-        /// <para>Whether to enable position <code>UPDATE</code> events from this tracker to be sent
-        /// to EventBridge.</para><note><para>You do not need enable this feature to get <code>ENTER</code> and <code>EXIT</code>
-        /// events for geofences with this tracker. Those events are always sent to EventBridge.</para></note>
+        /// <para>Whether to enable position <c>UPDATE</c> events from this tracker to be sent to EventBridge.</para><note><para>You do not need enable this feature to get <c>ENTER</c> and <c>EXIT</c> events for
+        /// geofences with this tracker. Those events are always sent to EventBridge.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,14 +66,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter KmsKeyEnableGeospatialQuery
         /// <summary>
         /// <para>
-        /// <para>Enables <code>GeospatialQueries</code> for a tracker that uses a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon
+        /// <para>Enables <c>GeospatialQueries</c> for a tracker that uses a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon
         /// Web Services KMS customer managed key</a>.</para><para>This parameter is only used if you are using a KMS customer managed key.</para><note><para>If you wish to encrypt your data using your own KMS customer managed key, then the
         /// Bounding Polygon Queries feature will be disabled by default. This is because by using
         /// this feature, a representation of your device positions will not be encrypted using
         /// the your KMS managed key. The exact device position, however; is still encrypted using
         /// your managed key.</para><para>You can choose to opt-in to the Bounding Polygon Quseries feature. This is done by
-        /// setting the <code>KmsKeyEnableGeospatialQueries</code> parameter to true when creating
-        /// or updating a Tracker.</para></note>
+        /// setting the <c>KmsKeyEnableGeospatialQueries</c> parameter to true when creating or
+        /// updating a Tracker.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,20 +96,20 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PositionFiltering
         /// <summary>
         /// <para>
-        /// <para>Specifies the position filtering for the tracker resource.</para><para>Valid values:</para><ul><li><para><code>TimeBased</code> - Location updates are evaluated against linked geofence collections,
+        /// <para>Specifies the position filtering for the tracker resource.</para><para>Valid values:</para><ul><li><para><c>TimeBased</c> - Location updates are evaluated against linked geofence collections,
         /// but not every location update is stored. If your update frequency is more often than
-        /// 30 seconds, only one update per 30 seconds is stored for each unique device ID. </para></li><li><para><code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location
+        /// 30 seconds, only one update per 30 seconds is stored for each unique device ID. </para></li><li><para><c>DistanceBased</c> - If the device has moved less than 30 m (98.4 ft), location
         /// updates are ignored. Location updates within this area are neither evaluated against
         /// linked geofence collections, nor stored. This helps control costs by reducing the
         /// number of geofence evaluations and historical device positions to paginate through.
         /// Distance-based filtering can also reduce the effects of GPS noise when displaying
-        /// device trajectories on a map. </para></li><li><para><code>AccuracyBased</code> - If the device has moved less than the measured accuracy,
-        /// location updates are ignored. For example, if two consecutive updates from a device
-        /// have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device
-        /// has moved less than 15 m. Ignored location updates are neither evaluated against linked
+        /// device trajectories on a map. </para></li><li><para><c>AccuracyBased</c> - If the device has moved less than the measured accuracy, location
+        /// updates are ignored. For example, if two consecutive updates from a device have a
+        /// horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has
+        /// moved less than 15 m. Ignored location updates are neither evaluated against linked
         /// geofence collections, nor stored. This can reduce the effects of GPS noise when displaying
         /// device trajectories on a map, and can help control your costs by reducing the number
-        /// of geofence evaluations. </para></li></ul><para>This field is optional. If not specified, the default value is <code>TimeBased</code>.</para>
+        /// of geofence evaluations. </para></li></ul><para>This field is optional. If not specified, the default value is <c>TimeBased</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Applies one or more tags to the tracker resource. A tag is a key-value pair helps
-        /// manage, identify, search, and filter your resources by labelling them.</para><para>Format: <code>"key" : "value"</code></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource</para></li><li><para>Each resource tag must be unique with a maximum of one value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
+        /// manage, identify, search, and filter your resources by labelling them.</para><para>Format: <c>"key" : "value"</c></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource</para></li><li><para>Each resource tag must be unique with a maximum of one value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
         /// = . _ : / @. </para></li><li><para>Cannot use "aws:" as a prefix for a key.</para></li></ul>
         /// </para>
         /// </summary>
@@ -135,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>The name for the tracker resource.</para><para>Requirements:</para><ul><li><para>Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and
-        /// underscores (_).</para></li><li><para>Must be a unique tracker resource name.</para></li><li><para>No spaces allowed. For example, <code>ExampleTracker</code>.</para></li></ul>
+        /// underscores (_).</para></li><li><para>Must be a unique tracker resource name.</para></li><li><para>No spaces allowed. For example, <c>ExampleTracker</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -152,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</para>
+        /// <para>No longer used. If included, the only allowed value is <c>RequestBasedUsage</c>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

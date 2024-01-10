@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     /// 
     ///  <note><para>
     /// Many streaming client-software libraries automatically reconnect a dropped RTMPS session,
-    /// so to stop the stream permanently, you may want to first revoke the <code>streamKey</code>
+    /// so to stop the stream permanently, you may want to first revoke the <c>streamKey</c>
     /// attached to the channel.
     /// </para></note>
     /// </summary>

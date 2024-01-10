@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter Value
         /// <summary>
         /// <para>
-        /// <para>A list of <code>FieldOption</code> values to filter on for <code>ListFieldOptions</code>.</para>
+        /// <para>A list of <c>FieldOption</c> values to filter on for <c>ListFieldOptions</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

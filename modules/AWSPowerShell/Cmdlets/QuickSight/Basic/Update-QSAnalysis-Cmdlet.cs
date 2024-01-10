@@ -205,8 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The mode of validation for the asset to be created or updated. When you set this value
-        /// to <code>STRICT</code>, strict validation for every error is enforced. When you set
-        /// this value to <code>LENIENT</code>, validation is skipped for specific UI errors.</para>
+        /// to <c>STRICT</c>, strict validation for every error is enforced. When you set this
+        /// value to <c>LENIENT</c>, validation is skipped for specific UI errors.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -294,9 +294,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ScreenCanvasSizeOptions_ResizeOption
         /// <summary>
         /// <para>
-        /// <para>This value determines the layout behavior when the viewport is resized.</para><ul><li><para><code>FIXED</code>: A fixed width will be used when optimizing the layout. In the
-        /// Amazon QuickSight console, this option is called <code>Classic</code>.</para></li><li><para><code>RESPONSIVE</code>: The width of the canvas will be responsive and optimized
-        /// to the view port. In the Amazon QuickSight console, this option is called <code>Tiled</code>.</para></li></ul>
+        /// <para>This value determines the layout behavior when the viewport is resized.</para><ul><li><para><c>FIXED</c>: A fixed width will be used when optimizing the layout. In the Amazon
+        /// QuickSight console, this option is called <c>Classic</c>.</para></li><li><para><c>RESPONSIVE</c>: The width of the canvas will be responsive and optimized to the
+        /// view port. In the Amazon QuickSight console, this option is called <c>Tiled</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -331,7 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Definition_Sheet
         /// <summary>
         /// <para>
-        /// <para>An array of sheet definitions for an analysis. Each <code>SheetDefinition</code> provides
+        /// <para>An array of sheet definitions for an analysis. Each <c>SheetDefinition</c> provides
         /// detailed information about a sheet within this analysis.</para>
         /// </para>
         /// </summary>

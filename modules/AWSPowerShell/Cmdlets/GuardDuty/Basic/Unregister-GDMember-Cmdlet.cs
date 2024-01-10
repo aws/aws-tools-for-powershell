@@ -41,9 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
     /// associated with a member account, the delegated administrator must invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html">DeleteMembers</a>
     /// API. 
     /// </para><para>
-    /// With <code>autoEnableOrganizationMembers</code> configuration for your organization
-    /// set to <code>ALL</code>, you'll receive an error if you attempt to disassociate a
-    /// member account before removing them from your organization.
+    /// With <c>autoEnableOrganizationMembers</c> configuration for your organization set
+    /// to <c>ALL</c>, you'll receive an error if you attempt to disassociate a member account
+    /// before removing them from your organization.
     /// </para>
     /// </summary>
     [Cmdlet("Unregister", "GDMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

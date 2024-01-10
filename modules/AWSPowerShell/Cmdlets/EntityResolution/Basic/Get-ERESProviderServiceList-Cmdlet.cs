@@ -28,8 +28,8 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Returns a list of all the <code>ProviderServices</code> that are available in this
-    /// Amazon Web Services Region.
+    /// Returns a list of all the <c>ProviderServices</c> that are available in this Amazon
+    /// Web Services Region.
     /// </summary>
     [Cmdlet("Get", "ERESProviderServiceList")]
     [OutputType("Amazon.EntityResolution.Model.ProviderServiceSummary")]

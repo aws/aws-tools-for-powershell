@@ -52,9 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.S3O
         /// <summary>
         /// <para>
         /// <para>The type of access for the network connectivity for the Amazon S3 on Outposts endpoint.
-        /// To use the Amazon Web Services VPC, choose <code>Private</code>. To use the endpoint
-        /// with an on-premises network, choose <code>CustomerOwnedIp</code>. If you choose <code>CustomerOwnedIp</code>,
-        /// you must also provide the customer-owned IP address pool (CoIP pool).</para><note><para><code>Private</code> is the default access type value.</para></note>
+        /// To use the Amazon Web Services VPC, choose <c>Private</c>. To use the endpoint with
+        /// an on-premises network, choose <c>CustomerOwnedIp</c>. If you choose <c>CustomerOwnedIp</c>,
+        /// you must also provide the customer-owned IP address pool (CoIP pool).</para><note><para><c>Private</c> is the default access type value.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

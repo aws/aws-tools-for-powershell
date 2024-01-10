@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Specifies whether the destination snapshot of the imported image should be encrypted.
         /// The default KMS key for EBS is used unless you specify a non-default KMS key using
-        /// <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+        /// <c>KmsKeyId</c>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
         /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DiskContainer_Format
         /// <summary>
         /// <para>
-        /// <para>The format of the disk image being imported.</para><para>Valid values: <code>VHD</code> | <code>VMDK</code> | <code>RAW</code></para>
+        /// <para>The format of the disk image being imported.</para><para>Valid values: <c>VHD</c> | <c>VMDK</c> | <c>RAW</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,15 +109,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>An identifier for the symmetric KMS key to use when creating the encrypted snapshot.
         /// This parameter is only required if you want to use a non-default KMS key; if this
-        /// parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code>
-        /// is specified, the <code>Encrypted</code> flag must also be set. </para><para>The KMS key identifier may be provided in any of the following formats: </para><ul><li><para>Key ID</para></li><li><para>Key alias</para></li><li><para>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed
+        /// parameter is not specified, the default KMS key for EBS is used. If a <c>KmsKeyId</c>
+        /// is specified, the <c>Encrypted</c> flag must also be set. </para><para>The KMS key identifier may be provided in any of the following formats: </para><ul><li><para>Key ID</para></li><li><para>Key alias</para></li><li><para>ARN using key ID. The ID ARN contains the <c>arn:aws:kms</c> namespace, followed by
+        /// the Region of the key, the Amazon Web Services account ID of the key owner, the <c>key</c>
+        /// namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</para></li><li><para>ARN using key alias. The alias ARN contains the <c>arn:aws:kms</c> namespace, followed
         /// by the Region of the key, the Amazon Web Services account ID of the key owner, the
-        /// <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</para></li><li><para>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace,
-        /// followed by the Region of the key, the Amazon Web Services account ID of the key owner,
-        /// the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.
-        /// </para></li></ul><para>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the
-        /// action you call may appear to complete even though you provided an invalid identifier.
-        /// This action will eventually report failure. </para><para>The specified KMS key must exist in the Region that the snapshot is being copied to.</para><para>Amazon EBS does not support asymmetric KMS keys.</para>
+        /// <c>alias</c> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.
+        /// </para></li></ul><para>Amazon Web Services parses <c>KmsKeyId</c> asynchronously, meaning that the action
+        /// you call may appear to complete even though you provided an invalid identifier. This
+        /// action will eventually report failure. </para><para>The specified KMS key must exist in the Region that the snapshot is being copied to.</para><para>Amazon EBS does not support asymmetric KMS keys.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

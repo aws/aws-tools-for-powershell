@@ -34,9 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// Cost Categories, and nested expressions. For any time period, you can filter data
     /// for Savings Plans usage with the following dimensions:
     /// 
-    ///  <ul><li><para><code>LINKED_ACCOUNT</code></para></li><li><para><code>REGION</code></para></li><li><para><code>SERVICE</code></para></li><li><para><code>INSTANCE_FAMILY</code></para></li></ul><para>
-    /// To determine valid values for a dimension, use the <code>GetDimensionValues</code>
-    /// operation.
+    ///  <ul><li><para><c>LINKED_ACCOUNT</c></para></li><li><para><c>REGION</c></para></li><li><para><c>SERVICE</c></para></li><li><para><c>INSTANCE_FAMILY</c></para></li></ul><para>
+    /// To determine valid values for a dimension, use the <c>GetDimensionValues</c> operation.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CESavingsPlansCoverage")]
@@ -55,9 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>Filters Savings Plans coverage data by dimensions. You can filter data for Savings
-        /// Plans usage with the following dimensions:</para><ul><li><para><code>LINKED_ACCOUNT</code></para></li><li><para><code>REGION</code></para></li><li><para><code>SERVICE</code></para></li><li><para><code>INSTANCE_FAMILY</code></para></li></ul><para><code>GetSavingsPlansCoverage</code> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
-        /// object as the other operations, but only <code>AND</code> is supported among each
-        /// dimension. If there are multiple values for a dimension, they are OR'd together.</para><para>Cost category is also supported.</para>
+        /// Plans usage with the following dimensions:</para><ul><li><para><c>LINKED_ACCOUNT</c></para></li><li><para><c>REGION</c></para></li><li><para><c>SERVICE</c></para></li><li><para><c>INSTANCE_FAMILY</c></para></li></ul><para><c>GetSavingsPlansCoverage</c> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
+        /// object as the other operations, but only <c>AND</c> is supported among each dimension.
+        /// If there are multiple values for a dimension, they are OR'd together.</para><para>Cost category is also supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Granularity
         /// <summary>
         /// <para>
-        /// <para>The granularity of the Amazon Web Services cost data for your Savings Plans. <code>Granularity</code>
-        /// can't be set if <code>GroupBy</code> is set.</para><para>The <code>GetSavingsPlansCoverage</code> operation supports only <code>DAILY</code>
-        /// and <code>MONTHLY</code> granularities.</para>
+        /// <para>The granularity of the Amazon Web Services cost data for your Savings Plans. <c>Granularity</c>
+        /// can't be set if <c>GroupBy</c> is set.</para><para>The <c>GetSavingsPlansCoverage</c> operation supports only <c>DAILY</c> and <c>MONTHLY</c>
+        /// granularities.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter GroupBy
         /// <summary>
         /// <para>
-        /// <para>You can group the data using the attributes <code>INSTANCE_FAMILY</code>, <code>REGION</code>,
-        /// or <code>SERVICE</code>.</para>
+        /// <para>You can group the data using the attributes <c>INSTANCE_FAMILY</c>, <c>REGION</c>,
+        /// or <c>SERVICE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>The measurement that you want your Savings Plans coverage reported in. The only valid
-        /// value is <code>SpendCoveredBySavingsPlans</code>.</para>
+        /// value is <c>SpendCoveredBySavingsPlans</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,10 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter TimePeriod
         /// <summary>
         /// <para>
-        /// <para>The time period that you want the usage and costs for. The <code>Start</code> date
-        /// must be within 13 months. The <code>End</code> date must be after the <code>Start</code>
-        /// date, and before the current date. Future dates can't be used as an <code>End</code>
-        /// date.</para>
+        /// <para>The time period that you want the usage and costs for. The <c>Start</c> date must
+        /// be within 13 months. The <c>End</c> date must be after the <c>Start</c> date, and
+        /// before the current date. Future dates can't be used as an <c>End</c> date.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The number of items to be returned in a response. The default is <code>20</code>,
-        /// with a minimum value of <code>1</code>.</para>
+        /// <para>The number of items to be returned in a response. The default is <c>20</c>, with a
+        /// minimum value of <c>1</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

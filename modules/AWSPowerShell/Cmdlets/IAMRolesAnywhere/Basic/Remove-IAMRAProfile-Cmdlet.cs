@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// Deletes a profile.
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:DeleteProfile</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:DeleteProfile</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IAMRAProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

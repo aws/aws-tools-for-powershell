@@ -47,10 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         /// <para>
         /// <para>An activation option for your grant that determines the behavior of activating a grant.
         /// Activation options can only be used with granted licenses sourced from the Amazon
-        /// Web Services Marketplace. Additionally, the operation must specify the value of <code>ACTIVE</code>
-        /// for the <code>Status</code> parameter.</para><ul><li><para>As a license administrator, you can optionally specify an <code>ActivationOverrideBehavior</code>
-        /// when activating a grant.</para></li><li><para>As a grantor, you can optionally specify an <code>ActivationOverrideBehavior</code>
-        /// when you activate a grant for a grantee account in your organization.</para></li><li><para>As a grantee, if the grantor creating the distributed grant doesn’t specify an <code>ActivationOverrideBehavior</code>,
+        /// Web Services Marketplace. Additionally, the operation must specify the value of <c>ACTIVE</c>
+        /// for the <c>Status</c> parameter.</para><ul><li><para>As a license administrator, you can optionally specify an <c>ActivationOverrideBehavior</c>
+        /// when activating a grant.</para></li><li><para>As a grantor, you can optionally specify an <c>ActivationOverrideBehavior</c> when
+        /// you activate a grant for a grantee account in your organization.</para></li><li><para>As a grantee, if the grantor creating the distributed grant doesn’t specify an <c>ActivationOverrideBehavior</c>,
         /// you can optionally specify one when you are activating the grant.</para></li></ul><dl><dt>DISTRIBUTED_GRANTS_ONLY</dt><dd><para>Use this value to activate a grant without replacing any member account’s active grants
         /// for the same product.</para></dd><dt>ALL_GRANTS_PERMITTED_BY_ISSUER</dt><dd><para>Use this value to activate a grant and disable other active grants in any member accounts
         /// for the same product. This action will also replace their previously activated grants

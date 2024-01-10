@@ -28,8 +28,8 @@ using Amazon.CloudHSMV2.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM2
 {
     /// <summary>
-    /// Restores a specified AWS CloudHSM backup that is in the <code>PENDING_DELETION</code>
-    /// state. For mor information on deleting a backup, see <a>DeleteBackup</a>.
+    /// Restores a specified AWS CloudHSM backup that is in the <c>PENDING_DELETION</c> state.
+    /// For mor information on deleting a backup, see <a>DeleteBackup</a>.
     /// </summary>
     [Cmdlet("Restore", "HSM2Backup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudHSMV2.Model.Backup")]

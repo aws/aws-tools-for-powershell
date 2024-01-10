@@ -164,8 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>A token that you provide to identify the request to create a thesaurus. Multiple calls
-        /// to the <code>CreateThesaurus</code> API with the same client token will create only
-        /// one thesaurus. </para>
+        /// to the <c>CreateThesaurus</c> API with the same client token will create only one
+        /// thesaurus. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

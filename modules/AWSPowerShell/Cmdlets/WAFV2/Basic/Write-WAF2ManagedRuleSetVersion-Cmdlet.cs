@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// Web Services and Amazon Web Services Marketplace sellers. 
     /// </para><para>
     /// Vendors, you can use the managed rule set APIs to provide controlled rollout of your
-    /// versioned managed rule group offerings for your customers. The APIs are <code>ListManagedRuleSets</code>,
-    /// <code>GetManagedRuleSet</code>, <code>PutManagedRuleSetVersions</code>, and <code>UpdateManagedRuleSetVersionExpiryDate</code>.
+    /// versioned managed rule group offerings for your customers. The APIs are <c>ListManagedRuleSets</c>,
+    /// <c>GetManagedRuleSet</c>, <c>PutManagedRuleSetVersions</c>, and <c>UpdateManagedRuleSetVersionExpiryDate</c>.
     /// </para></note><para>
     /// Customers retrieve their managed rule group list by calling <a>ListAvailableManagedRuleGroups</a>.
     /// The name that you provide here for your managed rule set is the name the customer
@@ -65,8 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the managed rule set. The ID is returned in the responses
-        /// to commands like <code>list</code>. You provide it to operations like <code>get</code>
-        /// and <code>update</code>.</para>
+        /// to commands like <c>list</c>. You provide it to operations like <c>get</c> and <c>update</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,14 +82,13 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter LockToken
         /// <summary>
         /// <para>
-        /// <para>A token used for optimistic locking. WAF returns a token to your <code>get</code>
-        /// and <code>list</code> requests, to mark the state of the entity at the time of the
-        /// request. To make changes to the entity associated with the token, you provide the
-        /// token to operations like <code>update</code> and <code>delete</code>. WAF uses the
-        /// token to ensure that no changes have been made to the entity since you last retrieved
-        /// it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>.
-        /// If this happens, perform another <code>get</code>, and use the new token returned
-        /// by that operation. </para>
+        /// <para>A token used for optimistic locking. WAF returns a token to your <c>get</c> and <c>list</c>
+        /// requests, to mark the state of the entity at the time of the request. To make changes
+        /// to the entity associated with the token, you provide the token to operations like
+        /// <c>update</c> and <c>delete</c>. WAF uses the token to ensure that no changes have
+        /// been made to the entity since you last retrieved it. If a change has been made, the
+        /// update fails with a <c>WAFOptimisticLockException</c>. If this happens, perform another
+        /// <c>get</c>, and use the new token returned by that operation. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -141,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// application. A regional application can be an Application Load Balancer (ALB), an
         /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
         /// an App Runner service, or an Amazon Web Services Verified Access instance. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
-        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
-        /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
+        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <c>--scope=CLOUDFRONT
+        /// --region=us-east-1</c>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

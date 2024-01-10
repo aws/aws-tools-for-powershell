@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  
     /// <para>
-    /// To list a resource's tags, use the <code>ListTags</code> API. 
+    /// To list a resource's tags, use the <c>ListTags</c> API. 
     /// </para><note><para>
     /// When you call this API to delete tags from a hyperparameter tuning job, the deleted
     /// tags are not removed from training jobs that the hyperparameter tuning job launched

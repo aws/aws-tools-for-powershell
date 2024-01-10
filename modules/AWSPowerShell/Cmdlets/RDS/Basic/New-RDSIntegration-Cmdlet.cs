@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>An optional set of non-secret key–value pairs that contains additional contextual
         /// information about the data. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-        /// context</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</para><para>You can only include this parameter if you specify the <code>KMSKeyId</code> parameter.</para>
+        /// context</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</para><para>You can only include this parameter if you specify the <c>KMSKeyId</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3
     /// Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><note><para>
-    /// To use this action, you must have permission to perform the <code>s3:PutStorageLensConfiguration</code>
+    /// To use this action, you must have permission to perform the <c>s3:PutStorageLensConfiguration</c>
     /// action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting
     /// permissions to use Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></note>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>A container for the Amazon Resource Name (ARN) of the Amazon Web Services organization.
-        /// This property is read-only and follows the following format: <code> arn:aws:organizations:<i>us-east-1</i>:<i>example-account-id</i>:organization/<i>o-ex2l495dck</i></code></para>
+        /// This property is read-only and follows the following format: <c> arn:aws:organizations:<i>us-east-1</i>:<i>example-account-id</i>:organization/<i>o-ex2l495dck</i></c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the bucket. This property is read-only and follows
-        /// the following format: <code> arn:aws:s3:<i>us-east-1</i>:<i>example-account-id</i>:bucket/<i>your-destination-bucket-name</i></code></para>
+        /// the following format: <c> arn:aws:s3:<i>us-east-1</i>:<i>example-account-id</i>:bucket/<i>your-destination-bucket-name</i></c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -308,8 +308,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>A container that indicates whether CloudWatch publishing for S3 Storage Lens metrics
-        /// is enabled. A value of <code>true</code> indicates that CloudWatch publishing for
-        /// S3 Storage Lens metrics is enabled.</para>
+        /// is enabled. A value of <c>true</c> indicates that CloudWatch publishing for S3 Storage
+        /// Lens metrics is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -337,7 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>A container for the ARN of the SSE-KMS encryption. This property is read-only and
-        /// follows the following format: <code> arn:aws:kms:<i>us-east-1</i>:<i>example-account-id</i>:key/<i>example-9a73-4afc-8d29-8f5900cef44e</i></code></para>
+        /// follows the following format: <c> arn:aws:kms:<i>us-east-1</i>:<i>example-account-id</i>:key/<i>example-9a73-4afc-8d29-8f5900cef44e</i></c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -359,7 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter SelectionCriteria_MinStorageBytesPercentage
         /// <summary>
         /// <para>
-        /// <para>The minimum number of storage bytes percentage whose metrics will be selected.</para><note><para>You must choose a value greater than or equal to <code>1.0</code>.</para></note>
+        /// <para>The minimum number of storage bytes percentage whose metrics will be selected.</para><note><para>You must choose a value greater than or equal to <c>1.0</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -427,7 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the S3 Storage Lens configuration. This property
-        /// is read-only and follows the following format: <code> arn:aws:s3:<i>us-east-1</i>:<i>example-account-id</i>:storage-lens/<i>your-dashboard-name</i></code></para>
+        /// is read-only and follows the following format: <c> arn:aws:s3:<i>us-east-1</i>:<i>example-account-id</i>:storage-lens/<i>your-dashboard-name</i></c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <para>
     /// Aurora Serverless v1 scales seamlessly based on the workload on the DB cluster. In
     /// some cases, the capacity might not scale fast enough to meet a sudden change in workload,
-    /// such as a large number of new transactions. Call <code>ModifyCurrentDBClusterCapacity</code>
+    /// such as a large number of new transactions. Call <c>ModifyCurrentDBClusterCapacity</c>
     /// to set the capacity explicitly.
     /// </para><para>
     /// After this call sets the DB cluster capacity, Aurora Serverless v1 can automatically
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// For more information about Aurora Serverless v1, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using
     /// Amazon Aurora Serverless v1</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para><important><para>
-    /// If you call <code>ModifyCurrentDBClusterCapacity</code> with the default <code>TimeoutAction</code>,
+    /// If you call <c>ModifyCurrentDBClusterCapacity</c> with the default <c>TimeoutAction</c>,
     /// connections that prevent Aurora Serverless v1 from finding a scaling point might be
     /// dropped. For more information about scaling points, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling">
     /// Autoscaling for Aurora Serverless v1</a> in the <i>Amazon Aurora User Guide</i>.
@@ -67,10 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The DB cluster capacity.</para><para>When you change the capacity of a paused Aurora Serverless v1 DB cluster, it automatically
-        /// resumes.</para><para>Constraints:</para><ul><li><para>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>,
-        /// <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>,
-        /// and <code>256</code>.</para></li><li><para>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>,
-        /// <code>16</code>, <code>32</code>, <code>64</code>, <code>192</code>, and <code>384</code>.</para></li></ul>
+        /// resumes.</para><para>Constraints:</para><ul><li><para>For Aurora MySQL, valid capacity values are <c>1</c>, <c>2</c>, <c>4</c>, <c>8</c>,
+        /// <c>16</c>, <c>32</c>, <c>64</c>, <c>128</c>, and <c>256</c>.</para></li><li><para>For Aurora PostgreSQL, valid capacity values are <c>2</c>, <c>4</c>, <c>8</c>, <c>16</c>,
+        /// <c>32</c>, <c>64</c>, <c>192</c>, and <c>384</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,10 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TimeoutAction
         /// <summary>
         /// <para>
-        /// <para>The action to take when the timeout is reached, either <code>ForceApplyCapacityChange</code>
-        /// or <code>RollbackCapacityChange</code>.</para><para><code>ForceApplyCapacityChange</code>, the default, sets the capacity to the specified
-        /// value as soon as possible.</para><para><code>RollbackCapacityChange</code> ignores the capacity change if a scaling point
-        /// isn't found in the timeout period.</para>
+        /// <para>The action to take when the timeout is reached, either <c>ForceApplyCapacityChange</c>
+        /// or <c>RollbackCapacityChange</c>.</para><para><c>ForceApplyCapacityChange</c>, the default, sets the capacity to the specified
+        /// value as soon as possible.</para><para><c>RollbackCapacityChange</c> ignores the capacity change if a scaling point isn't
+        /// found in the timeout period.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

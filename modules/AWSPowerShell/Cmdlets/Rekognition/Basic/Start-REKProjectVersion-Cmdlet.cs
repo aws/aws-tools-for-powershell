@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// You are charged for the amount of time that the model is running. To stop a running
     /// model, call <a>StopProjectVersion</a>.
     /// </para></note><para>
-    /// This operation requires permissions to perform the <code>rekognition:StartProjectVersion</code>
+    /// This operation requires permissions to perform the <c>rekognition:StartProjectVersion</c>
     /// action.
     /// </para>
     /// </summary>

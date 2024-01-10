@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <summary>
         /// <para>
         /// <para>Defines what kind of action can be taken in the stage. The following are the valid
-        /// values:</para><ul><li><para><code>Source</code></para></li><li><para><code>Build</code></para></li><li><para><code>Test</code></para></li><li><para><code>Deploy</code></para></li><li><para><code>Approval</code></para></li><li><para><code>Invoke</code></para></li></ul>
+        /// values:</para><ul><li><para><c>Source</c></para></li><li><para><c>Build</c></para></li><li><para><c>Test</c></para></li><li><para><c>Deploy</c></para></li><li><para><c>Approval</c></para></li><li><para><c>Invoke</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <summary>
         /// <para>
         /// <para>The creator of an action type that was created with any supported integration model.
-        /// There are two valid values: <code>AWS</code> and <code>ThirdParty</code>.</para>
+        /// There are two valid values: <c>AWS</c> and <c>ThirdParty</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     ///  
     /// <para>
     /// You can also create a reusable delegation set that uses the four name servers that
-    /// are associated with an existing hosted zone. Specify the hosted zone ID in the <code>CreateReusableDelegationSet</code>
+    /// are associated with an existing hosted zone. Specify the hosted zone ID in the <c>CreateReusableDelegationSet</c>
     /// request.
     /// </para><note><para>
     /// You can't associate a reusable delegation set with a private hosted zone.
@@ -90,10 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter CallerReference
         /// <summary>
         /// <para>
-        /// <para>A unique string that identifies the request, and that allows you to retry failed <code>CreateReusableDelegationSet</code>
+        /// <para>A unique string that identifies the request, and that allows you to retry failed <c>CreateReusableDelegationSet</c>
         /// requests without the risk of executing the operation twice. You must use a unique
-        /// <code>CallerReference</code> string every time you submit a <code>CreateReusableDelegationSet</code>
-        /// request. <code>CallerReference</code> can be any unique string, for example a date/time
+        /// <c>CallerReference</c> string every time you submit a <c>CreateReusableDelegationSet</c>
+        /// request. <c>CallerReference</c> can be any unique string, for example a date/time
         /// stamp.</para>
         /// </para>
         /// </summary>

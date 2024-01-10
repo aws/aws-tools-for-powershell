@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>A map that defines the stage variables for the Stage resource that is associated with
         /// the new deployment. Variable names can have alphanumeric and underscore characters,
-        /// and the values must match <code>[A-Za-z0-9-._~:/?#&amp;=,]+</code>.</para>
+        /// and the values must match <c>[A-Za-z0-9-._~:/?#&amp;=,]+</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

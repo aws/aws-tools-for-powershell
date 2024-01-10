@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>Specifies the strategy to use in launching On-Demand instance fleets. Currently, the
-        /// only option is <code>lowest-price</code> (the default), which launches the lowest
-        /// price first.</para>
+        /// only option is <c>lowest-price</c> (the default), which launches the lowest price
+        /// first.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,12 +63,12 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter SpotSpecification_AllocationStrategy
         /// <summary>
         /// <para>
-        /// <para>Specifies one of the following strategies to launch Spot Instance fleets: <code>price-capacity-optimized</code>,
-        /// <code>capacity-optimized</code>, <code>lowest-price</code>, or <code>diversified</code>.
-        /// For more information on the provisioning strategies, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html">Allocation
+        /// <para>Specifies one of the following strategies to launch Spot Instance fleets: <c>price-capacity-optimized</c>,
+        /// <c>capacity-optimized</c>, <c>lowest-price</c>, or <c>diversified</c>. For more information
+        /// on the provisioning strategies, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html">Allocation
         /// strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><note><para>When you launch a Spot Instance fleet with the old console, it automatically launches
-        /// with the <code>capacity-optimized</code> strategy. You can't change the allocation
-        /// strategy from the old console.</para></note>
+        /// with the <c>capacity-optimized</c> strategy. You can't change the allocation strategy
+        /// from the old console.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,9 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter CapacityReservationOptions_CapacityReservationPreference
         /// <summary>
         /// <para>
-        /// <para>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</para><ul><li><para><code>open</code> - The instance can run in any open Capacity Reservation that has
-        /// matching attributes (instance type, platform, Availability Zone).</para></li><li><para><code>none</code> - The instance avoids running in a Capacity Reservation even if
-        /// one is available. The instance runs as an On-Demand Instance.</para></li></ul>
+        /// <para>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</para><ul><li><para><c>open</c> - The instance can run in any open Capacity Reservation that has matching
+        /// attributes (instance type, platform, Availability Zone).</para></li><li><para><c>none</c> - The instance avoids running in a Capacity Reservation even if one is
+        /// available. The instance runs as an On-Demand Instance.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,17 +184,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>The target capacity of On-Demand units for the instance fleet, which determines how
         /// many On-Demand Instances to provision. When the instance fleet launches, Amazon EMR
         /// tries to provision On-Demand Instances as specified by <a>InstanceTypeConfig</a>.
-        /// Each instance configuration has a specified <code>WeightedCapacity</code>. When an
-        /// On-Demand Instance is provisioned, the <code>WeightedCapacity</code> units count toward
-        /// the target capacity. Amazon EMR provisions instances until the target capacity is
-        /// totally fulfilled, even if this results in an overage. For example, if there are 2
-        /// units remaining to fulfill capacity, and Amazon EMR can only provision an instance
-        /// with a <code>WeightedCapacity</code> of 5 units, the instance is provisioned, and
-        /// the target capacity is exceeded by 3 units.</para><note><para>If not specified or set to 0, only Spot Instances are provisioned for the instance
-        /// fleet using <code>TargetSpotCapacity</code>. At least one of <code>TargetSpotCapacity</code>
-        /// and <code>TargetOnDemandCapacity</code> should be greater than 0. For a master instance
-        /// fleet, only one of <code>TargetSpotCapacity</code> and <code>TargetOnDemandCapacity</code>
-        /// can be specified, and its value must be 1.</para></note>
+        /// Each instance configuration has a specified <c>WeightedCapacity</c>. When an On-Demand
+        /// Instance is provisioned, the <c>WeightedCapacity</c> units count toward the target
+        /// capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled,
+        /// even if this results in an overage. For example, if there are 2 units remaining to
+        /// fulfill capacity, and Amazon EMR can only provision an instance with a <c>WeightedCapacity</c>
+        /// of 5 units, the instance is provisioned, and the target capacity is exceeded by 3
+        /// units.</para><note><para>If not specified or set to 0, only Spot Instances are provisioned for the instance
+        /// fleet using <c>TargetSpotCapacity</c>. At least one of <c>TargetSpotCapacity</c> and
+        /// <c>TargetOnDemandCapacity</c> should be greater than 0. For a master instance fleet,
+        /// only one of <c>TargetSpotCapacity</c> and <c>TargetOnDemandCapacity</c> can be specified,
+        /// and its value must be 1.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,16 +207,15 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>The target capacity of Spot units for the instance fleet, which determines how many
         /// Spot Instances to provision. When the instance fleet launches, Amazon EMR tries to
         /// provision Spot Instances as specified by <a>InstanceTypeConfig</a>. Each instance
-        /// configuration has a specified <code>WeightedCapacity</code>. When a Spot Instance
-        /// is provisioned, the <code>WeightedCapacity</code> units count toward the target capacity.
-        /// Amazon EMR provisions instances until the target capacity is totally fulfilled, even
-        /// if this results in an overage. For example, if there are 2 units remaining to fulfill
-        /// capacity, and Amazon EMR can only provision an instance with a <code>WeightedCapacity</code>
-        /// of 5 units, the instance is provisioned, and the target capacity is exceeded by 3
-        /// units.</para><note><para>If not specified or set to 0, only On-Demand Instances are provisioned for the instance
-        /// fleet. At least one of <code>TargetSpotCapacity</code> and <code>TargetOnDemandCapacity</code>
-        /// should be greater than 0. For a master instance fleet, only one of <code>TargetSpotCapacity</code>
-        /// and <code>TargetOnDemandCapacity</code> can be specified, and its value must be 1.</para></note>
+        /// configuration has a specified <c>WeightedCapacity</c>. When a Spot Instance is provisioned,
+        /// the <c>WeightedCapacity</c> units count toward the target capacity. Amazon EMR provisions
+        /// instances until the target capacity is totally fulfilled, even if this results in
+        /// an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon
+        /// EMR can only provision an instance with a <c>WeightedCapacity</c> of 5 units, the
+        /// instance is provisioned, and the target capacity is exceeded by 3 units.</para><note><para>If not specified or set to 0, only On-Demand Instances are provisioned for the instance
+        /// fleet. At least one of <c>TargetSpotCapacity</c> and <c>TargetOnDemandCapacity</c>
+        /// should be greater than 0. For a master instance fleet, only one of <c>TargetSpotCapacity</c>
+        /// and <c>TargetOnDemandCapacity</c> can be specified, and its value must be 1.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -226,12 +225,12 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter SpotSpecification_TimeoutAction
         /// <summary>
         /// <para>
-        /// <para>The action to take when <code>TargetSpotCapacity</code> has not been fulfilled when
-        /// the <code>TimeoutDurationMinutes</code> has expired; that is, when all Spot Instances
-        /// could not be provisioned within the Spot provisioning timeout. Valid values are <code>TERMINATE_CLUSTER</code>
-        /// and <code>SWITCH_TO_ON_DEMAND</code>. SWITCH_TO_ON_DEMAND specifies that if no Spot
-        /// Instances are available, On-Demand Instances should be provisioned to fulfill any
-        /// remaining Spot capacity.</para>
+        /// <para>The action to take when <c>TargetSpotCapacity</c> has not been fulfilled when the
+        /// <c>TimeoutDurationMinutes</c> has expired; that is, when all Spot Instances could
+        /// not be provisioned within the Spot provisioning timeout. Valid values are <c>TERMINATE_CLUSTER</c>
+        /// and <c>SWITCH_TO_ON_DEMAND</c>. SWITCH_TO_ON_DEMAND specifies that if no Spot Instances
+        /// are available, On-Demand Instances should be provisioned to fulfill any remaining
+        /// Spot capacity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,9 +243,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned
-        /// within this time period, the <code>TimeOutAction</code> is taken. Minimum value is
-        /// 5 and maximum value is 1440. The timeout applies only during initial provisioning,
-        /// when the cluster is first created.</para>
+        /// within this time period, the <c>TimeOutAction</c> is taken. Minimum value is 5 and
+        /// maximum value is 1440. The timeout applies only during initial provisioning, when
+        /// the cluster is first created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -290,12 +289,12 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter CapacityReservationOptions_UsageStrategy
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.</para><para>If you specify <code>use-capacity-reservations-first</code>, the fleet uses unused
-        /// Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity.
-        /// If multiple instance pools have unused Capacity Reservations, the On-Demand allocation
-        /// strategy (<code>lowest-price</code>) is applied. If the number of unused Capacity
-        /// Reservations is less than the On-Demand target capacity, the remaining On-Demand target
-        /// capacity is launched according to the On-Demand allocation strategy (<code>lowest-price</code>).</para><para>If you do not specify a value, the fleet fulfills the On-Demand capacity according
+        /// <para>Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.</para><para>If you specify <c>use-capacity-reservations-first</c>, the fleet uses unused Capacity
+        /// Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If
+        /// multiple instance pools have unused Capacity Reservations, the On-Demand allocation
+        /// strategy (<c>lowest-price</c>) is applied. If the number of unused Capacity Reservations
+        /// is less than the On-Demand target capacity, the remaining On-Demand target capacity
+        /// is launched according to the On-Demand allocation strategy (<c>lowest-price</c>).</para><para>If you do not specify a value, the fleet fulfills the On-Demand capacity according
         /// to the chosen On-Demand allocation strategy.</para>
         /// </para>
         /// </summary>

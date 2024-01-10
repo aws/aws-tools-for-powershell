@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         /// <summary>
         /// <para>
         /// <para>Defines the impact to the customers. Providing an impact overwrites the impact provided
-        /// by a response plan.</para><para><b>Supported impact codes</b></para><ul><li><para><code>1</code> - Critical</para></li><li><para><code>2</code> - High</para></li><li><para><code>3</code> - Medium</para></li><li><para><code>4</code> - Low</para></li><li><para><code>5</code> - No Impact</para></li></ul>
+        /// by a response plan.</para><para><b>Supported impact codes</b></para><ul><li><para><c>1</c> - Critical</para></li><li><para><c>2</c> - High</para></li><li><para><c>3</c> - Medium</para></li><li><para><c>4</c> - Low</para></li><li><para><c>5</c> - No Impact</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,9 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         /// <summary>
         /// <para>
         /// <para>Identifies the service that sourced the event. All events sourced from within Amazon
-        /// Web Services begin with "<code>aws.</code>" Customer-generated events can have any
-        /// value here, as long as it doesn't begin with "<code>aws.</code>" We recommend the
-        /// use of Java package-name style reverse domain-name strings. </para>
+        /// Web Services begin with "<c>aws.</c>" Customer-generated events can have any value
+        /// here, as long as it doesn't begin with "<c>aws.</c>" We recommend the use of Java
+        /// package-name style reverse domain-name strings. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

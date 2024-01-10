@@ -35,12 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     ///  
     /// <para>
     /// The number of sync configurations might be too large to return using a single call
-    /// to <code>ListResourceDataSync</code>. You can limit the number of sync configurations
-    /// returned by using the <code>MaxResults</code> parameter. To determine whether there
-    /// are more sync configurations to list, check the value of <code>NextToken</code> in
-    /// the output. If there are more sync configurations to list, you can request them by
-    /// specifying the <code>NextToken</code> returned in the call to the parameter of a subsequent
-    /// call. 
+    /// to <c>ListResourceDataSync</c>. You can limit the number of sync configurations returned
+    /// by using the <c>MaxResults</c> parameter. To determine whether there are more sync
+    /// configurations to list, check the value of <c>NextToken</c> in the output. If there
+    /// are more sync configurations to list, you can request them by specifying the <c>NextToken</c>
+    /// returned in the call to the parameter of a subsequent call. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMResourceDataSync")]
@@ -58,10 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SyncType
         /// <summary>
         /// <para>
-        /// <para>View a list of resource data syncs according to the sync type. Specify <code>SyncToDestination</code>
+        /// <para>View a list of resource data syncs according to the sync type. Specify <c>SyncToDestination</c>
         /// to view resource data syncs that synchronize data to an Amazon S3 bucket. Specify
-        /// <code>SyncFromSource</code> to view resource data syncs from Organizations or from
-        /// multiple Amazon Web Services Regions.</para>
+        /// <c>SyncFromSource</c> to view resource data syncs from Organizations or from multiple
+        /// Amazon Web Services Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

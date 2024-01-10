@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>The type of Neptune ML instance to use for online servicing. The default is <code>ml.m5.xlarge</code>.
+        /// <para>The type of Neptune ML instance to use for online servicing. The default is <c>ml.m5.xlarge</c>.
         /// Choosing the ML instance for an inference endpoint depends on the task type, the graph
         /// size, and your budget.</para>
         /// </para>
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// <summary>
         /// <para>
         /// <para>The job Id of the completed model-training job that has created the model that the
-        /// inference endpoint will point to. You must supply either the <code>mlModelTrainingJobId</code>
-        /// or the <code>mlModelTransformJobId</code>.</para>
+        /// inference endpoint will point to. You must supply either the <c>mlModelTrainingJobId</c>
+        /// or the <c>mlModelTransformJobId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter MlModelTransformJobId
         /// <summary>
         /// <para>
-        /// <para>The job Id of the completed model-transform job. You must supply either the <code>mlModelTrainingJobId</code>
-        /// or the <code>mlModelTransformJobId</code>.</para>
+        /// <para>The job Id of the completed model-transform job. You must supply either the <c>mlModelTrainingJobId</c>
+        /// or the <c>mlModelTransformJobId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,11 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// <summary>
         /// <para>
         /// <para>Model type for training. By default the Neptune ML model is automatically based on
-        /// the <code>modelType</code> used in data processing, but you can specify a different
-        /// model type here. The default is <code>rgcn</code> for heterogeneous graphs and <code>kge</code>
-        /// for knowledge graphs. The only valid value for heterogeneous graphs is <code>rgcn</code>.
-        /// Valid values for knowledge graphs are: <code>kge</code>, <code>transe</code>, <code>distmult</code>,
-        /// and <code>rotate</code>.</para>
+        /// the <c>modelType</c> used in data processing, but you can specify a different model
+        /// type here. The default is <c>rgcn</c> for heterogeneous graphs and <c>kge</c> for
+        /// knowledge graphs. The only valid value for heterogeneous graphs is <c>rgcn</c>. Valid
+        /// values for knowledge graphs are: <c>kge</c>, <c>transe</c>, <c>distmult</c>, and <c>rotate</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,9 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter Update
         /// <summary>
         /// <para>
-        /// <para>If set to <code>true</code>, <code>update</code> indicates that this is an update
-        /// request. The default is <code>false</code>. You must supply either the <code>mlModelTrainingJobId</code>
-        /// or the <code>mlModelTransformJobId</code>.</para>
+        /// <para>If set to <c>true</c>, <c>update</c> indicates that this is an update request. The
+        /// default is <c>false</c>. You must supply either the <c>mlModelTrainingJobId</c> or
+        /// the <c>mlModelTransformJobId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

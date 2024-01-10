@@ -37,12 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// S3 replication on Outposts configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating
     /// objects for S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><note><para>
-    /// It can take a while to propagate <code>PUT</code> or <code>DELETE</code> requests
-    /// for a replication configuration to all S3 on Outposts systems. Therefore, the replication
-    /// configuration that's returned by a <code>GET</code> request soon after a <code>PUT</code>
-    /// or <code>DELETE</code> request might return a more recent result than what's on the
-    /// Outpost. If an Outpost is offline, the delay in updating the replication configuration
-    /// on that Outpost can be significant.
+    /// It can take a while to propagate <c>PUT</c> or <c>DELETE</c> requests for a replication
+    /// configuration to all S3 on Outposts systems. Therefore, the replication configuration
+    /// that's returned by a <c>GET</c> request soon after a <c>PUT</c> or <c>DELETE</c> request
+    /// might return a more recent result than what's on the Outpost. If an Outpost is offline,
+    /// the delay in updating the replication configuration on that Outpost can be significant.
     /// </para></note><para>
     /// Specify the replication configuration in the request body. In the replication configuration,
     /// you provide the following information:
@@ -61,15 +60,14 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// add a rule for each subset.
     /// </para><para>
     /// To specify a subset of the objects in the source Outposts bucket to apply a replication
-    /// rule to, add the <code>Filter</code> element as a child of the <code>Rule</code> element.
-    /// You can filter objects based on an object key prefix, one or more object tags, or
-    /// both. When you add the <code>Filter</code> element in the configuration, you must
-    /// also add the following elements: <code>DeleteMarkerReplication</code>, <code>Status</code>,
-    /// and <code>Priority</code>.
+    /// rule to, add the <c>Filter</c> element as a child of the <c>Rule</c> element. You
+    /// can filter objects based on an object key prefix, one or more object tags, or both.
+    /// When you add the <c>Filter</c> element in the configuration, you must also add the
+    /// following elements: <c>DeleteMarkerReplication</c>, <c>Status</c>, and <c>Priority</c>.
     /// </para><para>
-    /// Using <code>PutBucketReplication</code> on Outposts requires that both the source
-    /// and destination buckets must have versioning enabled. For information about enabling
-    /// versioning on a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsManagingVersioning.html">Managing
+    /// Using <c>PutBucketReplication</c> on Outposts requires that both the source and destination
+    /// buckets must have versioning enabled. For information about enabling versioning on
+    /// a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsManagingVersioning.html">Managing
     /// S3 Versioning for your S3 on Outposts bucket</a>.
     /// </para><para>
     /// For information about S3 on Outposts replication failure reasons, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/outposts-replication-eventbridge.html#outposts-replication-failure-codes">Replication
@@ -80,25 +78,25 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Outposts bucket are encrypted with the same encryption key as the objects in the source
     /// Outposts bucket.
     /// </para><para><b>Permissions</b></para><para>
-    /// To create a <code>PutBucketReplication</code> request, you must have <code>s3-outposts:PutReplicationConfiguration</code>
+    /// To create a <c>PutBucketReplication</c> request, you must have <c>s3-outposts:PutReplicationConfiguration</c>
     /// permissions for the bucket. The Outposts bucket owner has this permission by default
     /// and can grant it to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsIAM.html">Setting
     /// up IAM with S3 on Outposts</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsBucketPolicy.html">Managing
     /// access to S3 on Outposts buckets</a>. 
     /// </para><note><para>
-    /// To perform this operation, the user or role must also have the <code>iam:CreateRole</code>
-    /// and <code>iam:PassRole</code> permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting
+    /// To perform this operation, the user or role must also have the <c>iam:CreateRole</c>
+    /// and <c>iam:PassRole</c> permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting
     /// a user permissions to pass a role to an Amazon Web Services service</a>.
     /// </para></note><para>
     /// All Amazon S3 on Outposts REST API requests for this action require an additional
-    /// parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition,
-    /// you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>.
+    /// parameter of <c>x-amz-outpost-id</c> to be passed with the request. In addition, you
+    /// must use an S3 on Outposts endpoint hostname prefix instead of <c>s3-control</c>.
     /// For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on
-    /// Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by
-    /// using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketReplication.html#API_control_PutBucketReplication_Examples">Examples</a>
+    /// Outposts endpoint hostname prefix and the <c>x-amz-outpost-id</c> derived by using
+    /// the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketReplication.html#API_control_PutBucketReplication_Examples">Examples</a>
     /// section.
     /// </para><para>
-    /// The following operations are related to <code>PutBucketReplication</code>:
+    /// The following operations are related to <c>PutBucketReplication</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketReplication.html">GetBucketReplication</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketReplication.html">DeleteBucketReplication</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3CBucketReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -135,10 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>
         /// <para>Specifies the S3 on Outposts bucket to set the configuration for.</para><para>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify
         /// the name and the x-amz-outpost-id as well.</para><para>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and
-        /// CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:&lt;Region&gt;:&lt;account-id&gt;:outpost/&lt;outpost-id&gt;/bucket/&lt;my-bucket-name&gt;</code>.
-        /// For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code>
-        /// owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the
-        /// URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>.
+        /// CLI, you must specify the ARN of the bucket accessed in the format <c>arn:aws:s3-outposts:&lt;Region&gt;:&lt;account-id&gt;:outpost/&lt;outpost-id&gt;/bucket/&lt;my-bucket-name&gt;</c>.
+        /// For example, to access the bucket <c>reports</c> through Outpost <c>my-outpost</c>
+        /// owned by account <c>123456789012</c> in Region <c>us-west-2</c>, use the URL encoding
+        /// of <c>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</c>.
         /// The value must be URL encoded. </para>
         /// </para>
         /// </summary>

@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of the resource algorithm to use for the hyperparameter tuning job. If you
-        /// specify a value for this parameter, do not specify a value for <code>TrainingImage</code>.</para>
+        /// specify a value for this parameter, do not specify a value for <c>TrainingImage</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HyperParameterTuningResourceConfig_AllocationStrategy
         /// <summary>
         /// <para>
-        /// <para>The strategy that determines the order of preference for resources specified in <code>InstanceConfigs</code>
+        /// <para>The strategy that determines the order of preference for resources specified in <c>InstanceConfigs</c>
         /// used in hyperparameter optimization.</para>
         /// </para>
         /// </summary>
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>To encrypt all communications between ML compute instances in distributed training,
-        /// choose <code>True</code>. Encryption provides greater security for distributed training,
+        /// choose <c>True</c>. Encryption provides greater security for distributed training,
         /// but training might take longer. How long it takes depends on the amount of communication
         /// between compute instances, especially if you use a deep learning algorithm in distributed
         /// training.</para>
@@ -199,8 +199,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TrainingJobDefinition_EnableManagedSpotTraining
         /// <summary>
         /// <para>
-        /// <para>A Boolean indicating whether managed spot training is enabled (<code>True</code>)
-        /// or not (<code>False</code>).</para>
+        /// <para>A Boolean indicating whether managed spot training is enabled (<c>True</c>) or not
+        /// (<c>False</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,10 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>An environment variable that you can pass into the SageMaker <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
         /// API. You can use an existing <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html#sagemaker-CreateTrainingJob-request-Environment">environment
         /// variable from the training container</a> or use your own. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html">Define
-        /// metrics and variables</a> for more information.</para><note><para>The maximum number of items specified for <code>Map Entries</code> refers to the maximum
-        /// number of environment variables for each <code>TrainingJobDefinition</code> and also
-        /// the maximum for the hyperparameter tuning job itself. That is, the sum of the number
-        /// of environment variables for all the training job definitions can't exceed the maximum
+        /// metrics and variables</a> for more information.</para><note><para>The maximum number of items specified for <c>Map Entries</c> refers to the maximum
+        /// number of environment variables for each <c>TrainingJobDefinition</c> and also the
+        /// maximum for the hyperparameter tuning job itself. That is, the sum of the number of
+        /// environment variables for all the training job definitions can't exceed the maximum
         /// number specified.</para></note>
         /// </para>
         /// </summary>
@@ -275,13 +275,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>A list containing the configuration(s) for one or more resources for processing hyperparameter
         /// jobs. These resources include compute instances and storage volumes to use in model
-        /// training jobs launched by hyperparameter tuning jobs. The <code>AllocationStrategy</code>
-        /// controls the order in which multiple configurations provided in <code>InstanceConfigs</code>
-        /// are used.</para><note><para>If you only want to use a single instance configuration inside the <code>HyperParameterTuningResourceConfig</code>
-        /// API, do not provide a value for <code>InstanceConfigs</code>. Instead, use <code>InstanceType</code>,
-        /// <code>VolumeSizeInGB</code> and <code>InstanceCount</code>. If you use <code>InstanceConfigs</code>,
-        /// do not provide values for <code>InstanceType</code>, <code>VolumeSizeInGB</code> or
-        /// <code>InstanceCount</code>.</para></note>
+        /// training jobs launched by hyperparameter tuning jobs. The <c>AllocationStrategy</c>
+        /// controls the order in which multiple configurations provided in <c>InstanceConfigs</c>
+        /// are used.</para><note><para>If you only want to use a single instance configuration inside the <c>HyperParameterTuningResourceConfig</c>
+        /// API, do not provide a value for <c>InstanceConfigs</c>. Instead, use <c>InstanceType</c>,
+        /// <c>VolumeSizeInGB</c> and <c>InstanceCount</c>. If you use <c>InstanceConfigs</c>,
+        /// do not provide values for <c>InstanceType</c>, <c>VolumeSizeInGB</c> or <c>InstanceCount</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -292,7 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HyperParameterTuningResourceConfig_InstanceCount
         /// <summary>
         /// <para>
-        /// <para>The number of compute instances of type <code>InstanceType</code> to use. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-use-api.html">distributed
+        /// <para>The number of compute instances of type <c>InstanceType</c> to use. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-use-api.html">distributed
         /// training</a>, select a value greater than 1.</para>
         /// </para>
         /// </summary>
@@ -344,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>(Optional) The local directory where checkpoints are written. The default directory
-        /// is <code>/opt/ml/checkpoints/</code>. </para>
+        /// is <c>/opt/ml/checkpoints/</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -355,8 +354,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RetryStrategy_MaximumRetryAttempt
         /// <summary>
         /// <para>
-        /// <para>The number of times to retry the job. When the job is retried, it's <code>SecondaryStatus</code>
-        /// is changed to <code>STARTING</code>.</para>
+        /// <para>The number of times to retry the job. When the job is retried, it's <c>SecondaryStatus</c>
+        /// is changed to <c>STARTING</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -421,11 +420,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The maximum number of resources (such as epochs) that can be used by a training job
-        /// launched by a hyperparameter tuning job. Once a job reaches the <code>MaxResource</code>
-        /// value, it is stopped. If a value for <code>MaxResource</code> is not provided, and
-        /// <code>Hyperband</code> is selected as the hyperparameter tuning strategy, <code>HyperbandTrainingJ</code>
-        /// attempts to infer <code>MaxResource</code> from the following keys (if present) in
-        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-StaticHyperParameters">StaticsHyperParameters</a>:</para><ul><li><para><code>epochs</code></para></li><li><para><code>numepochs</code></para></li><li><para><code>n-epochs</code></para></li><li><para><code>n_epochs</code></para></li><li><para><code>num_epochs</code></para></li></ul><para>If <code>HyperbandStrategyConfig</code> is unable to infer a value for <code>MaxResource</code>,
+        /// launched by a hyperparameter tuning job. Once a job reaches the <c>MaxResource</c>
+        /// value, it is stopped. If a value for <c>MaxResource</c> is not provided, and <c>Hyperband</c>
+        /// is selected as the hyperparameter tuning strategy, <c>HyperbandTrainingJ</c> attempts
+        /// to infer <c>MaxResource</c> from the following keys (if present) in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-StaticHyperParameters">StaticsHyperParameters</a>:</para><ul><li><para><c>epochs</c></para></li><li><para><c>numepochs</c></para></li><li><para><c>n-epochs</c></para></li><li><para><c>n_epochs</c></para></li><li><para><c>num_epochs</c></para></li></ul><para>If <c>HyperbandStrategyConfig</c> is unable to infer a value for <c>MaxResource</c>,
         /// it generates a validation error. The maximum value is 20,000 epochs. All metrics that
         /// correspond to an objective metric are used to derive <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html">early
         /// stopping decisions</a>. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/distributed-training.html">distributive</a>
@@ -455,14 +453,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The maximum length of time, in seconds, that a training or compilation job can run
-        /// before it is stopped.</para><para>For compilation jobs, if the job does not complete during this time, a <code>TimeOut</code>
+        /// before it is stopped.</para><para>For compilation jobs, if the job does not complete during this time, a <c>TimeOut</c>
         /// error is generated. We recommend starting with 900 seconds and increasing as necessary
         /// based on your model.</para><para>For all other jobs, if the job does not complete during this time, SageMaker ends
-        /// the job. When <code>RetryStrategy</code> is specified in the job request, <code>MaxRuntimeInSeconds</code>
+        /// the job. When <c>RetryStrategy</c> is specified in the job request, <c>MaxRuntimeInSeconds</c>
         /// specifies the maximum time for all of the attempts in total, not each individual attempt.
-        /// The default value is 1 day. The maximum value is 28 days.</para><para>The maximum time that a <code>TrainingJob</code> can run in total, including any time
-        /// spent publishing metrics or archiving and uploading models after it has been stopped,
-        /// is 30 days.</para>
+        /// The default value is 1 day. The maximum value is 28 days.</para><para>The maximum time that a <c>TrainingJob</c> can run in total, including any time spent
+        /// publishing metrics or archiving and uploading models after it has been stopped, is
+        /// 30 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -475,8 +473,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The maximum length of time, in seconds, that a managed Spot training job has to complete.
         /// It is the amount of time spent waiting for Spot capacity plus the amount of time the
-        /// job can run. It must be equal to or greater than <code>MaxRuntimeInSeconds</code>.
-        /// If the job does not complete during this time, SageMaker ends the job.</para><para>When <code>RetryStrategy</code> is specified in the job request, <code>MaxWaitTimeInSeconds</code>
+        /// job can run. It must be equal to or greater than <c>MaxRuntimeInSeconds</c>. If the
+        /// job does not complete during this time, SageMaker ends the job.</para><para>When <c>RetryStrategy</c> is specified in the job request, <c>MaxWaitTimeInSeconds</c>
         /// specifies the maximum time for all of the attempts in total, not each individual attempt.</para>
         /// </para>
         /// </summary>
@@ -523,8 +521,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The minimum number of resources (such as epochs) that can be used by a training job
-        /// launched by a hyperparameter tuning job. If the value for <code>MinResource</code>
-        /// has not been reached, the training job is not stopped by <code>Hyperband</code>.</para>
+        /// launched by a hyperparameter tuning job. If the value for <c>MinResource</c> has not
+        /// been reached, the training job is not stopped by <c>Hyperband</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -535,7 +533,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Autotune_Mode
         /// <summary>
         /// <para>
-        /// <para>Set <code>Mode</code> to <code>Enabled</code> if you want to use Autotune.</para>
+        /// <para>Set <c>Mode</c> to <c>Enabled</c> if you want to use Autotune.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -587,10 +585,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The resources, including the compute instances and storage volumes, to use for the
         /// training jobs that the tuning job launches.</para><para>Storage volumes store model artifacts and incremental states. Training algorithms
         /// might also use storage volumes for scratch space. If you want SageMaker to use the
-        /// storage volume to store the training data, choose <code>File</code> as the <code>TrainingInputMode</code>
+        /// storage volume to store the training data, choose <c>File</c> as the <c>TrainingInputMode</c>
         /// in the algorithm specification. For distributed training algorithms, specify an instance
         /// count greater than 1.</para><note><para>If you want to use hyperparameter optimization with instance type flexibility, use
-        /// <code>HyperParameterTuningResourceConfig</code> instead.</para></note>
+        /// <c>HyperParameterTuningResourceConfig</c> instead.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -612,7 +610,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Identifies the S3 path where you want SageMaker to store checkpoints. For example,
-        /// <code>s3://bucket-name/key-name-prefix</code>.</para>
+        /// <c>s3://bucket-name/key-name-prefix</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -623,8 +621,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. Specify the security
-        /// groups for the VPC that is specified in the <code>Subnets</code> field.</para>
+        /// <para>The VPC security group IDs, in the form <c>sg-xxxxxxxx</c>. Specify the security groups
+        /// for the VPC that is specified in the <c>Subnets</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -707,8 +705,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para> The registry path of the Docker image that contains the training algorithm. For information
         /// about Docker registry paths for built-in algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Algorithms
-        /// Provided by Amazon SageMaker: Common Parameters</a>. SageMaker supports both <code>registry/repository[:tag]</code>
-        /// and <code>registry/repository[@digest]</code> image path formats. For more information,
+        /// Provided by Amazon SageMaker: Common Parameters</a>. SageMaker supports both <c>registry/repository[:tag]</c>
+        /// and <c>registry/repository[@digest]</c> image path formats. For more information,
         /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using
         /// Your Own Algorithms with Amazon SageMaker</a>.</para>
         /// </para>
@@ -746,10 +744,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Specifies whether to use early stopping for training jobs launched by the hyperparameter
-        /// tuning job. Because the <code>Hyperband</code> strategy has its own advanced internal
-        /// early stopping mechanism, <code>TrainingJobEarlyStoppingType</code> must be <code>OFF</code>
-        /// to use <code>Hyperband</code>. This parameter can take on one of the following values
-        /// (the default value is <code>OFF</code>):</para><dl><dt>OFF</dt><dd><para>Training jobs launched by the hyperparameter tuning job do not use early stopping.</para></dd><dt>AUTO</dt><dd><para>SageMaker stops training jobs launched by the hyperparameter tuning job when they
+        /// tuning job. Because the <c>Hyperband</c> strategy has its own advanced internal early
+        /// stopping mechanism, <c>TrainingJobEarlyStoppingType</c> must be <c>OFF</c> to use
+        /// <c>Hyperband</c>. This parameter can take on one of the following values (the default
+        /// value is <c>OFF</c>):</para><dl><dt>OFF</dt><dd><para>Training jobs launched by the hyperparameter tuning job do not use early stopping.</para></dd><dt>AUTO</dt><dd><para>SageMaker stops training jobs launched by the hyperparameter tuning job when they
         /// are unlikely to perform better than previously completed training jobs. For more information,
         /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html">Stop
         /// Training Jobs Early</a>.</para></dd></dl>
@@ -789,10 +787,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>A key used by Amazon Web Services Key Management Service to encrypt data on the storage
         /// volume attached to the compute instances used to run the training job. You can use
-        /// either of the following formats to specify a key.</para><para>KMS Key ID:</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para><para>Amazon Resource Name (ARN) of a KMS key:</para><para><code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para><para>Some instances use local storage, which use a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">hardware
+        /// either of the following formats to specify a key.</para><para>KMS Key ID:</para><para><c>"1234abcd-12ab-34cd-56ef-1234567890ab"</c></para><para>Amazon Resource Name (ARN) of a KMS key:</para><para><c>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</c></para><para>Some instances use local storage, which use a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">hardware
         /// module to encrypt</a> storage volumes. If you choose one of these instance types,
-        /// you cannot request a <code>VolumeKmsKeyId</code>. For a list of instance types that
-        /// use local storage, see <a href="http://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance
+        /// you cannot request a <c>VolumeKmsKeyId</c>. For a list of instance types that use
+        /// local storage, see <a href="http://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance
         /// store volumes</a>. For more information about Amazon Web Services Key Management Service,
         /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-kms-permissions.html">KMS
         /// encryption</a> for more information.</para>
@@ -809,10 +807,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The volume size in GB for the storage volume to be used in processing hyperparameter
         /// optimization jobs (optional). These volumes store model artifacts, incremental states
         /// and optionally, scratch space for training algorithms. Do not provide a value for
-        /// this parameter if a value for <code>InstanceConfigs</code> is also specified.</para><para>Some instance types have a fixed total local storage size. If you select one of these
-        /// instances for training, <code>VolumeSizeInGB</code> cannot be greater than this total
-        /// size. For a list of instance types with local instance storage and their sizes, see
-        /// <a href="http://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance
+        /// this parameter if a value for <c>InstanceConfigs</c> is also specified.</para><para>Some instance types have a fixed total local storage size. If you select one of these
+        /// instances for training, <c>VolumeSizeInGB</c> cannot be greater than this total size.
+        /// For a list of instance types with local instance storage and their sizes, see <a href="http://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance
         /// store volumes</a>.</para><note><para>SageMaker supports only the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html">General
         /// Purpose SSD (gp2)</a> storage volume type.</para></note>
         /// </para>

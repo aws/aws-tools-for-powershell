@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// <summary>
         /// <para>
         /// <para>The name of the Region where you want to add domain controllers for replication. For
-        /// example, <code>us-east-1</code>.</para>
+        /// example, <c>us-east-1</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

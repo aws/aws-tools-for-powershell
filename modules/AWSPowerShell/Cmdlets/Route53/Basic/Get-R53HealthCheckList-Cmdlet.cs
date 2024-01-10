@@ -46,12 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>If the value of <code>IsTruncated</code> in the previous response was <code>true</code>,
-        /// you have more health checks. To get another group, submit another <code>ListHealthChecks</code>
-        /// request. </para><para>For the value of <code>marker</code>, specify the value of <code>NextMarker</code>
-        /// from the previous response, which is the ID of the first health check that Amazon
-        /// Route 53 will return if you submit another request.</para><para>If the value of <code>IsTruncated</code> in the previous response was <code>false</code>,
-        /// there are no more health checks to get.</para>
+        /// <para>If the value of <c>IsTruncated</c> in the previous response was <c>true</c>, you have
+        /// more health checks. To get another group, submit another <c>ListHealthChecks</c> request.
+        /// </para><para>For the value of <c>marker</c>, specify the value of <c>NextMarker</c> from the previous
+        /// response, which is the ID of the first health check that Amazon Route 53 will return
+        /// if you submit another request.</para><para>If the value of <c>IsTruncated</c> in the previous response was <c>false</c>, there
+        /// are no more health checks to get.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -66,10 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>The maximum number of health checks that you want <code>ListHealthChecks</code> to
-        /// return in response to the current request. Amazon Route 53 returns a maximum of 1000
-        /// items. If you set <code>MaxItems</code> to a value greater than 1000, Route 53 returns
-        /// only the first 1000 health checks. </para>
+        /// <para>The maximum number of health checks that you want <c>ListHealthChecks</c> to return
+        /// in response to the current request. Amazon Route 53 returns a maximum of 1000 items.
+        /// If you set <c>MaxItems</c> to a value greater than 1000, Route 53 returns only the
+        /// first 1000 health checks. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

@@ -28,21 +28,21 @@ using Amazon.Detective.Model;
 namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
-    /// <code>CreateMembers</code> is used to send invitations to accounts. For the organization
-    /// behavior graph, the Detective administrator account uses <code>CreateMembers</code>
-    /// to enable organization accounts as member accounts.
+    /// <c>CreateMembers</c> is used to send invitations to accounts. For the organization
+    /// behavior graph, the Detective administrator account uses <c>CreateMembers</c> to enable
+    /// organization accounts as member accounts.
     /// 
     ///  
     /// <para>
-    /// For invited accounts, <code>CreateMembers</code> sends a request to invite the specified
+    /// For invited accounts, <c>CreateMembers</c> sends a request to invite the specified
     /// Amazon Web Services accounts to be member accounts in the behavior graph. This operation
     /// can only be called by the administrator account for a behavior graph. 
-    /// </para><para><code>CreateMembers</code> verifies the accounts and then invites the verified accounts.
+    /// </para><para><c>CreateMembers</c> verifies the accounts and then invites the verified accounts.
     /// The administrator can optionally specify to not send invitation emails to the member
     /// accounts. This would be used when the administrator manages their member accounts
     /// centrally.
     /// </para><para>
-    /// For organization accounts in the organization behavior graph, <code>CreateMembers</code>
+    /// For organization accounts in the organization behavior graph, <c>CreateMembers</c>
     /// attempts to enable the accounts. The organization accounts do not receive invitations.
     /// </para><para>
     /// The request provides the behavior graph ARN and the list of accounts to invite or
@@ -50,14 +50,14 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     /// </para><para>
     /// The response separates the requested accounts into two lists:
     /// </para><ul><li><para>
-    /// The accounts that <code>CreateMembers</code> was able to process. For invited accounts,
+    /// The accounts that <c>CreateMembers</c> was able to process. For invited accounts,
     /// includes member accounts that are being verified, that have passed verification and
     /// are to be invited, and that have failed verification. For organization accounts in
     /// the organization behavior graph, includes accounts that can be enabled and that cannot
     /// be enabled.
     /// </para></li><li><para>
-    /// The accounts that <code>CreateMembers</code> was unable to process. This list includes
-    /// accounts that were already invited to be member accounts in the behavior graph.
+    /// The accounts that <c>CreateMembers</c> was unable to process. This list includes accounts
+    /// that were already invited to be member accounts in the behavior graph.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "DTCTMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -100,9 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         #region Parameter DisableEmailNotification
         /// <summary>
         /// <para>
-        /// <para>if set to <code>true</code>, then the invited accounts do not receive email notifications.
-        /// By default, this is set to <code>false</code>, and the invited accounts receive email
-        /// notifications.</para><para>Organization accounts in the organization behavior graph do not receive email notifications.</para>
+        /// <para>if set to <c>true</c>, then the invited accounts do not receive email notifications.
+        /// By default, this is set to <c>false</c>, and the invited accounts receive email notifications.</para><para>Organization accounts in the organization behavior graph do not receive email notifications.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

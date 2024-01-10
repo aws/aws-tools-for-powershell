@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         #region Parameter SortCriteria_Field
         /// <summary>
         /// <para>
-        /// <para>Represents the <code>Field</code> attribute to sort investigations.</para>
+        /// <para>Represents the <c>Field</c> attribute to sort investigations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

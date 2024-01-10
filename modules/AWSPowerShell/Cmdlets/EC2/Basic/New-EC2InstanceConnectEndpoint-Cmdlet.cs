@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates whether your client's IP address is preserved as the source. The value is
-        /// <code>true</code> or <code>false</code>.</para><ul><li><para>If <code>true</code>, your client's IP address is used when you connect to a resource.</para></li><li><para>If <code>false</code>, the elastic network interface IP address is used when you connect
-        /// to a resource.</para></li></ul><para>Default: <code>true</code></para>
+        /// <c>true</c> or <c>false</c>.</para><ul><li><para>If <c>true</c>, your client's IP address is used when you connect to a resource.</para></li><li><para>If <c>false</c>, the elastic network interface IP address is used when you connect
+        /// to a resource.</para></li></ul><para>Default: <c>true</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

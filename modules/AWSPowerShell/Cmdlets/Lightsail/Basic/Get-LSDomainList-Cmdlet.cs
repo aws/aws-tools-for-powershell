@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>The token to advance to the next page of results from your request.</para><para>To get a page token, perform an initial <code>GetDomains</code> request. If your results
+        /// <para>The token to advance to the next page of results from your request.</para><para>To get a page token, perform an initial <c>GetDomains</c> request. If your results
         /// are paginated, the response will return a next page token that you can specify as
         /// the page token in a subsequent request.</para>
         /// </para>

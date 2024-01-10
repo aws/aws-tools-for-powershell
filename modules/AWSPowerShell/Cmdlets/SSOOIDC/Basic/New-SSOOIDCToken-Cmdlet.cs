@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
     /// <summary>
     /// Creates and returns access and refresh tokens for clients that are authenticated using
     /// client secrets. The access token can be used to fetch short-term credentials for the
-    /// assigned AWS accounts or to access application APIs using <code>bearer</code> authentication.
+    /// assigned AWS accounts or to access application APIs using <c>bearer</c> authentication.
     /// </summary>
     [Cmdlet("New", "SSOOIDCToken", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SSOOIDC.Model.CreateTokenResponse")]
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         /// <summary>
         /// <para>
         /// <para>Supports the following OAuth grant types: Device Code and Refresh Token. Specify either
-        /// of the following values, depending on the grant type that you want:</para><para>* Device Code - <code>urn:ietf:params:oauth:grant-type:device_code</code></para><para>* Refresh Token - <code>refresh_token</code></para><para>For information about how to obtain the device code, see the <a>StartDeviceAuthorization</a>
+        /// of the following values, depending on the grant type that you want:</para><para>* Device Code - <c>urn:ietf:params:oauth:grant-type:device_code</c></para><para>* Refresh Token - <c>refresh_token</c></para><para>For information about how to obtain the device code, see the <a>StartDeviceAuthorization</a>
         /// topic.</para>
         /// </para>
         /// </summary>

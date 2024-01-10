@@ -32,11 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.MM
     /// returns the metering record ID.
     /// 
     ///  
-    /// <para><code>MeterUsage</code> is authenticated on the buyer's AWS account using credentials
-    /// from the EC2 instance, ECS task, or EKS pod.
-    /// </para><para><code>MeterUsage</code> can optionally include multiple usage allocations, to provide
-    /// customers with usage data split into buckets by tags that you define (or allow the
-    /// customer to define).
+    /// <para><c>MeterUsage</c> is authenticated on the buyer's AWS account using credentials from
+    /// the EC2 instance, ECS task, or EKS pod.
+    /// </para><para><c>MeterUsage</c> can optionally include multiple usage allocations, to provide customers
+    /// with usage data split into buckets by tags that you define (or allow the customer
+    /// to define).
     /// </para><para>
     /// Usage records are expected to be submitted as quickly as possible after the event
     /// that is being recorded, and are not accepted more than 6 hours after the event.
@@ -58,9 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.MM
         /// <summary>
         /// <para>
         /// <para>Checks whether you have the permissions required for the action, but does not make
-        /// the request. If you have the permissions, the request returns <code>DryRunOperation</code>;
-        /// otherwise, it returns <code>UnauthorizedException</code>. Defaults to <code>false</code>
-        /// if not specified.</para>
+        /// the request. If you have the permissions, the request returns <c>DryRunOperation</c>;
+        /// otherwise, it returns <c>UnauthorizedException</c>. Defaults to <c>false</c> if not
+        /// specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.MM
         /// <summary>
         /// <para>
         /// <para>Timestamp, in UTC, for which the usage is being reported. Your application can meter
-        /// usage for up to one hour in the past. Make sure the <code>timestamp</code> value is
-        /// not before the start of the software usage.</para>
+        /// usage for up to one hour in the past. Make sure the <c>timestamp</c> value is not
+        /// before the start of the software usage.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -106,9 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.MM
         #region Parameter UsageAllocation
         /// <summary>
         /// <para>
-        /// <para>The set of <code>UsageAllocations</code> to submit.</para><para>The sum of all <code>UsageAllocation</code> quantities must equal the <code>UsageQuantity</code>
-        /// of the <code>MeterUsage</code> request, and each <code>UsageAllocation</code> must
-        /// have a unique set of tags (include no tags).</para>
+        /// <para>The set of <c>UsageAllocations</c> to submit.</para><para>The sum of all <c>UsageAllocation</c> quantities must equal the <c>UsageQuantity</c>
+        /// of the <c>MeterUsage</c> request, and each <c>UsageAllocation</c> must have a unique
+        /// set of tags (include no tags).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
         #region Parameter UsageQuantity
         /// <summary>
         /// <para>
-        /// <para>Consumption value for the hour. Defaults to <code>0</code> if not specified.</para>
+        /// <para>Consumption value for the hour. Defaults to <c>0</c> if not specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

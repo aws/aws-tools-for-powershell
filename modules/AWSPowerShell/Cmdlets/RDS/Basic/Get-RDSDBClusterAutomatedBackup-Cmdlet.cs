@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// Displays backups for both current and deleted DB clusters. For example, use this operation
     /// to find details about automated backups for previously deleted clusters. Current clusters
-    /// are returned for both the <code>DescribeDBClusterAutomatedBackups</code> and <code>DescribeDBClusters</code>
+    /// are returned for both the <c>DescribeDBClusterAutomatedBackups</c> and <c>DescribeDBClusters</c>
     /// operations.
     /// 
     ///  
@@ -76,12 +76,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter that specifies which resources to return based on status.</para><para>Supported filters are the following:</para><ul><li><para><code>status</code></para><ul><li><para><code>retained</code> - Automated backups for deleted clusters and after backup replication
-        /// is stopped.</para></li></ul></li><li><para><code>db-cluster-id</code> - Accepts DB cluster identifiers and Amazon Resource Names
-        /// (ARNs). The results list includes only information about the DB cluster automated
-        /// backups identified by these ARNs.</para></li><li><para><code>db-cluster-resource-id</code> - Accepts DB resource identifiers and Amazon
-        /// Resource Names (ARNs). The results list includes only information about the DB cluster
-        /// resources identified by these ARNs.</para></li></ul><para>Returns all resources by default. The status for each resource is specified in the
+        /// <para>A filter that specifies which resources to return based on status.</para><para>Supported filters are the following:</para><ul><li><para><c>status</c></para><ul><li><para><c>retained</c> - Automated backups for deleted clusters and after backup replication
+        /// is stopped.</para></li></ul></li><li><para><c>db-cluster-id</c> - Accepts DB cluster identifiers and Amazon Resource Names (ARNs).
+        /// The results list includes only information about the DB cluster automated backups
+        /// identified by these ARNs.</para></li><li><para><c>db-cluster-resource-id</c> - Accepts DB resource identifiers and Amazon Resource
+        /// Names (ARNs). The results list includes only information about the DB cluster resources
+        /// identified by these ARNs.</para></li></ul><para>Returns all resources by default. The status for each resource is specified in the
         /// response.</para>
         /// </para>
         /// </summary>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The pagination token provided in the previous request. If this parameter is specified
-        /// the response includes only records beyond the marker, up to <code>MaxRecords</code>.</para>
+        /// the response includes only records beyond the marker, up to <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -110,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that you can retrieve the remaining results.</para>
+        /// the specified <c>MaxRecords</c> value, a pagination token called a marker is included
+        /// in the response so that you can retrieve the remaining results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

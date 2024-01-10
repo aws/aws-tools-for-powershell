@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// tags for an OpsMetadata object. Tags enable you to categorize a resource in different
         /// ways, such as by purpose, owner, or environment. For example, you might want to tag
         /// an OpsMetadata object to identify an environment or target Amazon Web Services Region.
-        /// In this case, you could specify the following key-value pairs:</para><ul><li><para><code>Key=Environment,Value=Production</code></para></li><li><para><code>Key=Region,Value=us-east-2</code></para></li></ul>
+        /// In this case, you could specify the following key-value pairs:</para><ul><li><para><c>Key=Environment,Value=Production</c></para></li><li><para><c>Key=Region,Value=us-east-2</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

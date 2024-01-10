@@ -37,9 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// </para></li></ul><para>
     /// To get an origin request policy, you must provide the policy's identifier. If the
     /// origin request policy is attached to a distribution's cache behavior, you can get
-    /// the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>.
+    /// the policy's identifier using <c>ListDistributions</c> or <c>GetDistribution</c>.
     /// If the origin request policy is not attached to a cache behavior, you can get the
-    /// identifier using <code>ListOriginRequestPolicies</code>.
+    /// identifier using <c>ListOriginRequestPolicies</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CFOriginRequestPolicy")]
@@ -59,9 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>The unique identifier for the origin request policy. If the origin request policy
         /// is attached to a distribution's cache behavior, you can get the policy's identifier
-        /// using <code>ListDistributions</code> or <code>GetDistribution</code>. If the origin
-        /// request policy is not attached to a cache behavior, you can get the identifier using
-        /// <code>ListOriginRequestPolicies</code>.</para>
+        /// using <c>ListDistributions</c> or <c>GetDistribution</c>. If the origin request policy
+        /// is not attached to a cache behavior, you can get the identifier using <c>ListOriginRequestPolicies</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

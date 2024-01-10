@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SupportedIpAddressType
         /// <summary>
         /// <para>
-        /// <para>The supported IP address types. The possible values are <code>ipv4</code> and <code>ipv6</code>.</para>
+        /// <para>The supported IP address types. The possible values are <c>ipv4</c> and <c>ipv6</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

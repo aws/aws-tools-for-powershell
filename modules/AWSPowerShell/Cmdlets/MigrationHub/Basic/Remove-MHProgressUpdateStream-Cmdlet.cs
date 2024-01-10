@@ -32,21 +32,21 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// created as an AWS resource used for access control. This API has the following traits:
     /// 
     ///  <ul><li><para>
-    /// The only parameter needed for <code>DeleteProgressUpdateStream</code> is the stream
-    /// name (same as a <code>CreateProgressUpdateStream</code> call).
+    /// The only parameter needed for <c>DeleteProgressUpdateStream</c> is the stream name
+    /// (same as a <c>CreateProgressUpdateStream</c> call).
     /// </para></li><li><para>
     /// The call will return, and a background process will asynchronously delete the stream
     /// and all of its resources (tasks, associated resources, resource attributes, created
     /// artifacts).
     /// </para></li><li><para>
-    /// If the stream takes time to be deleted, it might still show up on a <code>ListProgressUpdateStreams</code>
+    /// If the stream takes time to be deleted, it might still show up on a <c>ListProgressUpdateStreams</c>
     /// call.
-    /// </para></li><li><para><code>CreateProgressUpdateStream</code>, <code>ImportMigrationTask</code>, <code>NotifyMigrationTaskState</code>,
+    /// </para></li><li><para><c>CreateProgressUpdateStream</c>, <c>ImportMigrationTask</c>, <c>NotifyMigrationTaskState</c>,
     /// and all Associate[*] APIs related to the tasks belonging to the stream will throw
     /// "InvalidInputException" if the stream of the same name is in the process of being
     /// deleted.
     /// </para></li><li><para>
-    /// Once the stream and all of its resources are deleted, <code>CreateProgressUpdateStream</code>
+    /// Once the stream and all of its resources are deleted, <c>CreateProgressUpdateStream</c>
     /// for a stream of the same name will succeed, and that stream will be an entirely new
     /// logical resource (without any resources associated with the old stream).
     /// </para></li></ul>

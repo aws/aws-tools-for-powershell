@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>A unique case-sensitive string used to ensure the request to create the calculation
-        /// is idempotent (executes only once). If another <code>StartCalculationExecutionRequest</code>
+        /// is idempotent (executes only once). If another <c>StartCalculationExecutionRequest</c>
         /// is received, the same response is returned and another calculation is not created.
         /// If a parameter has changed, an error is returned.</para><important><para>This token is listed as not required because Amazon Web Services SDKs (for example
         /// the Amazon Web Services SDK for Java) auto-generate the token for users. If you are

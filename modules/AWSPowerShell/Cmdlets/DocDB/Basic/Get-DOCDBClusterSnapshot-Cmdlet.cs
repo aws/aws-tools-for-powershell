@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The ID of the cluster to retrieve the list of cluster snapshots for. This parameter
-        /// can't be used with the <code>DBClusterSnapshotIdentifier</code> parameter. This parameter
-        /// is not case sensitive. </para><para>Constraints:</para><ul><li><para>If provided, must match the identifier of an existing <code>DBCluster</code>.</para></li></ul>
+        /// can't be used with the <c>DBClusterSnapshotIdentifier</c> parameter. This parameter
+        /// is not case sensitive. </para><para>Constraints:</para><ul><li><para>If provided, must match the identifier of an existing <c>DBCluster</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>A specific cluster snapshot identifier to describe. This parameter can't be used with
-        /// the <code>DBClusterIdentifier</code> parameter. This value is stored as a lowercase
-        /// string. </para><para>Constraints:</para><ul><li><para>If provided, must match the identifier of an existing <code>DBClusterSnapshot</code>.</para></li><li><para>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter
+        /// the <c>DBClusterIdentifier</c> parameter. This value is stored as a lowercase string.
+        /// </para><para>Constraints:</para><ul><li><para>If provided, must match the identifier of an existing <c>DBClusterSnapshot</c>.</para></li><li><para>If this identifier is for an automated snapshot, the <c>SnapshotType</c> parameter
         /// must also be specified.</para></li></ul>
         /// </para>
         /// </summary>
@@ -81,9 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter IncludePublic
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to include manual cluster snapshots that are public and can
-        /// be copied or restored by any Amazon Web Services account, and otherwise <code>false</code>.
-        /// The default is <code>false</code>.</para>
+        /// <para>Set to <c>true</c> to include manual cluster snapshots that are public and can be
+        /// copied or restored by any Amazon Web Services account, and otherwise <c>false</c>.
+        /// The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,9 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter IncludeShared
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to include shared manual cluster snapshots from other Amazon
-        /// Web Services accounts that this Amazon Web Services account has been given permission
-        /// to copy or restore, and otherwise <code>false</code>. The default is <code>false</code>.</para>
+        /// <para>Set to <c>true</c> to include shared manual cluster snapshots from other Amazon Web
+        /// Services accounts that this Amazon Web Services account has been given permission
+        /// to copy or restore, and otherwise <c>false</c>. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,18 +106,17 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The type of cluster snapshots to be returned. You can specify one of the following
-        /// values:</para><ul><li><para><code>automated</code> - Return all cluster snapshots that Amazon DocumentDB has
-        /// automatically created for your Amazon Web Services account.</para></li><li><para><code>manual</code> - Return all cluster snapshots that you have manually created
-        /// for your Amazon Web Services account.</para></li><li><para><code>shared</code> - Return all manual cluster snapshots that have been shared to
-        /// your Amazon Web Services account.</para></li><li><para><code>public</code> - Return all cluster snapshots that have been marked as public.</para></li></ul><para>If you don't specify a <code>SnapshotType</code> value, then both automated and manual
-        /// cluster snapshots are returned. You can include shared cluster snapshots with these
-        /// results by setting the <code>IncludeShared</code> parameter to <code>true</code>.
-        /// You can include public cluster snapshots with these results by setting the<code>IncludePublic</code>
-        /// parameter to <code>true</code>.</para><para>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply
-        /// for <code>SnapshotType</code> values of <code>manual</code> or <code>automated</code>.
-        /// The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code>
-        /// is set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply
-        /// when <code>SnapshotType</code> is set to <code>public</code>.</para>
+        /// values:</para><ul><li><para><c>automated</c> - Return all cluster snapshots that Amazon DocumentDB has automatically
+        /// created for your Amazon Web Services account.</para></li><li><para><c>manual</c> - Return all cluster snapshots that you have manually created for your
+        /// Amazon Web Services account.</para></li><li><para><c>shared</c> - Return all manual cluster snapshots that have been shared to your
+        /// Amazon Web Services account.</para></li><li><para><c>public</c> - Return all cluster snapshots that have been marked as public.</para></li></ul><para>If you don't specify a <c>SnapshotType</c> value, then both automated and manual cluster
+        /// snapshots are returned. You can include shared cluster snapshots with these results
+        /// by setting the <c>IncludeShared</c> parameter to <c>true</c>. You can include public
+        /// cluster snapshots with these results by setting the<c>IncludePublic</c> parameter
+        /// to <c>true</c>.</para><para>The <c>IncludeShared</c> and <c>IncludePublic</c> parameters don't apply for <c>SnapshotType</c>
+        /// values of <c>manual</c> or <c>automated</c>. The <c>IncludePublic</c> parameter doesn't
+        /// apply when <c>SnapshotType</c> is set to <c>shared</c>. The <c>IncludeShared</c> parameter
+        /// doesn't apply when <c>SnapshotType</c> is set to <c>public</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>
         /// <para>An optional pagination token provided by a previous request. If this parameter is
         /// specified, the response includes only records beyond the marker, up to the value specified
-        /// by <code>MaxRecords</code>.</para>
+        /// by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -145,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para> The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token (marker) is included
-        /// in the response so that the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// the specified <c>MaxRecords</c> value, a pagination token (marker) is included in
+        /// the response so that the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

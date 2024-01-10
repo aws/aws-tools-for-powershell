@@ -55,10 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case sensitive identifier you provide to ensure the idempotency of the <code>RetryBuildBatch</code>
-        /// request. The token is included in the <code>RetryBuildBatch</code> request and is
-        /// valid for five minutes. If you repeat the <code>RetryBuildBatch</code> request with
-        /// the same token, but change a parameter, CodeBuild returns a parameter mismatch error.</para>
+        /// <para>A unique, case sensitive identifier you provide to ensure the idempotency of the <c>RetryBuildBatch</c>
+        /// request. The token is included in the <c>RetryBuildBatch</c> request and is valid
+        /// for five minutes. If you repeat the <c>RetryBuildBatch</c> request with the same token,
+        /// but change a parameter, CodeBuild returns a parameter mismatch error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

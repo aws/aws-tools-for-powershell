@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         /// <summary>
         /// <para>
         /// <para>The end time to list in UTC. The operation will return an ephemeris if its expiration
-        /// time is within the time range defined by the <code>startTime</code> and <code>endTime</code>.</para>
+        /// time is within the time range defined by the <c>startTime</c> and <c>endTime</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         /// <summary>
         /// <para>
         /// <para>The start time to list in UTC. The operation will return an ephemeris if its expiration
-        /// time is within the time range defined by the <code>startTime</code> and <code>endTime</code>.</para>
+        /// time is within the time range defined by the <c>startTime</c> and <c>endTime</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

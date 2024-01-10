@@ -56,11 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>An optional parameter that specifies the starting point to return a set of response
-        /// records. When the results of a <code>DescribeClusterTracks</code> request exceed the
-        /// value specified in <code>MaxRecords</code>, Amazon Redshift returns a value in the
-        /// <code>Marker</code> field of the response. You can retrieve the next set of response
-        /// records by providing the returned marker value in the <code>Marker</code> parameter
-        /// and retrying the request. </para>
+        /// records. When the results of a <c>DescribeClusterTracks</c> request exceed the value
+        /// specified in <c>MaxRecords</c>, Amazon Redshift returns a value in the <c>Marker</c>
+        /// field of the response. You can retrieve the next set of response records by providing
+        /// the returned marker value in the <c>Marker</c> parameter and retrying the request.
+        /// </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

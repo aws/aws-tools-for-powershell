@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The tags to apply to the launch template on creation. To tag the launch template,
-        /// the resource type must be <code>launch-template</code>.</para><note><para>To specify the tags for the resources that are created when an instance is launched,
-        /// you must use the <code>TagSpecifications</code> parameter in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html">launch
+        /// the resource type must be <c>launch-template</c>.</para><note><para>To specify the tags for the resources that are created when an instance is launched,
+        /// you must use the <c>TagSpecifications</c> parameter in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html">launch
         /// template data</a> structure.</para></note>
         /// </para>
         /// </summary>

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>Criteria for restricting the resulting list of platform versions. The filter is interpreted
-        /// as a logical conjunction (AND) of the separate <code>PlatformFilter</code> terms.</para>
+        /// as a logical conjunction (AND) of the separate <c>PlatformFilter</c> terms.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para>For a paginated request. Specify a token from a previous response page to retrieve
         /// the next response page. All other parameter values must be identical to the ones specified
-        /// in the initial request.</para><para>If no <code>NextToken</code> is specified, the first page is retrieved.</para>
+        /// in the initial request.</para><para>If no <c>NextToken</c> is specified, the first page is retrieved.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

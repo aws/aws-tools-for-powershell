@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>The expected version of the security profile. A new version is generated whenever
         /// the security profile is updated. If you specify a value that is different from the
-        /// actual version, a <code>VersionConflictException</code> is thrown.</para>
+        /// actual version, a <c>VersionConflictException</c> is thrown.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

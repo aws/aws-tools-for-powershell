@@ -28,9 +28,9 @@ using Amazon.CustomerProfiles.Model;
 namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
-    /// Returns a set of profiles that belong to the same matching group using the <code>matchId</code>
-    /// or <code>profileId</code>. You can also specify the type of matching that you want
-    /// for finding similar profiles using either <code>RULE_BASED_MATCHING</code> or <code>ML_BASED_MATCHING</code>.
+    /// Returns a set of profiles that belong to the same matching group using the <c>matchId</c>
+    /// or <c>profileId</c>. You can also specify the type of matching that you want for finding
+    /// similar profiles using either <c>RULE_BASED_MATCHING</c> or <c>ML_BASED_MATCHING</c>.
     /// </summary>
     [Cmdlet("Get", "CPFSimilarProfile")]
     [OutputType("Amazon.CustomerProfiles.Model.GetSimilarProfilesResponse")]
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter SearchValue
         /// <summary>
         /// <para>
-        /// <para>The string based on <code>SearchKey</code> to be searched for similar profiles.</para>
+        /// <para>The string based on <c>SearchKey</c> to be searched for similar profiles.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token from the previous <code>GetSimilarProfiles</code> API call.</para>
+        /// <para>The pagination token from the previous <c>GetSimilarProfiles</c> API call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

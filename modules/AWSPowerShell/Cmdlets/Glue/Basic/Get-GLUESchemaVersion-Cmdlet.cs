@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SchemaId_SchemaArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code>
+        /// <para>The Amazon Resource Name (ARN) of the schema. One of <c>SchemaArn</c> or <c>SchemaName</c>
         /// has to be provided.</para>
         /// </para>
         /// </summary>
@@ -77,8 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SchemaId_SchemaName
         /// <summary>
         /// <para>
-        /// <para>The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has
-        /// to be provided.</para>
+        /// <para>The name of the schema. One of <c>SchemaArn</c> or <c>SchemaName</c> has to be provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,9 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SchemaVersionId
         /// <summary>
         /// <para>
-        /// <para>The <code>SchemaVersionId</code> of the schema version. This field is required for
-        /// fetching by schema ID. Either this or the <code>SchemaId</code> wrapper has to be
-        /// provided.</para>
+        /// <para>The <c>SchemaVersionId</c> of the schema version. This field is required for fetching
+        /// by schema ID. Either this or the <c>SchemaId</c> wrapper has to be provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

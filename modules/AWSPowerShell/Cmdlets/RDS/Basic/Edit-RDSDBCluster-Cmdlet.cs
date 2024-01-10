@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AllowEngineModeChange
         /// <summary>
         /// <para>
-        /// <para>Specifies whether engine mode changes from <code>serverless</code> to <code>provisioned</code>
-        /// are allowed.</para><para>Valid for Cluster Type: Aurora Serverless v1 DB clusters only</para><para>Constraints:</para><ul><li><para>You must allow engine mode changes when specifying a different value for the <code>EngineMode</code>
+        /// <para>Specifies whether engine mode changes from <c>serverless</c> to <c>provisioned</c>
+        /// are allowed.</para><para>Valid for Cluster Type: Aurora Serverless v1 DB clusters only</para><para>Constraints:</para><ul><li><para>You must allow engine mode changes when specifying a different value for the <c>EngineMode</c>
         /// parameter from the DB cluster's current engine mode.</para></li></ul>
         /// </para>
         /// </summary>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AllowMajorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>Specifies whether major version upgrades are allowed.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>You must allow major version upgrades when specifying a value for the <code>EngineVersion</code>
+        /// <para>Specifies whether major version upgrades are allowed.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>You must allow major version upgrades when specifying a value for the <c>EngineVersion</c>
         /// parameter that is a different major version than the DB cluster's current version.</para></li></ul>
         /// </para>
         /// </summary>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies whether the modifications in this request and any pending modifications
-        /// are asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code>
+        /// are asynchronously applied as soon as possible, regardless of the <c>PreferredMaintenanceWindow</c>
         /// setting for the DB cluster. If this parameter is disabled, changes to the DB cluster
         /// are applied during the next maintenance window.</para><para>Most modifications can be applied immediately or during the next scheduled maintenance
         /// window. Some modifications, such as turning on deletion protection and changing the
@@ -117,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Indicates whether to allow or disallow automatic pause for an Aurora DB cluster in
-        /// <code>serverless</code> DB engine mode. A DB cluster can be paused only when it's
-        /// idle (it has no connections).</para><note><para>If a DB cluster is paused for more than seven days, the DB cluster might be backed
+        /// <c>serverless</c> DB engine mode. A DB cluster can be paused only when it's idle (it
+        /// has no connections).</para><note><para>If a DB cluster is paused for more than seven days, the DB cluster might be backed
         /// up with a snapshot. In this case, the DB cluster is restored when there is a request
         /// to connect to it.</para></note>
         /// </para>
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The target backtrack window, in seconds. To disable backtracking, set this value to
-        /// <code>0</code>.</para><para>Valid for Cluster Type: Aurora MySQL DB clusters only</para><para>Default: <code>0</code></para><para>Constraints:</para><ul><li><para>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</para></li></ul>
+        /// <c>0</c>.</para><para>Valid for Cluster Type: Aurora MySQL DB clusters only</para><para>Default: <c>0</c></para><para>Constraints:</para><ul><li><para>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The number of days for which automated backups are retained. Specify a minimum value
-        /// of <code>1</code>.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Default: <code>1</code></para><para>Constraints:</para><ul><li><para>Must be a value from 1 to 35.</para></li></ul>
+        /// of <c>1</c>.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Default: <c>1</c></para><para>Constraints:</para><ul><li><para>Must be a value from 1 to 35.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,8 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for
-        /// example <code>db.m6gd.xlarge</code>. Not all DB instance classes are available in
-        /// all Amazon Web Services Regions, or for all database engines.</para><para>For the full list of DB instance classes and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">
+        /// example <c>db.m6gd.xlarge</c>. Not all DB instance classes are available in all Amazon
+        /// Web Services Regions, or for all database engines.</para><para>For the full list of DB instance classes and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">
         /// DB Instance Class</a> in the <i>Amazon RDS User Guide</i>.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para>
         /// </para>
         /// </summary>
@@ -213,10 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB parameter group to apply to all instances of the DB cluster.</para><note><para>When you apply a parameter group using the <code>DBInstanceParameterGroupName</code>
-        /// parameter, the DB cluster isn't rebooted automatically. Also, parameter changes are
-        /// applied immediately rather than during the next maintenance window.</para></note><para>Valid for Cluster Type: Aurora DB clusters only</para><para>Default: The existing name setting</para><para>Constraints:</para><ul><li><para>The DB parameter group must be in the same DB parameter group family as this DB cluster.</para></li><li><para>The <code>DBInstanceParameterGroupName</code> parameter is valid in combination with
-        /// the <code>AllowMajorVersionUpgrade</code> parameter for a major version upgrade only.</para></li></ul>
+        /// <para>The name of the DB parameter group to apply to all instances of the DB cluster.</para><note><para>When you apply a parameter group using the <c>DBInstanceParameterGroupName</c> parameter,
+        /// the DB cluster isn't rebooted automatically. Also, parameter changes are applied immediately
+        /// rather than during the next maintenance window.</para></note><para>Valid for Cluster Type: Aurora DB clusters only</para><para>Default: The existing name setting</para><para>Constraints:</para><ul><li><para>The DB parameter group must be in the same DB parameter group family as this DB cluster.</para></li><li><para>The <c>DBInstanceParameterGroupName</c> parameter is valid in combination with the
+        /// <c>AllowMajorVersionUpgrade</c> parameter for a major version upgrade only.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -249,9 +249,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>The Active Directory directory ID to move the DB cluster to. Specify <code>none</code>
-        /// to remove the cluster from its current domain. The domain must be created prior to
-        /// this operation.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos
+        /// <para>The Active Directory directory ID to move the DB cluster to. Specify <c>none</c> to
+        /// remove the cluster from its current domain. The domain must be created prior to this
+        /// operation.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos
         /// Authentication</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for Cluster Type: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
@@ -296,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// query your database from inside the RDS console with the RDS query editor.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
         /// RDS Data API</a> in the <i>Amazon Aurora User Guide</i>.</para><note><para>This parameter applies only to Aurora Serverless v1 DB clusters. To enable or disable
         /// the HTTP endpoint for an Aurora PostgreSQL Serverless v2 or provisioned DB cluster,
-        /// use the <code>EnableHttpEndpoint</code> and <code>DisableHttpEndpoint</code> operations.</para></note><para>Valid for Cluster Type: Aurora DB clusters only</para>
+        /// use the <c>EnableHttpEndpoint</c> and <c>DisableHttpEndpoint</c> operations.</para></note><para>Valid for Cluster Type: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -352,7 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineMode
         /// <summary>
         /// <para>
-        /// <para>The DB engine mode of the DB cluster, either <code>provisioned</code> or <code>serverless</code>.</para><note><para>The DB engine mode can be modified only from <code>serverless</code> to <code>provisioned</code>.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html">
+        /// <para>The DB engine mode of the DB cluster, either <c>provisioned</c> or <c>serverless</c>.</para><note><para>The DB engine mode can be modified only from <c>serverless</c> to <c>provisioned</c>.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html">
         /// CreateDBCluster</a>.</para><para>Valid for Cluster Type: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
@@ -365,11 +365,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The version number of the database engine to which you want to upgrade. Changing this
         /// parameter results in an outage. The change is applied during the next maintenance
-        /// window unless <code>ApplyImmediately</code> is enabled.</para><para>If the cluster that you're modifying has one or more read replicas, all replicas must
-        /// be running an engine version that's the same or later than the version you specify.</para><para>To list all of the available engine versions for Aurora MySQL, use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for Aurora PostgreSQL, use the following
-        /// command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for RDS for MySQL, use the following
-        /// command:</para><para><code>aws rds describe-db-engine-versions --engine mysql --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for RDS for PostgreSQL, use the following
-        /// command:</para><para><code>aws rds describe-db-engine-versions --engine postgres --query "DBEngineVersions[].EngineVersion"</code></para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// window unless <c>ApplyImmediately</c> is enabled.</para><para>If the cluster that you're modifying has one or more read replicas, all replicas must
+        /// be running an engine version that's the same or later than the version you specify.</para><para>To list all of the available engine versions for Aurora MySQL, use the following command:</para><para><c>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</c></para><para>To list all of the available engine versions for Aurora PostgreSQL, use the following
+        /// command:</para><para><c>aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"</c></para><para>To list all of the available engine versions for RDS for MySQL, use the following
+        /// command:</para><para><c>aws rds describe-db-engine-versions --engine mysql --query "DBEngineVersions[].EngineVersion"</c></para><para>To list all of the available engine versions for RDS for PostgreSQL, use the following
+        /// command:</para><para><c>aws rds describe-db-engine-versions --engine postgres --query "DBEngineVersions[].EngineVersion"</c></para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -394,11 +394,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>Specifies whether to manage the master user password with Amazon Web Services Secrets
         /// Manager.</para><para>If the DB cluster doesn't manage the master user password with Amazon Web Services
         /// Secrets Manager, you can turn on this management. In this case, you can't specify
-        /// <code>MasterUserPassword</code>.</para><para>If the DB cluster already manages the master user password with Amazon Web Services
+        /// <c>MasterUserPassword</c>.</para><para>If the DB cluster already manages the master user password with Amazon Web Services
         /// Secrets Manager, and you specify that the master user password is not managed with
-        /// Amazon Web Services Secrets Manager, then you must specify <code>MasterUserPassword</code>.
+        /// Amazon Web Services Secrets Manager, then you must specify <c>MasterUserPassword</c>.
         /// In this case, RDS deletes the secret and uses the new password for the master user
-        /// specified by <code>MasterUserPassword</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
+        /// specified by <c>MasterUserPassword</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
         /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
         /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html">Password
         /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon Aurora User
@@ -412,7 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>The new password for the master database user.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>Must contain from 8 to 41 characters.</para></li><li><para>Can contain any printable ASCII character except "/", """, or "@".</para></li><li><para>Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</para></li></ul>
+        /// <para>The new password for the master database user.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>Must contain from 8 to 41 characters.</para></li><li><para>Can contain any printable ASCII character except "/", """, or "@".</para></li><li><para>Can't be specified if <c>ManageMasterUserPassword</c> is turned on.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -425,10 +425,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically
         /// generated and managed in Amazon Web Services Secrets Manager.</para><para>This setting is valid only if both of the following conditions are met:</para><ul><li><para>The DB cluster doesn't manage the master user password in Amazon Web Services Secrets
         /// Manager.</para><para>If the DB cluster already manages the master user password in Amazon Web Services
-        /// Secrets Manager, you can't change the KMS key that is used to encrypt the secret.</para></li><li><para>You are turning on <code>ManageMasterUserPassword</code> to manage the master user
-        /// password in Amazon Web Services Secrets Manager.</para><para>If you are turning on <code>ManageMasterUserPassword</code> and don't specify <code>MasterUserSecretKmsKeyId</code>,
-        /// then the <code>aws/secretsmanager</code> KMS key is used to encrypt the secret. If
-        /// the secret is in a different Amazon Web Services account, then you can't use the <code>aws/secretsmanager</code>
+        /// Secrets Manager, you can't change the KMS key that is used to encrypt the secret.</para></li><li><para>You are turning on <c>ManageMasterUserPassword</c> to manage the master user password
+        /// in Amazon Web Services Secrets Manager.</para><para>If you are turning on <c>ManageMasterUserPassword</c> and don't specify <c>MasterUserSecretKmsKeyId</c>,
+        /// then the <c>aws/secretsmanager</c> KMS key is used to encrypt the secret. If the secret
+        /// is in a different Amazon Web Services account, then you can't use the <c>aws/secretsmanager</c>
         /// KMS key to encrypt the secret, and you must use a customer managed KMS key.</para></li></ul><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
         /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
         /// specify the key ARN or alias ARN.</para><para>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services
@@ -442,11 +442,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ScalingConfiguration_MaxCapacity
         /// <summary>
         /// <para>
-        /// <para>The maximum capacity for an Aurora DB cluster in <code>serverless</code> DB engine
-        /// mode.</para><para>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>,
-        /// <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>,
-        /// and <code>256</code>.</para><para>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>,
-        /// <code>16</code>, <code>32</code>, <code>64</code>, <code>192</code>, and <code>384</code>.</para><para>The maximum capacity must be greater than or equal to the minimum capacity.</para>
+        /// <para>The maximum capacity for an Aurora DB cluster in <c>serverless</c> DB engine mode.</para><para>For Aurora MySQL, valid capacity values are <c>1</c>, <c>2</c>, <c>4</c>, <c>8</c>,
+        /// <c>16</c>, <c>32</c>, <c>64</c>, <c>128</c>, and <c>256</c>.</para><para>For Aurora PostgreSQL, valid capacity values are <c>2</c>, <c>4</c>, <c>8</c>, <c>16</c>,
+        /// <c>32</c>, <c>64</c>, <c>192</c>, and <c>384</c>.</para><para>The maximum capacity must be greater than or equal to the minimum capacity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -468,11 +466,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ScalingConfiguration_MinCapacity
         /// <summary>
         /// <para>
-        /// <para>The minimum capacity for an Aurora DB cluster in <code>serverless</code> DB engine
-        /// mode.</para><para>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>,
-        /// <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>,
-        /// and <code>256</code>.</para><para>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>,
-        /// <code>16</code>, <code>32</code>, <code>64</code>, <code>192</code>, and <code>384</code>.</para><para>The minimum capacity must be less than or equal to the maximum capacity.</para>
+        /// <para>The minimum capacity for an Aurora DB cluster in <c>serverless</c> DB engine mode.</para><para>For Aurora MySQL, valid capacity values are <c>1</c>, <c>2</c>, <c>4</c>, <c>8</c>,
+        /// <c>16</c>, <c>32</c>, <c>64</c>, <c>128</c>, and <c>256</c>.</para><para>For Aurora PostgreSQL, valid capacity values are <c>2</c>, <c>4</c>, <c>8</c>, <c>16</c>,
+        /// <c>32</c>, <c>64</c>, <c>192</c>, and <c>384</c>.</para><para>The minimum capacity must be less than or equal to the maximum capacity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -495,8 +491,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
-        /// for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify <code>0</code>.</para><para>If <code>MonitoringRoleArn</code> is specified, also set <code>MonitoringInterval</code>
-        /// to a value other than <code>0</code>.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para><para>Valid Values: <code>0 | 1 | 5 | 10 | 15 | 30 | 60</code></para><para>Default: <code>0</code></para>
+        /// for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify <c>0</c>.</para><para>If <c>MonitoringRoleArn</c> is specified, also set <c>MonitoringInterval</c> to a
+        /// value other than <c>0</c>.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para><para>Valid Values: <c>0 | 1 | 5 | 10 | 15 | 30 | 60</c></para><para>Default: <c>0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -507,11 +503,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced
-        /// Monitoring metrics to Amazon CloudWatch Logs. An example is <code>arn:aws:iam:123456789012:role/emaccess</code>.
+        /// Monitoring metrics to Amazon CloudWatch Logs. An example is <c>arn:aws:iam:123456789012:role/emaccess</c>.
         /// For information on creating a monitoring role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
         /// create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User
-        /// Guide.</i></para><para>If <code>MonitoringInterval</code> is set to a value other than <code>0</code>, supply
-        /// a <code>MonitoringRoleArn</code> value.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para>
+        /// Guide.</i></para><para>If <c>MonitoringInterval</c> is set to a value other than <c>0</c>, supply a <c>MonitoringRoleArn</c>
+        /// value.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -521,10 +517,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>The network type of the DB cluster.</para><para>The network type is determined by the <code>DBSubnetGroup</code> specified for the
-        /// DB cluster. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the
-        /// IPv4 and the IPv6 protocols (<code>DUAL</code>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
-        /// Working with a DB instance in a VPC</a> in the <i>Amazon Aurora User Guide.</i></para><para>Valid for Cluster Type: Aurora DB clusters only</para><para>Valid Values: <code>IPV4 | DUAL</code></para>
+        /// <para>The network type of the DB cluster.</para><para>The network type is determined by the <c>DBSubnetGroup</c> specified for the DB cluster.
+        /// A <c>DBSubnetGroup</c> can support only the IPv4 protocol or the IPv4 and the IPv6
+        /// protocols (<c>DUAL</c>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+        /// Working with a DB instance in a VPC</a> in the <i>Amazon Aurora User Guide.</i></para><para>Valid for Cluster Type: Aurora DB clusters only</para><para>Valid Values: <c>IPV4 | DUAL</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -535,7 +531,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The new DB cluster identifier for the DB cluster when renaming a DB cluster. This
-        /// value is stored as a lowercase string.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster2</code></para>
+        /// value is stored as a lowercase string.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <c>my-cluster2</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -557,8 +553,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Amazon Web Services KMS key identifier for encryption of Performance Insights
         /// data.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
-        /// name for the KMS key.</para><para>If you don't specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
-        /// RDS uses your default KMS key. There is a default KMS key for your Amazon Web Services
+        /// name for the KMS key.</para><para>If you don't specify a value for <c>PerformanceInsightsKMSKeyId</c>, then Amazon RDS
+        /// uses your default KMS key. There is a default KMS key for your Amazon Web Services
         /// account. Your Amazon Web Services account has a different default KMS key for each
         /// Amazon Web Services Region.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para>
         /// </para>
@@ -570,10 +566,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PerformanceInsightsRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para>The number of days to retain Performance Insights data.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para><para>Valid Values:</para><ul><li><para><code>7</code></para></li><li><para><i>month</i> * 31, where <i>month</i> is a number of months from 1-23. Examples:
-        /// <code>93</code> (3 months * 31), <code>341</code> (11 months * 31), <code>589</code>
-        /// (19 months * 31)</para></li><li><para><code>731</code></para></li></ul><para>Default: <code>7</code> days</para><para>If you specify a retention period that isn't valid, such as <code>94</code>, Amazon
-        /// RDS issues an error.</para>
+        /// <para>The number of days to retain Performance Insights data.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para><para>Valid Values:</para><ul><li><para><c>7</c></para></li><li><para><i>month</i> * 31, where <i>month</i> is a number of months from 1-23. Examples:
+        /// <c>93</c> (3 months * 31), <c>341</c> (11 months * 31), <c>589</c> (19 months * 31)</para></li><li><para><c>731</c></para></li></ul><para>Default: <c>7</c> days</para><para>If you specify a retention period that isn't valid, such as <c>94</c>, Amazon RDS
+        /// issues an error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -583,7 +578,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the DB cluster accepts connections.</para><para>Valid for Cluster Type: Aurora DB clusters only</para><para>Valid Values: <code>1150-65535</code></para><para>Default: The same port as the original DB cluster.</para>
+        /// <para>The port number on which the DB cluster accepts connections.</para><para>Valid for Cluster Type: Aurora DB clusters only</para><para>Valid Values: <c>1150-65535</c></para><para>Default: The same port as the original DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -594,9 +589,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The daily time range during which automated backups are created if automated backups
-        /// are enabled, using the <code>BackupRetentionPeriod</code> parameter.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// are enabled, using the <c>BackupRetentionPeriod</c> parameter.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Web Services Region. To view the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow">
-        /// Backup window</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// Backup window</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>Must be in the format <c>hh24:mi-hh24:mi</c>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -611,7 +606,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// for each Amazon Web Services Region, occurring on a random day of the week. To see
         /// the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
         /// Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora
-        /// User Guide</i>.</para><para>Constraints:</para><ul><li><para>Must be in the format <code>ddd:hh24:mi-ddd:hh24:mi</code>.</para></li><li><para>Days must be one of <code>Mon | Tue | Wed | Thu | Fri | Sat | Sun</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// User Guide</i>.</para><para>Constraints:</para><ul><li><para>Must be in the format <c>ddd:hh24:mi-ddd:hh24:mi</c>.</para></li><li><para>Days must be one of <c>Mon | Tue | Wed | Thu | Fri | Sat | Sun</c>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -650,8 +645,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ScalingConfiguration_SecondsUntilAutoPause
         /// <summary>
         /// <para>
-        /// <para>The time, in seconds, before an Aurora DB cluster in <code>serverless</code> mode
-        /// is paused.</para><para>Specify a value between 300 and 86,400 seconds.</para>
+        /// <para>The time, in seconds, before an Aurora DB cluster in <c>serverless</c> mode is paused.</para><para>Specify a value between 300 and 86,400 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -664,8 +658,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The storage type to associate with the DB cluster.</para><para>For information on storage types for Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.html#aurora-storage-type">Storage
         /// configurations for Amazon Aurora DB clusters</a>. For information on storage types
         /// for Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html#create-multi-az-db-cluster-settings">Settings
-        /// for creating Multi-AZ DB clusters</a>.</para><para>When specified for a Multi-AZ DB cluster, a value for the <code>Iops</code> parameter
-        /// is required.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Valid Values:</para><ul><li><para>Aurora DB clusters - <code>aurora | aurora-iopt1</code></para></li><li><para>Multi-AZ DB clusters - <code>io1</code></para></li></ul><para>Default:</para><ul><li><para>Aurora DB clusters - <code>aurora</code></para></li><li><para>Multi-AZ DB clusters - <code>io1</code></para></li></ul>
+        /// for creating Multi-AZ DB clusters</a>.</para><para>When specified for a Multi-AZ DB cluster, a value for the <c>Iops</c> parameter is
+        /// required.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Valid Values:</para><ul><li><para>Aurora DB clusters - <c>aurora | aurora-iopt1</c></para></li><li><para>Multi-AZ DB clusters - <c>io1</c></para></li></ul><para>Default:</para><ul><li><para>Aurora DB clusters - <c>aurora</c></para></li><li><para>Multi-AZ DB clusters - <c>io1</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -675,11 +669,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ScalingConfiguration_TimeoutAction
         /// <summary>
         /// <para>
-        /// <para>The action to take when the timeout is reached, either <code>ForceApplyCapacityChange</code>
-        /// or <code>RollbackCapacityChange</code>.</para><para><code>ForceApplyCapacityChange</code> sets the capacity to the specified value as
-        /// soon as possible.</para><para><code>RollbackCapacityChange</code>, the default, ignores the capacity change if
-        /// a scaling point isn't found in the timeout period.</para><important><para>If you specify <code>ForceApplyCapacityChange</code>, connections that prevent Aurora
-        /// Serverless v1 from finding a scaling point might be dropped.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling">
+        /// <para>The action to take when the timeout is reached, either <c>ForceApplyCapacityChange</c>
+        /// or <c>RollbackCapacityChange</c>.</para><para><c>ForceApplyCapacityChange</c> sets the capacity to the specified value as soon
+        /// as possible.</para><para><c>RollbackCapacityChange</c>, the default, ignores the capacity change if a scaling
+        /// point isn't found in the timeout period.</para><important><para>If you specify <c>ForceApplyCapacityChange</c>, connections that prevent Aurora Serverless
+        /// v1 from finding a scaling point might be dropped.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling">
         /// Autoscaling for Aurora Serverless v1</a> in the <i>Amazon Aurora User Guide</i>.</para>
         /// </para>
         /// </summary>

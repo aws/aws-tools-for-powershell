@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>Use this when paginating results to indicate where to begin in your list of origin
         /// access identities. The results include identities in the list that occur after the
-        /// marker. To get the next page of results, set the <code>Marker</code> to the value
-        /// of the <code>NextMarker</code> from the current page's response (which is also the
-        /// ID of the last identity on that page).</para>
+        /// marker. To get the next page of results, set the <c>Marker</c> to the value of the
+        /// <c>NextMarker</c> from the current page's response (which is also the ID of the last
+        /// identity on that page).</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </para></note><para>
     /// Submits an updated route configuration for a Multi-Region Access Point. This API operation
     /// updates the routing status for the specified Regions from active to passive, or from
-    /// passive to active. A value of <code>0</code> indicates a passive status, which means
-    /// that traffic won't be routed to the specified Region. A value of <code>100</code>
-    /// indicates an active status, which means that traffic will be routed to the specified
-    /// Region. At least one Region must be active at all times.
+    /// passive to active. A value of <c>0</c> indicates a passive status, which means that
+    /// traffic won't be routed to the specified Region. A value of <c>100</c> indicates an
+    /// active status, which means that traffic will be routed to the specified Region. At
+    /// least one Region must be active at all times.
     /// </para><para>
     /// When the routing configuration is changed, any in-progress operations (uploads, copies,
     /// deletes, and so on) to formerly active Regions will continue to run to their final
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </para></note><para>
     /// To submit routing control changes and failover requests, use the Amazon S3 failover
     /// control infrastructure endpoints in these five Amazon Web Services Regions:
-    /// </para><ul><li><para><code>us-east-1</code></para></li><li><para><code>us-west-2</code></para></li><li><para><code>ap-southeast-2</code></para></li><li><para><code>ap-northeast-1</code></para></li><li><para><code>eu-west-1</code></para></li></ul><note><para>
+    /// </para><ul><li><para><c>us-east-1</c></para></li><li><para><c>us-west-2</c></para></li><li><para><c>ap-southeast-2</c></para></li><li><para><c>ap-northeast-1</c></para></li><li><para><c>eu-west-1</c></para></li></ul><note><para>
     /// Your Amazon S3 bucket does not need to be in these five Regions.
     /// </para></note>
     /// </summary>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The different routes that make up the new route configuration. Active routes return
-        /// a value of <code>100</code>, and passive routes return a value of <code>0</code>.</para>
+        /// a value of <c>100</c>, and passive routes return a value of <c>0</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

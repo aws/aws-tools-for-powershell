@@ -52,9 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter RegistrationStatus
         /// <summary>
         /// <para>
-        /// <para>The registration status of the on-premises instances:</para><ul><li><para><code>Deregistered</code>: Include deregistered on-premises instances in the resulting
-        /// list.</para></li><li><para><code>Registered</code>: Include registered on-premises instances in the resulting
-        /// list.</para></li></ul>
+        /// <para>The registration status of the on-premises instances:</para><ul><li><para><c>Deregistered</c>: Include deregistered on-premises instances in the resulting
+        /// list.</para></li><li><para><c>Registered</c>: Include registered on-premises instances in the resulting list.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

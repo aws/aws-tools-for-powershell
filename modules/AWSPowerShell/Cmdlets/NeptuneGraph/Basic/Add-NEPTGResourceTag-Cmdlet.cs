@@ -63,12 +63,12 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// <summary>
         /// <para>
         /// <para>The tags to be assigned to the Neptune Analytics resource.</para><para>The tags are metadata that are specified as a list of key-value pairs:</para><para><b>Key</b> (string)   –   A key is the required name of the tag. The string value
-        /// can be from 1 to 128 Unicode characters in length. It can't be prefixed with <code>aws:</code>
+        /// can be from 1 to 128 Unicode characters in length. It can't be prefixed with <c>aws:</c>
         /// and can only contain the set of Unicode characters specified by this Java regular
-        /// expression: <code>"^([\p{L}\p{Z}\p{N}_.:/=+\-]*)$")</code>.</para><para><b>Value</b> (string)   –   A value is the optional value of the tag. The string
+        /// expression: <c>"^([\p{L}\p{Z}\p{N}_.:/=+\-]*)$")</c>.</para><para><b>Value</b> (string)   –   A value is the optional value of the tag. The string
         /// value can be from 1 to 256 Unicode characters in length. It can't be prefixed with
-        /// <code>aws:</code> and can only contain the set of Unicode characters specified by
-        /// this Java regular expression: <code>"^([\p{L}\p{Z}\p{N}_.:/=+\-]*)$")</code>.</para>
+        /// <c>aws:</c> and can only contain the set of Unicode characters specified by this Java
+        /// regular expression: <c>"^([\p{L}\p{Z}\p{N}_.:/=+\-]*)$")</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

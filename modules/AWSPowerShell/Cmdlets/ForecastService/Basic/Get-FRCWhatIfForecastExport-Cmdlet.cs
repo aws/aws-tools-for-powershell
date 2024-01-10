@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// 
     ///  
     /// <para>
-    /// In addition to listing the properties provided in the <code>CreateWhatIfForecastExport</code>
+    /// In addition to listing the properties provided in the <c>CreateWhatIfForecastExport</c>
     /// request, this operation lists the following properties:
-    /// </para><ul><li><para><code>CreationTime</code></para></li><li><para><code>LastModificationTime</code></para></li><li><para><code>Message</code> - If an error occurred, information about the error.
-    /// </para></li><li><para><code>Status</code></para></li></ul>
+    /// </para><ul><li><para><c>CreationTime</c></para></li><li><para><c>LastModificationTime</c></para></li><li><para><c>Message</c> - If an error occurred, information about the error.
+    /// </para></li><li><para><c>Status</c></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "FRCWhatIfForecastExport")]
     [OutputType("Amazon.ForecastService.Model.DescribeWhatIfForecastExportResponse")]

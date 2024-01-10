@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>coip-pool.local-gateway-route-table-id</code> - The ID of the local gateway
-        /// route table.</para></li><li><para><code>coip-pool.pool-id</code> - The ID of the address pool.</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><c>coip-pool.local-gateway-route-table-id</c> - The ID of the local gateway route
+        /// table.</para></li><li><para><c>coip-pool.pool-id</c> - The ID of the address pool.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>Whether to automatically update the extension in this account and Region when a new
         /// <i>minor</i> version is published by the extension publisher. Major versions released
-        /// by the publisher must be manually updated.</para><para>The default is <code>true</code>.</para>
+        /// by the publisher must be manually updated.</para><para>The default is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The major version of this extension you want to activate, if multiple major versions
         /// are available. The default is the latest major version. CloudFormation uses the latest
-        /// available <i>minor</i> version of the major version selected.</para><para>You can specify <code>MajorVersion</code> or <code>VersionBump</code>, but not both.</para>
+        /// available <i>minor</i> version of the major version selected.</para><para>You can specify <c>MajorVersion</c> or <c>VersionBump</c>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter PublicTypeArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the public extension.</para><para>Conditional: You must specify <code>PublicTypeArn</code>, or <code>TypeName</code>,
-        /// <code>Type</code>, and <code>PublisherId</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the public extension.</para><para>Conditional: You must specify <c>PublicTypeArn</c>, or <c>TypeName</c>, <c>Type</c>,
+        /// and <c>PublisherId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter PublisherId
         /// <summary>
         /// <para>
-        /// <para>The ID of the extension publisher.</para><para>Conditional: You must specify <code>PublicTypeArn</code>, or <code>TypeName</code>,
-        /// <code>Type</code>, and <code>PublisherId</code>.</para>
+        /// <para>The ID of the extension publisher.</para><para>Conditional: You must specify <c>PublicTypeArn</c>, or <c>TypeName</c>, <c>Type</c>,
+        /// and <c>PublisherId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The extension type.</para><para>Conditional: You must specify <code>PublicTypeArn</code>, or <code>TypeName</code>,
-        /// <code>Type</code>, and <code>PublisherId</code>.</para>
+        /// <para>The extension type.</para><para>Conditional: You must specify <c>PublicTypeArn</c>, or <c>TypeName</c>, <c>Type</c>,
+        /// and <c>PublisherId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TypeName
         /// <summary>
         /// <para>
-        /// <para>The name of the extension.</para><para>Conditional: You must specify <code>PublicTypeArn</code>, or <code>TypeName</code>,
-        /// <code>Type</code>, and <code>PublisherId</code>.</para>
+        /// <para>The name of the extension.</para><para>Conditional: You must specify <c>PublicTypeArn</c>, or <c>TypeName</c>, <c>Type</c>,
+        /// and <c>PublisherId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,9 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Manually updates a previously-activated type to a new major or minor version, if available.
-        /// You can also use this parameter to update the value of <code>AutoUpdate</code>.</para><ul><li><para><code>MAJOR</code>: CloudFormation updates the extension to the newest major version,
-        /// if one is available.</para></li><li><para><code>MINOR</code>: CloudFormation updates the extension to the newest minor version,
-        /// if one is available.</para></li></ul>
+        /// You can also use this parameter to update the value of <c>AutoUpdate</c>.</para><ul><li><para><c>MAJOR</c>: CloudFormation updates the extension to the newest major version, if
+        /// one is available.</para></li><li><para><c>MINOR</c>: CloudFormation updates the extension to the newest minor version, if
+        /// one is available.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

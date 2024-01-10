@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter TermRelations_IsA
         /// <summary>
         /// <para>
-        /// <para>The <code>isA</code> property of the term relations.</para>
+        /// <para>The <c>isA</c> property of the term relations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,8 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter LongDescription
         /// <summary>
         /// <para>
-        /// <para>The long description to be updated as part of the <code>UpdateGlossaryTerm</code>
-        /// action.</para>
+        /// <para>The long description to be updated as part of the <c>UpdateGlossaryTerm</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name to be updated as part of the <code>UpdateGlossaryTerm</code> action.</para>
+        /// <para>The name to be updated as part of the <c>UpdateGlossaryTerm</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,8 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter ShortDescription
         /// <summary>
         /// <para>
-        /// <para>The short description to be updated as part of the <code>UpdateGlossaryTerm</code>
-        /// action.</para>
+        /// <para>The short description to be updated as part of the <c>UpdateGlossaryTerm</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The status to be updated as part of the <code>UpdateGlossaryTerm</code> action.</para>
+        /// <para>The status to be updated as part of the <c>UpdateGlossaryTerm</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

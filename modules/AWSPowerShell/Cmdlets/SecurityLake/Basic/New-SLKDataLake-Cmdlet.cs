@@ -31,15 +31,15 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     /// Initializes an Amazon Security Lake instance with the provided (or default) configuration.
     /// You can enable Security Lake in Amazon Web Services Regions with customized settings
     /// before enabling log collection in Regions. To specify particular Regions, configure
-    /// these Regions using the <code>configurations</code> parameter. If you have already
-    /// enabled Security Lake in a Region when you call this command, the command will update
-    /// the Region if you provide new configuration parameters. If you have not already enabled
+    /// these Regions using the <c>configurations</c> parameter. If you have already enabled
+    /// Security Lake in a Region when you call this command, the command will update the
+    /// Region if you provide new configuration parameters. If you have not already enabled
     /// Security Lake in the Region when you call this API, it will set up the data lake in
     /// the Region with the specified configurations.
     /// 
     ///  
     /// <para>
-    /// When you enable Security Lake, it starts ingesting security data after the <code>CreateAwsLogSource</code>
+    /// When you enable Security Lake, it starts ingesting security data after the <c>CreateAwsLogSource</c>
     /// call. This includes ingesting security data from sources, storing data, and making
     /// data accessible to subscribers. Security Lake also enables all the existing settings
     /// and resources that it stores or maintains for your Amazon Web Services account in

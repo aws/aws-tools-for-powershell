@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>To retrieve the next set of results, the <code>nextToken</code> value from a previous
-        /// response; otherwise <code>null</code> to receive the first set of results.</para>
+        /// <para>To retrieve the next set of results, the <c>nextToken</c> value from a previous response;
+        /// otherwise <c>null</c> to receive the first set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

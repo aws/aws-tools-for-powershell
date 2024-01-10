@@ -45,9 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter GreenFleetProvisioningOptionAction
         /// <summary>
         /// <para>
-        /// <para>The method used to add instances to a replacement environment.</para><ul><li><para><code>DISCOVER_EXISTING</code>: Use instances that already exist or will be created
-        /// manually.</para></li><li><para><code>COPY_AUTO_SCALING_GROUP</code>: Use settings from a specified Auto Scaling
-        /// group to define and create instances in a new Auto Scaling group.</para></li></ul>
+        /// <para>The method used to add instances to a replacement environment.</para><ul><li><para><c>DISCOVER_EXISTING</c>: Use instances that already exist or will be created manually.</para></li><li><para><c>COPY_AUTO_SCALING_GROUP</c>: Use settings from a specified Auto Scaling group
+        /// to define and create instances in a new Auto Scaling group.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The action to take on instances in the original environment after a successful blue/green
-        /// deployment.</para><ul><li><para><code>TERMINATE</code>: Instances are terminated after a specified wait time.</para></li><li><para><code>KEEP_ALIVE</code>: Instances are left running after they are deregistered from
-        /// the load balancer and removed from the deployment group.</para></li></ul>
+        /// deployment.</para><ul><li><para><c>TERMINATE</c>: Instances are terminated after a specified wait time.</para></li><li><para><c>KEEP_ALIVE</c>: Instances are left running after they are deregistered from the
+        /// load balancer and removed from the deployment group.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>
         /// <para> The target Amazon ECS services in the deployment group. This applies only to deployment
         /// groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified
-        /// as an Amazon ECS cluster and service name pair using the format <code>&lt;clustername&gt;:&lt;servicename&gt;</code>.
+        /// as an Amazon ECS cluster and service name pair using the format <c>&lt;clustername&gt;:&lt;servicename&gt;</c>.
         /// </para>
         /// </para>
         /// </summary>
@@ -228,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>
         /// <para>An array that contains information about the load balancers to use for load balancing
         /// in a deployment. If you're using Classic Load Balancers, specify those load balancers
-        /// in this array. </para><note><para>You can add up to 10 load balancers to the array.</para></note><note><para>If you're using Application Load Balancers or Network Load Balancers, use the <code>targetGroupInfoList</code>
+        /// in this array. </para><note><para>You can add up to 10 load balancers to the array.</para></note><note><para>If you're using Application Load Balancers or Network Load Balancers, use the <c>targetGroupInfoList</c>
         /// array instead of this one.</para></note>
         /// </para>
         /// </summary>
@@ -272,8 +271,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>Indicates whether a deployment should continue if information about the current state
-        /// of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.</para><ul><li><para><code>true</code>: The deployment proceeds even if alarm status information can't
-        /// be retrieved from Amazon CloudWatch.</para></li><li><para><code>false</code>: The deployment stops if alarm status information can't be retrieved
+        /// of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.</para><ul><li><para><c>true</c>: The deployment proceeds even if alarm status information can't be retrieved
+        /// from Amazon CloudWatch.</para></li><li><para><c>false</c>: The deployment stops if alarm status information can't be retrieved
         /// from Amazon CloudWatch.</para></li></ul>
         /// </para>
         /// </summary>
@@ -334,9 +333,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>Indicates what happens when new Amazon EC2 instances are launched mid-deployment and
-        /// do not receive the deployed application revision.</para><para>If this option is set to <code>UPDATE</code> or is unspecified, CodeDeploy initiates
-        /// one or more 'auto-update outdated instances' deployments to apply the deployed application
-        /// revision to the new Amazon EC2 instances.</para><para>If this option is set to <code>IGNORE</code>, CodeDeploy does not initiate a deployment
+        /// do not receive the deployed application revision.</para><para>If this option is set to <c>UPDATE</c> or is unspecified, CodeDeploy initiates one
+        /// or more 'auto-update outdated instances' deployments to apply the deployed application
+        /// revision to the new Amazon EC2 instances.</para><para>If this option is set to <c>IGNORE</c>, CodeDeploy does not initiate a deployment
         /// to update the new Amazon EC2 instances. This may result in instances having different
         /// revisions.</para>
         /// </para>
@@ -361,8 +360,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>
         /// <para>An array that contains information about the target groups to use for load balancing
         /// in a deployment. If you're using Application Load Balancers and Network Load Balancers,
-        /// specify their associated target groups in this array.</para><note><para>You can add up to 10 target groups to the array.</para></note><note><para>If you're using Classic Load Balancers, use the <code>elbInfoList</code> array instead
-        /// of this one.</para></note>
+        /// specify their associated target groups in this array.</para><note><para>You can add up to 10 target groups to the array.</para></note><note><para>If you're using Classic Load Balancers, use the <c>elbInfoList</c> array instead of
+        /// this one.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -372,7 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter LoadBalancerInfo_TargetGroupPairInfoList
         /// <summary>
         /// <para>
-        /// <para> The target group pair information. This is an array of <code>TargeGroupPairInfo</code>
+        /// <para> The target group pair information. This is an array of <c>TargeGroupPairInfo</c>
         /// objects with a maximum size of one. </para>
         /// </para>
         /// </summary>
@@ -385,9 +384,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>
         /// <para>This parameter only applies if you are using CodeDeploy with Amazon EC2 Auto Scaling.
         /// For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html">Integrating
-        /// CodeDeploy with Amazon EC2 Auto Scaling</a> in the <i>CodeDeploy User Guide</i>.</para><para>Set <code>terminationHookEnabled</code> to <code>true</code> to have CodeDeploy install
-        /// a termination hook into your Auto Scaling group when you update a deployment group.
-        /// When this hook is installed, CodeDeploy will perform termination deployments.</para><para>For information about termination deployments, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html#integrations-aws-auto-scaling-behaviors-hook-enable">Enabling
+        /// CodeDeploy with Amazon EC2 Auto Scaling</a> in the <i>CodeDeploy User Guide</i>.</para><para>Set <c>terminationHookEnabled</c> to <c>true</c> to have CodeDeploy install a termination
+        /// hook into your Auto Scaling group when you update a deployment group. When this hook
+        /// is installed, CodeDeploy will perform termination deployments.</para><para>For information about termination deployments, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html#integrations-aws-auto-scaling-behaviors-hook-enable">Enabling
         /// termination deployments during Auto Scaling scale-in events</a> in the <i>CodeDeploy
         /// User Guide</i>.</para><para>For more information about Auto Scaling scale-in events, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html#as-lifecycle-scale-in">Scale
         /// in</a> topic in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
@@ -428,8 +427,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The number of minutes to wait before the status of a blue/green deployment is changed
-        /// to Stopped if rerouting is not started manually. Applies only to the <code>STOP_DEPLOYMENT</code>
-        /// option for <code>actionOnTimeout</code>.</para>
+        /// to Stopped if rerouting is not started manually. Applies only to the <c>STOP_DEPLOYMENT</c>
+        /// option for <c>actionOnTimeout</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

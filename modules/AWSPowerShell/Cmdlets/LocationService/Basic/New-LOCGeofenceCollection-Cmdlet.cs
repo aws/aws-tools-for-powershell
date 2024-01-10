@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>A custom name for the geofence collection.</para><para>Requirements:</para><ul><li><para>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and
-        /// underscores (_). </para></li><li><para>Must be a unique geofence collection name.</para></li><li><para>No spaces allowed. For example, <code>ExampleGeofenceCollection</code>.</para></li></ul>
+        /// underscores (_). </para></li><li><para>Must be a unique geofence collection name.</para></li><li><para>No spaces allowed. For example, <c>ExampleGeofenceCollection</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Applies one or more tags to the geofence collection. A tag is a key-value pair helps
-        /// manage, identify, search, and filter your resources by labelling them.</para><para>Format: <code>"key" : "value"</code></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource</para></li><li><para>Each resource tag must be unique with a maximum of one value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
+        /// manage, identify, search, and filter your resources by labelling them.</para><para>Format: <c>"key" : "value"</c></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource</para></li><li><para>Each resource tag must be unique with a maximum of one value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
         /// = . _ : / @. </para></li><li><para>Cannot use "aws:" as a prefix for a key.</para></li></ul>
         /// </para>
         /// </summary>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</para>
+        /// <para>No longer used. If included, the only allowed value is <c>RequestBasedUsage</c>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

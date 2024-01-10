@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>The maximum number of prefetch schedules that you want MediaTailor to return in response
-        /// to the current request. If there are more than <code>MaxResults</code> prefetch schedules,
-        /// use the value of <code>NextToken</code> in the response to get the next page of results.</para>
+        /// to the current request. If there are more than <c>MaxResults</c> prefetch schedules,
+        /// use the value of <c>NextToken</c> in the response to get the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,10 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) If the playback configuration has more than <code>MaxResults</code> prefetch
-        /// schedules, use <code>NextToken</code> to get the second and subsequent pages of results.</para><para> For the first <code>ListPrefetchSchedulesRequest</code> request, omit this value.</para><para> For the second and subsequent requests, get the value of <code>NextToken</code> from
-        /// the previous response and specify that value for <code>NextToken</code> in the request.</para><para> If the previous response didn't include a <code>NextToken</code> element, there are
-        /// no more prefetch schedules to get.</para>
+        /// <para>(Optional) If the playback configuration has more than <c>MaxResults</c> prefetch
+        /// schedules, use <c>NextToken</c> to get the second and subsequent pages of results.</para><para> For the first <c>ListPrefetchSchedulesRequest</c> request, omit this value.</para><para> For the second and subsequent requests, get the value of <c>NextToken</c> from the
+        /// previous response and specify that value for <c>NextToken</c> in the request.</para><para> If the previous response didn't include a <c>NextToken</c> element, there are no
+        /// more prefetch schedules to get.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

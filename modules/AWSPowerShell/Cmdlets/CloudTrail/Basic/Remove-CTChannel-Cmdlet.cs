@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter Channel
         /// <summary>
         /// <para>
-        /// <para>The ARN or the <code>UUID</code> value of the channel that you want to delete.</para>
+        /// <para>The ARN or the <c>UUID</c> value of the channel that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -41,9 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// see <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html">CreateEventBus</a>.
     /// </para><para>
     /// If you are updating an existing rule, the rule is replaced with what you specify in
-    /// this <code>PutRule</code> command. If you omit arguments in <code>PutRule</code>,
-    /// the old values for those arguments are not kept. Instead, they are replaced with null
-    /// values.
+    /// this <c>PutRule</c> command. If you omit arguments in <c>PutRule</c>, the old values
+    /// for those arguments are not kept. Instead, they are replaced with null values.
     /// </para><para>
     /// When you create or update a rule, incoming events might not immediately start matching
     /// to new or updated rules. Allow a short period of time for changes to take effect.
@@ -56,12 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// When you initially create a rule, you can optionally assign one or more tags to the
     /// rule. Tags can help you organize and categorize your resources. You can also use them
     /// to scope user permissions, by granting a user permission to access or change only
-    /// rules with certain tag values. To use the <code>PutRule</code> operation and assign
-    /// tags, you must have both the <code>events:PutRule</code> and <code>events:TagResource</code>
-    /// permissions.
+    /// rules with certain tag values. To use the <c>PutRule</c> operation and assign tags,
+    /// you must have both the <c>events:PutRule</c> and <c>events:TagResource</c> permissions.
     /// </para><para>
-    /// If you are updating an existing rule, any tags you specify in the <code>PutRule</code>
-    /// operation are ignored. To update the tags of an existing rule, use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_TagResource.html">TagResource</a>
+    /// If you are updating an existing rule, any tags you specify in the <c>PutRule</c> operation
+    /// are ignored. To update the tags of an existing rule, use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_TagResource.html">TagResource</a>
     /// and <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UntagResource.html">UntagResource</a>.
     /// </para><para>
     /// Most services in Amazon Web Services treat : or / as the same character in Amazon
@@ -151,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role associated with the rule.</para><para>If you're setting an event bus in another account as the target and that account granted
         /// permission to your account through an organization instead of directly by the account
-        /// ID, you must specify a <code>RoleArn</code> with proper permissions in the <code>Target</code>
+        /// ID, you must specify a <c>RoleArn</c> with proper permissions in the <c>Target</c>
         /// structure, instead of here in this parameter.</para>
         /// </para>
         /// </summary>

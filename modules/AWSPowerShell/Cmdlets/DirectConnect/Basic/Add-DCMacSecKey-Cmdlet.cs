@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// 
     ///  
     /// <para>
-    /// You must supply either the <code>secretARN,</code> or the CKN/CAK (<code>ckn</code>
-    /// and <code>cak</code>) pair in the request.
+    /// You must supply either the <c>secretARN,</c> or the CKN/CAK (<c>ckn</c> and <c>cak</c>)
+    /// pair in the request.
     /// </para><para>
     /// For information about MAC Security (MACsec) key considerations, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-key-consideration">MACsec
     /// pre-shared CKN/CAK key considerations </a> in the <i>Direct Connect User Guide</i>.
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Cak
         /// <summary>
         /// <para>
-        /// <para>The MAC Security (MACsec) CAK to associate with the dedicated connection.</para><para>You can create the CKN/CAK pair using an industry standard tool.</para><para> The valid values are 64 hexadecimal characters (0-9, A-E).</para><para>If you use this request parameter, you must use the <code>ckn</code> request parameter
-        /// and not use the <code>secretARN</code> request parameter.</para>
+        /// <para>The MAC Security (MACsec) CAK to associate with the dedicated connection.</para><para>You can create the CKN/CAK pair using an industry standard tool.</para><para> The valid values are 64 hexadecimal characters (0-9, A-E).</para><para>If you use this request parameter, you must use the <c>ckn</c> request parameter and
+        /// not use the <c>secretARN</c> request parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Ckn
         /// <summary>
         /// <para>
-        /// <para>The MAC Security (MACsec) CKN to associate with the dedicated connection.</para><para>You can create the CKN/CAK pair using an industry standard tool.</para><para> The valid values are 64 hexadecimal characters (0-9, A-E).</para><para>If you use this request parameter, you must use the <code>cak</code> request parameter
-        /// and not use the <code>secretARN</code> request parameter.</para>
+        /// <para>The MAC Security (MACsec) CKN to associate with the dedicated connection.</para><para>You can create the CKN/CAK pair using an industry standard tool.</para><para> The valid values are 64 hexadecimal characters (0-9, A-E).</para><para>If you use this request parameter, you must use the <c>cak</c> request parameter and
+        /// not use the <c>secretARN</c> request parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate
         /// with the dedicated connection.</para><para>You can use <a>DescribeConnections</a> or <a>DescribeLags</a> to retrieve the MAC
-        /// Security (MACsec) secret key.</para><para>If you use this request parameter, you do not use the <code>ckn</code> and <code>cak</code>
-        /// request parameters.</para>
+        /// Security (MACsec) secret key.</para><para>If you use this request parameter, you do not use the <c>ckn</c> and <c>cak</c> request
+        /// parameters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

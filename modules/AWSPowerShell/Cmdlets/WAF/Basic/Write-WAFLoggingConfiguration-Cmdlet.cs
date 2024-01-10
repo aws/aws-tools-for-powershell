@@ -46,14 +46,13 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// However, if you are capturing logs for Amazon CloudFront, always create the firehose
     /// in US East (N. Virginia). 
     /// </para><note><para>
-    /// Do not create the data firehose using a <code>Kinesis stream</code> as your source.
+    /// Do not create the data firehose using a <c>Kinesis stream</c> as your source.
     /// </para></note></li><li><para>
-    /// Associate that firehose to your web ACL using a <code>PutLoggingConfiguration</code>
-    /// request.
+    /// Associate that firehose to your web ACL using a <c>PutLoggingConfiguration</c> request.
     /// </para></li></ol><para>
-    /// When you successfully enable logging using a <code>PutLoggingConfiguration</code>
-    /// request, AWS WAF will create a service linked role with the necessary permissions
-    /// to write logs to the Amazon Kinesis Data Firehose. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
+    /// When you successfully enable logging using a <c>PutLoggingConfiguration</c> request,
+    /// AWS WAF will create a service linked role with the necessary permissions to write
+    /// logs to the Amazon Kinesis Data Firehose. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
     /// Web ACL Traffic Information</a> in the <i>AWS WAF Developer Guide</i>.
     /// </para>
     /// </summary>
@@ -91,8 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <summary>
         /// <para>
         /// <para>The parts of the request that you want redacted from the logs. For example, if you
-        /// redact the cookie field, the cookie field in the firehose will be <code>xxx</code>.
-        /// </para>
+        /// redact the cookie field, the cookie field in the firehose will be <c>xxx</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter LoggingConfiguration_ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the web ACL that you want to associate with <code>LogDestinationConfigs</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the web ACL that you want to associate with <c>LogDestinationConfigs</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

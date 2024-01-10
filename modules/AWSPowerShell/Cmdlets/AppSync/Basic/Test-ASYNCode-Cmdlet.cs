@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
     /// Evaluates the given code and returns the response. The code definition requirements
-    /// depend on the specified runtime. For <code>APPSYNC_JS</code> runtimes, the code defines
+    /// depend on the specified runtime. For <c>APPSYNC_JS</c> runtimes, the code defines
     /// the request and response functions. The request function takes the incoming request
     /// after a GraphQL operation is parsed and converts it into a request configuration for
     /// the selected data source operation. The response function interprets responses from
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Code
         /// <summary>
         /// <para>
-        /// <para>The code definition to be evaluated. Note that <code>code</code> and <code>runtime</code>
-        /// are both required for this action. The <code>runtime</code> value must be <code>APPSYNC_JS</code>.</para>
+        /// <para>The code definition to be evaluated. Note that <c>code</c> and <c>runtime</c> are
+        /// both required for this action. The <c>runtime</c> value must be <c>APPSYNC_JS</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>The map that holds all of the contextual information for your resolver invocation.
-        /// A <code>context</code> is required for this action.</para>
+        /// A <c>context</c> is required for this action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Function
         /// <summary>
         /// <para>
-        /// <para>The function within the code to be evaluated. If provided, the valid values are <code>request</code>
-        /// and <code>response</code>.</para>
+        /// <para>The function within the code to be evaluated. If provided, the valid values are <c>request</c>
+        /// and <c>response</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,8 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Runtime_Name
         /// <summary>
         /// <para>
-        /// <para>The <code>name</code> of the runtime to use. Currently, the only allowed value is
-        /// <code>APPSYNC_JS</code>.</para>
+        /// <para>The <c>name</c> of the runtime to use. Currently, the only allowed value is <c>APPSYNC_JS</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -114,8 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Runtime_RuntimeVersion
         /// <summary>
         /// <para>
-        /// <para>The <code>version</code> of the runtime to use. Currently, the only allowed version
-        /// is <code>1.0.0</code>.</para>
+        /// <para>The <c>version</c> of the runtime to use. Currently, the only allowed version is <c>1.0.0</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

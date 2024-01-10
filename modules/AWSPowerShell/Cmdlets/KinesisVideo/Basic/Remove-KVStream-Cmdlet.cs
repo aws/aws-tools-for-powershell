@@ -38,10 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.KV
     ///  To ensure that you have the latest version of the stream before deleting it, you
     /// can specify the stream version. Kinesis Video Streams assigns a version to each stream.
     /// When you update a stream, Kinesis Video Streams assigns a new version number. To get
-    /// the latest stream version, use the <code>DescribeStream</code> API. 
+    /// the latest stream version, use the <c>DescribeStream</c> API. 
     /// </para><para>
-    /// This operation requires permission for the <code>KinesisVideo:DeleteStream</code>
-    /// action.
+    /// This operation requires permission for the <c>KinesisVideo:DeleteStream</c> action.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "KVStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -60,8 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>Optional: The version of the stream that you want to delete. </para><para>Specify the version as a safeguard to ensure that your are deleting the correct stream.
-        /// To get the stream version, use the <code>DescribeStream</code> API.</para><para>If not specified, only the <code>CreationTime</code> is checked before deleting the
-        /// stream.</para>
+        /// To get the stream version, use the <c>DescribeStream</c> API.</para><para>If not specified, only the <c>CreationTime</c> is checked before deleting the stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

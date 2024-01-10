@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter GlueTable_AdditionalOption
         /// <summary>
         /// <para>
-        /// <para>Additional options for the table. Currently there are two keys supported:</para><ul><li><para><code>pushDownPredicate</code>: to filter on partitions without having to list and
-        /// read all the files in your dataset.</para></li><li><para><code>catalogPartitionPredicate</code>: to use server-side partition pruning using
-        /// partition indexes in the Glue Data Catalog.</para></li></ul>
+        /// <para>Additional options for the table. Currently there are two keys supported:</para><ul><li><para><c>pushDownPredicate</c>: to filter on partitions without having to list and read
+        /// all the files in your dataset.</para></li><li><para><c>catalogPartitionPredicate</c>: to use server-side partition pruning using partition
+        /// indexes in the Glue Data Catalog.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

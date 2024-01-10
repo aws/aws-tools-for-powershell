@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     ///  
     /// <para>
     /// Only those recognizers that are in terminated states (IN_ERROR, TRAINED) will be deleted.
-    /// If an active inference job is using the model, a <code>ResourceInUseException</code>
-    /// will be returned.
+    /// If an active inference job is using the model, a <c>ResourceInUseException</c> will
+    /// be returned.
     /// </para><para>
     /// This is an asynchronous action that puts the recognizer into a DELETING state, and
     /// it is then removed by a background job. Once removed, the recognizer disappears from

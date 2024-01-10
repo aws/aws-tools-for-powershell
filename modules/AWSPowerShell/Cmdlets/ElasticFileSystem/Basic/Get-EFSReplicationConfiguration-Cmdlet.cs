@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>(Optional) To limit the number of objects returned in a response, you can specify
-        /// the <code>MaxItems</code> parameter. The default value is 100. </para>
+        /// the <c>MaxItems</c> parameter. The default value is 100. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para><code>NextToken</code> is present if the response is paginated. You can use <code>NextToken</code>
+        /// <para><c>NextToken</c> is present if the response is paginated. You can use <c>NextToken</c>
         /// in a subsequent request to fetch the next page of output.</para>
         /// </para>
         /// </summary>

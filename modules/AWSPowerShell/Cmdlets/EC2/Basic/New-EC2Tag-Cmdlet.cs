@@ -77,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags. The <code>value</code> parameter is required, but if you don't want the
-        /// tag to have a value, specify the parameter with no value, and we set the value to
-        /// an empty string.</para>
+        /// <para>The tags. The <c>value</c> parameter is required, but if you don't want the tag to
+        /// have a value, specify the parameter with no value, and we set the value to an empty
+        /// string.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

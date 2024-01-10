@@ -97,12 +97,12 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>
         /// <para>The amount of extra query capacity for an index and <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html">GetQuerySuggestions</a>
         /// capacity.</para><para>A single extra capacity unit for an index provides 0.1 queries per second or approximately
-        /// 8,000 queries per day. You can add up to 100 extra capacity units.</para><para><code>GetQuerySuggestions</code> capacity is five times the provisioned query capacity
+        /// 8,000 queries per day. You can add up to 100 extra capacity units.</para><para><c>GetQuerySuggestions</c> capacity is five times the provisioned query capacity
         /// for an index, or the base capacity of 2.5 calls per second, whichever is higher. For
-        /// example, the base capacity for an index is 0.1 queries per second, and <code>GetQuerySuggestions</code>
+        /// example, the base capacity for an index is 0.1 queries per second, and <c>GetQuerySuggestions</c>
         /// capacity has a base of 2.5 calls per second. If you add another 0.1 queries per second
-        /// to total 0.2 queries per second for an index, the <code>GetQuerySuggestions</code>
-        /// capacity is 2.5 calls per second (higher than five times 0.2 queries per second).</para>
+        /// to total 0.2 queries per second for an index, the <c>GetQuerySuggestions</c> capacity
+        /// is 2.5 calls per second (higher than five times 0.2 queries per second).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

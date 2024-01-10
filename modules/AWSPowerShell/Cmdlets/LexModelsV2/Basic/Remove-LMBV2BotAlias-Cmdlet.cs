@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>By default, Amazon Lex checks if any other resource, such as a bot network, is using
-        /// the bot alias before it is deleted and throws a <code>ResourceInUseException</code>
-        /// exception if the alias is being used by another resource. Set this parameter to <code>true</code>
+        /// the bot alias before it is deleted and throws a <c>ResourceInUseException</c> exception
+        /// if the alias is being used by another resource. Set this parameter to <c>true</c>
         /// to skip this check and remove the alias even if it is being used by another resource.</para>
         /// </para>
         /// </summary>

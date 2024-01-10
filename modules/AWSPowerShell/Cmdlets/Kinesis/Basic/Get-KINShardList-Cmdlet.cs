@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// has a limit of 1000 transactions per second per data stream.
     /// 
     ///  <note><para>
-    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
-    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
-    /// parameter when you invoke this API.
+    /// When invoking this API, you must use either the <c>StreamARN</c> or the <c>StreamName</c>
+    /// parameter, or both. It is recommended that you use the <c>StreamARN</c> input parameter
+    /// when you invoke this API.
     /// </para></note><para>
     /// This action does not list expired shards. For information about expired shards, see
     /// <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing">Data
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <summary>
         /// <para>
         /// <para>Specify this parameter to indicate that you want to list the shards starting with
-        /// the shard whose ID immediately follows <code>ExclusiveStartShardId</code>.</para><para>If you don't specify this parameter, the default behavior is for <code>ListShards</code>
-        /// to list the shards starting with the first one in the stream.</para><para>You cannot specify this parameter if you specify <code>NextToken</code>.</para>
+        /// the shard whose ID immediately follows <c>ExclusiveStartShardId</c>.</para><para>If you don't specify this parameter, the default behavior is for <c>ListShards</c>
+        /// to list the shards starting with the first one in the stream.</para><para>You cannot specify this parameter if you specify <c>NextToken</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,9 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter ShardFilter_ShardId
         /// <summary>
         /// <para>
-        /// <para>The exclusive start <code>shardID</code> speified in the <code>ShardFilter</code>
-        /// parameter. This property can only be used if the <code>AFTER_SHARD_ID</code> shard
-        /// type is specified.</para>
+        /// <para>The exclusive start <c>shardID</c> speified in the <c>ShardFilter</c> parameter. This
+        /// property can only be used if the <c>AFTER_SHARD_ID</c> shard type is specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <para>Specify this input parameter to distinguish data streams that have the same name.
         /// For example, if you create a data stream and then delete it, and you later create
         /// another data stream with the same name, you can use this input parameter to specify
-        /// which of the two streams you want to list the shards for.</para><para>You cannot specify this parameter if you specify the <code>NextToken</code> parameter.</para>
+        /// which of the two streams you want to list the shards for.</para><para>You cannot specify this parameter if you specify the <c>NextToken</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter StreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the data stream whose shards you want to list. </para><para>You cannot specify this parameter if you specify the <code>NextToken</code> parameter.</para>
+        /// <para>The name of the data stream whose shards you want to list. </para><para>You cannot specify this parameter if you specify the <c>NextToken</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -118,10 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter ShardFilter_Timestamp
         /// <summary>
         /// <para>
-        /// <para>The timestamps specified in the <code>ShardFilter</code> parameter. A timestamp is
-        /// a Unix epoch date with precision in milliseconds. For example, 2016-04-04T19:58:46.480-00:00
-        /// or 1459799926.480. This property can only be used if <code>FROM_TIMESTAMP</code> or
-        /// <code>AT_TIMESTAMP</code> shard types are specified.</para>
+        /// <para>The timestamps specified in the <c>ShardFilter</c> parameter. A timestamp is a Unix
+        /// epoch date with precision in milliseconds. For example, 2016-04-04T19:58:46.480-00:00
+        /// or 1459799926.480. This property can only be used if <c>FROM_TIMESTAMP</c> or <c>AT_TIMESTAMP</c>
+        /// shard types are specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,18 +130,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter ShardFilter_Type
         /// <summary>
         /// <para>
-        /// <para>The shard type specified in the <code>ShardFilter</code> parameter. This is a required
-        /// property of the <code>ShardFilter</code> parameter.</para><para>You can specify the following valid values: </para><ul><li><para><code>AFTER_SHARD_ID</code> - the response includes all the shards, starting with
-        /// the shard whose ID immediately follows the <code>ShardId</code> that you provided.
-        /// </para></li><li><para><code>AT_TRIM_HORIZON</code> - the response includes all the shards that were open
-        /// at <code>TRIM_HORIZON</code>.</para></li><li><para><code>FROM_TRIM_HORIZON</code> - (default), the response includes all the shards
-        /// within the retention period of the data stream (trim to tip).</para></li><li><para><code>AT_LATEST</code> - the response includes only the currently open shards of
-        /// the data stream.</para></li><li><para><code>AT_TIMESTAMP</code> - the response includes all shards whose start timestamp
-        /// is less than or equal to the given timestamp and end timestamp is greater than or
-        /// equal to the given timestamp or still open. </para></li><li><para><code>FROM_TIMESTAMP</code> - the response incldues all closed shards whose end timestamp
+        /// <para>The shard type specified in the <c>ShardFilter</c> parameter. This is a required property
+        /// of the <c>ShardFilter</c> parameter.</para><para>You can specify the following valid values: </para><ul><li><para><c>AFTER_SHARD_ID</c> - the response includes all the shards, starting with the shard
+        /// whose ID immediately follows the <c>ShardId</c> that you provided. </para></li><li><para><c>AT_TRIM_HORIZON</c> - the response includes all the shards that were open at <c>TRIM_HORIZON</c>.</para></li><li><para><c>FROM_TRIM_HORIZON</c> - (default), the response includes all the shards within
+        /// the retention period of the data stream (trim to tip).</para></li><li><para><c>AT_LATEST</c> - the response includes only the currently open shards of the data
+        /// stream.</para></li><li><para><c>AT_TIMESTAMP</c> - the response includes all shards whose start timestamp is less
+        /// than or equal to the given timestamp and end timestamp is greater than or equal to
+        /// the given timestamp or still open. </para></li><li><para><c>FROM_TIMESTAMP</c> - the response incldues all closed shards whose end timestamp
         /// is greater than or equal to the given timestamp and also all open shards. Corrected
-        /// to <code>TRIM_HORIZON</code> of the data stream if <code>FROM_TIMESTAMP</code> is
-        /// less than the <code>TRIM_HORIZON</code> value.</para></li></ul>
+        /// to <c>TRIM_HORIZON</c> of the data stream if <c>FROM_TIMESTAMP</c> is less than the
+        /// <c>TRIM_HORIZON</c> value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,11 +150,11 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of shards to return in a single call to <code>ListShards</code>.
-        /// The maximum number of shards to return in a single call. The default value is 1000.
-        /// If you specify a value greater than 1000, at most 1000 results are returned. </para><para>When the number of shards to be listed is greater than the value of <code>MaxResults</code>,
-        /// the response contains a <code>NextToken</code> value that you can use in a subsequent
-        /// call to <code>ListShards</code> to list the next set of shards.</para>
+        /// <para>The maximum number of shards to return in a single call to <c>ListShards</c>. The
+        /// maximum number of shards to return in a single call. The default value is 1000. If
+        /// you specify a value greater than 1000, at most 1000 results are returned. </para><para>When the number of shards to be listed is greater than the value of <c>MaxResults</c>,
+        /// the response contains a <c>NextToken</c> value that you can use in a subsequent call
+        /// to <c>ListShards</c> to list the next set of shards.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -174,19 +171,17 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <summary>
         /// <para>
         /// <para>When the number of shards in the data stream is greater than the default value for
-        /// the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code>
+        /// the <c>MaxResults</c> parameter, or if you explicitly specify a value for <c>MaxResults</c>
         /// that is less than the number of shards in the data stream, the response includes a
-        /// pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-        /// value in a subsequent call to <code>ListShards</code> to list the next set of shards.</para><para>Don't specify <code>StreamName</code> or <code>StreamCreationTimestamp</code> if you
-        /// specify <code>NextToken</code> because the latter unambiguously identifies the stream.</para><para>You can optionally specify a value for the <code>MaxResults</code> parameter when
-        /// you specify <code>NextToken</code>. If you specify a <code>MaxResults</code> value
-        /// that is less than the number of shards that the operation returns if you don't specify
-        /// <code>MaxResults</code>, the response will contain a new <code>NextToken</code> value.
-        /// You can use the new <code>NextToken</code> value in a subsequent call to the <code>ListShards</code>
-        /// operation.</para><important><para>Tokens expire after 300 seconds. When you obtain a value for <code>NextToken</code>
-        /// in the response to a call to <code>ListShards</code>, you have 300 seconds to use
-        /// that value. If you specify an expired token in a call to <code>ListShards</code>,
-        /// you get <code>ExpiredNextTokenException</code>.</para></important>
+        /// pagination token named <c>NextToken</c>. You can specify this <c>NextToken</c> value
+        /// in a subsequent call to <c>ListShards</c> to list the next set of shards.</para><para>Don't specify <c>StreamName</c> or <c>StreamCreationTimestamp</c> if you specify <c>NextToken</c>
+        /// because the latter unambiguously identifies the stream.</para><para>You can optionally specify a value for the <c>MaxResults</c> parameter when you specify
+        /// <c>NextToken</c>. If you specify a <c>MaxResults</c> value that is less than the number
+        /// of shards that the operation returns if you don't specify <c>MaxResults</c>, the response
+        /// will contain a new <c>NextToken</c> value. You can use the new <c>NextToken</c> value
+        /// in a subsequent call to the <c>ListShards</c> operation.</para><important><para>Tokens expire after 300 seconds. When you obtain a value for <c>NextToken</c> in the
+        /// response to a call to <c>ListShards</c>, you have 300 seconds to use that value. If
+        /// you specify an expired token in a call to <c>ListShards</c>, you get <c>ExpiredNextTokenException</c>.</para></important>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

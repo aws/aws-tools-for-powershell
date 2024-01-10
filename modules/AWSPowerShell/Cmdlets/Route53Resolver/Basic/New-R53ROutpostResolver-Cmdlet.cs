@@ -46,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and that allows failed requests to be
-        /// retried without the risk of running the operation twice. </para><para><code>CreatorRequestId</code> can be any unique string, for example, a date/time
-        /// stamp.</para>
+        /// retried without the risk of running the operation twice. </para><para><c>CreatorRequestId</c> can be any unique string, for example, a date/time stamp.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Outpost. If you specify this, you must also
-        /// specify a value for the <code>PreferredInstanceType</code>.</para>
+        /// specify a value for the <c>PreferredInstanceType</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -112,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para> The Amazon EC2 instance type. If you specify this, you must also specify a value
-        /// for the <code>OutpostArn</code>. </para>
+        /// for the <c>OutpostArn</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

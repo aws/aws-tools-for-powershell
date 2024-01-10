@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         /// <summary>
         /// <para>
         /// <para> The type of Amazon Web Services resource collections to return. The one valid value
-        /// is <code>CLOUD_FORMATION</code> for Amazon Web Services CloudFormation stacks. </para>
+        /// is <c>CLOUD_FORMATION</c> for Amazon Web Services CloudFormation stacks. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -43,11 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para></important><note><para>
     /// The person making the request (the principal), must have permission to change the
     /// server certificate with the old name and the new name. For example, to change the
-    /// certificate named <code>ProductionCert</code> to <code>ProdCert</code>, the principal
-    /// must have a policy that allows them to update both certificates. If the principal
-    /// has permission to update the <code>ProductionCert</code> group, but not the <code>ProdCert</code>
-    /// certificate, then the update fails. For more information about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management</a>
-    /// in the <i>IAM User Guide</i>.
+    /// certificate named <c>ProductionCert</c> to <c>ProdCert</c>, the principal must have
+    /// a policy that allows them to update both certificates. If the principal has permission
+    /// to update the <c>ProductionCert</c> group, but not the <c>ProdCert</c> certificate,
+    /// then the update fails. For more information about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+    /// management</a> in the <i>IAM User Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "IAMServerCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// server certificate's path.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
         /// pattern</a>) a string of characters consisting of either a forward slash (/) by itself
         /// or a string that must begin and end with forward slashes. In addition, it can contain
-        /// any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>),
+        /// any ASCII character from the ! (<c>\u0021</c>) through the DEL character (<c>\u007F</c>),
         /// including most punctuation characters, digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>

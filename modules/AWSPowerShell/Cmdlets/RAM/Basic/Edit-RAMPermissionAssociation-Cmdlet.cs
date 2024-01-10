@@ -37,12 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     ///  
     /// <para>
     /// You can use this operation to update all of your resource shares to use the current
-    /// default version of the permission by specifying the same value for the <code>fromPermissionArn</code>
-    /// and <code>toPermissionArn</code> parameters.
+    /// default version of the permission by specifying the same value for the <c>fromPermissionArn</c>
+    /// and <c>toPermissionArn</c> parameters.
     /// </para><para>
-    /// You can use the optional <code>fromPermissionVersion</code> parameter to update only
-    /// those resources that use a specified version of the managed permission to the new
-    /// managed permission.
+    /// You can use the optional <c>fromPermissionVersion</c> parameter to update only those
+    /// resources that use a specified version of the managed permission to the new managed
+    /// permission.
     /// </para><important><para>
     /// To successfully perform this operation, you must have permission to update the resource-based
     /// policy on all affected resource types.
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <summary>
         /// <para>
         /// <para>Specifies the ARN of the managed permission that you want to associate with resource
-        /// shares in place of the one specified by <code>fromPerssionArn</code> and <code>fromPermissionVersion</code>.</para><para>The operation always associates the version that is currently the default for the
+        /// shares in place of the one specified by <c>fromPerssionArn</c> and <c>fromPermissionVersion</c>.</para><para>The operation always associates the version that is currently the default for the
         /// specified managed permission.</para>
         /// </para>
         /// </summary>
@@ -117,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// requires that you also pass the same value for all other parameters. We recommend
         /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
         /// type of value.</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
-        /// you.</para><para>If you retry the operation with the same <code>ClientToken</code>, but with different
-        /// parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</para>
+        /// you.</para><para>If you retry the operation with the same <c>ClientToken</c>, but with different parameters,
+        /// the retry fails with an <c>IdempotentParameterMismatch</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

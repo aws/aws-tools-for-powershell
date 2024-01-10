@@ -28,7 +28,7 @@ using Amazon.CustomerProfiles.Model;
 namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
-    /// Returns a set of <code>MatchIds</code> that belong to the given domain.
+    /// Returns a set of <c>MatchIds</c> that belong to the given domain.
     /// </summary>
     [Cmdlet("Get", "CPFRuleBasedMatchList")]
     [OutputType("System.String")]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of <code>MatchIds</code> returned per page.</para>
+        /// <para>The maximum number of <c>MatchIds</c> returned per page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token from the previous <code>ListRuleBasedMatches</code> API call.</para>
+        /// <para>The pagination token from the previous <c>ListRuleBasedMatches</c> API call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

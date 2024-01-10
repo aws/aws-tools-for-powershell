@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.PI
 {
     /// <summary>
     /// Get the attributes of the specified dimension group for a DB instance or data source.
-    /// For example, if you specify a SQL ID, <code>GetDimensionKeyDetails</code> retrieves
-    /// the full text of the dimension <code>db.sql.statement</code> associated with this
-    /// ID. This operation is useful because <code>GetResourceMetrics</code> and <code>DescribeDimensionKeys</code>
-    /// don't support retrieval of large SQL statement text.
+    /// For example, if you specify a SQL ID, <c>GetDimensionKeyDetails</c> retrieves the
+    /// full text of the dimension <c>db.sql.statement</c> associated with this ID. This operation
+    /// is useful because <c>GetResourceMetrics</c> and <c>DescribeDimensionKeys</c> don't
+    /// support retrieval of large SQL statement text.
     /// </summary>
     [Cmdlet("Get", "PIDimensionKeyDetail")]
     [OutputType("Amazon.PI.Model.GetDimensionKeyDetailsResponse")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <summary>
         /// <para>
         /// <para>The name of the dimension group. Performance Insights searches the specified group
-        /// for the dimension group ID. The following group name values are valid:</para><ul><li><para><code>db.query</code> (Amazon DocumentDB only)</para></li><li><para><code>db.sql</code> (Amazon RDS and Aurora only)</para></li></ul>
+        /// for the dimension group ID. The following group name values are valid:</para><ul><li><para><c>db.query</c> (Amazon DocumentDB only)</para></li><li><para><c>db.sql</c> (Amazon RDS and Aurora only)</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <summary>
         /// <para>
         /// <para>The ID of the dimension group from which to retrieve dimension details. For dimension
-        /// group <code>db.sql</code>, the group ID is <code>db.sql.id</code>. The following group
-        /// ID values are valid:</para><ul><li><para><code>db.sql.id</code> for dimension group <code>db.sql</code> (Aurora and RDS only)</para></li><li><para><code>db.query.id</code> for dimension group <code>db.query</code> (DocumentDB only)</para></li></ul>
+        /// group <c>db.sql</c>, the group ID is <c>db.sql.id</c>. The following group ID values
+        /// are valid:</para><ul><li><para><c>db.sql.id</c> for dimension group <c>db.sql</c> (Aurora and RDS only)</para></li><li><para><c>db.query.id</c> for dimension group <c>db.query</c> (DocumentDB only)</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <para>
         /// <para>The ID for a data source from which to gather dimension data. This ID must be immutable
         /// and unique within an Amazon Web Services Region. When a DB instance is the data source,
-        /// specify its <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.
+        /// specify its <c>DbiResourceId</c> value. For example, specify <c>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</c>.
         /// </para>
         /// </para>
         /// </summary>
@@ -108,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <para>A list of dimensions to retrieve the detail data for within the given dimension group.
         /// If you don't specify this parameter, Performance Insights returns all dimension data
         /// within the specified dimension group. Specify dimension names for the following dimension
-        /// groups:</para><ul><li><para><code>db.sql</code> - Specify either the full dimension name <code>db.sql.statement</code>
-        /// or the short dimension name <code>statement</code> (Aurora and RDS only).</para></li><li><para><code>db.query</code> - Specify either the full dimension name <code>db.query.statement</code>
-        /// or the short dimension name <code>statement</code> (DocumentDB only).</para></li></ul>
+        /// groups:</para><ul><li><para><c>db.sql</c> - Specify either the full dimension name <c>db.sql.statement</c> or
+        /// the short dimension name <c>statement</c> (Aurora and RDS only).</para></li><li><para><c>db.query</c> - Specify either the full dimension name <c>db.query.statement</c>
+        /// or the short dimension name <c>statement</c> (DocumentDB only).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services service for which Performance Insights returns data. The only
-        /// valid value is <code>RDS</code>.</para>
+        /// valid value is <c>RDS</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

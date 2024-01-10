@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>A list of the IDs of versions to be deleted. A <code>VersionId</code> is a string
-        /// representation of an integer. Each version is incremented by 1.</para>
+        /// <para>A list of the IDs of versions to be deleted. A <c>VersionId</c> is a string representation
+        /// of an integer. Each version is incremented by 1.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

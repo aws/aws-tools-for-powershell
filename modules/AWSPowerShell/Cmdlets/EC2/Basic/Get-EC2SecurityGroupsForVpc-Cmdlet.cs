@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The filters. If using multiple filters, the results include security groups which
-        /// match all filters.</para><ul><li><para><code>group-id</code>: The security group ID.</para></li><li><para><code>description</code>: The security group's description.</para></li><li><para><code>group-name</code>: The security group name.</para></li><li><para><code>owner-id</code>: The security group owner ID.</para></li><li><para><code>primary-vpc-id</code>: The VPC ID in which the security group was created.</para></li></ul>
+        /// match all filters.</para><ul><li><para><c>group-id</c>: The security group ID.</para></li><li><para><c>description</c>: The security group's description.</para></li><li><para><c>group-name</c>: The security group name.</para></li><li><para><c>owner-id</c>: The security group owner ID.</para></li><li><para><c>primary-vpc-id</c>: The VPC ID in which the security group was created.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

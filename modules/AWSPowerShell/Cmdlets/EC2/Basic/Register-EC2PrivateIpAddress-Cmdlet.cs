@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// IP address that is associated with the IP address is also moved.
     /// </para><para>
     /// Remapping an IP address is an asynchronous operation. When you move an IP address
-    /// from one network interface to another, check <code>network/interfaces/macs/mac/local-ipv4s</code>
+    /// from one network interface to another, check <c>network/interfaces/macs/mac/local-ipv4s</c>
     /// in the instance metadata to confirm that the remapping is complete.
     /// </para><para>
     /// You must specify either the IP addresses or the IP address count in the request.
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the
-        /// network interface. You cannot use this option if you use the <code>Ipv4 Prefixes</code>
+        /// network interface. You cannot use this option if you use the <c>Ipv4 Prefixes</c>
         /// option.</para>
         /// </para>
         /// </summary>
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more IPv4 prefixes assigned to the network interface. You cannot use this option
-        /// if you use the <code>Ipv4PrefixCount</code> option.</para>
+        /// if you use the <c>Ipv4PrefixCount</c> option.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

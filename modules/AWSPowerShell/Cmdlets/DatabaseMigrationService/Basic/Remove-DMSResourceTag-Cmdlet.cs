@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Removes metadata tags from an DMS resource, including replication instance, endpoint,
-    /// subnet group, and migration task. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html"><code>Tag</code></a> data type description.
+    /// subnet group, and migration task. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html"><c>Tag</c></a> data type description.
     /// </summary>
     [Cmdlet("Remove", "DMSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

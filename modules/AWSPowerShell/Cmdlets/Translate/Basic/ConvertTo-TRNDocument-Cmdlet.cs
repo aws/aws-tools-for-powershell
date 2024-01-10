@@ -30,14 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     /// <summary>
     /// Translates the input document from the source language to the target language. This
     /// synchronous operation supports text, HTML, or Word documents as the input document.
-    /// <code>TranslateDocument</code> supports translations from English to any supported
-    /// language, and from any supported language to English. Therefore, specify either the
-    /// source language code or the target language code as “en” (English). 
+    /// <c>TranslateDocument</c> supports translations from English to any supported language,
+    /// and from any supported language to English. Therefore, specify either the source language
+    /// code or the target language code as “en” (English). 
     /// 
     ///  
     /// <para>
-    ///  If you set the <code>Formality</code> parameter, the request will fail if the target
-    /// language does not support formality. For a list of target languages that support formality,
+    ///  If you set the <c>Formality</c> parameter, the request will fail if the target language
+    /// does not support formality. For a list of target languages that support formality,
     /// see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html">Setting
     /// formality</a>. 
     /// </para>
@@ -75,10 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter Document_Content
         /// <summary>
         /// <para>
-        /// <para>The <code>Content</code>field type is Binary large object (blob). This object contains
-        /// the document content converted into base64-encoded binary data. If you use one of
-        /// the AWS SDKs, the SDK performs the Base64-encoding on this field before sending the
-        /// request. </para>
+        /// <para>The <c>Content</c>field type is Binary large object (blob). This object contains the
+        /// document content converted into base64-encoded binary data. If you use one of the
+        /// AWS SDKs, the SDK performs the Base64-encoding on this field before sending the request.
+        /// </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -96,10 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter Document_ContentType
         /// <summary>
         /// <para>
-        /// <para>Describes the format of the document. You can specify one of the following:</para><ul><li><para><code>text/html</code> - The input data consists of HTML content. Amazon Translate
-        /// translates only the text in the HTML element.</para></li><li><para><code>text/plain</code> - The input data consists of unformatted text. Amazon Translate
-        /// translates every character in the content. </para></li><li><para><code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code>
-        /// - The input data consists of a Word document (.docx).</para></li></ul>
+        /// <para>Describes the format of the document. You can specify one of the following:</para><ul><li><para><c>text/html</c> - The input data consists of HTML content. Amazon Translate translates
+        /// only the text in the HTML element.</para></li><li><para><c>text/plain</c> - The input data consists of unformatted text. Amazon Translate
+        /// translates every character in the content. </para></li><li><para><c>application/vnd.openxmlformats-officedocument.wordprocessingml.document</c> -
+        /// The input data consists of a Word document (.docx).</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -155,11 +155,11 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// <para>The language code for the language of the source text. For a list of supported language
         /// codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported
         /// languages</a>.</para><para>To have Amazon Translate determine the source language of your text, you can specify
-        /// <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>,
-        /// Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon
-        /// Comprehend</a> to determine the source language.</para><note><para>If you specify <code>auto</code>, you must send the <code>TranslateDocument</code>
-        /// request in a region that supports Amazon Comprehend. Otherwise, the request returns
-        /// an error indicating that autodetect is not supported. </para></note>
+        /// <c>auto</c> in the <c>SourceLanguageCode</c> field. If you specify <c>auto</c>, Amazon
+        /// Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon
+        /// Comprehend</a> to determine the source language.</para><note><para>If you specify <c>auto</c>, you must send the <c>TranslateDocument</c> request in
+        /// a region that supports Amazon Comprehend. Otherwise, the request returns an error
+        /// indicating that autodetect is not supported. </para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

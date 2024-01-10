@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// After some time, the instances are attached to the load balancer and the health check
     /// status is available.
     /// </para><para>
-    /// The <code>attach instances to load balancer</code> operation supports tag-based access
-    /// control via resource tags applied to the resource identified by <code>load balancer
-    /// name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// The <c>attach instances to load balancer</c> operation supports tag-based access control
+    /// via resource tags applied to the resource identified by <c>load balancer name</c>.
+    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
     /// Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>An array of strings representing the instance name(s) you want to attach to your load
-        /// balancer.</para><para>An instance must be <code>running</code> before you can attach it to your load balancer.</para><para>There are no additional limits on the number of instances you can attach to your load
+        /// balancer.</para><para>An instance must be <c>running</c> before you can attach it to your load balancer.</para><para>There are no additional limits on the number of instances you can attach to your load
         /// balancer, aside from the limit of Lightsail instances you can create in your account
         /// (20).</para>
         /// </para>

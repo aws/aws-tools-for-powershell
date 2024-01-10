@@ -89,8 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of IPv6 prefixes that Amazon Web Services automatically assigns to the
-        /// network interface. You cannot use this option if you use the <code>Ipv6Prefixes</code>
-        /// option.</para>
+        /// network interface. You cannot use this option if you use the <c>Ipv6Prefixes</c> option.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more IPv6 prefixes assigned to the network interface. You cannot use this option
-        /// if you use the <code>Ipv6PrefixCount</code> option.</para>
+        /// if you use the <c>Ipv6PrefixCount</c> option.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

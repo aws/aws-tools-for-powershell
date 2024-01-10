@@ -34,11 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// 
     ///  
     /// <para>
-    /// For a given stack, there will be one <code>StackResourceDrift</code> for each stack
-    /// resource that has been checked for drift. Resources that haven't yet been checked
-    /// for drift aren't included. Resources that don't currently support drift detection
-    /// aren't checked, and so not included. For a list of resources that support drift detection,
-    /// see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources
+    /// For a given stack, there will be one <c>StackResourceDrift</c> for each stack resource
+    /// that has been checked for drift. Resources that haven't yet been checked for drift
+    /// aren't included. Resources that don't currently support drift detection aren't checked,
+    /// and so not included. For a list of resources that support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources
     /// that Support Drift Detection</a>.
     /// </para><para>
     /// Use <a>DetectStackResourceDrift</a> to detect drift on individual resources, or <a>DetectStackDrift</a>
@@ -78,10 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The resource drift status values to use as filters for the resource drift results
-        /// returned.</para><ul><li><para><code>DELETED</code>: The resource differs from its expected template configuration
-        /// in that the resource has been deleted.</para></li><li><para><code>MODIFIED</code>: One or more resource properties differ from their expected
-        /// template values.</para></li><li><para><code>IN_SYNC</code>: The resource's actual configuration matches its expected template
-        /// configuration.</para></li><li><para><code>NOT_CHECKED</code>: CloudFormation doesn't currently return this value.</para></li></ul>
+        /// returned.</para><ul><li><para><c>DELETED</c>: The resource differs from its expected template configuration in
+        /// that the resource has been deleted.</para></li><li><para><c>MODIFIED</c>: One or more resource properties differ from their expected template
+        /// values.</para></li><li><para><c>IN_SYNC</c>: The resource's actual configuration matches its expected template
+        /// configuration.</para></li><li><para><c>NOT_CHECKED</c>: CloudFormation doesn't currently return this value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,9 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to be returned with a single call. If the number of
-        /// available results exceeds this maximum, the response includes a <code>NextToken</code>
-        /// value that you can assign to the <code>NextToken</code> request parameter to get the
-        /// next set of results.</para>
+        /// available results exceeds this maximum, the response includes a <c>NextToken</c> value
+        /// that you can assign to the <c>NextToken</c> request parameter to get the next set
+        /// of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

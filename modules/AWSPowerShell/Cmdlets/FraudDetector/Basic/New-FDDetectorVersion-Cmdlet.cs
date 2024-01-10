@@ -28,7 +28,7 @@ using Amazon.FraudDetector.Model;
 namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Creates a detector version. The detector version starts in a <code>DRAFT</code> status.
+    /// Creates a detector version. The detector version starts in a <c>DRAFT</c> status.
     /// </summary>
     [Cmdlet("New", "FDDetectorVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FraudDetector.Model.CreateDetectorVersionResponse")]
@@ -94,10 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.FD
         /// <summary>
         /// <para>
         /// <para>The rule execution mode for the rules included in the detector version.</para><para>You can define and edit the rule mode at the detector version level, when it is in
-        /// draft status.</para><para>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially,
+        /// draft status.</para><para>If you specify <c>FIRST_MATCHED</c>, Amazon Fraud Detector evaluates rules sequentially,
         /// first to last, stopping at the first matched rule. Amazon Fraud dectector then provides
-        /// the outcomes for that single rule.</para><para>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules
-        /// and returns the outcomes for all matched rules. </para><para>The default behavior is <code>FIRST_MATCHED</code>.</para>
+        /// the outcomes for that single rule.</para><para>If you specifiy <c>ALL_MATCHED</c>, Amazon Fraud Detector evaluates all rules and
+        /// returns the outcomes for all matched rules. </para><para>The default behavior is <c>FIRST_MATCHED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

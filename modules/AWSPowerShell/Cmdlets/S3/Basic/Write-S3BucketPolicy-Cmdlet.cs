@@ -32,32 +32,31 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// 
     ///  <note><para><b>Directory buckets </b> - For directory buckets, you must make requests for this
     /// API operation to the Regional endpoint. These endpoints support path-style requests
-    /// in the format <code>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i></code>. Virtual-hosted-style requests aren't supported. For more information, see
-    /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional
+    /// in the format <c>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i></c>. Virtual-hosted-style requests aren't supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional
     /// and Zonal endpoints</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></note><dl><dt>Permissions</dt><dd><para>
     /// If you are using an identity other than the root user of the Amazon Web Services account
-    /// that owns the bucket, the calling identity must both have the <code>PutBucketPolicy</code>
+    /// that owns the bucket, the calling identity must both have the <c>PutBucketPolicy</c>
     /// permissions on the specified bucket and belong to the bucket owner's account in order
     /// to use this operation.
     /// </para><para>
-    /// If you don't have <code>PutBucketPolicy</code> permissions, Amazon S3 returns a <code>403
-    /// Access Denied</code> error. If you have the correct permissions, but you're not using
-    /// an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405
-    /// Method Not Allowed</code> error.
+    /// If you don't have <c>PutBucketPolicy</c> permissions, Amazon S3 returns a <c>403 Access
+    /// Denied</c> error. If you have the correct permissions, but you're not using an identity
+    /// that belongs to the bucket owner's account, Amazon S3 returns a <c>405 Method Not
+    /// Allowed</c> error.
     /// </para><important><para>
     /// To ensure that bucket owners don't inadvertently lock themselves out of their own
     /// buckets, the root principal in a bucket owner's Amazon Web Services account can perform
-    /// the <code>GetBucketPolicy</code>, <code>PutBucketPolicy</code>, and <code>DeleteBucketPolicy</code>
+    /// the <c>GetBucketPolicy</c>, <c>PutBucketPolicy</c>, and <c>DeleteBucketPolicy</c>
     /// API actions, even if their bucket policy explicitly denies the root principal's access.
     /// Bucket owner root principals can only be blocked from performing these API actions
     /// by VPC endpoint policies and Amazon Web Services Organizations policies.
-    /// </para></important><ul><li><para><b>General purpose bucket permissions</b> - The <code>s3:PutBucketPolicy</code> permission
+    /// </para></important><ul><li><para><b>General purpose bucket permissions</b> - The <c>s3:PutBucketPolicy</c> permission
     /// is required in a policy. For more information about general purpose buckets bucket
     /// policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using
     /// Bucket Policies and User Policies</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></li><li><para><b>Directory bucket permissions</b> - To grant access to this API operation, you
-    /// must have the <code>s3express:PutBucketPolicy</code> permission in an IAM identity-based
+    /// must have the <c>s3express:PutBucketPolicy</c> permission in an IAM identity-based
     /// policy instead of a bucket policy. Cross-account access to this API operation isn't
     /// supported. This operation can only be performed by the Amazon Web Services account
     /// that owns the resource. For more information about directory bucket policies and permissions,
@@ -68,9 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// policy examples</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><para><b>Directory bucket example bucket policies</b> - See <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example
     /// bucket policies for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.
-    /// </para></dd><dt>HTTP Host header syntax</dt><dd><para><b>Directory buckets </b> - The HTTP Host header syntax is <code>s3express-control.<i>region</i>.amazonaws.com</code>.
+    /// </para></dd><dt>HTTP Host header syntax</dt><dd><para><b>Directory buckets </b> - The HTTP Host header syntax is <c>s3express-control.<i>region</i>.amazonaws.com</c>.
     /// </para></dd></dl><para>
-    /// The following operations are related to <code>PutBucketPolicy</code>:
+    /// The following operations are related to <c>PutBucketPolicy</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

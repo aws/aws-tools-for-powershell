@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  
     /// <para>
-    /// The <code>get instance access details</code> operation supports tag-based access control
-    /// via resource tags applied to the resource identified by <code>instance name</code>.
-    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// The <c>get instance access details</c> operation supports tag-based access control
+    /// via resource tags applied to the resource identified by <c>instance name</c>. For
+    /// more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Protocol
         /// <summary>
         /// <para>
-        /// <para>The protocol to use to connect to your instance. Defaults to <code>ssh</code>.</para>
+        /// <para>The protocol to use to connect to your instance. Defaults to <c>ssh</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

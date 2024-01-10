@@ -34,13 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     ///  
     /// <para>
     /// For FSx for Windows File Server file systems, you can update the following properties:
-    /// </para><ul><li><para><code>AuditLogConfiguration</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>SelfManagedActiveDirectoryConfiguration</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>StorageType</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
+    /// </para><ul><li><para><c>AuditLogConfiguration</c></para></li><li><para><c>AutomaticBackupRetentionDays</c></para></li><li><para><c>DailyAutomaticBackupStartTime</c></para></li><li><para><c>SelfManagedActiveDirectoryConfiguration</c></para></li><li><para><c>StorageCapacity</c></para></li><li><para><c>StorageType</c></para></li><li><para><c>ThroughputCapacity</c></para></li><li><para><c>DiskIopsConfiguration</c></para></li><li><para><c>WeeklyMaintenanceStartTime</c></para></li></ul><para>
     /// For FSx for Lustre file systems, you can update the following properties:
-    /// </para><ul><li><para><code>AutoImportPolicy</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DataCompressionType</code></para></li><li><para><code>LogConfiguration</code></para></li><li><para><code>LustreRootSquashConfiguration</code></para></li><li><para><code>PerUnitStorageThroughput</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
+    /// </para><ul><li><para><c>AutoImportPolicy</c></para></li><li><para><c>AutomaticBackupRetentionDays</c></para></li><li><para><c>DailyAutomaticBackupStartTime</c></para></li><li><para><c>DataCompressionType</c></para></li><li><para><c>LogConfiguration</c></para></li><li><para><c>LustreRootSquashConfiguration</c></para></li><li><para><c>PerUnitStorageThroughput</c></para></li><li><para><c>StorageCapacity</c></para></li><li><para><c>WeeklyMaintenanceStartTime</c></para></li></ul><para>
     /// For FSx for ONTAP file systems, you can update the following properties:
-    /// </para><ul><li><para><code>AddRouteTableIds</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>FsxAdminPassword</code></para></li><li><para><code>HAPairs</code></para></li><li><para><code>RemoveRouteTableIds</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>ThroughputCapacityPerHAPair</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
+    /// </para><ul><li><para><c>AddRouteTableIds</c></para></li><li><para><c>AutomaticBackupRetentionDays</c></para></li><li><para><c>DailyAutomaticBackupStartTime</c></para></li><li><para><c>DiskIopsConfiguration</c></para></li><li><para><c>FsxAdminPassword</c></para></li><li><para><c>HAPairs</c></para></li><li><para><c>RemoveRouteTableIds</c></para></li><li><para><c>StorageCapacity</c></para></li><li><para><c>ThroughputCapacity</c></para></li><li><para><c>ThroughputCapacityPerHAPair</c></para></li><li><para><c>WeeklyMaintenanceStartTime</c></para></li></ul><para>
     /// For FSx for OpenZFS file systems, you can update the following properties:
-    /// </para><ul><li><para><code>AddRouteTableIds</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>CopyTagsToBackups</code></para></li><li><para><code>CopyTagsToVolumes</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>RemoveRouteTableIds</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul>
+    /// </para><ul><li><para><c>AddRouteTableIds</c></para></li><li><para><c>AutomaticBackupRetentionDays</c></para></li><li><para><c>CopyTagsToBackups</c></para></li><li><para><c>CopyTagsToVolumes</c></para></li><li><para><c>DailyAutomaticBackupStartTime</c></para></li><li><para><c>DiskIopsConfiguration</c></para></li><li><para><c>RemoveRouteTableIds</c></para></li><li><para><c>StorageCapacity</c></para></li><li><para><c>ThroughputCapacity</c></para></li><li><para><c>WeeklyMaintenanceStartTime</c></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "FSXFileSystem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FSx.Model.FileSystem")]
@@ -120,12 +120,12 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>A Boolean value indicating whether tags for the file system should be copied to backups.
-        /// This value defaults to <code>false</code>. If it's set to <code>true</code>, all tags
-        /// for the file system are copied to all automatic and user-initiated backups where the
-        /// user doesn't specify tags. If this value is <code>true</code> and you specify one
-        /// or more tags, only the specified tags are copied to backups. If you specify one or
-        /// more tags when creating a user-initiated backup, no tags are copied from the file
-        /// system, regardless of this value.</para>
+        /// This value defaults to <c>false</c>. If it's set to <c>true</c>, all tags for the
+        /// file system are copied to all automatic and user-initiated backups where the user
+        /// doesn't specify tags. If this value is <c>true</c> and you specify one or more tags,
+        /// only the specified tags are copied to backups. If you specify one or more tags when
+        /// creating a user-initiated backup, no tags are copied from the file system, regardless
+        /// of this value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,11 +137,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>A Boolean value indicating whether tags for the volume should be copied to snapshots.
-        /// This value defaults to <code>false</code>. If it's set to <code>true</code>, all tags
-        /// for the volume are copied to snapshots where the user doesn't specify tags. If this
-        /// value is <code>true</code> and you specify one or more tags, only the specified tags
-        /// are copied to snapshots. If you specify one or more tags when creating the snapshot,
-        /// no tags are copied from the volume, regardless of this value.</para>
+        /// This value defaults to <c>false</c>. If it's set to <c>true</c>, all tags for the
+        /// volume are copied to snapshots where the user doesn't specify tags. If this value
+        /// is <c>true</c> and you specify one or more tags, only the specified tags are copied
+        /// to snapshots. If you specify one or more tags when creating the snapshot, no tags
+        /// are copied from the volume, regardless of this value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,9 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_FsxAdminPassword
         /// <summary>
         /// <para>
-        /// <para>Update the password for the <code>fsxadmin</code> user by entering a new password.
-        /// You use the <code>fsxadmin</code> user to access the NetApp ONTAP CLI and REST API
-        /// to manage your file system resources. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-resources-ontap-apps.html">Managing
+        /// <para>Update the password for the <c>fsxadmin</c> user by entering a new password. You use
+        /// the <c>fsxadmin</c> user to access the NetApp ONTAP CLI and REST API to manage your
+        /// file system resources. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-resources-ontap-apps.html">Managing
         /// resources using NetApp Applicaton</a>.</para>
         /// </para>
         /// </summary>
@@ -202,10 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_DiskIopsConfiguration_Iops
         /// <summary>
         /// <para>
-        /// <para>The total number of SSD IOPS provisioned for the file system.</para><para>The minimum and maximum values for this property depend on the value of <code>HAPairs</code>
-        /// and <code>StorageCapacity</code>. The minimum value is calculated as <code>StorageCapacity</code>
-        /// * 3 * <code>HAPairs</code> (3 IOPS per GB of <code>StorageCapacity</code>). The maximum
-        /// value is calculated as 200,000 * <code>HAPairs</code>.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) if the value of <code>Iops</code>
+        /// <para>The total number of SSD IOPS provisioned for the file system.</para><para>The minimum and maximum values for this property depend on the value of <c>HAPairs</c>
+        /// and <c>StorageCapacity</c>. The minimum value is calculated as <c>StorageCapacity</c>
+        /// * 3 * <c>HAPairs</c> (3 IOPS per GB of <c>StorageCapacity</c>). The maximum value
+        /// is calculated as 200,000 * <c>HAPairs</c>.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) if the value of <c>Iops</c>
         /// is outside of the minimum or maximum values.</para>
         /// </para>
         /// </summary>
@@ -216,10 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_DiskIopsConfiguration_Iops
         /// <summary>
         /// <para>
-        /// <para>The total number of SSD IOPS provisioned for the file system.</para><para>The minimum and maximum values for this property depend on the value of <code>HAPairs</code>
-        /// and <code>StorageCapacity</code>. The minimum value is calculated as <code>StorageCapacity</code>
-        /// * 3 * <code>HAPairs</code> (3 IOPS per GB of <code>StorageCapacity</code>). The maximum
-        /// value is calculated as 200,000 * <code>HAPairs</code>.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) if the value of <code>Iops</code>
+        /// <para>The total number of SSD IOPS provisioned for the file system.</para><para>The minimum and maximum values for this property depend on the value of <c>HAPairs</c>
+        /// and <c>StorageCapacity</c>. The minimum value is calculated as <c>StorageCapacity</c>
+        /// * 3 * <c>HAPairs</c> (3 IOPS per GB of <c>StorageCapacity</c>). The maximum value
+        /// is calculated as 200,000 * <c>HAPairs</c>.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) if the value of <c>Iops</c>
         /// is outside of the minimum or maximum values.</para>
         /// </para>
         /// </summary>
@@ -240,9 +240,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_DiskIopsConfiguration_Mode
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the file system is using the <code>AUTOMATIC</code> setting of SSD
-        /// IOPS of 3 IOPS per GB of storage capacity, , or if it using a <code>USER_PROVISIONED</code>
-        /// value.</para>
+        /// <para>Specifies whether the file system is using the <c>AUTOMATIC</c> setting of SSD IOPS
+        /// of 3 IOPS per GB of storage capacity, , or if it using a <c>USER_PROVISIONED</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,9 +252,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_DiskIopsConfiguration_Mode
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the file system is using the <code>AUTOMATIC</code> setting of SSD
-        /// IOPS of 3 IOPS per GB of storage capacity, , or if it using a <code>USER_PROVISIONED</code>
-        /// value.</para>
+        /// <para>Specifies whether the file system is using the <c>AUTOMATIC</c> setting of SSD IOPS
+        /// of 3 IOPS per GB of storage capacity, , or if it using a <c>USER_PROVISIONED</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -296,12 +294,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// FSx for Lustre, FSx for OpenZFS, or FSx for ONTAP file system. Specifies the storage
         /// capacity target value, in GiB, to increase the storage capacity for the file system
         /// that you're updating. </para><note><para>You can't make a storage capacity increase request if there is an existing storage
-        /// capacity increase request in progress.</para></note><para>For Lustre file systems, the storage capacity target value can be the following:</para><ul><li><para>For <code>SCRATCH_2</code>, <code>PERSISTENT_1</code>, and <code>PERSISTENT_2 SSD</code>
-        /// deployment types, valid values are in multiples of 2400 GiB. The value must be greater
-        /// than the current storage capacity.</para></li><li><para>For <code>PERSISTENT HDD</code> file systems, valid values are multiples of 6000 GiB
-        /// for 12-MBps throughput per TiB file systems and multiples of 1800 GiB for 40-MBps
-        /// throughput per TiB file systems. The values must be greater than the current storage
-        /// capacity.</para></li><li><para>For <code>SCRATCH_1</code> file systems, you can't increase the storage capacity.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing
+        /// capacity increase request in progress.</para></note><para>For Lustre file systems, the storage capacity target value can be the following:</para><ul><li><para>For <c>SCRATCH_2</c>, <c>PERSISTENT_1</c>, and <c>PERSISTENT_2 SSD</c> deployment
+        /// types, valid values are in multiples of 2400 GiB. The value must be greater than the
+        /// current storage capacity.</para></li><li><para>For <c>PERSISTENT HDD</c> file systems, valid values are multiples of 6000 GiB for
+        /// 12-MBps throughput per TiB file systems and multiples of 1800 GiB for 40-MBps throughput
+        /// per TiB file systems. The values must be greater than the current storage capacity.</para></li><li><para>For <c>SCRATCH_1</c> file systems, you can't increase the storage capacity.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing
         /// storage and throughput capacity</a> in the <i>FSx for Lustre User Guide</i>.</para><para>For FSx for OpenZFS file systems, the storage capacity target value must be at least
         /// 10 percent greater than the current storage capacity value. For more information,
         /// see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-storage-capacity.html">Managing
@@ -335,9 +332,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Enter a new value to change the amount of throughput capacity for the file system
         /// in megabytes per second (MBps). For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-throughput-capacity.html">Managing
-        /// throughput capacity</a> in the FSx for ONTAP User Guide.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <code>ThroughputCapacity</code> and <code>ThroughputCapacityPerHAPair</code>
-        /// are not the same value.</para></li><li><para>The value of <code>ThroughputCapacity</code> when divided by the value of <code>HAPairs</code>
-        /// is outside of the valid range for <code>ThroughputCapacity</code>.</para></li></ul>
+        /// throughput capacity</a> in the FSx for ONTAP User Guide.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <c>ThroughputCapacity</c> and <c>ThroughputCapacityPerHAPair</c> are
+        /// not the same value.</para></li><li><para>The value of <c>ThroughputCapacity</c> when divided by the value of <c>HAPairs</c>
+        /// is outside of the valid range for <c>ThroughputCapacity</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -348,9 +345,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>The throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per
-        /// second  (MB/s). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <code>MULTI_AZ_1</code> and <code>SINGLE_AZ_2</code>, valid values are 160, 320,
-        /// 640, 1280, 2560, 3840, 5120, 7680, or 10240 MB/s.</para></li><li><para>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072,
-        /// or 4096 MB/s.</para></li></ul>
+        /// second  (MB/s). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <c>MULTI_AZ_1</c> and <c>SINGLE_AZ_2</c>, valid values are 160, 320, 640, 1280,
+        /// 2560, 3840, 5120, 7680, or 10240 MB/s.</para></li><li><para>For <c>SINGLE_AZ_1</c>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096
+        /// MB/s.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -361,13 +358,12 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Use to choose the throughput capacity per HA pair, rather than the total throughput
-        /// for the file system. </para><para>This field and <code>ThroughputCapacity</code> cannot be defined in the same API call,
-        /// but one is required.</para><para>This field and <code>ThroughputCapacity</code> are the same for file systems with
-        /// one HA pair.</para><ul><li><para>For <code>SINGLE_AZ_1</code> and <code>MULTI_AZ_1</code>, valid values are 128, 256,
-        /// 512, 1024, 2048, or 4096 MBps.</para></li><li><para>For <code>SINGLE_AZ_2</code>, valid values are 3072 or 6144 MBps.</para></li></ul><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <code>ThroughputCapacity</code> and <code>ThroughputCapacityPerHAPair</code>
-        /// are not the same value for file systems with one HA pair.</para></li><li><para>The value of deployment type is <code>SINGLE_AZ_2</code> and <code>ThroughputCapacity</code>
-        /// / <code>ThroughputCapacityPerHAPair</code> is a valid HA pair (a value between 2 and
-        /// 6).</para></li><li><para>The value of <code>ThroughputCapacityPerHAPair</code> is not a valid value.</para></li></ul>
+        /// for the file system. </para><para>This field and <c>ThroughputCapacity</c> cannot be defined in the same API call, but
+        /// one is required.</para><para>This field and <c>ThroughputCapacity</c> are the same for file systems with one HA
+        /// pair.</para><ul><li><para>For <c>SINGLE_AZ_1</c> and <c>MULTI_AZ_1</c>, valid values are 128, 256, 512, 1024,
+        /// 2048, or 4096 MBps.</para></li><li><para>For <c>SINGLE_AZ_2</c>, valid values are 3072 or 6144 MBps.</para></li></ul><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <c>ThroughputCapacity</c> and <c>ThroughputCapacityPerHAPair</c> are
+        /// not the same value for file systems with one HA pair.</para></li><li><para>The value of deployment type is <c>SINGLE_AZ_2</c> and <c>ThroughputCapacity</c> /
+        /// <c>ThroughputCapacityPerHAPair</c> is a valid HA pair (a value between 2 and 6).</para></li><li><para>The value of <c>ThroughputCapacityPerHAPair</c> is not a valid value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

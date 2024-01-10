@@ -47,13 +47,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>Whether to automatically enable Security Hub in new member accounts when they join
-        /// the organization.</para><para>If set to <code>true</code>, then Security Hub is automatically enabled in new accounts.
-        /// If set to <code>false</code>, then Security Hub isn't enabled in new accounts automatically.
-        /// The default value is <code>false</code>.</para><para>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>,
-        /// then this field is set to <code>false</code> and can't be changed in the home Region
-        /// and linked Regions. However, in that case, the delegated administrator can create
-        /// a configuration policy in which Security Hub is enabled and associate the policy with
-        /// new organization accounts.</para>
+        /// the organization.</para><para>If set to <c>true</c>, then Security Hub is automatically enabled in new accounts.
+        /// If set to <c>false</c>, then Security Hub isn't enabled in new accounts automatically.
+        /// The default value is <c>false</c>.</para><para>If the <c>ConfigurationType</c> of your organization is set to <c>CENTRAL</c>, then
+        /// this field is set to <c>false</c> and can't be changed in the home Region and linked
+        /// Regions. However, in that case, the delegated administrator can create a configuration
+        /// policy in which Security Hub is enabled and associate the policy with new organization
+        /// accounts.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,13 +70,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default
-        /// standards</a> in new member accounts when they join the organization.</para><para>The default value of this parameter is equal to <code>DEFAULT</code>.</para><para>If equal to <code>DEFAULT</code>, then Security Hub default standards are automatically
-        /// enabled for new member accounts. If equal to <code>NONE</code>, then default standards
-        /// are not automatically enabled for new member accounts.</para><para>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>,
-        /// then this field is set to <code>NONE</code> and can't be changed in the home Region
-        /// and linked Regions. However, in that case, the delegated administrator can create
-        /// a configuration policy in which specific security standards are enabled and associate
-        /// the policy with new organization accounts.</para>
+        /// standards</a> in new member accounts when they join the organization.</para><para>The default value of this parameter is equal to <c>DEFAULT</c>.</para><para>If equal to <c>DEFAULT</c>, then Security Hub default standards are automatically
+        /// enabled for new member accounts. If equal to <c>NONE</c>, then default standards are
+        /// not automatically enabled for new member accounts.</para><para>If the <c>ConfigurationType</c> of your organization is set to <c>CENTRAL</c>, then
+        /// this field is set to <c>NONE</c> and can't be changed in the home Region and linked
+        /// Regions. However, in that case, the delegated administrator can create a configuration
+        /// policy in which specific security standards are enabled and associate the policy with
+        /// new organization accounts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,11 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter OrganizationConfiguration_ConfigurationType
         /// <summary>
         /// <para>
-        /// <para> Indicates whether the organization uses local or central configuration. </para><para>If you use local configuration, the Security Hub delegated administrator can set <code>AutoEnable</code>
-        /// to <code>true</code> and <code>AutoEnableStandards</code> to <code>DEFAULT</code>.
-        /// This automatically enables Security Hub and default security standards in new organization
-        /// accounts. These new account settings must be set separately in each Amazon Web Services
-        /// Region, and settings may be different in each Region. </para><para> If you use central configuration, the delegated administrator can create configuration
+        /// <para> Indicates whether the organization uses local or central configuration. </para><para>If you use local configuration, the Security Hub delegated administrator can set <c>AutoEnable</c>
+        /// to <c>true</c> and <c>AutoEnableStandards</c> to <c>DEFAULT</c>. This automatically
+        /// enables Security Hub and default security standards in new organization accounts.
+        /// These new account settings must be set separately in each Amazon Web Services Region,
+        /// and settings may be different in each Region. </para><para> If you use central configuration, the delegated administrator can create configuration
         /// policies. Configuration policies can be used to configure Security Hub, security standards,
         /// and security controls in multiple accounts and Regions. If you want new organization
         /// accounts to use a specific configuration, you can create a configuration policy and
@@ -108,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter OrganizationConfiguration_Status
         /// <summary>
         /// <para>
-        /// <para> Describes whether central configuration could be enabled as the <code>ConfigurationType</code>
-        /// for the organization. If your <code>ConfigurationType</code> is local configuration,
-        /// then the value of <code>Status</code> is always <code>ENABLED</code>. </para>
+        /// <para> Describes whether central configuration could be enabled as the <c>ConfigurationType</c>
+        /// for the organization. If your <c>ConfigurationType</c> is local configuration, then
+        /// the value of <c>Status</c> is always <c>ENABLED</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter OrganizationConfiguration_StatusMessage
         /// <summary>
         /// <para>
-        /// <para> Provides an explanation if the value of <code>Status</code> is equal to <code>FAILED</code>
-        /// when <code>ConfigurationType</code> is equal to <code>CENTRAL</code>. </para>
+        /// <para> Provides an explanation if the value of <c>Status</c> is equal to <c>FAILED</c> when
+        /// <c>ConfigurationType</c> is equal to <c>CENTRAL</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

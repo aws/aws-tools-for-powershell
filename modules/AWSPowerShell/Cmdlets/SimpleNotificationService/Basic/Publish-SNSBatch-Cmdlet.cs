@@ -28,7 +28,7 @@ using Amazon.SimpleNotificationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
-    /// Publishes up to ten messages to the specified topic. This is a batch version of <code>Publish</code>.
+    /// Publishes up to ten messages to the specified topic. This is a batch version of <c>Publish</c>.
     /// For FIFO topics, multiple messages within a single batch are published in the order
     /// they are sent, and messages are deduplicated within the batch and across batches for
     /// 5 minutes.
@@ -38,14 +38,14 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// The result of publishing each message is reported individually in the response. Because
     /// the batch request can result in a combination of successful and unsuccessful actions,
     /// you should check for batch errors even when the call returns an HTTP status code of
-    /// <code>200</code>.
+    /// <c>200</c>.
     /// </para><para>
     /// The maximum allowed individual message size and the maximum total payload size (the
     /// sum of the individual lengths of all of the batched messages) are both 256 KB (262,144
     /// bytes). 
     /// </para><para>
-    /// Some actions take lists of parameters. These lists are specified using the <code>param.n</code>
-    /// notation. Values of <code>n</code> are integers starting from 1. For example, a parameter
+    /// Some actions take lists of parameters. These lists are specified using the <c>param.n</c>
+    /// notation. Values of <c>n</c> are integers starting from 1. For example, a parameter
     /// list with two elements looks like this: 
     /// </para><para>
     /// &amp;AttributeName.1=first
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// each endpoint that is subscribed to the topic. The format of the batch message depends
     /// on the notification protocol for each subscribed endpoint.
     /// </para><para>
-    /// When a <code>messageId</code> is returned, the batch message is saved and Amazon SNS
-    /// immediately delivers the message to subscribers.
+    /// When a <c>messageId</c> is returned, the batch message is saved and Amazon SNS immediately
+    /// delivers the message to subscribers.
     /// </para>
     /// </summary>
     [Cmdlet("Publish", "SNSBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter PublishBatchRequestEntry
         /// <summary>
         /// <para>
-        /// <para>A list of <code>PublishBatch</code> request entries to be sent to the SNS topic.</para>
+        /// <para>A list of <c>PublishBatch</c> request entries to be sent to the SNS topic.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

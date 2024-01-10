@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of an Amazon S3 bucket that contains database installation files for your
-        /// CEV. For example, a valid bucket name is <code>my-custom-installation-files</code>.</para>
+        /// CEV. For example, a valid bucket name is <c>my-custom-installation-files</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 directory that contains the database installation files for your CEV.
-        /// For example, a valid bucket name is <code>123456789012/cev1</code>. If this setting
-        /// isn't specified, no prefix is assumed.</para>
+        /// For example, a valid bucket name is <c>123456789012/cev1</c>. If this setting isn't
+        /// specified, no prefix is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The database engine to use for your custom engine version (CEV). The only supported
-        /// value is <code>custom-oracle-ee</code>.</para>
+        /// value is <c>custom-oracle-ee</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of your CEV. The name format is 19.<i>customized_string</i>. For example,
-        /// a valid CEV name is <code>19.my_cev1</code>. This setting is required for RDS Custom
-        /// for Oracle, but optional for Amazon RDS. The combination of <code>Engine</code> and
-        /// <code>EngineVersion</code> is unique per customer per Region.</para>
+        /// a valid CEV name is <c>19.my_cev1</c>. This setting is required for RDS Custom for
+        /// Oracle, but optional for Amazon RDS. The combination of <c>Engine</c> and <c>EngineVersion</c>
+        /// is unique per customer per Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The CEV manifest, which is a JSON document that describes the installation .zip files
         /// stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS
-        /// Custom applies the patches in the order in which they are listed.</para><para>The following JSON fields are valid:</para><dl><dt>MediaImportTemplateVersion</dt><dd><para>Version of the CEV manifest. The date is in the format <code>YYYY-MM-DD</code>.</para></dd><dt>databaseInstallationFileNames</dt><dd><para>Ordered list of installation files for the CEV.</para></dd><dt>opatchFileNames</dt><dd><para>Ordered list of OPatch installers used for the Oracle DB engine.</para></dd><dt>psuRuPatchFileNames</dt><dd><para>The PSU and RU patches for this CEV.</para></dd><dt>OtherPatchFileNames</dt><dd><para>The patches that are not in the list of PSU and RU patches. Amazon RDS applies these
+        /// Custom applies the patches in the order in which they are listed.</para><para>The following JSON fields are valid:</para><dl><dt>MediaImportTemplateVersion</dt><dd><para>Version of the CEV manifest. The date is in the format <c>YYYY-MM-DD</c>.</para></dd><dt>databaseInstallationFileNames</dt><dd><para>Ordered list of installation files for the CEV.</para></dd><dt>opatchFileNames</dt><dd><para>Ordered list of OPatch installers used for the Oracle DB engine.</para></dd><dt>psuRuPatchFileNames</dt><dd><para>The PSU and RU patches for this CEV.</para></dd><dt>OtherPatchFileNames</dt><dd><para>The patches that are not in the list of PSU and RU patches. Amazon RDS applies these
         /// patches after applying the PSU and RU patches.</para></dd></dl><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest">
         /// Creating the CEV manifest</a> in the <i>Amazon RDS User Guide</i>.</para>
         /// </para>
@@ -160,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The ARN of a CEV to use as a source for creating a new CEV. You can specify a different
-        /// Amazon Machine Imagine (AMI) by using either <code>Source</code> or <code>UseAwsProvidedLatestImage</code>.
-        /// You can't specify a different JSON manifest when you specify <code>SourceCustomDbEngineVersionIdentifier</code>.</para>
+        /// Amazon Machine Imagine (AMI) by using either <c>Source</c> or <c>UseAwsProvidedLatestImage</c>.
+        /// You can't specify a different JSON manifest when you specify <c>SourceCustomDbEngineVersionIdentifier</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,8 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for
-        /// the CEV. If you specify <code>UseAwsProvidedLatestImage</code>, you can't also specify
-        /// <code>ImageId</code>.</para>
+        /// the CEV. If you specify <c>UseAwsProvidedLatestImage</c>, you can't also specify <c>ImageId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

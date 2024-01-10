@@ -88,9 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>
         /// <para>Indicates whether server-side encryption is done using an Amazon Web Services managed
         /// key or an Amazon Web Services owned key. If enabled (true), server-side encryption
-        /// type is set to <code>KMS</code> and an Amazon Web Services managed key is used (KMS
-        /// charges apply). If disabled (false) or not specified, server-side encryption is set
-        /// to Amazon Web Services owned key.</para>
+        /// type is set to <c>KMS</c> and an Amazon Web Services managed key is used (KMS charges
+        /// apply). If disabled (false) or not specified, server-side encryption is set to Amazon
+        /// Web Services owned key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter InputFormat
         /// <summary>
         /// <para>
-        /// <para> The format of the source data. Valid values for <code>ImportFormat</code> are <code>CSV</code>,
-        /// <code>DYNAMODB_JSON</code> or <code>ION</code>. </para>
+        /// <para> The format of the source data. Valid values for <c>ImportFormat</c> are <c>CSV</c>,
+        /// <c>DYNAMODB_JSON</c> or <c>ION</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>The KMS key that should be used for the KMS encryption. To specify a key, use its
         /// key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should
         /// only provide this parameter if the key is different from the default DynamoDB key
-        /// <code>alias/aws/dynamodb</code>.</para>
+        /// <c>alias/aws/dynamodb</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,8 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>The maximum number of strongly consistent reads consumed per second before DynamoDB
-        /// returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying
-        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</para>
+        /// returns a <c>ThrottlingException</c>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying
+        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>If read/write capacity mode is <c>PAY_PER_REQUEST</c> the value is set to 0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,8 +239,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter SSESpecification_SSEType
         /// <summary>
         /// <para>
-        /// <para>Server-side encryption type. The only supported value is:</para><ul><li><para><code>KMS</code> - Server-side encryption that uses Key Management Service. The key
-        /// is stored in your account and is managed by KMS (KMS charges apply).</para></li></ul>
+        /// <para>Server-side encryption type. The only supported value is:</para><ul><li><para><c>KMS</c> - Server-side encryption that uses Key Management Service. The key is
+        /// stored in your account and is managed by KMS (KMS charges apply).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -269,9 +269,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter ProvisionedThroughput_WriteCapacityUnit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>.
+        /// <para>The maximum number of writes consumed per second before DynamoDB returns a <c>ThrottlingException</c>.
         /// For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying
-        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</para>
+        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>If read/write capacity mode is <c>PAY_PER_REQUEST</c> the value is set to 0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -282,13 +282,12 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Providing a <code>ClientToken</code> makes the call to <code>ImportTableInput</code>
-        /// idempotent, meaning that multiple identical calls have the same effect as one single
-        /// call.</para><para>A client token is valid for 8 hours after the first request that uses it is completed.
+        /// <para>Providing a <c>ClientToken</c> makes the call to <c>ImportTableInput</c> idempotent,
+        /// meaning that multiple identical calls have the same effect as one single call.</para><para>A client token is valid for 8 hours after the first request that uses it is completed.
         /// After 8 hours, any request with the same client token is treated as a new request.
         /// Do not resubmit the same request with the same client token for more than 8 hours,
         /// or the result might not be idempotent.</para><para>If you submit a request with the same client token but a change in other parameters
-        /// within the 8-hour idempotency window, DynamoDB returns an <code>IdempotentParameterMismatch</code>
+        /// within the 8-hour idempotency window, DynamoDB returns an <c>IdempotentParameterMismatch</c>
         /// exception.</para>
         /// </para>
         /// </summary>

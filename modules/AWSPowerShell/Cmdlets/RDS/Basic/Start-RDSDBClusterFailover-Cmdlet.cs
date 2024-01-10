@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the DB instance to promote to the primary DB instance.</para><para>Specify the DB instance identifier for an Aurora Replica or a Multi-AZ readable standby
-        /// in the DB cluster, for example <code>mydbcluster-replica1</code>.</para><para>This setting isn't supported for RDS for MySQL Multi-AZ DB clusters.</para>
+        /// in the DB cluster, for example <c>mydbcluster-replica1</c>.</para><para>This setting isn't supported for RDS for MySQL Multi-AZ DB clusters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter CompositeComponentType
         /// <summary>
         /// <para>
-        /// <para>This is an object that maps strings to <code>compositeComponentTypes</code> of the
-        /// <code>componentType</code>. <code>CompositeComponentType</code> is referenced by <code>componentTypeId</code>.</para>
+        /// <para>This is an object that maps strings to <c>compositeComponentTypes</c> of the <c>componentType</c>.
+        /// <c>CompositeComponentType</c> is referenced by <c>componentTypeId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

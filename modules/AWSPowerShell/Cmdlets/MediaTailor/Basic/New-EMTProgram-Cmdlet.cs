@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Transition_RelativePosition
         /// <summary>
         /// <para>
-        /// <para>The position where this program will be inserted relative to the <code>RelativePosition</code>.</para>
+        /// <para>The position where this program will be inserted relative to the <c>RelativePosition</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>The name of the program that this program will be inserted next to, as defined by
-        /// <code>RelativePosition</code>.</para>
+        /// <c>RelativePosition</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,12 +181,12 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Transition_Type
         /// <summary>
         /// <para>
-        /// <para>Defines when the program plays in the schedule. You can set the value to <code>ABSOLUTE</code>
-        /// or <code>RELATIVE</code>.</para><para><code>ABSOLUTE</code> - The program plays at a specific wall clock time. This setting
-        /// can only be used for channels using the <code>LINEAR</code><code>PlaybackMode</code>.</para><para>Note the following considerations when using <code>ABSOLUTE</code> transitions:</para><para>If the preceding program in the schedule has a duration that extends past the wall
-        /// clock time, MediaTailor truncates the preceding program on a common segment boundary.</para><para>If there are gaps in playback, MediaTailor plays the <code>FillerSlate</code> you
-        /// configured for your linear channel.</para><para><code>RELATIVE</code> - The program is inserted into the schedule either before or
-        /// after a program that you specify via <code>RelativePosition</code>.</para>
+        /// <para>Defines when the program plays in the schedule. You can set the value to <c>ABSOLUTE</c>
+        /// or <c>RELATIVE</c>.</para><para><c>ABSOLUTE</c> - The program plays at a specific wall clock time. This setting can
+        /// only be used for channels using the <c>LINEAR</c><c>PlaybackMode</c>.</para><para>Note the following considerations when using <c>ABSOLUTE</c> transitions:</para><para>If the preceding program in the schedule has a duration that extends past the wall
+        /// clock time, MediaTailor truncates the preceding program on a common segment boundary.</para><para>If there are gaps in playback, MediaTailor plays the <c>FillerSlate</c> you configured
+        /// for your linear channel.</para><para><c>RELATIVE</c> - The program is inserted into the schedule either before or after
+        /// a program that you specify via <c>RelativePosition</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

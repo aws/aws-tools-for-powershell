@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
     /// Returns a list of the current certificates that have been imported into Transfer Family.
-    /// If you want to limit the results to a certain number, supply a value for the <code>MaxResults</code>
-    /// parameter. If you ran the command previously and received a value for the <code>NextToken</code>
+    /// If you want to limit the results to a certain number, supply a value for the <c>MaxResults</c>
+    /// parameter. If you ran the command previously and received a value for the <c>NextToken</c>
     /// parameter, you can supply that value to continue listing certificates from where you
     /// left off.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -60,10 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When you can get additional results from the <code>ListCertificates</code> call, a
-        /// <code>NextToken</code> parameter is returned in the output. You can then pass in a
-        /// subsequent command to the <code>NextToken</code> parameter to continue listing additional
-        /// certificates.</para>
+        /// <para>When you can get additional results from the <c>ListCertificates</c> call, a <c>NextToken</c>
+        /// parameter is returned in the output. You can then pass in a subsequent command to
+        /// the <c>NextToken</c> parameter to continue listing additional certificates.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

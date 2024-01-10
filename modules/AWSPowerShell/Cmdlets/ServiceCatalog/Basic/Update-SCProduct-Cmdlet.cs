@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><c>jp</c> - Japanese</para></li><li><para><c>zh</c> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -200,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter SourceConnection_Type
         /// <summary>
         /// <para>
-        /// <para>The only supported <code>SourceConnection</code> type is Codestar. </para>
+        /// <para>The only supported <c>SourceConnection</c> type is Codestar. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

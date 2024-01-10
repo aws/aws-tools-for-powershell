@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter SecurityControlId
         /// <summary>
         /// <para>
-        /// <para> A list of security controls (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>,
+        /// <para> A list of security controls (identified with <c>SecurityControlId</c>, <c>SecurityControlArn</c>,
         /// or a mix of both parameters). The security control ID or Amazon Resource Name (ARN)
         /// is the same across standards. </para>
         /// </para>

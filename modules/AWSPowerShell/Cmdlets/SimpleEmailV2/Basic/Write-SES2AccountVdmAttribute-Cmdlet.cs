@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>Specifies the status of your VDM engagement metrics collection. Can be one of the
-        /// following:</para><ul><li><para><code>ENABLED</code> – Amazon SES enables engagement metrics for your account.</para></li><li><para><code>DISABLED</code> – Amazon SES disables engagement metrics for your account.</para></li></ul>
+        /// following:</para><ul><li><para><c>ENABLED</c> – Amazon SES enables engagement metrics for your account.</para></li><li><para><c>DISABLED</c> – Amazon SES disables engagement metrics for your account.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter GuardianAttributes_OptimizedSharedDelivery
         /// <summary>
         /// <para>
-        /// <para>Specifies the status of your VDM optimized shared delivery. Can be one of the following:</para><ul><li><para><code>ENABLED</code> – Amazon SES enables optimized shared delivery for your account.</para></li><li><para><code>DISABLED</code> – Amazon SES disables optimized shared delivery for your account.</para></li></ul>
+        /// <para>Specifies the status of your VDM optimized shared delivery. Can be one of the following:</para><ul><li><para><c>ENABLED</c> – Amazon SES enables optimized shared delivery for your account.</para></li><li><para><c>DISABLED</c> – Amazon SES disables optimized shared delivery for your account.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter VdmAttributes_VdmEnabled
         /// <summary>
         /// <para>
-        /// <para>Specifies the status of your VDM configuration. Can be one of the following:</para><ul><li><para><code>ENABLED</code> – Amazon SES enables VDM for your account.</para></li><li><para><code>DISABLED</code> – Amazon SES disables VDM for your account.</para></li></ul>
+        /// <para>Specifies the status of your VDM configuration. Can be one of the following:</para><ul><li><para><c>ENABLED</c> – Amazon SES enables VDM for your account.</para></li><li><para><c>DISABLED</c> – Amazon SES disables VDM for your account.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

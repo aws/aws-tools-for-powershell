@@ -72,8 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         /// <summary>
         /// <para>
         /// <para>Specify data sources to mount read-only files from S3 into your simulation. These
-        /// files are available under <code>/opt/robomaker/datasources/data_source_name</code>.
-        /// </para><note><para>There is a limit of 100 files and a combined size of 25GB for all <code>DataSourceConfig</code>
+        /// files are available under <c>/opt/robomaker/datasources/data_source_name</c>. </para><note><para>There is a limit of 100 files and a combined size of 25GB for all <c>DataSourceConfig</c>
         /// objects. </para></note>
         /// </para>
         /// </summary>
@@ -85,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter FailureBehavior
         /// <summary>
         /// <para>
-        /// <para>The failure behavior the simulation job.</para><dl><dt>Continue</dt><dd><para>Leaves the instance running for its maximum timeout duration after a <code>4XX</code>
-        /// error code.</para></dd><dt>Fail</dt><dd><para>Stop the simulation job and terminate the instance.</para></dd></dl>
+        /// <para>The failure behavior the simulation job.</para><dl><dt>Continue</dt><dd><para>Leaves the instance running for its maximum timeout duration after a <c>4XX</c> error
+        /// code.</para></dd><dt>Fail</dt><dd><para>Stop the simulation job and terminate the instance.</para></dd></dl>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         /// <summary>
         /// <para>
         /// <para>The maximum simulation job duration in seconds (up to 14 days or 1,209,600 seconds.
-        /// When <code>maxJobDurationInSeconds</code> is reached, the simulation job will status
-        /// will transition to <code>Completed</code>.</para>
+        /// When <c>maxJobDurationInSeconds</c> is reached, the simulation job will status will
+        /// transition to <c>Completed</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

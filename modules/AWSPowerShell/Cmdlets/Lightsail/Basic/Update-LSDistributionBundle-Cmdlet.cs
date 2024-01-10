@@ -40,9 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </para><para>
     /// You can update your distribution's bundle only one time within your monthly Amazon
     /// Web Services billing cycle. To determine if you can update your distribution's bundle,
-    /// use the <code>GetDistributions</code> action. The <code>ableToUpdateBundle</code>
-    /// parameter in the result will indicate whether you can currently update your distribution's
-    /// bundle.
+    /// use the <c>GetDistributions</c> action. The <c>ableToUpdateBundle</c> parameter in
+    /// the result will indicate whether you can currently update your distribution's bundle.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "LSDistributionBundle", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter BundleId
         /// <summary>
         /// <para>
-        /// <para>The bundle ID of the new bundle to apply to your distribution.</para><para>Use the <code>GetDistributionBundles</code> action to get a list of distribution bundle
+        /// <para>The bundle ID of the new bundle to apply to your distribution.</para><para>Use the <c>GetDistributionBundles</c> action to get a list of distribution bundle
         /// IDs that you can specify.</para>
         /// </para>
         /// </summary>
@@ -71,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DistributionName
         /// <summary>
         /// <para>
-        /// <para>The name of the distribution for which to update the bundle.</para><para>Use the <code>GetDistributions</code> action to get a list of distribution names that
-        /// you can specify.</para>
+        /// <para>The name of the distribution for which to update the bundle.</para><para>Use the <c>GetDistributions</c> action to get a list of distribution names that you
+        /// can specify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

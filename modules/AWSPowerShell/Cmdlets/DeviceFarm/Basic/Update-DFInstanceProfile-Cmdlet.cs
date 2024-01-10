@@ -73,8 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <summary>
         /// <para>
         /// <para>An array of strings that specifies the list of app packages that should not be cleaned
-        /// up from the device after a test run is over.</para><para>The list of packages is only considered if you set <code>packageCleanup</code> to
-        /// <code>true</code>.</para>
+        /// up from the device after a test run is over.</para><para>The list of packages is only considered if you set <c>packageCleanup</c> to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <summary>
         /// <para>
         /// <para>The updated choice for whether you want to specify package cleanup. The default value
-        /// is <code>false</code> for private devices.</para>
+        /// is <c>false</c> for private devices.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <summary>
         /// <para>
         /// <para>The updated choice for whether you want to reboot the device after use. The default
-        /// value is <code>true</code>.</para>
+        /// value is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// <summary>
     /// Creates a job that exports data from your dataset to an Amazon S3 bucket. To allow
     /// Amazon Personalize to export the training data, you must specify an service-linked
-    /// IAM role that gives Amazon Personalize <code>PutObject</code> permissions for your
-    /// Amazon S3 bucket. For information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/export-data.html">Exporting
+    /// IAM role that gives Amazon Personalize <c>PutObject</c> permissions for your Amazon
+    /// S3 bucket. For information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/export-data.html">Exporting
     /// a dataset</a> in the Amazon Personalize developer guide. 
     /// 
     ///  
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     ///  To get the status of the export job, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetExportJob.html">DescribeDatasetExportJob</a>,
     /// and specify the Amazon Resource Name (ARN) of the dataset export job. The dataset
     /// export is complete when the status shows as ACTIVE. If the status shows as CREATE
-    /// FAILED, the response includes a <code>failureReason</code> key, which describes why
-    /// the job failed. 
+    /// FAILED, the response includes a <c>failureReason</c> key, which describes why the
+    /// job failed. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "PERSDatasetExportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -80,10 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>The data to export, based on how you imported the data. You can choose to export only
-        /// <code>BULK</code> data that you imported using a dataset import job, only <code>PUT</code>
-        /// data that you imported incrementally (using the console, PutEvents, PutUsers and PutItems
-        /// operations), or <code>ALL</code> for both types. The default value is <code>PUT</code>.
-        /// </para>
+        /// <c>BULK</c> data that you imported using a dataset import job, only <c>PUT</c> data
+        /// that you imported incrementally (using the console, PutEvents, PutUsers and PutItems
+        /// operations), or <c>ALL</c> for both types. The default value is <c>PUT</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,28 +29,27 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
     /// Asynchronously uploads one or more entity definitions to the user's namespace. The
-    /// <code>document</code> parameter is required if <code>syncWithPublicNamespace</code>
-    /// and <code>deleteExistingEntites</code> are false. If the <code>syncWithPublicNamespace</code>
-    /// parameter is set to <code>true</code>, the user's namespace will synchronize with
-    /// the latest version of the public namespace. If <code>deprecateExistingEntities</code>
-    /// is set to true, all entities in the latest version will be deleted before the new
-    /// <code>DefinitionDocument</code> is uploaded.
+    /// <c>document</c> parameter is required if <c>syncWithPublicNamespace</c> and <c>deleteExistingEntites</c>
+    /// are false. If the <c>syncWithPublicNamespace</c> parameter is set to <c>true</c>,
+    /// the user's namespace will synchronize with the latest version of the public namespace.
+    /// If <c>deprecateExistingEntities</c> is set to true, all entities in the latest version
+    /// will be deleted before the new <c>DefinitionDocument</c> is uploaded.
     /// 
     ///  
     /// <para>
     /// When a user uploads entity definitions for the first time, the service creates a new
     /// namespace for the user. The new namespace tracks the public namespace. Currently users
     /// can have only one namespace. The namespace version increments whenever a user uploads
-    /// entity definitions that are backwards-incompatible and whenever a user sets the <code>syncWithPublicNamespace</code>
-    /// parameter or the <code>deprecateExistingEntities</code> parameter to <code>true</code>.
+    /// entity definitions that are backwards-incompatible and whenever a user sets the <c>syncWithPublicNamespace</c>
+    /// parameter or the <c>deprecateExistingEntities</c> parameter to <c>true</c>.
     /// </para><para>
     /// The IDs for all of the entities should be in URN format. Each entity must be in the
     /// user's namespace. Users can't create entities in the public namespace, but entity
     /// definitions can refer to entities in the public namespace.
     /// </para><para>
-    /// Valid entities are <code>Device</code>, <code>DeviceModel</code>, <code>Service</code>,
-    /// <code>Capability</code>, <code>State</code>, <code>Action</code>, <code>Event</code>,
-    /// <code>Property</code>, <code>Mapping</code>, <code>Enum</code>. 
+    /// Valid entities are <c>Device</c>, <c>DeviceModel</c>, <c>Service</c>, <c>Capability</c>,
+    /// <c>State</c>, <c>Action</c>, <c>Event</c>, <c>Property</c>, <c>Mapping</c>, <c>Enum</c>.
+    /// 
     /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Set", "IOTTGEntityDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         /// <summary>
         /// <para>
         /// <para>A Boolean that specifies whether to deprecate all entities in the latest version before
-        /// uploading the new <code>DefinitionDocument</code>. If set to <code>true</code>, the
-        /// upload will create a new namespace version.</para>
+        /// uploading the new <c>DefinitionDocument</c>. If set to <c>true</c>, the upload will
+        /// create a new namespace version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter Document_Language
         /// <summary>
         /// <para>
-        /// <para>The language used to define the entity. <code>GRAPHQL</code> is the only valid value.</para>
+        /// <para>The language used to define the entity. <c>GRAPHQL</c> is the only valid value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         /// <summary>
         /// <para>
         /// <para>A Boolean that specifies whether to synchronize with the latest version of the public
-        /// namespace. If set to <code>true</code>, the upload will create a new namespace version.</para>
+        /// namespace. If set to <c>true</c>, the upload will create a new namespace version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

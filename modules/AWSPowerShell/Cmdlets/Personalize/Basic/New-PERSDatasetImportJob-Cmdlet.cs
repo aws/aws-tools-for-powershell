@@ -53,8 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// To get the status of the import job, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a>,
     /// providing the Amazon Resource Name (ARN) of the dataset import job. The dataset import
     /// is complete when the status shows as ACTIVE. If the status shows as CREATE FAILED,
-    /// the response includes a <code>failureReason</code> key, which describes why the job
-    /// failed.
+    /// the response includes a <c>failureReason</c> key, which describes why the job failed.
     /// </para><note><para>
     /// Importing takes time. You must wait until the status shows as ACTIVE before training
     /// a model using the dataset.
@@ -76,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>The path to the Amazon S3 bucket where the data that you want to upload to your dataset
-        /// is stored. For example: </para><para><code>s3://bucket-name/folder-name/</code></para>
+        /// is stored. For example: </para><para><c>s3://bucket-name/folder-name/</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,11 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>Specify how to add the new records to an existing dataset. The default import mode
-        /// is <code>FULL</code>. If you haven't imported bulk records into the dataset previously,
-        /// you can only specify <code>FULL</code>.</para><ul><li><para>Specify <code>FULL</code> to overwrite all existing bulk data in your dataset. Data
-        /// you imported individually is not replaced.</para></li><li><para>Specify <code>INCREMENTAL</code> to append the new records to the existing data in
-        /// your dataset. Amazon Personalize replaces any record with the same ID with the new
-        /// one.</para></li></ul>
+        /// is <c>FULL</c>. If you haven't imported bulk records into the dataset previously,
+        /// you can only specify <c>FULL</c>.</para><ul><li><para>Specify <c>FULL</c> to overwrite all existing bulk data in your dataset. Data you
+        /// imported individually is not replaced.</para></li><li><para>Specify <c>INCREMENTAL</c> to append the new records to the existing data in your
+        /// dataset. Amazon Personalize replaces any record with the same ID with the new one.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

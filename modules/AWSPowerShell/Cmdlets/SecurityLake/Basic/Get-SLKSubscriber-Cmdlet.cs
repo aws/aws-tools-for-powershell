@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter SubscriberId
         /// <summary>
         /// <para>
-        /// <para>A value created by Amazon Security Lake that uniquely identifies your <code>GetSubscriber</code>
+        /// <para>A value created by Amazon Security Lake that uniquely identifies your <c>GetSubscriber</c>
         /// API request.</para>
         /// </para>
         /// </summary>

@@ -106,8 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The status to be updated as part of the <code>UpdateSubscriptionGrantStatus</code>
-        /// action.</para>
+        /// <para>The status to be updated as part of the <c>UpdateSubscriptionGrantStatus</c> action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter TargetName
         /// <summary>
         /// <para>
-        /// <para>The target name to be updated as part of the <code>UpdateSubscriptionGrantStatus</code>
+        /// <para>The target name to be updated as part of the <c>UpdateSubscriptionGrantStatus</c>
         /// action.</para>
         /// </para>
         /// </summary>

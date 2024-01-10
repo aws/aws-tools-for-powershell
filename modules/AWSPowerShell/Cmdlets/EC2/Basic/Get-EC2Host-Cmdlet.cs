@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// The results describe only the Dedicated Hosts in the Region you're currently using.
     /// All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that
-    /// have recently been released are listed with the state <code>released</code>.
+    /// have recently been released are listed with the state <c>released</c>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2Host")]
@@ -52,13 +52,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>auto-placement</code> - Whether auto-placement is enabled or disabled (<code>on</code>
-        /// | <code>off</code>).</para></li><li><para><code>availability-zone</code> - The Availability Zone of the host.</para></li><li><para><code>client-token</code> - The idempotency token that you provided when you allocated
-        /// the host.</para></li><li><para><code>host-reservation-id</code> - The ID of the reservation assigned to this host.</para></li><li><para><code>instance-type</code> - The instance type size that the Dedicated Host is configured
-        /// to support.</para></li><li><para><code>state</code> - The allocation state of the Dedicated Host (<code>available</code>
-        /// | <code>under-assessment</code> | <code>permanent-failure</code> | <code>released</code>
-        /// | <code>released-permanent-failure</code>).</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>auto-placement</c> - Whether auto-placement is enabled or disabled (<c>on</c>
+        /// | <c>off</c>).</para></li><li><para><c>availability-zone</c> - The Availability Zone of the host.</para></li><li><para><c>client-token</c> - The idempotency token that you provided when you allocated
+        /// the host.</para></li><li><para><c>host-reservation-id</c> - The ID of the reservation assigned to this host.</para></li><li><para><c>instance-type</c> - The instance type size that the Dedicated Host is configured
+        /// to support.</para></li><li><para><c>state</c> - The allocation state of the Dedicated Host (<c>available</c> | <c>under-assessment</c>
+        /// | <c>permanent-failure</c> | <c>released</c> | <c>released-permanent-failure</c>).</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return for the request in a single page. The remaining
-        /// results can be seen by sending another request with the returned <code>nextToken</code>
-        /// value. This value can be between 5 and 500. If <code>maxResults</code> is given a
-        /// larger value than 500, you receive an error.</para><para>You cannot specify this parameter and the host IDs parameter in the same request.</para>
+        /// results can be seen by sending another request with the returned <c>nextToken</c>
+        /// value. This value can be between 5 and 500. If <c>maxResults</c> is given a larger
+        /// value than 500, you receive an error.</para><para>You cannot specify this parameter and the host IDs parameter in the same request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

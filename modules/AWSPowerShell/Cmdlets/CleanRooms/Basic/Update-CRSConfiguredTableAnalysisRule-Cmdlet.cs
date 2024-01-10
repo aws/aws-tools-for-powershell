@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services accounts that are allowed to query by the custom analysis
-        /// rule. Required when <code>allowedAnalyses</code> is <code>ANY_QUERY</code>.</para>
+        /// rule. Required when <c>allowedAnalyses</c> is <c>ANY_QUERY</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>Which logical operators (if any) are to be used in an INNER JOIN match condition.
-        /// Default is <code>AND</code>.</para>
+        /// Default is <c>AND</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>The logical operators (if any) that are to be used in an INNER JOIN match condition.
-        /// Default is <code>AND</code>.</para>
+        /// Default is <c>AND</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

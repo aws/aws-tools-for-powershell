@@ -39,14 +39,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// contain cross-site scripting attacks in the specified part of web requests. AWS WAF
     /// searches for character sequences that are likely to be malicious strings.
     /// </para><para>
-    /// To create and configure an <code>XssMatchSet</code>, perform the following steps:
+    /// To create and configure an <c>XssMatchSet</c>, perform the following steps:
     /// </para><ol><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>CreateXssMatchSet</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of a <c>CreateXssMatchSet</c> request.
     /// </para></li><li><para>
-    /// Submit a <code>CreateXssMatchSet</code> request.
+    /// Submit a <c>CreateXssMatchSet</c> request.
     /// </para></li><li><para>
-    /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
+    /// Use <c>GetChangeToken</c> to get the change token that you provide in the <c>ChangeToken</c>
     /// parameter of an <a>UpdateXssMatchSet</a> request.
     /// </para></li><li><para>
     /// Submit an <a>UpdateXssMatchSet</a> request to specify the parts of web requests in
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <summary>
         /// <para>
         /// <para>A friendly name or description for the <a>XssMatchSet</a> that you're creating. You
-        /// can't change <code>Name</code> after you create the <code>XssMatchSet</code>.</para>
+        /// can't change <c>Name</c> after you create the <c>XssMatchSet</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

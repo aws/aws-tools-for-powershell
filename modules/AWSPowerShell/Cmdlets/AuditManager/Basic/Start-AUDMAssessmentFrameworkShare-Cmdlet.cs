@@ -59,12 +59,12 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     /// Web Services account under the Amazon Web Services Region that was specified in the
     /// share request. 
     /// </para><important><para>
-    /// When you invoke the <code>StartAssessmentFrameworkShare</code> API, you are about
-    /// to share a custom framework with another Amazon Web Services account. You may not
-    /// share a custom framework that is derived from a standard framework if the standard
-    /// framework is designated as not eligible for sharing by Amazon Web Services, unless
-    /// you have obtained permission to do so from the owner of the standard framework. To
-    /// learn more about which standard frameworks are eligible for sharing, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/share-custom-framework-concepts-and-terminology.html#eligibility">Framework
+    /// When you invoke the <c>StartAssessmentFrameworkShare</c> API, you are about to share
+    /// a custom framework with another Amazon Web Services account. You may not share a custom
+    /// framework that is derived from a standard framework if the standard framework is designated
+    /// as not eligible for sharing by Amazon Web Services, unless you have obtained permission
+    /// to do so from the owner of the standard framework. To learn more about which standard
+    /// frameworks are eligible for sharing, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/share-custom-framework-concepts-and-terminology.html#eligibility">Framework
     /// sharing eligibility</a> in the <i>Audit Manager User Guide</i>.
     /// </para></important>
     /// </summary>

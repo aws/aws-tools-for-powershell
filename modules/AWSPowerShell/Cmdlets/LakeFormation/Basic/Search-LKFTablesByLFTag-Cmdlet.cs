@@ -28,11 +28,11 @@ using Amazon.LakeFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.LKF
 {
     /// <summary>
-    /// This operation allows a search on <code>TABLE</code> resources by <code>LFTag</code>s.
-    /// This will be used by admins who want to grant user permissions on certain LF-tags.
-    /// Before making a grant, the admin can use <code>SearchTablesByLFTags</code> to find
-    /// all resources where the given <code>LFTag</code>s are valid to verify whether the
-    /// returned resources can be shared.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// This operation allows a search on <c>TABLE</c> resources by <c>LFTag</c>s. This will
+    /// be used by admins who want to grant user permissions on certain LF-tags. Before making
+    /// a grant, the admin can use <c>SearchTablesByLFTags</c> to find all resources where
+    /// the given <c>LFTag</c>s are valid to verify whether the returned resources can be
+    /// shared.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "LKFTablesByLFTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LakeFormation.Model.TaggedTable")]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter Expression
         /// <summary>
         /// <para>
-        /// <para>A list of conditions (<code>LFTag</code> structures) to search for in table resources.</para>
+        /// <para>A list of conditions (<c>LFTag</c> structures) to search for in table resources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

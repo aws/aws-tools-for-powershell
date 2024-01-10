@@ -28,9 +28,9 @@ using Amazon.ChimeSDKIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMID
 {
     /// <summary>
-    /// Creates an Amazon Chime SDK messaging <code>AppInstance</code> under an AWS account.
-    /// Only SDK messaging customers use this API. <code>CreateAppInstance</code> supports
-    /// idempotency behavior as described in the AWS API Standard.
+    /// Creates an Amazon Chime SDK messaging <c>AppInstance</c> under an AWS account. Only
+    /// SDK messaging customers use this API. <c>CreateAppInstance</c> supports idempotency
+    /// behavior as described in the AWS API Standard.
     /// 
     ///  
     /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the request. Use different tokens to create different <code>AppInstances</code>.</para>
+        /// <para>The unique ID of the request. Use different tokens to create different <c>AppInstances</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter Metadata
         /// <summary>
         /// <para>
-        /// <para>The metadata of the <code>AppInstance</code>. Limited to a 1KB string in UTF-8.</para>
+        /// <para>The metadata of the <c>AppInstance</c>. Limited to a 1KB string in UTF-8.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the <code>AppInstance</code>.</para>
+        /// <para>The name of the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags assigned to the <code>AppInstance</code>.</para>
+        /// <para>Tags assigned to the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

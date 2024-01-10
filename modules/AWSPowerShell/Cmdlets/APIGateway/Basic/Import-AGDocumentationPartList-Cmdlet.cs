@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter FailOnWarning
         /// <summary>
         /// <para>
-        /// <para>A query parameter to specify whether to rollback the documentation importation (<code>true</code>)
-        /// or not (<code>false</code>) when a warning is encountered. The default value is <code>false</code>.</para>
+        /// <para>A query parameter to specify whether to rollback the documentation importation (<c>true</c>)
+        /// or not (<c>false</c>) when a warning is encountered. The default value is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,9 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Mode
         /// <summary>
         /// <para>
-        /// <para>A query parameter to indicate whether to overwrite (<code>overwrite</code>) any existing
-        /// DocumentationParts definition or to merge (<code>merge</code>) the new definition
-        /// into the existing one. The default value is <code>merge</code>.</para>
+        /// <para>A query parameter to indicate whether to overwrite (<c>overwrite</c>) any existing
+        /// DocumentationParts definition or to merge (<c>merge</c>) the new definition into the
+        /// existing one. The default value is <c>merge</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

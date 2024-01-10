@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     ///  
     /// <para><b>Known issue:</b> In the us-east-1 region, if you use the Amazon Web Services CLI
     /// to create a recording configuration, it returns success even if the S3 bucket is in
-    /// a different region. In this case, the <code>state</code> of the recording configuration
-    /// is <code>CREATE_FAILED</code> (instead of <code>ACTIVE</code>). (In other regions,
-    /// the CLI correctly returns failure if the bucket is in a different region.)
+    /// a different region. In this case, the <c>state</c> of the recording configuration
+    /// is <c>CREATE_FAILED</c> (instead of <c>ACTIVE</c>). (In other regions, the CLI correctly
+    /// returns failure if the bucket is in a different region.)
     /// </para><para><b>Workaround:</b> Ensure that your S3 bucket is in the same region as the recording
     /// configuration. If you create a recording configuration in a different region as your
     /// S3 bucket, delete that recording configuration and create a new one with an S3 bucket
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter ThumbnailConfiguration_RecordingMode
         /// <summary>
         /// <para>
-        /// <para>Thumbnail recording mode. Default: <code>INTERVAL</code>.</para>
+        /// <para>Thumbnail recording mode. Default: <c>INTERVAL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,9 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter RenditionConfiguration_Rendition
         /// <summary>
         /// <para>
-        /// <para>Indicates which renditions are recorded for a stream, if <code>renditionSelection</code>
-        /// is <code>CUSTOM</code>; otherwise, this field is irrelevant. The selected renditions
-        /// are recorded if they are available during the stream. If a selected rendition is unavailable,
+        /// <para>Indicates which renditions are recorded for a stream, if <c>renditionSelection</c>
+        /// is <c>CUSTOM</c>; otherwise, this field is irrelevant. The selected renditions are
+        /// recorded if they are available during the stream. If a selected rendition is unavailable,
         /// the best available rendition is recorded. For details on the resolution dimensions
         /// of each rendition, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/record-to-s3.html">Auto-Record
         /// to Amazon S3</a>.</para>
@@ -118,10 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter RenditionConfiguration_RenditionSelection
         /// <summary>
         /// <para>
-        /// <para>Indicates which set of renditions are recorded for a stream. For <code>BASIC</code>
-        /// channels, the <code>CUSTOM</code> value has no effect. If <code>CUSTOM</code> is specified,
-        /// a set of renditions must be specified in the <code>renditions</code> field. Default:
-        /// <code>ALL</code>.</para>
+        /// <para>Indicates which set of renditions are recorded for a stream. For <c>BASIC</c> channels,
+        /// the <c>CUSTOM</c> value has no effect. If <c>CUSTOM</c> is specified, a set of renditions
+        /// must be specified in the <c>renditions</c> field. Default: <c>ALL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,11 +146,11 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter ThumbnailConfiguration_Storage
         /// <summary>
         /// <para>
-        /// <para>Indicates the format in which thumbnails are recorded. <code>SEQUENTIAL</code> records
-        /// all generated thumbnails in a serial manner, to the media/thumbnails directory. <code>LATEST</code>
+        /// <para>Indicates the format in which thumbnails are recorded. <c>SEQUENTIAL</c> records all
+        /// generated thumbnails in a serial manner, to the media/thumbnails directory. <c>LATEST</c>
         /// saves the latest thumbnail in media/latest_thumbnail/thumb.jpg and overwrites it at
-        /// the interval specified by <code>targetIntervalSeconds</code>. You can enable both
-        /// <code>SEQUENTIAL</code> and <code>LATEST</code>. Default: <code>SEQUENTIAL</code>.</para>
+        /// the interval specified by <c>targetIntervalSeconds</c>. You can enable both <c>SEQUENTIAL</c>
+        /// and <c>LATEST</c>. Default: <c>SEQUENTIAL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,9 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon
-        /// Web Services Resources</a> for more information, including restrictions that apply
-        /// to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific
+        /// <para>Array of 1-50 maps, each of the form <c>string:string (key:value)</c>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// Amazon Web Services Resources</a> for more information, including restrictions that
+        /// apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific
         /// constraints beyond what is documented there.</para>
         /// </para>
         /// </summary>
@@ -176,12 +175,12 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// <summary>
         /// <para>
         /// <para>The targeted thumbnail-generation interval in seconds. This is configurable (and required)
-        /// only if <code>recordingMode</code> is <code>INTERVAL</code>. Default: 60.</para><para><b>Important:</b> For the <code>BASIC</code> channel type, setting a value for <code>targetIntervalSeconds</code>
+        /// only if <c>recordingMode</c> is <c>INTERVAL</c>. Default: 60.</para><para><b>Important:</b> For the <c>BASIC</c> channel type, setting a value for <c>targetIntervalSeconds</c>
         /// does not guarantee that thumbnails are generated at the specified interval. For thumbnails
-        /// to be generated at the <code>targetIntervalSeconds</code> interval, the <code>IDR/Keyframe</code>
-        /// value for the input video must be less than the <code>targetIntervalSeconds</code>
-        /// value. See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/streaming-config.html">
-        /// Amazon IVS Streaming Configuration</a> for information on setting <code>IDR/Keyframe</code>
+        /// to be generated at the <c>targetIntervalSeconds</c> interval, the <c>IDR/Keyframe</c>
+        /// value for the input video must be less than the <c>targetIntervalSeconds</c> value.
+        /// See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/streaming-config.html">
+        /// Amazon IVS Streaming Configuration</a> for information on setting <c>IDR/Keyframe</c>
         /// to the recommended value in video-encoder settings.</para>
         /// </para>
         /// </summary>

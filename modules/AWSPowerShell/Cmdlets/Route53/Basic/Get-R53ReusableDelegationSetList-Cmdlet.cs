@@ -46,12 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>If the value of <code>IsTruncated</code> in the previous response was <code>true</code>,
-        /// you have more reusable delegation sets. To get another group, submit another <code>ListReusableDelegationSets</code>
-        /// request. </para><para>For the value of <code>marker</code>, specify the value of <code>NextMarker</code>
-        /// from the previous response, which is the ID of the first reusable delegation set that
-        /// Amazon Route 53 will return if you submit another request.</para><para>If the value of <code>IsTruncated</code> in the previous response was <code>false</code>,
-        /// there are no more reusable delegation sets to get.</para>
+        /// <para>If the value of <c>IsTruncated</c> in the previous response was <c>true</c>, you have
+        /// more reusable delegation sets. To get another group, submit another <c>ListReusableDelegationSets</c>
+        /// request. </para><para>For the value of <c>marker</c>, specify the value of <c>NextMarker</c> from the previous
+        /// response, which is the ID of the first reusable delegation set that Amazon Route 53
+        /// will return if you submit another request.</para><para>If the value of <c>IsTruncated</c> in the previous response was <c>false</c>, there
+        /// are no more reusable delegation sets to get.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

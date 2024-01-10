@@ -38,19 +38,18 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// Attaches an IAM policy to the specified resource. The only supported use for this
     /// action is to share a RuleGroup across accounts.
     /// </para><para>
-    /// The <code>PutPermissionPolicy</code> is subject to the following restrictions:
+    /// The <c>PutPermissionPolicy</c> is subject to the following restrictions:
     /// </para><ul><li><para>
-    /// You can attach only one policy with each <code>PutPermissionPolicy</code> request.
+    /// You can attach only one policy with each <c>PutPermissionPolicy</c> request.
     /// </para></li><li><para>
-    /// The policy must include an <code>Effect</code>, <code>Action</code> and <code>Principal</code>.
-    /// 
-    /// </para></li><li><para><code>Effect</code> must specify <code>Allow</code>.
+    /// The policy must include an <c>Effect</c>, <c>Action</c> and <c>Principal</c>. 
+    /// </para></li><li><para><c>Effect</c> must specify <c>Allow</c>.
     /// </para></li><li><para>
-    /// The <code>Action</code> in the policy must be <code>waf:UpdateWebACL</code>, <code>waf-regional:UpdateWebACL</code>,
-    /// <code>waf:GetRuleGroup</code> and <code>waf-regional:GetRuleGroup</code> . Any extra
-    /// or wildcard actions in the policy will be rejected.
+    /// The <c>Action</c> in the policy must be <c>waf:UpdateWebACL</c>, <c>waf-regional:UpdateWebACL</c>,
+    /// <c>waf:GetRuleGroup</c> and <c>waf-regional:GetRuleGroup</c> . Any extra or wildcard
+    /// actions in the policy will be rejected.
     /// </para></li><li><para>
-    /// The policy cannot include a <code>Resource</code> parameter.
+    /// The policy cannot include a <c>Resource</c> parameter.
     /// </para></li><li><para>
     /// The ARN in the request must be a valid WAF RuleGroup ARN and the RuleGroup must exist
     /// in the same region.

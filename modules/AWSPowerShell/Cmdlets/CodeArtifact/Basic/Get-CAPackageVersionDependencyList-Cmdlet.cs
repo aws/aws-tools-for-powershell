@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.CA
     /// Returns the direct dependencies for a package version. The dependencies are returned
     /// as <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">PackageDependency</a>
     /// objects. CodeArtifact extracts the dependencies for a package version from the metadata
-    /// file for the package format (for example, the <code>package.json</code> file for npm
-    /// packages and the <code>pom.xml</code> file for Maven). Any package version dependencies
-    /// that are not listed in the configuration file are not returned.
+    /// file for the package format (for example, the <c>package.json</c> file for npm packages
+    /// and the <c>pom.xml</c> file for Maven). Any package version dependencies that are
+    /// not listed in the configuration file are not returned.
     /// </summary>
     [Cmdlet("Get", "CAPackageVersionDependencyList")]
     [OutputType("Amazon.CodeArtifact.Model.ListPackageVersionDependenciesResponse")]
@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para>The namespace of the package version with the requested dependencies. The package
-        /// version component that specifies its namespace depends on its type. For example:</para><ul><li><para> The namespace of a Maven package version is its <code>groupId</code>. </para></li><li><para> The namespace of an npm package version is its <code>scope</code>. </para></li><li><para> Python and NuGet package versions do not contain a corresponding component, package
-        /// versions of those formats do not have a namespace. </para></li><li><para> The namespace of a generic package is its <code>namespace</code>. </para></li></ul>
+        /// version component that specifies its namespace depends on its type. For example:</para><ul><li><para> The namespace of a Maven package version is its <c>groupId</c>. </para></li><li><para> The namespace of an npm package version is its <c>scope</c>. </para></li><li><para> Python and NuGet package versions do not contain a corresponding component, package
+        /// versions of those formats do not have a namespace. </para></li><li><para> The namespace of a generic package is its <c>namespace</c>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter PackageVersion
         /// <summary>
         /// <para>
-        /// <para> A string that contains the package version (for example, <code>3.5.2</code>). </para>
+        /// <para> A string that contains the package version (for example, <c>3.5.2</c>). </para>
         /// </para>
         /// </summary>
         #if !MODULAR

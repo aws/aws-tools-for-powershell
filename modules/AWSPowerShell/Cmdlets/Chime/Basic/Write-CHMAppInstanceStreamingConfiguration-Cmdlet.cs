@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// The data streaming configurations of an <code>AppInstance</code>.
+    /// The data streaming configurations of an <c>AppInstance</c>.
     /// 
     ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
     /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_PutMessagingStreamingConfigurations.html">PutMessagingStreamingConfigurations</a>,
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstance</code>.</para>
+        /// <para>The ARN of the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceStreamingConfiguration
         /// <summary>
         /// <para>
-        /// <para>The streaming configurations set for an <code>AppInstance</code>.</para>
+        /// <para>The streaming configurations set for an <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

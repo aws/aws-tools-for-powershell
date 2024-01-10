@@ -29,11 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
     /// <note><para>
-    ///  This method works, but is deprecated. Use <code>BatchGetDeploymentTargets</code>
-    /// instead. 
+    ///  This method works, but is deprecated. Use <c>BatchGetDeploymentTargets</c> instead.
+    /// 
     /// </para></note><para>
     ///  Returns an array of one or more instances associated with a deployment. This method
-    /// works with EC2/On-premises and Lambda compute platforms. The newer <code>BatchGetDeploymentTargets</code>
+    /// works with EC2/On-premises and Lambda compute platforms. The newer <c>BatchGetDeploymentTargets</c>
     /// works with all compute platforms. The maximum number of instances that can be returned
     /// is 25.
     /// </para><br/><br/>This operation is deprecated.

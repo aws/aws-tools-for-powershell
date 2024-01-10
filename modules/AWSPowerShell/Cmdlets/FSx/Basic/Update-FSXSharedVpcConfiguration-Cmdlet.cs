@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     ///  <note><para>
     /// We strongly recommend that participant-created Multi-AZ file systems in the shared
     /// VPC are deleted before you disable this feature. Once the feature is disabled, these
-    /// file systems will enter a <code>MISCONFIGURED</code> state and behave like Single-AZ
-    /// file systems. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/maz-shared-vpc.html#disabling-maz-vpc-sharing">Important
+    /// file systems will enter a <c>MISCONFIGURED</c> state and behave like Single-AZ file
+    /// systems. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/maz-shared-vpc.html#disabling-maz-vpc-sharing">Important
     /// considerations before disabling shared VPC support for Multi-AZ file systems</a>.
     /// </para></note>
     /// </summary>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies whether participant accounts can create FSx for ONTAP Multi-AZ file systems
-        /// in shared subnets. Set to <code>true</code> to enable or <code>false</code> to disable.</para>
+        /// in shared subnets. Set to <c>true</c> to enable or <c>false</c> to disable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

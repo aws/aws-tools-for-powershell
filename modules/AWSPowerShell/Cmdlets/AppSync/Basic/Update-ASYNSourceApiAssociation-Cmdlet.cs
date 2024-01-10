@@ -92,12 +92,12 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter SourceApiAssociationConfig_MergeType
         /// <summary>
         /// <para>
-        /// <para>The property that indicates which merging option is enabled in the source API association.</para><para>Valid merge types are <code>MANUAL_MERGE</code> (default) and <code>AUTO_MERGE</code>.
-        /// Manual merges are the default behavior and require the user to trigger any changes
-        /// from the source APIs to the merged API manually. Auto merges subscribe the merged
-        /// API to the changes performed on the source APIs so that any change in the source APIs
-        /// are also made to the merged API. Auto merges use <code>MergedApiExecutionRoleArn</code>
-        /// to perform merge operations.</para>
+        /// <para>The property that indicates which merging option is enabled in the source API association.</para><para>Valid merge types are <c>MANUAL_MERGE</c> (default) and <c>AUTO_MERGE</c>. Manual
+        /// merges are the default behavior and require the user to trigger any changes from the
+        /// source APIs to the merged API manually. Auto merges subscribe the merged API to the
+        /// changes performed on the source APIs so that any change in the source APIs are also
+        /// made to the merged API. Auto merges use <c>MergedApiExecutionRoleArn</c> to perform
+        /// merge operations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

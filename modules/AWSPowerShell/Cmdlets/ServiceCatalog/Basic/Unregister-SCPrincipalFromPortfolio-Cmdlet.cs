@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// 
     ///  
     /// <para>
-    /// The <code>PrincipalType</code> and <code>PrincipalARN</code> must match the <code>AssociatePrincipalWithPortfolio</code>
-    /// call request details. For example, to disassociate an association created with a <code>PrincipalARN</code>
-    /// of <code>PrincipalType</code> IAM you must use the <code>PrincipalType</code> IAM
-    /// when calling <code>DisassociatePrincipalFromPortfolio</code>. 
+    /// The <c>PrincipalType</c> and <c>PrincipalARN</c> must match the <c>AssociatePrincipalWithPortfolio</c>
+    /// call request details. For example, to disassociate an association created with a <c>PrincipalARN</c>
+    /// of <c>PrincipalType</c> IAM you must use the <c>PrincipalType</c> IAM when calling
+    /// <c>DisassociatePrincipalFromPortfolio</c>. 
     /// </para><para>
     /// For portfolios that have been shared with principal name sharing enabled: after disassociating
     /// a principal, share recipient accounts will no longer be able to provision products
@@ -44,12 +44,12 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// For more information, review <a href="https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/associate-principal-with-portfolio.html#options">associate-principal-with-portfolio</a>
     /// in the Amazon Web Services CLI Command Reference. 
     /// </para><note><para>
-    /// If you disassociate a principal from a portfolio, with PrincipalType as <code>IAM</code>,
+    /// If you disassociate a principal from a portfolio, with PrincipalType as <c>IAM</c>,
     /// the same principal will still have access to the portfolio if it matches one of the
-    /// associated principals of type <code>IAM_PATTERN</code>. To fully remove access for
-    /// a principal, verify all the associated Principals of type <code>IAM_PATTERN</code>,
-    /// and then ensure you disassociate any <code>IAM_PATTERN</code> principals that match
-    /// the principal whose access you are removing.
+    /// associated principals of type <c>IAM_PATTERN</c>. To fully remove access for a principal,
+    /// verify all the associated Principals of type <c>IAM_PATTERN</c>, and then ensure you
+    /// disassociate any <c>IAM_PATTERN</c> principals that match the principal whose access
+    /// you are removing.
     /// </para></note>
     /// </summary>
     [Cmdlet("Unregister", "SCPrincipalFromPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><c>jp</c> - Japanese</para></li><li><para><c>zh</c> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,8 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>The ARN of the principal (user, role, or group). This field allows an ARN with no
-        /// <code>accountID</code> with or without wildcard characters if <code>PrincipalType</code>
-        /// is <code>IAM_PATTERN</code>.</para>
+        /// <c>accountID</c> with or without wildcard characters if <c>PrincipalType</c> is <c>IAM_PATTERN</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -113,9 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PrincipalType
         /// <summary>
         /// <para>
-        /// <para>The supported value is <code>IAM</code> if you use a fully defined ARN, or <code>IAM_PATTERN</code>
-        /// if you specify an <code>IAM</code> ARN with no AccountId, with or without wildcard
-        /// characters. </para>
+        /// <para>The supported value is <c>IAM</c> if you use a fully defined ARN, or <c>IAM_PATTERN</c>
+        /// if you specify an <c>IAM</c> ARN with no AccountId, with or without wildcard characters.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

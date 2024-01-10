@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AllowMajorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to allow major version upgrades.</para><para>Constraints: Must be enabled if you specify a value for the <code>EngineVersion</code>
-        /// parameter that's a different major version than the global cluster's current version.</para><para>If you upgrade the major version of a global database, the cluster and DB instance
+        /// <para>Specifies whether to allow major version upgrades.</para><para>Constraints: Must be enabled if you specify a value for the <c>EngineVersion</c> parameter
+        /// that's a different major version than the global cluster's current version.</para><para>If you upgrade the major version of a global database, the cluster and DB instance
         /// parameter groups are set to the default parameter groups for the new version. Apply
         /// any custom parameter groups after completing the upgrade.</para>
         /// </para>
@@ -76,11 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to which you want to upgrade. </para><para>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL-based
-        /// Aurora global databases), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-mysql --query '*[]|[?SupportsGlobalDatabases
-        /// == `true`].[EngineVersion]'</code></para><para>To list all of the available engine versions for <code>aurora-postgresql</code> (for
-        /// PostgreSQL-based Aurora global databases), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-postgresql --query '*[]|[?SupportsGlobalDatabases
-        /// == `true`].[EngineVersion]'</code></para>
+        /// <para>The version number of the database engine to which you want to upgrade. </para><para>To list all of the available engine versions for <c>aurora-mysql</c> (for MySQL-based
+        /// Aurora global databases), use the following command:</para><para><c>aws rds describe-db-engine-versions --engine aurora-mysql --query '*[]|[?SupportsGlobalDatabases
+        /// == `true`].[EngineVersion]'</c></para><para>To list all of the available engine versions for <c>aurora-postgresql</c> (for PostgreSQL-based
+        /// Aurora global databases), use the following command:</para><para><c>aws rds describe-db-engine-versions --engine aurora-postgresql --query '*[]|[?SupportsGlobalDatabases
+        /// == `true`].[EngineVersion]'</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The new cluster identifier for the global database cluster. This value is stored as
-        /// a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster2</code></para>
+        /// a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <c>my-cluster2</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

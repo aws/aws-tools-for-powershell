@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The target Region or Availability Zone that the metric subscription is disabled for.
-        /// For example, <code>eu-north-1</code>.</para>
+        /// For example, <c>eu-north-1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The source Region or Availability Zone that the metric subscription is disabled for.
-        /// For example, <code>us-east-1</code>.</para>
+        /// For example, <c>us-east-1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

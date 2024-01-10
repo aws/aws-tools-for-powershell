@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <summary>
         /// <para>
         /// <para> (Optional) Whether to compress signals before transmitting data to Amazon Web Services
-        /// IoT FleetWise. If you don't want to compress the signals, use <code>OFF</code>. If
-        /// it's not specified, <code>SNAPPY</code> is used. </para><para>Default: <code>SNAPPY</code></para>
+        /// IoT FleetWise. If you don't want to compress the signals, use <c>OFF</c>. If it's
+        /// not specified, <c>SNAPPY</c> is used. </para><para>Default: <c>SNAPPY</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,10 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter DataExtraDimension
         /// <summary>
         /// <para>
-        /// <para> (Optional) A list of vehicle attributes to associate with a campaign. </para><para>Enrich the data with specified vehicle attributes. For example, add <code>make</code>
-        /// and <code>model</code> to the campaign, and Amazon Web Services IoT FleetWise will
-        /// associate the data with those attributes as dimensions in Amazon Timestream. You can
-        /// then query the data against <code>make</code> and <code>model</code>.</para><para>Default: An empty array</para>
+        /// <para> (Optional) A list of vehicle attributes to associate with a campaign. </para><para>Enrich the data with specified vehicle attributes. For example, add <c>make</c> and
+        /// <c>model</c> to the campaign, and Amazon Web Services IoT FleetWise will associate
+        /// the data with those attributes as dimensions in Amazon Timestream. You can then query
+        /// the data against <c>make</c> and <c>model</c>.</para><para>Default: An empty array</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <summary>
         /// <para>
         /// <para> (Optional) Option for a vehicle to send diagnostic trouble codes to Amazon Web Services
-        /// IoT FleetWise. If you want to send diagnostic trouble codes, use <code>SEND_ACTIVE_DTCS</code>.
-        /// If it's not specified, <code>OFF</code> is used.</para><para>Default: <code>OFF</code></para>
+        /// IoT FleetWise. If you want to send diagnostic trouble codes, use <c>SEND_ACTIVE_DTCS</c>.
+        /// If it's not specified, <c>OFF</c> is used.</para><para>Default: <c>OFF</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter ConditionBasedCollectionScheme_Expression
         /// <summary>
         /// <para>
-        /// <para>The logical expression used to recognize what data to collect. For example, <code>$variable.Vehicle.OutsideAirTemperature
-        /// &gt;= 105.0</code>.</para>
+        /// <para>The logical expression used to recognize what data to collect. For example, <c>$variable.Vehicle.OutsideAirTemperature
+        /// &gt;= 105.0</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,8 +185,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <summary>
         /// <para>
         /// <para>The time period (in milliseconds) to decide how often to collect data. For example,
-        /// if the time period is <code>60000</code>, the Edge Agent software collects data once
-        /// every minute.</para>
+        /// if the time period is <c>60000</c>, the Edge Agent software collects data once every
+        /// minute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <summary>
         /// <para>
         /// <para> (Optional) How long (in milliseconds) to collect raw data after a triggering event
-        /// initiates the collection. If it's not specified, <code>0</code> is used.</para><para>Default: <code>0</code></para>
+        /// initiates the collection. If it's not specified, <c>0</c> is used.</para><para>Default: <c>0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <para>
         /// <para>(Optional) A number indicating the priority of one campaign over another campaign
         /// for a certain vehicle or fleet. A campaign with the lowest value is deployed to vehicles
-        /// before any other campaigns. If it's not specified, <code>0</code> is used. </para><para>Default: <code>0</code></para>
+        /// before any other campaigns. If it's not specified, <c>0</c> is used. </para><para>Default: <c>0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -251,8 +251,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <para>(Optional) Whether to store collected data after a vehicle lost a connection with
         /// the cloud. After a connection is re-established, the data is automatically forwarded
         /// to Amazon Web Services IoT FleetWise. If you want to store collected data when a vehicle
-        /// loses connection with the cloud, use <code>TO_DISK</code>. If it's not specified,
-        /// <code>OFF</code> is used.</para><para>Default: <code>OFF</code></para>
+        /// loses connection with the cloud, use <c>TO_DISK</c>. If it's not specified, <c>OFF</c>
+        /// is used.</para><para>Default: <c>OFF</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -264,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <summary>
         /// <para>
         /// <para>(Optional) The time, in milliseconds, to deliver a campaign after it was approved.
-        /// If it's not specified, <code>0</code> is used.</para><para>Default: <code>0</code></para>
+        /// If it's not specified, <c>0</c> is used.</para><para>Default: <c>0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -302,7 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter ConditionBasedCollectionScheme_TriggerMode
         /// <summary>
         /// <para>
-        /// <para>Whether to collect data for all triggering events (<code>ALWAYS</code>). Specify (<code>RISING_EDGE</code>),
+        /// <para>Whether to collect data for all triggering events (<c>ALWAYS</c>). Specify (<c>RISING_EDGE</c>),
         /// or specify only when the condition first evaluates to false. For example, triggering
         /// on "AirbagDeployed"; Users aren't interested on triggering when the airbag is already
         /// exploded; they only care about the change from not deployed =&gt; deployed.</para>

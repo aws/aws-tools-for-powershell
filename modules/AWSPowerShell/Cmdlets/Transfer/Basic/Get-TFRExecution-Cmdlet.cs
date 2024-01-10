@@ -28,15 +28,14 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// You can use <code>DescribeExecution</code> to check the details of the execution of
-    /// the specified workflow.
+    /// You can use <c>DescribeExecution</c> to check the details of the execution of the
+    /// specified workflow.
     /// 
     ///  <note><para>
     /// This API call only returns details for in-progress workflows.
     /// </para><para>
     ///  If you provide an ID for an execution that is not in progress, or if the execution
-    /// doesn't match the specified workflow ID, you receive a <code>ResourceNotFound</code>
-    /// exception.
+    /// doesn't match the specified workflow ID, you receive a <c>ResourceNotFound</c> exception.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "TFRExecution")]

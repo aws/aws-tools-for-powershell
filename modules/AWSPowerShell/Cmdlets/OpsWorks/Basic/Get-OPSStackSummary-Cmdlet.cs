@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
 {
     /// <summary>
     /// Describes the number of layers and apps in a specified stack, and the number of instances
-    /// in each state, such as <code>running_setup</code> or <code>online</code>.
+    /// in each state, such as <c>running_setup</c> or <c>online</c>.
     /// 
     ///  
     /// <para><b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy,

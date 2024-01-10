@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     /// 
     ///  
     /// <para>
-    /// You must include <code>ResourceArn</code>. You can optionally include <code>NextToken</code>,
-    /// <code>ByStatus</code>, <code>MaxResults</code>, <code>ByRecoveryPointCreationDateAfter</code>
-    /// , and <code>ByRecoveryPointCreationDateBefore</code>.
+    /// You must include <c>ResourceArn</c>. You can optionally include <c>NextToken</c>,
+    /// <c>ByStatus</c>, <c>MaxResults</c>, <c>ByRecoveryPointCreationDateAfter</c> , and
+    /// <c>ByRecoveryPointCreationDateBefore</c>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BAKRestoreJobsByProtectedResourceList")]
@@ -114,9 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The next item following a partial list of returned items. For example, if a request
-        /// ismade to return <code>MaxResults</code> number of items, <code>NextToken</code> allows
-        /// you to return more items in your list starting at the location pointed to by the next
-        /// token.</para>
+        /// ismade to return <c>MaxResults</c> number of items, <c>NextToken</c> allows you to
+        /// return more items in your list starting at the location pointed to by the next token.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

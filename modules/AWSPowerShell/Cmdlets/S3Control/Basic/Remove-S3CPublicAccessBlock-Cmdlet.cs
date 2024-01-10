@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// <note><para>
     /// This operation is not supported by directory buckets.
     /// </para></note><para>
-    /// Removes the <code>PublicAccessBlock</code> configuration for an Amazon Web Services
-    /// account. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html">
+    /// Removes the <c>PublicAccessBlock</c> configuration for an Amazon Web Services account.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html">
     /// Using Amazon S3 block public access</a>.
     /// </para><para>
     /// Related actions include:
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code>
+        /// <para>The account ID for the Amazon Web Services account whose <c>PublicAccessBlock</c>
         /// configuration you want to remove.</para>
         /// </para>
         /// </summary>

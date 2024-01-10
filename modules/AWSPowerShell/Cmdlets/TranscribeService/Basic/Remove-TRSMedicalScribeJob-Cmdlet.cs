@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
     /// Deletes a Medical Scribe job. To use this operation, specify the name of the job you
-    /// want to delete using <code>MedicalScribeJobName</code>. Job names are case sensitive.
+    /// want to delete using <c>MedicalScribeJobName</c>. Job names are case sensitive.
     /// </summary>
     [Cmdlet("Remove", "TRSMedicalScribeJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

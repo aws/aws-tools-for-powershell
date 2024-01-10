@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter InputDataConfig_DataFormat
         /// <summary>
         /// <para>
-        /// <para><code>COMPREHEND_CSV</code>: The data format is a two-column CSV file, where the
-        /// first column contains labels and the second column contains documents.</para><para><code>AUGMENTED_MANIFEST</code>: The data format </para>
+        /// <para><c>COMPREHEND_CSV</c>: The data format is a two-column CSV file, where the first
+        /// column contains labels and the second column contains documents.</para><para><c>AUGMENTED_MANIFEST</c>: The data format </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,9 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>
         /// <para>The Amazon S3 URI for the input data. The S3 bucket must be in the same Region as
         /// the API endpoint that you are calling. The URI can point to a single input file or
-        /// it can provide the prefix for a collection of input files.</para><para>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix
-        /// is a single file, Amazon Comprehend uses that file as input. If more than one file
-        /// begins with the prefix, Amazon Comprehend uses all of them as input.</para><para>This parameter is required if you set <code>DataFormat</code> to <code>COMPREHEND_CSV</code>.</para>
+        /// it can provide the prefix for a collection of input files.</para><para>For example, if you use the URI <c>S3://bucketName/prefix</c>, if the prefix is a
+        /// single file, Amazon Comprehend uses that file as input. If more than one file begins
+        /// with the prefix, Amazon Comprehend uses all of them as input.</para><para>This parameter is required if you set <c>DataFormat</c> to <c>COMPREHEND_CSV</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

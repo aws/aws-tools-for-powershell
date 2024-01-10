@@ -29,30 +29,29 @@ namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
     /// Returns the description of a specific Amazon EFS file system if either the file system
-    /// <code>CreationToken</code> or the <code>FileSystemId</code> is provided. Otherwise,
-    /// it returns descriptions of all file systems owned by the caller's Amazon Web Services
-    /// account in the Amazon Web Services Region of the endpoint that you're calling.
+    /// <c>CreationToken</c> or the <c>FileSystemId</c> is provided. Otherwise, it returns
+    /// descriptions of all file systems owned by the caller's Amazon Web Services account
+    /// in the Amazon Web Services Region of the endpoint that you're calling.
     /// 
     ///  
     /// <para>
-    /// When retrieving all file system descriptions, you can optionally specify the <code>MaxItems</code>
+    /// When retrieving all file system descriptions, you can optionally specify the <c>MaxItems</c>
     /// parameter to limit the number of descriptions in a response. This number is automatically
-    /// set to 100. If more file system descriptions remain, Amazon EFS returns a <code>NextMarker</code>,
+    /// set to 100. If more file system descriptions remain, Amazon EFS returns a <c>NextMarker</c>,
     /// an opaque token, in the response. In this case, you should send a subsequent request
-    /// with the <code>Marker</code> request parameter set to the value of <code>NextMarker</code>.
-    /// 
+    /// with the <c>Marker</c> request parameter set to the value of <c>NextMarker</c>. 
     /// </para><para>
     /// To retrieve a list of your file system descriptions, this operation is used in an
-    /// iterative process, where <code>DescribeFileSystems</code> is called first without
-    /// the <code>Marker</code> and then the operation continues to call it with the <code>Marker</code>
-    /// parameter set to the value of the <code>NextMarker</code> from the previous response
-    /// until the response has no <code>NextMarker</code>. 
+    /// iterative process, where <c>DescribeFileSystems</c> is called first without the <c>Marker</c>
+    /// and then the operation continues to call it with the <c>Marker</c> parameter set to
+    /// the value of the <c>NextMarker</c> from the previous response until the response has
+    /// no <c>NextMarker</c>. 
     /// </para><para>
-    ///  The order of file systems returned in the response of one <code>DescribeFileSystems</code>
+    ///  The order of file systems returned in the response of one <c>DescribeFileSystems</c>
     /// call and the order of file systems returned across the responses of a multi-call iteration
     /// is unspecified. 
     /// </para><para>
-    ///  This operation requires permissions for the <code>elasticfilesystem:DescribeFileSystems</code>
+    ///  This operation requires permissions for the <c>elasticfilesystem:DescribeFileSystems</c>
     /// action. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -92,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>(Optional) Opaque pagination token returned from a previous <code>DescribeFileSystems</code>
+        /// <para>(Optional) Opaque pagination token returned from a previous <c>DescribeFileSystems</c>
         /// operation (String). If present, specifies to continue the list from where the returning
         /// call had left off. </para>
         /// </para>

@@ -28,7 +28,7 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Deletes a <code>Config</code>.
+    /// Deletes a <c>Config</c>.
     /// </summary>
     [Cmdlet("Remove", "GSConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.GroundStation.Model.DeleteConfigResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter ConfigId
         /// <summary>
         /// <para>
-        /// <para>UUID of a <code>Config</code>.</para>
+        /// <para>UUID of a <c>Config</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter ConfigType
         /// <summary>
         /// <para>
-        /// <para>Type of a <code>Config</code>.</para>
+        /// <para>Type of a <c>Config</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// 
     ///  
     /// <para>
-    /// We recommend that you specify the <code>associationID</code> to delete the association.
+    /// We recommend that you specify the <c>associationID</c> to delete the association.
     /// Alternatively, if you own virtual gateway and a Direct Connect gateway association,
-    /// you can specify the <code>virtualGatewayId</code> and <code>directConnectGatewayId</code>
-    /// to delete an association.
+    /// you can specify the <c>virtualGatewayId</c> and <c>directConnectGatewayId</c> to delete
+    /// an association.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "DCGatewayAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

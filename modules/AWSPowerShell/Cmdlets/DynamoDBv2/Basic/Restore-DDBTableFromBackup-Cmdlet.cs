@@ -33,8 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// 
     ///  
     /// <para>
-    /// You can call <code>RestoreTableFromBackup</code> at a maximum rate of 10 times per
-    /// second.
+    /// You can call <c>RestoreTableFromBackup</c> at a maximum rate of 10 times per second.
     /// </para><para>
     /// You must manually set up the following on the restored table:
     /// </para><ul><li><para>
@@ -96,9 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>
         /// <para>Indicates whether server-side encryption is done using an Amazon Web Services managed
         /// key or an Amazon Web Services owned key. If enabled (true), server-side encryption
-        /// type is set to <code>KMS</code> and an Amazon Web Services managed key is used (KMS
-        /// charges apply). If disabled (false) or not specified, server-side encryption is set
-        /// to Amazon Web Services owned key.</para>
+        /// type is set to <c>KMS</c> and an Amazon Web Services managed key is used (KMS charges
+        /// apply). If disabled (false) or not specified, server-side encryption is set to Amazon
+        /// Web Services owned key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>The KMS key that should be used for the KMS encryption. To specify a key, use its
         /// key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should
         /// only provide this parameter if the key is different from the default DynamoDB key
-        /// <code>alias/aws/dynamodb</code>.</para>
+        /// <c>alias/aws/dynamodb</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>The maximum number of strongly consistent reads consumed per second before DynamoDB
-        /// returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying
-        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</para>
+        /// returns a <c>ThrottlingException</c>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying
+        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>If read/write capacity mode is <c>PAY_PER_REQUEST</c> the value is set to 0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter SSESpecificationOverride_SSEType
         /// <summary>
         /// <para>
-        /// <para>Server-side encryption type. The only supported value is:</para><ul><li><para><code>KMS</code> - Server-side encryption that uses Key Management Service. The key
-        /// is stored in your account and is managed by KMS (KMS charges apply).</para></li></ul>
+        /// <para>Server-side encryption type. The only supported value is:</para><ul><li><para><c>KMS</c> - Server-side encryption that uses Key Management Service. The key is
+        /// stored in your account and is managed by KMS (KMS charges apply).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,9 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter ProvisionedThroughputOverride_WriteCapacityUnit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>.
+        /// <para>The maximum number of writes consumed per second before DynamoDB returns a <c>ThrottlingException</c>.
         /// For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying
-        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</para>
+        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>If read/write capacity mode is <c>PAY_PER_REQUEST</c> the value is set to 0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

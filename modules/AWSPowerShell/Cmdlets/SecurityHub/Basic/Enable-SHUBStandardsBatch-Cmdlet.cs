@@ -28,8 +28,8 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Enables the standards specified by the provided <code>StandardsArn</code>. To obtain
-    /// the ARN for a standard, use the <code>DescribeStandards</code> operation.
+    /// Enables the standards specified by the provided <c>StandardsArn</c>. To obtain the
+    /// ARN for a standard, use the <c>DescribeStandards</c> operation.
     /// 
     ///  
     /// <para>

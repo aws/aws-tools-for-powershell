@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The automatically generated ID for a job, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</para>
+        /// <para>The automatically generated ID for a job, for example <c>JID123e4567-e89b-12d3-a456-426655440000</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

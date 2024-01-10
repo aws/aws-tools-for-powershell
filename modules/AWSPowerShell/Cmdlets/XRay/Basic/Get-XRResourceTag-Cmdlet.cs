@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A pagination token. If multiple pages of results are returned, use the <code>NextToken</code>
+        /// <para>A pagination token. If multiple pages of results are returned, use the <c>NextToken</c>
         /// value returned with the current page of results as the value of this parameter to
         /// get the next page of results.</para>
         /// </para>

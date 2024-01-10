@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// Lists all profiles in the authenticated account and Amazon Web Services Region.
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:ListProfiles</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:ListProfiles</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMRAProfileList")]

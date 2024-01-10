@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>The blockchain network that the <code>Accessor</code> token is created for.</para><note><para>Use the value <code>ETHEREUM_MAINNET_AND_GOERLI</code> for all existing <code>Accessors</code>
-        /// tokens that were created before the <code>networkType</code> property was introduced.</para></note>
+        /// <para>The blockchain network that the <c>Accessor</c> token is created for.</para><note><para>Use the value <c>ETHEREUM_MAINNET_AND_GOERLI</c> for all existing <c>Accessors</c>
+        /// tokens that were created before the <c>networkType</c> property was introduced.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

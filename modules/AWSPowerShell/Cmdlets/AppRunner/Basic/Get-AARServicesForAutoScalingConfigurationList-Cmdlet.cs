@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you
         /// want to list the services for.</para><para>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with
-        /// either <code>.../<i>name</i></code> or <code>.../<i>name</i>/<i>revision</i></code>.
-        /// If a revision isn't specified, the latest active revision is used.</para>
+        /// either <c>.../<i>name</i></c> or <c>.../<i>name</i>/<i>revision</i></c>. If a revision
+        /// isn't specified, the latest active revision is used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to include in each response (result page). It's used
-        /// for a paginated request.</para><para>If you don't specify <code>MaxResults</code>, the request retrieves all available
-        /// results in a single response.</para>
+        /// for a paginated request.</para><para>If you don't specify <c>MaxResults</c>, the request retrieves all available results
+        /// in a single response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <para>
         /// <para>A token from a previous result page. It's used for a paginated request. The request
         /// retrieves the next result page. All other parameter values must be identical to the
-        /// ones specified in the initial request.</para><para>If you don't specify <code>NextToken</code>, the request retrieves the first result
-        /// page.</para>
+        /// ones specified in the initial request.</para><para>If you don't specify <c>NextToken</c>, the request retrieves the first result page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

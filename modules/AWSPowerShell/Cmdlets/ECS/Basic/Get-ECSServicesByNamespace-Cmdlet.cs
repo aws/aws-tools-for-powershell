@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
     /// This operation lists all of the services that are associated with a Cloud Map namespace.
-    /// This list might include services in different clusters. In contrast, <code>ListServices</code>
+    /// This list might include services in different clusters. In contrast, <c>ListServices</c>
     /// can only list services in one cluster at a time. If you need to filter the list of
-    /// services in a single cluster by various parameters, use <code>ListServices</code>.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service
+    /// services in a single cluster by various parameters, use <c>ListServices</c>. For more
+    /// information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service
     /// Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ECSServicesByNamespace")]
@@ -73,13 +73,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of service results that <code>ListServicesByNamespace</code> returns
-        /// in paginated output. When this parameter is used, <code>ListServicesByNamespace</code>
-        /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-        /// response element. The remaining results of the initial request can be seen by sending
-        /// another <code>ListServicesByNamespace</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListServicesByNamespace</code>
-        /// returns up to 10 results and a <code>nextToken</code> value if applicable.</para>
+        /// <para>The maximum number of service results that <c>ListServicesByNamespace</c> returns
+        /// in paginated output. When this parameter is used, <c>ListServicesByNamespace</c> only
+        /// returns <c>maxResults</c> results in a single page along with a <c>nextToken</c> response
+        /// element. The remaining results of the initial request can be seen by sending another
+        /// <c>ListServicesByNamespace</c> request with the returned <c>nextToken</c> value. This
+        /// value can be between 1 and 100. If this parameter isn't used, then <c>ListServicesByNamespace</c>
+        /// returns up to 10 results and a <c>nextToken</c> value if applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,10 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value that's returned from a <code>ListServicesByNamespace</code>
-        /// request. It indicates that more results are available to fulfill the request and further
-        /// calls are needed. If <code>maxResults</code> is returned, it is possible the number
-        /// of results is less than <code>maxResults</code>.</para>
+        /// <para>The <c>nextToken</c> value that's returned from a <c>ListServicesByNamespace</c> request.
+        /// It indicates that more results are available to fulfill the request and further calls
+        /// are needed. If <c>maxResults</c> is returned, it is possible the number of results
+        /// is less than <c>maxResults</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

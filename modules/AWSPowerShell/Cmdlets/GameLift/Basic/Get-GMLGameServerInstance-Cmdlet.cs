@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To request status for all instances in the game server group, provide a game server
     /// group ID only. To request status for specific instances, provide the game server group
     /// ID and one or more instance IDs. Use the pagination parameters to retrieve results
-    /// in sequential segments. If successful, a collection of <code>GameServerInstance</code>
-    /// objects is returned. 
+    /// in sequential segments. If successful, a collection of <c>GameServerInstance</c> objects
+    /// is returned. 
     /// </para><para>
     /// This operation is not designed to be called with every game server claim request;
     /// this practice can cause you to exceed your API limit, which results in errors. Instead,
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The Amazon EC2 instance IDs that you want to retrieve status on. Amazon EC2 instance
-        /// IDs use a 17-character format, for example: <code>i-1234567890abcdef0</code>. To retrieve
+        /// IDs use a 17-character format, for example: <c>i-1234567890abcdef0</c>. To retrieve
         /// all instances in the game server group, leave this parameter empty. </para>
         /// </para>
         /// </summary>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
+        /// <para>The maximum number of results to return. Use this parameter with <c>NextToken</c>
         /// to get results as a set of sequential pages.</para>
         /// </para>
         /// </summary>

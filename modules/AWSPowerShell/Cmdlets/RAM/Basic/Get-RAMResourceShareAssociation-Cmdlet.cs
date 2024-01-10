@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <summary>
         /// <para>
         /// <para>Specifies whether you want to retrieve the associations that involve a specified resource
-        /// or principal.</para><ul><li><para><code>PRINCIPAL</code> – list the principals whose associations you want to see.</para></li><li><para><code>RESOURCE</code> – list the resources whose associations you want to see.</para></li></ul>
+        /// or principal.</para><ul><li><para><c>PRINCIPAL</c> – list the principals whose associations you want to see.</para></li><li><para><c>RESOURCE</c> – list the resources whose associations you want to see.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <para>Specifies the ID of the principal whose resource shares you want to retrieve. This
         /// can be an Amazon Web Services account ID, an organization ID, an organizational unit
         /// ID, or the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of an individual IAM role or user.</para><para>You cannot specify this parameter if the association type is <code>RESOURCE</code>.</para>
+        /// Resource Name (ARN)</a> of an individual IAM role or user.</para><para>You cannot specify this parameter if the association type is <c>RESOURCE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <summary>
         /// <para>
         /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of a resource whose resource shares you want to retrieve.</para><para>You cannot specify this parameter if the association type is <code>PRINCIPAL</code>.</para>
+        /// Resource Name (ARN)</a> of a resource whose resource shares you want to retrieve.</para><para>You cannot specify this parameter if the association type is <c>PRINCIPAL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,11 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <para>
         /// <para>Specifies the total number of results that you want included on each page of the response.
         /// If you do not include this parameter, it defaults to a value that is specific to the
-        /// operation. If additional items exist beyond the number you specify, the <code>NextToken</code>
+        /// operation. If additional items exist beyond the number you specify, the <c>NextToken</c>
         /// response element is returned with a value (not null). Include the specified value
-        /// as the <code>NextToken</code> request parameter in the next call to the operation
-        /// to get the next part of the results. Note that the service might return fewer results
-        /// than the maximum even when there are more results available. You should check <code>NextToken</code>
+        /// as the <c>NextToken</c> request parameter in the next call to the operation to get
+        /// the next part of the results. Note that the service might return fewer results than
+        /// the maximum even when there are more results available. You should check <c>NextToken</c>
         /// after every operation to ensure that you receive all of the results.</para>
         /// </para>
         /// <para>
@@ -136,9 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <summary>
         /// <para>
         /// <para>Specifies that you want to receive the next page of results. Valid only if you received
-        /// a <code>NextToken</code> response in the previous request. If you did, it indicates
-        /// that more output is available. Set this parameter to the value provided by the previous
-        /// call's <code>NextToken</code> response to request the next page of results.</para>
+        /// a <c>NextToken</c> response in the previous request. If you did, it indicates that
+        /// more output is available. Set this parameter to the value provided by the previous
+        /// call's <c>NextToken</c> response to request the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -31,11 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Updates the current runtime configuration for the specified fleet, which tells Amazon
     /// GameLift how to launch server processes on all instances in the fleet. You can update
     /// a fleet's runtime configuration at any time after the fleet is created; it does not
-    /// need to be in <code>ACTIVE</code> status.
+    /// need to be in <c>ACTIVE</c> status.
     /// 
     ///  
     /// <para>
-    /// To update runtime configuration, specify the fleet ID and provide a <code>RuntimeConfiguration</code>
+    /// To update runtime configuration, specify the fleet ID and provide a <c>RuntimeConfiguration</c>
     /// with an updated set of server process configurations.
     /// </para><para>
     /// If successful, the fleet's runtime configuration settings are updated. Each instance
@@ -80,9 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The maximum amount of time (in seconds) allowed to launch a new game session and have
-        /// it report ready to host players. During this time, the game session is in status <code>ACTIVATING</code>.
+        /// it report ready to host players. During this time, the game session is in status <c>ACTIVATING</c>.
         /// If the game session does not become active before the timeout, it is ended and the
-        /// game session status is changed to <code>TERMINATED</code>.</para>
+        /// game session status is changed to <c>TERMINATED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,9 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_MaxConcurrentGameSessionActivation
         /// <summary>
         /// <para>
-        /// <para>The number of game sessions in status <code>ACTIVATING</code> to allow on an instance.
-        /// This setting limits the instance resources that can be used for new game activations
-        /// at any one time.</para>
+        /// <para>The number of game sessions in status <c>ACTIVATING</c> to allow on an instance. This
+        /// setting limits the instance resources that can be used for new game activations at
+        /// any one time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -53,10 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>Specifies which member accounts to include in the response based on their relationship
-        /// status with the administrator account. The default value is <code>TRUE</code>.</para><para>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes
-        /// member accounts whose relationship status with the administrator account is set to
-        /// <code>ENABLED</code>.</para><para>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes
-        /// all existing member accounts. </para>
+        /// status with the administrator account. The default value is <c>TRUE</c>.</para><para>If <c>OnlyAssociated</c> is set to <c>TRUE</c>, the response includes member accounts
+        /// whose relationship status with the administrator account is set to <c>ENABLED</c>.</para><para>If <c>OnlyAssociated</c> is set to <c>FALSE</c>, the response includes all existing
+        /// member accounts. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token that is required for pagination. On your first call to the <code>ListMembers</code>
-        /// operation, set the value of this parameter to <code>NULL</code>.</para><para>For subsequent calls to the operation, to continue listing data, set the value of
+        /// <para>The token that is required for pagination. On your first call to the <c>ListMembers</c>
+        /// operation, set the value of this parameter to <c>NULL</c>.</para><para>For subsequent calls to the operation, to continue listing data, set the value of
         /// this parameter to the value returned from the previous response.</para>
         /// </para>
         /// <para>

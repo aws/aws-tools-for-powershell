@@ -28,7 +28,7 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Creates a signed, short-term URL that can be passed to a Selenium <code>RemoteWebDriver</code>
+    /// Creates a signed, short-term URL that can be passed to a Selenium <c>RemoteWebDriver</c>
     /// constructor.
     /// </summary>
     [Cmdlet("New", "DFTestGridUrl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

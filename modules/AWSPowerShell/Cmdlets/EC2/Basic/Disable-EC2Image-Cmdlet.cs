@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Sets the AMI state to <code>disabled</code> and removes all launch permissions from
-    /// the AMI. A disabled AMI can't be used for instance launches.
+    /// Sets the AMI state to <c>disabled</c> and removes all launch permissions from the
+    /// AMI. A disabled AMI can't be used for instance launches.
     /// 
     ///  
     /// <para>

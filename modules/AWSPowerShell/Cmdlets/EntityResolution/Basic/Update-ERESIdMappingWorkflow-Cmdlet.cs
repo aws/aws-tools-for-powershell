@@ -28,9 +28,9 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Updates an existing <code>IdMappingWorkflow</code>. This method is identical to <code>CreateIdMappingWorkflow</code>,
-    /// except it uses an HTTP <code>PUT</code> request instead of a <code>POST</code> request,
-    /// and the <code>IdMappingWorkflow</code> must already exist for the method to succeed.
+    /// Updates an existing <c>IdMappingWorkflow</c>. This method is identical to <c>CreateIdMappingWorkflow</c>,
+    /// except it uses an HTTP <c>PUT</c> request instead of a <c>POST</c> request, and the
+    /// <c>IdMappingWorkflow</c> must already exist for the method to succeed.
     /// </summary>
     [Cmdlet("Update", "ERESIdMappingWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EntityResolution.Model.UpdateIdMappingWorkflowResponse")]
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter InputSourceConfig
         /// <summary>
         /// <para>
-        /// <para>A list of <code>InputSource</code> objects, which have the fields <code>InputSourceARN</code>
-        /// and <code>SchemaName</code>.</para>
+        /// <para>A list of <c>InputSource</c> objects, which have the fields <c>InputSourceARN</c>
+        /// and <c>SchemaName</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter IntermediateSourceConfiguration_IntermediateS3Path
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 location (bucket and prefix). For example: <code>s3://provider_bucket/DOC-EXAMPLE-BUCKET</code></para>
+        /// <para>The Amazon S3 location (bucket and prefix). For example: <c>s3://provider_bucket/DOC-EXAMPLE-BUCKET</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter OutputSourceConfig
         /// <summary>
         /// <para>
-        /// <para>A list of <code>OutputSource</code> objects, each of which contains fields <code>OutputS3Path</code>
-        /// and <code>KMSArn</code>.</para>
+        /// <para>A list of <c>OutputSource</c> objects, each of which contains fields <c>OutputS3Path</c>
+        /// and <c>KMSArn</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

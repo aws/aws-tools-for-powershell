@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
     /// Describes a file transfer protocol-enabled server that you specify by passing the
-    /// <code>ServerId</code> parameter.
+    /// <c>ServerId</c> parameter.
     /// 
     ///  
     /// <para>
-    /// The response contains a description of a server's properties. When you set <code>EndpointType</code>
-    /// to VPC, the response will contain the <code>EndpointDetails</code>.
+    /// The response contains a description of a server's properties. When you set <c>EndpointType</c>
+    /// to VPC, the response will contain the <c>EndpointDetails</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "TFRServer")]

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The cost estimate end time.</para><para>Constraints:</para><ul><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Specified in the Unix time format.</para><para>For example, if you want to use an end time of October 1, 2018, at 9 PM UTC, specify
-        /// <code>1538427600</code> as the end time.</para></li></ul><para>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</para>
+        /// <c>1538427600</c> as the end time.</para></li></ul><para>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The cost estimate start time.</para><para>Constraints:</para><ul><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Specified in the Unix time format.</para><para>For example, if you want to use a start time of October 1, 2018, at 8 PM UTC, specify
-        /// <code>1538424000</code> as the start time.</para></li></ul><para>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</para>
+        /// <c>1538424000</c> as the start time.</para></li></ul><para>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

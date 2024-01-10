@@ -35,13 +35,13 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Returns the status of a <code>ChangeToken</code> that you got by calling <a>GetChangeToken</a>.
-    /// <code>ChangeTokenStatus</code> is one of the following values:
-    /// </para><ul><li><para><code>PROVISIONED</code>: You requested the change token by calling <code>GetChangeToken</code>,
+    /// Returns the status of a <c>ChangeToken</c> that you got by calling <a>GetChangeToken</a>.
+    /// <c>ChangeTokenStatus</c> is one of the following values:
+    /// </para><ul><li><para><c>PROVISIONED</c>: You requested the change token by calling <c>GetChangeToken</c>,
     /// but you haven't used it yet in a call to create, update, or delete an AWS WAF object.
-    /// </para></li><li><para><code>PENDING</code>: AWS WAF is propagating the create, update, or delete request
-    /// to all AWS WAF servers.
-    /// </para></li><li><para><code>INSYNC</code>: Propagation is complete.
+    /// </para></li><li><para><c>PENDING</c>: AWS WAF is propagating the create, update, or delete request to all
+    /// AWS WAF servers.
+    /// </para></li><li><para><c>INSYNC</c>: Propagation is complete.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "WAFChangeTokenStatus")]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <summary>
         /// <para>
         /// <para>The change token for which you want to get the status. This change token was previously
-        /// returned in the <code>GetChangeToken</code> response.</para>
+        /// returned in the <c>GetChangeToken</c> response.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

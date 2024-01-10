@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter S3Location_BundleType
         /// <summary>
         /// <para>
-        /// <para>The file type of the application revision. Must be one of the following:</para><ul><li><para><code>tar</code>: A tar archive file.</para></li><li><para><code>tgz</code>: A compressed tar archive file.</para></li><li><para><code>zip</code>: A zip archive file.</para></li><li><para><code>YAML</code>: A YAML-formatted file.</para></li><li><para><code>JSON</code>: A JSON-formatted file.</para></li></ul>
+        /// <para>The file type of the application revision. Must be one of the following:</para><ul><li><para><c>tar</c>: A tar archive file.</para></li><li><para><c>tgz</c>: A compressed tar archive file.</para></li><li><para><c>zip</c>: A zip archive file.</para></li><li><para><c>YAML</c>: A YAML-formatted file.</para></li><li><para><c>JSON</c>: A JSON-formatted file.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// shifts traffic from the original version of the Lambda function to the replacement
         /// version. </para><para> For an Amazon ECS deployment, the content includes the task name, information about
         /// the load balancer that serves traffic to the container, and more. </para><para> For both types of deployments, the content can specify Lambda functions that run
-        /// at specified hooks, such as <code>BeforeInstall</code>, during a deployment. </para>
+        /// at specified hooks, such as <c>BeforeInstall</c>, during a deployment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Revision_RevisionType
         /// <summary>
         /// <para>
-        /// <para>The type of application revision:</para><ul><li><para>S3: An application revision stored in Amazon S3.</para></li><li><para>GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).</para></li><li><para>String: A YAML-formatted or JSON-formatted string (Lambda deployments only).</para></li><li><para>AppSpecContent: An <code>AppSpecContent</code> object that contains the contents of
-        /// an AppSpec file for an Lambda or Amazon ECS deployment. The content is formatted as
-        /// JSON or YAML stored as a RawString.</para></li></ul>
+        /// <para>The type of application revision:</para><ul><li><para>S3: An application revision stored in Amazon S3.</para></li><li><para>GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).</para></li><li><para>String: A YAML-formatted or JSON-formatted string (Lambda deployments only).</para></li><li><para>AppSpecContent: An <c>AppSpecContent</c> object that contains the contents of an AppSpec
+        /// file for an Lambda or Amazon ECS deployment. The content is formatted as JSON or YAML
+        /// stored as a RawString.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,8 +28,8 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>ListBonusPayments</code> operation retrieves the amounts of bonuses you
-    /// have paid to Workers for a given HIT or assignment.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// The <c>ListBonusPayments</c> operation retrieves the amounts of bonuses you have
+    /// paid to Workers for a given HIT or assignment.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MTRBonusPaymentList")]
     [OutputType("Amazon.MTurk.Model.BonusPayment")]

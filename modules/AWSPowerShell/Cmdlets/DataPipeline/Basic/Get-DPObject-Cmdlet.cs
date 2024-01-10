@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// <summary>
         /// <para>
         /// <para>The IDs of the pipeline objects that contain the definitions to be described. You
-        /// can pass as many as 25 identifiers in a single call to <code>DescribeObjects</code>.</para>
+        /// can pass as many as 25 identifiers in a single call to <c>DescribeObjects</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// <summary>
         /// <para>
         /// <para>The starting point for the results to be returned. For the first call, this value
-        /// should be empty. As long as there are more results, continue to call <code>DescribeObjects</code>
+        /// should be empty. As long as there are more results, continue to call <c>DescribeObjects</c>
         /// with the marker value from the previous call to retrieve the next set of results.</para>
         /// </para>
         /// <para>

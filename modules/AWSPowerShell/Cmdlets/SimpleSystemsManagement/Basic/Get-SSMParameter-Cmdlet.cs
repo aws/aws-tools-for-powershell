@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the parameter you want to query.</para><para>To query by parameter label, use <code>"Name": "name:label"</code>. To query by parameter
-        /// version, use <code>"Name": "name:version"</code>.</para>
+        /// <para>The name of the parameter you want to query.</para><para>To query by parameter label, use <c>"Name": "name:label"</c>. To query by parameter
+        /// version, use <c>"Name": "name:version"</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter WithDecryption
         /// <summary>
         /// <para>
-        /// <para>Return decrypted values for secure string parameters. This flag is ignored for <code>String</code>
-        /// and <code>StringList</code> parameter types.</para>
+        /// <para>Return decrypted values for secure string parameters. This flag is ignored for <c>String</c>
+        /// and <c>StringList</c> parameter types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

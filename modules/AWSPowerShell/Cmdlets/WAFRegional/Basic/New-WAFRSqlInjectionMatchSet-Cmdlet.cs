@@ -39,15 +39,14 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// that contain snippets of SQL code in a specified part of web requests. AWS WAF searches
     /// for character sequences that are likely to be malicious strings.
     /// </para><para>
-    /// To create and configure a <code>SqlInjectionMatchSet</code>, perform the following
-    /// steps:
+    /// To create and configure a <c>SqlInjectionMatchSet</c>, perform the following steps:
     /// </para><ol><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>CreateSqlInjectionMatchSet</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of a <c>CreateSqlInjectionMatchSet</c> request.
     /// </para></li><li><para>
-    /// Submit a <code>CreateSqlInjectionMatchSet</code> request.
+    /// Submit a <c>CreateSqlInjectionMatchSet</c> request.
     /// </para></li><li><para>
-    /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
+    /// Use <c>GetChangeToken</c> to get the change token that you provide in the <c>ChangeToken</c>
     /// parameter of an <a>UpdateSqlInjectionMatchSet</a> request.
     /// </para></li><li><para>
     /// Submit an <a>UpdateSqlInjectionMatchSet</a> request to specify the parts of web requests
@@ -90,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// <summary>
         /// <para>
         /// <para>A friendly name or description for the <a>SqlInjectionMatchSet</a> that you're creating.
-        /// You can't change <code>Name</code> after you create the <code>SqlInjectionMatchSet</code>.</para>
+        /// You can't change <c>Name</c> after you create the <c>SqlInjectionMatchSet</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

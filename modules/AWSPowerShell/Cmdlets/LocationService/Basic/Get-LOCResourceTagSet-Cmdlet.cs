@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</para><ul><li><para>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code></para></li></ul>
+        /// <para>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</para><ul><li><para>Format example: <c>arn:aws:geo:region:account-id:resourcetype/ExampleResource</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

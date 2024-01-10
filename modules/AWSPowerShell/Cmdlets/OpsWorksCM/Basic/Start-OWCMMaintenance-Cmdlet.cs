@@ -30,15 +30,15 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// <summary>
     /// Manually starts server maintenance. This command can be useful if an earlier maintenance
     /// attempt failed, and the underlying cause of maintenance failure has been resolved.
-    /// The server is in an <code>UNDER_MAINTENANCE</code> state while maintenance is in progress.
+    /// The server is in an <c>UNDER_MAINTENANCE</c> state while maintenance is in progress.
     /// 
     /// 
     ///  
     /// <para>
-    ///  Maintenance can only be started on servers in <code>HEALTHY</code> and <code>UNHEALTHY</code>
-    /// states. Otherwise, an <code>InvalidStateException</code> is thrown. A <code>ResourceNotFoundException</code>
-    /// is thrown when the server does not exist. A <code>ValidationException</code> is raised
-    /// when parameters of the request are not valid. 
+    ///  Maintenance can only be started on servers in <c>HEALTHY</c> and <c>UNHEALTHY</c>
+    /// states. Otherwise, an <c>InvalidStateException</c> is thrown. A <c>ResourceNotFoundException</c>
+    /// is thrown when the server does not exist. A <c>ValidationException</c> is raised when
+    /// parameters of the request are not valid. 
     /// </para>
     /// </summary>
     [Cmdlet("Start", "OWCMMaintenance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,10 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter EngineAttribute
         /// <summary>
         /// <para>
-        /// <para>Engine attributes that are specific to the server on which you want to run maintenance.</para><para><b>Attributes accepted in a StartMaintenance request for Chef</b></para><ul><li><para><code>CHEF_MAJOR_UPGRADE</code>: If a Chef Automate server is eligible for upgrade
-        /// to Chef Automate 2, add this engine attribute to a <code>StartMaintenance</code> request
-        /// and set the value to <code>true</code> to upgrade the server to Chef Automate 2. For
-        /// more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opscm-a2upgrade.html">Upgrade
+        /// <para>Engine attributes that are specific to the server on which you want to run maintenance.</para><para><b>Attributes accepted in a StartMaintenance request for Chef</b></para><ul><li><para><c>CHEF_MAJOR_UPGRADE</c>: If a Chef Automate server is eligible for upgrade to Chef
+        /// Automate 2, add this engine attribute to a <c>StartMaintenance</c> request and set
+        /// the value to <c>true</c> to upgrade the server to Chef Automate 2. For more information,
+        /// see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opscm-a2upgrade.html">Upgrade
         /// an AWS OpsWorks for Chef Automate Server to Chef Automate 2</a>. </para></li></ul>
         /// </para>
         /// </summary>

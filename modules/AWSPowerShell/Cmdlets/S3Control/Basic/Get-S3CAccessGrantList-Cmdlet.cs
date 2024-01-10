@@ -31,8 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Returns the list of access grants in your S3 Access Grants instance.
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3:ListAccessGrants</code> permission to use this operation.
-    /// 
+    /// You must have the <c>s3:ListAccessGrants</c> permission to use this operation. 
     /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Get", "S3CAccessGrantList")]
@@ -79,11 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter GranteeIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifer of the <code>Grantee</code>. If the grantee type is <code>IAM</code>,
-        /// the identifier is the IAM Amazon Resource Name (ARN) of the user or role. If the grantee
+        /// <para>The unique identifer of the <c>Grantee</c>. If the grantee type is <c>IAM</c>, the
+        /// identifier is the IAM Amazon Resource Name (ARN) of the user or role. If the grantee
         /// type is a directory user or group, the identifier is 128-bit universally unique identifier
-        /// (UUID) in the format <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>. You can obtain
-        /// this UUID from your Amazon Web Services IAM Identity Center instance.</para>
+        /// (UUID) in the format <c>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</c>. You can obtain this
+        /// UUID from your Amazon Web Services IAM Identity Center instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,9 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The type of the grantee to which access has been granted. It can be one of the following
-        /// values:</para><ul><li><para><code>IAM</code> - An IAM user or role.</para></li><li><para><code>DIRECTORY_USER</code> - Your corporate directory user. You can use this option
-        /// if you have added your corporate identity directory to IAM Identity Center and associated
-        /// the IAM Identity Center instance with your S3 Access Grants instance.</para></li><li><para><code>DIRECTORY_GROUP</code> - Your corporate directory group. You can use this option
+        /// values:</para><ul><li><para><c>IAM</c> - An IAM user or role.</para></li><li><para><c>DIRECTORY_USER</c> - Your corporate directory user. You can use this option if
+        /// you have added your corporate identity directory to IAM Identity Center and associated
+        /// the IAM Identity Center instance with your S3 Access Grants instance.</para></li><li><para><c>DIRECTORY_GROUP</c> - Your corporate directory group. You can use this option
         /// if you have added your corporate identity directory to IAM Identity Center and associated
         /// the IAM Identity Center instance with your S3 Access Grants instance.</para></li></ul>
         /// </para>
@@ -110,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The S3 path of the data to which you are granting access. It is the result of appending
-        /// the <code>Subprefix</code> to the location scope.</para>
+        /// the <c>Subprefix</c> to the location scope.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The type of permission granted to your S3 data, which can be set to one of the following
-        /// values:</para><ul><li><para><code>READ</code> – Grant read-only access to the S3 data.</para></li><li><para><code>WRITE</code> – Grant write-only access to the S3 data.</para></li><li><para><code>READWRITE</code> – Grant both read and write access to the S3 data.</para></li></ul>
+        /// values:</para><ul><li><para><c>READ</c> – Grant read-only access to the S3 data.</para></li><li><para><c>WRITE</c> – Grant write-only access to the S3 data.</para></li><li><para><c>READWRITE</c> – Grant both read and write access to the S3 data.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,10 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of access grants that you would like returned in the <code>List
-        /// Access Grants</code> response. If the results include the pagination token <code>NextToken</code>,
-        /// make another call using the <code>NextToken</code> to determine if there are more
-        /// results.</para>
+        /// <para>The maximum number of access grants that you would like returned in the <c>List Access
+        /// Grants</c> response. If the results include the pagination token <c>NextToken</c>,
+        /// make another call using the <c>NextToken</c> to determine if there are more results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>A pagination token to request the next page of results. Pass this value into a subsequent
-        /// <code>List Access Grants</code> request in order to retrieve the next page of results.</para>
+        /// <c>List Access Grants</c> request in order to retrieve the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

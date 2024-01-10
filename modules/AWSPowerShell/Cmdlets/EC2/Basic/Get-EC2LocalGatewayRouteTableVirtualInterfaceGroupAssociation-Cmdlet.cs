@@ -46,11 +46,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>local-gateway-id</code> - The ID of a local gateway.</para></li><li><para><code>local-gateway-route-table-arn</code> - The Amazon Resource Name (ARN) of the
-        /// local gateway route table for the virtual interface group.</para></li><li><para><code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</para></li><li><para><code>local-gateway-route-table-virtual-interface-group-association-id</code> - The
-        /// ID of the association.</para></li><li><para><code>local-gateway-route-table-virtual-interface-group-id</code> - The ID of the
-        /// virtual interface group.</para></li><li><para><code>owner-id</code> - The ID of the Amazon Web Services account that owns the local
-        /// gateway virtual interface group association.</para></li><li><para><code>state</code> - The state of the association.</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><c>local-gateway-id</c> - The ID of a local gateway.</para></li><li><para><c>local-gateway-route-table-arn</c> - The Amazon Resource Name (ARN) of the local
+        /// gateway route table for the virtual interface group.</para></li><li><para><c>local-gateway-route-table-id</c> - The ID of the local gateway route table.</para></li><li><para><c>local-gateway-route-table-virtual-interface-group-association-id</c> - The ID
+        /// of the association.</para></li><li><para><c>local-gateway-route-table-virtual-interface-group-id</c> - The ID of the virtual
+        /// interface group.</para></li><li><para><c>owner-id</c> - The ID of the Amazon Web Services account that owns the local gateway
+        /// virtual interface group association.</para></li><li><para><c>state</c> - The state of the association.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

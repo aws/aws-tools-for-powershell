@@ -41,10 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// information includes the volume Amazon Resource Name (ARN), its size, and the iSCSI
     /// target ARN that initiators can use to connect to the volume target.
     /// </para><para>
-    /// Optionally, you can provide the ARN for an existing volume as the <code>SourceVolumeARN</code>
+    /// Optionally, you can provide the ARN for an existing volume as the <c>SourceVolumeARN</c>
     /// for this cached volume, which creates an exact copy of the existing volume’s latest
-    /// recovery point. The <code>VolumeSizeInBytes</code> value must be equal to or larger
-    /// than the size of the copied volume, in bytes.
+    /// recovery point. The <c>VolumeSizeInBytes</c> value must be equal to or larger than
+    /// the size of the copied volume, in bytes.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SGCachediSCSIVolume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSEncrypted
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS
-        /// key, or <code>false</code> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// <para>Set to <c>true</c> to use Amazon S3 server-side encryption with your own KMS key,
+        /// or <c>false</c> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
         /// S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
-        /// value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</para>
+        /// value can only be set when <c>KMSEncrypted</c> is <c>true</c>. Optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The ARN for an existing volume. Specifying this ARN makes the new volume into an exact
-        /// copy of the specified existing volume's latest recovery point. The <code>VolumeSizeInBytes</code>
+        /// copy of the specified existing volume's latest recovery point. The <c>VolumeSizeInBytes</c>
         /// value for this new volume must be equal to or larger than the size of the existing
         /// volume, in bytes.</para>
         /// </para>
@@ -162,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The name of the iSCSI target used by an initiator to connect to a volume and used
-        /// as a suffix for the target ARN. For example, specifying <code>TargetName</code> as
-        /// <i>myvolume</i> results in the target ARN of <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</code>.
+        /// as a suffix for the target ARN. For example, specifying <c>TargetName</c> as <i>myvolume</i>
+        /// results in the target ARN of <c>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</c>.
         /// The target name must be unique across all volumes on a gateway.</para><para>If you don't specify a value, Storage Gateway uses the value that was previously used
         /// for this volume as the new target name.</para>
         /// </para>
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A unique identifier that you use to retry a request. If you retry a request, use the
-        /// same <code>ClientToken</code> you specified in the initial request.</para>
+        /// same <c>ClientToken</c> you specified in the initial request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

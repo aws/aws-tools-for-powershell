@@ -33,10 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// 
     ///  
     /// <para>
-    ///  An <code>InvalidStateException</code> is thrown when a backup deletion is already
-    /// in progress. A <code>ResourceNotFoundException</code> is thrown when the backup does
-    /// not exist. A <code>ValidationException</code> is thrown when parameters of the request
-    /// are not valid. 
+    ///  An <c>InvalidStateException</c> is thrown when a backup deletion is already in progress.
+    /// A <c>ResourceNotFoundException</c> is thrown when the backup does not exist. A <c>ValidationException</c>
+    /// is thrown when parameters of the request are not valid. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "OWCMBackup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -55,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <summary>
         /// <para>
         /// <para>The ID of the backup to delete. Run the DescribeBackups command to get a list of backup
-        /// IDs. Backup IDs are in the format <code>ServerName-yyyyMMddHHmmssSSS</code>. </para>
+        /// IDs. Backup IDs are in the format <c>ServerName-yyyyMMddHHmmssSSS</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

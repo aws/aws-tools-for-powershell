@@ -40,9 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// functions, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managing-functions.html#test-function">Testing
     /// functions</a> in the <i>Amazon CloudFront Developer Guide</i>.
     /// </para><para>
-    /// To test a function, you provide the function's name and version (<code>ETag</code>
-    /// value) along with the event object. To get the function's name and version, you can
-    /// use <code>ListFunctions</code> and <code>DescribeFunction</code>.
+    /// To test a function, you provide the function's name and version (<c>ETag</c> value)
+    /// along with the event object. To get the function's name and version, you can use <c>ListFunctions</c>
+    /// and <c>DescribeFunction</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Test", "CFFunction")]
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The current version (<code>ETag</code> value) of the function that you are testing,
-        /// which you can get using <code>DescribeFunction</code>.</para>
+        /// <para>The current version (<c>ETag</c> value) of the function that you are testing, which
+        /// you can get using <c>DescribeFunction</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -119,8 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Stage
         /// <summary>
         /// <para>
-        /// <para>The stage of the function that you are testing, either <code>DEVELOPMENT</code> or
-        /// <code>LIVE</code>.</para>
+        /// <para>The stage of the function that you are testing, either <c>DEVELOPMENT</c> or <c>LIVE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

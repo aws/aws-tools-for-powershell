@@ -34,24 +34,23 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// <para>
     /// Face detection with Amazon Rekognition Video is an asynchronous operation. You start
     /// face detection by calling <a>StartFaceDetection</a> which returns a job identifier
-    /// (<code>JobId</code>). When the face detection operation finishes, Amazon Rekognition
-    /// Video publishes a completion status to the Amazon Simple Notification Service topic
-    /// registered in the initial call to <code>StartFaceDetection</code>. To get the results
-    /// of the face detection operation, first check that the status value published to the
-    /// Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetFaceDetection</a> and
-    /// pass the job identifier (<code>JobId</code>) from the initial call to <code>StartFaceDetection</code>.
-    /// </para><para><code>GetFaceDetection</code> returns an array of detected faces (<code>Faces</code>)
-    /// sorted by the time the faces were detected. 
+    /// (<c>JobId</c>). When the face detection operation finishes, Amazon Rekognition Video
+    /// publishes a completion status to the Amazon Simple Notification Service topic registered
+    /// in the initial call to <c>StartFaceDetection</c>. To get the results of the face detection
+    /// operation, first check that the status value published to the Amazon SNS topic is
+    /// <c>SUCCEEDED</c>. If so, call <a>GetFaceDetection</a> and pass the job identifier
+    /// (<c>JobId</c>) from the initial call to <c>StartFaceDetection</c>.
+    /// </para><para><c>GetFaceDetection</c> returns an array of detected faces (<c>Faces</c>) sorted
+    /// by the time the faces were detected. 
     /// </para><para>
     /// Use MaxResults parameter to limit the number of labels returned. If there are more
-    /// results than specified in <code>MaxResults</code>, the value of <code>NextToken</code>
-    /// in the operation response contains a pagination token for getting the next set of
-    /// results. To get the next page of results, call <code>GetFaceDetection</code> and populate
-    /// the <code>NextToken</code> request parameter with the token value returned from the
-    /// previous call to <code>GetFaceDetection</code>.
+    /// results than specified in <c>MaxResults</c>, the value of <c>NextToken</c> in the
+    /// operation response contains a pagination token for getting the next set of results.
+    /// To get the next page of results, call <c>GetFaceDetection</c> and populate the <c>NextToken</c>
+    /// request parameter with the token value returned from the previous call to <c>GetFaceDetection</c>.
     /// </para><para>
-    /// Note that for the <code>GetFaceDetection</code> operation, the returned values for
-    /// <code>FaceOccluded</code> and <code>EyeDirection</code> will always be "null".
+    /// Note that for the <c>GetFaceDetection</c> operation, the returned values for <c>FaceOccluded</c>
+    /// and <c>EyeDirection</c> will always be "null".
     /// </para><br/><br/>In the AWS.Tools.Rekognition module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "REKFaceDetection")]
@@ -68,8 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the face detection job. The <code>JobId</code> is returned from
-        /// <code>StartFaceDetection</code>.</para>
+        /// <para>Unique identifier for the face detection job. The <c>JobId</c> is returned from <c>StartFaceDetection</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

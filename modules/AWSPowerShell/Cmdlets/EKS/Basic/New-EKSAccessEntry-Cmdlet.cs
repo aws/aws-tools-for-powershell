@@ -33,15 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     ///  
     /// <para>
     /// An access entry allows an IAM principal to access your cluster. Access entries can
-    /// replace the need to maintain entries in the <code>aws-auth</code><code>ConfigMap</code>
-    /// for authentication. You have the following options for authorizing an IAM principal
-    /// to access Kubernetes objects on your cluster: Kubernetes role-based access control
-    /// (RBAC), Amazon EKS, or both. Kubernetes RBAC authorization requires you to create
-    /// and manage Kubernetes <code>Role</code>, <code>ClusterRole</code>, <code>RoleBinding</code>,
-    /// and <code>ClusterRoleBinding</code> objects, in addition to managing access entries.
-    /// If you use Amazon EKS authorization exclusively, you don't need to create and manage
-    /// Kubernetes <code>Role</code>, <code>ClusterRole</code>, <code>RoleBinding</code>,
-    /// and <code>ClusterRoleBinding</code> objects.
+    /// replace the need to maintain entries in the <c>aws-auth</c><c>ConfigMap</c> for authentication.
+    /// You have the following options for authorizing an IAM principal to access Kubernetes
+    /// objects on your cluster: Kubernetes role-based access control (RBAC), Amazon EKS,
+    /// or both. Kubernetes RBAC authorization requires you to create and manage Kubernetes
+    /// <c>Role</c>, <c>ClusterRole</c>, <c>RoleBinding</c>, and <c>ClusterRoleBinding</c>
+    /// objects, in addition to managing access entries. If you use Amazon EKS authorization
+    /// exclusively, you don't need to create and manage Kubernetes <c>Role</c>, <c>ClusterRole</c>,
+    /// <c>RoleBinding</c>, and <c>ClusterRoleBinding</c> objects.
     /// </para><para>
     /// For more information about access entries, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html">Access
     /// entries</a> in the <i>Amazon EKS User Guide</i>.
@@ -90,20 +89,20 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter KubernetesGroup
         /// <summary>
         /// <para>
-        /// <para>The value for <code>name</code> that you've specified for <code>kind: Group</code>
-        /// as a <code>subject</code> in a Kubernetes <code>RoleBinding</code> or <code>ClusterRoleBinding</code>
-        /// object. Amazon EKS doesn't confirm that the value for <code>name</code> exists in
-        /// any bindings on your cluster. You can specify one or more names.</para><para>Kubernetes authorizes the <code>principalArn</code> of the access entry to access
-        /// any cluster objects that you've specified in a Kubernetes <code>Role</code> or <code>ClusterRole</code>
-        /// object that is also specified in a binding's <code>roleRef</code>. For more information
-        /// about creating Kubernetes <code>RoleBinding</code>, <code>ClusterRoleBinding</code>,
-        /// <code>Role</code>, or <code>ClusterRole</code> objects, see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Using
-        /// RBAC Authorization in the Kubernetes documentation</a>.</para><para>If you want Amazon EKS to authorize the <code>principalArn</code> (instead of, or
-        /// in addition to Kubernetes authorizing the <code>principalArn</code>), you can associate
-        /// one or more access policies to the access entry using <code>AssociateAccessPolicy</code>.
-        /// If you associate any access policies, the <code>principalARN</code> has all permissions
-        /// assigned in the associated access policies and all permissions in any Kubernetes <code>Role</code>
-        /// or <code>ClusterRole</code> objects that the group names are bound to.</para>
+        /// <para>The value for <c>name</c> that you've specified for <c>kind: Group</c> as a <c>subject</c>
+        /// in a Kubernetes <c>RoleBinding</c> or <c>ClusterRoleBinding</c> object. Amazon EKS
+        /// doesn't confirm that the value for <c>name</c> exists in any bindings on your cluster.
+        /// You can specify one or more names.</para><para>Kubernetes authorizes the <c>principalArn</c> of the access entry to access any cluster
+        /// objects that you've specified in a Kubernetes <c>Role</c> or <c>ClusterRole</c> object
+        /// that is also specified in a binding's <c>roleRef</c>. For more information about creating
+        /// Kubernetes <c>RoleBinding</c>, <c>ClusterRoleBinding</c>, <c>Role</c>, or <c>ClusterRole</c>
+        /// objects, see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Using
+        /// RBAC Authorization in the Kubernetes documentation</a>.</para><para>If you want Amazon EKS to authorize the <c>principalArn</c> (instead of, or in addition
+        /// to Kubernetes authorizing the <c>principalArn</c>), you can associate one or more
+        /// access policies to the access entry using <c>AssociateAccessPolicy</c>. If you associate
+        /// any access policies, the <c>principalARN</c> has all permissions assigned in the associated
+        /// access policies and all permissions in any Kubernetes <c>Role</c> or <c>ClusterRole</c>
+        /// objects that the group names are bound to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,14 +113,14 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter PrincipalArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM principal for the <code>AccessEntry</code>. You can specify one
-        /// ARN for each access entry. You can't specify the same ARN in more than one access
-        /// entry. This value can't be changed after access entry creation.</para><para>The valid principals differ depending on the type of the access entry in the <code>type</code>
+        /// <para>The ARN of the IAM principal for the <c>AccessEntry</c>. You can specify one ARN for
+        /// each access entry. You can't specify the same ARN in more than one access entry. This
+        /// value can't be changed after access entry creation.</para><para>The valid principals differ depending on the type of the access entry in the <c>type</c>
         /// field. The only valid ARN is IAM roles for the types of access entries for nodes:
-        /// <code /><code />. You can use every IAM principal type for <code>STANDARD</code> access
-        /// entries. You can't use the STS session principal type with access entries because
-        /// this is a temporary principal for each session and not a permanent identity that can
-        /// be assigned permissions.</para><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-users-federation-idp">IAM
+        /// <code /><code />. You can use every IAM principal type for <c>STANDARD</c> access entries.
+        /// You can't use the STS session principal type with access entries because this is a
+        /// temporary principal for each session and not a permanent identity that can be assigned
+        /// permissions.</para><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-users-federation-idp">IAM
         /// best practices</a> recommend using IAM roles with temporary credentials, rather than
         /// IAM users with long-term credentials. </para>
         /// </para>
@@ -153,17 +152,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the new access entry. Valid values are <code>Standard</code>, <code>FARGATE_LINUX</code>,
-        /// <code>EC2_LINUX</code>, and <code>EC2_WINDOWS</code>.</para><para>If the <code>principalArn</code> is for an IAM role that's used for self-managed Amazon
-        /// EC2 nodes, specify <code>EC2_LINUX</code> or <code>EC2_WINDOWS</code>. Amazon EKS
-        /// grants the necessary permissions to the node for you. If the <code>principalArn</code>
-        /// is for any other purpose, specify <code>STANDARD</code>. If you don't specify a value,
-        /// Amazon EKS sets the value to <code>STANDARD</code>. It's unnecessary to create access
-        /// entries for IAM roles used with Fargate profiles or managed Amazon EC2 nodes, because
-        /// Amazon EKS creates entries in the <code>aws-auth</code><code>ConfigMap</code> for
-        /// the roles. You can't change this value once you've created the access entry.</para><para>If you set the value to <code>EC2_LINUX</code> or <code>EC2_WINDOWS</code>, you can't
-        /// specify values for <code>kubernetesGroups</code>, or associate an <code>AccessPolicy</code>
-        /// to the access entry.</para>
+        /// <para>The type of the new access entry. Valid values are <c>Standard</c>, <c>FARGATE_LINUX</c>,
+        /// <c>EC2_LINUX</c>, and <c>EC2_WINDOWS</c>.</para><para>If the <c>principalArn</c> is for an IAM role that's used for self-managed Amazon
+        /// EC2 nodes, specify <c>EC2_LINUX</c> or <c>EC2_WINDOWS</c>. Amazon EKS grants the necessary
+        /// permissions to the node for you. If the <c>principalArn</c> is for any other purpose,
+        /// specify <c>STANDARD</c>. If you don't specify a value, Amazon EKS sets the value to
+        /// <c>STANDARD</c>. It's unnecessary to create access entries for IAM roles used with
+        /// Fargate profiles or managed Amazon EC2 nodes, because Amazon EKS creates entries in
+        /// the <c>aws-auth</c><c>ConfigMap</c> for the roles. You can't change this value once
+        /// you've created the access entry.</para><para>If you set the value to <c>EC2_LINUX</c> or <c>EC2_WINDOWS</c>, you can't specify
+        /// values for <c>kubernetesGroups</c>, or associate an <c>AccessPolicy</c> to the access
+        /// entry.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -170,8 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter RefreshSchedule_TopicScheduleType
         /// <summary>
         /// <para>
-        /// <para>The type of refresh schedule. Valid values for this structure are <code>HOURLY</code>,
-        /// <code>DAILY</code>, <code>WEEKLY</code>, and <code>MONTHLY</code>.</para>
+        /// <para>The type of refresh schedule. Valid values for this structure are <c>HOURLY</c>, <c>DAILY</c>,
+        /// <c>WEEKLY</c>, and <c>MONTHLY</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

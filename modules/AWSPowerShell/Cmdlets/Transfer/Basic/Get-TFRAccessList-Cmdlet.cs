@@ -72,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When you can get additional results from the <code>ListAccesses</code> call, a <code>NextToken</code>
+        /// <para>When you can get additional results from the <c>ListAccesses</c> call, a <c>NextToken</c>
         /// parameter is returned in the output. You can then pass in a subsequent command to
-        /// the <code>NextToken</code> parameter to continue listing additional accesses.</para>
+        /// the <c>NextToken</c> parameter to continue listing additional accesses.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -37,11 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// 
     ///  
     /// <para>
-    /// Use <a>DetectStackDrift</a> to initiate a stack drift detection operation. <code>DetectStackDrift</code>
-    /// returns a <code>StackDriftDetectionId</code> you can use to monitor the progress of
-    /// the operation using <code>DescribeStackDriftDetectionStatus</code>. Once the drift
-    /// detection operation has completed, use <a>DescribeStackResourceDrifts</a> to return
-    /// drift information about the stack and its resources.
+    /// Use <a>DetectStackDrift</a> to initiate a stack drift detection operation. <c>DetectStackDrift</c>
+    /// returns a <c>StackDriftDetectionId</c> you can use to monitor the progress of the
+    /// operation using <c>DescribeStackDriftDetectionStatus</c>. Once the drift detection
+    /// operation has completed, use <a>DescribeStackResourceDrifts</a> to return drift information
+    /// about the stack and its resources.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CFNStackDriftDetectionStatus")]

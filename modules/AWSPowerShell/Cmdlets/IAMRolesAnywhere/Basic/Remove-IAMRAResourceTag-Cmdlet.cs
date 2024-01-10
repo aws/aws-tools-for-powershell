@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// Removes tags from the resource.
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:UntagResource</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:UntagResource</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IAMRAResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

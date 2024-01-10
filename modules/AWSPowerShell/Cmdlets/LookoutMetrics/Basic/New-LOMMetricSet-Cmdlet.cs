@@ -534,7 +534,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         #region Parameter MetricSource_RDSSourceConfig_VpcConfiguration_SubnetIdList
         /// <summary>
         /// <para>
-        /// <para>An array of strings containing the Amazon VPC subnet IDs (e.g., <code>subnet-0bb1c79de3EXAMPLE</code>.</para>
+        /// <para>An array of strings containing the Amazon VPC subnet IDs (e.g., <c>subnet-0bb1c79de3EXAMPLE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -545,7 +545,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         #region Parameter MetricSource_RedshiftSourceConfig_VpcConfiguration_SubnetIdList
         /// <summary>
         /// <para>
-        /// <para>An array of strings containing the Amazon VPC subnet IDs (e.g., <code>subnet-0bb1c79de3EXAMPLE</code>.</para>
+        /// <para>An array of strings containing the Amazon VPC subnet IDs (e.g., <c>subnet-0bb1c79de3EXAMPLE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

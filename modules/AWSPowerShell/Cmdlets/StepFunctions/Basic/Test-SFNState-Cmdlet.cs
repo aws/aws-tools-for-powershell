@@ -46,15 +46,15 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// the following:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-task-state.html#task-types">All
     /// Task types</a> except <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-activities.html">Activity</a></para></li><li><para><a href="https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-pass-state.html">Pass</a></para></li><li><para><a href="https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-wait-state.html">Wait</a></para></li><li><para><a href="https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-choice-state.html">Choice</a></para></li><li><para><a href="https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-succeed-state.html">Succeed</a></para></li><li><para><a href="https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-fail-state.html">Fail</a></para></li></ul><para>
-    /// The <code>TestState</code> API assumes an IAM role which must contain the required
-    /// IAM permissions for the resources your state is accessing. For information about the
-    /// permissions a state might need, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/test-state-isolation.html#test-state-permissions">IAM
+    /// The <c>TestState</c> API assumes an IAM role which must contain the required IAM permissions
+    /// for the resources your state is accessing. For information about the permissions a
+    /// state might need, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/test-state-isolation.html#test-state-permissions">IAM
     /// permissions to test a state</a>.
     /// </para><para>
-    /// The <code>TestState</code> API can run for up to five minutes. If the execution of
-    /// a state exceeds this duration, it fails with the <code>States.Timeout</code> error.
-    /// </para><para><code>TestState</code> doesn't support <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-activities.html">Activity
-    /// tasks</a>, <code>.sync</code> or <code>.waitForTaskToken</code><a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html">service
+    /// The <c>TestState</c> API can run for up to five minutes. If the execution of a state
+    /// exceeds this duration, it fails with the <c>States.Timeout</c> error.
+    /// </para><para><c>TestState</c> doesn't support <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-activities.html">Activity
+    /// tasks</a>, <c>.sync</c> or <c>.waitForTaskToken</c><a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html">service
     /// integration patterns</a>, <a href="https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-parallel-state.html">Parallel</a>,
     /// or <a href="https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-map-state.html">Map</a>
     /// states.
@@ -107,11 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <summary>
         /// <para>
         /// <para>Determines the values to return when a state is tested. You can specify one of the
-        /// following types:</para><ul><li><para><code>INFO</code>: Shows the final state output. By default, Step Functions sets
-        /// <code>inspectionLevel</code> to <code>INFO</code> if you don't specify a level.</para></li><li><para><code>DEBUG</code>: Shows the final state output along with the input and output
-        /// data processing result.</para></li><li><para><code>TRACE</code>: Shows the HTTP request and response for an HTTP Task. This level
-        /// also shows the final state output along with the input and output data processing
-        /// result.</para></li></ul><para>Each of these levels also provide information about the status of the state execution
+        /// following types:</para><ul><li><para><c>INFO</c>: Shows the final state output. By default, Step Functions sets <c>inspectionLevel</c>
+        /// to <c>INFO</c> if you don't specify a level.</para></li><li><para><c>DEBUG</c>: Shows the final state output along with the input and output data processing
+        /// result.</para></li><li><para><c>TRACE</c>: Shows the HTTP request and response for an HTTP Task. This level also
+        /// shows the final state output along with the input and output data processing result.</para></li></ul><para>Each of these levels also provide information about the status of the state execution
         /// and the next state to transition to.</para>
         /// </para>
         /// </summary>
@@ -126,12 +125,12 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <para>Specifies whether or not to include secret information in the test result. For HTTP
         /// Tasks, a secret includes the data that an EventBridge connection adds to modify the
         /// HTTP request headers, query parameters, and body. Step Functions doesn't omit any
-        /// information included in the state definition or the HTTP response.</para><para>If you set <code>revealSecrets</code> to <code>true</code>, you must make sure that
-        /// the IAM user that calls the <code>TestState</code> API has permission for the <code>states:RevealSecrets</code>
-        /// action. For an example of IAM policy that sets the <code>states:RevealSecrets</code>
-        /// permission, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/test-state-isolation.html#test-state-permissions">IAM
+        /// information included in the state definition or the HTTP response.</para><para>If you set <c>revealSecrets</c> to <c>true</c>, you must make sure that the IAM user
+        /// that calls the <c>TestState</c> API has permission for the <c>states:RevealSecrets</c>
+        /// action. For an example of IAM policy that sets the <c>states:RevealSecrets</c> permission,
+        /// see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/test-state-isolation.html#test-state-permissions">IAM
         /// permissions to test a state</a>. Without this permission, Step Functions throws an
-        /// access denied error.</para><para>By default, <code>revealSecrets</code> is set to <code>false</code>.</para>
+        /// access denied error.</para><para>By default, <c>revealSecrets</c> is set to <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

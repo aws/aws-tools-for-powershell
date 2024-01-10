@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter LensesToDisassociate
         /// <summary>
         /// <para>
-        /// <para>A list of lens aliases or ARNs to unapply to the review template. The <code>wellarchitected</code>
+        /// <para>A list of lens aliases or ARNs to unapply to the review template. The <c>wellarchitected</c>
         /// lens cannot be unapplied.</para>
         /// </para>
         /// </summary>

@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para> Enable or disable the use of customer managed KMS keys for server side encryption.
-        /// </para><para>Valid values: <code>True</code> | <code>False</code></para>
+        /// </para><para>Valid values: <c>True</c> | <c>False</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The IDs of the security groups to associate with the Verified Access endpoint. Required
-        /// if <code>AttachmentType</code> is set to <code>vpc</code>.</para>
+        /// if <c>AttachmentType</c> is set to <c>vpc</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

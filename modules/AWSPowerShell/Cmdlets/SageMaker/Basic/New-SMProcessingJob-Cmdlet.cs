@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Whether to encrypt all communications between distributed processing jobs. Choose
-        /// <code>True</code> to encrypt communications. Encryption provides greater security
-        /// for distributed processing jobs, but the processing might take longer.</para>
+        /// <c>True</c> to encrypt communications. Encryption provides greater security for distributed
+        /// processing jobs, but the processing might take longer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,9 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
-        /// Amazon SageMaker uses to encrypt the processing job output. <code>KmsKeyId</code>
-        /// can be an ID of a KMS key, ARN of a KMS key, alias of a KMS key, or alias of a KMS
-        /// key. The <code>KmsKeyId</code> is applied to all outputs.</para>
+        /// Amazon SageMaker uses to encrypt the processing job output. <c>KmsKeyId</c> can be
+        /// an ID of a KMS key, ARN of a KMS key, alias of a KMS key, or alias of a KMS key. The
+        /// <c>KmsKeyId</c> is applied to all outputs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -255,8 +255,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. Specify the security
-        /// groups for the VPC that is specified in the <code>Subnets</code> field.</para>
+        /// <para>The VPC security group IDs, in the form <c>sg-xxxxxxxx</c>. Specify the security groups
+        /// for the VPC that is specified in the <c>Subnets</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -319,7 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute
         /// instance(s) that run the processing job. </para><note><para>Certain Nitro-based instances include local storage, dependent on the instance type.
         /// Local storage volumes are encrypted using a hardware module on the instance. You can't
-        /// request a <code>VolumeKmsKeyId</code> when using an instance type with local storage.</para><para>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance
+        /// request a <c>VolumeKmsKeyId</c> when using an instance type with local storage.</para><para>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance
         /// Store Volumes</a>.</para><para>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
         /// Instance Store Volumes</a>.</para></note>
         /// </para>
@@ -336,7 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// specify sufficient ML storage for your scenario.</para><note><para>Certain Nitro-based instances include local storage with a fixed total size, dependent
         /// on the instance type. When using these instances for processing, Amazon SageMaker
         /// mounts the local instance storage instead of Amazon EBS gp2 storage. You can't request
-        /// a <code>VolumeSizeInGB</code> greater than the total size of the local instance storage.</para><para>For a list of instance types that support local instance storage, including the total
+        /// a <c>VolumeSizeInGB</c> greater than the total size of the local instance storage.</para><para>For a list of instance types that support local instance storage, including the total
         /// size per instance type, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance
         /// Store Volumes</a>.</para></note>
         /// </para>

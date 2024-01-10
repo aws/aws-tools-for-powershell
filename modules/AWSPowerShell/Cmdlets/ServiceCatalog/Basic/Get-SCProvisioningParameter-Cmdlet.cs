@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// is not blocked. In subsequent calls to <a>ProvisionProduct</a>, do not include conflicted
     /// TagOption keys as tags, or this causes the error "Parameter validation failed: Missing
     /// required parameter in Tags[<i>N</i>]:<i>Value</i>". Tag the provisioned product with
-    /// the value <code>sc-tagoption-conflict-portfolioId-productId</code>.
+    /// the value <c>sc-tagoption-conflict-portfolioId-productId</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SCProvisioningParameter")]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><c>jp</c> - Japanese</para></li><li><para><c>zh</c> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

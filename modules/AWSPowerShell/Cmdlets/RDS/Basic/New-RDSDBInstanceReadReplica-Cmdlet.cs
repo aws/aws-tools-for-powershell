@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     ///  
     /// <para>
     /// Amazon Aurora doesn't support this operation. To create a DB instance for an Aurora
-    /// DB cluster, use the <code>CreateDBInstance</code> operation.
+    /// DB cluster, use the <c>CreateDBInstance</c> operation.
     /// </para><para>
     /// All read replica DB instances are created with backups disabled. All other attributes
     /// (including DB security groups and DB parameter groups) are inherited from the source
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of storage (in gibibytes) to allocate initially for the read replica. Follow
-        /// the allocation rules specified in <code>CreateDBInstance</code>.</para><note><para>Be sure to allocate enough storage for your read replica so that the create operation
+        /// the allocation rules specified in <c>CreateDBInstance</c>.</para><note><para>Be sure to allocate enough storage for your read replica so that the create operation
         /// can succeed. You can also allocate additional storage for future growth.</para></note>
         /// </para>
         /// </summary>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Availability Zone (AZ) where the read replica will be created.</para><para>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services
-        /// Region.</para><para>Example: <code>us-east-1d</code></para>
+        /// Region.</para><para>Example: <c>us-east-1d</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The instance profile associated with the underlying Amazon EC2 instance of an RDS
         /// Custom DB instance. The instance profile must meet the following requirements:</para><ul><li><para>The profile must exist in your account.</para></li><li><para>The profile must have an IAM role that Amazon EC2 has permissions to assume.</para></li><li><para>The instance profile name and the associated IAM role name must start with the prefix
-        /// <code>AWSRDSCustom</code>.</para></li></ul><para>For the list of permissions required for the IAM role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc">
+        /// <c>AWSRDSCustom</c>.</para></li></ul><para>For the list of permissions required for the IAM role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc">
         /// Configure IAM and your VPC</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting is required for RDS Custom DB instances.</para>
         /// </para>
         /// </summary>
@@ -153,10 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB parameter group to associate with this DB instance.</para><para>If you don't specify a value for <code>DBParameterGroupName</code>, then Amazon RDS
-        /// uses the <code>DBParameterGroup</code> of the source DB instance for a same Region
-        /// read replica, or the default <code>DBParameterGroup</code> for the specified DB engine
-        /// for a cross-Region read replica.</para><para>Specifying a parameter group for this operation is only supported for MySQL DB instances
+        /// <para>The name of the DB parameter group to associate with this DB instance.</para><para>If you don't specify a value for <c>DBParameterGroupName</c>, then Amazon RDS uses
+        /// the <c>DBParameterGroup</c> of the source DB instance for a same Region read replica,
+        /// or the default <c>DBParameterGroup</c> for the specified DB engine for a cross-Region
+        /// read replica.</para><para>Specifying a parameter group for this operation is only supported for MySQL DB instances
         /// for cross-Region read replicas and for Oracle DB instances. It isn't supported for
         /// MySQL DB instances for same Region read replicas or for RDS Custom.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// the operation is running.</para></li><li><para>All read replicas in one Amazon Web Services Region that are created from the same
         /// source DB instance must either:</para><ul><li><para>Specify DB subnet groups from the same VPC. All these read replicas are created in
         /// the same VPC.</para></li><li><para>Not specify a DB subnet group. All these read replicas are created outside of any
-        /// VPC.</para></li></ul></li></ul><para>Example: <code>mydbsubnetgroup</code></para>
+        /// VPC.</para></li></ul></li></ul><para>Example: <c>mydbsubnetgroup</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The ARN for the Secrets Manager secret with the credentials for the user joining the
-        /// domain.</para><para>Example: <code>arn:aws:secretsmanager:region:account-number:secret:myselfmanagedADtestsecret-123456</code></para>
+        /// domain.</para><para>Example: <c>arn:aws:secretsmanager:region:account-number:secret:myselfmanagedADtestsecret-123456</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.</para><para>Constraints:</para><ul><li><para>Two IP addresses must be provided. If there isn't a secondary domain controller, use
-        /// the IP address of the primary domain controller for both entries in the list.</para></li></ul><para>Example: <code>123.124.125.126,234.235.236.237</code></para>
+        /// the IP address of the primary domain controller for both entries in the list.</para></li></ul><para>Example: <c>123.124.125.126,234.235.236.237</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DomainFqdn
         /// <summary>
         /// <para>
-        /// <para>The fully qualified domain name (FQDN) of an Active Directory domain.</para><para>Constraints:</para><ul><li><para>Can't be longer than 64 characters.</para></li></ul><para>Example: <code>mymanagedADtest.mymanagedAD.mydomain</code></para>
+        /// <para>The fully qualified domain name (FQDN) of an Active Directory domain.</para><para>Constraints:</para><ul><li><para>Can't be longer than 64 characters.</para></li></ul><para>Example: <c>mymanagedADtest.mymanagedAD.mydomain</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -263,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DomainOu
         /// <summary>
         /// <para>
-        /// <para>The Active Directory organizational unit for your DB instance to join.</para><para>Constraints:</para><ul><li><para>Must be in the distinguished name format.</para></li><li><para>Can't be longer than 64 characters.</para></li></ul><para>Example: <code>OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain</code></para>
+        /// <para>The Active Directory organizational unit for your DB instance to join.</para><para>Constraints:</para><ul><li><para>Must be in the distinguished name format.</para></li><li><para>Can't be longer than 64 characters.</para></li></ul><para>Example: <c>OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -374,8 +374,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
         /// for the read replica. To disable collection of Enhanced Monitoring metrics, specify
-        /// <code>0</code>. The default is <code>0</code>.</para><para>If <code>MonitoringRoleArn</code> is specified, then you must set <code>MonitoringInterval</code>
-        /// to a value other than <code>0</code>.</para><para>This setting doesn't apply to RDS Custom DB instances.</para><para>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code></para><para>Default: <code>0</code></para>
+        /// <c>0</c>. The default is <c>0</c>.</para><para>If <c>MonitoringRoleArn</c> is specified, then you must set <c>MonitoringInterval</c>
+        /// to a value other than <c>0</c>.</para><para>This setting doesn't apply to RDS Custom DB instances.</para><para>Valid Values: <c>0, 1, 5, 10, 15, 30, 60</c></para><para>Default: <c>0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -386,11 +386,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon
-        /// CloudWatch Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>.
-        /// For information on creating a monitoring role, go to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
+        /// CloudWatch Logs. For example, <c>arn:aws:iam:123456789012:role/emaccess</c>. For information
+        /// on creating a monitoring role, go to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
         /// create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User
-        /// Guide</i>.</para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
-        /// a <code>MonitoringRoleArn</code> value.</para><para>This setting doesn't apply to RDS Custom DB instances.</para>
+        /// Guide</i>.</para><para>If <c>MonitoringInterval</c> is set to a value other than 0, then you must supply
+        /// a <c>MonitoringRoleArn</c> value.</para><para>This setting doesn't apply to RDS Custom DB instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -413,9 +413,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>The network type of the DB instance.</para><para>Valid Values:</para><ul><li><para><code>IPV4</code></para></li><li><para><code>DUAL</code></para></li></ul><para>The network type is determined by the <code>DBSubnetGroup</code> specified for read
-        /// replica. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4
-        /// and the IPv6 protocols (<code>DUAL</code>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+        /// <para>The network type of the DB instance.</para><para>Valid Values:</para><ul><li><para><c>IPV4</c></para></li><li><para><c>DUAL</c></para></li></ul><para>The network type is determined by the <c>DBSubnetGroup</c> specified for read replica.
+        /// A <c>DBSubnetGroup</c> can support only the IPv4 protocol or the IPv4 and the IPv6
+        /// protocols (<c>DUAL</c>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
         /// Working with a DB instance in a VPC</a> in the <i>Amazon RDS User Guide.</i></para>
         /// </para>
         /// </summary>
@@ -439,7 +439,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Amazon Web Services KMS key identifier for encryption of Performance Insights
         /// data.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
-        /// name for the KMS key.</para><para>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
+        /// name for the KMS key.</para><para>If you do not specify a value for <c>PerformanceInsightsKMSKeyId</c>, then Amazon
         /// RDS uses your default KMS key. There is a default KMS key for your Amazon Web Services
         /// account. Your Amazon Web Services account has a different default KMS key for each
         /// Amazon Web Services Region.</para><para>This setting doesn't apply to RDS Custom DB instances.</para>
@@ -452,10 +452,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PerformanceInsightsRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para>The number of days to retain Performance Insights data.</para><para>This setting doesn't apply to RDS Custom DB instances.</para><para>Valid Values:</para><ul><li><para><code>7</code></para></li><li><para><i>month</i> * 31, where <i>month</i> is a number of months from 1-23. Examples:
-        /// <code>93</code> (3 months * 31), <code>341</code> (11 months * 31), <code>589</code>
-        /// (19 months * 31)</para></li><li><para><code>731</code></para></li></ul><para>Default: <code>7</code> days</para><para>If you specify a retention period that isn't valid, such as <code>94</code>, Amazon
-        /// RDS returns an error.</para>
+        /// <para>The number of days to retain Performance Insights data.</para><para>This setting doesn't apply to RDS Custom DB instances.</para><para>Valid Values:</para><ul><li><para><c>7</c></para></li><li><para><i>month</i> * 31, where <i>month</i> is a number of months from 1-23. Examples:
+        /// <c>93</c> (3 months * 31), <c>341</c> (11 months * 31), <c>589</c> (19 months * 31)</para></li><li><para><c>731</c></para></li></ul><para>Default: <c>7</c> days</para><para>If you specify a retention period that isn't valid, such as <c>94</c>, Amazon RDS
+        /// returns an error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -465,7 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number that the DB instance uses for connections.</para><para>Valid Values: <code>1150-65535</code></para><para>Default: Inherits the value from the source DB instance.</para>
+        /// <para>The port number that the DB instance uses for connections.</para><para>Valid Values: <c>1150-65535</c></para><para>Default: Inherits the value from the source DB instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -477,42 +476,38 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>When you are creating a read replica from one Amazon Web Services GovCloud (US) Region
         /// to another or from one China Amazon Web Services Region to another, the URL that contains
-        /// a Signature Version 4 signed request for the <code>CreateDBInstanceReadReplica</code>
-        /// API operation in the source Amazon Web Services Region that contains the source DB
-        /// instance.</para><para>This setting applies only to Amazon Web Services GovCloud (US) Regions and China Amazon
+        /// a Signature Version 4 signed request for the <c>CreateDBInstanceReadReplica</c> API
+        /// operation in the source Amazon Web Services Region that contains the source DB instance.</para><para>This setting applies only to Amazon Web Services GovCloud (US) Regions and China Amazon
         /// Web Services Regions. It's ignored in other Amazon Web Services Regions.</para><para>This setting applies only when replicating from a source DB <i>instance</i>. Source
         /// DB clusters aren't supported in Amazon Web Services GovCloud (US) Regions and China
         /// Amazon Web Services Regions.</para><para>You must specify this parameter when you create an encrypted read replica from another
-        /// Amazon Web Services Region by using the Amazon RDS API. Don't specify <code>PreSignedUrl</code>
-        /// when you are creating an encrypted read replica in the same Amazon Web Services Region.</para><para>The presigned URL must be a valid request for the <code>CreateDBInstanceReadReplica</code>
+        /// Amazon Web Services Region by using the Amazon RDS API. Don't specify <c>PreSignedUrl</c>
+        /// when you are creating an encrypted read replica in the same Amazon Web Services Region.</para><para>The presigned URL must be a valid request for the <c>CreateDBInstanceReadReplica</c>
         /// API operation that can run in the source Amazon Web Services Region that contains
         /// the encrypted source DB instance. The presigned URL request must contain the following
-        /// parameter values:</para><ul><li><para><code>DestinationRegion</code> - The Amazon Web Services Region that the encrypted
-        /// read replica is created in. This Amazon Web Services Region is the same one where
-        /// the <code>CreateDBInstanceReadReplica</code> operation is called that contains this
-        /// presigned URL.</para><para>For example, if you create an encrypted DB instance in the us-west-1 Amazon Web Services
+        /// parameter values:</para><ul><li><para><c>DestinationRegion</c> - The Amazon Web Services Region that the encrypted read
+        /// replica is created in. This Amazon Web Services Region is the same one where the <c>CreateDBInstanceReadReplica</c>
+        /// operation is called that contains this presigned URL.</para><para>For example, if you create an encrypted DB instance in the us-west-1 Amazon Web Services
         /// Region, from a source DB instance in the us-east-2 Amazon Web Services Region, then
-        /// you call the <code>CreateDBInstanceReadReplica</code> operation in the us-east-1 Amazon
-        /// Web Services Region and provide a presigned URL that contains a call to the <code>CreateDBInstanceReadReplica</code>
-        /// operation in the us-west-2 Amazon Web Services Region. For this example, the <code>DestinationRegion</code>
-        /// in the presigned URL must be set to the us-east-1 Amazon Web Services Region.</para></li><li><para><code>KmsKeyId</code> - The KMS key identifier for the key to use to encrypt the
-        /// read replica in the destination Amazon Web Services Region. This is the same identifier
-        /// for both the <code>CreateDBInstanceReadReplica</code> operation that is called in
-        /// the destination Amazon Web Services Region, and the operation contained in the presigned
-        /// URL.</para></li><li><para><code>SourceDBInstanceIdentifier</code> - The DB instance identifier for the encrypted
+        /// you call the <c>CreateDBInstanceReadReplica</c> operation in the us-east-1 Amazon
+        /// Web Services Region and provide a presigned URL that contains a call to the <c>CreateDBInstanceReadReplica</c>
+        /// operation in the us-west-2 Amazon Web Services Region. For this example, the <c>DestinationRegion</c>
+        /// in the presigned URL must be set to the us-east-1 Amazon Web Services Region.</para></li><li><para><c>KmsKeyId</c> - The KMS key identifier for the key to use to encrypt the read replica
+        /// in the destination Amazon Web Services Region. This is the same identifier for both
+        /// the <c>CreateDBInstanceReadReplica</c> operation that is called in the destination
+        /// Amazon Web Services Region, and the operation contained in the presigned URL.</para></li><li><para><c>SourceDBInstanceIdentifier</c> - The DB instance identifier for the encrypted
         /// DB instance to be replicated. This identifier must be in the Amazon Resource Name
         /// (ARN) format for the source Amazon Web Services Region. For example, if you are creating
         /// an encrypted read replica from a DB instance in the us-west-2 Amazon Web Services
-        /// Region, then your <code>SourceDBInstanceIdentifier</code> looks like the following
-        /// example: <code>arn:aws:rds:us-west-2:123456789012:instance:mysql-instance1-20161115</code>.</para></li></ul><para>To learn how to generate a Signature Version 4 signed request, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
+        /// Region, then your <c>SourceDBInstanceIdentifier</c> looks like the following example:
+        /// <c>arn:aws:rds:us-west-2:123456789012:instance:mysql-instance1-20161115</c>.</para></li></ul><para>To learn how to generate a Signature Version 4 signed request, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
         /// Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> and
         /// <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
-        /// Version 4 Signing Process</a>.</para><note><para>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <code>SourceRegion</code>
-        /// (or <code>--source-region</code> for the CLI) instead of specifying <code>PreSignedUrl</code>
-        /// manually. Specifying <code>SourceRegion</code> autogenerates a presigned URL that
-        /// is a valid request for the operation that can run in the source Amazon Web Services
-        /// Region.</para><para><code>SourceRegion</code> isn't supported for SQL Server, because Amazon RDS for
-        /// SQL Server doesn't support cross-Region read replicas.</para></note><para>This setting doesn't apply to RDS Custom DB instances.</para>
+        /// Version 4 Signing Process</a>.</para><note><para>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <c>SourceRegion</c>
+        /// (or <c>--source-region</c> for the CLI) instead of specifying <c>PreSignedUrl</c>
+        /// manually. Specifying <c>SourceRegion</c> autogenerates a presigned URL that is a valid
+        /// request for the operation that can run in the source Amazon Web Services Region.</para><para><c>SourceRegion</c> isn't supported for SQL Server, because Amazon RDS for SQL Server
+        /// doesn't support cross-Region read replicas.</para></note><para>This setting doesn't apply to RDS Custom DB instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -555,9 +550,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// doesn't use Active Data Guard to transmit information to the mounted replica. Because
         /// it doesn't accept user connections, a mounted replica can't serve a read-only workload.</para><para>You can create a combination of mounted and read-only DB replicas for the same primary
         /// DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Working
-        /// with Oracle Read Replicas for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</para><para>For RDS Custom, you must specify this parameter and set it to <code>mounted</code>.
-        /// The value won't be set by default. After replica creation, you can manage the open
-        /// mode manually.</para>
+        /// with Oracle Read Replicas for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</para><para>For RDS Custom, you must specify this parameter and set it to <c>mounted</c>. The
+        /// value won't be set by default. After replica creation, you can manage the open mode
+        /// manually.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -569,8 +564,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The identifier of the Multi-AZ DB cluster that will act as the source for the read
-        /// replica. Each DB cluster can have up to 15 read replicas.</para><para>Constraints:</para><ul><li><para>Must be the identifier of an existing Multi-AZ DB cluster.</para></li><li><para>Can't be specified if the <code>SourceDBInstanceIdentifier</code> parameter is also
-        /// specified.</para></li><li><para>The specified DB cluster must have automatic backups enabled, that is, its backup
+        /// replica. Each DB cluster can have up to 15 read replicas.</para><para>Constraints:</para><ul><li><para>Must be the identifier of an existing Multi-AZ DB cluster.</para></li><li><para>Can't be specified if the <c>SourceDBInstanceIdentifier</c> parameter is also specified.</para></li><li><para>The specified DB cluster must have automatic backups enabled, that is, its backup
         /// retention period must be greater than 0.</para></li><li><para>The source DB cluster must be in the same Amazon Web Services Region as the read replica.
         /// Cross-Region replication isn't supported.</para></li></ul>
         /// </para>
@@ -585,8 +579,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The identifier of the DB instance that will act as the source for the read replica.
         /// Each DB instance can have up to 15 read replicas, with the exception of Oracle and
         /// SQL Server, which can have up to five.</para><para>Constraints:</para><ul><li><para>Must be the identifier of an existing Db2, MariaDB, MySQL, Oracle, PostgreSQL, or
-        /// SQL Server DB instance.</para></li><li><para>Can't be specified if the <code>SourceDBClusterIdentifier</code> parameter is also
-        /// specified.</para></li><li><para>For the limitations of Oracle read replicas, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.limitations.html#oracle-read-replicas.limitations.versions-and-licenses">Version
+        /// SQL Server DB instance.</para></li><li><para>Can't be specified if the <c>SourceDBClusterIdentifier</c> parameter is also specified.</para></li><li><para>For the limitations of Oracle read replicas, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.limitations.html#oracle-read-replicas.limitations.versions-and-licenses">Version
         /// and licensing considerations for RDS for Oracle replicas</a> in the <i>Amazon RDS
         /// User Guide</i>.</para></li><li><para>For the limitations of SQL Server read replicas, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.ReadReplicas.html#SQLServer.ReadReplicas.Limitations">Read
         /// replica limitations with SQL Server</a> in the <i>Amazon RDS User Guide</i>.</para></li><li><para>The specified DB instance must have automatic backups enabled, that is, its backup
@@ -627,9 +620,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>The storage type to associate with the read replica.</para><para>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value
-        /// for the <code>Iops</code> parameter.</para><para>Valid Values: <code>gp2 | gp3 | io1 | standard</code></para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified. Otherwise,
-        /// <code>gp2</code>.</para>
+        /// <para>The storage type to associate with the read replica.</para><para>If you specify <c>io1</c> or <c>gp3</c>, you must also include a value for the <c>Iops</c>
+        /// parameter.</para><para>Valid Values: <c>gp2 | gp3 | io1 | standard</c></para><para>Default: <c>io1</c> if the <c>Iops</c> parameter is specified. Otherwise, <c>gp2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

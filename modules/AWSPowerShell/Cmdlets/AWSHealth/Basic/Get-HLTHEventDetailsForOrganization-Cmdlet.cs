@@ -41,18 +41,18 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a>
     /// operation from your organization's management account.
     /// </para></note><para>
-    /// When you call the <code>DescribeEventDetailsForOrganization</code> operation, specify
-    /// the <code>organizationEventDetailFilters</code> object in the request. Depending on
-    /// the Health event type, note the following differences:
+    /// When you call the <c>DescribeEventDetailsForOrganization</c> operation, specify the
+    /// <c>organizationEventDetailFilters</c> object in the request. Depending on the Health
+    /// event type, note the following differences:
     /// </para><ul><li><para>
     /// To return event details for a public event, you must specify a null value for the
-    /// <code>awsAccountId</code> parameter. If you specify an account ID for a public event,
-    /// Health returns an error message because public events aren't specific to an account.
+    /// <c>awsAccountId</c> parameter. If you specify an account ID for a public event, Health
+    /// returns an error message because public events aren't specific to an account.
     /// </para></li><li><para>
     /// To return event details for an event that is specific to an account in your organization,
-    /// you must specify the <code>awsAccountId</code> parameter in the request. If you don't
-    /// specify an account ID, Health returns an error message because the event is specific
-    /// to an account in your organization. 
+    /// you must specify the <c>awsAccountId</c> parameter in the request. If you don't specify
+    /// an account ID, Health returns an error message because the event is specific to an
+    /// account in your organization. 
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.
     /// </para><note><para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter OrganizationEventDetailFilter
         /// <summary>
         /// <para>
-        /// <para>A set of JSON elements that includes the <code>awsAccountId</code> and the <code>eventArn</code>.</para>
+        /// <para>A set of JSON elements that includes the <c>awsAccountId</c> and the <c>eventArn</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

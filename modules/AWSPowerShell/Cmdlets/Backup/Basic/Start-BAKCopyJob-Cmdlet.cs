@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Specifies the number of days after creation that a recovery point is deleted. Must
-        /// be greater than 90 days plus <code>MoveToColdStorageAfterDays</code>.</para>
+        /// be greater than 90 days plus <c>MoveToColdStorageAfterDays</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>An Amazon Resource Name (ARN) that uniquely identifies a destination backup vault
-        /// to copy to; for example, <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</para>
+        /// to copy to; for example, <c>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter IamRoleArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the IAM role ARN used to copy the target recovery point; for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</para>
+        /// <para>Specifies the IAM role ARN used to copy the target recovery point; for example, <c>arn:aws:iam::123456789012:role/S3Access</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>A customer-chosen string that you can use to distinguish between otherwise identical
-        /// calls to <code>StartCopyJob</code>. Retrying a successful request with the same idempotency
+        /// calls to <c>StartCopyJob</c>. Retrying a successful request with the same idempotency
         /// token results in a success message with no action taken.</para>
         /// </para>
         /// </summary>

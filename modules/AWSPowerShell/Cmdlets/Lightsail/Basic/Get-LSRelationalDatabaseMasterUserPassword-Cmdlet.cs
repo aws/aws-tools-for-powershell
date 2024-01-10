@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  
     /// <para>
-    /// The <code>GetRelationalDatabaseMasterUserPassword</code> operation supports tag-based
-    /// access control via resource tags applied to the resource identified by relationalDatabaseName.
+    /// The <c>GetRelationalDatabaseMasterUserPassword</c> operation supports tag-based access
+    /// control via resource tags applied to the resource identified by relationalDatabaseName.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "LSRelationalDatabaseMasterUserPassword")]
@@ -53,11 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PasswordVersion
         /// <summary>
         /// <para>
-        /// <para>The password version to return.</para><para>Specifying <code>CURRENT</code> or <code>PREVIOUS</code> returns the current or previous
-        /// passwords respectively. Specifying <code>PENDING</code> returns the newest version
-        /// of the password that will rotate to <code>CURRENT</code>. After the <code>PENDING</code>
-        /// password rotates to <code>CURRENT</code>, the <code>PENDING</code> password is no
-        /// longer available.</para><para>Default: <code>CURRENT</code></para>
+        /// <para>The password version to return.</para><para>Specifying <c>CURRENT</c> or <c>PREVIOUS</c> returns the current or previous passwords
+        /// respectively. Specifying <c>PENDING</c> returns the newest version of the password
+        /// that will rotate to <c>CURRENT</c>. After the <c>PENDING</c> password rotates to <c>CURRENT</c>,
+        /// the <c>PENDING</c> password is no longer available.</para><para>Default: <c>CURRENT</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

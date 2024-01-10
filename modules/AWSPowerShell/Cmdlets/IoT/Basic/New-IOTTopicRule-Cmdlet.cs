@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>Indicates whether batches of log records will be extracted and uploaded into CloudWatch.
-        /// Values include <code>true</code> or <code>false</code><i>(default)</i>.</para>
+        /// Values include <c>true</c> or <c>false</c><i>(default)</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,9 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Firehose_BatchMode
         /// <summary>
         /// <para>
-        /// <para>Whether to deliver the Kinesis Data Firehose stream as a batch by using <a href="https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html"><code>PutRecordBatch</code></a>. The default value is <code>false</code>.</para><para>When <code>batchMode</code> is <code>true</code> and the rule's SQL statement evaluates
-        /// to an Array, each Array element forms one record in the <a href="https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html"><code>PutRecordBatch</code></a> request. The resulting array can't have more than
-        /// 500 records.</para>
+        /// <para>Whether to deliver the Kinesis Data Firehose stream as a batch by using <a href="https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html"><c>PutRecordBatch</c></a>. The default value is <c>false</c>.</para><para>When <c>batchMode</c> is <c>true</c> and the rule's SQL statement evaluates to an
+        /// Array, each Array element forms one record in the <a href="https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html"><c>PutRecordBatch</c></a> request. The resulting array can't have more than 500 records.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,10 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter IotAnalytics_BatchMode
         /// <summary>
         /// <para>
-        /// <para>Whether to process the action as a batch. The default value is <code>false</code>.</para><para>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates
-        /// to an Array, each Array element is delivered as a separate message when passed by
-        /// <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html"><code>BatchPutMessage</code></a> to the IoT Analytics channel. The resulting array
-        /// can't have more than 100 messages.</para>
+        /// <para>Whether to process the action as a batch. The default value is <c>false</c>.</para><para>When <c>batchMode</c> is <c>true</c> and the rule SQL statement evaluates to an Array,
+        /// each Array element is delivered as a separate message when passed by <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html"><c>BatchPutMessage</c></a> to the IoT Analytics channel. The resulting array can't
+        /// have more than 100 messages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,10 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter IotEvents_BatchMode
         /// <summary>
         /// <para>
-        /// <para>Whether to process the event actions as a batch. The default value is <code>false</code>.</para><para>When <code>batchMode</code> is <code>true</code>, you can't specify a <code>messageId</code>.
-        /// </para><para>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates
-        /// to an Array, each Array element is treated as a separate message when it's sent to
-        /// IoT Events by calling <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html"><code>BatchPutMessage</code></a>. The resulting array can't have more than 10 messages.</para>
+        /// <para>Whether to process the event actions as a batch. The default value is <c>false</c>.</para><para>When <c>batchMode</c> is <c>true</c>, you can't specify a <c>messageId</c>. </para><para>When <c>batchMode</c> is <c>true</c> and the rule SQL statement evaluates to an Array,
+        /// each Array element is treated as a separate message when it's sent to IoT Events by
+        /// calling <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html"><c>BatchPutMessage</c></a>. The resulting array can't have more than 10 messages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Kafka_DestinationArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of Kafka action's VPC <code>TopicRuleDestination</code>.</para>
+        /// <para>The ARN of Kafka action's VPC <c>TopicRuleDestination</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -527,8 +524,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>A user-defined integer value that will persist a message at the message broker for
         /// a specified amount of time to ensure that the message will expire if it's no longer
-        /// relevant to the subscriber. The value of <code>messageExpiry</code> represents the
-        /// number of seconds before it expires. For more information about the limits of <code>messageExpiry</code>,
+        /// relevant to the subscriber. The value of <c>messageExpiry</c> represents the number
+        /// of seconds before it expires. For more information about the limits of <c>messageExpiry</c>,
         /// see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html">Amazon
         /// Web Services IoT Core message broker and protocol limits and quotas </a> from the
         /// Amazon Web Services Reference Guide.</para><para>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
@@ -559,9 +556,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter IotEvents_MessageId
         /// <summary>
         /// <para>
-        /// <para>The ID of the message. The default <code>messageId</code> is a new UUID value.</para><para>When <code>batchMode</code> is <code>true</code>, you can't specify a <code>messageId</code>--a
-        /// new UUID value will be assigned.</para><para>Assign a value to this property to ensure that only one input (message) with a given
-        /// <code>messageId</code> will be processed by an IoT Events detector.</para>
+        /// <para>The ID of the message. The default <c>messageId</c> is a new UUID value.</para><para>When <c>batchMode</c> is <c>true</c>, you can't specify a <c>messageId</c>--a new
+        /// UUID value will be assigned.</para><para>Assign a value to this property to ensure that only one input (message) with a given
+        /// <c>messageId</c> will be processed by an IoT Events detector.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -630,8 +627,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The type of operation to be performed. This follows the substitution template, so
-        /// it can be <code>${operation}</code>, but the substitution must result in one of the
-        /// following: <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>.</para>
+        /// it can be <c>${operation}</c>, but the substitution must result in one of the following:
+        /// <c>INSERT</c>, <c>UPDATE</c>, or <c>DELETE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -675,8 +672,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Headers_PayloadFormatIndicator
         /// <summary>
         /// <para>
-        /// <para>An <code>Enum</code> string value that indicates whether the payload is formatted
-        /// as UTF-8.</para><para>Valid values are <code>UNSPECIFIED_BYTES</code> and <code>UTF8_DATA</code>.</para><para>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111">
+        /// <para>An <c>Enum</c> string value that indicates whether the payload is formatted as UTF-8.</para><para>Valid values are <c>UNSPECIFIED_BYTES</c> and <c>UTF8_DATA</c>.</para><para>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111">
         /// Payload Format Indicator</a> from the MQTT Version 5.0 specification.</para><para>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
         /// templates</a>.</para>
         /// </para>
@@ -885,8 +881,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The ARN of the role that grants IoT permission to send an asset property value to
-        /// IoT SiteWise. (<code>"Action": "iotsitewise:BatchPutAssetPropertyValue"</code>). The
-        /// trust policy can restrict access to specific asset hierarchy paths.</para>
+        /// IoT SiteWise. (<c>"Action": "iotsitewise:BatchPutAssetPropertyValue"</c>). The trust
+        /// policy can restrict access to specific asset hierarchy paths.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1246,8 +1242,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The precision of the timestamp value that results from the expression described in
-        /// <code>value</code>.</para><para>Valid values: <code>SECONDS</code> | <code>MILLISECONDS</code> | <code>MICROSECONDS</code>
-        /// | <code>NANOSECONDS</code>. The default is <code>MILLISECONDS</code>.</para>
+        /// <c>value</c>.</para><para>Valid values: <c>SECONDS</c> | <c>MILLISECONDS</c> | <c>MICROSECONDS</c> | <c>NANOSECONDS</c>.
+        /// The default is <c>MILLISECONDS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1258,8 +1254,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The precision of the timestamp value that results from the expression described in
-        /// <code>value</code>.</para><para>Valid values: <code>SECONDS</code> | <code>MILLISECONDS</code> | <code>MICROSECONDS</code>
-        /// | <code>NANOSECONDS</code>. The default is <code>MILLISECONDS</code>.</para>
+        /// <c>value</c>.</para><para>Valid values: <c>SECONDS</c> | <c>MILLISECONDS</c> | <c>MICROSECONDS</c> | <c>NANOSECONDS</c>.
+        /// The default is <c>MILLISECONDS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1271,7 +1267,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The endpoint URL. If substitution templates are used in the URL, you must also specify
-        /// a <code>confirmationUrl</code>. If this is a new destination, a new <code>TopicRuleDestination</code>
+        /// a <c>confirmationUrl</c>. If this is a new destination, a new <c>TopicRuleDestination</c>
         /// is created if possible.</para>
         /// </para>
         /// </summary>

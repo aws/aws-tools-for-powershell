@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter QueryResultsS3AccessGrantsConfiguration_AuthenticationType
         /// <summary>
         /// <para>
-        /// <para>The authentication type used for Amazon S3 access grants. Currently, only <code>DIRECTORY_IDENTITY</code>
+        /// <para>The authentication type used for Amazon S3 access grants. Currently, only <c>DIRECTORY_IDENTITY</c>
         /// is supported.</para>
         /// </para>
         /// </summary>
@@ -105,9 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <para>Read only. The engine version on which the query runs. If the user requests a valid
         /// engine version other than Auto, the effective engine version is the same as the engine
         /// version that the user requested. If the user requests Auto, the effective engine version
-        /// is chosen by Athena. When a request to update the engine version is made by a <code>CreateWorkGroup</code>
-        /// or <code>UpdateWorkGroup</code> operation, the <code>EffectiveEngineVersion</code>
-        /// field is ignored.</para>
+        /// is chosen by Athena. When a request to update the engine version is made by a <c>CreateWorkGroup</c>
+        /// or <c>UpdateWorkGroup</c> operation, the <c>EffectiveEngineVersion</c> field is ignored.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <para>
         /// <para>Enforces a minimal level of encryption for the workgroup for query and calculation
         /// results that are written to Amazon S3. When enabled, workgroup users can set encryption
-        /// only to the minimum level set by the administrator or higher when they submit queries.</para><para>The <code>EnforceWorkGroupConfiguration</code> setting takes precedence over the <code>EnableMinimumEncryptionConfiguration</code>
-        /// flag. This means that if <code>EnforceWorkGroupConfiguration</code> is true, the <code>EnableMinimumEncryptionConfiguration</code>
+        /// only to the minimum level set by the administrator or higher when they submit queries.</para><para>The <c>EnforceWorkGroupConfiguration</c> setting takes precedence over the <c>EnableMinimumEncryptionConfiguration</c>
+        /// flag. This means that if <c>EnforceWorkGroupConfiguration</c> is true, the <c>EnableMinimumEncryptionConfiguration</c>
         /// flag is ignored, and the workgroup configuration for encryption is used.</para>
         /// </para>
         /// </summary>
@@ -154,9 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter EncryptionConfiguration_EncryptionOption
         /// <summary>
         /// <para>
-        /// <para>Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (<code>SSE_S3</code>),
-        /// server-side encryption with KMS-managed keys (<code>SSE_KMS</code>), or client-side
-        /// encryption with KMS-managed keys (<code>CSE_KMS</code>) is used.</para><para>If a query runs in a workgroup and the workgroup overrides client-side settings, then
+        /// <para>Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (<c>SSE_S3</c>),
+        /// server-side encryption with KMS-managed keys (<c>SSE_KMS</c>), or client-side encryption
+        /// with KMS-managed keys (<c>CSE_KMS</c>) is used.</para><para>If a query runs in a workgroup and the workgroup overrides client-side settings, then
         /// the workgroup's setting for encryption is used. It specifies whether query results
         /// must be encrypted, for all queries that run in this workgroup. </para>
         /// </para>
@@ -196,14 +195,13 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <para>
         /// <para>The Amazon Web Services account ID that you expect to be the owner of the Amazon S3
         /// bucket specified by <a>ResultConfiguration$OutputLocation</a>. If set, Athena uses
-        /// the value for <code>ExpectedBucketOwner</code> when it makes Amazon S3 calls to your
-        /// specified output location. If the <code>ExpectedBucketOwner</code> Amazon Web Services
-        /// account ID does not match the actual owner of the Amazon S3 bucket, the call fails
-        /// with a permissions error.</para><para>This is a client-side setting. If workgroup settings override client-side settings,
-        /// then the query uses the <code>ExpectedBucketOwner</code> setting that is specified
-        /// for the workgroup, and also uses the location for storing query results specified
-        /// in the workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>
-        /// and <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup
+        /// the value for <c>ExpectedBucketOwner</c> when it makes Amazon S3 calls to your specified
+        /// output location. If the <c>ExpectedBucketOwner</c> Amazon Web Services account ID
+        /// does not match the actual owner of the Amazon S3 bucket, the call fails with a permissions
+        /// error.</para><para>This is a client-side setting. If workgroup settings override client-side settings,
+        /// then the query uses the <c>ExpectedBucketOwner</c> setting that is specified for the
+        /// workgroup, and also uses the location for storing query results specified in the workgroup.
+        /// See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a> and <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup
         /// Settings Override Client-Side Settings</a>.</para>
         /// </para>
         /// </summary>
@@ -237,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter EncryptionConfiguration_KmsKey
         /// <summary>
         /// <para>
-        /// <para>For <code>SSE_KMS</code> and <code>CSE_KMS</code>, this is the KMS key ARN or ID.</para>
+        /// <para>For <c>SSE_KMS</c> and <c>CSE_KMS</c>, this is the KMS key ARN or ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,9 +264,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>The location in Amazon S3 where your query and calculation results are stored, such
-        /// as <code>s3://path/to/query/bucket/</code>. To run the query, you must specify the
-        /// query results location using one of the ways: either for individual queries using
-        /// either this setting (client-side), or in the workgroup, using <a>WorkGroupConfiguration</a>.
+        /// as <c>s3://path/to/query/bucket/</c>. To run the query, you must specify the query
+        /// results location using one of the ways: either for individual queries using either
+        /// this setting (client-side), or in the workgroup, using <a>WorkGroupConfiguration</a>.
         /// If none of them is set, Athena issues an error that no output location is provided.
         /// For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working
         /// with query results, recent queries, and output files</a>. If workgroup settings override
@@ -294,11 +292,11 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter Configuration_RequesterPaysEnabled
         /// <summary>
         /// <para>
-        /// <para>If set to <code>true</code>, allows members assigned to a workgroup to reference Amazon
-        /// S3 Requester Pays buckets in queries. If set to <code>false</code>, workgroup members
-        /// cannot query data from Requester Pays buckets, and queries that retrieve data from
-        /// Requester Pays buckets cause an error. The default is <code>false</code>. For more
-        /// information about Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester
+        /// <para>If set to <c>true</c>, allows members assigned to a workgroup to reference Amazon
+        /// S3 Requester Pays buckets in queries. If set to <c>false</c>, workgroup members cannot
+        /// query data from Requester Pays buckets, and queries that retrieve data from Requester
+        /// Pays buckets cause an error. The default is <c>false</c>. For more information about
+        /// Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester
         /// Pays Buckets</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -310,9 +308,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 canned ACL that Athena should specify when storing query results. Currently
-        /// the only supported canned ACL is <code>BUCKET_OWNER_FULL_CONTROL</code>. If a query
-        /// runs in a workgroup and the workgroup overrides client-side settings, then the Amazon
-        /// S3 canned ACL specified in the workgroup's settings is used for all queries that run
+        /// the only supported canned ACL is <c>BUCKET_OWNER_FULL_CONTROL</c>. If a query runs
+        /// in a workgroup and the workgroup overrides client-side settings, then the Amazon S3
+        /// canned ACL specified in the workgroup's settings is used for all queries that run
         /// in the workgroup. For more information about Amazon S3 canned ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl">Canned
         /// ACL</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
@@ -327,7 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>The engine version requested by the user. Possible values are determined by the output
-        /// of <code>ListEngineVersions</code>, including AUTO. The default is AUTO.</para>
+        /// of <c>ListEngineVersions</c>, including AUTO. The default is AUTO.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

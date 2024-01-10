@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>List of IPv4 addresses, NetBIOS names, or host names of your domain server. If you
-        /// need to specify the port number include it after the colon (“:”). For example, <code>mydc.mydomain.com:389</code>.</para>
+        /// need to specify the port number include it after the colon (“:”). For example, <c>mydc.mydomain.com:389</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter GatewayARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the gateway. Use the <code>ListGateways</code> operation
+        /// <para>The Amazon Resource Name (ARN) of the gateway. Use the <c>ListGateways</c> operation
         /// to return a list of gateways for your account and Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
@@ -135,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter TimeoutInSecond
         /// <summary>
         /// <para>
-        /// <para>Specifies the time in seconds, in which the <code>JoinDomain</code> operation must
-        /// complete. The default is 20 seconds.</para>
+        /// <para>Specifies the time in seconds, in which the <c>JoinDomain</c> operation must complete.
+        /// The default is 20 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

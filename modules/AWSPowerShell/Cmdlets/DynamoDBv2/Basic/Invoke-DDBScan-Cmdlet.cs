@@ -28,45 +28,44 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// The <code>Scan</code> operation returns one or more items and item attributes by accessing
+    /// The <c>Scan</c> operation returns one or more items and item attributes by accessing
     /// every item in a table or a secondary index. To have DynamoDB return fewer items, you
-    /// can provide a <code>FilterExpression</code> operation.
+    /// can provide a <c>FilterExpression</c> operation.
     /// 
     ///  
     /// <para>
     /// If the total size of scanned items exceeds the maximum dataset size limit of 1 MB,
-    /// the scan completes and results are returned to the user. The <code>LastEvaluatedKey</code>
-    /// value is also returned and the requestor can use the <code>LastEvaluatedKey</code>
-    /// to continue the scan in a subsequent operation. Each scan response also includes number
-    /// of items that were scanned (ScannedCount) as part of the request. If using a <code>FilterExpression</code>,
-    /// a scan result can result in no items meeting the criteria and the <code>Count</code>
-    /// will result in zero. If you did not use a <code>FilterExpression</code> in the scan
-    /// request, then <code>Count</code> is the same as <code>ScannedCount</code>.
-    /// </para><note><para><code>Count</code> and <code>ScannedCount</code> only return the count of items specific
-    /// to a single scan request and, unless the table is less than 1MB, do not represent
-    /// the total number of items in the table. 
+    /// the scan completes and results are returned to the user. The <c>LastEvaluatedKey</c>
+    /// value is also returned and the requestor can use the <c>LastEvaluatedKey</c> to continue
+    /// the scan in a subsequent operation. Each scan response also includes number of items
+    /// that were scanned (ScannedCount) as part of the request. If using a <c>FilterExpression</c>,
+    /// a scan result can result in no items meeting the criteria and the <c>Count</c> will
+    /// result in zero. If you did not use a <c>FilterExpression</c> in the scan request,
+    /// then <c>Count</c> is the same as <c>ScannedCount</c>.
+    /// </para><note><para><c>Count</c> and <c>ScannedCount</c> only return the count of items specific to a
+    /// single scan request and, unless the table is less than 1MB, do not represent the total
+    /// number of items in the table. 
     /// </para></note><para>
-    /// A single <code>Scan</code> operation first reads up to the maximum number of items
-    /// set (if using the <code>Limit</code> parameter) or a maximum of 1 MB of data and then
-    /// applies any filtering to the results if a <code>FilterExpression</code> is provided.
-    /// If <code>LastEvaluatedKey</code> is present in the response, pagination is required
-    /// to complete the full table scan. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Pagination">Paginating
+    /// A single <c>Scan</c> operation first reads up to the maximum number of items set (if
+    /// using the <c>Limit</c> parameter) or a maximum of 1 MB of data and then applies any
+    /// filtering to the results if a <c>FilterExpression</c> is provided. If <c>LastEvaluatedKey</c>
+    /// is present in the response, pagination is required to complete the full table scan.
+    /// For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Pagination">Paginating
     /// the Results</a> in the <i>Amazon DynamoDB Developer Guide</i>.
-    /// </para><para><code>Scan</code> operations proceed sequentially; however, for faster performance
-    /// on a large table or secondary index, applications can request a parallel <code>Scan</code>
-    /// operation by providing the <code>Segment</code> and <code>TotalSegments</code> parameters.
-    /// For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.ParallelScan">Parallel
+    /// </para><para><c>Scan</c> operations proceed sequentially; however, for faster performance on a
+    /// large table or secondary index, applications can request a parallel <c>Scan</c> operation
+    /// by providing the <c>Segment</c> and <c>TotalSegments</c> parameters. For more information,
+    /// see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.ParallelScan">Parallel
     /// Scan</a> in the <i>Amazon DynamoDB Developer Guide</i>.
     /// </para><para>
-    /// By default, a <code>Scan</code> uses eventually consistent reads when accessing the
-    /// items in a table. Therefore, the results from an eventually consistent <code>Scan</code>
-    /// may not include the latest item changes at the time the scan iterates through each
-    /// item in the table. If you require a strongly consistent read of each item as the scan
-    /// iterates through the items in the table, you can set the <code>ConsistentRead</code>
-    /// parameter to true. Strong consistency only relates to the consistency of the read
-    /// at the item level.
+    /// By default, a <c>Scan</c> uses eventually consistent reads when accessing the items
+    /// in a table. Therefore, the results from an eventually consistent <c>Scan</c> may not
+    /// include the latest item changes at the time the scan iterates through each item in
+    /// the table. If you require a strongly consistent read of each item as the scan iterates
+    /// through the items in the table, you can set the <c>ConsistentRead</c> parameter to
+    /// true. Strong consistency only relates to the consistency of the read at the item level.
     /// </para><note><para>
-    ///  DynamoDB does not provide snapshot isolation for a scan operation when the <code>ConsistentRead</code>
+    ///  DynamoDB does not provide snapshot isolation for a scan operation when the <c>ConsistentRead</c>
     /// parameter is set to true. Thus, a DynamoDB scan operation does not guarantee that
     /// all reads in a scan see a consistent snapshot of the table when the scan operation
     /// was requested. 
@@ -87,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter AttributesToGet
         /// <summary>
         /// <para>
-        /// <para>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more
-        /// information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a>
+        /// <para>This is a legacy parameter. Use <c>ProjectionExpression</c> instead. For more information,
+        /// see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a>
         /// in the <i>Amazon DynamoDB Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -99,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter ConditionalOperator
         /// <summary>
         /// <para>
-        /// <para>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information,
+        /// <para>This is a legacy parameter. Use <c>FilterExpression</c> instead. For more information,
         /// see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a>
         /// in the <i>Amazon DynamoDB Developer Guide</i>.</para>
         /// </para>
@@ -112,13 +111,12 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter ConsistentRead
         /// <summary>
         /// <para>
-        /// <para>A Boolean value that determines the read consistency model during the scan:</para><ul><li><para>If <code>ConsistentRead</code> is <code>false</code>, then the data returned from
-        /// <code>Scan</code> might not contain the results from other recently completed write
-        /// operations (<code>PutItem</code>, <code>UpdateItem</code>, or <code>DeleteItem</code>).</para></li><li><para>If <code>ConsistentRead</code> is <code>true</code>, then all of the write operations
-        /// that completed before the <code>Scan</code> began are guaranteed to be contained in
-        /// the <code>Scan</code> response.</para></li></ul><para>The default setting for <code>ConsistentRead</code> is <code>false</code>.</para><para>The <code>ConsistentRead</code> parameter is not supported on global secondary indexes.
-        /// If you scan a global secondary index with <code>ConsistentRead</code> set to true,
-        /// you will receive a <code>ValidationException</code>.</para>
+        /// <para>A Boolean value that determines the read consistency model during the scan:</para><ul><li><para>If <c>ConsistentRead</c> is <c>false</c>, then the data returned from <c>Scan</c>
+        /// might not contain the results from other recently completed write operations (<c>PutItem</c>,
+        /// <c>UpdateItem</c>, or <c>DeleteItem</c>).</para></li><li><para>If <c>ConsistentRead</c> is <c>true</c>, then all of the write operations that completed
+        /// before the <c>Scan</c> began are guaranteed to be contained in the <c>Scan</c> response.</para></li></ul><para>The default setting for <c>ConsistentRead</c> is <c>false</c>.</para><para>The <c>ConsistentRead</c> parameter is not supported on global secondary indexes.
+        /// If you scan a global secondary index with <c>ConsistentRead</c> set to true, you will
+        /// receive a <c>ValidationException</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,12 +127,12 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>One or more substitution tokens for attribute names in an expression. The following
-        /// are some use cases for using <code>ExpressionAttributeNames</code>:</para><ul><li><para>To access an attribute whose name conflicts with a DynamoDB reserved word.</para></li><li><para>To create a placeholder for repeating occurrences of an attribute name in an expression.</para></li><li><para>To prevent special characters in an attribute name from being misinterpreted in an
+        /// are some use cases for using <c>ExpressionAttributeNames</c>:</para><ul><li><para>To access an attribute whose name conflicts with a DynamoDB reserved word.</para></li><li><para>To create a placeholder for repeating occurrences of an attribute name in an expression.</para></li><li><para>To prevent special characters in an attribute name from being misinterpreted in an
         /// expression.</para></li></ul><para>Use the <b>#</b> character in an expression to dereference an attribute name. For
-        /// example, consider the following attribute name:</para><ul><li><para><code>Percentile</code></para></li></ul><para>The name of this attribute conflicts with a reserved word, so it cannot be used directly
+        /// example, consider the following attribute name:</para><ul><li><para><c>Percentile</c></para></li></ul><para>The name of this attribute conflicts with a reserved word, so it cannot be used directly
         /// in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved
         /// Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you
-        /// could specify the following for <code>ExpressionAttributeNames</code>:</para><ul><li><para><code>{"#P":"Percentile"}</code></para></li></ul><para>You could then use this substitution in an expression, as in this example:</para><ul><li><para><code>#P = :val</code></para></li></ul><note><para>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>,
+        /// could specify the following for <c>ExpressionAttributeNames</c>:</para><ul><li><para><c>{"#P":"Percentile"}</c></para></li></ul><para>You could then use this substitution in an expression, as in this example:</para><ul><li><para><c>#P = :val</c></para></li></ul><note><para>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>,
         /// which are placeholders for the actual value at runtime.</para></note><para>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying
         /// Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para>
         /// </para>
@@ -148,9 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>One or more values that can be substituted in an expression.</para><para>Use the <b>:</b> (colon) character in an expression to dereference an attribute value.
-        /// For example, suppose that you wanted to check whether the value of the <code>ProductStatus</code>
-        /// attribute was one of the following: </para><para><code>Available | Backordered | Discontinued</code></para><para>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</para><para><code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"}
-        /// }</code></para><para>You could then use these values in an expression, such as this:</para><para><code>ProductStatus IN (:avail, :back, :disc)</code></para><para>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition
+        /// For example, suppose that you wanted to check whether the value of the <c>ProductStatus</c>
+        /// attribute was one of the following: </para><para><c>Available | Backordered | Discontinued</c></para><para>You would first need to specify <c>ExpressionAttributeValues</c> as follows:</para><para><c>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"}
+        /// }</c></para><para>You could then use these values in an expression, such as this:</para><para><c>ProductStatus IN (:avail, :back, :disc)</c></para><para>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition
         /// Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -162,10 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter FilterExpression
         /// <summary>
         /// <para>
-        /// <para>A string that contains conditions that DynamoDB applies after the <code>Scan</code>
-        /// operation, but before the data is returned to you. Items that do not satisfy the <code>FilterExpression</code>
-        /// criteria are not returned.</para><note><para>A <code>FilterExpression</code> is applied after the items have already been read;
-        /// the process of filtering does not consume any additional read capacity units.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.FilterExpression">Filter
+        /// <para>A string that contains conditions that DynamoDB applies after the <c>Scan</c> operation,
+        /// but before the data is returned to you. Items that do not satisfy the <c>FilterExpression</c>
+        /// criteria are not returned.</para><note><para>A <c>FilterExpression</c> is applied after the items have already been read; the process
+        /// of filtering does not consume any additional read capacity units.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.FilterExpression">Filter
         /// Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -177,8 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>The name of a secondary index to scan. This index can be any local secondary index
-        /// or global secondary index. Note that if you use the <code>IndexName</code> parameter,
-        /// you must also provide <code>TableName</code>.</para>
+        /// or global secondary index. Note that if you use the <c>IndexName</c> parameter, you
+        /// must also provide <c>TableName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -255,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter ScanFilter
         /// <summary>
         /// <para>
-        /// <para>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information,
+        /// <para>This is a legacy parameter. Use <c>FilterExpression</c> instead. For more information,
         /// see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ScanFilter.html">ScanFilter</a>
         /// in the <i>Amazon DynamoDB Developer Guide</i>.</para>
         /// </para>
@@ -267,14 +265,13 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter Segment
         /// <summary>
         /// <para>
-        /// <para>For a parallel <code>Scan</code> request, <code>Segment</code> identifies an individual
-        /// segment to be scanned by an application worker.</para><para>Segment IDs are zero-based, so the first segment is always 0. For example, if you
+        /// <para>For a parallel <c>Scan</c> request, <c>Segment</c> identifies an individual segment
+        /// to be scanned by an application worker.</para><para>Segment IDs are zero-based, so the first segment is always 0. For example, if you
         /// want to use four application threads to scan a table or an index, then the first thread
-        /// specifies a <code>Segment</code> value of 0, the second thread specifies 1, and so
-        /// on.</para><para>The value of <code>LastEvaluatedKey</code> returned from a parallel <code>Scan</code>
-        /// request must be used as <code>ExclusiveStartKey</code> with the same segment ID in
-        /// a subsequent <code>Scan</code> operation.</para><para>The value for <code>Segment</code> must be greater than or equal to 0, and less than
-        /// the value provided for <code>TotalSegments</code>.</para><para>If you provide <code>Segment</code>, you must also provide <code>TotalSegments</code>.</para>
+        /// specifies a <c>Segment</c> value of 0, the second thread specifies 1, and so on.</para><para>The value of <c>LastEvaluatedKey</c> returned from a parallel <c>Scan</c> request
+        /// must be used as <c>ExclusiveStartKey</c> with the same segment ID in a subsequent
+        /// <c>Scan</c> operation.</para><para>The value for <c>Segment</c> must be greater than or equal to 0, and less than the
+        /// value provided for <c>TotalSegments</c>.</para><para>If you provide <c>Segment</c>, you must also provide <c>TotalSegments</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -286,30 +283,30 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>
         /// <para>The attributes to be returned in the result. You can retrieve all item attributes,
         /// specific item attributes, the count of matching items, or in the case of an index,
-        /// some or all of the attributes projected into the index.</para><ul><li><para><code>ALL_ATTRIBUTES</code> - Returns all of the item attributes from the specified
-        /// table or index. If you query a local secondary index, then for each matching item
-        /// in the index, DynamoDB fetches the entire item from the parent table. If the index
-        /// is configured to project all item attributes, then all of the data can be obtained
-        /// from the local secondary index, and no fetching is required.</para></li><li><para><code>ALL_PROJECTED_ATTRIBUTES</code> - Allowed only when querying an index. Retrieves
+        /// some or all of the attributes projected into the index.</para><ul><li><para><c>ALL_ATTRIBUTES</c> - Returns all of the item attributes from the specified table
+        /// or index. If you query a local secondary index, then for each matching item in the
+        /// index, DynamoDB fetches the entire item from the parent table. If the index is configured
+        /// to project all item attributes, then all of the data can be obtained from the local
+        /// secondary index, and no fetching is required.</para></li><li><para><c>ALL_PROJECTED_ATTRIBUTES</c> - Allowed only when querying an index. Retrieves
         /// all attributes that have been projected into the index. If the index is configured
-        /// to project all attributes, this return value is equivalent to specifying <code>ALL_ATTRIBUTES</code>.</para></li><li><para><code>COUNT</code> - Returns the number of matching items, rather than the matching
-        /// items themselves. Note that this uses the same quantity of read capacity units as
-        /// getting the items, and is subject to the same item size calculations.</para></li><li><para><code>SPECIFIC_ATTRIBUTES</code> - Returns only the attributes listed in <code>ProjectionExpression</code>.
-        /// This return value is equivalent to specifying <code>ProjectionExpression</code> without
-        /// specifying any value for <code>Select</code>.</para><para>If you query or scan a local secondary index and request only attributes that are
+        /// to project all attributes, this return value is equivalent to specifying <c>ALL_ATTRIBUTES</c>.</para></li><li><para><c>COUNT</c> - Returns the number of matching items, rather than the matching items
+        /// themselves. Note that this uses the same quantity of read capacity units as getting
+        /// the items, and is subject to the same item size calculations.</para></li><li><para><c>SPECIFIC_ATTRIBUTES</c> - Returns only the attributes listed in <c>ProjectionExpression</c>.
+        /// This return value is equivalent to specifying <c>ProjectionExpression</c> without
+        /// specifying any value for <c>Select</c>.</para><para>If you query or scan a local secondary index and request only attributes that are
         /// projected into that index, the operation reads only the index and not the table. If
         /// any of the requested attributes are not projected into the local secondary index,
         /// DynamoDB fetches each of these attributes from the parent table. This extra fetching
         /// incurs additional throughput cost and latency.</para><para>If you query or scan a global secondary index, you can only request attributes that
         /// are projected into the index. Global secondary index queries cannot fetch attributes
-        /// from the parent table.</para></li></ul><para>If neither <code>Select</code> nor <code>ProjectionExpression</code> are specified,
-        /// DynamoDB defaults to <code>ALL_ATTRIBUTES</code> when accessing a table, and <code>ALL_PROJECTED_ATTRIBUTES</code>
-        /// when accessing an index. You cannot use both <code>Select</code> and <code>ProjectionExpression</code>
-        /// together in a single request, unless the value for <code>Select</code> is <code>SPECIFIC_ATTRIBUTES</code>.
-        /// (This usage is equivalent to specifying <code>ProjectionExpression</code> without
-        /// any value for <code>Select</code>.)</para><note><para>If you use the <code>ProjectionExpression</code> parameter, then the value for <code>Select</code>
-        /// can only be <code>SPECIFIC_ATTRIBUTES</code>. Any other value for <code>Select</code>
-        /// will return an error.</para></note>
+        /// from the parent table.</para></li></ul><para>If neither <c>Select</c> nor <c>ProjectionExpression</c> are specified, DynamoDB defaults
+        /// to <c>ALL_ATTRIBUTES</c> when accessing a table, and <c>ALL_PROJECTED_ATTRIBUTES</c>
+        /// when accessing an index. You cannot use both <c>Select</c> and <c>ProjectionExpression</c>
+        /// together in a single request, unless the value for <c>Select</c> is <c>SPECIFIC_ATTRIBUTES</c>.
+        /// (This usage is equivalent to specifying <c>ProjectionExpression</c> without any value
+        /// for <c>Select</c>.)</para><note><para>If you use the <c>ProjectionExpression</c> parameter, then the value for <c>Select</c>
+        /// can only be <c>SPECIFIC_ATTRIBUTES</c>. Any other value for <c>Select</c> will return
+        /// an error.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -320,7 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TableName
         /// <summary>
         /// <para>
-        /// <para>The name of the table containing the requested items; or, if you provide <code>IndexName</code>,
+        /// <para>The name of the table containing the requested items; or, if you provide <c>IndexName</c>,
         /// the name of the table to which that index belongs.</para>
         /// </para>
         /// </summary>
@@ -338,14 +335,13 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TotalSegment
         /// <summary>
         /// <para>
-        /// <para>For a parallel <code>Scan</code> request, <code>TotalSegments</code> represents the
-        /// total number of segments into which the <code>Scan</code> operation will be divided.
-        /// The value of <code>TotalSegments</code> corresponds to the number of application workers
-        /// that will perform the parallel scan. For example, if you want to use four application
-        /// threads to scan a table or an index, specify a <code>TotalSegments</code> value of
-        /// 4.</para><para>The value for <code>TotalSegments</code> must be greater than or equal to 1, and less
-        /// than or equal to 1000000. If you specify a <code>TotalSegments</code> value of 1,
-        /// the <code>Scan</code> operation will be sequential rather than parallel.</para><para>If you specify <code>TotalSegments</code>, you must also specify <code>Segment</code>.</para>
+        /// <para>For a parallel <c>Scan</c> request, <c>TotalSegments</c> represents the total number
+        /// of segments into which the <c>Scan</c> operation will be divided. The value of <c>TotalSegments</c>
+        /// corresponds to the number of application workers that will perform the parallel scan.
+        /// For example, if you want to use four application threads to scan a table or an index,
+        /// specify a <c>TotalSegments</c> value of 4.</para><para>The value for <c>TotalSegments</c> must be greater than or equal to 1, and less than
+        /// or equal to 1000000. If you specify a <c>TotalSegments</c> value of 1, the <c>Scan</c>
+        /// operation will be sequential rather than parallel.</para><para>If you specify <c>TotalSegments</c>, you must also specify <c>Segment</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -357,10 +353,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>The primary key of the first item that this operation will evaluate. Use the value
-        /// that was returned for <code>LastEvaluatedKey</code> in the previous operation.</para><para>The data type for <code>ExclusiveStartKey</code> must be String, Number or Binary.
-        /// No set data types are allowed.</para><para>In a parallel scan, a <code>Scan</code> request that includes <code>ExclusiveStartKey</code>
-        /// must specify the same segment whose previous <code>Scan</code> returned the corresponding
-        /// value of <code>LastEvaluatedKey</code>.</para>
+        /// that was returned for <c>LastEvaluatedKey</c> in the previous operation.</para><para>The data type for <c>ExclusiveStartKey</c> must be String, Number or Binary. No set
+        /// data types are allowed.</para><para>In a parallel scan, a <c>Scan</c> request that includes <c>ExclusiveStartKey</c> must
+        /// specify the same segment whose previous <c>Scan</c> returned the corresponding value
+        /// of <c>LastEvaluatedKey</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -378,11 +374,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>The maximum number of items to evaluate (not necessarily the number of matching items).
         /// If DynamoDB processes the number of items up to the limit while processing the results,
         /// it stops the operation and returns the matching values up to that point, and a key
-        /// in <code>LastEvaluatedKey</code> to apply in a subsequent operation, so that you can
-        /// pick up where you left off. Also, if the processed dataset size exceeds 1 MB before
-        /// DynamoDB reaches this limit, it stops the operation and returns the matching values
-        /// up to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent
-        /// operation to continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Working
+        /// in <c>LastEvaluatedKey</c> to apply in a subsequent operation, so that you can pick
+        /// up where you left off. Also, if the processed dataset size exceeds 1 MB before DynamoDB
+        /// reaches this limit, it stops the operation and returns the matching values up to the
+        /// limit, and a key in <c>LastEvaluatedKey</c> to apply in a subsequent operation to
+        /// continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Working
         /// with Queries</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para>
         /// </para>
         /// </summary>

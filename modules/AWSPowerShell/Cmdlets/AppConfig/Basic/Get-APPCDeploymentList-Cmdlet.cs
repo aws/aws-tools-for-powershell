@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// <summary>
         /// <para>
         /// <para>The maximum number of items that may be returned for this call. If there are items
-        /// that have not yet been returned, the response will include a non-null <code>NextToken</code>
+        /// that have not yet been returned, the response will include a non-null <c>NextToken</c>
         /// that you can provide in a subsequent call to get the next set of results.</para>
         /// </para>
         /// </summary>

@@ -28,8 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Gets a list of <code>FileSystemAssociationSummary</code> objects. Each object contains
-    /// a summary of a file system association. This operation is only supported for FSx File
+    /// Gets a list of <c>FileSystemAssociationSummary</c> objects. Each object contains a
+    /// summary of a file system association. This operation is only supported for FSx File
     /// Gateways.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SGSGFileSystemAssociationList")]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The maximum number of file system associations to return in the response. If present,
-        /// <code>Limit</code> must be an integer with a value greater than zero. Optional.</para>
+        /// <c>Limit</c> must be an integer with a value greater than zero. Optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>Opaque pagination token returned from a previous <code>ListFileSystemAssociations</code>
-        /// operation. If present, <code>Marker</code> specifies where to continue the list from
-        /// after a previous call to <code>ListFileSystemAssociations</code>. Optional.</para>
+        /// <para>Opaque pagination token returned from a previous <c>ListFileSystemAssociations</c>
+        /// operation. If present, <c>Marker</c> specifies where to continue the list from after
+        /// a previous call to <c>ListFileSystemAssociations</c>. Optional.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

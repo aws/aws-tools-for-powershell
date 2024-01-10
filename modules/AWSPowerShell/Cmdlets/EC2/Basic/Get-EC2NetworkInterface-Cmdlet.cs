@@ -33,9 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// If you have a large number of network interfaces, the operation fails unless you use
-    /// pagination or one of the following filters: <code>group-id</code>, <code>mac-address</code>,
-    /// <code>private-dns-name</code>, <code>private-ip-address</code>, <code>private-dns-name</code>,
-    /// <code>subnet-id</code>, or <code>vpc-id</code>.
+    /// pagination or one of the following filters: <c>group-id</c>, <c>mac-address</c>, <c>private-dns-name</c>,
+    /// <c>private-ip-address</c>, <c>private-dns-name</c>, <c>subnet-id</c>, or <c>vpc-id</c>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2NetworkInterface")]
@@ -53,44 +52,41 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>association.allocation-id</code> - The allocation ID returned when you allocated
-        /// the Elastic IP address (IPv4) for your network interface.</para></li><li><para><code>association.association-id</code> - The association ID returned when the network
-        /// interface was associated with an IPv4 address.</para></li><li><para><code>addresses.association.owner-id</code> - The owner ID of the addresses associated
-        /// with the network interface.</para></li><li><para><code>addresses.association.public-ip</code> - The association ID returned when the
-        /// network interface was associated with the Elastic IP address (IPv4).</para></li><li><para><code>addresses.primary</code> - Whether the private IPv4 address is the primary
-        /// IP address associated with the network interface. </para></li><li><para><code>addresses.private-ip-address</code> - The private IPv4 addresses associated
-        /// with the network interface.</para></li><li><para><code>association.ip-owner-id</code> - The owner of the Elastic IP address (IPv4)
-        /// associated with the network interface.</para></li><li><para><code>association.public-ip</code> - The address of the Elastic IP address (IPv4)
-        /// bound to the network interface.</para></li><li><para><code>association.public-dns-name</code> - The public DNS name for the network interface
-        /// (IPv4).</para></li><li><para><code>attachment.attach-time</code> - The time that the network interface was attached
-        /// to an instance.</para></li><li><para><code>attachment.attachment-id</code> - The ID of the interface attachment.</para></li><li><para><code>attachment.delete-on-termination</code> - Indicates whether the attachment
-        /// is deleted when an instance is terminated.</para></li><li><para><code>attachment.device-index</code> - The device index to which the network interface
-        /// is attached.</para></li><li><para><code>attachment.instance-id</code> - The ID of the instance to which the network
-        /// interface is attached.</para></li><li><para><code>attachment.instance-owner-id</code> - The owner ID of the instance to which
-        /// the network interface is attached.</para></li><li><para><code>attachment.status</code> - The status of the attachment (<code>attaching</code>
-        /// | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</para></li><li><para><code>availability-zone</code> - The Availability Zone of the network interface.</para></li><li><para><code>description</code> - The description of the network interface.</para></li><li><para><code>group-id</code> - The ID of a security group associated with the network interface.</para></li><li><para><code>ipv6-addresses.ipv6-address</code> - An IPv6 address associated with the network
-        /// interface.</para></li><li><para><code>interface-type</code> - The type of network interface (<code>api_gateway_managed</code>
-        /// | <code>aws_codestar_connections_managed</code> | <code>branch</code> | <code>ec2_instance_connect_endpoint</code>
-        /// | <code>efa</code> | <code>efs</code> | <code>gateway_load_balancer</code> | <code>gateway_load_balancer_endpoint</code>
-        /// | <code>global_accelerator_managed</code> | <code>interface</code> | <code>iot_rules_managed</code>
-        /// | <code>lambda</code> | <code>load_balancer</code> | <code>nat_gateway</code> | <code>network_load_balancer</code>
-        /// | <code>quicksight</code> | <code>transit_gateway</code> | <code>trunk</code> | <code>vpc_endpoint</code>).</para></li><li><para><code>mac-address</code> - The MAC address of the network interface.</para></li><li><para><code>network-interface-id</code> - The ID of the network interface.</para></li><li><para><code>owner-id</code> - The Amazon Web Services account ID of the network interface
-        /// owner.</para></li><li><para><code>private-dns-name</code> - The private DNS name of the network interface (IPv4).</para></li><li><para><code>private-ip-address</code> - The private IPv4 address or addresses of the network
-        /// interface.</para></li><li><para><code>requester-id</code> - The alias or Amazon Web Services account ID of the principal
-        /// or service that created the network interface.</para></li><li><para><code>requester-managed</code> - Indicates whether the network interface is being
-        /// managed by an Amazon Web Service (for example, Amazon Web Services Management Console,
-        /// Auto Scaling, and so on).</para></li><li><para><code>source-dest-check</code> - Indicates whether the network interface performs
-        /// source/destination checking. A value of <code>true</code> means checking is enabled,
-        /// and <code>false</code> means checking is disabled. The value must be <code>false</code>
-        /// for the network interface to perform network address translation (NAT) in your VPC.
-        /// </para></li><li><para><code>status</code> - The status of the network interface. If the network interface
-        /// is not attached to an instance, the status is <code>available</code>; if a network
-        /// interface is attached to an instance the status is <code>in-use</code>.</para></li><li><para><code>subnet-id</code> - The ID of the subnet for the network interface.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
-        /// resource. Use the tag key in the filter name and the tag value as the filter value.
-        /// For example, to find all resources that have a tag with the key <code>Owner</code>
-        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>vpc-id</code> - The ID of the VPC for the network interface.</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><c>association.allocation-id</c> - The allocation ID returned when you allocated
+        /// the Elastic IP address (IPv4) for your network interface.</para></li><li><para><c>association.association-id</c> - The association ID returned when the network
+        /// interface was associated with an IPv4 address.</para></li><li><para><c>addresses.association.owner-id</c> - The owner ID of the addresses associated
+        /// with the network interface.</para></li><li><para><c>addresses.association.public-ip</c> - The association ID returned when the network
+        /// interface was associated with the Elastic IP address (IPv4).</para></li><li><para><c>addresses.primary</c> - Whether the private IPv4 address is the primary IP address
+        /// associated with the network interface. </para></li><li><para><c>addresses.private-ip-address</c> - The private IPv4 addresses associated with
+        /// the network interface.</para></li><li><para><c>association.ip-owner-id</c> - The owner of the Elastic IP address (IPv4) associated
+        /// with the network interface.</para></li><li><para><c>association.public-ip</c> - The address of the Elastic IP address (IPv4) bound
+        /// to the network interface.</para></li><li><para><c>association.public-dns-name</c> - The public DNS name for the network interface
+        /// (IPv4).</para></li><li><para><c>attachment.attach-time</c> - The time that the network interface was attached
+        /// to an instance.</para></li><li><para><c>attachment.attachment-id</c> - The ID of the interface attachment.</para></li><li><para><c>attachment.delete-on-termination</c> - Indicates whether the attachment is deleted
+        /// when an instance is terminated.</para></li><li><para><c>attachment.device-index</c> - The device index to which the network interface
+        /// is attached.</para></li><li><para><c>attachment.instance-id</c> - The ID of the instance to which the network interface
+        /// is attached.</para></li><li><para><c>attachment.instance-owner-id</c> - The owner ID of the instance to which the network
+        /// interface is attached.</para></li><li><para><c>attachment.status</c> - The status of the attachment (<c>attaching</c> | <c>attached</c>
+        /// | <c>detaching</c> | <c>detached</c>).</para></li><li><para><c>availability-zone</c> - The Availability Zone of the network interface.</para></li><li><para><c>description</c> - The description of the network interface.</para></li><li><para><c>group-id</c> - The ID of a security group associated with the network interface.</para></li><li><para><c>ipv6-addresses.ipv6-address</c> - An IPv6 address associated with the network
+        /// interface.</para></li><li><para><c>interface-type</c> - The type of network interface (<c>api_gateway_managed</c>
+        /// | <c>aws_codestar_connections_managed</c> | <c>branch</c> | <c>ec2_instance_connect_endpoint</c>
+        /// | <c>efa</c> | <c>efs</c> | <c>gateway_load_balancer</c> | <c>gateway_load_balancer_endpoint</c>
+        /// | <c>global_accelerator_managed</c> | <c>interface</c> | <c>iot_rules_managed</c>
+        /// | <c>lambda</c> | <c>load_balancer</c> | <c>nat_gateway</c> | <c>network_load_balancer</c>
+        /// | <c>quicksight</c> | <c>transit_gateway</c> | <c>trunk</c> | <c>vpc_endpoint</c>).</para></li><li><para><c>mac-address</c> - The MAC address of the network interface.</para></li><li><para><c>network-interface-id</c> - The ID of the network interface.</para></li><li><para><c>owner-id</c> - The Amazon Web Services account ID of the network interface owner.</para></li><li><para><c>private-dns-name</c> - The private DNS name of the network interface (IPv4).</para></li><li><para><c>private-ip-address</c> - The private IPv4 address or addresses of the network
+        /// interface.</para></li><li><para><c>requester-id</c> - The alias or Amazon Web Services account ID of the principal
+        /// or service that created the network interface.</para></li><li><para><c>requester-managed</c> - Indicates whether the network interface is being managed
+        /// by an Amazon Web Service (for example, Amazon Web Services Management Console, Auto
+        /// Scaling, and so on).</para></li><li><para><c>source-dest-check</c> - Indicates whether the network interface performs source/destination
+        /// checking. A value of <c>true</c> means checking is enabled, and <c>false</c> means
+        /// checking is disabled. The value must be <c>false</c> for the network interface to
+        /// perform network address translation (NAT) in your VPC. </para></li><li><para><c>status</c> - The status of the network interface. If the network interface is
+        /// not attached to an instance, the status is <c>available</c>; if a network interface
+        /// is attached to an instance the status is <c>in-use</c>.</para></li><li><para><c>subnet-id</c> - The ID of the subnet for the network interface.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
+        /// Use the tag key in the filter name and the tag value as the filter value. For example,
+        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>vpc-id</c> - The ID of the VPC for the network interface.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

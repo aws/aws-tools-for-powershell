@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     ///  
     /// <para>
     ///  You can only delete a pipeline that has never been used or that is not currently
-    /// in use (doesn't contain any active jobs). If the pipeline is currently in use, <code>DeletePipeline</code>
+    /// in use (doesn't contain any active jobs). If the pipeline is currently in use, <c>DeletePipeline</c>
     /// returns an error. 
     /// </para>
     /// </summary>

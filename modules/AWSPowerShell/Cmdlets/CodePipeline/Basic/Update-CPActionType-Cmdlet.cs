@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// <summary>
     /// Updates an action type that was created with any supported integration model, where
     /// the action type is to be used by customers of the action type provider. Use a JSON
-    /// file with the action definition and <code>UpdateActionType</code> to provide the full
-    /// structure.
+    /// file with the action definition and <c>UpdateActionType</c> to provide the full structure.
     /// </summary>
     [Cmdlet("Update", "CPActionType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -60,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Id_Category
         /// <summary>
         /// <para>
-        /// <para>Defines what kind of action can be taken in the stage, one of the following:</para><ul><li><para><code>Source</code></para></li><li><para><code>Build</code></para></li><li><para><code>Test</code></para></li><li><para><code>Deploy</code></para></li><li><para><code>Approval</code></para></li><li><para><code>Invoke</code></para></li></ul>
+        /// <para>Defines what kind of action can be taken in the stage, one of the following:</para><ul><li><para><c>Source</c></para></li><li><para><c>Build</c></para></li><li><para><c>Test</c></para></li><li><para><c>Deploy</c></para></li><li><para><c>Approval</c></para></li><li><para><c>Invoke</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -151,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <para>
         /// <para>The maximum number of artifacts that can be used with the actiontype. For example,
         /// you should specify a minimum and maximum of zero input artifacts for an action type
-        /// with a category of <code>source</code>.</para>
+        /// with a category of <c>source</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -170,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <para>
         /// <para>The maximum number of artifacts that can be used with the actiontype. For example,
         /// you should specify a minimum and maximum of zero input artifacts for an action type
-        /// with a category of <code>source</code>.</para>
+        /// with a category of <c>source</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -189,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <para>
         /// <para>The minimum number of artifacts that can be used with the action type. For example,
         /// you should specify a minimum and maximum of zero input artifacts for an action type
-        /// with a category of <code>source</code>.</para>
+        /// with a category of <c>source</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -208,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <para>
         /// <para>The minimum number of artifacts that can be used with the action type. For example,
         /// you should specify a minimum and maximum of zero input artifacts for an action type
-        /// with a category of <code>source</code>.</para>
+        /// with a category of <c>source</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -225,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Id_Owner
         /// <summary>
         /// <para>
-        /// <para>The creator of the action type being called: <code>AWS</code> or <code>ThirdParty</code>.</para>
+        /// <para>The creator of the action type being called: <c>AWS</c> or <c>ThirdParty</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -245,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <para>
         /// <para>The policy statement that specifies the permissions in the CodePipeline customer account
         /// that are needed to successfully run an action.</para><para>To grant permission to another account, specify the account ID as the Principal, a
-        /// domain-style identifier defined by the service, for example <code>codepipeline.amazonaws.com</code>.</para><note><para>The size of the passed JSON policy document cannot exceed 2048 characters.</para></note>
+        /// domain-style identifier defined by the service, for example <c>codepipeline.amazonaws.com</c>.</para><note><para>The size of the passed JSON policy document cannot exceed 2048 characters.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -322,8 +321,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Executor_Type
         /// <summary>
         /// <para>
-        /// <para>The integration model used to create and update the action type, <code>Lambda</code>
-        /// or <code>JobWorker</code>. </para>
+        /// <para>The integration model used to create and update the action type, <c>Lambda</c> or
+        /// <c>JobWorker</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

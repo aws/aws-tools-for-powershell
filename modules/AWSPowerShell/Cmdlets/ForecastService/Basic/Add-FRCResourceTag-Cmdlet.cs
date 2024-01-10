@@ -28,7 +28,7 @@ using Amazon.ForecastService.Model;
 namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
-    /// Associates the specified tags to a resource with the specified <code>resourceArn</code>.
+    /// Associates the specified tags to a resource with the specified <c>resourceArn</c>.
     /// If existing tags on a resource are not specified in the request parameters, they are
     /// not changed. When a resource is deleted, the tags associated with that resource are
     /// also deleted.
@@ -72,12 +72,12 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// value.</para></li><li><para>Maximum key length - 128 Unicode characters in UTF-8.</para></li><li><para>Maximum value length - 256 Unicode characters in UTF-8.</para></li><li><para>If your tagging schema is used across multiple services and resources, remember that
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
-        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot
-        /// edit or delete tag keys with this prefix. Values can have this prefix. If a tag value
-        /// has <code>aws</code> as its prefix but the key does not, then Forecast considers it
-        /// to be a user tag and will count against the limit of 50 tags. Tags with only the key
-        /// prefix of <code>aws</code> do not count against your tags per resource limit.</para></li></ul>
+        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use <c>aws:</c>, <c>AWS:</c>, or any upper or lowercase combination of such
+        /// as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit
+        /// or delete tag keys with this prefix. Values can have this prefix. If a tag value has
+        /// <c>aws</c> as its prefix but the key does not, then Forecast considers it to be a
+        /// user tag and will count against the limit of 50 tags. Tags with only the key prefix
+        /// of <c>aws</c> do not count against your tags per resource limit.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

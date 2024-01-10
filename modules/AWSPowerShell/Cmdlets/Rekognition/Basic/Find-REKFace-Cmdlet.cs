@@ -31,11 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// Detects faces within an image that is provided as input.
     /// 
     ///  
-    /// <para><code>DetectFaces</code> detects the 100 largest faces in the image. For each face
-    /// detected, the operation returns face details. These details include a bounding box
-    /// of the face, a confidence value (that the bounding box contains a face), and a fixed
-    /// set of attributes such as facial landmarks (for example, coordinates of eye and mouth),
-    /// pose, presence of facial occlusion, and so on.
+    /// <para><c>DetectFaces</c> detects the 100 largest faces in the image. For each face detected,
+    /// the operation returns face details. These details include a bounding box of the face,
+    /// a confidence value (that the bounding box contains a face), and a fixed set of attributes
+    /// such as facial landmarks (for example, coordinates of eye and mouth), pose, presence
+    /// of facial occlusion, and so on.
     /// </para><para>
     /// The face-detection algorithm is most effective on frontal faces. For non-frontal or
     /// obscured faces, the algorithm might not detect the faces or might detect faces with
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para><note><para>
     /// This is a stateless API operation. That is, the operation does not persist any data.
     /// </para></note><para>
-    /// This operation requires permissions to perform the <code>rekognition:DetectFaces</code>
+    /// This operation requires permissions to perform the <c>rekognition:DetectFaces</c>
     /// action. 
     /// </para>
     /// </summary>
@@ -66,16 +66,15 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>An array of facial attributes you want to be returned. A <code>DEFAULT</code> subset
-        /// of facial attributes - <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>,
-        /// <code>Quality</code>, and <code>Landmarks</code> - will always be returned. You can
-        /// request for specific facial attributes (in addition to the default list) - by using
-        /// [<code>"DEFAULT", "FACE_OCCLUDED"</code>] or just [<code>"FACE_OCCLUDED"</code>].
-        /// You can request for all facial attributes by using [<code>"ALL"]</code>. Requesting
-        /// more attributes may increase response time.</para><para>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical "AND"
-        /// operator to determine which attributes to return (in this case, all attributes). </para><para>Note that while the FaceOccluded and EyeDirection attributes are supported when using
-        /// <code>DetectFaces</code>, they aren't supported when analyzing videos with <code>StartFaceDetection</code>
-        /// and <code>GetFaceDetection</code>.</para>
+        /// <para>An array of facial attributes you want to be returned. A <c>DEFAULT</c> subset of
+        /// facial attributes - <c>BoundingBox</c>, <c>Confidence</c>, <c>Pose</c>, <c>Quality</c>,
+        /// and <c>Landmarks</c> - will always be returned. You can request for specific facial
+        /// attributes (in addition to the default list) - by using [<c>"DEFAULT", "FACE_OCCLUDED"</c>]
+        /// or just [<c>"FACE_OCCLUDED"</c>]. You can request for all facial attributes by using
+        /// [<c>"ALL"]</c>. Requesting more attributes may increase response time.</para><para>If you provide both, <c>["ALL", "DEFAULT"]</c>, the service uses a logical "AND" operator
+        /// to determine which attributes to return (in this case, all attributes). </para><para>Note that while the FaceOccluded and EyeDirection attributes are supported when using
+        /// <c>DetectFaces</c>, they aren't supported when analyzing videos with <c>StartFaceDetection</c>
+        /// and <c>GetFaceDetection</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Blob of image bytes up to 5 MBs. Note that the maximum image size you can pass to
-        /// <code>DetectCustomLabels</code> is 4MB. </para>
+        /// <c>DetectCustomLabels</c> is 4MB. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

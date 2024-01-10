@@ -28,9 +28,9 @@ using Amazon.CloudTrailData.Model;
 namespace Amazon.PowerShell.Cmdlets.CTD
 {
     /// <summary>
-    /// Ingests your application events into CloudTrail Lake. A required parameter, <code>auditEvents</code>,
+    /// Ingests your application events into CloudTrail Lake. A required parameter, <c>auditEvents</c>,
     /// accepts the JSON records (also called <i>payload</i>) of events that you want CloudTrail
-    /// to ingest. You can add up to 100 of these events (or up to 1 MB) per <code>PutAuditEvents</code>
+    /// to ingest. You can add up to 100 of these events (or up to 1 MB) per <c>PutAuditEvents</c>
     /// request.
     /// </summary>
     [Cmdlet("Write", "CTDAuditEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

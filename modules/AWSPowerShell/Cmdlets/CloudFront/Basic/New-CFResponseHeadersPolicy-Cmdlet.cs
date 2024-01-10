@@ -61,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter CorsConfig_AccessControlAllowCredential
         /// <summary>
         /// <para>
-        /// <para>A Boolean that CloudFront uses as the value for the <code>Access-Control-Allow-Credentials</code>
-        /// HTTP response header.</para><para>For more information about the <code>Access-Control-Allow-Credentials</code> HTTP
-        /// response header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials">Access-Control-Allow-Credentials</a>
+        /// <para>A Boolean that CloudFront uses as the value for the <c>Access-Control-Allow-Credentials</c>
+        /// HTTP response header.</para><para>For more information about the <c>Access-Control-Allow-Credentials</c> HTTP response
+        /// header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials">Access-Control-Allow-Credentials</a>
         /// in the MDN Web Docs.</para>
         /// </para>
         /// </summary>
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter CorsConfig_AccessControlMaxAgeSec
         /// <summary>
         /// <para>
-        /// <para>A number that CloudFront uses as the value for the <code>Access-Control-Max-Age</code>
-        /// HTTP response header.</para><para>For more information about the <code>Access-Control-Max-Age</code> HTTP response header,
+        /// <para>A number that CloudFront uses as the value for the <c>Access-Control-Max-Age</c> HTTP
+        /// response header.</para><para>For more information about the <c>Access-Control-Max-Age</c> HTTP response header,
         /// see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age">Access-Control-Max-Age</a>
         /// in the MDN Web Docs.</para>
         /// </para>
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter StrictTransportSecurity_AccessControlMaxAgeSec
         /// <summary>
         /// <para>
-        /// <para>A number that CloudFront uses as the value for the <code>max-age</code> directive
-        /// in the <code>Strict-Transport-Security</code> HTTP response header.</para>
+        /// <para>A number that CloudFront uses as the value for the <c>max-age</c> directive in the
+        /// <c>Strict-Transport-Security</c> HTTP response header.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The policy directives and their values that CloudFront includes as values for the
-        /// <code>Content-Security-Policy</code> HTTP response header.</para>
+        /// <c>Content-Security-Policy</c> HTTP response header.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ServerTimingHeadersConfig_Enabled
         /// <summary>
         /// <para>
-        /// <para>A Boolean that determines whether CloudFront adds the <code>Server-Timing</code> header
+        /// <para>A Boolean that determines whether CloudFront adds the <c>Server-Timing</c> header
         /// to HTTP responses that it sends in response to requests that match a cache behavior
         /// that's associated with this response headers policy.</para>
         /// </para>
@@ -136,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter FrameOptions_FrameOption
         /// <summary>
         /// <para>
-        /// <para>The value of the <code>X-Frame-Options</code> HTTP response header. Valid values are
-        /// <code>DENY</code> and <code>SAMEORIGIN</code>.</para><para>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a>
+        /// <para>The value of the <c>X-Frame-Options</c> HTTP response header. Valid values are <c>DENY</c>
+        /// and <c>SAMEORIGIN</c>.</para><para>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a>
         /// in the MDN Web Docs.</para>
         /// </para>
         /// </summary>
@@ -150,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter StrictTransportSecurity_IncludeSubdomain
         /// <summary>
         /// <para>
-        /// <para>A Boolean that determines whether CloudFront includes the <code>includeSubDomains</code>
-        /// directive in the <code>Strict-Transport-Security</code> HTTP response header.</para>
+        /// <para>A Boolean that determines whether CloudFront includes the <c>includeSubDomains</c>
+        /// directive in the <c>Strict-Transport-Security</c> HTTP response header.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter AccessControlAllowHeaders_Item
         /// <summary>
         /// <para>
-        /// <para>The list of HTTP header names. You can specify <code>*</code> to allow all headers.</para>
+        /// <para>The list of HTTP header names. You can specify <c>*</c> to allow all headers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter AccessControlAllowMethods_Item
         /// <summary>
         /// <para>
-        /// <para>The list of HTTP methods. Valid values are:</para><ul><li><para><code>GET</code></para></li><li><para><code>DELETE</code></para></li><li><para><code>HEAD</code></para></li><li><para><code>OPTIONS</code></para></li><li><para><code>PATCH</code></para></li><li><para><code>POST</code></para></li><li><para><code>PUT</code></para></li><li><para><code>ALL</code></para></li></ul><para><code>ALL</code> is a special value that includes all of the listed HTTP methods.</para>
+        /// <para>The list of HTTP methods. Valid values are:</para><ul><li><para><c>GET</c></para></li><li><para><c>DELETE</c></para></li><li><para><c>HEAD</c></para></li><li><para><c>OPTIONS</c></para></li><li><para><c>PATCH</c></para></li><li><para><c>POST</c></para></li><li><para><c>PUT</c></para></li><li><para><c>ALL</c></para></li></ul><para><c>ALL</c> is a special value that includes all of the listed HTTP methods.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter AccessControlAllowOrigins_Item
         /// <summary>
         /// <para>
-        /// <para>The list of origins (domain names). You can specify <code>*</code> to allow all origins.</para>
+        /// <para>The list of origins (domain names). You can specify <c>*</c> to allow all origins.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter AccessControlExposeHeaders_Item
         /// <summary>
         /// <para>
-        /// <para>The list of HTTP headers. You can specify <code>*</code> to expose all headers.</para>
+        /// <para>The list of HTTP headers. You can specify <c>*</c> to expose all headers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -228,8 +228,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter XSSProtection_ModeBlock
         /// <summary>
         /// <para>
-        /// <para>A Boolean that determines whether CloudFront includes the <code>mode=block</code>
-        /// directive in the <code>X-XSS-Protection</code> header.</para><para>For more information about this directive, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a>
+        /// <para>A Boolean that determines whether CloudFront includes the <c>mode=block</c> directive
+        /// in the <c>X-XSS-Protection</c> header.</para><para>For more information about this directive, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a>
         /// in the MDN Web Docs.</para>
         /// </para>
         /// </summary>
@@ -271,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ContentSecurityPolicy_Override
         /// <summary>
         /// <para>
-        /// <para>A Boolean that determines whether CloudFront overrides the <code>Content-Security-Policy</code>
+        /// <para>A Boolean that determines whether CloudFront overrides the <c>Content-Security-Policy</c>
         /// HTTP response header received from the origin with the one specified in this response
         /// headers policy.</para>
         /// </para>
@@ -284,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ContentTypeOptions_Override
         /// <summary>
         /// <para>
-        /// <para>A Boolean that determines whether CloudFront overrides the <code>X-Content-Type-Options</code>
+        /// <para>A Boolean that determines whether CloudFront overrides the <c>X-Content-Type-Options</c>
         /// HTTP response header received from the origin with the one specified in this response
         /// headers policy.</para>
         /// </para>
@@ -297,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter FrameOptions_Override
         /// <summary>
         /// <para>
-        /// <para>A Boolean that determines whether CloudFront overrides the <code>X-Frame-Options</code>
+        /// <para>A Boolean that determines whether CloudFront overrides the <c>X-Frame-Options</c>
         /// HTTP response header received from the origin with the one specified in this response
         /// headers policy.</para>
         /// </para>
@@ -310,7 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ReferrerPolicy_Override
         /// <summary>
         /// <para>
-        /// <para>A Boolean that determines whether CloudFront overrides the <code>Referrer-Policy</code>
+        /// <para>A Boolean that determines whether CloudFront overrides the <c>Referrer-Policy</c>
         /// HTTP response header received from the origin with the one specified in this response
         /// headers policy.</para>
         /// </para>
@@ -323,7 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter StrictTransportSecurity_Override
         /// <summary>
         /// <para>
-        /// <para>A Boolean that determines whether CloudFront overrides the <code>Strict-Transport-Security</code>
+        /// <para>A Boolean that determines whether CloudFront overrides the <c>Strict-Transport-Security</c>
         /// HTTP response header received from the origin with the one specified in this response
         /// headers policy.</para>
         /// </para>
@@ -336,7 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter XSSProtection_Override
         /// <summary>
         /// <para>
-        /// <para>A Boolean that determines whether CloudFront overrides the <code>X-XSS-Protection</code>
+        /// <para>A Boolean that determines whether CloudFront overrides the <c>X-XSS-Protection</c>
         /// HTTP response header received from the origin with the one specified in this response
         /// headers policy.</para>
         /// </para>
@@ -349,8 +349,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter StrictTransportSecurity_Preload
         /// <summary>
         /// <para>
-        /// <para>A Boolean that determines whether CloudFront includes the <code>preload</code> directive
-        /// in the <code>Strict-Transport-Security</code> HTTP response header.</para>
+        /// <para>A Boolean that determines whether CloudFront includes the <c>preload</c> directive
+        /// in the <c>Strict-Transport-Security</c> HTTP response header.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -361,10 +361,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter XSSProtection_Protection
         /// <summary>
         /// <para>
-        /// <para>A Boolean that determines the value of the <code>X-XSS-Protection</code> HTTP response
-        /// header. When this setting is <code>true</code>, the value of the <code>X-XSS-Protection</code>
-        /// header is <code>1</code>. When this setting is <code>false</code>, the value of the
-        /// <code>X-XSS-Protection</code> header is <code>0</code>.</para><para>For more information about these settings, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a>
+        /// <para>A Boolean that determines the value of the <c>X-XSS-Protection</c> HTTP response header.
+        /// When this setting is <c>true</c>, the value of the <c>X-XSS-Protection</c> header
+        /// is <c>1</c>. When this setting is <c>false</c>, the value of the <c>X-XSS-Protection</c>
+        /// header is <c>0</c>.</para><para>For more information about these settings, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a>
         /// in the MDN Web Docs.</para>
         /// </para>
         /// </summary>
@@ -442,7 +442,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ReferrerPolicy_ReferrerPolicy
         /// <summary>
         /// <para>
-        /// <para>The value of the <code>Referrer-Policy</code> HTTP response header. Valid values are:</para><ul><li><para><code>no-referrer</code></para></li><li><para><code>no-referrer-when-downgrade</code></para></li><li><para><code>origin</code></para></li><li><para><code>origin-when-cross-origin</code></para></li><li><para><code>same-origin</code></para></li><li><para><code>strict-origin</code></para></li><li><para><code>strict-origin-when-cross-origin</code></para></li><li><para><code>unsafe-url</code></para></li></ul><para>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a>
+        /// <para>The value of the <c>Referrer-Policy</c> HTTP response header. Valid values are:</para><ul><li><para><c>no-referrer</c></para></li><li><para><c>no-referrer-when-downgrade</c></para></li><li><para><c>origin</c></para></li><li><para><c>origin-when-cross-origin</c></para></li><li><para><c>same-origin</c></para></li><li><para><c>strict-origin</c></para></li><li><para><c>strict-origin-when-cross-origin</c></para></li><li><para><c>unsafe-url</c></para></li></ul><para>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a>
         /// in the MDN Web Docs.</para>
         /// </para>
         /// </summary>
@@ -455,8 +455,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter XSSProtection_ReportUri
         /// <summary>
         /// <para>
-        /// <para>A reporting URI, which CloudFront uses as the value of the <code>report</code> directive
-        /// in the <code>X-XSS-Protection</code> header.</para><para>You cannot specify a <code>ReportUri</code> when <code>ModeBlock</code> is <code>true</code>.</para><para>For more information about using a reporting URL, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a>
+        /// <para>A reporting URI, which CloudFront uses as the value of the <c>report</c> directive
+        /// in the <c>X-XSS-Protection</c> header.</para><para>You cannot specify a <c>ReportUri</c> when <c>ModeBlock</c> is <c>true</c>.</para><para>For more information about using a reporting URL, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a>
         /// in the MDN Web Docs.</para>
         /// </para>
         /// </summary>
@@ -469,11 +469,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A number 0–100 (inclusive) that specifies the percentage of responses that you want
-        /// CloudFront to add the <code>Server-Timing</code> header to. When you set the sampling
-        /// rate to 100, CloudFront adds the <code>Server-Timing</code> header to the HTTP response
-        /// for every request that matches the cache behavior that this response headers policy
-        /// is attached to. When you set it to 50, CloudFront adds the header to 50% of the responses
-        /// for requests that match the cache behavior. You can set the sampling rate to any number
+        /// CloudFront to add the <c>Server-Timing</c> header to. When you set the sampling rate
+        /// to 100, CloudFront adds the <c>Server-Timing</c> header to the HTTP response for every
+        /// request that matches the cache behavior that this response headers policy is attached
+        /// to. When you set it to 50, CloudFront adds the header to 50% of the responses for
+        /// requests that match the cache behavior. You can set the sampling rate to any number
         /// 0–100 with up to four decimal places.</para>
         /// </para>
         /// </summary>

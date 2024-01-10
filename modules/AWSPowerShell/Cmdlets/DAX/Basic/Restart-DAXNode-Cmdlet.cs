@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     /// Reboots a single node of a DAX cluster. The reboot action takes place as soon as possible.
     /// During the reboot, the node status is set to REBOOTING.
     /// 
-    ///  <note><para><code>RebootNode</code> restarts the DAX engine process and does not remove the contents
+    ///  <note><para><c>RebootNode</c> restarts the DAX engine process and does not remove the contents
     /// of the cache. 
     /// </para></note>
     /// </summary>

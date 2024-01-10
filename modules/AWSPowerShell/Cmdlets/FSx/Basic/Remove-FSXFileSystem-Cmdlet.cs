@@ -34,36 +34,34 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     ///  
     /// <para>
     /// To delete an Amazon FSx for NetApp ONTAP file system, first delete all the volumes
-    /// and storage virtual machines (SVMs) on the file system. Then provide a <code>FileSystemId</code>
-    /// value to the <code>DeleFileSystem</code> operation.
+    /// and storage virtual machines (SVMs) on the file system. Then provide a <c>FileSystemId</c>
+    /// value to the <c>DeleFileSystem</c> operation.
     /// </para><para>
     /// By default, when you delete an Amazon FSx for Windows File Server file system, a final
     /// backup is created upon deletion. This final backup isn't subject to the file system's
     /// retention policy, and must be manually deleted.
     /// </para><para>
     /// To delete an Amazon FSx for Lustre file system, first <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/unmounting-fs.html">unmount</a>
-    /// it from every connected Amazon EC2 instance, then provide a <code>FileSystemId</code>
-    /// value to the <code>DeleFileSystem</code> operation. By default, Amazon FSx will not
-    /// take a final backup when the <code>DeleteFileSystem</code> operation is invoked. On
-    /// file systems not linked to an Amazon S3 bucket, set <code>SkipFinalBackup</code> to
-    /// <code>false</code> to take a final backup of the file system you are deleting. Backups
-    /// cannot be enabled on S3-linked file systems. To ensure all of your data is written
-    /// back to S3 before deleting your file system, you can either monitor for the <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/monitoring-cloudwatch.html#auto-import-export-metrics">AgeOfOldestQueuedMessage</a>
+    /// it from every connected Amazon EC2 instance, then provide a <c>FileSystemId</c> value
+    /// to the <c>DeleFileSystem</c> operation. By default, Amazon FSx will not take a final
+    /// backup when the <c>DeleteFileSystem</c> operation is invoked. On file systems not
+    /// linked to an Amazon S3 bucket, set <c>SkipFinalBackup</c> to <c>false</c> to take
+    /// a final backup of the file system you are deleting. Backups cannot be enabled on S3-linked
+    /// file systems. To ensure all of your data is written back to S3 before deleting your
+    /// file system, you can either monitor for the <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/monitoring-cloudwatch.html#auto-import-export-metrics">AgeOfOldestQueuedMessage</a>
     /// metric to be zero (if using automatic export) or you can run an <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/export-data-repo-task-dra.html">export
     /// data repository task</a>. If you have automatic export enabled and want to use an
     /// export data repository task, you have to disable automatic export before executing
     /// the export data repository task.
     /// </para><para>
-    /// The <code>DeleteFileSystem</code> operation returns while the file system has the
-    /// <code>DELETING</code> status. You can check the file system deletion status by calling
-    /// the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html">DescribeFileSystems</a>
+    /// The <c>DeleteFileSystem</c> operation returns while the file system has the <c>DELETING</c>
+    /// status. You can check the file system deletion status by calling the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html">DescribeFileSystems</a>
     /// operation, which returns a list of file systems in your account. If you pass the file
-    /// system ID for a deleted file system, the <code>DescribeFileSystems</code> operation
-    /// returns a <code>FileSystemNotFound</code> error.
+    /// system ID for a deleted file system, the <c>DescribeFileSystems</c> operation returns
+    /// a <c>FileSystemNotFound</c> error.
     /// </para><note><para>
-    /// If a data repository task is in a <code>PENDING</code> or <code>EXECUTING</code> state,
-    /// deleting an Amazon FSx for Lustre file system will fail with an HTTP status code 400
-    /// (Bad Request).
+    /// If a data repository task is in a <c>PENDING</c> or <c>EXECUTING</c> state, deleting
+    /// an Amazon FSx for Lustre file system will fail with an HTTP status code 400 (Bad Request).
     /// </para></note><important><para>
     /// The data in a deleted file system is also deleted and can't be recovered by any means.
     /// </para></important>
@@ -111,11 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter LustreConfiguration_FinalBackupTag
         /// <summary>
         /// <para>
-        /// <para>Use if <code>SkipFinalBackup</code> is set to <code>false</code>, and you want to
-        /// apply an array of tags to the final backup. If you have set the file system property
-        /// <code>CopyTagsToBackups</code> to true, and you specify one or more <code>FinalBackupTags</code>
-        /// when deleting a file system, Amazon FSx will not copy any existing file system tags
-        /// to the backup.</para>
+        /// <para>Use if <c>SkipFinalBackup</c> is set to <c>false</c>, and you want to apply an array
+        /// of tags to the final backup. If you have set the file system property <c>CopyTagsToBackups</c>
+        /// to true, and you specify one or more <c>FinalBackupTags</c> when deleting a file system,
+        /// Amazon FSx will not copy any existing file system tags to the backup.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>To delete a file system if there are child volumes present below the root volume,
-        /// use the string <code>DELETE_CHILD_VOLUMES_AND_SNAPSHOTS</code>. If your file system
-        /// has child volumes and you don't use this option, the delete request will fail.</para>
+        /// use the string <c>DELETE_CHILD_VOLUMES_AND_SNAPSHOTS</c>. If your file system has
+        /// child volumes and you don't use this option, the delete request will fail.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,11 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter LustreConfiguration_SkipFinalBackup
         /// <summary>
         /// <para>
-        /// <para>Set <code>SkipFinalBackup</code> to false if you want to take a final backup of the
-        /// file system you are deleting. By default, Amazon FSx will not take a final backup
-        /// on your behalf when the <code>DeleteFileSystem</code> operation is invoked. (Default
-        /// = true)</para><note><para>The <code>fsx:CreateBackup</code> permission is required if you set <code>SkipFinalBackup</code>
-        /// to <code>false</code> in order to delete the file system and take a final backup.</para></note>
+        /// <para>Set <c>SkipFinalBackup</c> to false if you want to take a final backup of the file
+        /// system you are deleting. By default, Amazon FSx will not take a final backup on your
+        /// behalf when the <c>DeleteFileSystem</c> operation is invoked. (Default = true)</para><note><para>The <c>fsx:CreateBackup</c> permission is required if you set <c>SkipFinalBackup</c>
+        /// to <c>false</c> in order to delete the file system and take a final backup.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,10 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_SkipFinalBackup
         /// <summary>
         /// <para>
-        /// <para>By default, Amazon FSx for OpenZFS takes a final backup on your behalf when the <code>DeleteFileSystem</code>
+        /// <para>By default, Amazon FSx for OpenZFS takes a final backup on your behalf when the <c>DeleteFileSystem</c>
         /// operation is invoked. Doing this helps protect you from data loss, and we highly recommend
         /// taking the final backup. If you want to skip taking a final backup, set this value
-        /// to <code>true</code>.</para>
+        /// to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter WindowsConfiguration_SkipFinalBackup
         /// <summary>
         /// <para>
-        /// <para>By default, Amazon FSx for Windows takes a final backup on your behalf when the <code>DeleteFileSystem</code>
+        /// <para>By default, Amazon FSx for Windows takes a final backup on your behalf when the <c>DeleteFileSystem</c>
         /// operation is invoked. Doing this helps protect you from data loss, and we highly recommend
         /// taking the final backup. If you want to skip this backup, use this flag to do so.</para>
         /// </para>

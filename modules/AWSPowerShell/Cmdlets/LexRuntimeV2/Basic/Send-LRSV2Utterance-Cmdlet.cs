@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         #region Parameter InputStream
         /// <summary>
         /// <para>
-        /// <para>User input in PCM or Opus audio format or text format as described in the <code>requestContentType</code>
+        /// <para>User input in PCM or Opus audio format or text format as described in the <c>requestContentType</c>
         /// parameter.</para>
         /// </para>
         /// <para>The cmdlet accepts a parameter of type string, string[], System.IO.FileInfo or System.IO.Stream.</para>
@@ -154,9 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         /// <summary>
         /// <para>
         /// <para>Request-specific information passed between the client application and Amazon Lex
-        /// V2 </para><para>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create
-        /// any request attributes for prefix <code>x-amz-lex:</code>.</para><para>The <code>requestAttributes</code> field must be compressed using gzip and then base64
-        /// encoded before sending to Amazon Lex V2.</para>
+        /// V2 </para><para>The namespace <c>x-amz-lex:</c> is reserved for special attributes. Don't create any
+        /// request attributes for prefix <c>x-amz-lex:</c>.</para><para>The <c>requestAttributes</c> field must be compressed using gzip and then base64 encoded
+        /// before sending to Amazon Lex V2.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,13 +186,12 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         /// <summary>
         /// <para>
         /// <para>The message that Amazon Lex V2 returns in the response can be either text or speech
-        /// based on the <code>responseContentType</code> value.</para><ul><li><para>If the value is <code>text/plain;charset=utf-8</code>, Amazon Lex V2 returns text
-        /// in the response.</para></li><li><para>If the value begins with <code>audio/</code>, Amazon Lex V2 returns speech in the
-        /// response. Amazon Lex V2 uses Amazon Polly to generate the speech using the configuration
-        /// that you specified in the <code>responseContentType</code> parameter. For example,
-        /// if you specify <code>audio/mpeg</code> as the value, Amazon Lex V2 returns speech
-        /// in the MPEG format.</para></li><li><para>If the value is <code>audio/pcm</code>, the speech returned is <code>audio/pcm</code>
-        /// at 16 KHz in 16-bit, little-endian format.</para></li><li><para>The following are the accepted values:</para><ul><li><para>audio/mpeg</para></li><li><para>audio/ogg</para></li><li><para>audio/pcm (16 KHz)</para></li><li><para>audio/* (defaults to mpeg)</para></li><li><para>text/plain; charset=utf-8</para></li></ul></li></ul>
+        /// based on the <c>responseContentType</c> value.</para><ul><li><para>If the value is <c>text/plain;charset=utf-8</c>, Amazon Lex V2 returns text in the
+        /// response.</para></li><li><para>If the value begins with <c>audio/</c>, Amazon Lex V2 returns speech in the response.
+        /// Amazon Lex V2 uses Amazon Polly to generate the speech using the configuration that
+        /// you specified in the <c>responseContentType</c> parameter. For example, if you specify
+        /// <c>audio/mpeg</c> as the value, Amazon Lex V2 returns speech in the MPEG format.</para></li><li><para>If the value is <c>audio/pcm</c>, the speech returned is <c>audio/pcm</c> at 16 KHz
+        /// in 16-bit, little-endian format.</para></li><li><para>The following are the accepted values:</para><ul><li><para>audio/mpeg</para></li><li><para>audio/ogg</para></li><li><para>audio/pcm (16 KHz)</para></li><li><para>audio/* (defaults to mpeg)</para></li><li><para>text/plain; charset=utf-8</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,8 +220,8 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         /// <para>
         /// <para>Sets the state of the session with the user. You can use this to set the current intent,
         /// attributes, context, and dialog action. Use the dialog action to determine the next
-        /// step that Amazon Lex V2 should use in the conversation with the user.</para><para>The <code>sessionState</code> field must be compressed using gzip and then base64
-        /// encoded before sending to Amazon Lex V2.</para>
+        /// step that Amazon Lex V2 should use in the conversation with the user.</para><para>The <c>sessionState</c> field must be compressed using gzip and then base64 encoded
+        /// before sending to Amazon Lex V2.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

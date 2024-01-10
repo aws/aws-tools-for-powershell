@@ -42,21 +42,21 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// passing image bytes is not supported. The image must be either a PNG or JPEG formatted
     /// file. 
     /// </para><para><b>Optional Parameters</b></para><para>
-    /// You can specify one or both of the <code>GENERAL_LABELS</code> and <code>IMAGE_PROPERTIES</code>
-    /// feature types when calling the DetectLabels API. Including <code>GENERAL_LABELS</code>
-    /// will ensure the response includes the labels detected in the input image, while including
-    /// <code>IMAGE_PROPERTIES </code>will ensure the response includes information about
-    /// the image quality and color.
+    /// You can specify one or both of the <c>GENERAL_LABELS</c> and <c>IMAGE_PROPERTIES</c>
+    /// feature types when calling the DetectLabels API. Including <c>GENERAL_LABELS</c> will
+    /// ensure the response includes the labels detected in the input image, while including
+    /// <c>IMAGE_PROPERTIES </c>will ensure the response includes information about the image
+    /// quality and color.
     /// </para><para>
-    /// When using <code>GENERAL_LABELS</code> and/or <code>IMAGE_PROPERTIES</code> you can
-    /// provide filtering criteria to the Settings parameter. You can filter with sets of
-    /// individual labels or with label categories. You can specify inclusive filters, exclusive
-    /// filters, or a combination of inclusive and exclusive filters. For more information
-    /// on filtering see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html">Detecting
+    /// When using <c>GENERAL_LABELS</c> and/or <c>IMAGE_PROPERTIES</c> you can provide filtering
+    /// criteria to the Settings parameter. You can filter with sets of individual labels
+    /// or with label categories. You can specify inclusive filters, exclusive filters, or
+    /// a combination of inclusive and exclusive filters. For more information on filtering
+    /// see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html">Detecting
     /// Labels in an Image</a>.
     /// </para><para>
-    /// When getting labels, you can specify <code>MinConfidence</code> to control the confidence
-    /// threshold for the labels returned. The default is 55%. You can also add the <code>MaxLabels</code>
+    /// When getting labels, you can specify <c>MinConfidence</c> to control the confidence
+    /// threshold for the labels returned. The default is 55%. You can also add the <c>MaxLabels</c>
     /// parameter to limit the number of labels returned. The default and upper limit is 1000
     /// labels. These arguments are only valid when supplying GENERAL_LABELS as a feature
     /// type.
@@ -104,11 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// along with information about that label. In the following example, suppose the input
     /// image has a lighthouse, the sea, and a rock. The response includes all three labels,
     /// one for each object, as well as the confidence in the label:
-    /// </para><para><code>{Name: lighthouse, Confidence: 98.4629}</code></para><para><code>{Name: rock,Confidence: 79.2097}</code></para><para><code> {Name: sea,Confidence: 75.061}</code></para><para>
+    /// </para><para><c>{Name: lighthouse, Confidence: 98.4629}</c></para><para><c>{Name: rock,Confidence: 79.2097}</c></para><para><c> {Name: sea,Confidence: 75.061}</c></para><para>
     /// The list of labels can include multiple labels for the same object. For example, if
     /// the input image shows a flower (for example, a tulip), the operation might return
     /// the following three labels. 
-    /// </para><para><code>{Name: flower,Confidence: 99.0562}</code></para><para><code>{Name: plant,Confidence: 99.0562}</code></para><para><code>{Name: tulip,Confidence: 99.0562}</code></para><para>
+    /// </para><para><c>{Name: flower,Confidence: 99.0562}</c></para><para><c>{Name: plant,Confidence: 99.0562}</c></para><para><c>{Name: tulip,Confidence: 99.0562}</c></para><para>
     /// In this example, the detection algorithm more precisely identifies the flower as a
     /// tulip.
     /// </para><note><para>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para></note><para>
     /// This is a stateless API operation that doesn't return any data.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:DetectLabels</code>
+    /// This operation requires permissions to perform the <c>rekognition:DetectLabels</c>
     /// action. 
     /// </para>
     /// </summary>
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Blob of image bytes up to 5 MBs. Note that the maximum image size you can pass to
-        /// <code>DetectCustomLabels</code> is 4MB. </para>
+        /// <c>DetectCustomLabels</c> is 4MB. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -241,9 +241,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Specifies the minimum confidence level for the labels to return. Amazon Rekognition
-        /// doesn't return any labels with confidence lower than this specified value.</para><para>If <code>MinConfidence</code> is not specified, the operation returns labels with
-        /// a confidence values greater than or equal to 55 percent. Only valid when GENERAL_LABELS
-        /// is specified as a feature type in the Feature input parameter.</para>
+        /// doesn't return any labels with confidence lower than this specified value.</para><para>If <c>MinConfidence</c> is not specified, the operation returns labels with a confidence
+        /// values greater than or equal to 55 percent. Only valid when GENERAL_LABELS is specified
+        /// as a feature type in the Feature input parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

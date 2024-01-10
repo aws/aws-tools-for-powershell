@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         /// <summary>
         /// <para>
         /// <para>The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid
-        /// values are either <code>30</code> or <code>60</code>. </para>
+        /// values are either <c>30</c> or <c>60</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

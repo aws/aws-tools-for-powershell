@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// in the destination account to assign an IAM policy to the destination. This policy
     /// allows delivery to that destination. 
     /// </para></li><li><para>
-    /// Use <code>CreateDelivery</code> to create a <i>delivery</i> by pairing exactly one
-    /// delivery source and one delivery destination. 
+    /// Use <c>CreateDelivery</c> to create a <i>delivery</i> by pairing exactly one delivery
+    /// source and one delivery destination. 
     /// </para></li></ul><para>
     /// You can configure a single delivery source to send logs to multiple destinations by
     /// creating multiple deliveries. You can also create multiple deliveries to configure

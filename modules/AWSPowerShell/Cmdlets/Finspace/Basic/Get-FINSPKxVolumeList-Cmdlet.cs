@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter VolumeType
         /// <summary>
         /// <para>
-        /// <para> The type of file system volume. Currently, FinSpace only supports <code>NAS_1</code>
-        /// volume type. </para>
+        /// <para> The type of file system volume. Currently, FinSpace only supports <c>NAS_1</c> volume
+        /// type. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

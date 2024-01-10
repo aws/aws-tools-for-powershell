@@ -33,14 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// 
     ///  
     /// <para>
-    /// When you use the <code>BatchPutDocument</code> API, documents are indexed asynchronously.
-    /// You can use the <code>BatchGetDocumentStatus</code> API to get the current status
-    /// of a list of documents so that you can determine if they have been successfully indexed.
+    /// When you use the <c>BatchPutDocument</c> API, documents are indexed asynchronously.
+    /// You can use the <c>BatchGetDocumentStatus</c> API to get the current status of a list
+    /// of documents so that you can determine if they have been successfully indexed.
     /// </para><para>
-    /// You can also use the <code>BatchGetDocumentStatus</code> API to check the status of
-    /// the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html">
+    /// You can also use the <c>BatchGetDocumentStatus</c> API to check the status of the
+    /// <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html">
     /// BatchDeleteDocument</a> API. When a document is deleted from the index, Amazon Kendra
-    /// returns <code>NOT_FOUND</code> as the status.
+    /// returns <c>NOT_FOUND</c> as the status.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "KNDRGetDocumentStatus")]
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter DocumentInfoList
         /// <summary>
         /// <para>
-        /// <para>A list of <code>DocumentInfo</code> objects that identify the documents for which
-        /// to get the status. You identify the documents by their document ID and optional attributes.</para>
+        /// <para>A list of <c>DocumentInfo</c> objects that identify the documents for which to get
+        /// the status. You identify the documents by their document ID and optional attributes.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

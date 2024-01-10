@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The identifier that Amazon Comprehend generated for the job. The <code>StartKeyPhrasesDetectionJob</code>
+        /// <para>The identifier that Amazon Comprehend generated for the job. The <c>StartKeyPhrasesDetectionJob</c>
         /// operation returns this identifier in its response.</para>
         /// </para>
         /// </summary>

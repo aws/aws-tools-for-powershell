@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter Grant_RefreshToken
         /// <summary>
         /// <para>
-        /// <para>Configuration options for the <code>refresh_token</code> grant type.</para>
+        /// <para>Configuration options for the <c>refresh_token</c> grant type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter Grant_TokenExchange
         /// <summary>
         /// <para>
-        /// <para>Configuration options for the <code>urn:ietf:params:oauth:grant-type:token-exchange</code>
+        /// <para>Configuration options for the <c>urn:ietf:params:oauth:grant-type:token-exchange</c>
         /// grant type.</para>
         /// </para>
         /// </summary>

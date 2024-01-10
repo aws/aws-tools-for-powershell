@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         /// <summary>
         /// <para>
         /// <para>The unique identifier (ID) for the <a>Protection</a> object to describe. You must
-        /// provide either the <code>ResourceArn</code> of the protected resource or the <code>ProtectionID</code>
+        /// provide either the <c>ResourceArn</c> of the protected resource or the <c>ProtectionID</c>
         /// of the protection, but not both.</para>
         /// </para>
         /// </summary>
@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         /// <summary>
         /// <para>
         /// <para>The ARN (Amazon Resource Name) of the protected Amazon Web Services resource. You
-        /// must provide either the <code>ResourceArn</code> of the protected resource or the
-        /// <code>ProtectionID</code> of the protection, but not both.</para>
+        /// must provide either the <c>ResourceArn</c> of the protected resource or the <c>ProtectionID</c>
+        /// of the protection, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

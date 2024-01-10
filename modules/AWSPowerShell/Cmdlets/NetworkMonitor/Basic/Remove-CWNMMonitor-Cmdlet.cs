@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         #region Parameter MonitorName
         /// <summary>
         /// <para>
-        /// <para>The name of the monitor to delete. Use the <code>ListMonitors</code> action to get
-        /// a list of your current monitors. </para>
+        /// <para>The name of the monitor to delete. Use the <c>ListMonitors</c> action to get a list
+        /// of your current monitors. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

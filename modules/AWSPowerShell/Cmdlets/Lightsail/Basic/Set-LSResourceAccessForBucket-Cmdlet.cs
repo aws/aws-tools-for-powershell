@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Access
         /// <summary>
         /// <para>
-        /// <para>The access setting.</para><para>The following access settings are available:</para><ul><li><para><code>allow</code> - Allows access to the bucket and its objects.</para></li><li><para><code>deny</code> - Denies access to the bucket and its objects. Use this setting
-        /// to remove access for a resource previously set to <code>allow</code>.</para></li></ul>
+        /// <para>The access setting.</para><para>The following access settings are available:</para><ul><li><para><c>allow</c> - Allows access to the bucket and its objects.</para></li><li><para><c>deny</c> - Denies access to the bucket and its objects. Use this setting to remove
+        /// access for a resource previously set to <c>allow</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

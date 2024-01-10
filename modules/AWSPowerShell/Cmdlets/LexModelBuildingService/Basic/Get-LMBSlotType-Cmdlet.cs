@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions for the <code>lex:GetSlotType</code> action.
+    /// This operation requires permissions for the <c>lex:GetSlotType</c> action.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "LMBSlotType")]

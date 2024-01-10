@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.PLS
     /// the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a>
     /// (Section 1.10).</b></i><para>
     /// This returns the URL that you can retrieve your Price List file from. This URL is
-    /// based on the <code>PriceListArn</code> and <code>FileFormat</code> that you retrieve
-    /// from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">ListPriceLists</a>
+    /// based on the <c>PriceListArn</c> and <c>FileFormat</c> that you retrieve from the
+    /// <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">ListPriceLists</a>
     /// response. 
     /// </para>
     /// </summary>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         #region Parameter FileFormat
         /// <summary>
         /// <para>
-        /// <para>The format that you want to retrieve your Price List files in. The <code>FileFormat</code>
+        /// <para>The format that you want to retrieve your Price List files in. The <c>FileFormat</c>
         /// can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">ListPriceLists</a>
         /// response. </para>
         /// </para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         #region Parameter PriceListArn
         /// <summary>
         /// <para>
-        /// <para>The unique identifier that maps to where your Price List files are located. <code>PriceListArn</code>
+        /// <para>The unique identifier that maps to where your Price List files are located. <c>PriceListArn</c>
         /// can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">ListPriceLists</a>
         /// response. </para>
         /// </para>

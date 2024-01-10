@@ -28,23 +28,22 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Updates the specified portfolio share. You can use this API to enable or disable <code>TagOptions</code>
+    /// Updates the specified portfolio share. You can use this API to enable or disable <c>TagOptions</c>
     /// sharing or Principal sharing for an existing portfolio share. 
     /// 
     ///  
     /// <para>
-    /// The portfolio share cannot be updated if the <code>CreatePortfolioShare</code> operation
-    /// is <code>IN_PROGRESS</code>, as the share is not available to recipient entities.
-    /// In this case, you must wait for the portfolio share to be completed.
+    /// The portfolio share cannot be updated if the <c>CreatePortfolioShare</c> operation
+    /// is <c>IN_PROGRESS</c>, as the share is not available to recipient entities. In this
+    /// case, you must wait for the portfolio share to be completed.
     /// </para><para>
-    /// You must provide the <code>accountId</code> or organization node in the input, but
-    /// not both.
+    /// You must provide the <c>accountId</c> or organization node in the input, but not both.
     /// </para><para>
     /// If the portfolio is shared to both an external account and an organization node, and
-    /// both shares need to be updated, you must invoke <code>UpdatePortfolioShare</code>
-    /// separately for each share type. 
+    /// both shares need to be updated, you must invoke <c>UpdatePortfolioShare</c> separately
+    /// for each share type. 
     /// </para><para>
-    /// This API cannot be used for removing the portfolio share. You must use <code>DeletePortfolioShare</code>
+    /// This API cannot be used for removing the portfolio share. You must use <c>DeletePortfolioShare</c>
     /// API for that action. 
     /// </para><note><para>
     /// When you associate a principal with portfolio, a potential privilege escalation path
@@ -54,9 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// a principal name association for the portfolio. Although this user may not know which
     /// principal names are associated through Service Catalog, they may be able to guess
     /// the user. If this potential escalation path is a concern, then Service Catalog recommends
-    /// using <code>PrincipalType</code> as <code>IAM</code>. With this configuration, the
-    /// <code>PrincipalARN</code> must already exist in the recipient account before it can
-    /// be associated. 
+    /// using <c>PrincipalType</c> as <c>IAM</c>. With this configuration, the <c>PrincipalARN</c>
+    /// must already exist in the recipient account before it can be associated. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "SCPortfolioShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><c>jp</c> - Japanese</para></li><li><para><c>zh</c> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,9 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter SharePrincipal
         /// <summary>
         /// <para>
-        /// <para>A flag to enables or disables <code>Principals</code> sharing in the portfolio. If
-        /// this field is not provided, the current state of the <code>Principals</code> sharing
-        /// on the portfolio share will not be modified. </para>
+        /// <para>A flag to enables or disables <c>Principals</c> sharing in the portfolio. If this
+        /// field is not provided, the current state of the <c>Principals</c> sharing on the portfolio
+        /// share will not be modified. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,9 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ShareTagOption
         /// <summary>
         /// <para>
-        /// <para>Enables or disables <code>TagOptions</code> sharing for the portfolio share. If this
-        /// field is not provided, the current state of TagOptions sharing on the portfolio share
-        /// will not be modified.</para>
+        /// <para>Enables or disables <c>TagOptions</c> sharing for the portfolio share. If this field
+        /// is not provided, the current state of TagOptions sharing on the portfolio share will
+        /// not be modified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

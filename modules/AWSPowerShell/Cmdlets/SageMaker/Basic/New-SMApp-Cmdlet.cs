@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ResourceSpec_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <code>system</code> value.</para><para>For <b>KernelGateway apps</b>, the <code>system</code> value is translated to <code>ml.t3.medium</code>.
+        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <c>system</c> value.</para><para>For <b>KernelGateway apps</b>, the <c>system</c> value is translated to <c>ml.t3.medium</c>.
         /// KernelGateway apps also support all other values for available instance types.</para></note>
         /// </para>
         /// </summary>
@@ -151,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SpaceName
         /// <summary>
         /// <para>
-        /// <para>The name of the space. If this value is not set, then <code>UserProfileName</code>
-        /// must be set.</para>
+        /// <para>The name of the space. If this value is not set, then <c>UserProfileName</c> must
+        /// be set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,8 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter UserProfileName
         /// <summary>
         /// <para>
-        /// <para>The user profile name. If this value is not set, then <code>SpaceName</code> must
-        /// be set.</para>
+        /// <para>The user profile name. If this value is not set, then <c>SpaceName</c> must be set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter EncryptionMode
         /// <summary>
         /// <para>
-        /// <para>The encryption mode for the job, which can be one of the following:</para><ul><li><para><code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</para></li><li><para><code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</para></li></ul>
+        /// <para>The encryption mode for the job, which can be one of the following:</para><ul><li><para><c>SSE-KMS</c> - Server-side encryption with keys managed by KMS.</para></li><li><para><c>SSE-S3</c> - Server-side encryption with keys managed by Amazon S3.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <summary>
         /// <para>
         /// <para>The job's timeout in minutes. A job that attempts to run longer than this timeout
-        /// period ends with a status of <code>TIMEOUT</code>.</para>
+        /// period ends with a status of <c>TIMEOUT</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Returns the <a>GeoMatchSet</a> that is specified by <code>GeoMatchSetId</code>.
+    /// Returns the <a>GeoMatchSet</a> that is specified by <c>GeoMatchSetId</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "WAFRGeoMatchSet")]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter GeoMatchSetId
         /// <summary>
         /// <para>
-        /// <para>The <code>GeoMatchSetId</code> of the <a>GeoMatchSet</a> that you want to get. <code>GeoMatchSetId</code>
+        /// <para>The <c>GeoMatchSetId</c> of the <a>GeoMatchSet</a> that you want to get. <c>GeoMatchSetId</c>
         /// is returned by <a>CreateGeoMatchSet</a> and by <a>ListGeoMatchSets</a>.</para>
         /// </para>
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// it returns the description for all the stacks created.
     /// 
     ///  <note><para>
-    /// If the stack doesn't exist, a <code>ValidationError</code> is returned.
+    /// If the stack doesn't exist, a <c>ValidationError</c> is returned.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNStack")]
@@ -50,9 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <note><para>If you don't pass a parameter to <code>StackName</code>, the API returns a response
-        /// that describes all resources in the account, which can impact performance. This requires
-        /// <code>ListStacks</code> and <code>DescribeStacks</code> permissions.</para><para>Consider using the <a>ListStacks</a> API if you're not passing a parameter to <code>StackName</code>.</para><para>The IAM policy below can be added to IAM policies when you want to limit resource-level
+        /// <note><para>If you don't pass a parameter to <c>StackName</c>, the API returns a response that
+        /// describes all resources in the account, which can impact performance. This requires
+        /// <c>ListStacks</c> and <c>DescribeStacks</c> permissions.</para><para>Consider using the <a>ListStacks</a> API if you're not passing a parameter to <c>StackName</c>.</para><para>The IAM policy below can be added to IAM policies when you want to limit resource-level
         /// permissions and avoid returning a response when no parameter is sent in the request:</para><para>{ "Version": "2012-10-17", "Statement": [{ "Effect": "Deny", "Action": "cloudformation:DescribeStacks",
         /// "NotResource": "arn:aws:cloudformation:*:*:stack/*/*" }] }</para></note><para>The name or the unique stack ID that's associated with the stack, which aren't always
         /// interchangeable:</para><ul><li><para>Running stacks: You can specify either the stack's name or its unique stack ID.</para></li><li><para>Deleted stacks: You must specify the unique stack ID.</para></li></ul><para>Default: There is no default value.</para>

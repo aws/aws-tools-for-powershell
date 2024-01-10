@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The <code>KeyARN</code> of the key whose tags are being updated.</para>
+        /// <para>The <c>KeyARN</c> of the key whose tags are being updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

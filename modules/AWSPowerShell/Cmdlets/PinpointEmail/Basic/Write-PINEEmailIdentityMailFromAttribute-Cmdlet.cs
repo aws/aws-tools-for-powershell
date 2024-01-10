@@ -46,11 +46,11 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         /// <summary>
         /// <para>
         /// <para>The action that you want Amazon Pinpoint to take if it can't read the required MX
-        /// record when you send an email. When you set this value to <code>UseDefaultValue</code>,
+        /// record when you send an email. When you set this value to <c>UseDefaultValue</c>,
         /// Amazon Pinpoint uses <i>amazonses.com</i> as the MAIL FROM domain. When you set this
-        /// value to <code>RejectMessage</code>, Amazon Pinpoint returns a <code>MailFromDomainNotVerified</code>
+        /// value to <c>RejectMessage</c>, Amazon Pinpoint returns a <c>MailFromDomainNotVerified</c>
         /// error, and doesn't attempt to deliver the email.</para><para>These behaviors are taken when the custom MAIL FROM domain configuration is in the
-        /// <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code> states.</para>
+        /// <c>Pending</c>, <c>Failed</c>, and <c>TemporaryFailure</c> states.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

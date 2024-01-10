@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Whether to encrypt all communications between the instances used for the monitoring
-        /// jobs. Choose <code>True</code> to encrypt communications. Encryption provides greater
-        /// security for distributed jobs, but the processing might take longer.</para>
+        /// jobs. Choose <c>True</c> to encrypt communications. Encryption provides greater security
+        /// for distributed jobs, but the processing might take longer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,8 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter EndpointInput_EndpointName
         /// <summary>
         /// <para>
-        /// <para>An endpoint in customer's account which has enabled <code>DataCaptureConfig</code>
-        /// enabled.</para>
+        /// <para>An endpoint in customer's account which has enabled <c>DataCaptureConfig</c> enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -348,9 +347,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum runtime allowed in seconds.</para><note><para>The <code>MaxRuntimeInSeconds</code> cannot exceed the frequency of the job. For data
-        /// quality and model explainability, this can be up to 3600 seconds for an hourly schedule.
-        /// For model bias and model quality hourly schedules, this can be up to 1800 seconds.</para></note>
+        /// <para>The maximum runtime allowed in seconds.</para><note><para>The <c>MaxRuntimeInSeconds</c> cannot exceed the frequency of the job. For data quality
+        /// and model explainability, this can be up to 3600 seconds for an hourly schedule. For
+        /// model bias and model quality hourly schedules, this can be up to 1800 seconds.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -454,7 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3
-        /// key. Defaults to <code>FullyReplicated</code></para>
+        /// key. Defaults to <c>FullyReplicated</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -467,7 +466,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Whether input data distributed in Amazon S3 is fully replicated or sharded by an Amazon
-        /// S3 key. Defaults to <code>FullyReplicated</code></para>
+        /// S3 key. Defaults to <c>FullyReplicated</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -479,9 +478,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter BatchTransformInput_S3InputMode
         /// <summary>
         /// <para>
-        /// <para>Whether the <code>Pipe</code> or <code>File</code> is used as the input mode for transferring
-        /// data for the monitoring job. <code>Pipe</code> mode is recommended for large datasets.
-        /// <code>File</code> mode is useful for small files that fit in memory. Defaults to <code>File</code>.</para>
+        /// <para>Whether the <c>Pipe</c> or <c>File</c> is used as the input mode for transferring
+        /// data for the monitoring job. <c>Pipe</c> mode is recommended for large datasets. <c>File</c>
+        /// mode is useful for small files that fit in memory. Defaults to <c>File</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -493,9 +492,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter EndpointInput_S3InputMode
         /// <summary>
         /// <para>
-        /// <para>Whether the <code>Pipe</code> or <code>File</code> is used as the input mode for transferring
-        /// data for the monitoring job. <code>Pipe</code> mode is recommended for large datasets.
-        /// <code>File</code> mode is useful for small files that fit in memory. Defaults to <code>File</code>.</para>
+        /// <para>Whether the <c>Pipe</c> or <c>File</c> is used as the input mode for transferring
+        /// data for the monitoring job. <c>Pipe</c> mode is recommended for large datasets. <c>File</c>
+        /// mode is useful for small files that fit in memory. Defaults to <c>File</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -518,8 +517,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. Specify the security
-        /// groups for the VPC that is specified in the <code>Subnets</code> field.</para>
+        /// <para>The VPC security group IDs, in the form <c>sg-xxxxxxxx</c>. Specify the security groups
+        /// for the VPC that is specified in the <c>Subnets</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

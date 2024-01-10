@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.KVSC
         #region Parameter Service
         /// <summary>
         /// <para>
-        /// <para>Specifies the desired service. Currently, <code>TURN</code> is the only valid value.</para>
+        /// <para>Specifies the desired service. Currently, <c>TURN</c> is the only valid value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

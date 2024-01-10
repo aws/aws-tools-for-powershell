@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// during the update. You can't specify a temporary stack policy that overrides the current
     /// policy.
     /// </para><para>
-    /// To create a change set for the entire stack hierarchy, <code>IncludeNestedStacks</code>
-    /// must have been set to <code>True</code>.
+    /// To create a change set for the entire stack hierarchy, <c>IncludeNestedStacks</c>
+    /// must have been set to <c>True</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "CFNChangeSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -78,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for this <code>ExecuteChangeSet</code> request. Specify this token
-        /// if you plan to retry requests so that CloudFormation knows that you're not attempting
-        /// to execute a change set to update a stack with the same name. You might retry <code>ExecuteChangeSet</code>
+        /// <para>A unique identifier for this <c>ExecuteChangeSet</c> request. Specify this token if
+        /// you plan to retry requests so that CloudFormation knows that you're not attempting
+        /// to execute a change set to update a stack with the same name. You might retry <c>ExecuteChangeSet</c>
         /// requests to ensure that CloudFormation successfully received them.</para>
         /// </para>
         /// </summary>
@@ -92,15 +92,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Preserves the state of previously provisioned resources when an operation fails. This
-        /// parameter can't be specified when the <code>OnStackFailure</code> parameter to the
-        /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">CreateChangeSet</a>
-        /// API operation was specified.</para><ul><li><para><code>True</code> - if the stack creation fails, do nothing. This is equivalent to
-        /// specifying <code>DO_NOTHING</code> for the <code>OnStackFailure</code> parameter to
-        /// the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">CreateChangeSet</a>
-        /// API operation.</para></li><li><para><code>False</code> - if the stack creation fails, roll back the stack. This is equivalent
-        /// to specifying <code>ROLLBACK</code> for the <code>OnStackFailure</code> parameter
-        /// to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">CreateChangeSet</a>
-        /// API operation.</para></li></ul><para>Default: <code>True</code></para>
+        /// parameter can't be specified when the <c>OnStackFailure</c> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">CreateChangeSet</a>
+        /// API operation was specified.</para><ul><li><para><c>True</c> - if the stack creation fails, do nothing. This is equivalent to specifying
+        /// <c>DO_NOTHING</c> for the <c>OnStackFailure</c> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">CreateChangeSet</a>
+        /// API operation.</para></li><li><para><c>False</c> - if the stack creation fails, roll back the stack. This is equivalent
+        /// to specifying <c>ROLLBACK</c> for the <c>OnStackFailure</c> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">CreateChangeSet</a>
+        /// API operation.</para></li></ul><para>Default: <c>True</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,9 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter RetainExceptOnCreate
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, newly created resources are deleted when the operation
-        /// rolls back. This includes newly created resources marked with a deletion policy of
-        /// <code>Retain</code>.</para><para>Default: <code>false</code></para>
+        /// <para>When set to <c>true</c>, newly created resources are deleted when the operation rolls
+        /// back. This includes newly created resources marked with a deletion policy of <c>Retain</c>.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

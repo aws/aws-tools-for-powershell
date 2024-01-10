@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>Whether to allow cookies or other credentials in requests to your function URL. The
-        /// default is <code>false</code>.</para>
+        /// default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The HTTP headers that origins can include in requests to your function URL. For example:
-        /// <code>Date</code>, <code>Keep-Alive</code>, <code>X-Custom-Header</code>.</para>
+        /// <c>Date</c>, <c>Keep-Alive</c>, <c>X-Custom-Header</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Cors_AllowMethod
         /// <summary>
         /// <para>
-        /// <para>The HTTP methods that are allowed when calling your function URL. For example: <code>GET</code>,
-        /// <code>POST</code>, <code>DELETE</code>, or the wildcard character (<code>*</code>).</para>
+        /// <para>The HTTP methods that are allowed when calling your function URL. For example: <c>GET</c>,
+        /// <c>POST</c>, <c>DELETE</c>, or the wildcard character (<c>*</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,8 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The origins that can access your function URL. You can list any number of specific
-        /// origins, separated by a comma. For example: <code>https://www.example.com</code>,
-        /// <code>http://localhost:60905</code>.</para><para>Alternatively, you can grant access to all origins using the wildcard character (<code>*</code>).</para>
+        /// origins, separated by a comma. For example: <c>https://www.example.com</c>, <c>http://localhost:60905</c>.</para><para>Alternatively, you can grant access to all origins using the wildcard character (<c>*</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,11 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter AuthType
         /// <summary>
         /// <para>
-        /// <para>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code>
-        /// if you want to restrict access to authenticated users only. Set to <code>NONE</code>
-        /// if you want to bypass IAM authentication to create a public endpoint. For more information,
-        /// see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security
-        /// and auth model for Lambda function URLs</a>.</para>
+        /// <para>The type of authentication that your function URL uses. Set to <c>AWS_IAM</c> if you
+        /// want to restrict access to authenticated users only. Set to <c>NONE</c> if you want
+        /// to bypass IAM authentication to create a public endpoint. For more information, see
+        /// <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and
+        /// auth model for Lambda function URLs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The HTTP headers in your function response that you want to expose to origins that
-        /// call your function URL. For example: <code>Date</code>, <code>Keep-Alive</code>, <code>X-Custom-Header</code>.</para>
+        /// call your function URL. For example: <c>Date</c>, <c>Keep-Alive</c>, <c>X-Custom-Header</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The name of the Lambda function.</para><para><b>Name formats</b></para><ul><li><para><b>Function name</b> – <code>my-function</code>.</para></li><li><para><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</para></li><li><para><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</para></li></ul><para>The length constraint applies only to the full ARN. If you specify only the function
+        /// <para>The name of the Lambda function.</para><para><b>Name formats</b></para><ul><li><para><b>Function name</b> – <c>my-function</c>.</para></li><li><para><b>Function ARN</b> – <c>arn:aws:lambda:us-west-2:123456789012:function:my-function</c>.</para></li><li><para><b>Partial ARN</b> – <c>123456789012:function:my-function</c>.</para></li></ul><para>The length constraint applies only to the full ARN. If you specify only the function
         /// name, it is limited to 64 characters in length.</para>
         /// </para>
         /// </summary>
@@ -138,11 +137,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter InvokeMode
         /// <summary>
         /// <para>
-        /// <para>Use one of the following options:</para><ul><li><para><code>BUFFERED</code> – This is the default option. Lambda invokes your function
-        /// using the <code>Invoke</code> API operation. Invocation results are available when
-        /// the payload is complete. The maximum payload size is 6 MB.</para></li><li><para><code>RESPONSE_STREAM</code> – Your function streams payload results as they become
-        /// available. Lambda invokes your function using the <code>InvokeWithResponseStream</code>
-        /// API operation. The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request
+        /// <para>Use one of the following options:</para><ul><li><para><c>BUFFERED</c> – This is the default option. Lambda invokes your function using
+        /// the <c>Invoke</c> API operation. Invocation results are available when the payload
+        /// is complete. The maximum payload size is 6 MB.</para></li><li><para><c>RESPONSE_STREAM</c> – Your function streams payload results as they become available.
+        /// Lambda invokes your function using the <c>InvokeWithResponseStream</c> API operation.
+        /// The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request
         /// a quota increase</a>.</para></li></ul>
         /// </para>
         /// </summary>
@@ -155,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The maximum amount of time, in seconds, that web browsers can cache results of a preflight
-        /// request. By default, this is set to <code>0</code>, which means that the browser doesn't
+        /// request. By default, this is set to <c>0</c>, which means that the browser doesn't
         /// cache results.</para>
         /// </para>
         /// </summary>

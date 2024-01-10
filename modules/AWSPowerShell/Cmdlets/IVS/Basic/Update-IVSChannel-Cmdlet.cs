@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter InsecureIngest
         /// <summary>
         /// <para>
-        /// <para>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</para>
+        /// <para>Whether the channel allows insecure RTMP ingest. Default: <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,10 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter LatencyMode
         /// <summary>
         /// <para>
-        /// <para>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video
-        /// up to Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. (Note:
-        /// In the Amazon IVS console, <code>LOW</code> and <code>NORMAL</code> correspond to
-        /// Ultra-low and Standard, respectively.)</para>
+        /// <para>Channel latency mode. Use <c>NORMAL</c> to broadcast and deliver live video up to
+        /// Full HD. Use <c>LOW</c> for near-real-time interaction with viewers. (Note: In the
+        /// Amazon IVS console, <c>LOW</c> and <c>NORMAL</c> correspond to Ultra-low and Standard,
+        /// respectively.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,10 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter Preset
         /// <summary>
         /// <para>
-        /// <para>Optional transcode preset for the channel. This is selectable only for <code>ADVANCED_HD</code>
-        /// and <code>ADVANCED_SD</code> channel types. For those channel types, the default <code>preset</code>
-        /// is <code>HIGHER_BANDWIDTH_DELIVERY</code>. For other channel types (<code>BASIC</code>
-        /// and <code>STANDARD</code>), <code>preset</code> is the empty string (<code>""</code>).</para>
+        /// <para>Optional transcode preset for the channel. This is selectable only for <c>ADVANCED_HD</c>
+        /// and <c>ADVANCED_SD</c> channel types. For those channel types, the default <c>preset</c>
+        /// is <c>HIGHER_BANDWIDTH_DELIVERY</c>. For other channel types (<c>BASIC</c> and <c>STANDARD</c>),
+        /// <c>preset</c> is the empty string (<c>""</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// <para>
         /// <para>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed
         /// the allowable input resolution or bitrate, the stream probably will disconnect immediately.</i>
-        /// Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel
+        /// Default: <c>STANDARD</c>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel
         /// Types</a>.</para>
         /// </para>
         /// </summary>

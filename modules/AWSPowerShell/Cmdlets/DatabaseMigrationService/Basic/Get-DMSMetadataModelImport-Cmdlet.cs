@@ -75,10 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Specifies the unique pagination token that makes it possible to display the next page
         /// of results. If this parameter is specified, the response includes only records beyond
-        /// the marker, up to the value specified by <code>MaxRecords</code>.</para><para>If <code>Marker</code> is returned by a previous response, there are more results
-        /// available. The value of <code>Marker</code> is a unique pagination token for each
-        /// page. To retrieve the next page, make the call again using the returned token and
-        /// keeping all other arguments unchanged.</para>
+        /// the marker, up to the value specified by <c>MaxRecords</c>.</para><para>If <c>Marker</c> is returned by a previous response, there are more results available.
+        /// The value of <c>Marker</c> is a unique pagination token for each page. To retrieve
+        /// the next page, make the call again using the returned token and keeping all other
+        /// arguments unchanged.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

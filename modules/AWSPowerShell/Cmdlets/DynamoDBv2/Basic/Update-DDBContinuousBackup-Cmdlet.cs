@@ -28,19 +28,19 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// <code>UpdateContinuousBackups</code> enables or disables point in time recovery for
-    /// the specified table. A successful <code>UpdateContinuousBackups</code> call returns
-    /// the current <code>ContinuousBackupsDescription</code>. Continuous backups are <code>ENABLED</code>
-    /// on all tables at table creation. If point in time recovery is enabled, <code>PointInTimeRecoveryStatus</code>
+    /// <c>UpdateContinuousBackups</c> enables or disables point in time recovery for the
+    /// specified table. A successful <c>UpdateContinuousBackups</c> call returns the current
+    /// <c>ContinuousBackupsDescription</c>. Continuous backups are <c>ENABLED</c> on all
+    /// tables at table creation. If point in time recovery is enabled, <c>PointInTimeRecoveryStatus</c>
     /// will be set to ENABLED.
     /// 
     ///  
     /// <para>
     ///  Once continuous backups and point in time recovery are enabled, you can restore to
-    /// any point in time within <code>EarliestRestorableDateTime</code> and <code>LatestRestorableDateTime</code>.
+    /// any point in time within <c>EarliestRestorableDateTime</c> and <c>LatestRestorableDateTime</c>.
     /// 
-    /// </para><para><code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.
-    /// You can restore your table to any point in time during the last 35 days. 
+    /// </para><para><c>LatestRestorableDateTime</c> is typically 5 minutes before the current time. You
+    /// can restore your table to any point in time during the last 35 days. 
     /// </para>
     /// </summary>
     [Cmdlet("Update", "DDBContinuousBackup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// and reattaching the volume or stopping and restarting the instance.
     /// </para><para>
     /// After modifying a volume, you must wait at least six hours and ensure that the volume
-    /// is in the <code>in-use</code> or <code>available</code> state before you can modify
-    /// the same volume. This is sometimes referred to as a cooldown period.
+    /// is in the <c>in-use</c> or <c>available</c> state before you can modify the same volume.
+    /// This is sometimes referred to as a cooldown period.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2Volume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -74,12 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Iops
         /// <summary>
         /// <para>
-        /// <para>The target IOPS rate of the volume. This parameter is valid only for <code>gp3</code>,
-        /// <code>io1</code>, and <code>io2</code> volumes.</para><para>The following are the supported values for each volume type:</para><ul><li><para><code>gp3</code>: 3,000 - 16,000 IOPS</para></li><li><para><code>io1</code>: 100 - 64,000 IOPS</para></li><li><para><code>io2</code>: 100 - 256,000 IOPS</para></li></ul><para>For <code>io2</code> volumes, you can achieve up to 256,000 IOPS on <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">instances
+        /// <para>The target IOPS rate of the volume. This parameter is valid only for <c>gp3</c>, <c>io1</c>,
+        /// and <c>io2</c> volumes.</para><para>The following are the supported values for each volume type:</para><ul><li><para><c>gp3</c>: 3,000 - 16,000 IOPS</para></li><li><para><c>io1</c>: 100 - 64,000 IOPS</para></li><li><para><c>io2</c>: 100 - 256,000 IOPS</para></li></ul><para>For <c>io2</c> volumes, you can achieve up to 256,000 IOPS on <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">instances
         /// built on the Nitro System</a>. On other instances, you can achieve performance up
         /// to 32,000 IOPS.</para><para>Default: The existing value is retained if you keep the same volume type. If you change
-        /// the volume type to <code>io1</code>, <code>io2</code>, or <code>gp3</code>, the default
-        /// is 3,000.</para>
+        /// the volume type to <c>io1</c>, <c>io2</c>, or <c>gp3</c>, the default is 3,000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,8 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you
         /// can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">
         /// Nitro-based instances</a> in the same Availability Zone. This parameter is supported
-        /// with <code>io1</code> and <code>io2</code> volumes only. For more information, see
-        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">
+        /// with <c>io1</c> and <c>io2</c> volumes only. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">
         /// Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -105,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The target size of the volume, in GiB. The target volume size must be greater than
-        /// or equal to the existing size of the volume.</para><para>The following are the supported volumes sizes for each volume type:</para><ul><li><para><code>gp2</code> and <code>gp3</code>: 1 - 16,384 GiB</para></li><li><para><code>io1</code>: 4 - 16,384 GiB</para></li><li><para><code>io2</code>: 4 - 65,536 GiB</para></li><li><para><code>st1</code> and <code>sc1</code>: 125 - 16,384 GiB</para></li><li><para><code>standard</code>: 1 - 1024 GiB</para></li></ul><para>Default: The existing size is retained.</para>
+        /// or equal to the existing size of the volume.</para><para>The following are the supported volumes sizes for each volume type:</para><ul><li><para><c>gp2</c> and <c>gp3</c>: 1 - 16,384 GiB</para></li><li><para><c>io1</c>: 4 - 16,384 GiB</para></li><li><para><c>io2</c>: 4 - 65,536 GiB</para></li><li><para><c>st1</c> and <c>sc1</c>: 125 - 16,384 GiB</para></li><li><para><c>standard</c>: 1 - 1024 GiB</para></li></ul><para>Default: The existing size is retained.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Throughput
         /// <summary>
         /// <para>
-        /// <para>The target throughput of the volume, in MiB/s. This parameter is valid only for <code>gp3</code>
-        /// volumes. The maximum value is 1,000.</para><para>Default: The existing value is retained if the source and target volume type is <code>gp3</code>.
+        /// <para>The target throughput of the volume, in MiB/s. This parameter is valid only for <c>gp3</c>
+        /// volumes. The maximum value is 1,000.</para><para>Default: The existing value is retained if the source and target volume type is <c>gp3</c>.
         /// Otherwise, the default value is 125.</para><para>Valid Range: Minimum value of 125. Maximum value of 1000.</para>
         /// </para>
         /// </summary>

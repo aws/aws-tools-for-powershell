@@ -28,7 +28,7 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Pauses or resumes image creation when the associated workflow runs a <code>WaitForAction</code>
+    /// Pauses or resumes image creation when the associated workflow runs a <c>WaitForAction</c>
     /// step.
     /// </summary>
     [Cmdlet("Send", "EC2IBWorkflowStepAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>The action for the image creation process to take while a workflow <code>WaitForAction</code>
+        /// <para>The action for the image creation process to take while a workflow <c>WaitForAction</c>
         /// step waits for an asynchronous action to complete.</para>
         /// </para>
         /// </summary>

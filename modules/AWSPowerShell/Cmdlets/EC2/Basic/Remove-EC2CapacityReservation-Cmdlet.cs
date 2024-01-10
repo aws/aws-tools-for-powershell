@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Cancels the specified Capacity Reservation, releases the reserved capacity, and changes
-    /// the Capacity Reservation's state to <code>cancelled</code>.
+    /// the Capacity Reservation's state to <c>cancelled</c>.
     /// 
     ///  
     /// <para>

@@ -28,11 +28,11 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Updates the <code>EvaluationName</code> of an <code>Evaluation</code>.
+    /// Updates the <c>EvaluationName</c> of an <c>Evaluation</c>.
     /// 
     ///  
     /// <para>
-    /// You can use the <code>GetEvaluation</code> operation to view the contents of the updated
+    /// You can use the <c>GetEvaluation</c> operation to view the contents of the updated
     /// data element.
     /// </para>
     /// </summary>
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter EvaluationId
         /// <summary>
         /// <para>
-        /// <para>The ID assigned to the <code>Evaluation</code> during creation.</para>
+        /// <para>The ID assigned to the <c>Evaluation</c> during creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter EvaluationName
         /// <summary>
         /// <para>
-        /// <para>A new user-supplied name or description of the <code>Evaluation</code> that will replace
+        /// <para>A new user-supplied name or description of the <c>Evaluation</c> that will replace
         /// the current content. </para>
         /// </para>
         /// </summary>

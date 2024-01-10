@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LocalIpv4NetworkCidr
         /// <summary>
         /// <para>
-        /// <para>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</para><para>Default: <code>0.0.0.0/0</code></para>
+        /// <para>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</para><para>Default: <c>0.0.0.0/0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LocalIpv6NetworkCidr
         /// <summary>
         /// <para>
-        /// <para>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</para><para>Default: <code>::/0</code></para>
+        /// <para>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</para><para>Default: <c>::/0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RemoteIpv4NetworkCidr
         /// <summary>
         /// <para>
-        /// <para>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</para><para>Default: <code>0.0.0.0/0</code></para>
+        /// <para>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</para><para>Default: <c>0.0.0.0/0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RemoteIpv6NetworkCidr
         /// <summary>
         /// <para>
-        /// <para>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</para><para>Default: <code>::/0</code></para>
+        /// <para>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</para><para>Default: <c>::/0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

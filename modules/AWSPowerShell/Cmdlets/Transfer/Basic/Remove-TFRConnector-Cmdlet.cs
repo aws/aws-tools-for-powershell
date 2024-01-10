@@ -28,7 +28,7 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Deletes the connector that's specified in the provided <code>ConnectorId</code>.
+    /// Deletes the connector that's specified in the provided <c>ConnectorId</c>.
     /// </summary>
     [Cmdlet("Remove", "TFRConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The identifier that Amazon Comprehend Medical generated for the job. <code>The StartICD10CMInferenceJob</code>
+        /// <para>The identifier that Amazon Comprehend Medical generated for the job. <c>The StartICD10CMInferenceJob</c>
         /// operation returns this identifier in its response.</para>
         /// </para>
         /// </summary>

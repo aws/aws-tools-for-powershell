@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the system to get. This ID must be in the user's namespace.</para><para>The ID should be in the following format.</para><para><code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code></para>
+        /// <para>The ID of the system to get. This ID must be in the user's namespace.</para><para>The ID should be in the following format.</para><para><c>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

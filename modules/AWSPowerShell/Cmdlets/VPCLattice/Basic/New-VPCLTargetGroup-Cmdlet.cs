@@ -110,9 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Config_IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The type of IP address used for the target group. The possible values are <code>ipv4</code>
-        /// and <code>ipv6</code>. This is an optional parameter. If not specified, the IP address
-        /// type defaults to <code>ipv4</code>.</para>
+        /// <para>The type of IP address used for the target group. The possible values are <c>ipv4</c>
+        /// and <c>ipv6</c>. This is an optional parameter. If not specified, the IP address type
+        /// defaults to <c>ipv4</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,11 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter HealthCheck_Path
         /// <summary>
         /// <para>
-        /// <para>The destination for health checks on the targets. If the protocol version is <code>HTTP/1.1</code>
-        /// or <code>HTTP/2</code>, specify a valid URI (for example, <code>/path?query</code>).
-        /// The default path is <code>/</code>. Health checks are not supported if the protocol
-        /// version is <code>gRPC</code>, however, you can choose <code>HTTP/1.1</code> or <code>HTTP/2</code>
-        /// and specify a valid URI.</para>
+        /// <para>The destination for health checks on the targets. If the protocol version is <c>HTTP/1.1</c>
+        /// or <c>HTTP/2</c>, specify a valid URI (for example, <c>/path?query</c>). The default
+        /// path is <c>/</c>. Health checks are not supported if the protocol version is <c>gRPC</c>,
+        /// however, you can choose <c>HTTP/1.1</c> or <c>HTTP/2</c> and specify a valid URI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Config_Port
         /// <summary>
         /// <para>
-        /// <para>The port on which the targets are listening. For HTTP, the default is <code>80</code>.
-        /// For HTTPS, the default is <code>443</code></para>
+        /// <para>The port on which the targets are listening. For HTTP, the default is <c>80</c>. For
+        /// HTTPS, the default is <c>443</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         /// <summary>
         /// <para>
         /// <para>The protocol used when performing health checks on targets. The possible protocols
-        /// are <code>HTTP</code> and <code>HTTPS</code>. The default is <code>HTTP</code>.</para>
+        /// are <c>HTTP</c> and <c>HTTPS</c>. The default is <c>HTTP</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -217,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         /// <summary>
         /// <para>
         /// <para>The protocol version used when performing health checks on targets. The possible protocol
-        /// versions are <code>HTTP1</code> and <code>HTTP2</code>.</para>
+        /// versions are <c>HTTP1</c> and <c>HTTP2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -229,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Config_ProtocolVersion
         /// <summary>
         /// <para>
-        /// <para>The protocol version. Default value is <code>HTTP1</code>.</para>
+        /// <para>The protocol version. Default value is <c>HTTP1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -31,19 +31,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Deletes the specified capacity provider.
     /// 
     ///  <note><para>
-    /// The <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers are reserved
-    /// and can't be deleted. You can disassociate them from a cluster using either the <a>PutClusterCapacityProviders</a>
+    /// The <c>FARGATE</c> and <c>FARGATE_SPOT</c> capacity providers are reserved and can't
+    /// be deleted. You can disassociate them from a cluster using either the <a>PutClusterCapacityProviders</a>
     /// API or by deleting the cluster.
     /// </para></note><para>
     /// Prior to a capacity provider being deleted, the capacity provider must be removed
     /// from the capacity provider strategy from all services. The <a>UpdateService</a> API
     /// can be used to remove a capacity provider from a service's capacity provider strategy.
-    /// When updating a service, the <code>forceNewDeployment</code> option can be used to
-    /// ensure that any tasks using the Amazon EC2 instance capacity provided by the capacity
-    /// provider are transitioned to use the capacity from the remaining capacity providers.
-    /// Only capacity providers that aren't associated with a cluster can be deleted. To remove
-    /// a capacity provider from a cluster, you can either use <a>PutClusterCapacityProviders</a>
-    /// or delete the cluster.
+    /// When updating a service, the <c>forceNewDeployment</c> option can be used to ensure
+    /// that any tasks using the Amazon EC2 instance capacity provided by the capacity provider
+    /// are transitioned to use the capacity from the remaining capacity providers. Only capacity
+    /// providers that aren't associated with a cluster can be deleted. To remove a capacity
+    /// provider from a cluster, you can either use <a>PutClusterCapacityProviders</a> or
+    /// delete the cluster.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "ECSCapacityProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

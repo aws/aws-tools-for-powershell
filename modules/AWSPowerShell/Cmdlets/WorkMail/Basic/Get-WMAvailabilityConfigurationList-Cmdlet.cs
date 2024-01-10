@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// List all the <code>AvailabilityConfiguration</code>'s for the given WorkMail organization.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List all the <c>AvailabilityConfiguration</c>'s for the given WorkMail organization.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "WMAvailabilityConfigurationList")]
     [OutputType("Amazon.WorkMail.Model.AvailabilityConfiguration")]
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The WorkMail organization for which the <code>AvailabilityConfiguration</code>'s will
-        /// be listed.</para>
+        /// <para>The WorkMail organization for which the <c>AvailabilityConfiguration</c>'s will be
+        /// listed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

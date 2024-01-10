@@ -108,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The default storage class for objects put into an Amazon S3 bucket by the S3 File
-        /// Gateway. The default value is <code>S3_STANDARD</code>. Optional.</para><para>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> | <code>S3_STANDARD_IA</code>
-        /// | <code>S3_ONEZONE_IA</code></para>
+        /// Gateway. The default value is <c>S3_STANDARD</c>. Optional.</para><para>Valid Values: <c>S3_STANDARD</c> | <c>S3_INTELLIGENT_TIERING</c> | <c>S3_STANDARD_IA</c>
+        /// | <c>S3_ONEZONE_IA</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,9 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter NFSFileShareDefaults_DirectoryMode
         /// <summary>
         /// <para>
-        /// <para>The Unix directory mode in the form "nnnn". For example, <code>0666</code> represents
-        /// the default access mode for all directories inside the file share. The default value
-        /// is <code>0777</code>.</para>
+        /// <para>The Unix directory mode in the form "nnnn". For example, <c>0666</c> represents the
+        /// default access mode for all directories inside the file share. The default value is
+        /// <c>0777</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter NFSFileShareDefaults_FileMode
         /// <summary>
         /// <para>
-        /// <para>The Unix file mode in the form "nnnn". For example, <code>0666</code> represents the
-        /// default file mode inside the file share. The default value is <code>0666</code>.</para>
+        /// <para>The Unix file mode in the form "nnnn". For example, <c>0666</c> represents the default
+        /// file mode inside the file share. The default value is <c>0666</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter FileShareName
         /// <summary>
         /// <para>
-        /// <para>The name of the file share. Optional.</para><note><para><code>FileShareName</code> must be set if an S3 prefix name is set in <code>LocationARN</code>,
+        /// <para>The name of the file share. Optional.</para><note><para><c>FileShareName</c> must be set if an S3 prefix name is set in <c>LocationARN</c>,
         /// or if an access point or access point alias is used.</para></note>
         /// </para>
         /// </summary>
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The default group ID for the file share (unless the files have another group ID specified).
-        /// The default value is <code>nfsnobody</code>.</para>
+        /// The default value is <c>nfsnobody</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,8 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A value that enables guessing of the MIME type for uploaded objects based on file
-        /// extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise
-        /// set to <code>false</code>. The default value is <code>true</code>.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// extensions. Set this value to <c>true</c> to enable MIME type guessing, otherwise
+        /// set to <c>false</c>. The default value is <c>true</c>.</para><para>Valid Values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,8 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSEncrypted
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS
-        /// key, or <code>false</code> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// <para>Set to <c>true</c> to use Amazon S3 server-side encryption with your own KMS key,
+        /// or <c>false</c> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
         /// S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
-        /// value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</para>
+        /// value can only be set when <c>KMSEncrypted</c> is <c>true</c>. Optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -220,9 +220,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>A custom ARN for the backend storage used for storing data for file shares. It includes
         /// a resource ARN with an optional prefix concatenation. The prefix must end with a forward
         /// slash (/).</para><note><para>You can specify LocationARN as a bucket ARN, access point ARN or access point alias,
-        /// as shown in the following examples.</para><para>Bucket ARN:</para><para><code>arn:aws:s3:::my-bucket/prefix/</code></para><para>Access point ARN:</para><para><code>arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/</code></para><para>If you specify an access point, the bucket policy must be configured to delegate access
+        /// as shown in the following examples.</para><para>Bucket ARN:</para><para><c>arn:aws:s3:::my-bucket/prefix/</c></para><para>Access point ARN:</para><para><c>arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/</c></para><para>If you specify an access point, the bucket policy must be configured to delegate access
         /// control to the access point. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control">Delegating
-        /// access control to access points</a> in the <i>Amazon S3 User Guide</i>.</para><para>Access point alias:</para><para><code>test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias</code></para></note>
+        /// access control to access points</a> in the <i>Amazon S3 User Guide</i>.</para><para>Access point alias:</para><para><c>test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias</c></para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -239,13 +239,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter NotificationPolicy
         /// <summary>
         /// <para>
-        /// <para>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls
-        /// the number of seconds to wait after the last point in time a client wrote to a file
-        /// before generating an <code>ObjectUploaded</code> notification. Because clients can
-        /// make many small writes to files, it's best to set this parameter for as long as possible
-        /// to avoid generating multiple notifications for the same file in a small time period.</para><note><para><code>SettlingTimeInSeconds</code> has no effect on the timing of the object uploading
-        /// to Amazon S3, only the timing of the notification.</para></note><para>The following example sets <code>NotificationPolicy</code> on with <code>SettlingTimeInSeconds</code>
-        /// set to 60.</para><para><code>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</code></para><para>The following example sets <code>NotificationPolicy</code> off.</para><para><code>{}</code></para>
+        /// <para>The notification policy of the file share. <c>SettlingTimeInSeconds</c> controls the
+        /// number of seconds to wait after the last point in time a client wrote to a file before
+        /// generating an <c>ObjectUploaded</c> notification. Because clients can make many small
+        /// writes to files, it's best to set this parameter for as long as possible to avoid
+        /// generating multiple notifications for the same file in a small time period.</para><note><para><c>SettlingTimeInSeconds</c> has no effect on the timing of the object uploading
+        /// to Amazon S3, only the timing of the notification.</para></note><para>The following example sets <c>NotificationPolicy</c> on with <c>SettlingTimeInSeconds</c>
+        /// set to 60.</para><para><c>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</c></para><para>The following example sets <c>NotificationPolicy</c> off.</para><para><c>{}</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -256,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A value that sets the access control list (ACL) permission for objects in the S3 bucket
-        /// that a S3 File Gateway puts objects into. The default value is <code>private</code>.</para>
+        /// that a S3 File Gateway puts objects into. The default value is <c>private</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -268,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The default owner ID for files in the file share (unless the files have another owner
-        /// ID specified). The default value is <code>nfsnobody</code>.</para>
+        /// ID specified). The default value is <c>nfsnobody</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -278,8 +278,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter ReadOnly
         /// <summary>
         /// <para>
-        /// <para>A value that sets the write status of a file share. Set this value to <code>true</code>
-        /// to set the write status to read-only, otherwise set to <code>false</code>.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// <para>A value that sets the write status of a file share. Set this value to <c>true</c>
+        /// to set the write status to read-only, otherwise set to <c>false</c>.</para><para>Valid Values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -290,11 +290,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A value that sets who pays the cost of the request and the cost associated with data
-        /// download from the S3 bucket. If this value is set to <code>true</code>, the requester
-        /// pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner
-        /// always pays the cost of storing data.</para><note><para><code>RequesterPays</code> is a configuration for the S3 bucket that backs the file
-        /// share, so make sure that the configuration on the file share is the same as the S3
-        /// bucket configuration.</para></note><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// download from the S3 bucket. If this value is set to <c>true</c>, the requester pays
+        /// the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always
+        /// pays the cost of storing data.</para><note><para><c>RequesterPays</c> is a configuration for the S3 bucket that backs the file share,
+        /// so make sure that the configuration on the file share is the same as the S3 bucket
+        /// configuration.</para></note><para>Valid Values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -323,7 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter Squash
         /// <summary>
         /// <para>
-        /// <para>A value that maps a user to anonymous user.</para><para>Valid values are the following:</para><ul><li><para><code>RootSquash</code>: Only root is mapped to anonymous user.</para></li><li><para><code>NoSquash</code>: No one is mapped to anonymous user.</para></li><li><para><code>AllSquash</code>: Everyone is mapped to anonymous user.</para></li></ul>
+        /// <para>A value that maps a user to anonymous user.</para><para>Valid values are the following:</para><ul><li><para><c>RootSquash</c>: Only root is mapped to anonymous user.</para></li><li><para><c>NoSquash</c>: No one is mapped to anonymous user.</para></li><li><para><c>AllSquash</c>: Everyone is mapped to anonymous user.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

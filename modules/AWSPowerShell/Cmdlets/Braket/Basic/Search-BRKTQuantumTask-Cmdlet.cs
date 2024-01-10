@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Array of <code>SearchQuantumTasksFilter</code> objects.</para>
+        /// <para>Array of <c>SearchQuantumTasksFilter</c> objects.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

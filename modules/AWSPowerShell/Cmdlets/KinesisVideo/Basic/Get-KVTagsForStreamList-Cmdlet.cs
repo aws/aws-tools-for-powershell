@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
     /// 
     ///  
     /// <para>
-    /// In the request, you must specify either the <code>StreamName</code> or the <code>StreamARN</code>.
+    /// In the request, you must specify either the <c>StreamName</c> or the <c>StreamARN</c>.
     /// 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -71,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If you specify this parameter and the result of a <code>ListTagsForStream</code> call
-        /// is truncated, the response includes a token that you can use in the next request to
-        /// fetch the next batch of tags.</para>
+        /// <para>If you specify this parameter and the result of a <c>ListTagsForStream</c> call is
+        /// truncated, the response includes a token that you can use in the next request to fetch
+        /// the next batch of tags.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -80,9 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         #region Parameter CheckpointLabelFilter
         /// <summary>
         /// <para>
-        /// <para>A string used to filter the intents returned in the <code>recentIntentSummaryView</code>
-        /// structure. </para><para>When you specify a filter, only intents with their <code>checkpointLabel</code> field
-        /// set to that string are returned.</para>
+        /// <para>A string used to filter the intents returned in the <c>recentIntentSummaryView</c>
+        /// structure. </para><para>When you specify a filter, only intents with their <c>checkpointLabel</c> field set
+        /// to that string are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

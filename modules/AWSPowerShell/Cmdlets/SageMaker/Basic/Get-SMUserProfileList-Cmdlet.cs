@@ -90,9 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The total number of items to return in the response. If the total number of items
-        /// available is more than the value specified, a <code>NextToken</code> is provided in
-        /// the response. To resume pagination, provide the <code>NextToken</code> value in the
-        /// as part of a subsequent call. The default value is 10.</para>
+        /// available is more than the value specified, a <c>NextToken</c> is provided in the
+        /// response. To resume pagination, provide the <c>NextToken</c> value in the as part
+        /// of a subsequent call. The default value is 10.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>The attribute by which to sort the generation request information. You can sort by
-        /// the following attributes.</para><ul><li><para><code>creationStartTime</code> – The time at which the generation request was created.</para></li><li><para><code>lastUpdatedTime</code> – The time at which the generation request was last
-        /// updated.</para></li></ul>
+        /// the following attributes.</para><ul><li><para><c>creationStartTime</c> – The time at which the generation request was created.</para></li><li><para><c>lastUpdatedTime</c> – The time at which the generation request was last updated.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,9 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the total number of results is greater than the number specified in the <code>maxResults</code>,
-        /// the response returns a token in the <code>nextToken</code> field. Use this token when
-        /// making a request to return the next batch of results.</para>
+        /// <para>If the total number of results is greater than the number specified in the <c>maxResults</c>,
+        /// the response returns a token in the <c>nextToken</c> field. Use this token when making
+        /// a request to return the next batch of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

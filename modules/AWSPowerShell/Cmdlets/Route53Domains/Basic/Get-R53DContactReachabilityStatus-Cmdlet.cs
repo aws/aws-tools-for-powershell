@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// 
     ///  
     /// <para>
-    /// If you want us to resend the email, use the <code>ResendContactReachabilityEmail</code>
+    /// If you want us to resend the email, use the <c>ResendContactReachabilityEmail</c>
     /// operation.
     /// </para>
     /// </summary>

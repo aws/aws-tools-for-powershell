@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
 {
     /// <summary>
     /// Returns the list of change sets owned by the account being used to make the call.
-    /// You can filter this list by providing any combination of <code>entityId</code>, <code>ChangeSetName</code>,
+    /// You can filter this list by providing any combination of <c>entityId</c>, <c>ChangeSetName</c>,
     /// and status. If you provide more than one filter, the API operation applies a logical
     /// AND between the filters.
     /// 
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para>The catalog related to the request. Fixed value: <code>AWSMarketplace</code></para>
+        /// <para>The catalog related to the request. Fixed value: <c>AWSMarketplace</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,10 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter Sort_SortBy
         /// <summary>
         /// <para>
-        /// <para>For <code>ListEntities</code>, supported attributes include <code>LastModifiedDate</code>
-        /// (default) and <code>EntityId</code>. In addition to <code>LastModifiedDate</code>
-        /// and <code>EntityId</code>, each <code>EntityType</code> might support additional fields.</para><para>For <code>ListChangeSets</code>, supported attributes include <code>StartTime</code>
-        /// and <code>EndTime</code>.</para>
+        /// <para>For <c>ListEntities</c>, supported attributes include <c>LastModifiedDate</c> (default)
+        /// and <c>EntityId</c>. In addition to <c>LastModifiedDate</c> and <c>EntityId</c>, each
+        /// <c>EntityType</c> might support additional fields.</para><para>For <c>ListChangeSets</c>, supported attributes include <c>StartTime</c> and <c>EndTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter Sort_SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default
-        /// value is <code>DESCENDING</code>.</para>
+        /// <para>The sorting order. Can be <c>ASCENDING</c> or <c>DESCENDING</c>. The default value
+        /// is <c>DESCENDING</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

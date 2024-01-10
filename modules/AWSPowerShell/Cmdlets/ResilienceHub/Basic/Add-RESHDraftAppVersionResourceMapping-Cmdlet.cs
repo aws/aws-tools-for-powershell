@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <summary>
         /// <para>
         /// <para>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
-        /// ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
+        /// ARN is: arn:<c>partition</c>:resiliencehub:<c>region</c>:<c>account</c>:app/<c>app-id</c>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>
         /// guide.</para>
@@ -71,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <summary>
         /// <para>
         /// <para>Mappings used to map logical resources from the template to physical resources. You
-        /// can use the mapping type <code>CFN_STACK</code> if the application template uses a
-        /// logical stack name. Or you can map individual resources by using the mapping type
-        /// <code>RESOURCE</code>. We recommend using the mapping type <code>CFN_STACK</code>
-        /// if the application is backed by a CloudFormation stack.</para>
+        /// can use the mapping type <c>CFN_STACK</c> if the application template uses a logical
+        /// stack name. Or you can map individual resources by using the mapping type <c>RESOURCE</c>.
+        /// We recommend using the mapping type <c>CFN_STACK</c> if the application is backed
+        /// by a CloudFormation stack.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -30,9 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// <summary>
     /// Schedules the deletion of a KMS key. By default, KMS applies a waiting period of 30
     /// days, but you can specify a waiting period of 7-30 days. When this operation is successful,
-    /// the key state of the KMS key changes to <code>PendingDeletion</code> and the key can't
-    /// be used in any cryptographic operations. It remains in this state for the duration
-    /// of the waiting period. Before the waiting period ends, you can use <a>CancelKeyDeletion</a>
+    /// the key state of the KMS key changes to <c>PendingDeletion</c> and the key can't be
+    /// used in any cryptographic operations. It remains in this state for the duration of
+    /// the waiting period. Before the waiting period ends, you can use <a>CancelKeyDeletion</a>
     /// to cancel the deletion of the KMS key. After the waiting period ends, KMS deletes
     /// the KMS key, its key material, and all KMS data associated with it, including all
     /// aliases that refer to it.
@@ -48,11 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// You can schedule the deletion of a multi-Region primary key and its replica keys at
     /// any time. However, KMS will not delete a multi-Region primary key with existing replica
     /// keys. If you schedule the deletion of a primary key with replicas, its key state changes
-    /// to <code>PendingReplicaDeletion</code> and it cannot be replicated or used in cryptographic
+    /// to <c>PendingReplicaDeletion</c> and it cannot be replicated or used in cryptographic
     /// operations. This status can continue indefinitely. When the last of its replicas keys
-    /// is deleted (not just scheduled), the key state of the primary key changes to <code>PendingDeletion</code>
-    /// and its waiting period (<code>PendingWindowInDays</code>) begins. For details, see
-    /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html">Deleting
+    /// is deleted (not just scheduled), the key state of the primary key changes to <c>PendingDeletion</c>
+    /// and its waiting period (<c>PendingWindowInDays</c>) begins. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html">Deleting
     /// multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para>
     /// When KMS <a href="https://docs.aws.amazon.com/kms/latest/developerguide/delete-cmk-keystore.html">deletes
@@ -94,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the KMS key to delete.</para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// <para>The unique identifier of the KMS key to delete.</para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,9 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// deletes the KMS key.</para><para>If the KMS key is a multi-Region primary key with replica keys, the waiting period
         /// begins when the last of its replica keys is deleted. Otherwise, the waiting period
         /// begins immediately.</para><para>This value is optional. If you include a value, it must be between 7 and 30, inclusive.
-        /// If you do not include a value, it defaults to 30. You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-schedule-key-deletion-pending-window-in-days"><code>kms:ScheduleKeyDeletionPendingWindowInDays</code></a> condition key to further
-        /// constrain the values that principals can specify in the <code>PendingWindowInDays</code>
-        /// parameter.</para>
+        /// If you do not include a value, it defaults to 30. You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-schedule-key-deletion-pending-window-in-days"><c>kms:ScheduleKeyDeletionPendingWindowInDays</c></a> condition key to further constrain
+        /// the values that principals can specify in the <c>PendingWindowInDays</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><c>jp</c> - Japanese</para></li><li><para><c>zh</c> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>The self-service action definition. Can be one of the following:</para><dl><dt>Name</dt><dd><para>The name of the Amazon Web Services Systems Manager document (SSM document). For example,
-        /// <code>AWS-RestartEC2Instance</code>.</para><para>If you are using a shared SSM document, you must provide the ARN instead of the name.</para></dd><dt>Version</dt><dd><para>The Amazon Web Services Systems Manager automation document version. For example,
-        /// <code>"Version": "1"</code></para></dd><dt>AssumeRole</dt><dd><para>The Amazon Resource Name (ARN) of the role that performs the self-service actions
-        /// on your behalf. For example, <code>"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"</code>.</para><para>To reuse the provisioned product launch role, set to <code>"AssumeRole": "LAUNCH_ROLE"</code>.</para></dd><dt>Parameters</dt><dd><para>The list of parameters in JSON format.</para><para>For example: <code>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</code> or <code>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</code>.</para></dd></dl>
+        /// <c>AWS-RestartEC2Instance</c>.</para><para>If you are using a shared SSM document, you must provide the ARN instead of the name.</para></dd><dt>Version</dt><dd><para>The Amazon Web Services Systems Manager automation document version. For example,
+        /// <c>"Version": "1"</c></para></dd><dt>AssumeRole</dt><dd><para>The Amazon Resource Name (ARN) of the role that performs the self-service actions
+        /// on your behalf. For example, <c>"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"</c>.</para><para>To reuse the provisioned product launch role, set to <c>"AssumeRole": "LAUNCH_ROLE"</c>.</para></dd><dt>Parameters</dt><dd><para>The list of parameters in JSON format.</para><para>For example: <c>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</c> or <c>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</c>.</para></dd></dl>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter DefinitionType
         /// <summary>
         /// <para>
-        /// <para>The service action definition type. For example, <code>SSM_AUTOMATION</code>.</para>
+        /// <para>The service action definition type. For example, <c>SSM_AUTOMATION</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

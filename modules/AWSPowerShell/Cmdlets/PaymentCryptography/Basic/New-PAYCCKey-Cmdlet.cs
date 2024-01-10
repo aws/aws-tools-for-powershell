@@ -40,10 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// </para><para>
     /// When you create a key, you specify both immutable and mutable data about the key.
     /// The immutable data contains key attributes that define the scope and cryptographic
-    /// operations that you can perform using the key, for example key class (example: <code>SYMMETRIC_KEY</code>),
-    /// key algorithm (example: <code>TDES_2KEY</code>), key usage (example: <code>TR31_P0_PIN_ENCRYPTION_KEY</code>)
-    /// and key modes of use (example: <code>Encrypt</code>). For information about valid
-    /// combinations of key attributes, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding
+    /// operations that you can perform using the key, for example key class (example: <c>SYMMETRIC_KEY</c>),
+    /// key algorithm (example: <c>TDES_2KEY</c>), key usage (example: <c>TR31_P0_PIN_ENCRYPTION_KEY</c>)
+    /// and key modes of use (example: <c>Encrypt</c>). For information about valid combinations
+    /// of key attributes, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding
     /// key attributes</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.
     /// The mutable data contained within a key includes usage timestamp and key deletion
     /// timestamp and can be modified after creation.
@@ -147,9 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <summary>
         /// <para>
         /// <para>The key algorithm to be use during creation of an Amazon Web Services Payment Cryptography
-        /// key.</para><para>For symmetric keys, Amazon Web Services Payment Cryptography supports <code>AES</code>
-        /// and <code>TDES</code> algorithms. For asymmetric keys, Amazon Web Services Payment
-        /// Cryptography supports <code>RSA</code> and <code>ECC_NIST</code> algorithms.</para>
+        /// key.</para><para>For symmetric keys, Amazon Web Services Payment Cryptography supports <c>AES</c> and
+        /// <c>TDES</c> algorithms. For asymmetric keys, Amazon Web Services Payment Cryptography
+        /// supports <c>RSA</c> and <c>ECC_NIST</c> algorithms.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <summary>
         /// <para>
         /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key has no special restrictions
-        /// other than the restrictions implied by <code>KeyUsage</code>.</para>
+        /// other than the restrictions implied by <c>KeyUsage</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

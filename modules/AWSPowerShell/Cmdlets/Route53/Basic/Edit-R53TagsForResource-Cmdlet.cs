@@ -52,8 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>A complex type that contains a list of the tags that you want to add to the specified
-        /// health check or hosted zone and/or the tags that you want to edit <code>Value</code>
-        /// for.</para><para>You can add a maximum of 10 tags to a health check or a hosted zone.</para>
+        /// health check or hosted zone and/or the tags that you want to edit <c>Value</c> for.</para><para>You can add a maximum of 10 tags to a health check or a hosted zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of the resource.</para><ul><li><para>The resource type for health checks is <code>healthcheck</code>.</para></li><li><para>The resource type for hosted zones is <code>hostedzone</code>.</para></li></ul>
+        /// <para>The type of the resource.</para><ul><li><para>The resource type for health checks is <c>healthcheck</c>.</para></li><li><para>The resource type for hosted zones is <c>hostedzone</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter Fabric_AdminPassword
         /// <summary>
         /// <para>
-        /// <para>The password for the member's initial administrative user. The <code>AdminPassword</code>
+        /// <para>The password for the member's initial administrative user. The <c>AdminPassword</c>
         /// must be at least 8 characters long and no more than 32 characters. It must contain
         /// at least one uppercase letter, one lowercase letter, and one digit. It cannot have
         /// a single quotation mark (‘), a double quotation marks (“), a forward slash(/), a backward
@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         /// by Amazon Web Services on your behalf.</para></li><li><para><b>A valid symmetric customer managed KMS key</b> - Use the specified KMS key in
         /// your account that you create, own, and manage.</para><para>Amazon Managed Blockchain doesn't support asymmetric keys. For more information, see
         /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
-        /// symmetric and asymmetric keys</a> in the <i>Key Management Service Developer Guide</i>.</para><para>The following is an example of a KMS key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul>
+        /// symmetric and asymmetric keys</a> in the <i>Key Management Service Developer Guide</i>.</para><para>The following is an example of a KMS key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,10 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         /// <summary>
         /// <para>
         /// <para>The duration from the time that a proposal is created until it expires. If members
-        /// cast neither the required number of <code>YES</code> votes to approve the proposal
-        /// nor the number of <code>NO</code> votes required to reject it before the duration
-        /// expires, the proposal is <code>EXPIRED</code> and <code>ProposalActions</code> aren't
-        /// carried out.</para>
+        /// cast neither the required number of <c>YES</c> votes to approve the proposal nor the
+        /// number of <c>NO</c> votes required to reject it before the duration expires, the proposal
+        /// is <c>EXPIRED</c> and <c>ProposalActions</c> aren't carried out.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,8 +265,8 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter ApprovalThresholdPolicy_ThresholdComparator
         /// <summary>
         /// <para>
-        /// <para>Determines whether the vote percentage must be greater than the <code>ThresholdPercentage</code>
-        /// or must be greater than or equal to the <code>ThresholdPercentage</code> to be approved.</para>
+        /// <para>Determines whether the vote percentage must be greater than the <c>ThresholdPercentage</c>
+        /// or must be greater than or equal to the <c>ThresholdPercentage</c> to be approved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -279,12 +278,12 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter ApprovalThresholdPolicy_ThresholdPercentage
         /// <summary>
         /// <para>
-        /// <para>The percentage of votes among all members that must be <code>YES</code> for a proposal
-        /// to be approved. For example, a <code>ThresholdPercentage</code> value of <code>50</code>
-        /// indicates 50%. The <code>ThresholdComparator</code> determines the precise comparison.
-        /// If a <code>ThresholdPercentage</code> value of <code>50</code> is specified on a network
-        /// with 10 members, along with a <code>ThresholdComparator</code> value of <code>GREATER_THAN</code>,
-        /// this indicates that 6 <code>YES</code> votes are required for the proposal to be approved.</para>
+        /// <para>The percentage of votes among all members that must be <c>YES</c> for a proposal to
+        /// be approved. For example, a <c>ThresholdPercentage</c> value of <c>50</c> indicates
+        /// 50%. The <c>ThresholdComparator</c> determines the precise comparison. If a <c>ThresholdPercentage</c>
+        /// value of <c>50</c> is specified on a network with 10 members, along with a <c>ThresholdComparator</c>
+        /// value of <c>GREATER_THAN</c>, this indicates that 6 <c>YES</c> votes are required
+        /// for the proposal to be approved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

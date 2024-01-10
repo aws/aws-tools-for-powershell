@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The value of the <code>ETag</code> header that you received when retrieving the configuration
-        /// identity to update. For example: <code>E2QWRUHAPOMQZL</code>.</para>
+        /// <para>The value of the <c>ETag</c> header that you received when retrieving the configuration
+        /// identity to update. For example: <c>E2QWRUHAPOMQZL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

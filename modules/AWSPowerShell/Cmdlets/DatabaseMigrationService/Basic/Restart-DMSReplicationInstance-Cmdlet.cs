@@ -46,10 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ForceFailover
         /// <summary>
         /// <para>
-        /// <para>If this parameter is <code>true</code>, the reboot is conducted through a Multi-AZ
-        /// failover. If the instance isn't configured for Multi-AZ, then you can't specify <code>true</code>.
-        /// ( <code>--force-planned-failover</code> and <code>--force-failover</code> can't both
-        /// be set to <code>true</code>.)</para>
+        /// <para>If this parameter is <c>true</c>, the reboot is conducted through a Multi-AZ failover.
+        /// If the instance isn't configured for Multi-AZ, then you can't specify <c>true</c>.
+        /// ( <c>--force-planned-failover</c> and <c>--force-failover</c> can't both be set to
+        /// <c>true</c>.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,11 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ForcePlannedFailover
         /// <summary>
         /// <para>
-        /// <para>If this parameter is <code>true</code>, the reboot is conducted through a planned
-        /// Multi-AZ failover where resources are released and cleaned up prior to conducting
-        /// the failover. If the instance isn''t configured for Multi-AZ, then you can't specify
-        /// <code>true</code>. ( <code>--force-planned-failover</code> and <code>--force-failover</code>
-        /// can't both be set to <code>true</code>.)</para>
+        /// <para>If this parameter is <c>true</c>, the reboot is conducted through a planned Multi-AZ
+        /// failover where resources are released and cleaned up prior to conducting the failover.
+        /// If the instance isn''t configured for Multi-AZ, then you can't specify <c>true</c>.
+        /// ( <c>--force-planned-failover</c> and <c>--force-failover</c> can't both be set to
+        /// <c>true</c>.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -63,10 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter ForceDelete
         /// <summary>
         /// <para>
-        /// <para>If this value is set to <code>true</code>, the operation deletes a file share immediately
+        /// <para>If this value is set to <c>true</c>, the operation deletes a file share immediately
         /// and aborts all data uploads to Amazon Web Services. Otherwise, the file share is not
         /// deleted until all data is uploaded to Amazon Web Services. This process aborts the
-        /// data upload process, and the file share enters the <code>FORCE_DELETING</code> status.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// data upload process, and the file share enters the <c>FORCE_DELETING</c> status.</para><para>Valid Values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

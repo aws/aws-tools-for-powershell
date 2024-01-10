@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// <summary>
         /// <para>
         /// <para>Indicates whether the query applies to components or instances. The possible values
-        /// are: <code>COMPONENT</code>, <code>INSTANCE</code>, and <code>ATTEMPT</code>.</para>
+        /// are: <c>COMPONENT</c>, <c>INSTANCE</c>, and <c>ATTEMPT</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of object names that <code>QueryObjects</code> will return in a
-        /// single call. The default value is 100. </para>
+        /// <para>The maximum number of object names that <c>QueryObjects</c> will return in a single
+        /// call. The default value is 100. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// <summary>
         /// <para>
         /// <para>The starting point for the results to be returned. For the first call, this value
-        /// should be empty. As long as there are more results, continue to call <code>QueryObjects</code>
+        /// should be empty. As long as there are more results, continue to call <c>QueryObjects</c>
         /// with the marker value from the previous call to retrieve the next set of results.</para>
         /// </para>
         /// <para>

@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>One or more filters to scope the tags to return. The maximum number of filters per
-        /// filter type (for example, <code>auto-scaling-group</code>) is 1000.</para>
+        /// filter type (for example, <c>auto-scaling-group</c>) is 1000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return with this call. The default value is <code>50</code>
-        /// and the maximum value is <code>100</code>.</para>
+        /// <para>The maximum number of items to return with this call. The default value is <c>50</c>
+        /// and the maximum value is <c>100</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

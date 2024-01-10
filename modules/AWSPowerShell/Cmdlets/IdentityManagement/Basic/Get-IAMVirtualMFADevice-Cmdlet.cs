@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Lists the virtual MFA devices defined in the Amazon Web Services account by assignment
     /// status. If you do not specify an assignment status, the operation returns a list of
-    /// all virtual MFA devices. Assignment status can be <code>Assigned</code>, <code>Unassigned</code>,
-    /// or <code>Any</code>.
+    /// all virtual MFA devices. Assignment status can be <c>Assigned</c>, <c>Unassigned</c>,
+    /// or <c>Any</c>.
     /// 
     ///  <note><para>
     /// IAM resource-listing operations return a subset of the available attributes for the
@@ -39,8 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// attribute of the returned object. To view tag information for a virtual MFA device,
     /// see <a>ListMFADeviceTags</a>.
     /// </para></note><para>
-    /// You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
-    /// parameters.
+    /// You can paginate the results using the <c>MaxItems</c> and <c>Marker</c> parameters.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IAMVirtualMFADevice")]
@@ -60,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter AssignmentStatus
         /// <summary>
         /// <para>
-        /// <para> The status (<code>Unassigned</code> or <code>Assigned</code>) of the devices to list.
-        /// If you do not specify an <code>AssignmentStatus</code>, the operation defaults to
-        /// <code>Any</code>, which lists both assigned and unassigned virtual MFA devices.,</para>
+        /// <para> The status (<c>Unassigned</c> or <c>Assigned</c>) of the devices to list. If you
+        /// do not specify an <c>AssignmentStatus</c>, the operation defaults to <c>Any</c>, which
+        /// lists both assigned and unassigned virtual MFA devices.,</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -74,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only after you receive a response
-        /// indicating that the results are truncated. Set it to the value of the <code>Marker</code>
+        /// indicating that the results are truncated. Set it to the value of the <c>Marker</c>
         /// element in the response that you received to indicate where the next call should start.</para>
         /// </para>
         /// <para>
@@ -92,11 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
         /// want in the response. If additional items exist beyond the maximum you specify, the
-        /// <code>IsTruncated</code> response element is <code>true</code>.</para><para>If you do not include this parameter, the number of items defaults to 100. Note that
+        /// <c>IsTruncated</c> response element is <c>true</c>.</para><para>If you do not include this parameter, the number of items defaults to 100. Note that
         /// IAM might return fewer results, even when there are more results available. In that
-        /// case, the <code>IsTruncated</code> response element returns <code>true</code>, and
-        /// <code>Marker</code> contains a value to include in the subsequent call that tells
-        /// the service where to continue from.</para>
+        /// case, the <c>IsTruncated</c> response element returns <c>true</c>, and <c>Marker</c>
+        /// contains a value to include in the subsequent call that tells the service where to
+        /// continue from.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

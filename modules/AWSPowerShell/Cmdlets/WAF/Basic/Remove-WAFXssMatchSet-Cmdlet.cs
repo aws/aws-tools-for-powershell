@@ -35,23 +35,21 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Permanently deletes an <a>XssMatchSet</a>. You can't delete an <code>XssMatchSet</code>
-    /// if it's still used in any <code>Rules</code> or if it still contains any <a>XssMatchTuple</a>
+    /// Permanently deletes an <a>XssMatchSet</a>. You can't delete an <c>XssMatchSet</c>
+    /// if it's still used in any <c>Rules</c> or if it still contains any <a>XssMatchTuple</a>
     /// objects.
     /// </para><para>
-    /// If you just want to remove an <code>XssMatchSet</code> from a <code>Rule</code>, use
-    /// <a>UpdateRule</a>.
+    /// If you just want to remove an <c>XssMatchSet</c> from a <c>Rule</c>, use <a>UpdateRule</a>.
     /// </para><para>
-    /// To permanently delete an <code>XssMatchSet</code> from AWS WAF, perform the following
-    /// steps:
+    /// To permanently delete an <c>XssMatchSet</c> from AWS WAF, perform the following steps:
     /// </para><ol><li><para>
-    /// Update the <code>XssMatchSet</code> to remove filters, if any. For more information,
-    /// see <a>UpdateXssMatchSet</a>.
+    /// Update the <c>XssMatchSet</c> to remove filters, if any. For more information, see
+    /// <a>UpdateXssMatchSet</a>.
     /// </para></li><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>DeleteXssMatchSet</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of a <c>DeleteXssMatchSet</c> request.
     /// </para></li><li><para>
-    /// Submit a <code>DeleteXssMatchSet</code> request.
+    /// Submit a <c>DeleteXssMatchSet</c> request.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Remove", "WAFXssMatchSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -86,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter XssMatchSetId
         /// <summary>
         /// <para>
-        /// <para>The <code>XssMatchSetId</code> of the <a>XssMatchSet</a> that you want to delete.
-        /// <code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</para>
+        /// <para>The <c>XssMatchSetId</c> of the <a>XssMatchSet</a> that you want to delete. <c>XssMatchSetId</c>
+        /// is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

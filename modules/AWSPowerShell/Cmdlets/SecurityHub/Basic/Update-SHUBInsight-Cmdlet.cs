@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter GroupByAttribute
         /// <summary>
         /// <para>
-        /// <para>The updated <code>GroupBy</code> attribute that defines this insight.</para>
+        /// <para>The updated <c>GroupBy</c> attribute that defines this insight.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

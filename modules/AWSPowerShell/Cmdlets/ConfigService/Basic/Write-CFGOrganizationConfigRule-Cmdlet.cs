@@ -36,27 +36,27 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// <para>
     ///  Only a management account and a delegated administrator can create or update an organization
     /// Config rule. When calling this API with a delegated administrator, you must ensure
-    /// Organizations <code>ListDelegatedAdministrator</code> permissions are added. An organization
+    /// Organizations <c>ListDelegatedAdministrator</c> permissions are added. An organization
     /// can have up to 3 delegated administrators.
     /// </para><para>
-    /// This API enables organization service access through the <code>EnableAWSServiceAccess</code>
-    /// action and creates a service-linked role <code>AWSServiceRoleForConfigMultiAccountSetup</code>
+    /// This API enables organization service access through the <c>EnableAWSServiceAccess</c>
+    /// action and creates a service-linked role <c>AWSServiceRoleForConfigMultiAccountSetup</c>
     /// in the management or delegated administrator account of your organization. The service-linked
     /// role is created only when the role does not exist in the caller account. Config verifies
-    /// the existence of role with <code>GetRole</code> action.
+    /// the existence of role with <c>GetRole</c> action.
     /// </para><para>
     /// To use this API with delegated administrator, register a delegated administrator by
-    /// calling Amazon Web Services Organization <code>register-delegated-administrator</code>
-    /// for <code>config-multiaccountsetup.amazonaws.com</code>. 
+    /// calling Amazon Web Services Organization <c>register-delegated-administrator</c> for
+    /// <c>config-multiaccountsetup.amazonaws.com</c>. 
     /// </para><para>
     /// There are two types of rules: <i>Config Managed Rules</i> and <i>Config Custom Rules</i>.
-    /// You can use <code>PutOrganizationConfigRule</code> to create both Config Managed Rules
-    /// and Config Custom Rules.
+    /// You can use <c>PutOrganizationConfigRule</c> to create both Config Managed Rules and
+    /// Config Custom Rules.
     /// </para><para>
     /// Config Managed Rules are predefined, customizable rules created by Config. For a list
     /// of managed rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">List
     /// of Config Managed Rules</a>. If you are adding an Config managed rule, you must specify
-    /// the rule's identifier for the <code>RuleIdentifier</code> key.
+    /// the rule's identifier for the <c>RuleIdentifier</c> key.
     /// </para><para>
     /// Config Custom Rules are rules that you create from scratch. There are two ways to
     /// create Config custom rules: with Lambda functions (<a href="https://docs.aws.amazon.com/config/latest/developerguide/gettingstarted-concepts.html#gettingstarted-concepts-function">
@@ -68,16 +68,16 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// If you are adding a new Config Custom Lambda rule, you first need to create an Lambda
     /// function in the management account or a delegated administrator that the rule invokes
     /// to evaluate your resources. You also need to create an IAM role in the managed account
-    /// that can be assumed by the Lambda function. When you use <code>PutOrganizationConfigRule</code>
+    /// that can be assumed by the Lambda function. When you use <c>PutOrganizationConfigRule</c>
     /// to add a Custom Lambda rule to Config, you must specify the Amazon Resource Name (ARN)
     /// that Lambda assigns to the function.
     /// </para><note><para>
-    /// Prerequisite: Ensure you call <code>EnableAllFeatures</code> API to enable all features
+    /// Prerequisite: Ensure you call <c>EnableAllFeatures</c> API to enable all features
     /// in an organization.
     /// </para><para>
-    /// Make sure to specify one of either <code>OrganizationCustomPolicyRuleMetadata</code>
-    /// for Custom Policy rules, <code>OrganizationCustomRuleMetadata</code> for Custom Lambda
-    /// rules, or <code>OrganizationManagedRuleMetadata</code> for managed rules.
+    /// Make sure to specify one of either <c>OrganizationCustomPolicyRuleMetadata</c> for
+    /// Custom Policy rules, <c>OrganizationCustomRuleMetadata</c> for Custom Lambda rules,
+    /// or <c>OrganizationManagedRuleMetadata</c> for managed rules.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGOrganizationConfigRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -209,8 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>The maximum frequency with which Config runs evaluations for a rule. Your custom rule
         /// is triggered when Config delivers the configuration snapshot. For more information,
         /// see <a>ConfigSnapshotDeliveryProperties</a>.</para><note><para>By default, rules with a periodic trigger are evaluated every 24 hours. To change
-        /// the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code>
-        /// parameter.</para></note>
+        /// the frequency, specify a valid value for the <c>MaximumExecutionFrequency</c> parameter.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,8 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>The maximum frequency with which Config runs evaluations for a rule. This is for an
         /// Config managed rule that is triggered at a periodic frequency.</para><note><para>By default, rules with a periodic trigger are evaluated every 24 hours. To change
-        /// the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code>
-        /// parameter.</para></note>
+        /// the frequency, specify a valid value for the <c>MaximumExecutionFrequency</c> parameter.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,9 +251,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The type of notification that initiates Config to run an evaluation for a rule. For
-        /// Config Custom Policy rules, Config supports change-initiated notification types:</para><ul><li><para><code>ConfigurationItemChangeNotification</code> - Initiates an evaluation when Config
-        /// delivers a configuration item as a result of a resource change.</para></li><li><para><code>OversizedConfigurationItemChangeNotification</code> - Initiates an evaluation
-        /// when Config delivers an oversized configuration item. Config may generate this notification
+        /// Config Custom Policy rules, Config supports change-initiated notification types:</para><ul><li><para><c>ConfigurationItemChangeNotification</c> - Initiates an evaluation when Config
+        /// delivers a configuration item as a result of a resource change.</para></li><li><para><c>OversizedConfigurationItemChangeNotification</c> - Initiates an evaluation when
+        /// Config delivers an oversized configuration item. Config may generate this notification
         /// type when a resource changes and the notification exceeds the maximum size allowed
         /// by Amazon SNS.</para></li></ul>
         /// </para>
@@ -269,12 +267,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The type of notification that triggers Config to run an evaluation for a rule. You
-        /// can specify the following notification types:</para><ul><li><para><code>ConfigurationItemChangeNotification</code> - Triggers an evaluation when Config
-        /// delivers a configuration item as a result of a resource change.</para></li><li><para><code>OversizedConfigurationItemChangeNotification</code> - Triggers an evaluation
-        /// when Config delivers an oversized configuration item. Config may generate this notification
+        /// can specify the following notification types:</para><ul><li><para><c>ConfigurationItemChangeNotification</c> - Triggers an evaluation when Config delivers
+        /// a configuration item as a result of a resource change.</para></li><li><para><c>OversizedConfigurationItemChangeNotification</c> - Triggers an evaluation when
+        /// Config delivers an oversized configuration item. Config may generate this notification
         /// type when a resource changes and the notification exceeds the maximum size allowed
-        /// by Amazon SNS.</para></li><li><para><code>ScheduledNotification</code> - Triggers a periodic evaluation at the frequency
-        /// specified for <code>MaximumExecutionFrequency</code>.</para></li></ul>
+        /// by Amazon SNS.</para></li><li><para><c>ScheduledNotification</c> - Triggers a periodic evaluation at the frequency specified
+        /// for <c>MaximumExecutionFrequency</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -370,8 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>For organization config managed rules, a predefined identifier from a list. For example,
-        /// <code>IAM_PASSWORD_POLICY</code> is a managed rule. To reference a managed rule, see
-        /// <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Using
+        /// <c>IAM_PASSWORD_POLICY</c> is a managed rule. To reference a managed rule, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Using
         /// Config managed rules</a>.</para>
         /// </para>
         /// </summary>

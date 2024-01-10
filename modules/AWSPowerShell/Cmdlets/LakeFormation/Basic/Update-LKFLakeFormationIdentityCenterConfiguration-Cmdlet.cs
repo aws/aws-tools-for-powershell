@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter ExternalFiltering_AuthorizedTarget
         /// <summary>
         /// <para>
-        /// <para>List of third-party application <code>ARNs</code> integrated with Lake Formation.</para>
+        /// <para>List of third-party application <c>ARNs</c> integrated with Lake Formation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

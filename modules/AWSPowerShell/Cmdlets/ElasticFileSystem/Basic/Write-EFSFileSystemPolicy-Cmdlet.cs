@@ -28,19 +28,19 @@ using Amazon.ElasticFileSystem.Model;
 namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
-    /// Applies an Amazon EFS <code>FileSystemPolicy</code> to an Amazon EFS file system.
-    /// A file system policy is an IAM resource-based policy and can contain multiple policy
-    /// statements. A file system always has exactly one file system policy, which can be
-    /// the default policy or an explicit policy set or updated using this API operation.
-    /// EFS file system policies have a 20,000 character limit. When an explicit policy is
-    /// set, it overrides the default policy. For more information about the default file
-    /// system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html#default-filesystempolicy">Default
+    /// Applies an Amazon EFS <c>FileSystemPolicy</c> to an Amazon EFS file system. A file
+    /// system policy is an IAM resource-based policy and can contain multiple policy statements.
+    /// A file system always has exactly one file system policy, which can be the default
+    /// policy or an explicit policy set or updated using this API operation. EFS file system
+    /// policies have a 20,000 character limit. When an explicit policy is set, it overrides
+    /// the default policy. For more information about the default file system policy, see
+    /// <a href="https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html#default-filesystempolicy">Default
     /// EFS File System Policy</a>. 
     /// 
     ///  <note><para>
     /// EFS file system policies have a 20,000 character limit.
     /// </para></note><para>
-    /// This operation requires permissions for the <code>elasticfilesystem:PutFileSystemPolicy</code>
+    /// This operation requires permissions for the <c>elasticfilesystem:PutFileSystemPolicy</c>
     /// action.
     /// </para>
     /// </summary>
@@ -58,13 +58,13 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter BypassPolicyLockoutSafetyCheck
         /// <summary>
         /// <para>
-        /// <para>(Optional) A boolean that specifies whether or not to bypass the <code>FileSystemPolicy</code>
+        /// <para>(Optional) A boolean that specifies whether or not to bypass the <c>FileSystemPolicy</c>
         /// lockout safety check. The lockout safety check determines whether the policy in the
         /// request will lock out, or prevent, the IAM principal that is making the request from
-        /// making future <code>PutFileSystemPolicy</code> requests on this file system. Set <code>BypassPolicyLockoutSafetyCheck</code>
-        /// to <code>True</code> only when you intend to prevent the IAM principal that is making
-        /// the request from making subsequent <code>PutFileSystemPolicy</code> requests on this
-        /// file system. The default value is <code>False</code>. </para>
+        /// making future <c>PutFileSystemPolicy</c> requests on this file system. Set <c>BypassPolicyLockoutSafetyCheck</c>
+        /// to <c>True</c> only when you intend to prevent the IAM principal that is making the
+        /// request from making subsequent <c>PutFileSystemPolicy</c> requests on this file system.
+        /// The default value is <c>False</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>The ID of the EFS file system that you want to create or update the <code>FileSystemPolicy</code>
+        /// <para>The ID of the EFS file system that you want to create or update the <c>FileSystemPolicy</c>
         /// for.</para>
         /// </para>
         /// </summary>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The <code>FileSystemPolicy</code> that you're creating. Accepts a JSON formatted policy
+        /// <para>The <c>FileSystemPolicy</c> that you're creating. Accepts a JSON formatted policy
         /// definition. EFS file system policies have a 20,000 character limit. To find out more
         /// about the elements that make up a file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies">EFS
         /// Resource-based Policies</a>. </para>

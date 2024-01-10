@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// 
     ///  
     /// <para>
-    /// You can delete only predictor that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
+    /// You can delete only predictor that have a status of <c>ACTIVE</c> or <c>CREATE_FAILED</c>.
     /// To get the status, use the <a>DescribeExplainability</a> operation.
     /// </para>
     /// </summary>

@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// The API can take up to 10 minutes to configure this setting. During this time, if
     /// you run <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html">GetImageBlockPublicAccessState</a>,
-    /// the response will be <code>unblocked</code>. When the API has completed the configuration,
-    /// the response will be <code>block-new-sharing</code>.
+    /// the response will be <c>unblocked</c>. When the API has completed the configuration,
+    /// the response will be <c>block-new-sharing</c>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis">Block
     /// public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.
@@ -58,9 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ImageBlockPublicAccessState
         /// <summary>
         /// <para>
-        /// <para>Specify <code>block-new-sharing</code> to enable block public access for AMIs at the
-        /// account level in the specified Region. This will block any attempt to publicly share
-        /// your AMIs in the specified Region.</para>
+        /// <para>Specify <c>block-new-sharing</c> to enable block public access for AMIs at the account
+        /// level in the specified Region. This will block any attempt to publicly share your
+        /// AMIs in the specified Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

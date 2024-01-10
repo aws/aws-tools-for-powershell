@@ -35,10 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     /// 
     ///  
     /// <para>
-    /// Use the <code>capabilities</code> field to permit an end user to send messages or
-    /// moderate a room.
+    /// Use the <c>capabilities</c> field to permit an end user to send messages or moderate
+    /// a room.
     /// </para><para>
-    /// The <code>attributes</code> field securely attaches structured data to the chat session;
+    /// The <c>attributes</c> field securely attaches structured data to the chat session;
     /// the data is included within each message sent by the end user and received by other
     /// participants in the room. Common use cases for attributes include passing end-user
     /// profile data like an icon, display name, colors, badges, and other display features.

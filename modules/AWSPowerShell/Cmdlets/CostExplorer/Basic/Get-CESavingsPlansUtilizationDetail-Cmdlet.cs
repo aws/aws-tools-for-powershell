@@ -30,12 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// <summary>
     /// Retrieves attribute data along with aggregate utilization and savings data for a given
     /// time period. This doesn't support granular or grouped data (daily/monthly) in response.
-    /// You can't retrieve data by dates in a single response similar to <code>GetSavingsPlanUtilization</code>,
-    /// but you have the option to make multiple calls to <code>GetSavingsPlanUtilizationDetails</code>
-    /// by providing individual dates. You can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code>
+    /// You can't retrieve data by dates in a single response similar to <c>GetSavingsPlanUtilization</c>,
+    /// but you have the option to make multiple calls to <c>GetSavingsPlanUtilizationDetails</c>
+    /// by providing individual dates. You can use <c>GetDimensionValues</c> in <c>SAVINGS_PLANS</c>
     /// to determine the possible dimension values.
     /// 
-    ///  <note><para><code>GetSavingsPlanUtilizationDetails</code> internally groups data by <code>SavingsPlansArn</code>.
+    ///  <note><para><c>GetSavingsPlanUtilizationDetails</c> internally groups data by <c>SavingsPlansArn</c>.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CESavingsPlansUtilizationDetail")]
@@ -64,9 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>Filters Savings Plans utilization coverage data for active Savings Plans dimensions.
-        /// You can filter data with the following dimensions:</para><ul><li><para><code>LINKED_ACCOUNT</code></para></li><li><para><code>SAVINGS_PLAN_ARN</code></para></li><li><para><code>REGION</code></para></li><li><para><code>PAYMENT_OPTION</code></para></li><li><para><code>INSTANCE_TYPE_FAMILY</code></para></li></ul><para><code>GetSavingsPlansUtilizationDetails</code> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
-        /// object as the other operations, but only <code>AND</code> is supported among each
-        /// dimension.</para>
+        /// You can filter data with the following dimensions:</para><ul><li><para><c>LINKED_ACCOUNT</c></para></li><li><para><c>SAVINGS_PLAN_ARN</c></para></li><li><para><c>REGION</c></para></li><li><para><c>PAYMENT_OPTION</c></para></li><li><para><c>INSTANCE_TYPE_FAMILY</c></para></li></ul><para><c>GetSavingsPlansUtilizationDetails</c> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
+        /// object as the other operations, but only <c>AND</c> is supported among each dimension.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,10 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter TimePeriod
         /// <summary>
         /// <para>
-        /// <para>The time period that you want the usage and costs for. The <code>Start</code> date
-        /// must be within 13 months. The <code>End</code> date must be after the <code>Start</code>
-        /// date, and before the current date. Future dates can't be used as an <code>End</code>
-        /// date.</para>
+        /// <para>The time period that you want the usage and costs for. The <c>Start</c> date must
+        /// be within 13 months. The <c>End</c> date must be after the <c>Start</c> date, and
+        /// before the current date. Future dates can't be used as an <c>End</c> date.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -116,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The number of items to be returned in a response. The default is <code>20</code>,
-        /// with a minimum value of <code>1</code>.</para>
+        /// <para>The number of items to be returned in a response. The default is <c>20</c>, with a
+        /// minimum value of <c>1</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

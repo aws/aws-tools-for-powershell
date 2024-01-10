@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </para></note><para>
     /// Deletes the specified Object Lambda Access Point.
     /// </para><para>
-    /// The following actions are related to <code>DeleteAccessPointForObjectLambda</code>:
+    /// The following actions are related to <c>DeleteAccessPointForObjectLambda</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPointForObjectLambda.html">CreateAccessPointForObjectLambda</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointForObjectLambda.html">GetAccessPointForObjectLambda</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html">ListAccessPointsForObjectLambda</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3CAccessPointForObjectLambda", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

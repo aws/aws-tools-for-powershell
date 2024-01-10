@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Replace
         /// <summary>
         /// <para>
-        /// <para>If <code>True</code>, then all fields that are required by the <a>RegisterTargetWithMaintenanceWindow</a>
+        /// <para>If <c>True</c>, then all fields that are required by the <a>RegisterTargetWithMaintenanceWindow</a>
         /// operation are also required for this API request. Optional fields that aren't specified
         /// are set to null.</para>
         /// </para>

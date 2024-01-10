@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// you call the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html">DownloadDefaultKeyPair</a>
     /// API. 
     /// </para><para>
-    /// The <code>delete key pair</code> operation supports tag-based access control via resource
-    /// tags applied to the resource identified by <code>key pair name</code>. For more information,
+    /// The <c>delete key pair</c> operation supports tag-based access control via resource
+    /// tags applied to the resource identified by <c>key pair name</c>. For more information,
     /// see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter ExpectedFingerprint
         /// <summary>
         /// <para>
-        /// <para>The RSA fingerprint of the Lightsail default key pair to delete.</para><note><para>The <code>expectedFingerprint</code> parameter is required only when specifying to
-        /// delete a Lightsail default key pair.</para></note>
+        /// <para>The RSA fingerprint of the Lightsail default key pair to delete.</para><note><para>The <c>expectedFingerprint</c> parameter is required only when specifying to delete
+        /// a Lightsail default key pair.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

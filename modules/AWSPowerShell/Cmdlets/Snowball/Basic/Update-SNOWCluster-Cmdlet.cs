@@ -28,10 +28,10 @@ using Amazon.Snowball.Model;
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
-    /// While a cluster's <code>ClusterState</code> value is in the <code>AwaitingQuorum</code>
-    /// state, you can update some of the information associated with a cluster. Once the
-    /// cluster changes to a different job state, usually 60 minutes after the cluster being
-    /// created, this action is no longer available.
+    /// While a cluster's <c>ClusterState</c> value is in the <c>AwaitingQuorum</c> state,
+    /// you can update some of the information associated with a cluster. Once the cluster
+    /// changes to a different job state, usually 60 minutes after the cluster being created,
+    /// this action is no longer available.
     /// </summary>
     [Cmdlet("Update", "SNOWCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter ClusterId
         /// <summary>
         /// <para>
-        /// <para>The cluster ID of the cluster that you want to update, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</para>
+        /// <para>The cluster ID of the cluster that you want to update, for example <c>CID123e4567-e89b-12d3-a456-426655440000</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <para>
         /// <para>&gt;Fault tolerance level of the cluster. This indicates the number of nodes that
         /// can go down without degrading the performance of the cluster. This additional input
-        /// helps when the specified <code>StorageLimit</code> matches more than one Amazon S3
-        /// compatible storage on Snow family devices service configuration.</para>
+        /// helps when the specified <c>StorageLimit</c> matches more than one Amazon S3 compatible
+        /// storage on Snow family devices service configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Resources_S3Resource
         /// <summary>
         /// <para>
-        /// <para>An array of <code>S3Resource</code> objects.</para>
+        /// <para>An array of <c>S3Resource</c> objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,8 +232,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Notification_SnsTopicARN
         /// <summary>
         /// <para>
-        /// <para>The new SNS <code>TopicArn</code> that you want to associate with this job. You can
-        /// create Amazon Resource Names (ARNs) for topics by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html">CreateTopic</a>
+        /// <para>The new SNS <c>TopicArn</c> that you want to associate with this job. You can create
+        /// Amazon Resource Names (ARNs) for topics by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html">CreateTopic</a>
         /// Amazon SNS API action.</para><para>You can subscribe email addresses to an Amazon SNS topic through the Amazon Web Services
         /// Management Console, or by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html">Subscribe</a>
         /// Amazon Simple Notification Service (Amazon SNS) API action.</para>

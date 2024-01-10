@@ -37,15 +37,15 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// The service codes and category codes correspond to the values that appear in the <b>Service</b>
     /// and <b>Category</b> lists on the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create
     /// Case</a> page. The values in those fields don't necessarily match the service codes
-    /// and categories returned by the <code>DescribeServices</code> operation. Always use
-    /// the service codes and categories that the <code>DescribeServices</code> operation
-    /// returns, so that you have the most recent set of service and category codes.
+    /// and categories returned by the <c>DescribeServices</c> operation. Always use the service
+    /// codes and categories that the <c>DescribeServices</c> operation returns, so that you
+    /// have the most recent set of service and category codes.
     /// </para><note><ul><li><para>
     /// You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the
     /// Amazon Web Services Support API. 
     /// </para></li><li><para>
     /// If you call the Amazon Web Services Support API from an account that doesn't have
-    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <code>SubscriptionRequiredException</code>
+    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <c>SubscriptionRequiredException</c>
     /// error message appears. For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon
     /// Web Services Support</a>.
     /// </para></li></ul></note>
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// <para>
         /// <para>The language in which Amazon Web Services Support handles the case. Amazon Web Services
         /// Support currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean
-        /// (“ko”). You must specify the ISO 639-1 code for the <code>language</code> parameter
-        /// if you want support in that language.</para>
+        /// (“ko”). You must specify the ISO 639-1 code for the <c>language</c> parameter if you
+        /// want support in that language.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

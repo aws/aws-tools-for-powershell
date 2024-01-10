@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The domain name for the custom domain that hosts the sign-up and sign-in pages for
-        /// your application. One example might be <code>auth.example.com</code>. </para><para>This string can include only lowercase letters, numbers, and hyphens. Don't use a
+        /// your application. One example might be <c>auth.example.com</c>. </para><para>This string can include only lowercase letters, numbers, and hyphens. Don't use a
         /// hyphen for the first or last character. Use periods to separate subdomain names.</para>
         /// </para>
         /// </summary>

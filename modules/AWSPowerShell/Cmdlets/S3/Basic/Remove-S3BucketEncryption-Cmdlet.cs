@@ -36,13 +36,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// the bucket default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon
     /// S3 Bucket Default Encryption</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
-    /// To use this operation, you must have permissions to perform the <code>s3:PutEncryptionConfiguration</code>
+    /// To use this operation, you must have permissions to perform the <c>s3:PutEncryptionConfiguration</c>
     /// action. The bucket owner has this permission by default. The bucket owner can grant
     /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// Access Permissions to your Amazon S3 Resources</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
-    /// The following operations are related to <code>DeleteBucketEncryption</code>:
+    /// The following operations are related to <c>DeleteBucketEncryption</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html">PutBucketEncryption</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html">GetBucketEncryption</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3BucketEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

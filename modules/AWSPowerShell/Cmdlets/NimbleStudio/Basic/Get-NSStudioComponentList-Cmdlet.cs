@@ -28,7 +28,7 @@ using Amazon.NimbleStudio.Model;
 namespace Amazon.PowerShell.Cmdlets.NS
 {
     /// <summary>
-    /// Lists the <code>StudioComponents</code> in a studio.
+    /// Lists the <c>StudioComponents</c> in a studio.
     /// </summary>
     [Cmdlet("Get", "NSStudioComponentList")]
     [OutputType("Amazon.NimbleStudio.Model.StudioComponent")]

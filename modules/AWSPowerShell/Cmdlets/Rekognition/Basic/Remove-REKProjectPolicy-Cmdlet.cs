@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>.
     /// To attach a project policy to a project, call <a>PutProjectPolicy</a>.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:DeleteProjectPolicy</code>
+    /// This operation requires permissions to perform the <c>rekognition:DeleteProjectPolicy</c>
     /// action.
     /// </para>
     /// </summary>

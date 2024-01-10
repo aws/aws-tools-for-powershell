@@ -29,15 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.LFV
 {
     /// <summary>
     /// Lists the Amazon Lookout for Vision projects in your AWS account that are in the AWS
-    /// Region in which you call <code>ListProjects</code>.
+    /// Region in which you call <c>ListProjects</c>.
     /// 
     ///  
     /// <para>
-    /// The <code>ListProjects</code> operation is eventually consistent. Recent calls to
-    /// <code>CreateProject</code> and <code>DeleteProject</code> might take a while to appear
-    /// in the response from <code>ListProjects</code>.
+    /// The <c>ListProjects</c> operation is eventually consistent. Recent calls to <c>CreateProject</c>
+    /// and <c>DeleteProject</c> might take a while to appear in the response from <c>ListProjects</c>.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>lookoutvision:ListProjects</code>
+    /// This operation requires permissions to perform the <c>lookoutvision:ListProjects</c>
     /// operation.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

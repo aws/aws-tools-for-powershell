@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         #region Parameter ReputationOptions_ReputationMetricsEnabled
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, tracking of reputation metrics is enabled for the configuration
-        /// set. If <code>false</code>, tracking of reputation metrics is disabled for the configuration
+        /// <para>If <c>true</c>, tracking of reputation metrics is enabled for the configuration set.
+        /// If <c>false</c>, tracking of reputation metrics is disabled for the configuration
         /// set.</para>
         /// </para>
         /// </summary>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         #region Parameter SendingOptions_SendingEnabled
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, email sending is enabled for the configuration set. If <code>false</code>,
+        /// <para>If <c>true</c>, email sending is enabled for the configuration set. If <c>false</c>,
         /// email sending is disabled for the configuration set.</para>
         /// </para>
         /// </summary>
@@ -135,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         /// <summary>
         /// <para>
         /// <para>Specifies whether messages that use the configuration set are required to use Transport
-        /// Layer Security (TLS). If the value is <code>Require</code>, messages are only delivered
-        /// if a TLS connection can be established. If the value is <code>Optional</code>, messages
+        /// Layer Security (TLS). If the value is <c>Require</c>, messages are only delivered
+        /// if a TLS connection can be established. If the value is <c>Optional</c>, messages
         /// can be delivered in plain text if a TLS connection can't be established.</para>
         /// </para>
         /// </summary>

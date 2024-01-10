@@ -28,7 +28,7 @@ using Amazon.Snowball.Model;
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
-    /// Lists all supported versions for Snow on-device services. Returns an array of <code>ServiceVersion</code>
+    /// Lists all supported versions for Snow on-device services. Returns an array of <c>ServiceVersion</c>
     /// object containing the supported versions for a particular service.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SNOWServiceVersion")]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of <code>ListServiceVersions</code> objects to return.</para>
+        /// <para>The maximum number of <c>ListServiceVersions</c> objects to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <summary>
         /// <para>
         /// <para>Because HTTP requests are stateless, this is the starting point for the next list
-        /// of returned <code>ListServiceVersionsRequest</code> versions.</para>
+        /// of returned <c>ListServiceVersionsRequest</c> versions.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

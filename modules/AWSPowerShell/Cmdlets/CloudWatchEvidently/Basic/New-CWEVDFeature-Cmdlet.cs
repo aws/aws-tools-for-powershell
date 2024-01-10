@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// <para>
         /// <para>The name of the variation to use as the default variation. The default variation is
         /// served to users who are not allocated to any ongoing launches or experiments of this
-        /// feature.</para><para>This variation must also be listed in the <code>variations</code> structure.</para><para>If you omit <code>defaultVariation</code>, the first variation listed in the <code>variations</code>
+        /// feature.</para><para>This variation must also be listed in the <c>variations</c> structure.</para><para>If you omit <c>defaultVariation</c>, the first variation listed in the <c>variations</c>
         /// structure is used as the default variation.</para>
         /// </para>
         /// </summary>
@@ -92,9 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         #region Parameter EvaluationStrategy
         /// <summary>
         /// <para>
-        /// <para>Specify <code>ALL_RULES</code> to activate the traffic allocation specified by any
-        /// ongoing launches or experiments. Specify <code>DEFAULT_VARIATION</code> to serve the
-        /// default variation to all users instead.</para>
+        /// <para>Specify <c>ALL_RULES</c> to activate the traffic allocation specified by any ongoing
+        /// launches or experiments. Specify <c>DEFAULT_VARIATION</c> to serve the default variation
+        /// to all users instead.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

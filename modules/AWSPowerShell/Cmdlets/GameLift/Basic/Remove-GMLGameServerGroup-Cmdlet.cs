@@ -43,14 +43,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li></ul><para>
     /// To delete a game server group, identify the game server group to delete and specify
     /// the type of delete operation to initiate. Game server groups can only be deleted if
-    /// they are in <code>ACTIVE</code> or <code>ERROR</code> status.
+    /// they are in <c>ACTIVE</c> or <c>ERROR</c> status.
     /// </para><para>
     /// If the delete request is successful, a series of operations are kicked off. The game
-    /// server group status is changed to <code>DELETE_SCHEDULED</code>, which prevents new
-    /// game servers from being registered and stops automatic scaling activity. Once all
-    /// game servers in the game server group are deregistered, Amazon GameLift FleetIQ can
-    /// begin deleting resources. If any of the delete operations fail, the game server group
-    /// is placed in <code>ERROR</code> status.
+    /// server group status is changed to <c>DELETE_SCHEDULED</c>, which prevents new game
+    /// servers from being registered and stops automatic scaling activity. Once all game
+    /// servers in the game server group are deregistered, Amazon GameLift FleetIQ can begin
+    /// deleting resources. If any of the delete operations fail, the game server group is
+    /// placed in <c>ERROR</c> status.
     /// </para><para>
     /// Amazon GameLift FleetIQ emits delete events to Amazon CloudWatch.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon
@@ -71,12 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter DeleteOption
         /// <summary>
         /// <para>
-        /// <para>The type of delete to perform. Options include the following:</para><ul><li><para><code>SAFE_DELETE</code> – (default) Terminates the game server group and Amazon
-        /// EC2 Auto Scaling group only when it has no game servers that are in <code>UTILIZED</code>
-        /// status.</para></li><li><para><code>FORCE_DELETE</code> – Terminates the game server group, including all active
-        /// game servers regardless of their utilization status, and the Amazon EC2 Auto Scaling
-        /// group. </para></li><li><para><code>RETAIN</code> – Does a safe delete of the game server group but retains the
-        /// Amazon EC2 Auto Scaling group as is.</para></li></ul>
+        /// <para>The type of delete to perform. Options include the following:</para><ul><li><para><c>SAFE_DELETE</c> – (default) Terminates the game server group and Amazon EC2 Auto
+        /// Scaling group only when it has no game servers that are in <c>UTILIZED</c> status.</para></li><li><para><c>FORCE_DELETE</c> – Terminates the game server group, including all active game
+        /// servers regardless of their utilization status, and the Amazon EC2 Auto Scaling group.
+        /// </para></li><li><para><c>RETAIN</c> – Does a safe delete of the game server group but retains the Amazon
+        /// EC2 Auto Scaling group as is.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

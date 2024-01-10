@@ -37,9 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// Expired channels that have not yet been deleted appear as active, and you can update
     /// their expiration settings. The system honors the new settings.
     /// </para></li><li><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
-    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
-    /// as the value in the header.
+    /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the ARN of the <c>AppInstanceUser</c>
+    /// or <c>AppInstanceBot</c> that makes the API call as the value in the header.
     /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Write", "CHMMGChannelExpirationSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        /// the API call.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c> or <c>AppInstanceBot</c> that makes the API
+        /// call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

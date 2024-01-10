@@ -28,11 +28,11 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Cancels a query if the query is not in a terminated state, such as <code>CANCELLED</code>,
-    /// <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>FINISHED</code>. You must specify
-    /// an ARN value for <code>EventDataStore</code>. The ID of the query that you want to
-    /// cancel is also required. When you run <code>CancelQuery</code>, the query status might
-    /// show as <code>CANCELLED</code> even if the operation is not yet finished.
+    /// Cancels a query if the query is not in a terminated state, such as <c>CANCELLED</c>,
+    /// <c>FAILED</c>, <c>TIMED_OUT</c>, or <c>FINISHED</c>. You must specify an ARN value
+    /// for <c>EventDataStore</c>. The ID of the query that you want to cancel is also required.
+    /// When you run <c>CancelQuery</c>, the query status might show as <c>CANCELLED</c> even
+    /// if the operation is not yet finished.
     /// </summary>
     [Cmdlet("Stop", "CTQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudTrail.Model.CancelQueryResponse")]
@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter QueryId
         /// <summary>
         /// <para>
-        /// <para>The ID of the query that you want to cancel. The <code>QueryId</code> comes from the
-        /// response of a <code>StartQuery</code> operation.</para>
+        /// <para>The ID of the query that you want to cancel. The <c>QueryId</c> comes from the response
+        /// of a <c>StartQuery</c> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

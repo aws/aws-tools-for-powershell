@@ -33,14 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     /// 
     ///  
     /// <para>
-    /// After you call <code>AssociateCustomDomain</code> and receive a successful response,
-    /// use the information in the <a>CustomDomain</a> record that's returned to add CNAME
-    /// records to your Domain Name System (DNS). For each mapped domain name, add a mapping
-    /// to the target App Runner subdomain and one or more certificate validation records.
-    /// App Runner then performs DNS validation to verify that you own or control the domain
-    /// name that you associated. App Runner tracks domain validity in a certificate stored
-    /// in <a href="https://docs.aws.amazon.com/acm/latest/userguide">AWS Certificate Manager
-    /// (ACM)</a>.
+    /// After you call <c>AssociateCustomDomain</c> and receive a successful response, use
+    /// the information in the <a>CustomDomain</a> record that's returned to add CNAME records
+    /// to your Domain Name System (DNS). For each mapped domain name, add a mapping to the
+    /// target App Runner subdomain and one or more certificate validation records. App Runner
+    /// then performs DNS validation to verify that you own or control the domain name that
+    /// you associated. App Runner tracks domain validity in a certificate stored in <a href="https://docs.aws.amazon.com/acm/latest/userguide">AWS
+    /// Certificate Manager (ACM)</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "AARCustomDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -57,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>A custom domain endpoint to associate. Specify a root domain (for example, <code>example.com</code>),
-        /// a subdomain (for example, <code>login.example.com</code> or <code>admin.login.example.com</code>),
-        /// or a wildcard (for example, <code>*.example.com</code>).</para>
+        /// <para>A custom domain endpoint to associate. Specify a root domain (for example, <c>example.com</c>),
+        /// a subdomain (for example, <c>login.example.com</c> or <c>admin.login.example.com</c>),
+        /// or a wildcard (for example, <c>*.example.com</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter EnableWWWSubdomain
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to associate the subdomain <code>www.<i>DomainName</i></code>
-        /// with the App Runner service in addition to the base domain.</para><para>Default: <code>true</code></para>
+        /// <para>Set to <c>true</c> to associate the subdomain <c>www.<i>DomainName</i></c> with the
+        /// App Runner service in addition to the base domain.</para><para>Default: <c>true</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

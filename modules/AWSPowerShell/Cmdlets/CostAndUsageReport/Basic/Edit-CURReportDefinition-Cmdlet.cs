@@ -75,10 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         #region Parameter ReportDefinition_BillingViewArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon resource name of the billing view. The <code>BillingViewArn</code> is
-        /// needed to create Amazon Web Services Cost and Usage Report for each billing group
-        /// maintained in the Amazon Web Services Billing Conductor service. The <code>BillingViewArn</code>
-        /// for a billing group can be constructed as: <code>arn:aws:billing::payer-account-id:billingview/billing-group-primary-account-id</code></para>
+        /// <para> The Amazon resource name of the billing view. The <c>BillingViewArn</c> is needed
+        /// to create Amazon Web Services Cost and Usage Report for each billing group maintained
+        /// in the Amazon Web Services Billing Conductor service. The <c>BillingViewArn</c> for
+        /// a billing group can be constructed as: <c>arn:aws:billing::payer-account-id:billingview/billing-group-primary-account-id</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     /// into Customer Profiles will be included in the calculated attribute, which can be
     /// retrieved for a profile using the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetCalculatedAttributeForProfile.html">GetCalculatedAttributeForProfile</a>
     /// API. Defining a calculated attribute makes it available for all profiles within a
-    /// domain. Each calculated attribute can only reference one <code>ObjectType</code> and
-    /// at most, two fields from that <code>ObjectType</code>.
+    /// domain. Each calculated attribute can only reference one <c>ObjectType</c> and at
+    /// most, two fields from that <c>ObjectType</c>.
     /// </summary>
     [Cmdlet("New", "CPFCalculatedAttributeDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CustomerProfiles.Model.CreateCalculatedAttributeDefinitionResponse")]

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     /// Kinesis Analytics will no longer write data from the corresponding in-application
     /// stream to the external output destination.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>kinesisanalytics:DeleteApplicationOutput</code>
+    /// This operation requires permissions to perform the <c>kinesisanalytics:DeleteApplicationOutput</c>
     /// action.
     /// </para>
     /// </summary>
@@ -76,8 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// <para>
         /// <para>Amazon Kinesis Analytics application version. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
         /// operation to get the current application version. If the version specified is not
-        /// the current version, the <code>ConcurrentModificationException</code> is returned.
-        /// </para>
+        /// the current version, the <c>ConcurrentModificationException</c> is returned. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// operation, has a unique ID. You need to provide the ID to uniquely identify the output
         /// configuration that you want to delete from the application configuration. You can
         /// use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
-        /// operation to get the specific <code>OutputId</code>. </para>
+        /// operation to get the specific <c>OutputId</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

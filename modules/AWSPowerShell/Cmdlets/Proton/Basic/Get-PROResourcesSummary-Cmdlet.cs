@@ -41,8 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// a template major version, or behind a template minor version), the total number of
     /// resources, and the number of resources that are in a failed state, grouped by resource
     /// type. Components, environments, and service templates return less information - see
-    /// the <code>components</code>, <code>environments</code>, and <code>serviceTemplates</code>
-    /// field descriptions.
+    /// the <c>components</c>, <c>environments</c>, and <c>serviceTemplates</c> field descriptions.
     /// </para><para>
     /// For context, the action also returns the total number of each type of Proton template
     /// in the Amazon Web Services account.

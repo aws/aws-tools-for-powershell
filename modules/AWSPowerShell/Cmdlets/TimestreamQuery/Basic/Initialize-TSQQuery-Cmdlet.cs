@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     /// <summary>
     /// A synchronous operation that allows you to submit a query with parameters to be stored
     /// by Timestream for later running. Timestream only supports using this operation with
-    /// the <code>PrepareQueryRequest$ValidateOnly</code> set to <code>true</code>.
+    /// the <c>PrepareQueryRequest$ValidateOnly</c> set to <c>true</c>.
     /// </summary>
     [Cmdlet("Initialize", "TSQQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TimestreamQuery.Model.PrepareQueryResponse")]
@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         /// <summary>
         /// <para>
         /// <para>The Timestream query string that you want to use as a prepared statement. Parameter
-        /// names can be specified in the query string <code>@</code> character followed by an
-        /// identifier. </para>
+        /// names can be specified in the query string <c>@</c> character followed by an identifier.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,9 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         #region Parameter ValidateOnly
         /// <summary>
         /// <para>
-        /// <para>By setting this value to <code>true</code>, Timestream will only validate that the
-        /// query string is a valid Timestream query, and not store the prepared query for later
-        /// use.</para>
+        /// <para>By setting this value to <c>true</c>, Timestream will only validate that the query
+        /// string is a valid Timestream query, and not store the prepared query for later use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

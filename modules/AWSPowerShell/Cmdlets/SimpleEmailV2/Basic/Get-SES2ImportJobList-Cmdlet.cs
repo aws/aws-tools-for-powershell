@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>The destination of the import job, which can be used to list import jobs that have
-        /// a certain <code>ImportDestinationType</code>.</para>
+        /// a certain <c>ImportDestinationType</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>A string token indicating that there might be additional import jobs available to
-        /// be listed. Copy this token to a subsequent call to <code>ListImportJobs</code> with
-        /// the same parameters to retrieve the next page of import jobs.</para>
+        /// be listed. Copy this token to a subsequent call to <c>ListImportJobs</c> with the
+        /// same parameters to retrieve the next page of import jobs.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -74,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>Maximum number of import jobs to return at once. Use this parameter to paginate results.
-        /// If additional import jobs exist beyond the specified limit, the <code>NextToken</code>
-        /// element is sent in the response. Use the <code>NextToken</code> value in subsequent
-        /// requests to retrieve additional addresses.</para>
+        /// If additional import jobs exist beyond the specified limit, the <c>NextToken</c> element
+        /// is sent in the response. Use the <c>NextToken</c> value in subsequent requests to
+        /// retrieve additional addresses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// A <code>cluster</code> placement group is a logical grouping of instances within a
-    /// single Availability Zone that benefit from low network latency, high network throughput.
-    /// A <code>spread</code> placement group places instances on distinct hardware. A <code>partition</code>
+    /// A <c>cluster</c> placement group is a logical grouping of instances within a single
+    /// Availability Zone that benefit from low network latency, high network throughput.
+    /// A <c>spread</c> placement group places instances on distinct hardware. A <c>partition</c>
     /// placement group places groups of instances in different partitions, where instances
     /// in one partition do not share the same hardware with instances in another partition.
     /// </para><para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PartitionCount
         /// <summary>
         /// <para>
-        /// <para>The number of partitions. Valid only when <b>Strategy</b> is set to <code>partition</code>.</para>
+        /// <para>The number of partitions. Valid only when <b>Strategy</b> is set to <c>partition</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpreadLevel
         /// <summary>
         /// <para>
-        /// <para>Determines how placement groups spread instances. </para><ul><li><para>Host – You can use <code>host</code> only with Outpost placement groups.</para></li><li><para>Rack – No usage restrictions.</para></li></ul>
+        /// <para>Determines how placement groups spread instances. </para><ul><li><para>Host – You can use <c>host</c> only with Outpost placement groups.</para></li><li><para>Rack – No usage restrictions.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

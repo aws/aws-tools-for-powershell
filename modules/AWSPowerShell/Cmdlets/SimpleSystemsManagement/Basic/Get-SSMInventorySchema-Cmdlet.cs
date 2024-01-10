@@ -47,9 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Returns inventory schemas that support aggregation. For example, this call returns
-        /// the <code>AWS:InstanceInformation</code> type, because it supports aggregation based
-        /// on the <code>PlatformName</code>, <code>PlatformType</code>, and <code>PlatformVersion</code>
-        /// attributes.</para>
+        /// the <c>AWS:InstanceInformation</c> type, because it supports aggregation based on
+        /// the <c>PlatformName</c>, <c>PlatformType</c>, and <c>PlatformVersion</c> attributes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

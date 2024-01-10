@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_AndCondition
         /// <summary>
         /// <para>
-        /// <para>A list of conditions which would be applied together with an <code>AND</code> condition.</para>
+        /// <para>A list of conditions which would be applied together with an <c>AND</c> condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_OrCondition
         /// <summary>
         /// <para>
-        /// <para>A list of conditions which would be applied together with an <code>OR</code> condition.</para>
+        /// <para>A list of conditions which would be applied together with an <c>OR</c> condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

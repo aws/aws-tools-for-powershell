@@ -28,8 +28,8 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>CreateQualificationType</code> operation creates a new Qualification type,
-    /// which is represented by a <code>QualificationType</code> data structure.
+    /// The <c>CreateQualificationType</c> operation creates a new Qualification type, which
+    /// is represented by a <c>QualificationType</c> data structure.
     /// </summary>
     [Cmdlet("New", "MTRQualificationType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MTurk.Model.QualificationType")]
@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         /// <summary>
         /// <para>
         /// <para> The questions for the Qualification test a Worker must answer correctly to obtain
-        /// a Qualification of this type. If this parameter is specified, <code>TestDurationInSeconds</code>
+        /// a Qualification of this type. If this parameter is specified, <c>TestDurationInSeconds</c>
         /// must also be specified. </para><para>Constraints: Must not be longer than 65535 bytes. Must be a QuestionForm data structure.
         /// This parameter cannot be specified if AutoGranted is true.</para><para>Constraints: None. If not specified, the Worker may request the Qualification without
         /// answering any questions.</para>

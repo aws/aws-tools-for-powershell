@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter CostAllocationTagsStatus
         /// <summary>
         /// <para>
-        /// <para>The list of <code>CostAllocationTagStatusEntry</code> objects that are used to update
-        /// cost allocation tags status for this request. </para>
+        /// <para>The list of <c>CostAllocationTagStatusEntry</c> objects that are used to update cost
+        /// allocation tags status for this request. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

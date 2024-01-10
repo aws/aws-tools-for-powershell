@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para>A regular expression used to determine which repository branches are built when a
         /// webhook is triggered. If the name of a branch matches the regular expression, then
-        /// it is built. If <code>branchFilter</code> is empty, then all branches are built.</para><note><para>It is recommended that you use <code>filterGroups</code> instead of <code>branchFilter</code>.
+        /// it is built. If <c>branchFilter</c> is empty, then all branches are built.</para><note><para>It is recommended that you use <c>filterGroups</c> instead of <c>branchFilter</c>.
         /// </para></note>
         /// </para>
         /// </summary>
@@ -81,9 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter FilterGroup
         /// <summary>
         /// <para>
-        /// <para>An array of arrays of <code>WebhookFilter</code> objects used to determine which webhooks
-        /// are triggered. At least one <code>WebhookFilter</code> in the array must specify <code>EVENT</code>
-        /// as its <code>type</code>. </para><para>For a build to be triggered, at least one filter group in the <code>filterGroups</code>
+        /// <para>An array of arrays of <c>WebhookFilter</c> objects used to determine which webhooks
+        /// are triggered. At least one <c>WebhookFilter</c> in the array must specify <c>EVENT</c>
+        /// as its <c>type</c>. </para><para>For a build to be triggered, at least one filter group in the <c>filterGroups</c>
         /// array must pass. For a filter group to pass, each of its filters must pass. </para>
         /// </para>
         /// </summary>

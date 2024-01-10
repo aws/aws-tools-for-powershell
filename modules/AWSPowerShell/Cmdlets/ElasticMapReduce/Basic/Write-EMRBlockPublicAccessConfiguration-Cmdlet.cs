@@ -47,10 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter BlockPublicAccessConfiguration_BlockPublicSecurityGroupRule
         /// <summary>
         /// <para>
-        /// <para>Indicates whether Amazon EMR block public access is enabled (<code>true</code>) or
-        /// disabled (<code>false</code>). By default, the value is <code>false</code> for accounts
-        /// that have created Amazon EMR clusters before July 2019. For accounts created after
-        /// this, the default is <code>true</code>.</para>
+        /// <para>Indicates whether Amazon EMR block public access is enabled (<c>true</c>) or disabled
+        /// (<c>false</c>). By default, the value is <c>false</c> for accounts that have created
+        /// Amazon EMR clusters before July 2019. For accounts created after this, the default
+        /// is <c>true</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,10 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>
         /// <para>Specifies ports and port ranges that are permitted to have security group rules that
         /// allow inbound traffic from all public sources. For example, if Port 23 (Telnet) is
-        /// specified for <code>PermittedPublicSecurityGroupRuleRanges</code>, Amazon EMR allows
-        /// cluster creation if a security group associated with the cluster has a rule that allows
-        /// inbound traffic on Port 23 from IPv4 0.0.0.0/0 or IPv6 port ::/0 as the source.</para><para>By default, Port 22, which is used for SSH access to the cluster Amazon EC2 instances,
-        /// is in the list of <code>PermittedPublicSecurityGroupRuleRanges</code>.</para>
+        /// specified for <c>PermittedPublicSecurityGroupRuleRanges</c>, Amazon EMR allows cluster
+        /// creation if a security group associated with the cluster has a rule that allows inbound
+        /// traffic on Port 23 from IPv4 0.0.0.0/0 or IPv6 port ::/0 as the source.</para><para>By default, Port 22, which is used for SSH access to the cluster Amazon EC2 instances,
+        /// is in the list of <c>PermittedPublicSecurityGroupRuleRanges</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

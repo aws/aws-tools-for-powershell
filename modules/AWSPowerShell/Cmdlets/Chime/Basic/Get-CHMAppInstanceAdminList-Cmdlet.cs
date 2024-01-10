@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Returns a list of the administrators in the <code>AppInstance</code>.
+    /// Returns a list of the administrators in the <c>AppInstance</c>.
     /// 
     ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
     /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceAdmins.html">ListAppInstanceAdmins</a>,
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstance</code>.</para>
+        /// <para>The ARN of the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

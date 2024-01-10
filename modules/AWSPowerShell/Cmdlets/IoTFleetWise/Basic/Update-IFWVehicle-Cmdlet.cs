@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>Static information about a vehicle in a key-value pair. For example:</para><para><code>"engineType"</code> : <code>"1.3 L R2"</code></para>
+        /// <para>Static information about a vehicle in a key-value pair. For example:</para><para><c>"engineType"</c> : <c>"1.3 L R2"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <summary>
         /// <para>
         /// <para>The method the specified attributes will update the existing attributes on the vehicle.
-        /// Use<code>Overwite</code> to replace the vehicle attributes with the specified attributes.
-        /// Or use <code>Merge</code> to combine all attributes.</para><para>This is required if attributes are present in the input.</para>
+        /// Use<c>Overwite</c> to replace the vehicle attributes with the specified attributes.
+        /// Or use <c>Merge</c> to combine all attributes.</para><para>This is required if attributes are present in the input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

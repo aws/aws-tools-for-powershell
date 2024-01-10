@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EMS
         /// <para>
         /// <para>The name for the container. The name must be from 1 to 255 characters. Container names
         /// must be unique to your AWS account within a specific region. As an example, you could
-        /// create a container named <code>movies</code> in every region, as long as you don’t
-        /// have an existing container with that name.</para>
+        /// create a container named <c>movies</c> in every region, as long as you don’t have
+        /// an existing container with that name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

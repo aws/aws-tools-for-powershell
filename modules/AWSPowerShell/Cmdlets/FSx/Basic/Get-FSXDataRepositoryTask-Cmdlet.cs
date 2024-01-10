@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
     /// Returns the description of specific Amazon FSx for Lustre or Amazon File Cache data
-    /// repository tasks, if one or more <code>TaskIds</code> values are provided in the request,
+    /// repository tasks, if one or more <c>TaskIds</c> values are provided in the request,
     /// or if filters are used in the request. You can use filters to narrow the response
     /// to include just tasks for specific file systems or caches, or tasks in a specific
     /// lifecycle state. Otherwise, it returns all data repository tasks owned by your Amazon
@@ -38,11 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// 
     ///  
     /// <para>
-    /// When retrieving all tasks, you can paginate the response by using the optional <code>MaxResults</code>
+    /// When retrieving all tasks, you can paginate the response by using the optional <c>MaxResults</c>
     /// parameter to limit the number of tasks returned in a response. If more tasks remain,
-    /// a <code>NextToken</code> value is returned in the response. In this case, send a later
-    /// request with the <code>NextToken</code> request parameter set to the value of <code>NextToken</code>
-    /// from the last response.
+    /// a <c>NextToken</c> value is returned in the response. In this case, send a later request
+    /// with the <c>NextToken</c> request parameter set to the value of <c>NextToken</c> from
+    /// the last response.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "FSXDataRepositoryTask")]
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>(Optional) You can use filters to narrow the <code>DescribeDataRepositoryTasks</code>
-        /// response to include just tasks for specific file systems, or tasks in a specific lifecycle
+        /// <para>(Optional) You can use filters to narrow the <c>DescribeDataRepositoryTasks</c> response
+        /// to include just tasks for specific file systems, or tasks in a specific lifecycle
         /// state.</para>
         /// </para>
         /// </summary>

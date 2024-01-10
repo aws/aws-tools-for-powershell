@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Include
         /// <summary>
         /// <para>
-        /// <para>Determines whether you want to see the resource tags for the service. If <code>TAGS</code>
+        /// <para>Determines whether you want to see the resource tags for the service. If <c>TAGS</c>
         /// is specified, the tags are included in the response. If this field is omitted, tags
         /// aren't included in the response.</para>
         /// </para>

@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The alias of the theme that you want to describe. If you name a specific alias, you
         /// describe the version that the alias points to. You can specify the latest version
-        /// of the theme by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
-        /// parameter. The keyword <code>$PUBLISHED</code> doesn't apply to themes.</para>
+        /// of the theme by providing the keyword <c>$LATEST</c> in the <c>AliasName</c> parameter.
+        /// The keyword <c>$PUBLISHED</c> doesn't apply to themes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter VersionNumber
         /// <summary>
         /// <para>
-        /// <para>The version number for the version to describe. If a <code>VersionNumber</code> parameter
+        /// <para>The version number for the version to describe. If a <c>VersionNumber</c> parameter
         /// value isn't provided, the latest version of the theme is described.</para>
         /// </para>
         /// </summary>

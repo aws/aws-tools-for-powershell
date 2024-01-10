@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter BotVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the bot that contains the slot type. Must be <code>DRAFT</code>.</para>
+        /// <para>The version of the bot that contains the slot type. Must be <c>DRAFT</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -154,10 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
-        /// The field can be set to one of the following values:</para><ul><li><para><code>ORIGINAL_VALUE</code> - Returns the value entered by the user, if the user
-        /// value is similar to the slot value.</para></li><li><para><code>TOP_RESOLUTION</code> - If there is a resolution list for the slot, return
-        /// the first value in the resolution list as the slot type value. If there is no resolution
-        /// list, null is returned.</para></li></ul><para>If you don't specify the <code>valueSelectionStrategy</code>, the default is <code>ORIGINAL_VALUE</code>.</para>
+        /// The field can be set to one of the following values:</para><ul><li><para><c>ORIGINAL_VALUE</c> - Returns the value entered by the user, if the user value
+        /// is similar to the slot value.</para></li><li><para><c>TOP_RESOLUTION</c> - If there is a resolution list for the slot, return the first
+        /// value in the resolution list as the slot type value. If there is no resolution list,
+        /// null is returned.</para></li></ul><para>If you don't specify the <c>valueSelectionStrategy</c>, the default is <c>ORIGINAL_VALUE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

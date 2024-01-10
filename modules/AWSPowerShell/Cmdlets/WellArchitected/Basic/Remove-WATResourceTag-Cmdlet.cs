@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     /// or review template ARN.
     /// </para></note><para>
     /// To specify multiple tags, use separate <b>tagKeys</b> parameters, for example:
-    /// </para><para><code>DELETE /tags/WorkloadArn?tagKeys=key1&amp;tagKeys=key2</code></para>
+    /// </para><para><c>DELETE /tags/WorkloadArn?tagKeys=key1&amp;tagKeys=key2</c></para>
     /// </summary>
     [Cmdlet("Remove", "WATResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

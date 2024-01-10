@@ -28,7 +28,7 @@ using Amazon.FMS.Model;
 namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
-    /// Returns an array of <code>PolicySummary</code> objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns an array of <c>PolicySummary</c> objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "FMSPolicyList")]
     [OutputType("Amazon.FMS.Model.PolicySummary")]
@@ -45,11 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of <code>PolicySummary</code> objects that you want Firewall
-        /// Manager to return for this request. If you have more <code>PolicySummary</code> objects
-        /// than the number that you specify for <code>MaxResults</code>, the response includes
-        /// a <code>NextToken</code> value that you can use to get another batch of <code>PolicySummary</code>
-        /// objects.</para>
+        /// <para>Specifies the number of <c>PolicySummary</c> objects that you want Firewall Manager
+        /// to return for this request. If you have more <c>PolicySummary</c> objects than the
+        /// number that you specify for <c>MaxResults</c>, the response includes a <c>NextToken</c>
+        /// value that you can use to get another batch of <c>PolicySummary</c> objects.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -65,12 +64,12 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If you specify a value for <code>MaxResults</code> and you have more <code>PolicySummary</code>
-        /// objects than the number that you specify for <code>MaxResults</code>, Firewall Manager
-        /// returns a <code>NextToken</code> value in the response that allows you to list another
-        /// group of <code>PolicySummary</code> objects. For the second and subsequent <code>ListPolicies</code>
-        /// requests, specify the value of <code>NextToken</code> from the previous response to
-        /// get information about another batch of <code>PolicySummary</code> objects.</para>
+        /// <para>If you specify a value for <c>MaxResults</c> and you have more <c>PolicySummary</c>
+        /// objects than the number that you specify for <c>MaxResults</c>, Firewall Manager returns
+        /// a <c>NextToken</c> value in the response that allows you to list another group of
+        /// <c>PolicySummary</c> objects. For the second and subsequent <c>ListPolicies</c> requests,
+        /// specify the value of <c>NextToken</c> from the previous response to get information
+        /// about another batch of <c>PolicySummary</c> objects.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

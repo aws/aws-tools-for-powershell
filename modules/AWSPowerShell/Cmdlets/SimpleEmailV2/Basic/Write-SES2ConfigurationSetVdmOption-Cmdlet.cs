@@ -68,9 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>Specifies the status of your VDM engagement metrics collection. Can be one of the
-        /// following:</para><ul><li><para><code>ENABLED</code> – Amazon SES enables engagement metrics for the configuration
-        /// set.</para></li><li><para><code>DISABLED</code> – Amazon SES disables engagement metrics for the configuration
-        /// set.</para></li></ul>
+        /// following:</para><ul><li><para><c>ENABLED</c> – Amazon SES enables engagement metrics for the configuration set.</para></li><li><para><c>DISABLED</c> – Amazon SES disables engagement metrics for the configuration set.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter GuardianOptions_OptimizedSharedDelivery
         /// <summary>
         /// <para>
-        /// <para>Specifies the status of your VDM optimized shared delivery. Can be one of the following:</para><ul><li><para><code>ENABLED</code> – Amazon SES enables optimized shared delivery for the configuration
-        /// set.</para></li><li><para><code>DISABLED</code> – Amazon SES disables optimized shared delivery for the configuration
+        /// <para>Specifies the status of your VDM optimized shared delivery. Can be one of the following:</para><ul><li><para><c>ENABLED</c> – Amazon SES enables optimized shared delivery for the configuration
+        /// set.</para></li><li><para><c>DISABLED</c> – Amazon SES disables optimized shared delivery for the configuration
         /// set.</para></li></ul>
         /// </para>
         /// </summary>

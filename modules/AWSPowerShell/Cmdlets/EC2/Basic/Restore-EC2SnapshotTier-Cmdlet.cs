@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates whether to permanently restore an archived snapshot. To permanently restore
-        /// an archived snapshot, specify <code>true</code> and omit the <b>RestoreSnapshotTierRequest$TemporaryRestoreDays</b>
+        /// an archived snapshot, specify <c>true</c> and omit the <b>RestoreSnapshotTierRequest$TemporaryRestoreDays</b>
         /// parameter.</para>
         /// </para>
         /// </summary>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Specifies the number of days for which to temporarily restore an archived snapshot.
         /// Required for temporary restores only. The snapshot will be automatically re-archived
         /// after this period.</para><para>To temporarily restore an archived snapshot, specify the number of days and omit the
-        /// <b>PermanentRestore</b> parameter or set it to <code>false</code>.</para>
+        /// <b>PermanentRestore</b> parameter or set it to <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

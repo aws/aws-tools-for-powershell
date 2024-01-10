@@ -29,20 +29,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Updates the feature group by either adding features or updating the online store configuration.
-    /// Use one of the following request parameters at a time while using the <code>UpdateFeatureGroup</code>
+    /// Use one of the following request parameters at a time while using the <c>UpdateFeatureGroup</c>
     /// API.
     /// 
     ///  
     /// <para>
-    /// You can add features for your feature group using the <code>FeatureAdditions</code>
-    /// request parameter. Features cannot be removed from a feature group.
+    /// You can add features for your feature group using the <c>FeatureAdditions</c> request
+    /// parameter. Features cannot be removed from a feature group.
     /// </para><para>
-    /// You can update the online store configuration by using the <code>OnlineStoreConfig</code>
-    /// request parameter. If a <code>TtlDuration</code> is specified, the default <code>TtlDuration</code>
+    /// You can update the online store configuration by using the <c>OnlineStoreConfig</c>
+    /// request parameter. If a <c>TtlDuration</c> is specified, the default <c>TtlDuration</c>
     /// applies for all records added to the feature group <i>after the feature group is updated</i>.
-    /// If a record level <code>TtlDuration</code> exists from using the <code>PutRecord</code>
-    /// API, the record level <code>TtlDuration</code> applies to that record instead of the
-    /// default <code>TtlDuration</code>.
+    /// If a record level <c>TtlDuration</c> exists from using the <c>PutRecord</c> API, the
+    /// record level <c>TtlDuration</c> applies to that record instead of the default <c>TtlDuration</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SMFeatureGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -115,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Target throughput mode of the feature group. Throughput update is an asynchronous
-        /// operation, and the outcome should be monitored by polling <code>LastUpdateStatus</code>
-        /// field in <code>DescribeFeatureGroup</code> response. You cannot update a feature group's
+        /// operation, and the outcome should be monitored by polling <c>LastUpdateStatus</c>
+        /// field in <c>DescribeFeatureGroup</c> response. You cannot update a feature group's
         /// throughput while another update is in progress. </para>
         /// </para>
         /// </summary>
@@ -128,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TtlDuration_Unit
         /// <summary>
         /// <para>
-        /// <para><code>TtlDuration</code> time unit.</para>
+        /// <para><c>TtlDuration</c> time unit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TtlDuration_Value
         /// <summary>
         /// <para>
-        /// <para><code>TtlDuration</code> time value.</para>
+        /// <para><c>TtlDuration</c> time value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

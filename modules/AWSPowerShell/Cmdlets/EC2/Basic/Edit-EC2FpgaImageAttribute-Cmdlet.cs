@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The product codes. After you add a product code to an AFI, it can't be removed. This
-        /// parameter is valid only when modifying the <code>productCodes</code> attribute.</para>
+        /// parameter is valid only when modifying the <c>productCodes</c> attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter UserGroup
         /// <summary>
         /// <para>
-        /// <para>The user groups. This parameter is valid only when modifying the <code>loadPermission</code>
+        /// <para>The user groups. This parameter is valid only when modifying the <c>loadPermission</c>
         /// attribute.</para>
         /// </para>
         /// </summary>
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services account IDs. This parameter is valid only when modifying the
-        /// <code>loadPermission</code> attribute.</para>
+        /// <c>loadPermission</c> attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

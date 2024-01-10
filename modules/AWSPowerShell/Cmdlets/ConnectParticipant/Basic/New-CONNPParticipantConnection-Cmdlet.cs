@@ -30,17 +30,17 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     /// <summary>
     /// Creates the participant's connection. 
     /// 
-    ///  <note><para><code>ParticipantToken</code> is used for invoking this API instead of <code>ConnectionToken</code>.
+    ///  <note><para><c>ParticipantToken</c> is used for invoking this API instead of <c>ConnectionToken</c>.
     /// </para></note><para>
     /// The participant token is valid for the lifetime of the participant – until they are
     /// part of a contact.
     /// </para><para>
-    /// The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s.
-    /// Clients must manually connect to the returned websocket URL and subscribe to the desired
-    /// topic. 
+    /// The response URL for <c>WEBSOCKET</c> Type has a connect expiry timeout of 100s. Clients
+    /// must manually connect to the returned websocket URL and subscribe to the desired topic.
+    /// 
     /// </para><para>
     /// For chat, you need to publish the following on the established websocket connection:
-    /// </para><para><code>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</code></para><para>
+    /// </para><para><c>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</c></para><para>
     /// Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter,
     /// clients need to call this API again to obtain a new websocket URL and perform the
     /// same steps as before.
@@ -100,9 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>Type of connection information required. If you need <code>CONNECTION_CREDENTIALS</code>
-        /// along with marking participant as connected, pass <code>CONNECTION_CREDENTIALS</code>
-        /// in <code>Type</code>.</para>
+        /// <para>Type of connection information required. If you need <c>CONNECTION_CREDENTIALS</c>
+        /// along with marking participant as connected, pass <c>CONNECTION_CREDENTIALS</c> in
+        /// <c>Type</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

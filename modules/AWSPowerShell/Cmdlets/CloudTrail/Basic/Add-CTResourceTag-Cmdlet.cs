@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies the ARN of the trail, event data store, or channel to which one or more
-        /// tags will be added.</para><para>The format of a trail ARN is: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para><para>The format of an event data store ARN is: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code></para><para>The format of a channel ARN is: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code></para>
+        /// tags will be added.</para><para>The format of a trail ARN is: <c>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</c></para><para>The format of an event data store ARN is: <c>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</c></para><para>The format of a channel ARN is: <c>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

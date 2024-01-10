@@ -66,13 +66,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter that specifies one or more blue/green deployments to describe.</para><para>Valid Values:</para><ul><li><para><code>blue-green-deployment-identifier</code> - Accepts system-generated identifiers
-        /// for blue/green deployments. The results list only includes information about the blue/green
-        /// deployments with the specified identifiers.</para></li><li><para><code>blue-green-deployment-name</code> - Accepts user-supplied names for blue/green
-        /// deployments. The results list only includes information about the blue/green deployments
-        /// with the specified names.</para></li><li><para><code>source</code> - Accepts source databases for a blue/green deployment. The results
+        /// <para>A filter that specifies one or more blue/green deployments to describe.</para><para>Valid Values:</para><ul><li><para><c>blue-green-deployment-identifier</c> - Accepts system-generated identifiers for
+        /// blue/green deployments. The results list only includes information about the blue/green
+        /// deployments with the specified identifiers.</para></li><li><para><c>blue-green-deployment-name</c> - Accepts user-supplied names for blue/green deployments.
+        /// The results list only includes information about the blue/green deployments with the
+        /// specified names.</para></li><li><para><c>source</c> - Accepts source databases for a blue/green deployment. The results
         /// list only includes information about the blue/green deployments with the specified
-        /// source databases.</para></li><li><para><code>target</code> - Accepts target databases for a blue/green deployment. The results
+        /// source databases.</para></li><li><para><c>target</c> - Accepts target databases for a blue/green deployment. The results
         /// list only includes information about the blue/green deployments with the specified
         /// target databases.</para></li></ul>
         /// </para>
@@ -85,9 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>An optional pagination token provided by a previous <code>DescribeBlueGreenDeployments</code>
+        /// <para>An optional pagination token provided by a previous <c>DescribeBlueGreenDeployments</c>
         /// request. If you specify this parameter, the response only includes records beyond
-        /// the marker, up to the value specified by <code>MaxRecords</code>.</para>
+        /// the marker, up to the value specified by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints:</para><ul><li><para>Must be a minimum of 20.</para></li><li><para>Can't exceed 100.</para></li></ul>
+        /// the specified <c>MaxRecords</c> value, a pagination token called a marker is included
+        /// in the response so you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints:</para><ul><li><para>Must be a minimum of 20.</para></li><li><para>Can't exceed 100.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

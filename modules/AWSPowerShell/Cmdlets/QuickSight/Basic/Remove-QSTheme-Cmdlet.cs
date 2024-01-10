@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter VersionNumber
         /// <summary>
         /// <para>
-        /// <para>The version of the theme that you want to delete. </para><para><b>Note:</b> If you don't provide a version number, you're using this call to <code>DeleteTheme</code>
+        /// <para>The version of the theme that you want to delete. </para><para><b>Note:</b> If you don't provide a version number, you're using this call to <c>DeleteTheme</c>
         /// to delete all versions of the theme.</para>
         /// </para>
         /// </summary>

@@ -43,11 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para><para>
     /// Context keys are variables that are maintained by Amazon Web Services and its services
     /// and which provide details about the context of an API query request. You can use the
-    /// <code>Condition</code> element of an IAM policy to evaluate context keys. To get the
-    /// list of context keys that the policies require for correct simulation, use <a>GetContextKeysForCustomPolicy</a>.
+    /// <c>Condition</c> element of an IAM policy to evaluate context keys. To get the list
+    /// of context keys that the policies require for correct simulation, use <a>GetContextKeysForCustomPolicy</a>.
     /// </para><para>
-    /// If the output is long, you can use <code>MaxItems</code> and <code>Marker</code> parameters
-    /// to paginate the results.
+    /// If the output is long, you can use <c>MaxItems</c> and <c>Marker</c> parameters to
+    /// paginate the results.
     /// </para><note><para>
     /// The IAM policy simulator evaluates statements in the identity-based policy and the
     /// inputs that you provide during simulation. The policy simulator results can differ
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>A list of names of API operations to evaluate in the simulation. Each operation is
         /// evaluated against each resource. Each operation must include the service identifier,
-        /// such as <code>iam:CreateUser</code>. This operation does not support using wildcards
-        /// (*) in an action name.</para>
+        /// such as <c>iam:CreateUser</c>. This operation does not support using wildcards (*)
+        /// in an action name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,9 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM user that you want to use as the simulated caller of the API operations.
-        /// <code>CallerArn</code> is required if you include a <code>ResourcePolicy</code> so
-        /// that the policy's <code>Principal</code> element has a value to use in evaluating
-        /// the policy.</para><para>You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed
+        /// <c>CallerArn</c> is required if you include a <c>ResourcePolicy</c> so that the policy's
+        /// <c>Principal</c> element has a value to use in evaluating the policy.</para><para>You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed
         /// role, federated user, or a service principal.</para>
         /// </para>
         /// </summary>
@@ -131,10 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// whitespace, is listed below. To view the maximum character counts of a managed policy
         /// with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM
         /// and STS character quotas</a>.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
-        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<code>\u0020</code>)
-        /// through the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
-        /// <code>\u00FF</code>)</para></li><li><para>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>),
-        /// and carriage return (<code>\u000D</code>)</para></li></ul>
+        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<c>\u0020</c>) through
+        /// the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// <c>\u00FF</c>)</para></li><li><para>The special characters tab (<c>\u0009</c>), line feed (<c>\u000A</c>), and carriage
+        /// return (<c>\u000D</c>)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,18 +146,18 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>A list of policy documents to include in the simulation. Each document is specified
         /// as a string containing the complete, valid JSON text of an IAM policy. Do not include
         /// any resource-based policies in this parameter. Any resource-based policy must be submitted
-        /// with the <code>ResourcePolicy</code> parameter. The policies cannot be "scope-down"
-        /// policies, such as you could include in a call to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a>
+        /// with the <c>ResourcePolicy</c> parameter. The policies cannot be "scope-down" policies,
+        /// such as you could include in a call to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a>
         /// or one of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a>
         /// API operations. In other words, do not use policies designed to restrict what a user
         /// can do while using the temporary credentials.</para><para>The maximum length of the policy document that you can pass in this operation, including
         /// whitespace, is listed below. To view the maximum character counts of a managed policy
         /// with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM
         /// and STS character quotas</a>.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
-        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<code>\u0020</code>)
-        /// through the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
-        /// <code>\u00FF</code>)</para></li><li><para>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>),
-        /// and carriage return (<code>\u000D</code>)</para></li></ul>
+        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<c>\u0020</c>) through
+        /// the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// <c>\u00FF</c>)</para></li><li><para>The special characters tab (<c>\u0009</c>), line feed (<c>\u000A</c>), and carriage
+        /// return (<c>\u000D</c>)</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -176,14 +175,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>A list of ARNs of Amazon Web Services resources to include in the simulation. If this
-        /// parameter is not provided, then the value defaults to <code>*</code> (all resources).
-        /// Each API in the <code>ActionNames</code> parameter is evaluated for each resource
-        /// in this list. The simulation determines the access result (allowed or denied) of each
-        /// combination and reports it in the response. You can simulate resources that don't
-        /// exist in your account.</para><para>The simulation does not automatically retrieve policies for the specified resources.
+        /// parameter is not provided, then the value defaults to <c>*</c> (all resources). Each
+        /// API in the <c>ActionNames</c> parameter is evaluated for each resource in this list.
+        /// The simulation determines the access result (allowed or denied) of each combination
+        /// and reports it in the response. You can simulate resources that don't exist in your
+        /// account.</para><para>The simulation does not automatically retrieve policies for the specified resources.
         /// If you want to include a resource policy in the simulation, then you must include
-        /// the policy as a string in the <code>ResourcePolicy</code> parameter.</para><para>If you include a <code>ResourcePolicy</code>, then it must be applicable to all of
-        /// the resources included in the simulation or you receive an invalid input error.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// the policy as a string in the <c>ResourcePolicy</c> parameter.</para><para>If you include a <c>ResourcePolicy</c>, then it must be applicable to all of the resources
+        /// included in the simulation or you receive an invalid input error.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</para><note><para>Simulation of resource-based policies isn't supported for IAM roles.</para></note>
         /// </para>
         /// </summary>
@@ -218,15 +217,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>An ARN representing the Amazon Web Services account ID that specifies the owner of
         /// any simulated resource that does not identify its owner in the resource ARN. Examples
-        /// of resource ARNs include an S3 bucket or object. If <code>ResourceOwner</code> is
-        /// specified, it is also used as the account owner of any <code>ResourcePolicy</code>
-        /// included in the simulation. If the <code>ResourceOwner</code> parameter is not specified,
-        /// then the owner of the resources and the resource policy defaults to the account of
-        /// the identity provided in <code>CallerArn</code>. This parameter is required only if
-        /// you specify a resource-based policy and account that owns the resource is different
-        /// from the account that owns the simulated calling user <code>CallerArn</code>.</para><para>The ARN for an account uses the following syntax: <code>arn:aws:iam::<i>AWS-account-ID</i>:root</code>.
+        /// of resource ARNs include an S3 bucket or object. If <c>ResourceOwner</c> is specified,
+        /// it is also used as the account owner of any <c>ResourcePolicy</c> included in the
+        /// simulation. If the <c>ResourceOwner</c> parameter is not specified, then the owner
+        /// of the resources and the resource policy defaults to the account of the identity provided
+        /// in <c>CallerArn</c>. This parameter is required only if you specify a resource-based
+        /// policy and account that owns the resource is different from the account that owns
+        /// the simulated calling user <c>CallerArn</c>.</para><para>The ARN for an account uses the following syntax: <c>arn:aws:iam::<i>AWS-account-ID</i>:root</c>.
         /// For example, to represent the account with the 112233445566 ID, use the following
-        /// ARN: <code>arn:aws:iam::112233445566-ID:root</code>. </para>
+        /// ARN: <c>arn:aws:iam::112233445566-ID:root</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,10 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// whitespace, is listed below. To view the maximum character counts of a managed policy
         /// with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM
         /// and STS character quotas</a>.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
-        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<code>\u0020</code>)
-        /// through the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
-        /// <code>\u00FF</code>)</para></li><li><para>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>),
-        /// and carriage return (<code>\u000D</code>)</para></li></ul><note><para>Simulation of resource-based policies isn't supported for IAM roles.</para></note>
+        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<c>\u0020</c>) through
+        /// the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// <c>\u00FF</c>)</para></li><li><para>The special characters tab (<c>\u0009</c>), line feed (<c>\u000A</c>), and carriage
+        /// return (<c>\u000D</c>)</para></li></ul><note><para>Simulation of resource-based policies isn't supported for IAM roles.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -256,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only after you receive a response
-        /// indicating that the results are truncated. Set it to the value of the <code>Marker</code>
+        /// indicating that the results are truncated. Set it to the value of the <c>Marker</c>
         /// element in the response that you received to indicate where the next call should start.</para>
         /// </para>
         /// <para>
@@ -274,11 +273,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
         /// want in the response. If additional items exist beyond the maximum you specify, the
-        /// <code>IsTruncated</code> response element is <code>true</code>.</para><para>If you do not include this parameter, the number of items defaults to 100. Note that
+        /// <c>IsTruncated</c> response element is <c>true</c>.</para><para>If you do not include this parameter, the number of items defaults to 100. Note that
         /// IAM might return fewer results, even when there are more results available. In that
-        /// case, the <code>IsTruncated</code> response element returns <code>true</code>, and
-        /// <code>Marker</code> contains a value to include in the subsequent call that tells
-        /// the service where to continue from.</para>
+        /// case, the <c>IsTruncated</c> response element returns <c>true</c>, and <c>Marker</c>
+        /// contains a value to include in the subsequent call that tells the service where to
+        /// continue from.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

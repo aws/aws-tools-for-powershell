@@ -28,8 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// List all <code>AppInstanceUsers</code> created under a single <code>AppInstance</code>.
-    /// 
+    /// List all <c>AppInstanceUsers</c> created under a single <c>AppInstance</c>. 
     /// 
     ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
     /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceUsers.html">ListAppInstanceUsers</a>,
@@ -59,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstance</code>.</para>
+        /// <para>The ARN of the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

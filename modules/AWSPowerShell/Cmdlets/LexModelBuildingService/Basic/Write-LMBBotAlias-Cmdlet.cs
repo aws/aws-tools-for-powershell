@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions for the <code>lex:PutBotAlias</code> action. 
+    /// This operation requires permissions for the <c>lex:PutBotAlias</c> action. 
     /// </para>
     /// </summary>
     [Cmdlet("Write", "LMBBotAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -85,11 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter Checksum
         /// <summary>
         /// <para>
-        /// <para>Identifies a specific revision of the <code>$LATEST</code> version.</para><para>When you create a new bot alias, leave the <code>checksum</code> field blank. If you
-        /// specify a checksum you get a <code>BadRequestException</code> exception.</para><para>When you want to update a bot alias, set the <code>checksum</code> field to the checksum
-        /// of the most recent revision of the <code>$LATEST</code> version. If you don't specify
-        /// the <code> checksum</code> field, or if the checksum does not match the <code>$LATEST</code>
-        /// version, you get a <code>PreconditionFailedException</code> exception.</para>
+        /// <para>Identifies a specific revision of the <c>$LATEST</c> version.</para><para>When you create a new bot alias, leave the <c>checksum</c> field blank. If you specify
+        /// a checksum you get a <c>BadRequestException</c> exception.</para><para>When you want to update a bot alias, set the <c>checksum</c> field to the checksum
+        /// of the most recent revision of the <c>$LATEST</c> version. If you don't specify the
+        /// <c> checksum</c> field, or if the checksum does not match the <c>$LATEST</c> version,
+        /// you get a <c>PreconditionFailedException</c> exception.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <summary>
         /// <para>
         /// <para>A list of tags to add to the bot alias. You can only add tags when you create an alias,
-        /// you can't use the <code>PutBotAlias</code> operation to update the tags on a bot alias.
-        /// To update tags, use the <code>TagResource</code> operation.</para>
+        /// you can't use the <c>PutBotAlias</c> operation to update the tags on a bot alias.
+        /// To update tags, use the <c>TagResource</c> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

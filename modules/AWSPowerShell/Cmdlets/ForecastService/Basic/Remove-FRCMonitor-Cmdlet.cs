@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
     /// Deletes a monitor resource. You can only delete a monitor resource with a status of
-    /// <code>ACTIVE</code>, <code>ACTIVE_STOPPED</code>, <code>CREATE_FAILED</code>, or <code>CREATE_STOPPED</code>.
+    /// <c>ACTIVE</c>, <c>ACTIVE_STOPPED</c>, <c>CREATE_FAILED</c>, or <c>CREATE_STOPPED</c>.
     /// </summary>
     [Cmdlet("Remove", "FRCMonitor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -35,27 +35,26 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     /// </para></note><para>
     /// Retrieves summary metrics for the utterances in your bot. The following fields are
     /// required:
-    /// </para><ul><li><para><code>metrics</code> – A list of <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsUtteranceMetric.html">AnalyticsUtteranceMetric</a>
-    /// objects. In each object, use the <code>name</code> field to specify the metric to
-    /// calculate, the <code>statistic</code> field to specify whether to calculate the <code>Sum</code>,
-    /// <code>Average</code>, or <code>Max</code> number, and the <code>order</code> field
-    /// to specify whether to sort the results in <code>Ascending</code> or <code>Descending</code>
-    /// order.
-    /// </para></li><li><para><code>startDateTime</code> and <code>endDateTime</code> – Define a time range for
-    /// which you want to retrieve results.
+    /// </para><ul><li><para><c>metrics</c> – A list of <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsUtteranceMetric.html">AnalyticsUtteranceMetric</a>
+    /// objects. In each object, use the <c>name</c> field to specify the metric to calculate,
+    /// the <c>statistic</c> field to specify whether to calculate the <c>Sum</c>, <c>Average</c>,
+    /// or <c>Max</c> number, and the <c>order</c> field to specify whether to sort the results
+    /// in <c>Ascending</c> or <c>Descending</c> order.
+    /// </para></li><li><para><c>startDateTime</c> and <c>endDateTime</c> – Define a time range for which you want
+    /// to retrieve results.
     /// </para></li></ul><para>
     /// Of the optional fields, you can organize the results in the following ways:
     /// </para><ul><li><para>
-    /// Use the <code>filters</code> field to filter the results, the <code>groupBy</code>
-    /// field to specify categories by which to group the results, and the <code>binBy</code>
-    /// field to specify time intervals by which to group the results.
+    /// Use the <c>filters</c> field to filter the results, the <c>groupBy</c> field to specify
+    /// categories by which to group the results, and the <c>binBy</c> field to specify time
+    /// intervals by which to group the results.
     /// </para></li><li><para>
-    /// Use the <code>maxResults</code> field to limit the number of results to return in
-    /// a single response and the <code>nextToken</code> field to return the next batch of
-    /// results if the response does not return the full set of results.
+    /// Use the <c>maxResults</c> field to limit the number of results to return in a single
+    /// response and the <c>nextToken</c> field to return the next batch of results if the
+    /// response does not return the full set of results.
     /// </para></li></ul><para>
-    /// Note that an <code>order</code> field exists in both <code>binBy</code> and <code>metrics</code>.
-    /// Currently, you can specify it in either field, but not in both.
+    /// Note that an <c>order</c> field exists in both <c>binBy</c> and <c>metrics</c>. Currently,
+    /// you can specify it in either field, but not in both.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "LMBV2UtteranceMetricList")]
@@ -73,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A list containing attributes related to the utterance that you want the response to
-        /// return. The following attributes are possible:</para><ul><li><para><code>LastUsedIntent</code> – The last used intent at the time of the utterance.</para></li></ul>
+        /// return. The following attributes are possible:</para><ul><li><para><c>LastUsedIntent</c> – The last used intent at the time of the utterance.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A list of objects, each of which specifies how to group the results. You can group
-        /// by the following criteria:</para><ul><li><para><code>UtteranceText</code> – The transcription of the utterance.</para></li><li><para><code>UtteranceState</code> – The state of the utterance. The possible states are
-        /// detailed in <a href="https://docs.aws.amazon.com/analytics-key-definitions-utterances">Key
+        /// by the following criteria:</para><ul><li><para><c>UtteranceText</c> – The transcription of the utterance.</para></li><li><para><c>UtteranceState</c> – The state of the utterance. The possible states are detailed
+        /// in <a href="https://docs.aws.amazon.com/analytics-key-definitions-utterances">Key
         /// definitions</a> in the user guide.</para></li></ul>
         /// </para>
         /// </summary>

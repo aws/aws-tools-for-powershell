@@ -36,18 +36,17 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     ///  
     /// <para>
     /// Create multiple revisions of a configuration by calling this action multiple times
-    /// using the same <code>AutoScalingConfigurationName</code>. The call returns incremental
-    /// <code>AutoScalingConfigurationRevision</code> values. When you create a service and
-    /// configure an auto scaling configuration resource, the service uses the latest active
-    /// revision of the auto scaling configuration by default. You can optionally configure
-    /// the service to use a specific revision.
+    /// using the same <c>AutoScalingConfigurationName</c>. The call returns incremental <c>AutoScalingConfigurationRevision</c>
+    /// values. When you create a service and configure an auto scaling configuration resource,
+    /// the service uses the latest active revision of the auto scaling configuration by default.
+    /// You can optionally configure the service to use a specific revision.
     /// </para><para>
-    /// Configure a higher <code>MinSize</code> to increase the spread of your App Runner
-    /// service over more Availability Zones in the Amazon Web Services Region. The tradeoff
-    /// is a higher minimal cost.
+    /// Configure a higher <c>MinSize</c> to increase the spread of your App Runner service
+    /// over more Availability Zones in the Amazon Web Services Region. The tradeoff is a
+    /// higher minimal cost.
     /// </para><para>
-    /// Configure a lower <code>MaxSize</code> to control your cost. The tradeoff is lower
-    /// responsiveness during peak demand.
+    /// Configure a lower <c>MaxSize</c> to control your cost. The tradeoff is lower responsiveness
+    /// during peak demand.
     /// </para>
     /// </summary>
     [Cmdlet("New", "AARAutoScalingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -66,15 +65,15 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>A name for the auto scaling configuration. When you use it for the first time in an
-        /// Amazon Web Services Region, App Runner creates revision number <code>1</code> of this
-        /// name. When you use the same name in subsequent calls, App Runner creates incremental
-        /// revisions of the configuration.</para><note><para>Prior to the release of <a href="https://docs.aws.amazon.com/apprunner/latest/relnotes/release-2023-09-22-auto-scale-config.html">Auto
-        /// scale configuration enhancements</a>, the name <code>DefaultConfiguration</code> was
-        /// reserved. </para><para>This restriction is no longer in place. You can now manage <code>DefaultConfiguration</code>
+        /// Amazon Web Services Region, App Runner creates revision number <c>1</c> of this name.
+        /// When you use the same name in subsequent calls, App Runner creates incremental revisions
+        /// of the configuration.</para><note><para>Prior to the release of <a href="https://docs.aws.amazon.com/apprunner/latest/relnotes/release-2023-09-22-auto-scale-config.html">Auto
+        /// scale configuration enhancements</a>, the name <c>DefaultConfiguration</c> was reserved.
+        /// </para><para>This restriction is no longer in place. You can now manage <c>DefaultConfiguration</c>
         /// the same way you manage your custom auto scaling configurations. This means you can
-        /// do the following with the <code>DefaultConfiguration</code> that App Runner provides:</para><ul><li><para>Create new revisions of the <code>DefaultConfiguration</code>.</para></li><li><para>Delete the revisions of the <code>DefaultConfiguration</code>.</para></li><li><para>Delete the auto scaling configuration for which the App Runner <code>DefaultConfiguration</code>
+        /// do the following with the <c>DefaultConfiguration</c> that App Runner provides:</para><ul><li><para>Create new revisions of the <c>DefaultConfiguration</c>.</para></li><li><para>Delete the revisions of the <c>DefaultConfiguration</c>.</para></li><li><para>Delete the auto scaling configuration for which the App Runner <c>DefaultConfiguration</c>
         /// was created.</para></li><li><para>If you delete the auto scaling configuration you can create another custom auto scaling
-        /// configuration with the same <code>DefaultConfiguration</code> name. The original <code>DefaultConfiguration</code>
+        /// configuration with the same <c>DefaultConfiguration</c> name. The original <c>DefaultConfiguration</c>
         /// resource provided by App Runner remains in your account unless you make changes to
         /// it.</para></li></ul></note>
         /// </para>
@@ -94,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>The maximum number of concurrent requests that you want an instance to process. If
-        /// the number of concurrent requests exceeds this limit, App Runner scales up your service.</para><para>Default: <code>100</code></para>
+        /// the number of concurrent requests exceeds this limit, App Runner scales up your service.</para><para>Default: <c>100</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter MaxSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of instances that your service scales up to. At most <code>MaxSize</code>
-        /// instances actively serve traffic for your service.</para><para>Default: <code>25</code></para>
+        /// <para>The maximum number of instances that your service scales up to. At most <c>MaxSize</c>
+        /// instances actively serve traffic for your service.</para><para>Default: <c>25</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,11 +115,11 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>The minimum number of instances that App Runner provisions for your service. The service
-        /// always has at least <code>MinSize</code> provisioned instances. Some of them actively
-        /// serve traffic. The rest of them (provisioned and inactive instances) are a cost-effective
+        /// always has at least <c>MinSize</c> provisioned instances. Some of them actively serve
+        /// traffic. The rest of them (provisioned and inactive instances) are a cost-effective
         /// compute capacity reserve and are ready to be quickly activated. You pay for memory
         /// usage of all the provisioned instances. You pay for CPU usage of only the active subset.</para><para>App Runner temporarily doubles the number of provisioned instances during deployments,
-        /// to maintain the same capacity for both old and new code.</para><para>Default: <code>1</code></para>
+        /// to maintain the same capacity for both old and new code.</para><para>Default: <c>1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

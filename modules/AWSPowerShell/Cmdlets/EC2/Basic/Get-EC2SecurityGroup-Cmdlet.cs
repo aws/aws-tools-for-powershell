@@ -46,33 +46,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The filters. If using multiple filters for rules, the results include security groups
-        /// for which any combination of rules - not necessarily a single rule - match all filters.</para><ul><li><para><code>description</code> - The description of the security group.</para></li><li><para><code>egress.ip-permission.cidr</code> - An IPv4 CIDR block for an outbound security
-        /// group rule.</para></li><li><para><code>egress.ip-permission.from-port</code> - For an outbound rule, the start of
-        /// port range for the TCP and UDP protocols, or an ICMP type number.</para></li><li><para><code>egress.ip-permission.group-id</code> - The ID of a security group that has
-        /// been referenced in an outbound security group rule.</para></li><li><para><code>egress.ip-permission.group-name</code> - The name of a security group that
-        /// is referenced in an outbound security group rule.</para></li><li><para><code>egress.ip-permission.ipv6-cidr</code> - An IPv6 CIDR block for an outbound
-        /// security group rule.</para></li><li><para><code>egress.ip-permission.prefix-list-id</code> - The ID of a prefix list to which
-        /// a security group rule allows outbound access.</para></li><li><para><code>egress.ip-permission.protocol</code> - The IP protocol for an outbound security
-        /// group rule (<code>tcp</code> | <code>udp</code> | <code>icmp</code>, a protocol number,
-        /// or -1 for all protocols).</para></li><li><para><code>egress.ip-permission.to-port</code> - For an outbound rule, the end of port
-        /// range for the TCP and UDP protocols, or an ICMP code.</para></li><li><para><code>egress.ip-permission.user-id</code> - The ID of an Amazon Web Services account
-        /// that has been referenced in an outbound security group rule.</para></li><li><para><code>group-id</code> - The ID of the security group. </para></li><li><para><code>group-name</code> - The name of the security group.</para></li><li><para><code>ip-permission.cidr</code> - An IPv4 CIDR block for an inbound security group
-        /// rule.</para></li><li><para><code>ip-permission.from-port</code> - For an inbound rule, the start of port range
-        /// for the TCP and UDP protocols, or an ICMP type number.</para></li><li><para><code>ip-permission.group-id</code> - The ID of a security group that has been referenced
-        /// in an inbound security group rule.</para></li><li><para><code>ip-permission.group-name</code> - The name of a security group that is referenced
-        /// in an inbound security group rule.</para></li><li><para><code>ip-permission.ipv6-cidr</code> - An IPv6 CIDR block for an inbound security
-        /// group rule.</para></li><li><para><code>ip-permission.prefix-list-id</code> - The ID of a prefix list from which a
-        /// security group rule allows inbound access.</para></li><li><para><code>ip-permission.protocol</code> - The IP protocol for an inbound security group
-        /// rule (<code>tcp</code> | <code>udp</code> | <code>icmp</code>, a protocol number,
-        /// or -1 for all protocols).</para></li><li><para><code>ip-permission.to-port</code> - For an inbound rule, the end of port range for
-        /// the TCP and UDP protocols, or an ICMP code.</para></li><li><para><code>ip-permission.user-id</code> - The ID of an Amazon Web Services account that
-        /// has been referenced in an inbound security group rule.</para></li><li><para><code>owner-id</code> - The Amazon Web Services account ID of the owner of the security
-        /// group.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
-        /// resource. Use the tag key in the filter name and the tag value as the filter value.
-        /// For example, to find all resources that have a tag with the key <code>Owner</code>
-        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>vpc-id</code> - The ID of the VPC specified when the security group was created.</para></li></ul>
+        /// for which any combination of rules - not necessarily a single rule - match all filters.</para><ul><li><para><c>description</c> - The description of the security group.</para></li><li><para><c>egress.ip-permission.cidr</c> - An IPv4 CIDR block for an outbound security group
+        /// rule.</para></li><li><para><c>egress.ip-permission.from-port</c> - For an outbound rule, the start of port range
+        /// for the TCP and UDP protocols, or an ICMP type number.</para></li><li><para><c>egress.ip-permission.group-id</c> - The ID of a security group that has been referenced
+        /// in an outbound security group rule.</para></li><li><para><c>egress.ip-permission.group-name</c> - The name of a security group that is referenced
+        /// in an outbound security group rule.</para></li><li><para><c>egress.ip-permission.ipv6-cidr</c> - An IPv6 CIDR block for an outbound security
+        /// group rule.</para></li><li><para><c>egress.ip-permission.prefix-list-id</c> - The ID of a prefix list to which a security
+        /// group rule allows outbound access.</para></li><li><para><c>egress.ip-permission.protocol</c> - The IP protocol for an outbound security group
+        /// rule (<c>tcp</c> | <c>udp</c> | <c>icmp</c>, a protocol number, or -1 for all protocols).</para></li><li><para><c>egress.ip-permission.to-port</c> - For an outbound rule, the end of port range
+        /// for the TCP and UDP protocols, or an ICMP code.</para></li><li><para><c>egress.ip-permission.user-id</c> - The ID of an Amazon Web Services account that
+        /// has been referenced in an outbound security group rule.</para></li><li><para><c>group-id</c> - The ID of the security group. </para></li><li><para><c>group-name</c> - The name of the security group.</para></li><li><para><c>ip-permission.cidr</c> - An IPv4 CIDR block for an inbound security group rule.</para></li><li><para><c>ip-permission.from-port</c> - For an inbound rule, the start of port range for
+        /// the TCP and UDP protocols, or an ICMP type number.</para></li><li><para><c>ip-permission.group-id</c> - The ID of a security group that has been referenced
+        /// in an inbound security group rule.</para></li><li><para><c>ip-permission.group-name</c> - The name of a security group that is referenced
+        /// in an inbound security group rule.</para></li><li><para><c>ip-permission.ipv6-cidr</c> - An IPv6 CIDR block for an inbound security group
+        /// rule.</para></li><li><para><c>ip-permission.prefix-list-id</c> - The ID of a prefix list from which a security
+        /// group rule allows inbound access.</para></li><li><para><c>ip-permission.protocol</c> - The IP protocol for an inbound security group rule
+        /// (<c>tcp</c> | <c>udp</c> | <c>icmp</c>, a protocol number, or -1 for all protocols).</para></li><li><para><c>ip-permission.to-port</c> - For an inbound rule, the end of port range for the
+        /// TCP and UDP protocols, or an ICMP code.</para></li><li><para><c>ip-permission.user-id</c> - The ID of an Amazon Web Services account that has
+        /// been referenced in an inbound security group rule.</para></li><li><para><c>owner-id</c> - The Amazon Web Services account ID of the owner of the security
+        /// group.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
+        /// Use the tag key in the filter name and the tag value as the filter value. For example,
+        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>vpc-id</c> - The ID of the VPC specified when the security group was created.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

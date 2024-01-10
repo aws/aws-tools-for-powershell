@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter Format
         /// <summary>
         /// <para>
-        /// <para>The format of the consolidated report.</para><para>For <code>PDF</code>, <code>Base64String</code> is returned. For <code>JSON</code>,
-        /// <code>Metrics</code> is returned.</para>
+        /// <para>The format of the consolidated report.</para><para>For <c>PDF</c>, <c>Base64String</c> is returned. For <c>JSON</c>, <c>Metrics</c> is
+        /// returned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter IncludeSharedResource
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to have shared resources included in the report.</para>
+        /// <para>Set to <c>true</c> to have shared resources included in the report.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

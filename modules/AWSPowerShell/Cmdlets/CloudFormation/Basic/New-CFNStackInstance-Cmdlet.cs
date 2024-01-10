@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <summary>
     /// Creates stack instances for the specified accounts, within the specified Amazon Web
     /// Services Regions. A stack instance refers to a stack in a specific account and Region.
-    /// You must specify at least one value for either <code>Accounts</code> or <code>DeploymentTargets</code>,
-    /// and you must specify at least one value for <code>Regions</code>.
+    /// You must specify at least one value for either <c>Accounts</c> or <c>DeploymentTargets</c>,
+    /// and you must specify at least one value for <c>Regions</c>.
     /// </summary>
     [Cmdlet("New", "CFNStackInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -49,14 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Limit deployment targets to individual accounts or include additional accounts with
-        /// provided OUs.</para><para>The following is a list of possible values for the <code>AccountFilterType</code>
-        /// operation.</para><ul><li><para><code>INTERSECTION</code>: StackSets deploys to the accounts specified in <code>Accounts</code>
-        /// parameter. </para></li><li><para><code>DIFFERENCE</code>: StackSets excludes the accounts specified in <code>Accounts</code>
-        /// parameter. This enables user to avoid certain accounts within an OU such as suspended
-        /// accounts.</para></li><li><para><code>UNION</code>: StackSets includes additional accounts deployment targets. </para><para>This is the default value if <code>AccountFilterType</code> is not provided. This
-        /// enables user to update an entire OU and individual accounts from a different OU in
-        /// one request, which used to be two separate requests.</para></li><li><para><code>NONE</code>: Deploys to all the accounts in specified organizational units
-        /// (OU).</para></li></ul>
+        /// provided OUs.</para><para>The following is a list of possible values for the <c>AccountFilterType</c> operation.</para><ul><li><para><c>INTERSECTION</c>: StackSets deploys to the accounts specified in <c>Accounts</c>
+        /// parameter. </para></li><li><para><c>DIFFERENCE</c>: StackSets excludes the accounts specified in <c>Accounts</c> parameter.
+        /// This enables user to avoid certain accounts within an OU such as suspended accounts.</para></li><li><para><c>UNION</c>: StackSets includes additional accounts deployment targets. </para><para>This is the default value if <c>AccountFilterType</c> is not provided. This enables
+        /// user to update an entire OU and individual accounts from a different OU in one request,
+        /// which used to be two separate requests.</para></li><li><para><c>NONE</c>: Deploys to all the accounts in specified organizational units (OU).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>[Self-managed permissions] The names of one or more Amazon Web Services accounts that
-        /// you want to create stack instances in the specified Region(s) for.</para><para>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</para>
+        /// you want to create stack instances in the specified Region(s) for.</para><para>You can specify <c>Accounts</c> or <c>DeploymentTargets</c>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeploymentTargets_AccountsUrl
         /// <summary>
         /// <para>
-        /// <para>Returns the value of the <code>AccountsUrl</code> property.</para>
+        /// <para>Returns the value of the <c>AccountsUrl</c> property.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>[Service-managed permissions] Specifies whether you are acting as an account administrator
         /// in the organization's management account or as a delegated administrator in a member
-        /// account.</para><para>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
-        /// self-managed permissions.</para><ul><li><para>If you are signed in to the management account, specify <code>SELF</code>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</para><para>Your Amazon Web Services account must be registered as a delegated administrator in
+        /// account.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for stack sets with self-managed
+        /// permissions.</para><ul><li><para>If you are signed in to the management account, specify <c>SELF</c>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <c>DELEGATED_ADMIN</c>.</para><para>Your Amazon Web Services account must be registered as a delegated administrator in
         /// the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
         /// a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</para></li></ul>
         /// </para>
@@ -121,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// performs the stack set operation only once, even if you retry the request multiple
         /// times. You might retry stack set operation requests to ensure that CloudFormation
         /// successfully received them.</para><para>If you don't specify an operation ID, the SDK generates one automatically.</para><para>Repeating this stack set operation with a new operation ID retries all stack instances
-        /// whose status is <code>OUTDATED</code>.</para>
+        /// whose status is <c>OUTDATED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// accounts and Amazon Web Services Regions. When specifying parameters and their values,
         /// be aware of how CloudFormation sets parameter values during stack instance operations:</para><ul><li><para>To override the current value for a parameter, include the parameter and specify its
         /// value.</para></li><li><para>To leave an overridden parameter set to its present value, include the parameter and
-        /// specify <code>UsePreviousValue</code> as <code>true</code>. (You can't specify both
-        /// a value and set <code>UsePreviousValue</code> to <code>true</code>.)</para></li><li><para>To set an overridden parameter back to the value specified in the stack set, specify
+        /// specify <c>UsePreviousValue</c> as <c>true</c>. (You can't specify both a value and
+        /// set <c>UsePreviousValue</c> to <c>true</c>.)</para></li><li><para>To set an overridden parameter back to the value specified in the stack set, specify
         /// a parameter list but don't include the parameter in the list.</para></li><li><para>To leave all parameters set to their present values, don't specify this property at
         /// all.</para></li></ul><para>During stack set updates, any parameter values overridden for a stack instance aren't
         /// updated, but retain their overridden value.</para><para>You can only override the parameter <i>values</i> that are specified in the stack

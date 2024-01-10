@@ -49,10 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     /// action before the DB cluster parameter group is used as the default for a new DB cluster.
     /// This is especially important for parameters that are critical when creating the default
     /// database for a DB cluster, such as the character set for the default database defined
-    /// by the <code>character_set_database</code> parameter. You can use the <i>Parameter
-    /// Groups</i> option of the <a href="https://console.aws.amazon.com/rds/">Amazon Neptune
-    /// console</a> or the <a>DescribeDBClusterParameters</a> command to verify that your
-    /// DB cluster parameter group has been created or modified.
+    /// by the <c>character_set_database</c> parameter. You can use the <i>Parameter Groups</i>
+    /// option of the <a href="https://console.aws.amazon.com/rds/">Amazon Neptune console</a>
+    /// or the <a>DescribeDBClusterParameters</a> command to verify that your DB cluster parameter
+    /// group has been created or modified.
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "NPTDBClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

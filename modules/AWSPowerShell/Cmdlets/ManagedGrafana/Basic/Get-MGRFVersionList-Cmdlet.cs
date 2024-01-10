@@ -28,7 +28,7 @@ using Amazon.ManagedGrafana.Model;
 namespace Amazon.PowerShell.Cmdlets.MGRF
 {
     /// <summary>
-    /// Lists available versions of Grafana. These are available when calling <code>CreateWorkspace</code>.
+    /// Lists available versions of Grafana. These are available when calling <c>CreateWorkspace</c>.
     /// Optionally, include a workspace to list the versions to which it can be upgraded.
     /// </summary>
     [Cmdlet("Get", "MGRFVersionList")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <summary>
         /// <para>
         /// <para>The ID of the workspace to list the available upgrade versions. If not included, lists
-        /// all versions of Grafana that are supported for <code>CreateWorkspace</code>.</para>
+        /// all versions of Grafana that are supported for <c>CreateWorkspace</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <summary>
         /// <para>
         /// <para>The token to use when requesting the next set of results. You receive this token from
-        /// a previous <code>ListVersions</code> operation.</para>
+        /// a previous <c>ListVersions</c> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

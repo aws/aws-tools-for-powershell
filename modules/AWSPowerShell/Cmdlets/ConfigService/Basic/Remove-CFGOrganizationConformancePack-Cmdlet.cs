@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// <para>
     ///  Only a management account or a delegated administrator account can delete an organization
     /// conformance pack. When calling this API with a delegated administrator, you must ensure
-    /// Organizations <code>ListDelegatedAdministrator</code> permissions are added.
+    /// Organizations <c>ListDelegatedAdministrator</c> permissions are added.
     /// </para><para>
     /// Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the deletion
     /// is complete. You cannot update a conformance pack while it is in this state. 

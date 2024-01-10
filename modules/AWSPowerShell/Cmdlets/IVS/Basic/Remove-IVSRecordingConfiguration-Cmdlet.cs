@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     /// <para>
     /// If you try to delete a recording configuration that is associated with a channel,
     /// you will get an error (409 ConflictException). To avoid this, for all channels that
-    /// reference the recording configuration, first use <a>UpdateChannel</a> to set the <code>recordingConfigurationArn</code>
+    /// reference the recording configuration, first use <a>UpdateChannel</a> to set the <c>recordingConfigurationArn</c>
     /// field to an empty string, then use DeleteRecordingConfiguration.
     /// </para>
     /// </summary>

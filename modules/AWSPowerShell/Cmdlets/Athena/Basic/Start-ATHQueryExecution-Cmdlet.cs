@@ -28,8 +28,8 @@ using Amazon.Athena.Model;
 namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Runs the SQL query statements contained in the <code>Query</code>. Requires you to
-    /// have access to the workgroup in which the query ran. Running queries against an external
+    /// Runs the SQL query statements contained in the <c>Query</c>. Requires you to have
+    /// access to the workgroup in which the query ran. Running queries against an external
     /// catalog requires <a>GetDataCatalog</a> permission to the catalog. For code samples
     /// using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples
     /// and Code Samples</a> in the <i>Amazon Athena User Guide</i>.
@@ -60,11 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>A unique case-sensitive string used to ensure the request to create the query is idempotent
-        /// (executes only once). If another <code>StartQueryExecution</code> request is received,
-        /// the same response is returned and another query is not created. An error is returned
-        /// if a parameter, such as <code>QueryString</code>, has changed. A call to <code>StartQueryExecution</code>
-        /// that uses a previous client request token returns the same <code>QueryExecutionId</code>
-        /// even if the requester doesn't have permission on the tables specified in <code>QueryString</code>.</para><important><para>This token is listed as not required because Amazon Web Services SDKs (for example
+        /// (executes only once). If another <c>StartQueryExecution</c> request is received, the
+        /// same response is returned and another query is not created. An error is returned if
+        /// a parameter, such as <c>QueryString</c>, has changed. A call to <c>StartQueryExecution</c>
+        /// that uses a previous client request token returns the same <c>QueryExecutionId</c>
+        /// even if the requester doesn't have permission on the tables specified in <c>QueryString</c>.</para><important><para>This token is listed as not required because Amazon Web Services SDKs (for example
         /// the Amazon Web Services SDK for Java) auto-generate the token for users. If you are
         /// not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
         /// this token or the action will fail.</para></important>
@@ -100,9 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter EncryptionConfiguration_EncryptionOption
         /// <summary>
         /// <para>
-        /// <para>Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (<code>SSE_S3</code>),
-        /// server-side encryption with KMS-managed keys (<code>SSE_KMS</code>), or client-side
-        /// encryption with KMS-managed keys (<code>CSE_KMS</code>) is used.</para><para>If a query runs in a workgroup and the workgroup overrides client-side settings, then
+        /// <para>Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (<c>SSE_S3</c>),
+        /// server-side encryption with KMS-managed keys (<c>SSE_KMS</c>), or client-side encryption
+        /// with KMS-managed keys (<c>CSE_KMS</c>) is used.</para><para>If a query runs in a workgroup and the workgroup overrides client-side settings, then
         /// the workgroup's setting for encryption is used. It specifies whether query results
         /// must be encrypted, for all queries that run in this workgroup. </para>
         /// </para>
@@ -130,14 +130,13 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <para>
         /// <para>The Amazon Web Services account ID that you expect to be the owner of the Amazon S3
         /// bucket specified by <a>ResultConfiguration$OutputLocation</a>. If set, Athena uses
-        /// the value for <code>ExpectedBucketOwner</code> when it makes Amazon S3 calls to your
-        /// specified output location. If the <code>ExpectedBucketOwner</code> Amazon Web Services
-        /// account ID does not match the actual owner of the Amazon S3 bucket, the call fails
-        /// with a permissions error.</para><para>This is a client-side setting. If workgroup settings override client-side settings,
-        /// then the query uses the <code>ExpectedBucketOwner</code> setting that is specified
-        /// for the workgroup, and also uses the location for storing query results specified
-        /// in the workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>
-        /// and <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup
+        /// the value for <c>ExpectedBucketOwner</c> when it makes Amazon S3 calls to your specified
+        /// output location. If the <c>ExpectedBucketOwner</c> Amazon Web Services account ID
+        /// does not match the actual owner of the Amazon S3 bucket, the call fails with a permissions
+        /// error.</para><para>This is a client-side setting. If workgroup settings override client-side settings,
+        /// then the query uses the <c>ExpectedBucketOwner</c> setting that is specified for the
+        /// workgroup, and also uses the location for storing query results specified in the workgroup.
+        /// See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a> and <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup
         /// Settings Override Client-Side Settings</a>.</para>
         /// </para>
         /// </summary>
@@ -148,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter EncryptionConfiguration_KmsKey
         /// <summary>
         /// <para>
-        /// <para>For <code>SSE_KMS</code> and <code>CSE_KMS</code>, this is the KMS key ARN or ID.</para>
+        /// <para>For <c>SSE_KMS</c> and <c>CSE_KMS</c>, this is the KMS key ARN or ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,9 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>The location in Amazon S3 where your query and calculation results are stored, such
-        /// as <code>s3://path/to/query/bucket/</code>. To run the query, you must specify the
-        /// query results location using one of the ways: either for individual queries using
-        /// either this setting (client-side), or in the workgroup, using <a>WorkGroupConfiguration</a>.
+        /// as <c>s3://path/to/query/bucket/</c>. To run the query, you must specify the query
+        /// results location using one of the ways: either for individual queries using either
+        /// this setting (client-side), or in the workgroup, using <a>WorkGroupConfiguration</a>.
         /// If none of them is set, Athena issues an error that no output location is provided.
         /// For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working
         /// with query results, recent queries, and output files</a>. If workgroup settings override
@@ -207,9 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 canned ACL that Athena should specify when storing query results. Currently
-        /// the only supported canned ACL is <code>BUCKET_OWNER_FULL_CONTROL</code>. If a query
-        /// runs in a workgroup and the workgroup overrides client-side settings, then the Amazon
-        /// S3 canned ACL specified in the workgroup's settings is used for all queries that run
+        /// the only supported canned ACL is <c>BUCKET_OWNER_FULL_CONTROL</c>. If a query runs
+        /// in a workgroup and the workgroup overrides client-side settings, then the Amazon S3
+        /// canned ACL specified in the workgroup's settings is used for all queries that run
         /// in the workgroup. For more information about Amazon S3 canned ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl">Canned
         /// ACL</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>

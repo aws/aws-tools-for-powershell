@@ -69,9 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>(Optional) Lists commands issued against this managed node ID.</para><note><para>You can't specify a managed node ID in the same command that you specify <code>Status</code>
-        /// = <code>Pending</code>. This is because the command hasn't reached the managed node
-        /// yet.</para></note>
+        /// <para>(Optional) Lists commands issued against this managed node ID.</para><note><para>You can't specify a managed node ID in the same command that you specify <c>Status</c>
+        /// = <c>Pending</c>. This is because the command hasn't reached the managed node yet.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start.
         /// Specifying both values results in an error.</para><para> The value can be in date, checkpoint, or LSN/SCN format.</para><para>Date Example: --cdc-start-position “2018-03-08T12:12:12”</para><para>Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"</para><para>LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”</para><note><para>When you use this task setting with a source PostgreSQL database, a logical replication
         /// slot should already be created and associated with the source endpoint. You can verify
-        /// this by setting the <code>slotName</code> extra connection attribute to the name of
-        /// this logical replication slot. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra
+        /// this by setting the <c>slotName</c> extra connection attribute to the name of this
+        /// logical replication slot. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra
         /// Connection Attributes When Using PostgreSQL as a Source for DMS</a>.</para></note>
         /// </para>
         /// </summary>
@@ -106,13 +106,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter StartReplicationTaskType
         /// <summary>
         /// <para>
-        /// <para>The type of replication task to start.</para><para>When the migration type is <code>full-load</code> or <code>full-load-and-cdc</code>,
-        /// the only valid value for the first run of the task is <code>start-replication</code>.
-        /// This option will start the migration.</para><para>You can also use <a>ReloadTables</a> to reload specific tables that failed during
-        /// migration instead of restarting the task.</para><para>The <code>resume-processing</code> option isn't applicable for a full-load task, because
-        /// you can't resume partially loaded tables during the full load phase.</para><para>For a <code>full-load-and-cdc</code> task, DMS migrates table data, and then applies
-        /// data changes that occur on the source. To load all the tables again, and start capturing
-        /// source changes, use <code>reload-target</code>. Otherwise use <code>resume-processing</code>,
+        /// <para>The type of replication task to start.</para><para>When the migration type is <c>full-load</c> or <c>full-load-and-cdc</c>, the only
+        /// valid value for the first run of the task is <c>start-replication</c>. This option
+        /// will start the migration.</para><para>You can also use <a>ReloadTables</a> to reload specific tables that failed during
+        /// migration instead of restarting the task.</para><para>The <c>resume-processing</c> option isn't applicable for a full-load task, because
+        /// you can't resume partially loaded tables during the full load phase.</para><para>For a <c>full-load-and-cdc</c> task, DMS migrates table data, and then applies data
+        /// changes that occur on the source. To load all the tables again, and start capturing
+        /// source changes, use <c>reload-target</c>. Otherwise use <c>resume-processing</c>,
         /// to replicate the changes from the last stop position.</para>
         /// </para>
         /// </summary>

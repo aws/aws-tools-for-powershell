@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// For more information, see Getting information about a celebrity in the Amazon Rekognition
     /// Developer Guide.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:GetCelebrityInfo</code>
+    /// This operation requires permissions to perform the <c>rekognition:GetCelebrityInfo</c>
     /// action. 
     /// </para>
     /// </summary>

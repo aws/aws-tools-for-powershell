@@ -32,13 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     /// 
     ///  
     /// <para>
-    /// You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
-    /// cluster as a Read Replica of another DB cluster or Amazon Neptune DB instance.
+    /// You can use the <c>ReplicationSourceIdentifier</c> parameter to create the DB cluster
+    /// as a Read Replica of another DB cluster or Amazon Neptune DB instance.
     /// </para><para>
-    /// Note that when you create a new cluster using <code>CreateDBCluster</code> directly,
-    /// deletion protection is disabled by default (when you create a new production cluster
-    /// in the console, deletion protection is enabled by default). You can only delete a
-    /// DB cluster if its <code>DeletionProtection</code> field is set to <code>false</code>.
+    /// Note that when you create a new cluster using <c>CreateDBCluster</c> directly, deletion
+    /// protection is disabled by default (when you create a new production cluster in the
+    /// console, deletion protection is enabled by default). You can only delete a DB cluster
+    /// if its <c>DeletionProtection</c> field is set to <c>false</c>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "NPTDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
-        /// <para><i>If set to <code>true</code>, tags are copied to any snapshot of the DB cluster
-        /// that is created.</i></para>
+        /// <para><i>If set to <c>true</c>, tags are copied to any snapshot of the DB cluster that
+        /// is created.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB cluster identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster1</code></para>
+        /// <para>The DB cluster identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <c>my-cluster1</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>A DB subnet group to associate with this DB cluster.</para><para>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</para><para>Example: <code>mySubnetgroup</code></para>
+        /// <para>A DB subnet group to associate with this DB cluster.</para><para>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</para><para>Example: <c>mySubnetgroup</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>A list of the log types that this DB cluster should export to CloudWatch Logs. Valid
-        /// log types are: <code>audit</code> (to publish audit logs) and <code>slowquery</code>
-        /// (to publish slow-query logs). See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/cloudwatch-logs.html">Publishing
+        /// log types are: <c>audit</c> (to publish audit logs) and <c>slowquery</c> (to publish
+        /// slow-query logs). See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/cloudwatch-logs.html">Publishing
         /// Neptune logs to Amazon CloudWatch logs</a>.</para>
         /// </para>
         /// </summary>
@@ -174,8 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
-        /// <para>If set to <code>true</code>, enables Amazon Identity and Access Management (IAM) authentication
-        /// for the entire DB cluster (this cannot be set at an instance level).</para><para>Default: <code>false</code>.</para>
+        /// <para>If set to <c>true</c>, enables Amazon Identity and Access Management (IAM) authentication
+        /// for the entire DB cluster (this cannot be set at an instance level).</para><para>Default: <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this DB cluster.</para><para>Valid Values: <code>neptune</code></para>
+        /// <para>The name of the database engine to be used for this DB cluster.</para><para>Valid Values: <c>neptune</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to use for the new DB cluster.</para><para>Example: <code>1.0.2.1</code></para>
+        /// <para>The version number of the database engine to use for the new DB cluster.</para><para>Example: <c>1.0.2.1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,13 +225,13 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>The Amazon KMS key identifier for an encrypted DB cluster.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
         /// If you are creating a DB cluster with the same Amazon account that owns the KMS encryption
         /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
-        /// of the ARN for the KMS encryption key.</para><para>If an encryption key is not specified in <code>KmsKeyId</code>:</para><ul><li><para>If <code>ReplicationSourceIdentifier</code> identifies an encrypted source, then Amazon
+        /// of the ARN for the KMS encryption key.</para><para>If an encryption key is not specified in <c>KmsKeyId</c>:</para><ul><li><para>If <c>ReplicationSourceIdentifier</c> identifies an encrypted source, then Amazon
         /// Neptune will use the encryption key used to encrypt the source. Otherwise, Amazon
-        /// Neptune will use your default encryption key.</para></li><li><para>If the <code>StorageEncrypted</code> parameter is true and <code>ReplicationSourceIdentifier</code>
+        /// Neptune will use your default encryption key.</para></li><li><para>If the <c>StorageEncrypted</c> parameter is true and <c>ReplicationSourceIdentifier</c>
         /// is not specified, then Amazon Neptune will use your default encryption key.</para></li></ul><para>Amazon KMS creates the default encryption key for your Amazon account. Your Amazon
         /// account has a different default encryption key for each Amazon Region.</para><para>If you create a Read Replica of an encrypted DB cluster in another Amazon Region,
-        /// you must set <code>KmsKeyId</code> to a KMS key ID that is valid in the destination
-        /// Amazon Region. This key is used to encrypt the Read Replica in that Amazon Region.</para>
+        /// you must set <c>KmsKeyId</c> to a KMS key ID that is valid in the destination Amazon
+        /// Region. This key is used to encrypt the Read Replica in that Amazon Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -295,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the instances in the DB cluster accept connections.</para><para> Default: <code>8182</code></para>
+        /// <para>The port number on which the instances in the DB cluster accept connections.</para><para> Default: <c>8182</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -306,9 +306,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The daily time range during which automated backups are created if automated backups
-        /// are enabled using the <code>BackupRetentionPeriod</code> parameter.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// are enabled using the <c>BackupRetentionPeriod</c> parameter.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Region. To see the time blocks available, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-maintaining.html#manage-console-maintaining-window">Neptune
-        /// Maintenance Window</a> in the <i>Amazon Neptune User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// Maintenance Window</a> in the <i>Amazon Neptune User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <c>hh24:mi-hh24:mi</c>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -319,7 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
-        /// Time (UTC).</para><para>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// Time (UTC).</para><para>Format: <c>ddd:hh24:mi-ddd:hh24:mi</c></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Region, occurring on a random day of the week. To see the time blocks
         /// available, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-maintaining.html#manage-console-maintaining-window">Neptune
         /// Maintenance Window</a> in the <i>Amazon Neptune User Guide.</i></para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para><para>Constraints: Minimum 30-minute window.</para>
@@ -375,9 +375,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>The storage type to associate with the DB cluster.</para><para>Valid Values:</para><ul><li><para><code>standard | iopt1</code></para></li></ul><para>Default:</para><ul><li><para><code>standard</code></para></li></ul><note><para>When you create a Neptune cluster with the storage type set to <code>iopt1</code>,
-        /// the storage type is returned in the response. The storage type isn't returned when
-        /// you set it to <code>standard</code>.</para></note>
+        /// <para>The storage type to associate with the DB cluster.</para><para>Valid Values:</para><ul><li><para><c>standard | iopt1</c></para></li></ul><para>Default:</para><ul><li><para><c>standard</c></para></li></ul><note><para>When you create a Neptune cluster with the storage type set to <c>iopt1</c>, the storage
+        /// type is returned in the response. The storage type isn't returned when you set it
+        /// to <c>standard</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

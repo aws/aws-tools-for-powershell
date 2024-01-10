@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>coip-address-usage.allocation-id</code> - The allocation ID of the address.</para></li><li><para><code>coip-address-usage.aws-account-id</code> - The ID of the Amazon Web Services
-        /// account that is using the customer-owned IP address.</para></li><li><para><code>coip-address-usage.aws-service</code> - The Amazon Web Services service that
-        /// is using the customer-owned IP address.</para></li><li><para><code>coip-address-usage.co-ip</code> - The customer-owned IP address.</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><c>coip-address-usage.allocation-id</c> - The allocation ID of the address.</para></li><li><para><c>coip-address-usage.aws-account-id</c> - The ID of the Amazon Web Services account
+        /// that is using the customer-owned IP address.</para></li><li><para><c>coip-address-usage.aws-service</c> - The Amazon Web Services service that is using
+        /// the customer-owned IP address.</para></li><li><para><c>coip-address-usage.co-ip</c> - The customer-owned IP address.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

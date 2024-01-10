@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter ExportFormat
         /// <summary>
         /// <para>
-        /// <para>The format for the exported data. Valid values for <code>ExportFormat</code> are <code>DYNAMODB_JSON</code>
-        /// or <code>ION</code>.</para>
+        /// <para>The format for the exported data. Valid values for <c>ExportFormat</c> are <c>DYNAMODB_JSON</c>
+        /// or <c>ION</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter IncrementalExportSpecification_ExportViewType
         /// <summary>
         /// <para>
-        /// <para>The view type that was chosen for the export. Valid values are <code>NEW_AND_OLD_IMAGES</code>
-        /// and <code>NEW_IMAGES</code>. The default value is <code>NEW_AND_OLD_IMAGES</code>.</para>
+        /// <para>The view type that was chosen for the export. Valid values are <c>NEW_AND_OLD_IMAGES</c>
+        /// and <c>NEW_IMAGES</c>. The default value is <c>NEW_AND_OLD_IMAGES</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>Type of encryption used on the bucket where export data will be stored. Valid values
-        /// for <code>S3SseAlgorithm</code> are:</para><ul><li><para><code>AES256</code> - server-side encryption with Amazon S3 managed keys</para></li><li><para><code>KMS</code> - server-side encryption with KMS managed keys</para></li></ul>
+        /// for <c>S3SseAlgorithm</c> are:</para><ul><li><para><c>AES256</c> - server-side encryption with Amazon S3 managed keys</para></li><li><para><c>KMS</c> - server-side encryption with KMS managed keys</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,13 +198,13 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Providing a <code>ClientToken</code> makes the call to <code>ExportTableToPointInTimeInput</code>
+        /// <para>Providing a <c>ClientToken</c> makes the call to <c>ExportTableToPointInTimeInput</c>
         /// idempotent, meaning that multiple identical calls have the same effect as one single
         /// call.</para><para>A client token is valid for 8 hours after the first request that uses it is completed.
         /// After 8 hours, any request with the same client token is treated as a new request.
         /// Do not resubmit the same request with the same client token for more than 8 hours,
         /// or the result might not be idempotent.</para><para>If you submit a request with the same client token but a change in other parameters
-        /// within the 8-hour idempotency window, DynamoDB returns an <code>ImportConflictException</code>.</para>
+        /// within the 8-hour idempotency window, DynamoDB returns an <c>ImportConflictException</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

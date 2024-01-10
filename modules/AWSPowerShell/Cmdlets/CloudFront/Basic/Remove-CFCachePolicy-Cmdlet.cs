@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// the cache policy.
     /// </para><para>
     /// To delete a cache policy, you must provide the policy's identifier and version. To
-    /// get these values, you can use <code>ListCachePolicies</code> or <code>GetCachePolicy</code>.
+    /// get these values, you can use <c>ListCachePolicies</c> or <c>GetCachePolicy</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CFCachePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The unique identifier for the cache policy that you are deleting. To get the identifier,
-        /// you can use <code>ListCachePolicies</code>.</para>
+        /// you can use <c>ListCachePolicies</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The version of the cache policy that you are deleting. The version is the cache policy's
-        /// <code>ETag</code> value, which you can get using <code>ListCachePolicies</code>, <code>GetCachePolicy</code>,
-        /// or <code>GetCachePolicyConfig</code>.</para>
+        /// <c>ETag</c> value, which you can get using <c>ListCachePolicies</c>, <c>GetCachePolicy</c>,
+        /// or <c>GetCachePolicyConfig</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

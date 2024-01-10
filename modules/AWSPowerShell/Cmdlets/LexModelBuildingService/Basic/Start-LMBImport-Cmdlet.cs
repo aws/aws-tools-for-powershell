@@ -44,10 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter MergeStrategy
         /// <summary>
         /// <para>
-        /// <para>Specifies the action that the <code>StartImport</code> operation should take when
-        /// there is an existing resource with the same name.</para><ul><li><para>FAIL_ON_CONFLICT - The import operation is stopped on the first conflict between a
+        /// <para>Specifies the action that the <c>StartImport</c> operation should take when there
+        /// is an existing resource with the same name.</para><ul><li><para>FAIL_ON_CONFLICT - The import operation is stopped on the first conflict between a
         /// resource in the import file and an existing resource. The name of the resource causing
-        /// the conflict is in the <code>failureReason</code> field of the response to the <code>GetImport</code>
+        /// the conflict is in the <c>failureReason</c> field of the response to the <c>GetImport</c>
         /// operation.</para><para>OVERWRITE_LATEST - The import operation proceeds even if there is a conflict with
         /// an existing resource. The $LASTEST version of the existing resource is overwritten
         /// with the data from the import file.</para></li></ul>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <summary>
         /// <para>
         /// <para>A zip archive in binary format. The archive should contain one file, a JSON file containing
-        /// the resource to import. The resource should match the type specified in the <code>resourceType</code>
+        /// the resource to import. The resource should match the type specified in the <c>resourceType</c>
         /// field.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>

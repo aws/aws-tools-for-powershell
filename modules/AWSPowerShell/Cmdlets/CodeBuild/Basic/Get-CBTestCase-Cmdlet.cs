@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Filter_Keyword
         /// <summary>
         /// <para>
-        /// <para>A keyword that is used to filter on the <code>name</code> or the <code>prefix</code>
-        /// of the test cases. Only test cases where the keyword is a substring of the <code>name</code>
-        /// or the <code>prefix</code> will be returned.</para>
+        /// <para>A keyword that is used to filter on the <c>name</c> or the <c>prefix</c> of the test
+        /// cases. Only test cases where the keyword is a substring of the <c>name</c> or the
+        /// <c>prefix</c> will be returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Filter_Status
         /// <summary>
         /// <para>
-        /// <para>The status used to filter test cases. A <code>TestCaseFilter</code> can have one status.
-        /// Valid values are:</para><ul><li><para><code>SUCCEEDED</code></para></li><li><para><code>FAILED</code></para></li><li><para><code>ERROR</code></para></li><li><para><code>SKIPPED</code></para></li><li><para><code>UNKNOWN</code></para></li></ul>
+        /// <para>The status used to filter test cases. A <c>TestCaseFilter</c> can have one status.
+        /// Valid values are:</para><ul><li><para><c>SUCCEEDED</c></para></li><li><para><c>FAILED</c></para></li><li><para><c>ERROR</c></para></li><li><para><c>SKIPPED</c></para></li><li><para><c>UNKNOWN</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,9 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of paginated test cases returned per response. Use <code>nextToken</code>
-        /// to iterate pages in the list of returned <code>TestCase</code> objects. The default
-        /// value is 100. </para>
+        /// <para> The maximum number of paginated test cases returned per response. Use <c>nextToken</c>
+        /// to iterate pages in the list of returned <c>TestCase</c> objects. The default value
+        /// is 100. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,11 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para> During a previous call, the maximum number of items that can be returned is the value
-        /// specified in <code>maxResults</code>. If there more items in the list, then a unique
-        /// string called a <i>nextToken</i> is returned. To get the next batch of items in the
-        /// list, call this operation again, adding the next token to the call. To get all of
-        /// the items in the list, keep calling this operation with each subsequent next token
-        /// that is returned, until no more next tokens are returned. </para>
+        /// specified in <c>maxResults</c>. If there more items in the list, then a unique string
+        /// called a <i>nextToken</i> is returned. To get the next batch of items in the list,
+        /// call this operation again, adding the next token to the call. To get all of the items
+        /// in the list, keep calling this operation with each subsequent next token that is returned,
+        /// until no more next tokens are returned. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

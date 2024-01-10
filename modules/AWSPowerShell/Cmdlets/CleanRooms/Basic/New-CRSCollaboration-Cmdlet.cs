@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter DataEncryptionMetadata_AllowCleartext
         /// <summary>
         /// <para>
-        /// <para>Indicates whether encrypted tables can contain cleartext data (<code>TRUE</code>)
-        /// or are to cryptographically process every column (<code>FALSE</code>).</para>
+        /// <para>Indicates whether encrypted tables can contain cleartext data (<c>TRUE</c>) or are
+        /// to cryptographically process every column (<c>FALSE</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter DataEncryptionMetadata_AllowDuplicate
         /// <summary>
         /// <para>
-        /// <para>Indicates whether Fingerprint columns can contain duplicate entries (<code>TRUE</code>)
-        /// or are to contain only non-repeated values (<code>FALSE</code>).</para>
+        /// <para>Indicates whether Fingerprint columns can contain duplicate entries (<c>TRUE</c>)
+        /// or are to contain only non-repeated values (<c>FALSE</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>Indicates whether Fingerprint columns can be joined on any other Fingerprint column
-        /// with a different name (<code>TRUE</code>) or can only be joined on Fingerprint columns
-        /// of the same name (<code>FALSE</code>).</para>
+        /// with a different name (<c>TRUE</c>) or can only be joined on Fingerprint columns of
+        /// the same name (<c>FALSE</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,13 +134,12 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>Indicates whether the collaboration creator has configured the collaboration member
-        /// to pay for query compute costs (<code>TRUE</code>) or has not configured the collaboration
-        /// member to pay for query compute costs (<code>FALSE</code>).</para><para>Exactly one member can be configured to pay for query compute costs. An error is returned
-        /// if the collaboration creator sets a <code>TRUE</code> value for more than one member
-        /// in the collaboration. </para><para>If the collaboration creator hasn't specified anyone as the member paying for query
+        /// to pay for query compute costs (<c>TRUE</c>) or has not configured the collaboration
+        /// member to pay for query compute costs (<c>FALSE</c>).</para><para>Exactly one member can be configured to pay for query compute costs. An error is returned
+        /// if the collaboration creator sets a <c>TRUE</c> value for more than one member in
+        /// the collaboration. </para><para>If the collaboration creator hasn't specified anyone as the member paying for query
         /// compute costs, then the member who can query is the default payer. An error is returned
-        /// if the collaboration creator sets a <code>FALSE</code> value for the member who can
-        /// query.</para>
+        /// if the collaboration creator sets a <c>FALSE</c> value for the member who can query.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,8 +185,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter DataEncryptionMetadata_PreserveNull
         /// <summary>
         /// <para>
-        /// <para>Indicates whether NULL values are to be copied as NULL to encrypted tables (<code>TRUE</code>)
-        /// or cryptographically processed (<code>FALSE</code>).</para>
+        /// <para>Indicates whether NULL values are to be copied as NULL to encrypted tables (<c>TRUE</c>)
+        /// or cryptographically processed (<c>FALSE</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

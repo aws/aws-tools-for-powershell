@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter KeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>KeyArn</code> of the key.</para>
+        /// <para>The <c>KeyArn</c> of the key.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

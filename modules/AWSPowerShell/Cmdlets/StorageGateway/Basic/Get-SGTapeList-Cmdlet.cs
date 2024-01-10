@@ -29,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes.
-    /// If a <code>TapeARN</code> is not specified, returns a description of all virtual tapes
-    /// associated with the specified gateway. This operation is only supported in the tape
-    /// gateway type.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// If a <c>TapeARN</c> is not specified, returns a description of all virtual tapes associated
+    /// with the specified gateway. This operation is only supported in the tape gateway type.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SGTapeList")]
     [OutputType("Amazon.StorageGateway.Model.Tape")]
@@ -93,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>A marker value, obtained in a previous call to <code>DescribeTapes</code>. This marker
-        /// indicates which page of results to retrieve.</para><para>If not specified, the first page of results is retrieved.</para>
+        /// <para>A marker value, obtained in a previous call to <c>DescribeTapes</c>. This marker indicates
+        /// which page of results to retrieve.</para><para>If not specified, the first page of results is retrieved.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder.
         /// To assume a role, the app block builder calls the AWS Security Token Service (STS)
-        /// <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation
+        /// <c>AssumeRole</c> API operation and passes the ARN of the role to use. The operation
         /// creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary
         /// credentials and creates the <b>appstream_machine_role</b> credential profile on the
         /// instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Platform
         /// <summary>
         /// <para>
-        /// <para>The platform of the app block builder.</para><para><code>WINDOWS_SERVER_2019</code> is the only valid value.</para>
+        /// <para>The platform of the app block builder.</para><para><c>WINDOWS_SERVER_2019</c> is the only valid value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

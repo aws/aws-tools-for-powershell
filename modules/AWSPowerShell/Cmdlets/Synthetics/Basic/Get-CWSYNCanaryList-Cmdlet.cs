@@ -33,14 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     /// 
     ///  
     /// <para>
-    /// This operation supports resource-level authorization using an IAM policy and the <code>Names</code>
-    /// parameter. If you specify the <code>Names</code> parameter, the operation is successful
+    /// This operation supports resource-level authorization using an IAM policy and the <c>Names</c>
+    /// parameter. If you specify the <c>Names</c> parameter, the operation is successful
     /// only if you have authorization to view all the canaries that you specify in your request.
     /// If you do not have permission to view any of the canaries, the request fails with
     /// a 403 response.
     /// </para><para>
-    /// You are required to use the <code>Names</code> parameter if you are logged on to a
-    /// user or role that has an IAM policy that restricts which canaries that you are allowed
+    /// You are required to use the <c>Names</c> parameter if you are logged on to a user
+    /// or role that has an IAM policy that restricts which canaries that you are allowed
     /// to view. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html">
     /// Limiting a user to viewing specific canaries</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>Specify this parameter to limit how many canaries are returned each time you use the
-        /// <code>DescribeCanaries</code> operation. If you omit this parameter, the default of
-        /// 100 is used.</para>
+        /// <c>DescribeCanaries</c> operation. If you omit this parameter, the default of 100
+        /// is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

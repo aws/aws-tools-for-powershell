@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     /// </para></li><li><para>
     /// When the core device receives a deployment from the Amazon Web Services Cloud
     /// </para></li><li><para>
-    /// When the status of any component on the core device becomes <code>BROKEN</code></para></li><li><para>
+    /// When the status of any component on the core device becomes <c>BROKEN</c></para></li><li><para>
     /// At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular
     /// interval that you can configure</a>, which defaults to 24 hours
     /// </para></li><li><para>

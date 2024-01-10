@@ -63,18 +63,17 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         /// from different services to indicate that the resources are related. For example, you
         /// can assign the same tag to an Amazon DynamoDB table resource that you assign to an
         /// Lambda function. For more information about using tags, see the <a href="https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html">Tagging
-        /// best practices</a> whitepaper. </para><para>Each Amazon Web Services tag has two parts. </para><ul><li><para>A tag <i>key</i> (for example, <code>CostCenter</code>, <code>Environment</code>,
-        /// <code>Project</code>, or <code>Secret</code>). Tag <i>keys</i> are case-sensitive.</para></li><li><para>An optional field known as a tag <i>value</i> (for example, <code>111122223333</code>,
-        /// <code>Production</code>, or a team name). Omitting the tag <i>value</i> is the same
-        /// as using an empty string. Like tag <i>keys</i>, tag <i>values</i> are case-sensitive.</para></li></ul><para>Together these are known as <i>key</i>-<i>value</i> pairs.</para><important><para>The string used for a <i>key</i> in a tag that you use to define your resource coverage
-        /// must begin with the prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
-        /// <code>DevOps-Guru-deployment-application</code> or <code>devops-guru-rds-application</code>.
-        /// When you create a <i>key</i>, the case of characters in the <i>key</i> can be whatever
-        /// you choose. After you create a <i>key</i>, it is case-sensitive. For example, DevOps
-        /// Guru works with a <i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
-        /// <code>DevOps-Guru-RDS</code>, and these act as two different <i>keys</i>. Possible
-        /// <i>key</i>/<i>value</i> pairs in your application might be <code>Devops-Guru-production-application/RDS</code>
-        /// or <code>Devops-Guru-production-application/containers</code>.</para></important>
+        /// best practices</a> whitepaper. </para><para>Each Amazon Web Services tag has two parts. </para><ul><li><para>A tag <i>key</i> (for example, <c>CostCenter</c>, <c>Environment</c>, <c>Project</c>,
+        /// or <c>Secret</c>). Tag <i>keys</i> are case-sensitive.</para></li><li><para>An optional field known as a tag <i>value</i> (for example, <c>111122223333</c>, <c>Production</c>,
+        /// or a team name). Omitting the tag <i>value</i> is the same as using an empty string.
+        /// Like tag <i>keys</i>, tag <i>values</i> are case-sensitive.</para></li></ul><para>Together these are known as <i>key</i>-<i>value</i> pairs.</para><important><para>The string used for a <i>key</i> in a tag that you use to define your resource coverage
+        /// must begin with the prefix <c>Devops-guru-</c>. The tag <i>key</i> might be <c>DevOps-Guru-deployment-application</c>
+        /// or <c>devops-guru-rds-application</c>. When you create a <i>key</i>, the case of characters
+        /// in the <i>key</i> can be whatever you choose. After you create a <i>key</i>, it is
+        /// case-sensitive. For example, DevOps Guru works with a <i>key</i> named <c>devops-guru-rds</c>
+        /// and a <i>key</i> named <c>DevOps-Guru-RDS</c>, and these act as two different <i>keys</i>.
+        /// Possible <i>key</i>/<i>value</i> pairs in your application might be <c>Devops-Guru-production-application/RDS</c>
+        /// or <c>Devops-Guru-production-application/containers</c>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

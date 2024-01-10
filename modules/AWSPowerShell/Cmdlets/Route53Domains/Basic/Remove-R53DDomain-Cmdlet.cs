@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// before releasing it for other users to register (varies by registry). 
     /// </para></li><li><para>
     /// When the registration has been deleted, we'll send you a confirmation to the registrant
-    /// contact. The email will come from <code>noreply@domainnameverification.net</code>
-    /// or <code>noreply@registrar.amazon.com</code>.
+    /// contact. The email will come from <c>noreply@domainnameverification.net</c> or <c>noreply@registrar.amazon.com</c>.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Remove", "R53DDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

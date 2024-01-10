@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter SnapshotId
         /// <summary>
         /// <para>
-        /// <para>The ID of the snapshot that you want to update, in the format <code>fsvolsnap-0123456789abcdef0</code>.</para>
+        /// <para>The ID of the snapshot that you want to update, in the format <c>fsvolsnap-0123456789abcdef0</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

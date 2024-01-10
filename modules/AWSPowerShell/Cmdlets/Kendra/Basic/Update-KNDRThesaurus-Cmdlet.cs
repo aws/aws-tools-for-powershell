@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>An IAM role that gives Amazon Kendra permissions to access thesaurus file specified
-        /// in <code>SourceS3Path</code>.</para>
+        /// in <c>SourceS3Path</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

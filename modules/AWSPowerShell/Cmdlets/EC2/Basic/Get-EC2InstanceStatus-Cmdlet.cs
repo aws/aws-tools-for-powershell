@@ -63,26 +63,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone of the instance.</para></li><li><para><code>event.code</code> - The code for the scheduled event (<code>instance-reboot</code>
-        /// | <code>system-reboot</code> | <code>system-maintenance</code> | <code>instance-retirement</code>
-        /// | <code>instance-stop</code>).</para></li><li><para><code>event.description</code> - A description of the event.</para></li><li><para><code>event.instance-event-id</code> - The ID of the event whose date and time you
-        /// are modifying.</para></li><li><para><code>event.not-after</code> - The latest end time for the scheduled event (for example,
-        /// <code>2014-09-15T17:15:20.000Z</code>).</para></li><li><para><code>event.not-before</code> - The earliest start time for the scheduled event (for
-        /// example, <code>2014-09-15T17:15:20.000Z</code>).</para></li><li><para><code>event.not-before-deadline</code> - The deadline for starting the event (for
-        /// example, <code>2014-09-15T17:15:20.000Z</code>).</para></li><li><para><code>instance-state-code</code> - The code for the instance state, as a 16-bit unsigned
+        /// <para>The filters.</para><ul><li><para><c>availability-zone</c> - The Availability Zone of the instance.</para></li><li><para><c>event.code</c> - The code for the scheduled event (<c>instance-reboot</c> | <c>system-reboot</c>
+        /// | <c>system-maintenance</c> | <c>instance-retirement</c> | <c>instance-stop</c>).</para></li><li><para><c>event.description</c> - A description of the event.</para></li><li><para><c>event.instance-event-id</c> - The ID of the event whose date and time you are
+        /// modifying.</para></li><li><para><c>event.not-after</c> - The latest end time for the scheduled event (for example,
+        /// <c>2014-09-15T17:15:20.000Z</c>).</para></li><li><para><c>event.not-before</c> - The earliest start time for the scheduled event (for example,
+        /// <c>2014-09-15T17:15:20.000Z</c>).</para></li><li><para><c>event.not-before-deadline</c> - The deadline for starting the event (for example,
+        /// <c>2014-09-15T17:15:20.000Z</c>).</para></li><li><para><c>instance-state-code</c> - The code for the instance state, as a 16-bit unsigned
         /// integer. The high byte is used for internal purposes and should be ignored. The low
         /// byte is set based on the state represented. The valid values are 0 (pending), 16 (running),
-        /// 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</para></li><li><para><code>instance-state-name</code> - The state of the instance (<code>pending</code>
-        /// | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code>
-        /// | <code>stopped</code>).</para></li><li><para><code>instance-status.reachability</code> - Filters on instance status where the
-        /// name is <code>reachability</code> (<code>passed</code> | <code>failed</code> | <code>initializing</code>
-        /// | <code>insufficient-data</code>).</para></li><li><para><code>instance-status.status</code> - The status of the instance (<code>ok</code>
-        /// | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code>
-        /// | <code>not-applicable</code>).</para></li><li><para><code>system-status.reachability</code> - Filters on system status where the name
-        /// is <code>reachability</code> (<code>passed</code> | <code>failed</code> | <code>initializing</code>
-        /// | <code>insufficient-data</code>).</para></li><li><para><code>system-status.status</code> - The system status of the instance (<code>ok</code>
-        /// | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code>
-        /// | <code>not-applicable</code>).</para></li></ul>
+        /// 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</para></li><li><para><c>instance-state-name</c> - The state of the instance (<c>pending</c> | <c>running</c>
+        /// | <c>shutting-down</c> | <c>terminated</c> | <c>stopping</c> | <c>stopped</c>).</para></li><li><para><c>instance-status.reachability</c> - Filters on instance status where the name is
+        /// <c>reachability</c> (<c>passed</c> | <c>failed</c> | <c>initializing</c> | <c>insufficient-data</c>).</para></li><li><para><c>instance-status.status</c> - The status of the instance (<c>ok</c> | <c>impaired</c>
+        /// | <c>initializing</c> | <c>insufficient-data</c> | <c>not-applicable</c>).</para></li><li><para><c>system-status.reachability</c> - Filters on system status where the name is <c>reachability</c>
+        /// (<c>passed</c> | <c>failed</c> | <c>initializing</c> | <c>insufficient-data</c>).</para></li><li><para><c>system-status.status</c> - The system status of the instance (<c>ok</c> | <c>impaired</c>
+        /// | <c>initializing</c> | <c>insufficient-data</c> | <c>not-applicable</c>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -93,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter IncludeAllInstance
         /// <summary>
         /// <para>
-        /// <para>When <code>true</code>, includes the health status for all instances. When <code>false</code>,
-        /// includes the health status for running instances only.</para><para>Default: <code>false</code></para>
+        /// <para>When <c>true</c>, includes the health status for all instances. When <c>false</c>,
+        /// includes the health status for running instances only.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

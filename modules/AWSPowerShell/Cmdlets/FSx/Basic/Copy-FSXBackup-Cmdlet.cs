@@ -40,18 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// a disaster in the primary Region, you can restore from backup and recover availability
     /// quickly in the other Region. You can make cross-Region copies only within your Amazon
     /// Web Services partition. A partition is a grouping of Regions. Amazon Web Services
-    /// currently has three partitions: <code>aws</code> (Standard Regions), <code>aws-cn</code>
-    /// (China Regions), and <code>aws-us-gov</code> (Amazon Web Services GovCloud [US] Regions).
+    /// currently has three partitions: <c>aws</c> (Standard Regions), <c>aws-cn</c> (China
+    /// Regions), and <c>aws-us-gov</c> (Amazon Web Services GovCloud [US] Regions).
     /// </para><para>
     /// You can also use backup copies to clone your file dataset to another Region or within
     /// the same Region.
     /// </para><para>
-    /// You can use the <code>SourceRegion</code> parameter to specify the Amazon Web Services
-    /// Region from which the backup will be copied. For example, if you make the call from
-    /// the <code>us-west-1</code> Region and want to copy a backup from the <code>us-east-2</code>
-    /// Region, you specify <code>us-east-2</code> in the <code>SourceRegion</code> parameter
-    /// to make a cross-Region copy. If you don't specify a Region, the backup copy is created
-    /// in the same Region where the request is sent from (in-Region copy).
+    /// You can use the <c>SourceRegion</c> parameter to specify the Amazon Web Services Region
+    /// from which the backup will be copied. For example, if you make the call from the <c>us-west-1</c>
+    /// Region and want to copy a backup from the <c>us-east-2</c> Region, you specify <c>us-east-2</c>
+    /// in the <c>SourceRegion</c> parameter to make a cross-Region copy. If you don't specify
+    /// a Region, the backup copy is created in the same Region where the request is sent
+    /// from (in-Region copy).
     /// </para><para>
     /// For more information about creating backup copies, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html#copy-backups">
     /// Copying backups</a> in the <i>Amazon FSx for Windows User Guide</i>, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html#copy-backups">Copying
@@ -87,12 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>A Boolean flag indicating whether tags from the source backup should be copied to
-        /// the backup copy. This value defaults to <code>false</code>.</para><para>If you set <code>CopyTags</code> to <code>true</code> and the source backup has existing
-        /// tags, you can use the <code>Tags</code> parameter to create new tags, provided that
-        /// the sum of the source backup tags and the new tags doesn't exceed 50. Both sets of
-        /// tags are merged. If there are tag conflicts (for example, two tags with the same key
-        /// but different values), the tags created with the <code>Tags</code> parameter take
-        /// precedence.</para>
+        /// the backup copy. This value defaults to <c>false</c>.</para><para>If you set <c>CopyTags</c> to <c>true</c> and the source backup has existing tags,
+        /// you can use the <c>Tags</c> parameter to create new tags, provided that the sum of
+        /// the source backup tags and the new tags doesn't exceed 50. Both sets of tags are merged.
+        /// If there are tag conflicts (for example, two tags with the same key but different
+        /// values), the tags created with the <c>Tags</c> parameter take precedence.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>The source Amazon Web Services Region of the backup. Specifies the Amazon Web Services
         /// Region from which the backup is being copied. The source and destination Regions must
-        /// be in the same Amazon Web Services partition. If you don't specify a Region, <code>SourceRegion</code>
+        /// be in the same Amazon Web Services partition. If you don't specify a Region, <c>SourceRegion</c>
         /// defaults to the Region where the request is sent from (in-Region copy).</para>
         /// </para>
         /// </summary>

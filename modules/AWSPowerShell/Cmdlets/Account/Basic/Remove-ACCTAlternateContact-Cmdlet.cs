@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         /// ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
         /// features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-trusted-access.html">trusted
         /// access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-delegated-admin.html">delegated
-        /// admin</a> account assigned.</para><note><para>The management account can't specify its own <code>AccountId</code>; it must call
-        /// the operation in standalone context by not including the <code>AccountId</code> parameter.</para></note><para>To call this operation on an account that is not a member of an organization, then
+        /// admin</a> account assigned.</para><note><para>The management account can't specify its own <c>AccountId</c>; it must call the operation
+        /// in standalone context by not including the <c>AccountId</c> parameter.</para></note><para>To call this operation on an account that is not a member of an organization, then
         /// don't specify this parameter, and call the operation using an identity belonging to
         /// the account whose contacts you wish to retrieve or modify.</para>
         /// </para>

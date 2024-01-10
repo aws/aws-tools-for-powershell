@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter RequestedBy
         /// <summary>
         /// <para>
-        /// <para>The type of account making the <code>ListEnvironmentAccountConnections</code> request.</para>
+        /// <para>The type of account making the <c>ListEnvironmentAccountConnections</c> request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

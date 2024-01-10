@@ -35,11 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
     /// 2019.11.21 (Current)</a> of global tables. 
     /// </para></important><note><para>
-    /// If you issue a <code>DescribeTable</code> request immediately after a <code>CreateTable</code>
-    /// request, DynamoDB might return a <code>ResourceNotFoundException</code>. This is because
-    /// <code>DescribeTable</code> uses an eventually consistent query, and the metadata for
-    /// your table might not be available at that moment. Wait for a few seconds, and then
-    /// try the <code>DescribeTable</code> request again.
+    /// If you issue a <c>DescribeTable</c> request immediately after a <c>CreateTable</c>
+    /// request, DynamoDB might return a <c>ResourceNotFoundException</c>. This is because
+    /// <c>DescribeTable</c> uses an eventually consistent query, and the metadata for your
+    /// table might not be available at that moment. Wait for a few seconds, and then try
+    /// the <c>DescribeTable</c> request again.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "DDBTable")]

@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A list of tags to add to the bot alias. You can only add tags when you create an alias,
-        /// you can't use the <code>UpdateBotAlias</code> operation to update the tags on a bot
-        /// alias. To update tags, use the <code>TagResource</code> operation.</para>
+        /// you can't use the <c>UpdateBotAlias</c> operation to update the tags on a bot alias.
+        /// To update tags, use the <c>TagResource</c> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

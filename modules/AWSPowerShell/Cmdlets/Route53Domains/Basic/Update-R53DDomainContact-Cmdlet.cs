@@ -146,13 +146,12 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Indicates whether the contact is a person, company, association, or public organization.
-        /// Note the following:</para><ul><li><para>If you specify a value other than <code>PERSON</code>, you must also specify a value
-        /// for <code>OrganizationName</code>.</para></li><li><para>For some TLDs, the privacy protection available depends on the value that you specify
-        /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
-        /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// Note the following:</para><ul><li><para>If you specify a value other than <c>PERSON</c>, you must also specify a value for
+        /// <c>OrganizationName</c>.</para></li><li><para>For some TLDs, the privacy protection available depends on the value that you specify
+        /// for <c>Contact Type</c>. For the privacy protection settings for your TLD, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
         /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
-        /// Guide</i></para></li><li><para>For .es domains, the value of <code>ContactType</code> must be <code>PERSON</code>
-        /// for all three contacts.</para></li></ul>
+        /// Guide</i></para></li><li><para>For .es domains, the value of <c>ContactType</c> must be <c>PERSON</c> for all three
+        /// contacts.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,13 +163,12 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Indicates whether the contact is a person, company, association, or public organization.
-        /// Note the following:</para><ul><li><para>If you specify a value other than <code>PERSON</code>, you must also specify a value
-        /// for <code>OrganizationName</code>.</para></li><li><para>For some TLDs, the privacy protection available depends on the value that you specify
-        /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
-        /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// Note the following:</para><ul><li><para>If you specify a value other than <c>PERSON</c>, you must also specify a value for
+        /// <c>OrganizationName</c>.</para></li><li><para>For some TLDs, the privacy protection available depends on the value that you specify
+        /// for <c>Contact Type</c>. For the privacy protection settings for your TLD, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
         /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
-        /// Guide</i></para></li><li><para>For .es domains, the value of <code>ContactType</code> must be <code>PERSON</code>
-        /// for all three contacts.</para></li></ul>
+        /// Guide</i></para></li><li><para>For .es domains, the value of <c>ContactType</c> must be <c>PERSON</c> for all three
+        /// contacts.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,13 +180,12 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Indicates whether the contact is a person, company, association, or public organization.
-        /// Note the following:</para><ul><li><para>If you specify a value other than <code>PERSON</code>, you must also specify a value
-        /// for <code>OrganizationName</code>.</para></li><li><para>For some TLDs, the privacy protection available depends on the value that you specify
-        /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
-        /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// Note the following:</para><ul><li><para>If you specify a value other than <c>PERSON</c>, you must also specify a value for
+        /// <c>OrganizationName</c>.</para></li><li><para>For some TLDs, the privacy protection available depends on the value that you specify
+        /// for <c>Contact Type</c>. For the privacy protection settings for your TLD, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
         /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
-        /// Guide</i></para></li><li><para>For .es domains, the value of <code>ContactType</code> must be <code>PERSON</code>
-        /// for all three contacts.</para></li></ul>
+        /// Guide</i></para></li><li><para>For .es domains, the value of <c>ContactType</c> must be <c>PERSON</c> for all three
+        /// contacts.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter Consent_Currency
         /// <summary>
         /// <para>
-        /// <para> Currency for the <code>MaxPrice</code>. </para>
+        /// <para> Currency for the <c>MaxPrice</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -323,7 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Fax number of the contact.</para><para>Constraints: Phone number must be specified in the format "+[country dialing code].[number
-        /// including any area code]". For example, a US phone number might appear as <code>"+1.1234567890"</code>.</para>
+        /// including any area code]". For example, a US phone number might appear as <c>"+1.1234567890"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -334,7 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Fax number of the contact.</para><para>Constraints: Phone number must be specified in the format "+[country dialing code].[number
-        /// including any area code]". For example, a US phone number might appear as <code>"+1.1234567890"</code>.</para>
+        /// including any area code]". For example, a US phone number might appear as <c>"+1.1234567890"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -345,7 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Fax number of the contact.</para><para>Constraints: Phone number must be specified in the format "+[country dialing code].[number
-        /// including any area code]". For example, a US phone number might appear as <code>"+1.1234567890"</code>.</para>
+        /// including any area code]". For example, a US phone number might appear as <c>"+1.1234567890"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -425,7 +422,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter AdminContact_OrganizationName
         /// <summary>
         /// <para>
-        /// <para>Name of the organization for contact types other than <code>PERSON</code>.</para>
+        /// <para>Name of the organization for contact types other than <c>PERSON</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -435,7 +432,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter RegistrantContact_OrganizationName
         /// <summary>
         /// <para>
-        /// <para>Name of the organization for contact types other than <code>PERSON</code>.</para>
+        /// <para>Name of the organization for contact types other than <c>PERSON</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -445,7 +442,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter TechContact_OrganizationName
         /// <summary>
         /// <para>
-        /// <para>Name of the organization for contact types other than <code>PERSON</code>.</para>
+        /// <para>Name of the organization for contact types other than <c>PERSON</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -456,7 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>The phone number of the contact.</para><para>Constraints: Phone number must be specified in the format "+[country dialing code].[number
-        /// including any area code&gt;]". For example, a US phone number might appear as <code>"+1.1234567890"</code>.</para>
+        /// including any area code&gt;]". For example, a US phone number might appear as <c>"+1.1234567890"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -467,7 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>The phone number of the contact.</para><para>Constraints: Phone number must be specified in the format "+[country dialing code].[number
-        /// including any area code&gt;]". For example, a US phone number might appear as <code>"+1.1234567890"</code>.</para>
+        /// including any area code&gt;]". For example, a US phone number might appear as <c>"+1.1234567890"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -478,7 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>The phone number of the contact.</para><para>Constraints: Phone number must be specified in the format "+[country dialing code].[number
-        /// including any area code&gt;]". For example, a US phone number might appear as <code>"+1.1234567890"</code>.</para>
+        /// including any area code&gt;]". For example, a US phone number might appear as <c>"+1.1234567890"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

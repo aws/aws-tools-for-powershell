@@ -66,18 +66,18 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <summary>
         /// <para>
         /// <para>A string in JSON format string that contains the following elements of a resource-based
-        /// policy:</para><ul><li><para><b>Effect</b>: must be set to <code>ALLOW</code>.</para></li><li><para><b>Action</b>: specifies the actions that are allowed by this customer managed permission.
+        /// policy:</para><ul><li><para><b>Effect</b>: must be set to <c>ALLOW</c>.</para></li><li><para><b>Action</b>: specifies the actions that are allowed by this customer managed permission.
         /// The list must contain only actions that are supported by the specified resource type.
         /// For a list of all actions supported by each resource type, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions,
         /// resources, and condition keys for Amazon Web Services services</a> in the <i>Identity
         /// and Access Management User Guide</i>.</para></li><li><para><b>Condition</b>: (optional) specifies conditional parameters that must evaluate
         /// to true when a user attempts an action for that action to be allowed. For more information
         /// about the Condition element, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html">IAM
-        /// policies: Condition element</a> in the <i>Identity and Access Management User Guide</i>.</para></li></ul><para>This template can't include either the <code>Resource</code> or <code>Principal</code>
-        /// elements. Those are both filled in by RAM when it instantiates the resource-based
-        /// policy on each resource shared using this managed permission. The <code>Resource</code>
-        /// comes from the ARN of the specific resource that you are sharing. The <code>Principal</code>
-        /// comes from the list of identities added to the resource share.</para>
+        /// policies: Condition element</a> in the <i>Identity and Access Management User Guide</i>.</para></li></ul><para>This template can't include either the <c>Resource</c> or <c>Principal</c> elements.
+        /// Those are both filled in by RAM when it instantiates the resource-based policy on
+        /// each resource shared using this managed permission. The <c>Resource</c> comes from
+        /// the ARN of the specific resource that you are sharing. The <c>Principal</c> comes
+        /// from the list of identities added to the resource share.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,10 +95,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <summary>
         /// <para>
         /// <para>Specifies the name of the resource type that this customer managed permission applies
-        /// to.</para><para>The format is <code><i>&lt;service-code&gt;</i>:<i>&lt;resource-type&gt;</i></code>
-        /// and is not case sensitive. For example, to specify an Amazon EC2 Subnet, you can use
-        /// the string <code>ec2:subnet</code>. To see the list of valid values for this parameter,
-        /// query the <a>ListResourceTypes</a> operation.</para>
+        /// to.</para><para>The format is <c><i>&lt;service-code&gt;</i>:<i>&lt;resource-type&gt;</i></c> and
+        /// is not case sensitive. For example, to specify an Amazon EC2 Subnet, you can use the
+        /// string <c>ec2:subnet</c>. To see the list of valid values for this parameter, query
+        /// the <a>ListResourceTypes</a> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// requires that you also pass the same value for all other parameters. We recommend
         /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
         /// type of value.</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
-        /// you.</para><para>If you retry the operation with the same <code>ClientToken</code>, but with different
-        /// parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</para>
+        /// you.</para><para>If you retry the operation with the same <c>ClientToken</c>, but with different parameters,
+        /// the retry fails with an <c>IdempotentParameterMismatch</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

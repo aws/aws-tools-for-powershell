@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>
         /// <para><i>Optional</i>: An integer that specifies the maximum number of DNSSEC configuration
         /// results that you want Amazon Route 53 to return. If you don't specify a value for
-        /// <code>MaxResults</code>, Route 53 returns up to 100 configuration per page.</para>
+        /// <c>MaxResults</c>, Route 53 returns up to 100 configuration per page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,10 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) If the current Amazon Web Services account has more than <code>MaxResults</code>
-        /// DNSSEC configurations, use <code>NextToken</code> to get the second and subsequent
-        /// pages of results.</para><para>For the first <code>ListResolverDnssecConfigs</code> request, omit this value.</para><para>For the second and subsequent requests, get the value of <code>NextToken</code> from
-        /// the previous response and specify that value for <code>NextToken</code> in the request.</para>
+        /// <para>(Optional) If the current Amazon Web Services account has more than <c>MaxResults</c>
+        /// DNSSEC configurations, use <c>NextToken</c> to get the second and subsequent pages
+        /// of results.</para><para>For the first <c>ListResolverDnssecConfigs</c> request, omit this value.</para><para>For the second and subsequent requests, get the value of <c>NextToken</c> from the
+        /// previous response and specify that value for <c>NextToken</c> in the request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

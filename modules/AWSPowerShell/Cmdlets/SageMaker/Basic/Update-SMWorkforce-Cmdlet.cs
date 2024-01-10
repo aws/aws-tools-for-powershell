@@ -36,21 +36,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// <para>
     /// The worker portal is now supported in VPC and public internet.
     /// </para><para>
-    ///  Use <code>SourceIpConfig</code> to restrict worker access to tasks to a specific
-    /// range of IP addresses. You specify allowed IP addresses by creating a list of up to
-    /// ten <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>.
+    ///  Use <c>SourceIpConfig</c> to restrict worker access to tasks to a specific range
+    /// of IP addresses. You specify allowed IP addresses by creating a list of up to ten
+    /// <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>.
     /// By default, a workforce isn't restricted to specific IP addresses. If you specify
     /// a range of IP addresses, workers who attempt to access tasks using any IP address
-    /// outside the specified range are denied and get a <code>Not Found</code> error message
-    /// on the worker portal.
+    /// outside the specified range are denied and get a <c>Not Found</c> error message on
+    /// the worker portal.
     /// </para><para>
-    /// To restrict access to all the workers in public internet, add the <code>SourceIpConfig</code>
+    /// To restrict access to all the workers in public internet, add the <c>SourceIpConfig</c>
     /// CIDR value as "10.0.0.0/16".
     /// </para><important><para>
     /// Amazon SageMaker does not support Source Ip restriction for worker portals in VPC.
     /// </para></important><para>
-    /// Use <code>OidcConfig</code> to update the configuration of a workforce created using
-    /// your own OIDC IdP. 
+    /// Use <c>OidcConfig</c> to update the configuration of a workforce created using your
+    /// own OIDC IdP. 
     /// </para><important><para>
     /// You can only update your OIDC IdP configuration when there are no work teams associated
     /// with your workforce. You can delete work teams using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkteam.html">DeleteWorkteam</a>

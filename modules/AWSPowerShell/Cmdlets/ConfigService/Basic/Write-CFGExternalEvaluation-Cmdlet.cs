@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ExternalEvaluation_ComplianceResourceType
         /// <summary>
         /// <para>
-        /// <para>The evaluated compliance resource type. Config accepts <code>AWS::::Account</code>
-        /// resource type.</para>
+        /// <para>The evaluated compliance resource type. Config accepts <c>AWS::::Account</c> resource
+        /// type.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ExternalEvaluation_ComplianceType
         /// <summary>
         /// <para>
-        /// <para>The compliance of the Amazon Web Services resource. The valid values are <code>COMPLIANT,
-        /// NON_COMPLIANT, </code> and <code>NOT_APPLICABLE</code>.</para>
+        /// <para>The compliance of the Amazon Web Services resource. The valid values are <c>COMPLIANT,
+        /// NON_COMPLIANT, </c> and <c>NOT_APPLICABLE</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

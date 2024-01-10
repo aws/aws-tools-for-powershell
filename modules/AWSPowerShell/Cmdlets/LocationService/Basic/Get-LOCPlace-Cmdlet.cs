@@ -28,12 +28,11 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search
-    /// operations.
+    /// Finds a place by its unique ID. A <c>PlaceId</c> is returned by other search operations.
     /// 
     ///  <note><para>
     /// A PlaceId is valid only if all of the following are the same in the original search
-    /// request and the call to <code>GetPlace</code>.
+    /// request and the call to <c>GetPlace</c>.
     /// </para><ul><li><para>
     /// Customer Amazon Web Services account
     /// </para></li><li><para>
@@ -90,12 +89,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP
-        /// 47</a> language tag, for example, <code>en</code> for English.</para><para>This setting affects the languages used in the results, but not the results themselves.
+        /// 47</a> language tag, for example, <c>en</c> for English.</para><para>This setting affects the languages used in the results, but not the results themselves.
         /// If no language is specified, or not supported for a particular result, the partner
         /// automatically chooses a language for the result.</para><para>For an example, we'll use the Greek language. You search for a location around Athens,
-        /// Greece, with the <code>language</code> parameter set to <code>en</code>. The <code>city</code>
-        /// in the results will most likely be returned as <code>Athens</code>.</para><para>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then
-        /// the <code>city</code> in the results will more likely be returned as <code>Αθήνα</code>.</para><para>If the data provider does not have a value for Greek, the result will be in a language
+        /// Greece, with the <c>language</c> parameter set to <c>en</c>. The <c>city</c> in the
+        /// results will most likely be returned as <c>Athens</c>.</para><para>If you set the <c>language</c> parameter to <c>el</c>, for Greek, then the <c>city</c>
+        /// in the results will more likely be returned as <c>Αθήνα</c>.</para><para>If the data provider does not have a value for Greek, the result will be in a language
         /// that the provider does support.</para>
         /// </para>
         /// </summary>

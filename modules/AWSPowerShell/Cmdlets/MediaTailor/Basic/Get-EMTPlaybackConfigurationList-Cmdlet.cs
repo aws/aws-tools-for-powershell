@@ -48,9 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>The maximum number of playback configurations that you want MediaTailor to return
-        /// in response to the current request. If there are more than <code>MaxResults</code>
-        /// playback configurations, use the value of <code>NextToken</code> in the response to
-        /// get the next page of results.</para>
+        /// in response to the current request. If there are more than <c>MaxResults</c> playback
+        /// configurations, use the value of <c>NextToken</c> in the response to get the next
+        /// page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

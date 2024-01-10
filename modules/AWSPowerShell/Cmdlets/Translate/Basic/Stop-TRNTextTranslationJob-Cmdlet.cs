@@ -32,14 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     /// 
     ///  
     /// <para>
-    /// If the job's state is <code>IN_PROGRESS</code>, the job will be marked for termination
-    /// and put into the <code>STOP_REQUESTED</code> state. If the job completes before it
-    /// can be stopped, it is put into the <code>COMPLETED</code> state. Otherwise, the job
-    /// is put into the <code>STOPPED</code> state.
+    /// If the job's state is <c>IN_PROGRESS</c>, the job will be marked for termination and
+    /// put into the <c>STOP_REQUESTED</c> state. If the job completes before it can be stopped,
+    /// it is put into the <c>COMPLETED</c> state. Otherwise, the job is put into the <c>STOPPED</c>
+    /// state.
     /// </para><para>
     /// Asynchronous batch translation jobs are started with the <a>StartTextTranslationJob</a>
     /// operation. You can use the <a>DescribeTextTranslationJob</a> or <a>ListTextTranslationJobs</a>
-    /// operations to get a batch translation job's <code>JobId</code>.
+    /// operations to get a batch translation job's <c>JobId</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "TRNTextTranslationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

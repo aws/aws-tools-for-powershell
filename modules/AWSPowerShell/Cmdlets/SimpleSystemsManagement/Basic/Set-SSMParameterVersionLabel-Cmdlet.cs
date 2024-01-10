@@ -56,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Labels can contain letters (case sensitive), numbers, periods (.), hyphens (-), or
     /// underscores (_).
     /// </para></li><li><para>
-    /// Labels can't begin with a number, "<code>aws</code>" or "<code>ssm</code>" (not case
-    /// sensitive). If a label fails to meet these requirements, then the label isn't associated
-    /// with a parameter and the system displays it in the list of InvalidLabels.
+    /// Labels can't begin with a number, "<c>aws</c>" or "<c>ssm</c>" (not case sensitive).
+    /// If a label fails to meet these requirements, then the label isn't associated with
+    /// a parameter and the system displays it in the list of InvalidLabels.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Set", "SSMParameterVersionLabel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

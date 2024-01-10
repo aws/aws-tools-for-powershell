@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your initial <code>ListEndpointsForDomain</code> operation returns a <code>nextToken</code>,
-        /// you can include the returned <code>nextToken</code> in subsequent <code>ListEndpointsForDomain</code>
+        /// <para>If your initial <c>ListEndpointsForDomain</c> operation returns a <c>nextToken</c>,
+        /// you can include the returned <c>nextToken</c> in subsequent <c>ListEndpointsForDomain</c>
         /// operations, which returns results in the next page.</para>
         /// </para>
         /// <para>

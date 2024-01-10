@@ -28,7 +28,7 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Returns the <code>SubscriptionState</code>, either <code>Active</code> or <code>Inactive</code>.
+    /// Returns the <c>SubscriptionState</c>, either <c>Active</c> or <c>Inactive</c>.
     /// </summary>
     [Cmdlet("Get", "SHLDSubscriptionState")]
     [OutputType("Amazon.Shield.SubscriptionState")]

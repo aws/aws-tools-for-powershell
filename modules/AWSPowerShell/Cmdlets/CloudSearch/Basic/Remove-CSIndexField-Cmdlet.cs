@@ -28,7 +28,7 @@ using Amazon.CloudSearch.Model;
 namespace Amazon.PowerShell.Cmdlets.CS
 {
     /// <summary>
-    /// Removes an <code><a>IndexField</a></code> from the search domain. For more information,
+    /// Removes an <c><a>IndexField</a></c> from the search domain. For more information,
     /// see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html" target="_blank">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer
     /// Guide</i>.
     /// </summary>

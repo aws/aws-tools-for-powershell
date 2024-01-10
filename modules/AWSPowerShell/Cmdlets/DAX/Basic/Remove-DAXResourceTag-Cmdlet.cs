@@ -28,7 +28,7 @@ using Amazon.DAX.Model;
 namespace Amazon.PowerShell.Cmdlets.DAX
 {
     /// <summary>
-    /// Removes the association of tags from a DAX resource. You can call <code>UntagResource</code>
+    /// Removes the association of tags from a DAX resource. You can call <c>UntagResource</c>
     /// up to 5 times per second, per account.
     /// </summary>
     [Cmdlet("Remove", "DAXResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

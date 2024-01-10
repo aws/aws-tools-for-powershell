@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Indicates how to sort the returned data based on game server registration timestamp.
-        /// Use <code>ASCENDING</code> to retrieve oldest game servers first, or use <code>DESCENDING</code>
+        /// Use <c>ASCENDING</c> to retrieve oldest game servers first, or use <c>DESCENDING</c>
         /// to retrieve newest game servers first. If this parameter is left empty, game servers
         /// are returned in no particular order.</para>
         /// </para>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
+        /// <para>The maximum number of results to return. Use this parameter with <c>NextToken</c>
         /// to get results as a set of sequential pages.</para>
         /// </para>
         /// </summary>

@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Permanently deletes a <a>RegexPatternSet</a>. You can't delete a <code>RegexPatternSet</code>
-    /// if it's still used in any <code>RegexMatchSet</code> or if the <code>RegexPatternSet</code>
-    /// is not empty. 
+    /// Permanently deletes a <a>RegexPatternSet</a>. You can't delete a <c>RegexPatternSet</c>
+    /// if it's still used in any <c>RegexMatchSet</c> or if the <c>RegexPatternSet</c> is
+    /// not empty. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "WAFRegexPatternSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -72,9 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter RegexPatternSetId
         /// <summary>
         /// <para>
-        /// <para>The <code>RegexPatternSetId</code> of the <a>RegexPatternSet</a> that you want to
-        /// delete. <code>RegexPatternSetId</code> is returned by <a>CreateRegexPatternSet</a>
-        /// and by <a>ListRegexPatternSets</a>.</para>
+        /// <para>The <c>RegexPatternSetId</c> of the <a>RegexPatternSet</a> that you want to delete.
+        /// <c>RegexPatternSetId</c> is returned by <a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

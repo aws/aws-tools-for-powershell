@@ -79,9 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> If the response to the previous <code>ListTags</code> request is truncated, SageMaker
-        /// returns this token. To retrieve the next set of tags, use it in the subsequent request.
-        /// </para>
+        /// <para> If the response to the previous <c>ListTags</c> request is truncated, SageMaker returns
+        /// this token. To retrieve the next set of tags, use it in the subsequent request. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

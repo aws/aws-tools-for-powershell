@@ -28,18 +28,18 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph
-    /// of one or more Amazon CloudWatch metrics as a bitmap image. You can then embed this
-    /// image into your services and products, such as wiki pages, reports, and documents.
-    /// You could also retrieve images regularly, such as every minute, and create your own
-    /// custom live dashboard.
+    /// You can use the <c>GetMetricWidgetImage</c> API to retrieve a snapshot graph of one
+    /// or more Amazon CloudWatch metrics as a bitmap image. You can then embed this image
+    /// into your services and products, such as wiki pages, reports, and documents. You could
+    /// also retrieve images regularly, such as every minute, and create your own custom live
+    /// dashboard.
     /// 
     ///  
     /// <para>
     /// The graph you retrieve can include all CloudWatch metric graph features, including
     /// metric math and horizontal and vertical annotations.
     /// </para><para>
-    /// There is a limit of 20 transactions per second for this API. Each <code>GetMetricWidgetImage</code>
+    /// There is a limit of 20 transactions per second for this API. Each <c>GetMetricWidgetImage</c>
     /// action has the following limits:
     /// </para><ul><li><para>
     /// As many as 100 metrics in the graph.
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>A JSON string that defines the bitmap graph to be retrieved. The string includes the
         /// metrics to include in the graph, statistics, annotations, title, axis limits, and
-        /// so on. You can include only one <code>MetricWidget</code> parameter in each <code>GetMetricWidgetImage</code>
-        /// call.</para><para>For more information about the syntax of <code>MetricWidget</code> see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Metric-Widget-Structure.html">GetMetricWidgetImage:
+        /// so on. You can include only one <c>MetricWidget</c> parameter in each <c>GetMetricWidgetImage</c>
+        /// call.</para><para>For more information about the syntax of <c>MetricWidget</c> see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Metric-Widget-Structure.html">GetMetricWidgetImage:
         /// Metric Widget Structure and Syntax</a>.</para><para>If any metric on the graph could not load all the requested data points, an orange
         /// triangle with an exclamation point appears next to the graph legend.</para>
         /// </para>
@@ -84,12 +84,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter OutputFormat
         /// <summary>
         /// <para>
-        /// <para>The format of the resulting image. Only PNG images are supported.</para><para>The default is <code>png</code>. If you specify <code>png</code>, the API returns
-        /// an HTTP response with the content-type set to <code>text/xml</code>. The image data
-        /// is in a <code>MetricWidgetImage</code> field. For example:</para><para><code> &lt;GetMetricWidgetImageResponse xmlns=&lt;URLstring&gt;&gt;</code></para><para><code> &lt;GetMetricWidgetImageResult&gt;</code></para><para><code> &lt;MetricWidgetImage&gt;</code></para><para><code> iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQEAYAAAAip...</code></para><para><code> &lt;/MetricWidgetImage&gt;</code></para><para><code> &lt;/GetMetricWidgetImageResult&gt;</code></para><para><code> &lt;ResponseMetadata&gt;</code></para><para><code> &lt;RequestId&gt;6f0d4192-4d42-11e8-82c1-f539a07e0e3b&lt;/RequestId&gt;</code></para><para><code> &lt;/ResponseMetadata&gt;</code></para><para><code>&lt;/GetMetricWidgetImageResponse&gt;</code></para><para>The <code>image/png</code> setting is intended only for custom HTTP requests. For
-        /// most use cases, and all actions using an Amazon Web Services SDK, you should use <code>png</code>.
-        /// If you specify <code>image/png</code>, the HTTP response has a content-type set to
-        /// <code>image/png</code>, and the body of the response is a PNG image. </para>
+        /// <para>The format of the resulting image. Only PNG images are supported.</para><para>The default is <c>png</c>. If you specify <c>png</c>, the API returns an HTTP response
+        /// with the content-type set to <c>text/xml</c>. The image data is in a <c>MetricWidgetImage</c>
+        /// field. For example:</para><para><c> &lt;GetMetricWidgetImageResponse xmlns=&lt;URLstring&gt;&gt;</c></para><para><c> &lt;GetMetricWidgetImageResult&gt;</c></para><para><c> &lt;MetricWidgetImage&gt;</c></para><para><c> iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQEAYAAAAip...</c></para><para><c> &lt;/MetricWidgetImage&gt;</c></para><para><c> &lt;/GetMetricWidgetImageResult&gt;</c></para><para><c> &lt;ResponseMetadata&gt;</c></para><para><c> &lt;RequestId&gt;6f0d4192-4d42-11e8-82c1-f539a07e0e3b&lt;/RequestId&gt;</c></para><para><c> &lt;/ResponseMetadata&gt;</c></para><para><c>&lt;/GetMetricWidgetImageResponse&gt;</c></para><para>The <c>image/png</c> setting is intended only for custom HTTP requests. For most use
+        /// cases, and all actions using an Amazon Web Services SDK, you should use <c>png</c>.
+        /// If you specify <c>image/png</c>, the HTTP response has a content-type set to <c>image/png</c>,
+        /// and the body of the response is a PNG image. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

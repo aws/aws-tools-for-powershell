@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Returns the full details of an <code>AppInstanceUser</code>.
+    /// Returns the full details of an <c>AppInstanceUser</c>.
     /// 
     ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
     /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceUser.html">DescribeAppInstanceUser</a>,
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceUserArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code>.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

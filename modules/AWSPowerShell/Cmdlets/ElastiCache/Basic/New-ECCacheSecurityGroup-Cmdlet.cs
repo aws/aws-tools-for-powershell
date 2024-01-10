@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A name for the cache security group. This value is stored as a lowercase string.</para><para>Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the
-        /// word "Default".</para><para>Example: <code>mysecuritygroup</code></para>
+        /// word "Default".</para><para>Example: <c>mysecuritygroup</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

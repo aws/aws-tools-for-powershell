@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// <summary>
     /// Returns a list of all historical purchases, renewals, and system renewal transactions
     /// for an AWS account. The list is paginated and ordered by a descending timestamp (most
-    /// recent transactions are first). The API returns a <code>NotEligible</code> error if
-    /// the user is not permitted to invoke the operation. If you must be able to invoke this
+    /// recent transactions are first). The API returns a <c>NotEligible</c> error if the
+    /// user is not permitted to invoke the operation. If you must be able to invoke this
     /// operation, contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DFOfferingTransaction")]

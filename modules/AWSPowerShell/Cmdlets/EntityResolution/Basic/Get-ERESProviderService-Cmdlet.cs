@@ -28,7 +28,7 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Returns the <code>ProviderService</code> of a given name.
+    /// Returns the <c>ProviderService</c> of a given name.
     /// </summary>
     [Cmdlet("Get", "ERESProviderService")]
     [OutputType("Amazon.EntityResolution.Model.GetProviderServiceResponse")]

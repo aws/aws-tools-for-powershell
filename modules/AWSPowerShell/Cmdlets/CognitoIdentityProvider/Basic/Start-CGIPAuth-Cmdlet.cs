@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// Initiates sign-in for a user in the Amazon Cognito user directory. You can't sign
-    /// in a user with a federated IdP with <code>InitiateAuth</code>. For more information,
-    /// see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html">
+    /// in a user with a federated IdP with <c>InitiateAuth</c>. For more information, see
+    /// <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html">
     /// Adding user pool sign-in through a third party</a>.
     /// 
     ///  <note><para>
@@ -87,13 +87,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The authentication flow for this call to run. The API action will depend on this value.
-        /// For example:</para><ul><li><para><code>REFRESH_TOKEN_AUTH</code> takes in a valid refresh token and returns new tokens.</para></li><li><para><code>USER_SRP_AUTH</code> takes in <code>USERNAME</code> and <code>SRP_A</code>
-        /// and returns the SRP variables to be used for next challenge execution.</para></li><li><para><code>USER_PASSWORD_AUTH</code> takes in <code>USERNAME</code> and <code>PASSWORD</code>
-        /// and returns the next challenge or tokens.</para></li></ul><para>Valid values include:</para><ul><li><para><code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP)
-        /// protocol.</para></li><li><para><code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for
-        /// refreshing the access token and ID token by supplying a valid refresh token.</para></li><li><para><code>CUSTOM_AUTH</code>: Custom authentication flow.</para></li><li><para><code>USER_PASSWORD_AUTH</code>: Non-SRP authentication flow; user name and password
-        /// are passed directly. If a user migration Lambda trigger is set, this flow will invoke
-        /// the user migration Lambda if it doesn't find the user name in the user pool. </para></li></ul><para><code>ADMIN_NO_SRP_AUTH</code> isn't a valid value.</para>
+        /// For example:</para><ul><li><para><c>REFRESH_TOKEN_AUTH</c> takes in a valid refresh token and returns new tokens.</para></li><li><para><c>USER_SRP_AUTH</c> takes in <c>USERNAME</c> and <c>SRP_A</c> and returns the SRP
+        /// variables to be used for next challenge execution.</para></li><li><para><c>USER_PASSWORD_AUTH</c> takes in <c>USERNAME</c> and <c>PASSWORD</c> and returns
+        /// the next challenge or tokens.</para></li></ul><para>Valid values include:</para><ul><li><para><c>USER_SRP_AUTH</c>: Authentication flow for the Secure Remote Password (SRP) protocol.</para></li><li><para><c>REFRESH_TOKEN_AUTH</c>/<c>REFRESH_TOKEN</c>: Authentication flow for refreshing
+        /// the access token and ID token by supplying a valid refresh token.</para></li><li><para><c>CUSTOM_AUTH</c>: Custom authentication flow.</para></li><li><para><c>USER_PASSWORD_AUTH</c>: Non-SRP authentication flow; user name and password are
+        /// passed directly. If a user migration Lambda trigger is set, this flow will invoke
+        /// the user migration Lambda if it doesn't find the user name in the user pool. </para></li></ul><para><c>ADMIN_NO_SRP_AUTH</c> isn't a valid value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,18 +109,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AuthParameter
         /// <summary>
         /// <para>
-        /// <para>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code>
-        /// that you're invoking. The required values depend on the value of <code>AuthFlow</code>:</para><ul><li><para>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code>
-        /// (required), <code>SECRET_HASH</code> (required if the app client is configured with
-        /// a client secret), <code>DEVICE_KEY</code>.</para></li><li><para>For <code>USER_PASSWORD_AUTH</code>: <code>USERNAME</code> (required), <code>PASSWORD</code>
-        /// (required), <code>SECRET_HASH</code> (required if the app client is configured with
-        /// a client secret), <code>DEVICE_KEY</code>.</para></li><li><para>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>REFRESH_TOKEN</code> (required),
-        /// <code>SECRET_HASH</code> (required if the app client is configured with a client secret),
-        /// <code>DEVICE_KEY</code>.</para></li><li><para>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code>
-        /// (if app client is configured with client secret), <code>DEVICE_KEY</code>. To start
-        /// the authentication flow with password verification, include <code>ChallengeName: SRP_A</code>
-        /// and <code>SRP_A: (The SRP_A Value)</code>.</para></li></ul><para>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing
-        /// secret hash values</a>. For information about <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working
+        /// <para>The authentication parameters. These are inputs corresponding to the <c>AuthFlow</c>
+        /// that you're invoking. The required values depend on the value of <c>AuthFlow</c>:</para><ul><li><para>For <c>USER_SRP_AUTH</c>: <c>USERNAME</c> (required), <c>SRP_A</c> (required), <c>SECRET_HASH</c>
+        /// (required if the app client is configured with a client secret), <c>DEVICE_KEY</c>.</para></li><li><para>For <c>USER_PASSWORD_AUTH</c>: <c>USERNAME</c> (required), <c>PASSWORD</c> (required),
+        /// <c>SECRET_HASH</c> (required if the app client is configured with a client secret),
+        /// <c>DEVICE_KEY</c>.</para></li><li><para>For <c>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</c>: <c>REFRESH_TOKEN</c> (required), <c>SECRET_HASH</c>
+        /// (required if the app client is configured with a client secret), <c>DEVICE_KEY</c>.</para></li><li><para>For <c>CUSTOM_AUTH</c>: <c>USERNAME</c> (required), <c>SECRET_HASH</c> (if app client
+        /// is configured with client secret), <c>DEVICE_KEY</c>. To start the authentication
+        /// flow with password verification, include <c>ChallengeName: SRP_A</c> and <c>SRP_A:
+        /// (The SRP_A Value)</c>.</para></li></ul><para>For more information about <c>SECRET_HASH</c>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing
+        /// secret hash values</a>. For information about <c>DEVICE_KEY</c>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working
         /// with user devices in your user pool</a>.</para>
         /// </para>
         /// </summary>
@@ -155,10 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// you use the InitiateAuth API action, Amazon Cognito invokes the Lambda functions that
         /// are specified for various triggers. The ClientMetadata value is passed as input to
         /// the functions for only the following triggers:</para><ul><li><para>Pre signup</para></li><li><para>Pre authentication</para></li><li><para>User migration</para></li></ul><para>When Amazon Cognito invokes the functions for these triggers, it passes a JSON payload,
-        /// which the function receives as input. This payload contains a <code>validationData</code>
+        /// which the function receives as input. This payload contains a <c>validationData</c>
         /// attribute, which provides the data that you assigned to the ClientMetadata parameter
         /// in your InitiateAuth request. In your function code in Lambda, you can process the
-        /// <code>validationData</code> value to enhance your workflow for your specific needs.</para><para>When you use the InitiateAuth API action, Amazon Cognito also invokes the functions
+        /// <c>validationData</c> value to enhance your workflow for your specific needs.</para><para>When you use the InitiateAuth API action, Amazon Cognito also invokes the functions
         /// for the following triggers, but it doesn't provide the ClientMetadata value as input:</para><ul><li><para>Post authentication</para></li><li><para>Custom message</para></li><li><para>Pre token generation</para></li><li><para>Create auth challenge</para></li><li><para>Define auth challenge</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
         /// Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito
         /// Developer Guide</i>.</para><note><para>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the

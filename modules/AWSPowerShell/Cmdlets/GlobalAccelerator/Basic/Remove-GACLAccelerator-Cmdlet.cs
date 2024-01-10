@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     /// <summary>
     /// Delete an accelerator. Before you can delete an accelerator, you must disable it and
     /// remove all dependent resources (listeners and endpoint groups). To disable the accelerator,
-    /// update the accelerator to set <code>Enabled</code> to false.
+    /// update the accelerator to set <c>Enabled</c> to false.
     /// 
     ///  <important><para>
     /// When you create an accelerator, by default, Global Accelerator provides you with a

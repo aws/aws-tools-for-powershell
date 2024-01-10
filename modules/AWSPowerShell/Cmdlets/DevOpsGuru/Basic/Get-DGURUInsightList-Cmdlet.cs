@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
 {
     /// <summary>
     /// Returns a list of insights in your Amazon Web Services account. You can specify which
-    /// insights are returned by their start time and status (<code>ONGOING</code>, <code>CLOSED</code>,
-    /// or <code>ANY</code>).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// insights are returned by their start time and status (<c>ONGOING</c>, <c>CLOSED</c>,
+    /// or <c>ANY</c>).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DGURUInsightList")]
     [OutputType("Amazon.DevOpsGuru.Model.ListInsightsResponse")]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

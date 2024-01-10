@@ -36,19 +36,19 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     ///  
     /// <para>
     /// This operation generates metrics for each backtest window that was evaluated. The
-    /// number of backtest windows (<code>NumberOfBacktestWindows</code>) is specified using
-    /// the <a>EvaluationParameters</a> object, which is optionally included in the <code>CreatePredictor</code>
-    /// request. If <code>NumberOfBacktestWindows</code> isn't specified, the number defaults
-    /// to one.
+    /// number of backtest windows (<c>NumberOfBacktestWindows</c>) is specified using the
+    /// <a>EvaluationParameters</a> object, which is optionally included in the <c>CreatePredictor</c>
+    /// request. If <c>NumberOfBacktestWindows</c> isn't specified, the number defaults to
+    /// one.
     /// </para><para>
-    /// The parameters of the <code>filling</code> method determine which items contribute
-    /// to the metrics. If you want all items to contribute, specify <code>zero</code>. If
-    /// you want only those items that have complete data in the range being evaluated to
-    /// contribute, specify <code>nan</code>. For more information, see <a>FeaturizationMethod</a>.
+    /// The parameters of the <c>filling</c> method determine which items contribute to the
+    /// metrics. If you want all items to contribute, specify <c>zero</c>. If you want only
+    /// those items that have complete data in the range being evaluated to contribute, specify
+    /// <c>nan</c>. For more information, see <a>FeaturizationMethod</a>.
     /// </para><note><para>
-    /// Before you can get accuracy metrics, the <code>Status</code> of the predictor must
-    /// be <code>ACTIVE</code>, signifying that training has completed. To get the status,
-    /// use the <a>DescribePredictor</a> operation.
+    /// Before you can get accuracy metrics, the <c>Status</c> of the predictor must be <c>ACTIVE</c>,
+    /// signifying that training has completed. To get the status, use the <a>DescribePredictor</a>
+    /// operation.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "FRCAccuracyMetric")]

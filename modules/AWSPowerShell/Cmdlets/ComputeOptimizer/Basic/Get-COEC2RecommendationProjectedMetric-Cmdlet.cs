@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.CO
     /// Returns the projected utilization metrics of Amazon EC2 instance recommendations.
     /// 
     ///  <note><para>
-    /// The <code>Cpu</code> and <code>Memory</code> metrics are the only projected utilization
-    /// metrics returned when you run this action. Additionally, the <code>Memory</code> metric
-    /// is returned only for resources that have the unified CloudWatch agent installed on
-    /// them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling
+    /// The <c>Cpu</c> and <c>Memory</c> metrics are the only projected utilization metrics
+    /// returned when you run this action. Additionally, the <c>Memory</c> metric is returned
+    /// only for resources that have the unified CloudWatch agent installed on them. For more
+    /// information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling
     /// Memory Utilization with the CloudWatch Agent</a>.
     /// </para></note>
     /// </summary>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para>Specifies the CPU vendor and architecture for Amazon EC2 instance and Auto Scaling
-        /// group recommendations.</para><para>For example, when you specify <code>AWS_ARM64</code> with:</para><ul><li><para>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a>
+        /// group recommendations.</para><para>For example, when you specify <c>AWS_ARM64</c> with:</para><ul><li><para>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a>
         /// request, Compute Optimizer returns recommendations that consist of Graviton2 instance
         /// types only.</para></li><li><para>A <a>GetEC2RecommendationProjectedMetrics</a> request, Compute Optimizer returns projected
         /// utilization metrics for Graviton2 instance type recommendations only.</para></li><li><para>A <a>ExportEC2InstanceRecommendations</a> or <a>ExportAutoScalingGroupRecommendations</a>

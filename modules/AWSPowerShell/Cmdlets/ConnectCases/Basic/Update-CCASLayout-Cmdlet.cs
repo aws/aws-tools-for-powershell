@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// If the action is successful, the service sends back an HTTP 200 response with an empty
     /// HTTP body.
     /// </para><para>
-    /// A <code>ValidationException</code> is returned when you add non-existent <code>fieldIds</code>
+    /// A <c>ValidationException</c> is returned when you add non-existent <c>fieldIds</c>
     /// to a layout.
     /// </para><note><para>
     /// Title and Status fields cannot be part of layouts because they are not configurable.

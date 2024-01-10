@@ -32,8 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// 
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:ResetNotificationSettings</code>.
-    /// 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:ResetNotificationSettings</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Reset", "IAMRANotificationSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

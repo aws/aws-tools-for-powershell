@@ -29,8 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
     /// Deletes a Call Analytics category. To use this operation, specify the name of the
-    /// category you want to delete using <code>CategoryName</code>. Category names are case
-    /// sensitive.
+    /// category you want to delete using <c>CategoryName</c>. Category names are case sensitive.
     /// </summary>
     [Cmdlet("Remove", "TRSCallAnalyticsCategory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

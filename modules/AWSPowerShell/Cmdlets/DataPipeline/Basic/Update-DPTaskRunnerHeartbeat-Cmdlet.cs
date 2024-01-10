@@ -28,8 +28,8 @@ using Amazon.DataPipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.DP
 {
     /// <summary>
-    /// Task runners call <code>ReportTaskRunnerHeartbeat</code> every 15 minutes to indicate
-    /// that they are operational. If the AWS Data Pipeline Task Runner is launched on a resource
+    /// Task runners call <c>ReportTaskRunnerHeartbeat</c> every 15 minutes to indicate that
+    /// they are operational. If the AWS Data Pipeline Task Runner is launched on a resource
     /// managed by AWS Data Pipeline, the web service can use this call to detect when the
     /// task runner application has failed and restart a new instance.
     /// </summary>
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// <para>
         /// <para>The type of task the task runner is configured to accept and process. The worker group
         /// is set as a field on objects in the pipeline when they are created. You can only specify
-        /// a single value for <code>workerGroup</code>. There are no wildcard values permitted
-        /// in <code>workerGroup</code>; the string must be an exact, case-sensitive, match.</para>
+        /// a single value for <c>workerGroup</c>. There are no wildcard values permitted in <c>workerGroup</c>;
+        /// the string must be an exact, case-sensitive, match.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

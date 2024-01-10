@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         /// <summary>
         /// <para>
         /// <para>The content type of the call-back message. For Amazon Lex V2 bot responses, the content
-        /// type is <code>application/amz-chime-lex-msgs</code> for success responses and <code>application/amz-chime-lex-error</code>
+        /// type is <c>application/amz-chime-lex-msgs</c> for success responses and <c>application/amz-chime-lex-error</c>
         /// for failure responses. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing
         /// responses from an AppInstanceBot</a> in the <i>Amazon Chime SDK Messaging Developer
         /// Guide</i>.</para>
@@ -124,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter DeleteResource
         /// <summary>
         /// <para>
-        /// <para>When a processor determines that a message needs to be <code>DENIED</code>, pass this
-        /// parameter with a value of true.</para>
+        /// <para>When a processor determines that a message needs to be <c>DENIED</c>, pass this parameter
+        /// with a value of true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,8 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter PushNotification_Type
         /// <summary>
         /// <para>
-        /// <para>Enum value that indicates the type of the push notification for a message. <code>DEFAULT</code>:
-        /// Normal mobile push notification. <code>VOIP</code>: VOIP mobile push notification.</para>
+        /// <para>Enum value that indicates the type of the push notification for a message. <c>DEFAULT</c>:
+        /// Normal mobile push notification. <c>VOIP</c>: VOIP mobile push notification.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

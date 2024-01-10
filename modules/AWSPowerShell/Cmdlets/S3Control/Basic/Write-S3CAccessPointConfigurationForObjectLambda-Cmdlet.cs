@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </para></note><para>
     /// Replaces configuration for an Object Lambda Access Point.
     /// </para><para>
-    /// The following actions are related to <code>PutAccessPointConfigurationForObjectLambda</code>:
+    /// The following actions are related to <c>PutAccessPointConfigurationForObjectLambda</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointConfigurationForObjectLambda.html">GetAccessPointConfigurationForObjectLambda</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3CAccessPointConfigurationForObjectLambda", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Configuration_AllowedFeature
         /// <summary>
         /// <para>
-        /// <para>A container for allowed features. Valid inputs are <code>GetObject-Range</code>, <code>GetObject-PartNumber</code>,
-        /// <code>HeadObject-Range</code>, and <code>HeadObject-PartNumber</code>.</para>
+        /// <para>A container for allowed features. Valid inputs are <c>GetObject-Range</c>, <c>GetObject-PartNumber</c>,
+        /// <c>HeadObject-Range</c>, and <c>HeadObject-PartNumber</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

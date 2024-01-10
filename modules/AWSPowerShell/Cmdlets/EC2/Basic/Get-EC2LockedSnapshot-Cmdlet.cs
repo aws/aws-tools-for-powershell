@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>lock-state</code> - The state of the snapshot lock (<code>compliance-cooloff</code>
-        /// | <code>governance</code> | <code>compliance</code> | <code>expired</code>).</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>lock-state</c> - The state of the snapshot lock (<c>compliance-cooloff</c> | <c>governance</c>
+        /// | <c>compliance</c> | <c>expired</c>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     /// <summary>
     /// Retrieve deliverability data for all the campaigns that used a specific domain to
     /// send email during a specified time range. This data is available for a domain only
-    /// if you enabled the Deliverability dashboard (<code>PutDeliverabilityDashboardOption</code>
+    /// if you enabled the Deliverability dashboard (<c>PutDeliverabilityDashboardOption</c>
     /// operation) for the domain.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "PINEDomainDeliverabilityCampaignList")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         /// <summary>
         /// <para>
         /// <para>The last day, in Unix time format, that you want to obtain deliverability data for.
-        /// This value has to be less than or equal to 30 days after the value of the <code>StartDate</code>
+        /// This value has to be less than or equal to 30 days after the value of the <c>StartDate</c>
         /// parameter.</para>
         /// </para>
         /// </summary>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token that’s returned from a previous call to the <code>ListDomainDeliverabilityCampaigns</code>
+        /// <para>A token that’s returned from a previous call to the <c>ListDomainDeliverabilityCampaigns</c>
         /// operation. This token indicates the position of a campaign in the list of campaigns.</para>
         /// </para>
         /// <para>
@@ -114,10 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to include in response to a single call to the <code>ListDomainDeliverabilityCampaigns</code>
+        /// <para>The maximum number of results to include in response to a single call to the <c>ListDomainDeliverabilityCampaigns</c>
         /// operation. If the number of results is larger than the number that you specify in
-        /// this parameter, the response includes a <code>NextToken</code> element, which you
-        /// can use to obtain additional results.</para>
+        /// this parameter, the response includes a <c>NextToken</c> element, which you can use
+        /// to obtain additional results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

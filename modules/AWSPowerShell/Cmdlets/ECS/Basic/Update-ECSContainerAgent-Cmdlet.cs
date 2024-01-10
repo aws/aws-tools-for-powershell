@@ -35,20 +35,20 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// operating system.
     /// 
     ///  <note><para>
-    /// The <code>UpdateContainerAgent</code> API isn't supported for container instances
-    /// using the Amazon ECS-optimized Amazon Linux 2 (arm64) AMI. To update the container
-    /// agent, you can update the <code>ecs-init</code> package. This updates the agent. For
-    /// more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/agent-update-ecs-ami.html">Updating
+    /// The <c>UpdateContainerAgent</c> API isn't supported for container instances using
+    /// the Amazon ECS-optimized Amazon Linux 2 (arm64) AMI. To update the container agent,
+    /// you can update the <c>ecs-init</c> package. This updates the agent. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/agent-update-ecs-ami.html">Updating
     /// the Amazon ECS container agent</a> in the <i>Amazon Elastic Container Service Developer
     /// Guide</i>.
     /// </para></note><note><para>
-    /// Agent updates with the <code>UpdateContainerAgent</code> API operation do not apply
-    /// to Windows container instances. We recommend that you launch new container instances
-    /// to update the agent version in your Windows clusters.
+    /// Agent updates with the <c>UpdateContainerAgent</c> API operation do not apply to Windows
+    /// container instances. We recommend that you launch new container instances to update
+    /// the agent version in your Windows clusters.
     /// </para></note><para>
-    /// The <code>UpdateContainerAgent</code> API requires an Amazon ECS-optimized AMI or
-    /// Amazon Linux AMI with the <code>ecs-init</code> service installed and running. For
-    /// help updating the Amazon ECS container agent on other operating systems, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually
+    /// The <c>UpdateContainerAgent</c> API requires an Amazon ECS-optimized AMI or Amazon
+    /// Linux AMI with the <c>ecs-init</c> service installed and running. For help updating
+    /// the Amazon ECS container agent on other operating systems, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually
     /// updating the Amazon ECS container agent</a> in the <i>Amazon Elastic Container Service
     /// Developer Guide</i>.
     /// </para>

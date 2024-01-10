@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Retrieves a <code>Resolver</code> object.
+    /// Retrieves a <c>Resolver</c> object.
     /// </summary>
     [Cmdlet("Get", "ASYNResolver")]
     [OutputType("Amazon.AppSync.Model.Resolver")]

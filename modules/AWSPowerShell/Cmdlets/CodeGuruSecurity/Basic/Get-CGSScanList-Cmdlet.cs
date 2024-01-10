@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return in the response. Use this parameter when paginating
-        /// results. If additional results exist beyond the number you specify, the <code>nextToken</code>
-        /// element is returned in the response. Use <code>nextToken</code> in a subsequent request
+        /// results. If additional results exist beyond the number you specify, the <c>nextToken</c>
+        /// element is returned in the response. Use <c>nextToken</c> in a subsequent request
         /// to retrieve additional results.</para>
         /// </para>
         /// </summary>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         /// <summary>
         /// <para>
         /// <para>A token to use for paginating results that are returned in the response. Set the value
-        /// of this parameter to null for the first request. For subsequent calls, use the <code>nextToken</code>
+        /// of this parameter to null for the first request. For subsequent calls, use the <c>nextToken</c>
         /// value returned from the previous request to continue listing results after the first
         /// page.</para>
         /// </para>

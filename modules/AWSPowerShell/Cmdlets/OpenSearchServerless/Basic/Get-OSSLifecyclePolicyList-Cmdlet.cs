@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         /// <summary>
         /// <para>
         /// <para>Resource filters that policies can apply to. Currently, the only supported resource
-        /// type is <code>index</code>.</para>
+        /// type is <c>index</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,8 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         /// <summary>
         /// <para>
         /// <para>An optional parameter that specifies the maximum number of results to return. You
-        /// can use use <code>nextToken</code> to get the next page of results. The default is
-        /// 10.</para>
+        /// can use use <c>nextToken</c> to get the next page of results. The default is 10.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your initial <code>ListLifecyclePolicies</code> operation returns a <code>nextToken</code>,
-        /// you can include the returned <code>nextToken</code> in subsequent <code>ListLifecyclePolicies</code>
+        /// <para>If your initial <c>ListLifecyclePolicies</c> operation returns a <c>nextToken</c>,
+        /// you can include the returned <c>nextToken</c> in subsequent <c>ListLifecyclePolicies</c>
         /// operations, which returns results in the next page.</para>
         /// </para>
         /// </summary>

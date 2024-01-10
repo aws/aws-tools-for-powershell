@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// request to the last full table snapshot. Backup requests are processed instantaneously
     /// and become available for restore within minutes. 
     /// </para><para>
-    /// You can call <code>CreateBackup</code> at a maximum rate of 50 times per second.
+    /// You can call <c>CreateBackup</c> at a maximum rate of 50 times per second.
     /// </para><para>
     /// All backups in DynamoDB work without consuming any provisioned throughput on the table.
     /// </para><para>

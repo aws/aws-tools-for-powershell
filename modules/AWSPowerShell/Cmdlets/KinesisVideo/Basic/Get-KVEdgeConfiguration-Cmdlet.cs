@@ -28,7 +28,7 @@ using Amazon.KinesisVideo.Model;
 namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
-    /// Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code>
+    /// Describes a stream’s edge configuration that was set using the <c>StartEdgeConfigurationUpdate</c>
     /// API and the latest status of the edge agent's recorder and uploader jobs. Use this
     /// API to get the status of the configuration to determine if the configuration is in
     /// sync with the Edge Agent. Use this API to evaluate the health of the Edge Agent.
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter StreamARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the stream. Specify either the <code>StreamName</code>or
-        /// the <code>StreamARN</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the stream. Specify either the <c>StreamName</c>or
+        /// the <c>StreamARN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The name of the stream whose edge configuration you want to update. Specify either
-        /// the <code>StreamName</code> or the <code>StreamARN</code>. </para>
+        /// the <c>StreamName</c> or the <c>StreamARN</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

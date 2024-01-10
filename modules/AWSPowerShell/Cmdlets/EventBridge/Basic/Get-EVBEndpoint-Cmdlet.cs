@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// <summary>
         /// <para>
         /// <para>The primary Region of the endpoint you want to get information about. For example
-        /// <code>"HomeRegion": "us-east-1"</code>.</para>
+        /// <c>"HomeRegion": "us-east-1"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the endpoint you want to get information about. For example, <code>"Name":"us-east-2-custom_bus_A-endpoint"</code>.</para>
+        /// <para>The name of the endpoint you want to get information about. For example, <c>"Name":"us-east-2-custom_bus_A-endpoint"</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of <code>OrganizationConfigRuleStatuses</code> returned on each
-        /// page. If you do no specify a number, Config uses the default. The default is 100.</para>
+        /// <para>The maximum number of <c>OrganizationConfigRuleStatuses</c> returned on each page.
+        /// If you do no specify a number, Config uses the default. The default is 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
-        /// the next page of results in a paginated response. </para>
+        /// <para>The <c>nextToken</c> string returned on a previous page that you use to get the next
+        /// page of results in a paginated response. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

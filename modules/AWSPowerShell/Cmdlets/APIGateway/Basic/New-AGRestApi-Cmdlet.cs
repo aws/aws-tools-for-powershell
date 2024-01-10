@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>The source of the API key for metering requests according to a usage plan. Valid values
-        /// are: <code>HEADER</code> to read the API key from the <code>X-API-Key</code> header
-        /// of a request. <code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code>
-        /// from a custom authorizer.</para>
+        /// are: <c>HEADER</c> to read the API key from the <c>X-API-Key</c> header of a request.
+        /// <c>AUTHORIZER</c> to read the API key from the <c>UsageIdentifierKey</c> from a custom
+        /// authorizer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DisableExecuteApiEndpoint
         /// <summary>
         /// <para>
-        /// <para>Specifies whether clients can invoke your API by using the default <code>execute-api</code>
-        /// endpoint. By default, clients can invoke your API with the default <code>https://{api_id}.execute-api.{region}.amazonaws.com</code>
+        /// <para>Specifies whether clients can invoke your API by using the default <c>execute-api</c>
+        /// endpoint. By default, clients can invoke your API with the default <c>https://{api_id}.execute-api.{region}.amazonaws.com</c>
         /// endpoint. To require that clients use a custom domain name to invoke your API, disable
         /// the default endpoint</para>
         /// </para>
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag
-        /// key can be up to 128 characters and must not start with <code>aws:</code>. The tag
-        /// value can be up to 256 characters.</para>
+        /// key can be up to 128 characters and must not start with <c>aws:</c>. The tag value
+        /// can be up to 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,9 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A list of endpoint types of an API (RestApi) or its custom domain name (DomainName).
-        /// For an edge-optimized API and its custom domain name, the endpoint type is <code>"EDGE"</code>.
-        /// For a regional API and its custom domain name, the endpoint type is <code>REGIONAL</code>.
-        /// For a private API, the endpoint type is <code>PRIVATE</code>.</para>
+        /// For an edge-optimized API and its custom domain name, the endpoint type is <c>"EDGE"</c>.
+        /// For a regional API and its custom domain name, the endpoint type is <c>REGIONAL</c>.
+        /// For a private API, the endpoint type is <c>PRIVATE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes.
-        /// It is only supported for <code>PRIVATE</code> endpoint type.</para>
+        /// It is only supported for <c>PRIVATE</c> endpoint type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

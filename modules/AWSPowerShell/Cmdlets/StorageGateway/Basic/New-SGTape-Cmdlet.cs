@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSEncrypted
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS
-        /// key, or <code>false</code> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// <para>Set to <c>true</c> to use Amazon S3 server-side encryption with your own KMS key,
+        /// or <c>false</c> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
         /// S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
-        /// value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</para>
+        /// value can only be set when <c>KMSEncrypted</c> is <c>true</c>. Optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter Worm
         /// <summary>
         /// <para>
-        /// <para>Set to <code>TRUE</code> if the tape you are creating is to be configured as a write-once-read-many
+        /// <para>Set to <c>TRUE</c> if the tape you are creating is to be configured as a write-once-read-many
         /// (WORM) tape.</para>
         /// </para>
         /// </summary>
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A unique identifier that you use to retry a request. If you retry a request, use the
-        /// same <code>ClientToken</code> you specified in the initial request.</para><note><para>Using the same <code>ClientToken</code> prevents creating the tape multiple times.</para></note>
+        /// same <c>ClientToken</c> you specified in the initial request.</para><note><para>Using the same <c>ClientToken</c> prevents creating the tape multiple times.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         /// <summary>
         /// <para>
         /// <para>The resource type to be retained by the retention rule. Currently, only Amazon EBS
-        /// snapshots and EBS-backed AMIs are supported. To retain snapshots, specify <code>EBS_SNAPSHOT</code>.
-        /// To retain EBS-backed AMIs, specify <code>EC2_IMAGE</code>.</para>
+        /// snapshots and EBS-backed AMIs are supported. To retain snapshots, specify <c>EBS_SNAPSHOT</c>.
+        /// To retain EBS-backed AMIs, specify <c>EC2_IMAGE</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         #region Parameter RetentionPeriod_RetentionPeriodUnit
         /// <summary>
         /// <para>
-        /// <para>The unit of time in which the retention period is measured. Currently, only <code>DAYS</code>
+        /// <para>The unit of time in which the retention period is measured. Currently, only <c>DAYS</c>
         /// is supported.</para>
         /// </para>
         /// </summary>

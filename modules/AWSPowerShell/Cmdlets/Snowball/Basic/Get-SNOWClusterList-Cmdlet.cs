@@ -28,9 +28,9 @@ using Amazon.Snowball.Model;
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
-    /// Returns an array of <code>ClusterListEntry</code> objects of the specified length.
-    /// Each <code>ClusterListEntry</code> object contains a cluster's state, a cluster's
-    /// ID, and other important status information.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns an array of <c>ClusterListEntry</c> objects of the specified length. Each
+    /// <c>ClusterListEntry</c> object contains a cluster's state, a cluster's ID, and other
+    /// important status information.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SNOWClusterList")]
     [OutputType("Amazon.Snowball.Model.ClusterListEntry")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The number of <code>ClusterListEntry</code> objects to return.</para>
+        /// <para>The number of <c>ClusterListEntry</c> objects to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>HTTP requests are stateless. To identify what object comes "next" in the list of <code>ClusterListEntry</code>
-        /// objects, you have the option of specifying <code>NextToken</code> as the starting
-        /// point for your returned list.</para>
+        /// <para>HTTP requests are stateless. To identify what object comes "next" in the list of <c>ClusterListEntry</c>
+        /// objects, you have the option of specifying <c>NextToken</c> as the starting point
+        /// for your returned list.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

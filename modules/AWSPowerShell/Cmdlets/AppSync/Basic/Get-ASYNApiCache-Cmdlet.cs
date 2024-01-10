@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Retrieves an <code>ApiCache</code> object.
+    /// Retrieves an <c>ApiCache</c> object.
     /// </summary>
     [Cmdlet("Get", "ASYNApiCache")]
     [OutputType("Amazon.AppSync.Model.ApiCache")]

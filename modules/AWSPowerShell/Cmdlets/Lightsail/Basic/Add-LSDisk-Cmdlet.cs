@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  
     /// <para>
-    /// The <code>attach disk</code> operation supports tag-based access control via resource
-    /// tags applied to the resource identified by <code>disk name</code>. For more information,
-    /// see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// The <c>attach disk</c> operation supports tag-based access control via resource tags
+    /// applied to the resource identified by <c>disk name</c>. For more information, see
+    /// the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>A Boolean value used to determine the automatic mounting of a storage volume to a
-        /// virtual computer. The default value is <code>False</code>.</para><important><para>This value only applies to Lightsail for Research resources.</para></important>
+        /// virtual computer. The default value is <c>False</c>.</para><important><para>This value only applies to Lightsail for Research resources.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskName
         /// <summary>
         /// <para>
-        /// <para>The unique Lightsail disk name (<code>my-disk</code>).</para>
+        /// <para>The unique Lightsail disk name (<c>my-disk</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskPath
         /// <summary>
         /// <para>
-        /// <para>The disk path to expose to the instance (<code>/dev/xvdf</code>).</para>
+        /// <para>The disk path to expose to the instance (<c>/dev/xvdf</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

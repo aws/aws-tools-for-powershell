@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The property used to sort results. The default value is <code>CREATION_TIME</code>.</para>
+        /// <para>The property used to sort results. The default value is <c>CREATION_TIME</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order. The default value is <code>DESCENDING</code>.</para>
+        /// <para>The sort order. The default value is <c>DESCENDING</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the previous call to <code>ListImageVersions</code> didn't return the full set
-        /// of versions, the call returns a token for getting the next set of versions.</para>
+        /// <para>If the previous call to <c>ListImageVersions</c> didn't return the full set of versions,
+        /// the call returns a token for getting the next set of versions.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

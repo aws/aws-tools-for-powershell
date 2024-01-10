@@ -29,24 +29,23 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// A resource data sync helps you view data from multiple sources in a single location.
-    /// Amazon Web Services Systems Manager offers two types of resource data sync: <code>SyncToDestination</code>
-    /// and <code>SyncFromSource</code>.
+    /// Amazon Web Services Systems Manager offers two types of resource data sync: <c>SyncToDestination</c>
+    /// and <c>SyncFromSource</c>.
     /// 
     ///  
     /// <para>
-    /// You can configure Systems Manager Inventory to use the <code>SyncToDestination</code>
-    /// type to synchronize Inventory data from multiple Amazon Web Services Regions to a
-    /// single Amazon Simple Storage Service (Amazon S3) bucket. For more information, see
-    /// <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring
+    /// You can configure Systems Manager Inventory to use the <c>SyncToDestination</c> type
+    /// to synchronize Inventory data from multiple Amazon Web Services Regions to a single
+    /// Amazon Simple Storage Service (Amazon S3) bucket. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring
     /// resource data sync for Inventory</a> in the <i>Amazon Web Services Systems Manager
     /// User Guide</i>.
     /// </para><para>
-    /// You can configure Systems Manager Explorer to use the <code>SyncFromSource</code>
-    /// type to synchronize operational work items (OpsItems) and operational data (OpsData)
-    /// from multiple Amazon Web Services Regions to a single Amazon S3 bucket. This type
-    /// can synchronize OpsItems and OpsData from multiple Amazon Web Services accounts and
-    /// Amazon Web Services Regions or <code>EntireOrganization</code> by using Organizations.
-    /// For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting
+    /// You can configure Systems Manager Explorer to use the <c>SyncFromSource</c> type to
+    /// synchronize operational work items (OpsItems) and operational data (OpsData) from
+    /// multiple Amazon Web Services Regions to a single Amazon S3 bucket. This type can synchronize
+    /// OpsItems and OpsData from multiple Amazon Web Services accounts and Amazon Web Services
+    /// Regions or <c>EntireOrganization</c> by using Organizations. For more information,
+    /// see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting
     /// up Systems Manager Explorer to display data from multiple accounts and Regions</a>
     /// in the <i>Amazon Web Services Systems Manager User Guide</i>.
     /// </para><para>
@@ -95,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DestinationDataSharing_DestinationDataSharingType
         /// <summary>
         /// <para>
-        /// <para>The sharing data type. Only <code>Organization</code> is supported.</para>
+        /// <para>The sharing data type. Only <c>Organization</c> is supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,10 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter AwsOrganizationsSource_OrganizationSourceType
         /// <summary>
         /// <para>
-        /// <para>If an Amazon Web Services organization is present, this is either <code>OrganizationalUnits</code>
-        /// or <code>EntireOrganization</code>. For <code>OrganizationalUnits</code>, the data
-        /// is aggregated from a set of organization units. For <code>EntireOrganization</code>,
-        /// the data is aggregated from the entire Amazon Web Services organization.</para>
+        /// <para>If an Amazon Web Services organization is present, this is either <c>OrganizationalUnits</c>
+        /// or <c>EntireOrganization</c>. For <c>OrganizationalUnits</c>, the data is aggregated
+        /// from a set of organization units. For <c>EntireOrganization</c>, the data is aggregated
+        /// from the entire Amazon Web Services organization.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,8 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SyncSource_SourceRegion
         /// <summary>
         /// <para>
-        /// <para>The <code>SyncSource</code> Amazon Web Services Regions included in the resource data
-        /// sync.</para>
+        /// <para>The <c>SyncSource</c> Amazon Web Services Regions included in the resource data sync.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,9 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SyncSource_SourceType
         /// <summary>
         /// <para>
-        /// <para>The type of data source for the resource data sync. <code>SourceType</code> is either
-        /// <code>AwsOrganizations</code> (if an organization is present in Organizations) or
-        /// <code>SingleAccountMultiRegions</code>.</para>
+        /// <para>The type of data source for the resource data sync. <c>SourceType</c> is either <c>AwsOrganizations</c>
+        /// (if an organization is present in Organizations) or <c>SingleAccountMultiRegions</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,13 +228,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SyncType
         /// <summary>
         /// <para>
-        /// <para>Specify <code>SyncToDestination</code> to create a resource data sync that synchronizes
-        /// data to an S3 bucket for Inventory. If you specify <code>SyncToDestination</code>,
-        /// you must provide a value for <code>S3Destination</code>. Specify <code>SyncFromSource</code>
-        /// to synchronize data from a single account and multiple Regions, or multiple Amazon
-        /// Web Services accounts and Amazon Web Services Regions, as listed in Organizations
-        /// for Explorer. If you specify <code>SyncFromSource</code>, you must provide a value
-        /// for <code>SyncSource</code>. The default value is <code>SyncToDestination</code>.</para>
+        /// <para>Specify <c>SyncToDestination</c> to create a resource data sync that synchronizes
+        /// data to an S3 bucket for Inventory. If you specify <c>SyncToDestination</c>, you must
+        /// provide a value for <c>S3Destination</c>. Specify <c>SyncFromSource</c> to synchronize
+        /// data from a single account and multiple Regions, or multiple Amazon Web Services accounts
+        /// and Amazon Web Services Regions, as listed in Organizations for Explorer. If you specify
+        /// <c>SyncFromSource</c>, you must provide a value for <c>SyncSource</c>. The default
+        /// value is <c>SyncToDestination</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

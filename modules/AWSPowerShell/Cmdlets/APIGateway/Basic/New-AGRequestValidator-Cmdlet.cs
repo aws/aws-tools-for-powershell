@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A Boolean flag to indicate whether to validate request body according to the configured
-        /// model schema for the method (<code>true</code>) or not (<code>false</code>).</para>
+        /// model schema for the method (<c>true</c>) or not (<c>false</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ValidateRequestParameter
         /// <summary>
         /// <para>
-        /// <para>A Boolean flag to indicate whether to validate request parameters, <code>true</code>,
-        /// or not <code>false</code>.</para>
+        /// <para>A Boolean flag to indicate whether to validate request parameters, <c>true</c>, or
+        /// not <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

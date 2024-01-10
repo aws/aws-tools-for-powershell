@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
 {
     /// <summary>
     /// Gets information about any operation that returns an operation ID in the response,
-    /// such as a <code>CreateHttpNamespace</code> request.
+    /// such as a <c>CreateHttpNamespace</c> request.
     /// 
     ///  <note><para>
     /// To get a list of operations that match specified criteria, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_ListOperations.html">ListOperations</a>.

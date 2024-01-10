@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>The Amazon Web Services account number of the owner of the security group specified
         /// by the <i>EC2SecurityGroupName</i> parameter. The Amazon Web Services Access Key ID
-        /// is not an acceptable value. </para><para>Example: <code>111122223333</code></para>
+        /// is not an acceptable value. </para><para>Example: <c>111122223333</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

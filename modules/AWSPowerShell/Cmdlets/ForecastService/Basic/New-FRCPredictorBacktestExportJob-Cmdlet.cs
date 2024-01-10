@@ -35,15 +35,15 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     ///  
     /// <para>
     ///  The export file names will match the following conventions:
-    /// </para><para><code>&lt;ExportJobName&gt;_&lt;ExportTimestamp&gt;_&lt;PartNumber&gt;.csv</code></para><para>
+    /// </para><para><c>&lt;ExportJobName&gt;_&lt;ExportTimestamp&gt;_&lt;PartNumber&gt;.csv</c></para><para>
     /// The &lt;ExportTimestamp&gt; component is in Java SimpleDate format (yyyy-MM-ddTHH-mm-ssZ).
     /// </para><para>
     /// You must specify a <a>DataDestination</a> object that includes an Amazon S3 bucket
     /// and an Identity and Access Management (IAM) role that Amazon Forecast can assume to
     /// access the Amazon S3 bucket. For more information, see <a>aws-forecast-iam-roles</a>.
     /// </para><note><para>
-    /// The <code>Status</code> of the export job must be <code>ACTIVE</code> before you can
-    /// access the export in your Amazon S3 bucket. To get the status, use the <a>DescribePredictorBacktestExportJob</a>
+    /// The <c>Status</c> of the export job must be <c>ACTIVE</c> before you can access the
+    /// export in your Amazon S3 bucket. To get the status, use the <a>DescribePredictorBacktestExportJob</a>
     /// operation.
     /// </para></note>
     /// </summary>
@@ -139,9 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The ARN of the Identity and Access Management (IAM) role that Amazon Forecast can
-        /// assume to access the Amazon S3 bucket or files. If you provide a value for the <code>KMSKeyArn</code>
+        /// assume to access the Amazon S3 bucket or files. If you provide a value for the <c>KMSKeyArn</c>
         /// key, the role must allow access to the key.</para><para>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role
-        /// that isn't in your account, you get an <code>InvalidInputException</code> error.</para>
+        /// that isn't in your account, you get an <c>InvalidInputException</c> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -163,12 +163,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// of a key and an optional value, both of which you define. Tag keys and values are
         /// case sensitive.</para><para>The following restrictions apply to tags:</para><ul><li><para>For each resource, each tag key must be unique and each tag key must have one value.</para></li><li><para>Maximum number of tags per resource: 50.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8.</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8.</para></li><li><para>Accepted characters: all letters and numbers, spaces representable in UTF-8, and +
         /// - = . _ : / @. If your tagging schema is used across other services and resources,
-        /// the character restrictions of those services also apply. </para></li><li><para>Key prefixes cannot include any upper or lowercase combination of <code>aws:</code>
-        /// or <code>AWS:</code>. Values can have this prefix. If a tag value has <code>aws</code>
-        /// as its prefix but the key does not, Forecast considers it to be a user tag and will
-        /// count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code>
-        /// do not count against your tags per resource limit. You cannot edit or delete tag keys
-        /// with this prefix.</para></li></ul>
+        /// the character restrictions of those services also apply. </para></li><li><para>Key prefixes cannot include any upper or lowercase combination of <c>aws:</c> or <c>AWS:</c>.
+        /// Values can have this prefix. If a tag value has <c>aws</c> as its prefix but the key
+        /// does not, Forecast considers it to be a user tag and will count against the limit
+        /// of 50 tags. Tags with only the key prefix of <c>aws</c> do not count against your
+        /// tags per resource limit. You cannot edit or delete tag keys with this prefix.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

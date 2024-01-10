@@ -28,8 +28,7 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Returns the details of the host key that's specified by the <code>HostKeyId</code>
-    /// and <code>ServerId</code>.
+    /// Returns the details of the host key that's specified by the <c>HostKeyId</c> and <c>ServerId</c>.
     /// </summary>
     [Cmdlet("Get", "TFRHostKey")]
     [OutputType("Amazon.Transfer.Model.DescribedHostKey")]

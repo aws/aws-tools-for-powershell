@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter AuthType
         /// <summary>
         /// <para>
-        /// <para>The type of IAM policy.</para><ul><li><para><code>NONE</code>: The resource does not use an IAM policy. This is the default.</para></li><li><para><code>AWS_IAM</code>: The resource uses an IAM policy. When this type is used, auth
-        /// is enabled and an auth policy is required.</para></li></ul>
+        /// <para>The type of IAM policy.</para><ul><li><para><c>NONE</c>: The resource does not use an IAM policy. This is the default.</para></li><li><para><c>AWS_IAM</c>: The resource uses an IAM policy. When this type is used, auth is
+        /// enabled and an auth policy is required.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

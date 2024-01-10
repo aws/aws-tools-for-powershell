@@ -28,7 +28,7 @@ using Amazon.CloudSearch.Model;
 namespace Amazon.PowerShell.Cmdlets.CS
 {
     /// <summary>
-    /// Configures an analysis scheme that can be applied to a <code>text</code> or <code>text-array</code>
+    /// Configures an analysis scheme that can be applied to a <c>text</c> or <c>text-array</c>
     /// field to define language-specific text processing options. For more information, see
     /// <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html" target="_blank">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer
     /// Guide</i>.
@@ -48,9 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         #region Parameter AnalysisOptions_AlgorithmicStemming
         /// <summary>
         /// <para>
-        /// <para>The level of algorithmic stemming to perform: <code>none</code>, <code>minimal</code>,
-        /// <code>light</code>, or <code>full</code>. The available levels vary depending on the
-        /// language. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings" target="_blank">Language Specific Text Processing Settings</a> in the <i>Amazon CloudSearch
+        /// <para>The level of algorithmic stemming to perform: <c>none</c>, <c>minimal</c>, <c>light</c>,
+        /// or <c>full</c>. The available levels vary depending on the language. For more information,
+        /// see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings" target="_blank">Language Specific Text Processing Settings</a> in the <i>Amazon CloudSearch
         /// Developer Guide</i></para>
         /// </para>
         /// </summary>
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// <summary>
         /// <para>
         /// <para>A JSON object that contains a collection of string:value pairs that each map a term
-        /// to its stem. For example, <code>{"term1": "stem1", "term2": "stem2", "term3": "stem3"}</code>.
+        /// to its stem. For example, <c>{"term1": "stem1", "term2": "stem2", "term3": "stem3"}</c>.
         /// The stemming dictionary is applied in addition to any algorithmic stemming. This enables
         /// you to override the results of the algorithmic stemming to correct specific cases
         /// of overstemming or understemming. The maximum size of a stemming dictionary is 500
@@ -144,9 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         #region Parameter AnalysisOptions_Stopword
         /// <summary>
         /// <para>
-        /// <para>A JSON array of terms to ignore during indexing and searching. For example, <code>["a",
-        /// "an", "the", "of"]</code>. The stopwords dictionary must explicitly list each word
-        /// you want to ignore. Wildcards and regular expressions are not supported. </para>
+        /// <para>A JSON array of terms to ignore during indexing and searching. For example, <c>["a",
+        /// "an", "the", "of"]</c>. The stopwords dictionary must explicitly list each word you
+        /// want to ignore. Wildcards and regular expressions are not supported. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

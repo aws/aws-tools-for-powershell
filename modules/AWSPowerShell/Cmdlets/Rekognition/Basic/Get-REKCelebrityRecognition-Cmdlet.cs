@@ -34,49 +34,47 @@ namespace Amazon.PowerShell.Cmdlets.REK
     ///  
     /// <para>
     /// Celebrity recognition in a video is an asynchronous operation. Analysis is started
-    /// by a call to <a>StartCelebrityRecognition</a> which returns a job identifier (<code>JobId</code>).
+    /// by a call to <a>StartCelebrityRecognition</a> which returns a job identifier (<c>JobId</c>).
     /// 
     /// </para><para>
     /// When the celebrity recognition operation finishes, Amazon Rekognition Video publishes
     /// a completion status to the Amazon Simple Notification Service topic registered in
-    /// the initial call to <code>StartCelebrityRecognition</code>. To get the results of
-    /// the celebrity recognition analysis, first check that the status value published to
-    /// the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetCelebrityDetection</code>
-    /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartCelebrityDetection</code>.
+    /// the initial call to <c>StartCelebrityRecognition</c>. To get the results of the celebrity
+    /// recognition analysis, first check that the status value published to the Amazon SNS
+    /// topic is <c>SUCCEEDED</c>. If so, call <c>GetCelebrityDetection</c> and pass the job
+    /// identifier (<c>JobId</c>) from the initial call to <c>StartCelebrityDetection</c>.
     /// 
     /// </para><para>
     /// For more information, see Working With Stored Videos in the Amazon Rekognition Developer
     /// Guide.
-    /// </para><para><code>GetCelebrityRecognition</code> returns detected celebrities and the time(s)
-    /// they are detected in an array (<code>Celebrities</code>) of <a>CelebrityRecognition</a>
-    /// objects. Each <code>CelebrityRecognition</code> contains information about the celebrity
-    /// in a <a>CelebrityDetail</a> object and the time, <code>Timestamp</code>, the celebrity
-    /// was detected. This <a>CelebrityDetail</a> object stores information about the detected
-    /// celebrity's face attributes, a face bounding box, known gender, the celebrity's name,
-    /// and a confidence estimate.
-    /// </para><note><para><code>GetCelebrityRecognition</code> only returns the default facial attributes (<code>BoundingBox</code>,
-    /// <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>).
-    /// The <code>BoundingBox</code> field only applies to the detected face instance. The
-    /// other facial attributes listed in the <code>Face</code> object of the following response
-    /// syntax are not returned. For more information, see FaceDetail in the Amazon Rekognition
-    /// Developer Guide. 
+    /// </para><para><c>GetCelebrityRecognition</c> returns detected celebrities and the time(s) they
+    /// are detected in an array (<c>Celebrities</c>) of <a>CelebrityRecognition</a> objects.
+    /// Each <c>CelebrityRecognition</c> contains information about the celebrity in a <a>CelebrityDetail</a>
+    /// object and the time, <c>Timestamp</c>, the celebrity was detected. This <a>CelebrityDetail</a>
+    /// object stores information about the detected celebrity's face attributes, a face bounding
+    /// box, known gender, the celebrity's name, and a confidence estimate.
+    /// </para><note><para><c>GetCelebrityRecognition</c> only returns the default facial attributes (<c>BoundingBox</c>,
+    /// <c>Confidence</c>, <c>Landmarks</c>, <c>Pose</c>, and <c>Quality</c>). The <c>BoundingBox</c>
+    /// field only applies to the detected face instance. The other facial attributes listed
+    /// in the <c>Face</c> object of the following response syntax are not returned. For more
+    /// information, see FaceDetail in the Amazon Rekognition Developer Guide. 
     /// </para></note><para>
-    /// By default, the <code>Celebrities</code> array is sorted by time (milliseconds from
-    /// the start of the video). You can also sort the array by celebrity by specifying the
-    /// value <code>ID</code> in the <code>SortBy</code> input parameter.
+    /// By default, the <c>Celebrities</c> array is sorted by time (milliseconds from the
+    /// start of the video). You can also sort the array by celebrity by specifying the value
+    /// <c>ID</c> in the <c>SortBy</c> input parameter.
     /// </para><para>
-    /// The <code>CelebrityDetail</code> object includes the celebrity identifer and additional
+    /// The <c>CelebrityDetail</c> object includes the celebrity identifer and additional
     /// information urls. If you don't store the additional information urls, you can get
     /// them later by calling <a>GetCelebrityInfo</a> with the celebrity identifer.
     /// </para><para>
     /// No information is returned for faces not recognized as celebrities.
     /// </para><para>
     /// Use MaxResults parameter to limit the number of labels returned. If there are more
-    /// results than specified in <code>MaxResults</code>, the value of <code>NextToken</code>
-    /// in the operation response contains a pagination token for getting the next set of
-    /// results. To get the next page of results, call <code>GetCelebrityDetection</code>
-    /// and populate the <code>NextToken</code> request parameter with the token value returned
-    /// from the previous call to <code>GetCelebrityRecognition</code>.
+    /// results than specified in <c>MaxResults</c>, the value of <c>NextToken</c> in the
+    /// operation response contains a pagination token for getting the next set of results.
+    /// To get the next page of results, call <c>GetCelebrityDetection</c> and populate the
+    /// <c>NextToken</c> request parameter with the token value returned from the previous
+    /// call to <c>GetCelebrityRecognition</c>.
     /// </para><br/><br/>In the AWS.Tools.Rekognition module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "REKCelebrityRecognition")]
@@ -94,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Job identifier for the required celebrity recognition analysis. You can get the job
-        /// identifer from a call to <code>StartCelebrityRecognition</code>.</para>
+        /// identifer from a call to <c>StartCelebrityRecognition</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -111,9 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>Sort to use for celebrities returned in <code>Celebrities</code> field. Specify <code>ID</code>
-        /// to sort by the celebrity identifier, specify <code>TIMESTAMP</code> to sort by the
-        /// time the celebrity was recognized.</para>
+        /// <para>Sort to use for celebrities returned in <c>Celebrities</c> field. Specify <c>ID</c>
+        /// to sort by the celebrity identifier, specify <c>TIMESTAMP</c> to sort by the time
+        /// the celebrity was recognized.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

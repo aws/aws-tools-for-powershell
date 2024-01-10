@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
     /// Returns a list of the profiles for your system. If you want to limit the results to
-    /// a certain number, supply a value for the <code>MaxResults</code> parameter. If you
-    /// ran the command previously and received a value for <code>NextToken</code>, you can
-    /// supply that value to continue listing profiles from where you left off.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// a certain number, supply a value for the <c>MaxResults</c> parameter. If you ran the
+    /// command previously and received a value for <c>NextToken</c>, you can supply that
+    /// value to continue listing profiles from where you left off.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TFRProfileList")]
     [OutputType("Amazon.Transfer.Model.ListedProfile")]
@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ProfileType
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to list only <code>LOCAL</code> type profiles or only <code>PARTNER</code>
-        /// type profiles. If not supplied in the request, the command lists all types of profiles.</para>
+        /// <para>Indicates whether to list only <c>LOCAL</c> type profiles or only <c>PARTNER</c> type
+        /// profiles. If not supplied in the request, the command lists all types of profiles.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -71,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When there are additional results that were not returned, a <code>NextToken</code>
-        /// parameter is returned. You can use that value for a subsequent call to <code>ListProfiles</code>
-        /// to continue listing results.</para>
+        /// <para>When there are additional results that were not returned, a <c>NextToken</c> parameter
+        /// is returned. You can use that value for a subsequent call to <c>ListProfiles</c> to
+        /// continue listing results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

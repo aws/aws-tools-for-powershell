@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// 
     ///  
     /// <para>
-    /// To request new credentials, specify the build ID as returned with an initial <code>CreateBuild</code>
+    /// To request new credentials, specify the build ID as returned with an initial <c>CreateBuild</c>
     /// request. If successful, a new set of credentials are returned, along with the S3 storage
     /// location associated with the build ID.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build">

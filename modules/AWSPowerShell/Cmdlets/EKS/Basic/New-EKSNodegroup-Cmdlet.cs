@@ -63,12 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter AmiType
         /// <summary>
         /// <para>
-        /// <para>The AMI type for your node group. If you specify <code>launchTemplate</code>, and
-        /// your launch template uses a custom AMI, then don't specify <code>amiType</code>, or
-        /// the node group deployment will fail. If your launch template uses a Windows custom
-        /// AMI, then add <code>eks:kube-proxy-windows</code> to your Windows nodes <code>rolearn</code>
-        /// in the <code>aws-auth</code><code>ConfigMap</code>. For more information about using
-        /// launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// <para>The AMI type for your node group. If you specify <c>launchTemplate</c>, and your launch
+        /// template uses a custom AMI, then don't specify <c>amiType</c>, or the node group deployment
+        /// will fail. If your launch template uses a Windows custom AMI, then add <c>eks:kube-proxy-windows</c>
+        /// to your Windows nodes <c>rolearn</c> in the <c>aws-auth</c><c>ConfigMap</c>. For
+        /// more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -120,18 +119,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The current number of nodes that the managed node group should maintain.</para><important><para>If you use the Kubernetes <a href="https://github.com/kubernetes/autoscaler#kubernetes-autoscaler">Cluster
-        /// Autoscaler</a>, you shouldn't change the <code>desiredSize</code> value directly,
-        /// as this can cause the Cluster Autoscaler to suddenly scale up or scale down.</para></important><para>Whenever this parameter changes, the number of worker nodes in the node group is updated
+        /// Autoscaler</a>, you shouldn't change the <c>desiredSize</c> value directly, as this
+        /// can cause the Cluster Autoscaler to suddenly scale up or scale down.</para></important><para>Whenever this parameter changes, the number of worker nodes in the node group is updated
         /// to the specified size. If this parameter is given a value that is smaller than the
         /// current number of running worker nodes, the necessary number of worker nodes are terminated
         /// to match the given value. When using CloudFormation, no action occurs if you remove
-        /// this parameter from your CFN template.</para><para>This parameter can be different from <code>minSize</code> in some cases, such as when
-        /// starting with extra hosts for testing. This parameter can also be different when you
-        /// want to start with an estimated number of needed hosts, but let the Cluster Autoscaler
-        /// reduce the number if there are too many. When the Cluster Autoscaler is used, the
-        /// <code>desiredSize</code> parameter is altered by the Cluster Autoscaler (but can be
-        /// out-of-date for short periods of time). the Cluster Autoscaler doesn't scale a managed
-        /// node group lower than <code>minSize</code> or higher than <code>maxSize</code>.</para>
+        /// this parameter from your CFN template.</para><para>This parameter can be different from <c>minSize</c> in some cases, such as when starting
+        /// with extra hosts for testing. This parameter can also be different when you want to
+        /// start with an estimated number of needed hosts, but let the Cluster Autoscaler reduce
+        /// the number if there are too many. When the Cluster Autoscaler is used, the <c>desiredSize</c>
+        /// parameter is altered by the Cluster Autoscaler (but can be out-of-date for short periods
+        /// of time). the Cluster Autoscaler doesn't scale a managed node group lower than <c>minSize</c>
+        /// or higher than <c>maxSize</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,9 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>The root device disk size (in GiB) for your node group instances. The default disk
         /// size is 20 GiB for Linux and Bottlerocket. The default disk size is 50 GiB for Windows.
-        /// If you specify <code>launchTemplate</code>, then don't specify <code>diskSize</code>,
-        /// or the node group deployment will fail. For more information about using launch templates
-        /// with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// If you specify <c>launchTemplate</c>, then don't specify <c>diskSize</c>, or the node
+        /// group deployment will fail. For more information about using launch templates with
+        /// Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -184,15 +183,14 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>Specify the instance types for a node group. If you specify a GPU instance type, make
-        /// sure to also specify an applicable GPU AMI type with the <code>amiType</code> parameter.
-        /// If you specify <code>launchTemplate</code>, then you can specify zero or one instance
-        /// type in your launch template <i>or</i> you can specify 0-20 instance types for <code>instanceTypes</code>.
+        /// sure to also specify an applicable GPU AMI type with the <c>amiType</c> parameter.
+        /// If you specify <c>launchTemplate</c>, then you can specify zero or one instance type
+        /// in your launch template <i>or</i> you can specify 0-20 instance types for <c>instanceTypes</c>.
         /// If however, you specify an instance type in your launch template <i>and</i> specify
-        /// any <code>instanceTypes</code>, the node group deployment will fail. If you don't
-        /// specify an instance type in a launch template or for <code>instanceTypes</code>, then
-        /// <code>t3.medium</code> is used, by default. If you specify <code>Spot</code> for <code>capacityType</code>,
-        /// then we recommend specifying multiple values for <code>instanceTypes</code>. For more
-        /// information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types">Managed
+        /// any <c>instanceTypes</c>, the node group deployment will fail. If you don't specify
+        /// an instance type in a launch template or for <c>instanceTypes</c>, then <c>t3.medium</c>
+        /// is used, by default. If you specify <c>Spot</c> for <c>capacityType</c>, then we recommend
+        /// specifying multiple values for <c>instanceTypes</c>. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types">Managed
         /// node group capacity types</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
@@ -205,8 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Label
         /// <summary>
         /// <para>
-        /// <para>The Kubernetes <code>labels</code> to apply to the nodes in the node group when they
-        /// are created.</para>
+        /// <para>The Kubernetes <c>labels</c> to apply to the nodes in the node group when they are
+        /// created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -230,8 +228,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The maximum number of nodes unavailable at once during a version update. Nodes are
-        /// updated in parallel. This value or <code>maxUnavailablePercentage</code> is required
-        /// to have a value.The maximum number is 100.</para>
+        /// updated in parallel. This value or <c>maxUnavailablePercentage</c> is required to
+        /// have a value.The maximum number is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The maximum percentage of nodes unavailable during a version update. This percentage
-        /// of nodes are updated in parallel, up to 100 nodes at once. This value or <code>maxUnavailable</code>
+        /// of nodes are updated in parallel, up to 100 nodes at once. This value or <c>maxUnavailable</c>
         /// is required to have a value.</para>
         /// </para>
         /// </summary>
@@ -292,14 +290,14 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
-        /// The Amazon EKS worker node <code>kubelet</code> daemon makes calls to Amazon Web Services
+        /// The Amazon EKS worker node <c>kubelet</c> daemon makes calls to Amazon Web Services
         /// APIs on your behalf. Nodes receive permissions for these API calls through an IAM
         /// instance profile and associated policies. Before you can launch nodes and register
         /// them into a cluster, you must create an IAM role for those nodes to use when they
         /// are launched. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html">Amazon
         /// EKS node IAM role</a> in the <i><i>Amazon EKS User Guide</i></i>. If you specify
-        /// <code>launchTemplate</code>, then don't specify <code><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html">IamInstanceProfile</a></code> in your launch template, or the node group deployment will fail. For more
-        /// information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// <c>launchTemplate</c>, then don't specify <c><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html">IamInstanceProfile</a></c> in your launch template, or the node group deployment will fail. For more information
+        /// about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -323,10 +321,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// EKS optimized Amazon Linux AMI versions</a> in the <i>Amazon EKS User Guide</i>. Amazon
         /// EKS managed node groups support the November 2022 and later releases of the Windows
         /// AMIs. For information about Windows versions, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html">Amazon
-        /// EKS optimized Windows AMI versions</a> in the <i>Amazon EKS User Guide</i>.</para><para>If you specify <code>launchTemplate</code>, and your launch template uses a custom
-        /// AMI, then don't specify <code>releaseVersion</code>, or the node group deployment
-        /// will fail. For more information about using launch templates with Amazon EKS, see
-        /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// EKS optimized Windows AMI versions</a> in the <i>Amazon EKS User Guide</i>.</para><para>If you specify <c>launchTemplate</c>, and your launch template uses a custom AMI,
+        /// then don't specify <c>releaseVersion</c>, or the node group deployment will fail.
+        /// For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -340,7 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>The security group IDs that are allowed SSH access (port 22) to the nodes. For Windows,
         /// the port is 3389. If you specify an Amazon EC2 SSH key but don't specify a source
         /// security group when you create a managed node group, then the port on the nodes is
-        /// opened to the internet (<code>0.0.0.0/0</code>). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
+        /// opened to the internet (<c>0.0.0.0/0</c>). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
         /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -353,8 +350,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The subnets to use for the Auto Scaling group that is created for your node group.
-        /// If you specify <code>launchTemplate</code>, then don't specify <code><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">SubnetId</a></code> in your launch template, or the node group deployment will fail. For more
-        /// information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// If you specify <c>launchTemplate</c>, then don't specify <c><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">SubnetId</a></c> in your launch template, or the node group deployment will fail. For more information
+        /// about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -412,9 +409,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>The Kubernetes version to use for your managed nodes. By default, the Kubernetes version
         /// of the cluster is used, and this is the only accepted specified value. If you specify
-        /// <code>launchTemplate</code>, and your launch template uses a custom AMI, then don't
-        /// specify <code>version</code>, or the node group deployment will fail. For more information
-        /// about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// <c>launchTemplate</c>, and your launch template uses a custom AMI, then don't specify
+        /// <c>version</c>, or the node group deployment will fail. For more information about
+        /// using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>

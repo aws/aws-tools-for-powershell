@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter ImageId_ImageDigest
         /// <summary>
         /// <para>
-        /// <para>The <code>sha256</code> digest of the image manifest.</para>
+        /// <para>The <c>sha256</c> digest of the image manifest.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

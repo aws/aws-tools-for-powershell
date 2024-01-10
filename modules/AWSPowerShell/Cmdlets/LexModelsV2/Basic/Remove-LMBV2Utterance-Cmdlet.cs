@@ -37,11 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     /// operation, and then stored indefinitely for use in improving the ability of your bot
     /// to respond to user input..
     /// </para><para>
-    /// Use the <code>DeleteUtterances</code> operation to manually delete utterances for
-    /// a specific session. When you use the <code>DeleteUtterances</code> operation, utterances
-    /// stored for improving your bot's ability to respond to user input are deleted immediately.
-    /// Utterances stored for use with the <code>ListAggregatedUtterances</code> operation
-    /// are deleted after 15 days.
+    /// Use the <c>DeleteUtterances</c> operation to manually delete utterances for a specific
+    /// session. When you use the <c>DeleteUtterances</c> operation, utterances stored for
+    /// improving your bot's ability to respond to user input are deleted immediately. Utterances
+    /// stored for use with the <c>ListAggregatedUtterances</c> operation are deleted after
+    /// 15 days.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LMBV2Utterance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

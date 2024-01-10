@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>An optional parameter that specifies the maximum number of results to return. You
-        /// can use <code>nextToken</code> to get the next page of results. The default is 100.</para>
+        /// can use <c>nextToken</c> to get the next page of results. The default is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your initial <code>ListUsageLimits</code> operation returns a <code>nextToken</code>,
-        /// you can include the returned <code>nextToken</code> in following <code>ListUsageLimits</code>
-        /// operations, which returns results in the next page. </para>
+        /// <para>If your initial <c>ListUsageLimits</c> operation returns a <c>nextToken</c>, you can
+        /// include the returned <c>nextToken</c> in following <c>ListUsageLimits</c> operations,
+        /// which returns results in the next page. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

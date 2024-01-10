@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter IncludeHidden
         /// <summary>
         /// <para>
-        /// <para>Boolean to indicate if hidden integration should be returned. Defaults to <code>False</code>.</para>
+        /// <para>Boolean to indicate if hidden integration should be returned. Defaults to <c>False</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

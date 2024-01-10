@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// The result of analysis of each source database is reported individually in the response.
     /// Because the batch request can result in a combination of successful and unsuccessful
     /// actions, you should check for batch errors even when the call returns an HTTP status
-    /// code of <code>200</code>.
+    /// code of <c>200</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "DMSBatchRecommendation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

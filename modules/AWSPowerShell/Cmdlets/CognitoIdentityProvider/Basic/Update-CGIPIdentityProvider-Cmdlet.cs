@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ProviderDetail
         /// <summary>
         /// <para>
-        /// <para>The IdP details to be updated, such as <code>MetadataURL</code> and <code>MetadataFile</code>.</para>
+        /// <para>The IdP details to be updated, such as <c>MetadataURL</c> and <c>MetadataFile</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

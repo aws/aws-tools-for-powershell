@@ -34,11 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// If the number is claimed to a traffic distribution group, and you are calling this
     /// API using an instance in the Amazon Web Services Region where the traffic distribution
     /// group was created, you can use either a full phone number ARN or UUID value for the
-    /// <code>PhoneNumberId</code> URI request parameter. However, if the number is claimed
-    /// to a traffic distribution group and you are calling this API using an instance in
-    /// the alternate Amazon Web Services Region associated with the traffic distribution
-    /// group, you must provide a full phone number ARN. If a UUID is provided in this scenario,
-    /// you will receive a <code>ResourceNotFoundException</code>.
+    /// <c>PhoneNumberId</c> URI request parameter. However, if the number is claimed to a
+    /// traffic distribution group and you are calling this API using an instance in the alternate
+    /// Amazon Web Services Region associated with the traffic distribution group, you must
+    /// provide a full phone number ARN. If a UUID is provided in this scenario, you will
+    /// receive a <c>ResourceNotFoundException</c>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "CONNPhoneNumberContactFlow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

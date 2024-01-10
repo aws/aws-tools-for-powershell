@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Names (ARNs) of the resources to include in the protection group.
-        /// You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and
-        /// you must not set it for any other <code>Pattern</code> setting. </para>
+        /// You must set this when you set <c>Pattern</c> to <c>ARBITRARY</c> and you must not
+        /// set it for any other <c>Pattern</c> setting. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,9 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         /// <para>
         /// <para>The resource type to include in the protection group. All protected resources of this
         /// type are included in the protection group. Newly protected resources of this type
-        /// are automatically added to the group. You must set this when you set <code>Pattern</code>
-        /// to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code>
-        /// setting. </para>
+        /// are automatically added to the group. You must set this when you set <c>Pattern</c>
+        /// to <c>BY_RESOURCE_TYPE</c> and you must not set it for any other <c>Pattern</c> setting.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

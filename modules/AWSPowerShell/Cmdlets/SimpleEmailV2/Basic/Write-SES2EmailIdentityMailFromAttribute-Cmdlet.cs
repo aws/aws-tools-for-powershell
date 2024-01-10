@@ -46,11 +46,11 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>The action to take if the required MX record isn't found when you send an email. When
-        /// you set this value to <code>UseDefaultValue</code>, the mail is sent using <i>amazonses.com</i>
-        /// as the MAIL FROM domain. When you set this value to <code>RejectMessage</code>, the
-        /// Amazon SES API v2 returns a <code>MailFromDomainNotVerified</code> error, and doesn't
-        /// attempt to deliver the email.</para><para>These behaviors are taken when the custom MAIL FROM domain configuration is in the
-        /// <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code> states.</para>
+        /// you set this value to <c>UseDefaultValue</c>, the mail is sent using <i>amazonses.com</i>
+        /// as the MAIL FROM domain. When you set this value to <c>RejectMessage</c>, the Amazon
+        /// SES API v2 returns a <c>MailFromDomainNotVerified</c> error, and doesn't attempt to
+        /// deliver the email.</para><para>These behaviors are taken when the custom MAIL FROM domain configuration is in the
+        /// <c>Pending</c>, <c>Failed</c>, and <c>TemporaryFailure</c> states.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

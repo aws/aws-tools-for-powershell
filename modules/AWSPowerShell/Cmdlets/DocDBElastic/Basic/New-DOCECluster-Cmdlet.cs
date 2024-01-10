@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         /// <summary>
         /// <para>
         /// <para>The name of the new Elastic DocumentDB cluster. This parameter is stored as a lowercase
-        /// string.</para><para><i>Constraints</i>:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para><i>Example</i>: <code>my-cluster</code></para>
+        /// string.</para><para><i>Constraints</i>:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para><i>Example</i>: <c>my-cluster</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         /// <summary>
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
-        /// Time (UTC).</para><para><i>Format</i>: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para><i>Default</i>: a 30-minute window selected at random from an 8-hour block of time
+        /// Time (UTC).</para><para><i>Format</i>: <c>ddd:hh24:mi-ddd:hh24:mi</c></para><para><i>Default</i>: a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Web Services Region, occurring on a random day of the week.</para><para><i>Valid days</i>: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para><i>Constraints</i>: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>

@@ -28,9 +28,9 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>ListHITs</code> operation returns all of a Requester's HITs. The operation
-    /// returns HITs of any status, except for HITs that have been deleted of with the DeleteHIT
-    /// operation or that have been auto-deleted.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// The <c>ListHITs</c> operation returns all of a Requester's HITs. The operation returns
+    /// HITs of any status, except for HITs that have been deleted of with the DeleteHIT operation
+    /// or that have been auto-deleted.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MTRHITList")]
     [OutputType("Amazon.MTurk.Model.HIT")]

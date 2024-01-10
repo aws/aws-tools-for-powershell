@@ -62,13 +62,12 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter AcceptCodeValidation
         /// <summary>
         /// <para>
-        /// <para>An optional field that Incident Manager uses to <code>ENFORCE</code><code>AcceptCode</code>
-        /// validation when acknowledging an page. Acknowledgement can occur by replying to a
-        /// page, or when entering the AcceptCode in the console. Enforcing AcceptCode validation
-        /// causes Incident Manager to verify that the code entered by the user matches the code
-        /// sent by Incident Manager with the page.</para><para>Incident Manager can also <code>IGNORE</code><code>AcceptCode</code> validation.
-        /// Ignoring <code>AcceptCode</code> validation causes Incident Manager to accept any
-        /// value entered for the <code>AcceptCode</code>.</para>
+        /// <para>An optional field that Incident Manager uses to <c>ENFORCE</c><c>AcceptCode</c> validation
+        /// when acknowledging an page. Acknowledgement can occur by replying to a page, or when
+        /// entering the AcceptCode in the console. Enforcing AcceptCode validation causes Incident
+        /// Manager to verify that the code entered by the user matches the code sent by Incident
+        /// Manager with the page.</para><para>Incident Manager can also <c>IGNORE</c><c>AcceptCode</c> validation. Ignoring <c>AcceptCode</c>
+        /// validation causes Incident Manager to accept any value entered for the <c>AcceptCode</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter AcceptType
         /// <summary>
         /// <para>
-        /// <para>The type indicates if the page was <code>DELIVERED</code> or <code>READ</code>.</para>
+        /// <para>The type indicates if the page was <c>DELIVERED</c> or <c>READ</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

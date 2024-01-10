@@ -28,9 +28,9 @@ using Amazon.KinesisVideo.Model;
 namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
-    /// Returns an array of <code>ChannelInfo</code> objects. Each object describes a signaling
+    /// Returns an array of <c>ChannelInfo</c> objects. Each object describes a signaling
     /// channel. To retrieve only those channels that satisfy a specific condition, you can
-    /// specify a <code>ChannelNameCondition</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// specify a <c>ChannelNameCondition</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KVSignalingChannelList")]
     [OutputType("Amazon.KinesisVideo.Model.ChannelInfo")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter ChannelNameCondition_ComparisonOperator
         /// <summary>
         /// <para>
-        /// <para>A comparison operator. Currently, you can only specify the <code>BEGINS_WITH</code>
-        /// operator, which finds signaling channels whose names begin with a given prefix.</para>
+        /// <para>A comparison operator. Currently, you can only specify the <c>BEGINS_WITH</c> operator,
+        /// which finds signaling channels whose names begin with a given prefix.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,9 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If you specify this parameter, when the result of a <code>ListSignalingChannels</code>
-        /// operation is truncated, the call returns the <code>NextToken</code> in the response.
-        /// To get another batch of channels, provide this token in your next request.</para>
+        /// <para>If you specify this parameter, when the result of a <c>ListSignalingChannels</c> operation
+        /// is truncated, the call returns the <c>NextToken</c> in the response. To get another
+        /// batch of channels, provide this token in your next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

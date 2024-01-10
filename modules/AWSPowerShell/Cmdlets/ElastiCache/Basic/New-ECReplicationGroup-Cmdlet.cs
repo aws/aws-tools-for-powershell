@@ -82,11 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AtRestEncryptionEnabled
         /// <summary>
         /// <para>
-        /// <para>A flag that enables encryption at rest when set to <code>true</code>.</para><para>You cannot modify the value of <code>AtRestEncryptionEnabled</code> after the replication
+        /// <para>A flag that enables encryption at rest when set to <c>true</c>.</para><para>You cannot modify the value of <c>AtRestEncryptionEnabled</c> after the replication
         /// group is created. To enable encryption at rest on a replication group you must set
-        /// <code>AtRestEncryptionEnabled</code> to <code>true</code> when you create the replication
-        /// group. </para><para><b>Required:</b> Only available when creating a replication group in an Amazon VPC
-        /// using redis version <code>3.2.6</code>, <code>4.x</code> or later.</para><para>Default: <code>false</code></para>
+        /// <c>AtRestEncryptionEnabled</c> to <c>true</c> when you create the replication group.
+        /// </para><para><b>Required:</b> Only available when creating a replication group in an Amazon VPC
+        /// using redis version <c>3.2.6</c>, <c>4.x</c> or later.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AuthToken
         /// <summary>
         /// <para>
-        /// <para><b>Reserved parameter.</b> The password used to access a password protected server.</para><para><code>AuthToken</code> can be specified only on replication groups where <code>TransitEncryptionEnabled</code>
-        /// is <code>true</code>.</para><important><para>For HIPAA compliance, you must specify <code>TransitEncryptionEnabled</code> as <code>true</code>,
-        /// an <code>AuthToken</code>, and a <code>CacheSubnetGroup</code>.</para></important><para>Password constraints:</para><ul><li><para>Must be only printable ASCII characters.</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length.</para></li><li><para>The only permitted printable special characters are !, &amp;, #, $, ^, &lt;, &gt;,
+        /// <para><b>Reserved parameter.</b> The password used to access a password protected server.</para><para><c>AuthToken</c> can be specified only on replication groups where <c>TransitEncryptionEnabled</c>
+        /// is <c>true</c>.</para><important><para>For HIPAA compliance, you must specify <c>TransitEncryptionEnabled</c> as <c>true</c>,
+        /// an <c>AuthToken</c>, and a <c>CacheSubnetGroup</c>.</para></important><para>Password constraints:</para><ul><li><para>Must be only printable ASCII characters.</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length.</para></li><li><para>The only permitted printable special characters are !, &amp;, #, $, ^, &lt;, &gt;,
         /// and -. Other printable special characters cannot be used in the AUTH token.</para></li></ul><para>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a>
         /// at http://redis.io/commands/AUTH.</para>
         /// </para>
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Specifies whether a read-only replica is automatically promoted to read/write primary
-        /// if the existing primary fails.</para><para><code>AutomaticFailoverEnabled</code> must be enabled for Redis (cluster mode enabled)
+        /// if the existing primary fails.</para><para><c>AutomaticFailoverEnabled</c> must be enabled for Redis (cluster mode enabled)
         /// replication groups.</para><para>Default: false</para>
         /// </para>
         /// </summary>
@@ -136,36 +136,29 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The compute and memory capacity of the nodes in the node group (shard).</para><para>The following node types are supported by ElastiCache. Generally speaking, the current
         /// generation types provide more memory and computational power at lower cost when compared
-        /// to their equivalent previous generation counterparts.</para><ul><li><para>General purpose:</para><ul><li><para>Current generation: </para><para><b>M7g node types</b>: <code>cache.m7g.large</code>, <code>cache.m7g.xlarge</code>,
-        /// <code>cache.m7g.2xlarge</code>, <code>cache.m7g.4xlarge</code>, <code>cache.m7g.8xlarge</code>,
-        /// <code>cache.m7g.12xlarge</code>, <code>cache.m7g.16xlarge</code></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
+        /// to their equivalent previous generation counterparts.</para><ul><li><para>General purpose:</para><ul><li><para>Current generation: </para><para><b>M7g node types</b>: <c>cache.m7g.large</c>, <c>cache.m7g.xlarge</c>, <c>cache.m7g.2xlarge</c>,
+        /// <c>cache.m7g.4xlarge</c>, <c>cache.m7g.8xlarge</c>, <c>cache.m7g.12xlarge</c>, <c>cache.m7g.16xlarge</c></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
         /// Node Types</a></para></note><para><b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for
-        /// Memcached engine version 1.5.16 onward): <code>cache.m6g.large</code>, <code>cache.m6g.xlarge</code>,
-        /// <code>cache.m6g.2xlarge</code>, <code>cache.m6g.4xlarge</code>, <code>cache.m6g.8xlarge</code>,
-        /// <code>cache.m6g.12xlarge</code>, <code>cache.m6g.16xlarge</code></para><para><b>M5 node types:</b><code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
-        /// <code>cache.m5.2xlarge</code>, <code>cache.m5.4xlarge</code>, <code>cache.m5.12xlarge</code>,
-        /// <code>cache.m5.24xlarge</code></para><para><b>M4 node types:</b><code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
-        /// <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>, <code>cache.m4.10xlarge</code></para><para><b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached
-        /// engine version 1.5.16 onward): <code>cache.t4g.micro</code>, <code>cache.t4g.small</code>,
-        /// <code>cache.t4g.medium</code></para><para><b>T3 node types:</b><code>cache.t3.micro</code>, <code>cache.t3.small</code>, <code>cache.t3.medium</code></para><para><b>T2 node types:</b><code>cache.t2.micro</code>, <code>cache.t2.small</code>, <code>cache.t2.medium</code></para></li><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
-        /// of new clusters is not supported for these types.)</para><para><b>T1 node types:</b><code>cache.t1.micro</code></para><para><b>M1 node types:</b><code>cache.m1.small</code>, <code>cache.m1.medium</code>,
-        /// <code>cache.m1.large</code>, <code>cache.m1.xlarge</code></para><para><b>M3 node types:</b><code>cache.m3.medium</code>, <code>cache.m3.large</code>,
-        /// <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code></para></li></ul></li><li><para>Compute optimized:</para><ul><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
-        /// of new clusters is not supported for these types.)</para><para><b>C1 node types:</b><code>cache.c1.xlarge</code></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R7g node types</b>: <code>cache.r7g.large</code>, <code>cache.r7g.xlarge</code>,
-        /// <code>cache.r7g.2xlarge</code>, <code>cache.r7g.4xlarge</code>, <code>cache.r7g.8xlarge</code>,
-        /// <code>cache.r7g.12xlarge</code>, <code>cache.r7g.16xlarge</code></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
+        /// Memcached engine version 1.5.16 onward): <c>cache.m6g.large</c>, <c>cache.m6g.xlarge</c>,
+        /// <c>cache.m6g.2xlarge</c>, <c>cache.m6g.4xlarge</c>, <c>cache.m6g.8xlarge</c>, <c>cache.m6g.12xlarge</c>,
+        /// <c>cache.m6g.16xlarge</c></para><para><b>M5 node types:</b><c>cache.m5.large</c>, <c>cache.m5.xlarge</c>, <c>cache.m5.2xlarge</c>,
+        /// <c>cache.m5.4xlarge</c>, <c>cache.m5.12xlarge</c>, <c>cache.m5.24xlarge</c></para><para><b>M4 node types:</b><c>cache.m4.large</c>, <c>cache.m4.xlarge</c>, <c>cache.m4.2xlarge</c>,
+        /// <c>cache.m4.4xlarge</c>, <c>cache.m4.10xlarge</c></para><para><b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached
+        /// engine version 1.5.16 onward): <c>cache.t4g.micro</c>, <c>cache.t4g.small</c>, <c>cache.t4g.medium</c></para><para><b>T3 node types:</b><c>cache.t3.micro</c>, <c>cache.t3.small</c>, <c>cache.t3.medium</c></para><para><b>T2 node types:</b><c>cache.t2.micro</c>, <c>cache.t2.small</c>, <c>cache.t2.medium</c></para></li><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
+        /// of new clusters is not supported for these types.)</para><para><b>T1 node types:</b><c>cache.t1.micro</c></para><para><b>M1 node types:</b><c>cache.m1.small</c>, <c>cache.m1.medium</c>, <c>cache.m1.large</c>,
+        /// <c>cache.m1.xlarge</c></para><para><b>M3 node types:</b><c>cache.m3.medium</c>, <c>cache.m3.large</c>, <c>cache.m3.xlarge</c>,
+        /// <c>cache.m3.2xlarge</c></para></li></ul></li><li><para>Compute optimized:</para><ul><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
+        /// of new clusters is not supported for these types.)</para><para><b>C1 node types:</b><c>cache.c1.xlarge</c></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R7g node types</b>: <c>cache.r7g.large</c>, <c>cache.r7g.xlarge</c>, <c>cache.r7g.2xlarge</c>,
+        /// <c>cache.r7g.4xlarge</c>, <c>cache.r7g.8xlarge</c>, <c>cache.r7g.12xlarge</c>, <c>cache.r7g.16xlarge</c></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
         /// Node Types</a></para></note><para><b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for
-        /// Memcached engine version 1.5.16 onward): <code>cache.r6g.large</code>, <code>cache.r6g.xlarge</code>,
-        /// <code>cache.r6g.2xlarge</code>, <code>cache.r6g.4xlarge</code>, <code>cache.r6g.8xlarge</code>,
-        /// <code>cache.r6g.12xlarge</code>, <code>cache.r6g.16xlarge</code></para><para><b>R5 node types:</b><code>cache.r5.large</code>, <code>cache.r5.xlarge</code>,
-        /// <code>cache.r5.2xlarge</code>, <code>cache.r5.4xlarge</code>, <code>cache.r5.12xlarge</code>,
-        /// <code>cache.r5.24xlarge</code></para><para><b>R4 node types:</b><code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
-        /// <code>cache.r4.2xlarge</code>, <code>cache.r4.4xlarge</code>, <code>cache.r4.8xlarge</code>,
-        /// <code>cache.r4.16xlarge</code></para></li><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
-        /// of new clusters is not supported for these types.)</para><para><b>M2 node types:</b><code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
-        /// <code>cache.m2.4xlarge</code></para><para><b>R3 node types:</b><code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
-        /// <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code></para></li></ul></li></ul><para><b>Additional node type info</b></para><ul><li><para>All current generation instance types are created in Amazon VPC by default.</para></li><li><para>Redis append-only files (AOF) are not supported for T1 or T2 instances.</para></li><li><para>Redis Multi-AZ with automatic failover is not supported on T1 instances.</para></li><li><para>Redis configuration variables <code>appendonly</code> and <code>appendfsync</code>
-        /// are not supported on Redis version 2.8.22 and later.</para></li></ul>
+        /// Memcached engine version 1.5.16 onward): <c>cache.r6g.large</c>, <c>cache.r6g.xlarge</c>,
+        /// <c>cache.r6g.2xlarge</c>, <c>cache.r6g.4xlarge</c>, <c>cache.r6g.8xlarge</c>, <c>cache.r6g.12xlarge</c>,
+        /// <c>cache.r6g.16xlarge</c></para><para><b>R5 node types:</b><c>cache.r5.large</c>, <c>cache.r5.xlarge</c>, <c>cache.r5.2xlarge</c>,
+        /// <c>cache.r5.4xlarge</c>, <c>cache.r5.12xlarge</c>, <c>cache.r5.24xlarge</c></para><para><b>R4 node types:</b><c>cache.r4.large</c>, <c>cache.r4.xlarge</c>, <c>cache.r4.2xlarge</c>,
+        /// <c>cache.r4.4xlarge</c>, <c>cache.r4.8xlarge</c>, <c>cache.r4.16xlarge</c></para></li><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
+        /// of new clusters is not supported for these types.)</para><para><b>M2 node types:</b><c>cache.m2.xlarge</c>, <c>cache.m2.2xlarge</c>, <c>cache.m2.4xlarge</c></para><para><b>R3 node types:</b><c>cache.r3.large</c>, <c>cache.r3.xlarge</c>, <c>cache.r3.2xlarge</c>,
+        /// <c>cache.r3.4xlarge</c>, <c>cache.r3.8xlarge</c></para></li></ul></li></ul><para><b>Additional node type info</b></para><ul><li><para>All current generation instance types are created in Amazon VPC by default.</para></li><li><para>Redis append-only files (AOF) are not supported for T1 or T2 instances.</para></li><li><para>Redis Multi-AZ with automatic failover is not supported on T1 instances.</para></li><li><para>Redis configuration variables <c>appendonly</c> and <c>appendfsync</c> are not supported
+        /// on Redis version 2.8.22 and later.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// argument is omitted, the default cache parameter group for the specified engine is
         /// used.</para><para>If you are running Redis version 3.2.4 or later, only one node group (shard), and
         /// want to use a default parameter group, we recommend that you specify the parameter
-        /// group by name. </para><ul><li><para>To create a Redis (cluster mode disabled) replication group, use <code>CacheParameterGroupName=default.redis3.2</code>.</para></li><li><para>To create a Redis (cluster mode enabled) replication group, use <code>CacheParameterGroupName=default.redis3.2.cluster.on</code>.</para></li></ul>
+        /// group by name. </para><ul><li><para>To create a Redis (cluster mode disabled) replication group, use <c>CacheParameterGroupName=default.redis3.2</c>.</para></li><li><para>To create a Redis (cluster mode enabled) replication group, use <c>CacheParameterGroupName=default.redis3.2.cluster.on</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -241,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The name of the cache engine to be used for the clusters in this replication group.
-        /// The value must be set to <code>Redis</code>.</para>
+        /// The value must be set to <c>Redis</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The version number of the cache engine to be used for the clusters in this replication
-        /// group. To view the supported cache engine versions, use the <code>DescribeCacheEngineVersions</code>
+        /// group. To view the supported cache engine versions, use the <c>DescribeCacheEngineVersions</c>
         /// operation.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
         /// a Cache Engine and Version</a>) in the <i>ElastiCache User Guide</i>, but you cannot
         /// downgrade to an earlier engine version. If you want to use an earlier engine version,
@@ -277,9 +270,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter IpDiscovery
         /// <summary>
         /// <para>
-        /// <para>The network type you choose when creating a replication group, either <code>ipv4</code>
-        /// | <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2
-        /// onward or Memcached engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro
+        /// <para>The network type you choose when creating a replication group, either <c>ipv4</c>
+        /// | <c>ipv6</c>. IPv6 is supported for workloads using Redis engine version 6.2 onward
+        /// or Memcached engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro
         /// system</a>.</para>
         /// </para>
         /// </summary>
@@ -324,10 +317,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6
-        /// is supported for workloads using Redis engine version 6.2 onward or Memcached engine
-        /// version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro
-        /// system</a>.</para>
+        /// <para>Must be either <c>ipv4</c> | <c>ipv6</c> | <c>dual_stack</c>. IPv6 is supported for
+        /// workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6
+        /// on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -339,8 +331,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A list of node group (shard) configuration options. Each node group (shard) configuration
-        /// has the following members: <code>PrimaryAvailabilityZone</code>, <code>ReplicaAvailabilityZones</code>,
-        /// <code>ReplicaCount</code>, and <code>Slots</code>.</para><para>If you're creating a Redis (cluster mode disabled) or a Redis (cluster mode enabled)
+        /// has the following members: <c>PrimaryAvailabilityZone</c>, <c>ReplicaAvailabilityZones</c>,
+        /// <c>ReplicaCount</c>, and <c>Slots</c>.</para><para>If you're creating a Redis (cluster mode disabled) or a Redis (cluster mode enabled)
         /// replication group, you can use this parameter to individually configure each node
         /// group (shard), or you can omit this parameter. However, it is required when seeding
         /// a Redis (cluster mode enabled) cluster from a S3 rdb file. You must configure each
@@ -367,11 +359,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The number of clusters this replication group initially has.</para><para>This parameter is not used if there is more than one node group (shard). You should
-        /// use <code>ReplicasPerNodeGroup</code> instead.</para><para>If <code>AutomaticFailoverEnabled</code> is <code>true</code>, the value of this parameter
-        /// must be at least 2. If <code>AutomaticFailoverEnabled</code> is <code>false</code>
-        /// you can omit this parameter (it will default to 1), or you can explicitly set it to
-        /// a value between 2 and 6.</para><para>The maximum permitted value for <code>NumCacheClusters</code> is 6 (1 primary plus
-        /// 5 replicas).</para>
+        /// use <c>ReplicasPerNodeGroup</c> instead.</para><para>If <c>AutomaticFailoverEnabled</c> is <c>true</c>, the value of this parameter must
+        /// be at least 2. If <c>AutomaticFailoverEnabled</c> is <c>false</c> you can omit this
+        /// parameter (it will default to 1), or you can explicitly set it to a value between
+        /// 2 and 6.</para><para>The maximum permitted value for <c>NumCacheClusters</c> is 6 (1 primary plus 5 replicas).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -408,9 +399,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>A list of EC2 Availability Zones in which the replication group's clusters are created.
         /// The order of the Availability Zones in the list is the order in which clusters are
         /// allocated. The primary cluster is created in the first AZ in the list.</para><para>This parameter is not used if there is more than one node group (shard). You should
-        /// use <code>NodeGroupConfiguration</code> instead.</para><note><para>If you are creating your replication group in an Amazon VPC (recommended), you can
+        /// use <c>NodeGroupConfiguration</c> instead.</para><note><para>If you are creating your replication group in an Amazon VPC (recommended), you can
         /// only locate clusters in Availability Zones associated with the subnets in the selected
-        /// subnet group.</para><para>The number of Availability Zones listed must equal the value of <code>NumCacheClusters</code>.</para></note><para>Default: system chosen Availability Zones.</para>
+        /// subnet group.</para><para>The number of Availability Zones listed must equal the value of <c>NumCacheClusters</c>.</para></note><para>Default: system chosen Availability Zones.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -422,10 +413,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>Specifies the weekly time range during which maintenance on the cluster is performed.
         /// It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
-        /// The minimum maintenance window is a 60 minute period. Valid values for <code>ddd</code>
+        /// The minimum maintenance window is a 60 minute period. Valid values for <c>ddd</c>
         /// are:</para><para>Specifies the weekly time range during which maintenance on the cluster is performed.
         /// It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
-        /// The minimum maintenance window is a 60 minute period.</para><para>Valid values for <code>ddd</code> are:</para><ul><li><para><code>sun</code></para></li><li><para><code>mon</code></para></li><li><para><code>tue</code></para></li><li><para><code>wed</code></para></li><li><para><code>thu</code></para></li><li><para><code>fri</code></para></li><li><para><code>sat</code></para></li></ul><para>Example: <code>sun:23:00-mon:01:30</code></para>
+        /// The minimum maintenance window is a 60 minute period.</para><para>Valid values for <c>ddd</c> are:</para><ul><li><para><c>sun</c></para></li><li><para><c>mon</c></para></li><li><para><c>tue</c></para></li><li><para><c>wed</c></para></li><li><para><c>thu</c></para></li><li><para><c>fri</c></para></li><li><para><c>sat</c></para></li></ul><para>Example: <c>sun:23:00-mon:01:30</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -436,8 +427,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The identifier of the cluster that serves as the primary for this replication group.
-        /// This cluster must already exist and have a status of <code>available</code>.</para><para>This parameter is not required if <code>NumCacheClusters</code>, <code>NumNodeGroups</code>,
-        /// or <code>ReplicasPerNodeGroup</code> is specified.</para>
+        /// This cluster must already exist and have a status of <c>available</c>.</para><para>This parameter is not required if <c>NumCacheClusters</c>, <c>NumNodeGroups</c>, or
+        /// <c>ReplicasPerNodeGroup</c> is specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -519,7 +510,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// group. The Amazon S3 object name in the ARN cannot contain any commas. The new replication
         /// group will have the number of node groups (console: shards) specified by the parameter
         /// <i>NumNodeGroups</i> or the number of node groups configured by <i>NodeGroupConfiguration</i>
-        /// regardless of the number of ARNs specified here.</para><para>Example of an Amazon S3 ARN: <code>arn:aws:s3:::my_bucket/snapshot1.rdb</code></para>
+        /// regardless of the number of ARNs specified here.</para><para>Example of an Amazon S3 ARN: <c>arn:aws:s3:::my_bucket/snapshot1.rdb</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -531,8 +522,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The name of a snapshot from which to restore data into the new replication group.
-        /// The snapshot status changes to <code>restoring</code> while the new replication group
-        /// is being created.</para>
+        /// The snapshot status changes to <c>restoring</c> while the new replication group is
+        /// being created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -543,8 +534,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The number of days for which ElastiCache retains automatic snapshots before deleting
-        /// them. For example, if you set <code>SnapshotRetentionLimit</code> to 5, a snapshot
-        /// that was taken today is retained for 5 days before being deleted.</para><para>Default: 0 (i.e., automatic backups are disabled for this cluster).</para>
+        /// them. For example, if you set <c>SnapshotRetentionLimit</c> to 5, a snapshot that
+        /// was taken today is retained for 5 days before being deleted.</para><para>Default: 0 (i.e., automatic backups are disabled for this cluster).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -555,7 +546,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot
-        /// of your node group (shard).</para><para>Example: <code>05:00-09:00</code></para><para>If you do not specify this parameter, ElastiCache automatically chooses an appropriate
+        /// of your node group (shard).</para><para>Example: <c>05:00-09:00</c></para><para>If you do not specify this parameter, ElastiCache automatically chooses an appropriate
         /// time range.</para>
         /// </para>
         /// </summary>
@@ -567,10 +558,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A list of tags to be added to this resource. Tags are comma-separated key,value pairs
-        /// (e.g. Key=<code>myKey</code>, Value=<code>myKeyValue</code>. You can include multiple
-        /// tags as shown following: Key=<code>myKey</code>, Value=<code>myKeyValue</code> Key=<code>mySecondKey</code>,
-        /// Value=<code>mySecondKeyValue</code>. Tags on replication groups will be replicated
-        /// to all nodes.</para>
+        /// (e.g. Key=<c>myKey</c>, Value=<c>myKeyValue</c>. You can include multiple tags as
+        /// shown following: Key=<c>myKey</c>, Value=<c>myKeyValue</c> Key=<c>mySecondKey</c>,
+        /// Value=<c>mySecondKeyValue</c>. Tags on replication groups will be replicated to all
+        /// nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -581,11 +572,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter TransitEncryptionEnabled
         /// <summary>
         /// <para>
-        /// <para>A flag that enables in-transit encryption when set to <code>true</code>.</para><para>This parameter is valid only if the <code>Engine</code> parameter is <code>redis</code>,
-        /// the <code>EngineVersion</code> parameter is <code>3.2.6</code>, <code>4.x</code> or
-        /// later, and the cluster is being created in an Amazon VPC.</para><para>If you enable in-transit encryption, you must also specify a value for <code>CacheSubnetGroup</code>.</para><para><b>Required:</b> Only available when creating a replication group in an Amazon VPC
-        /// using redis version <code>3.2.6</code>, <code>4.x</code> or later.</para><para>Default: <code>false</code></para><important><para>For HIPAA compliance, you must specify <code>TransitEncryptionEnabled</code> as <code>true</code>,
-        /// an <code>AuthToken</code>, and a <code>CacheSubnetGroup</code>.</para></important>
+        /// <para>A flag that enables in-transit encryption when set to <c>true</c>.</para><para>This parameter is valid only if the <c>Engine</c> parameter is <c>redis</c>, the <c>EngineVersion</c>
+        /// parameter is <c>3.2.6</c>, <c>4.x</c> or later, and the cluster is being created in
+        /// an Amazon VPC.</para><para>If you enable in-transit encryption, you must also specify a value for <c>CacheSubnetGroup</c>.</para><para><b>Required:</b> Only available when creating a replication group in an Amazon VPC
+        /// using redis version <c>3.2.6</c>, <c>4.x</c> or later.</para><para>Default: <c>false</c></para><important><para>For HIPAA compliance, you must specify <c>TransitEncryptionEnabled</c> as <c>true</c>,
+        /// an <c>AuthToken</c>, and a <c>CacheSubnetGroup</c>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -596,13 +587,12 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A setting that allows you to migrate your clients to use in-transit encryption, with
-        /// no downtime.</para><para>When setting <code>TransitEncryptionEnabled</code> to <code>true</code>, you can set
-        /// your <code>TransitEncryptionMode</code> to <code>preferred</code> in the same request,
-        /// to allow both encrypted and unencrypted connections at the same time. Once you migrate
-        /// all your Redis clients to use encrypted connections you can modify the value to <code>required</code>
-        /// to allow encrypted connections only.</para><para>Setting <code>TransitEncryptionMode</code> to <code>required</code> is a two-step
-        /// process that requires you to first set the <code>TransitEncryptionMode</code> to <code>preferred</code>,
-        /// after that you can set <code>TransitEncryptionMode</code> to <code>required</code>.</para><para>This process will not trigger the replacement of the replication group.</para>
+        /// no downtime.</para><para>When setting <c>TransitEncryptionEnabled</c> to <c>true</c>, you can set your <c>TransitEncryptionMode</c>
+        /// to <c>preferred</c> in the same request, to allow both encrypted and unencrypted connections
+        /// at the same time. Once you migrate all your Redis clients to use encrypted connections
+        /// you can modify the value to <c>required</c> to allow encrypted connections only.</para><para>Setting <c>TransitEncryptionMode</c> to <c>required</c> is a two-step process that
+        /// requires you to first set the <c>TransitEncryptionMode</c> to <c>preferred</c>, after
+        /// that you can set <c>TransitEncryptionMode</c> to <c>required</c>.</para><para>This process will not trigger the replacement of the replication group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.EBS
     /// Returns information about the blocks in an Amazon Elastic Block Store snapshot.
     /// 
     ///  <note><para>
-    /// You should always retry requests that receive server (<code>5xx</code>) error responses,
-    /// and <code>ThrottlingException</code> and <code>RequestThrottledException</code> client
-    /// error responses. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error
+    /// You should always retry requests that receive server (<c>5xx</c>) error responses,
+    /// and <c>ThrottlingException</c> and <c>RequestThrottledException</c> client error responses.
+    /// For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error
     /// retries</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         /// <para>
         /// <para>The maximum number of blocks to be returned by the request.</para><para>Even if additional blocks can be retrieved from the snapshot, the request can return
         /// less blocks than <b>MaxResults</b> or an empty array of blocks.</para><para>To retrieve the next set of blocks from the snapshot, make another request with the
-        /// returned <b>NextToken</b> value. The value of <b>NextToken</b> is <code>null</code>
-        /// when there are no more blocks to return.</para>
+        /// returned <b>NextToken</b> value. The value of <b>NextToken</b> is <c>null</c> when
+        /// there are no more blocks to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

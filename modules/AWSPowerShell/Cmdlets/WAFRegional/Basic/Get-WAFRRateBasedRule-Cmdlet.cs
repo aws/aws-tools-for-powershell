@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Returns the <a>RateBasedRule</a> that is specified by the <code>RuleId</code> that
-    /// you included in the <code>GetRateBasedRule</code> request.
+    /// Returns the <a>RateBasedRule</a> that is specified by the <c>RuleId</c> that you included
+    /// in the <c>GetRateBasedRule</c> request.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "WAFRRateBasedRule")]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter RuleId
         /// <summary>
         /// <para>
-        /// <para>The <code>RuleId</code> of the <a>RateBasedRule</a> that you want to get. <code>RuleId</code>
+        /// <para>The <c>RuleId</c> of the <a>RateBasedRule</a> that you want to get. <c>RuleId</c>
         /// is returned by <a>CreateRateBasedRule</a> and by <a>ListRateBasedRules</a>.</para>
         /// </para>
         /// </summary>

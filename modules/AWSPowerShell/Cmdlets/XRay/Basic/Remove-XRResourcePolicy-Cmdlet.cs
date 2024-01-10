@@ -62,10 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #region Parameter PolicyRevisionId
         /// <summary>
         /// <para>
-        /// <para>Specifies a specific policy revision to delete. Provide a <code>PolicyRevisionId</code>
+        /// <para>Specifies a specific policy revision to delete. Provide a <c>PolicyRevisionId</c>
         /// to ensure an atomic delete operation. If the provided revision id does not match the
-        /// latest policy revision id, an <code>InvalidPolicyRevisionIdException</code> exception
-        /// is returned. </para>
+        /// latest policy revision id, an <c>InvalidPolicyRevisionIdException</c> exception is
+        /// returned. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

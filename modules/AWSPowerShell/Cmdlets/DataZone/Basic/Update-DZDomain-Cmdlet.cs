@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description to be updated as part of the <code>UpdateDomain</code> action.</para>
+        /// <para>The description to be updated as part of the <c>UpdateDomain</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter DomainExecutionRole
         /// <summary>
         /// <para>
-        /// <para>The domain execution role to be updated as part of the <code>UpdateDomain</code> action.</para>
+        /// <para>The domain execution role to be updated as part of the <c>UpdateDomain</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name to be updated as part of the <code>UpdateDomain</code> action.</para>
+        /// <para>The name to be updated as part of the <c>UpdateDomain</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

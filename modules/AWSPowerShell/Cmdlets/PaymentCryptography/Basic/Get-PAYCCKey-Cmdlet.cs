@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter KeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>KeyARN</code> of the Amazon Web Services Payment Cryptography key.</para>
+        /// <para>The <c>KeyARN</c> of the Amazon Web Services Payment Cryptography key.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

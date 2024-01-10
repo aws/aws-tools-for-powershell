@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>instance-type</code> - The instance type.</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>instance-type</c> - The instance type.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

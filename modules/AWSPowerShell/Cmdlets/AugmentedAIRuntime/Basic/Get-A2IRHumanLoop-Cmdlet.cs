@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
 {
     /// <summary>
     /// Returns information about the specified human loop. If the human loop was deleted,
-    /// this operation will return a <code>ResourceNotFoundException</code> error.
+    /// this operation will return a <c>ResourceNotFoundException</c> error.
     /// </summary>
     [Cmdlet("Get", "A2IRHumanLoop")]
     [OutputType("Amazon.AugmentedAIRuntime.Model.DescribeHumanLoopResponse")]

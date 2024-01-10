@@ -35,14 +35,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// analytics configurations per bucket.
     /// </para><para>
     /// This action supports list pagination and does not return more than 100 configurations
-    /// at a time. Always check the <code>IsTruncated</code> element in the response. If there
-    /// are no more configurations to list, <code>IsTruncated</code> is set to false. If there
-    /// are more configurations to list, <code>IsTruncated</code> is set to true, and there
-    /// is a value in <code>NextContinuationToken</code>. You use the <code>NextContinuationToken</code>
-    /// value to continue the pagination of the list by passing the value in continuation-token
-    /// in the request to <code>GET</code> the next page.
+    /// at a time. Always check the <c>IsTruncated</c> element in the response. If there are
+    /// no more configurations to list, <c>IsTruncated</c> is set to false. If there are more
+    /// configurations to list, <c>IsTruncated</c> is set to true, and there is a value in
+    /// <c>NextContinuationToken</c>. You use the <c>NextContinuationToken</c> value to continue
+    /// the pagination of the list by passing the value in continuation-token in the request
+    /// to <c>GET</c> the next page.
     /// </para><para>
-    ///  To use this operation, you must have permissions to perform the <code>s3:GetInventoryConfiguration</code>
+    ///  To use this operation, you must have permissions to perform the <c>s3:GetInventoryConfiguration</c>
     /// action. The bucket owner has this permission by default. The bucket owner can grant
     /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><para>
     /// For information about the Amazon S3 inventory feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html">Amazon
     /// S3 Inventory</a></para><para>
-    /// The following operations are related to <code>ListBucketInventoryConfigurations</code>:
+    /// The following operations are related to <c>ListBucketInventoryConfigurations</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketInventoryConfiguration.html">GetBucketInventoryConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketInventoryConfiguration.html">DeleteBucketInventoryConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html">PutBucketInventoryConfiguration</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketInventoryConfigurationList")]

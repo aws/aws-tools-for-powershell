@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ExportSourceType
         /// <summary>
         /// <para>
-        /// <para>A value used to list export jobs that have a certain <code>ExportSourceType</code>.</para>
+        /// <para>A value used to list export jobs that have a certain <c>ExportSourceType</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter JobStatus
         /// <summary>
         /// <para>
-        /// <para>A value used to list export jobs that have a certain <code>JobStatus</code>.</para>
+        /// <para>A value used to list export jobs that have a certain <c>JobStatus</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token returned from a previous call to <code>ListExportJobs</code>
-        /// to indicate the position in the list of export jobs.</para>
+        /// <para>The pagination token returned from a previous call to <c>ListExportJobs</c> to indicate
+        /// the position in the list of export jobs.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -83,9 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>Maximum number of export jobs to return at once. Use this parameter to paginate results.
-        /// If additional export jobs exist beyond the specified limit, the <code>NextToken</code>
-        /// element is sent in the response. Use the <code>NextToken</code> value in subsequent
-        /// calls to <code>ListExportJobs</code> to retrieve additional export jobs.</para>
+        /// If additional export jobs exist beyond the specified limit, the <c>NextToken</c> element
+        /// is sent in the response. Use the <c>NextToken</c> value in subsequent calls to <c>ListExportJobs</c>
+        /// to retrieve additional export jobs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

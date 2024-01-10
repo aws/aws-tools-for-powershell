@@ -31,11 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Retrieve the S3 Access Grants instance that contains a particular prefix. 
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3:GetAccessGrantsInstanceForPrefix</code> permission for
-    /// the caller account to use this operation. 
+    /// You must have the <c>s3:GetAccessGrantsInstanceForPrefix</c> permission for the caller
+    /// account to use this operation. 
     /// </para></dd><dt>Additional Permissions</dt><dd><para>
     /// The prefix owner account must grant you the following permissions to their S3 Access
-    /// Grants instance: <code>s3:GetAccessGrantsInstanceForPrefix</code>. 
+    /// Grants instance: <c>s3:GetAccessGrantsInstanceForPrefix</c>. 
     /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Get", "S3CAccessGrantsInstanceForPrefix")]

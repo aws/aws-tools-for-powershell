@@ -36,15 +36,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// the values provided in the request. You cannot update some parameters independent
     /// of others. To update a real-time log configuration:
     /// </para><ol><li><para>
-    /// Call <code>GetRealtimeLogConfig</code> to get the current real-time log configuration.
+    /// Call <c>GetRealtimeLogConfig</c> to get the current real-time log configuration.
     /// </para></li><li><para>
     /// Locally modify the parameters in the real-time log configuration that you want to
     /// update.
     /// </para></li><li><para>
-    /// Call this API (<code>UpdateRealtimeLogConfig</code>) by providing the entire real-time
-    /// log configuration, including the parameters that you modified and those that you didn't.
+    /// Call this API (<c>UpdateRealtimeLogConfig</c>) by providing the entire real-time log
+    /// configuration, including the parameters that you modified and those that you didn't.
     /// </para></li></ol><para>
-    /// You cannot update a real-time log configuration's <code>Name</code> or <code>ARN</code>.
+    /// You cannot update a real-time log configuration's <c>Name</c> or <c>ARN</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "CFRealtimeLogConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -30,16 +30,16 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// <summary>
     /// List DynamoDB backups that are associated with an Amazon Web Services account and
     /// weren't made with Amazon Web Services Backup. To list these backups for a given table,
-    /// specify <code>TableName</code>. <code>ListBackups</code> returns a paginated list
-    /// of results with at most 1 MB worth of items in a page. You can also specify a maximum
-    /// number of entries to be returned in a page.
+    /// specify <c>TableName</c>. <c>ListBackups</c> returns a paginated list of results with
+    /// at most 1 MB worth of items in a page. You can also specify a maximum number of entries
+    /// to be returned in a page.
     /// 
     ///  
     /// <para>
     /// In the request, start time is inclusive, but end time is exclusive. Note that these
     /// boundaries are for the time at which the original backup was requested.
     /// </para><para>
-    /// You can call <code>ListBackups</code> a maximum of five times per second.
+    /// You can call <c>ListBackups</c> a maximum of five times per second.
     /// </para><para>
     /// If you want to retrieve the complete list of backups made with Amazon Web Services
     /// Backup, use the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListBackupJobs.html">Amazon
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter BackupType
         /// <summary>
         /// <para>
-        /// <para>The backups from the table specified by <code>BackupType</code> are listed.</para><para>Where <code>BackupType</code> can be:</para><ul><li><para><code>USER</code> - On-demand backup created by you. (The default setting if no other
-        /// backup types are specified.)</para></li><li><para><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</para></li><li><para><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</para></li></ul>
+        /// <para>The backups from the table specified by <c>BackupType</c> are listed.</para><para>Where <c>BackupType</c> can be:</para><ul><li><para><c>USER</c> - On-demand backup created by you. (The default setting if no other backup
+        /// types are specified.)</para></li><li><para><c>SYSTEM</c> - On-demand backup automatically created by DynamoDB.</para></li><li><para><c>ALL</c> - All types of on-demand backups (USER and SYSTEM).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TableName
         /// <summary>
         /// <para>
-        /// <para>The backups from the table specified by <code>TableName</code> are listed. </para>
+        /// <para>The backups from the table specified by <c>TableName</c> are listed. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -82,8 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TimeRangeLowerBound
         /// <summary>
         /// <para>
-        /// <para>Only backups created after this time are listed. <code>TimeRangeLowerBound</code>
-        /// is inclusive.</para>
+        /// <para>Only backups created after this time are listed. <c>TimeRangeLowerBound</c> is inclusive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TimeRangeUpperBound
         /// <summary>
         /// <para>
-        /// <para>Only backups created before this time are listed. <code>TimeRangeUpperBound</code>
-        /// is exclusive. </para>
+        /// <para>Only backups created before this time are listed. <c>TimeRangeUpperBound</c> is exclusive.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,10 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter ExclusiveStartBackupArn
         /// <summary>
         /// <para>
-        /// <para><code>LastEvaluatedBackupArn</code> is the Amazon Resource Name (ARN) of the backup
-        /// last evaluated when the current page of results was returned, inclusive of the current
-        /// page of results. This value may be specified as the <code>ExclusiveStartBackupArn</code>
-        /// of a new <code>ListBackups</code> operation in order to fetch the next page of results.
+        /// <para><c>LastEvaluatedBackupArn</c> is the Amazon Resource Name (ARN) of the backup last
+        /// evaluated when the current page of results was returned, inclusive of the current
+        /// page of results. This value may be specified as the <c>ExclusiveStartBackupArn</c>
+        /// of a new <c>ListBackups</c> operation in order to fetch the next page of results.
         /// </para>
         /// </para>
         /// <para>

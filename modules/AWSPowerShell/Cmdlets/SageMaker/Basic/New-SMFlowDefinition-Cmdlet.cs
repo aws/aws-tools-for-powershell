@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
-        /// For example, <code>arn:aws:iam::1234567890:role/service-role/AmazonSageMaker-ExecutionRole-20180111T151298</code>.</para>
+        /// For example, <c>arn:aws:iam::1234567890:role/service-role/AmazonSageMaker-ExecutionRole-20180111T151298</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -197,9 +197,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The number of distinct workers who will perform the same task on each object. For
-        /// example, if <code>TaskCount</code> is set to <code>3</code> for an image classification
-        /// labeling job, three workers will classify each input image. Increasing <code>TaskCount</code>
-        /// can improve label accuracy.</para>
+        /// example, if <c>TaskCount</c> is set to <c>3</c> for an image classification labeling
+        /// job, three workers will classify each input image. Increasing <c>TaskCount</c> can
+        /// improve label accuracy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

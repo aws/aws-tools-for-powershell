@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorItem
         /// <summary>
         /// <para>
-        /// <para>The <code>VoiceConnectorItems</code> to associate with the Voice Connector group.</para>
+        /// <para>The <c>VoiceConnectorItems</c> to associate with the Voice Connector group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

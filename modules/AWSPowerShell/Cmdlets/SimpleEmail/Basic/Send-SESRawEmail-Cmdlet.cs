@@ -32,13 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  
     /// <para>
-    /// This operation is more flexible than the <code>SendEmail</code> operation. When you
-    /// use the <code>SendRawEmail</code> operation, you can specify the headers of the message
-    /// as well as its content. This flexibility is useful, for example, when you need to
-    /// send a multipart MIME email (such a message that contains both a text and an HTML
-    /// version). You can also use this operation to send messages that include attachments.
+    /// This operation is more flexible than the <c>SendEmail</c> operation. When you use
+    /// the <c>SendRawEmail</c> operation, you can specify the headers of the message as well
+    /// as its content. This flexibility is useful, for example, when you need to send a multipart
+    /// MIME email (such a message that contains both a text and an HTML version). You can
+    /// also use this operation to send messages that include attachments.
     /// </para><para>
-    /// The <code>SendRawEmail</code> operation has the following requirements:
+    /// The <c>SendRawEmail</c> operation has the following requirements:
     /// </para><ul><li><para>
     /// You can only send email from <a href="https://docs.aws.amazon.com/ses/latest/dg/verify-addresses-and-domains.html">verified
     /// email addresses or domains</a>. If you try to send email from an address that isn't
@@ -70,25 +70,25 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// see <a href="https://docs.aws.amazon.com/ses/latest/dg/send-email-raw.html#send-email-mime-encoding">MIME
     /// Encoding</a> in the <i>Amazon SES Developer Guide</i>.
     /// </para></li></ul><para>
-    /// Additionally, keep the following considerations in mind when using the <code>SendRawEmail</code>
+    /// Additionally, keep the following considerations in mind when using the <c>SendRawEmail</c>
     /// operation:
     /// </para><ul><li><para>
-    /// Although you can customize the message headers when using the <code>SendRawEmail</code>
-    /// operation, Amazon SES automatically applies its own <code>Message-ID</code> and <code>Date</code>
+    /// Although you can customize the message headers when using the <c>SendRawEmail</c>
+    /// operation, Amazon SES automatically applies its own <c>Message-ID</c> and <c>Date</c>
     /// headers; if you passed these headers when creating the message, they are overwritten
     /// by the values that Amazon SES provides.
     /// </para></li><li><para>
-    /// If you are using sending authorization to send on behalf of another user, <code>SendRawEmail</code>
+    /// If you are using sending authorization to send on behalf of another user, <c>SendRawEmail</c>
     /// enables you to specify the cross-account identity for the email's Source, From, and
-    /// Return-Path parameters in one of two ways: you can pass optional parameters <code>SourceArn</code>,
-    /// <code>FromArn</code>, and/or <code>ReturnPathArn</code>, or you can include the following
-    /// X-headers in the header of your raw email:
-    /// </para><ul><li><para><code>X-SES-SOURCE-ARN</code></para></li><li><para><code>X-SES-FROM-ARN</code></para></li><li><para><code>X-SES-RETURN-PATH-ARN</code></para></li></ul><important><para>
+    /// Return-Path parameters in one of two ways: you can pass optional parameters <c>SourceArn</c>,
+    /// <c>FromArn</c>, and/or <c>ReturnPathArn</c>, or you can include the following X-headers
+    /// in the header of your raw email:
+    /// </para><ul><li><para><c>X-SES-SOURCE-ARN</c></para></li><li><para><c>X-SES-FROM-ARN</c></para></li><li><para><c>X-SES-RETURN-PATH-ARN</c></para></li></ul><important><para>
     /// Don't include these X-headers in the DKIM signature. Amazon SES removes these before
     /// it sends the email.
     /// </para></important><para>
-    /// If you only specify the <code>SourceIdentityArn</code> parameter, Amazon SES sets
-    /// the From and Return-Path addresses to the same identity that you specified.
+    /// If you only specify the <c>SourceIdentityArn</c> parameter, Amazon SES sets the From
+    /// and Return-Path addresses to the same identity that you specified.
     /// </para><para>
     /// For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html">Using
     /// Sending Authorization with Amazon SES</a> in the <i>Amazon SES Developer Guide.</i></para></li><li><para>
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration set to use when you send an email using <code>SendRawEmail</code>.</para>
+        /// <para>The name of the configuration set to use when you send an email using <c>SendRawEmail</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,9 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using
         /// an Amazon Web Services SDK, the SDK takes care of the base 64-encoding for you. In
         /// all cases, the client must ensure that the message format complies with Internet email
-        /// standards regarding email header fields, MIME types, and MIME encoding.</para><para>The To:, CC:, and BCC: headers in the raw message can contain a group list.</para><para>If you are using <code>SendRawEmail</code> with sending authorization, you can include
-        /// X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses.
-        /// For more information, see the documentation for <code>SendRawEmail</code>. </para><important><para>Do not include these X-headers in the DKIM signature, because they are removed by
+        /// standards regarding email header fields, MIME types, and MIME encoding.</para><para>The To:, CC:, and BCC: headers in the raw message can contain a group list.</para><para>If you are using <c>SendRawEmail</c> with sending authorization, you can include X-headers
+        /// in the raw message to specify the "Source," "From," and "Return-Path" addresses. For
+        /// more information, see the documentation for <c>SendRawEmail</c>. </para><important><para>Do not include these X-headers in the DKIM signature, because they are removed by
         /// Amazon SES before sending the email.</para></important><para>For more information, go to the <a href="https://docs.aws.amazon.com/ses/latest/dg/send-email-raw.html">Amazon
         /// SES Developer Guide</a>.</para>
         /// </para>
@@ -162,10 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>
         /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
         /// that is associated with the sending authorization policy that permits you to specify
-        /// a particular "From" address in the header of the raw email.</para><para>Instead of using this parameter, you can use the X-header <code>X-SES-FROM-ARN</code>
-        /// in the raw message of the email. If you use both the <code>FromArn</code> parameter
-        /// and the corresponding X-header, Amazon SES uses the value of the <code>FromArn</code>
-        /// parameter.</para><note><para>For information about when to use this parameter, see the description of <code>SendRawEmail</code>
+        /// a particular "From" address in the header of the raw email.</para><para>Instead of using this parameter, you can use the X-header <c>X-SES-FROM-ARN</c> in
+        /// the raw message of the email. If you use both the <c>FromArn</c> parameter and the
+        /// corresponding X-header, Amazon SES uses the value of the <c>FromArn</c> parameter.</para><note><para>For information about when to use this parameter, see the description of <c>SendRawEmail</c>
         /// in this guide, or see the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization-delegate-sender-tasks-email.html">Amazon
         /// SES Developer Guide</a>.</para></note>
         /// </para>
@@ -179,13 +178,13 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>
         /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
         /// that is associated with the sending authorization policy that permits you to use the
-        /// email address specified in the <code>ReturnPath</code> parameter.</para><para>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>)
-        /// attaches a policy to it that authorizes you to use <code>feedback@example.com</code>,
-        /// then you would specify the <code>ReturnPathArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>,
-        /// and the <code>ReturnPath</code> to be <code>feedback@example.com</code>.</para><para>Instead of using this parameter, you can use the X-header <code>X-SES-RETURN-PATH-ARN</code>
-        /// in the raw message of the email. If you use both the <code>ReturnPathArn</code> parameter
-        /// and the corresponding X-header, Amazon SES uses the value of the <code>ReturnPathArn</code>
-        /// parameter.</para><note><para>For information about when to use this parameter, see the description of <code>SendRawEmail</code>
+        /// email address specified in the <c>ReturnPath</c> parameter.</para><para>For example, if the owner of <c>example.com</c> (which has ARN <c>arn:aws:ses:us-east-1:123456789012:identity/example.com</c>)
+        /// attaches a policy to it that authorizes you to use <c>feedback@example.com</c>, then
+        /// you would specify the <c>ReturnPathArn</c> to be <c>arn:aws:ses:us-east-1:123456789012:identity/example.com</c>,
+        /// and the <c>ReturnPath</c> to be <c>feedback@example.com</c>.</para><para>Instead of using this parameter, you can use the X-header <c>X-SES-RETURN-PATH-ARN</c>
+        /// in the raw message of the email. If you use both the <c>ReturnPathArn</c> parameter
+        /// and the corresponding X-header, Amazon SES uses the value of the <c>ReturnPathArn</c>
+        /// parameter.</para><note><para>For information about when to use this parameter, see the description of <c>SendRawEmail</c>
         /// in this guide, or see the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization-delegate-sender-tasks-email.html">Amazon
         /// SES Developer Guide</a>.</para></note>
         /// </para>
@@ -207,9 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// from" name. If you want to use Unicode characters in the "friendly from" name, you
         /// must encode the "friendly from" name using MIME encoded-word syntax, as described
         /// in <a href="https://docs.aws.amazon.com/ses/latest/dg/send-email-raw.html">Sending
-        /// raw email using the Amazon SES API</a>. For more information about Punycode, see <a href="http://tools.ietf.org/html/rfc3492">RFC 3492</a>.</para></note><para>If you specify the <code>Source</code> parameter and have feedback forwarding enabled,
-        /// then bounces and complaints are sent to this email address. This takes precedence
-        /// over any Return-Path header that you might include in the raw text of the message.</para>
+        /// raw email using the Amazon SES API</a>. For more information about Punycode, see <a href="http://tools.ietf.org/html/rfc3492">RFC 3492</a>.</para></note><para>If you specify the <c>Source</c> parameter and have feedback forwarding enabled, then
+        /// bounces and complaints are sent to this email address. This takes precedence over
+        /// any Return-Path header that you might include in the raw text of the message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -221,13 +220,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>
         /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
         /// that is associated with the sending authorization policy that permits you to send
-        /// for the email address specified in the <code>Source</code> parameter.</para><para>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>)
-        /// attaches a policy to it that authorizes you to send from <code>user@example.com</code>,
-        /// then you would specify the <code>SourceArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>,
-        /// and the <code>Source</code> to be <code>user@example.com</code>.</para><para>Instead of using this parameter, you can use the X-header <code>X-SES-SOURCE-ARN</code>
-        /// in the raw message of the email. If you use both the <code>SourceArn</code> parameter
-        /// and the corresponding X-header, Amazon SES uses the value of the <code>SourceArn</code>
-        /// parameter.</para><note><para>For information about when to use this parameter, see the description of <code>SendRawEmail</code>
+        /// for the email address specified in the <c>Source</c> parameter.</para><para>For example, if the owner of <c>example.com</c> (which has ARN <c>arn:aws:ses:us-east-1:123456789012:identity/example.com</c>)
+        /// attaches a policy to it that authorizes you to send from <c>user@example.com</c>,
+        /// then you would specify the <c>SourceArn</c> to be <c>arn:aws:ses:us-east-1:123456789012:identity/example.com</c>,
+        /// and the <c>Source</c> to be <c>user@example.com</c>.</para><para>Instead of using this parameter, you can use the X-header <c>X-SES-SOURCE-ARN</c>
+        /// in the raw message of the email. If you use both the <c>SourceArn</c> parameter and
+        /// the corresponding X-header, Amazon SES uses the value of the <c>SourceArn</c> parameter.</para><note><para>For information about when to use this parameter, see the description of <c>SendRawEmail</c>
         /// in this guide, or see the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization-delegate-sender-tasks-email.html">Amazon
         /// SES Developer Guide</a>.</para></note>
         /// </para>
@@ -240,8 +238,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>A list of tags, in the form of name/value pairs, to apply to an email that you send
-        /// using <code>SendRawEmail</code>. Tags correspond to characteristics of the email that
-        /// you define, so that you can publish email sending events.</para>
+        /// using <c>SendRawEmail</c>. Tags correspond to characteristics of the email that you
+        /// define, so that you can publish email sending events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

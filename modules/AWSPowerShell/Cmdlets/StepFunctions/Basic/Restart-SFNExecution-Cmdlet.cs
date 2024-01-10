@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// <para>
     /// For workflows that include an <a href="https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-map-state.html">Inline
     /// Map</a> or <a href="https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-parallel-state.html">Parallel</a>
-    /// state, <code>RedriveExecution</code> API action reschedules and redrives only the
-    /// iterations and branches that failed or aborted.
+    /// state, <c>RedriveExecution</c> API action reschedules and redrives only the iterations
+    /// and branches that failed or aborted.
     /// </para><para>
     /// To redrive a workflow that includes a Distributed Map state whose Map Run failed,
     /// you must redrive the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/use-dist-map-orchestrate-large-scale-parallel-workloads.html#dist-map-orchestrate-parallel-workloads-key-terms">parent
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// a failed Map Run. If a Map Run was not started in the original execution attempt,
     /// the redriven parent workflow starts the Map Run.
     /// </para><note><para>
-    /// This API action is not supported by <code>EXPRESS</code> state machines.
+    /// This API action is not supported by <c>EXPRESS</c> state machines.
     /// </para><para>
     /// However, you can restart the unsuccessful executions of Express child workflows in
     /// a Distributed Map by redriving its Map Run. When you redrive a Map Run, the Express
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </para></note><para>
     /// You can redrive executions if your original execution meets the following conditions:
     /// </para><ul><li><para>
-    /// The execution status isn't <code>SUCCEEDED</code>.
+    /// The execution status isn't <c>SUCCEEDED</c>.
     /// </para></li><li><para>
     /// Your workflow execution has not exceeded the redrivable period of 14 days. Redrivable
     /// period refers to the time during which you can redrive a given execution. This period
@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </para></li><li><para>
     /// The execution event history count is less than 24,999. Redriven executions append
     /// their event history to the existing event history. Make sure your workflow execution
-    /// contains less than 24,999 events to accommodate the <code>ExecutionRedriven</code>
-    /// history event and at least one other history event.
+    /// contains less than 24,999 events to accommodate the <c>ExecutionRedriven</c> history
+    /// event and at least one other history event.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Restart", "SFNExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// for regional and global use. 
     /// </para></note><para>
     /// Returns an array of IP addresses currently being blocked by the <a>RateBasedRule</a>
-    /// that is specified by the <code>RuleId</code>. The maximum number of managed keys that
-    /// will be blocked is 10,000. If more than 10,000 addresses exceed the rate limit, the
-    /// 10,000 addresses with the highest rates will be blocked.
+    /// that is specified by the <c>RuleId</c>. The maximum number of managed keys that will
+    /// be blocked is 10,000. If more than 10,000 addresses exceed the rate limit, the 10,000
+    /// addresses with the highest rates will be blocked.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "WAFRRateBasedRuleManagedKey")]
@@ -56,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter RuleId
         /// <summary>
         /// <para>
-        /// <para>The <code>RuleId</code> of the <a>RateBasedRule</a> for which you want to get a list
-        /// of <code>ManagedKeys</code>. <code>RuleId</code> is returned by <a>CreateRateBasedRule</a>
-        /// and by <a>ListRateBasedRules</a>.</para>
+        /// <para>The <c>RuleId</c> of the <a>RateBasedRule</a> for which you want to get a list of
+        /// <c>ManagedKeys</c>. <c>RuleId</c> is returned by <a>CreateRateBasedRule</a> and by
+        /// <a>ListRateBasedRules</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

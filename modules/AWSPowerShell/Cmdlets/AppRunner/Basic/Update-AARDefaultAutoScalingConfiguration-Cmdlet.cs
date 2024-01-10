@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you
         /// want to set as the default.</para><para>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with
-        /// either <code>.../<i>name</i></code> or <code>.../<i>name</i>/<i>revision</i></code>.
-        /// If a revision isn't specified, the latest active revision is set as the default.</para>
+        /// either <c>.../<i>name</i></c> or <c>.../<i>name</i>/<i>revision</i></c>. If a revision
+        /// isn't specified, the latest active revision is set as the default.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

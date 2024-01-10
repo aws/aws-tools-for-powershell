@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter ServiceArn
         /// <summary>
         /// <para>
-        /// <para> The ARN that identifies the Amazon ECS service. </para><para> The following is the format of the ARN: </para><para><code>arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name</code></para>
+        /// <para> The ARN that identifies the Amazon ECS service. </para><para> The following is the format of the ARN: </para><para><c>arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

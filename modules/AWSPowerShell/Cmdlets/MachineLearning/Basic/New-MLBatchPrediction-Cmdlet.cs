@@ -29,19 +29,19 @@ namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
     /// Generates predictions for a group of observations. The observations to process exist
-    /// in one or more data files referenced by a <code>DataSource</code>. This operation
-    /// creates a new <code>BatchPrediction</code>, and uses an <code>MLModel</code> and the
-    /// data files referenced by the <code>DataSource</code> as information sources. 
+    /// in one or more data files referenced by a <c>DataSource</c>. This operation creates
+    /// a new <c>BatchPrediction</c>, and uses an <c>MLModel</c> and the data files referenced
+    /// by the <c>DataSource</c> as information sources. 
     /// 
     ///  
-    /// <para><code>CreateBatchPrediction</code> is an asynchronous operation. In response to <code>CreateBatchPrediction</code>,
-    /// Amazon Machine Learning (Amazon ML) immediately returns and sets the <code>BatchPrediction</code>
-    /// status to <code>PENDING</code>. After the <code>BatchPrediction</code> completes,
-    /// Amazon ML sets the status to <code>COMPLETED</code>. 
+    /// <para><c>CreateBatchPrediction</c> is an asynchronous operation. In response to <c>CreateBatchPrediction</c>,
+    /// Amazon Machine Learning (Amazon ML) immediately returns and sets the <c>BatchPrediction</c>
+    /// status to <c>PENDING</c>. After the <c>BatchPrediction</c> completes, Amazon ML sets
+    /// the status to <c>COMPLETED</c>. 
     /// </para><para>
     /// You can poll for status updates by using the <a>GetBatchPrediction</a> operation and
-    /// checking the <code>Status</code> parameter of the result. After the <code>COMPLETED</code>
-    /// status appears, the results are available in the location specified by the <code>OutputUri</code>
+    /// checking the <c>Status</c> parameter of the result. After the <c>COMPLETED</c> status
+    /// appears, the results are available in the location specified by the <c>OutputUri</c>
     /// parameter.
     /// </para>
     /// </summary>
@@ -60,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter BatchPredictionDataSourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the <code>DataSource</code> that points to the group of observations to
-        /// predict.</para>
+        /// <para>The ID of the <c>DataSource</c> that points to the group of observations to predict.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter BatchPredictionId
         /// <summary>
         /// <para>
-        /// <para>A user-supplied ID that uniquely identifies the <code>BatchPrediction</code>.</para>
+        /// <para>A user-supplied ID that uniquely identifies the <c>BatchPrediction</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter BatchPredictionName
         /// <summary>
         /// <para>
-        /// <para>A user-supplied name or description of the <code>BatchPrediction</code>. <code>BatchPredictionName</code>
+        /// <para>A user-supplied name or description of the <c>BatchPrediction</c>. <c>BatchPredictionName</c>
         /// can only use the UTF-8 character set.</para>
         /// </para>
         /// </summary>
@@ -107,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter MLModelId
         /// <summary>
         /// <para>
-        /// <para>The ID of the <code>MLModel</code> that will generate predictions for the group of
-        /// observations. </para>
+        /// <para>The ID of the <c>MLModel</c> that will generate predictions for the group of observations.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -128,8 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <para>
         /// <para>The location of an Amazon Simple Storage Service (Amazon S3) bucket or directory to
         /// store the batch prediction results. The following substrings are not allowed in the
-        /// <code>s3 key</code> portion of the <code>outputURI</code> field: ':', '//', '/./',
-        /// '/../'.</para><para>Amazon ML needs permissions to store and retrieve the logs on your behalf. For information
+        /// <c>s3 key</c> portion of the <c>outputURI</c> field: ':', '//', '/./', '/../'.</para><para>Amazon ML needs permissions to store and retrieve the logs on your behalf. For information
         /// about how to set permissions, see the <a href="https://docs.aws.amazon.com/machine-learning/latest/dg">Amazon
         /// Machine Learning Developer Guide</a>.</para>
         /// </para>

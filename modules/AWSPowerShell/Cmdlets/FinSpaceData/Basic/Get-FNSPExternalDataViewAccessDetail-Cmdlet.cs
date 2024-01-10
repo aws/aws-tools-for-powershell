@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     /// You must retrieve the programmatic credentials.
     /// </para></li><li><para>
     /// You must be a member of a FinSpace user group, where the dataset that you want to
-    /// access has <code>Read Dataset Data</code> permissions.
+    /// access has <c>Read Dataset Data</c> permissions.
     /// </para></li></ul><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "FNSPExternalDataViewAccessDetail")]

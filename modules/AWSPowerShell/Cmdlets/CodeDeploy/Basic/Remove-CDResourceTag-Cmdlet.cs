@@ -28,8 +28,8 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Disassociates a resource from a list of tags. The resource is identified by the <code>ResourceArn</code>
-    /// input parameter. The tags are identified by the list of keys in the <code>TagKeys</code>
+    /// Disassociates a resource from a list of tags. The resource is identified by the <c>ResourceArn</c>
+    /// input parameter. The tags are identified by the list of keys in the <c>TagKeys</c>
     /// input parameter.
     /// </summary>
     [Cmdlet("Remove", "CDResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) that specifies from which resource to disassociate
-        /// the tags with the keys in the <code>TagKeys</code> input parameter. </para>
+        /// the tags with the keys in the <c>TagKeys</c> input parameter. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,9 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para> A list of keys of <code>Tag</code> objects. The <code>Tag</code> objects identified
-        /// by the keys are disassociated from the resource specified by the <code>ResourceArn</code>
-        /// input parameter. </para>
+        /// <para> A list of keys of <c>Tag</c> objects. The <c>Tag</c> objects identified by the keys
+        /// are disassociated from the resource specified by the <c>ResourceArn</c> input parameter.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

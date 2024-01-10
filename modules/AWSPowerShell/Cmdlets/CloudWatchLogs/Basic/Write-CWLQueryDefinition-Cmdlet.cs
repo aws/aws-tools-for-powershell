@@ -34,15 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
-    /// To update a query definition, specify its <code>queryDefinitionId</code> in your request.
-    /// The values of <code>name</code>, <code>queryString</code>, and <code>logGroupNames</code>
-    /// are changed to the values that you specify in your update operation. No current values
-    /// are retained from the current query definition. For example, imagine updating a current
-    /// query definition that includes log groups. If you don't specify the <code>logGroupNames</code>
-    /// parameter in your update operation, the query definition changes to contain no log
-    /// groups.
+    /// To update a query definition, specify its <c>queryDefinitionId</c> in your request.
+    /// The values of <c>name</c>, <c>queryString</c>, and <c>logGroupNames</c> are changed
+    /// to the values that you specify in your update operation. No current values are retained
+    /// from the current query definition. For example, imagine updating a current query definition
+    /// that includes log groups. If you don't specify the <c>logGroupNames</c> parameter
+    /// in your update operation, the query definition changes to contain no log groups.
     /// </para><para>
-    /// You must have the <code>logs:PutQueryDefinition</code> permission to be able to perform
+    /// You must have the <c>logs:PutQueryDefinition</c> permission to be able to perform
     /// this operation.
     /// </para>
     /// </summary>
@@ -75,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>A name for the query definition. If you are saving numerous query definitions, we
         /// recommend that you name them. This way, you can find the ones you want by using the
-        /// first part of the name as a filter in the <code>queryDefinitionNamePrefix</code> parameter
+        /// first part of the name as a filter in the <c>queryDefinitionNamePrefix</c> parameter
         /// of <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a>.</para>
         /// </para>
         /// </summary>

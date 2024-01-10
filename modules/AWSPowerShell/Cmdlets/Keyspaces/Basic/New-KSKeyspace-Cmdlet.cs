@@ -28,12 +28,12 @@ using Amazon.Keyspaces.Model;
 namespace Amazon.PowerShell.Cmdlets.KS
 {
     /// <summary>
-    /// The <code>CreateKeyspace</code> operation adds a new keyspace to your account. In
-    /// an Amazon Web Services account, keyspace names must be unique within each Region.
+    /// The <c>CreateKeyspace</c> operation adds a new keyspace to your account. In an Amazon
+    /// Web Services account, keyspace names must be unique within each Region.
     /// 
     ///  
-    /// <para><code>CreateKeyspace</code> is an asynchronous operation. You can monitor the creation
-    /// status of the new keyspace by using the <code>GetKeyspace</code> operation.
+    /// <para><c>CreateKeyspace</c> is an asynchronous operation. You can monitor the creation
+    /// status of the new keyspace by using the <c>GetKeyspace</c> operation.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-keyspaces.html#keyspaces-create">Creating
     /// keyspaces</a> in the <i>Amazon Keyspaces Developer Guide</i>.
@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter ReplicationSpecification_RegionList
         /// <summary>
         /// <para>
-        /// <para> The <code>regionList</code> can contain up to six Amazon Web Services Regions where
-        /// the keyspace is replicated in. </para>
+        /// <para> The <c>regionList</c> can contain up to six Amazon Web Services Regions where the
+        /// keyspace is replicated in. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter ReplicationSpecification_ReplicationStrategy
         /// <summary>
         /// <para>
-        /// <para> The <code>replicationStrategy</code> of a keyspace, the required value is <code>SINGLE_REGION</code>
-        /// or <code>MULTI_REGION</code>. </para>
+        /// <para> The <c>replicationStrategy</c> of a keyspace, the required value is <c>SINGLE_REGION</c>
+        /// or <c>MULTI_REGION</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

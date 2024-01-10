@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The size unit that is used for the lookback window column. Valid values for this structure
-        /// are <code>HOUR</code>, <code>DAY</code>, and <code>WEEK</code>.</para>
+        /// are <c>HOUR</c>, <c>DAY</c>, and <c>WEEK</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

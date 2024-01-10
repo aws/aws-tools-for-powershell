@@ -58,9 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter FederationParameters_AttributeMap
         /// <summary>
         /// <para>
-        /// <para>SAML attribute name and value. The name must always be <code>Email</code> and the
-        /// value should be set to the attribute definition in which user email is set. For example,
-        /// name would be <code>Email</code> and value <code>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress</code>.
+        /// <para>SAML attribute name and value. The name must always be <c>Email</c> and the value
+        /// should be set to the attribute definition in which user email is set. For example,
+        /// name would be <c>Email</c> and value <c>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress</c>.
         /// Please check your SAML 2.0 compliant identity provider (IdP) documentation for details.</para>
         /// </para>
         /// </summary>
@@ -72,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// <summary>
         /// <para>
         /// <para>The list of Amazon Resource Names (ARN) of the data bundles to install. Currently
-        /// supported data bundle ARNs:</para><ul><li><para><code>arn:aws:finspace:${Region}::data-bundle/capital-markets-sample</code> - Contains
-        /// sample Capital Markets datasets, categories and controlled vocabularies.</para></li><li><para><code>arn:aws:finspace:${Region}::data-bundle/taq</code> (default) - Contains trades
-        /// and quotes data in addition to sample Capital Markets data.</para></li></ul>
+        /// supported data bundle ARNs:</para><ul><li><para><c>arn:aws:finspace:${Region}::data-bundle/capital-markets-sample</c> - Contains
+        /// sample Capital Markets datasets, categories and controlled vocabularies.</para></li><li><para><c>arn:aws:finspace:${Region}::data-bundle/taq</c> (default) - Contains trades and
+        /// quotes data in addition to sample Capital Markets data.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,9 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter FederationMode
         /// <summary>
         /// <para>
-        /// <para>Authentication mode for the environment.</para><ul><li><para><code>FEDERATED</code> - Users access FinSpace through Single Sign On (SSO) via your
-        /// Identity provider.</para></li><li><para><code>LOCAL</code> - Users access FinSpace via email and password managed within
-        /// the FinSpace environment.</para></li></ul>
+        /// <para>Authentication mode for the environment.</para><ul><li><para><c>FEDERATED</c> - Users access FinSpace through Single Sign On (SSO) via your Identity
+        /// provider.</para></li><li><para><c>LOCAL</c> - Users access FinSpace via email and password managed within the FinSpace
+        /// environment.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

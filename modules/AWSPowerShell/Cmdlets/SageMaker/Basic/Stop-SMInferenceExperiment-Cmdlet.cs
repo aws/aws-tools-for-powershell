@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DesiredModelVariant
         /// <summary>
         /// <para>
-        /// <para> An array of <code>ModelVariantConfig</code> objects. There is one for each variant
-        /// that you want to deploy after the inference experiment stops. Each <code>ModelVariantConfig</code>
+        /// <para> An array of <c>ModelVariantConfig</c> objects. There is one for each variant that
+        /// you want to deploy after the inference experiment stops. Each <c>ModelVariantConfig</c>
         /// describes the infrastructure configuration for deploying the corresponding variant.
         /// </para>
         /// </para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para> The desired state of the experiment after stopping. The possible states are the following:
-        /// </para><ul><li><para><code>Completed</code>: The experiment completed successfully</para></li><li><para><code>Cancelled</code>: The experiment was canceled</para></li></ul>
+        /// </para><ul><li><para><c>Completed</c>: The experiment completed successfully</para></li><li><para><c>Cancelled</c>: The experiment was canceled</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para> Array of key-value pairs, with names of variants mapped to actions. The possible
-        /// actions are the following: </para><ul><li><para><code>Promote</code> - Promote the shadow variant to a production variant</para></li><li><para><code>Remove</code> - Delete the variant</para></li><li><para><code>Retain</code> - Keep the variant as it is</para></li></ul>
+        /// actions are the following: </para><ul><li><para><c>Promote</c> - Promote the shadow variant to a production variant</para></li><li><para><c>Remove</c> - Delete the variant</para></li><li><para><c>Retain</c> - Keep the variant as it is</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

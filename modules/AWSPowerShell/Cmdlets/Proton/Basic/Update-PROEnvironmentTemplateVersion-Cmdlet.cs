@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter MajorVersion
         /// <summary>
         /// <para>
-        /// <para>To update a major version of an environment template, include <code>major Version</code>.</para>
+        /// <para>To update a major version of an environment template, include <c>major Version</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter MinorVersion
         /// <summary>
         /// <para>
-        /// <para>To update a minor version of an environment template, include <code>minorVersion</code>.</para>
+        /// <para>To update a minor version of an environment template, include <c>minorVersion</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

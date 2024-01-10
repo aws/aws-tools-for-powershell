@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     /// removes the behavior graph from each member account's list of behavior graphs.
     /// 
     ///  
-    /// <para><code>DeleteGraph</code> can only be called by the administrator account for a behavior
+    /// <para><c>DeleteGraph</c> can only be called by the administrator account for a behavior
     /// graph.
     /// </para>
     /// </summary>

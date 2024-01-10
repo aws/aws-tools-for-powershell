@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>For a paginated request. Specify a maximum number of application versions to include
-        /// in each response.</para><para>If no <code>MaxRecords</code> is specified, all available application versions are
-        /// retrieved in a single response.</para>
+        /// in each response.</para><para>If no <c>MaxRecords</c> is specified, all available application versions are retrieved
+        /// in a single response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para>For a paginated request. Specify a token from a previous response page to retrieve
         /// the next response page. All other parameter values must be identical to the ones specified
-        /// in the initial request.</para><para>If no <code>NextToken</code> is specified, the first page is retrieved.</para>
+        /// in the initial request.</para><para>If no <c>NextToken</c> is specified, the first page is retrieved.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

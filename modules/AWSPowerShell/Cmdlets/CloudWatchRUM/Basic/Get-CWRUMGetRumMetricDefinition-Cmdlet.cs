@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter Destination
         /// <summary>
         /// <para>
-        /// <para>The type of destination that you want to view metrics for. Valid values are <code>CloudWatch</code>
-        /// and <code>Evidently</code>.</para>
+        /// <para>The type of destination that you want to view metrics for. Valid values are <c>CloudWatch</c>
+        /// and <c>Evidently</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter DestinationArn
         /// <summary>
         /// <para>
-        /// <para>This parameter is required if <code>Destination</code> is <code>Evidently</code>.
-        /// If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter.</para><para>This parameter specifies the ARN of the Evidently experiment that corresponds to the
+        /// <para>This parameter is required if <c>Destination</c> is <c>Evidently</c>. If <c>Destination</c>
+        /// is <c>CloudWatch</c>, do not use this parameter.</para><para>This parameter specifies the ARN of the Evidently experiment that corresponds to the
         /// destination.</para>
         /// </para>
         /// </summary>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return in one operation. The default is 50. The maximum
-        /// that you can specify is 100.</para><para>To retrieve the remaining results, make another call with the returned <code>NextToken</code>
+        /// that you can specify is 100.</para><para>To retrieve the remaining results, make another call with the returned <c>NextToken</c>
         /// value. </para>
         /// </para>
         /// </summary>

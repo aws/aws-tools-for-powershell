@@ -36,10 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  <note><para>
     /// This operation only restores the DB cluster, not the DB instances for that DB cluster.
-    /// You must invoke the <code>CreateDBInstance</code> operation to create DB instances
-    /// for the restored DB cluster, specifying the identifier of the restored DB cluster
-    /// in <code>DBClusterIdentifier</code>. You can create DB instances only after the <code>RestoreDBClusterFromS3</code>
-    /// operation has completed and the DB cluster is available.
+    /// You must invoke the <c>CreateDBInstance</c> operation to create DB instances for the
+    /// restored DB cluster, specifying the identifier of the restored DB cluster in <c>DBClusterIdentifier</c>.
+    /// You can create DB instances only after the <c>RestoreDBClusterFromS3</c> operation
+    /// has completed and the DB cluster is available.
     /// </para></note><para>
     /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
     /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the DB cluster to create from the source data in the Amazon S3 bucket.
-        /// This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster1</code></para>
+        /// This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <c>my-cluster1</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>A DB subnet group to associate with the restored DB cluster.</para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <code>mydbsubnetgroup</code></para>
+        /// <para>A DB subnet group to associate with the restored DB cluster.</para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <c>mydbsubnetgroup</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,8 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The
-        /// values in the list depend on the DB engine being used.</para><para><b>Aurora MySQL</b></para><para>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>,
-        /// and <code>slowquery</code>.</para><para>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// values in the list depend on the DB engine being used.</para><para><b>Aurora MySQL</b></para><para>Possible values are <c>audit</c>, <c>error</c>, <c>general</c>, and <c>slowquery</c>.</para><para>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -230,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this DB cluster.</para><para>Valid Values: <code>aurora-mysql</code> (for Aurora MySQL)</para>
+        /// <para>The name of the database engine to be used for this DB cluster.</para><para>Valid Values: <c>aurora-mysql</c> (for Aurora MySQL)</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -247,8 +246,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to use.</para><para>To list all of the available engine versions for <code>aurora-mysql</code> (Aurora
-        /// MySQL), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code></para><para><b>Aurora MySQL</b></para><para>Examples: <code>5.7.mysql_aurora.2.12.0</code>, <code>8.0.mysql_aurora.3.04.0</code></para>
+        /// <para>The version number of the database engine to use.</para><para>To list all of the available engine versions for <c>aurora-mysql</c> (Aurora MySQL),
+        /// use the following command:</para><para><c>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</c></para><para><b>Aurora MySQL</b></para><para>Examples: <c>5.7.mysql_aurora.2.12.0</c>, <c>8.0.mysql_aurora.3.04.0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -261,9 +260,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The Amazon Web Services KMS key identifier for an encrypted DB cluster.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
         /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
         /// specify the key ARN or alias ARN.</para><para>If the StorageEncrypted parameter is enabled, and you do not specify a value for the
-        /// <code>KmsKeyId</code> parameter, then Amazon RDS will use your default KMS key. There
-        /// is a default KMS key for your Amazon Web Services account. Your Amazon Web Services
-        /// account has a different default KMS key for each Amazon Web Services Region.</para>
+        /// <c>KmsKeyId</c> parameter, then Amazon RDS will use your default KMS key. There is
+        /// a default KMS key for your Amazon Web Services account. Your Amazon Web Services account
+        /// has a different default KMS key for each Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -279,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html">Password
         /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon Aurora User
         /// Guide.</i></para><para>Constraints:</para><ul><li><para>Can't manage the master user password with Amazon Web Services Secrets Manager if
-        /// <code>MasterUserPassword</code> is specified.</para></li></ul>
+        /// <c>MasterUserPassword</c> is specified.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -307,7 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The password for the master database user. This password can contain any printable
-        /// ASCII character except "/", """, or "@".</para><para>Constraints:</para><ul><li><para>Must contain from 8 to 41 characters.</para></li><li><para>Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</para></li></ul>
+        /// ASCII character except "/", """, or "@".</para><para>Constraints:</para><ul><li><para>Must contain from 8 to 41 characters.</para></li><li><para>Can't be specified if <c>ManageMasterUserPassword</c> is turned on.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -321,10 +320,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// generated and managed in Amazon Web Services Secrets Manager.</para><para>This setting is valid only if the master user password is managed by RDS in Amazon
         /// Web Services Secrets Manager for the DB cluster.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
         /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
-        /// specify the key ARN or alias ARN.</para><para>If you don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code>
+        /// specify the key ARN or alias ARN.</para><para>If you don't specify <c>MasterUserSecretKmsKeyId</c>, then the <c>aws/secretsmanager</c>
         /// KMS key is used to encrypt the secret. If the secret is in a different Amazon Web
-        /// Services account, then you can't use the <code>aws/secretsmanager</code> KMS key to
-        /// encrypt the secret, and you must use a customer managed KMS key.</para><para>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services
+        /// Services account, then you can't use the <c>aws/secretsmanager</c> KMS key to encrypt
+        /// the secret, and you must use a customer managed KMS key.</para><para>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services
         /// account has a different default KMS key for each Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
@@ -359,9 +358,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>The network type of the DB cluster.</para><para>Valid Values:</para><ul><li><para><code>IPV4</code></para></li><li><para><code>DUAL</code></para></li></ul><para>The network type is determined by the <code>DBSubnetGroup</code> specified for the
-        /// DB cluster. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the
-        /// IPv4 and the IPv6 protocols (<code>DUAL</code>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+        /// <para>The network type of the DB cluster.</para><para>Valid Values:</para><ul><li><para><c>IPV4</c></para></li><li><para><c>DUAL</c></para></li></ul><para>The network type is determined by the <c>DBSubnetGroup</c> specified for the DB cluster.
+        /// A <c>DBSubnetGroup</c> can support only the IPv4 protocol or the IPv4 and the IPv6
+        /// protocols (<c>DUAL</c>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
         /// Working with a DB instance in a VPC</a> in the <i>Amazon Aurora User Guide.</i></para>
         /// </para>
         /// </summary>
@@ -384,7 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the instances in the restored DB cluster accept connections.</para><para>Default: <code>3306</code></para>
+        /// <para>The port number on which the instances in the restored DB cluster accept connections.</para><para>Default: <c>3306</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -395,9 +394,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The daily time range during which automated backups are created if automated backups
-        /// are enabled using the <code>BackupRetentionPeriod</code> parameter.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// are enabled using the <c>BackupRetentionPeriod</c> parameter.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Web Services Region. To view the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow">
-        /// Backup window</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// Backup window</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Constraints:</para><ul><li><para>Must be in the format <c>hh24:mi-hh24:mi</c>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -408,7 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
-        /// Time (UTC).</para><para>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// Time (UTC).</para><para>Format: <c>ddd:hh24:mi-ddd:hh24:mi</c></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Web Services Region, occurring on a random day of the week. To see
         /// the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
         /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para><para>Constraints: Minimum 30-minute window.</para>
@@ -470,7 +469,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The identifier for the database engine that was backed up to create the files stored
-        /// in the Amazon S3 bucket.</para><para>Valid Values: <code>mysql</code></para>
+        /// in the Amazon S3 bucket.</para><para>Valid Values: <c>mysql</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -487,7 +486,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceEngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the database that the backup files were created from.</para><para>MySQL versions 5.7 and 8.0 are supported.</para><para>Example: <code>5.7.40</code>, <code>8.0.28</code></para>
+        /// <para>The version of the database that the backup files were created from.</para><para>MySQL versions 5.7 and 8.0 are supported.</para><para>Example: <c>5.7.40</c>, <c>8.0.28</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -514,7 +513,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>Specifies the storage type to be associated with the DB cluster.</para><para>Valid Values: <code>aurora</code>, <code>aurora-iopt1</code></para><para>Default: <code>aurora</code></para><para>Valid for: Aurora DB clusters only</para>
+        /// <para>Specifies the storage type to be associated with the DB cluster.</para><para>Valid Values: <c>aurora</c>, <c>aurora-iopt1</c></para><para>Default: <c>aurora</c></para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

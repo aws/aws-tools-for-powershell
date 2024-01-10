@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter CatalogId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Data Catalog in which to create the <code>Table</code>. If none is supplied,
+        /// <para>The ID of the Data Catalog in which to create the <c>Table</c>. If none is supplied,
         /// the Amazon Web Services account ID is used by default.</para>
         /// </para>
         /// </summary>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter IcebergInput_MetadataOperation
         /// <summary>
         /// <para>
-        /// <para>A required metadata operation. Can only be set to <code>CREATE</code>.</para>
+        /// <para>A required metadata operation. Can only be set to <c>CREATE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,8 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter PartitionIndex
         /// <summary>
         /// <para>
-        /// <para>A list of partition indexes, <code>PartitionIndex</code> structures, to create in
-        /// the table.</para>
+        /// <para>A list of partition indexes, <c>PartitionIndex</c> structures, to create in the table.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,8 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter TableInput
         /// <summary>
         /// <para>
-        /// <para>The <code>TableInput</code> object that defines the metadata table to create in the
-        /// catalog.</para>
+        /// <para>The <c>TableInput</c> object that defines the metadata table to create in the catalog.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The name of the instance to promote to the primary instance.</para><para>You must specify the instance identifier for an Read Replica in the DB cluster. For
-        /// example, <code>mydbcluster-replica1</code>.</para>
+        /// example, <c>mydbcluster-replica1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

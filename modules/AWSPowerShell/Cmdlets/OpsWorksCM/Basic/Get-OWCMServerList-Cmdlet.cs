@@ -36,9 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// <para>
     ///  This operation is synchronous. 
     /// </para><para>
-    ///  A <code>ResourceNotFoundException</code> is thrown when the server does not exist.
-    /// A <code>ValidationException</code> is raised when parameters of the request are not
-    /// valid. 
+    ///  A <c>ResourceNotFoundException</c> is thrown when the server does not exist. A <c>ValidationException</c>
+    /// is raised when parameters of the request are not valid. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "OWCMServerList")]
@@ -68,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>This is not currently implemented for <code>DescribeServers</code> requests. </para>
+        /// <para>This is not currently implemented for <c>DescribeServers</c> requests. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -84,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>This is not currently implemented for <code>DescribeServers</code> requests. </para>
+        /// <para>This is not currently implemented for <c>DescribeServers</c> requests. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

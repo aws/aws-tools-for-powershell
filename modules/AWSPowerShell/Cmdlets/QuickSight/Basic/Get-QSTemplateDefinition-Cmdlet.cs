@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     ///  <note><para>
     /// If you do not need to know details about the content of a template, for instance if
     /// you are trying to check the status of a recently created or updated template, use
-    /// the <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeTemplate.html"><code>DescribeTemplate</code></a> instead. 
+    /// the <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeTemplate.html"><c>DescribeTemplate</c></a> instead. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "QSTemplateDefinition")]
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The alias of the template that you want to describe. If you name a specific alias,
         /// you describe the version that the alias points to. You can specify the latest version
-        /// of the template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
-        /// parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</para>
+        /// of the template by providing the keyword <c>$LATEST</c> in the <c>AliasName</c> parameter.
+        /// The keyword <c>$PUBLISHED</c> doesn't apply to templates.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

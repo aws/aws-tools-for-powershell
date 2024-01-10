@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter StorageTier
         /// <summary>
         /// <para>
-        /// <para>The name of the storage tier. You must specify <code>archive</code>.</para>
+        /// <para>The name of the storage tier. You must specify <c>archive</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

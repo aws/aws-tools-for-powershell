@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  <ul><li><para>
     /// Modify the affinity between an instance and a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
-    /// Host</a>. When affinity is set to <code>host</code> and the instance is not associated
-    /// with a specific Dedicated Host, the next time the instance is launched, it is automatically
+    /// Host</a>. When affinity is set to <c>host</c> and the instance is not associated with
+    /// a specific Dedicated Host, the next time the instance is launched, it is automatically
     /// associated with the host on which it lands. If the instance is restarted or rebooted,
     /// this relationship persists.
     /// </para></li><li><para>
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// be specified in the request. Affinity and tenancy can be modified in the same request.
     /// </para><para>
     /// To modify the host ID, tenancy, placement group, or partition for an instance, the
-    /// instance must be in the <code>stopped</code> state.
+    /// instance must be in the <c>stopped</c> state.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2InstancePlacement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -89,9 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The name of the placement group in which to place the instance. For spread placement
-        /// groups, the instance must have a tenancy of <code>default</code>. For cluster and
-        /// partition placement groups, the instance must have a tenancy of <code>default</code>
-        /// or <code>dedicated</code>.</para><para>To remove an instance from a placement group, specify an empty string ("").</para>
+        /// groups, the instance must have a tenancy of <c>default</c>. For cluster and partition
+        /// placement groups, the instance must have a tenancy of <c>default</c> or <c>dedicated</c>.</para><para>To remove an instance from a placement group, specify an empty string ("").</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ARN of the host resource group in which to place the instance. The instance must
-        /// have a tenancy of <code>host</code> to specify this parameter.</para>
+        /// have a tenancy of <c>host</c> to specify this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of the partition in which to place the instance. Valid only if the placement
-        /// group strategy is set to <code>partition</code>.</para>
+        /// group strategy is set to <c>partition</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,9 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The tenancy for the instance.</para><note><para>For T3 instances, you must launch the instance on a Dedicated Host to use a tenancy
-        /// of <code>host</code>. You can't change the tenancy from <code>host</code> to <code>dedicated</code>
-        /// or <code>default</code>. Attempting to make one of these unsupported tenancy changes
-        /// results in an <code>InvalidRequest</code> error code.</para></note>
+        /// of <c>host</c>. You can't change the tenancy from <c>host</c> to <c>dedicated</c>
+        /// or <c>default</c>. Attempting to make one of these unsupported tenancy changes results
+        /// in an <c>InvalidRequest</c> error code.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

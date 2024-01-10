@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <summary>
         /// <para>
         /// <para>The token for the next set of workspaces to return. (You receive this token from a
-        /// previous <code>ListWorkspaces</code> operation.)</para>
+        /// previous <c>ListWorkspaces</c> operation.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,20 +28,20 @@ using Amazon.KinesisVideo.Model;
 namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
-    /// Associates a <code>SignalingChannel</code> to a stream to store the media. There are
-    /// two signaling modes that you can specify :
+    /// Associates a <c>SignalingChannel</c> to a stream to store the media. There are two
+    /// signaling modes that you can specify :
     /// 
     ///  <ul><li><para>
-    /// If <code>StorageStatus</code> is enabled, the data will be stored in the <code>StreamARN</code>
+    /// If <c>StorageStatus</c> is enabled, the data will be stored in the <c>StreamARN</c>
     /// provided. In order for WebRTC Ingestion to work, the stream must have data retention
     /// enabled.
     /// </para></li><li><para>
-    /// If <code>StorageStatus</code> is disabled, no data will be stored, and the <code>StreamARN</code>
+    /// If <c>StorageStatus</c> is disabled, no data will be stored, and the <c>StreamARN</c>
     /// parameter will not be needed. 
     /// </para></li></ul><important><para>
-    /// If <code>StorageStatus</code> is enabled, direct peer-to-peer (master-viewer) connections
+    /// If <c>StorageStatus</c> is enabled, direct peer-to-peer (master-viewer) connections
     /// no longer occur. Peers connect directly to the storage session. You must call the
-    /// <code>JoinStorageSession</code> API to trigger an SDP offer send and establish a connection
+    /// <c>JoinStorageSession</c> API to trigger an SDP offer send and establish a connection
     /// between a peer and the storage session. 
     /// </para></important>
     /// </summary>

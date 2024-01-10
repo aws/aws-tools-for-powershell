@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The name for the dataset import job. We recommend including the current timestamp
-        /// in the name, for example, <code>20190721DatasetImport</code>. This can help you avoid
-        /// getting a <code>ResourceAlreadyExistsException</code> exception.</para>
+        /// in the name, for example, <c>20190721DatasetImport</c>. This can help you avoid getting
+        /// a <c>ResourceAlreadyExistsException</c> exception.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -122,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The format of the geolocation attribute. The geolocation attribute can be formatted
-        /// in one of two ways:</para><ul><li><para><code>LAT_LONG</code> - the latitude and longitude in decimal format (Example: 47.61_-122.33).</para></li><li><para><code>CC_POSTALCODE</code> (US Only) - the country code (US), followed by the 5-digit
-        /// ZIP code (Example: US_98121).</para></li></ul>
+        /// in one of two ways:</para><ul><li><para><c>LAT_LONG</c> - the latitude and longitude in decimal format (Example: 47.61_-122.33).</para></li><li><para><c>CC_POSTALCODE</c> (US Only) - the country code (US), followed by the 5-digit ZIP
+        /// code (Example: US_98121).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,10 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter ImportMode
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the dataset import job is a <code>FULL</code> or <code>INCREMENTAL</code>
-        /// import. A <code>FULL</code> dataset import replaces all of the existing data with
-        /// the newly imported data. An <code>INCREMENTAL</code> import appends the imported data
-        /// to the existing data.</para>
+        /// <para>Specifies whether the dataset import job is a <c>FULL</c> or <c>INCREMENTAL</c> import.
+        /// A <c>FULL</c> dataset import replaces all of the existing data with the newly imported
+        /// data. An <c>INCREMENTAL</c> import appends the imported data to the existing data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,9 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The ARN of the Identity and Access Management (IAM) role that Amazon Forecast can
-        /// assume to access the Amazon S3 bucket or files. If you provide a value for the <code>KMSKeyArn</code>
+        /// assume to access the Amazon S3 bucket or files. If you provide a value for the <c>KMSKeyArn</c>
         /// key, the role must allow access to the key.</para><para>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role
-        /// that isn't in your account, you get an <code>InvalidInputException</code> error.</para>
+        /// that isn't in your account, you get an <c>InvalidInputException</c> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -204,12 +203,12 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// value.</para></li><li><para>Maximum key length - 128 Unicode characters in UTF-8.</para></li><li><para>Maximum value length - 256 Unicode characters in UTF-8.</para></li><li><para>If your tagging schema is used across multiple services and resources, remember that
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
-        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot
-        /// edit or delete tag keys with this prefix. Values can have this prefix. If a tag value
-        /// has <code>aws</code> as its prefix but the key does not, then Forecast considers it
-        /// to be a user tag and will count against the limit of 50 tags. Tags with only the key
-        /// prefix of <code>aws</code> do not count against your tags per resource limit.</para></li></ul>
+        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use <c>aws:</c>, <c>AWS:</c>, or any upper or lowercase combination of such
+        /// as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit
+        /// or delete tag keys with this prefix. Values can have this prefix. If a tag value has
+        /// <c>aws</c> as its prefix but the key does not, then Forecast considers it to be a
+        /// user tag and will count against the limit of 50 tags. Tags with only the key prefix
+        /// of <c>aws</c> do not count against your tags per resource limit.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The format of timestamps in the dataset. The format that you specify depends on the
-        /// <code>DataFrequency</code> specified when the dataset was created. The following formats
+        /// <c>DataFrequency</c> specified when the dataset was created. The following formats
         /// are supported</para><ul><li><para>"yyyy-MM-dd"</para><para>For the following data frequencies: Y, M, W, and D</para></li><li><para>"yyyy-MM-dd HH:mm:ss"</para><para>For the following data frequencies: H, 30min, 15min, and 1min; and optionally, for:
         /// Y, M, W, and D</para></li></ul><para>If the format isn't specified, Amazon Forecast expects the format to be "yyyy-MM-dd
         /// HH:mm:ss".</para>

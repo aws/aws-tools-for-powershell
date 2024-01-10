@@ -41,11 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     /// You can only tag resources that are located in the specified Amazon Web Services Region
     /// for the calling Amazon Web Services account.
     /// </para></li></ul><para><b>Minimum permissions</b></para><para>
-    /// In addition to the <code>tag:UntagResources</code> permission required by this operation,
+    /// In addition to the <c>tag:UntagResources</c> permission required by this operation,
     /// you must also have the remove tags permission defined by the service that created
     /// the resource. For example, to remove the tags from an Amazon EC2 instance using the
-    /// <code>UntagResources</code> operation, you must have both of the following permissions:
-    /// </para><para><code>tag:UntagResource</code></para><para><code>ChimeSDKMeetings:DeleteTags</code></para>
+    /// <c>UntagResources</c> operation, you must have both of the following permissions:
+    /// </para><para><c>tag:UntagResource</c></para><para><c>ChimeSDKMeetings:DeleteTags</c></para>
     /// </summary>
     [Cmdlet("Remove", "CHMTGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

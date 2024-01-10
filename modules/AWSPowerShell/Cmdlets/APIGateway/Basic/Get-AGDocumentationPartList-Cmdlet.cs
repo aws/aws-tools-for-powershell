@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter LocationStatus
         /// <summary>
         /// <para>
-        /// <para>The status of the API documentation parts to retrieve. Valid values are <code>DOCUMENTED</code>
-        /// for retrieving DocumentationPart resources with content and <code>UNDOCUMENTED</code>
-        /// for DocumentationPart resources without content.</para>
+        /// <para>The status of the API documentation parts to retrieve. Valid values are <c>DOCUMENTED</c>
+        /// for retrieving DocumentationPart resources with content and <c>UNDOCUMENTED</c> for
+        /// DocumentationPart resources without content.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

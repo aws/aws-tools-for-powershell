@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter FolderType
         /// <summary>
         /// <para>
-        /// <para>The type of folder. By default, <code>folderType</code> is <code>SHARED</code>.</para>
+        /// <para>The type of folder. By default, <c>folderType</c> is <c>SHARED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ParentFolderArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the parent folder.</para><para><code>ParentFolderArn</code> can be null. An empty <code>parentFolderArn</code> creates
-        /// a root-level folder.</para>
+        /// <para>The Amazon Resource Name (ARN) for the parent folder.</para><para><c>ParentFolderArn</c> can be null. An empty <c>parentFolderArn</c> creates a root-level
+        /// folder.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A structure that describes the principals and the resource-level permissions of a
-        /// folder.</para><para>To specify no permissions, omit <code>Permissions</code>.</para>
+        /// folder.</para><para>To specify no permissions, omit <c>Permissions</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>An optional parameter that determines the sharing scope of the folder. The default
-        /// value for this parameter is <code>ACCOUNT</code>.</para>
+        /// value for this parameter is <c>ACCOUNT</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

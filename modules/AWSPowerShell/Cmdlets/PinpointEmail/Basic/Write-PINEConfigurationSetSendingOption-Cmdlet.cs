@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         #region Parameter SendingEnabled
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, email sending is enabled for the configuration set. If <code>false</code>,
+        /// <para>If <c>true</c>, email sending is enabled for the configuration set. If <c>false</c>,
         /// email sending is disabled for the configuration set.</para>
         /// </para>
         /// </summary>

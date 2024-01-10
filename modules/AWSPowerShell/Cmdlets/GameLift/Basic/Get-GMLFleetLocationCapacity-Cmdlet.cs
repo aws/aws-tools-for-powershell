@@ -32,14 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// the current capacity (number of EC2 instances) and some scaling settings for the requested
     /// fleet location. Use this operation to retrieve capacity information for a fleet's
     /// remote location or home Region (you can also retrieve home Region capacity by calling
-    /// <code>DescribeFleetCapacity</code>).
+    /// <c>DescribeFleetCapacity</c>).
     /// 
     ///  
     /// <para>
     /// To retrieve capacity data, identify a fleet and location. 
     /// </para><para>
-    /// If successful, a <code>FleetCapacity</code> object is returned for the requested fleet
-    /// location. 
+    /// If successful, a <c>FleetCapacity</c> object is returned for the requested fleet location.
+    /// 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up Amazon GameLift fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift
     /// metrics for fleets</a></para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The fleet location to retrieve capacity information for. Specify a location in the
-        /// form of an Amazon Web Services Region code, such as <code>us-west-2</code>.</para>
+        /// form of an Amazon Web Services Region code, such as <c>us-west-2</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

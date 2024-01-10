@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ResetPolicy
         /// <summary>
         /// <para>
-        /// <para>(Gateway endpoint) Specify <code>true</code> to reset the policy document to the default
+        /// <para>(Gateway endpoint) Specify <c>true</c> to reset the policy document to the default
         /// policy. The default policy allows full access to the service.</para>
         /// </para>
         /// </summary>

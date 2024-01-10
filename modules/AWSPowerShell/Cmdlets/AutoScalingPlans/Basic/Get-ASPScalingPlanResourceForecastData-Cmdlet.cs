@@ -71,11 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.ASP
         #region Parameter ForecastDataType
         /// <summary>
         /// <para>
-        /// <para>The type of forecast data to get.</para><ul><li><para><code>LoadForecast</code>: The load metric forecast. </para></li><li><para><code>CapacityForecast</code>: The capacity forecast. </para></li><li><para><code>ScheduledActionMinCapacity</code>: The minimum capacity for each scheduled
-        /// scaling action. This data is calculated as the larger of two values: the capacity
-        /// forecast or the minimum capacity in the scaling instruction.</para></li><li><para><code>ScheduledActionMaxCapacity</code>: The maximum capacity for each scheduled
-        /// scaling action. The calculation used is determined by the predictive scaling maximum
-        /// capacity behavior setting in the scaling instruction.</para></li></ul>
+        /// <para>The type of forecast data to get.</para><ul><li><para><c>LoadForecast</c>: The load metric forecast. </para></li><li><para><c>CapacityForecast</c>: The capacity forecast. </para></li><li><para><c>ScheduledActionMinCapacity</c>: The minimum capacity for each scheduled scaling
+        /// action. This data is calculated as the larger of two values: the capacity forecast
+        /// or the minimum capacity in the scaling instruction.</para></li><li><para><c>ScheduledActionMaxCapacity</c>: The maximum capacity for each scheduled scaling
+        /// action. The calculation used is determined by the predictive scaling maximum capacity
+        /// behavior setting in the scaling instruction.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,9 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.ASP
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource. This string consists of a prefix (<code>autoScalingGroup</code>)
-        /// followed by the name of a specified Auto Scaling group (<code>my-asg</code>). Example:
-        /// <code>autoScalingGroup/my-asg</code>. </para>
+        /// <para>The ID of the resource. This string consists of a prefix (<c>autoScalingGroup</c>)
+        /// followed by the name of a specified Auto Scaling group (<c>my-asg</c>). Example: <c>autoScalingGroup/my-asg</c>.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.ASP
         #region Parameter ScalableDimension
         /// <summary>
         /// <para>
-        /// <para>The scalable dimension for the resource. The only valid value is <code>autoscaling:autoScalingGroup:DesiredCapacity</code>.
+        /// <para>The scalable dimension for the resource. The only valid value is <c>autoscaling:autoScalingGroup:DesiredCapacity</c>.
         /// </para>
         /// </para>
         /// </summary>
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.ASP
         #region Parameter ScalingPlanVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the scaling plan. Currently, the only valid value is <code>1</code>.</para>
+        /// <para>The version number of the scaling plan. Currently, the only valid value is <c>1</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -162,8 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.ASP
         #region Parameter ServiceNamespace
         /// <summary>
         /// <para>
-        /// <para>The namespace of the AWS service. The only valid value is <code>autoscaling</code>.
-        /// </para>
+        /// <para>The namespace of the AWS service. The only valid value is <c>autoscaling</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

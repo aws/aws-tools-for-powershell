@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <summary>
         /// <para>
         /// <para>Specifies new statement content written in Cedar policy language to replace the current
-        /// body of the policy template.</para><para>You can change only the following elements of the policy body:</para><ul><li><para>The <code>action</code> referenced by the policy template.</para></li><li><para>Any conditional clauses, such as <code>when</code> or <code>unless</code> clauses.</para></li></ul><para>You <b>can't</b> change the following elements:</para><ul><li><para>The effect (<code>permit</code> or <code>forbid</code>) of the policy template.</para></li><li><para>The <code>principal</code> referenced by the policy template.</para></li><li><para>The <code>resource</code> referenced by the policy template.</para></li></ul>
+        /// body of the policy template.</para><para>You can change only the following elements of the policy body:</para><ul><li><para>The <c>action</c> referenced by the policy template.</para></li><li><para>Any conditional clauses, such as <c>when</c> or <c>unless</c> clauses.</para></li></ul><para>You <b>can't</b> change the following elements:</para><ul><li><para>The effect (<c>permit</c> or <c>forbid</c>) of the policy template.</para></li><li><para>The <c>principal</c> referenced by the policy template.</para></li><li><para>The <c>resource</c> referenced by the policy template.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

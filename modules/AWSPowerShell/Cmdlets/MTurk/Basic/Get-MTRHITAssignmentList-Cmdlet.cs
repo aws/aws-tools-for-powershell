@@ -28,8 +28,8 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>ListAssignmentsForHIT</code> operation retrieves completed assignments
-    /// for a HIT. You can use this operation to retrieve the results for a HIT. 
+    /// The <c>ListAssignmentsForHIT</c> operation retrieves completed assignments for a
+    /// HIT. You can use this operation to retrieve the results for a HIT. 
     /// 
     ///  
     /// <para>

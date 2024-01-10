@@ -50,13 +50,13 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// </para></li><li><para>
     /// CodePipeline
     /// </para></li><li><para>
-    /// Amazon EC2 <code>CreateSnapshot</code> API call
+    /// Amazon EC2 <c>CreateSnapshot</c> API call
     /// </para></li><li><para>
-    /// Amazon EC2 <code>RebootInstances</code> API call
+    /// Amazon EC2 <c>RebootInstances</c> API call
     /// </para></li><li><para>
-    /// Amazon EC2 <code>StopInstances</code> API call
+    /// Amazon EC2 <c>StopInstances</c> API call
     /// </para></li><li><para>
-    /// Amazon EC2 <code>TerminateInstances</code> API call
+    /// Amazon EC2 <c>TerminateInstances</c> API call
     /// </para></li><li><para>
     /// Amazon ECS tasks
     /// </para></li><li><para>
@@ -88,41 +88,39 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// Step Functions state machines
     /// </para></li></ul><para>
     /// Creating rules with built-in targets is supported only in the Amazon Web Services
-    /// Management Console. The built-in targets are <code>EC2 CreateSnapshot API call</code>,
-    /// <code>EC2 RebootInstances API call</code>, <code>EC2 StopInstances API call</code>,
-    /// and <code>EC2 TerminateInstances API call</code>. 
+    /// Management Console. The built-in targets are <c>EC2 CreateSnapshot API call</c>, <c>EC2
+    /// RebootInstances API call</c>, <c>EC2 StopInstances API call</c>, and <c>EC2 TerminateInstances
+    /// API call</c>. 
     /// </para><para>
-    /// For some target types, <code>PutTargets</code> provides target-specific parameters.
-    /// If the target is a Kinesis data stream, you can optionally specify which shard the
-    /// event goes to by using the <code>KinesisParameters</code> argument. To invoke a command
-    /// on multiple EC2 instances with one rule, you can use the <code>RunCommandParameters</code>
-    /// field.
+    /// For some target types, <c>PutTargets</c> provides target-specific parameters. If the
+    /// target is a Kinesis data stream, you can optionally specify which shard the event
+    /// goes to by using the <c>KinesisParameters</c> argument. To invoke a command on multiple
+    /// EC2 instances with one rule, you can use the <c>RunCommandParameters</c> field.
     /// </para><para>
     /// To be able to make API calls against the resources that you own, Amazon EventBridge
     /// needs the appropriate permissions. For Lambda and Amazon SNS resources, EventBridge
     /// relies on resource-based policies. For EC2 instances, Kinesis Data Streams, Step Functions
     /// state machines and API Gateway REST APIs, EventBridge relies on IAM roles that you
-    /// specify in the <code>RoleARN</code> argument in <code>PutTargets</code>. For more
-    /// information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html">Authentication
+    /// specify in the <c>RoleARN</c> argument in <c>PutTargets</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html">Authentication
     /// and Access Control</a> in the <i>Amazon EventBridge User Guide</i>.
     /// </para><para>
     /// If another Amazon Web Services account is in the same region and has granted you permission
-    /// (using <code>PutPermission</code>), you can send events to that account. Set that
-    /// account's event bus as a target of the rules in your account. To send the matched
-    /// events to the other account, specify that account's event bus as the <code>Arn</code>
-    /// value when you run <code>PutTargets</code>. If your account sends events to another
-    /// account, your account is charged for each sent event. Each event sent to another account
-    /// is charged as a custom event. The account receiving the event is not charged. For
-    /// more information, see <a href="http://aws.amazon.com/eventbridge/pricing/">Amazon
-    /// EventBridge Pricing</a>.
-    /// </para><note><para><code>Input</code>, <code>InputPath</code>, and <code>InputTransformer</code> are
-    /// not available with <code>PutTarget</code> if the target is an event bus of a different
-    /// Amazon Web Services account.
+    /// (using <c>PutPermission</c>), you can send events to that account. Set that account's
+    /// event bus as a target of the rules in your account. To send the matched events to
+    /// the other account, specify that account's event bus as the <c>Arn</c> value when you
+    /// run <c>PutTargets</c>. If your account sends events to another account, your account
+    /// is charged for each sent event. Each event sent to another account is charged as a
+    /// custom event. The account receiving the event is not charged. For more information,
+    /// see <a href="http://aws.amazon.com/eventbridge/pricing/">Amazon EventBridge Pricing</a>.
+    /// </para><note><para><c>Input</c>, <c>InputPath</c>, and <c>InputTransformer</c> are not available with
+    /// <c>PutTarget</c> if the target is an event bus of a different Amazon Web Services
+    /// account.
     /// </para></note><para>
     /// If you are setting the event bus of another account as the target, and that account
     /// granted permission to your account through an organization instead of directly by
-    /// the account ID, then you must specify a <code>RoleArn</code> with proper permissions
-    /// in the <code>Target</code> structure. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html">Sending
+    /// the account ID, then you must specify a <c>RoleArn</c> with proper permissions in
+    /// the <c>Target</c> structure. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html">Sending
     /// and Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge
     /// User Guide</i>.
     /// </para><para>
@@ -137,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// If <b>Input</b> is specified in the form of valid JSON, then the matched event is
     /// overridden with this constant.
     /// </para></li><li><para>
-    /// If <b>InputPath</b> is specified in the form of JSONPath (for example, <code>$.detail</code>),
+    /// If <b>InputPath</b> is specified in the form of JSONPath (for example, <c>$.detail</c>),
     /// then only the part of the event specified in the path is passed to the target (for
     /// example, only the detail part of the event is passed).
     /// </para></li><li><para>
@@ -145,16 +143,16 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// extracted from the event and used as values in a template that you specify as the
     /// input to the target.
     /// </para></li></ul><para>
-    /// When you specify <code>InputPath</code> or <code>InputTransformer</code>, you must
-    /// use JSON dot notation, not bracket notation.
+    /// When you specify <c>InputPath</c> or <c>InputTransformer</c>, you must use JSON dot
+    /// notation, not bracket notation.
     /// </para><para>
     /// When you add targets to a rule and the associated rule triggers soon after, new or
     /// updated targets might not be immediately invoked. Allow a short period of time for
     /// changes to take effect.
     /// </para><para>
     /// This action can partially fail if too many requests are made at the same time. If
-    /// that happens, <code>FailedEntryCount</code> is non-zero in the response and each entry
-    /// in <code>FailedEntries</code> provides the ID of the failed target and the error code.
+    /// that happens, <c>FailedEntryCount</c> is non-zero in the response and each entry in
+    /// <c>FailedEntries</c> provides the ID of the failed target and the error code.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWETarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

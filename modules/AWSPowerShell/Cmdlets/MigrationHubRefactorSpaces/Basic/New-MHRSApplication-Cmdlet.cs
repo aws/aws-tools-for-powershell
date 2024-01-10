@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     ///  
     /// <para>
     /// In environments created with a <a href="https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateEnvironment.html#migrationhubrefactorspaces-CreateEnvironment-request-NetworkFabricType">CreateEnvironment:NetworkFabricType</a>
-    /// of <code>NONE</code> you need to configure <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.html">
+    /// of <c>NONE</c> you need to configure <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.html">
     /// VPC to VPC connectivity</a> between your service VPC and the application proxy VPC
     /// to route traffic through the application proxy to a service with a private URL endpoint.
     /// For more information, see <a href="https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/getting-started-create-application.html">
@@ -63,12 +63,12 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         /// <summary>
         /// <para>
         /// <para>The type of endpoint to use for the API Gateway proxy. If no value is specified in
-        /// the request, the value is set to <code>REGIONAL</code> by default.</para><para>If the value is set to <code>PRIVATE</code> in the request, this creates a private
-        /// API endpoint that is isolated from the public internet. The private endpoint can only
-        /// be accessed by using Amazon Virtual Private Cloud (Amazon VPC) interface endpoints
-        /// for the Amazon API Gateway that has been granted access. For more information about
-        /// creating a private connection with Refactor Spaces and interface endpoint (Amazon
-        /// Web Services PrivateLink) availability, see <a href="https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/vpc-interface-endpoints.html">Access
+        /// the request, the value is set to <c>REGIONAL</c> by default.</para><para>If the value is set to <c>PRIVATE</c> in the request, this creates a private API endpoint
+        /// that is isolated from the public internet. The private endpoint can only be accessed
+        /// by using Amazon Virtual Private Cloud (Amazon VPC) interface endpoints for the Amazon
+        /// API Gateway that has been granted access. For more information about creating a private
+        /// connection with Refactor Spaces and interface endpoint (Amazon Web Services PrivateLink)
+        /// availability, see <a href="https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/vpc-interface-endpoints.html">Access
         /// Refactor Spaces using an interface endpoint (Amazon Web Services PrivateLink)</a>.</para>
         /// </para>
         /// </summary>
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         #region Parameter ApiGatewayProxy_StageName
         /// <summary>
         /// <para>
-        /// <para>The name of the API Gateway stage. The name defaults to <code>prod</code>. </para>
+        /// <para>The name of the API Gateway stage. The name defaults to <c>prod</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

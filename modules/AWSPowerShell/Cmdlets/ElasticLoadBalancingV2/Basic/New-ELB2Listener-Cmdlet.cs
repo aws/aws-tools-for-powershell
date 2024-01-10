@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
-        /// You can specify one policy name. The following are the possible values:</para><ul><li><para><code>HTTP1Only</code></para></li><li><para><code>HTTP2Only</code></para></li><li><para><code>HTTP2Optional</code></para></li><li><para><code>HTTP2Preferred</code></para></li><li><para><code>None</code></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies">ALPN
+        /// You can specify one policy name. The following are the possible values:</para><ul><li><para><c>HTTP1Only</c></para></li><li><para><c>HTTP2Only</c></para></li><li><para><c>HTTP2Optional</c></para></li><li><para><c>HTTP2Preferred</c></para></li><li><para><c>None</c></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies">ALPN
         /// policies</a> in the <i>Network Load Balancers Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>[HTTPS and TLS listeners] The default certificate for the listener. You must provide
-        /// exactly one certificate. Set <code>CertificateArn</code> to the certificate ARN but
-        /// do not set <code>IsDefault</code>.</para>
+        /// exactly one certificate. Set <c>CertificateArn</c> to the certificate ARN but do not
+        /// set <c>IsDefault</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter MutualAuthentication_Mode
         /// <summary>
         /// <para>
-        /// <para>The client certificate handling method. Options are <code>off</code>, <code>passthrough</code>
-        /// or <code>verify</code>. The default value is <code>off</code>.</para>
+        /// <para>The client certificate handling method. Options are <c>off</c>, <c>passthrough</c>
+        /// or <c>verify</c>. The default value is <c>off</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         #region Parameter RetentionPeriod_RetentionPeriodUnit
         /// <summary>
         /// <para>
-        /// <para>The unit of time in which the retention period is measured. Currently, only <code>DAYS</code>
+        /// <para>The unit of time in which the retention period is measured. Currently, only <c>DAYS</c>
         /// is supported.</para>
         /// </para>
         /// </summary>

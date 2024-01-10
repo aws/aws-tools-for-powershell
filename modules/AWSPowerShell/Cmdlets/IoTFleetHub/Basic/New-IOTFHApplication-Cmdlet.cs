@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTFH
         /// <summary>
         /// <para>
         /// <para>The ARN of the role that the web application assumes when it interacts with AWS IoT
-        /// Core.</para><note><para>The name of the role must be in the form <code>AWSIotFleetHub_<i>random_string</i></code>.</para></note>
+        /// Core.</para><note><para>The name of the role must be in the form <c>AWSIotFleetHub_<i>random_string</i></c>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

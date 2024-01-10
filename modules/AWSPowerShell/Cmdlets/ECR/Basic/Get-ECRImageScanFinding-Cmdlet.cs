@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter ImageId_ImageDigest
         /// <summary>
         /// <para>
-        /// <para>The <code>sha256</code> digest of the image manifest.</para>
+        /// <para>The <c>sha256</c> digest of the image manifest.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,13 +93,13 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of image scan results returned by <code>DescribeImageScanFindings</code>
-        /// in paginated output. When this parameter is used, <code>DescribeImageScanFindings</code>
-        /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
+        /// <para>The maximum number of image scan results returned by <c>DescribeImageScanFindings</c>
+        /// in paginated output. When this parameter is used, <c>DescribeImageScanFindings</c>
+        /// only returns <c>maxResults</c> results in a single page along with a <c>nextToken</c>
         /// response element. The remaining results of the initial request can be seen by sending
-        /// another <code>DescribeImageScanFindings</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 1000. If this parameter is not used, then <code>DescribeImageScanFindings</code>
-        /// returns up to 100 results and a <code>nextToken</code> value, if applicable.</para>
+        /// another <c>DescribeImageScanFindings</c> request with the returned <c>nextToken</c>
+        /// value. This value can be between 1 and 1000. If this parameter is not used, then <c>DescribeImageScanFindings</c>
+        /// returns up to 100 results and a <c>nextToken</c> value, if applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,11 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>DescribeImageScanFindings</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. This value is null when there are no more
-        /// results to return.</para>
+        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>DescribeImageScanFindings</c>
+        /// request where <c>maxResults</c> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <c>nextToken</c> value. This value is null when there are no more results to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.ECR module, this parameter is only used if you are manually controlling output pagination of the service API call.

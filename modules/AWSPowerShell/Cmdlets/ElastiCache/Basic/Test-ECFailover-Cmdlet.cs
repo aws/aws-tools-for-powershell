@@ -28,9 +28,9 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Represents the input of a <code>TestFailover</code> operation which test automatic
-    /// failover on a specified node group (called shard in the console) in a replication
-    /// group (called cluster in the console).
+    /// Represents the input of a <c>TestFailover</c> operation which test automatic failover
+    /// on a specified node group (called shard in the console) in a replication group (called
+    /// cluster in the console).
     /// 
     ///  
     /// <para>
@@ -53,13 +53,13 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// Amazon ElastiCache console, the Amazon CLI, or the ElastiCache API. Look for the following
     /// automatic failover related events, listed here in order of occurrance:
     /// </para><ol><li><para>
-    /// Replication group message: <code>Test Failover API called for node group &lt;node-group-id&gt;</code></para></li><li><para>
-    /// Cache cluster message: <code>Failover from primary node &lt;primary-node-id&gt; to
-    /// replica node &lt;node-id&gt; completed</code></para></li><li><para>
-    /// Replication group message: <code>Failover from primary node &lt;primary-node-id&gt;
-    /// to replica node &lt;node-id&gt; completed</code></para></li><li><para>
-    /// Cache cluster message: <code>Recovering cache nodes &lt;node-id&gt;</code></para></li><li><para>
-    /// Cache cluster message: <code>Finished recovery for cache nodes &lt;node-id&gt;</code></para></li></ol><para>
+    /// Replication group message: <c>Test Failover API called for node group &lt;node-group-id&gt;</c></para></li><li><para>
+    /// Cache cluster message: <c>Failover from primary node &lt;primary-node-id&gt; to replica
+    /// node &lt;node-id&gt; completed</c></para></li><li><para>
+    /// Replication group message: <c>Failover from primary node &lt;primary-node-id&gt; to
+    /// replica node &lt;node-id&gt; completed</c></para></li><li><para>
+    /// Cache cluster message: <c>Recovering cache nodes &lt;node-id&gt;</c></para></li><li><para>
+    /// Cache cluster message: <c>Finished recovery for cache nodes &lt;node-id&gt;</c></para></li></ol><para>
     /// For more information see:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ECEvents.Viewing.html">Viewing
     /// ElastiCache Events</a> in the <i>ElastiCache User Guide</i></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a>

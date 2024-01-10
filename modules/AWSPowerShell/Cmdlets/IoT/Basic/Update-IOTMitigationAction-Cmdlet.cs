@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The action that you want to apply to the CA certificate. The only supported value
-        /// is <code>DEACTIVATE</code>.</para>
+        /// is <c>DEACTIVATE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The action that you want to apply to the device certificate. The only supported value
-        /// is <code>DEACTIVATE</code>.</para>
+        /// is <c>DEACTIVATE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter ActionName
         /// <summary>
         /// <para>
-        /// <para>The friendly name for the mitigation action. You cannot change the name by using <code>UpdateMitigationAction</code>.
+        /// <para>The friendly name for the mitigation action. You cannot change the name by using <c>UpdateMitigationAction</c>.
         /// Instead, you must delete and recreate the mitigation action with the new name.</para>
         /// </para>
         /// </summary>
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter ReplaceDefaultPolicyVersionParams_TemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the template to be applied. The only supported value is <code>BLANK_POLICY</code>.</para>
+        /// <para>The name of the template to be applied. The only supported value is <c>BLANK_POLICY</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

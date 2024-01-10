@@ -30,10 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <summary>
     /// <note><para>
     /// This API operation is superseded by <a>AttachTrafficSources</a>, which can attach
-    /// multiple traffic sources types. We recommend using <code>AttachTrafficSources</code>
-    /// to simplify how you manage traffic sources. However, we continue to support <code>AttachLoadBalancerTargetGroups</code>.
-    /// You can use both the original <code>AttachLoadBalancerTargetGroups</code> API operation
-    /// and <code>AttachTrafficSources</code> on the same Auto Scaling group.
+    /// multiple traffic sources types. We recommend using <c>AttachTrafficSources</c> to
+    /// simplify how you manage traffic sources. However, we continue to support <c>AttachLoadBalancerTargetGroups</c>.
+    /// You can use both the original <c>AttachLoadBalancerTargetGroups</c> API operation
+    /// and <c>AttachTrafficSources</c> on the same Auto Scaling group.
     /// </para></note><para>
     /// Attaches one or more target groups to the specified Auto Scaling group.
     /// </para><para>

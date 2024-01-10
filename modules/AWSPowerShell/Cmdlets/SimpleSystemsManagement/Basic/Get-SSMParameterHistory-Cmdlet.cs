@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     ///  <important><para>
     /// If you change the KMS key alias for the KMS key used to encrypt a parameter, then
     /// you must also update the key alias the parameter uses to reference KMS. Otherwise,
-    /// <code>GetParameterHistory</code> retrieves whatever the original key alias was referencing.
+    /// <c>GetParameterHistory</c> retrieves whatever the original key alias was referencing.
     /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMParameterHistory")]
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter WithDecryption
         /// <summary>
         /// <para>
-        /// <para>Return decrypted values for secure string parameters. This flag is ignored for <code>String</code>
-        /// and <code>StringList</code> parameter types.</para>
+        /// <para>Return decrypted values for secure string parameters. This flag is ignored for <c>String</c>
+        /// and <c>StringList</c> parameter types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Deletes an analytics configuration for the bucket (specified by the analytics configuration
     /// ID).
     /// </para><para>
-    /// To use this operation, you must have permissions to perform the <code>s3:PutAnalyticsConfiguration</code>
+    /// To use this operation, you must have permissions to perform the <c>s3:PutAnalyticsConfiguration</c>
     /// action. The bucket owner has this permission by default. The bucket owner can grant
     /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For information about the Amazon S3 analytics feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html">Amazon
     /// S3 Analytics – Storage Class Analysis</a>. 
     /// </para><para>
-    /// The following operations are related to <code>DeleteBucketAnalyticsConfiguration</code>:
+    /// The following operations are related to <c>DeleteBucketAnalyticsConfiguration</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAnalyticsConfiguration.html">GetBucketAnalyticsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketAnalyticsConfigurations.html">ListBucketAnalyticsConfigurations</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html">PutBucketAnalyticsConfiguration</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3BucketAnalyticsConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

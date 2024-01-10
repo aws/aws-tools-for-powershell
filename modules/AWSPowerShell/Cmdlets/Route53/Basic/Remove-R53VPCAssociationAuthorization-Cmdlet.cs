@@ -28,17 +28,17 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Removes authorization to submit an <code>AssociateVPCWithHostedZone</code> request
-    /// to associate a specified VPC with a hosted zone that was created by a different account.
-    /// You must use the account that created the hosted zone to submit a <code>DeleteVPCAssociationAuthorization</code>
+    /// Removes authorization to submit an <c>AssociateVPCWithHostedZone</c> request to associate
+    /// a specified VPC with a hosted zone that was created by a different account. You must
+    /// use the account that created the hosted zone to submit a <c>DeleteVPCAssociationAuthorization</c>
     /// request.
     /// 
     ///  <important><para>
     /// Sending this request only prevents the Amazon Web Services account that created the
     /// VPC from associating the VPC with the Amazon Route 53 hosted zone in the future. If
-    /// the VPC is already associated with the hosted zone, <code>DeleteVPCAssociationAuthorization</code>
+    /// the VPC is already associated with the hosted zone, <c>DeleteVPCAssociationAuthorization</c>
     /// won't disassociate the VPC from the hosted zone. If you want to delete an existing
-    /// association, use <code>DisassociateVPCFromHostedZone</code>.
+    /// association, use <c>DisassociateVPCFromHostedZone</c>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "R53VPCAssociationAuthorization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

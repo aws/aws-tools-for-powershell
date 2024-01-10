@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ForceDelete
         /// <summary>
         /// <para>
-        /// <para>Specify <code>true</code> to force delete the event window. Use the force delete parameter
+        /// <para>Specify <c>true</c> to force delete the event window. Use the force delete parameter
         /// if the event window is currently associated with targets.</para>
         /// </para>
         /// </summary>

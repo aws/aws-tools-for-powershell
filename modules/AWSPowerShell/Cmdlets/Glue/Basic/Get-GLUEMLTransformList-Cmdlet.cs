@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// learning transforms are a special type of transform that use machine learning to learn
     /// the details of the transformation to be performed by learning from examples provided
     /// by humans. These transformations are then saved by Glue, and you can retrieve their
-    /// metadata by calling <code>GetMLTransforms</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// metadata by calling <c>GetMLTransforms</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GLUEMLTransformList")]
     [OutputType("Amazon.Glue.Model.MLTransform")]
@@ -124,10 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Filter_Schema
         /// <summary>
         /// <para>
-        /// <para>Filters on datasets with a specific schema. The <code>Map&lt;Column, Type&gt;</code>
-        /// object is an array of key-value pairs representing the schema this transform accepts,
-        /// where <code>Column</code> is the name of a column, and <code>Type</code> is the type
-        /// of the data such as an integer or string. Has an upper bound of 100 columns.</para>
+        /// <para>Filters on datasets with a specific schema. The <c>Map&lt;Column, Type&gt;</c> object
+        /// is an array of key-value pairs representing the schema this transform accepts, where
+        /// <c>Column</c> is the name of a column, and <c>Type</c> is the type of the data such
+        /// as an integer or string. Has an upper bound of 100 columns.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

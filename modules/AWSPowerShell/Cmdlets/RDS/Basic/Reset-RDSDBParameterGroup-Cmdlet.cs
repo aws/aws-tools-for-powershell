@@ -29,12 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Modifies the parameters of a DB parameter group to the engine/system default value.
-    /// To reset specific parameters, provide a list of the following: <code>ParameterName</code>
-    /// and <code>ApplyMethod</code>. To reset the entire DB parameter group, specify the
-    /// <code>DBParameterGroup</code> name and <code>ResetAllParameters</code> parameters.
-    /// When resetting the entire group, dynamic parameters are updated immediately and static
-    /// parameters are set to <code>pending-reboot</code> to take effect on the next DB instance
-    /// restart or <code>RebootDBInstance</code> request.
+    /// To reset specific parameters, provide a list of the following: <c>ParameterName</c>
+    /// and <c>ApplyMethod</c>. To reset the entire DB parameter group, specify the <c>DBParameterGroup</c>
+    /// name and <c>ResetAllParameters</c> parameters. When resetting the entire group, dynamic
+    /// parameters are updated immediately and static parameters are set to <c>pending-reboot</c>
+    /// to take effect on the next DB instance restart or <c>RebootDBInstance</c> request.
     /// </summary>
     [Cmdlet("Reset", "RDSDBParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -51,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB parameter group.</para><para>Constraints:</para><ul><li><para>Must match the name of an existing <code>DBParameterGroup</code>.</para></li></ul>
+        /// <para>The name of the DB parameter group.</para><para>Constraints:</para><ul><li><para>Must match the name of an existing <c>DBParameterGroup</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,14 +67,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>To reset the entire DB parameter group, specify the <code>DBParameterGroup</code>
-        /// name and <code>ResetAllParameters</code> parameters. To reset specific parameters,
-        /// provide a list of the following: <code>ParameterName</code> and <code>ApplyMethod</code>.
-        /// A maximum of 20 parameters can be modified in a single request.</para><para><b>MySQL</b></para><para>Valid Values (for Apply method): <code>immediate</code> | <code>pending-reboot</code></para><para>You can use the immediate value with dynamic parameters only. You can use the <code>pending-reboot</code>
+        /// <para>To reset the entire DB parameter group, specify the <c>DBParameterGroup</c> name and
+        /// <c>ResetAllParameters</c> parameters. To reset specific parameters, provide a list
+        /// of the following: <c>ParameterName</c> and <c>ApplyMethod</c>. A maximum of 20 parameters
+        /// can be modified in a single request.</para><para><b>MySQL</b></para><para>Valid Values (for Apply method): <c>immediate</c> | <c>pending-reboot</c></para><para>You can use the immediate value with dynamic parameters only. You can use the <c>pending-reboot</c>
         /// value for both dynamic and static parameters, and changes are applied when DB instance
-        /// reboots.</para><para><b>MariaDB</b></para><para>Valid Values (for Apply method): <code>immediate</code> | <code>pending-reboot</code></para><para>You can use the immediate value with dynamic parameters only. You can use the <code>pending-reboot</code>
+        /// reboots.</para><para><b>MariaDB</b></para><para>Valid Values (for Apply method): <c>immediate</c> | <c>pending-reboot</c></para><para>You can use the immediate value with dynamic parameters only. You can use the <c>pending-reboot</c>
         /// value for both dynamic and static parameters, and changes are applied when DB instance
-        /// reboots.</para><para><b>Oracle</b></para><para>Valid Values (for Apply method): <code>pending-reboot</code></para>
+        /// reboots.</para><para><b>Oracle</b></para><para>Valid Values (for Apply method): <c>pending-reboot</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

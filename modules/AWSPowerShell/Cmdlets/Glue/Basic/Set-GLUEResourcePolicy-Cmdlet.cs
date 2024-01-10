@@ -45,10 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter EnableHybrid
         /// <summary>
         /// <para>
-        /// <para>If <code>'TRUE'</code>, indicates that you are using both methods to grant cross-account
-        /// access to Data Catalog resources:</para><ul><li><para>By directly updating the resource policy with <code>PutResourePolicy</code></para></li><li><para>By using the <b>Grant permissions</b> command on the Amazon Web Services Management
-        /// Console.</para></li></ul><para>Must be set to <code>'TRUE'</code> if you have already used the Management Console
-        /// to grant cross-account access, otherwise the call fails. Default is 'FALSE'.</para>
+        /// <para>If <c>'TRUE'</c>, indicates that you are using both methods to grant cross-account
+        /// access to Data Catalog resources:</para><ul><li><para>By directly updating the resource policy with <c>PutResourePolicy</c></para></li><li><para>By using the <b>Grant permissions</b> command on the Amazon Web Services Management
+        /// Console.</para></li></ul><para>Must be set to <c>'TRUE'</c> if you have already used the Management Console to grant
+        /// cross-account access, otherwise the call fails. Default is 'FALSE'.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter PolicyExistsCondition
         /// <summary>
         /// <para>
-        /// <para>A value of <code>MUST_EXIST</code> is used to update a policy. A value of <code>NOT_EXIST</code>
-        /// is used to create a new policy. If a value of <code>NONE</code> or a null value is
-        /// used, the call does not depend on the existence of a policy.</para>
+        /// <para>A value of <c>MUST_EXIST</c> is used to update a policy. A value of <c>NOT_EXIST</c>
+        /// is used to create a new policy. If a value of <c>NONE</c> or a null value is used,
+        /// the call does not depend on the existence of a policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter PolicyHashCondition
         /// <summary>
         /// <para>
-        /// <para>The hash value returned when the previous policy was set using <code>PutResourcePolicy</code>.
+        /// <para>The hash value returned when the previous policy was set using <c>PutResourcePolicy</c>.
         /// Its purpose is to prevent concurrent modifications of a policy. Do not use this parameter
         /// if no previous policy has been set.</para>
         /// </para>

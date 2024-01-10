@@ -38,10 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// 
     ///  
     /// <para>
-    /// To use this operation, you must have the permission to perform the <code>s3:CreateStorageLensGroup</code>
+    /// To use this operation, you must have the permission to perform the <c>s3:CreateStorageLensGroup</c>
     /// action. If you’re trying to create a Storage Lens group with Amazon Web Services resource
-    /// tags, you must also have permission to perform the <code>s3:TagResource</code> action.
-    /// For more information about the required Storage Lens Groups permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting
+    /// tags, you must also have permission to perform the <c>s3:TagResource</c> action. For
+    /// more information about the required Storage Lens Groups permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting
     /// account permissions to use S3 Storage Lens groups</a>.
     /// </para><para>
     /// For information about Storage Lens groups errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList">List

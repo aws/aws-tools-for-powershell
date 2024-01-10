@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>Use this parameter to limit the returned policies to only the policies that match
-        /// the policy type that you specify. Currently, the only valid value is <code>DATA_PROTECTION_POLICY</code>.</para>
+        /// the policy type that you specify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para> To list jobs in chronological order by the date and time that they were submitted,
-        /// enter <code>true</code>. To list jobs in reverse chronological order, enter <code>false</code>.
+        /// enter <c>true</c>. To list jobs in reverse chronological order, enter <c>false</c>.
         /// </para>
         /// </para>
         /// </summary>
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para>To get information about all of the jobs associated with the current AWS account that
-        /// have a given status, specify the following status: <code>Submitted</code>, <code>Progressing</code>,
-        /// <code>Complete</code>, <code>Canceled</code>, or <code>Error</code>.</para>
+        /// have a given status, specify the following status: <c>Submitted</c>, <c>Progressing</c>,
+        /// <c>Complete</c>, <c>Canceled</c>, or <c>Error</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para> When Elastic Transcoder returns more than one page of results, use <code>pageToken</code>
-        /// in subsequent <code>GET</code> requests to get each successive page of results. </para>
+        /// <para> When Elastic Transcoder returns more than one page of results, use <c>pageToken</c>
+        /// in subsequent <c>GET</c> requests to get each successive page of results. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

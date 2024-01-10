@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Only returns packages that match the <code>DescribePackagesFilterList</code> values.</para>
+        /// <para>Only returns packages that match the <c>DescribePackagesFilterList</c> values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

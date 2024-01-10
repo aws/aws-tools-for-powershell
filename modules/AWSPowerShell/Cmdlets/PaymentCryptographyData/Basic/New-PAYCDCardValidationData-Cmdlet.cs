@@ -41,9 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// processing. To begin this operation, a CVK (Card Verification Key) encryption key
     /// is required. You can use <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a>
     /// or <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a>
-    /// to establish a CVK within Amazon Web Services Payment Cryptography. The <code>KeyModesOfUse</code>
-    /// should be set to <code>Generate</code> and <code>Verify</code> for a CVK encryption
-    /// key. 
+    /// to establish a CVK within Amazon Web Services Payment Cryptography. The <c>KeyModesOfUse</c>
+    /// should be set to <c>Generate</c> and <c>Verify</c> for a CVK encryption key. 
     /// </para><para>
     /// For information about valid keys for this operation, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding
     /// key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key
@@ -157,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter KeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>keyARN</code> of the CVK encryption key that Amazon Web Services Payment
-        /// Cryptography uses to generate card data.</para>
+        /// <para>The <c>keyARN</c> of the CVK encryption key that Amazon Web Services Payment Cryptography
+        /// uses to generate card data.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

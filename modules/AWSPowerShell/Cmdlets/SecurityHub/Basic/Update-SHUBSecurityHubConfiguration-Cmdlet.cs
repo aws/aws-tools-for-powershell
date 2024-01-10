@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>Whether to automatically enable new controls when they are added to standards that
-        /// are enabled.</para><para>By default, this is set to <code>true</code>, and new controls are enabled automatically.
-        /// To not automatically enable new controls, set this to <code>false</code>. </para>
+        /// are enabled.</para><para>By default, this is set to <c>true</c>, and new controls are enabled automatically.
+        /// To not automatically enable new controls, set this to <c>false</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -59,11 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>Updates whether the calling account has consolidated control findings turned on. If
-        /// the value for this field is set to <code>SECURITY_CONTROL</code>, Security Hub generates
+        /// the value for this field is set to <c>SECURITY_CONTROL</c>, Security Hub generates
         /// a single finding for a control check even when the check applies to multiple enabled
-        /// standards.</para><para>If the value for this field is set to <code>STANDARD_CONTROL</code>, Security Hub
-        /// generates separate findings for a control check when the check applies to multiple
-        /// enabled standards.</para><para>For accounts that are part of an organization, this value can only be updated in the
+        /// standards.</para><para>If the value for this field is set to <c>STANDARD_CONTROL</c>, Security Hub generates
+        /// separate findings for a control check when the check applies to multiple enabled standards.</para><para>For accounts that are part of an organization, this value can only be updated in the
         /// administrator account.</para>
         /// </para>
         /// </summary>

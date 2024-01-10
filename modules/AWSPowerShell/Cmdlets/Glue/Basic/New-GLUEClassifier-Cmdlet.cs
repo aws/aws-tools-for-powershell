@@ -28,9 +28,9 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Creates a classifier in the user's account. This can be a <code>GrokClassifier</code>,
-    /// an <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>,
-    /// depending on which field of the request is present.
+    /// Creates a classifier in the user's account. This can be a <c>GrokClassifier</c>, an
+    /// <c>XMLClassifier</c>, a <c>JsonClassifier</c>, or a <c>CsvClassifier</c>, depending
+    /// on which field of the request is present.
     /// </summary>
     [Cmdlet("New", "GLUEClassifier", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter GrokClassifier
         /// <summary>
         /// <para>
-        /// <para>A <code>GrokClassifier</code> object specifying the classifier to create.</para>
+        /// <para>A <c>GrokClassifier</c> object specifying the classifier to create.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter JsonClassifier_JsonPath
         /// <summary>
         /// <para>
-        /// <para>A <code>JsonPath</code> string defining the JSON data for the classifier to classify.
-        /// Glue supports a subset of JsonPath, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing
+        /// <para>A <c>JsonPath</c> string defining the JSON data for the classifier to classify. Glue
+        /// supports a subset of JsonPath, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing
         /// JsonPath Custom Classifiers</a>.</para>
         /// </para>
         /// </summary>
@@ -174,9 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>Sets the SerDe for processing CSV in the classifier, which will be applied in the
-        /// Data Catalog. Valid values are <code>OpenCSVSerDe</code>, <code>LazySimpleSerDe</code>,
-        /// and <code>None</code>. You can specify the <code>None</code> value when you want the
-        /// crawler to do the detection.</para>
+        /// Data Catalog. Valid values are <c>OpenCSVSerDe</c>, <c>LazySimpleSerDe</c>, and <c>None</c>.
+        /// You can specify the <c>None</c> value when you want the crawler to do the detection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter XMLClassifier
         /// <summary>
         /// <para>
-        /// <para>An <code>XMLClassifier</code> object specifying the classifier to create.</para>
+        /// <para>An <c>XMLClassifier</c> object specifying the classifier to create.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

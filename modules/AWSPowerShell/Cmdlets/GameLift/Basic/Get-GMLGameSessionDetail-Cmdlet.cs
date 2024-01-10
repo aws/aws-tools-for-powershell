@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li></ul><para>
     /// Use the pagination parameters to retrieve results as a set of sequential pages. 
     /// </para><para>
-    /// If successful, a <code>GameSessionDetail</code> object is returned for each game session
+    /// If successful, a <c>GameSessionDetail</c> object is returned for each game session
     /// that matches the request.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-find">Find
     /// a game session</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A fleet location to get game session details for. You can specify a fleet's home Region
-        /// or a remote location. Use the Amazon Web Services Region code format, such as <code>us-west-2</code>.
+        /// or a remote location. Use the Amazon Web Services Region code format, such as <c>us-west-2</c>.
         /// </para>
         /// </para>
         /// </summary>
@@ -117,9 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StatusFilter
         /// <summary>
         /// <para>
-        /// <para>Game session status to filter results on. Possible game session statuses include <code>ACTIVE</code>,
-        /// <code>TERMINATED</code>, <code>ACTIVATING</code> and <code>TERMINATING</code> (the
-        /// last two are transitory). </para>
+        /// <para>Game session status to filter results on. Possible game session statuses include <c>ACTIVE</c>,
+        /// <c>TERMINATED</c>, <c>ACTIVATING</c> and <c>TERMINATING</c> (the last two are transitory).
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
+        /// <para>The maximum number of results to return. Use this parameter with <c>NextToken</c>
         /// to get results as a set of sequential pages.</para>
         /// </para>
         /// <para>

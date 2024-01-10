@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// identity attempted authentication. 
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:GetSubject</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:GetSubject</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMRASubject")]

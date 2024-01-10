@@ -58,12 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The name of the attribute to modify.</para><important><para>You can modify the following attributes only: <code>disableApiTermination</code> |
-        /// <code>instanceType</code> | <code>kernel</code> | <code>ramdisk</code> | <code>instanceInitiatedShutdownBehavior</code>
-        /// | <code>blockDeviceMapping</code> | <code>userData</code> | <code>sourceDestCheck</code>
-        /// | <code>groupSet</code> | <code>ebsOptimized</code> | <code>sriovNetSupport</code>
-        /// | <code>enaSupport</code> | <code>nvmeSupport</code> | <code>disableApiStop</code>
-        /// | <code>enclaveOptions</code></para></important>
+        /// <para>The name of the attribute to modify.</para><important><para>You can modify the following attributes only: <c>disableApiTermination</c> | <c>instanceType</c>
+        /// | <c>kernel</c> | <c>ramdisk</c> | <c>instanceInitiatedShutdownBehavior</c> | <c>blockDeviceMapping</c>
+        /// | <c>userData</c> | <c>sourceDestCheck</c> | <c>groupSet</c> | <c>ebsOptimized</c>
+        /// | <c>sriovNetSupport</c> | <c>enaSupport</c> | <c>nvmeSupport</c> | <c>disableApiStop</c>
+        /// | <c>enclaveOptions</c></para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter BlockDeviceMapping
         /// <summary>
         /// <para>
-        /// <para>Modifies the <code>DeleteOnTermination</code> attribute for volumes that are currently
-        /// attached. The volume must be owned by the caller. If no value is specified for <code>DeleteOnTermination</code>,
-        /// the default is <code>true</code> and the volume is deleted when the instance is terminated.</para><para>To add instance store volumes to an Amazon EBS-backed instance, you must add them
+        /// <para>Modifies the <c>DeleteOnTermination</c> attribute for volumes that are currently attached.
+        /// The volume must be owned by the caller. If no value is specified for <c>DeleteOnTermination</c>,
+        /// the default is <c>true</c> and the volume is deleted when the instance is terminated.</para><para>To add instance store volumes to an Amazon EBS-backed instance, you must add them
         /// when you launch the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Update
         /// the block device mapping when launching an instance</a> in the <i>Amazon EC2 User
         /// Guide</i>.</para>
@@ -102,9 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DisableApiTermination
         /// <summary>
         /// <para>
-        /// <para>If the value is <code>true</code>, you can't terminate the instance using the Amazon
-        /// EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot
-        /// Instances.</para>
+        /// <para>If the value is <c>true</c>, you can't terminate the instance using the Amazon EC2
+        /// console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot Instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter EnaSupport
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to enable enhanced networking with ENA for the instance.</para><para>This option is supported only for HVM instances. Specifying this option with a PV
+        /// <para>Set to <c>true</c> to enable enhanced networking with ENA for the instance.</para><para>This option is supported only for HVM instances. Specifying this option with a PV
         /// instance can make it unreachable.</para>
         /// </para>
         /// </summary>
@@ -181,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Changes the instance type to the specified value. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
         /// types</a> in the <i>Amazon EC2 User Guide</i>. If the instance type is not valid,
-        /// the error returned is <code>InvalidInstanceAttributeValue</code>.</para>
+        /// the error returned is <c>InvalidInstanceAttributeValue</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,10 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Enable or disable source/destination checks, which ensure that the instance is either
-        /// the source or the destination of any traffic that it receives. If the value is <code>true</code>,
+        /// the source or the destination of any traffic that it receives. If the value is <c>true</c>,
         /// source/destination checks are enabled; otherwise, they are disabled. The default value
-        /// is <code>true</code>. You must disable source/destination checks if the instance runs
-        /// services such as network address translation, routing, or firewalls.</para>
+        /// is <c>true</c>. You must disable source/destination checks if the instance runs services
+        /// such as network address translation, routing, or firewalls.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,8 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SriovNetSupport
         /// <summary>
         /// <para>
-        /// <para>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual
-        /// Function interface for the instance.</para><para>There is no way to disable enhanced networking with the Intel 82599 Virtual Function
+        /// <para>Set to <c>simple</c> to enable enhanced networking with the Intel 82599 Virtual Function
+        /// interface for the instance.</para><para>There is no way to disable enhanced networking with the Intel 82599 Virtual Function
         /// interface at this time.</para><para>This option is supported only for HVM instances. Specifying this option with a PV
         /// instance can make it unreachable.</para>
         /// </para>
@@ -252,9 +250,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Value
         /// <summary>
         /// <para>
-        /// <para>A new value for the attribute. Use only with the <code>kernel</code>, <code>ramdisk</code>,
-        /// <code>userData</code>, <code>disableApiTermination</code>, or <code>instanceInitiatedShutdownBehavior</code>
-        /// attribute.</para>
+        /// <para>A new value for the attribute. Use only with the <c>kernel</c>, <c>ramdisk</c>, <c>userData</c>,
+        /// <c>disableApiTermination</c>, or <c>instanceInitiatedShutdownBehavior</c> attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

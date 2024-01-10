@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
     /// type used to create the solution backing the campaign as follows:
     /// 
     ///  <ul><li><para>
-    /// USER_PERSONALIZATION - <code>userId</code> required, <code>itemId</code> not used
+    /// USER_PERSONALIZATION - <c>userId</c> required, <c>itemId</c> not used
     /// </para></li><li><para>
-    /// RELATED_ITEMS - <code>itemId</code> required, <code>userId</code> not used
+    /// RELATED_ITEMS - <c>itemId</c> required, <c>userId</c> not used
     /// </para></li></ul><note><para>
     /// Campaigns that are backed by a solution created using a recipe of type PERSONALIZED_RANKING
     /// use the API.
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         /// <para>
         /// <para>The ARN of the filter to apply to the returned recommendations. For more information,
         /// see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering
-        /// Recommendations</a>.</para><para>When using this parameter, be sure the filter resource is <code>ACTIVE</code>.</para>
+        /// Recommendations</a>.</para><para>When using this parameter, be sure the filter resource is <c>ACTIVE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,11 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         /// <para>The values to use when filtering recommendations. For each placeholder parameter in
         /// your filter expression, provide the parameter name (in matching case) as a key and
         /// the filter value(s) as the corresponding value. Separate multiple values for one parameter
-        /// with a comma. </para><para>For filter expressions that use an <code>INCLUDE</code> element to include items,
-        /// you must provide values for all parameters that are defined in the expression. For
-        /// filters with expressions that use an <code>EXCLUDE</code> element to exclude items,
-        /// you can omit the <code>filter-values</code>.In this case, Amazon Personalize doesn't
-        /// use that portion of the expression to filter recommendations.</para><para>For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering
+        /// with a comma. </para><para>For filter expressions that use an <c>INCLUDE</c> element to include items, you must
+        /// provide values for all parameters that are defined in the expression. For filters
+        /// with expressions that use an <c>EXCLUDE</c> element to exclude items, you can omit
+        /// the <c>filter-values</c>.In this case, Amazon Personalize doesn't use that portion
+        /// of the expression to filter recommendations.</para><para>For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering
         /// recommendations and user segments</a>.</para>
         /// </para>
         /// </summary>
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         #region Parameter ItemId
         /// <summary>
         /// <para>
-        /// <para>The item ID to provide recommendations for.</para><para>Required for <code>RELATED_ITEMS</code> recipe type.</para>
+        /// <para>The item ID to provide recommendations for.</para><para>Required for <c>RELATED_ITEMS</c> recipe type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,9 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         /// <para>
         /// <para>If you enabled metadata in recommendations when you created or updated the campaign
         /// or recommender, specify the metadata columns from your Items dataset to include in
-        /// item recommendations. The map key is <code>ITEMS</code> and the value is a list of
-        /// column names from your Items dataset. The maximum number of columns you can provide
-        /// is 10.</para><para> For information about enabling metadata for a campaign, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/create-campaign-return-metadata.html">Enabling
+        /// item recommendations. The map key is <c>ITEMS</c> and the value is a list of column
+        /// names from your Items dataset. The maximum number of columns you can provide is 10.</para><para> For information about enabling metadata for a campaign, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/create-campaign-return-metadata.html">Enabling
         /// metadata in recommendations for a campaign</a>. For information about enabling metadata
         /// for a recommender, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/create-recommender-return-metadata.html">Enabling
         /// metadata in recommendations for a recommender</a>. </para>
@@ -178,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The user ID to provide recommendations for.</para><para>Required for <code>USER_PERSONALIZATION</code> recipe type.</para>
+        /// <para>The user ID to provide recommendations for.</para><para>Required for <c>USER_PERSONALIZATION</c> recipe type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

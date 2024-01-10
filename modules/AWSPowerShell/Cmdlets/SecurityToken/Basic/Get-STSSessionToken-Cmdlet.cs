@@ -30,54 +30,52 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// <summary>
     /// Returns a set of temporary credentials for an Amazon Web Services account or IAM user.
     /// The credentials consist of an access key ID, a secret access key, and a security token.
-    /// Typically, you use <code>GetSessionToken</code> if you want to use MFA to protect
-    /// programmatic calls to specific Amazon Web Services API operations like Amazon EC2
-    /// <code>StopInstances</code>.
+    /// Typically, you use <c>GetSessionToken</c> if you want to use MFA to protect programmatic
+    /// calls to specific Amazon Web Services API operations like Amazon EC2 <c>StopInstances</c>.
     /// 
     ///  
     /// <para>
-    /// MFA-enabled IAM users must call <code>GetSessionToken</code> and submit an MFA code
-    /// that is associated with their MFA device. Using the temporary security credentials
-    /// that the call returns, IAM users can then make programmatic calls to API operations
-    /// that require MFA authentication. An incorrect MFA code causes the API to return an
-    /// access denied error. For a comparison of <code>GetSessionToken</code> with the other
-    /// API operations that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
+    /// MFA-enabled IAM users must call <c>GetSessionToken</c> and submit an MFA code that
+    /// is associated with their MFA device. Using the temporary security credentials that
+    /// the call returns, IAM users can then make programmatic calls to API operations that
+    /// require MFA authentication. An incorrect MFA code causes the API to return an access
+    /// denied error. For a comparison of <c>GetSessionToken</c> with the other API operations
+    /// that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
     /// Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing
     /// the Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.
     /// </para><note><para>
     /// No permissions are required for users to perform this operation. The purpose of the
-    /// <code>sts:GetSessionToken</code> operation is to authenticate the user using MFA.
-    /// You cannot use policies to control authentication operations. For more information,
-    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_getsessiontoken.html">Permissions
+    /// <c>sts:GetSessionToken</c> operation is to authenticate the user using MFA. You cannot
+    /// use policies to control authentication operations. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_getsessiontoken.html">Permissions
     /// for GetSessionToken</a> in the <i>IAM User Guide</i>.
     /// </para></note><para><b>Session Duration</b></para><para>
-    /// The <code>GetSessionToken</code> operation must be called by using the long-term Amazon
+    /// The <c>GetSessionToken</c> operation must be called by using the long-term Amazon
     /// Web Services security credentials of an IAM user. Credentials that are created by
     /// IAM users are valid for the duration that you specify. This duration can range from
     /// 900 seconds (15 minutes) up to a maximum of 129,600 seconds (36 hours), with a default
     /// of 43,200 seconds (12 hours). Credentials based on account credentials can range from
     /// 900 seconds (15 minutes) up to 3,600 seconds (1 hour), with a default of 1 hour. 
     /// </para><para><b>Permissions</b></para><para>
-    /// The temporary security credentials created by <code>GetSessionToken</code> can be
-    /// used to make API calls to any Amazon Web Services service with the following exceptions:
+    /// The temporary security credentials created by <c>GetSessionToken</c> can be used to
+    /// make API calls to any Amazon Web Services service with the following exceptions:
     /// </para><ul><li><para>
     /// You cannot call any IAM API operations unless MFA authentication information is included
     /// in the request.
     /// </para></li><li><para>
-    /// You cannot call any STS API <i>except</i><code>AssumeRole</code> or <code>GetCallerIdentity</code>.
+    /// You cannot call any STS API <i>except</i><c>AssumeRole</c> or <c>GetCallerIdentity</c>.
     /// </para></li></ul><para>
-    /// The credentials that <code>GetSessionToken</code> returns are based on permissions
-    /// associated with the IAM user whose credentials were used to call the operation. The
-    /// temporary credentials have the same permissions as the IAM user.
+    /// The credentials that <c>GetSessionToken</c> returns are based on permissions associated
+    /// with the IAM user whose credentials were used to call the operation. The temporary
+    /// credentials have the same permissions as the IAM user.
     /// </para><note><para>
-    /// Although it is possible to call <code>GetSessionToken</code> using the security credentials
+    /// Although it is possible to call <c>GetSessionToken</c> using the security credentials
     /// of an Amazon Web Services account root user rather than an IAM user, we do not recommend
-    /// it. If <code>GetSessionToken</code> is called using root user credentials, the temporary
+    /// it. If <c>GetSessionToken</c> is called using root user credentials, the temporary
     /// credentials have root user permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials">Safeguard
     /// your root user credentials and don't use them for everyday tasks</a> in the <i>IAM
     /// User Guide</i></para></note><para>
-    /// For more information about using <code>GetSessionToken</code> to create temporary
-    /// credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken">Temporary
+    /// For more information about using <c>GetSessionToken</c> to create temporary credentials,
+    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken">Temporary
     /// Credentials for Users in Untrusted Environments</a> in the <i>IAM User Guide</i>.
     /// 
     /// </para>
@@ -116,12 +114,12 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// <summary>
         /// <para>
         /// <para>The identification number of the MFA device that is associated with the IAM user who
-        /// is making the <code>GetSessionToken</code> call. Specify this value if the IAM user
-        /// has a policy that requires MFA authentication. The value is either the serial number
-        /// for a hardware device (such as <code>GAHT12345678</code>) or an Amazon Resource Name
-        /// (ARN) for a virtual device (such as <code>arn:aws:iam::123456789012:mfa/user</code>).
-        /// You can find the device for an IAM user by going to the Amazon Web Services Management
-        /// Console and viewing the user's security credentials. </para><para>The regex used to validate this parameter is a string of characters consisting of
+        /// is making the <c>GetSessionToken</c> call. Specify this value if the IAM user has
+        /// a policy that requires MFA authentication. The value is either the serial number for
+        /// a hardware device (such as <c>GAHT12345678</c>) or an Amazon Resource Name (ARN) for
+        /// a virtual device (such as <c>arn:aws:iam::123456789012:mfa/user</c>). You can find
+        /// the device for an IAM user by going to the Amazon Web Services Management Console
+        /// and viewing the user's security credentials. </para><para>The regex used to validate this parameter is a string of characters consisting of
         /// upper- and lower-case alphanumeric characters with no spaces. You can also include
         /// underscores or any of the following characters: =,.@:/-</para>
         /// </para>

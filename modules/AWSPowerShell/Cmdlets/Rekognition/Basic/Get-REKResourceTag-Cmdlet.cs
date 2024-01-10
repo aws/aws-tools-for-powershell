@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions to perform the <code>rekognition:ListTagsForResource</code>
+    /// This operation requires permissions to perform the <c>rekognition:ListTagsForResource</c>
     /// action. 
     /// </para>
     /// </summary>

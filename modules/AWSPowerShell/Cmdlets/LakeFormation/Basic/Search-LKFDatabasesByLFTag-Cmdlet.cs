@@ -28,11 +28,11 @@ using Amazon.LakeFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.LKF
 {
     /// <summary>
-    /// This operation allows a search on <code>DATABASE</code> resources by <code>TagCondition</code>.
-    /// This operation is used by admins who want to grant user permissions on certain <code>TagConditions</code>.
-    /// Before making a grant, the admin can use <code>SearchDatabasesByTags</code> to find
-    /// all resources where the given <code>TagConditions</code> are valid to verify whether
-    /// the returned resources can be shared.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// This operation allows a search on <c>DATABASE</c> resources by <c>TagCondition</c>.
+    /// This operation is used by admins who want to grant user permissions on certain <c>TagConditions</c>.
+    /// Before making a grant, the admin can use <c>SearchDatabasesByTags</c> to find all
+    /// resources where the given <c>TagConditions</c> are valid to verify whether the returned
+    /// resources can be shared.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "LKFDatabasesByLFTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LakeFormation.Model.TaggedDatabase")]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter Expression
         /// <summary>
         /// <para>
-        /// <para>A list of conditions (<code>LFTag</code> structures) to search for in database resources.</para>
+        /// <para>A list of conditions (<c>LFTag</c> structures) to search for in database resources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

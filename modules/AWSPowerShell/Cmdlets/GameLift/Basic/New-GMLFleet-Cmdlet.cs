@@ -56,15 +56,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// we recommend opening ports for remote access only when you need them and closing them
     /// when you're finished. 
     /// </para><para>
-    /// If successful, this operation creates a new Fleet resource and places it in <code>NEW</code>
+    /// If successful, this operation creates a new Fleet resource and places it in <c>NEW</c>
     /// status, which prompts Amazon GameLift to initiate the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-all.html#fleets-creation-workflow">fleet
     /// creation workflow</a>. You can track fleet creation by checking fleet status using
     /// <a>DescribeFleetAttributes</a> and <a>DescribeFleetLocationAttributes</a>/, or by
     /// monitoring fleet creation events using <a>DescribeFleetEvents</a>. 
     /// </para><para>
-    /// When the fleet status changes to <code>ACTIVE</code>, you can enable automatic scaling
-    /// with <a>PutScalingPolicy</a> and set capacity for the home Region with <a>UpdateFleetCapacity</a>.
-    /// When the status of each remote location reaches <code>ACTIVE</code>, you can set capacity
+    /// When the fleet status changes to <c>ACTIVE</c>, you can enable automatic scaling with
+    /// <a>PutScalingPolicy</a> and set capacity for the home Region with <a>UpdateFleetCapacity</a>.
+    /// When the status of each remote location reaches <c>ACTIVE</c>, you can set capacity
     /// by location using <a>UpdateFleetCapacity</a>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation">Debug
@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>The unique identifier for a custom game server build to be deployed on fleet instances.
         /// You can use either the build ID or ARN. The build must be uploaded to Amazon GameLift
-        /// and in <code>READY</code> status. This fleet property can't be changed after the fleet
-        /// is created.</para>
+        /// and in <c>READY</c> status. This fleet property can't be changed after the fleet is
+        /// created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>The type of compute resource used to host your game servers. You can use your own
         /// compute resources with Amazon GameLift Anywhere or use Amazon EC2 instances with managed
-        /// Amazon GameLift. By default, this property is set to <code>EC2</code>.</para>
+        /// Amazon GameLift. By default, this property is set to <c>EC2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Indicates whether to use On-Demand or Spot instances for this fleet. By default, this
-        /// property is set to <code>ON_DEMAND</code>. Learn more about when to use <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot">
+        /// property is set to <c>ON_DEMAND</c>. Learn more about when to use <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot">
         /// On-Demand versus Spot Instances</a>. This fleet property can't be changed after the
         /// fleet is created.</para>
         /// </para>
@@ -192,9 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The maximum amount of time (in seconds) allowed to launch a new game session and have
-        /// it report ready to host players. During this time, the game session is in status <code>ACTIVATING</code>.
+        /// it report ready to host players. During this time, the game session is in status <c>ACTIVATING</c>.
         /// If the game session does not become active before the timeout, it is ended and the
-        /// game session status is changed to <code>TERMINATED</code>.</para>
+        /// game session status is changed to <c>TERMINATED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,10 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Prompts Amazon GameLift to generate a shared credentials file for the IAM role defined
-        /// in <code>InstanceRoleArn</code>. The shared credentials file is stored on each fleet
-        /// instance and refreshed as needed. Use shared credentials for applications that are
-        /// deployed along with the game server executable, if the game server is integrated with
-        /// server SDK version 5.x. For more information about using shared credentials, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
+        /// in <c>InstanceRoleArn</c>. The shared credentials file is stored on each fleet instance
+        /// and refreshed as needed. Use shared credentials for applications that are deployed
+        /// along with the game server executable, if the game server is integrated with server
+        /// SDK version 5.x. For more information about using shared credentials, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
         /// Communicate with other Amazon Web Services resources from your fleets</a>.</para>
         /// </para>
         /// </summary>
@@ -241,8 +241,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// the fleet. This parameter can only be used when creating fleets in Amazon Web Services
         /// Regions that support multiple locations. You can add any Amazon GameLift-supported
         /// Amazon Web Services Region as a remote location, in the form of an Amazon Web Services
-        /// Region code such as <code>us-west-2</code>. To create a fleet with instances in the
-        /// home Region only, don't use this parameter. </para><para>To use this parameter, Amazon GameLift requires you to use your home location in the
+        /// Region code such as <c>us-west-2</c>. To create a fleet with instances in the home
+        /// Region only, don't use this parameter. </para><para>To use this parameter, Amazon GameLift requires you to use your home location in the
         /// request.</para>
         /// </para>
         /// </summary>
@@ -256,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para><b>This parameter is no longer used.</b> To specify where Amazon GameLift should
         /// store log files once a server process shuts down, use the Amazon GameLift server API
-        /// <code>ProcessReady()</code> and specify one or more directory paths in <code>logParameters</code>.
+        /// <c>ProcessReady()</c> and specify one or more directory paths in <c>logParameters</c>.
         /// For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-initialize">Initialize
         /// the server process</a> in the <i>Amazon GameLift Developer Guide</i>. </para>
         /// </para>
@@ -269,9 +269,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_MaxConcurrentGameSessionActivation
         /// <summary>
         /// <para>
-        /// <para>The number of game sessions in status <code>ACTIVATING</code> to allow on an instance.
-        /// This setting limits the instance resources that can be used for new game activations
-        /// at any one time.</para>
+        /// <para>The number of game sessions in status <c>ACTIVATING</c> to allow on an instance. This
+        /// setting limits the instance resources that can be used for new game activations at
+        /// any one time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -315,9 +315,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The status of termination protection for active game sessions on the fleet. By default,
-        /// this property is set to <code>NoProtection</code>. You can also set game session protection
+        /// this property is set to <c>NoProtection</c>. You can also set game session protection
         /// for an individual game session by calling <a href="gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a>.</para><ul><li><para><b>NoProtection</b> - Game sessions can be terminated during active gameplay as a
-        /// result of a scale-down event. </para></li><li><para><b>FullProtection</b> - Game sessions in <code>ACTIVE</code> status cannot be terminated
+        /// result of a scale-down event. </para></li><li><para><b>FullProtection</b> - Game sessions in <c>ACTIVE</c> status cannot be terminated
         /// during a scale-down event.</para></li></ul>
         /// </para>
         /// </summary>
@@ -332,9 +332,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A policy that puts limits on the number of game sessions that a player can create
         /// within a specified span of time. With this policy, you can control players' ability
         /// to consume available resources.</para><para>The policy is evaluated when a player tries to create a new game session. On receiving
-        /// a <code>CreateGameSession</code> request, Amazon GameLift checks that the player (identified
-        /// by <code>CreatorId</code>) has created fewer than game session limit in the specified
-        /// time period.</para>
+        /// a <c>CreateGameSession</c> request, Amazon GameLift checks that the player (identified
+        /// by <c>CreatorId</c>) has created fewer than game session limit in the specified time
+        /// period.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -395,8 +395,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para><b>This parameter is no longer used.</b> Specify server launch parameters using the
-        /// <code>RuntimeConfiguration</code> parameter. Requests that use this parameter instead
-        /// continue to be valid.</para>
+        /// <c>RuntimeConfiguration</c> parameter. Requests that use this parameter instead continue
+        /// to be valid.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -407,7 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ServerLaunchPath
         /// <summary>
         /// <para>
-        /// <para><b>This parameter is no longer used.</b> Specify a server launch path using the <code>RuntimeConfiguration</code>
+        /// <para><b>This parameter is no longer used.</b> Specify a server launch path using the <c>RuntimeConfiguration</c>
         /// parameter. Requests that use this parameter instead continue to be valid.</para>
         /// </para>
         /// </summary>

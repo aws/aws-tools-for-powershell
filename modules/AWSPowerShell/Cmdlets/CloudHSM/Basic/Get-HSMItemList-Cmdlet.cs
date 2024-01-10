@@ -41,10 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// </para><para>
     /// Retrieves the identifiers of all of the HSMs provisioned for the current customer.
     /// </para><para>
-    /// This operation supports pagination with the use of the <code>NextToken</code> member.
-    /// If more results are available, the <code>NextToken</code> member of the response contains
-    /// a token that you pass in the next call to <code>ListHsms</code> to retrieve the next
-    /// set of items.
+    /// This operation supports pagination with the use of the <c>NextToken</c> member. If
+    /// more results are available, the <c>NextToken</c> member of the response contains a
+    /// token that you pass in the next call to <c>ListHsms</c> to retrieve the next set of
+    /// items.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "HSMItemList")]
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>NextToken</code> value from a previous call to <code>ListHsms</code>. Pass
-        /// null if this is the first call.</para>
+        /// <para>The <c>NextToken</c> value from a previous call to <c>ListHsms</c>. Pass null if this
+        /// is the first call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

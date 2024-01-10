@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter DefaultVersionName
         /// <summary>
         /// <para>
-        /// <para>The name of the default package version.</para><para><b>Note:</b> You cannot name a <code>defaultVersion</code> and set <code>unsetDefaultVersion</code>
-        /// equal to <code>true</code> at the same time.</para>
+        /// <para>The name of the default package version.</para><para><b>Note:</b> You cannot name a <c>defaultVersion</c> and set <c>unsetDefaultVersion</c>
+        /// equal to <c>true</c> at the same time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>Indicates whether you want to remove the named default package version from the software
-        /// package. Set as <code>true</code> to remove the default package version. </para><para><b>Note:</b> You cannot name a <code>defaultVersion</code> and set <code>unsetDefaultVersion</code>
-        /// equal to <code>true</code> at the same time.</para>
+        /// package. Set as <c>true</c> to remove the default package version. </para><para><b>Note:</b> You cannot name a <c>defaultVersion</c> and set <c>unsetDefaultVersion</c>
+        /// equal to <c>true</c> at the same time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

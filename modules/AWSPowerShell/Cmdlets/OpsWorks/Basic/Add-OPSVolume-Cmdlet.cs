@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// Assigns one of the stack's registered Amazon EBS volumes to a specified instance.
     /// The volume must first be registered with the stack by calling <a>RegisterVolume</a>.
     /// After you register the volume, you must call <a>UpdateVolume</a> to specify a mount
-    /// point before calling <code>AssignVolume</code>. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
+    /// point before calling <c>AssignVolume</c>. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
     /// Management</a>.
     /// 
     ///  

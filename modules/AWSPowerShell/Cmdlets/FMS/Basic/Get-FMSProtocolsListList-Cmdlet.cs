@@ -28,7 +28,7 @@ using Amazon.FMS.Model;
 namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
-    /// Returns an array of <code>ProtocolsListDataSummary</code> objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns an array of <c>ProtocolsListDataSummary</c> objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "FMSProtocolsListList")]
     [OutputType("Amazon.FMS.Model.ProtocolsListDataSummary")]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <summary>
         /// <para>
         /// <para>The maximum number of objects that you want Firewall Manager to return for this request.
-        /// If more objects are available, in the response, Firewall Manager provides a <code>NextToken</code>
+        /// If more objects are available, in the response, Firewall Manager provides a <c>NextToken</c>
         /// value that you can use in a subsequent call to get the next batch of objects.</para><para>If you don't specify this, Firewall Manager returns all available objects.</para>
         /// </para>
         /// </summary>
@@ -75,10 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If you specify a value for <code>MaxResults</code> in your list request, and you have
-        /// more objects than the maximum, Firewall Manager returns this token in the response.
-        /// For all but the first request, you provide the token returned by the prior request
-        /// in the request parameters, to retrieve the next batch of objects.</para>
+        /// <para>If you specify a value for <c>MaxResults</c> in your list request, and you have more
+        /// objects than the maximum, Firewall Manager returns this token in the response. For
+        /// all but the first request, you provide the token returned by the prior request in
+        /// the request parameters, to retrieve the next batch of objects.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

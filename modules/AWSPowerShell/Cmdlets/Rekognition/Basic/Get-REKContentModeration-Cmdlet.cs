@@ -37,31 +37,31 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// <para>
     /// Amazon Rekognition Video inappropriate or offensive content detection in a stored
     /// video is an asynchronous operation. You start analysis by calling <a>StartContentModeration</a>
-    /// which returns a job identifier (<code>JobId</code>). When analysis finishes, Amazon
-    /// Rekognition Video publishes a completion status to the Amazon Simple Notification
-    /// Service topic registered in the initial call to <code>StartContentModeration</code>.
-    /// To get the results of the content analysis, first check that the status value published
-    /// to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetContentModeration</code>
-    /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>.
+    /// which returns a job identifier (<c>JobId</c>). When analysis finishes, Amazon Rekognition
+    /// Video publishes a completion status to the Amazon Simple Notification Service topic
+    /// registered in the initial call to <c>StartContentModeration</c>. To get the results
+    /// of the content analysis, first check that the status value published to the Amazon
+    /// SNS topic is <c>SUCCEEDED</c>. If so, call <c>GetContentModeration</c> and pass the
+    /// job identifier (<c>JobId</c>) from the initial call to <c>StartContentModeration</c>.
     /// 
     /// </para><para>
     /// For more information, see Working with Stored Videos in the Amazon Rekognition Devlopers
     /// Guide.
-    /// </para><para><code>GetContentModeration</code> returns detected inappropriate, unwanted, or offensive
-    /// content moderation labels, and the time they are detected, in an array, <code>ModerationLabels</code>,
+    /// </para><para><c>GetContentModeration</c> returns detected inappropriate, unwanted, or offensive
+    /// content moderation labels, and the time they are detected, in an array, <c>ModerationLabels</c>,
     /// of <a>ContentModerationDetection</a> objects. 
     /// </para><para>
     /// By default, the moderated labels are returned sorted by time, in milliseconds from
-    /// the start of the video. You can also sort them by moderated label by specifying <code>NAME</code>
-    /// for the <code>SortBy</code> input parameter. 
+    /// the start of the video. You can also sort them by moderated label by specifying <c>NAME</c>
+    /// for the <c>SortBy</c> input parameter. 
     /// </para><para>
-    /// Since video analysis can return a large number of results, use the <code>MaxResults</code>
-    /// parameter to limit the number of labels returned in a single call to <code>GetContentModeration</code>.
-    /// If there are more results than specified in <code>MaxResults</code>, the value of
-    /// <code>NextToken</code> in the operation response contains a pagination token for getting
-    /// the next set of results. To get the next page of results, call <code>GetContentModeration</code>
-    /// and populate the <code>NextToken</code> request parameter with the value of <code>NextToken</code>
-    /// returned from the previous call to <code>GetContentModeration</code>.
+    /// Since video analysis can return a large number of results, use the <c>MaxResults</c>
+    /// parameter to limit the number of labels returned in a single call to <c>GetContentModeration</c>.
+    /// If there are more results than specified in <c>MaxResults</c>, the value of <c>NextToken</c>
+    /// in the operation response contains a pagination token for getting the next set of
+    /// results. To get the next page of results, call <c>GetContentModeration</c> and populate
+    /// the <c>NextToken</c> request parameter with the value of <c>NextToken</c> returned
+    /// from the previous call to <c>GetContentModeration</c>.
     /// </para><para>
     /// For more information, see moderating content in the Amazon Rekognition Developer Guide.
     /// </para><br/><br/>In the AWS.Tools.Rekognition module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>The identifier for the inappropriate, unwanted, or offensive content moderation job.
-        /// Use <code>JobId</code> to identify the job in a subsequent call to <code>GetContentModeration</code>.</para>
+        /// Use <c>JobId</c> to identify the job in a subsequent call to <c>GetContentModeration</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,11 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>Sort to use for elements in the <code>ModerationLabelDetections</code> array. Use
-        /// <code>TIMESTAMP</code> to sort array elements by the time labels are detected. Use
-        /// <code>NAME</code> to alphabetically group elements for a label together. Within each
-        /// label group, the array element are sorted by detection confidence. The default sort
-        /// is by <code>TIMESTAMP</code>.</para>
+        /// <para>Sort to use for elements in the <c>ModerationLabelDetections</c> array. Use <c>TIMESTAMP</c>
+        /// to sort array elements by the time labels are detected. Use <c>NAME</c> to alphabetically
+        /// group elements for a label together. Within each label group, the array element are
+        /// sorted by detection confidence. The default sort is by <c>TIMESTAMP</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

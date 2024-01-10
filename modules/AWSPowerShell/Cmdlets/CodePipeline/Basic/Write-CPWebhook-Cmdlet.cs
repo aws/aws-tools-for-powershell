@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <summary>
         /// <para>
         /// <para>The property used to configure acceptance of webhooks in an IP address range. For
-        /// IP, only the <code>AllowedIPRange</code> property must be set. This property must
-        /// be set to a valid CIDR range.</para>
+        /// IP, only the <c>AllowedIPRange</c> property must be set. This property must be set
+        /// to a valid CIDR range.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter AuthenticationConfiguration_SecretToken
         /// <summary>
         /// <para>
-        /// <para>The property used to configure GitHub authentication. For GITHUB_HMAC, only the <code>SecretToken</code>
+        /// <para>The property used to configure GitHub authentication. For GITHUB_HMAC, only the <c>SecretToken</c>
         /// property must be set.</para>
         /// </para>
         /// </summary>

@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The action that DNS Firewall should take on a DNS query when it matches one of the
-        /// domains in the rule's domain list:</para><ul><li><para><code>ALLOW</code> - Permit the request to go through.</para></li><li><para><code>ALERT</code> - Permit the request and send metrics and logs to Cloud Watch.</para></li><li><para><code>BLOCK</code> - Disallow the request. This option requires additional details
-        /// in the rule's <code>BlockResponse</code>. </para></li></ul>
+        /// domains in the rule's domain list:</para><ul><li><para><c>ALLOW</c> - Permit the request to go through.</para></li><li><para><c>ALERT</c> - Permit the request and send metrics and logs to Cloud Watch.</para></li><li><para><c>BLOCK</c> - Disallow the request. This option requires additional details in the
+        /// rule's <c>BlockResponse</c>. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The DNS record's type. This determines the format of the record value that you provided
-        /// in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with
-        /// a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</para><para>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</para>
+        /// in <c>BlockOverrideDomain</c>. Used for the rule action <c>BLOCK</c> with a <c>BlockResponse</c>
+        /// setting of <c>OVERRIDE</c>.</para><para>This setting is required if the <c>BlockResponse</c> setting is <c>OVERRIDE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The custom DNS record to send back in response to the query. Used for the rule action
-        /// <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</para><para>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</para>
+        /// <c>BLOCK</c> with a <c>BlockResponse</c> setting of <c>OVERRIDE</c>.</para><para>This setting is required if the <c>BlockResponse</c> setting is <c>OVERRIDE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The recommended amount of time, in seconds, for the DNS resolver or web browser to
-        /// cache the provided override record. Used for the rule action <code>BLOCK</code> with
-        /// a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</para><para>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</para>
+        /// cache the provided override record. Used for the rule action <c>BLOCK</c> with a <c>BlockResponse</c>
+        /// setting of <c>OVERRIDE</c>.</para><para>This setting is required if the <c>BlockResponse</c> setting is <c>OVERRIDE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,10 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The way that you want DNS Firewall to block the request, used with the rule action
-        /// setting <code>BLOCK</code>. </para><ul><li><para><code>NODATA</code> - Respond indicating that the query was successful, but no response
-        /// is available for it.</para></li><li><para><code>NXDOMAIN</code> - Respond indicating that the domain name that's in the query
-        /// doesn't exist.</para></li><li><para><code>OVERRIDE</code> - Provide a custom override in the response. This option requires
-        /// custom handling details in the rule's <code>BlockOverride*</code> settings. </para></li></ul><para>This setting is required if the rule action setting is <code>BLOCK</code>.</para>
+        /// setting <c>BLOCK</c>. </para><ul><li><para><c>NODATA</c> - Respond indicating that the query was successful, but no response
+        /// is available for it.</para></li><li><para><c>NXDOMAIN</c> - Respond indicating that the domain name that's in the query doesn't
+        /// exist.</para></li><li><para><c>OVERRIDE</c> - Provide a custom override in the response. This option requires
+        /// custom handling details in the rule's <c>BlockOverride*</c> settings. </para></li></ul><para>This setting is required if the rule action setting is <c>BLOCK</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and that allows you to retry failed requests
-        /// without the risk of running the operation twice. <code>CreatorRequestId</code> can
-        /// be any unique string, for example, a date/time stamp. </para>
+        /// without the risk of running the operation twice. <c>CreatorRequestId</c> can be any
+        /// unique string, for example, a date/time stamp. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

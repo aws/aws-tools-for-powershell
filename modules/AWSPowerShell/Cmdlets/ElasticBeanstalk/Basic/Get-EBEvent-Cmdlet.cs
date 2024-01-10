@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// Returns list of event descriptions matching criteria up to the last 6 weeks.
     /// 
     ///  <note><para>
-    /// This action returns the most recent 1,000 events from the specified <code>NextToken</code>.
+    /// This action returns the most recent 1,000 events from the specified <c>NextToken</c>.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EBEvent")]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
-        /// that occur up to, but not including, the <code>EndTime</code>. </para>
+        /// that occur up to, but not including, the <c>EndTime</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// one of the two property is reflected in the value of both. EndTime is provided for
         /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
         /// wrong timestamp being passed to the service.</para><para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
-        /// that occur up to, but not including, the <code>EndTime</code>. </para>
+        /// that occur up to, but not including, the <c>EndTime</c>. </para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

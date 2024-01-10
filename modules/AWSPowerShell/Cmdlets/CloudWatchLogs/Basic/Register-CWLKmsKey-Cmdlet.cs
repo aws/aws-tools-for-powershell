@@ -33,13 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
-    /// When you use <code>AssociateKmsKey</code>, you specify either the <code>logGroupName</code>
-    /// parameter or the <code>resourceIdentifier</code> parameter. You can't specify both
-    /// of those parameters in the same operation.
+    /// When you use <c>AssociateKmsKey</c>, you specify either the <c>logGroupName</c> parameter
+    /// or the <c>resourceIdentifier</c> parameter. You can't specify both of those parameters
+    /// in the same operation.
     /// </para><ul><li><para>
-    /// Specify the <code>logGroupName</code> parameter to cause all log events stored in
-    /// the log group to be encrypted with that key. Only the log events ingested after the
-    /// key is associated are encrypted with that key.
+    /// Specify the <c>logGroupName</c> parameter to cause all log events stored in the log
+    /// group to be encrypted with that key. Only the log events ingested after the key is
+    /// associated are encrypted with that key.
     /// </para><para>
     /// Associating a KMS key with a log group overrides any existing associations between
     /// the log group and a KMS key. After a KMS key is associated with a log group, all newly
@@ -49,11 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </para><para>
     /// Associating a key with a log group does not cause the results of queries of that log
     /// group to be encrypted with that key. To have query results encrypted with a KMS key,
-    /// you must use an <code>AssociateKmsKey</code> operation with the <code>resourceIdentifier</code>
-    /// parameter that specifies a <code>query-result</code> resource. 
+    /// you must use an <c>AssociateKmsKey</c> operation with the <c>resourceIdentifier</c>
+    /// parameter that specifies a <c>query-result</c> resource. 
     /// </para></li><li><para>
-    /// Specify the <code>resourceIdentifier</code> parameter with a <code>query-result</code>
-    /// resource, to use that key to encrypt the stored results of all future <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>
+    /// Specify the <c>resourceIdentifier</c> parameter with a <c>query-result</c> resource,
+    /// to use that key to encrypt the stored results of all future <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>
     /// operations in the account. The response from a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html">GetQueryResults</a>
     /// operation will still return the query results in plain text.
     /// </para><para>
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// It can take up to 5 minutes for this operation to take effect.
     /// </para><para>
     /// If you attempt to associate a KMS key with a log group but the KMS key does not exist
-    /// or the KMS key is disabled, you receive an <code>InvalidParameterException</code>
-    /// error. 
+    /// or the KMS key is disabled, you receive an <c>InvalidParameterException</c> error.
+    /// 
     /// </para>
     /// </summary>
     [Cmdlet("Register", "CWLKmsKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -113,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group.</para><para>In your <code>AssociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code>
-        /// parameter or the <code>logGroup</code> parameter, but you can't specify both.</para>
+        /// <para>The name of the log group.</para><para>In your <c>AssociateKmsKey</c> operation, you must specify either the <c>resourceIdentifier</c>
+        /// parameter or the <c>logGroup</c> parameter, but you can't specify both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,11 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>Specifies the target for this operation. You must specify one of the following:</para><ul><li><para>Specify the following ARN to have future <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html">GetQueryResults</a>
         /// operations in this account encrypt the results with the specified KMS key. Replace
-        /// <i>REGION</i> and <i>ACCOUNT_ID</i> with your Region and account ID.</para><para><code>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:query-result:*</code></para></li><li><para>Specify the ARN of a log group to have CloudWatch Logs use the KMS key to encrypt
+        /// <i>REGION</i> and <i>ACCOUNT_ID</i> with your Region and account ID.</para><para><c>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:query-result:*</c></para></li><li><para>Specify the ARN of a log group to have CloudWatch Logs use the KMS key to encrypt
         /// log events that are ingested and stored by that log group. The log group ARN must
         /// be in the following format. Replace <i>REGION</i> and <i>ACCOUNT_ID</i> with your
-        /// Region and account ID.</para><para><code>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:log-group:<i>LOG_GROUP_NAME</i></code></para></li></ul><para>In your <code>AssociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code>
-        /// parameter or the <code>logGroup</code> parameter, but you can't specify both.</para>
+        /// Region and account ID.</para><para><c>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:log-group:<i>LOG_GROUP_NAME</i></c></para></li></ul><para>In your <c>AssociateKmsKey</c> operation, you must specify either the <c>resourceIdentifier</c>
+        /// parameter or the <c>logGroup</c> parameter, but you can't specify both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

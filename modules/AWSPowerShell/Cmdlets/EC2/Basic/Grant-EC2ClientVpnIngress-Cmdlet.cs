@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ID of the group to grant access to, for example, the Active Directory group or
-        /// identity provider (IdP) group. Required if <code>AuthorizeAllGroups</code> is <code>false</code>
+        /// identity provider (IdP) group. Required if <c>AuthorizeAllGroups</c> is <c>false</c>
         /// or not specified.</para>
         /// </para>
         /// </summary>
@@ -60,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AuthorizeAllGroup
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to grant access to all clients. Specify <code>true</code> to grant
-        /// all clients who successfully establish a VPN connection access to the network. Must
-        /// be set to <code>true</code> if <code>AccessGroupId</code> is not specified.</para>
+        /// <para>Indicates whether to grant access to all clients. Specify <c>true</c> to grant all
+        /// clients who successfully establish a VPN connection access to the network. Must be
+        /// set to <c>true</c> if <c>AccessGroupId</c> is not specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

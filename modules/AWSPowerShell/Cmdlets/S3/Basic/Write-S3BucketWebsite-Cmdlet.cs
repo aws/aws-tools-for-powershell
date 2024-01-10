@@ -31,26 +31,26 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <note><para>
     /// This operation is not supported by directory buckets.
     /// </para></note><para>
-    /// Sets the configuration of the website that is specified in the <code>website</code>
-    /// subresource. To configure a bucket as a website, you can add this subresource on the
-    /// bucket with website configuration information such as the file name of the index document
-    /// and any redirect rules. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting
+    /// Sets the configuration of the website that is specified in the <c>website</c> subresource.
+    /// To configure a bucket as a website, you can add this subresource on the bucket with
+    /// website configuration information such as the file name of the index document and
+    /// any redirect rules. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting
     /// Websites on Amazon S3</a>.
     /// </para><para>
-    /// This PUT action requires the <code>S3:PutBucketWebsite</code> permission. By default,
-    /// only the bucket owner can configure the website attached to a bucket; however, bucket
-    /// owners can allow other users to set the website configuration by writing a bucket
-    /// policy that grants them the <code>S3:PutBucketWebsite</code> permission.
+    /// This PUT action requires the <c>S3:PutBucketWebsite</c> permission. By default, only
+    /// the bucket owner can configure the website attached to a bucket; however, bucket owners
+    /// can allow other users to set the website configuration by writing a bucket policy
+    /// that grants them the <c>S3:PutBucketWebsite</c> permission.
     /// </para><para>
     /// To redirect all website requests sent to the bucket's website endpoint, you add a
     /// website configuration with the following elements. Because all requests are sent to
     /// another website, you don't need to provide index document name for the bucket.
-    /// </para><ul><li><para><code>WebsiteConfiguration</code></para></li><li><para><code>RedirectAllRequestsTo</code></para></li><li><para><code>HostName</code></para></li><li><para><code>Protocol</code></para></li></ul><para>
+    /// </para><ul><li><para><c>WebsiteConfiguration</c></para></li><li><para><c>RedirectAllRequestsTo</c></para></li><li><para><c>HostName</c></para></li><li><para><c>Protocol</c></para></li></ul><para>
     /// If you want granular control over redirects, you can use the following elements to
     /// add routing rules that describe conditions for redirecting requests and information
     /// about the redirect destination. In this case, the website configuration must provide
     /// an index document for the bucket, because some requests might not be redirected. 
-    /// </para><ul><li><para><code>WebsiteConfiguration</code></para></li><li><para><code>IndexDocument</code></para></li><li><para><code>Suffix</code></para></li><li><para><code>ErrorDocument</code></para></li><li><para><code>Key</code></para></li><li><para><code>RoutingRules</code></para></li><li><para><code>RoutingRule</code></para></li><li><para><code>Condition</code></para></li><li><para><code>HttpErrorCodeReturnedEquals</code></para></li><li><para><code>KeyPrefixEquals</code></para></li><li><para><code>Redirect</code></para></li><li><para><code>Protocol</code></para></li><li><para><code>HostName</code></para></li><li><para><code>ReplaceKeyPrefixWith</code></para></li><li><para><code>ReplaceKeyWith</code></para></li><li><para><code>HttpRedirectCode</code></para></li></ul><para>
+    /// </para><ul><li><para><c>WebsiteConfiguration</c></para></li><li><para><c>IndexDocument</c></para></li><li><para><c>Suffix</c></para></li><li><para><c>ErrorDocument</c></para></li><li><para><c>Key</c></para></li><li><para><c>RoutingRules</c></para></li><li><para><c>RoutingRule</c></para></li><li><para><c>Condition</c></para></li><li><para><c>HttpErrorCodeReturnedEquals</c></para></li><li><para><c>KeyPrefixEquals</c></para></li><li><para><c>Redirect</c></para></li><li><para><c>Protocol</c></para></li><li><para><c>HostName</c></para></li><li><para><c>ReplaceKeyPrefixWith</c></para></li><li><para><c>ReplaceKeyWith</c></para></li><li><para><c>HttpRedirectCode</c></para></li></ul><para>
     /// Amazon S3 has a limitation of 50 routing rules per website configuration. If you require
     /// more than 50 routing rules, you can use object redirect. For more information, see
     /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">Configuring

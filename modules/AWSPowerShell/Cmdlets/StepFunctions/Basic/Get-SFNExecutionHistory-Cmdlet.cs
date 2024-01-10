@@ -29,18 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
     /// Returns the history of the specified execution as a list of events. By default, the
-    /// results are returned in ascending order of the <code>timeStamp</code> of the events.
-    /// Use the <code>reverseOrder</code> parameter to get the latest events first.
+    /// results are returned in ascending order of the <c>timeStamp</c> of the events. Use
+    /// the <c>reverseOrder</c> parameter to get the latest events first.
     /// 
     ///  
     /// <para>
-    /// If <code>nextToken</code> is returned, there are more results available. The value
-    /// of <code>nextToken</code> is a unique pagination token for each page. Make the call
-    /// again using the returned token to retrieve the next page. Keep all other arguments
-    /// unchanged. Each pagination token expires after 24 hours. Using an expired pagination
-    /// token will return an <i>HTTP 400 InvalidToken</i> error.
+    /// If <c>nextToken</c> is returned, there are more results available. The value of <c>nextToken</c>
+    /// is a unique pagination token for each page. Make the call again using the returned
+    /// token to retrieve the next page. Keep all other arguments unchanged. Each pagination
+    /// token expires after 24 hours. Using an expired pagination token will return an <i>HTTP
+    /// 400 InvalidToken</i> error.
     /// </para><para>
-    /// This API action is not supported by <code>EXPRESS</code> state machines.
+    /// This API action is not supported by <c>EXPRESS</c> state machines.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SFNExecutionHistory")]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <summary>
         /// <para>
         /// <para>You can select whether execution data (input or output of a history event) is returned.
-        /// The default is <code>true</code>.</para>
+        /// The default is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter ReverseOrder
         /// <summary>
         /// <para>
-        /// <para>Lists events in descending order of their <code>timeStamp</code>.</para>
+        /// <para>Lists events in descending order of their <c>timeStamp</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results that are returned per call. You can use <code>nextToken</code>
+        /// <para>The maximum number of results that are returned per call. You can use <c>nextToken</c>
         /// to obtain further pages of results. The default is 100 and the maximum allowed page
         /// size is 1000. A value of 0 uses the default.</para><para>This is only an upper limit. The actual number of results returned per call might
         /// be fewer than the specified maximum.</para>
@@ -117,11 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If <code>nextToken</code> is returned, there are more results available. The value
-        /// of <code>nextToken</code> is a unique pagination token for each page. Make the call
-        /// again using the returned token to retrieve the next page. Keep all other arguments
-        /// unchanged. Each pagination token expires after 24 hours. Using an expired pagination
-        /// token will return an <i>HTTP 400 InvalidToken</i> error.</para>
+        /// <para>If <c>nextToken</c> is returned, there are more results available. The value of <c>nextToken</c>
+        /// is a unique pagination token for each page. Make the call again using the returned
+        /// token to retrieve the next page. Keep all other arguments unchanged. Each pagination
+        /// token expires after 24 hours. Using an expired pagination token will return an <i>HTTP
+        /// 400 InvalidToken</i> error.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

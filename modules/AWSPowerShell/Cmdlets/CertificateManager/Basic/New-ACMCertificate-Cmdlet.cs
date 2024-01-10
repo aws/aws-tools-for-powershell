@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
     /// Requests an ACM certificate for use with other Amazon Web Services services. To request
-    /// an ACM certificate, you must specify a fully qualified domain name (FQDN) in the <code>DomainName</code>
-    /// parameter. You can also specify additional FQDNs in the <code>SubjectAlternativeNames</code>
+    /// an ACM certificate, you must specify a fully qualified domain name (FQDN) in the <c>DomainName</c>
+    /// parameter. You can also specify additional FQDNs in the <c>SubjectAlternativeNames</c>
     /// parameter. 
     /// 
     ///  
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// 6125</a> specification of the certificate validation process. ACM first checks for
     /// a Subject Alternative Name, and, if it finds one, ignores the common name (CN).
     /// </para></note><para>
-    /// After successful completion of the <code>RequestCertificate</code> action, there is
-    /// a delay of several seconds before you can retrieve information about the new certificate.
+    /// After successful completion of the <c>RequestCertificate</c> action, there is a delay
+    /// of several seconds before you can retrieve information about the new certificate.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ACMCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// to request a private certificate, ACM will attempt to issue a public certificate.
         /// For more information about private CAs, see the <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaWelcome.html">Amazon
         /// Web Services Private Certificate Authority</a> user guide. The ARN must have the following
-        /// form: </para><para><code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code></para>
+        /// form: </para><para><c>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter Options_CertificateTransparencyLoggingPreference
         /// <summary>
         /// <para>
-        /// <para>You can opt out of certificate transparency logging by specifying the <code>DISABLED</code>
-        /// option. Opt in by specifying <code>ENABLED</code>. </para>
+        /// <para>You can opt out of certificate transparency logging by specifying the <c>DISABLED</c>
+        /// option. Opt in by specifying <c>ENABLED</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para>Customer chosen string that can be used to distinguish between calls to <code>RequestCertificate</code>.
-        /// Idempotency tokens time out after one hour. Therefore, if you call <code>RequestCertificate</code>
+        /// <para>Customer chosen string that can be used to distinguish between calls to <c>RequestCertificate</c>.
+        /// Idempotency tokens time out after one hour. Therefore, if you call <c>RequestCertificate</c>
         /// multiple times with the same idempotency token within one hour, ACM recognizes that
         /// you are requesting only one certificate and will issue only one. If you change the
         /// idempotency token for each call, ACM recognizes that you are requesting multiple certificates.</para>
@@ -162,16 +162,15 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <para>
         /// <para>Additional FQDNs to be included in the Subject Alternative Name extension of the ACM
         /// certificate. For example, add the name www.example.net to a certificate for which
-        /// the <code>DomainName</code> field is www.example.com if users can reach your site
-        /// by using either name. The maximum number of domain names that you can add to an ACM
-        /// certificate is 100. However, the initial quota is 10 domain names. If you need more
-        /// than 10 names, you must request a quota increase. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Quotas</a>.</para><para> The maximum length of a SAN DNS name is 253 octets. The name is made up of multiple
+        /// the <c>DomainName</c> field is www.example.com if users can reach your site by using
+        /// either name. The maximum number of domain names that you can add to an ACM certificate
+        /// is 100. However, the initial quota is 10 domain names. If you need more than 10 names,
+        /// you must request a quota increase. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Quotas</a>.</para><para> The maximum length of a SAN DNS name is 253 octets. The name is made up of multiple
         /// labels separated by periods. No label can be longer than 63 octets. Consider the following
-        /// examples: </para><ul><li><para><code>(63 octets).(63 octets).(63 octets).(61 octets)</code> is legal because the
-        /// total length is 253 octets (63+1+63+1+63+1+61) and no label exceeds 63 octets.</para></li><li><para><code>(64 octets).(63 octets).(63 octets).(61 octets)</code> is not legal because
-        /// the total length exceeds 253 octets (64+1+63+1+63+1+61) and the first label exceeds
-        /// 63 octets.</para></li><li><para><code>(63 octets).(63 octets).(63 octets).(62 octets)</code> is not legal because
-        /// the total length of the DNS name (63+1+63+1+63+1+62) exceeds 253 octets.</para></li></ul>
+        /// examples: </para><ul><li><para><c>(63 octets).(63 octets).(63 octets).(61 octets)</c> is legal because the total
+        /// length is 253 octets (63+1+63+1+63+1+61) and no label exceeds 63 octets.</para></li><li><para><c>(64 octets).(63 octets).(63 octets).(61 octets)</c> is not legal because the total
+        /// length exceeds 253 octets (64+1+63+1+63+1+61) and the first label exceeds 63 octets.</para></li><li><para><c>(63 octets).(63 octets).(63 octets).(62 octets)</c> is not legal because the total
+        /// length of the DNS name (63+1+63+1+63+1+62) exceeds 253 octets.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

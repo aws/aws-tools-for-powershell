@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Next token returned in the request of a previous <code>ListMissionProfiles</code>
-        /// call. Used to get the next page of results.</para>
+        /// <para>Next token returned in the request of a previous <c>ListMissionProfiles</c> call.
+        /// Used to get the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The parameter by which to sort the results. The default is <code>Descending</code>.</para>
+        /// <para>The parameter by which to sort the results. The default is <c>Descending</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order for the results. The default is <code>Ascending</code>.</para>
+        /// <para>The sort order for the results. The default is <c>Ascending</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -32,14 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// 
     ///  
     /// <para>
-    /// The <code>BatchPutDocument</code> API enables you to ingest inline documents or a
-    /// set of documents stored in an Amazon S3 bucket. Use this API to ingest your text and
-    /// unstructured text into an index, add custom attributes to the documents, and to attach
-    /// an access control list to the documents added to the index.
+    /// The <c>BatchPutDocument</c> API enables you to ingest inline documents or a set of
+    /// documents stored in an Amazon S3 bucket. Use this API to ingest your text and unstructured
+    /// text into an index, add custom attributes to the documents, and to attach an access
+    /// control list to the documents added to the index.
     /// </para><para>
     /// The documents are indexed asynchronously. You can see the progress of the batch using
     /// Amazon Web Services CloudWatch. Any error messages related to processing the batch
-    /// are sent to your Amazon Web Services CloudWatch log. You can also use the <code>BatchGetDocumentStatus</code>
+    /// are sent to your Amazon Web Services CloudWatch log. You can also use the <c>BatchGetDocumentStatus</c>
     /// API to monitor the progress of indexing your documents.
     /// </para><para>
     /// For an example of ingesting inline documents using Python and Java SDKs, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-binary-doc.html">Adding
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The identifier of the document attribute used for the condition.</para><para>For example, 'Source_URI' could be an identifier for the attribute or metadata field
-        /// that contains source URIs associated with the documents.</para><para>Amazon Kendra currently does not support <code>_document_body</code> as an attribute
-        /// key used for the condition.</para>
+        /// that contains source URIs associated with the documents.</para><para>Amazon Kendra currently does not support <c>_document_body</c> as an attribute key
+        /// used for the condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The identifier of the document attribute used for the condition.</para><para>For example, 'Source_URI' could be an identifier for the attribute or metadata field
-        /// that contains source URIs associated with the documents.</para><para>Amazon Kendra currently does not support <code>_document_body</code> as an attribute
-        /// key used for the condition.</para>
+        /// that contains source URIs associated with the documents.</para><para>Amazon Kendra currently does not support <c>_document_body</c> as an attribute key
+        /// used for the condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The identifier of the index to add the documents to. You need to create the index
-        /// first using the <code>CreateIndex</code> API.</para>
+        /// first using the <c>CreateIndex</c> API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -233,9 +233,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter CustomDocumentEnrichmentConfiguration_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a role with permission to run <code>PreExtractionHookConfiguration</code>
-        /// and <code>PostExtractionHookConfiguration</code> for altering document metadata and
-        /// content during the document ingestion process. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
+        /// <para>The Amazon Resource Name (ARN) of a role with permission to run <c>PreExtractionHookConfiguration</c>
+        /// and <c>PostExtractionHookConfiguration</c> for altering document metadata and content
+        /// during the document ingestion process. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
         /// roles for Amazon Kendra</a>.</para>
         /// </para>
         /// </summary>

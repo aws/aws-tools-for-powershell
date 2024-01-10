@@ -35,11 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.FD
     /// 
     ///  
     /// <para>
-    /// This is a paginated API. If you provide a null <code>maxResults</code>, this action
-    /// retrieves a maximum of 10 records per page. If you provide a <code>maxResults</code>,
-    /// the value must be between 1 and 10. To get the next page results, provide the pagination
-    /// token from the response as part of your request. A null pagination token fetches the
-    /// records from the beginning.
+    /// This is a paginated API. If you provide a null <c>maxResults</c>, this action retrieves
+    /// a maximum of 10 records per page. If you provide a <c>maxResults</c>, the value must
+    /// be between 1 and 10. To get the next page results, provide the pagination token from
+    /// the response as part of your request. A null pagination token fetches the records
+    /// from the beginning.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "FDModel")]

@@ -33,9 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// To specify the attribute, you can use the <code>Attribute</code> parameter, or one
-    /// of the following parameters: <code>Description</code>, <code>ImdsSupport</code>, or
-    /// <code>LaunchPermission</code>.
+    /// To specify the attribute, you can use the <c>Attribute</c> parameter, or one of the
+    /// following parameters: <c>Description</c>, <c>ImdsSupport</c>, or <c>LaunchPermission</c>.
     /// </para><para>
     /// Images with an Amazon Web Services Marketplace product code cannot be made public.
     /// </para><para>
@@ -69,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The name of the attribute to modify.</para><para>Valid values: <code>description</code> | <code>imdsSupport</code> | <code>launchPermission</code></para>
+        /// <para>The name of the attribute to modify.</para><para>Valid values: <c>description</c> | <c>imdsSupport</c> | <c>launchPermission</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,14 +105,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ImdsSupport
         /// <summary>
         /// <para>
-        /// <para>Set to <code>v2.0</code> to indicate that IMDSv2 is specified in the AMI. Instances
-        /// launched from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code>
-        /// so that, by default, the instance requires that IMDSv2 is used when requesting instance
-        /// metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
+        /// <para>Set to <c>v2.0</c> to indicate that IMDSv2 is specified in the AMI. Instances launched
+        /// from this AMI will have <c>HttpTokens</c> automatically set to <c>required</c> so
+        /// that, by default, the instance requires that IMDSv2 is used when requesting instance
+        /// metadata. In addition, <c>HttpPutResponseHopLimit</c> is set to <c>2</c>. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
         /// the AMI</a> in the <i>Amazon EC2 User Guide</i>.</para><important><para>Do not use this parameter unless your AMI software supports IMDSv2. After you set
-        /// the value to <code>v2.0</code>, you can't undo it. The only way to “reset” your AMI
-        /// is to create a new AMI from the underlying snapshot.</para></important>
+        /// the value to <c>v2.0</c>, you can't undo it. The only way to “reset” your AMI is to
+        /// create a new AMI from the underlying snapshot.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter OperationType
         /// <summary>
         /// <para>
-        /// <para>The operation type. This parameter can be used only when the <code>Attribute</code>
-        /// parameter is <code>launchPermission</code>.</para>
+        /// <para>The operation type. This parameter can be used only when the <c>Attribute</c> parameter
+        /// is <c>launchPermission</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an organizational unit (OU). This parameter can
-        /// be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</para>
+        /// be used only when the <c>Attribute</c> parameter is <c>launchPermission</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an organization. This parameter can be used only
-        /// when the <code>Attribute</code> parameter is <code>launchPermission</code>.</para>
+        /// when the <c>Attribute</c> parameter is <c>launchPermission</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,8 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter UserGroup
         /// <summary>
         /// <para>
-        /// <para>The user groups. This parameter can be used only when the <code>Attribute</code> parameter
-        /// is <code>launchPermission</code>.</para>
+        /// <para>The user groups. This parameter can be used only when the <c>Attribute</c> parameter
+        /// is <c>launchPermission</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,8 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account IDs. This parameter can be used only when the <code>Attribute</code>
-        /// parameter is <code>launchPermission</code>.</para>
+        /// <para>The Amazon Web Services account IDs. This parameter can be used only when the <c>Attribute</c>
+        /// parameter is <c>launchPermission</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The value of the attribute being modified. This parameter can be used only when the
-        /// <code>Attribute</code> parameter is <code>description</code> or <code>imdsSupport</code>.</para>
+        /// <c>Attribute</c> parameter is <c>description</c> or <c>imdsSupport</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -46,13 +46,13 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter EncryptionConfiguration_EncryptionType
         /// <summary>
         /// <para>
-        /// <para>The encryption type to use.</para><para>If you use the <code>KMS</code> encryption type, the contents of the repository will
-        /// be encrypted using server-side encryption with Key Management Service key stored in
-        /// KMS. When you use KMS to encrypt your data, you can either use the default Amazon
-        /// Web Services managed KMS key for Amazon ECR, or specify your own KMS key, which you
-        /// already created. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting
+        /// <para>The encryption type to use.</para><para>If you use the <c>KMS</c> encryption type, the contents of the repository will be
+        /// encrypted using server-side encryption with Key Management Service key stored in KMS.
+        /// When you use KMS to encrypt your data, you can either use the default Amazon Web Services
+        /// managed KMS key for Amazon ECR, or specify your own KMS key, which you already created.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting
         /// data using server-side encryption with an KMS key stored in Key Management Service
-        /// (SSE-KMS)</a> in the <i>Amazon Simple Storage Service Console Developer Guide</i>.</para><para>If you use the <code>AES256</code> encryption type, Amazon ECR uses server-side encryption
+        /// (SSE-KMS)</a> in the <i>Amazon Simple Storage Service Console Developer Guide</i>.</para><para>If you use the <c>AES256</c> encryption type, Amazon ECR uses server-side encryption
         /// with Amazon S3-managed encryption keys which encrypts the images in the repository
         /// using an AES-256 encryption algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Protecting
         /// data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)</a>
@@ -68,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>The tag mutability setting for the repository. If this parameter is omitted, the default
-        /// setting of <code>MUTABLE</code> will be used which will allow image tags to be overwritten.
-        /// If <code>IMMUTABLE</code> is specified, all image tags within the repository will
-        /// be immutable which will prevent them from being overwritten.</para>
+        /// setting of <c>MUTABLE</c> will be used which will allow image tags to be overwritten.
+        /// If <c>IMMUTABLE</c> is specified, all image tags within the repository will be immutable
+        /// which will prevent them from being overwritten.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter EncryptionConfiguration_KmsKey
         /// <summary>
         /// <para>
-        /// <para>If you use the <code>KMS</code> encryption type, specify the KMS key to use for encryption.
+        /// <para>If you use the <c>KMS</c> encryption type, specify the KMS key to use for encryption.
         /// The alias, key ID, or full ARN of the KMS key can be specified. The key must exist
         /// in the same Region as the repository. If no key is specified, the default Amazon Web
         /// Services managed KMS key for Amazon ECR will be used.</para>
@@ -106,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>The name to use for the repository. The repository name may be specified on its own
-        /// (such as <code>nginx-web-app</code>) or it can be prepended with a namespace to group
-        /// the repository into a category (such as <code>project-a/nginx-web-app</code>).</para><para>The repository name must start with a letter and can only contain lowercase letters,
+        /// (such as <c>nginx-web-app</c>) or it can be prepended with a namespace to group the
+        /// repository into a category (such as <c>project-a/nginx-web-app</c>).</para><para>The repository name must start with a letter and can only contain lowercase letters,
         /// numbers, hyphens, underscores, and forward slashes.</para>
         /// </para>
         /// </summary>
@@ -126,9 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>The setting that determines whether images are scanned after being pushed to a repository.
-        /// If set to <code>true</code>, images will be scanned after being pushed. If this parameter
-        /// is not specified, it will default to <code>false</code> and images will not be scanned
-        /// unless a scan is manually started with the <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_StartImageScan.html">API_StartImageScan</a>
+        /// If set to <c>true</c>, images will be scanned after being pushed. If this parameter
+        /// is not specified, it will default to <c>false</c> and images will not be scanned unless
+        /// a scan is manually started with the <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_StartImageScan.html">API_StartImageScan</a>
         /// API.</para>
         /// </para>
         /// </summary>

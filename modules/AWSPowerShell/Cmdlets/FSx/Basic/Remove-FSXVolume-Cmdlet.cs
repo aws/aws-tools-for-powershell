@@ -44,11 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_BypassSnaplockEnterpriseRetention
         /// <summary>
         /// <para>
-        /// <para>Setting this to <code>true</code> allows a SnapLock administrator to delete an FSx
-        /// for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files.
-        /// The IAM permission <code>fsx:BypassSnaplockEnterpriseRetention</code> is also required
-        /// to delete SnapLock Enterprise volumes with unexpired WORM files. The default value
-        /// is <code>false</code>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-delete-volume.html">
+        /// <para>Setting this to <c>true</c> allows a SnapLock administrator to delete an FSx for ONTAP
+        /// SnapLock Enterprise volume with unexpired write once, read many (WORM) files. The
+        /// IAM permission <c>fsx:BypassSnaplockEnterpriseRetention</c> is also required to delete
+        /// SnapLock Enterprise volumes with unexpired WORM files. The default value is <c>false</c>.
+        /// </para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-delete-volume.html">
         /// Deleting a SnapLock volume</a>. </para>
         /// </para>
         /// </summary>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_Option
         /// <summary>
         /// <para>
-        /// <para>To delete the volume's child volumes, snapshots, and clones, use the string <code>DELETE_CHILD_VOLUMES_AND_SNAPSHOTS</code>.</para>
+        /// <para>To delete the volume's child volumes, snapshots, and clones, use the string <c>DELETE_CHILD_VOLUMES_AND_SNAPSHOTS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

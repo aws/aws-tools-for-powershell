@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
     /// Updates a rule for the listener. You can't modify a default listener rule. To modify
-    /// a default listener rule, use <code>UpdateListener</code>.
+    /// a default listener rule, use <c>UpdateListener</c>.
     /// </summary>
     [Cmdlet("Update", "VPCLRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VPCLattice.Model.UpdateRuleResponse")]

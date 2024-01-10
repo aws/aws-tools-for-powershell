@@ -39,15 +39,15 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     /// For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html">Defining
     /// a Workload</a> in the <i>Well-Architected Tool User Guide</i>.
     /// </para><important><para>
-    /// Either <code>AwsRegions</code>, <code>NonAwsRegions</code>, or both must be specified
-    /// when creating a workload.
+    /// Either <c>AwsRegions</c>, <c>NonAwsRegions</c>, or both must be specified when creating
+    /// a workload.
     /// </para><para>
-    /// You also must specify <code>ReviewOwner</code>, even though the parameter is listed
-    /// as not being required in the following section. 
+    /// You also must specify <c>ReviewOwner</c>, even though the parameter is listed as not
+    /// being required in the following section. 
     /// </para></important><para>
     /// When creating a workload using a review template, you must have the following IAM
     /// permissions:
-    /// </para><ul><li><para><code>wellarchitected:GetReviewTemplate</code></para></li><li><para><code>wellarchitected:GetReviewTemplateAnswer</code></para></li><li><para><code>wellarchitected:ListReviewTemplateAnswers</code></para></li><li><para><code>wellarchitected:GetReviewTemplateLensReview</code></para></li></ul>
+    /// </para><ul><li><para><c>wellarchitected:GetReviewTemplate</c></para></li><li><para><c>wellarchitected:GetReviewTemplateAnswer</c></para></li><li><para><c>wellarchitected:ListReviewTemplateAnswers</c></para></li><li><para><c>wellarchitected:GetReviewTemplateLensReview</c></para></li></ul>
     /// </summary>
     [Cmdlet("New", "WATWorkload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WellArchitected.Model.CreateWorkloadResponse")]
@@ -292,7 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter DiscoveryConfig_WorkloadResourceDefinition
         /// <summary>
         /// <para>
-        /// <para>The mode to use for identifying resources associated with the workload.</para><para>You can specify <code>WORKLOAD_METADATA</code>, <code>APP_REGISTRY</code>, or both.</para>
+        /// <para>The mode to use for identifying resources associated with the workload.</para><para>You can specify <c>WORKLOAD_METADATA</c>, <c>APP_REGISTRY</c>, or both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

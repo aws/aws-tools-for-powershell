@@ -216,9 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         /// log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default.
         /// For more information including the supported worker types for Hive and Spark, see
         /// <a href="https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/logging.html#jobs-log-storage-cw">Logging
-        /// for EMR Serverless with CloudWatch</a>.</para><ul><li><para><b>Key Valid Values</b>: <code>SPARK_DRIVER</code>, <code>SPARK_EXECUTOR</code>,
-        /// <code>HIVE_DRIVER</code>, <code>TEZ_TASK</code></para></li><li><para><b>Array Members Valid Values</b>: <code>STDOUT</code>, <code>STDERR</code>, <code>HIVE_LOG</code>,
-        /// <code>TEZ_AM</code>, <code>SYSTEM_LOGS</code></para></li></ul>
+        /// for EMR Serverless with CloudWatch</a>.</para><ul><li><para><b>Key Valid Values</b>: <c>SPARK_DRIVER</c>, <c>SPARK_EXECUTOR</c>, <c>HIVE_DRIVER</c>,
+        /// <c>TEZ_TASK</c></para></li><li><para><b>Array Members Valid Values</b>: <c>STDOUT</c>, <c>STDERR</c>, <c>HIVE_LOG</c>,
+        /// <c>TEZ_AM</c>, <c>SYSTEM_LOGS</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -340,11 +340,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         #region Parameter WorkerTypeSpecification
         /// <summary>
         /// <para>
-        /// <para>The key-value pairs that specify worker type to <code>WorkerTypeSpecificationInput</code>.
+        /// <para>The key-value pairs that specify worker type to <c>WorkerTypeSpecificationInput</c>.
         /// This parameter must contain all valid worker types for a Spark or Hive application.
-        /// Valid worker types include <code>Driver</code> and <code>Executor</code> for Spark
-        /// applications and <code>HiveDriver</code> and <code>TezTask</code> for Hive applications.
-        /// You can either set image details in this parameter for each worker type, or in <code>imageConfiguration</code>
+        /// Valid worker types include <c>Driver</c> and <c>Executor</c> for Spark applications
+        /// and <c>HiveDriver</c> and <c>TezTask</c> for Hive applications. You can either set
+        /// image details in this parameter for each worker type, or in <c>imageConfiguration</c>
         /// for all worker types.</para>
         /// </para>
         /// </summary>

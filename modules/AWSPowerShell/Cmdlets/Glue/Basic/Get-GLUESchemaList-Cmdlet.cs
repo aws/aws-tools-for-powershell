@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// 
     ///  
     /// <para>
-    /// When the <code>RegistryId</code> is not provided, all the schemas across registries
-    /// will be part of the API response.
+    /// When the <c>RegistryId</c> is not provided, all the schemas across registries will
+    /// be part of the API response.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GLUESchemaList")]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter RegistryId_RegistryArn
         /// <summary>
         /// <para>
-        /// <para>Arn of the registry to be updated. One of <code>RegistryArn</code> or <code>RegistryName</code>
+        /// <para>Arn of the registry to be updated. One of <c>RegistryArn</c> or <c>RegistryName</c>
         /// has to be provided.</para>
         /// </para>
         /// </summary>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter RegistryId_RegistryName
         /// <summary>
         /// <para>
-        /// <para>Name of the registry. Used only for lookup. One of <code>RegistryArn</code> or <code>RegistryName</code>
+        /// <para>Name of the registry. Used only for lookup. One of <c>RegistryArn</c> or <c>RegistryName</c>
         /// has to be provided. </para>
         /// </para>
         /// </summary>

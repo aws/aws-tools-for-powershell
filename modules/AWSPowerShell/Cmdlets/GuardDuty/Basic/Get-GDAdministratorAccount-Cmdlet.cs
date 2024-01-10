@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     /// 
     ///  <note><para>
     /// If the organization's management account or a delegated administrator runs this API,
-    /// it will return success (<code>HTTP 200</code>) but no content.
+    /// it will return success (<c>HTTP 200</c>) but no content.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "GDAdministratorAccount")]

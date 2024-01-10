@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
     /// Deletes an Amazon Q data source connector. While the data source is being deleted,
-    /// the <code>Status</code> field returned by a call to the <code>DescribeDataSource</code>
-    /// API is set to <code>DELETING</code>.
+    /// the <c>Status</c> field returned by a call to the <c>DescribeDataSource</c> API is
+    /// set to <c>DELETING</c>.
     /// </summary>
     [Cmdlet("Remove", "QBUSDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

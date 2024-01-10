@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>An optional parameter that specifies the maximum number of results to return. You
-        /// can use <code>nextToken</code> to get the next page of results.</para>
+        /// can use <c>nextToken</c> to get the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your initial <code>DescribeReservedInstances</code> operation returns a <code>nextToken</code>,
-        /// you can include the returned <code>nextToken</code> in subsequent <code>DescribeReservedInstances</code>
+        /// <para>If your initial <c>DescribeReservedInstances</c> operation returns a <c>nextToken</c>,
+        /// you can include the returned <c>nextToken</c> in subsequent <c>DescribeReservedInstances</c>
         /// operations, which returns results in the next page.</para>
         /// </para>
         /// <para>

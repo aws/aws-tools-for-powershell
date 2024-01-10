@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Specifies the backup option for a selected resource. This option is only available
-        /// for Windows Volume Shadow Copy Service (VSS) backup jobs.</para><para>Valid values: Set to <code>"WindowsVSS":"enabled"</code> to enable the <code>WindowsVSS</code>
-        /// backup option and create a Windows VSS backup. Set to <code>"WindowsVSS""disabled"</code>
-        /// to create a regular backup. The <code>WindowsVSS</code> option is not enabled by default.</para>
+        /// for Windows Volume Shadow Copy Service (VSS) backup jobs.</para><para>Valid values: Set to <c>"WindowsVSS":"enabled"</c> to enable the <c>WindowsVSS</c>
+        /// backup option and create a Windows VSS backup. Set to <c>"WindowsVSS""disabled"</c>
+        /// to create a regular backup. The <c>WindowsVSS</c> option is not enabled by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,9 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>
         /// <para>A value in minutes during which a successfully started backup must complete, or else
         /// Backup will cancel the job. This value is optional. This value begins counting down
-        /// from when the backup was scheduled. It does not add additional time for <code>StartWindowMinutes</code>,
-        /// or if the backup started later than scheduled.</para><para>Like <code>StartWindowMinutes</code>, this parameter has a maximum value of 100 years
-        /// (52,560,000 minutes).</para>
+        /// from when the backup was scheduled. It does not add additional time for <c>StartWindowMinutes</c>,
+        /// or if the backup started later than scheduled.</para><para>Like <c>StartWindowMinutes</c>, this parameter has a maximum value of 100 years (52,560,000
+        /// minutes).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Specifies the number of days after creation that a recovery point is deleted. Must
-        /// be greater than 90 days plus <code>MoveToColdStorageAfterDays</code>.</para>
+        /// be greater than 90 days plus <c>MoveToColdStorageAfterDays</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Specifies the IAM role ARN used to create the target recovery point; for example,
-        /// <code>arn:aws:iam::123456789012:role/S3Access</code>.</para>
+        /// <c>arn:aws:iam::123456789012:role/S3Access</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>A customer-chosen string that you can use to distinguish between otherwise identical
-        /// calls to <code>StartBackupJob</code>. Retrying a successful request with the same
-        /// idempotency token results in a success message with no action taken.</para>
+        /// calls to <c>StartBackupJob</c>. Retrying a successful request with the same idempotency
+        /// token results in a success message with no action taken.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,13 +193,13 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>
         /// <para>A value in minutes after a backup is scheduled before a job will be canceled if it
         /// doesn't start successfully. This value is optional, and the default is 8 hours. If
-        /// this value is included, it must be at least 60 minutes to avoid errors.</para><para>This parameter has a maximum value of 100 years (52,560,000 minutes).</para><para>During the start window, the backup job status remains in <code>CREATED</code> status
-        /// until it has successfully begun or until the start window time has run out. If within
-        /// the start window time Backup receives an error that allows the job to be retried,
-        /// Backup will automatically retry to begin the job at least every 10 minutes until the
-        /// backup successfully begins (the job status changes to <code>RUNNING</code>) or until
-        /// the job status changes to <code>EXPIRED</code> (which is expected to occur when the
-        /// start window time is over).</para>
+        /// this value is included, it must be at least 60 minutes to avoid errors.</para><para>This parameter has a maximum value of 100 years (52,560,000 minutes).</para><para>During the start window, the backup job status remains in <c>CREATED</c> status until
+        /// it has successfully begun or until the start window time has run out. If within the
+        /// start window time Backup receives an error that allows the job to be retried, Backup
+        /// will automatically retry to begin the job at least every 10 minutes until the backup
+        /// successfully begins (the job status changes to <c>RUNNING</c>) or until the job status
+        /// changes to <c>EXPIRED</c> (which is expected to occur when the start window time is
+        /// over).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

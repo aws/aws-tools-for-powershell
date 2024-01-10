@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <para>
         /// <para>Specifies the version of Grafana to support in the new workspace.</para><para>Can only be used to upgrade (for example, from 8.4 to 9.4), not downgrade (for example,
         /// from 9.4 to 8.4).</para><para>To know what versions are available to upgrade to for a specific workspace, see the
-        /// <code>ListVersions</code> operation.</para>
+        /// <c>ListVersions</c> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

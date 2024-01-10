@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  
     /// <para>
-    /// The <code>create instances</code> operation supports tag-based access control via
-    /// request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// The <c>create instances</c> operation supports tag-based access control via request
+    /// tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
     /// Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -64,10 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The Availability Zone in which to create your instance. Use the following format:
-        /// <code>us-east-2a</code> (case sensitive). You can get a list of Availability Zones
-        /// by using the <a href="http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html">get
-        /// regions</a> operation. Be sure to add the <code>include Availability Zones</code>
-        /// parameter to your request.</para>
+        /// <c>us-east-2a</c> (case sensitive). You can get a list of Availability Zones by using
+        /// the <a href="http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html">get
+        /// regions</a> operation. Be sure to add the <c>include Availability Zones</c> parameter
+        /// to your request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,9 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter BlueprintId
         /// <summary>
         /// <para>
-        /// <para>The ID for a virtual private server image (<code>app_wordpress_4_4</code> or <code>app_lamp_7_0</code>).
-        /// Use the <code>get blueprints</code> operation to return a list of available images
-        /// (or <i>blueprints</i>).</para><note><para>Use active blueprints when creating new instances. Inactive blueprints are listed
+        /// <para>The ID for a virtual private server image (<c>app_wordpress_4_4</c> or <c>app_lamp_7_0</c>).
+        /// Use the <c>get blueprints</c> operation to return a list of available images (or <i>blueprints</i>).</para><note><para>Use active blueprints when creating new instances. Inactive blueprints are listed
         /// to support customers with existing instances and are not necessarily available to
         /// create new instances. Blueprints are marked inactive when they become outdated due
         /// to operating system updates or new application releases.</para></note>
@@ -107,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The bundle of specification information for your virtual private server (or <i>instance</i>),
-        /// including the pricing plan (<code>micro_1_0</code>).</para>
+        /// including the pricing plan (<c>micro_1_0</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The names to use for your new Lightsail instances. Separate multiple values using
-        /// quotation marks and commas, for example: <code>["MyFirstInstance","MySecondInstance"]</code></para>
+        /// quotation marks and commas, for example: <c>["MyFirstInstance","MySecondInstance"]</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The IP address type for the instance.</para><para>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code>
-        /// for IPv4 and IPv6.</para><para>The default value is <code>dualstack</code>.</para>
+        /// <para>The IP address type for the instance.</para><para>The possible values are <c>ipv4</c> for IPv4 only, and <c>dualstack</c> for IPv4 and
+        /// IPv6.</para><para>The default value is <c>dualstack</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <code>TagResource</code> action to tag a resource after it's created.</para>
+        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <c>TagResource</c> action to tag a resource after it's created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,9 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>A launch script you can create that configures a server with additional user data.
-        /// For example, you might want to run <code>apt-get -y update</code>.</para><note><para>Depending on the machine image you choose, the command to get software on your instance
-        /// varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use <code>apt-get</code>,
-        /// and FreeBSD uses <code>pkg</code>. For a complete list, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/compare-options-choose-lightsail-instance-image">Amazon
+        /// For example, you might want to run <c>apt-get -y update</c>.</para><note><para>Depending on the machine image you choose, the command to get software on your instance
+        /// varies. Amazon Linux and CentOS use <c>yum</c>, Debian and Ubuntu use <c>apt-get</c>,
+        /// and FreeBSD uses <c>pkg</c>. For a complete list, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/compare-options-choose-lightsail-instance-image">Amazon
         /// Lightsail Developer Guide</a>.</para></note>
         /// </para>
         /// </summary>

@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>One or more user-defined key-value pairs to be added to the stack attributes.</para><para>To create a cluster layer, set the <code>EcsClusterArn</code> attribute to the cluster's
+        /// <para>One or more user-defined key-value pairs to be added to the stack attributes.</para><para>To create a cluster layer, set the <c>EcsClusterArn</c> attribute to the cluster's
         /// ARN.</para>
         /// </para>
         /// </summary>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CustomRecipes_Configure
         /// <summary>
         /// <para>
-        /// <para>An array of custom recipe names to be run following a <code>configure</code> event.</para>
+        /// <para>An array of custom recipe names to be run following a <c>configure</c> event.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CustomRecipes_Deploy
         /// <summary>
         /// <para>
-        /// <para>An array of custom recipe names to be run following a <code>deploy</code> event.</para>
+        /// <para>An array of custom recipe names to be run following a <c>deploy</c> event.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,12 +198,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>Whether to install operating system and package updates when the instance boots. The
-        /// default value is <code>true</code>. To control when updates are installed, set this
-        /// value to <code>false</code>. You must then update your instances manually by using
-        /// <a>CreateDeployment</a> to run the <code>update_dependencies</code> stack command
-        /// or by manually running <code>yum</code> (Amazon Linux) or <code>apt-get</code> (Ubuntu)
-        /// on the instances. </para><note><para>To ensure that your instances have the latest security updates, we strongly recommend
-        /// using the default value of <code>true</code>.</para></note>
+        /// default value is <c>true</c>. To control when updates are installed, set this value
+        /// to <c>false</c>. You must then update your instances manually by using <a>CreateDeployment</a>
+        /// to run the <c>update_dependencies</c> stack command or by manually running <c>yum</c>
+        /// (Amazon Linux) or <c>apt-get</c> (Ubuntu) on the instances. </para><note><para>To ensure that your instances have the latest security updates, we strongly recommend
+        /// using the default value of <c>true</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -241,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter Package
         /// <summary>
         /// <para>
-        /// <para>An array of <code>Package</code> objects that describes the layer packages.</para>
+        /// <para>An array of <c>Package</c> objects that describes the layer packages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CustomRecipes_Setup
         /// <summary>
         /// <para>
-        /// <para>An array of custom recipe names to be run following a <code>setup</code> event.</para>
+        /// <para>An array of custom recipe names to be run following a <c>setup</c> event.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -285,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CustomRecipes_Shutdown
         /// <summary>
         /// <para>
-        /// <para>An array of custom recipe names to be run following a <code>shutdown</code> event.</para>
+        /// <para>An array of custom recipe names to be run following a <c>shutdown</c> event.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -331,7 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CustomRecipes_Undeploy
         /// <summary>
         /// <para>
-        /// <para>An array of custom recipe names to be run following a <code>undeploy</code> event.</para>
+        /// <para>An array of custom recipe names to be run following a <c>undeploy</c> event.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -352,7 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter VolumeConfiguration
         /// <summary>
         /// <para>
-        /// <para>A <code>VolumeConfigurations</code> object that describes the layer's Amazon EBS volumes.</para>
+        /// <para>A <c>VolumeConfigurations</c> object that describes the layer's Amazon EBS volumes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

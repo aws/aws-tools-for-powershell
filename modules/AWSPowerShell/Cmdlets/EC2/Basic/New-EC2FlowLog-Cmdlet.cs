@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a CloudWatch
-        /// Logs log group in your account.</para><para>This parameter is required if the destination type is <code>cloud-watch-logs</code>
-        /// and unsupported otherwise.</para>
+        /// Logs log group in your account.</para><para>This parameter is required if the destination type is <c>cloud-watch-logs</c> and
+        /// unsupported otherwise.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DestinationOptions_FileFormat
         /// <summary>
         /// <para>
-        /// <para>The format for the flow log. The default is <code>plain-text</code>.</para>
+        /// <para>The format for the flow log. The default is <c>plain-text</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3.
-        /// The default is <code>false</code>.</para>
+        /// The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,10 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The destination for the flow log data. The meaning of this parameter depends on the
-        /// destination type.</para><ul><li><para>If the destination type is <code>cloud-watch-logs</code>, specify the ARN of a CloudWatch
-        /// Logs log group. For example:</para><para>arn:aws:logs:<i>region</i>:<i>account_id</i>:log-group:<i>my_group</i></para><para>Alternatively, use the <code>LogGroupName</code> parameter.</para></li><li><para>If the destination type is <code>s3</code>, specify the ARN of an S3 bucket. For example:</para><para>arn:aws:s3:::<i>my_bucket</i>/<i>my_subfolder</i>/</para><para>The subfolder is optional. Note that you can't use <code>AWSLogs</code> as a subfolder
-        /// name.</para></li><li><para>If the destination type is <code>kinesis-data-firehose</code>, specify the ARN of
-        /// a Kinesis Data Firehose delivery stream. For example:</para><para>arn:aws:firehose:<i>region</i>:<i>account_id</i>:deliverystream:<i>my_stream</i></para></li></ul>
+        /// destination type.</para><ul><li><para>If the destination type is <c>cloud-watch-logs</c>, specify the ARN of a CloudWatch
+        /// Logs log group. For example:</para><para>arn:aws:logs:<i>region</i>:<i>account_id</i>:log-group:<i>my_group</i></para><para>Alternatively, use the <c>LogGroupName</c> parameter.</para></li><li><para>If the destination type is <c>s3</c>, specify the ARN of an S3 bucket. For example:</para><para>arn:aws:s3:::<i>my_bucket</i>/<i>my_subfolder</i>/</para><para>The subfolder is optional. Note that you can't use <c>AWSLogs</c> as a subfolder name.</para></li><li><para>If the destination type is <c>kinesis-data-firehose</c>, specify the ARN of a Kinesis
+        /// Data Firehose delivery stream. For example:</para><para>arn:aws:firehose:<i>region</i>:<i>account_id</i>:deliverystream:<i>my_stream</i></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LogDestinationType
         /// <summary>
         /// <para>
-        /// <para>The type of destination for the flow log data.</para><para>Default: <code>cloud-watch-logs</code></para>
+        /// <para>The type of destination for the flow log data.</para><para>Default: <c>cloud-watch-logs</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// default format. If you specify this parameter, you must include at least one field.
         /// For more information about the available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow
         /// log records</a> in the <i>Amazon VPC User Guide</i> or <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records">Transit
-        /// Gateway Flow Log records</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</para><para>Specify the fields using the <code>${field-id}</code> format, separated by spaces.</para>
+        /// Gateway Flow Log records</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</para><para>Specify the fields using the <c>${field-id}</c> format, separated by spaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes
-        /// your flow logs.</para><para>This parameter is valid only if the destination type is <code>cloud-watch-logs</code>.</para>
+        /// your flow logs.</para><para>This parameter is valid only if the destination type is <c>cloud-watch-logs</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -172,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates whether to partition the flow log per hour. This reduces the cost and response
-        /// time for queries. The default is <code>false</code>.</para>
+        /// time for queries. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the resources to monitor. For example, if the resource type is <code>VPC</code>,
+        /// <para>The IDs of the resources to monitor. For example, if the resource type is <c>VPC</c>,
         /// specify the IDs of the VPCs.</para><para>Constraints: Maximum of 25 for transit gateway resource types. Maximum of 1000 for
         /// the other resource types.</para>
         /// </para>

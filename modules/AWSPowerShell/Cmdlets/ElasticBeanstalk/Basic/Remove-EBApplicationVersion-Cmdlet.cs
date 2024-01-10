@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter DeleteSourceBundle
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to delete the source bundle from your storage bucket. Otherwise,
+        /// <para>Set to <c>true</c> to delete the source bundle from your storage bucket. Otherwise,
         /// the application version is deleted only from Elastic Beanstalk and the source bundle
         /// remains in Amazon S3.</para>
         /// </para>

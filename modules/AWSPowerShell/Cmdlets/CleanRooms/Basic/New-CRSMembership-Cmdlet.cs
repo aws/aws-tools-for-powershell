@@ -74,10 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>Indicates whether the collaboration member has accepted to pay for query compute costs
-        /// (<code>TRUE</code>) or has not accepted to pay for query compute costs (<code>FALSE</code>).</para><para>If the collaboration creator has not specified anyone to pay for query compute costs,
-        /// then the member who can query is the default payer. </para><para>An error message is returned for the following reasons: </para><ul><li><para>If you set the value to <code>FALSE</code> but you are responsible to pay for query
-        /// compute costs. </para></li><li><para>If you set the value to <code>TRUE</code> but you are not responsible to pay for query
-        /// compute costs. </para></li></ul>
+        /// (<c>TRUE</c>) or has not accepted to pay for query compute costs (<c>FALSE</c>).</para><para>If the collaboration creator has not specified anyone to pay for query compute costs,
+        /// then the member who can query is the default payer. </para><para>An error message is returned for the following reasons: </para><ul><li><para>If you set the value to <c>FALSE</c> but you are responsible to pay for query compute
+        /// costs. </para></li><li><para>If you set the value to <c>TRUE</c> but you are not responsible to pay for query compute
+        /// costs. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -50,10 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// You cannot roll back a node group to an earlier Kubernetes version or AMI version.
     /// </para><para>
     /// When a node in a managed node group is terminated due to a scaling action or update,
-    /// every <code>Pod</code> on that node is drained first. Amazon EKS attempts to drain
-    /// the nodes gracefully and will fail if it is unable to do so. You can <code>force</code>
-    /// the update if Amazon EKS is unable to drain the nodes as a result of a <code>Pod</code>
-    /// disruption budget issue.
+    /// every <c>Pod</c> on that node is drained first. Amazon EKS attempts to drain the nodes
+    /// gracefully and will fail if it is unable to do so. You can <c>force</c> the update
+    /// if Amazon EKS is unable to drain the nodes as a result of a <c>Pod</c> disruption
+    /// budget issue.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "EKSNodegroupVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -99,10 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Enforce
         /// <summary>
         /// <para>
-        /// <para>Force the update if any <code>Pod</code> on the existing node group can't be drained
-        /// due to a <code>Pod</code> disruption budget issue. If an update fails because all
-        /// Pods can't be drained, you can force the update after it fails to terminate the old
-        /// node whether or not any <code>Pod</code> is running on the node.</para>
+        /// <para>Force the update if any <c>Pod</c> on the existing node group can't be drained due
+        /// to a <c>Pod</c> disruption budget issue. If an update fails because all Pods can't
+        /// be drained, you can force the update after it fails to terminate the old node whether
+        /// or not any <c>Pod</c> is running on the node.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,9 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// EKS optimized Amazon Linux AMI versions</a> in the <i>Amazon EKS User Guide</i>. Amazon
         /// EKS managed node groups support the November 2022 and later releases of the Windows
         /// AMIs. For information about Windows versions, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html">Amazon
-        /// EKS optimized Windows AMI versions</a> in the <i>Amazon EKS User Guide</i>.</para><para>If you specify <code>launchTemplate</code>, and your launch template uses a custom
-        /// AMI, then don't specify <code>releaseVersion</code>, or the node group update will
-        /// fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// EKS optimized Windows AMI versions</a> in the <i>Amazon EKS User Guide</i>.</para><para>If you specify <c>launchTemplate</c>, and your launch template uses a custom AMI,
+        /// then don't specify <c>releaseVersion</c>, or the node group update will fail. For
+        /// more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -184,10 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>The Kubernetes version to update to. If no version is specified, then the Kubernetes
         /// version of the node group does not change. You can specify the Kubernetes version
         /// of the cluster to update the node group to the latest AMI version of the cluster's
-        /// Kubernetes version. If you specify <code>launchTemplate</code>, and your launch template
-        /// uses a custom AMI, then don't specify <code>version</code>, or the node group update
-        /// will fail. For more information about using launch templates with Amazon EKS, see
-        /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// Kubernetes version. If you specify <c>launchTemplate</c>, and your launch template
+        /// uses a custom AMI, then don't specify <c>version</c>, or the node group update will
+        /// fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>

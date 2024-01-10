@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080
         /// minutes). The in progress timer can't be updated and will apply to all job executions
         /// for the job. Whenever a job execution remains in the IN_PROGRESS status for longer
-        /// than this interval, the job execution will fail and switch to the terminal <code>TIMED_OUT</code>
+        /// than this interval, the job execution will fail and switch to the terminal <c>TIMED_OUT</c>
         /// status.</para>
         /// </para>
         /// </summary>
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The namespace used to indicate that a job is a customer-managed job.</para><para>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs
-        /// notifications to MQTT topics that contain the value in the following format.</para><para><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></para><note><para>The <code>namespaceId</code> feature is in public preview.</para></note>
+        /// notifications to MQTT topics that contain the value in the following format.</para><para><c>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</c></para><note><para>The <c>namespaceId</c> feature is in public preview.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

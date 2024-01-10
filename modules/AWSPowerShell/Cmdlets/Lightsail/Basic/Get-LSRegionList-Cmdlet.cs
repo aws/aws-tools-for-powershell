@@ -28,8 +28,8 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Returns a list of all valid regions for Amazon Lightsail. Use the <code>include availability
-    /// zones</code> parameter to also return the Availability Zones in a region.
+    /// Returns a list of all valid regions for Amazon Lightsail. Use the <c>include availability
+    /// zones</c> parameter to also return the Availability Zones in a region.
     /// </summary>
     [Cmdlet("Get", "LSRegionList")]
     [OutputType("Amazon.Lightsail.Model.Region")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>A Boolean value indicating whether to also include Availability Zones in your get
-        /// regions request. Availability Zones are indicated with a letter: <code>us-east-2a</code>.</para>
+        /// regions request. Availability Zones are indicated with a letter: <c>us-east-2a</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>A Boolean value indicating whether to also include Availability Zones for databases
-        /// in your get regions request. Availability Zones are indicated with a letter (<code>us-east-2a</code>).</para>
+        /// in your get regions request. Availability Zones are indicated with a letter (<c>us-east-2a</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -112,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// <para>The type of a load balancer. Valid only for load balancers in a VPC.</para><para>By default, Elastic Load Balancing creates an Internet-facing load balancer with a
         /// DNS name that resolves to public IP addresses. For more information about Internet-facing
         /// and Internal load balancers, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme">Load
-        /// Balancer Scheme</a> in the <i>Elastic Load Balancing User Guide</i>.</para><para>Specify <code>internal</code> to create a load balancer with a DNS name that resolves
-        /// to private IP addresses.</para>
+        /// Balancer Scheme</a> in the <i>Elastic Load Balancing User Guide</i>.</para><para>Specify <c>internal</c> to create a load balancer with a DNS name that resolves to
+        /// private IP addresses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// <summary>
         /// <para>
         /// <para>The IDs of the subnets in your VPC to attach to the load balancer. Specify one subnet
-        /// per Availability Zone specified in <code>AvailabilityZones</code>.</para>
+        /// per Availability Zone specified in <c>AvailabilityZones</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,9 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// <summary>
     /// Creates and updates the retention configuration with details about retention period
     /// (number of days) that Config stores your historical information. The API creates the
-    /// <code>RetentionConfiguration</code> object and names the object as <b>default</b>.
-    /// When you have a <code>RetentionConfiguration</code> object named <b>default</b>, calling
-    /// the API modifies the default object. 
+    /// <c>RetentionConfiguration</c> object and names the object as <b>default</b>. When
+    /// you have a <c>RetentionConfiguration</c> object named <b>default</b>, calling the
+    /// API modifies the default object. 
     /// 
     ///  <note><para>
     /// Currently, Config supports only one retention configuration per region in your account.

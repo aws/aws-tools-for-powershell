@@ -28,11 +28,11 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// The <code>UpdateTimeToLive</code> method enables or disables Time to Live (TTL) for
-    /// the specified table. A successful <code>UpdateTimeToLive</code> call returns the current
-    /// <code>TimeToLiveSpecification</code>. It can take up to one hour for the change to
-    /// fully process. Any additional <code>UpdateTimeToLive</code> calls for the same table
-    /// during this one hour duration result in a <code>ValidationException</code>. 
+    /// The <c>UpdateTimeToLive</c> method enables or disables Time to Live (TTL) for the
+    /// specified table. A successful <c>UpdateTimeToLive</c> call returns the current <c>TimeToLiveSpecification</c>.
+    /// It can take up to one hour for the change to fully process. Any additional <c>UpdateTimeToLive</c>
+    /// calls for the same table during this one hour duration result in a <c>ValidationException</c>.
+    /// 
     /// 
     ///  
     /// <para>

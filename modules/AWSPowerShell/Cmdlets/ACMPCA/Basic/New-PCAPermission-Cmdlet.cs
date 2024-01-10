@@ -29,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
     /// Grants one or more permissions on a private CA to the Certificate Manager (ACM) service
-    /// principal (<code>acm.amazonaws.com</code>). These permissions allow ACM to issue and
-    /// renew ACM certificates that reside in the same Amazon Web Services account as the
-    /// CA.
+    /// principal (<c>acm.amazonaws.com</c>). These permissions allow ACM to issue and renew
+    /// ACM certificates that reside in the same Amazon Web Services account as the CA.
     /// 
     ///  
     /// <para>
@@ -40,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// action.
     /// </para><para><b>About Permissions</b></para><ul><li><para>
     /// If the private CA and the certificates it issues reside in the same account, you can
-    /// use <code>CreatePermission</code> to grant permissions for ACM to carry out automatic
-    /// certificate renewals.
+    /// use <c>CreatePermission</c> to grant permissions for ACM to carry out automatic certificate
+    /// renewals.
     /// </para></li><li><para>
     /// For automatic certificate renewal to succeed, the ACM service principal needs permissions
     /// to create, retrieve, and list certificates.
@@ -69,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>The actions that the specified Amazon Web Services service principal can use. These
-        /// include <code>IssueCertificate</code>, <code>GetCertificate</code>, and <code>ListPermissions</code>.</para>
+        /// include <c>IssueCertificate</c>, <c>GetCertificate</c>, and <c>ListPermissions</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can find
         /// the ARN by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a>
-        /// action. This must have the following form: </para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code>. </para>
+        /// action. This must have the following form: </para><para><c>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services service or identity that receives the permission. At this
-        /// time, the only valid principal is <code>acm.amazonaws.com</code>.</para>
+        /// time, the only valid principal is <c>acm.amazonaws.com</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

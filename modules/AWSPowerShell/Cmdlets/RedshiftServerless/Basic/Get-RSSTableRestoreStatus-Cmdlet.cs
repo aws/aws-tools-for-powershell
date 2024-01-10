@@ -28,7 +28,7 @@ using Amazon.RedshiftServerless.Model;
 namespace Amazon.PowerShell.Cmdlets.RSS
 {
     /// <summary>
-    /// Returns information about a <code>TableRestoreStatus</code> object.
+    /// Returns information about a <c>TableRestoreStatus</c> object.
     /// </summary>
     [Cmdlet("Get", "RSSTableRestoreStatus")]
     [OutputType("Amazon.RedshiftServerless.Model.TableRestoreStatus")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter TableRestoreRequestId
         /// <summary>
         /// <para>
-        /// <para>The ID of the <code>RestoreTableFromSnapshot</code> request to return status for.</para>
+        /// <para>The ID of the <c>RestoreTableFromSnapshot</c> request to return status for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

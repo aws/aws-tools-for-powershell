@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Logging_Bucket
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket to store the access logs in, for example, <code>myawslogbucket.s3.amazonaws.com</code>.</para>
+        /// <para>The Amazon S3 bucket to store the access logs in, for example, <c>myawslogbucket.s3.amazonaws.com</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,10 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A unique value (for example, a date-time stamp) that ensures that the request can't
-        /// be replayed.</para><para>If the value of <code>CallerReference</code> is new (regardless of the content of
-        /// the <code>StreamingDistributionConfig</code> object), CloudFront creates a new distribution.</para><para>If <code>CallerReference</code> is a value that you already sent in a previous request
-        /// to create a distribution, CloudFront returns a <code>DistributionAlreadyExists</code>
-        /// error.</para>
+        /// be replayed.</para><para>If the value of <c>CallerReference</c> is new (regardless of the content of the <c>StreamingDistributionConfig</c>
+        /// object), CloudFront creates a new distribution.</para><para>If <c>CallerReference</c> is a value that you already sent in a previous request to
+        /// create a distribution, CloudFront returns a <c>DistributionAlreadyExists</c> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -131,11 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket.
         /// If you don't want to enable logging when you create a streaming distribution or if
-        /// you want to disable logging for an existing streaming distribution, specify <code>false</code>
-        /// for <code>Enabled</code>, and specify <code>empty Bucket</code> and <code>Prefix</code>
-        /// elements. If you specify <code>false</code> for <code>Enabled</code> but you specify
-        /// values for <code>Bucket</code> and <code>Prefix</code>, the values are automatically
-        /// deleted.</para>
+        /// you want to disable logging for an existing streaming distribution, specify <c>false</c>
+        /// for <c>Enabled</c>, and specify <c>empty Bucket</c> and <c>Prefix</c> elements. If
+        /// you specify <c>false</c> for <c>Enabled</c> but you specify values for <c>Bucket</c>
+        /// and <c>Prefix</c>, the values are automatically deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Enabled
         /// <summary>
         /// <para>
-        /// <para>This field is <code>true</code> if any of the Amazon Web Services accounts in the
-        /// list are configured as trusted signers. If not, this field is <code>false</code>.</para>
+        /// <para>This field is <c>true</c> if any of the Amazon Web Services accounts in the list are
+        /// configured as trusted signers. If not, this field is <c>false</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -190,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>The CloudFront origin access identity to associate with the distribution. Use an origin
         /// access identity to configure the distribution so that end users can only access objects
         /// in an Amazon S3 bucket through CloudFront.</para><para>If you want end users to be able to access objects using either the CloudFront URL
-        /// or the Amazon S3 URL, specify an empty <code>OriginAccessIdentity</code> element.</para><para>To delete the origin access identity from an existing distribution, update the distribution
-        /// configuration and include an empty <code>OriginAccessIdentity</code> element.</para><para>To replace the origin access identity, update the distribution configuration and specify
+        /// or the Amazon S3 URL, specify an empty <c>OriginAccessIdentity</c> element.</para><para>To delete the origin access identity from an existing distribution, update the distribution
+        /// configuration and include an empty <c>OriginAccessIdentity</c> element.</para><para>To replace the origin access identity, update the distribution configuration and specify
         /// the new origin access identity.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">Using
         /// an Origin Access Identity to Restrict Access to Your Amazon S3 Content</a> in the
         /// <i> Amazon CloudFront Developer Guide</i>.</para>
@@ -213,9 +211,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>An optional string that you want CloudFront to prefix to the access log filenames
-        /// for this streaming distribution, for example, <code>myprefix/</code>. If you want
-        /// to enable logging, but you don't want to specify a prefix, you still must include
-        /// an empty <code>Prefix</code> element in the <code>Logging</code> element.</para>
+        /// for this streaming distribution, for example, <c>myprefix/</c>. If you want to enable
+        /// logging, but you don't want to specify a prefix, you still must include an empty <c>Prefix</c>
+        /// element in the <c>Logging</c> element.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// An auto-complete API for the search functionality in the SageMaker console. It returns
-    /// suggestions of possible matches for the property name to use in <code>Search</code>
-    /// queries. Provides suggestions for <code>HyperParameters</code>, <code>Tags</code>,
-    /// and <code>Metrics</code>.
+    /// suggestions of possible matches for the property name to use in <c>Search</c> queries.
+    /// Provides suggestions for <c>HyperParameters</c>, <c>Tags</c>, and <c>Metrics</c>.
     /// </summary>
     [Cmdlet("Get", "SMSearchSuggestion")]
     [OutputType("Amazon.SageMaker.Model.PropertyNameSuggestion")]

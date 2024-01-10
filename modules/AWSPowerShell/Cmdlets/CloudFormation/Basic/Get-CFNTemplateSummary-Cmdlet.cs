@@ -28,18 +28,18 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns information about a new or existing template. The <code>GetTemplateSummary</code>
+    /// Returns information about a new or existing template. The <c>GetTemplateSummary</c>
     /// action is useful for viewing parameter information, such as default parameter values
     /// and parameter types, before you create or update a stack or stack set.
     /// 
     ///  
     /// <para>
-    /// You can use the <code>GetTemplateSummary</code> action when you submit a template,
-    /// or you can get template information for a stack set, or a running or deleted stack.
+    /// You can use the <c>GetTemplateSummary</c> action when you submit a template, or you
+    /// can get template information for a stack set, or a running or deleted stack.
     /// </para><para>
-    /// For deleted stacks, <code>GetTemplateSummary</code> returns the template information
-    /// for up to 90 days after the stack has been deleted. If the template doesn't exist,
-    /// a <code>ValidationError</code> is returned.
+    /// For deleted stacks, <c>GetTemplateSummary</c> returns the template information for
+    /// up to 90 days after the stack has been deleted. If the template doesn't exist, a <c>ValidationError</c>
+    /// is returned.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CFNTemplateSummary")]
@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>[Service-managed permissions] Specifies whether you are acting as an account administrator
         /// in the organization's management account or as a delegated administrator in a member
-        /// account.</para><para>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
-        /// self-managed permissions.</para><ul><li><para>If you are signed in to the management account, specify <code>SELF</code>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</para><para>Your Amazon Web Services account must be registered as a delegated administrator in
+        /// account.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for stack sets with self-managed
+        /// permissions.</para><ul><li><para>If you are signed in to the management account, specify <c>SELF</c>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <c>DELEGATED_ADMIN</c>.</para><para>Your Amazon Web Services account must be registered as a delegated administrator in
         /// the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
         /// a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</para></li></ul>
         /// </para>
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The name or the stack ID that's associated with the stack, which aren't always interchangeable.
         /// For running stacks, you can specify either the stack's name or its unique stack ID.
-        /// For deleted stack, you must specify the unique stack ID.</para><para>Conditional: You must specify only one of the following parameters: <code>StackName</code>,
-        /// <code>StackSetName</code>, <code>TemplateBody</code>, or <code>TemplateURL</code>.</para>
+        /// For deleted stack, you must specify the unique stack ID.</para><para>Conditional: You must specify only one of the following parameters: <c>StackName</c>,
+        /// <c>StackSetName</c>, <c>TemplateBody</c>, or <c>TemplateURL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackSetName
         /// <summary>
         /// <para>
-        /// <para>The name or unique ID of the stack set from which the stack was created.</para><para>Conditional: You must specify only one of the following parameters: <code>StackName</code>,
-        /// <code>StackSetName</code>, <code>TemplateBody</code>, or <code>TemplateURL</code>.</para>
+        /// <para>The name or unique ID of the stack set from which the stack was created.</para><para>Conditional: You must specify only one of the following parameters: <c>StackName</c>,
+        /// <c>StackSetName</c>, <c>TemplateBody</c>, or <c>TemplateURL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
         /// length of 51,200 bytes. For more information about templates, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// anatomy</a> in the <i>CloudFormation User Guide</i>.</para><para>Conditional: You must specify only one of the following parameters: <code>StackName</code>,
-        /// <code>StackSetName</code>, <code>TemplateBody</code>, or <code>TemplateURL</code>.</para>
+        /// anatomy</a> in the <i>CloudFormation User Guide</i>.</para><para>Conditional: You must specify only one of the following parameters: <c>StackName</c>,
+        /// <c>StackSetName</c>, <c>TemplateBody</c>, or <c>TemplateURL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>Location of file containing the template body. The URL must point to a template (max
         /// size: 460,800 bytes) that's located in an Amazon S3 bucket or a Systems Manager document.
         /// For more information about templates, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// anatomy</a> in the <i>CloudFormation User Guide</i>.</para><para>Conditional: You must specify only one of the following parameters: <code>StackName</code>,
-        /// <code>StackSetName</code>, <code>TemplateBody</code>, or <code>TemplateURL</code>.</para>
+        /// anatomy</a> in the <i>CloudFormation User Guide</i>.</para><para>Conditional: You must specify only one of the following parameters: <c>StackName</c>,
+        /// <c>StackSetName</c>, <c>TemplateBody</c>, or <c>TemplateURL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,9 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TemplateSummaryConfig_TreatUnrecognizedResourceTypesAsWarning
         /// <summary>
         /// <para>
-        /// <para>If set to <code>True</code>, any unrecognized resource types generate warnings and
-        /// not an error. Any unrecognized resource types are returned in the <code>Warnings</code>
-        /// output parameter.</para>
+        /// <para>If set to <c>True</c>, any unrecognized resource types generate warnings and not an
+        /// error. Any unrecognized resource types are returned in the <c>Warnings</c> output
+        /// parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

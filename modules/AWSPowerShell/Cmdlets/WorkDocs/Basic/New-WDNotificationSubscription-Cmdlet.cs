@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         /// <summary>
         /// <para>
         /// <para>The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint
-        /// is a URL that begins with <code>https</code>.</para>
+        /// is a URL that begins with <c>https</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

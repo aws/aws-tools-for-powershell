@@ -58,8 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>Limits the returned queries to only those that have the specified status. Valid values
-        /// are <code>Cancelled</code>, <code>Complete</code>, <code>Failed</code>, <code>Running</code>,
-        /// and <code>Scheduled</code>.</para>
+        /// are <c>Cancelled</c>, <c>Complete</c>, <c>Failed</c>, <c>Running</c>, and <c>Scheduled</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

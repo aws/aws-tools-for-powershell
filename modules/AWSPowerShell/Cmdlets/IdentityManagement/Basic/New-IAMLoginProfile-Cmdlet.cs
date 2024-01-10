@@ -61,12 +61,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The new password for the user.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> that is used to validate
         /// this parameter is a string of characters. That string can include almost any printable
-        /// ASCII character from the space (<code>\u0020</code>) through the end of the ASCII
-        /// character range (<code>\u00FF</code>). You can also include the tab (<code>\u0009</code>),
-        /// line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>) characters.
-        /// Any of these characters are valid in a password. However, many tools, such as the
-        /// Amazon Web Services Management Console, might restrict the ability to type certain
-        /// characters because they have special meaning within that tool.</para>
+        /// ASCII character from the space (<c>\u0020</c>) through the end of the ASCII character
+        /// range (<c>\u00FF</c>). You can also include the tab (<c>\u0009</c>), line feed (<c>\u000A</c>),
+        /// and carriage return (<c>\u000D</c>) characters. Any of these characters are valid
+        /// in a password. However, many tools, such as the Amazon Web Services Management Console,
+        /// might restrict the ability to type certain characters because they have special meaning
+        /// within that tool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

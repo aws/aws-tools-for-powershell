@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     /// 
     ///  
     /// <para>
-    /// If you call <code>CreateBackupPlan</code> with a plan that already exists, you receive
-    /// an <code>AlreadyExistsException</code> exception.
+    /// If you call <c>CreateBackupPlan</c> with a plan that already exists, you receive an
+    /// <c>AlreadyExistsException</c> exception.
     /// </para>
     /// </summary>
     [Cmdlet("New", "BAKBackupPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupPlan_AdvancedBackupSetting
         /// <summary>
         /// <para>
-        /// <para>Specifies a list of <code>BackupOptions</code> for each resource type. These settings
-        /// are only available for Windows Volume Shadow Copy Service (VSS) backup jobs.</para>
+        /// <para>Specifies a list of <c>BackupOptions</c> for each resource type. These settings are
+        /// only available for Windows Volume Shadow Copy Service (VSS) backup jobs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Identifies the request and allows failed requests to be retried without the risk of
-        /// running the operation twice. If the request includes a <code>CreatorRequestId</code>
-        /// that matches an existing backup plan, that plan is returned. This parameter is optional.</para><para>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</para>
+        /// running the operation twice. If the request includes a <c>CreatorRequestId</c> that
+        /// matches an existing backup plan, that plan is returned. This parameter is optional.</para><para>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupPlan_Rule
         /// <summary>
         /// <para>
-        /// <para>An array of <code>BackupRule</code> objects, each of which specifies a scheduled task
-        /// that is used to back up a selection of resources.</para>
+        /// <para>An array of <c>BackupRule</c> objects, each of which specifies a scheduled task that
+        /// is used to back up a selection of resources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

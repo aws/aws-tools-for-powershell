@@ -33,12 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     ///  
     /// <para>
     /// To define the interaction between the user and your bot, you use one or more intents.
-    /// For a pizza ordering bot, for example, you would create an <code>OrderPizza</code>
-    /// intent. 
+    /// For a pizza ordering bot, for example, you would create an <c>OrderPizza</c> intent.
+    /// 
     /// </para><para>
     /// To create an intent or replace an existing intent, you must provide the following:
     /// </para><ul><li><para>
-    /// Intent name. For example, <code>OrderPizza</code>.
+    /// Intent name. For example, <c>OrderPizza</c>.
     /// </para></li><li><para>
     /// Sample utterances. For example, "Can I order a pizza, please." and "I want to order
     /// a pizza."
@@ -65,15 +65,15 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// "Do you want to order a drink with your pizza?"
     /// </para></li></ul><para>
     /// If you specify an existing intent name to update the intent, Amazon Lex replaces the
-    /// values in the <code>$LATEST</code> version of the intent with the values in the request.
+    /// values in the <c>$LATEST</c> version of the intent with the values in the request.
     /// Amazon Lex removes fields that you don't provide in the request. If you don't specify
-    /// the required fields, Amazon Lex throws an exception. When you update the <code>$LATEST</code>
-    /// version of an intent, the <code>status</code> field of any bot that uses the <code>$LATEST</code>
-    /// version of the intent is set to <code>NOT_BUILT</code>.
+    /// the required fields, Amazon Lex throws an exception. When you update the <c>$LATEST</c>
+    /// version of an intent, the <c>status</c> field of any bot that uses the <c>$LATEST</c>
+    /// version of the intent is set to <c>NOT_BUILT</c>.
     /// </para><para>
     /// For more information, see <a>how-it-works</a>.
     /// </para><para>
-    /// This operation requires permissions for the <code>lex:PutIntent</code> action.
+    /// This operation requires permissions for the <c>lex:PutIntent</c> action.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "LMBIntent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -90,11 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter Checksum
         /// <summary>
         /// <para>
-        /// <para>Identifies a specific revision of the <code>$LATEST</code> version.</para><para>When you create a new intent, leave the <code>checksum</code> field blank. If you
-        /// specify a checksum you get a <code>BadRequestException</code> exception.</para><para>When you want to update a intent, set the <code>checksum</code> field to the checksum
-        /// of the most recent revision of the <code>$LATEST</code> version. If you don't specify
-        /// the <code> checksum</code> field, or if the checksum does not match the <code>$LATEST</code>
-        /// version, you get a <code>PreconditionFailedException</code> exception.</para>
+        /// <para>Identifies a specific revision of the <c>$LATEST</c> version.</para><para>When you create a new intent, leave the <c>checksum</c> field blank. If you specify
+        /// a checksum you get a <c>BadRequestException</c> exception.</para><para>When you want to update a intent, set the <c>checksum</c> field to the checksum of
+        /// the most recent revision of the <c>$LATEST</c> version. If you don't specify the <c>
+        /// checksum</c> field, or if the checksum does not match the <c>$LATEST</c> version,
+        /// you get a <c>PreconditionFailedException</c> exception.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,9 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <summary>
         /// <para>
         /// <para> The statement that you want Amazon Lex to convey to the user after the intent is
-        /// successfully fulfilled by the Lambda function. </para><para>This element is relevant only if you provide a Lambda function in the <code>fulfillmentActivity</code>.
-        /// If you return the intent to the client application, you can't specify this element.</para><note><para>The <code>followUpPrompt</code> and <code>conclusionStatement</code> are mutually
-        /// exclusive. You can specify only one.</para></note>
+        /// successfully fulfilled by the Lambda function. </para><para>This element is relevant only if you provide a Lambda function in the <c>fulfillmentActivity</c>.
+        /// If you return the intent to the client application, you can't specify this element.</para><note><para>The <c>followUpPrompt</c> and <c>conclusionStatement</c> are mutually exclusive. You
+        /// can specify only one.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,9 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter CreateVersion
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code> a new numbered version of the intent is created. This
-        /// is the same as calling the <code>CreateIntentVersion</code> operation. If you do not
-        /// specify <code>createVersion</code>, the default is <code>false</code>.</para>
+        /// <para>When set to <c>true</c> a new numbered version of the intent is created. This is the
+        /// same as calling the <c>CreateIntentVersion</c> operation. If you do not specify <c>createVersion</c>,
+        /// the default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter InputContext
         /// <summary>
         /// <para>
-        /// <para>An array of <code>InputContext</code> objects that lists the contexts that must be
-        /// active for Amazon Lex to choose the intent in a conversation with the user.</para>
+        /// <para>An array of <c>InputContext</c> objects that lists the contexts that must be active
+        /// for Amazon Lex to choose the intent in a conversation with the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <para>The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent
         /// intent to search. The index must be in the same account and Region as the Amazon Lex
         /// bot. If the Amazon Kendra index does not exist, you get an exception when you call
-        /// the <code>PutIntent</code> operation.</para>
+        /// the <c>PutIntent</c> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,8 +234,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <summary>
         /// <para>
         /// <para>The name of the intent. The name is <i>not</i> case sensitive. </para><para>The name can't match a built-in intent name, or a built-in intent name with "AMAZON."
-        /// removed. For example, because there is a built-in intent called <code>AMAZON.HelpIntent</code>,
-        /// you can't create a custom intent called <code>HelpIntent</code>.</para><para>For a list of built-in intents, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents">Standard
+        /// removed. For example, because there is a built-in intent called <c>AMAZON.HelpIntent</c>,
+        /// you can't create a custom intent called <c>HelpIntent</c>.</para><para>For a list of built-in intents, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents">Standard
         /// Built-in Intents</a> in the <i>Alexa Skills Kit</i>.</para>
         /// </para>
         /// </summary>
@@ -253,8 +253,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter OutputContext
         /// <summary>
         /// <para>
-        /// <para>An array of <code>OutputContext</code> objects that lists the contexts that the intent
-        /// activates when the intent is fulfilled.</para>
+        /// <para>An array of <c>OutputContext</c> objects that lists the contexts that the intent activates
+        /// when the intent is fulfilled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -290,9 +290,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter FollowUpPrompt_RejectionStatement
         /// <summary>
         /// <para>
-        /// <para>If the user answers "no" to the question defined in the <code>prompt</code> field,
-        /// Amazon Lex responds with this statement to acknowledge that the intent was canceled.
-        /// </para>
+        /// <para>If the user answers "no" to the question defined in the <c>prompt</c> field, Amazon
+        /// Lex responds with this statement to acknowledge that the intent was canceled. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -302,9 +301,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter RejectionStatement
         /// <summary>
         /// <para>
-        /// <para>When the user answers "no" to the question defined in <code>confirmationPrompt</code>,
-        /// Amazon Lex responds with this statement to acknowledge that the intent was canceled.
-        /// </para><note><para>You must provide both the <code>rejectionStatement</code> and the <code>confirmationPrompt</code>,
+        /// <para>When the user answers "no" to the question defined in <c>confirmationPrompt</c>, Amazon
+        /// Lex responds with this statement to acknowledge that the intent was canceled. </para><note><para>You must provide both the <c>rejectionStatement</c> and the <c>confirmationPrompt</c>,
         /// or neither.</para></note>
         /// </para>
         /// </summary>
@@ -315,9 +313,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter ConfirmationPrompt_ResponseCard
         /// <summary>
         /// <para>
-        /// <para>A response card. Amazon Lex uses this prompt at runtime, in the <code>PostText</code>
-        /// API response. It substitutes session attributes and slot values for placeholders in
-        /// the response card. For more information, see <a>ex-resp-card</a>. </para>
+        /// <para>A response card. Amazon Lex uses this prompt at runtime, in the <c>PostText</c> API
+        /// response. It substitutes session attributes and slot values for placeholders in the
+        /// response card. For more information, see <a>ex-resp-card</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -327,9 +325,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter Prompt_ResponseCard
         /// <summary>
         /// <para>
-        /// <para>A response card. Amazon Lex uses this prompt at runtime, in the <code>PostText</code>
-        /// API response. It substitutes session attributes and slot values for placeholders in
-        /// the response card. For more information, see <a>ex-resp-card</a>. </para>
+        /// <para>A response card. Amazon Lex uses this prompt at runtime, in the <c>PostText</c> API
+        /// response. It substitutes session attributes and slot values for placeholders in the
+        /// response card. For more information, see <a>ex-resp-card</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -342,7 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an IAM role that has permission to search the Amazon
         /// Kendra index. The role must be in the same account and Region as the Amazon Lex bot.
-        /// If the role does not exist, you get an exception when you call the <code>PutIntent</code>
+        /// If the role does not exist, you get an exception when you call the <c>PutIntent</c>
         /// operation.</para>
         /// </para>
         /// </summary>

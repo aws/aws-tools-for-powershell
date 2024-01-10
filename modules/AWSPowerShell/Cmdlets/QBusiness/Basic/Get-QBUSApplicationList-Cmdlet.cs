@@ -56,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the <code>maxResults</code> response was incomplete because there is more data
-        /// to retrieve, Amazon Q returns a pagination token in the response. You can use this
-        /// pagination token to retrieve the next set of Amazon Q applications.</para>
+        /// <para>If the <c>maxResults</c> response was incomplete because there is more data to retrieve,
+        /// Amazon Q returns a pagination token in the response. You can use this pagination token
+        /// to retrieve the next set of Amazon Q applications.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

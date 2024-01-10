@@ -48,8 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <para>
         /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Name (ARN)</a> of the managed permission that you want to remove tags from.
-        /// You must specify either <code>resourceArn</code>, or <code>resourceShareArn</code>,
-        /// but not both.</para>
+        /// You must specify either <c>resourceArn</c>, or <c>resourceShareArn</c>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Name (ARN)</a> of the resource share that you want to remove tags from. The
         /// tags are removed from the resource share, not the resources in the resource share.
-        /// You must specify either <code>resourceShareArn</code>, or <code>resourceArn</code>,
-        /// but not both.</para>
+        /// You must specify either <c>resourceShareArn</c>, or <c>resourceArn</c>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

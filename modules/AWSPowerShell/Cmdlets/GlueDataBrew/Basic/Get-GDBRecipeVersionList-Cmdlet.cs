@@ -28,7 +28,7 @@ using Amazon.GlueDataBrew.Model;
 namespace Amazon.PowerShell.Cmdlets.GDB
 {
     /// <summary>
-    /// Lists the versions of a particular DataBrew recipe, except for <code>LATEST_WORKING</code>.
+    /// Lists the versions of a particular DataBrew recipe, except for <c>LATEST_WORKING</c>.
     /// </summary>
     [Cmdlet("Get", "GDBRecipeVersionList")]
     [OutputType("Amazon.GlueDataBrew.Model.ListRecipeVersionsResponse")]

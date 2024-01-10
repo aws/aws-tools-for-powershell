@@ -28,17 +28,17 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Publishes a CloudFront function by copying the function code from the <code>DEVELOPMENT</code>
-    /// stage to <code>LIVE</code>. This automatically updates all cache behaviors that are
-    /// using this function to use the newly published copy in the <code>LIVE</code> stage.
+    /// Publishes a CloudFront function by copying the function code from the <c>DEVELOPMENT</c>
+    /// stage to <c>LIVE</c>. This automatically updates all cache behaviors that are using
+    /// this function to use the newly published copy in the <c>LIVE</c> stage.
     /// 
     ///  
     /// <para>
-    /// When a function is published to the <code>LIVE</code> stage, you can attach the function
+    /// When a function is published to the <c>LIVE</c> stage, you can attach the function
     /// to a distribution's cache behavior, using the function's Amazon Resource Name (ARN).
     /// </para><para>
-    /// To publish a function, you must provide the function's name and version (<code>ETag</code>
-    /// value). To get these values, you can use <code>ListFunctions</code> and <code>DescribeFunction</code>.
+    /// To publish a function, you must provide the function's name and version (<c>ETag</c>
+    /// value). To get these values, you can use <c>ListFunctions</c> and <c>DescribeFunction</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Publish", "CFFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The current version (<code>ETag</code> value) of the function that you are publishing,
-        /// which you can get using <code>DescribeFunction</code>.</para>
+        /// <para>The current version (<c>ETag</c> value) of the function that you are publishing, which
+        /// you can get using <c>DescribeFunction</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

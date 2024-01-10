@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to include in the response. If more results exist than
-        /// the specified <code>MaxResults</code> value, a token is included in the response so
-        /// that the remaining results can be retrieved. Required.</para>
+        /// the specified <c>MaxResults</c> value, a token is included in the response so that
+        /// the remaining results can be retrieved. Required.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         /// <para>
         /// <para>An optional token returned from a prior request. Use this token for pagination of
         /// results from this action. If this parameter is specified, the response includes only
-        /// results beyond the token, up to the value specified by <code>MaxResults</code>. Required.</para>
+        /// results beyond the token, up to the value specified by <c>MaxResults</c>. Required.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

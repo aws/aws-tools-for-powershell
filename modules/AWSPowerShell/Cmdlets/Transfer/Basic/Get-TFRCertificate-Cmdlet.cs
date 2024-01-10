@@ -28,7 +28,7 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Describes the certificate that's identified by the <code>CertificateId</code>.
+    /// Describes the certificate that's identified by the <c>CertificateId</c>.
     /// </summary>
     [Cmdlet("Get", "TFRCertificate")]
     [OutputType("Amazon.Transfer.Model.DescribedCertificate")]

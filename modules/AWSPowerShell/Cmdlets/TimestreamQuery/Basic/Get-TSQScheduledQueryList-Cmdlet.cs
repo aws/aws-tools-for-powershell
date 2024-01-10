@@ -28,7 +28,7 @@ using Amazon.TimestreamQuery.Model;
 namespace Amazon.PowerShell.Cmdlets.TSQ
 {
     /// <summary>
-    /// Gets a list of all scheduled queries in the caller's Amazon account and Region. <code>ListScheduledQueries</code>
+    /// Gets a list of all scheduled queries in the caller's Amazon account and Region. <c>ListScheduledQueries</c>
     /// is eventually consistent.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TSQScheduledQueryList")]
@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return in the output. If the total number of items
-        /// available is more than the value specified, a <code>NextToken</code> is provided in
-        /// the output. To resume pagination, provide the <code>NextToken</code> value as the
-        /// argument to the subsequent call to <code>ListScheduledQueriesRequest</code>.</para>
+        /// available is more than the value specified, a <c>NextToken</c> is provided in the
+        /// output. To resume pagination, provide the <c>NextToken</c> value as the argument to
+        /// the subsequent call to <c>ListScheduledQueriesRequest</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

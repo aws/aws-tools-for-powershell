@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Detaches an EBS volume from an instance. Make sure to unmount any file systems on
     /// the device within your operating system before detaching the volume. Failure to do
-    /// so can result in the volume becoming stuck in the <code>busy</code> state while detaching.
+    /// so can result in the volume becoming stuck in the <c>busy</c> state while detaching.
     /// If this happens, detachment can be delayed indefinitely until you unmount the volume,
     /// force detachment, reboot the instance, or all three. If an EBS volume is the root
     /// device of an instance, it can't be detached while the instance is running. To detach

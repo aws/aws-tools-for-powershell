@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter DeviceId
         /// <summary>
         /// <para>
-        /// <para>Devices whose position you want to retrieve.</para><ul><li><para>For example, for two devices: <code>device-ids=DeviceId1&amp;device-ids=DeviceId2</code></para></li></ul>
+        /// <para>Devices whose position you want to retrieve.</para><ul><li><para>For example, for two devices: <c>device-ids=DeviceId1&amp;device-ids=DeviceId2</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

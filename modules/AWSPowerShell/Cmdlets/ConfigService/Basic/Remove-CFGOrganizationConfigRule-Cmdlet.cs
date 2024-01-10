@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// <para>
     /// Only a management account and a delegated administrator account can delete an organization
     /// Config rule. When calling this API with a delegated administrator, you must ensure
-    /// Organizations <code>ListDelegatedAdministrator</code> permissions are added.
+    /// Organizations <c>ListDelegatedAdministrator</c> permissions are added.
     /// </para><para>
     /// Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete.
     /// You cannot update a rule while it is in this state.

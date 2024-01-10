@@ -28,8 +28,8 @@ using Amazon.Comprehend.Model;
 namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
-    /// Creates an entity recognizer using submitted files. After your <code>CreateEntityRecognizer</code>
-    /// request is submitted, you can check job status using the <code>DescribeEntityRecognizer</code>
+    /// Creates an entity recognizer using submitted files. After your <c>CreateEntityRecognizer</c>
+    /// request is submitted, you can check job status using the <c>DescribeEntityRecognizer</c>
     /// API.
     /// </summary>
     [Cmdlet("New", "COMPEntityRecognizer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>
         /// <para>A list of augmented manifest files that provide training data for your custom model.
         /// An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker
-        /// Ground Truth.</para><para>This parameter is required if you set <code>DataFormat</code> to <code>AUGMENTED_MANIFEST</code>.</para>
+        /// Ground Truth.</para><para>This parameter is required if you set <c>DataFormat</c> to <c>AUGMENTED_MANIFEST</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,17 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter InputDataConfig_DataFormat
         /// <summary>
         /// <para>
-        /// <para>The format of your training data:</para><ul><li><para><code>COMPREHEND_CSV</code>: A CSV file that supplements your training documents.
-        /// The CSV file contains information about the custom entities that your trained model
-        /// will detect. The required format of the file depends on whether you are providing
-        /// annotations or an entity list.</para><para>If you use this value, you must provide your CSV file by using either the <code>Annotations</code>
-        /// or <code>EntityList</code> parameters. You must provide your training documents by
-        /// using the <code>Documents</code> parameter.</para></li><li><para><code>AUGMENTED_MANIFEST</code>: A labeled dataset that is produced by Amazon SageMaker
+        /// <para>The format of your training data:</para><ul><li><para><c>COMPREHEND_CSV</c>: A CSV file that supplements your training documents. The CSV
+        /// file contains information about the custom entities that your trained model will detect.
+        /// The required format of the file depends on whether you are providing annotations or
+        /// an entity list.</para><para>If you use this value, you must provide your CSV file by using either the <c>Annotations</c>
+        /// or <c>EntityList</c> parameters. You must provide your training documents by using
+        /// the <c>Documents</c> parameter.</para></li><li><para><c>AUGMENTED_MANIFEST</c>: A labeled dataset that is produced by Amazon SageMaker
         /// Ground Truth. This file is in JSON lines format. Each line is a complete JSON object
         /// that contains a training document and its labels. Each label annotates a named entity
-        /// in the training document. </para><para>If you use this value, you must provide the <code>AugmentedManifests</code> parameter
-        /// in your request.</para></li></ul><para>If you don't specify a value, Amazon Comprehend uses <code>COMPREHEND_CSV</code> as
-        /// the default.</para>
+        /// in the training document. </para><para>If you use this value, you must provide the <c>AugmentedManifests</c> parameter in
+        /// your request.</para></li></ul><para>If you don't specify a value, Amazon Comprehend uses <c>COMPREHEND_CSV</c> as the
+        /// default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>ID for the KMS key that Amazon Comprehend uses to encrypt trained custom models. The
-        /// ModelKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// ModelKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <c>"1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <c>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,8 +185,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// model.</para><para>Provide your JSON as a UTF-8 encoded string without line breaks. To provide valid
         /// JSON for your policy, enclose the attribute names and values in double quotes. If
         /// the JSON body is also enclosed in double quotes, then you must escape the double quotes
-        /// that are inside the policy:</para><para><code>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</code></para><para>To avoid escaping quotes, you can use single quotes to enclose the policy and double
-        /// quotes to enclose the JSON names and values:</para><para><code>'{"attribute": "value", "attribute": ["value"]}'</code></para>
+        /// that are inside the policy:</para><para><c>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</c></para><para>To avoid escaping quotes, you can use single quotes to enclose the policy and double
+        /// quotes to enclose the JSON names and values:</para><para><c>'{"attribute": "value", "attribute": ["value"]}'</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -336,7 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>
         /// <para>ID for the Amazon Web Services Key Management Service (KMS) key that Amazon Comprehend
         /// uses to encrypt data on the storage volume attached to the ML compute instance(s)
-        /// that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <c>"1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <c>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

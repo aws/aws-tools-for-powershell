@@ -28,23 +28,23 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Updates an event data store. The required <code>EventDataStore</code> value is an
-    /// ARN or the ID portion of the ARN. Other parameters are optional, but at least one
-    /// optional parameter must be specified, or CloudTrail throws an error. <code>RetentionPeriod</code>
-    /// is in days, and valid values are integers between 7 and 3653 if the <code>BillingMode</code>
-    /// is set to <code>EXTENDABLE_RETENTION_PRICING</code>, or between 7 and 2557 if <code>BillingMode</code>
-    /// is set to <code>FIXED_RETENTION_PRICING</code>. By default, <code>TerminationProtection</code>
+    /// Updates an event data store. The required <c>EventDataStore</c> value is an ARN or
+    /// the ID portion of the ARN. Other parameters are optional, but at least one optional
+    /// parameter must be specified, or CloudTrail throws an error. <c>RetentionPeriod</c>
+    /// is in days, and valid values are integers between 7 and 3653 if the <c>BillingMode</c>
+    /// is set to <c>EXTENDABLE_RETENTION_PRICING</c>, or between 7 and 2557 if <c>BillingMode</c>
+    /// is set to <c>FIXED_RETENTION_PRICING</c>. By default, <c>TerminationProtection</c>
     /// is enabled.
     /// 
     ///  
     /// <para>
-    /// For event data stores for CloudTrail events, <code>AdvancedEventSelectors</code> includes
+    /// For event data stores for CloudTrail events, <c>AdvancedEventSelectors</c> includes
     /// or excludes management, data, or Insights events in your event data store. For more
-    /// information about <code>AdvancedEventSelectors</code>, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelectors</a>.
+    /// information about <c>AdvancedEventSelectors</c>, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelectors</a>.
     /// </para><para>
     ///  For event data stores for Config configuration items, Audit Manager evidence, or
-    /// non-Amazon Web Services events, <code>AdvancedEventSelectors</code> includes events
-    /// of that type in your event data store.
+    /// non-Amazon Web Services events, <c>AdvancedEventSelectors</c> includes events of that
+    /// type in your event data store.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "CTEventDataStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,16 +73,16 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter BillingMode
         /// <summary>
         /// <para>
-        /// <note><para>You can't change the billing mode from <code>EXTENDABLE_RETENTION_PRICING</code> to
-        /// <code>FIXED_RETENTION_PRICING</code>. If <code>BillingMode</code> is set to <code>EXTENDABLE_RETENTION_PRICING</code>
-        /// and you want to use <code>FIXED_RETENTION_PRICING</code> instead, you'll need to stop
-        /// ingestion on the event data store and create a new event data store that uses <code>FIXED_RETENTION_PRICING</code>.</para></note><para>The billing mode for the event data store determines the cost for ingesting events
-        /// and the default and maximum retention period for the event data store.</para><para>The following are the possible values:</para><ul><li><para><code>EXTENDABLE_RETENTION_PRICING</code> - This billing mode is generally recommended
+        /// <note><para>You can't change the billing mode from <c>EXTENDABLE_RETENTION_PRICING</c> to <c>FIXED_RETENTION_PRICING</c>.
+        /// If <c>BillingMode</c> is set to <c>EXTENDABLE_RETENTION_PRICING</c> and you want to
+        /// use <c>FIXED_RETENTION_PRICING</c> instead, you'll need to stop ingestion on the event
+        /// data store and create a new event data store that uses <c>FIXED_RETENTION_PRICING</c>.</para></note><para>The billing mode for the event data store determines the cost for ingesting events
+        /// and the default and maximum retention period for the event data store.</para><para>The following are the possible values:</para><ul><li><para><c>EXTENDABLE_RETENTION_PRICING</c> - This billing mode is generally recommended
         /// if you want a flexible retention period of up to 3653 days (about 10 years). The default
-        /// retention period for this billing mode is 366 days.</para></li><li><para><code>FIXED_RETENTION_PRICING</code> - This billing mode is recommended if you expect
-        /// to ingest more than 25 TB of event data per month and need a retention period of up
-        /// to 2557 days (about 7 years). The default retention period for this billing mode is
-        /// 2557 days.</para></li></ul><para>For more information about CloudTrail pricing, see <a href="http://aws.amazon.com/cloudtrail/pricing/">CloudTrail
+        /// retention period for this billing mode is 366 days.</para></li><li><para><c>FIXED_RETENTION_PRICING</c> - This billing mode is recommended if you expect to
+        /// ingest more than 25 TB of event data per month and need a retention period of up to
+        /// 2557 days (about 7 years). The default retention period for this billing mode is 2557
+        /// days.</para></li></ul><para>For more information about CloudTrail pricing, see <a href="http://aws.amazon.com/cloudtrail/pricing/">CloudTrail
         /// Pricing</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html">Managing
         /// CloudTrail Lake costs</a>.</para>
         /// </para>
@@ -113,15 +113,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The
-        /// value can be an alias name prefixed by <code>alias/</code>, a fully specified ARN
-        /// to an alias, a fully specified ARN to a key, or a globally unique identifier.</para><important><para>Disabling or deleting the KMS key, or removing CloudTrail permissions on the key,
+        /// value can be an alias name prefixed by <c>alias/</c>, a fully specified ARN to an
+        /// alias, a fully specified ARN to a key, or a globally unique identifier.</para><important><para>Disabling or deleting the KMS key, or removing CloudTrail permissions on the key,
         /// prevents CloudTrail from logging events to the event data store, and prevents users
         /// from querying the data in the event data store that was encrypted with the key. After
         /// you associate an event data store with a KMS key, the KMS key cannot be removed or
         /// changed. Before you disable or delete a KMS key that you are using with an event data
         /// store, delete or back up your event data store.</para></important><para>CloudTrail also supports KMS multi-Region keys. For more information about multi-Region
         /// keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Using
-        /// multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</para><para>Examples:</para><ul><li><para><code>alias/MyAliasName</code></para></li><li><para><code>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</code></para></li><li><para><code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code></para></li><li><para><code>12345678-1234-1234-1234-123456789012</code></para></li></ul>
+        /// multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</para><para>Examples:</para><ul><li><para><c>alias/MyAliasName</c></para></li><li><para><c>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</c></para></li><li><para><c>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</c></para></li><li><para><c>12345678-1234-1234-1234-123456789012</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,18 +165,16 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter RetentionPeriod
         /// <summary>
         /// <para>
-        /// <para>The retention period of the event data store, in days. If <code>BillingMode</code>
-        /// is set to <code>EXTENDABLE_RETENTION_PRICING</code>, you can set a retention period
-        /// of up to 3653 days, the equivalent of 10 years. If <code>BillingMode</code> is set
-        /// to <code>FIXED_RETENTION_PRICING</code>, you can set a retention period of up to 2557
-        /// days, the equivalent of seven years.</para><para>CloudTrail Lake determines whether to retain an event by checking if the <code>eventTime</code>
+        /// <para>The retention period of the event data store, in days. If <c>BillingMode</c> is set
+        /// to <c>EXTENDABLE_RETENTION_PRICING</c>, you can set a retention period of up to 3653
+        /// days, the equivalent of 10 years. If <c>BillingMode</c> is set to <c>FIXED_RETENTION_PRICING</c>,
+        /// you can set a retention period of up to 2557 days, the equivalent of seven years.</para><para>CloudTrail Lake determines whether to retain an event by checking if the <c>eventTime</c>
         /// of the event is within the specified retention period. For example, if you set a retention
-        /// period of 90 days, CloudTrail will remove events when the <code>eventTime</code> is
-        /// older than 90 days.</para><note><para>If you decrease the retention period of an event data store, CloudTrail will remove
-        /// any events with an <code>eventTime</code> older than the new retention period. For
-        /// example, if the previous retention period was 365 days and you decrease it to 100
-        /// days, CloudTrail will remove events with an <code>eventTime</code> older than 100
-        /// days.</para></note>
+        /// period of 90 days, CloudTrail will remove events when the <c>eventTime</c> is older
+        /// than 90 days.</para><note><para>If you decrease the retention period of an event data store, CloudTrail will remove
+        /// any events with an <c>eventTime</c> older than the new retention period. For example,
+        /// if the previous retention period was 365 days and you decrease it to 100 days, CloudTrail
+        /// will remove events with an <c>eventTime</c> older than 100 days.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

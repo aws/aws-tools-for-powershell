@@ -34,11 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Returns the tag-set of an object. You send the GET request against the tagging subresource
     /// associated with the object.
     /// </para><para>
-    /// To use this operation, you must have permission to perform the <code>s3:GetObjectTagging</code>
+    /// To use this operation, you must have permission to perform the <c>s3:GetObjectTagging</c>
     /// action. By default, the GET action returns information about current version of an
     /// object. For a versioned bucket, you can have multiple versions of an object in your
     /// bucket. To retrieve tags of any other version, use the versionId query parameter.
-    /// You also need permission for the <code>s3:GetObjectVersionTagging</code> action.
+    /// You also need permission for the <c>s3:GetObjectVersionTagging</c> action.
     /// </para><para>
     ///  By default, the bucket owner has this permission and can grant this permission to
     /// others.
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     ///  For information about the Amazon S3 object tagging feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object
     /// Tagging</a>.
     /// </para><para>
-    /// The following actions are related to <code>GetObjectTagging</code>:
+    /// The following actions are related to <c>GetObjectTagging</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html">DeleteObjectTagging</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html">PutObjectTagging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3ObjectTagSet")]

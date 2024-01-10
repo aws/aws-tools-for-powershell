@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SMM
 {
     /// <summary>
     /// Used to ingest training metrics into SageMaker. These metrics can be visualized in
-    /// SageMaker Studio and retrieved with the <code>GetMetrics</code> API.
+    /// SageMaker Studio and retrieved with the <c>GetMetrics</c> API.
     /// </summary>
     [Cmdlet("Add", "SMMMetric", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SageMakerMetrics.Model.BatchPutMetricsError")]

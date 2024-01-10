@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions for the <code>lex:DeleteBotVersion</code> action.
+    /// This operation requires permissions for the <c>lex:DeleteBotVersion</c> action.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LMBBotVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>The version of the bot to delete. You cannot delete the <code>$LATEST</code> version
-        /// of the bot. To delete the <code>$LATEST</code> version, use the <a>DeleteBot</a> operation.</para>
+        /// <para>The version of the bot to delete. You cannot delete the <c>$LATEST</c> version of
+        /// the bot. To delete the <c>$LATEST</c> version, use the <a>DeleteBot</a> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

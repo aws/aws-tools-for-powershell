@@ -28,18 +28,18 @@ using Amazon.SQS.Model;
 namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
-    /// Returns a list of your queues that have the <code>RedrivePolicy</code> queue attribute
-    /// configured with a dead-letter queue.
+    /// Returns a list of your queues that have the <c>RedrivePolicy</c> queue attribute configured
+    /// with a dead-letter queue.
     /// 
     ///  
     /// <para>
-    ///  The <code>ListDeadLetterSourceQueues</code> methods supports pagination. Set parameter
-    /// <code>MaxResults</code> in the request to specify the maximum number of results to
-    /// be returned in the response. If you do not set <code>MaxResults</code>, the response
-    /// includes a maximum of 1,000 results. If you set <code>MaxResults</code> and there
-    /// are additional results to display, the response includes a value for <code>NextToken</code>.
-    /// Use <code>NextToken</code> as a parameter in your next request to <code>ListDeadLetterSourceQueues</code>
-    /// to receive the next page of results. 
+    ///  The <c>ListDeadLetterSourceQueues</c> methods supports pagination. Set parameter
+    /// <c>MaxResults</c> in the request to specify the maximum number of results to be returned
+    /// in the response. If you do not set <c>MaxResults</c>, the response includes a maximum
+    /// of 1,000 results. If you set <c>MaxResults</c> and there are additional results to
+    /// display, the response includes a value for <c>NextToken</c>. Use <c>NextToken</c>
+    /// as a parameter in your next request to <c>ListDeadLetterSourceQueues</c> to receive
+    /// the next page of results. 
     /// </para><para>
     /// For more information about using dead-letter queues, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">Using
     /// Amazon SQS Dead-Letter Queues</a> in the <i>Amazon SQS Developer Guide</i>.
@@ -78,8 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>Maximum number of results to include in the response. Value range is 1 to 1000. You
-        /// must set <code>MaxResults</code> to receive a value for <code>NextToken</code> in
-        /// the response.</para>
+        /// must set <c>MaxResults</c> to receive a value for <c>NextToken</c> in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

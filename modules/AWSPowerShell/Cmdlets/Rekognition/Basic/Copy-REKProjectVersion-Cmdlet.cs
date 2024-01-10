@@ -53,10 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// must already exist.
     /// </para></note><para>
     /// Copying a model version takes a while to complete. To get the current status, call
-    /// <a>DescribeProjectVersions</a> and check the value of <code>Status</code> in the <a>ProjectVersionDescription</a>
-    /// object. The copy operation has finished when the value of <code>Status</code> is <code>COPYING_COMPLETED</code>.
+    /// <a>DescribeProjectVersions</a> and check the value of <c>Status</c> in the <a>ProjectVersionDescription</a>
+    /// object. The copy operation has finished when the value of <c>Status</c> is <c>COPYING_COMPLETED</c>.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:CopyProjectVersion</code>
+    /// This operation requires permissions to perform the <c>rekognition:CopyProjectVersion</c>
     /// action.
     /// </para>
     /// </summary>
@@ -96,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>The identifier for your AWS Key Management Service key (AWS KMS key). You can supply
         /// the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for
         /// your KMS key, or an alias ARN. The key is used to encrypt training results and manifest
-        /// files written to the output Amazon S3 bucket (<code>OutputConfig</code>).</para><para>If you choose to use your own KMS key, you need the following permissions on the KMS
-        /// key.</para><ul><li><para>kms:CreateGrant</para></li><li><para>kms:DescribeKey</para></li><li><para>kms:GenerateDataKey</para></li><li><para>kms:Decrypt</para></li></ul><para>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service
-        /// are encrypted using a key that AWS owns and manages.</para>
+        /// files written to the output Amazon S3 bucket (<c>OutputConfig</c>).</para><para>If you choose to use your own KMS key, you need the following permissions on the KMS
+        /// key.</para><ul><li><para>kms:CreateGrant</para></li><li><para>kms:DescribeKey</para></li><li><para>kms:GenerateDataKey</para></li><li><para>kms:Decrypt</para></li></ul><para>If you don't specify a value for <c>KmsKeyId</c>, images copied into the service are
+        /// encrypted using a key that AWS owns and manages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

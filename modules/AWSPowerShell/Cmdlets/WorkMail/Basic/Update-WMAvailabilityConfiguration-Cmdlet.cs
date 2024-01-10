@@ -28,8 +28,8 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Updates an existing <code>AvailabilityConfiguration</code> for the given WorkMail
-    /// organization and domain.
+    /// Updates an existing <c>AvailabilityConfiguration</c> for the given WorkMail organization
+    /// and domain.
     /// </summary>
     [Cmdlet("Update", "WMAvailabilityConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -105,8 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The WorkMail organization for which the <code>AvailabilityConfiguration</code> will
-        /// be updated.</para>
+        /// <para>The WorkMail organization for which the <c>AvailabilityConfiguration</c> will be updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,8 +28,8 @@ using Amazon.RDSDataService.Model;
 namespace Amazon.PowerShell.Cmdlets.RDSD
 {
     /// <summary>
-    /// Ends a SQL transaction started with the <code>BeginTransaction</code> operation and
-    /// commits the changes.
+    /// Ends a SQL transaction started with the <c>BeginTransaction</c> operation and commits
+    /// the changes.
     /// </summary>
     [Cmdlet("Confirm", "RDSDTransaction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

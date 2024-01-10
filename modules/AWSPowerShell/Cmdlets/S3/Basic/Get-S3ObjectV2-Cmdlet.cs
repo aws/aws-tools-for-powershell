@@ -30,43 +30,43 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <summary>
     /// Returns some or all (up to 1,000) of the objects in a bucket with each request. You
     /// can use the request parameters as selection criteria to return a subset of the objects
-    /// in a bucket. A <code>200 OK</code> response can contain valid or invalid XML. Make
-    /// sure to design your application to parse the contents of the response and handle it
-    /// appropriately. For more information about listing objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html">Listing
+    /// in a bucket. A <c>200 OK</c> response can contain valid or invalid XML. Make sure
+    /// to design your application to parse the contents of the response and handle it appropriately.
+    /// For more information about listing objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html">Listing
     /// object keys programmatically</a> in the <i>Amazon S3 User Guide</i>. To get a list
     /// of your buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html">ListBuckets</a>.
     /// 
     ///  <note><para><b>Directory buckets</b> - For directory buckets, you must make requests for this
     /// API operation to the Zonal endpoint. These endpoints support virtual-hosted-style
-    /// requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i></code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional
+    /// requests in the format <c>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i></c>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional
     /// and Zonal endpoints</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></note><dl><dt>Permissions</dt><dd><ul><li><para><b>General purpose bucket permissions</b> - To use this operation, you must have
-    /// READ access to the bucket. You must have permission to perform the <code>s3:ListBucket</code>
+    /// READ access to the bucket. You must have permission to perform the <c>s3:ListBucket</c>
     /// action. The bucket owner has this permission by default and can grant this permission
     /// to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// Access Permissions to Your Amazon S3 Resources</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></li><li><para><b>Directory bucket permissions</b> - To grant access to this API operation on a
-    /// directory bucket, we recommend that you use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html"><code>CreateSession</code></a> API operation for session-based authorization. Specifically,
-    /// you grant the <code>s3express:CreateSession</code> permission to the directory bucket
-    /// in a bucket policy or an IAM identity-based policy. Then, you make the <code>CreateSession</code>
+    /// directory bucket, we recommend that you use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html"><c>CreateSession</c></a> API operation for session-based authorization. Specifically,
+    /// you grant the <c>s3express:CreateSession</c> permission to the directory bucket in
+    /// a bucket policy or an IAM identity-based policy. Then, you make the <c>CreateSession</c>
     /// API call on the bucket to obtain a session token. With the session token in your request
     /// header, you can make API requests to this operation. After the session token expires,
-    /// you make another <code>CreateSession</code> API call to generate a new session token
-    /// for use. Amazon Web Services CLI or SDKs create session and refresh the session token
+    /// you make another <c>CreateSession</c> API call to generate a new session token for
+    /// use. Amazon Web Services CLI or SDKs create session and refresh the session token
     /// automatically to avoid service interruptions when a session expires. For more information
-    /// about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html"><code>CreateSession</code></a>.
-    /// </para></li></ul></dd><dt>Sorting order of returned objects</dt><dd><ul><li><para><b>General purpose bucket</b> - For general purpose buckets, <code>ListObjectsV2</code>
+    /// about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html"><c>CreateSession</c></a>.
+    /// </para></li></ul></dd><dt>Sorting order of returned objects</dt><dd><ul><li><para><b>General purpose bucket</b> - For general purpose buckets, <c>ListObjectsV2</c>
     /// returns objects in lexicographical order based on their key names.
-    /// </para></li><li><para><b>Directory bucket</b> - For directory buckets, <code>ListObjectsV2</code> does
-    /// not return objects in lexicographical order.
-    /// </para></li></ul></dd><dt>HTTP Host header syntax</dt><dd><para><b>Directory buckets </b> - The HTTP Host header syntax is <code><i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.
+    /// </para></li><li><para><b>Directory bucket</b> - For directory buckets, <c>ListObjectsV2</c> does not return
+    /// objects in lexicographical order.
+    /// </para></li></ul></dd><dt>HTTP Host header syntax</dt><dd><para><b>Directory buckets </b> - The HTTP Host header syntax is <c><i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</c>.
     /// </para></dd></dl><important><para>
     /// This section describes the latest revision of this action. We recommend that you use
     /// this revised API operation for application development. For backward compatibility,
     /// Amazon S3 continues to support the prior version of this API operation, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html">ListObjects</a>.
     /// </para></important><para>
-    /// The following operations are related to <code>ListObjectsV2</code>:
+    /// The following operations are related to <c>ListObjectsV2</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "S3ObjectV2", DefaultParameterSetName="GetMultipleObjects")]

@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The type of data for which details are being requested. Currently, the only supported
-        /// value is <code>DocumentReviews</code>.</para>
+        /// value is <c>DocumentReviews</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

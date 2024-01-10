@@ -45,18 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// for a remote location, you must also specify the location. For example, the following
     /// requests all return different results: 
     /// </para><ul><li><para>
-    /// Request specifies the Region <code>ap-northeast-1</code> with no location. The result
-    /// is limits and usage data on all instance types that are deployed in <code>us-east-2</code>,
-    /// by all of the fleets that reside in <code>ap-northeast-1</code>. 
+    /// Request specifies the Region <c>ap-northeast-1</c> with no location. The result is
+    /// limits and usage data on all instance types that are deployed in <c>us-east-2</c>,
+    /// by all of the fleets that reside in <c>ap-northeast-1</c>. 
     /// </para></li><li><para>
-    /// Request specifies the Region <code>us-east-1</code> with location <code>ca-central-1</code>.
-    /// The result is limits and usage data on all instance types that are deployed in <code>ca-central-1</code>,
-    /// by all of the fleets that reside in <code>us-east-2</code>. These limits do not affect
-    /// fleets in any other Regions that deploy instances to <code>ca-central-1</code>.
+    /// Request specifies the Region <c>us-east-1</c> with location <c>ca-central-1</c>. The
+    /// result is limits and usage data on all instance types that are deployed in <c>ca-central-1</c>,
+    /// by all of the fleets that reside in <c>us-east-2</c>. These limits do not affect fleets
+    /// in any other Regions that deploy instances to <c>ca-central-1</c>.
     /// </para></li><li><para>
-    /// Request specifies the Region <code>eu-west-1</code> with location <code>ca-central-1</code>.
-    /// The result is limits and usage data on all instance types that are deployed in <code>ca-central-1</code>,
-    /// by all of the fleets that reside in <code>eu-west-1</code>.
+    /// Request specifies the Region <c>eu-west-1</c> with location <c>ca-central-1</c>. The
+    /// result is limits and usage data on all instance types that are deployed in <c>ca-central-1</c>,
+    /// by all of the fleets that reside in <c>eu-west-1</c>.
     /// </para></li></ul><para>
     /// This operation can be used in the following ways:
     /// </para><ul><li><para>
@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Web Services Region and the remote location. Optionally, specify a single instance
     /// type to retrieve information for.
     /// </para></li></ul><para>
-    /// If successful, an <code>EC2InstanceLimits</code> object is returned with limits and
-    /// usage data for each requested instance type.
+    /// If successful, an <c>EC2InstanceLimits</c> object is returned with limits and usage
+    /// data for each requested instance type.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up Amazon GameLift fleets</a></para>
     /// </summary>
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The name of a remote location to request instance limits for, in the form of an Amazon
-        /// Web Services Region code such as <code>us-west-2</code>.</para>
+        /// Web Services Region code such as <c>us-west-2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

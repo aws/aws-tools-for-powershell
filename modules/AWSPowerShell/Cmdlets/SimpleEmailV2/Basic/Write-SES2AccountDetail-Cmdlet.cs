@@ -88,13 +88,13 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>Indicates whether or not your account should have production access in the current
-        /// Amazon Web Services Region.</para><para>If the value is <code>false</code>, then your account is in the <i>sandbox</i>. When
-        /// your account is in the sandbox, you can only send email to verified identities. Additionally,
+        /// Amazon Web Services Region.</para><para>If the value is <c>false</c>, then your account is in the <i>sandbox</i>. When your
+        /// account is in the sandbox, you can only send email to verified identities. Additionally,
         /// the maximum number of emails you can send in a 24-hour period (your sending quota)
         /// is 200, and the maximum number of emails you can send per second (your maximum sending
-        /// rate) is 1.</para><para>If the value is <code>true</code>, then your account has production access. When your
-        /// account has production access, you can send email to any address. The sending quota
-        /// and maximum sending rate for your account vary based on your specific use case.</para>
+        /// rate) is 1.</para><para>If the value is <c>true</c>, then your account has production access. When your account
+        /// has production access, you can send email to any address. The sending quota and maximum
+        /// sending rate for your account vary based on your specific use case.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

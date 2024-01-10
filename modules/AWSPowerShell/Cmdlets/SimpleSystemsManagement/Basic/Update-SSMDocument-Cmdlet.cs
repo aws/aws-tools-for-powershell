@@ -99,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The version of the document that you want to update. Currently, Systems Manager supports
         /// updating only the latest version of the document. You can specify the version number
-        /// of the latest version or use the <code>$LATEST</code> variable.</para><note><para>If you change a document version for a State Manager association, Systems Manager
-        /// immediately runs the association unless you previously specifed the <code>apply-only-at-cron-interval</code>
+        /// of the latest version or use the <c>$LATEST</c> variable.</para><note><para>If you change a document version for a State Manager association, Systems Manager
+        /// immediately runs the association unless you previously specifed the <c>apply-only-at-cron-interval</c>
         /// parameter.</para></note>
         /// </para>
         /// </summary>

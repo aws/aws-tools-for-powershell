@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter CompatibleNamespaceVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the user's namespace.</para><para>If no value is specified, the latest version is used by default. Use the <code>GetFlowTemplateRevisions</code>
+        /// <para>The version of the user's namespace.</para><para>If no value is specified, the latest version is used by default. Use the <c>GetFlowTemplateRevisions</c>
         /// if you want to find earlier revisions of the flow to update.</para>
         /// </para>
         /// </summary>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the workflow to be updated.</para><para>The ID should be in the following format.</para><para><code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code></para>
+        /// <para>The ID of the workflow to be updated.</para><para>The ID should be in the following format.</para><para><c>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter Definition_Language
         /// <summary>
         /// <para>
-        /// <para>The language used to define the entity. <code>GRAPHQL</code> is the only valid value.</para>
+        /// <para>The language used to define the entity. <c>GRAPHQL</c> is the only valid value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

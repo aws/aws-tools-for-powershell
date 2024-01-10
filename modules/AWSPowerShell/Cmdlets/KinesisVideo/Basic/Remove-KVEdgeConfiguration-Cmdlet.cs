@@ -33,11 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.KV
     /// 
     ///  
     /// <para>
-    /// When you invoke this API, the sync status is set to <code>DELETING</code>. A deletion
-    /// process starts, in which active edge jobs are stopped and all media is deleted from
-    /// the edge device. The time to delete varies, depending on the total amount of stored
-    /// media. If the deletion process fails, the sync status changes to <code>DELETE_FAILED</code>.
-    /// You will need to re-try the deletion.
+    /// When you invoke this API, the sync status is set to <c>DELETING</c>. A deletion process
+    /// starts, in which active edge jobs are stopped and all media is deleted from the edge
+    /// device. The time to delete varies, depending on the total amount of stored media.
+    /// If the deletion process fails, the sync status changes to <c>DELETE_FAILED</c>. You
+    /// will need to re-try the deletion.
     /// </para><para>
     /// When the deletion process has completed successfully, the edge configuration is no
     /// longer accessible.
@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter StreamARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the stream. Specify either the <code>StreamName</code>
-        /// or the <code>StreamARN</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the stream. Specify either the <c>StreamName</c>
+        /// or the <c>StreamARN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The name of the stream from which to delete the edge configuration. Specify either
-        /// the <code>StreamName</code> or the <code>StreamARN</code>.</para>
+        /// the <c>StreamName</c> or the <c>StreamARN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

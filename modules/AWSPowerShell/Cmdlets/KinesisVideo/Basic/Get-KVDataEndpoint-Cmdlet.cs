@@ -29,15 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
     /// Gets an endpoint for a specified stream for either reading or writing. Use this endpoint
-    /// in your application to read from the specified stream (using the <code>GetMedia</code>
-    /// or <code>GetMediaForFragmentList</code> operations) or write to it (using the <code>PutMedia</code>
+    /// in your application to read from the specified stream (using the <c>GetMedia</c> or
+    /// <c>GetMediaForFragmentList</c> operations) or write to it (using the <c>PutMedia</c>
     /// operation). 
     /// 
     ///  <note><para>
     /// The returned endpoint does not have the API name appended. The client needs to add
     /// the API name to the returned endpoint.
     /// </para></note><para>
-    /// In the request, specify the stream either by <code>StreamName</code> or <code>StreamARN</code>.
+    /// In the request, specify the stream either by <c>StreamName</c> or <c>StreamARN</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "KVDataEndpoint")]
@@ -73,8 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the stream that you want to get the endpoint for.
-        /// You must specify either this parameter or a <code>StreamName</code> in the request.
-        /// </para>
+        /// You must specify either this parameter or a <c>StreamName</c> in the request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The name of the stream that you want to get the endpoint for. You must specify either
-        /// this parameter or a <code>StreamARN</code> in the request.</para>
+        /// this parameter or a <c>StreamARN</c> in the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

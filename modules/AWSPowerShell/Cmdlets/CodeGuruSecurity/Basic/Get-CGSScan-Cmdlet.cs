@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         /// <summary>
         /// <para>
         /// <para>UUID that identifies the individual scan run you want to view details about. You retrieve
-        /// this when you call the <code>CreateScan</code> operation. Defaults to the latest scan
-        /// run if missing.</para>
+        /// this when you call the <c>CreateScan</c> operation. Defaults to the latest scan run
+        /// if missing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

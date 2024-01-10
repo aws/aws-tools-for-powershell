@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// 
     ///  
     /// <para>
-    /// When you delete an event source mapping, it enters a <code>Deleting</code> state and
-    /// might not be completely deleted for several seconds.
+    /// When you delete an event source mapping, it enters a <c>Deleting</c> state and might
+    /// not be completely deleted for several seconds.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LMEventSourceMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

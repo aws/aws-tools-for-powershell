@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         #region Parameter DesiredState
         /// <summary>
         /// <para>
-        /// <para>Specify whether the experiment is to be considered <code>COMPLETED</code> or <code>CANCELLED</code>
+        /// <para>Specify whether the experiment is to be considered <c>COMPLETED</c> or <c>CANCELLED</c>
         /// after it stops.</para>
         /// </para>
         /// </summary>

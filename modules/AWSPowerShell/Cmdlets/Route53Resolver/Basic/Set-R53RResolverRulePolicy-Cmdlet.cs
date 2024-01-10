@@ -67,9 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>An Identity and Access Management policy statement that lists the rules that you want
         /// to share with another Amazon Web Services account and the operations that you want
         /// the account to be able to perform. You can specify the following operations in the
-        /// <code>Action</code> section of the statement:</para><ul><li><para><code>route53resolver:GetResolverRule</code></para></li><li><para><code>route53resolver:AssociateResolverRule</code></para></li><li><para><code>route53resolver:DisassociateResolverRule</code></para></li><li><para><code>route53resolver:ListResolverRules</code></para></li><li><para><code>route53resolver:ListResolverRuleAssociations</code></para></li></ul><para>In the <code>Resource</code> section of the statement, specify the ARN for the rule
-        /// that you want to share with another account. Specify the same ARN that you specified
-        /// in <code>Arn</code>.</para>
+        /// <c>Action</c> section of the statement:</para><ul><li><para><c>route53resolver:GetResolverRule</c></para></li><li><para><c>route53resolver:AssociateResolverRule</c></para></li><li><para><c>route53resolver:DisassociateResolverRule</c></para></li><li><para><c>route53resolver:ListResolverRules</c></para></li><li><para><c>route53resolver:ListResolverRuleAssociations</c></para></li></ul><para>In the <c>Resource</c> section of the statement, specify the ARN for the rule that
+        /// you want to share with another account. Specify the same ARN that you specified in
+        /// <c>Arn</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

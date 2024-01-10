@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Returns the <a>ByteMatchSet</a> specified by <code>ByteMatchSetId</code>.
+    /// Returns the <a>ByteMatchSet</a> specified by <c>ByteMatchSetId</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "WAFByteMatchSet")]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter ByteMatchSetId
         /// <summary>
         /// <para>
-        /// <para>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to get. <code>ByteMatchSetId</code>
+        /// <para>The <c>ByteMatchSetId</c> of the <a>ByteMatchSet</a> that you want to get. <c>ByteMatchSetId</c>
         /// is returned by <a>CreateByteMatchSet</a> and by <a>ListByteMatchSets</a>.</para>
         /// </para>
         /// </summary>

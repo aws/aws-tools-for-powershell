@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Returns a list of registries that you have created, with minimal registry information.
-    /// Registries in the <code>Deleting</code> status will not be included in the results.
-    /// Empty results will be returned if there are no registries available.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Registries in the <c>Deleting</c> status will not be included in the results. Empty
+    /// results will be returned if there are no registries available.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GLUERegistryList")]
     [OutputType("Amazon.Glue.Model.RegistryListItem")]

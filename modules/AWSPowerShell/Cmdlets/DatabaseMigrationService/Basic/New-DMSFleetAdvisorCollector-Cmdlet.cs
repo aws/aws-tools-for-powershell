@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter CollectorName
         /// <summary>
         /// <para>
-        /// <para>The name of your Fleet Advisor collector (for example, <code>sample-collector</code>).</para>
+        /// <para>The name of your Fleet Advisor collector (for example, <c>sample-collector</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

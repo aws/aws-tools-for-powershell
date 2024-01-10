@@ -72,11 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The date and time at which the Capacity Reservation Fleet expires. When the Capacity
-        /// Reservation Fleet expires, its state changes to <code>expired</code> and all of the
-        /// Capacity Reservations in the Fleet expire.</para><para>The Capacity Reservation Fleet expires within an hour after the specified time. For
-        /// example, if you specify <code>5/31/2019</code>, <code>13:30:55</code>, the Capacity
-        /// Reservation Fleet is guaranteed to expire between <code>13:30:55</code> and <code>14:30:55</code>
-        /// on <code>5/31/2019</code>.</para><para>You can't specify <b>EndDate</b> and <b> RemoveEndDate</b> in the same request.</para>
+        /// Reservation Fleet expires, its state changes to <c>expired</c> and all of the Capacity
+        /// Reservations in the Fleet expire.</para><para>The Capacity Reservation Fleet expires within an hour after the specified time. For
+        /// example, if you specify <c>5/31/2019</c>, <c>13:30:55</c>, the Capacity Reservation
+        /// Fleet is guaranteed to expire between <c>13:30:55</c> and <c>14:30:55</c> on <c>5/31/2019</c>.</para><para>You can't specify <b>EndDate</b> and <b> RemoveEndDate</b> in the same request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

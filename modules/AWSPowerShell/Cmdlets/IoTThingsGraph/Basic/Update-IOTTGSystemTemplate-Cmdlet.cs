@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the system to be updated.</para><para>The ID should be in the following format.</para><para><code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code></para>
+        /// <para>The ID of the system to be updated.</para><para>The ID should be in the following format.</para><para><c>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter Definition_Language
         /// <summary>
         /// <para>
-        /// <para>The language used to define the entity. <code>GRAPHQL</code> is the only valid value.</para>
+        /// <para>The language used to define the entity. <c>GRAPHQL</c> is the only valid value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

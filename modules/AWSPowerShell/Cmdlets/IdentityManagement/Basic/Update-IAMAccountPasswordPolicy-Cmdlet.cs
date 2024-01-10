@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para> Allows all IAM users in your account to use the Amazon Web Services Management Console
         /// to change their own passwords. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_enable-user-change.html">Permitting
         /// IAM users to change their own passwords</a> in the <i>IAM User Guide</i>.</para><para>If you do not specify a value for this parameter, then the operation uses the default
-        /// value of <code>false</code>. The result is that IAM users in the account do not automatically
+        /// value of <c>false</c>. The result is that IAM users in the account do not automatically
         /// have permissions to change their own password.</para>
         /// </para>
         /// </summary>
@@ -74,12 +74,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para> Prevents IAM users who are accessing the account via the Amazon Web Services Management
         /// Console from setting a new console password after their password has expired. The
         /// IAM user cannot access the console until an administrator resets the password.</para><para>If you do not specify a value for this parameter, then the operation uses the default
-        /// value of <code>false</code>. The result is that IAM users can change their passwords
-        /// after they expire and continue to sign in as the user.</para><note><para> In the Amazon Web Services Management Console, the custom password policy option
-        /// <b>Allow users to change their own password</b> gives IAM users permissions to <code>iam:ChangePassword</code>
-        /// for only their user and to the <code>iam:GetAccountPasswordPolicy</code> action. This
-        /// option does not attach a permissions policy to each user, rather the permissions are
-        /// applied at the account-level for all users by IAM. IAM users with <code>iam:ChangePassword</code>
+        /// value of <c>false</c>. The result is that IAM users can change their passwords after
+        /// they expire and continue to sign in as the user.</para><note><para> In the Amazon Web Services Management Console, the custom password policy option
+        /// <b>Allow users to change their own password</b> gives IAM users permissions to <c>iam:ChangePassword</c>
+        /// for only their user and to the <c>iam:GetAccountPasswordPolicy</c> action. This option
+        /// does not attach a permissions policy to each user, rather the permissions are applied
+        /// at the account-level for all users by IAM. IAM users with <c>iam:ChangePassword</c>
         /// permission and active access keys can reset their own expired console password using
         /// the CLI or API.</para></note>
         /// </para>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The number of days that an IAM user password is valid.</para><para>If you do not specify a value for this parameter, then the operation uses the default
-        /// value of <code>0</code>. The result is that IAM user passwords never expire.</para>
+        /// value of <c>0</c>. The result is that IAM user passwords never expire.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The minimum number of characters allowed in an IAM user password.</para><para>If you do not specify a value for this parameter, then the operation uses the default
-        /// value of <code>6</code>.</para>
+        /// value of <c>6</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>Specifies the number of previous passwords that IAM users are prevented from reusing.</para><para>If you do not specify a value for this parameter, then the operation uses the default
-        /// value of <code>0</code>. The result is that IAM users are not prevented from reusing
-        /// previous passwords.</para>
+        /// value of <c>0</c>. The result is that IAM users are not prevented from reusing previous
+        /// passwords.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>Specifies whether IAM user passwords must contain at least one lowercase character
         /// from the ISO basic Latin alphabet (a to z).</para><para>If you do not specify a value for this parameter, then the operation uses the default
-        /// value of <code>false</code>. The result is that passwords do not require at least
-        /// one lowercase character.</para>
+        /// value of <c>false</c>. The result is that passwords do not require at least one lowercase
+        /// character.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>Specifies whether IAM user passwords must contain at least one numeric character (0
         /// to 9).</para><para>If you do not specify a value for this parameter, then the operation uses the default
-        /// value of <code>false</code>. The result is that passwords do not require at least
-        /// one numeric character.</para>
+        /// value of <c>false</c>. The result is that passwords do not require at least one numeric
+        /// character.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric
         /// characters:</para><para>! @ # $ % ^ &amp; * ( ) _ + - = [ ] { } | '</para><para>If you do not specify a value for this parameter, then the operation uses the default
-        /// value of <code>false</code>. The result is that passwords do not require at least
-        /// one symbol character.</para>
+        /// value of <c>false</c>. The result is that passwords do not require at least one symbol
+        /// character.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>Specifies whether IAM user passwords must contain at least one uppercase character
         /// from the ISO basic Latin alphabet (A to Z).</para><para>If you do not specify a value for this parameter, then the operation uses the default
-        /// value of <code>false</code>. The result is that passwords do not require at least
-        /// one uppercase character.</para>
+        /// value of <c>false</c>. The result is that passwords do not require at least one uppercase
+        /// character.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

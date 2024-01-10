@@ -41,15 +41,15 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// remains. You can mount an EC2 instance in your VPC by using another mount target.
     /// </para><para>
     /// This operation requires permissions for the following action on the file system:
-    /// </para><ul><li><para><code>elasticfilesystem:DeleteMountTarget</code></para></li></ul><note><para>
-    /// The <code>DeleteMountTarget</code> call returns while the mount target state is still
-    /// <code>deleting</code>. You can check the mount target deletion by calling the <a>DescribeMountTargets</a>
+    /// </para><ul><li><para><c>elasticfilesystem:DeleteMountTarget</c></para></li></ul><note><para>
+    /// The <c>DeleteMountTarget</c> call returns while the mount target state is still <c>deleting</c>.
+    /// You can check the mount target deletion by calling the <a>DescribeMountTargets</a>
     /// operation, which returns a list of mount target descriptions for the given file system.
     /// 
     /// </para></note><para>
     /// The operation also requires permissions for the following Amazon EC2 action on the
     /// mount target's network interface:
-    /// </para><ul><li><para><code>ec2:DeleteNetworkInterface</code></para></li></ul>
+    /// </para><ul><li><para><c>ec2:DeleteNetworkInterface</c></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "EFSMountTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

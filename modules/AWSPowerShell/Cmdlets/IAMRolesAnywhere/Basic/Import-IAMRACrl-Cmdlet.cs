@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// against the CRL before issuing credentials. 
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:ImportCrl</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:ImportCrl</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Import", "IAMRACrl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

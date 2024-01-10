@@ -37,9 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Image (AMI).
     /// </para><important><para>
     /// Amazon Web Services VM Import/Export strongly recommends specifying a value for either
-    /// the <code>--license-type</code> or <code>--usage-operation</code> parameter when you
-    /// create a new VM Import task. This ensures your operating system is licensed appropriately
-    /// and your billing is optimized.
+    /// the <c>--license-type</c> or <c>--usage-operation</c> parameter when you create a
+    /// new VM Import task. This ensures your operating system is licensed appropriately and
+    /// your billing is optimized.
     /// </para></important><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing
     /// a VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Architecture
         /// <summary>
         /// <para>
-        /// <para>The architecture of the virtual machine.</para><para>Valid values: <code>i386</code> | <code>x86_64</code></para>
+        /// <para>The architecture of the virtual machine.</para><para>Valid values: <c>i386</c> | <c>x86_64</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter BootMode
         /// <summary>
         /// <para>
-        /// <para>The boot mode of the virtual machine.</para><note><para>The <code>uefi-preferred</code> boot mode isn't supported for importing images. For
-        /// more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/prerequisites.html#vmimport-boot-modes">Boot
+        /// <para>The boot mode of the virtual machine.</para><note><para>The <c>uefi-preferred</c> boot mode isn't supported for importing images. For more
+        /// information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/prerequisites.html#vmimport-boot-modes">Boot
         /// modes</a> in the <i>VM Import/Export User Guide</i>.</para></note>
         /// </para>
         /// </summary>
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Specifies whether the destination AMI of the imported image should be encrypted. The
-        /// default KMS key for EBS is used unless you specify a non-default KMS key using <code>KmsKeyId</code>.
+        /// default KMS key for EBS is used unless you specify a non-default KMS key using <c>KmsKeyId</c>.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
         /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Hypervisor
         /// <summary>
         /// <para>
-        /// <para>The target hypervisor platform.</para><para>Valid values: <code>xen</code></para>
+        /// <para>The target hypervisor platform.</para><para>Valid values: <c>xen</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,15 +142,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>An identifier for the symmetric KMS key to use when creating the encrypted AMI. This
         /// parameter is only required if you want to use a non-default KMS key; if this parameter
-        /// is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code>
-        /// is specified, the <code>Encrypted</code> flag must also be set. </para><para>The KMS key identifier may be provided in any of the following formats: </para><ul><li><para>Key ID</para></li><li><para>Key alias</para></li><li><para>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed
+        /// is not specified, the default KMS key for EBS is used. If a <c>KmsKeyId</c> is specified,
+        /// the <c>Encrypted</c> flag must also be set. </para><para>The KMS key identifier may be provided in any of the following formats: </para><ul><li><para>Key ID</para></li><li><para>Key alias</para></li><li><para>ARN using key ID. The ID ARN contains the <c>arn:aws:kms</c> namespace, followed by
+        /// the Region of the key, the Amazon Web Services account ID of the key owner, the <c>key</c>
+        /// namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</para></li><li><para>ARN using key alias. The alias ARN contains the <c>arn:aws:kms</c> namespace, followed
         /// by the Region of the key, the Amazon Web Services account ID of the key owner, the
-        /// <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</para></li><li><para>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace,
-        /// followed by the Region of the key, the Amazon Web Services account ID of the key owner,
-        /// the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.
-        /// </para></li></ul><para>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the
-        /// action you call may appear to complete even though you provided an invalid identifier.
-        /// This action will eventually report failure. </para><para>The specified KMS key must exist in the Region that the AMI is being copied to.</para><para>Amazon EBS does not support asymmetric KMS keys.</para>
+        /// <c>alias</c> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.
+        /// </para></li></ul><para>Amazon Web Services parses <c>KmsKeyId</c> asynchronously, meaning that the action
+        /// you call may appear to complete even though you provided an invalid identifier. This
+        /// action will eventually report failure. </para><para>The specified KMS key must exist in the Region that the AMI is being copied to.</para><para>Amazon EBS does not support asymmetric KMS keys.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,13 +171,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LicenseType
         /// <summary>
         /// <para>
-        /// <para>The license type to be used for the Amazon Machine Image (AMI) after importing.</para><para>Specify <code>AWS</code> to replace the source-system license with an Amazon Web Services
-        /// license or <code>BYOL</code> to retain the source-system license. Leaving this parameter
-        /// undefined is the same as choosing <code>AWS</code> when importing a Windows Server
-        /// operating system, and the same as choosing <code>BYOL</code> when importing a Windows
-        /// client operating system (such as Windows 10) or a Linux operating system.</para><para>To use <code>BYOL</code>, you must have existing licenses with rights to use these
-        /// licenses in a third party cloud, such as Amazon Web Services. For more information,
-        /// see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a>
+        /// <para>The license type to be used for the Amazon Machine Image (AMI) after importing.</para><para>Specify <c>AWS</c> to replace the source-system license with an Amazon Web Services
+        /// license or <c>BYOL</c> to retain the source-system license. Leaving this parameter
+        /// undefined is the same as choosing <c>AWS</c> when importing a Windows Server operating
+        /// system, and the same as choosing <c>BYOL</c> when importing a Windows client operating
+        /// system (such as Windows 10) or a Linux operating system.</para><para>To use <c>BYOL</c>, you must have existing licenses with rights to use these licenses
+        /// in a third party cloud, such as Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a>
         /// in the VM Import/Export User Guide.</para>
         /// </para>
         /// </summary>
@@ -190,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The operating system of the virtual machine. If you import a VM that is compatible
         /// with Unified Extensible Firmware Interface (UEFI) using an EBS snapshot, you must
-        /// specify a value for the platform.</para><para>Valid values: <code>Windows</code> | <code>Linux</code></para>
+        /// specify a value for the platform.</para><para>Valid values: <c>Windows</c> | <c>Linux</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

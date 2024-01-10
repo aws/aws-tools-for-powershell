@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// Creates a pipeline.
     /// 
     ///  <note><para>
-    /// In the pipeline structure, you must include either <code>artifactStore</code> or <code>artifactStores</code>
+    /// In the pipeline structure, you must include either <c>artifactStore</c> or <c>artifactStores</c>
     /// in your pipeline, but you cannot use both. If you create a cross-region action in
-    /// your pipeline, you must use <code>artifactStores</code>.
+    /// your pipeline, you must use <c>artifactStores</c>.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "CPPipeline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

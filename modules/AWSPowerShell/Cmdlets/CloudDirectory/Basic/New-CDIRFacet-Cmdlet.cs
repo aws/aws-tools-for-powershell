@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter FacetStyle
         /// <summary>
         /// <para>
-        /// <para>There are two different styles that you can define on any given facet, <code>Static</code>
-        /// and <code>Dynamic</code>. For static facets, all attributes must be defined in the
-        /// schema. For dynamic facets, attributes can be defined during data plane operations.</para>
+        /// <para>There are two different styles that you can define on any given facet, <c>Static</c>
+        /// and <c>Dynamic</c>. For static facets, all attributes must be defined in the schema.
+        /// For dynamic facets, attributes can be defined during data plane operations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

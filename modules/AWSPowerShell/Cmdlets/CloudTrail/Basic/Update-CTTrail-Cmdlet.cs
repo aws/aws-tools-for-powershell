@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// log files. Changes to a trail do not require stopping the CloudTrail service. Use
     /// this action to designate an existing bucket for log delivery. If the existing bucket
     /// has previously been a target for CloudTrail log files, an IAM policy exists for the
-    /// bucket. <code>UpdateTrail</code> must be called from the Region in which the trail
-    /// was created; otherwise, an <code>InvalidHomeRegionException</code> is thrown.
+    /// bucket. <c>UpdateTrail</c> must be called from the Region in which the trail was created;
+    /// otherwise, an <c>InvalidHomeRegionException</c> is thrown.
     /// </summary>
     [Cmdlet("Update", "CTTrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudTrail.Model.UpdateTrailResponse")]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <para>
         /// <para>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier
         /// that represents the log group to which CloudTrail logs are delivered. You must use
-        /// a log group that exists in your account.</para><para>Not required unless you specify <code>CloudWatchLogsRoleArn</code>.</para><note><para>Only the management account can configure a CloudWatch Logs log group for an organization
+        /// a log group that exists in your account.</para><para>Not required unless you specify <c>CloudWatchLogsRoleArn</c>.</para><note><para>Only the management account can configure a CloudWatch Logs log group for an organization
         /// trail. </para></note>
         /// </para>
         /// </summary>
@@ -121,11 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// or only for the current Amazon Web Services account. The default is false, and cannot
         /// be true unless the call is made on behalf of an Amazon Web Services account that is
         /// the management account for an organization in Organizations. If the trail is not an
-        /// organization trail and this is set to <code>true</code>, the trail will be created
-        /// in all Amazon Web Services accounts that belong to the organization. If the trail
-        /// is an organization trail and this is set to <code>false</code>, the trail will remain
-        /// in the current Amazon Web Services account but be deleted from all member accounts
-        /// in the organization.</para><note><para>Only the management account for the organization can convert an organization trail
+        /// organization trail and this is set to <c>true</c>, the trail will be created in all
+        /// Amazon Web Services accounts that belong to the organization. If the trail is an organization
+        /// trail and this is set to <c>false</c>, the trail will remain in the current Amazon
+        /// Web Services account but be deleted from all member accounts in the organization.</para><note><para>Only the management account for the organization can convert an organization trail
         /// to a non-organization trail, or convert a non-organization trail to an organization
         /// trail.</para></note>
         /// </para>
@@ -151,10 +150,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Specifies the name of the trail or trail ARN. If <code>Name</code> is a trail name,
-        /// the string must meet the following requirements:</para><ul><li><para>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_),
-        /// or dashes (-)</para></li><li><para>Start with a letter or number, and end with a letter or number</para></li><li><para>Be between 3 and 128 characters</para></li><li><para>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code>
-        /// and <code>my--namespace</code> are not valid.</para></li><li><para>Not be in IP address format (for example, 192.168.5.4)</para></li></ul><para>If <code>Name</code> is a trail ARN, it must be in the following format.</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
+        /// <para>Specifies the name of the trail or trail ARN. If <c>Name</c> is a trail name, the
+        /// string must meet the following requirements:</para><ul><li><para>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_),
+        /// or dashes (-)</para></li><li><para>Start with a letter or number, and end with a letter or number</para></li><li><para>Be between 3 and 128 characters</para></li><li><para>Have no adjacent periods, underscores or dashes. Names like <c>my-_namespace</c> and
+        /// <c>my--namespace</c> are not valid.</para></li><li><para>Not be in IP address format (for example, 192.168.5.4)</para></li></ul><para>If <c>Name</c> is a trail ARN, it must be in the following format.</para><para><c>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

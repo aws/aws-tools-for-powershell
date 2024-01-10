@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ComplianceType
         /// <summary>
         /// <para>
-        /// <para>Filters the results by compliance.</para><para><code>INSUFFICIENT_DATA</code> is a valid <code>ComplianceType</code> that is returned
-        /// when an Config rule cannot be evaluated. However, <code>INSUFFICIENT_DATA</code> cannot
-        /// be used as a <code>ComplianceType</code> for filtering results.</para>
+        /// <para>Filters the results by compliance.</para><para><c>INSUFFICIENT_DATA</c> is a valid <c>ComplianceType</c> that is returned when an
+        /// Config rule cannot be evaluated. However, <c>INSUFFICIENT_DATA</c> cannot be used
+        /// as a <c>ComplianceType</c> for filtering results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
-        /// the next page of results in a paginated response.</para>
+        /// <para>The <c>nextToken</c> string returned on a previous page that you use to get the next
+        /// page of results in a paginated response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

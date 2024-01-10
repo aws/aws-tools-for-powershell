@@ -35,26 +35,25 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     ///  
     /// <para>
     /// You start asynchronous text detection by calling <a>StartDocumentTextDetection</a>,
-    /// which returns a job identifier (<code>JobId</code>). When the text detection operation
-    /// finishes, Amazon Textract publishes a completion status to the Amazon Simple Notification
-    /// Service (Amazon SNS) topic that's registered in the initial call to <code>StartDocumentTextDetection</code>.
+    /// which returns a job identifier (<c>JobId</c>). When the text detection operation finishes,
+    /// Amazon Textract publishes a completion status to the Amazon Simple Notification Service
+    /// (Amazon SNS) topic that's registered in the initial call to <c>StartDocumentTextDetection</c>.
     /// To get the results of the text-detection operation, first check that the status value
-    /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetDocumentTextDetection</code>,
-    /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartDocumentTextDetection</code>.
-    /// </para><para><code>GetDocumentTextDetection</code> returns an array of <a>Block</a> objects. 
+    /// published to the Amazon SNS topic is <c>SUCCEEDED</c>. If so, call <c>GetDocumentTextDetection</c>,
+    /// and pass the job identifier (<c>JobId</c>) from the initial call to <c>StartDocumentTextDetection</c>.
+    /// </para><para><c>GetDocumentTextDetection</c> returns an array of <a>Block</a> objects. 
     /// </para><para>
-    /// Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE
-    /// <code>Block</code> object is the parent of LINE <code>Block</code> objects that represent
-    /// the lines of detected text on a page. A LINE <code>Block</code> object is a parent
-    /// for each word that makes up the line. Words are represented by <code>Block</code>
-    /// objects of type WORD.
+    /// Each document page has as an associated <c>Block</c> of type PAGE. Each PAGE <c>Block</c>
+    /// object is the parent of LINE <c>Block</c> objects that represent the lines of detected
+    /// text on a page. A LINE <c>Block</c> object is a parent for each word that makes up
+    /// the line. Words are represented by <c>Block</c> objects of type WORD.
     /// </para><para>
     /// Use the MaxResults parameter to limit the number of blocks that are returned. If there
-    /// are more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code>
+    /// are more results than specified in <c>MaxResults</c>, the value of <c>NextToken</c>
     /// in the operation response contains a pagination token for getting the next set of
-    /// results. To get the next page of results, call <code>GetDocumentTextDetection</code>,
-    /// and populate the <code>NextToken</code> request parameter with the token value that's
-    /// returned from the previous call to <code>GetDocumentTextDetection</code>.
+    /// results. To get the next page of results, call <c>GetDocumentTextDetection</c>, and
+    /// populate the <c>NextToken</c> request parameter with the token value that's returned
+    /// from the previous call to <c>GetDocumentTextDetection</c>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document
     /// Text Detection</a>.
@@ -74,9 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the text detection job. The <code>JobId</code> is returned
-        /// from <code>StartDocumentTextDetection</code>. A <code>JobId</code> value is only valid
-        /// for 7 days.</para>
+        /// <para>A unique identifier for the text detection job. The <c>JobId</c> is returned from
+        /// <c>StartDocumentTextDetection</c>. A <c>JobId</c> value is only valid for 7 days.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

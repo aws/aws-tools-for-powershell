@@ -62,8 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of LDAP security to enable. Currently only the value <code>Client</code>
-        /// is supported.</para>
+        /// <para>The type of LDAP security to enable. Currently only the value <c>Client</c> is supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

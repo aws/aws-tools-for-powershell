@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </para></note><para>
     /// Returns configuration for an Object Lambda Access Point.
     /// </para><para>
-    /// The following actions are related to <code>GetAccessPointConfigurationForObjectLambda</code>:
+    /// The following actions are related to <c>GetAccessPointConfigurationForObjectLambda</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointConfigurationForObjectLambda.html">PutAccessPointConfigurationForObjectLambda</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3CAccessPointConfigurationForObjectLambda")]

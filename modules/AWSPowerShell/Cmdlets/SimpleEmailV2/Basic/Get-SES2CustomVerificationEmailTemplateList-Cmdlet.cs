@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token returned from a previous call to <code>ListCustomVerificationEmailTemplates</code>
+        /// <para>A token returned from a previous call to <c>ListCustomVerificationEmailTemplates</c>
         /// to indicate the position in the list of custom verification email templates.</para>
         /// </para>
         /// <para>
@@ -69,10 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>The number of results to show in a single call to <code>ListCustomVerificationEmailTemplates</code>.
+        /// <para>The number of results to show in a single call to <c>ListCustomVerificationEmailTemplates</c>.
         /// If the number of results is larger than the number you specified in this parameter,
-        /// then the response includes a <code>NextToken</code> element, which you can use to
-        /// obtain additional results.</para><para>The value you specify has to be at least 1, and can be no more than 50.</para>
+        /// then the response includes a <c>NextToken</c> element, which you can use to obtain
+        /// additional results.</para><para>The value you specify has to be at least 1, and can be no more than 50.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

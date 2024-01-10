@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The <code>GraphqlApi</code> Amazon Resource Name (ARN).</para>
+        /// <para>The <c>GraphqlApi</c> Amazon Resource Name (ARN).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A <code>TagMap</code> object.</para>
+        /// <para>A <c>TagMap</c> object.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -70,8 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter Silent
         /// <summary>
         /// <para>
-        /// <para>If set to <code>TRUE</code>, causes the cancelation of the openCypher query to happen
-        /// silently.</para>
+        /// <para>If set to <c>TRUE</c>, causes the cancelation of the openCypher query to happen silently.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

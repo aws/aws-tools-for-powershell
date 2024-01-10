@@ -28,11 +28,11 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Returns an <code>MLModel</code> that includes detailed metadata, data source information,
-    /// and the current status of the <code>MLModel</code>.
+    /// Returns an <c>MLModel</c> that includes detailed metadata, data source information,
+    /// and the current status of the <c>MLModel</c>.
     /// 
     ///  
-    /// <para><code>GetMLModel</code> provides results in normal or verbose format. 
+    /// <para><c>GetMLModel</c> provides results in normal or verbose format. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "MLModel")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter MLModelId
         /// <summary>
         /// <para>
-        /// <para>The ID assigned to the <code>MLModel</code> at creation.</para>
+        /// <para>The ID assigned to the <c>MLModel</c> at creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter VerboseResponse
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the <code>GetMLModel</code> operation should return <code>Recipe</code>.</para><para>If true, <code>Recipe</code> is returned.</para><para>If false, <code>Recipe</code> is not returned.</para>
+        /// <para>Specifies whether the <c>GetMLModel</c> operation should return <c>Recipe</c>.</para><para>If true, <c>Recipe</c> is returned.</para><para>If false, <c>Recipe</c> is not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     ///  <note><ul><li><para>
     /// This API updates the Resilience Hub application draft version. To use this Application
     /// Component for running assessments, you must publish the Resilience Hub application
-    /// using the <code>PublishAppVersion</code> API.
+    /// using the <c>PublishAppVersion</c> API.
     /// </para></li><li><para>
     /// You will not be able to delete an Application Component if it has resources associated
     /// with it.
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <summary>
         /// <para>
         /// <para>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
-        /// ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
+        /// ARN is: arn:<c>partition</c>:resiliencehub:<c>region</c>:<c>account</c>:app/<c>app-id</c>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>
         /// guide.</para>

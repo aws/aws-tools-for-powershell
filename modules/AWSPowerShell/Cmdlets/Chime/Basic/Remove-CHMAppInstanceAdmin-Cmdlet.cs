@@ -28,8 +28,8 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code>. This
-    /// action does not delete the user.
+    /// Demotes an <c>AppInstanceAdmin</c> to an <c>AppInstanceUser</c>. This action does
+    /// not delete the user.
     /// 
     ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
     /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceAdmin.html">DeleteAppInstanceAdmin</a>,
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceAdminArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstance</code>'s administrator.</para>
+        /// <para>The ARN of the <c>AppInstance</c>'s administrator.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstance</code>.</para>
+        /// <para>The ARN of the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

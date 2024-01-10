@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// 
     ///  <note><para>
     /// To remove the ability to change topic permissions, you must deny permissions to the
-    /// <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetTopicAttributes</code>
-    /// actions in your IAM policy.
+    /// <c>AddPermission</c>, <c>RemovePermission</c>, and <c>SetTopicAttributes</c> actions
+    /// in your IAM policy.
     /// </para></note>
     /// </summary>
     [Cmdlet("Add", "SNSPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter ActionName
         /// <summary>
         /// <para>
-        /// <para>The action you want to allow for the specified principal(s).</para><para>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</para>
+        /// <para>The action you want to allow for the specified principal(s).</para><para>Valid values: Any Amazon SNS action name, for example <c>Publish</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

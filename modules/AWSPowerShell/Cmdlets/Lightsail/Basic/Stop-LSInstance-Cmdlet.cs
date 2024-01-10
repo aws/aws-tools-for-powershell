@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// a static IP address and attach it to the instance. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para></note><para>
-    /// The <code>stop instance</code> operation supports tag-based access control via resource
-    /// tags applied to the resource identified by <code>instance name</code>. For more information,
+    /// The <c>stop instance</c> operation supports tag-based access control via resource
+    /// tags applied to the resource identified by <c>instance name</c>. For more information,
     /// see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter OverrideStuck
         /// <summary>
         /// <para>
-        /// <para>When set to <code>True</code>, forces a Lightsail instance that is stuck in a <code>stopping</code>
-        /// state to stop.</para><important><para>Only use the <code>force</code> parameter if your instance is stuck in the <code>stopping</code>
+        /// <para>When set to <c>True</c>, forces a Lightsail instance that is stuck in a <c>stopping</c>
+        /// state to stop.</para><important><para>Only use the <c>force</c> parameter if your instance is stuck in the <c>stopping</c>
         /// state. In any other state, your instance should stop normally without adding this
         /// parameter to your API request.</para></important>
         /// </para>

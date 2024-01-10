@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the group. You can specify the group name, the ARN, or the group ID as the
-        /// <code>GroupIdentifier</code>.</para>
+        /// <c>GroupIdentifier</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

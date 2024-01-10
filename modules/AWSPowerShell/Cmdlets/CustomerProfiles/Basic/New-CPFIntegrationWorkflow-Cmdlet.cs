@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter AppflowIntegration_Batch
         /// <summary>
         /// <para>
-        /// <para>Batches in workflow of type <code>APPFLOW_INTEGRATION</code>.</para>
+        /// <para>Batches in workflow of type <c>APPFLOW_INTEGRATION</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

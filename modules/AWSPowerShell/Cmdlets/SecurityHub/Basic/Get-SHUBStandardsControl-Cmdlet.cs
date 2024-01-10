@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>The ARN of a resource that represents your subscription to a supported standard. To
-        /// get the subscription ARNs of the standards you have enabled, use the <code>GetEnabledStandards</code>
+        /// get the subscription ARNs of the standards you have enabled, use the <c>GetEnabledStandards</c>
         /// operation.</para>
         /// </para>
         /// </summary>
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token that is required for pagination. On your first call to the <code>DescribeStandardsControls</code>
-        /// operation, set the value of this parameter to <code>NULL</code>.</para><para>For subsequent calls to the operation, to continue listing data, set the value of
+        /// <para>The token that is required for pagination. On your first call to the <c>DescribeStandardsControls</c>
+        /// operation, set the value of this parameter to <c>NULL</c>.</para><para>For subsequent calls to the operation, to continue listing data, set the value of
         /// this parameter to the value returned from the previous response.</para>
         /// </para>
         /// <para>

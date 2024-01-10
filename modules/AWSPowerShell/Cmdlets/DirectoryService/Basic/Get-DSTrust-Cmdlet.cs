@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// <para>
         /// <para>A list of identifiers of the trust relationships for which to obtain the information.
         /// If this member is null, all trust relationships that belong to the current account
-        /// are returned.</para><para>An empty list results in an <code>InvalidParameterException</code> being thrown.</para>
+        /// are returned.</para><para>An empty list results in an <c>InvalidParameterException</c> being thrown.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

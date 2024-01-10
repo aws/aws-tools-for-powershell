@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>An array of stack IDs that specify the stacks to be described. If you omit this parameter,
-        /// <code>DescribeStacks</code> returns a description of every stack.</para>
+        /// <c>DescribeStacks</c> returns a description of every stack.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

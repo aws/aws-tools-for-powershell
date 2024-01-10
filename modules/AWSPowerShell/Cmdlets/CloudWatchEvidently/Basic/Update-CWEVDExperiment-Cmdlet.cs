@@ -120,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// <para>
         /// <para>When Evidently assigns a particular user session to an experiment, it must use a randomization
         /// ID to determine which variation the user session is served. This randomization ID
-        /// is a combination of the entity ID and <code>randomizationSalt</code>. If you omit
-        /// <code>randomizationSalt</code>, Evidently uses the experiment name as the <code>randomizationSalt</code>.</para>
+        /// is a combination of the entity ID and <c>randomizationSalt</c>. If you omit <c>randomizationSalt</c>,
+        /// Evidently uses the experiment name as the <c>randomizationSalt</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

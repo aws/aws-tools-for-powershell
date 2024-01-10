@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The base image of the image recipe. The value of the string can be the ARN of the
-        /// base image or an AMI ID. The format for the ARN follows this example: <code>arn:aws:imagebuilder:us-west-2:aws:image/windows-server-2016-english-full-base-x86/x.x.x</code>.
+        /// base image or an AMI ID. The format for the ARN follows this example: <c>arn:aws:imagebuilder:us-west-2:aws:image/windows-server-2016-english-full-base-x86/x.x.x</c>.
         /// You can provide the specific version that you want to use, or you can use a wildcard
         /// in all of the fields. If you enter an AMI ID for the string value, you must have access
         /// to the AMI, and the AMI must be in the same Region in which you are using Image Builder.</para>
@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// added to ensure that Systems Manager is installed on your Linux build instance. If
         /// you override the user data, make sure that you add commands to install Systems Manager,
         /// if it is not pre-installed on your base image.</para><note><para>The user data is always base 64 encoded. For example, the following commands are encoded
-        /// as <code>IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhci$</code>:</para><para><i>#!/bin/bash</i></para><para>mkdir -p /var/bb/</para><para>touch /var</para></note>
+        /// as <c>IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhci$</c>:</para><para><i>#!/bin/bash</i></para><para>mkdir -p /var/bb/</para><para>touch /var</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,14 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     /// <summary>
     /// Creates a view that users can query by using the <a>Search</a> operation. Results
     /// from queries that you make using this view include only resources that match the view's
-    /// <code>Filters</code>. For more information about Amazon Web Services Resource Explorer
-    /// views, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views.html">Managing
+    /// <c>Filters</c>. For more information about Amazon Web Services Resource Explorer views,
+    /// see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views.html">Managing
     /// views</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.
     /// 
     ///  
     /// <para>
-    /// Only the principals with an IAM identity-based policy that grants <code>Allow</code>
-    /// to the <code>Search</code> action on a <code>Resource</code> with the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+    /// Only the principals with an IAM identity-based policy that grants <c>Allow</c> to
+    /// the <c>Search</c> action on a <c>Resource</c> with the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
     /// resource name (ARN)</a> of this view can <a>Search</a> using views you create with
     /// this operation.
     /// </para>

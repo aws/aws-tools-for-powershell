@@ -34,20 +34,19 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// <para>
     /// You can use this operation with a client request token in the request that Amazon
     /// File Cache uses to ensure idempotent creation. If a cache with the specified client
-    /// request token exists and the parameters match, <code>CreateFileCache</code> returns
-    /// the description of the existing cache. If a cache with the specified client request
-    /// token exists and the parameters don't match, this call returns <code>IncompatibleParameterError</code>.
-    /// If a file cache with the specified client request token doesn't exist, <code>CreateFileCache</code>
+    /// request token exists and the parameters match, <c>CreateFileCache</c> returns the
+    /// description of the existing cache. If a cache with the specified client request token
+    /// exists and the parameters don't match, this call returns <c>IncompatibleParameterError</c>.
+    /// If a file cache with the specified client request token doesn't exist, <c>CreateFileCache</c>
     /// does the following: 
     /// </para><ul><li><para>
     /// Creates a new, empty Amazon File Cache resourcewith an assigned ID, and an initial
-    /// lifecycle state of <code>CREATING</code>.
+    /// lifecycle state of <c>CREATING</c>.
     /// </para></li><li><para>
     /// Returns the description of the cache in JSON format.
     /// </para></li></ul><note><para>
-    /// The <code>CreateFileCache</code> call returns while the cache's lifecycle state is
-    /// still <code>CREATING</code>. You can check the cache creation status by calling the
-    /// <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileCaches.html">DescribeFileCaches</a>
+    /// The <c>CreateFileCache</c> call returns while the cache's lifecycle state is still
+    /// <c>CREATING</c>. You can check the cache creation status by calling the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileCaches.html">DescribeFileCaches</a>
     /// operation, which returns the cache state along with other information.
     /// </para></note>
     /// </summary>
@@ -68,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>An idempotency token for resource creation, in a string of up to 63 ASCII characters.
         /// This token is automatically filled on your behalf when you use the Command Line Interface
-        /// (CLI) or an Amazon Web Services SDK.</para><para>By using the idempotent operation, you can retry a <code>CreateFileCache</code> operation
+        /// (CLI) or an Amazon Web Services SDK.</para><para>By using the idempotent operation, you can retry a <c>CreateFileCache</c> operation
         /// without the risk of creating an extra cache. This approach can be useful when an initial
         /// call fails in a way that makes it unclear whether a cache was created. Examples are
         /// if a transport level timeout occurred, or your connection was reset. If you use the
@@ -109,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter LustreConfiguration_DeploymentType
         /// <summary>
         /// <para>
-        /// <para>Specifies the cache deployment type, which must be <code>CACHE_1</code>.</para>
+        /// <para>Specifies the cache deployment type, which must be <c>CACHE_1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter FileCacheType
         /// <summary>
         /// <para>
-        /// <para>The type of cache that you're creating, which must be <code>LUSTRE</code>.</para>
+        /// <para>The type of cache that you're creating, which must be <c>LUSTRE</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -137,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter FileCacheTypeVersion
         /// <summary>
         /// <para>
-        /// <para>Sets the Lustre version for the cache that you're creating, which must be <code>2.12</code>.</para>
+        /// <para>Sets the Lustre version for the cache that you're creating, which must be <c>2.12</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -155,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the ID of the Key Management Service (KMS) key to use for encrypting data
-        /// on an Amazon File Cache. If a <code>KmsKeyId</code> isn't specified, the Amazon FSx-managed
+        /// on an Amazon File Cache. If a <c>KmsKeyId</c> isn't specified, the Amazon FSx-managed
         /// KMS key for your account is used. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a>
         /// in the <i>Key Management Service API Reference</i>.</para>
         /// </para>
@@ -168,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache
-        /// storage capacity, in MB/s/TiB. The only supported value is <code>1000</code>.</para>
+        /// storage capacity, in MB/s/TiB. The only supported value is <c>1000</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes
-        /// (GiB). The only supported value is <code>2400</code> GiB.</para>
+        /// (GiB). The only supported value is <c>2400</c> GiB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

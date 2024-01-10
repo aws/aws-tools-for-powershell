@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para>Tags that you want to delete from one or more configuration items. Specify the tags
-        /// that you want to delete in a <i>key</i>-<i>value</i> format. For example:</para><para><code>{"key": "serverType", "value": "webServer"}</code></para>
+        /// that you want to delete in a <i>key</i>-<i>value</i> format. For example:</para><para><c>{"key": "serverType", "value": "webServer"}</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

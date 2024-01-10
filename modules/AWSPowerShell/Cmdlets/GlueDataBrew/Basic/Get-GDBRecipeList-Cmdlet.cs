@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter RecipeVersion
         /// <summary>
         /// <para>
-        /// <para>Return only those recipes with a version identifier of <code>LATEST_WORKING</code>
-        /// or <code>LATEST_PUBLISHED</code>. If <code>RecipeVersion</code> is omitted, <code>ListRecipes</code>
-        /// returns all of the <code>LATEST_PUBLISHED</code> recipe versions.</para><para>Valid values: <code>LATEST_WORKING</code> | <code>LATEST_PUBLISHED</code></para>
+        /// <para>Return only those recipes with a version identifier of <c>LATEST_WORKING</c> or <c>LATEST_PUBLISHED</c>.
+        /// If <c>RecipeVersion</c> is omitted, <c>ListRecipes</c> returns all of the <c>LATEST_PUBLISHED</c>
+        /// recipe versions.</para><para>Valid values: <c>LATEST_WORKING</c> | <c>LATEST_PUBLISHED</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

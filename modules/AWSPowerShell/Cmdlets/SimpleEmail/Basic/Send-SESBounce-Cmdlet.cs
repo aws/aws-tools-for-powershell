@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>
         /// <para>A list of recipients of the bounced message, including the information required to
         /// create the Delivery Status Notifications (DSNs) for the recipients. You must specify
-        /// at least one <code>BouncedRecipientInfo</code> in the list.</para>
+        /// at least one <c>BouncedRecipientInfo</c> in the list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -159,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>The reporting MTA that attempted to deliver the message, formatted as specified in
-        /// <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a> (<code>mta-name-type; mta-name</code>).
-        /// The default value is <code>dns; inbound-smtp.[region].amazonaws.com</code>.</para>
+        /// <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a> (<c>mta-name-type; mta-name</c>).
+        /// The default value is <c>dns; inbound-smtp.[region].amazonaws.com</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

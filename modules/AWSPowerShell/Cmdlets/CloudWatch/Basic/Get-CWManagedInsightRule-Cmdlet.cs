@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para> The maximum number of results to return in one operation. If you omit this parameter,
-        /// the default number is used. The default number is <code>100</code>. </para>
+        /// the default number is used. The default number is <c>100</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

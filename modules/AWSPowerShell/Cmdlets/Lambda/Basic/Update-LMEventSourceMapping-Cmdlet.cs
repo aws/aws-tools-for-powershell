@@ -43,17 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// DocumentDB</a></para></li></ul><para>
     /// The following error handling options are available only for stream sources (DynamoDB
     /// and Kinesis):
-    /// </para><ul><li><para><code>BisectBatchOnFunctionError</code> – If the function returns an error, split
-    /// the batch in two and retry.
-    /// </para></li><li><para><code>DestinationConfig</code> – Send discarded records to an Amazon SQS queue or
-    /// Amazon SNS topic.
-    /// </para></li><li><para><code>MaximumRecordAgeInSeconds</code> – Discard records older than the specified
-    /// age. The default value is infinite (-1). When set to infinite (-1), failed records
-    /// are retried until the record expires
-    /// </para></li><li><para><code>MaximumRetryAttempts</code> – Discard records after the specified number of
-    /// retries. The default value is infinite (-1). When set to infinite (-1), failed records
-    /// are retried until the record expires.
-    /// </para></li><li><para><code>ParallelizationFactor</code> – Process multiple batches from each shard concurrently.
+    /// </para><ul><li><para><c>BisectBatchOnFunctionError</c> – If the function returns an error, split the batch
+    /// in two and retry.
+    /// </para></li><li><para><c>DestinationConfig</c> – Send discarded records to an Amazon SQS queue or Amazon
+    /// SNS topic.
+    /// </para></li><li><para><c>MaximumRecordAgeInSeconds</c> – Discard records older than the specified age.
+    /// The default value is infinite (-1). When set to infinite (-1), failed records are
+    /// retried until the record expires
+    /// </para></li><li><para><c>MaximumRetryAttempts</c> – Discard records after the specified number of retries.
+    /// The default value is infinite (-1). When set to infinite (-1), failed records are
+    /// retried until the record expires.
+    /// </para></li><li><para><c>ParallelizationFactor</c> – Process multiple batches from each shard concurrently.
     /// </para></li></ul><para>
     /// For information about which configuration parameters apply to each event source, see
     /// the following topics.
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The name of the Lambda function.</para><para><b>Name formats</b></para><ul><li><para><b>Function name</b> – <code>MyFunction</code>.</para></li><li><para><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</para></li><li><para><b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</para></li><li><para><b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</para></li></ul><para>The length constraint applies only to the full ARN. If you specify only the function
+        /// <para>The name of the Lambda function.</para><para><b>Name formats</b></para><ul><li><para><b>Function name</b> – <c>MyFunction</c>.</para></li><li><para><b>Function ARN</b> – <c>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</c>.</para></li><li><para><b>Version or Alias ARN</b> – <c>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</c>.</para></li><li><para><b>Partial ARN</b> – <c>123456789012:function:MyFunction</c>.</para></li></ul><para>The length constraint applies only to the full ARN. If you specify only the function
         /// name, it's limited to 64 characters in length.</para>
         /// </para>
         /// </summary>
@@ -208,15 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The maximum amount of time, in seconds, that Lambda spends gathering records before
-        /// invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code>
-        /// to any value from 0 seconds to 300 seconds in increments of seconds.</para><para>For streams and Amazon SQS event sources, the default batching window is 0 seconds.
+        /// invoking the function. You can configure <c>MaximumBatchingWindowInSeconds</c> to
+        /// any value from 0 seconds to 300 seconds in increments of seconds.</para><para>For streams and Amazon SQS event sources, the default batching window is 0 seconds.
         /// For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources,
-        /// the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code>
+        /// the default batching window is 500 ms. Note that because you can only change <c>MaximumBatchingWindowInSeconds</c>
         /// in increments of seconds, you cannot revert back to the 500 ms default batching window
         /// after you have changed it. To restore the default batching window, you must create
-        /// a new event source mapping.</para><para>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code>
-        /// to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code>
-        /// to at least 1.</para>
+        /// a new event source mapping.</para><para>Related setting: For streams and Amazon SQS event sources, when you set <c>BatchSize</c>
+        /// to a value greater than 10, you must set <c>MaximumBatchingWindowInSeconds</c> to
+        /// at least 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

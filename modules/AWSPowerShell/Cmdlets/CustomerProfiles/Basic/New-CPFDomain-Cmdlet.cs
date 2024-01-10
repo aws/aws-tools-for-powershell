@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     /// </para><para>
     /// Use this API or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html">UpdateDomain</a>
     /// to enable <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">identity
-    /// resolution</a>: set <code>Matching</code> to true.
+    /// resolution</a>: set <c>Matching</c> to true.
     /// </para><para>
     /// To prevent cross-service impersonation when you call this API, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html">Cross-service
     /// confused deputy prevention</a> for sample policies that you should apply. 
@@ -59,12 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter AttributeTypesSelector_Address
         /// <summary>
         /// <para>
-        /// <para>The <code>Address</code> type. You can choose from <code>Address</code>, <code>BusinessAddress</code>,
-        /// <code>MaillingAddress</code>, and <code>ShippingAddress</code>.</para><para>You only can use the Address type in the <code>MatchingRule</code>. For example, if
-        /// you want to match profile based on <code>BusinessAddress.City</code> or <code>MaillingAddress.City</code>,
-        /// you need to choose the <code>BusinessAddress</code> and the <code>MaillingAddress</code>
-        /// to represent the Address type and specify the <code>Address.City</code> on the matching
-        /// rule.</para>
+        /// <para>The <c>Address</c> type. You can choose from <c>Address</c>, <c>BusinessAddress</c>,
+        /// <c>MaillingAddress</c>, and <c>ShippingAddress</c>.</para><para>You only can use the Address type in the <c>MatchingRule</c>. For example, if you
+        /// want to match profile based on <c>BusinessAddress.City</c> or <c>MaillingAddress.City</c>,
+        /// you need to choose the <c>BusinessAddress</c> and the <c>MaillingAddress</c> to represent
+        /// the Address type and specify the <c>Address.City</c> on the matching rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter AttributeTypesSelector_AttributeMatchingModel
         /// <summary>
         /// <para>
-        /// <para>Configures the <code>AttributeMatchingModel</code>, you can either choose <code>ONE_TO_ONE</code>
-        /// or <code>MANY_TO_MANY</code>.</para>
+        /// <para>Configures the <c>AttributeMatchingModel</c>, you can either choose <c>ONE_TO_ONE</c>
+        /// or <c>MANY_TO_MANY</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,10 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter ConflictResolution_ConflictResolvingModel
         /// <summary>
         /// <para>
-        /// <para>How the auto-merging process should resolve conflicts between different profiles.</para><ul><li><para><code>RECENCY</code>: Uses the data that was most recently updated.</para></li><li><para><code>SOURCE</code>: Uses the data from a specific source. For example, if a company
-        /// has been aquired or two departments have merged, data from the specified source is
-        /// used. If two duplicate profiles are from the same source, then <code>RECENCY</code>
-        /// is used again.</para></li></ul>
+        /// <para>How the auto-merging process should resolve conflicts between different profiles.</para><ul><li><para><c>RECENCY</c>: Uses the data that was most recently updated.</para></li><li><para><c>SOURCE</c>: Uses the data from a specific source. For example, if a company has
+        /// been aquired or two departments have merged, data from the specified source is used.
+        /// If two duplicate profiles are from the same source, then <c>RECENCY</c> is used again.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,10 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter RuleBasedMatching_ConflictResolution_ConflictResolvingModel
         /// <summary>
         /// <para>
-        /// <para>How the auto-merging process should resolve conflicts between different profiles.</para><ul><li><para><code>RECENCY</code>: Uses the data that was most recently updated.</para></li><li><para><code>SOURCE</code>: Uses the data from a specific source. For example, if a company
-        /// has been aquired or two departments have merged, data from the specified source is
-        /// used. If two duplicate profiles are from the same source, then <code>RECENCY</code>
-        /// is used again.</para></li></ul>
+        /// <para>How the auto-merging process should resolve conflicts between different profiles.</para><ul><li><para><c>RECENCY</c>: Uses the data that was most recently updated.</para></li><li><para><c>SOURCE</c>: Uses the data from a specific source. For example, if a company has
+        /// been aquired or two departments have merged, data from the specified source is used.
+        /// If two duplicate profiles are from the same source, then <c>RECENCY</c> is used again.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,12 +185,12 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter AttributeTypesSelector_EmailAddress
         /// <summary>
         /// <para>
-        /// <para>The <code>Email</code> type. You can choose from <code>EmailAddress</code>, <code>BusinessEmailAddress</code>
-        /// and <code>PersonalEmailAddress</code>.</para><para>You only can use the <code>EmailAddress</code> type in the <code>MatchingRule</code>.
-        /// For example, if you want to match profile based on <code>PersonalEmailAddress</code>
-        /// or <code>BusinessEmailAddress</code>, you need to choose the <code>PersonalEmailAddress</code>
-        /// and the <code>BusinessEmailAddress</code> to represent the <code>EmailAddress</code>
-        /// type and only specify the <code>EmailAddress</code> on the matching rule.</para>
+        /// <para>The <c>Email</c> type. You can choose from <c>EmailAddress</c>, <c>BusinessEmailAddress</c>
+        /// and <c>PersonalEmailAddress</c>.</para><para>You only can use the <c>EmailAddress</c> type in the <c>MatchingRule</c>. For example,
+        /// if you want to match profile based on <c>PersonalEmailAddress</c> or <c>BusinessEmailAddress</c>,
+        /// you need to choose the <c>PersonalEmailAddress</c> and the <c>BusinessEmailAddress</c>
+        /// to represent the <c>EmailAddress</c> type and only specify the <c>EmailAddress</c>
+        /// on the matching rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         /// <summary>
         /// <para>
         /// <para>Configures how the rule-based matching process should match profiles. You can have
-        /// up to 15 <code>MatchingRule</code> in the <code>MatchingRules</code>.</para>
+        /// up to 15 <c>MatchingRule</c> in the <c>MatchingRules</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -291,12 +288,11 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter AttributeTypesSelector_PhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The <code>PhoneNumber</code> type. You can choose from <code>PhoneNumber</code>, <code>HomePhoneNumber</code>,
-        /// and <code>MobilePhoneNumber</code>.</para><para>You only can use the <code>PhoneNumber</code> type in the <code>MatchingRule</code>.
-        /// For example, if you want to match a profile based on <code>Phone</code> or <code>HomePhone</code>,
-        /// you need to choose the <code>Phone</code> and the <code>HomePhone</code> to represent
-        /// the <code>PhoneNumber</code> type and only specify the <code>PhoneNumber</code> on
-        /// the matching rule.</para>
+        /// <para>The <c>PhoneNumber</c> type. You can choose from <c>PhoneNumber</c>, <c>HomePhoneNumber</c>,
+        /// and <c>MobilePhoneNumber</c>.</para><para>You only can use the <c>PhoneNumber</c> type in the <c>MatchingRule</c>. For example,
+        /// if you want to match a profile based on <c>Phone</c> or <c>HomePhone</c>, you need
+        /// to choose the <c>Phone</c> and the <c>HomePhone</c> to represent the <c>PhoneNumber</c>
+        /// type and only specify the <c>PhoneNumber</c> on the matching rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -349,8 +345,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter ConflictResolution_SourceName
         /// <summary>
         /// <para>
-        /// <para>The <code>ObjectType</code> name that is used to resolve profile merging conflicts
-        /// when choosing <code>SOURCE</code> as the <code>ConflictResolvingModel</code>.</para>
+        /// <para>The <c>ObjectType</c> name that is used to resolve profile merging conflicts when
+        /// choosing <c>SOURCE</c> as the <c>ConflictResolvingModel</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -361,8 +357,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter RuleBasedMatching_ConflictResolution_SourceName
         /// <summary>
         /// <para>
-        /// <para>The <code>ObjectType</code> name that is used to resolve profile merging conflicts
-        /// when choosing <code>SOURCE</code> as the <code>ConflictResolvingModel</code>.</para>
+        /// <para>The <c>ObjectType</c> name that is used to resolve profile merging conflicts when
+        /// choosing <c>SOURCE</c> as the <c>ConflictResolvingModel</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

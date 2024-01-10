@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter Effect
         /// <summary>
         /// <para>
-        /// <para>The effect of the rule when it matches. Allowed values are <code>ALLOW</code> or <code>DENY</code>.</para>
+        /// <para>The effect of the rule when it matches. Allowed values are <c>ALLOW</c> or <c>DENY</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

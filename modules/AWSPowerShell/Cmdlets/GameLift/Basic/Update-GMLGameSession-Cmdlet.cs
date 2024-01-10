@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To update a game session, specify the game session ID and the values you want to change.
     /// 
     /// </para><para>
-    /// If successful, the updated <code>GameSession</code> object is returned. 
+    /// If successful, the updated <c>GameSession</c> object is returned. 
     /// </para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
@@ -57,10 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of key-value pairs that can store custom data in a game session. For example:
-        /// <code>{"Key": "difficulty", "Value": "novice"}</code>. You can use this parameter
-        /// to modify game properties in an active game session. This action adds new properties
-        /// and modifies existing properties. There is no way to delete properties. For an example,
-        /// see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-update">Update
+        /// <c>{"Key": "difficulty", "Value": "novice"}</c>. You can use this parameter to modify
+        /// game properties in an active game session. This action adds new properties and modifies
+        /// existing properties. There is no way to delete properties. For an example, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-update">Update
         /// the value of a game property</a>. </para>
         /// </para>
         /// </summary>
@@ -121,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ProtectionPolicy
         /// <summary>
         /// <para>
-        /// <para>Game session protection policy to apply to this game session only.</para><ul><li><para><b>NoProtection</b> -- The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> -- If the game session is in an <code>ACTIVE</code> status,
-        /// it cannot be terminated during a scale-down event.</para></li></ul>
+        /// <para>Game session protection policy to apply to this game session only.</para><ul><li><para><b>NoProtection</b> -- The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> -- If the game session is in an <c>ACTIVE</c> status, it cannot
+        /// be terminated during a scale-down event.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

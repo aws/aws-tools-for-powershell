@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter Fabric_AdminPassword
         /// <summary>
         /// <para>
-        /// <para>The password for the member's initial administrative user. The <code>AdminPassword</code>
+        /// <para>The password for the member's initial administrative user. The <c>AdminPassword</c>
         /// must be at least 8 characters long and no more than 32 characters. It must contain
         /// at least one uppercase letter, one lowercase letter, and one digit. It cannot have
         /// a single quotation mark (‘), a double quotation marks (“), a forward slash(/), a backward
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         /// by Amazon Web Services on your behalf.</para></li><li><para><b>A valid symmetric customer managed KMS key</b> - Use the specified KMS key in
         /// your account that you create, own, and manage.</para><para>Amazon Managed Blockchain doesn't support asymmetric keys. For more information, see
         /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
-        /// symmetric and asymmetric keys</a> in the <i>Key Management Service Developer Guide</i>.</para><para>The following is an example of a KMS key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul>
+        /// symmetric and asymmetric keys</a> in the <i>Key Management Service Developer Guide</i>.</para><para>The following is an example of a KMS key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

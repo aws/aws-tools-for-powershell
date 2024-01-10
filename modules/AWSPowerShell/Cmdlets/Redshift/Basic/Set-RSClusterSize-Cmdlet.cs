@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>A boolean value indicating whether the resize operation is using the classic resize
-        /// process. If you don't provide this parameter or set the value to <code>false</code>,
-        /// the resize type is elastic. </para>
+        /// process. If you don't provide this parameter or set the value to <c>false</c>, the
+        /// resize type is elastic. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

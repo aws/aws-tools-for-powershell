@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// limit, you can import client branding for different platform types using separate
     /// requests.
     /// </para></li><li><para>
-    /// In each platform type, the <code>SupportEmail</code> and <code>SupportLink</code>
-    /// parameters are mutually exclusive. You can specify only one parameter for each platform
-    /// type, but not both.
+    /// In each platform type, the <c>SupportEmail</c> and <c>SupportLink</c> parameters are
+    /// mutually exclusive. You can specify only one parameter for each platform type, but
+    /// not both.
     /// </para></li><li><para>
     /// Imported data can take up to a minute to appear in the WorkSpaces client.
     /// </para></li></ul></note>
@@ -132,10 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The login message. Specified as a key value pair, in which the key is a locale and
-        /// the value is the localized message for that locale. The only key supported is <code>en_US</code>.
-        /// The HTML tags supported include the following: <code>a, b, blockquote, br, cite, code,
+        /// the value is the localized message for that locale. The only key supported is <c>en_US</c>.
+        /// The HTML tags supported include the following: <c>a, b, blockquote, br, cite, code,
         /// dd, dl, dt, div, em, i, li, ol, p, pre, q, small, span, strike, strong, sub, sup,
-        /// u, ul</code>.</para>
+        /// u, ul</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,10 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The login message. Specified as a key value pair, in which the key is a locale and
-        /// the value is the localized message for that locale. The only key supported is <code>en_US</code>.
-        /// The HTML tags supported include the following: <code>a, b, blockquote, br, cite, code,
+        /// the value is the localized message for that locale. The only key supported is <c>en_US</c>.
+        /// The HTML tags supported include the following: <c>a, b, blockquote, br, cite, code,
         /// dd, dl, dt, div, em, i, li, ol, p, pre, q, small, span, strike, strong, sub, sup,
-        /// u, ul</code>.</para>
+        /// u, ul</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,10 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The login message. Specified as a key value pair, in which the key is a locale and
-        /// the value is the localized message for that locale. The only key supported is <code>en_US</code>.
-        /// The HTML tags supported include the following: <code>a, b, blockquote, br, cite, code,
+        /// the value is the localized message for that locale. The only key supported is <c>en_US</c>.
+        /// The HTML tags supported include the following: <c>a, b, blockquote, br, cite, code,
         /// dd, dl, dt, div, em, i, li, ol, p, pre, q, small, span, strike, strong, sub, sup,
-        /// u, ul</code>.</para>
+        /// u, ul</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,10 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The login message. Specified as a key value pair, in which the key is a locale and
-        /// the value is the localized message for that locale. The only key supported is <code>en_US</code>.
-        /// The HTML tags supported include the following: <code>a, b, blockquote, br, cite, code,
+        /// the value is the localized message for that locale. The only key supported is <c>en_US</c>.
+        /// The HTML tags supported include the following: <c>a, b, blockquote, br, cite, code,
         /// dd, dl, dt, div, em, i, li, ol, p, pre, q, small, span, strike, strong, sub, sup,
-        /// u, ul</code>.</para>
+        /// u, ul</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,10 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The login message. Specified as a key value pair, in which the key is a locale and
-        /// the value is the localized message for that locale. The only key supported is <code>en_US</code>.
-        /// The HTML tags supported include the following: <code>a, b, blockquote, br, cite, code,
+        /// the value is the localized message for that locale. The only key supported is <c>en_US</c>.
+        /// The HTML tags supported include the following: <c>a, b, blockquote, br, cite, code,
         /// dd, dl, dt, div, em, i, li, ol, p, pre, q, small, span, strike, strong, sub, sup,
-        /// u, ul</code>.</para>
+        /// u, ul</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,10 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The login message. Specified as a key value pair, in which the key is a locale and
-        /// the value is the localized message for that locale. The only key supported is <code>en_US</code>.
-        /// The HTML tags supported include the following: <code>a, b, blockquote, br, cite, code,
+        /// the value is the localized message for that locale. The only key supported is <c>en_US</c>.
+        /// The HTML tags supported include the following: <c>a, b, blockquote, br, cite, code,
         /// dd, dl, dt, div, em, i, li, ol, p, pre, q, small, span, strike, strong, sub, sup,
-        /// u, ul</code>.</para>
+        /// u, ul</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The logo. The only image format accepted is a binary data object that is converted
-        /// from a <code>.png</code> file.</para>
+        /// from a <c>.png</c> file.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>
         /// <para>The logo. This is the standard-resolution display that has a 1:1 pixel density (or
         /// @1x), where one pixel is equal to one point. The only image format accepted is a binary
-        /// data object that is converted from a <code>.png</code> file.</para>
+        /// data object that is converted from a <c>.png</c> file.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -243,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The logo. The only image format accepted is a binary data object that is converted
-        /// from a <code>.png</code> file.</para>
+        /// from a <c>.png</c> file.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -256,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The logo. The only image format accepted is a binary data object that is converted
-        /// from a <code>.png</code> file.</para>
+        /// from a <c>.png</c> file.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The logo. The only image format accepted is a binary data object that is converted
-        /// from a <code>.png</code> file.</para>
+        /// from a <c>.png</c> file.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -282,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The logo. The only image format accepted is a binary data object that is converted
-        /// from a <code>.png</code> file.</para>
+        /// from a <c>.png</c> file.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -296,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>
         /// <para>The @2x version of the logo. This is the higher resolution display that offers a scale
         /// factor of 2.0 (or @2x). The only image format accepted is a binary data object that
-        /// is converted from a <code>.png</code> file.</para><note><para> For more information about iOS image size and resolution, see <a href="https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/">Image
+        /// is converted from a <c>.png</c> file.</para><note><para> For more information about iOS image size and resolution, see <a href="https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/">Image
         /// Size and Resolution </a> in the <i>Apple Human Interface Guidelines</i>.</para></note>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
@@ -311,7 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>
         /// <para>The @3x version of the logo. This is the higher resolution display that offers a scale
         /// factor of 3.0 (or @3x). The only image format accepted is a binary data object that
-        /// is converted from a <code>.png</code> file.</para><note><para> For more information about iOS image size and resolution, see <a href="https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/">Image
+        /// is converted from a <c>.png</c> file.</para><note><para> For more information about iOS image size and resolution, see <a href="https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/">Image
         /// Size and Resolution </a> in the <i>Apple Human Interface Guidelines</i>.</para></note>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
@@ -341,9 +341,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeAndroid_SupportEmail
         /// <summary>
         /// <para>
-        /// <para>The support email. The company's customer support email address.</para><note><ul><li><para>In each platform type, the <code>SupportEmail</code> and <code>SupportLink</code>
-        /// parameters are mutually exclusive. You can specify one parameter for each platform
-        /// type, but not both.</para></li><li><para>The default email is <code>workspaces-feedback@amazon.com</code>.</para></li></ul></note>
+        /// <para>The support email. The company's customer support email address.</para><note><ul><li><para>In each platform type, the <c>SupportEmail</c> and <c>SupportLink</c> parameters are
+        /// mutually exclusive. You can specify one parameter for each platform type, but not
+        /// both.</para></li><li><para>The default email is <c>workspaces-feedback@amazon.com</c>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -353,9 +353,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeIos_SupportEmail
         /// <summary>
         /// <para>
-        /// <para>The support email. The company's customer support email address.</para><note><ul><li><para>In each platform type, the <code>SupportEmail</code> and <code>SupportLink</code>
-        /// parameters are mutually exclusive. You can specify one parameter for each platform
-        /// type, but not both.</para></li><li><para>The default email is <code>workspaces-feedback@amazon.com</code>.</para></li></ul></note>
+        /// <para>The support email. The company's customer support email address.</para><note><ul><li><para>In each platform type, the <c>SupportEmail</c> and <c>SupportLink</c> parameters are
+        /// mutually exclusive. You can specify one parameter for each platform type, but not
+        /// both.</para></li><li><para>The default email is <c>workspaces-feedback@amazon.com</c>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -365,9 +365,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeLinux_SupportEmail
         /// <summary>
         /// <para>
-        /// <para>The support email. The company's customer support email address.</para><note><ul><li><para>In each platform type, the <code>SupportEmail</code> and <code>SupportLink</code>
-        /// parameters are mutually exclusive. You can specify one parameter for each platform
-        /// type, but not both.</para></li><li><para>The default email is <code>workspaces-feedback@amazon.com</code>.</para></li></ul></note>
+        /// <para>The support email. The company's customer support email address.</para><note><ul><li><para>In each platform type, the <c>SupportEmail</c> and <c>SupportLink</c> parameters are
+        /// mutually exclusive. You can specify one parameter for each platform type, but not
+        /// both.</para></li><li><para>The default email is <c>workspaces-feedback@amazon.com</c>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -377,9 +377,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeOsx_SupportEmail
         /// <summary>
         /// <para>
-        /// <para>The support email. The company's customer support email address.</para><note><ul><li><para>In each platform type, the <code>SupportEmail</code> and <code>SupportLink</code>
-        /// parameters are mutually exclusive. You can specify one parameter for each platform
-        /// type, but not both.</para></li><li><para>The default email is <code>workspaces-feedback@amazon.com</code>.</para></li></ul></note>
+        /// <para>The support email. The company's customer support email address.</para><note><ul><li><para>In each platform type, the <c>SupportEmail</c> and <c>SupportLink</c> parameters are
+        /// mutually exclusive. You can specify one parameter for each platform type, but not
+        /// both.</para></li><li><para>The default email is <c>workspaces-feedback@amazon.com</c>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -389,9 +389,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeWeb_SupportEmail
         /// <summary>
         /// <para>
-        /// <para>The support email. The company's customer support email address.</para><note><ul><li><para>In each platform type, the <code>SupportEmail</code> and <code>SupportLink</code>
-        /// parameters are mutually exclusive. You can specify one parameter for each platform
-        /// type, but not both.</para></li><li><para>The default email is <code>workspaces-feedback@amazon.com</code>.</para></li></ul></note>
+        /// <para>The support email. The company's customer support email address.</para><note><ul><li><para>In each platform type, the <c>SupportEmail</c> and <c>SupportLink</c> parameters are
+        /// mutually exclusive. You can specify one parameter for each platform type, but not
+        /// both.</para></li><li><para>The default email is <c>workspaces-feedback@amazon.com</c>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -401,9 +401,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeWindows_SupportEmail
         /// <summary>
         /// <para>
-        /// <para>The support email. The company's customer support email address.</para><note><ul><li><para>In each platform type, the <code>SupportEmail</code> and <code>SupportLink</code>
-        /// parameters are mutually exclusive. You can specify one parameter for each platform
-        /// type, but not both.</para></li><li><para>The default email is <code>workspaces-feedback@amazon.com</code>.</para></li></ul></note>
+        /// <para>The support email. The company's customer support email address.</para><note><ul><li><para>In each platform type, the <c>SupportEmail</c> and <c>SupportLink</c> parameters are
+        /// mutually exclusive. You can specify one parameter for each platform type, but not
+        /// both.</para></li><li><para>The default email is <c>workspaces-feedback@amazon.com</c>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -413,9 +413,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeAndroid_SupportLink
         /// <summary>
         /// <para>
-        /// <para>The support link. The link for the company's customer support page for their WorkSpace.</para><note><ul><li><para>In each platform type, the <code>SupportEmail</code> and <code>SupportLink</code>
-        /// parameters are mutually exclusive. You can specify one parameter for each platform
-        /// type, but not both.</para></li><li><para>The default support link is <code>workspaces-feedback@amazon.com</code>.</para></li></ul></note>
+        /// <para>The support link. The link for the company's customer support page for their WorkSpace.</para><note><ul><li><para>In each platform type, the <c>SupportEmail</c> and <c>SupportLink</c> parameters are
+        /// mutually exclusive. You can specify one parameter for each platform type, but not
+        /// both.</para></li><li><para>The default support link is <c>workspaces-feedback@amazon.com</c>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -425,9 +425,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeIos_SupportLink
         /// <summary>
         /// <para>
-        /// <para>The support link. The link for the company's customer support page for their WorkSpace.</para><note><ul><li><para>In each platform type, the <code>SupportEmail</code> and <code>SupportLink</code>
-        /// parameters are mutually exclusive. You can specify one parameter for each platform
-        /// type, but not both.</para></li><li><para>The default support link is <code>workspaces-feedback@amazon.com</code>.</para></li></ul></note>
+        /// <para>The support link. The link for the company's customer support page for their WorkSpace.</para><note><ul><li><para>In each platform type, the <c>SupportEmail</c> and <c>SupportLink</c> parameters are
+        /// mutually exclusive. You can specify one parameter for each platform type, but not
+        /// both.</para></li><li><para>The default support link is <c>workspaces-feedback@amazon.com</c>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -437,9 +437,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeLinux_SupportLink
         /// <summary>
         /// <para>
-        /// <para>The support link. The link for the company's customer support page for their WorkSpace.</para><note><ul><li><para>In each platform type, the <code>SupportEmail</code> and <code>SupportLink</code>
-        /// parameters are mutually exclusive. You can specify one parameter for each platform
-        /// type, but not both.</para></li><li><para>The default support link is <code>workspaces-feedback@amazon.com</code>.</para></li></ul></note>
+        /// <para>The support link. The link for the company's customer support page for their WorkSpace.</para><note><ul><li><para>In each platform type, the <c>SupportEmail</c> and <c>SupportLink</c> parameters are
+        /// mutually exclusive. You can specify one parameter for each platform type, but not
+        /// both.</para></li><li><para>The default support link is <c>workspaces-feedback@amazon.com</c>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -449,9 +449,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeOsx_SupportLink
         /// <summary>
         /// <para>
-        /// <para>The support link. The link for the company's customer support page for their WorkSpace.</para><note><ul><li><para>In each platform type, the <code>SupportEmail</code> and <code>SupportLink</code>
-        /// parameters are mutually exclusive. You can specify one parameter for each platform
-        /// type, but not both.</para></li><li><para>The default support link is <code>workspaces-feedback@amazon.com</code>.</para></li></ul></note>
+        /// <para>The support link. The link for the company's customer support page for their WorkSpace.</para><note><ul><li><para>In each platform type, the <c>SupportEmail</c> and <c>SupportLink</c> parameters are
+        /// mutually exclusive. You can specify one parameter for each platform type, but not
+        /// both.</para></li><li><para>The default support link is <c>workspaces-feedback@amazon.com</c>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -461,9 +461,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeWeb_SupportLink
         /// <summary>
         /// <para>
-        /// <para>The support link. The link for the company's customer support page for their WorkSpace.</para><note><ul><li><para>In each platform type, the <code>SupportEmail</code> and <code>SupportLink</code>
-        /// parameters are mutually exclusive. You can specify one parameter for each platform
-        /// type, but not both.</para></li><li><para>The default support link is <code>workspaces-feedback@amazon.com</code>.</para></li></ul></note>
+        /// <para>The support link. The link for the company's customer support page for their WorkSpace.</para><note><ul><li><para>In each platform type, the <c>SupportEmail</c> and <c>SupportLink</c> parameters are
+        /// mutually exclusive. You can specify one parameter for each platform type, but not
+        /// both.</para></li><li><para>The default support link is <c>workspaces-feedback@amazon.com</c>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -473,9 +473,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DeviceTypeWindows_SupportLink
         /// <summary>
         /// <para>
-        /// <para>The support link. The link for the company's customer support page for their WorkSpace.</para><note><ul><li><para>In each platform type, the <code>SupportEmail</code> and <code>SupportLink</code>
-        /// parameters are mutually exclusive. You can specify one parameter for each platform
-        /// type, but not both.</para></li><li><para>The default support link is <code>workspaces-feedback@amazon.com</code>.</para></li></ul></note>
+        /// <para>The support link. The link for the company's customer support page for their WorkSpace.</para><note><ul><li><para>In each platform type, the <c>SupportEmail</c> and <c>SupportLink</c> parameters are
+        /// mutually exclusive. You can specify one parameter for each platform type, but not
+        /// both.</para></li><li><para>The default support link is <c>workspaces-feedback@amazon.com</c>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter BreachThreshold
         /// <summary>
         /// <para>
-        /// <para>The breach threshold for the alarm.</para><para>Required if the policy type is <code>StepScaling</code> and not supported otherwise.</para>
+        /// <para>The breach threshold for the alarm.</para><para>Required if the policy type is <c>StepScaling</c> and not supported otherwise.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,8 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete
-        /// before executing the policy.</para><para>Valid only if the policy type is <code>SimpleScaling</code>. For more information,
-        /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+        /// before executing the policy.</para><para>Valid only if the policy type is <c>SimpleScaling</c>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
         /// cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -79,11 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MetricValue
         /// <summary>
         /// <para>
-        /// <para>The metric value to compare to <code>BreachThreshold</code>. This enables you to execute
-        /// a policy of type <code>StepScaling</code> and determine which step adjustment to use.
-        /// For example, if the breach threshold is 50 and you want to use a step adjustment with
+        /// <para>The metric value to compare to <c>BreachThreshold</c>. This enables you to execute
+        /// a policy of type <c>StepScaling</c> and determine which step adjustment to use. For
+        /// example, if the breach threshold is 50 and you want to use a step adjustment with
         /// a lower bound of 0 and an upper bound of 10, you can set the metric value to 59.</para><para>If you specify a metric value that doesn't correspond to a step adjustment for the
-        /// policy, the call returns an error.</para><para>Required if the policy type is <code>StepScaling</code> and not supported otherwise.</para>
+        /// policy, the call returns an error.</para><para>Required if the policy type is <c>StepScaling</c> and not supported otherwise.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

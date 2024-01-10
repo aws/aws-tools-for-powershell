@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// your storage activity and usage with Amazon S3 Storage Lens </a> in the <i>Amazon
     /// S3 User Guide</i>.
     /// </para><note><para>
-    /// To use this action, you must have permission to perform the <code>s3:DeleteStorageLensConfigurationTagging</code>
+    /// To use this action, you must have permission to perform the <c>s3:DeleteStorageLensConfigurationTagging</c>
     /// action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting
     /// permissions to use Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></note>

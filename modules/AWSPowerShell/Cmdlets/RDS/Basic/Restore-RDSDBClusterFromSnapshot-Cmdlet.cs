@@ -37,10 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// security group.
     /// </para><note><para>
     /// This operation only restores the DB cluster, not the DB instances for that DB cluster.
-    /// You must invoke the <code>CreateDBInstance</code> operation to create DB instances
-    /// for the restored DB cluster, specifying the identifier of the restored DB cluster
-    /// in <code>DBClusterIdentifier</code>. You can create DB instances only after the <code>RestoreDBClusterFromSnapshot</code>
-    /// operation has completed and the DB cluster is available.
+    /// You must invoke the <c>CreateDBInstance</c> operation to create DB instances for the
+    /// restored DB cluster, specifying the identifier of the restored DB cluster in <c>DBClusterIdentifier</c>.
+    /// You can create DB instances only after the <c>RestoreDBClusterFromSnapshot</c> operation
+    /// has completed and the DB cluster is available.
     /// </para></note><para>
     /// For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
     /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Indicates whether to allow or disallow automatic pause for an Aurora DB cluster in
-        /// <code>serverless</code> DB engine mode. A DB cluster can be paused only when it's
-        /// idle (it has no connections).</para><note><para>If a DB cluster is paused for more than seven days, the DB cluster might be backed
+        /// <c>serverless</c> DB engine mode. A DB cluster can be paused only when it's idle (it
+        /// has no connections).</para><note><para>If a DB cluster is paused for more than seven days, the DB cluster might be backed
         /// up with a snapshot. In this case, the DB cluster is restored when there is a request
         /// to connect to it.</para></note>
         /// </para>
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the DB cluster to create from the DB snapshot or DB cluster snapshot.
-        /// This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-snapshot-id</code></para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <c>my-snapshot-id</c></para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB subnet group to use for the new DB cluster.</para><para>Constraints: If supplied, must match the name of an existing DB subnet group.</para><para>Example: <code>mydbsubnetgroup</code></para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// <para>The name of the DB subnet group to use for the new DB cluster.</para><para>Constraints: If supplied, must match the name of an existing DB subnet group.</para><para>Example: <c>mydbsubnetgroup</c></para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,8 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The list of logs that the restored DB cluster is to export to Amazon CloudWatch Logs.
-        /// The values in the list depend on the DB engine being used.</para><para><b>RDS for MySQL</b></para><para>Possible values are <code>error</code>, <code>general</code>, and <code>slowquery</code>.</para><para><b>RDS for PostgreSQL</b></para><para>Possible values are <code>postgresql</code> and <code>upgrade</code>.</para><para><b>Aurora MySQL</b></para><para>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>,
-        /// and <code>slowquery</code>.</para><para><b>Aurora PostgreSQL</b></para><para>Possible value is <code>postgresql</code>.</para><para>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// The values in the list depend on the DB engine being used.</para><para><b>RDS for MySQL</b></para><para>Possible values are <c>error</c>, <c>general</c>, and <c>slowquery</c>.</para><para><b>RDS for PostgreSQL</b></para><para>Possible values are <c>postgresql</c> and <c>upgrade</c>.</para><para><b>Aurora MySQL</b></para><para>Possible values are <c>audit</c>, <c>error</c>, <c>general</c>, and <c>slowquery</c>.</para><para><b>Aurora PostgreSQL</b></para><para>Possible value is <c>postgresql</c>.</para><para>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</para><para>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
@@ -253,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineMode
         /// <summary>
         /// <para>
-        /// <para>The DB engine mode of the DB cluster, either <code>provisioned</code> or <code>serverless</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html">
+        /// <para>The DB engine mode of the DB cluster, either <c>provisioned</c> or <c>serverless</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html">
         /// CreateDBCluster</a>.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
@@ -266,10 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The version of the database engine to use for the new DB cluster. If you don't specify
         /// an engine version, the default version for the database engine in the Amazon Web Services
-        /// Region is used.</para><para>To list all of the available engine versions for Aurora MySQL, use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for Aurora PostgreSQL, use the following
-        /// command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for RDS for MySQL, use the following
-        /// command:</para><para><code>aws rds describe-db-engine-versions --engine mysql --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for RDS for PostgreSQL, use the following
-        /// command:</para><para><code>aws rds describe-db-engine-versions --engine postgres --query "DBEngineVersions[].EngineVersion"</code></para><para><b>Aurora MySQL</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html">Database
+        /// Region is used.</para><para>To list all of the available engine versions for Aurora MySQL, use the following command:</para><para><c>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</c></para><para>To list all of the available engine versions for Aurora PostgreSQL, use the following
+        /// command:</para><para><c>aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"</c></para><para>To list all of the available engine versions for RDS for MySQL, use the following
+        /// command:</para><para><c>aws rds describe-db-engine-versions --engine mysql --query "DBEngineVersions[].EngineVersion"</c></para><para>To list all of the available engine versions for RDS for PostgreSQL, use the following
+        /// command:</para><para><c>aws rds describe-db-engine-versions --engine postgres --query "DBEngineVersions[].EngineVersion"</c></para><para><b>Aurora MySQL</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html">Database
         /// engine updates for Amazon Aurora MySQL</a> in the <i>Amazon Aurora User Guide</i>.</para><para><b>Aurora PostgreSQL</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.20180305.html">Amazon
         /// Aurora PostgreSQL releases and engine versions</a> in the <i>Amazon Aurora User Guide</i>.</para><para><b>MySQL</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">Amazon
         /// RDS for MySQL</a> in the <i>Amazon RDS User Guide.</i></para><para><b>PostgreSQL</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts">Amazon
@@ -309,11 +308,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The Amazon Web Services KMS key identifier to use when restoring an encrypted DB cluster
         /// from a DB snapshot or DB cluster snapshot.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
         /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
-        /// specify the key ARN or alias ARN.</para><para>When you don't specify a value for the <code>KmsKeyId</code> parameter, then the following
-        /// occurs:</para><ul><li><para>If the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is encrypted,
+        /// specify the key ARN or alias ARN.</para><para>When you don't specify a value for the <c>KmsKeyId</c> parameter, then the following
+        /// occurs:</para><ul><li><para>If the DB snapshot or DB cluster snapshot in <c>SnapshotIdentifier</c> is encrypted,
         /// then the restored DB cluster is encrypted using the KMS key that was used to encrypt
-        /// the DB snapshot or DB cluster snapshot.</para></li><li><para>If the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> isn't
-        /// encrypted, then the restored DB cluster isn't encrypted.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// the DB snapshot or DB cluster snapshot.</para></li><li><para>If the DB snapshot or DB cluster snapshot in <c>SnapshotIdentifier</c> isn't encrypted,
+        /// then the restored DB cluster isn't encrypted.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -323,11 +322,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ScalingConfiguration_MaxCapacity
         /// <summary>
         /// <para>
-        /// <para>The maximum capacity for an Aurora DB cluster in <code>serverless</code> DB engine
-        /// mode.</para><para>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>,
-        /// <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>,
-        /// and <code>256</code>.</para><para>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>,
-        /// <code>16</code>, <code>32</code>, <code>64</code>, <code>192</code>, and <code>384</code>.</para><para>The maximum capacity must be greater than or equal to the minimum capacity.</para>
+        /// <para>The maximum capacity for an Aurora DB cluster in <c>serverless</c> DB engine mode.</para><para>For Aurora MySQL, valid capacity values are <c>1</c>, <c>2</c>, <c>4</c>, <c>8</c>,
+        /// <c>16</c>, <c>32</c>, <c>64</c>, <c>128</c>, and <c>256</c>.</para><para>For Aurora PostgreSQL, valid capacity values are <c>2</c>, <c>4</c>, <c>8</c>, <c>16</c>,
+        /// <c>32</c>, <c>64</c>, <c>192</c>, and <c>384</c>.</para><para>The maximum capacity must be greater than or equal to the minimum capacity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -349,11 +346,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ScalingConfiguration_MinCapacity
         /// <summary>
         /// <para>
-        /// <para>The minimum capacity for an Aurora DB cluster in <code>serverless</code> DB engine
-        /// mode.</para><para>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>,
-        /// <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>,
-        /// and <code>256</code>.</para><para>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>,
-        /// <code>16</code>, <code>32</code>, <code>64</code>, <code>192</code>, and <code>384</code>.</para><para>The minimum capacity must be less than or equal to the maximum capacity.</para>
+        /// <para>The minimum capacity for an Aurora DB cluster in <c>serverless</c> DB engine mode.</para><para>For Aurora MySQL, valid capacity values are <c>1</c>, <c>2</c>, <c>4</c>, <c>8</c>,
+        /// <c>16</c>, <c>32</c>, <c>64</c>, <c>128</c>, and <c>256</c>.</para><para>For Aurora PostgreSQL, valid capacity values are <c>2</c>, <c>4</c>, <c>8</c>, <c>16</c>,
+        /// <c>32</c>, <c>64</c>, <c>192</c>, and <c>384</c>.</para><para>The minimum capacity must be less than or equal to the maximum capacity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -375,9 +370,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>The network type of the DB cluster.</para><para>Valid Values:</para><ul><li><para><code>IPV4</code></para></li><li><para><code>DUAL</code></para></li></ul><para>The network type is determined by the <code>DBSubnetGroup</code> specified for the
-        /// DB cluster. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the
-        /// IPv4 and the IPv6 protocols (<code>DUAL</code>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+        /// <para>The network type of the DB cluster.</para><para>Valid Values:</para><ul><li><para><c>IPV4</c></para></li><li><para><c>DUAL</c></para></li></ul><para>The network type is determined by the <c>DBSubnetGroup</c> specified for the DB cluster.
+        /// A <c>DBSubnetGroup</c> can support only the IPv4 protocol or the IPv4 and the IPv6
+        /// protocols (<c>DUAL</c>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
         /// Working with a DB instance in a VPC</a> in the <i>Amazon Aurora User Guide.</i></para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
@@ -398,7 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the new DB cluster accepts connections.</para><para>Constraints: This value must be <code>1150-65535</code></para><para>Default: The same port as the original DB cluster.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// <para>The port number on which the new DB cluster accepts connections.</para><para>Constraints: This value must be <c>1150-65535</c></para><para>Default: The same port as the original DB cluster.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -414,12 +409,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Access to the DB cluster is ultimately controlled by the security group it uses. That
         /// public access is not permitted if the security group assigned to the DB cluster doesn't
         /// permit it.</para><para>When the DB cluster isn't publicly accessible, it is an internal DB cluster with a
-        /// DNS name that resolves to a private IP address.</para><para>Default: The default behavior varies depending on whether <code>DBSubnetGroupName</code>
-        /// is specified.</para><para>If <code>DBSubnetGroupName</code> isn't specified, and <code>PubliclyAccessible</code>
-        /// isn't specified, the following applies:</para><ul><li><para>If the default VPC in the target Region doesn’t have an internet gateway attached
+        /// DNS name that resolves to a private IP address.</para><para>Default: The default behavior varies depending on whether <c>DBSubnetGroupName</c>
+        /// is specified.</para><para>If <c>DBSubnetGroupName</c> isn't specified, and <c>PubliclyAccessible</c> isn't specified,
+        /// the following applies:</para><ul><li><para>If the default VPC in the target Region doesn’t have an internet gateway attached
         /// to it, the DB cluster is private.</para></li><li><para>If the default VPC in the target Region has an internet gateway attached to it, the
-        /// DB cluster is public.</para></li></ul><para>If <code>DBSubnetGroupName</code> is specified, and <code>PubliclyAccessible</code>
-        /// isn't specified, the following applies:</para><ul><li><para>If the subnets are part of a VPC that doesn’t have an internet gateway attached to
+        /// DB cluster is public.</para></li></ul><para>If <c>DBSubnetGroupName</c> is specified, and <c>PubliclyAccessible</c> isn't specified,
+        /// the following applies:</para><ul><li><para>If the subnets are part of a VPC that doesn’t have an internet gateway attached to
         /// it, the DB cluster is private.</para></li><li><para>If the subnets are part of a VPC that has an internet gateway attached to it, the
         /// DB cluster is public.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
@@ -454,8 +449,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ScalingConfiguration_SecondsUntilAutoPause
         /// <summary>
         /// <para>
-        /// <para>The time, in seconds, before an Aurora DB cluster in <code>serverless</code> mode
-        /// is paused.</para><para>Specify a value between 300 and 86,400 seconds.</para>
+        /// <para>The time, in seconds, before an Aurora DB cluster in <c>serverless</c> mode is paused.</para><para>Specify a value between 300 and 86,400 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -483,9 +477,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>Specifies the storage type to be associated with the DB cluster.</para><para>When specified for a Multi-AZ DB cluster, a value for the <code>Iops</code> parameter
-        /// is required.</para><para>Valid Values: <code>aurora</code>, <code>aurora-iopt1</code> (Aurora DB clusters);
-        /// <code>io1</code> (Multi-AZ DB clusters)</para><para>Default: <code>aurora</code> (Aurora DB clusters); <code>io1</code> (Multi-AZ DB clusters)</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// <para>Specifies the storage type to be associated with the DB cluster.</para><para>When specified for a Multi-AZ DB cluster, a value for the <c>Iops</c> parameter is
+        /// required.</para><para>Valid Values: <c>aurora</c>, <c>aurora-iopt1</c> (Aurora DB clusters); <c>io1</c>
+        /// (Multi-AZ DB clusters)</para><para>Default: <c>aurora</c> (Aurora DB clusters); <c>io1</c> (Multi-AZ DB clusters)</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -506,11 +500,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ScalingConfiguration_TimeoutAction
         /// <summary>
         /// <para>
-        /// <para>The action to take when the timeout is reached, either <code>ForceApplyCapacityChange</code>
-        /// or <code>RollbackCapacityChange</code>.</para><para><code>ForceApplyCapacityChange</code> sets the capacity to the specified value as
-        /// soon as possible.</para><para><code>RollbackCapacityChange</code>, the default, ignores the capacity change if
-        /// a scaling point isn't found in the timeout period.</para><important><para>If you specify <code>ForceApplyCapacityChange</code>, connections that prevent Aurora
-        /// Serverless v1 from finding a scaling point might be dropped.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling">
+        /// <para>The action to take when the timeout is reached, either <c>ForceApplyCapacityChange</c>
+        /// or <c>RollbackCapacityChange</c>.</para><para><c>ForceApplyCapacityChange</c> sets the capacity to the specified value as soon
+        /// as possible.</para><para><c>RollbackCapacityChange</c>, the default, ignores the capacity change if a scaling
+        /// point isn't found in the timeout period.</para><important><para>If you specify <c>ForceApplyCapacityChange</c>, connections that prevent Aurora Serverless
+        /// v1 from finding a scaling point might be dropped.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling">
         /// Autoscaling for Aurora Serverless v1</a> in the <i>Amazon Aurora User Guide</i>.</para>
         /// </para>
         /// </summary>

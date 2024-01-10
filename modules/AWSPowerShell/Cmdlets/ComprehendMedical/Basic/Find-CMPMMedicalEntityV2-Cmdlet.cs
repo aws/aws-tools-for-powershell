@@ -35,12 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
     /// 
     ///  
     /// <para>
-    /// The <code>DetectEntitiesV2</code> operation replaces the <a>DetectEntities</a> operation.
+    /// The <c>DetectEntitiesV2</c> operation replaces the <a>DetectEntities</a> operation.
     /// This new action uses a different model for determining the entities in your medical
     /// text and changes the way that some entities are returned in the output. You should
-    /// use the <code>DetectEntitiesV2</code> operation in all new applications.
+    /// use the <c>DetectEntitiesV2</c> operation in all new applications.
     /// </para><para>
-    /// The <code>DetectEntitiesV2</code> operation returns the <code>Acuity</code> and <code>Direction</code>
+    /// The <c>DetectEntitiesV2</c> operation returns the <c>Acuity</c> and <c>Direction</c>
     /// entities as attributes instead of types. 
     /// </para>
     /// </summary>

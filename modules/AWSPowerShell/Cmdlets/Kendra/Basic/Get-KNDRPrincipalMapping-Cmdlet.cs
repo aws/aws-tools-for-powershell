@@ -28,15 +28,15 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Describes the processing of <code>PUT</code> and <code>DELETE</code> actions for mapping
-    /// users to their groups. This includes information on the status of actions currently
-    /// processing or yet to be processed, when actions were last updated, when actions were
-    /// received by Amazon Kendra, the latest action that should process and apply after other
-    /// actions, and useful error messages if an action could not be processed.
+    /// Describes the processing of <c>PUT</c> and <c>DELETE</c> actions for mapping users
+    /// to their groups. This includes information on the status of actions currently processing
+    /// or yet to be processed, when actions were last updated, when actions were received
+    /// by Amazon Kendra, the latest action that should process and apply after other actions,
+    /// and useful error messages if an action could not be processed.
     /// 
     ///  
-    /// <para><code>DescribePrincipalMapping</code> is currently not supported in the Amazon Web
-    /// Services GovCloud (US-West) region.
+    /// <para><c>DescribePrincipalMapping</c> is currently not supported in the Amazon Web Services
+    /// GovCloud (US-West) region.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "KNDRPrincipalMapping")]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the data source to check the processing of <code>PUT</code> and
-        /// <code>DELETE</code> actions for mapping users to their groups.</para>
+        /// <para>The identifier of the data source to check the processing of <c>PUT</c> and <c>DELETE</c>
+        /// actions for mapping users to their groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the group required to check the processing of <code>PUT</code> and
-        /// <code>DELETE</code> actions for mapping users to their groups.</para>
+        /// <para>The identifier of the group required to check the processing of <c>PUT</c> and <c>DELETE</c>
+        /// actions for mapping users to their groups.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index required to check the processing of <code>PUT</code> and
-        /// <code>DELETE</code> actions for mapping users to their groups.</para>
+        /// <para>The identifier of the index required to check the processing of <c>PUT</c> and <c>DELETE</c>
+        /// actions for mapping users to their groups.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

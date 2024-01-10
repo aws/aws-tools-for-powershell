@@ -46,10 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A query parameter used to retrieve the specified resources embedded in the returned
-        /// Resources resource in the response. This <code>embed</code> parameter value is a list
-        /// of comma-separated strings. Currently, the request supports only retrieval of the
-        /// embedded Method resources this way. The query parameter value must be a single-valued
-        /// list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/{restapi_id}/resources?embed=methods</code>.</para>
+        /// Resources resource in the response. This <c>embed</c> parameter value is a list of
+        /// comma-separated strings. Currently, the request supports only retrieval of the embedded
+        /// Method resources this way. The query parameter value must be a single-valued list
+        /// and contain the <c>"methods"</c> string. For example, <c>GET /restapis/{restapi_id}/resources?embed=methods</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

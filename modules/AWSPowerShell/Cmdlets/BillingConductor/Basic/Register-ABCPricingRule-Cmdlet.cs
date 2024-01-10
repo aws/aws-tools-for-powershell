@@ -28,9 +28,8 @@ using Amazon.BillingConductor.Model;
 namespace Amazon.PowerShell.Cmdlets.ABC
 {
     /// <summary>
-    /// Connects an array of <code>PricingRuleArns</code> to a defined <code>PricingPlan</code>.
-    /// The maximum number <code>PricingRuleArn</code> that can be associated in one call
-    /// is 30.
+    /// Connects an array of <c>PricingRuleArns</c> to a defined <c>PricingPlan</c>. The maximum
+    /// number <c>PricingRuleArn</c> that can be associated in one call is 30.
     /// </summary>
     [Cmdlet("Register", "ABCPricingRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -47,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para> The <code>PricingPlanArn</code> that the <code>PricingRuleArns</code> are associated
-        /// with. </para>
+        /// <para> The <c>PricingPlanArn</c> that the <c>PricingRuleArns</c> are associated with. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter PricingRuleArn
         /// <summary>
         /// <para>
-        /// <para> The <code>PricingRuleArns</code> that are associated with the Pricing Plan. </para>
+        /// <para> The <c>PricingRuleArns</c> that are associated with the Pricing Plan. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

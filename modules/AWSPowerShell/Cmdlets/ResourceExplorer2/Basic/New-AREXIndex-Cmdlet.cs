@@ -50,16 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     /// Resource Explorer, then this operation also <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/security_iam_service-linked-roles.html">creates
     /// a service-linked role</a> in your Amazon Web Services account that allows Resource
     /// Explorer to enumerate your resources to populate the index.
-    /// </para><ul><li><para><b>Action</b>: <code>resource-explorer-2:CreateIndex</code></para><para><b>Resource</b>: The ARN of the index (as it will exist after the operation completes)
+    /// </para><ul><li><para><b>Action</b>: <c>resource-explorer-2:CreateIndex</c></para><para><b>Resource</b>: The ARN of the index (as it will exist after the operation completes)
     /// in the Amazon Web Services Region and account in which you're trying to create the
-    /// index. Use the wildcard character (<code>*</code>) at the end of the string to match
-    /// the eventual UUID. For example, the following <code>Resource</code> element restricts
-    /// the role or user to creating an index in only the <code>us-east-2</code> Region of
-    /// the specified account.
-    /// </para><para><code>"Resource": "arn:aws:resource-explorer-2:us-west-2:<i>&lt;account-id&gt;</i>:index/*"</code></para><para>
-    /// Alternatively, you can use <code>"Resource": "*"</code> to allow the role or user
-    /// to create an index in any Region.
-    /// </para></li><li><para><b>Action</b>: <code>iam:CreateServiceLinkedRole</code></para><para><b>Resource</b>: No specific resource (*). 
+    /// index. Use the wildcard character (<c>*</c>) at the end of the string to match the
+    /// eventual UUID. For example, the following <c>Resource</c> element restricts the role
+    /// or user to creating an index in only the <c>us-east-2</c> Region of the specified
+    /// account.
+    /// </para><para><c>"Resource": "arn:aws:resource-explorer-2:us-west-2:<i>&lt;account-id&gt;</i>:index/*"</c></para><para>
+    /// Alternatively, you can use <c>"Resource": "*"</c> to allow the role or user to create
+    /// an index in any Region.
+    /// </para></li><li><para><b>Action</b>: <c>iam:CreateServiceLinkedRole</c></para><para><b>Resource</b>: No specific resource (*). 
     /// </para><para>
     /// This permission is required only the first time you create an index to turn on Resource
     /// Explorer in the account. Resource Explorer uses this to create the <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/security_iam_service-linked-roles.html">service-linked

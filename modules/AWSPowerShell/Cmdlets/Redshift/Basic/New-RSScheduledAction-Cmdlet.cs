@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
     /// Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift
-    /// API action. For example, you can create a schedule of when to run the <code>ResizeCluster</code>
+    /// API action. For example, you can create a schedule of when to run the <c>ResizeCluster</c>
     /// API operation.
     /// </summary>
     [Cmdlet("New", "RSScheduledAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>A boolean value indicating whether the resize operation is using the classic resize
-        /// process. If you don't provide this parameter or set the value to <code>false</code>,
-        /// the resize type is elastic. </para>
+        /// process. If you don't provide this parameter or set the value to <c>false</c>, the
+        /// resize type is elastic. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>If true, the schedule is enabled. If false, the scheduled action does not trigger.
-        /// For more information about <code>state</code> of the scheduled action, see <a>ScheduledAction</a>.
+        /// For more information about <c>state</c> of the scheduled action, see <a>ScheduledAction</a>.
         /// </para>
         /// </para>
         /// </summary>
@@ -180,8 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Schedule
         /// <summary>
         /// <para>
-        /// <para>The schedule in <code>at( )</code> or <code>cron( )</code> format. For more information
-        /// about this parameter, see <a>ScheduledAction</a>.</para>
+        /// <para>The schedule in <c>at( )</c> or <c>cron( )</c> format. For more information about
+        /// this parameter, see <a>ScheduledAction</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

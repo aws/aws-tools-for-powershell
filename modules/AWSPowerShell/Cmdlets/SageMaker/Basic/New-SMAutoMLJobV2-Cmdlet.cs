@@ -35,17 +35,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// are new versions of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html">CreateAutoMLJob</a>
     /// and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html">DescribeAutoMLJob</a>
     /// which offer backward compatibility.
-    /// </para><para><code>CreateAutoMLJobV2</code> can manage tabular problem types identical to those
-    /// of its previous version <code>CreateAutoMLJob</code>, as well as time-series forecasting,
-    /// non-tabular problem types such as image or text classification, and text generation
-    /// (LLMs fine-tuning).
+    /// </para><para><c>CreateAutoMLJobV2</c> can manage tabular problem types identical to those of its
+    /// previous version <c>CreateAutoMLJob</c>, as well as time-series forecasting, non-tabular
+    /// problem types such as image or text classification, and text generation (LLMs fine-tuning).
     /// </para><para>
-    /// Find guidelines about how to migrate a <code>CreateAutoMLJob</code> to <code>CreateAutoMLJobV2</code>
+    /// Find guidelines about how to migrate a <c>CreateAutoMLJob</c> to <c>CreateAutoMLJobV2</c>
     /// in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html#autopilot-create-experiment-api-migrate-v1-v2">Migrate
     /// a CreateAutoMLJob to CreateAutoMLJobV2</a>.
     /// </para></note><para>
-    /// For the list of available problem types supported by <code>CreateAutoMLJobV2</code>,
-    /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLProblemTypeConfig.html">AutoMLProblemTypeConfig</a>.
+    /// For the list of available problem types supported by <c>CreateAutoMLJobV2</c>, see
+    /// <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLProblemTypeConfig.html">AutoMLProblemTypeConfig</a>.
     /// </para><para>
     /// You can find the best-performing model after you run an AutoML job V2 by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html">DescribeAutoMLJobV2</a>.
     /// </para>
@@ -65,11 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelAccessConfig_AcceptEula
         /// <summary>
         /// <para>
-        /// <para>Specifies agreement to the model end-user license agreement (EULA). The <code>AcceptEula</code>
-        /// value must be explicitly defined as <code>True</code> in order to accept the EULA
-        /// that this model requires. You are responsible for reviewing and complying with any
-        /// applicable license terms and making sure they are acceptable for your use case before
-        /// downloading or using a model.</para>
+        /// <para>Specifies agreement to the model end-user license agreement (EULA). The <c>AcceptEula</c>
+        /// value must be explicitly defined as <c>True</c> in order to accept the EULA that this
+        /// model requires. You are responsible for reviewing and complying with any applicable
+        /// license terms and making sure they are acceptable for your use case before downloading
+        /// or using a model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A key value pair defining the aggregation method for a column, where the key is the
-        /// column name and the value is the aggregation method.</para><para>The supported aggregation methods are <code>sum</code> (default), <code>avg</code>,
-        /// <code>first</code>, <code>min</code>, <code>max</code>.</para><note><para>Aggregation is only supported for the target column.</para></note>
+        /// column name and the value is the aggregation method.</para><para>The supported aggregation methods are <c>sum</c> (default), <c>avg</c>, <c>first</c>,
+        /// <c>min</c>, <c>max</c>.</para><note><para>Aggregation is only supported for the target column.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,11 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Stores the configuration information for the selection of algorithms used to train
         /// model candidates on tabular data.</para><para>The list of available algorithms to choose from depends on the training mode set in
-        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TabularJobConfig.html"><code>TabularJobConfig.Mode</code></a>.</para><ul><li><para><code>AlgorithmsConfig</code> should not be set in <code>AUTO</code> training mode.</para></li><li><para>When <code>AlgorithmsConfig</code> is provided, one <code>AutoMLAlgorithms</code>
-        /// attribute must be set and one only.</para><para>If the list of algorithms provided as values for <code>AutoMLAlgorithms</code> is
-        /// empty, <code>CandidateGenerationConfig</code> uses the full set of algorithms for
-        /// the given training mode.</para></li><li><para>When <code>AlgorithmsConfig</code> is not provided, <code>CandidateGenerationConfig</code>
-        /// uses the full set of algorithms for the given training mode.</para></li></ul><para>For the list of all algorithms per problem type and training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
+        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TabularJobConfig.html"><c>TabularJobConfig.Mode</c></a>.</para><ul><li><para><c>AlgorithmsConfig</c> should not be set in <c>AUTO</c> training mode.</para></li><li><para>When <c>AlgorithmsConfig</c> is provided, one <c>AutoMLAlgorithms</c> attribute must
+        /// be set and one only.</para><para>If the list of algorithms provided as values for <c>AutoMLAlgorithms</c> is empty,
+        /// <c>CandidateGenerationConfig</c> uses the full set of algorithms for the given training
+        /// mode.</para></li><li><para>When <c>AlgorithmsConfig</c> is not provided, <c>CandidateGenerationConfig</c> uses
+        /// the full set of algorithms for the given training mode.</para></li></ul><para>For the list of all algorithms per problem type and training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
         /// AutoMLAlgorithmConfig</a>.</para><para>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm
         /// support</a> section in Autopilot developer guide.</para>
         /// </para>
@@ -112,10 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelDeployConfig_AutoGenerateEndpointName
         /// <summary>
         /// <para>
-        /// <para>Set to <code>True</code> to automatically generate an endpoint name for a one-click
-        /// Autopilot model deployment; set to <code>False</code> otherwise. The default value
-        /// is <code>False</code>.</para><note><para>If you set <code>AutoGenerateEndpointName</code> to <code>True</code>, do not specify
-        /// the <code>EndpointName</code>; otherwise a 400 error is thrown.</para></note>
+        /// <para>Set to <c>True</c> to automatically generate an endpoint name for a one-click Autopilot
+        /// model deployment; set to <c>False</c> otherwise. The default value is <c>False</c>.</para><note><para>If you set <c>AutoGenerateEndpointName</c> to <c>True</c>, do not specify the <c>EndpointName</c>;
+        /// otherwise a 400 error is thrown.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>An array of channel objects describing the input data and their location. Each channel
         /// is a named input source. Similar to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a>
-        /// attribute in the <code>CreateAutoMLJob</code> input parameters. The supported formats
-        /// depend on the problem type:</para><ul><li><para>For tabular problem types: <code>S3Prefix</code>, <code>ManifestFile</code>.</para></li><li><para>For image classification: <code>S3Prefix</code>, <code>ManifestFile</code>, <code>AugmentedManifestFile</code>.</para></li><li><para>For text classification: <code>S3Prefix</code>.</para></li><li><para>For time-series forecasting: <code>S3Prefix</code>.</para></li><li><para>For text generation (LLMs fine-tuning): <code>S3Prefix</code>.</para></li></ul>
+        /// attribute in the <c>CreateAutoMLJob</c> input parameters. The supported formats depend
+        /// on the problem type:</para><ul><li><para>For tabular problem types: <c>S3Prefix</c>, <c>ManifestFile</c>.</para></li><li><para>For image classification: <c>S3Prefix</c>, <c>ManifestFile</c>, <c>AugmentedManifestFile</c>.</para></li><li><para>For text classification: <c>S3Prefix</c>.</para></li><li><para>For time-series forecasting: <c>S3Prefix</c>.</para></li><li><para>For text generation (LLMs fine-tuning): <c>S3Prefix</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -164,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The name of the base model to fine-tune. Autopilot supports fine-tuning a variety
         /// of large language models. For information on the list of supported models, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-llms-finetuning-models.html#autopilot-llms-finetuning-supported-llms">Text
-        /// generation models supporting fine-tuning in Autopilot</a>. If no <code>BaseModelName</code>
+        /// generation models supporting fine-tuning in Autopilot</a>. If no <c>BaseModelName</c>
         /// is provided, the default model used is <b>Falcon7BInstruct</b>. </para>
         /// </para>
         /// </summary>
@@ -199,8 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Specifies the endpoint name to use for a one-click Autopilot model deployment if the
-        /// endpoint name is not generated automatically.</para><note><para>Specify the <code>EndpointName</code> if and only if you set <code>AutoGenerateEndpointName</code>
-        /// to <code>False</code>; otherwise a 400 error is thrown.</para></note>
+        /// endpoint name is not generated automatically.</para><note><para>Specify the <c>EndpointName</c> if and only if you set <c>AutoGenerateEndpointName</c>
+        /// to <c>False</c>; otherwise a 400 error is thrown.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,17 +209,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A URL to the Amazon S3 data source containing selected features from the input data
-        /// source to run an Autopilot job V2. You can input <code>FeatureAttributeNames</code>
-        /// (optional) in JSON format as shown below: </para><para><code>{ "FeatureAttributeNames":["col1", "col2", ...] }</code>.</para><para>You can also specify the data type of the feature (optional) in the format shown below:</para><para><code>{ "FeatureDataTypes":{"col1":"numeric", "col2":"categorical" ... } }</code></para><note><para>These column keys may not include the target column.</para></note><para>In ensembling mode, Autopilot only supports the following data types: <code>numeric</code>,
-        /// <code>categorical</code>, <code>text</code>, and <code>datetime</code>. In HPO mode,
-        /// Autopilot can support <code>numeric</code>, <code>categorical</code>, <code>text</code>,
-        /// <code>datetime</code>, and <code>sequence</code>.</para><para>If only <code>FeatureDataTypes</code> is provided, the column keys (<code>col1</code>,
-        /// <code>col2</code>,..) should be a subset of the column names in the input data. </para><para>If both <code>FeatureDataTypes</code> and <code>FeatureAttributeNames</code> are provided,
-        /// then the column keys should be a subset of the column names provided in <code>FeatureAttributeNames</code>.
-        /// </para><para>The key name <code>FeatureAttributeNames</code> is fixed. The values listed in <code>["col1",
-        /// "col2", ...]</code> are case sensitive and should be a list of strings containing
-        /// unique values that are a subset of the column names in the input data. The list of
-        /// columns provided must not include the target column.</para>
+        /// source to run an Autopilot job V2. You can input <c>FeatureAttributeNames</c> (optional)
+        /// in JSON format as shown below: </para><para><c>{ "FeatureAttributeNames":["col1", "col2", ...] }</c>.</para><para>You can also specify the data type of the feature (optional) in the format shown below:</para><para><c>{ "FeatureDataTypes":{"col1":"numeric", "col2":"categorical" ... } }</c></para><note><para>These column keys may not include the target column.</para></note><para>In ensembling mode, Autopilot only supports the following data types: <c>numeric</c>,
+        /// <c>categorical</c>, <c>text</c>, and <c>datetime</c>. In HPO mode, Autopilot can support
+        /// <c>numeric</c>, <c>categorical</c>, <c>text</c>, <c>datetime</c>, and <c>sequence</c>.</para><para>If only <c>FeatureDataTypes</c> is provided, the column keys (<c>col1</c>, <c>col2</c>,..)
+        /// should be a subset of the column names in the input data. </para><para>If both <c>FeatureDataTypes</c> and <c>FeatureAttributeNames</c> are provided, then
+        /// the column keys should be a subset of the column names provided in <c>FeatureAttributeNames</c>.
+        /// </para><para>The key name <c>FeatureAttributeNames</c> is fixed. The values listed in <c>["col1",
+        /// "col2", ...]</c> are case sensitive and should be a list of strings containing unique
+        /// values that are a subset of the column names in the input data. The list of columns
+        /// provided must not include the target column.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -233,13 +230,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A URL to the Amazon S3 data source containing additional selected features that complement
-        /// the target, itemID, timestamp, and grouped columns set in <code>TimeSeriesConfig</code>.
+        /// the target, itemID, timestamp, and grouped columns set in <c>TimeSeriesConfig</c>.
         /// When not provided, the AutoML job V2 includes all the columns from the original dataset
-        /// that are not already declared in <code>TimeSeriesConfig</code>. If provided, the AutoML
+        /// that are not already declared in <c>TimeSeriesConfig</c>. If provided, the AutoML
         /// job V2 only considers these additional columns as a complement to the ones declared
-        /// in <code>TimeSeriesConfig</code>.</para><para>You can input <code>FeatureAttributeNames</code> (optional) in JSON format as shown
-        /// below: </para><para><code>{ "FeatureAttributeNames":["col1", "col2", ...] }</code>.</para><para>You can also specify the data type of the feature (optional) in the format shown below:</para><para><code>{ "FeatureDataTypes":{"col1":"numeric", "col2":"categorical" ... } }</code></para><para>Autopilot supports the following data types: <code>numeric</code>, <code>categorical</code>,
-        /// <code>text</code>, and <code>datetime</code>.</para><note><para>These column keys must not include any column set in <code>TimeSeriesConfig</code>.</para></note>
+        /// in <c>TimeSeriesConfig</c>.</para><para>You can input <c>FeatureAttributeNames</c> (optional) in JSON format as shown below:
+        /// </para><para><c>{ "FeatureAttributeNames":["col1", "col2", ...] }</c>.</para><para>You can also specify the data type of the feature (optional) in the format shown below:</para><para><c>{ "FeatureDataTypes":{"col1":"numeric", "col2":"categorical" ... } }</c></para><para>Autopilot supports the following data types: <c>numeric</c>, <c>categorical</c>, <c>text</c>,
+        /// and <c>datetime</c>.</para><note><para>These column keys must not include any column set in <c>TimeSeriesConfig</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,14 +249,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>A key value pair defining the filling method for a column, where the key is the column
         /// name and the value is an object which defines the filling logic. You can specify multiple
-        /// filling methods for a single column.</para><para>The supported filling methods and their corresponding options are:</para><ul><li><para><code>frontfill</code>: <code>none</code> (Supported only for target column)</para></li><li><para><code>middlefill</code>: <code>zero</code>, <code>value</code>, <code>median</code>,
-        /// <code>mean</code>, <code>min</code>, <code>max</code></para></li><li><para><code>backfill</code>: <code>zero</code>, <code>value</code>, <code>median</code>,
-        /// <code>mean</code>, <code>min</code>, <code>max</code></para></li><li><para><code>futurefill</code>: <code>zero</code>, <code>value</code>, <code>median</code>,
-        /// <code>mean</code>, <code>min</code>, <code>max</code></para></li></ul><para>To set a filling method to a specific value, set the fill parameter to the chosen
-        /// filling method value (for example <code>"backfill" : "value"</code>), and define the
-        /// filling value in an additional parameter prefixed with "_value". For example, to set
-        /// <code>backfill</code> to a value of <code>2</code>, you must include two parameters:
-        /// <code>"backfill": "value"</code> and <code>"backfill_value":"2"</code>.</para>
+        /// filling methods for a single column.</para><para>The supported filling methods and their corresponding options are:</para><ul><li><para><c>frontfill</c>: <c>none</c> (Supported only for target column)</para></li><li><para><c>middlefill</c>: <c>zero</c>, <c>value</c>, <c>median</c>, <c>mean</c>, <c>min</c>,
+        /// <c>max</c></para></li><li><para><c>backfill</c>: <c>zero</c>, <c>value</c>, <c>median</c>, <c>mean</c>, <c>min</c>,
+        /// <c>max</c></para></li><li><para><c>futurefill</c>: <c>zero</c>, <c>value</c>, <c>median</c>, <c>mean</c>, <c>min</c>,
+        /// <c>max</c></para></li></ul><para>To set a filling method to a specific value, set the fill parameter to the chosen
+        /// filling method value (for example <c>"backfill" : "value"</c>), and define the filling
+        /// value in an additional parameter prefixed with "_value". For example, to set <c>backfill</c>
+        /// to a value of <c>2</c>, you must include two parameters: <c>"backfill": "value"</c>
+        /// and <c>"backfill_value":"2"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,10 +268,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The frequency of predictions in a forecast.</para><para>Valid intervals are an integer followed by Y (Year), M (Month), W (Week), D (Day),
-        /// H (Hour), and min (Minute). For example, <code>1D</code> indicates every day and <code>15min</code>
+        /// H (Hour), and min (Minute). For example, <c>1D</c> indicates every day and <c>15min</c>
         /// indicates every 15 minutes. The value of a frequency must not overlap with the next
-        /// larger frequency. For example, you must use a frequency of <code>1H</code> instead
-        /// of <code>60min</code>.</para><para>The valid values for each frequency are the following:</para><ul><li><para>Minute - 1-59</para></li><li><para>Hour - 1-23</para></li><li><para>Day - 1-6</para></li><li><para>Week - 1-4</para></li><li><para>Month - 1-11</para></li><li><para>Year - 1</para></li></ul>
+        /// larger frequency. For example, you must use a frequency of <c>1H</c> instead of <c>60min</c>.</para><para>The valid values for each frequency are the following:</para><ul><li><para>Minute - 1-59</para></li><li><para>Hour - 1-23</para></li><li><para>Day - 1-6</para></li><li><para>Week - 1-4</para></li><li><para>Month - 1-11</para></li><li><para>Year - 1</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -299,8 +295,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The quantiles used to train the model for forecasts at a specified quantile. You can
-        /// specify quantiles from <code>0.01</code> (p1) to <code>0.99</code> (p99), by increments
-        /// of 0.01 or higher. Up to five forecast quantiles can be specified. When <code>ForecastQuantiles</code>
+        /// specify quantiles from <c>0.01</c> (p1) to <c>0.99</c> (p99), by increments of 0.01
+        /// or higher. Up to five forecast quantiles can be specified. When <c>ForecastQuantiles</c>
         /// is not provided, the AutoML job uses the quantiles p10, p50, and p90 as default.</para>
         /// </para>
         /// </summary>
@@ -509,7 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// tuning is allowed to run as part of a hyperparameter tuning job. For more information,
         /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
         /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
-        /// action.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
+        /// action.</para><para>For job V2s (jobs created by calling <c>CreateAutoMLJobV2</c>), this field controls
         /// the runtime of the job candidate.</para><para>For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TextClassificationJobConfig.html">TextGenerationJobConfig</a>
         /// problem types, the maximum time defaults to 72 hours (259200 seconds).</para>
         /// </para>
@@ -526,7 +522,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// tuning is allowed to run as part of a hyperparameter tuning job. For more information,
         /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
         /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
-        /// action.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
+        /// action.</para><para>For job V2s (jobs created by calling <c>CreateAutoMLJobV2</c>), this field controls
         /// the runtime of the job candidate.</para><para>For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TextClassificationJobConfig.html">TextGenerationJobConfig</a>
         /// problem types, the maximum time defaults to 72 hours (259200 seconds).</para>
         /// </para>
@@ -543,7 +539,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// tuning is allowed to run as part of a hyperparameter tuning job. For more information,
         /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
         /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
-        /// action.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
+        /// action.</para><para>For job V2s (jobs created by calling <c>CreateAutoMLJobV2</c>), this field controls
         /// the runtime of the job candidate.</para><para>For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TextClassificationJobConfig.html">TextGenerationJobConfig</a>
         /// problem types, the maximum time defaults to 72 hours (259200 seconds).</para>
         /// </para>
@@ -560,7 +556,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// tuning is allowed to run as part of a hyperparameter tuning job. For more information,
         /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
         /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
-        /// action.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
+        /// action.</para><para>For job V2s (jobs created by calling <c>CreateAutoMLJobV2</c>), this field controls
         /// the runtime of the job candidate.</para><para>For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TextClassificationJobConfig.html">TextGenerationJobConfig</a>
         /// problem types, the maximum time defaults to 72 hours (259200 seconds).</para>
         /// </para>
@@ -577,7 +573,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// tuning is allowed to run as part of a hyperparameter tuning job. For more information,
         /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
         /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
-        /// action.</para><para>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
+        /// action.</para><para>For job V2s (jobs created by calling <c>CreateAutoMLJobV2</c>), this field controls
         /// the runtime of the job candidate.</para><para>For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TextClassificationJobConfig.html">TextGenerationJobConfig</a>
         /// problem types, the maximum time defaults to 72 hours (259200 seconds).</para>
         /// </para>
@@ -594,17 +590,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// learning system. During training, the model's parameters are updated iteratively to
         /// optimize its performance based on the feedback provided by the objective metric when
         /// evaluating the model on the validation dataset.</para><para>The list of available metrics supported by Autopilot and the default metric applied
-        /// when you do not specify a metric name explicitly depend on the problem type.</para><ul><li><para>For tabular problem types:</para><ul><li><para>List of available metrics: </para><ul><li><para> Regression: <code>InferenceLatency</code>, <code>MAE</code>, <code>MSE</code>, <code>R2</code>,
-        /// <code>RMSE</code></para></li><li><para> Binary classification: <code>Accuracy</code>, <code>AUC</code>, <code>BalancedAccuracy</code>,
-        /// <code>F1</code>, <code>InferenceLatency</code>, <code>LogLoss</code>, <code>Precision</code>,
-        /// <code>Recall</code></para></li><li><para> Multiclass classification: <code>Accuracy</code>, <code>BalancedAccuracy</code>,
-        /// <code>F1macro</code>, <code>InferenceLatency</code>, <code>LogLoss</code>, <code>PrecisionMacro</code>,
-        /// <code>RecallMacro</code></para></li></ul><para>For a description of each metric, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html#autopilot-metrics">Autopilot
-        /// metrics for classification and regression</a>.</para></li><li><para>Default objective metrics:</para><ul><li><para>Regression: <code>MSE</code>.</para></li><li><para>Binary classification: <code>F1</code>.</para></li><li><para>Multiclass classification: <code>Accuracy</code>.</para></li></ul></li></ul></li><li><para>For image or text classification problem types:</para><ul><li><para>List of available metrics: <code>Accuracy</code></para><para>For a description of each metric, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/text-classification-data-format-and-metric.html">Autopilot
-        /// metrics for text and image classification</a>.</para></li><li><para>Default objective metrics: <code>Accuracy</code></para></li></ul></li><li><para>For time-series forecasting problem types:</para><ul><li><para>List of available metrics: <code>RMSE</code>, <code>wQL</code>, <code>Average wQL</code>,
-        /// <code>MASE</code>, <code>MAPE</code>, <code>WAPE</code></para><para>For a description of each metric, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/timeseries-objective-metric.html">Autopilot
-        /// metrics for time-series forecasting</a>.</para></li><li><para>Default objective metrics: <code>AverageWeightedQuantileLoss</code></para></li></ul></li><li><para>For text generation problem types (LLMs fine-tuning): Fine-tuning language models
-        /// in Autopilot does not require setting the <code>AutoMLJobObjective</code> field. Autopilot
+        /// when you do not specify a metric name explicitly depend on the problem type.</para><ul><li><para>For tabular problem types:</para><ul><li><para>List of available metrics: </para><ul><li><para> Regression: <c>InferenceLatency</c>, <c>MAE</c>, <c>MSE</c>, <c>R2</c>, <c>RMSE</c></para></li><li><para> Binary classification: <c>Accuracy</c>, <c>AUC</c>, <c>BalancedAccuracy</c>, <c>F1</c>,
+        /// <c>InferenceLatency</c>, <c>LogLoss</c>, <c>Precision</c>, <c>Recall</c></para></li><li><para> Multiclass classification: <c>Accuracy</c>, <c>BalancedAccuracy</c>, <c>F1macro</c>,
+        /// <c>InferenceLatency</c>, <c>LogLoss</c>, <c>PrecisionMacro</c>, <c>RecallMacro</c></para></li></ul><para>For a description of each metric, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html#autopilot-metrics">Autopilot
+        /// metrics for classification and regression</a>.</para></li><li><para>Default objective metrics:</para><ul><li><para>Regression: <c>MSE</c>.</para></li><li><para>Binary classification: <c>F1</c>.</para></li><li><para>Multiclass classification: <c>Accuracy</c>.</para></li></ul></li></ul></li><li><para>For image or text classification problem types:</para><ul><li><para>List of available metrics: <c>Accuracy</c></para><para>For a description of each metric, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/text-classification-data-format-and-metric.html">Autopilot
+        /// metrics for text and image classification</a>.</para></li><li><para>Default objective metrics: <c>Accuracy</c></para></li></ul></li><li><para>For time-series forecasting problem types:</para><ul><li><para>List of available metrics: <c>RMSE</c>, <c>wQL</c>, <c>Average wQL</c>, <c>MASE</c>,
+        /// <c>MAPE</c>, <c>WAPE</c></para><para>For a description of each metric, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/timeseries-objective-metric.html">Autopilot
+        /// metrics for time-series forecasting</a>.</para></li><li><para>Default objective metrics: <c>AverageWeightedQuantileLoss</c></para></li></ul></li><li><para>For text generation problem types (LLMs fine-tuning): Fine-tuning language models
+        /// in Autopilot does not require setting the <c>AutoMLJobObjective</c> field. Autopilot
         /// fine-tunes LLMs without requiring multiple candidates to be trained and evaluated.
         /// Instead, using your dataset, Autopilot directly fine-tunes your target model to enhance
         /// a default objective metric, the cross-entropy loss. After fine-tuning a language model,
@@ -622,20 +615,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The method that Autopilot uses to train the data. You can either specify the mode
-        /// manually or let Autopilot choose for you based on the dataset size by selecting <code>AUTO</code>.
-        /// In <code>AUTO</code> mode, Autopilot chooses <code>ENSEMBLING</code> for datasets
-        /// smaller than 100 MB, and <code>HYPERPARAMETER_TUNING</code> for larger ones.</para><para>The <code>ENSEMBLING</code> mode uses a multi-stack ensemble model to predict classification
+        /// manually or let Autopilot choose for you based on the dataset size by selecting <c>AUTO</c>.
+        /// In <c>AUTO</c> mode, Autopilot chooses <c>ENSEMBLING</c> for datasets smaller than
+        /// 100 MB, and <c>HYPERPARAMETER_TUNING</c> for larger ones.</para><para>The <c>ENSEMBLING</c> mode uses a multi-stack ensemble model to predict classification
         /// and regression tasks directly from your dataset. This machine learning mode combines
         /// several base models to produce an optimal predictive model. It then uses a stacking
         /// ensemble method to combine predictions from contributing members. A multi-stack ensemble
         /// model can provide better performance over a single model by combining the predictive
         /// capabilities of multiple models. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Autopilot
-        /// algorithm support</a> for a list of algorithms supported by <code>ENSEMBLING</code>
-        /// mode.</para><para>The <code>HYPERPARAMETER_TUNING</code> (HPO) mode uses the best hyperparameters to
-        /// train the best version of a model. HPO automatically selects an algorithm for the
-        /// type of problem you want to solve. Then HPO finds the best hyperparameters according
-        /// to your objective metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Autopilot
-        /// algorithm support</a> for a list of algorithms supported by <code>HYPERPARAMETER_TUNING</code>
+        /// algorithm support</a> for a list of algorithms supported by <c>ENSEMBLING</c> mode.</para><para>The <c>HYPERPARAMETER_TUNING</c> (HPO) mode uses the best hyperparameters to train
+        /// the best version of a model. HPO automatically selects an algorithm for the type of
+        /// problem you want to solve. Then HPO finds the best hyperparameters according to your
+        /// objective metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Autopilot
+        /// algorithm support</a> for a list of algorithms supported by <c>HYPERPARAMETER_TUNING</c>
         /// mode.</para>
         /// </para>
         /// </summary>
@@ -650,7 +642,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The type of supervised learning problem available for the model candidates of the
         /// AutoML job V2. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types">
-        /// Amazon SageMaker Autopilot problem types</a>.</para><note><para>You must either specify the type of supervised learning problem in <code>ProblemType</code>
+        /// Amazon SageMaker Autopilot problem types</a>.</para><note><para>You must either specify the type of supervised learning problem in <c>ProblemType</c>
         /// and provide the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html#sagemaker-CreateAutoMLJobV2-request-AutoMLJobObjective">AutoMLJobObjective</a>
         /// metric, or none at all.</para></note>
         /// </para>
@@ -716,8 +708,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. Specify the security
-        /// groups for the VPC that is specified in the <code>Subnets</code> field.</para>
+        /// <para>The VPC security group IDs, in the form <c>sg-xxxxxxxx</c>. Specify the security groups
+        /// for the VPC that is specified in the <c>Subnets</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -793,17 +785,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The hyperparameters used to configure and optimize the learning process of the base
         /// model. You can set any combination of the following hyperparameters for all base models.
         /// For more information on each supported hyperparameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-llms-finetuning-set-hyperparameters.html">Optimize
-        /// the learning process of your text generation models with hyperparameters</a>.</para><ul><li><para><code>"epochCount"</code>: The number of times the model goes through the entire
-        /// training dataset. Its value should be a string containing an integer value within
-        /// the range of "1" to "10".</para></li><li><para><code>"batchSize"</code>: The number of data samples used in each iteration of training.
+        /// the learning process of your text generation models with hyperparameters</a>.</para><ul><li><para><c>"epochCount"</c>: The number of times the model goes through the entire training
+        /// dataset. Its value should be a string containing an integer value within the range
+        /// of "1" to "10".</para></li><li><para><c>"batchSize"</c>: The number of data samples used in each iteration of training.
         /// Its value should be a string containing an integer value within the range of "1" to
-        /// "64".</para></li><li><para><code>"learningRate"</code>: The step size at which a model's parameters are updated
-        /// during training. Its value should be a string containing a floating-point value within
-        /// the range of "0" to "1".</para></li><li><para><code>"learningRateWarmupSteps"</code>: The number of training steps during which
-        /// the learning rate gradually increases before reaching its target or maximum value.
-        /// Its value should be a string containing an integer value within the range of "0" to
-        /// "250".</para></li></ul><para>Here is an example where all four hyperparameters are configured.</para><para><code>{ "epochCount":"5", "learningRate":"0.5", "batchSize": "32", "learningRateWarmupSteps":
-        /// "10" }</code></para>
+        /// "64".</para></li><li><para><c>"learningRate"</c>: The step size at which a model's parameters are updated during
+        /// training. Its value should be a string containing a floating-point value within the
+        /// range of "0" to "1".</para></li><li><para><c>"learningRateWarmupSteps"</c>: The number of training steps during which the learning
+        /// rate gradually increases before reaching its target or maximum value. Its value should
+        /// be a string containing an integer value within the range of "0" to "250".</para></li></ul><para>Here is an example where all four hyperparameters are configured.</para><para><c>{ "epochCount":"5", "learningRate":"0.5", "batchSize": "32", "learningRateWarmupSteps":
+        /// "10" }</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

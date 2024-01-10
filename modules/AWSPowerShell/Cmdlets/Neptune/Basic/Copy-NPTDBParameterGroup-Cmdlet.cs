@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>The identifier or ARN for the source DB parameter group. For information about creating
         /// an ARN, see <a href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
-        /// Constructing an Amazon Resource Name (ARN)</a>.</para><para>Constraints:</para><ul><li><para>Must specify a valid DB parameter group.</para></li><li><para>Must specify a valid DB parameter group identifier, for example <code>my-db-param-group</code>,
+        /// Constructing an Amazon Resource Name (ARN)</a>.</para><para>Constraints:</para><ul><li><para>Must specify a valid DB parameter group.</para></li><li><para>Must specify a valid DB parameter group identifier, for example <c>my-db-param-group</c>,
         /// or a valid ARN.</para></li></ul>
         /// </para>
         /// </summary>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter TargetDBParameterGroupIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the copied DB parameter group.</para><para>Constraints:</para><ul><li><para>Cannot be null, empty, or blank.</para></li><li><para>Must contain from 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-db-parameter-group</code></para>
+        /// <para>The identifier for the copied DB parameter group.</para><para>Constraints:</para><ul><li><para>Cannot be null, empty, or blank.</para></li><li><para>Must contain from 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <c>my-db-parameter-group</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

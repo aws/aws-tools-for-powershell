@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <summary>
         /// <para>
         /// <para>The Amazon Connect contact channels this quick response applies to. The supported
-        /// contact channel types include <code>Chat</code>.</para>
+        /// contact channel types include <c>Chat</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// <para>The media type of the quick response content.</para><ul><li><para>Use <code>application/x.quickresponse;format=plain</code> for quick response written
-        /// in plain text.</para></li><li><para>Use <code>application/x.quickresponse;format=markdown</code> for quick response written
+        /// <para>The media type of the quick response content.</para><ul><li><para>Use <c>application/x.quickresponse;format=plain</c> for quick response written in
+        /// plain text.</para></li><li><para>Use <c>application/x.quickresponse;format=markdown</c> for quick response written
         /// in richtext.</para></li></ul>
         /// </para>
         /// </summary>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter GroupingConfiguration_Criterion
         /// <summary>
         /// <para>
-        /// <para>The criteria used for grouping Amazon Q users.</para><para>The following is the list of supported criteria values.</para><ul><li><para><code>RoutingProfileArn</code>: Grouping the users by their <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon
+        /// <para>The criteria used for grouping Amazon Q users.</para><para>The following is the list of supported criteria values.</para><ul><li><para><c>RoutingProfileArn</c>: Grouping the users by their <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon
         /// Connect routing profile ARN</a>. User should have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html">SearchRoutingProfile</a>
         /// and <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRoutingProfile.html">DescribeRoutingProfile</a>
         /// permissions when setting criteria to this value.</para></li></ul>
@@ -137,9 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <summary>
         /// <para>
         /// <para>The language code value for the language in which the quick response is written. The
-        /// supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
-        /// <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>,
-        /// <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code></para>
+        /// supported language codes include <c>de_DE</c>, <c>en_US</c>, <c>es_ES</c>, <c>fr_FR</c>,
+        /// <c>id_ID</c>, <c>it_IT</c>, <c>ja_JP</c>, <c>ko_KR</c>, <c>pt_BR</c>, <c>zh_CN</c>,
+        /// <c>zh_TW</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -217,8 +217,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter GroupingConfiguration_Value
         /// <summary>
         /// <para>
-        /// <para>The list of values that define different groups of Amazon Q users.</para><ul><li><para>When setting <code>criteria</code> to <code>RoutingProfileArn</code>, you need to
-        /// provide a list of ARNs of <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon
+        /// <para>The list of values that define different groups of Amazon Q users.</para><ul><li><para>When setting <c>criteria</c> to <c>RoutingProfileArn</c>, you need to provide a list
+        /// of ARNs of <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon
         /// Connect routing profiles</a> as values of this parameter.</para></li></ul>
         /// </para>
         /// </summary>

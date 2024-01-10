@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><c>jp</c> - Japanese</para></li><li><para><c>zh</c> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,9 +197,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>One or more tags.</para><para>If the plan is for an existing provisioned product, the product must have a <code>RESOURCE_UPDATE</code>
-        /// constraint with <code>TagUpdatesOnProvisionedProduct</code> set to <code>ALLOWED</code>
-        /// to allow tag updates.</para>
+        /// <para>One or more tags.</para><para>If the plan is for an existing provisioned product, the product must have a <c>RESOURCE_UPDATE</c>
+        /// constraint with <c>TagUpdatesOnProvisionedProduct</c> set to <c>ALLOWED</c> to allow
+        /// tag updates.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

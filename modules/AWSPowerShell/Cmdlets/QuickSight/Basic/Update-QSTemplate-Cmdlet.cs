@@ -167,8 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The mode of validation for the asset to be created or updated. When you set this value
-        /// to <code>STRICT</code>, strict validation for every error is enforced. When you set
-        /// this value to <code>LENIENT</code>, validation is skipped for specific UI errors.</para>
+        /// to <c>STRICT</c>, strict validation for every error is enforced. When you set this
+        /// value to <c>LENIENT</c>, validation is skipped for specific UI errors.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,9 +248,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ScreenCanvasSizeOptions_ResizeOption
         /// <summary>
         /// <para>
-        /// <para>This value determines the layout behavior when the viewport is resized.</para><ul><li><para><code>FIXED</code>: A fixed width will be used when optimizing the layout. In the
-        /// Amazon QuickSight console, this option is called <code>Classic</code>.</para></li><li><para><code>RESPONSIVE</code>: The width of the canvas will be responsive and optimized
-        /// to the view port. In the Amazon QuickSight console, this option is called <code>Tiled</code>.</para></li></ul>
+        /// <para>This value determines the layout behavior when the viewport is resized.</para><ul><li><para><c>FIXED</c>: A fixed width will be used when optimizing the layout. In the Amazon
+        /// QuickSight console, this option is called <c>Classic</c>.</para></li><li><para><c>RESPONSIVE</c>: The width of the canvas will be responsive and optimized to the
+        /// view port. In the Amazon QuickSight console, this option is called <c>Tiled</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -336,8 +336,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A description of the current template version that is being updated. Every time you
-        /// call <code>UpdateTemplate</code>, you create a new version of the template. Each version
-        /// of the template maintains a description of the version in the <code>VersionDescription</code>
+        /// call <c>UpdateTemplate</c>, you create a new version of the template. Each version
+        /// of the template maintains a description of the version in the <c>VersionDescription</c>
         /// field.</para>
         /// </para>
         /// </summary>

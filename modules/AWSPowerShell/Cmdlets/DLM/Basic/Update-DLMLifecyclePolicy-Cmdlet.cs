@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// <para>
         /// <para><b>[Default policies only]</b> Indicates whether the policy should copy tags from
         /// the source resource to the snapshot or AMI. If you do not specify a value, the default
-        /// is <code>false</code>.</para><para>Default: false</para>
+        /// is <c>false</c>.</para><para>Default: false</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// <para>
         /// <para>The snapshot description that can trigger the policy. The description pattern is specified
         /// using a regular expression. The policy runs only if a snapshot with a description
-        /// that matches the specified pattern is shared with your account.</para><para>For example, specifying <code>^.*Created for policy: policy-1234567890abcdef0.*$</code>
-        /// configures the policy to run only if snapshots created by policy <code>policy-1234567890abcdef0</code>
+        /// that matches the specified pattern is shared with your account.</para><para>For example, specifying <c>^.*Created for policy: policy-1234567890abcdef0.*$</c>
+        /// configures the policy to run only if snapshots created by policy <c>policy-1234567890abcdef0</c>
         /// are shared with your account.</para>
         /// </para>
         /// </summary>
@@ -175,9 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// <summary>
         /// <para>
         /// <para><b>[Custom snapshot policies that target instances only]</b> Indicates whether to
-        /// exclude the root volume from multi-volume snapshot sets. The default is <code>false</code>.
-        /// If you specify <code>true</code>, then the root volumes attached to targeted instances
-        /// will be excluded from the multi-volume snapshot sets created by the policy.</para>
+        /// exclude the root volume from multi-volume snapshot sets. The default is <c>false</c>.
+        /// If you specify <c>true</c>, then the root volumes attached to targeted instances will
+        /// be excluded from the multi-volume snapshot sets created by the policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// <para><b>[Default policies for EBS snapshots only]</b> Indicates whether to exclude volumes
         /// that are attached to instances as the boot volume. If you exclude boot volumes, only
         /// volumes attached as data (non-boot) volumes will be backed up by the policy. To exclude
-        /// boot volumes, specify <code>true</code>.</para>
+        /// boot volumes, specify <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// <para><b>[Default policies for EBS snapshots only]</b> Indicates whether to exclude volumes
         /// that are attached to instances as the boot volume. If you exclude boot volumes, only
         /// volumes attached as data (non-boot) volumes will be backed up by the policy. To exclude
-        /// boot volumes, specify <code>true</code>.</para>
+        /// boot volumes, specify <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -292,10 +292,10 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// error, disabled, or deleted state.</para><para>By default (<b>ExtendDeletion=false</b>):</para><ul><li><para>If a source resource is deleted, Amazon Data Lifecycle Manager will continue to delete
         /// previously created snapshots or AMIs, up to but not including the last one, based
         /// on the specified retention period. If you want Amazon Data Lifecycle Manager to delete
-        /// all snapshots or AMIs, including the last one, specify <code>true</code>.</para></li><li><para>If a policy enters the error, disabled, or deleted state, Amazon Data Lifecycle Manager
+        /// all snapshots or AMIs, including the last one, specify <c>true</c>.</para></li><li><para>If a policy enters the error, disabled, or deleted state, Amazon Data Lifecycle Manager
         /// stops deleting snapshots and AMIs. If you want Amazon Data Lifecycle Manager to continue
         /// deleting snapshots or AMIs, including the last one, if the policy enters one of these
-        /// states, specify <code>true</code>.</para></li></ul><para>If you enable extended deletion (<b>ExtendDeletion=true</b>), you override both default
+        /// states, specify <c>true</c>.</para></li></ul><para>If you enable extended deletion (<b>ExtendDeletion=true</b>), you override both default
         /// behaviors simultaneously.</para><para>Default: false</para>
         /// </para>
         /// </summary>
@@ -311,11 +311,11 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// error, disabled, or deleted state.</para><para>By default (<b>ExtendDeletion=false</b>):</para><ul><li><para>If a source resource is deleted, Amazon Data Lifecycle Manager will continue to delete
         /// previously created snapshots or AMIs, up to but not including the last one, based
         /// on the specified retention period. If you want Amazon Data Lifecycle Manager to delete
-        /// all snapshots or AMIs, including the last one, specify <code>true</code>.</para></li><li><para>If a policy enters the error, disabled, or deleted state, Amazon Data Lifecycle Manager
+        /// all snapshots or AMIs, including the last one, specify <c>true</c>.</para></li><li><para>If a policy enters the error, disabled, or deleted state, Amazon Data Lifecycle Manager
         /// stops deleting snapshots and AMIs. If you want Amazon Data Lifecycle Manager to continue
         /// deleting snapshots or AMIs, including the last one, if the policy enters one of these
-        /// states, specify <code>true</code>.</para></li></ul><para>If you enable extended deletion (<b>ExtendDeletion=true</b>), you override both default
-        /// behaviors simultaneously.</para><para>If you do not specify a value, the default is <code>false</code>.</para><para>Default: false</para>
+        /// states, specify <c>true</c>.</para></li></ul><para>If you enable extended deletion (<b>ExtendDeletion=true</b>), you override both default
+        /// behaviors simultaneously.</para><para>If you do not specify a value, the default is <c>false</c>.</para><para>Default: false</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -326,10 +326,9 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// <summary>
         /// <para>
         /// <para><b>[Custom AMI policies only]</b> Indicates whether targeted instances are rebooted
-        /// when the lifecycle policy runs. <code>true</code> indicates that targeted instances
-        /// are not rebooted when the policy runs. <code>false</code> indicates that target instances
-        /// are rebooted when the policy runs. The default is <code>true</code> (instances are
-        /// not rebooted).</para>
+        /// when the lifecycle policy runs. <c>true</c> indicates that targeted instances are
+        /// not rebooted when the policy runs. <c>false</c> indicates that target instances are
+        /// rebooted when the policy runs. The default is <c>true</c> (instances are not rebooted).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -357,7 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter PolicyDetails_PolicyLanguage
         /// <summary>
         /// <para>
-        /// <para>The type of policy to create. Specify one of the following:</para><ul><li><para><code>SIMPLIFIED</code> To create a default policy.</para></li><li><para><code>STANDARD</code> To create a custom policy.</para></li></ul>
+        /// <para>The type of policy to create. Specify one of the following:</para><ul><li><para><c>SIMPLIFIED</c> To create a default policy.</para></li><li><para><c>STANDARD</c> To create a custom policy.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -369,11 +368,11 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// <summary>
         /// <para>
         /// <para><b>[Custom policies only]</b> The valid target resource types and actions a policy
-        /// can manage. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code> to create a lifecycle policy
-        /// that manages the lifecycle of Amazon EBS snapshots. Specify <code>IMAGE_MANAGEMENT</code>
-        /// to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify
-        /// <code>EVENT_BASED_POLICY </code> to create an event-based policy that performs specific
-        /// actions when a defined event occurs in your Amazon Web Services account.</para><para>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</para>
+        /// can manage. Specify <c>EBS_SNAPSHOT_MANAGEMENT</c> to create a lifecycle policy that
+        /// manages the lifecycle of Amazon EBS snapshots. Specify <c>IMAGE_MANAGEMENT</c> to
+        /// create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify <c>EVENT_BASED_POLICY
+        /// </c> to create an event-based policy that performs specific actions when a defined
+        /// event occurs in your Amazon Web Services account.</para><para>The default is <c>EBS_SNAPSHOT_MANAGEMENT</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -385,8 +384,8 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// <summary>
         /// <para>
         /// <para><b>[Custom snapshot and AMI policies only]</b> The location of the resources to backup.
-        /// If the source resources are located in an Amazon Web Services Region, specify <code>CLOUD</code>.
-        /// If the source resources are located on an Outpost in your account, specify <code>OUTPOST</code>.</para><para>If you specify <code>OUTPOST</code>, Amazon Data Lifecycle Manager backs up all resources
+        /// If the source resources are located in an Amazon Web Services Region, specify <c>CLOUD</c>.
+        /// If the source resources are located on an Outpost in your account, specify <c>OUTPOST</c>.</para><para>If you specify <c>OUTPOST</c>, Amazon Data Lifecycle Manager backs up all resources
         /// of the specified type with matching target tags across all of the Outposts in your
         /// account.</para>
         /// </para>
@@ -400,8 +399,8 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// <summary>
         /// <para>
         /// <para><b>[Default policies only]</b> Specify the type of default policy to create.</para><ul><li><para>To create a default policy for EBS snapshots, that creates snapshots of all volumes
-        /// in the Region that do not have recent backups, specify <code>VOLUME</code>.</para></li><li><para>To create a default policy for EBS-backed AMIs, that creates EBS-backed AMIs from
-        /// all instances in the Region that do not have recent backups, specify <code>INSTANCE</code>.</para></li></ul>
+        /// in the Region that do not have recent backups, specify <c>VOLUME</c>.</para></li><li><para>To create a default policy for EBS-backed AMIs, that creates EBS-backed AMIs from
+        /// all instances in the Region that do not have recent backups, specify <c>INSTANCE</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -413,9 +412,8 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// <summary>
         /// <para>
         /// <para><b>[Custom snapshot policies only]</b> The target resource type for snapshot and
-        /// AMI lifecycle policies. Use <code>VOLUME </code>to create snapshots of individual
-        /// volumes or use <code>INSTANCE</code> to create multi-volume snapshots from the volumes
-        /// for an instance.</para>
+        /// AMI lifecycle policies. Use <c>VOLUME </c>to create snapshots of individual volumes
+        /// or use <c>INSTANCE</c> to create multi-volume snapshots from the volumes for an instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

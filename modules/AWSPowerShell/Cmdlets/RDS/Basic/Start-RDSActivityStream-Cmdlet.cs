@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the DB cluster, for example, <code>arn:aws:rds:us-east-1:12345667890:cluster:das-cluster</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the DB cluster, for example, <c>arn:aws:rds:us-east-1:12345667890:cluster:das-cluster</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

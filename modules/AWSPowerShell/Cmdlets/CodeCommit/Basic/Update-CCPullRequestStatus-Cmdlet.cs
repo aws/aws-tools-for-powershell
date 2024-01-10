@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <summary>
         /// <para>
         /// <para>The status of the pull request. The only valid operations are to update the status
-        /// from <code>OPEN</code> to <code>OPEN</code>, <code>OPEN</code> to <code>CLOSED</code>
-        /// or from <code>CLOSED</code> to <code>CLOSED</code>.</para>
+        /// from <c>OPEN</c> to <c>OPEN</c>, <c>OPEN</c> to <c>CLOSED</c> or from <c>CLOSED</c>
+        /// to <c>CLOSED</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

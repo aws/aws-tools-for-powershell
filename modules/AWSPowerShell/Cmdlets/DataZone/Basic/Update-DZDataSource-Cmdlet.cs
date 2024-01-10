@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter AssetFormsInput
         /// <summary>
         /// <para>
-        /// <para>The asset forms to be updated as part of the <code>UpdateDataSource</code> action.</para>
+        /// <para>The asset forms to be updated as part of the <c>UpdateDataSource</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description to be updated as part of the <code>UpdateDataSource</code> action.</para>
+        /// <para>The description to be updated as part of the <c>UpdateDataSource</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter EnableSetting
         /// <summary>
         /// <para>
-        /// <para>The enable setting to be updated as part of the <code>UpdateDataSource</code> action.</para>
+        /// <para>The enable setting to be updated as part of the <c>UpdateDataSource</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name to be updated as part of the <code>UpdateDataSource</code> action.</para>
+        /// <para>The name to be updated as part of the <c>UpdateDataSource</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter PublishOnImport
         /// <summary>
         /// <para>
-        /// <para>The publish on import setting to be updated as part of the <code>UpdateDataSource</code>
+        /// <para>The publish on import setting to be updated as part of the <c>UpdateDataSource</c>
         /// action.</para>
         /// </para>
         /// </summary>

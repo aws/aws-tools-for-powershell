@@ -67,17 +67,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// subresources (for example, lifecycle configuration and website configuration). Only
     /// the resource owner (that is, the Amazon Web Services account that created it) can
     /// access the resource. The resource owner can optionally grant access permissions to
-    /// others by writing an access policy. For this operation, a user must get the <code>s3:PutLifecycleConfiguration</code>
+    /// others by writing an access policy. For this operation, a user must get the <c>s3:PutLifecycleConfiguration</c>
     /// permission.
     /// </para><para>
     /// You can also explicitly deny permissions. An explicit deny also supersedes any other
     /// permissions. If you want to block users or accounts from removing or deleting objects
     /// from your bucket, you must deny them permissions for the following actions:
-    /// </para><ul><li><para><code>s3:DeleteObject</code></para></li><li><para><code>s3:DeleteObjectVersion</code></para></li><li><para><code>s3:PutLifecycleConfiguration</code></para></li></ul><para>
+    /// </para><ul><li><para><c>s3:DeleteObject</c></para></li><li><para><c>s3:DeleteObjectVersion</c></para></li><li><para><c>s3:PutLifecycleConfiguration</c></para></li></ul><para>
     /// For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// Access Permissions to Your Amazon S3 Resources</a>.
     /// </para></dd></dl><para>
-    /// The following operations are related to <code>PutBucketLifecycleConfiguration</code>:
+    /// The following operations are related to <c>PutBucketLifecycleConfiguration</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-configuration-examples.html">Examples
     /// of Lifecycle Configuration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html">DeleteBucketLifecycle</a></para></li></ul>
     /// </summary>

@@ -30,38 +30,36 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// <summary>
     /// Creates a platform application object for one of the supported push notification services,
     /// such as APNS and GCM (Firebase Cloud Messaging), to which devices and mobile apps
-    /// may register. You must specify <code>PlatformPrincipal</code> and <code>PlatformCredential</code>
-    /// attributes when using the <code>CreatePlatformApplication</code> action.
+    /// may register. You must specify <c>PlatformPrincipal</c> and <c>PlatformCredential</c>
+    /// attributes when using the <c>CreatePlatformApplication</c> action.
     /// 
     ///  
-    /// <para><code>PlatformPrincipal</code> and <code>PlatformCredential</code> are received from
-    /// the notification service.
+    /// <para><c>PlatformPrincipal</c> and <c>PlatformCredential</c> are received from the notification
+    /// service.
     /// </para><ul><li><para>
-    /// For <code>ADM</code>, <code>PlatformPrincipal</code> is <code>client id</code> and
-    /// <code>PlatformCredential</code> is <code>client secret</code>.
+    /// For <c>ADM</c>, <c>PlatformPrincipal</c> is <c>client id</c> and <c>PlatformCredential</c>
+    /// is <c>client secret</c>.
     /// </para></li><li><para>
-    /// For <code>Baidu</code>, <code>PlatformPrincipal</code> is <code>API key</code> and
-    /// <code>PlatformCredential</code> is <code>secret key</code>.
+    /// For <c>Baidu</c>, <c>PlatformPrincipal</c> is <c>API key</c> and <c>PlatformCredential</c>
+    /// is <c>secret key</c>.
     /// </para></li><li><para>
-    /// For <code>APNS</code> and <code>APNS_SANDBOX</code> using certificate credentials,
-    /// <code>PlatformPrincipal</code> is <code>SSL certificate</code> and <code>PlatformCredential</code>
-    /// is <code>private key</code>.
+    /// For <c>APNS</c> and <c>APNS_SANDBOX</c> using certificate credentials, <c>PlatformPrincipal</c>
+    /// is <c>SSL certificate</c> and <c>PlatformCredential</c> is <c>private key</c>.
     /// </para></li><li><para>
-    /// For <code>APNS</code> and <code>APNS_SANDBOX</code> using token credentials, <code>PlatformPrincipal</code>
-    /// is <code>signing key ID</code> and <code>PlatformCredential</code> is <code>signing
-    /// key</code>.
+    /// For <c>APNS</c> and <c>APNS_SANDBOX</c> using token credentials, <c>PlatformPrincipal</c>
+    /// is <c>signing key ID</c> and <c>PlatformCredential</c> is <c>signing key</c>.
     /// </para></li><li><para>
-    /// For <code>GCM</code> (Firebase Cloud Messaging), there is no <code>PlatformPrincipal</code>
-    /// and the <code>PlatformCredential</code> is <code>API key</code>.
+    /// For <c>GCM</c> (Firebase Cloud Messaging), there is no <c>PlatformPrincipal</c> and
+    /// the <c>PlatformCredential</c> is <c>API key</c>.
     /// </para></li><li><para>
-    /// For <code>MPNS</code>, <code>PlatformPrincipal</code> is <code>TLS certificate</code>
-    /// and <code>PlatformCredential</code> is <code>private key</code>.
+    /// For <c>MPNS</c>, <c>PlatformPrincipal</c> is <c>TLS certificate</c> and <c>PlatformCredential</c>
+    /// is <c>private key</c>.
     /// </para></li><li><para>
-    /// For <code>WNS</code>, <code>PlatformPrincipal</code> is <code>Package Security Identifier</code>
-    /// and <code>PlatformCredential</code> is <code>secret key</code>.
+    /// For <c>WNS</c>, <c>PlatformPrincipal</c> is <c>Package Security Identifier</c> and
+    /// <c>PlatformCredential</c> is <c>secret key</c>.
     /// </para></li></ul><para>
-    /// You can use the returned <code>PlatformApplicationArn</code> as an attribute for the
-    /// <code>CreatePlatformEndpoint</code> action.
+    /// You can use the returned <c>PlatformApplicationArn</c> as an attribute for the <c>CreatePlatformEndpoint</c>
+    /// action.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SNSPlatformApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

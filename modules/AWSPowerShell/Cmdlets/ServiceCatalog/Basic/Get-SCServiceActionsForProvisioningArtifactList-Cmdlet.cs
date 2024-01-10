@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><c>jp</c> - Japanese</para></li><li><para><c>zh</c> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProductId
         /// <summary>
         /// <para>
-        /// <para>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</para>
+        /// <para>The product identifier. For example, <c>prod-abcdzk7xy33qa</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningArtifactId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</para>
+        /// <para>The identifier of the provisioning artifact. For example, <c>pa-4abcdjnxjj6ne</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

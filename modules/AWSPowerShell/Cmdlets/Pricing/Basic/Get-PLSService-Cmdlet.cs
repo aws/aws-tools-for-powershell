@@ -30,10 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.PLS
     /// <summary>
     /// Returns the metadata for one service or a list of the metadata for all services. Use
     /// this without a service code to get the service codes for all services. Use it with
-    /// a service code, such as <code>AmazonEC2</code>, to get information specific to that
-    /// service, such as the attribute names available for that service. For example, some
-    /// of the attribute names available for EC2 are <code>volumeType</code>, <code>maxIopsVolume</code>,
-    /// <code>operation</code>, <code>locationType</code>, and <code>instanceCapacity10xlarge</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// a service code, such as <c>AmazonEC2</c>, to get information specific to that service,
+    /// such as the attribute names available for that service. For example, some of the attribute
+    /// names available for EC2 are <c>volumeType</c>, <c>maxIopsVolume</c>, <c>operation</c>,
+    /// <c>locationType</c>, and <c>instanceCapacity10xlarge</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "PLSService")]
     [OutputType("Amazon.Pricing.Model.Service")]
@@ -50,9 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         #region Parameter ServiceCode
         /// <summary>
         /// <para>
-        /// <para>The code for the service whose information you want to retrieve, such as <code>AmazonEC2</code>.
-        /// You can use the <code>ServiceCode</code> to filter the results in a <code>GetProducts</code>
-        /// call. To retrieve a list of all services, leave this blank.</para>
+        /// <para>The code for the service whose information you want to retrieve, such as <c>AmazonEC2</c>.
+        /// You can use the <c>ServiceCode</c> to filter the results in a <c>GetProducts</c> call.
+        /// To retrieve a list of all services, leave this blank.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         #region Parameter FormatVersion
         /// <summary>
         /// <para>
-        /// <para>The format version that you want the response to be in.</para><para>Valid values are: <code>aws_v1</code></para>
+        /// <para>The format version that you want the response to be in.</para><para>Valid values are: <c>aws_v1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,17 +28,16 @@ using Amazon.ChimeSDKMessaging.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
-    /// Gets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+    /// Gets the membership preferences of an <c>AppInstanceUser</c> or <c>AppInstanceBot</c>
     /// for the specified channel. A user or a bot must be a member of the channel and own
-    /// the membership in order to retrieve membership preferences. Users or bots in the <code>AppInstanceAdmin</code>
+    /// the membership in order to retrieve membership preferences. Users or bots in the <c>AppInstanceAdmin</c>
     /// and channel moderator roles can't retrieve preferences for other users or bots. Banned
     /// users or bots can't retrieve membership preferences for the channel from which they
     /// are banned.
     /// 
     ///  <note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
-    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
-    /// as the value in the header.
+    /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the ARN of the <c>AppInstanceUser</c>
+    /// or <c>AppInstanceBot</c> that makes the API call as the value in the header.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CHMMGChannelMembershipPreference")]
@@ -74,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        /// the API call.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c> or <c>AppInstanceBot</c> that makes the API
+        /// call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter MemberArn
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the member retrieving the preferences.</para>
+        /// <para>The <c>AppInstanceUserArn</c> of the member retrieving the preferences.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

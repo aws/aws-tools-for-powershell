@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>A unique case-sensitive string used to ensure the request to create the query is idempotent
-        /// (executes only once). If another <code>CreateNamedQuery</code> request is received,
-        /// the same response is returned and another query is not created. If a parameter has
-        /// changed, for example, the <code>QueryString</code>, an error is returned.</para><important><para>This token is listed as not required because Amazon Web Services SDKs (for example
+        /// (executes only once). If another <c>CreateNamedQuery</c> request is received, the
+        /// same response is returned and another query is not created. If a parameter has changed,
+        /// for example, the <c>QueryString</c>, an error is returned.</para><important><para>This token is listed as not required because Amazon Web Services SDKs (for example
         /// the Amazon Web Services SDK for Java) auto-generate the token for users. If you are
         /// not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
         /// this token or the action will fail.</para></important>

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
     /// Deletes an account level monthly spend limit override for sending voice messages.
-    /// Deleting a spend limit override sets the <code>EnforcedLimit</code> equal to the <code>MaxLimit</code>,
+    /// Deleting a spend limit override sets the <c>EnforcedLimit</c> equal to the <c>MaxLimit</c>,
     /// which is controlled by Amazon Web Services. For more information on spending limits
     /// (quotas) see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/quotas.html">Amazon
     /// Pinpoint quotas</a> in the <i>Amazon Pinpoint Developer Guide</i>.

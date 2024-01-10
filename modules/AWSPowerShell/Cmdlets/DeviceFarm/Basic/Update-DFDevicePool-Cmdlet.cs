@@ -64,12 +64,12 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter ClearMaxDevice
         /// <summary>
         /// <para>
-        /// <para>Sets whether the <code>maxDevices</code> parameter applies to your device pool. If
-        /// you set this parameter to <code>true</code>, the <code>maxDevices</code> parameter
-        /// does not apply, and Device Farm does not limit the number of devices that it adds
-        /// to your device pool. In this case, Device Farm adds all available devices that meet
-        /// the criteria specified in the <code>rules</code> parameter.</para><para>If you use this parameter in your request, you cannot use the <code>maxDevices</code>
-        /// parameter in the same request.</para>
+        /// <para>Sets whether the <c>maxDevices</c> parameter applies to your device pool. If you set
+        /// this parameter to <c>true</c>, the <c>maxDevices</c> parameter does not apply, and
+        /// Device Farm does not limit the number of devices that it adds to your device pool.
+        /// In this case, Device Farm adds all available devices that meet the criteria specified
+        /// in the <c>rules</c> parameter.</para><para>If you use this parameter in your request, you cannot use the <c>maxDevices</c> parameter
+        /// in the same request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,10 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <summary>
         /// <para>
         /// <para>The number of devices that Device Farm can add to your device pool. Device Farm adds
-        /// devices that are available and that meet the criteria that you assign for the <code>rules</code>
+        /// devices that are available and that meet the criteria that you assign for the <c>rules</c>
         /// parameter. Depending on how many devices meet these constraints, your device pool
         /// might contain fewer devices than the value for this parameter.</para><para>By specifying the maximum number of devices, you can control the costs that you incur
-        /// by running tests.</para><para>If you use this parameter in your request, you cannot use the <code>clearMaxDevices</code>
+        /// by running tests.</para><para>If you use this parameter in your request, you cannot use the <c>clearMaxDevices</c>
         /// parameter in the same request.</para>
         /// </para>
         /// </summary>

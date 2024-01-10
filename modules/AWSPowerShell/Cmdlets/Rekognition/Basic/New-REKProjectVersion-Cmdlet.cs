@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// <summary>
     /// Creates a new version of Amazon Rekognition project (like a Custom Labels model or
     /// a custom adapter) and begins training. Models and adapters are managed as part of
-    /// a Rekognition project. The response from <code>CreateProjectVersion</code> is an Amazon
+    /// a Rekognition project. The response from <c>CreateProjectVersion</c> is an Amazon
     /// Resource Name (ARN) for the project version. 
     /// 
     ///  
@@ -39,17 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// settings. You can provide a description to the project version by using the VersionDescription
     /// argment. Training can take a while to complete. You can get the current status by
     /// calling <a>DescribeProjectVersions</a>. Training completed successfully if the value
-    /// of the <code>Status</code> field is <code>TRAINING_COMPLETED</code>. Once training
-    /// has successfully completed, call <a>DescribeProjectVersions</a> to get the training
-    /// results and evaluate the model.
+    /// of the <c>Status</c> field is <c>TRAINING_COMPLETED</c>. Once training has successfully
+    /// completed, call <a>DescribeProjectVersions</a> to get the training results and evaluate
+    /// the model.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:CreateProjectVersion</code>
+    /// This operation requires permissions to perform the <c>rekognition:CreateProjectVersion</c>
     /// action.
     /// </para><note><para><i>The following applies only to projects with Amazon Rekognition Custom Labels as
     /// the chosen feature:</i></para><para>
     /// You can train a model in a project that doesn't have associated datasets by specifying
-    /// manifest files in the <code>TrainingData</code> and <code>TestingData</code> fields.
-    /// 
+    /// manifest files in the <c>TrainingData</c> and <c>TestingData</c> fields. 
     /// </para><para>
     /// If you open the console after training a model with manifest files, Amazon Rekognition
     /// Custom Labels creates the datasets for you using the most recent manifest files. You
@@ -125,9 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// your KMS key, or an alias ARN. The key is used to encrypt training images, test images,
         /// and manifest files copied into the service for the project version. Your source images
         /// are unaffected. The key is also used to encrypt training results and manifest files
-        /// written to the output Amazon S3 bucket (<code>OutputConfig</code>).</para><para>If you choose to use your own KMS key, you need the following permissions on the KMS
-        /// key.</para><ul><li><para>kms:CreateGrant</para></li><li><para>kms:DescribeKey</para></li><li><para>kms:GenerateDataKey</para></li><li><para>kms:Decrypt</para></li></ul><para>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service
-        /// are encrypted using a key that AWS owns and manages.</para>
+        /// written to the output Amazon S3 bucket (<c>OutputConfig</c>).</para><para>If you choose to use your own KMS key, you need the following permissions on the KMS
+        /// key.</para><ul><li><para>kms:CreateGrant</para></li><li><para>kms:DescribeKey</para></li><li><para>kms:GenerateDataKey</para></li><li><para>kms:Decrypt</para></li></ul><para>If you don't specify a value for <c>KmsKeyId</c>, images copied into the service are
+        /// encrypted using a key that AWS owns and manages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

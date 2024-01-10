@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The desired capacity is the initial capacity of the Auto Scaling group after the scheduled
         /// action runs and the capacity it attempts to maintain. It can scale beyond this capacity
-        /// if you add more scaling conditions. </para><note><para>You must specify at least one of the following properties: <code>MaxSize</code>, <code>MinSize</code>,
-        /// or <code>DesiredCapacity</code>. </para></note>
+        /// if you add more scaling conditions. </para><note><para>You must specify at least one of the following properties: <c>MaxSize</c>, <c>MinSize</c>,
+        /// or <c>DesiredCapacity</c>. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter UtcEndTime
         /// <summary>
         /// <para>
-        /// <para>The date and time for the recurring schedule to end, in UTC. For example, <code>"2021-06-01T00:00:00Z"</code>.</para>
+        /// <para>The date and time for the recurring schedule to end, in UTC. For example, <c>"2021-06-01T00:00:00Z"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,9 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The recurring schedule for this action. This format consists of five fields separated
         /// by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The
-        /// value must be in quotes (for example, <code>"30 0 1 1,6,12 *"</code>). For more information
-        /// about this format, see <a href="http://crontab.org">Crontab</a>.</para><para>When <code>StartTime</code> and <code>EndTime</code> are specified with <code>Recurrence</code>,
-        /// they form the boundaries of when the recurring action starts and stops.</para><para>Cron expressions use Universal Coordinated Time (UTC) by default.</para>
+        /// value must be in quotes (for example, <c>"30 0 1 1,6,12 *"</c>). For more information
+        /// about this format, see <a href="http://crontab.org">Crontab</a>.</para><para>When <c>StartTime</c> and <c>EndTime</c> are specified with <c>Recurrence</c>, they
+        /// form the boundaries of when the recurring action starts and stops.</para><para>Cron expressions use Universal Coordinated Time (UTC) by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,9 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT
-        /// only and in quotes (for example, <code>"2021-06-01T00:00:00Z"</code>).</para><para>If you specify <code>Recurrence</code> and <code>StartTime</code>, Amazon EC2 Auto
-        /// Scaling performs the action at this time, and then performs the action based on the
-        /// specified recurrence.</para>
+        /// only and in quotes (for example, <c>"2021-06-01T00:00:00Z"</c>).</para><para>If you specify <c>Recurrence</c> and <c>StartTime</c>, Amazon EC2 Auto Scaling performs
+        /// the action at this time, and then performs the action based on the specified recurrence.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,8 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>Specifies the time zone for a cron expression. If a time zone is not provided, UTC
         /// is used by default. </para><para>Valid values are the canonical names of the IANA time zones, derived from the IANA
-        /// Time Zone Database (such as <code>Etc/GMT+9</code> or <code>Pacific/Tahiti</code>).
-        /// For more information, see <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">https://en.wikipedia.org/wiki/List_of_tz_database_time_zones</a>.</para>
+        /// Time Zone Database (such as <c>Etc/GMT+9</c> or <c>Pacific/Tahiti</c>). For more information,
+        /// see <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">https://en.wikipedia.org/wiki/List_of_tz_database_time_zones</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// results in both EndTime and EndTimeUtc being assigned, the latest assignment to either
         /// one of the two property is reflected in the value of both. EndTime is provided for
         /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
-        /// wrong timestamp being passed to the service.</para><para>The date and time for the recurring schedule to end, in UTC. For example, <code>"2021-06-01T00:00:00Z"</code>.</para>
+        /// wrong timestamp being passed to the service.</para><para>The date and time for the recurring schedule to end, in UTC. For example, <c>"2021-06-01T00:00:00Z"</c>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -208,9 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// assignment to either one of the two property is reflected in the value of both. StartTime
         /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
         /// results in the wrong timestamp being passed to the service.</para><para>The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT
-        /// only and in quotes (for example, <code>"2021-06-01T00:00:00Z"</code>).</para><para>If you specify <code>Recurrence</code> and <code>StartTime</code>, Amazon EC2 Auto
-        /// Scaling performs the action at this time, and then performs the action based on the
-        /// specified recurrence.</para>
+        /// only and in quotes (for example, <c>"2021-06-01T00:00:00Z"</c>).</para><para>If you specify <c>Recurrence</c> and <c>StartTime</c>, Amazon EC2 Auto Scaling performs
+        /// the action at this time, and then performs the action based on the specified recurrence.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

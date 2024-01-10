@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the cluster on which logging is to be stopped.</para><para>Example: <code>examplecluster</code></para>
+        /// <para>The identifier of the cluster on which logging is to be stopped.</para><para>Example: <c>examplecluster</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

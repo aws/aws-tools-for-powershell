@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// for a bucket. You can update a bucket's bundle only one time within a monthly Amazon
     /// Web Services billing cycle. To determine if you can update a bucket's bundle, use
     /// the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html">GetBuckets</a>
-    /// action. The <code>ableToUpdateBundle</code> parameter in the response will indicate
-    /// whether you can currently update a bucket's bundle.
+    /// action. The <c>ableToUpdateBundle</c> parameter in the response will indicate whether
+    /// you can currently update a bucket's bundle.
     /// </para><para>
     /// Update a bucket's bundle if it's consistently going over its storage space or data
     /// transfer quota, or if a bucket's usage is consistently in the lower range of its storage

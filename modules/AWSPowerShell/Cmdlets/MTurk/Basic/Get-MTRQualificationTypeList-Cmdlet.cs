@@ -28,8 +28,8 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>ListQualificationTypes</code> operation returns a list of Qualification
-    /// types, filtered by an optional search term.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// The <c>ListQualificationTypes</c> operation returns a list of Qualification types,
+    /// filtered by an optional search term.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MTRQualificationTypeList")]
     [OutputType("Amazon.MTurk.Model.QualificationType")]

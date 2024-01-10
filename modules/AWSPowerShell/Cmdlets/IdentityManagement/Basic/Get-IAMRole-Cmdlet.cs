@@ -36,9 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  <note><para>
     /// Policies returned by this operation are URL-encoded compliant with <a href="https://tools.ietf.org/html/rfc3986">RFC
     /// 3986</a>. You can use a URL decoding method to convert the policy back to plain JSON
-    /// text. For example, if you use Java, you can use the <code>decode</code> method of
-    /// the <code>java.net.URLDecoder</code> utility class in the Java SDK. Other languages
-    /// and SDKs provide similar functionality.
+    /// text. For example, if you use Java, you can use the <c>decode</c> method of the <c>java.net.URLDecoder</c>
+    /// utility class in the Java SDK. Other languages and SDKs provide similar functionality.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "IAMRole")]

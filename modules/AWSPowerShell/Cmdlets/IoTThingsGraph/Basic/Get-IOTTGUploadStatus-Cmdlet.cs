@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter UploadId
         /// <summary>
         /// <para>
-        /// <para>The ID of the upload. This value is returned by the <code>UploadEntityDefinitions</code>
+        /// <para>The ID of the upload. This value is returned by the <c>UploadEntityDefinitions</c>
         /// action.</para>
         /// </para>
         /// </summary>

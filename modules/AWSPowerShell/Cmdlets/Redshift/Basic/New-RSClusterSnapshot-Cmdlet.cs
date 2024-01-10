@@ -28,7 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Creates a manual snapshot of the specified cluster. The cluster must be in the <code>available</code>
+    /// Creates a manual snapshot of the specified cluster. The cluster must be in the <c>available</c>
     /// state. 
     /// 
     ///  
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the snapshot that you are requesting. This identifier must
-        /// be unique for all snapshots within the Amazon Web Services account.</para><para>Constraints:</para><ul><li><para>Cannot be null, empty, or blank</para></li><li><para>Must contain from 1 to 255 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
+        /// be unique for all snapshots within the Amazon Web Services account.</para><para>Constraints:</para><ul><li><para>Cannot be null, empty, or blank</para></li><li><para>Must contain from 1 to 255 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <c>my-snapshot-id</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

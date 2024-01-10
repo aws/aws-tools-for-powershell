@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The ARN that identifies the Amazon EC2 instance. </para><para> The following is the format of the ARN: </para><para><code>arn:aws:ec2:region:aws_account_id:instance/instance-id</code></para>
+        /// <para> The ARN that identifies the Amazon EC2 instance. </para><para> The following is the format of the ARN: </para><para><c>arn:aws:ec2:region:aws_account_id:instance/instance-id</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of license recommendations to return with a single request. </para><para> To retrieve the remaining results, make another request with the returned <code>nextToken</code>
+        /// <para> The maximum number of license recommendations to return with a single request. </para><para> To retrieve the remaining results, make another request with the returned <c>nextToken</c>
         /// value. </para>
         /// </para>
         /// </summary>

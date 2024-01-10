@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
     /// For example, you can use this operation to retrieve session information for a user
     /// that has left a long-running session in use.
     /// </para><para>
-    /// If the bot, alias, or session identifier doesn't exist, Amazon Lex V2 returns a <code>BadRequestException</code>.
-    /// If the locale doesn't exist or is not enabled for the alias, you receive a <code>BadRequestException</code>.
+    /// If the bot, alias, or session identifier doesn't exist, Amazon Lex V2 returns a <c>BadRequestException</c>.
+    /// If the locale doesn't exist or is not enabled for the alias, you receive a <c>BadRequestException</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "LRSV2Session")]

@@ -29,8 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.KNRK
 {
     /// <summary>
     /// Removes a tag from a rescore execution plan. A rescore execution plan is an Amazon
-    /// Kendra Intelligent Ranking resource used for provisioning the <code>Rescore</code>
-    /// operation.
+    /// Kendra Intelligent Ranking resource used for provisioning the <c>Rescore</c> operation.
     /// </summary>
     [Cmdlet("Remove", "KNRKResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

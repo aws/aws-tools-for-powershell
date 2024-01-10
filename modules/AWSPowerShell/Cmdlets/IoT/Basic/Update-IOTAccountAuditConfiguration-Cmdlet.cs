@@ -52,11 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter AuditCheckConfiguration
         /// <summary>
         /// <para>
-        /// <para>Specifies which audit checks are enabled and disabled for this account. Use <code>DescribeAccountAuditConfiguration</code>
+        /// <para>Specifies which audit checks are enabled and disabled for this account. Use <c>DescribeAccountAuditConfiguration</c>
         /// to see the list of all checks, including those that are currently enabled.</para><para>Some data collection might start immediately when certain checks are enabled. When
         /// a check is disabled, any data collected so far in relation to the check is deleted.</para><para>You cannot disable a check if it's used by any scheduled audit. You must first delete
-        /// the check from the scheduled audit or delete the scheduled audit itself.</para><para>On the first call to <code>UpdateAccountAuditConfiguration</code>, this parameter
-        /// is required and must specify at least one enabled check.</para>
+        /// the check from the scheduled audit or delete the scheduled audit itself.</para><para>On the first call to <c>UpdateAccountAuditConfiguration</c>, this parameter is required
+        /// and must specify at least one enabled check.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -39,36 +39,35 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// values covered by the two parent shards.
     /// 
     ///  <note><para>
-    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
-    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
-    /// parameter when you invoke this API.
-    /// </para></note><para><code>MergeShards</code> is called when there is a need to reduce the overall capacity
+    /// When invoking this API, you must use either the <c>StreamARN</c> or the <c>StreamName</c>
+    /// parameter, or both. It is recommended that you use the <c>StreamARN</c> input parameter
+    /// when you invoke this API.
+    /// </para></note><para><c>MergeShards</c> is called when there is a need to reduce the overall capacity
     /// of a stream because of excess capacity that is not being used. You must specify the
     /// shard to be merged and the adjacent shard for a stream. For more information about
     /// merging shards, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-merge.html">Merge
     /// Two Shards</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.
     /// </para><para>
-    /// If the stream is in the <code>ACTIVE</code> state, you can call <code>MergeShards</code>.
-    /// If a stream is in the <code>CREATING</code>, <code>UPDATING</code>, or <code>DELETING</code>
-    /// state, <code>MergeShards</code> returns a <code>ResourceInUseException</code>. If
-    /// the specified stream does not exist, <code>MergeShards</code> returns a <code>ResourceNotFoundException</code>.
-    /// 
+    /// If the stream is in the <c>ACTIVE</c> state, you can call <c>MergeShards</c>. If a
+    /// stream is in the <c>CREATING</c>, <c>UPDATING</c>, or <c>DELETING</c> state, <c>MergeShards</c>
+    /// returns a <c>ResourceInUseException</c>. If the specified stream does not exist, <c>MergeShards</c>
+    /// returns a <c>ResourceNotFoundException</c>. 
     /// </para><para>
     /// You can use <a>DescribeStreamSummary</a> to check the state of the stream, which is
-    /// returned in <code>StreamStatus</code>.
-    /// </para><para><code>MergeShards</code> is an asynchronous operation. Upon receiving a <code>MergeShards</code>
-    /// request, Amazon Kinesis Data Streams immediately returns a response and sets the <code>StreamStatus</code>
-    /// to <code>UPDATING</code>. After the operation is completed, Kinesis Data Streams sets
-    /// the <code>StreamStatus</code> to <code>ACTIVE</code>. Read and write operations continue
-    /// to work while the stream is in the <code>UPDATING</code> state. 
+    /// returned in <c>StreamStatus</c>.
+    /// </para><para><c>MergeShards</c> is an asynchronous operation. Upon receiving a <c>MergeShards</c>
+    /// request, Amazon Kinesis Data Streams immediately returns a response and sets the <c>StreamStatus</c>
+    /// to <c>UPDATING</c>. After the operation is completed, Kinesis Data Streams sets the
+    /// <c>StreamStatus</c> to <c>ACTIVE</c>. Read and write operations continue to work while
+    /// the stream is in the <c>UPDATING</c> state. 
     /// </para><para>
     /// You use <a>DescribeStreamSummary</a> and the <a>ListShards</a> APIs to determine the
-    /// shard IDs that are specified in the <code>MergeShards</code> request. 
+    /// shard IDs that are specified in the <c>MergeShards</c> request. 
     /// </para><para>
     /// If you try to operate on too many streams in parallel using <a>CreateStream</a>, <a>DeleteStream</a>,
-    /// <code>MergeShards</code>, or <a>SplitShard</a>, you receive a <code>LimitExceededException</code>.
+    /// <c>MergeShards</c>, or <a>SplitShard</a>, you receive a <c>LimitExceededException</c>.
     /// 
-    /// </para><para><code>MergeShards</code> has a limit of five transactions per second per account.
+    /// </para><para><c>MergeShards</c> has a limit of five transactions per second per account.
     /// </para>
     /// </summary>
     [Cmdlet("Merge", "KINShard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

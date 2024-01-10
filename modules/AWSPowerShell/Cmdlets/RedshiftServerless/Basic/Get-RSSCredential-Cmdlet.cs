@@ -35,11 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     /// <para>
     /// By default, the temporary credentials expire in 900 seconds. You can optionally specify
     /// a duration between 900 seconds (15 minutes) and 3600 seconds (60 minutes).
-    /// </para><pre><code> &lt;p&gt;The Identity and Access Management (IAM) user or role that runs
+    /// </para><pre><c> &lt;p&gt;The Identity and Access Management (IAM) user or role that runs
     /// GetCredentials must have an IAM policy attached that allows access to all necessary
     /// actions and resources.&lt;/p&gt; &lt;p&gt;If the &lt;code&gt;DbName&lt;/code&gt; parameter
     /// is specified, the IAM policy must allow access to the resource dbname for the specified
-    /// database name.&lt;/p&gt; </code></pre>
+    /// database name.&lt;/p&gt; </c></pre>
     /// </summary>
     [Cmdlet("Get", "RSSCredential")]
     [OutputType("Amazon.RedshiftServerless.Model.GetCredentialsResponse")]

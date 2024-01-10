@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// Web Services Region.
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:ListCrls</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:ListCrls</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMRACrlList")]

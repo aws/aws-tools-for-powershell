@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// operation, you must be the bucket owner. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester
     /// Pays Buckets</a>.
     /// </para><para>
-    /// The following operations are related to <code>GetBucketRequestPayment</code>:
+    /// The following operations are related to <c>GetBucketRequestPayment</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html">ListObjects</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketRequestPayment")]

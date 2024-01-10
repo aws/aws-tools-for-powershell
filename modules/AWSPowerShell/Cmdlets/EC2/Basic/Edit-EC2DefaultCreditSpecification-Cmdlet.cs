@@ -34,12 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// account launch using the default credit option.
     /// 
     ///  
-    /// <para><code>ModifyDefaultCreditSpecification</code> is an asynchronous operation, which
-    /// works at an Amazon Web Services Region level and modifies the credit option for each
-    /// Availability Zone. All zones in a Region are updated within five minutes. But if instances
-    /// are launched during this operation, they might not get the new credit option until
-    /// the zone is updated. To verify whether the update has occurred, you can call <code>GetDefaultCreditSpecification</code>
-    /// and check <code>DefaultCreditSpecification</code> for updates.
+    /// <para><c>ModifyDefaultCreditSpecification</c> is an asynchronous operation, which works
+    /// at an Amazon Web Services Region level and modifies the credit option for each Availability
+    /// Zone. All zones in a Region are updated within five minutes. But if instances are
+    /// launched during this operation, they might not get the new credit option until the
+    /// zone is updated. To verify whether the update has occurred, you can call <c>GetDefaultCreditSpecification</c>
+    /// and check <c>DefaultCreditSpecification</c> for updates.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
     /// performance instances</a> in the <i>Amazon EC2 User Guide</i>.
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CpuCredit
         /// <summary>
         /// <para>
-        /// <para>The credit option for CPU usage of the instance family.</para><para>Valid Values: <code>standard</code> | <code>unlimited</code></para>
+        /// <para>The credit option for CPU usage of the instance family.</para><para>Valid Values: <c>standard</c> | <c>unlimited</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

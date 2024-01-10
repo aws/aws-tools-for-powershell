@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter UtcIncludedDeletedBackTo
         /// <summary>
         /// <para>
-        /// <para> If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then environments
+        /// <para> If specified when <c>IncludeDeleted</c> is set to <c>true</c>, then environments
         /// deleted after this date are displayed. </para>
         /// </para>
         /// </summary>
@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter IncludeDeleted
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to include deleted environments:</para><para><code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code>
-        /// are displayed.</para><para><code>false</code>: Do not include deleted environments.</para>
+        /// <para>Indicates whether to include deleted environments:</para><para><c>true</c>: Environments that have been deleted after <c>IncludedDeletedBackTo</c>
+        /// are displayed.</para><para><c>false</c>: Do not include deleted environments.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// being assigned, the latest assignment to either one of the two property is reflected
         /// in the value of both. IncludedDeletedBackTo is provided for backwards compatibility
         /// only and assigning a non-Utc DateTime to it results in the wrong timestamp being passed
-        /// to the service.</para><para> If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then environments
+        /// to the service.</para><para> If specified when <c>IncludeDeleted</c> is set to <c>true</c>, then environments
         /// deleted after this date are displayed. </para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
@@ -133,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>For a paginated request. Specify a maximum number of environments to include in each
-        /// response.</para><para>If no <code>MaxRecords</code> is specified, all available environments are retrieved
-        /// in a single response.</para>
+        /// response.</para><para>If no <c>MaxRecords</c> is specified, all available environments are retrieved in
+        /// a single response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para>For a paginated request. Specify a token from a previous response page to retrieve
         /// the next response page. All other parameter values must be identical to the ones specified
-        /// in the initial request.</para><para>If no <code>NextToken</code> is specified, the first page is retrieved.</para>
+        /// in the initial request.</para><para>If no <c>NextToken</c> is specified, the first page is retrieved.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

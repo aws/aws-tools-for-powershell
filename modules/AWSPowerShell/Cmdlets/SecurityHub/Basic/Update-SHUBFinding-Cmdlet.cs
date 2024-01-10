@@ -28,14 +28,13 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// <code>UpdateFindings</code> is deprecated. Instead of <code>UpdateFindings</code>,
-    /// use <code>BatchUpdateFindings</code>.
+    /// <c>UpdateFindings</c> is deprecated. Instead of <c>UpdateFindings</c>, use <c>BatchUpdateFindings</c>.
     /// 
     ///  
     /// <para>
-    /// Updates the <code>Note</code> and <code>RecordState</code> of the Security Hub-aggregated
-    /// findings that the filter attributes specify. Any member account that can view the
-    /// finding also sees the update to the finding.
+    /// Updates the <c>Note</c> and <c>RecordState</c> of the Security Hub-aggregated findings
+    /// that the filter attributes specify. Any member account that can view the finding also
+    /// sees the update to the finding.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SHUBFinding", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

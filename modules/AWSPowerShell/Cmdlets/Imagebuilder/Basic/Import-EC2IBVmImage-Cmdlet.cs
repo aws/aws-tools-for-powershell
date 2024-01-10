@@ -140,9 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter VmImportTaskId
         /// <summary>
         /// <para>
-        /// <para>The <code>importTaskId</code> (API) or <code>ImportTaskId</code> (CLI) from the Amazon
-        /// EC2 VM import process. Image Builder retrieves information from the import process
-        /// to pull in the AMI that is created from the VM source as the base image for your recipe.</para>
+        /// <para>The <c>importTaskId</c> (API) or <c>ImportTaskId</c> (CLI) from the Amazon EC2 VM
+        /// import process. Image Builder retrieves information from the import process to pull
+        /// in the AMI that is created from the VM source as the base image for your recipe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

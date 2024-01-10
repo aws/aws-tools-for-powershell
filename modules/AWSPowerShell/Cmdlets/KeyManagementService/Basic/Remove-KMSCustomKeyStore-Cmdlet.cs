@@ -49,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// from the custom key store, use <a>DisconnectCustomKeyStore</a> to disconnect the key
     /// store from KMS. Then, you can delete the custom key store.
     /// </para><para>
-    /// For keys in an CloudHSM key store, the <code>ScheduleKeyDeletion</code> operation
-    /// makes a best effort to delete the key material from the associated cluster. However,
-    /// you might need to manually <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key">delete
+    /// For keys in an CloudHSM key store, the <c>ScheduleKeyDeletion</c> operation makes
+    /// a best effort to delete the key material from the associated cluster. However, you
+    /// might need to manually <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key">delete
     /// the orphaned key material</a> from the cluster and its backups. KMS never creates,
     /// manages, or deletes cryptographic keys in the external key manager associated with
     /// an external key store. You must manage them using your external key manager tools.

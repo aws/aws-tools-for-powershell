@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter ContentSourceConfiguration_DirectPutContent
         /// <summary>
         /// <para>
-        /// <para><code>TRUE</code> to use documents you indexed directly using the <code>BatchPutDocument</code>
+        /// <para><c>TRUE</c> to use documents you indexed directly using the <c>BatchPutDocument</c>
         /// API.</para>
         /// </para>
         /// </summary>
@@ -152,9 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a role with permission to access <code>Query</code>
-        /// API, <code>QuerySuggestions</code> API, <code>SubmitFeedback</code> API, and IAM Identity
-        /// Center that stores your user and group information. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
+        /// <para>The Amazon Resource Name (ARN) of a role with permission to access <c>Query</c> API,
+        /// <c>QuerySuggestions</c> API, <c>SubmitFeedback</c> API, and IAM Identity Center that
+        /// stores your user and group information. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
         /// roles for Amazon Kendra</a>.</para>
         /// </para>
         /// </summary>

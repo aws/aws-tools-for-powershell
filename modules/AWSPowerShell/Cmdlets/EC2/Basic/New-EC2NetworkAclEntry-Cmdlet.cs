@@ -64,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CidrBlock
         /// <summary>
         /// <para>
-        /// <para>The IPv4 network range to allow or deny, in CIDR notation (for example <code>172.16.0.0/24</code>).
+        /// <para>The IPv4 network range to allow or deny, in CIDR notation (for example <c>172.16.0.0/24</c>).
         /// We modify the specified CIDR block to its canonical form; for example, if you specify
-        /// <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</para>
+        /// <c>100.68.0.18/18</c>, we modify it to <c>100.68.0.0/18</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Ipv6CidrBlock
         /// <summary>
         /// <para>
-        /// <para>The IPv6 network range to allow or deny, in CIDR notation (for example <code>2001:db8:1234:1a00::/64</code>).</para>
+        /// <para>The IPv6 network range to allow or deny, in CIDR notation (for example <c>2001:db8:1234:1a00::/64</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

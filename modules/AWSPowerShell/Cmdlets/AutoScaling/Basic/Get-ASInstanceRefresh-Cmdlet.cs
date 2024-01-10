@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return with this call. The default value is <code>50</code>
-        /// and the maximum value is <code>100</code>.</para>
+        /// <para>The maximum number of items to return with this call. The default value is <c>50</c>
+        /// and the maximum value is <c>100</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

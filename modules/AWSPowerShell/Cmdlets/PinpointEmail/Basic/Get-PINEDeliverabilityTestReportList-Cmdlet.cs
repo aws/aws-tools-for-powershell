@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     /// <summary>
     /// Show a list of the predictive inbox placement tests that you've performed, regardless
     /// of their statuses. For predictive inbox placement tests that are complete, you can
-    /// use the <code>GetDeliverabilityTestReport</code> operation to view the results.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// use the <c>GetDeliverabilityTestReport</c> operation to view the results.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "PINEDeliverabilityTestReportList")]
     [OutputType("Amazon.PinpointEmail.Model.DeliverabilityTestReport")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token returned from a previous call to <code>ListDeliverabilityTestReports</code>
-        /// to indicate the position in the list of predictive inbox placement tests.</para>
+        /// <para>A token returned from a previous call to <c>ListDeliverabilityTestReports</c> to indicate
+        /// the position in the list of predictive inbox placement tests.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -62,10 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>The number of results to show in a single call to <code>ListDeliverabilityTestReports</code>.
+        /// <para>The number of results to show in a single call to <c>ListDeliverabilityTestReports</c>.
         /// If the number of results is larger than the number you specified in this parameter,
-        /// then the response includes a <code>NextToken</code> element, which you can use to
-        /// obtain additional results.</para><para>The value you specify has to be at least 0, and can be no more than 1000.</para>
+        /// then the response includes a <c>NextToken</c> element, which you can use to obtain
+        /// additional results.</para><para>The value you specify has to be at least 0, and can be no more than 1000.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

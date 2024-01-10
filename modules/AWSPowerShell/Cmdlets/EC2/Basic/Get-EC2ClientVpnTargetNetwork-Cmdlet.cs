@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><code>association-id</code> - The ID of the association.</para></li><li><para><code>target-network-id</code> - The ID of the subnet specified as the target network.</para></li><li><para><code>vpc-id</code> - The ID of the VPC in which the target network is located.</para></li></ul>
+        /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><c>association-id</c> - The ID of the association.</para></li><li><para><c>target-network-id</c> - The ID of the subnet specified as the target network.</para></li><li><para><c>vpc-id</c> - The ID of the VPC in which the target network is located.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

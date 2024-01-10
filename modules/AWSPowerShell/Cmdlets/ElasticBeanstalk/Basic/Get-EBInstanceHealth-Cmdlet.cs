@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>Specifies the response elements you wish to receive. To retrieve all attributes, set
-        /// to <code>All</code>. If no attribute names are specified, returns a list of instances.</para>
+        /// to <c>All</c>. If no attribute names are specified, returns a list of instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

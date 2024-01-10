@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// Before you create the association, run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">create-network-interface</a>
-    /// command and set <code>--interface-type</code> to <code>trunk</code>. You must also
-    /// create a network interface for each branch network interface that you want to associate
-    /// with the trunk network interface.
+    /// command and set <c>--interface-type</c> to <c>trunk</c>. You must also create a network
+    /// interface for each branch network interface that you want to associate with the trunk
+    /// network interface.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "EC2TrunkInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

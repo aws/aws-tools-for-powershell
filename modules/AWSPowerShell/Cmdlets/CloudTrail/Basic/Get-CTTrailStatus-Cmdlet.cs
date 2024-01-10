@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <para>
         /// <para>Specifies the name or the CloudTrail ARN of the trail for which you are requesting
         /// status. To get the status of a shadow trail (a replication of the trail in another
-        /// Region), you must specify its ARN. The following is the format of a trail ARN.</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
+        /// Region), you must specify its ARN. The following is the format of a trail ARN.</para><para><c>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

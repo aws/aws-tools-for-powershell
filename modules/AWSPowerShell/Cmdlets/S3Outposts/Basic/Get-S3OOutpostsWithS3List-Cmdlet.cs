@@ -58,10 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.S3O
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When you can get additional results from the <code>ListOutpostsWithS3</code> call,
-        /// a <code>NextToken</code> parameter is returned in the output. You can then pass in
-        /// a subsequent command to the <code>NextToken</code> parameter to continue listing additional
-        /// Outposts.</para>
+        /// <para>When you can get additional results from the <c>ListOutpostsWithS3</c> call, a <c>NextToken</c>
+        /// parameter is returned in the output. You can then pass in a subsequent command to
+        /// the <c>NextToken</c> parameter to continue listing additional Outposts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

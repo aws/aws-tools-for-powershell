@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// you provide the name of the destination bucket or buckets where you want Amazon S3
     /// to replicate objects, the IAM role that Amazon S3 can assume to replicate objects
     /// on your behalf, and other relevant information. You can invoke this request for a
-    /// specific Amazon Web Services Region by using the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requestedregion"><code>aws:RequestedRegion</code></a> condition key.
+    /// specific Amazon Web Services Region by using the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requestedregion"><c>aws:RequestedRegion</c></a> condition key.
     /// </para><para>
     /// A replication configuration must include at least one rule, and can contain a maximum
     /// of 1,000. Each rule identifies a subset of objects to replicate by filtering the objects
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// To specify a subset of the objects in the source bucket to apply a replication rule
     /// to, add the Filter element as a child of the Rule element. You can filter objects
     /// based on an object key prefix, one or more object tags, or both. When you add the
-    /// Filter element in the configuration, you must also add the following elements: <code>DeleteMarkerReplication</code>,
-    /// <code>Status</code>, and <code>Priority</code>.
+    /// Filter element in the configuration, you must also add the following elements: <c>DeleteMarkerReplication</c>,
+    /// <c>Status</c>, and <c>Priority</c>.
     /// </para><note><para>
     /// If you are using an earlier version of the replication configuration, Amazon S3 handles
     /// replication of delete markers differently. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations">Backward
@@ -61,14 +61,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><dl><dt>Handling Replication of Encrypted Objects</dt><dd><para>
     /// By default, Amazon S3 doesn't replicate objects that are stored at rest using server-side
     /// encryption with KMS keys. To replicate Amazon Web Services KMS-encrypted objects,
-    /// add the following: <code>SourceSelectionCriteria</code>, <code>SseKmsEncryptedObjects</code>,
-    /// <code>Status</code>, <code>EncryptionConfiguration</code>, and <code>ReplicaKmsKeyID</code>.
-    /// For information about replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html">Replicating
+    /// add the following: <c>SourceSelectionCriteria</c>, <c>SseKmsEncryptedObjects</c>,
+    /// <c>Status</c>, <c>EncryptionConfiguration</c>, and <c>ReplicaKmsKeyID</c>. For information
+    /// about replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html">Replicating
     /// Objects Created with SSE Using KMS keys</a>.
     /// </para><para>
-    /// For information on <code>PutBucketReplication</code> errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList">List
+    /// For information on <c>PutBucketReplication</c> errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList">List
     /// of replication-related error codes</a></para></dd><dt>Permissions</dt><dd><para>
-    /// To create a <code>PutBucketReplication</code> request, you must have <code>s3:PutReplicationConfiguration</code>
+    /// To create a <c>PutBucketReplication</c> request, you must have <c>s3:PutReplicationConfiguration</c>
     /// permissions for the bucket. 
     /// </para><para>
     /// By default, a resource owner, in this case the Amazon Web Services account that created
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// To perform this operation, the user or role performing the action must have the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a>
     /// permission.
     /// </para></note></dd></dl><para>
-    /// The following operations are related to <code>PutBucketReplication</code>:
+    /// The following operations are related to <c>PutBucketReplication</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html">GetBucketReplication</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html">DeleteBucketReplication</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

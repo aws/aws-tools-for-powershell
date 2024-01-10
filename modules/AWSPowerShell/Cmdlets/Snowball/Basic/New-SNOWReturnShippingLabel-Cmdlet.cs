@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <summary>
         /// <para>
         /// <para>The ID for a job that you want to create the return shipping label for; for example,
-        /// <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</para>
+        /// <c>JID123e4567-e89b-12d3-a456-426655440000</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

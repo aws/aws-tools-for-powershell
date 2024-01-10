@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para> Filters to scope the results. Valid filters are <code>ResourceArns</code> and <code>Status</code>.
+        /// <para> Filters to scope the results. Valid filters are <c>ResourceArns</c> and <c>Status</c>.
         /// </para>
         /// </para>
         /// </summary>

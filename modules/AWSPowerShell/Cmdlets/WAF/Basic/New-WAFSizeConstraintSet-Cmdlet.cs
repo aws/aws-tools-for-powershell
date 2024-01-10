@@ -35,22 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Creates a <code>SizeConstraintSet</code>. You then use <a>UpdateSizeConstraintSet</a>
-    /// to identify the part of a web request that you want AWS WAF to check for length, such
-    /// as the length of the <code>User-Agent</code> header or the length of the query string.
-    /// For example, you can create a <code>SizeConstraintSet</code> that matches any requests
-    /// that have a query string that is longer than 100 bytes. You can then configure AWS
-    /// WAF to reject those requests.
+    /// Creates a <c>SizeConstraintSet</c>. You then use <a>UpdateSizeConstraintSet</a> to
+    /// identify the part of a web request that you want AWS WAF to check for length, such
+    /// as the length of the <c>User-Agent</c> header or the length of the query string. For
+    /// example, you can create a <c>SizeConstraintSet</c> that matches any requests that
+    /// have a query string that is longer than 100 bytes. You can then configure AWS WAF
+    /// to reject those requests.
     /// </para><para>
-    /// To create and configure a <code>SizeConstraintSet</code>, perform the following steps:
+    /// To create and configure a <c>SizeConstraintSet</c>, perform the following steps:
     /// </para><ol><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>CreateSizeConstraintSet</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of a <c>CreateSizeConstraintSet</c> request.
     /// </para></li><li><para>
-    /// Submit a <code>CreateSizeConstraintSet</code> request.
+    /// Submit a <c>CreateSizeConstraintSet</c> request.
     /// </para></li><li><para>
-    /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of an <code>UpdateSizeConstraintSet</code> request.
+    /// Use <c>GetChangeToken</c> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of an <c>UpdateSizeConstraintSet</c> request.
     /// </para></li><li><para>
     /// Submit an <a>UpdateSizeConstraintSet</a> request to specify the part of the request
     /// that you want AWS WAF to inspect (for example, the header or the URI) and the value
@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A friendly name or description of the <a>SizeConstraintSet</a>. You can't change <code>Name</code>
-        /// after you create a <code>SizeConstraintSet</code>.</para>
+        /// <para>A friendly name or description of the <a>SizeConstraintSet</a>. You can't change <c>Name</c>
+        /// after you create a <c>SizeConstraintSet</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

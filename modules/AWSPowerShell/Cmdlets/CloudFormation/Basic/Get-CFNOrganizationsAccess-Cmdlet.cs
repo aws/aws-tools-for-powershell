@@ -28,10 +28,10 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Retrieves information about the account's <code>OrganizationAccess</code> status.
-    /// This API can be called either by the management account or the delegated administrator
-    /// by using the <code>CallAs</code> parameter. This API can also be called without the
-    /// <code>CallAs</code> parameter by the management account.
+    /// Retrieves information about the account's <c>OrganizationAccess</c> status. This API
+    /// can be called either by the management account or the delegated administrator by using
+    /// the <c>CallAs</c> parameter. This API can also be called without the <c>CallAs</c>
+    /// parameter by the management account.
     /// </summary>
     [Cmdlet("Get", "CFNOrganizationsAccess")]
     [OutputType("Amazon.CloudFormation.OrganizationStatus")]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>[Service-managed permissions] Specifies whether you are acting as an account administrator
         /// in the organization's management account or as a delegated administrator in a member
-        /// account.</para><para>By default, <code>SELF</code> is specified.</para><ul><li><para>If you are signed in to the management account, specify <code>SELF</code>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</para><para>Your Amazon Web Services account must be registered as a delegated administrator in
+        /// account.</para><para>By default, <c>SELF</c> is specified.</para><ul><li><para>If you are signed in to the management account, specify <c>SELF</c>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <c>DELEGATED_ADMIN</c>.</para><para>Your Amazon Web Services account must be registered as a delegated administrator in
         /// the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
         /// a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</para></li></ul>
         /// </para>

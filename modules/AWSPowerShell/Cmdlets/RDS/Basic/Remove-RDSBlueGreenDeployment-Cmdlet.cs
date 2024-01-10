@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>Specifies whether to delete the resources in the green environment. You can't specify
         /// this option if the blue/green deployment <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_BlueGreenDeployment.html">status</a>
-        /// is <code>SWITCHOVER_COMPLETED</code>.</para>
+        /// is <c>SWITCHOVER_COMPLETED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// and associated DNS record of the deleted load balancer no longer exist and traffic
     /// sent to any of its IP addresses is no longer delivered to your instances.
     /// </para><para>
-    /// If the load balancer does not exist or has already been deleted, the call to <code>DeleteLoadBalancer</code>
+    /// If the load balancer does not exist or has already been deleted, the call to <c>DeleteLoadBalancer</c>
     /// still succeeds.
     /// </para>
     /// </summary>

@@ -48,11 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_ACMCertificateArn
         /// <summary>
         /// <para>
-        /// <para>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs) and
-        /// the SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html">Certificate
+        /// <para>If the distribution uses <c>Aliases</c> (alternate domain names or CNAMEs) and the
+        /// SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html">Certificate
         /// Manager (ACM)</a>, provide the Amazon Resource Name (ARN) of the ACM certificate.
-        /// CloudFront only supports ACM certificates in the US East (N. Virginia) Region (<code>us-east-1</code>).</para><para>If you specify an ACM certificate ARN, you must also specify values for <code>MinimumProtocolVersion</code>
-        /// and <code>SSLSupportMethod</code>.</para>
+        /// CloudFront only supports ACM certificates in the US East (N. Virginia) Region (<c>us-east-1</c>).</para><para>If you specify an ACM certificate ARN, you must also specify values for <c>MinimumProtocolVersion</c>
+        /// and <c>SSLSupportMethod</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Logging_Bucket
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket to store the access logs in, for example, <code>myawslogbucket.s3.amazonaws.com</code>.</para>
+        /// <para>The Amazon S3 bucket to store the access logs in, for example, <c>myawslogbucket.s3.amazonaws.com</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>The unique identifier of the cache policy that is attached to the default cache behavior.
         /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating
         /// cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using
-        /// the managed cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>A <code>DefaultCacheBehavior</code> must include either a <code>CachePolicyId</code>
-        /// or <code>ForwardedValues</code>. We recommend that you use a <code>CachePolicyId</code>.</para>
+        /// the managed cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>A <c>DefaultCacheBehavior</c> must include either a <c>CachePolicyId</c> or <c>ForwardedValues</c>.
+        /// We recommend that you use a <c>CachePolicyId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,10 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A unique value (for example, a date-time stamp) that ensures that the request can't
-        /// be replayed.</para><para>If the value of <code>CallerReference</code> is new (regardless of the content of
-        /// the <code>DistributionConfig</code> object), CloudFront creates a new distribution.</para><para>If <code>CallerReference</code> is a value that you already sent in a previous request
-        /// to create a distribution, CloudFront returns a <code>DistributionAlreadyExists</code>
-        /// error.</para>
+        /// be replayed.</para><para>If the value of <c>CallerReference</c> is new (regardless of the content of the <c>DistributionConfig</c>
+        /// object), CloudFront creates a new distribution.</para><para>If <c>CallerReference</c> is a value that you already sent in a previous request to
+        /// create a distribution, CloudFront returns a <c>DistributionAlreadyExists</c> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,10 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_CloudFrontDefaultCertificate
         /// <summary>
         /// <para>
-        /// <para>If the distribution uses the CloudFront domain name such as <code>d111111abcdef8.cloudfront.net</code>,
-        /// set this field to <code>true</code>.</para><para>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs),
-        /// set this field to <code>false</code> and specify values for the following fields:</para><ul><li><para><code>ACMCertificateArn</code> or <code>IAMCertificateId</code> (specify a value
-        /// for one, not both)</para></li><li><para><code>MinimumProtocolVersion</code></para></li><li><para><code>SSLSupportMethod</code></para></li></ul>
+        /// <para>If the distribution uses the CloudFront domain name such as <c>d111111abcdef8.cloudfront.net</c>,
+        /// set this field to <c>true</c>.</para><para>If the distribution uses <c>Aliases</c> (alternate domain names or CNAMEs), set this
+        /// field to <c>false</c> and specify values for the following fields:</para><ul><li><para><c>ACMCertificateArn</c> or <c>IAMCertificateId</c> (specify a value for one, not
+        /// both)</para></li><li><para><c>MinimumProtocolVersion</c></para></li><li><para><c>SSLSupportMethod</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>Whether you want CloudFront to automatically compress certain files for this cache
-        /// behavior. If so, specify <code>true</code>; if not, specify <code>false</code>. For
-        /// more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html">Serving
+        /// behavior. If so, specify <c>true</c>; if not, specify <c>false</c>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html">Serving
         /// Compressed Files</a> in the <i>Amazon CloudFront Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -155,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_ContinuousDeploymentPolicyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of a continuous deployment policy. For more information, see <code>CreateContinuousDeploymentPolicy</code>.</para>
+        /// <para>The identifier of a continuous deployment policy. For more information, see <c>CreateContinuousDeploymentPolicy</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,13 +164,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_DefaultRootObject
         /// <summary>
         /// <para>
-        /// <para>The object that you want CloudFront to request from your origin (for example, <code>index.html</code>)
-        /// when a viewer requests the root URL for your distribution (<code>https://www.example.com</code>)
-        /// instead of an object in your distribution (<code>https://www.example.com/product-description.html</code>).
-        /// Specifying a default root object avoids exposing the contents of your distribution.</para><para>Specify only the object name, for example, <code>index.html</code>. Don't add a <code>/</code>
+        /// <para>The object that you want CloudFront to request from your origin (for example, <c>index.html</c>)
+        /// when a viewer requests the root URL for your distribution (<c>https://www.example.com</c>)
+        /// instead of an object in your distribution (<c>https://www.example.com/product-description.html</c>).
+        /// Specifying a default root object avoids exposing the contents of your distribution.</para><para>Specify only the object name, for example, <c>index.html</c>. Don't add a <c>/</c>
         /// before the object name.</para><para>If you don't want to specify a default root object when you create a distribution,
-        /// include an empty <code>DefaultRootObject</code> element.</para><para>To delete the default root object from an existing distribution, update the distribution
-        /// configuration and include an empty <code>DefaultRootObject</code> element.</para><para>To replace the default root object, update the distribution configuration and specify
+        /// include an empty <c>DefaultRootObject</c> element.</para><para>To delete the default root object from an existing distribution, update the distribution
+        /// configuration and include an empty <c>DefaultRootObject</c> element.</para><para>To replace the default root object, update the distribution configuration and specify
         /// the new object.</para><para>For more information about the default root object, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html">Creating
         /// a Default Root Object</a> in the <i>Amazon CloudFront Developer Guide</i>.</para>
         /// </para>
@@ -183,9 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedKeyGroups_Enabled
         /// <summary>
         /// <para>
-        /// <para>This field is <code>true</code> if any of the key groups in the list have public keys
-        /// that CloudFront can use to verify the signatures of signed URLs and signed cookies.
-        /// If not, this field is <code>false</code>.</para>
+        /// <para>This field is <c>true</c> if any of the key groups in the list have public keys that
+        /// CloudFront can use to verify the signatures of signed URLs and signed cookies. If
+        /// not, this field is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,8 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Enabled
         /// <summary>
         /// <para>
-        /// <para>This field is <code>true</code> if any of the Amazon Web Services accounts in the
-        /// list are configured as trusted signers. If not, this field is <code>false</code>.</para>
+        /// <para>This field is <c>true</c> if any of the Amazon Web Services accounts in the list are
+        /// configured as trusted signers. If not, this field is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -226,11 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket.
         /// If you don't want to enable logging when you create a distribution or if you want
-        /// to disable logging for an existing distribution, specify <code>false</code> for <code>Enabled</code>,
-        /// and specify empty <code>Bucket</code> and <code>Prefix</code> elements. If you specify
-        /// <code>false</code> for <code>Enabled</code> but you specify values for <code>Bucket</code>,
-        /// <code>prefix</code>, and <code>IncludeCookies</code>, the values are automatically
-        /// deleted.</para>
+        /// to disable logging for an existing distribution, specify <c>false</c> for <c>Enabled</c>,
+        /// and specify empty <c>Bucket</c> and <c>Prefix</c> elements. If you specify <c>false</c>
+        /// for <c>Enabled</c> but you specify values for <c>Bucket</c>, <c>prefix</c>, and <c>IncludeCookies</c>,
+        /// the values are automatically deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -241,9 +239,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DefaultCacheBehavior_FieldLevelEncryptionId
         /// <summary>
         /// <para>
-        /// <para>The value of <code>ID</code> for the field-level encryption configuration that you
-        /// want CloudFront to use for encrypting specific fields of data for the default cache
-        /// behavior.</para>
+        /// <para>The value of <c>ID</c> for the field-level encryption configuration that you want
+        /// CloudFront to use for encrypting specific fields of data for the default cache behavior.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -260,8 +257,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>If you want to send cookies to the origin but not include them in the cache key, use
         /// origin request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating
         /// origin request policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>Specifies which cookies to forward to the origin for this cache behavior: all, none,
-        /// or the list of cookies specified in the <code>WhitelistedNames</code> complex type.</para><para>Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests
-        /// to an Amazon S3 origin, specify none for the <code>Forward</code> element.</para>
+        /// or the list of cookies specified in the <c>WhitelistedNames</c> complex type.</para><para>Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests
+        /// to an Amazon S3 origin, specify none for the <c>Forward</c> element.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -274,8 +271,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>(Optional) Specify the maximum HTTP version(s) that you want viewers to use to communicate
-        /// with CloudFront. The default value for new web distributions is <code>http2</code>.
-        /// Viewers that don't support HTTP/2 automatically use an earlier HTTP version.</para><para>For viewers and CloudFront to use HTTP/2, viewers must support TLSv1.2 or later, and
+        /// with CloudFront. The default value for new web distributions is <c>http2</c>. Viewers
+        /// that don't support HTTP/2 automatically use an earlier HTTP version.</para><para>For viewers and CloudFront to use HTTP/2, viewers must support TLSv1.2 or later, and
         /// must support Server Name Indication (SNI).</para><para>For viewers and CloudFront to use HTTP/3, viewers must support TLSv1.3 and Server
         /// Name Indication (SNI). CloudFront supports HTTP/3 connection migration to allow the
         /// viewer to switch networks without losing connection. For more information about connection
@@ -293,10 +290,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_IAMCertificateId
         /// <summary>
         /// <para>
-        /// <para>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs) and
-        /// the SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Identity
-        /// and Access Management (IAM)</a>, provide the ID of the IAM certificate.</para><para>If you specify an IAM certificate ID, you must also specify values for <code>MinimumProtocolVersion</code>
-        /// and <code>SSLSupportMethod</code>. </para>
+        /// <para>If the distribution uses <c>Aliases</c> (alternate domain names or CNAMEs) and the
+        /// SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Identity
+        /// and Access Management (IAM)</a>, provide the ID of the IAM certificate.</para><para>If you specify an IAM certificate ID, you must also specify values for <c>MinimumProtocolVersion</c>
+        /// and <c>SSLSupportMethod</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -307,12 +304,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Logging_IncludeCookie
         /// <summary>
         /// <para>
-        /// <para>Specifies whether you want CloudFront to include cookies in access logs, specify <code>true</code>
-        /// for <code>IncludeCookies</code>. If you choose to include cookies in logs, CloudFront
-        /// logs all cookies regardless of how you configure the cache behaviors for this distribution.
+        /// <para>Specifies whether you want CloudFront to include cookies in access logs, specify <c>true</c>
+        /// for <c>IncludeCookies</c>. If you choose to include cookies in logs, CloudFront logs
+        /// all cookies regardless of how you configure the cache behaviors for this distribution.
         /// If you don't want to include cookies when you create a distribution or if you want
-        /// to disable include cookies for an existing distribution, specify <code>false</code>
-        /// for <code>IncludeCookies</code>.</para>
+        /// to disable include cookies for an existing distribution, specify <c>false</c> for
+        /// <c>IncludeCookies</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -324,12 +321,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your
-        /// distribution, specify <code>true</code>. If you specify <code>false</code>, CloudFront
-        /// responds to IPv6 DNS requests with the DNS response code <code>NOERROR</code> and
-        /// with no IP addresses. This allows viewers to submit a second request, for an IPv4
-        /// address for your distribution.</para><para>In general, you should enable IPv6 if you have users on IPv6 networks who want to
+        /// distribution, specify <c>true</c>. If you specify <c>false</c>, CloudFront responds
+        /// to IPv6 DNS requests with the DNS response code <c>NOERROR</c> and with no IP addresses.
+        /// This allows viewers to submit a second request, for an IPv4 address for your distribution.</para><para>In general, you should enable IPv6 if you have users on IPv6 networks who want to
         /// access your content. However, if you're using signed URLs or signed cookies to restrict
-        /// access to your content, and if you're using a custom policy that includes the <code>IpAddress</code>
+        /// access to your content, and if you're using a custom policy that includes the <c>IpAddress</c>
         /// parameter to restrict the IP addresses that can access your content, don't enable
         /// IPv6. If you want to restrict access to some content by IP address and not restrict
         /// access to other content (or restrict access but not by IP address), you can create
@@ -363,8 +359,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter CacheBehaviors_Item
         /// <summary>
         /// <para>
-        /// <para>Optional: A complex type that contains cache behaviors for this distribution. If <code>Quantity</code>
-        /// is <code>0</code>, you can omit <code>Items</code>.</para>
+        /// <para>Optional: A complex type that contains cache behaviors for this distribution. If <c>Quantity</c>
+        /// is <c>0</c>, you can omit <c>Items</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -375,8 +371,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter CustomErrorResponses_Item
         /// <summary>
         /// <para>
-        /// <para>A complex type that contains a <code>CustomErrorResponse</code> element for each HTTP
-        /// status code for which you want to specify a custom error page and/or a caching duration.
+        /// <para>A complex type that contains a <c>CustomErrorResponse</c> element for each HTTP status
+        /// code for which you want to specify a custom error page and/or a caching duration.
         /// </para>
         /// </para>
         /// </summary>
@@ -435,8 +431,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A list that contains the query string parameters that you want CloudFront to use as
-        /// a basis for caching for a cache behavior. If <code>Quantity</code> is 0, you can omit
-        /// <code>Items</code>.</para>
+        /// a basis for caching for a cache behavior. If <c>Quantity</c> is 0, you can omit <c>Items</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -448,8 +443,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The CloudFront functions that are associated with a cache behavior in a CloudFront
-        /// distribution. CloudFront functions must be published to the <code>LIVE</code> stage
-        /// to associate them with a cache behavior.</para>
+        /// distribution. CloudFront functions must be published to the <c>LIVE</c> stage to associate
+        /// them with a cache behavior.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -460,9 +455,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter LambdaFunctionAssociations_Item
         /// <summary>
         /// <para>
-        /// <para><b>Optional</b>: A complex type that contains <code>LambdaFunctionAssociation</code>
-        /// items for this cache behavior. If <code>Quantity</code> is <code>0</code>, you can
-        /// omit <code>Items</code>.</para>
+        /// <para><b>Optional</b>: A complex type that contains <c>LambdaFunctionAssociation</c> items
+        /// for this cache behavior. If <c>Quantity</c> is <c>0</c>, you can omit <c>Items</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -524,15 +518,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter GeoRestriction_Item
         /// <summary>
         /// <para>
-        /// <para>A complex type that contains a <code>Location</code> element for each country in which
-        /// you want CloudFront either to distribute your content (<code>whitelist</code>) or
-        /// not distribute your content (<code>blacklist</code>).</para><para>The <code>Location</code> element is a two-letter, uppercase country code for a country
-        /// that you want to include in your <code>blacklist</code> or <code>whitelist</code>.
-        /// Include one <code>Location</code> element for each country.</para><para>CloudFront and <code>MaxMind</code> both use <code>ISO 3166</code> country codes.
-        /// For the current list of countries and the corresponding codes, see <code>ISO 3166-1-alpha-2</code>
-        /// code on the <i>International Organization for Standardization</i> website. You can
-        /// also refer to the country list on the CloudFront console, which includes both country
-        /// names and codes.</para>
+        /// <para>A complex type that contains a <c>Location</c> element for each country in which you
+        /// want CloudFront either to distribute your content (<c>whitelist</c>) or not distribute
+        /// your content (<c>blacklist</c>).</para><para>The <c>Location</c> element is a two-letter, uppercase country code for a country
+        /// that you want to include in your <c>blacklist</c> or <c>whitelist</c>. Include one
+        /// <c>Location</c> element for each country.</para><para>CloudFront and <c>MaxMind</c> both use <c>ISO 3166</c> country codes. For the current
+        /// list of countries and the corresponding codes, see <c>ISO 3166-1-alpha-2</c> code
+        /// on the <i>International Organization for Standardization</i> website. You can also
+        /// refer to the country list on the CloudFront console, which includes both country names
+        /// and codes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -543,16 +537,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_MinimumProtocolVersion
         /// <summary>
         /// <para>
-        /// <para>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs),
-        /// specify the security policy that you want CloudFront to use for HTTPS connections
-        /// with viewers. The security policy determines two settings:</para><ul><li><para>The minimum SSL/TLS protocol that CloudFront can use to communicate with viewers.</para></li><li><para>The ciphers that CloudFront can use to encrypt the content that it returns to viewers.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy">Security
+        /// <para>If the distribution uses <c>Aliases</c> (alternate domain names or CNAMEs), specify
+        /// the security policy that you want CloudFront to use for HTTPS connections with viewers.
+        /// The security policy determines two settings:</para><ul><li><para>The minimum SSL/TLS protocol that CloudFront can use to communicate with viewers.</para></li><li><para>The ciphers that CloudFront can use to encrypt the content that it returns to viewers.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy">Security
         /// Policy</a> and <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers">Supported
         /// Protocols and Ciphers Between Viewers and CloudFront</a> in the <i>Amazon CloudFront
-        /// Developer Guide</i>.</para><note><para>On the CloudFront console, this setting is called <b>Security Policy</b>.</para></note><para>When you're using SNI only (you set <code>SSLSupportMethod</code> to <code>sni-only</code>),
-        /// you must specify <code>TLSv1</code> or higher.</para><para>If the distribution uses the CloudFront domain name such as <code>d111111abcdef8.cloudfront.net</code>
-        /// (you set <code>CloudFrontDefaultCertificate</code> to <code>true</code>), CloudFront
-        /// automatically sets the security policy to <code>TLSv1</code> regardless of the value
-        /// that you set here.</para>
+        /// Developer Guide</i>.</para><note><para>On the CloudFront console, this setting is called <b>Security Policy</b>.</para></note><para>When you're using SNI only (you set <c>SSLSupportMethod</c> to <c>sni-only</c>), you
+        /// must specify <c>TLSv1</c> or higher.</para><para>If the distribution uses the CloudFront domain name such as <c>d111111abcdef8.cloudfront.net</c>
+        /// (you set <c>CloudFrontDefaultCertificate</c> to <c>true</c>), CloudFront automatically
+        /// sets the security policy to <c>TLSv1</c> regardless of the value that you set here.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -578,10 +571,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Logging_Prefix
         /// <summary>
         /// <para>
-        /// <para>An optional string that you want CloudFront to prefix to the access log <code>filenames</code>
-        /// for this distribution, for example, <code>myprefix/</code>. If you want to enable
-        /// logging, but you don't want to specify a prefix, you still must include an empty <code>Prefix</code>
-        /// element in the <code>Logging</code> element.</para>
+        /// <para>An optional string that you want CloudFront to prefix to the access log <c>filenames</c>
+        /// for this distribution, for example, <c>myprefix/</c>. If you want to enable logging,
+        /// but you don't want to specify a prefix, you still must include an empty <c>Prefix</c>
+        /// element in the <c>Logging</c> element.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -593,10 +586,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The price class that corresponds with the maximum price that you want to pay for CloudFront
-        /// service. If you specify <code>PriceClass_All</code>, CloudFront responds to requests
-        /// for your objects from all CloudFront edge locations.</para><para>If you specify a price class other than <code>PriceClass_All</code>, CloudFront serves
-        /// your objects from the CloudFront edge location that has the lowest latency among the
-        /// edge locations in your price class. Viewers who are in or near regions that are excluded
+        /// service. If you specify <c>PriceClass_All</c>, CloudFront responds to requests for
+        /// your objects from all CloudFront edge locations.</para><para>If you specify a price class other than <c>PriceClass_All</c>, CloudFront serves your
+        /// objects from the CloudFront edge location that has the lowest latency among the edge
+        /// locations in your price class. Viewers who are in or near regions that are excluded
         /// from your specified price class may encounter slower performance.</para><para>For more information about price classes, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html">Choosing
         /// the Price Class for a CloudFront Distribution</a> in the <i>Amazon CloudFront Developer
         /// Guide</i>. For information about CloudFront pricing, including how price classes (such
@@ -635,8 +628,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The number of HTTP status codes for which you want to specify a custom error page
-        /// and/or a caching duration. If <code>Quantity</code> is <code>0</code>, you can omit
-        /// <code>Items</code>.</para>
+        /// and/or a caching duration. If <c>Quantity</c> is <c>0</c>, you can omit <c>Items</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -648,9 +640,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The number of HTTP methods for which you want CloudFront to cache responses. Valid
-        /// values are <code>2</code> (for caching responses to <code>GET</code> and <code>HEAD</code>
-        /// requests) and <code>3</code> (for caching responses to <code>GET</code>, <code>HEAD</code>,
-        /// and <code>OPTIONS</code> requests).</para>
+        /// values are <c>2</c> (for caching responses to <c>GET</c> and <c>HEAD</c> requests)
+        /// and <c>3</c> (for caching responses to <c>GET</c>, <c>HEAD</c>, and <c>OPTIONS</c>
+        /// requests).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -662,9 +654,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The number of HTTP methods that you want CloudFront to forward to your origin. Valid
-        /// values are 2 (for <code>GET</code> and <code>HEAD</code> requests), 3 (for <code>GET</code>,
-        /// <code>HEAD</code>, and <code>OPTIONS</code> requests) and 7 (for <code>GET, HEAD,
-        /// OPTIONS, PUT, PATCH, POST</code>, and <code>DELETE</code> requests).</para>
+        /// values are 2 (for <c>GET</c> and <c>HEAD</c> requests), 3 (for <c>GET</c>, <c>HEAD</c>,
+        /// and <c>OPTIONS</c> requests) and 7 (for <c>GET, HEAD, OPTIONS, PUT, PATCH, POST</c>,
+        /// and <c>DELETE</c> requests).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -675,7 +667,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter WhitelistedNames_Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of cookie names in the <code>Items</code> list.</para>
+        /// <para>The number of cookie names in the <c>Items</c> list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -686,7 +678,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Headers_Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of header names in the <code>Items</code> list.</para>
+        /// <para>The number of header names in the <c>Items</c> list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -697,7 +689,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter QueryStringCacheKeys_Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of <code>whitelisted</code> query string parameters for a cache behavior.</para>
+        /// <para>The number of <c>whitelisted</c> query string parameters for a cache behavior.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -780,9 +772,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter GeoRestriction_Quantity
         /// <summary>
         /// <para>
-        /// <para>When geo restriction is <code>enabled</code>, this is the number of countries in your
-        /// <code>whitelist</code> or <code>blacklist</code>. Otherwise, when it is not enabled,
-        /// <code>Quantity</code> is <code>0</code>, and you can omit <code>Items</code>.</para>
+        /// <para>When geo restriction is <c>enabled</c>, this is the number of countries in your <c>whitelist</c>
+        /// or <c>blacklist</c>. Otherwise, when it is not enabled, <c>Quantity</c> is <c>0</c>,
+        /// and you can omit <c>Items</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -800,15 +792,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// key, use an origin request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating
         /// origin request policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>Indicates whether you want CloudFront to forward query strings to the origin that
         /// is associated with this cache behavior and cache based on the query string parameters.
-        /// CloudFront behavior depends on the value of <code>QueryString</code> and on the values
-        /// that you specify for <code>QueryStringCacheKeys</code>, if any:</para><para>If you specify true for <code>QueryString</code> and you don't specify any values
-        /// for <code>QueryStringCacheKeys</code>, CloudFront forwards all query string parameters
-        /// to the origin and caches based on all query string parameters. Depending on how many
-        /// query string parameters and values you have, this can adversely affect performance
-        /// because CloudFront must forward more requests to the origin.</para><para>If you specify true for <code>QueryString</code> and you specify one or more values
-        /// for <code>QueryStringCacheKeys</code>, CloudFront forwards all query string parameters
-        /// to the origin, but it only caches based on the query string parameters that you specify.</para><para>If you specify false for <code>QueryString</code>, CloudFront doesn't forward any
-        /// query string parameters to the origin, and doesn't cache based on query string parameters.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html">Configuring
+        /// CloudFront behavior depends on the value of <c>QueryString</c> and on the values that
+        /// you specify for <c>QueryStringCacheKeys</c>, if any:</para><para>If you specify true for <c>QueryString</c> and you don't specify any values for <c>QueryStringCacheKeys</c>,
+        /// CloudFront forwards all query string parameters to the origin and caches based on
+        /// all query string parameters. Depending on how many query string parameters and values
+        /// you have, this can adversely affect performance because CloudFront must forward more
+        /// requests to the origin.</para><para>If you specify true for <c>QueryString</c> and you specify one or more values for
+        /// <c>QueryStringCacheKeys</c>, CloudFront forwards all query string parameters to the
+        /// origin, but it only caches based on the query string parameters that you specify.</para><para>If you specify false for <c>QueryString</c>, CloudFront doesn't forward any query
+        /// string parameters to the origin, and doesn't cache based on query string parameters.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html">Configuring
         /// CloudFront to Cache Based on Query String Parameters</a> in the <i>Amazon CloudFront
         /// Developer Guide</i>.</para>
         /// </para>
@@ -845,10 +837,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter GeoRestriction_RestrictionType
         /// <summary>
         /// <para>
-        /// <para>The method that you want to use to restrict distribution of your content by country:</para><ul><li><para><code>none</code>: No geo restriction is enabled, meaning access to content is not
-        /// restricted by client geo location.</para></li><li><para><code>blacklist</code>: The <code>Location</code> elements specify the countries
-        /// in which you don't want CloudFront to distribute your content.</para></li><li><para><code>whitelist</code>: The <code>Location</code> elements specify the countries
-        /// in which you want CloudFront to distribute your content.</para></li></ul>
+        /// <para>The method that you want to use to restrict distribution of your content by country:</para><ul><li><para><c>none</c>: No geo restriction is enabled, meaning access to content is not restricted
+        /// by client geo location.</para></li><li><para><c>blacklist</c>: The <c>Location</c> elements specify the countries in which you
+        /// don't want CloudFront to distribute your content.</para></li><li><para><c>whitelist</c>: The <c>Location</c> elements specify the countries in which you
+        /// want CloudFront to distribute your content.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -862,9 +854,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>Indicates whether you want to distribute media files in the Microsoft Smooth Streaming
         /// format using the origin that is associated with this cache behavior. If so, specify
-        /// <code>true</code>; if not, specify <code>false</code>. If you specify <code>true</code>
-        /// for <code>SmoothStreaming</code>, you can still distribute other content using this
-        /// cache behavior if the content matches the value of <code>PathPattern</code>.</para>
+        /// <c>true</c>; if not, specify <c>false</c>. If you specify <c>true</c> for <c>SmoothStreaming</c>,
+        /// you can still distribute other content using this cache behavior if the content matches
+        /// the value of <c>PathPattern</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -875,16 +867,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_SSLSupportMethod
         /// <summary>
         /// <para>
-        /// <para>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs),
-        /// specify which viewers the distribution accepts HTTPS connections from.</para><ul><li><para><code>sni-only</code> – The distribution accepts HTTPS connections from only viewers
-        /// that support <a href="https://en.wikipedia.org/wiki/Server_Name_Indication">server
-        /// name indication (SNI)</a>. This is recommended. Most browsers and clients support
-        /// SNI.</para></li><li><para><code>vip</code> – The distribution accepts HTTPS connections from all viewers including
+        /// <para>If the distribution uses <c>Aliases</c> (alternate domain names or CNAMEs), specify
+        /// which viewers the distribution accepts HTTPS connections from.</para><ul><li><para><c>sni-only</c> – The distribution accepts HTTPS connections from only viewers that
+        /// support <a href="https://en.wikipedia.org/wiki/Server_Name_Indication">server name
+        /// indication (SNI)</a>. This is recommended. Most browsers and clients support SNI.</para></li><li><para><c>vip</c> – The distribution accepts HTTPS connections from all viewers including
         /// those that don't support SNI. This is not recommended, and results in additional monthly
-        /// charges from CloudFront.</para></li><li><para><code>static-ip</code> - Do not specify this value unless your distribution has been
-        /// enabled for this feature by the CloudFront team. If you have a use case that requires
-        /// static IP addresses for a distribution, contact CloudFront through the <a href="https://console.aws.amazon.com/support/home">Amazon
-        /// Web Services Support Center</a>.</para></li></ul><para>If the distribution uses the CloudFront domain name such as <code>d111111abcdef8.cloudfront.net</code>,
+        /// charges from CloudFront.</para></li><li><para><c>static-ip</c> - Do not specify this value unless your distribution has been enabled
+        /// for this feature by the CloudFront team. If you have a use case that requires static
+        /// IP addresses for a distribution, contact CloudFront through the <a href="https://console.aws.amazon.com/support/home">Amazon
+        /// Web Services Support Center</a>.</para></li></ul><para>If the distribution uses the CloudFront domain name such as <c>d111111abcdef8.cloudfront.net</c>,
         /// don't set a value for this field.</para>
         /// </para>
         /// </summary>
@@ -898,8 +889,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A Boolean that indicates whether this is a staging distribution. When this value is
-        /// <code>true</code>, this is a staging distribution. When this value is <code>false</code>,
-        /// this is not a staging distribution.</para>
+        /// <c>true</c>, this is a staging distribution. When this value is <c>false</c>, this
+        /// is not a staging distribution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -909,8 +900,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DefaultCacheBehavior_TargetOriginId
         /// <summary>
         /// <para>
-        /// <para>The value of <code>ID</code> for the origin that you want CloudFront to route requests
-        /// to when they use the default cache behavior.</para>
+        /// <para>The value of <c>ID</c> for the origin that you want CloudFront to route requests to
+        /// when they use the default cache behavior.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -928,12 +919,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DefaultCacheBehavior_ViewerProtocolPolicy
         /// <summary>
         /// <para>
-        /// <para>The protocol that viewers can use to access the files in the origin specified by <code>TargetOriginId</code>
-        /// when a request matches the path pattern in <code>PathPattern</code>. You can specify
-        /// the following options:</para><ul><li><para><code>allow-all</code>: Viewers can use HTTP or HTTPS.</para></li><li><para><code>redirect-to-https</code>: If a viewer submits an HTTP request, CloudFront returns
+        /// <para>The protocol that viewers can use to access the files in the origin specified by <c>TargetOriginId</c>
+        /// when a request matches the path pattern in <c>PathPattern</c>. You can specify the
+        /// following options:</para><ul><li><para><c>allow-all</c>: Viewers can use HTTP or HTTPS.</para></li><li><para><c>redirect-to-https</c>: If a viewer submits an HTTP request, CloudFront returns
         /// an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS
-        /// URL. The viewer then resubmits the request using the new URL.</para></li><li><para><code>https-only</code>: If a viewer sends an HTTP request, CloudFront returns an
-        /// HTTP status code of 403 (Forbidden).</para></li></ul><para>For more information about requiring the HTTPS protocol, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html">Requiring
+        /// URL. The viewer then resubmits the request using the new URL.</para></li><li><para><c>https-only</c>: If a viewer sends an HTTP request, CloudFront returns an HTTP
+        /// status code of 403 (Forbidden).</para></li></ul><para>For more information about requiring the HTTPS protocol, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html">Requiring
         /// HTTPS Between Viewers and CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><note><para>The only way to guarantee that viewers retrieve an object that was fetched from the
         /// origin using HTTPS is never to use any other protocol to fetch the object. If you
         /// have recently changed from HTTP to HTTPS, we recommend that you clear your objects'
@@ -960,8 +951,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>A unique identifier that specifies the WAF web ACL, if any, to associate with this
         /// distribution. To specify a web ACL created using the latest version of WAF, use the
-        /// ACL ARN, for example <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
-        /// To specify a web ACL created using WAF Classic, use the ACL ID, for example <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</para><para>WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests
+        /// ACL ARN, for example <c>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</c>.
+        /// To specify a web ACL created using WAF Classic, use the ACL ID, for example <c>473e64fd-f30b-4765-81a0-62ad96dd167a</c>.</para><para>WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests
         /// that are forwarded to CloudFront, and lets you control access to your content. Based
         /// on conditions that you specify, such as the IP addresses that requests originate from
         /// or the values of query strings, CloudFront responds to requests either with the requested
@@ -978,7 +969,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_Certificate
         /// <summary>
         /// <para>
-        /// <para>This field is deprecated. Use one of the following fields instead:</para><ul><li><para><code>ACMCertificateArn</code></para></li><li><para><code>IAMCertificateId</code></para></li><li><para><code>CloudFrontDefaultCertificate</code></para></li></ul>
+        /// <para>This field is deprecated. Use one of the following fields instead:</para><ul><li><para><c>ACMCertificateArn</c></para></li><li><para><c>IAMCertificateId</c></para></li><li><para><c>CloudFrontDefaultCertificate</c></para></li></ul>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -991,7 +982,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_CertificateSource
         /// <summary>
         /// <para>
-        /// <para>This field is deprecated. Use one of the following fields instead:</para><ul><li><para><code>ACMCertificateArn</code></para></li><li><para><code>IAMCertificateId</code></para></li><li><para><code>CloudFrontDefaultCertificate</code></para></li></ul>
+        /// <para>This field is deprecated. Use one of the following fields instead:</para><ul><li><para><c>ACMCertificateArn</c></para></li><li><para><c>IAMCertificateId</c></para></li><li><para><c>CloudFrontDefaultCertificate</c></para></li></ul>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -1005,14 +996,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DefaultCacheBehavior_DefaultTTL
         /// <summary>
         /// <para>
-        /// <para>This field is deprecated. We recommend that you use the <code>DefaultTTL</code> field
-        /// in a cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating
+        /// <para>This field is deprecated. We recommend that you use the <c>DefaultTTL</c> field in
+        /// a cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating
         /// cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using
         /// the managed cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>The default amount of time that you want objects to stay in CloudFront caches before
         /// CloudFront forwards another request to your origin to determine whether the object
         /// has been updated. The value that you specify applies only when your origin does not
-        /// add HTTP headers such as <code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>,
-        /// and <code>Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
+        /// add HTTP headers such as <c>Cache-Control max-age</c>, <c>Cache-Control s-maxage</c>,
+        /// and <c>Expires</c> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
         /// How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront
         /// Developer Guide</i>.</para>
         /// </para>
@@ -1027,14 +1018,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DefaultCacheBehavior_MaxTTL
         /// <summary>
         /// <para>
-        /// <para>This field is deprecated. We recommend that you use the <code>MaxTTL</code> field
-        /// in a cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating
+        /// <para>This field is deprecated. We recommend that you use the <c>MaxTTL</c> field in a cache
+        /// policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating
         /// cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using
         /// the managed cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>The maximum amount of time that you want objects to stay in CloudFront caches before
         /// CloudFront forwards another request to your origin to determine whether the object
         /// has been updated. The value that you specify applies only when your origin adds HTTP
-        /// headers such as <code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>,
-        /// and <code>Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
+        /// headers such as <c>Cache-Control max-age</c>, <c>Cache-Control s-maxage</c>, and <c>Expires</c>
+        /// to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
         /// How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront
         /// Developer Guide</i>.</para>
         /// </para>
@@ -1049,16 +1040,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DefaultCacheBehavior_MinTTL
         /// <summary>
         /// <para>
-        /// <para>This field is deprecated. We recommend that you use the <code>MinTTL</code> field
-        /// in a cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating
+        /// <para>This field is deprecated. We recommend that you use the <c>MinTTL</c> field in a cache
+        /// policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating
         /// cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using
         /// the managed cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>The minimum amount of time that you want objects to stay in CloudFront caches before
         /// CloudFront forwards another request to your origin to determine whether the object
         /// has been updated. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
         /// How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront
-        /// Developer Guide</i>.</para><para>You must specify <code>0</code> for <code>MinTTL</code> if you configure CloudFront
-        /// to forward all headers to your origin (under <code>Headers</code>, if you specify
-        /// <code>1</code> for <code>Quantity</code> and <code>*</code> for <code>Name</code>).</para>
+        /// Developer Guide</i>.</para><para>You must specify <c>0</c> for <c>MinTTL</c> if you configure CloudFront to forward
+        /// all headers to your origin (under <c>Headers</c>, if you specify <c>1</c> for <c>Quantity</c>
+        /// and <c>*</c> for <c>Name</c>).</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

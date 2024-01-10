@@ -34,26 +34,24 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// 
     ///  
     /// <para><b>Minimum Provisioned TPS and Auto-Scaling</b></para><important><para>
-    ///  A high <code>minProvisionedTPS</code> will increase your bill. We recommend starting
-    /// with 1 for <code>minProvisionedTPS</code> (the default). Track your usage using Amazon
-    /// CloudWatch metrics, and increase the <code>minProvisionedTPS</code> as necessary.
+    ///  A high <c>minProvisionedTPS</c> will increase your bill. We recommend starting with
+    /// 1 for <c>minProvisionedTPS</c> (the default). Track your usage using Amazon CloudWatch
+    /// metrics, and increase the <c>minProvisionedTPS</c> as necessary.
     /// </para></important><para>
-    /// A transaction is a single <code>GetRecommendations</code> or <code>GetPersonalizedRanking</code>
+    /// A transaction is a single <c>GetRecommendations</c> or <c>GetPersonalizedRanking</c>
     /// call. Transactions per second (TPS) is the throughput and unit of billing for Amazon
-    /// Personalize. The minimum provisioned TPS (<code>minProvisionedTPS</code>) specifies
-    /// the baseline throughput provisioned by Amazon Personalize, and thus, the minimum billing
+    /// Personalize. The minimum provisioned TPS (<c>minProvisionedTPS</c>) specifies the
+    /// baseline throughput provisioned by Amazon Personalize, and thus, the minimum billing
     /// charge. 
     /// </para><para>
-    ///  If your TPS increases beyond <code>minProvisionedTPS</code>, Amazon Personalize auto-scales
-    /// the provisioned capacity up and down, but never below <code>minProvisionedTPS</code>.
-    /// There's a short time delay while the capacity is increased that might cause loss of
-    /// transactions.
+    ///  If your TPS increases beyond <c>minProvisionedTPS</c>, Amazon Personalize auto-scales
+    /// the provisioned capacity up and down, but never below <c>minProvisionedTPS</c>. There's
+    /// a short time delay while the capacity is increased that might cause loss of transactions.
     /// </para><para>
     /// The actual TPS used is calculated as the average requests/second within a 5-minute
     /// window. You pay for maximum of either the minimum provisioned TPS or the actual TPS.
-    /// We recommend starting with a low <code>minProvisionedTPS</code>, track your usage
-    /// using Amazon CloudWatch metrics, and then increase the <code>minProvisionedTPS</code>
-    /// as necessary.
+    /// We recommend starting with a low <c>minProvisionedTPS</c>, track your usage using
+    /// Amazon CloudWatch metrics, and then increase the <c>minProvisionedTPS</c> as necessary.
     /// </para><para><b>Status</b></para><para>
     /// A campaign can be in one of the following states:
     /// </para><ul><li><para>
@@ -63,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// </para></li></ul><para>
     /// To get the campaign status, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a>.
     /// </para><note><para>
-    /// Wait until the <code>status</code> of the campaign is <code>ACTIVE</code> before asking
-    /// the campaign for recommendations.
+    /// Wait until the <c>status</c> of the campaign is <c>ACTIVE</c> before asking the campaign
+    /// for recommendations.
     /// </para></note><para><b>Related APIs</b></para><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html">ListCampaigns</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateCampaign.html">UpdateCampaign</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteCampaign.html">DeleteCampaign</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "PERSCampaign", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -98,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter CampaignConfig_ItemExplorationConfig
         /// <summary>
         /// <para>
-        /// <para>Specifies the exploration configuration hyperparameters, including <code>explorationWeight</code>
-        /// and <code>explorationItemAgeCutOff</code>, you want to use to configure the amount
-        /// of item exploration Amazon Personalize uses when recommending items. Provide <code>itemExplorationConfig</code>
+        /// <para>Specifies the exploration configuration hyperparameters, including <c>explorationWeight</c>
+        /// and <c>explorationItemAgeCutOff</c>, you want to use to configure the amount of item
+        /// exploration Amazon Personalize uses when recommending items. Provide <c>itemExplorationConfig</c>
         /// data only if your solution uses the <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>
         /// recipe.</para>
         /// </para>
@@ -113,9 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>Specifies the requested minimum provisioned transactions (recommendations) per second
-        /// that Amazon Personalize will support. A high <code>minProvisionedTPS</code> will increase
-        /// your bill. We recommend starting with 1 for <code>minProvisionedTPS</code> (the default).
-        /// Track your usage using Amazon CloudWatch metrics, and increase the <code>minProvisionedTPS</code>
+        /// that Amazon Personalize will support. A high <c>minProvisionedTPS</c> will increase
+        /// your bill. We recommend starting with 1 for <c>minProvisionedTPS</c> (the default).
+        /// Track your usage using Amazon CloudWatch metrics, and increase the <c>minProvisionedTPS</c>
         /// as necessary.</para>
         /// </para>
         /// </summary>

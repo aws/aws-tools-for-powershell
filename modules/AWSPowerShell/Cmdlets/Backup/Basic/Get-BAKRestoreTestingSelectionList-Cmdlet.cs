@@ -28,8 +28,8 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Returns a list of restore testing selections. Can be filtered by <code>MaxResults</code>
-    /// and <code>RestoreTestingPlanName</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of restore testing selections. Can be filtered by <c>MaxResults</c>
+    /// and <c>RestoreTestingPlanName</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BAKRestoreTestingSelectionList")]
     [OutputType("Amazon.Backup.Model.RestoreTestingSelectionForList")]
@@ -75,9 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The next item following a partial list of returned items. For example, if a request
-        /// is made to return <code>MaxResults</code> number of items, <code>NextToken</code>
-        /// allows you to return more items in your list starting at the location pointed to by
-        /// the nexttoken.</para>
+        /// is made to return <c>MaxResults</c> number of items, <c>NextToken</c> allows you to
+        /// return more items in your list starting at the location pointed to by the nexttoken.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -28,15 +28,15 @@ using Amazon.Detective.Model;
 namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
-    /// Sends a request to enable data ingest for a member account that has a status of <code>ACCEPTED_BUT_DISABLED</code>.
+    /// Sends a request to enable data ingest for a member account that has a status of <c>ACCEPTED_BUT_DISABLED</c>.
     /// 
     ///  
     /// <para>
     /// For valid member accounts, the status is updated as follows.
     /// </para><ul><li><para>
-    /// If Detective enabled the member account, then the new status is <code>ENABLED</code>.
+    /// If Detective enabled the member account, then the new status is <c>ENABLED</c>.
     /// </para></li><li><para>
-    /// If Detective cannot enable the member account, the status remains <code>ACCEPTED_BUT_DISABLED</code>.
+    /// If Detective cannot enable the member account, the status remains <c>ACCEPTED_BUT_DISABLED</c>.
     /// 
     /// </para></li></ul>
     /// </summary>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The account ID of the member account to try to enable.</para><para>The account must be an invited member account with a status of <code>ACCEPTED_BUT_DISABLED</code>.
+        /// <para>The account ID of the member account to try to enable.</para><para>The account must be an invited member account with a status of <c>ACCEPTED_BUT_DISABLED</c>.
         /// </para>
         /// </para>
         /// </summary>

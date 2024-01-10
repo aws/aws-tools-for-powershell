@@ -34,17 +34,17 @@ namespace Amazon.PowerShell.Cmdlets.CO
     /// <para>
     /// It returns the number of:
     /// </para><ul><li><para>
-    /// Amazon EC2 instances in an account that are <code>Underprovisioned</code>, <code>Overprovisioned</code>,
-    /// or <code>Optimized</code>.
+    /// Amazon EC2 instances in an account that are <c>Underprovisioned</c>, <c>Overprovisioned</c>,
+    /// or <c>Optimized</c>.
     /// </para></li><li><para>
-    /// Auto Scaling groups in an account that are <code>NotOptimized</code>, or <code>Optimized</code>.
+    /// Auto Scaling groups in an account that are <c>NotOptimized</c>, or <c>Optimized</c>.
     /// </para></li><li><para>
-    /// Amazon EBS volumes in an account that are <code>NotOptimized</code>, or <code>Optimized</code>.
+    /// Amazon EBS volumes in an account that are <c>NotOptimized</c>, or <c>Optimized</c>.
     /// </para></li><li><para>
-    /// Lambda functions in an account that are <code>NotOptimized</code>, or <code>Optimized</code>.
+    /// Lambda functions in an account that are <c>NotOptimized</c>, or <c>Optimized</c>.
     /// </para></li><li><para>
-    /// Amazon ECS services in an account that are <code>Underprovisioned</code>, <code>Overprovisioned</code>,
-    /// or <code>Optimized</code>.
+    /// Amazon ECS services in an account that are <c>Underprovisioned</c>, <c>Overprovisioned</c>,
+    /// or <c>Optimized</c>.
     /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CORecommendationSummary")]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of recommendation summaries to return with a single request.</para><para>To retrieve the remaining results, make another request with the returned <code>nextToken</code>
+        /// <para>The maximum number of recommendation summaries to return with a single request.</para><para>To retrieve the remaining results, make another request with the returned <c>nextToken</c>
         /// value.</para>
         /// </para>
         /// </summary>

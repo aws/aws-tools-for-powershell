@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// To attach a project policy to a project, call <a>PutProjectPolicy</a>. To remove a
     /// project policy from a project, call <a>DeleteProjectPolicy</a>.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:ListProjectPolicies</code>
+    /// This operation requires permissions to perform the <c>rekognition:ListProjectPolicies</c>
     /// action.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

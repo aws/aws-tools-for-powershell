@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// Gets a profile.
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:GetProfile</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:GetProfile</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMRAProfile")]

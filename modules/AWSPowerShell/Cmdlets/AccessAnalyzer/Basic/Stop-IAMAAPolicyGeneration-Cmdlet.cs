@@ -45,10 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code>
-        /// operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code>
-        /// to retrieve the generated policies or used with <code>CancelPolicyGeneration</code>
-        /// to cancel the policy generation request.</para>
+        /// <para>The <c>JobId</c> that is returned by the <c>StartPolicyGeneration</c> operation. The
+        /// <c>JobId</c> can be used with <c>GetGeneratedPolicy</c> to retrieve the generated
+        /// policies or used with <c>CancelPolicyGeneration</c> to cancel the policy generation
+        /// request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

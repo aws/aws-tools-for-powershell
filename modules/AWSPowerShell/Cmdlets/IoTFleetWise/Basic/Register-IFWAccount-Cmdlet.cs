@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM resource that allows Amazon Web Services
-        /// IoT FleetWise to send data to Amazon Timestream. For example, <code>arn:aws:iam::123456789012:role/SERVICE-ROLE-ARN</code>.
+        /// IoT FleetWise to send data to Amazon Timestream. For example, <c>arn:aws:iam::123456789012:role/SERVICE-ROLE-ARN</c>.
         /// </para>
         /// </para>
         /// </summary>

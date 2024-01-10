@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// for more information on why group activity is suspended.
     /// </para><para>
     /// To resume activity, specify a game server group ARN and the type of activity to be
-    /// resumed. If successful, a <code>GameServerGroup</code> object is returned showing
-    /// that the resumed activity is no longer listed in <code>SuspendedActions</code>. 
+    /// resumed. If successful, a <c>GameServerGroup</c> object is returned showing that the
+    /// resumed activity is no longer listed in <c>SuspendedActions</c>. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon
     /// GameLift FleetIQ Guide</a></para>
     /// </summary>

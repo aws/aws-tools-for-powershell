@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Document
         /// <summary>
         /// <para>
-        /// <para>The job document. Required if you don't specify a value for <code>documentSource</code>.</para>
+        /// <para>The job document. Required if you don't specify a value for <c>documentSource</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object
-        /// URL and is required if you don't specify a value for <code>document</code>.</para><para>For example, <code>--document-source https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</code></para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html">Methods
+        /// URL and is required if you don't specify a value for <c>document</c>.</para><para>For example, <c>--document-source https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</c></para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html">Methods
         /// for accessing a bucket</a>.</para>
         /// </para>
         /// </summary>
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080
         /// minutes). The in progress timer can't be updated and will apply to all job executions
         /// for the job. Whenever a job execution remains in the IN_PROGRESS status for longer
-        /// than this interval, the job execution will fail and switch to the terminal <code>TIMED_OUT</code>
+        /// than this interval, the job execution will fail and switch to the terminal <c>TIMED_OUT</c>
         /// status.</para>
         /// </para>
         /// </summary>

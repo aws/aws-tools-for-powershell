@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter CertificatePem
         /// <summary>
         /// <para>
-        /// <para>The contents of a <code>.pem</code> file, which contains an X.509 certificate.</para>
+        /// <para>The contents of a <c>.pem</c> file, which contains an X.509 certificate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The location of an imported Oracle Wallet certificate for use with SSL. Provide the
-        /// name of a <code>.sso</code> file using the <code>fileb://</code> prefix. You can't
-        /// provide the certificate inline.</para><para>Example: <code>filebase64("${path.root}/rds-ca-2019-root.sso")</code></para>
+        /// name of a <c>.sso</c> file using the <c>fileb://</c> prefix. You can't provide the
+        /// certificate inline.</para><para>Example: <c>filebase64("${path.root}/rds-ca-2019-root.sso")</c></para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
     /// Gets details of the <a>Facet</a>, such as facet name, attributes, <a>Rule</a>s, or
-    /// <code>ObjectType</code>. You can call this on all kinds of schema facets -- published,
-    /// development, or applied.
+    /// <c>ObjectType</c>. You can call this on all kinds of schema facets -- published, development,
+    /// or applied.
     /// </summary>
     [Cmdlet("Get", "CDIRFacet")]
     [OutputType("Amazon.CloudDirectory.Model.Facet")]

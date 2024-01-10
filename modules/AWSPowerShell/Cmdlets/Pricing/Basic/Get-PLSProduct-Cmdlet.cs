@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         #region Parameter FormatVersion
         /// <summary>
         /// <para>
-        /// <para>The format version that you want the response to be in.</para><para>Valid values are: <code>aws_v1</code></para>
+        /// <para>The format version that you want the response to be in.</para><para>Valid values are: <c>aws_v1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

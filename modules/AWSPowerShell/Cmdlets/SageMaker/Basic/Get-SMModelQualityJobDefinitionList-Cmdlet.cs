@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The field to sort results by. The default is <code>CreationTime</code>.</para>
+        /// <para>The field to sort results by. The default is <c>CreationTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-        /// The default is <code>Descending</code>.</para>
+        /// <para>Whether to sort the results in <c>Ascending</c> or <c>Descending</c> order. The default
+        /// is <c>Descending</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in a call to <code>ListModelQualityJobDefinitions</code>.</para>
+        /// <para>The maximum number of results to return in a call to <c>ListModelQualityJobDefinitions</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,9 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the result of the previous <code>ListModelQualityJobDefinitions</code> request
-        /// was truncated, the response includes a <code>NextToken</code>. To retrieve the next
-        /// set of model quality monitoring job definitions, use the token in the next request.</para>
+        /// <para>If the result of the previous <c>ListModelQualityJobDefinitions</c> request was truncated,
+        /// the response includes a <c>NextToken</c>. To retrieve the next set of model quality
+        /// monitoring job definitions, use the token in the next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

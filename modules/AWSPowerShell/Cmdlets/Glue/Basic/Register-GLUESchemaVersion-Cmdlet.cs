@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// If this is the first schema definition to be registered in the Schema Registry, this
     /// API will store the schema version and return immediately. Otherwise, this call has
     /// the potential to run longer than other operations due to compatibility modes. You
-    /// can call the <code>GetSchemaVersion</code> API with the <code>SchemaVersionId</code>
-    /// to check compatibility modes.
+    /// can call the <c>GetSchemaVersion</c> API with the <c>SchemaVersionId</c> to check
+    /// compatibility modes.
     /// </para><para>
     /// If the same schema definition is already stored in Schema Registry as a version, the
     /// schema ID of the existing schema is returned to the caller.
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SchemaId_SchemaArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code>
+        /// <para>The Amazon Resource Name (ARN) of the schema. One of <c>SchemaArn</c> or <c>SchemaName</c>
         /// has to be provided.</para>
         /// </para>
         /// </summary>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SchemaDefinition
         /// <summary>
         /// <para>
-        /// <para>The schema definition using the <code>DataFormat</code> setting for the <code>SchemaName</code>.</para>
+        /// <para>The schema definition using the <c>DataFormat</c> setting for the <c>SchemaName</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,8 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SchemaId_SchemaName
         /// <summary>
         /// <para>
-        /// <para>The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has
-        /// to be provided.</para>
+        /// <para>The name of the schema. One of <c>SchemaArn</c> or <c>SchemaName</c> has to be provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

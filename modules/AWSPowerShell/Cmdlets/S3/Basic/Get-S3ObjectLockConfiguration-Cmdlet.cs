@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
     /// Objects</a>.
     /// </para><para>
-    /// The following action is related to <code>GetObjectLockConfiguration</code>:
+    /// The following action is related to <c>GetObjectLockConfiguration</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3ObjectLockConfiguration")]

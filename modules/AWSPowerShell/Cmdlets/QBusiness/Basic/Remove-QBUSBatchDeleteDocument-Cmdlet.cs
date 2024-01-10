@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Asynchronously deletes one or more documents added using the <code>BatchPutDocument</code>
+    /// Asynchronously deletes one or more documents added using the <c>BatchPutDocument</c>
     /// API from an Amazon Q index.
     /// 
     ///  

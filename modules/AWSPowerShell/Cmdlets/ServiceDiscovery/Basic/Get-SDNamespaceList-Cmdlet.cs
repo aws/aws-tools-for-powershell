@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>A complex type that contains specifications for the namespaces that you want to list.</para><para>If you specify more than one filter, a namespace must match all filters to be returned
-        /// by <code>ListNamespaces</code>.</para>
+        /// by <c>ListNamespaces</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>The maximum number of namespaces that you want Cloud Map to return in the response
-        /// to a <code>ListNamespaces</code> request. If you don't specify a value for <code>MaxResults</code>,
+        /// to a <c>ListNamespaces</c> request. If you don't specify a value for <c>MaxResults</c>,
         /// Cloud Map returns up to 100 namespaces.</para>
         /// </para>
         /// <para>
@@ -76,12 +76,12 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>For the first <code>ListNamespaces</code> request, omit this value.</para><para>If the response contains <code>NextToken</code>, submit another <code>ListNamespaces</code>
-        /// request to get the next group of results. Specify the value of <code>NextToken</code>
-        /// from the previous response in the next request.</para><note><para>Cloud Map gets <code>MaxResults</code> namespaces and then filters them based on the
-        /// specified criteria. It's possible that no namespaces in the first <code>MaxResults</code>
-        /// namespaces matched the specified criteria but that subsequent groups of <code>MaxResults</code>
-        /// namespaces do contain namespaces that match the criteria.</para></note>
+        /// <para>For the first <c>ListNamespaces</c> request, omit this value.</para><para>If the response contains <c>NextToken</c>, submit another <c>ListNamespaces</c> request
+        /// to get the next group of results. Specify the value of <c>NextToken</c> from the previous
+        /// response in the next request.</para><note><para>Cloud Map gets <c>MaxResults</c> namespaces and then filters them based on the specified
+        /// criteria. It's possible that no namespaces in the first <c>MaxResults</c> namespaces
+        /// matched the specified criteria but that subsequent groups of <c>MaxResults</c> namespaces
+        /// do contain namespaces that match the criteria.</para></note>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// If you don't specify a filter criteria, the API operation returns all event types,
     /// in no particular order. 
     /// </para><note><para>
-    /// This API operation uses pagination. Specify the <code>nextToken</code> parameter in
-    /// the next request to return more results.
+    /// This API operation uses pagination. Specify the <c>nextToken</c> parameter in the
+    /// next request to return more results.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "HLTHEventType")]
@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventTypeCategory
         /// <summary>
         /// <para>
-        /// <para>A list of event type category codes. Possible values are <code>issue</code>, <code>accountNotification</code>,
-        /// or <code>scheduledChange</code>. Currently, the <code>investigation</code> value isn't
-        /// supported at this time.</para>
+        /// <para>A list of event type category codes. Possible values are <c>issue</c>, <c>accountNotification</c>,
+        /// or <c>scheduledChange</c>. Currently, the <c>investigation</c> value isn't supported
+        /// at this time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,8 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Service
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services associated with the event. For example, <code>EC2</code>,
-        /// <code>RDS</code>.</para>
+        /// <para>The Amazon Web Services associated with the event. For example, <c>EC2</c>, <c>RDS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in one batch, between 10 and 100, inclusive.</para><note><para>If you don't specify the <code>maxResults</code> parameter, this operation returns
-        /// a maximum of 30 items by default.</para></note>
+        /// <para>The maximum number of items to return in one batch, between 10 and 100, inclusive.</para><note><para>If you don't specify the <c>maxResults</c> parameter, this operation returns a maximum
+        /// of 30 items by default.</para></note>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -122,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         /// <summary>
         /// <para>
         /// <para>If the results of a search are large, only a portion of the results are returned,
-        /// and a <code>nextToken</code> pagination token is returned in the response. To retrieve
-        /// the next batch of results, reissue the search request and include the returned token.
+        /// and a <c>nextToken</c> pagination token is returned in the response. To retrieve the
+        /// next batch of results, reissue the search request and include the returned token.
         /// When all results have been returned, the response does not contain a pagination token
         /// value.</para>
         /// </para>

@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// When log events reach their retention setting they are marked for deletion. After
     /// they are marked for deletion, they do not add to your archival storage costs anymore,
     /// even if they are not actually deleted until later. These log events marked for deletion
-    /// are also not included when you use an API to retrieve the <code>storedBytes</code>
-    /// value to see how many bytes a log group is storing.
+    /// are also not included when you use an API to retrieve the <c>storedBytes</c> value
+    /// to see how many bytes a log group is storing.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CWLRetentionPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

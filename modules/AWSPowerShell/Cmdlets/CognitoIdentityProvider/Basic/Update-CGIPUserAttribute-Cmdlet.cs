@@ -31,8 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// With this operation, your users can update one or more of their attributes with their
     /// own credentials. You authorize this API request with the user's access token. To delete
     /// an attribute from your user, submit the attribute in your API request with a blank
-    /// value. Custom attribute values in this request must include the <code>custom:</code>
-    /// prefix.
+    /// value. Custom attribute values in this request must include the <c>custom:</c> prefix.
     /// 
     ///  <note><para>
     /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
@@ -99,10 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// you use the UpdateUserAttributes API action, Amazon Cognito invokes the function that
         /// is assigned to the <i>custom message</i> trigger. When Amazon Cognito invokes this
         /// function, it passes a JSON payload, which the function receives as input. This payload
-        /// contains a <code>clientMetadata</code> attribute, which provides the data that you
-        /// assigned to the ClientMetadata parameter in your UpdateUserAttributes request. In
-        /// your function code in Lambda, you can process the <code>clientMetadata</code> value
-        /// to enhance your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+        /// contains a <c>clientMetadata</c> attribute, which provides the data that you assigned
+        /// to the ClientMetadata parameter in your UpdateUserAttributes request. In your function
+        /// code in Lambda, you can process the <c>clientMetadata</c> value to enhance your workflow
+        /// for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
         /// Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito
         /// Developer Guide</i>.</para><note><para>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
         /// following:</para><ul><li><para>Store the ClientMetadata value. This data is available only to Lambda triggers that
@@ -117,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserAttribute
         /// <summary>
         /// <para>
-        /// <para>An array of name-value pairs representing user attributes.</para><para>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute
+        /// <para>An array of name-value pairs representing user attributes.</para><para>For custom attributes, you must prepend the <c>custom:</c> prefix to the attribute
         /// name.</para><para>If you have set an attribute to require verification before Amazon Cognito updates
         /// its value, this request doesn’t immediately update the value of that attribute. After
         /// your user receives and responds to a verification message to verify the new value,

@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     /// 
     ///  
     /// <para>
-    /// Use the <code>DescribeRegionSettings</code> API to determine the resource types that
-    /// are supported.
+    /// Use the <c>DescribeRegionSettings</c> API to determine the resource types that are
+    /// supported.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "BAKRegionSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

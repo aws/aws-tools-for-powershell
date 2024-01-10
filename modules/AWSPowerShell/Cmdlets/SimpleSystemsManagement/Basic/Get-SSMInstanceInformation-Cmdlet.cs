@@ -39,9 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// nodes. If you specify a node ID that isn't valid or a node that you don't own, you
     /// receive an error.
     /// </para><note><para>
-    /// The <code>IamRole</code> field returned for this API operation is the Identity and
-    /// Access Management (IAM) role assigned to on-premises managed nodes. This operation
-    /// does not return the IAM role for EC2 instances.
+    /// The <c>IamRole</c> field returned for this API operation is the Identity and Access
+    /// Management (IAM) role assigned to on-premises managed nodes. This operation does not
+    /// return the IAM role for EC2 instances.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMInstanceInformation")]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>One or more filters. Use a filter to return a more specific list of managed nodes.
         /// You can filter based on tags applied to your managed nodes. Tag filters can't be combined
-        /// with other filter types. Use this <code>Filters</code> data type instead of <code>InstanceInformationFilterList</code>,
+        /// with other filter types. Use this <c>Filters</c> data type instead of <c>InstanceInformationFilterList</c>,
         /// which is deprecated.</para>
         /// </para>
         /// </summary>
@@ -74,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>This is a legacy method. We recommend that you don't use this method. Instead, use
-        /// the <code>Filters</code> data type. <code>Filters</code> enables you to return node
-        /// information by filtering based on tags applied to managed nodes.</para><note><para>Attempting to use <code>InstanceInformationFilterList</code> and <code>Filters</code>
-        /// leads to an exception error. </para></note>
+        /// the <c>Filters</c> data type. <c>Filters</c> enables you to return node information
+        /// by filtering based on tags applied to managed nodes.</para><note><para>Attempting to use <c>InstanceInformationFilterList</c> and <c>Filters</c> leads to
+        /// an exception error. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

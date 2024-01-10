@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter HistoryFilter
         /// <summary>
         /// <para>
-        /// <para>The filter for the list of deployments. Choose one of the following options:</para><ul><li><para><code>ALL</code> – The list includes all deployments.</para></li><li><para><code>LATEST_ONLY</code> – The list includes only the latest revision of each deployment.</para></li></ul><para>Default: <code>LATEST_ONLY</code></para>
+        /// <para>The filter for the list of deployments. Choose one of the following options:</para><ul><li><para><c>ALL</c> – The list includes all deployments.</para></li><li><para><c>LATEST_ONLY</c> – The list includes only the latest revision of each deployment.</para></li></ul><para>Default: <c>LATEST_ONLY</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

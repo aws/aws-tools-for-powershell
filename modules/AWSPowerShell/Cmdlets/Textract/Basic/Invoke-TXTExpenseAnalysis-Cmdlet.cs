@@ -28,17 +28,16 @@ using Amazon.Textract.Model;
 namespace Amazon.PowerShell.Cmdlets.TXT
 {
     /// <summary>
-    /// <code>AnalyzeExpense</code> synchronously analyzes an input document for financially
-    /// related relationships between text.
+    /// <c>AnalyzeExpense</c> synchronously analyzes an input document for financially related
+    /// relationships between text.
     /// 
     ///  
     /// <para>
-    /// Information is returned as <code>ExpenseDocuments</code> and seperated as follows:
-    /// </para><ul><li><para><code>LineItemGroups</code>- A data set containing <code>LineItems</code> which store
-    /// information about the lines of text, such as an item purchased and its price on a
-    /// receipt.
-    /// </para></li><li><para><code>SummaryFields</code>- Contains all other information a receipt, such as header
-    /// information or the vendors name.
+    /// Information is returned as <c>ExpenseDocuments</c> and seperated as follows:
+    /// </para><ul><li><para><c>LineItemGroups</c>- A data set containing <c>LineItems</c> which store information
+    /// about the lines of text, such as an item purchased and its price on a receipt.
+    /// </para></li><li><para><c>SummaryFields</c>- Contains all other information a receipt, such as header information
+    /// or the vendors name.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Invoke", "TXTExpenseAnalysis", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -69,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// <para>
         /// <para>A blob of base64-encoded document bytes. The maximum size of a document that's provided
         /// in a blob of bytes is 5 MB. The document bytes must be in PNG or JPEG format.</para><para>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode
-        /// image bytes passed using the <code>Bytes</code> field. </para>
+        /// image bytes passed using the <c>Bytes</c> field. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

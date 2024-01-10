@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter Encrypted
         /// <summary>
         /// <para>
-        /// <para>When true, the replication job produces encrypted AMIs. For more information, <code>KmsKeyId</code>.</para>
+        /// <para>When true, the replication job produces encrypted AMIs. For more information, <c>KmsKeyId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

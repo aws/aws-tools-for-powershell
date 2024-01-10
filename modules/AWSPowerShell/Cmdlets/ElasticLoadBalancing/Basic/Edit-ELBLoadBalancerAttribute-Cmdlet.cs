@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// 
     ///  
     /// <para>
-    /// You can modify the load balancer attributes, such as <code>AccessLogs</code>, <code>ConnectionDraining</code>,
-    /// and <code>CrossZoneLoadBalancing</code> by either enabling or disabling them. Or,
-    /// you can modify the load balancer attribute <code>ConnectionSettings</code> by specifying
-    /// an idle connection timeout value for your load balancer.
+    /// You can modify the load balancer attributes, such as <c>AccessLogs</c>, <c>ConnectionDraining</c>,
+    /// and <c>CrossZoneLoadBalancing</c> by either enabling or disabling them. Or, you can
+    /// modify the load balancer attribute <c>ConnectionSettings</c> by specifying an idle
+    /// connection timeout value for your load balancer.
     /// </para><para>
     /// For more information, see the following in the <i>Classic Load Balancers Guide</i>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html">Cross-Zone
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         #region Parameter AccessLog_S3BucketPrefix
         /// <summary>
         /// <para>
-        /// <para>The logical hierarchy you created for your Amazon S3 bucket, for example <code>my-bucket-prefix/prod</code>.
+        /// <para>The logical hierarchy you created for your Amazon S3 bucket, for example <c>my-bucket-prefix/prod</c>.
         /// If the prefix is not provided, the log is placed at the root level of the bucket.</para>
         /// </para>
         /// </summary>

@@ -91,11 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter FeedbackValue
         /// <summary>
         /// <para>
-        /// <para>The authentication event feedback value. When you provide a <code>FeedbackValue</code>
-        /// value of <code>valid</code>, you tell Amazon Cognito that you trust a user session
-        /// where Amazon Cognito has evaluated some level of risk. When you provide a <code>FeedbackValue</code>
-        /// value of <code>invalid</code>, you tell Amazon Cognito that you don't trust a user
-        /// session, or you don't believe that Amazon Cognito evaluated a high-enough risk level.</para>
+        /// <para>The authentication event feedback value. When you provide a <c>FeedbackValue</c> value
+        /// of <c>valid</c>, you tell Amazon Cognito that you trust a user session where Amazon
+        /// Cognito has evaluated some level of risk. When you provide a <c>FeedbackValue</c>
+        /// value of <c>invalid</c>, you tell Amazon Cognito that you don't trust a user session,
+        /// or you don't believe that Amazon Cognito evaluated a high-enough risk level.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -114,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The username of the user that you want to query or modify. The value of this parameter
         /// is typically your user's username, but it can be any of their alias attributes. If
-        /// <code>username</code> isn't an alias attribute in your user pool, you can also use
-        /// their <code>sub</code> in this request.</para>
+        /// <c>username</c> isn't an alias attribute in your user pool, you can also use their
+        /// <c>sub</c> in this request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

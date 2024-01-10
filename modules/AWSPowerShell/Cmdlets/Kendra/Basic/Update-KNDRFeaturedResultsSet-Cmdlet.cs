@@ -126,11 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>You can set the status to <code>ACTIVE</code> or <code>INACTIVE</code>. When the value
-        /// is <code>ACTIVE</code>, featured results are ready for use. You can still configure
-        /// your settings before setting the status to <code>ACTIVE</code>. The queries you specify
-        /// for featured results must be unique per featured results set for each index, whether
-        /// the status is <code>ACTIVE</code> or <code>INACTIVE</code>.</para>
+        /// <para>You can set the status to <c>ACTIVE</c> or <c>INACTIVE</c>. When the value is <c>ACTIVE</c>,
+        /// featured results are ready for use. You can still configure your settings before setting
+        /// the status to <c>ACTIVE</c>. The queries you specify for featured results must be
+        /// unique per featured results set for each index, whether the status is <c>ACTIVE</c>
+        /// or <c>INACTIVE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

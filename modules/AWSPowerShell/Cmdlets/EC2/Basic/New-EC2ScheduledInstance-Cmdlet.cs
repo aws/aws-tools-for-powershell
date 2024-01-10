@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Indicates whether the instances are optimized for EBS I/O. This optimization provides
         /// dedicated throughput to Amazon EBS and an optimized configuration stack to provide
         /// optimal EBS I/O performance. This optimization isn't available with all instance types.
-        /// Additional usage charges apply when using an EBS-optimized instance.</para><para>Default: <code>false</code></para>
+        /// Additional usage charges apply when using an EBS-optimized instance.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

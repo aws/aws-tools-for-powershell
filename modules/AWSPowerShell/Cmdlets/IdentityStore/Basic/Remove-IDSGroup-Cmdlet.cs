@@ -28,7 +28,7 @@ using Amazon.IdentityStore.Model;
 namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// Delete a group within an identity store given <code>GroupId</code>.
+    /// Delete a group within an identity store given <c>GroupId</c>.
     /// </summary>
     [Cmdlet("Remove", "IDSGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

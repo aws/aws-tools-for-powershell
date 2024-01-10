@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         /// <summary>
         /// <para>
         /// <para>A list of the tags that you want to add to the resource. A tag consists of a required
-        /// tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum
-        /// length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</para>
+        /// tag key (<c>Key</c>) and an associated tag value (<c>Value</c>). The maximum length
+        /// of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filter to use:</para><ul><li><para><code>instance-id</code> - The ID of the instance for which the root volume replacement
+        /// <para>Filter to use:</para><ul><li><para><c>instance-id</c> - The ID of the instance for which the root volume replacement
         /// task was created.</para></li></ul>
         /// </para>
         /// </summary>

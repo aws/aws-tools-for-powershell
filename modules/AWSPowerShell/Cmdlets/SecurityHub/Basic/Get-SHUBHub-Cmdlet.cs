@@ -28,7 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns details about the Hub resource in your account, including the <code>HubArn</code>
+    /// Returns details about the Hub resource in your account, including the <c>HubArn</c>
     /// and the time when you enabled Security Hub.
     /// </summary>
     [Cmdlet("Get", "SHUBHub")]

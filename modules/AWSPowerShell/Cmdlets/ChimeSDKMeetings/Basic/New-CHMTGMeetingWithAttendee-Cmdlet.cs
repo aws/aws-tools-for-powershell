@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         #region Parameter ExternalMeetingId
         /// <summary>
         /// <para>
-        /// <para>The external meeting ID.</para><para>Pattern: <code>[-_&amp;@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code></para><para>Values that begin with <code>aws:</code> are reserved. You can't configure a value
-        /// that uses this prefix. Case insensitive.</para>
+        /// <para>The external meeting ID.</para><para>Pattern: <c>[-_&amp;@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</c></para><para>Values that begin with <c>aws:</c> are reserved. You can't configure a value that
+        /// uses this prefix. Case insensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         #region Parameter Content_MaxResolution
         /// <summary>
         /// <para>
-        /// <para>The maximum resolution for the meeting content.</para><note><para>Defaults to <code>FHD</code>. To use <code>UHD</code>, you must also provide a <code>MeetingFeatures:Attendee:MaxCount</code>
+        /// <para>The maximum resolution for the meeting content.</para><note><para>Defaults to <c>FHD</c>. To use <c>UHD</c>, you must also provide a <c>MeetingFeatures:Attendee:MaxCount</c>
         /// value and override the default size limit of 250 attendees.</para></note>
         /// </para>
         /// </summary>
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         #region Parameter Video_MaxResolution
         /// <summary>
         /// <para>
-        /// <para>The maximum video resolution for the meeting. Applies to all attendees.</para><note><para>Defaults to <code>HD</code>. To use <code>FHD</code>, you must also provide a <code>MeetingFeatures:Attendee:MaxCount</code>
+        /// <para>The maximum video resolution for the meeting. Applies to all attendees.</para><note><para>Defaults to <c>HD</c>. To use <c>FHD</c>, you must also provide a <c>MeetingFeatures:Attendee:MaxCount</c>
         /// value and override the default size limit of 250 attendees.</para></note>
         /// </para>
         /// </summary>
@@ -158,13 +158,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         #region Parameter MediaRegion
         /// <summary>
         /// <para>
-        /// <para>The Region in which to create the meeting.</para><para> Available values: <code>af-south-1</code>, <code>ap-northeast-1</code>, <code>ap-northeast-2</code>,
-        /// <code>ap-south-1</code>, <code>ap-southeast-1</code>, <code>ap-southeast-2</code>,
-        /// <code>ca-central-1</code>, <code>eu-central-1</code>, <code>eu-north-1</code>, <code>eu-south-1</code>,
-        /// <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>, <code>sa-east-1</code>,
-        /// <code>us-east-1</code>, <code>us-east-2</code>, <code>us-west-1</code>, <code>us-west-2</code>.
-        /// </para><para>Available values in Amazon Web Services GovCloud (US) Regions: <code>us-gov-east-1</code>,
-        /// <code>us-gov-west-1</code>.</para>
+        /// <para>The Region in which to create the meeting.</para><para> Available values: <c>af-south-1</c>, <c>ap-northeast-1</c>, <c>ap-northeast-2</c>,
+        /// <c>ap-south-1</c>, <c>ap-southeast-1</c>, <c>ap-southeast-2</c>, <c>ca-central-1</c>,
+        /// <c>eu-central-1</c>, <c>eu-north-1</c>, <c>eu-south-1</c>, <c>eu-west-1</c>, <c>eu-west-2</c>,
+        /// <c>eu-west-3</c>, <c>sa-east-1</c>, <c>us-east-1</c>, <c>us-east-2</c>, <c>us-west-1</c>,
+        /// <c>us-west-2</c>. </para><para>Available values in Amazon Web Services GovCloud (US) Regions: <c>us-gov-east-1</c>,
+        /// <c>us-gov-west-1</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

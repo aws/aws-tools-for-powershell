@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter AutoScalingConfiguration_AutoScalingMetric
         /// <summary>
         /// <para>
-        /// <para> The metric your cluster will track in order to scale in and out. For example, <code>CPU_UTILIZATION_PERCENTAGE</code>
+        /// <para> The metric your cluster will track in order to scale in and out. For example, <c>CPU_UTILIZATION_PERCENTAGE</c>
         /// is the average CPU usage across all the nodes in a cluster.</para>
         /// </para>
         /// </summary>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// <summary>
         /// <para>
         /// <para>The number of availability zones you want to assign per cluster. This can be one of
-        /// the following </para><ul><li><para><code>SINGLE</code> – Assigns one availability zone per cluster.</para></li><li><para><code>MULTI</code> – Assigns all the availability zones per cluster.</para></li></ul>
+        /// the following </para><ul><li><para><c>SINGLE</c> – Assigns one availability zone per cluster.</para></li><li><para><c>MULTI</c> – Assigns all the availability zones per cluster.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -129,13 +129,13 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// plant and stores it in memory until the end of day, after which it writes all of its
         /// data to a disk and reloads the HDB. This cluster type requires local storage for temporary
         /// storage of data during the savedown process. If you specify this field in your request,
-        /// you must provide the <code>savedownStorageConfiguration</code> parameter.</para></li><li><para>GATEWAY – A gateway cluster allows you to access data across processes in kdb systems.
+        /// you must provide the <c>savedownStorageConfiguration</c> parameter.</para></li><li><para>GATEWAY – A gateway cluster allows you to access data across processes in kdb systems.
         /// It allows you to create your own routing logic using the initialization scripts and
         /// custom code. This type of cluster does not require a writable local storage.</para></li><li><para>GP – A general purpose cluster allows you to quickly iterate on code during development
         /// by granting greater access to system commands and enabling a fast reload of custom
         /// code. This cluster type can optionally mount databases including cache and savedown
         /// storage. For this cluster type, the node count is fixed at 1. It does not support
-        /// autoscaling and supports only <code>SINGLE</code> AZ mode.</para></li><li><para>Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based
+        /// autoscaling and supports only <c>SINGLE</c> AZ mode.</para></li><li><para>Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based
         /// on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers
         /// (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment.
         /// It supports only single-node that is only one kdb process.</para></li></ul>
@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// <para>
         /// <para>Specifies a Q program that will be run at launch of a cluster. It is a relative path
         /// within <i>.zip</i> file that contains the custom code, which will be loaded on the
-        /// cluster. It must include the file name itself. For example, <code>somedir/init.q</code>.</para>
+        /// cluster. It must include the file name itself. For example, <c>somedir/init.q</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -270,9 +270,9 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter AutoScalingConfiguration_MetricTarget
         /// <summary>
         /// <para>
-        /// <para>The desired value of the chosen <code>autoScalingMetric</code>. When the metric drops
-        /// below this value, the cluster will scale in. When the metric goes above this value,
-        /// the cluster will scale out. You can set the target value between 1 and 100 percent.</para>
+        /// <para>The desired value of the chosen <c>autoScalingMetric</c>. When the metric drops below
+        /// this value, the cluster will scale in. When the metric goes above this value, the
+        /// cluster will scale out. You can set the target value between 1 and 100 percent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -283,8 +283,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// <summary>
         /// <para>
         /// <para>The lowest number of nodes to scale. This value must be at least 1 and less than the
-        /// <code>maxNodeCount</code>. If the nodes in a cluster belong to multiple availability
-        /// zones, then <code>minNodeCount</code> must be at least 3.</para>
+        /// <c>maxNodeCount</c>. If the nodes in a cluster belong to multiple availability zones,
+        /// then <c>minNodeCount</c> must be at least 3.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -317,14 +317,11 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// <para>The type that determines the hardware of the host computer used for your cluster instance.
         /// Each node type offers different memory and storage capabilities. Choose a node type
         /// based on the requirements of the application or software that you plan to run on your
-        /// instance.</para><para>You can only specify one of the following values:</para><ul><li><para><code>kx.s.large</code> – The node type with a configuration of 12 GiB memory and
-        /// 2 vCPUs.</para></li><li><para><code>kx.s.xlarge</code> – The node type with a configuration of 27 GiB memory and
-        /// 4 vCPUs.</para></li><li><para><code>kx.s.2xlarge</code> – The node type with a configuration of 54 GiB memory and
-        /// 8 vCPUs.</para></li><li><para><code>kx.s.4xlarge</code> – The node type with a configuration of 108 GiB memory
-        /// and 16 vCPUs.</para></li><li><para><code>kx.s.8xlarge</code> – The node type with a configuration of 216 GiB memory
-        /// and 32 vCPUs.</para></li><li><para><code>kx.s.16xlarge</code> – The node type with a configuration of 432 GiB memory
-        /// and 64 vCPUs.</para></li><li><para><code>kx.s.32xlarge</code> – The node type with a configuration of 864 GiB memory
-        /// and 128 vCPUs.</para></li></ul>
+        /// instance.</para><para>You can only specify one of the following values:</para><ul><li><para><c>kx.s.large</c> – The node type with a configuration of 12 GiB memory and 2 vCPUs.</para></li><li><para><c>kx.s.xlarge</c> – The node type with a configuration of 27 GiB memory and 4 vCPUs.</para></li><li><para><c>kx.s.2xlarge</c> – The node type with a configuration of 54 GiB memory and 8 vCPUs.</para></li><li><para><c>kx.s.4xlarge</c> – The node type with a configuration of 108 GiB memory and 16
+        /// vCPUs.</para></li><li><para><c>kx.s.8xlarge</c> – The node type with a configuration of 216 GiB memory and 32
+        /// vCPUs.</para></li><li><para><c>kx.s.16xlarge</c> – The node type with a configuration of 432 GiB memory and 64
+        /// vCPUs.</para></li><li><para><c>kx.s.32xlarge</c> – The node type with a configuration of 864 GiB memory and 128
+        /// vCPUs.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

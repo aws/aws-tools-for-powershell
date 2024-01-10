@@ -28,17 +28,17 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Creates a new User within a collection specified by <code>CollectionId</code>. Takes
-    /// <code>UserId</code> as a parameter, which is a user provided ID which should be unique
-    /// within the collection. The provided <code>UserId</code> will alias the system generated
-    /// UUID to make the <code>UserId</code> more user friendly. 
+    /// Creates a new User within a collection specified by <c>CollectionId</c>. Takes <c>UserId</c>
+    /// as a parameter, which is a user provided ID which should be unique within the collection.
+    /// The provided <c>UserId</c> will alias the system generated UUID to make the <c>UserId</c>
+    /// more user friendly. 
     /// 
     ///  
     /// <para>
-    /// Uses a <code>ClientToken</code>, an idempotency token that ensures a call to <code>CreateUser</code>
+    /// Uses a <c>ClientToken</c>, an idempotency token that ensures a call to <c>CreateUser</c>
     /// completes only once. If the value is not supplied, the AWS SDK generates an idempotency
     /// token for the requests. This prevents retries after a network error results from making
-    /// multiple <code>CreateUser</code> calls. 
+    /// multiple <c>CreateUser</c> calls. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "REKUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -56,10 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>Idempotent token used to identify the request to <code>CreateUser</code>. If you use
-        /// the same token with multiple <code>CreateUser</code> requests, the same response is
-        /// returned. Use ClientRequestToken to prevent the same request from being processed
-        /// more than once.</para>
+        /// <para>Idempotent token used to identify the request to <c>CreateUser</c>. If you use the
+        /// same token with multiple <c>CreateUser</c> requests, the same response is returned.
+        /// Use ClientRequestToken to prevent the same request from being processed more than
+        /// once.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

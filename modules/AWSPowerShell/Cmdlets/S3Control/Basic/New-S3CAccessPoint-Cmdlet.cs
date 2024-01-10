@@ -42,14 +42,14 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// in the <i>Amazon S3 User Guide</i>.
     /// </para></note><para>
     /// All Amazon S3 on Outposts REST API requests for this action require an additional
-    /// parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition,
-    /// you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>.
+    /// parameter of <c>x-amz-outpost-id</c> to be passed with the request. In addition, you
+    /// must use an S3 on Outposts endpoint hostname prefix instead of <c>s3-control</c>.
     /// For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on
-    /// Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by
-    /// using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html#API_control_CreateAccessPoint_Examples">Examples</a>
+    /// Outposts endpoint hostname prefix and the <c>x-amz-outpost-id</c> derived by using
+    /// the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html#API_control_CreateAccessPoint_Examples">Examples</a>
     /// section.
     /// </para><para>
-    /// The following actions are related to <code>CreateAccessPoint</code>:
+    /// The following actions are related to <c>CreateAccessPoint</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html">GetAccessPoint</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html">DeleteAccessPoint</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html">ListAccessPoints</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "S3CAccessPoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -86,8 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets
-        /// in this account. Setting this element to <code>TRUE</code> causes the following behavior:</para><ul><li><para><code>PutBucketAcl</code> and <code>PutObjectAcl</code> calls fail if the specified
-        /// ACL is public.</para></li><li><para>PUT Object calls fail if the request includes a public ACL.</para></li><li><para>PUT Bucket calls fail if the request includes a public ACL.</para></li></ul><para>Enabling this setting doesn't affect existing policies or ACLs.</para><para>This property is not supported for Amazon S3 on Outposts.</para>
+        /// in this account. Setting this element to <c>TRUE</c> causes the following behavior:</para><ul><li><para><c>PutBucketAcl</c> and <c>PutObjectAcl</c> calls fail if the specified ACL is public.</para></li><li><para>PUT Object calls fail if the request includes a public ACL.</para></li><li><para>PUT Bucket calls fail if the request includes a public ACL.</para></li></ul><para>Enabling this setting doesn't affect existing policies or ACLs.</para><para>This property is not supported for Amazon S3 on Outposts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Specifies whether Amazon S3 should block public bucket policies for buckets in this
-        /// account. Setting this element to <code>TRUE</code> causes Amazon S3 to reject calls
-        /// to PUT Bucket policy if the specified bucket policy allows public access. </para><para>Enabling this setting doesn't affect existing bucket policies.</para><para>This property is not supported for Amazon S3 on Outposts.</para>
+        /// account. Setting this element to <c>TRUE</c> causes Amazon S3 to reject calls to PUT
+        /// Bucket policy if the specified bucket policy allows public access. </para><para>Enabling this setting doesn't affect existing bucket policies.</para><para>This property is not supported for Amazon S3 on Outposts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,10 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>
         /// <para>The name of the bucket that you want to associate this access point with.</para><para>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify
         /// the name and the x-amz-outpost-id as well.</para><para>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and
-        /// CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:&lt;Region&gt;:&lt;account-id&gt;:outpost/&lt;outpost-id&gt;/bucket/&lt;my-bucket-name&gt;</code>.
-        /// For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code>
-        /// owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the
-        /// URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>.
+        /// CLI, you must specify the ARN of the bucket accessed in the format <c>arn:aws:s3-outposts:&lt;Region&gt;:&lt;account-id&gt;:outpost/&lt;outpost-id&gt;/bucket/&lt;my-bucket-name&gt;</c>.
+        /// For example, to access the bucket <c>reports</c> through Outpost <c>my-outpost</c>
+        /// owned by account <c>123456789012</c> in Region <c>us-west-2</c>, use the URL encoding
+        /// of <c>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</c>.
         /// The value must be URL encoded. </para>
         /// </para>
         /// </summary>
@@ -145,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Specifies whether Amazon S3 should ignore public ACLs for buckets in this account.
-        /// Setting this element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs
-        /// on buckets in this account and any objects that they contain. </para><para>Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't
+        /// Setting this element to <c>TRUE</c> causes Amazon S3 to ignore all public ACLs on
+        /// buckets in this account and any objects that they contain. </para><para>Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't
         /// prevent new public ACLs from being set.</para><para>This property is not supported for Amazon S3 on Outposts.</para>
         /// </para>
         /// </summary>
@@ -176,8 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Specifies whether Amazon S3 should restrict public bucket policies for buckets in
-        /// this account. Setting this element to <code>TRUE</code> restricts access to buckets
-        /// with public policies to only Amazon Web Service principals and authorized users within
+        /// this account. Setting this element to <c>TRUE</c> restricts access to buckets with
+        /// public policies to only Amazon Web Service principals and authorized users within
         /// this account.</para><para>Enabling this setting doesn't affect previously stored bucket policies, except that
         /// public and cross-account access within any public bucket policy, including non-public
         /// delegation to specific accounts, is blocked.</para><para>This property is not supported for Amazon S3 on Outposts.</para>

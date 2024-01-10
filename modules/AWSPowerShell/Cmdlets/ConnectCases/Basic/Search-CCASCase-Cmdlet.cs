@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// as a paginated list of abridged case documents.
     /// 
     ///  <note><para>
-    /// For <code>customer_id</code> you must provide the full customer profile ARN in this
-    /// format: <code> arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles
-    /// domain name/profiles/profile ID</code>. 
+    /// For <c>customer_id</c> you must provide the full customer profile ARN in this format:
+    /// <c> arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles domain name/profiles/profile
+    /// ID</c>. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Search", "CCASCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     ///  <important><para>
     /// If an Amazon Web Services resource is launched in a service VPC, and you want it to
     /// be accessible to all of an environment’s services with VPCs and routes, apply the
-    /// <code>RefactorSpacesSecurityGroup</code> to the resource. Alternatively, to add more
-    /// cross-account constraints, apply your own security group.
+    /// <c>RefactorSpacesSecurityGroup</c> to the resource. Alternatively, to add more cross-account
+    /// constraints, apply your own security group.
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "MHRSService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         /// <summary>
         /// <para>
         /// <para>The health check URL of the URL endpoint type. If the URL is a public endpoint, the
-        /// <code>HealthUrl</code> must also be a public endpoint. If the URL is a private endpoint
+        /// <c>HealthUrl</c> must also be a public endpoint. If the URL is a private endpoint
         /// inside a virtual private cloud (VPC), the health URL must also be a private endpoint,
         /// and the host must be the same as the URL. </para>
         /// </para>
@@ -174,8 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         /// <para>
         /// <para>The URL to route traffic to. The URL must be an <a href="https://datatracker.ietf.org/doc/html/rfc3986">rfc3986-formatted
         /// URL</a>. If the host is a domain name, the name must be resolvable over the public
-        /// internet. If the scheme is <code>https</code>, the top level domain of the host must
-        /// be listed in the <a href="https://www.iana.org/domains/root/db">IANA root zone database</a>.
+        /// internet. If the scheme is <c>https</c>, the top level domain of the host must be
+        /// listed in the <a href="https://www.iana.org/domains/root/db">IANA root zone database</a>.
         /// </para>
         /// </para>
         /// </summary>

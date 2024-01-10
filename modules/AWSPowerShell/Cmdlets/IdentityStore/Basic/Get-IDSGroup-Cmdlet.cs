@@ -28,8 +28,7 @@ using Amazon.IdentityStore.Model;
 namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// Retrieves the group metadata and attributes from <code>GroupId</code> in an identity
-    /// store.
+    /// Retrieves the group metadata and attributes from <c>GroupId</c> in an identity store.
     /// 
     ///  <note><para>
     /// If you have administrator access to a member account, you can use this API from the
@@ -70,10 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
-        /// <para>The globally unique identifier for the identity store, such as <code>d-1234567890</code>.
-        /// In this example, <code>d-</code> is a fixed prefix, and <code>1234567890</code> is
-        /// a randomly generated string that contains numbers and lower case letters. This value
-        /// is generated at the time that a new identity store is created.</para>
+        /// <para>The globally unique identifier for the identity store, such as <c>d-1234567890</c>.
+        /// In this example, <c>d-</c> is a fixed prefix, and <c>1234567890</c> is a randomly
+        /// generated string that contains numbers and lower case letters. This value is generated
+        /// at the time that a new identity store is created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

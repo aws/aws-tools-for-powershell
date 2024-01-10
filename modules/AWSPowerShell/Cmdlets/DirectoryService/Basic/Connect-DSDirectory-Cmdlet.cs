@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// 
     ///  
     /// <para>
-    /// Before you call <code>ConnectDirectory</code>, ensure that all of the required permissions
+    /// Before you call <c>ConnectDirectory</c>, ensure that all of the required permissions
     /// have been explicitly granted through a policy. For details about what permissions
-    /// are required to run the <code>ConnectDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">Directory
+    /// are required to run the <c>ConnectDirectory</c> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">Directory
     /// Service API Permissions: Actions, Resources, and Conditions Reference</a>.
     /// </para>
     /// </summary>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The fully qualified name of your self-managed directory, such as <code>corp.example.com</code>.</para>
+        /// <para>The fully qualified name of your self-managed directory, such as <c>corp.example.com</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter ShortName
         /// <summary>
         /// <para>
-        /// <para>The NetBIOS name of your self-managed directory, such as <code>CORP</code>.</para>
+        /// <para>The NetBIOS name of your self-managed directory, such as <c>CORP</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

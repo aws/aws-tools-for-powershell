@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// all file writes to the volume, you should unmount the volume from within the instance,
     /// issue the snapshot command, and then remount the volume to ensure a consistent and
     /// complete snapshot. You may remount and use your volume while the snapshot status is
-    /// <code>pending</code>.
+    /// <c>pending</c>.
     /// </para><para>
     /// When you create a snapshot for an EBS volume that serves as a root device, we recommend
     /// that you stop the instance before taking the snapshot.

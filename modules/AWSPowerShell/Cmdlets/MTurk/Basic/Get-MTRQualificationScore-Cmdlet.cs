@@ -28,14 +28,14 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>GetQualificationScore</code> operation returns the value of a Worker's
-    /// Qualification for a given Qualification type. 
+    /// The <c>GetQualificationScore</c> operation returns the value of a Worker's Qualification
+    /// for a given Qualification type. 
     /// 
     ///  
     /// <para>
     ///  To get a Worker's Qualification, you must know the Worker's ID. The Worker's ID is
-    /// included in the assignment data returned by the <code>ListAssignmentsForHIT</code>
-    /// operation. 
+    /// included in the assignment data returned by the <c>ListAssignmentsForHIT</c> operation.
+    /// 
     /// </para><para>
     /// Only the owner of a Qualification type can query the value of a Worker's Qualification
     /// of that type.

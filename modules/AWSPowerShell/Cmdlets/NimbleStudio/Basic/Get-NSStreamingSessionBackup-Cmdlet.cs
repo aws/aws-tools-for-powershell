@@ -28,7 +28,7 @@ using Amazon.NimbleStudio.Model;
 namespace Amazon.PowerShell.Cmdlets.NS
 {
     /// <summary>
-    /// Gets <code>StreamingSessionBackup</code> resource.
+    /// Gets <c>StreamingSessionBackup</c> resource.
     /// 
     ///  
     /// <para>

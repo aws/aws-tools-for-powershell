@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter ViewFrame_ColumnRange
         /// <summary>
         /// <para>
-        /// <para>The number of columns to include in the view frame, beginning with the <code>StartColumnIndex</code>
-        /// value and ignoring any columns in the <code>HiddenColumns</code> list.</para>
+        /// <para>The number of columns to include in the view frame, beginning with the <c>StartColumnIndex</c>
+        /// value and ignoring any columns in the <c>HiddenColumns</c> list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter ViewFrame_RowRange
         /// <summary>
         /// <para>
-        /// <para>The number of rows to include in the view frame, beginning with the <code>StartRowIndex</code>
+        /// <para>The number of rows to include in the view frame, beginning with the <c>StartRowIndex</c>
         /// value.</para>
         /// </para>
         /// </summary>

@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter SigningEnabled
         /// <summary>
         /// <para>
-        /// <para>Sets the DKIM signing configuration for the identity.</para><para>When you set this value <code>true</code>, then the messages that are sent from the
-        /// identity are signed using DKIM. If you set this value to <code>false</code>, your
-        /// messages are sent without DKIM signing.</para>
+        /// <para>Sets the DKIM signing configuration for the identity.</para><para>When you set this value <c>true</c>, then the messages that are sent from the identity
+        /// are signed using DKIM. If you set this value to <c>false</c>, your messages are sent
+        /// without DKIM signing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

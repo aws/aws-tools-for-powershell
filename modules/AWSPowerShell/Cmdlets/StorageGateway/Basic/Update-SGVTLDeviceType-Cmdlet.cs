@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter DeviceType
         /// <summary>
         /// <para>
-        /// <para>The type of medium changer you want to select.</para><para>Valid Values: <code>STK-L700</code> | <code>AWS-Gateway-VTL</code> | <code>IBM-03584L32-0402</code></para>
+        /// <para>The type of medium changer you want to select.</para><para>Valid Values: <c>STK-L700</c> | <c>AWS-Gateway-VTL</c> | <c>IBM-03584L32-0402</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

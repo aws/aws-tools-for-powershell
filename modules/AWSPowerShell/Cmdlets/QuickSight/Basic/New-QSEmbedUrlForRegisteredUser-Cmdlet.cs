@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// Once redeemed within this period, it cannot be re-used again.
     /// </para></li><li><para>
     /// The URL validity period should not be confused with the actual session lifetime that
-    /// can be customized using the <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html#QS-GenerateEmbedUrlForRegisteredUser-request-SessionLifetimeInMinutes">SessionLifetimeInMinutes</a></code> parameter.
+    /// can be customized using the <c><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html#QS-GenerateEmbedUrlForRegisteredUser-request-SessionLifetimeInMinutes">SessionLifetimeInMinutes</a></c> parameter.
     /// </para><para>
     /// The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum).
     /// The default session duration is 10 hours.
@@ -77,9 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// that is then embedded. This optional parameter overrides the static domains that are
         /// configured in the Manage QuickSight menu in the Amazon QuickSight console. Instead,
         /// it allows only the domains that you include in this parameter. You can list up to
-        /// three domains or subdomains in each API call.</para><para>To include all subdomains under a specific domain to the allow list, use <code>*</code>.
-        /// For example, <code>https://*.sapp.amazon.com</code> includes all subdomains under
-        /// <code>https://sapp.amazon.com</code>.</para>
+        /// three domains or subdomains in each API call.</para><para>To include all subdomains under a specific domain to the allow list, use <c>*</c>.
+        /// For example, <c>https://*.sapp.amazon.com</c> includes all subdomains under <c>https://sapp.amazon.com</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,10 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter InitialDashboardVisualId_DashboardId
         /// <summary>
         /// <para>
-        /// <para>The ID of the dashboard that has the visual that you want to embed. The <code>DashboardId</code>
-        /// can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code>
-        /// pane of the visual's on-visual menu of the Amazon QuickSight console. You can also
-        /// get the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</para>
+        /// <para>The ID of the dashboard that has the visual that you want to embed. The <c>DashboardId</c>
+        /// can be found in the <c>IDs for developers</c> section of the <c>Embed visual</c> pane
+        /// of the visual's on-visual menu of the Amazon QuickSight console. You can also get
+        /// the <c>DashboardId</c> with a <c>ListDashboards</c> API operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,10 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter QuickSightConsole_InitialPath
         /// <summary>
         /// <para>
-        /// <para>The initial URL path for the Amazon QuickSight console. <code>InitialPath</code> is
-        /// required.</para><para>The entry point URL is constrained to the following paths:</para><ul><li><para><code>/start</code></para></li><li><para><code>/start/analyses</code></para></li><li><para><code>/start/dashboards</code></para></li><li><para><code>/start/favorites</code></para></li><li><para><code>/dashboards/DashboardId</code>. <i>DashboardId</i> is the actual ID key from
-        /// the Amazon QuickSight console URL of the dashboard.</para></li><li><para><code>/analyses/AnalysisId</code>. <i>AnalysisId</i> is the actual ID key from the
-        /// Amazon QuickSight console URL of the analysis.</para></li></ul>
+        /// <para>The initial URL path for the Amazon QuickSight console. <c>InitialPath</c> is required.</para><para>The entry point URL is constrained to the following paths:</para><ul><li><para><c>/start</c></para></li><li><para><c>/start/analyses</c></para></li><li><para><c>/start/dashboards</c></para></li><li><para><c>/start/favorites</c></para></li><li><para><c>/dashboards/DashboardId</c>. <i>DashboardId</i> is the actual ID key from the
+        /// Amazon QuickSight console URL of the dashboard.</para></li><li><para><c>/analyses/AnalysisId</c>. <i>AnalysisId</i> is the actual ID key from the Amazon
+        /// QuickSight console URL of the analysis.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,9 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter InitialDashboardVisualId_SheetId
         /// <summary>
         /// <para>
-        /// <para>The ID of the sheet that the has visual that you want to embed. The <code>SheetId</code>
-        /// can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code>
-        /// pane of the visual's on-visual menu of the Amazon QuickSight console.</para>
+        /// <para>The ID of the sheet that the has visual that you want to embed. The <c>SheetId</c>
+        /// can be found in the <c>IDs for developers</c> section of the <c>Embed visual</c> pane
+        /// of the visual's on-visual menu of the Amazon QuickSight console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,9 +237,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter InitialDashboardVisualId_VisualId
         /// <summary>
         /// <para>
-        /// <para>The ID of the visual that you want to embed. The <code>VisualID</code> can be found
-        /// in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane
-        /// of the visual's on-visual menu of the Amazon QuickSight console.</para>
+        /// <para>The ID of the visual that you want to embed. The <c>VisualID</c> can be found in the
+        /// <c>IDs for developers</c> section of the <c>Embed visual</c> pane of the visual's
+        /// on-visual menu of the Amazon QuickSight console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

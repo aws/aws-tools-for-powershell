@@ -35,18 +35,18 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Permanently deletes a <a>WebACL</a>. You can't delete a <code>WebACL</code> if it
-    /// still contains any <code>Rules</code>.
+    /// Permanently deletes a <a>WebACL</a>. You can't delete a <c>WebACL</c> if it still
+    /// contains any <c>Rules</c>.
     /// </para><para>
-    /// To delete a <code>WebACL</code>, perform the following steps:
+    /// To delete a <c>WebACL</c>, perform the following steps:
     /// </para><ol><li><para>
-    /// Update the <code>WebACL</code> to remove <code>Rules</code>, if any. For more information,
-    /// see <a>UpdateWebACL</a>.
+    /// Update the <c>WebACL</c> to remove <c>Rules</c>, if any. For more information, see
+    /// <a>UpdateWebACL</a>.
     /// </para></li><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>DeleteWebACL</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of a <c>DeleteWebACL</c> request.
     /// </para></li><li><para>
-    /// Submit a <code>DeleteWebACL</code> request.
+    /// Submit a <c>DeleteWebACL</c> request.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Remove", "WAFWebACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter WebACLId
         /// <summary>
         /// <para>
-        /// <para>The <code>WebACLId</code> of the <a>WebACL</a> that you want to delete. <code>WebACLId</code>
+        /// <para>The <c>WebACLId</c> of the <a>WebACL</a> that you want to delete. <c>WebACLId</c>
         /// is returned by <a>CreateWebACL</a> and by <a>ListWebACLs</a>.</para>
         /// </para>
         /// </summary>

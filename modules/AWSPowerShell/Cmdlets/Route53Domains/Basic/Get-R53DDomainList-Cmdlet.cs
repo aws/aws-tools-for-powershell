@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter FilterCondition
         /// <summary>
         /// <para>
-        /// <para>A complex type that contains information about the filters applied during the <code>ListDomains</code>
+        /// <para>A complex type that contains information about the filters applied during the <c>ListDomains</c>
         /// request. The filter conditions can include domain name and domain expiration.</para>
         /// </para>
         /// </summary>
@@ -59,8 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Field to be used for sorting the list of domains. It can be either the name or the
-        /// expiration for a domain. Note that if <code>filterCondition</code> is used in the
-        /// same <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains__ListDomains.html">ListDomains</a>
+        /// expiration for a domain. Note that if <c>filterCondition</c> is used in the same <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains__ListDomains.html">ListDomains</a>
         /// call, the field used for sorting has to be the same as the field used for filtering.</para>
         /// </para>
         /// </summary>
@@ -85,10 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <para>
         /// <para>For an initial request for a list of domains, omit this element. If the number of
         /// domains that are associated with the current Amazon Web Services account is greater
-        /// than the value that you specified for <code>MaxItems</code>, you can use <code>Marker</code>
-        /// to return additional domains. Get the value of <code>NextPageMarker</code> from the
-        /// previous response, and submit another request that includes the value of <code>NextPageMarker</code>
-        /// in the <code>Marker</code> element.</para><para>Constraints: The marker must match the value specified in the previous request.</para>
+        /// than the value that you specified for <c>MaxItems</c>, you can use <c>Marker</c> to
+        /// return additional domains. Get the value of <c>NextPageMarker</c> from the previous
+        /// response, and submit another request that includes the value of <c>NextPageMarker</c>
+        /// in the <c>Marker</c> element.</para><para>Constraints: The marker must match the value specified in the previous request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

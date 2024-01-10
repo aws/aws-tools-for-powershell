@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>The maximum number of objects that you want WAF to return for this request. If more
-        /// objects are available, in the response, WAF provides a <code>NextMarker</code> value
-        /// that you can use in a subsequent call to get the next batch of objects.</para>
+        /// objects are available, in the response, WAF provides a <c>NextMarker</c> value that
+        /// you can use in a subsequent call to get the next batch of objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,10 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter NextMarker
         /// <summary>
         /// <para>
-        /// <para>When you request a list of objects with a <code>Limit</code> setting, if the number
-        /// of objects that are still available for retrieval exceeds the limit, WAF returns a
-        /// <code>NextMarker</code> value in the response. To retrieve the next batch of objects,
-        /// provide the marker from the prior call in your next request.</para>
+        /// <para>When you request a list of objects with a <c>Limit</c> setting, if the number of objects
+        /// that are still available for retrieval exceeds the limit, WAF returns a <c>NextMarker</c>
+        /// value in the response. To retrieve the next batch of objects, provide the marker from
+        /// the prior call in your next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

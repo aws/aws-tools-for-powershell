@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// Temporarily sets the state of an alarm for testing purposes. When the updated state
     /// differs from the previous value, the action configured for the appropriate state is
     /// invoked. For example, if your alarm is configured to send an Amazon SNS message when
-    /// an alarm is triggered, temporarily changing the alarm state to <code>ALARM</code>
-    /// sends an SNS message.
+    /// an alarm is triggered, temporarily changing the alarm state to <c>ALARM</c> sends
+    /// an SNS message.
     /// 
     ///  
     /// <para>
@@ -40,14 +40,13 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// the metric alarm state change happens quickly, it is typically only visible in the
     /// alarm's <b>History</b> tab in the Amazon CloudWatch console or through <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html">DescribeAlarmHistory</a>.
     /// </para><para>
-    /// If you use <code>SetAlarmState</code> on a composite alarm, the composite alarm is
-    /// not guaranteed to return to its actual state. It returns to its actual state only
-    /// once any of its children alarms change state. It is also reevaluated if you update
-    /// its configuration.
+    /// If you use <c>SetAlarmState</c> on a composite alarm, the composite alarm is not guaranteed
+    /// to return to its actual state. It returns to its actual state only once any of its
+    /// children alarms change state. It is also reevaluated if you update its configuration.
     /// </para><para>
     /// If an alarm triggers EC2 Auto Scaling policies or application Auto Scaling policies,
-    /// you must include information in the <code>StateReasonData</code> parameter to enable
-    /// the policy to take the correct action.
+    /// you must include information in the <c>StateReasonData</c> parameter to enable the
+    /// policy to take the correct action.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "CWAlarmState", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

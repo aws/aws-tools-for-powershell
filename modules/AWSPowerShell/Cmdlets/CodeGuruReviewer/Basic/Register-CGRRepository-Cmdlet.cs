@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <summary>
         /// <para>
         /// <para>The name of the S3 bucket used for associating a new S3 repository. It must begin
-        /// with <code>codeguru-reviewer-</code>. </para>
+        /// with <c>codeguru-reviewer-</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar Connections connection.
-        /// Its format is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>.
+        /// Its format is <c>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</c>.
         /// For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">Connection</a>
         /// in the <i>Amazon Web Services CodeStar Connections API Reference</i>.</para>
         /// </para>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar Connections connection.
-        /// Its format is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>.
+        /// Its format is <c>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</c>.
         /// For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">Connection</a>
         /// in the <i>Amazon Web Services CodeStar Connections API Reference</i>.</para>
         /// </para>
@@ -113,8 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <summary>
         /// <para>
         /// <para>The encryption option for a repository association. It is either owned by Amazon Web
-        /// Services Key Management Service (KMS) (<code>AWS_OWNED_CMK</code>) or customer managed
-        /// (<code>CUSTOMER_MANAGED_CMK</code>).</para>
+        /// Services Key Management Service (KMS) (<c>AWS_OWNED_CMK</c>) or customer managed (<c>CUSTOMER_MANAGED_CMK</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,10 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <summary>
         /// <para>
         /// <para>An array of key-value pairs used to tag an associated repository. A tag is a custom
-        /// attribute label with two parts:</para><ul><li><para>A <i>tag key</i> (for example, <code>CostCenter</code>, <code>Environment</code>,
-        /// <code>Project</code>, or <code>Secret</code>). Tag keys are case sensitive.</para></li><li><para>An optional field known as a <i>tag value</i> (for example, <code>111122223333</code>,
-        /// <code>Production</code>, or a team name). Omitting the tag value is the same as using
-        /// an empty string. Like tag keys, tag values are case sensitive.</para></li></ul>
+        /// attribute label with two parts:</para><ul><li><para>A <i>tag key</i> (for example, <c>CostCenter</c>, <c>Environment</c>, <c>Project</c>,
+        /// or <c>Secret</c>). Tag keys are case sensitive.</para></li><li><para>An optional field known as a <i>tag value</i> (for example, <c>111122223333</c>, <c>Production</c>,
+        /// or a team name). Omitting the tag value is the same as using an empty string. Like
+        /// tag keys, tag values are case sensitive.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

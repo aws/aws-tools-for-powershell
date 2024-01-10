@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>A list of domains to use in the update operation.</para><important><para>There is a limit of 1000 domains per request.</para></important><para>Each domain specification in your domain list must satisfy the following requirements:
-        /// </para><ul><li><para>It can optionally start with <code>*</code> (asterisk).</para></li><li><para>With the exception of the optional starting asterisk, it must only contain the following
-        /// characters: <code>A-Z</code>, <code>a-z</code>, <code>0-9</code>, <code>-</code> (hyphen).</para></li><li><para>It must be from 1-255 characters in length. </para></li></ul>
+        /// </para><ul><li><para>It can optionally start with <c>*</c> (asterisk).</para></li><li><para>With the exception of the optional starting asterisk, it must only contain the following
+        /// characters: <c>A-Z</c>, <c>a-z</c>, <c>0-9</c>, <c>-</c> (hyphen).</para></li><li><para>It must be from 1-255 characters in length. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,10 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Operation
         /// <summary>
         /// <para>
-        /// <para>What you want DNS Firewall to do with the domains that you are providing: </para><ul><li><para><code>ADD</code> - Add the domains to the ones that are already in the domain list.
-        /// </para></li><li><para><code>REMOVE</code> - Search the domain list for the domains and remove them from
-        /// the list.</para></li><li><para><code>REPLACE</code> - Update the domain list to exactly match the list that you
-        /// are providing. </para></li></ul>
+        /// <para>What you want DNS Firewall to do with the domains that you are providing: </para><ul><li><para><c>ADD</c> - Add the domains to the ones that are already in the domain list. </para></li><li><para><c>REMOVE</c> - Search the domain list for the domains and remove them from the list.</para></li><li><para><c>REPLACE</c> - Update the domain list to exactly match the list that you are providing.
+        /// </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

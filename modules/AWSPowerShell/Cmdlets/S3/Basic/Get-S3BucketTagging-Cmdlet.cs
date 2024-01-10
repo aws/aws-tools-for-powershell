@@ -33,15 +33,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></note><para>
     /// Returns the tag set associated with the bucket.
     /// </para><para>
-    /// To use this operation, you must have permission to perform the <code>s3:GetBucketTagging</code>
+    /// To use this operation, you must have permission to perform the <c>s3:GetBucketTagging</c>
     /// action. By default, the bucket owner has this permission and can grant this permission
     /// to others.
-    /// </para><para><code>GetBucketTagging</code> has the following special error:
+    /// </para><para><c>GetBucketTagging</c> has the following special error:
     /// </para><ul><li><para>
-    /// Error code: <code>NoSuchTagSet</code></para><ul><li><para>
+    /// Error code: <c>NoSuchTagSet</c></para><ul><li><para>
     /// Description: There is no tag set associated with the bucket.
     /// </para></li></ul></li></ul><para>
-    /// The following operations are related to <code>GetBucketTagging</code>:
+    /// The following operations are related to <c>GetBucketTagging</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html">PutBucketTagging</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html">DeleteBucketTagging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketTagging")]

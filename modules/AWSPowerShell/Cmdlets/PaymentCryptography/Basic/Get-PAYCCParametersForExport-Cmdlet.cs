@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <summary>
         /// <para>
         /// <para>The key block format type (for example, TR-34 or TR-31) to use during key material
-        /// export. Export token is only required for a TR-34 key export, <code>TR34_KEY_BLOCK</code>.
+        /// export. Export token is only required for a TR-34 key export, <c>TR34_KEY_BLOCK</c>.
         /// Export token is not required for TR-31 key export.</para>
         /// </para>
         /// </summary>
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <summary>
         /// <para>
         /// <para>The signing key algorithm to generate a signing key certificate. This certificate
-        /// signs the wrapped key under export within the TR-34 key block. <code>RSA_2048</code>
-        /// is the only signing key algorithm allowed.</para>
+        /// signs the wrapped key under export within the TR-34 key block. <c>RSA_2048</c> is
+        /// the only signing key algorithm allowed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

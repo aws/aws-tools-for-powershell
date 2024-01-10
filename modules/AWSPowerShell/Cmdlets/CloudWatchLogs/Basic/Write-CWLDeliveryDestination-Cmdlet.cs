@@ -41,15 +41,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// Create a delivery source, which is a logical object that represents the resource that
     /// is actually sending the logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.
     /// </para></li><li><para>
-    /// Use <code>PutDeliveryDestination</code> to create a <i>delivery destination</i>, which
-    /// is a logical object that represents the actual delivery destination. 
+    /// Use <c>PutDeliveryDestination</c> to create a <i>delivery destination</i>, which is
+    /// a logical object that represents the actual delivery destination. 
     /// </para></li><li><para>
     /// If you are delivering logs cross-account, you must use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html">PutDeliveryDestinationPolicy</a>
     /// in the destination account to assign an IAM policy to the destination. This policy
     /// allows delivery to that destination. 
     /// </para></li><li><para>
-    /// Use <code>CreateDelivery</code> to create a <i>delivery</i> by pairing exactly one
-    /// delivery source and one delivery destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.
+    /// Use <c>CreateDelivery</c> to create a <i>delivery</i> by pairing exactly one delivery
+    /// source and one delivery destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.
     /// 
     /// </para></li></ul><para>
     /// You can configure a single delivery source to send logs to multiple destinations by

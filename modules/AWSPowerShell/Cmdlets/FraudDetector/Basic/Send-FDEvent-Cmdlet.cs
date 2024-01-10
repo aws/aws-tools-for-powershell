@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
     /// Stores events in Amazon Fraud Detector without generating fraud predictions for those
-    /// events. For example, you can use <code>SendEvent</code> to upload a historical dataset,
+    /// events. For example, you can use <c>SendEvent</c> to upload a historical dataset,
     /// which you can then later use to train a model.
     /// </summary>
     [Cmdlet("Send", "FDEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter AssignedLabel
         /// <summary>
         /// <para>
-        /// <para>The label to associate with the event. Required if specifying <code>labelTimestamp</code>.</para>
+        /// <para>The label to associate with the event. Required if specifying <c>labelTimestamp</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter LabelTimestamp
         /// <summary>
         /// <para>
-        /// <para>The timestamp associated with the label. Required if specifying <code>assignedLabel</code>.</para>
+        /// <para>The timestamp associated with the label. Required if specifying <c>assignedLabel</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

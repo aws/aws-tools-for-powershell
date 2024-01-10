@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     /// Analytics console, the console uses this operation to infer a schema and show it in
     /// the console user interface. 
     /// </para><para>
-    ///  This operation requires permissions to perform the <code>kinesisanalytics:DiscoverInputSchema</code>
+    ///  This operation requires permissions to perform the <c>kinesisanalytics:DiscoverInputSchema</c>
     /// action. 
     /// </para>
     /// </summary>
@@ -83,11 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter InputStartingPositionConfiguration_InputStartingPosition
         /// <summary>
         /// <para>
-        /// <para>The starting position on the stream.</para><ul><li><para><code>NOW</code> - Start reading just after the most recent record in the stream,
-        /// start at the request time stamp that the customer issued.</para></li><li><para><code>TRIM_HORIZON</code> - Start reading at the last untrimmed record in the stream,
-        /// which is the oldest record available in the stream. This option is not available for
-        /// an Amazon Kinesis Firehose delivery stream.</para></li><li><para><code>LAST_STOPPED_POINT</code> - Resume reading from where the application last
-        /// stopped reading.</para></li></ul>
+        /// <para>The starting position on the stream.</para><ul><li><para><c>NOW</c> - Start reading just after the most recent record in the stream, start
+        /// at the request time stamp that the customer issued.</para></li><li><para><c>TRIM_HORIZON</c> - Start reading at the last untrimmed record in the stream, which
+        /// is the oldest record available in the stream. This option is not available for an
+        /// Amazon Kinesis Firehose delivery stream.</para></li><li><para><c>LAST_STOPPED_POINT</c> - Resume reading from where the application last stopped
+        /// reading.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

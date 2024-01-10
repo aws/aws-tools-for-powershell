@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Filters_Application
         /// <summary>
         /// <para>
-        /// <para>Optional release label application filter. For example, <code>spark@2.1.0</code>.</para>
+        /// <para>Optional release label application filter. For example, <c>spark@2.1.0</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Filters_Prefix
         /// <summary>
         /// <para>
-        /// <para>Optional release label version prefix filter. For example, <code>emr-5</code>.</para>
+        /// <para>Optional release label version prefix filter. For example, <c>emr-5</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>Defines the maximum number of release labels to return in a single response. The default
-        /// is <code>100</code>.</para>
+        /// is <c>100</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,12 +77,12 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Specifies the next page of results. If <code>NextToken</code> is not specified, which
-        /// is usually the case for the first request of ListReleaseLabels, the first page of
-        /// results are determined by other filtering parameters or by the latest version. The
-        /// <code>ListReleaseLabels</code> request fails if the identity (Amazon Web Services
-        /// account ID) and all filtering parameters are different from the original request,
-        /// or if the <code>NextToken</code> is expired or tampered with.</para>
+        /// <para>Specifies the next page of results. If <c>NextToken</c> is not specified, which is
+        /// usually the case for the first request of ListReleaseLabels, the first page of results
+        /// are determined by other filtering parameters or by the latest version. The <c>ListReleaseLabels</c>
+        /// request fails if the identity (Amazon Web Services account ID) and all filtering parameters
+        /// are different from the original request, or if the <c>NextToken</c> is expired or
+        /// tampered with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,22 +28,21 @@ using Amazon.DataPipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.DP
 {
     /// <summary>
-    /// Task runners call <code>PollForTask</code> to receive a task to perform from AWS Data
-    /// Pipeline. The task runner specifies which tasks it can perform by setting a value
-    /// for the <code>workerGroup</code> parameter. The task returned can come from any of
-    /// the pipelines that match the <code>workerGroup</code> value passed in by the task
-    /// runner and that was launched using the IAM user credentials specified by the task
-    /// runner.
+    /// Task runners call <c>PollForTask</c> to receive a task to perform from AWS Data Pipeline.
+    /// The task runner specifies which tasks it can perform by setting a value for the <c>workerGroup</c>
+    /// parameter. The task returned can come from any of the pipelines that match the <c>workerGroup</c>
+    /// value passed in by the task runner and that was launched using the IAM user credentials
+    /// specified by the task runner.
     /// 
     ///  
     /// <para>
-    /// If tasks are ready in the work queue, <code>PollForTask</code> returns a response
-    /// immediately. If no tasks are available in the queue, <code>PollForTask</code> uses
-    /// long-polling and holds on to a poll connection for up to a 90 seconds, during which
-    /// time the first newly scheduled task is handed to the task runner. To accomodate this,
-    /// set the socket timeout in your task runner to 90 seconds. The task runner should not
-    /// call <code>PollForTask</code> again on the same <code>workerGroup</code> until it
-    /// receives a response, and this can take up to 90 seconds. 
+    /// If tasks are ready in the work queue, <c>PollForTask</c> returns a response immediately.
+    /// If no tasks are available in the queue, <c>PollForTask</c> uses long-polling and holds
+    /// on to a poll connection for up to a 90 seconds, during which time the first newly
+    /// scheduled task is handed to the task runner. To accomodate this, set the socket timeout
+    /// in your task runner to 90 seconds. The task runner should not call <c>PollForTask</c>
+    /// again on the same <c>workerGroup</c> until it receives a response, and this can take
+    /// up to 90 seconds. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "DPTask")]
@@ -96,9 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// <para>
         /// <para>The type of task the task runner is configured to accept and process. The worker group
         /// is set as a field on objects in the pipeline when they are created. You can only specify
-        /// a single value for <code>workerGroup</code> in the call to <code>PollForTask</code>.
-        /// There are no wildcard values permitted in <code>workerGroup</code>; the string must
-        /// be an exact, case-sensitive, match.</para>
+        /// a single value for <c>workerGroup</c> in the call to <c>PollForTask</c>. There are
+        /// no wildcard values permitted in <c>workerGroup</c>; the string must be an exact, case-sensitive,
+        /// match.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

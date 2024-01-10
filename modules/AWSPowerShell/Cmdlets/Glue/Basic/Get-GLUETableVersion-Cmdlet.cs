@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>The ID value of the table version to be retrieved. A <code>VersionID</code> is a string
+        /// <para>The ID value of the table version to be retrieved. A <c>VersionID</c> is a string
         /// representation of an integer. Each version is incremented by 1. </para>
         /// </para>
         /// </summary>

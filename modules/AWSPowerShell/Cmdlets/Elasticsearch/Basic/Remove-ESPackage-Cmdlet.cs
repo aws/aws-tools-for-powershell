@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter PackageID
         /// <summary>
         /// <para>
-        /// <para>Internal ID of the package that you want to delete. Use <code>DescribePackages</code>
-        /// to find this value.</para>
+        /// <para>Internal ID of the package that you want to delete. Use <c>DescribePackages</c> to
+        /// find this value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

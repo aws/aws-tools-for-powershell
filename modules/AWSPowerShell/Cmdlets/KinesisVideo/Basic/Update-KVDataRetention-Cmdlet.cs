@@ -30,12 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.KV
     /// <summary>
     /// Increases or decreases the stream's data retention period by the value that you specify.
     /// To indicate whether you want to increase or decrease the data retention period, specify
-    /// the <code>Operation</code> parameter in the request body. In the request, you must
-    /// specify either the <code>StreamName</code> or the <code>StreamARN</code>. 
+    /// the <c>Operation</c> parameter in the request body. In the request, you must specify
+    /// either the <c>StreamName</c> or the <c>StreamARN</c>. 
     /// 
     ///  
     /// <para>
-    /// This operation requires permission for the <code>KinesisVideo:UpdateDataRetention</code>
+    /// This operation requires permission for the <c>KinesisVideo:UpdateDataRetention</c>
     /// action.
     /// </para><para>
     /// Changing the data retention period affects the data in the stream as follows:
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The version of the stream whose retention period you want to change. To get the version,
-        /// call either the <code>DescribeStream</code> or the <code>ListStreams</code> API.</para>
+        /// call either the <c>DescribeStream</c> or the <c>ListStreams</c> API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The number of hours to adjust the current retention by. The value you specify is added
-        /// to or subtracted from the current value, depending on the <code>operation</code>.</para><para>The minimum value for data retention is 0 and the maximum value is 87600 (ten years).</para>
+        /// to or subtracted from the current value, depending on the <c>operation</c>.</para><para>The minimum value for data retention is 0 and the maximum value is 87600 (ten years).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -71,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <para>The validation mode currently configured for this policy store. The valid values are:</para><ul><li><para><b>OFF</b> – Neither Verified Permissions nor Cedar perform any validation on policies.
         /// No validation errors are reported by either service.</para></li><li><para><b>STRICT</b> – Requires a schema to be present in the policy store. Cedar performs
         /// validation on all submitted new or updated static policies and policy templates. Any
-        /// that fail validation are rejected and Cedar doesn't store them in the policy store.</para></li></ul><important><para>If <code>Mode=STRICT</code> and the policy store doesn't contain a schema, Verified
-        /// Permissions rejects all static policies and policy templates because there is no schema
-        /// to validate against. </para><para>To submit a static policy or policy template without a schema, you must turn off validation.</para></important>
+        /// that fail validation are rejected and Cedar doesn't store them in the policy store.</para></li></ul><important><para>If <c>Mode=STRICT</c> and the policy store doesn't contain a schema, Verified Permissions
+        /// rejects all static policies and policy templates because there is no schema to validate
+        /// against. </para><para>To submit a static policy or policy template without a schema, you must turn off validation.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// requires that you also pass the same value for all other parameters. We recommend
         /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
         /// type of value.</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
-        /// you.</para><para>If you retry the operation with the same <code>ClientToken</code>, but with different
-        /// parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</para>
+        /// you.</para><para>If you retry the operation with the same <c>ClientToken</c>, but with different parameters,
+        /// the retry fails with an <c>IdempotentParameterMismatch</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

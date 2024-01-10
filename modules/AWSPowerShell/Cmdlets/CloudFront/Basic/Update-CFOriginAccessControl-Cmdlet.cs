@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The current version (<code>ETag</code> value) of the origin access control that you
-        /// are updating.</para>
+        /// <para>The current version (<c>ETag</c> value) of the origin access control that you are
+        /// updating.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,16 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>Specifies which requests CloudFront signs (adds authentication information to). Specify
-        /// <code>always</code> for the most common use case. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html#oac-advanced-settings">origin
-        /// access control advanced settings</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>This field can have one of the following values:</para><ul><li><para><code>always</code> – CloudFront signs all origin requests, overwriting the <code>Authorization</code>
-        /// header from the viewer request if one exists.</para></li><li><para><code>never</code> – CloudFront doesn't sign any origin requests. This value turns
-        /// off origin access control for all origins in all distributions that use this origin
-        /// access control.</para></li><li><para><code>no-override</code> – If the viewer request doesn't contain the <code>Authorization</code>
+        /// <c>always</c> for the most common use case. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html#oac-advanced-settings">origin
+        /// access control advanced settings</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>This field can have one of the following values:</para><ul><li><para><c>always</c> – CloudFront signs all origin requests, overwriting the <c>Authorization</c>
+        /// header from the viewer request if one exists.</para></li><li><para><c>never</c> – CloudFront doesn't sign any origin requests. This value turns off
+        /// origin access control for all origins in all distributions that use this origin access
+        /// control.</para></li><li><para><c>no-override</c> – If the viewer request doesn't contain the <c>Authorization</c>
         /// header, then CloudFront signs the origin request. If the viewer request contains the
-        /// <code>Authorization</code> header, then CloudFront doesn't sign the origin request
-        /// and instead passes along the <code>Authorization</code> header from the viewer request.
-        /// <b>WARNING: To pass along the <code>Authorization</code> header from the viewer request,
-        /// you <i>must</i> add the <code>Authorization</code> header to a <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html">cache
+        /// <c>Authorization</c> header, then CloudFront doesn't sign the origin request and instead
+        /// passes along the <c>Authorization</c> header from the viewer request. <b>WARNING:
+        /// To pass along the <c>Authorization</c> header from the viewer request, you <i>must</i>
+        /// add the <c>Authorization</c> header to a <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html">cache
         /// policy</a> for all cache behaviors that use origins associated with this origin access
         /// control.</b></para></li></ul>
         /// </para>
@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The signing protocol of the origin access control, which determines how CloudFront
-        /// signs (authenticates) requests. The only valid value is <code>sigv4</code>.</para>
+        /// signs (authenticates) requests. The only valid value is <c>sigv4</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -45,10 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>Contains the storage configuration for time series (data streams) that aren't associated
-        /// with asset properties. The <code>disassociatedDataStorage</code> can be one of the
-        /// following values:</para><ul><li><para><code>ENABLED</code> – IoT SiteWise accepts time series that aren't associated with
-        /// asset properties.</para><important><para>After the <code>disassociatedDataStorage</code> is enabled, you can't disable it.</para></important></li><li><para><code>DISABLED</code> – IoT SiteWise doesn't accept time series (data streams) that
-        /// aren't associated with asset properties.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data
+        /// with asset properties. The <c>disassociatedDataStorage</c> can be one of the following
+        /// values:</para><ul><li><para><c>ENABLED</c> – IoT SiteWise accepts time series that aren't associated with asset
+        /// properties.</para><important><para>After the <c>disassociatedDataStorage</c> is enabled, you can't disable it.</para></important></li><li><para><c>DISABLED</c> – IoT SiteWise doesn't accept time series (data streams) that aren't
+        /// associated with asset properties.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data
         /// streams</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter RetentionPeriod_NumberOfDay
         /// <summary>
         /// <para>
-        /// <para>The number of days that your data is kept.</para><note><para>If you specified a value for this parameter, the <code>unlimited</code> parameter
-        /// must be <code>false</code>.</para></note>
+        /// <para>The number of days that your data is kept.</para><note><para>If you specified a value for this parameter, the <c>unlimited</c> parameter must be
+        /// <c>false</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,10 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>The storage tier that you specified for your data. The <code>storageType</code> parameter
-        /// can be one of the following values:</para><ul><li><para><code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot
-        /// tier. The hot tier is a service-managed database.</para></li><li><para><code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold
-        /// tier and the hot tier. The cold tier is a customer-managed Amazon S3 bucket.</para></li></ul>
+        /// <para>The storage tier that you specified for your data. The <c>storageType</c> parameter
+        /// can be one of the following values:</para><ul><li><para><c>SITEWISE_DEFAULT_STORAGE</c> – IoT SiteWise saves your data into the hot tier.
+        /// The hot tier is a service-managed database.</para></li><li><para><c>MULTI_LAYER_STORAGE</c> – IoT SiteWise saves your data in both the cold tier and
+        /// the hot tier. The cold tier is a customer-managed Amazon S3 bucket.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter RetentionPeriod_Unlimited
         /// <summary>
         /// <para>
-        /// <para>If true, your data is kept indefinitely.</para><note><para>If configured to <code>true</code>, you must not specify a value for the <code>numberOfDays</code>
+        /// <para>If true, your data is kept indefinitely.</para><note><para>If configured to <c>true</c>, you must not specify a value for the <c>numberOfDays</c>
         /// parameter.</para></note>
         /// </para>
         /// </summary>

@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Returns a list of the locations registered in your S3 Access Grants instance.
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3:ListAccessGrantsLocations</code> permission to use this
-    /// operation. 
+    /// You must have the <c>s3:ListAccessGrantsLocations</c> permission to use this operation.
+    /// 
     /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Get", "S3CAccessGrantsLocationList")]
@@ -68,12 +68,12 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The S3 path to the location that you are registering. The location scope can be the
-        /// default S3 location <code>s3://</code>, the S3 path to a bucket <code>s3://&lt;bucket&gt;</code>,
-        /// or the S3 path to a bucket and prefix <code>s3://&lt;bucket&gt;/&lt;prefix&gt;</code>.
-        /// A prefix in S3 is a string of characters at the beginning of an object key name used
+        /// default S3 location <c>s3://</c>, the S3 path to a bucket <c>s3://&lt;bucket&gt;</c>,
+        /// or the S3 path to a bucket and prefix <c>s3://&lt;bucket&gt;/&lt;prefix&gt;</c>. A
+        /// prefix in S3 is a string of characters at the beginning of an object key name used
         /// to organize the objects that you store in your S3 buckets. For example, object key
-        /// names that start with the <code>engineering/</code> prefix or object key names that
-        /// start with the <code>marketing/campaigns/</code> prefix.</para>
+        /// names that start with the <c>engineering/</c> prefix or object key names that start
+        /// with the <c>marketing/campaigns/</c> prefix.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,10 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of access grants that you would like returned in the <code>List
-        /// Access Grants</code> response. If the results include the pagination token <code>NextToken</code>,
-        /// make another call using the <code>NextToken</code> to determine if there are more
-        /// results.</para>
+        /// <para>The maximum number of access grants that you would like returned in the <c>List Access
+        /// Grants</c> response. If the results include the pagination token <c>NextToken</c>,
+        /// make another call using the <c>NextToken</c> to determine if there are more results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>A pagination token to request the next page of results. Pass this value into a subsequent
-        /// <code>List Access Grants Locations</code> request in order to retrieve the next page
-        /// of results.</para>
+        /// <c>List Access Grants Locations</c> request in order to retrieve the next page of
+        /// results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Argument
         /// <summary>
         /// <para>
-        /// <para>Arguments made available to the Lambda function as part of the <code>CALL_UPDATE_REQUESTED</code>
+        /// <para>Arguments made available to the Lambda function as part of the <c>CALL_UPDATE_REQUESTED</c>
         /// event. Can contain 0-20 key-value pairs.</para>
         /// </para>
         /// </summary>

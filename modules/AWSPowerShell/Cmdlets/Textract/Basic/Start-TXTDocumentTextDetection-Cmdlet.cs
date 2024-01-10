@@ -32,17 +32,16 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// lines of text and the words that make up a line of text.
     /// 
     ///  
-    /// <para><code>StartDocumentTextDetection</code> can analyze text in documents that are in
-    /// JPEG, PNG, TIFF, and PDF format. The documents are stored in an Amazon S3 bucket.
-    /// Use <a>DocumentLocation</a> to specify the bucket name and file name of the document.
-    /// 
-    /// </para><para><code>StartTextDetection</code> returns a job identifier (<code>JobId</code>) that
-    /// you use to get the results of the operation. When text detection is finished, Amazon
-    /// Textract publishes a completion status to the Amazon Simple Notification Service (Amazon
-    /// SNS) topic that you specify in <code>NotificationChannel</code>. To get the results
-    /// of the text detection operation, first check that the status value published to the
-    /// Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetDocumentTextDetection</a>,
-    /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartDocumentTextDetection</code>.
+    /// <para><c>StartDocumentTextDetection</c> can analyze text in documents that are in JPEG,
+    /// PNG, TIFF, and PDF format. The documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a>
+    /// to specify the bucket name and file name of the document. 
+    /// </para><para><c>StartTextDetection</c> returns a job identifier (<c>JobId</c>) that you use to
+    /// get the results of the operation. When text detection is finished, Amazon Textract
+    /// publishes a completion status to the Amazon Simple Notification Service (Amazon SNS)
+    /// topic that you specify in <c>NotificationChannel</c>. To get the results of the text
+    /// detection operation, first check that the status value published to the Amazon SNS
+    /// topic is <c>SUCCEEDED</c>. If so, call <a>GetDocumentTextDetection</a>, and pass the
+    /// job identifier (<c>JobId</c>) from the initial call to <c>StartDocumentTextDetection</c>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document
     /// Text Detection</a>.
@@ -75,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// <summary>
         /// <para>
         /// <para>The idempotent token that's used to identify the start request. If you use the same
-        /// token with multiple <code>StartDocumentTextDetection</code> requests, the same <code>JobId</code>
-        /// is returned. Use <code>ClientRequestToken</code> to prevent the same job from being
-        /// accidentally started more than once. For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-async.html">Calling
+        /// token with multiple <c>StartDocumentTextDetection</c> requests, the same <c>JobId</c>
+        /// is returned. Use <c>ClientRequestToken</c> to prevent the same job from being accidentally
+        /// started more than once. For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-async.html">Calling
         /// Amazon Textract Asynchronous Operations</a>.</para>
         /// </para>
         /// </summary>
@@ -89,9 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// <summary>
         /// <para>
         /// <para>An identifier that you specify that's included in the completion notification published
-        /// to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify
-        /// the type of document that the completion notification corresponds to (such as a tax
-        /// form or a receipt).</para>
+        /// to the Amazon SNS topic. For example, you can use <c>JobTag</c> to identify the type
+        /// of document that the completion notification corresponds to (such as a tax form or
+        /// a receipt).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

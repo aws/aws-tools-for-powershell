@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Specify the delete inventory ID for which you want information. This ID was returned
-        /// by the <code>DeleteInventory</code> operation.</para>
+        /// by the <c>DeleteInventory</c> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

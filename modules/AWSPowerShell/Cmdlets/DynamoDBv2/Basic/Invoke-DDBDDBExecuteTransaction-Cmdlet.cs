@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// The entire transaction must consist of either read statements or write statements,
     /// you cannot mix both in one transaction. The EXISTS function is an exception and can
     /// be used to check the condition of specific attributes of the item in a similar manner
-    /// to <code>ConditionCheck</code> in the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/transaction-apis.html#transaction-apis-txwriteitems">TransactWriteItems</a>
+    /// to <c>ConditionCheck</c> in the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/transaction-apis.html#transaction-apis-txwriteitems">TransactWriteItems</a>
     /// API.
     /// </para></note>
     /// </summary>
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>Set this value to get remaining results, if <code>NextToken</code> was returned in
-        /// the statement response.</para>
+        /// <para>Set this value to get remaining results, if <c>NextToken</c> was returned in the statement
+        /// response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

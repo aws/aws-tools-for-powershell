@@ -39,14 +39,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </para></note><note><para>
     /// When placing an exception on an Amazon Web Services resource, it is recommended that
     /// remediation is set as manual remediation until the given Config rule for the specified
-    /// resource evaluates the resource as <code>NON_COMPLIANT</code>. Once the resource has
-    /// been evaluated as <code>NON_COMPLIANT</code>, you can add remediation exceptions and
-    /// change the remediation type back from Manual to Auto if you want to use auto-remediation.
-    /// Otherwise, using auto-remediation before a <code>NON_COMPLIANT</code> evaluation result
-    /// can delete resources before the exception is applied.
+    /// resource evaluates the resource as <c>NON_COMPLIANT</c>. Once the resource has been
+    /// evaluated as <c>NON_COMPLIANT</c>, you can add remediation exceptions and change the
+    /// remediation type back from Manual to Auto if you want to use auto-remediation. Otherwise,
+    /// using auto-remediation before a <c>NON_COMPLIANT</c> evaluation result can delete
+    /// resources before the exception is applied.
     /// </para></note><note><para>
-    /// Placing an exception can only be performed on resources that are <code>NON_COMPLIANT</code>.
-    /// If you use this API for <code>COMPLIANT</code> resources or resources that are <code>NOT_APPLICABLE</code>,
+    /// Placing an exception can only be performed on resources that are <c>NON_COMPLIANT</c>.
+    /// If you use this API for <c>COMPLIANT</c> resources or resources that are <c>NOT_APPLICABLE</c>,
     /// a remediation exception will not be generated. For more information on the conditions
     /// that initiate the possible Config evaluation results, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html#aws-config-rules">Concepts
     /// | Config Rules</a> in the <i>Config Developer Guide</i>.

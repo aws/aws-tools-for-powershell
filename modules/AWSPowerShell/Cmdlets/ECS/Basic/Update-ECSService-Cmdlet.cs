@@ -32,18 +32,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// 
     ///  
     /// <para>
-    /// For services using the rolling update (<code>ECS</code>) you can update the desired
-    /// count, deployment configuration, network configuration, load balancers, service registries,
+    /// For services using the rolling update (<c>ECS</c>) you can update the desired count,
+    /// deployment configuration, network configuration, load balancers, service registries,
     /// enable ECS managed tags option, propagate tags option, task placement constraints
     /// and strategies, and task definition. When you update any of these parameters, Amazon
     /// ECS starts new tasks with the new configuration. 
     /// </para><para>
-    /// For services using the blue/green (<code>CODE_DEPLOY</code>) deployment controller,
-    /// only the desired count, deployment configuration, health check grace period, task
-    /// placement constraints and strategies, enable ECS managed tags option, and propagate
-    /// tags can be updated using this API. If the network configuration, platform version,
-    /// task definition, or load balancer need to be updated, create a new CodeDeploy deployment.
-    /// For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a>
+    /// For services using the blue/green (<c>CODE_DEPLOY</c>) deployment controller, only
+    /// the desired count, deployment configuration, health check grace period, task placement
+    /// constraints and strategies, enable ECS managed tags option, and propagate tags can
+    /// be updated using this API. If the network configuration, platform version, task definition,
+    /// or load balancer need to be updated, create a new CodeDeploy deployment. For more
+    /// information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a>
     /// in the <i>CodeDeploy API Reference</i>.
     /// </para><para>
     /// For services using an external deployment controller, you can update only the desired
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// to be updated, create a new task set For more information, see <a>CreateTaskSet</a>.
     /// </para><para>
     /// You can add to or subtract from the number of instantiations of a task definition
-    /// in a service by specifying the cluster that the service is running in and a new <code>desiredCount</code>
+    /// in a service by specifying the cluster that the service is running in and a new <c>desiredCount</c>
     /// parameter.
     /// </para><para>
     /// If you have updated the Docker image of your application, you can create a new task
@@ -62,35 +62,35 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// configuration) to determine the deployment strategy.
     /// </para><note><para>
     /// If your updated Docker image uses the same tag as what is in the existing task definition
-    /// for your service (for example, <code>my_image:latest</code>), you don't need to create
-    /// a new revision of your task definition. You can update the service using the <code>forceNewDeployment</code>
+    /// for your service (for example, <c>my_image:latest</c>), you don't need to create a
+    /// new revision of your task definition. You can update the service using the <c>forceNewDeployment</c>
     /// option. The new tasks launched by the deployment pull the current image/tag combination
     /// from your repository when they start.
     /// </para></note><para>
     /// You can also update the deployment configuration of a service. When a deployment is
     /// triggered by updating the task definition of a service, the service scheduler uses
-    /// the deployment configuration parameters, <code>minimumHealthyPercent</code> and <code>maximumPercent</code>,
+    /// the deployment configuration parameters, <c>minimumHealthyPercent</c> and <c>maximumPercent</c>,
     /// to determine the deployment strategy.
     /// </para><ul><li><para>
-    /// If <code>minimumHealthyPercent</code> is below 100%, the scheduler can ignore <code>desiredCount</code>
-    /// temporarily during a deployment. For example, if <code>desiredCount</code> is four
-    /// tasks, a minimum of 50% allows the scheduler to stop two existing tasks before starting
-    /// two new tasks. Tasks for services that don't use a load balancer are considered healthy
-    /// if they're in the <code>RUNNING</code> state. Tasks for services that use a load balancer
-    /// are considered healthy if they're in the <code>RUNNING</code> state and are reported
-    /// as healthy by the load balancer.
+    /// If <c>minimumHealthyPercent</c> is below 100%, the scheduler can ignore <c>desiredCount</c>
+    /// temporarily during a deployment. For example, if <c>desiredCount</c> is four tasks,
+    /// a minimum of 50% allows the scheduler to stop two existing tasks before starting two
+    /// new tasks. Tasks for services that don't use a load balancer are considered healthy
+    /// if they're in the <c>RUNNING</c> state. Tasks for services that use a load balancer
+    /// are considered healthy if they're in the <c>RUNNING</c> state and are reported as
+    /// healthy by the load balancer.
     /// </para></li><li><para>
-    /// The <code>maximumPercent</code> parameter represents an upper limit on the number
-    /// of running tasks during a deployment. You can use it to define the deployment batch
-    /// size. For example, if <code>desiredCount</code> is four tasks, a maximum of 200% starts
-    /// four new tasks before stopping the four older tasks (provided that the cluster resources
-    /// required to do this are available).
+    /// The <c>maximumPercent</c> parameter represents an upper limit on the number of running
+    /// tasks during a deployment. You can use it to define the deployment batch size. For
+    /// example, if <c>desiredCount</c> is four tasks, a maximum of 200% starts four new tasks
+    /// before stopping the four older tasks (provided that the cluster resources required
+    /// to do this are available).
     /// </para></li></ul><para>
-    /// When <a>UpdateService</a> stops a task during a deployment, the equivalent of <code>docker
-    /// stop</code> is issued to the containers running in the task. This results in a <code>SIGTERM</code>
-    /// and a 30-second timeout. After this, <code>SIGKILL</code> is sent and the containers
-    /// are forcibly stopped. If the container handles the <code>SIGTERM</code> gracefully
-    /// and exits within 30 seconds from receiving it, no <code>SIGKILL</code> is sent.
+    /// When <a>UpdateService</a> stops a task during a deployment, the equivalent of <c>docker
+    /// stop</c> is issued to the containers running in the task. This results in a <c>SIGTERM</c>
+    /// and a 30-second timeout. After this, <c>SIGKILL</c> is sent and the containers are
+    /// forcibly stopped. If the container handles the <c>SIGTERM</c> gracefully and exits
+    /// within 30 seconds from receiving it, no <c>SIGKILL</c> is sent.
     /// </para><para>
     /// When the service scheduler launches new tasks, it determines task placement in your
     /// cluster with the following logic.
@@ -124,10 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// for this service.
     /// </para></li></ul><note><para>
     /// You must have a service-linked role when you update any of the following service properties:
-    /// </para><ul><li><para><code>loadBalancers</code>,
-    /// </para></li><li><para><code>serviceRegistries</code></para></li></ul><para>
-    /// For more information about the role see the <code>CreateService</code> request parameter
-    /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html#ECS-CreateService-request-role"><code>role</code></a>. 
+    /// </para><ul><li><para><c>loadBalancers</c>,
+    /// </para></li><li><para><c>serviceRegistries</c></para></li></ul><para>
+    /// For more information about the role see the <c>CreateService</c> request parameter
+    /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html#ECS-CreateService-request-role"><c>role</c></a>. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "ECSService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>Whether the task's elastic network interface receives a public IP address. The default
-        /// value is <code>DISABLED</code>.</para>
+        /// value is <c>DISABLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,13 +174,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// provider strategy. However, when a service is using a capacity provider strategy that's
         /// not the default capacity provider strategy, the service can't be updated to use the
         /// cluster's default capacity provider strategy.</para><para>A capacity provider strategy consists of one or more capacity providers along with
-        /// the <code>base</code> and <code>weight</code> to assign to them. A capacity provider
-        /// must be associated with the cluster to be used in a capacity provider strategy. The
-        /// <a>PutClusterCapacityProviders</a> API is used to associate a capacity provider with
-        /// a cluster. Only capacity providers with an <code>ACTIVE</code> or <code>UPDATING</code>
-        /// status can be used.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
+        /// the <c>base</c> and <c>weight</c> to assign to them. A capacity provider must be associated
+        /// with the cluster to be used in a capacity provider strategy. The <a>PutClusterCapacityProviders</a>
+        /// API is used to associate a capacity provider with a cluster. Only capacity providers
+        /// with an <c>ACTIVE</c> or <c>UPDATING</c> status can be used.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
         /// must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a>
-        /// API operation.</para><para>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or <code>FARGATE_SPOT</code>
+        /// API operation.</para><para>To use a Fargate capacity provider, specify either the <c>FARGATE</c> or <c>FARGATE_SPOT</c>
         /// capacity providers. The Fargate capacity providers are available to all accounts and
         /// only need to be associated with a cluster to be used.</para><para>The <a>PutClusterCapacityProviders</a> API operation is used to update the list of
         /// available capacity providers for a cluster after the cluster is created.</para>
@@ -250,8 +249,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging
         /// Your Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service Developer
         /// Guide</i>.</para><para>Only tasks launched after the update will reflect the update. To update the tags on
-        /// all tasks, set <code>forceNewDeployment</code> to <code>true</code>, so that Amazon
-        /// ECS starts new tasks with the updated tags.</para>
+        /// all tasks, set <c>forceNewDeployment</c> to <c>true</c>, so that Amazon ECS starts
+        /// new tasks with the updated tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -262,8 +261,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter EnableExecuteCommand
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, this enables execute command functionality on all task containers.</para><para>If you do not want to override the value that was set when the service was created,
-        /// you can set this to <code>null</code> when performing this action.</para>
+        /// <para>If <c>true</c>, this enables execute command functionality on all task containers.</para><para>If you do not want to override the value that was set when the service was created,
+        /// you can set this to <c>null</c> when performing this action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,8 +275,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>Determines whether to force a new deployment of the service. By default, deployments
         /// aren't forced. You can use this option to start a new deployment with no service definition
         /// changes. For example, you can update a service's tasks to use a newer Docker image
-        /// with the same image/tag combination (<code>my_image:latest</code>) or to roll Fargate
-        /// tasks onto a newer platform version.</para>
+        /// with the same image/tag combination (<c>my_image:latest</c>) or to roll Fargate tasks
+        /// onto a newer platform version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -312,15 +311,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// tasks when the new tasks are running.</para><para>For services that use rolling updates, you can add, update, or remove Elastic Load
         /// Balancing target groups. You can update from a single target group to multiple target
         /// groups and from multiple target groups to a single target group.</para><para>For services that use blue/green deployments, you can update Elastic Load Balancing
-        /// target groups by using <code><a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a></code> through CodeDeploy. Note that multiple target groups are not supported for
-        /// blue/green deployments. For more information see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html">Register
+        /// target groups by using <c><a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a></c> through CodeDeploy. Note that multiple target groups are not supported for blue/green
+        /// deployments. For more information see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html">Register
         /// multiple target groups with a service</a> in the <i>Amazon Elastic Container Service
         /// Developer Guide</i>. </para><para>For services that use the external deployment controller, you can add, update, or
         /// remove load balancers by using <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateTaskSet.html">CreateTaskSet</a>.
         /// Note that multiple target groups are not supported for external deployments. For more
         /// information see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html">Register
         /// multiple target groups with a service</a> in the <i>Amazon Elastic Container Service
-        /// Developer Guide</i>. </para><para>You can remove existing <code>loadBalancers</code> by passing an empty list.</para>
+        /// Developer Guide</i>. </para><para>You can remove existing <c>loadBalancers</c> by passing an empty list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -331,11 +330,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LogConfiguration_LogDriver
         /// <summary>
         /// <para>
-        /// <para>The log driver to use for the container.</para><para>For tasks on Fargate, the supported log drivers are <code>awslogs</code>, <code>splunk</code>,
-        /// and <code>awsfirelens</code>.</para><para>For tasks hosted on Amazon EC2 instances, the supported log drivers are <code>awslogs</code>,
-        /// <code>fluentd</code>, <code>gelf</code>, <code>json-file</code>, <code>journald</code>,
-        /// <code>logentries</code>,<code>syslog</code>, <code>splunk</code>, and <code>awsfirelens</code>.</para><para>For more information about using the <code>awslogs</code> log driver, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html">Using
-        /// the awslogs log driver</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>For more information about using the <code>awsfirelens</code> log driver, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Custom
+        /// <para>The log driver to use for the container.</para><para>For tasks on Fargate, the supported log drivers are <c>awslogs</c>, <c>splunk</c>,
+        /// and <c>awsfirelens</c>.</para><para>For tasks hosted on Amazon EC2 instances, the supported log drivers are <c>awslogs</c>,
+        /// <c>fluentd</c>, <c>gelf</c>, <c>json-file</c>, <c>journald</c>, <c>logentries</c>,<c>syslog</c>,
+        /// <c>splunk</c>, and <c>awsfirelens</c>.</para><para>For more information about using the <c>awslogs</c> log driver, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html">Using
+        /// the awslogs log driver</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>For more information about using the <c>awsfirelens</c> log driver, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Custom
         /// log routing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><note><para>If you have a custom driver that isn't listed, you can fork the Amazon ECS container
         /// agent project that's <a href="https://github.com/aws/amazon-ecs-agent">available on
         /// GitHub</a> and customize it to work with that driver. We encourage you to submit pull
@@ -352,22 +351,22 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DeploymentConfiguration_MaximumPercent
         /// <summary>
         /// <para>
-        /// <para>If a service is using the rolling update (<code>ECS</code>) deployment type, the <code>maximumPercent</code>
+        /// <para>If a service is using the rolling update (<c>ECS</c>) deployment type, the <c>maximumPercent</c>
         /// parameter represents an upper limit on the number of your service's tasks that are
-        /// allowed in the <code>RUNNING</code> or <code>PENDING</code> state during a deployment,
-        /// as a percentage of the <code>desiredCount</code> (rounded down to the nearest integer).
-        /// This parameter enables you to define the deployment batch size. For example, if your
-        /// service is using the <code>REPLICA</code> service scheduler and has a <code>desiredCount</code>
-        /// of four tasks and a <code>maximumPercent</code> value of 200%, the scheduler may start
-        /// four new tasks before stopping the four older tasks (provided that the cluster resources
-        /// required to do this are available). The default <code>maximumPercent</code> value
-        /// for a service using the <code>REPLICA</code> service scheduler is 200%.</para><para>If a service is using either the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code>
+        /// allowed in the <c>RUNNING</c> or <c>PENDING</c> state during a deployment, as a percentage
+        /// of the <c>desiredCount</c> (rounded down to the nearest integer). This parameter enables
+        /// you to define the deployment batch size. For example, if your service is using the
+        /// <c>REPLICA</c> service scheduler and has a <c>desiredCount</c> of four tasks and a
+        /// <c>maximumPercent</c> value of 200%, the scheduler may start four new tasks before
+        /// stopping the four older tasks (provided that the cluster resources required to do
+        /// this are available). The default <c>maximumPercent</c> value for a service using the
+        /// <c>REPLICA</c> service scheduler is 200%.</para><para>If a service is using either the blue/green (<c>CODE_DEPLOY</c>) or <c>EXTERNAL</c>
         /// deployment types and tasks that use the EC2 launch type, the <b>maximum percent</b>
         /// value is set to the default value and is used to define the upper limit on the number
-        /// of the tasks in the service that remain in the <code>RUNNING</code> state while the
-        /// container instances are in the <code>DRAINING</code> state. If the tasks in the service
-        /// use the Fargate launch type, the maximum percent value is not used, although it is
-        /// returned when describing your service.</para>
+        /// of the tasks in the service that remain in the <c>RUNNING</c> state while the container
+        /// instances are in the <c>DRAINING</c> state. If the tasks in the service use the Fargate
+        /// launch type, the maximum percent value is not used, although it is returned when describing
+        /// your service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -377,17 +376,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DeploymentConfiguration_MinimumHealthyPercent
         /// <summary>
         /// <para>
-        /// <para>If a service is using the rolling update (<code>ECS</code>) deployment type, the <code>minimumHealthyPercent</code>
+        /// <para>If a service is using the rolling update (<c>ECS</c>) deployment type, the <c>minimumHealthyPercent</c>
         /// represents a lower limit on the number of your service's tasks that must remain in
-        /// the <code>RUNNING</code> state during a deployment, as a percentage of the <code>desiredCount</code>
+        /// the <c>RUNNING</c> state during a deployment, as a percentage of the <c>desiredCount</c>
         /// (rounded up to the nearest integer). This parameter enables you to deploy without
-        /// using additional cluster capacity. For example, if your service has a <code>desiredCount</code>
-        /// of four tasks and a <code>minimumHealthyPercent</code> of 50%, the service scheduler
-        /// may stop two existing tasks to free up cluster capacity before starting two new tasks.
+        /// using additional cluster capacity. For example, if your service has a <c>desiredCount</c>
+        /// of four tasks and a <c>minimumHealthyPercent</c> of 50%, the service scheduler may
+        /// stop two existing tasks to free up cluster capacity before starting two new tasks.
         /// </para><para>For services that <i>do not</i> use a load balancer, the following should be noted:</para><ul><li><para>A service is considered healthy if all essential containers within the tasks in the
         /// service pass their health checks.</para></li><li><para>If a task has no essential containers with a health check defined, the service scheduler
-        /// will wait for 40 seconds after a task reaches a <code>RUNNING</code> state before
-        /// the task is counted towards the minimum healthy percent total.</para></li><li><para>If a task has one or more essential containers with a health check defined, the service
+        /// will wait for 40 seconds after a task reaches a <c>RUNNING</c> state before the task
+        /// is counted towards the minimum healthy percent total.</para></li><li><para>If a task has one or more essential containers with a health check defined, the service
         /// scheduler will wait for the task to reach a healthy status before counting it towards
         /// the minimum healthy percent total. A task is considered healthy when all essential
         /// containers within the task have passed their health checks. The amount of time the
@@ -397,14 +396,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// before counting the task towards the minimum healthy percent total.</para></li><li><para>If a task has an essential container with a health check defined, the service scheduler
         /// will wait for both the task to reach a healthy status and the load balancer target
         /// group health check to return a healthy status before counting the task towards the
-        /// minimum healthy percent total.</para></li></ul><para>If a service is using either the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code>
+        /// minimum healthy percent total.</para></li></ul><para>If a service is using either the blue/green (<c>CODE_DEPLOY</c>) or <c>EXTERNAL</c>
         /// deployment types and is running tasks that use the EC2 launch type, the <b>minimum
         /// healthy percent</b> value is set to the default value and is used to define the lower
-        /// limit on the number of the tasks in the service that remain in the <code>RUNNING</code>
-        /// state while the container instances are in the <code>DRAINING</code> state. If a service
-        /// is using either the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code>
-        /// deployment types and is running tasks that use the Fargate launch type, the minimum
-        /// healthy percent value is not used, although it is returned when describing your service.</para>
+        /// limit on the number of the tasks in the service that remain in the <c>RUNNING</c>
+        /// state while the container instances are in the <c>DRAINING</c> state. If a service
+        /// is using either the blue/green (<c>CODE_DEPLOY</c>) or <c>EXTERNAL</c> deployment
+        /// types and is running tasks that use the Fargate launch type, the minimum healthy percent
+        /// value is not used, although it is returned when describing your service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -431,7 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The configuration options to send to the log driver. This parameter requires version
         /// 1.19 of the Docker Remote API or greater on your container instance. To check the
         /// Docker Remote API version on your container instance, log in to your container instance
-        /// and run the following command: <code>sudo docker version --format '{{.Server.APIVersion}}'</code></para>
+        /// and run the following command: <c>sudo docker version --format '{{.Server.APIVersion}}'</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -473,8 +472,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The platform version that your tasks in the service run on. A platform version is
         /// only specified for tasks using the Fargate launch type. If a platform version is not
-        /// specified, the <code>LATEST</code> platform version is used. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate
+        /// specified, the <c>LATEST</c> platform version is used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate
         /// Platform Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -487,8 +485,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>Determines whether to propagate the tags from the task definition or the service to
         /// the task. If no value is specified, the tags aren't propagated.</para><para>Only tasks launched after the update will reflect the update. To update the tags on
-        /// all tasks, set <code>forceNewDeployment</code> to <code>true</code>, so that Amazon
-        /// ECS starts new tasks with the updated tags.</para>
+        /// all tasks, set <c>forceNewDeployment</c> to <c>true</c>, so that Amazon ECS starts
+        /// new tasks with the updated tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -540,7 +538,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The IDs of the security groups associated with the task or service. If you don't specify
         /// a security group, the default security group for the VPC is used. There's a limit
-        /// of 5 security groups that can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
+        /// of 5 security groups that can be specified per <c>AwsVpcConfiguration</c>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -572,7 +570,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
         /// Discovery</a>.</para><para>When you add, update, or remove the service registries configuration, Amazon ECS starts
         /// new tasks with the updated service registries configuration, and then stops the old
-        /// tasks when the new tasks are running.</para><para>You can remove existing <code>serviceRegistries</code> by passing an empty list.</para>
+        /// tasks when the new tasks are running.</para><para>You can remove existing <c>serviceRegistries</c> by passing an empty list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -602,7 +600,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The IDs of the subnets associated with the task or service. There's a limit of 16
-        /// subnets that can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
+        /// subnets that can be specified per <c>AwsVpcConfiguration</c>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -613,12 +611,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter TaskDefinition
         /// <summary>
         /// <para>
-        /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
-        /// full ARN of the task definition to run in your service. If a <code>revision</code>
-        /// is not specified, the latest <code>ACTIVE</code> revision is used. If you modify the
-        /// task definition with <code>UpdateService</code>, Amazon ECS spawns a task with the
-        /// new version of the task definition and then stops an old task after the new version
-        /// is running.</para>
+        /// <para>The <c>family</c> and <c>revision</c> (<c>family:revision</c>) or full ARN of the
+        /// task definition to run in your service. If a <c>revision</c> is not specified, the
+        /// latest <c>ACTIVE</c> revision is used. If you modify the task definition with <c>UpdateService</c>,
+        /// Amazon ECS spawns a task with the new version of the task definition and then stops
+        /// an old task after the new version is running.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

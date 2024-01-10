@@ -55,14 +55,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AttributesToGet
         /// <summary>
         /// <para>
-        /// <para>A JSON array of user attribute names, for example <code>given_name</code>, that you
-        /// want Amazon Cognito to include in the response for each user. When you don't provide
-        /// an <code>AttributesToGet</code> parameter, Amazon Cognito returns all attributes for
-        /// each user.</para><para>Use <code>AttributesToGet</code> with required attributes in your user pool, or in
-        /// conjunction with <code>Filter</code>. Amazon Cognito returns an error if not all users
-        /// in the results have set a value for the attribute you request. Attributes that you
-        /// can't filter on, including custom attributes, must have a value set in every user
-        /// profile before an <code>AttributesToGet</code> parameter returns results.</para>
+        /// <para>A JSON array of user attribute names, for example <c>given_name</c>, that you want
+        /// Amazon Cognito to include in the response for each user. When you don't provide an
+        /// <c>AttributesToGet</c> parameter, Amazon Cognito returns all attributes for each user.</para><para>Use <c>AttributesToGet</c> with required attributes in your user pool, or in conjunction
+        /// with <c>Filter</c>. Amazon Cognito returns an error if not all users in the results
+        /// have set a value for the attribute you request. Attributes that you can't filter on,
+        /// including custom attributes, must have a value set in every user profile before an
+        /// <c>AttributesToGet</c> parameter returns results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,17 +73,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>A filter string of the form "<i>AttributeName</i><i>Filter-Type</i> "<i>AttributeValue</i>"".
         /// Quotation marks within the filter string must be escaped using the backslash (\) character.
-        /// For example, "<code>family_name</code> = \"Reddy\"".</para><ul><li><para><i>AttributeName</i>: The name of the attribute to search for. You can only search
-        /// for one attribute at a time.</para></li><li><para><i>Filter-Type</i>: For an exact match, use =, for example, "<code>given_name</code>
-        /// = \"Jon\"". For a prefix ("starts with") match, use ^=, for example, "<code>given_name</code>
-        /// ^= \"Jon\"". </para></li><li><para><i>AttributeValue</i>: The attribute value that must be matched for each user.</para></li></ul><para>If the filter string is empty, <code>ListUsers</code> returns all users in the user
-        /// pool.</para><para>You can only search for the following standard attributes:</para><ul><li><para><code>username</code> (case-sensitive)</para></li><li><para><code>email</code></para></li><li><para><code>phone_number</code></para></li><li><para><code>name</code></para></li><li><para><code>given_name</code></para></li><li><para><code>family_name</code></para></li><li><para><code>preferred_username</code></para></li><li><para><code>cognito:user_status</code> (called <b>Status</b> in the Console) (case-insensitive)</para></li><li><para><code>status (called <b>Enabled</b> in the Console) (case-sensitive)</code></para></li><li><para><code>sub</code></para></li></ul><para>Custom attributes aren't searchable.</para><note><para>You can also list users with a client-side filter. The server-side filter matches
+        /// For example, "<c>family_name</c> = \"Reddy\"".</para><ul><li><para><i>AttributeName</i>: The name of the attribute to search for. You can only search
+        /// for one attribute at a time.</para></li><li><para><i>Filter-Type</i>: For an exact match, use =, for example, "<c>given_name</c> =
+        /// \"Jon\"". For a prefix ("starts with") match, use ^=, for example, "<c>given_name</c>
+        /// ^= \"Jon\"". </para></li><li><para><i>AttributeValue</i>: The attribute value that must be matched for each user.</para></li></ul><para>If the filter string is empty, <c>ListUsers</c> returns all users in the user pool.</para><para>You can only search for the following standard attributes:</para><ul><li><para><c>username</c> (case-sensitive)</para></li><li><para><c>email</c></para></li><li><para><c>phone_number</c></para></li><li><para><c>name</c></para></li><li><para><c>given_name</c></para></li><li><para><c>family_name</c></para></li><li><para><c>preferred_username</c></para></li><li><para><c>cognito:user_status</c> (called <b>Status</b> in the Console) (case-insensitive)</para></li><li><para><c>status (called <b>Enabled</b> in the Console) (case-sensitive)</c></para></li><li><para><c>sub</c></para></li></ul><para>Custom attributes aren't searchable.</para><note><para>You can also list users with a client-side filter. The server-side filter matches
         /// no more than one attribute. For an advanced search, use a client-side filter with
-        /// the <code>--query</code> parameter of the <code>list-users</code> action in the CLI.
-        /// When you use a client-side filter, ListUsers returns a paginated list of zero or more
-        /// users. You can receive multiple pages in a row with zero results. Repeat the query
-        /// with each pagination token that is returned until you receive a null pagination token
-        /// value, and then review the combined result. </para><para>For more information about server-side and client-side filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">FilteringCLI
+        /// the <c>--query</c> parameter of the <c>list-users</c> action in the CLI. When you
+        /// use a client-side filter, ListUsers returns a paginated list of zero or more users.
+        /// You can receive multiple pages in a row with zero results. Repeat the query with each
+        /// pagination token that is returned until you receive a null pagination token value,
+        /// and then review the combined result. </para><para>For more information about server-side and client-side filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">FilteringCLI
         /// output</a> in the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Command
         /// Line Interface User Guide</a>. </para></note><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api">Searching
         /// for Users Using the ListUsers API</a> and <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples">Examples

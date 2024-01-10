@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM entity (user or role) for which you are generating a policy. Use
-        /// this with <code>ListGeneratedPolicies</code> to filter the results to only include
-        /// results for a specific principal.</para>
+        /// this with <c>ListGeneratedPolicies</c> to filter the results to only include results
+        /// for a specific principal.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

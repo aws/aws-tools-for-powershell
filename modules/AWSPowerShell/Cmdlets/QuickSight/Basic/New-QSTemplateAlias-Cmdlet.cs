@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The name that you want to give to the template alias that you're creating. Don't start
-        /// the alias name with the <code>$</code> character. Alias names that start with <code>$</code>
-        /// are reserved by Amazon QuickSight. </para>
+        /// the alias name with the <c>$</c> character. Alias names that start with <c>$</c> are
+        /// reserved by Amazon QuickSight. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>Whether you accept the <a href="https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf">Terms
         /// and Conditions</a> for publishing extensions in the CloudFormation registry. You must
         /// accept the terms and conditions in order to register to publish public extensions
-        /// to the CloudFormation registry.</para><para>The default is <code>false</code>.</para>
+        /// to the CloudFormation registry.</para><para>The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

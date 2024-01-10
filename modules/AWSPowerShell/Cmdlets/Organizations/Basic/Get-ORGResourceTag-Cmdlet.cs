@@ -61,10 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource with the tags to list.</para><para>You can specify any of the following taggable resources.</para><ul><li><para>Amazon Web Services account – specify the account ID number.</para></li><li><para>Organizational unit – specify the OU ID that begins with <code>ou-</code> and looks
-        /// similar to: <code>ou-<i>1a2b-34uvwxyz</i></code></para></li><li><para>Root – specify the root ID that begins with <code>r-</code> and looks similar to:
-        /// <code>r-<i>1a2b</i></code></para></li><li><para>Policy – specify the policy ID that begins with <code>p-</code> andlooks similar to:
-        /// <code>p-<i>12abcdefg3</i></code></para></li></ul>
+        /// <para>The ID of the resource with the tags to list.</para><para>You can specify any of the following taggable resources.</para><ul><li><para>Amazon Web Services account – specify the account ID number.</para></li><li><para>Organizational unit – specify the OU ID that begins with <c>ou-</c> and looks similar
+        /// to: <c>ou-<i>1a2b-34uvwxyz</i></c></para></li><li><para>Root – specify the root ID that begins with <c>r-</c> and looks similar to: <c>r-<i>1a2b</i></c></para></li><li><para>Policy – specify the policy ID that begins with <c>p-</c> andlooks similar to: <c>p-<i>12abcdefg3</i></c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,10 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The parameter for receiving additional results if you receive a <code>NextToken</code>
-        /// response in a previous request. A <code>NextToken</code> response indicates that more
-        /// output is available. Set this parameter to the value of the previous call's <code>NextToken</code>
-        /// response to indicate where the output should continue from.</para>
+        /// <para>The parameter for receiving additional results if you receive a <c>NextToken</c> response
+        /// in a previous request. A <c>NextToken</c> response indicates that more output is available.
+        /// Set this parameter to the value of the previous call's <c>NextToken</c> response to
+        /// indicate where the output should continue from.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

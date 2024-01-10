@@ -30,11 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// <summary>
     /// Submits an Batch job from a job definition. Parameters that are specified during <a>SubmitJob</a>
     /// override parameters defined in the job definition. vCPU and memory requirements that
-    /// are specified in the <code>resourceRequirements</code> objects in the job definition
-    /// are the exception. They can't be overridden this way using the <code>memory</code>
-    /// and <code>vcpus</code> parameters. Rather, you must specify updates to job definition
-    /// parameters in a <code>resourceRequirements</code> object that's included in the <code>containerOverrides</code>
-    /// parameter.
+    /// are specified in the <c>resourceRequirements</c> objects in the job definition are
+    /// the exception. They can't be overridden this way using the <c>memory</c> and <c>vcpus</c>
+    /// parameters. Rather, you must specify updates to job definition parameters in a <c>resourceRequirements</c>
+    /// object that's included in the <c>containerOverrides</c> parameter.
     /// 
     ///  <note><para>
     /// Job queues with a scheduling policy are limited to 500 active fair share identifiers
@@ -59,9 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter RetryStrategy_Attempt
         /// <summary>
         /// <para>
-        /// <para>The number of times to move a job to the <code>RUNNABLE</code> status. You can specify
-        /// between 1 and 10 attempts. If the value of <code>attempts</code> is greater than one,
-        /// the job is retried on failure the same number of attempts as the value.</para>
+        /// <para>The number of times to move a job to the <c>RUNNABLE</c> status. You can specify between
+        /// 1 and 10 attempts. If the value of <c>attempts</c> is greater than one, the job is
+        /// retried on failure the same number of attempts as the value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,11 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You
-        /// can specify a <code>SEQUENTIAL</code> type dependency without specifying a job ID
-        /// for array jobs so that each child array job completes sequentially, starting at index
-        /// 0. You can also specify an <code>N_TO_N</code> type dependency with a job ID for array
-        /// jobs. In that case, each index child of this job must wait for the corresponding index
-        /// child of each dependency to complete before it can begin.</para>
+        /// can specify a <c>SEQUENTIAL</c> type dependency without specifying a job ID for array
+        /// jobs so that each child array job completes sequentially, starting at index 0. You
+        /// can also specify an <c>N_TO_N</c> type dependency with a job ID for array jobs. In
+        /// that case, each index child of this job must wait for the corresponding index child
+        /// of each dependency to complete before it can begin.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The environment variables to send to the container. You can add new environment variables,
         /// which are added to the container at launch, or you can override the existing environment
-        /// variables from the Docker image or the job definition.</para><note><para>Environment variables cannot start with "<code>AWS_BATCH</code>". This naming convention
+        /// variables from the Docker image or the job definition.</para><note><para>Environment variables cannot start with "<c>AWS_BATCH</c>". This naming convention
         /// is reserved for variables that Batch sets.</para></note>
         /// </para>
         /// </summary>
@@ -123,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>Array of up to 5 objects that specify the conditions where jobs are retried or failed.
-        /// If this parameter is specified, then the <code>attempts</code> parameter must also
-        /// be specified. If none of the listed conditions match, then the job is retried.</para>
+        /// If this parameter is specified, then the <c>attempts</c> parameter must also be specified.
+        /// If none of the listed conditions match, then the job is retried.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,9 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobDefinition
         /// <summary>
         /// <para>
-        /// <para>The job definition used by this job. This value can be one of <code>definition-name</code>,
-        /// <code>definition-name:revision</code>, or the Amazon Resource Name (ARN) for the job
-        /// definition, with or without the revision (<code>arn:aws:batch:<i>region</i>:<i>account</i>:job-definition/<i>definition-name</i>:<i>revision</i></code>, or <code>arn:aws:batch:<i>region</i>:<i>account</i>:job-definition/<i>definition-name</i></code>).</para><para>If the revision is not specified, then the latest active revision is used.</para>
+        /// <para>The job definition used by this job. This value can be one of <c>definition-name</c>,
+        /// <c>definition-name:revision</c>, or the Amazon Resource Name (ARN) for the job definition,
+        /// with or without the revision (<c>arn:aws:batch:<i>region</i>:<i>account</i>:job-definition/<i>definition-name</i>:<i>revision</i></c>, or <c>arn:aws:batch:<i>region</i>:<i>account</i>:job-definition/<i>definition-name</i></c>).</para><para>If the revision is not specified, then the latest active revision is used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -229,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The number of nodes to use with a multi-node parallel job. This value overrides the
         /// number of nodes that are specified in the job definition. To use this override, you
         /// must meet the following conditions:</para><ul><li><para>There must be at least one node range in your job definition that has an open upper
-        /// boundary, such as <code>:</code> or <code>n:</code>.</para></li><li><para>The lower boundary of the node range that's specified in the job definition must be
+        /// boundary, such as <c>:</c> or <c>n:</c>.</para></li><li><para>The lower boundary of the node range that's specified in the job definition must be
         /// fewer than the number of nodes specified in the override.</para></li><li><para>The main node index that's specified in the job definition must be fewer than the
         /// number of nodes specified in the override.</para></li></ul>
         /// </para>
@@ -244,8 +243,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>Additional parameters passed to the job that replace parameter substitution placeholders
         /// that are set in the job definition. Parameters are specified as a key and value pair
-        /// mapping. Parameters in a <code>SubmitJob</code> request override any corresponding
-        /// parameter defaults from the job definition.</para>
+        /// mapping. Parameters in a <c>SubmitJob</c> request override any corresponding parameter
+        /// defaults from the job definition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -260,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only
         /// be propagated to the tasks during task creation. For tags with the same name, job
         /// tags are given priority over job definitions tags. If the total number of combined
-        /// tags from the job and job definition is over 50, the job is moved to the <code>FAILED</code>
+        /// tags from the job and job definition is over 50, the job is moved to the <c>FAILED</c>
         /// state. When specified, this overrides the tag propagation setting in the job definition.</para>
         /// </para>
         /// </summary>
@@ -273,8 +272,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The type and amount of resources to assign to a container. This overrides the settings
-        /// in the job definition. The supported resources include <code>GPU</code>, <code>MEMORY</code>,
-        /// and <code>VCPU</code>.</para>
+        /// in the job definition. The supported resources include <c>GPU</c>, <c>MEMORY</c>,
+        /// and <c>VCPU</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,15 +349,15 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerOverrides_Memory
         /// <summary>
         /// <para>
-        /// <para>This parameter is deprecated, use <code>resourceRequirements</code> to override the
-        /// memory requirements specified in the job definition. It's not supported for jobs running
-        /// on Fargate resources. For jobs that run on EC2 resources, it overrides the <code>memory</code>
+        /// <para>This parameter is deprecated, use <c>resourceRequirements</c> to override the memory
+        /// requirements specified in the job definition. It's not supported for jobs running
+        /// on Fargate resources. For jobs that run on EC2 resources, it overrides the <c>memory</c>
         /// parameter set in the job definition, but doesn't override any memory requirement that's
-        /// specified in the <code>resourceRequirements</code> structure in the job definition.
-        /// To override memory requirements that are specified in the <code>resourceRequirements</code>
-        /// structure in the job definition, <code>resourceRequirements</code> must be specified
-        /// in the <code>SubmitJob</code> request, with <code>type</code> set to <code>MEMORY</code>
-        /// and <code>value</code> set to the new value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't
+        /// specified in the <c>resourceRequirements</c> structure in the job definition. To override
+        /// memory requirements that are specified in the <c>resourceRequirements</c> structure
+        /// in the job definition, <c>resourceRequirements</c> must be specified in the <c>SubmitJob</c>
+        /// request, with <c>type</c> set to <c>MEMORY</c> and <c>value</c> set to the new value.
+        /// For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't
         /// override job definition resource requirements</a> in the <i>Batch User Guide</i>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
@@ -371,15 +370,15 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerOverrides_Vcpus
         /// <summary>
         /// <para>
-        /// <para>This parameter is deprecated, use <code>resourceRequirements</code> to override the
-        /// <code>vcpus</code> parameter that's set in the job definition. It's not supported
-        /// for jobs running on Fargate resources. For jobs that run on EC2 resources, it overrides
-        /// the <code>vcpus</code> parameter set in the job definition, but doesn't override any
-        /// vCPU requirement specified in the <code>resourceRequirements</code> structure in the
-        /// job definition. To override vCPU requirements that are specified in the <code>resourceRequirements</code>
-        /// structure in the job definition, <code>resourceRequirements</code> must be specified
-        /// in the <code>SubmitJob</code> request, with <code>type</code> set to <code>VCPU</code>
-        /// and <code>value</code> set to the new value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't
+        /// <para>This parameter is deprecated, use <c>resourceRequirements</c> to override the <c>vcpus</c>
+        /// parameter that's set in the job definition. It's not supported for jobs running on
+        /// Fargate resources. For jobs that run on EC2 resources, it overrides the <c>vcpus</c>
+        /// parameter set in the job definition, but doesn't override any vCPU requirement specified
+        /// in the <c>resourceRequirements</c> structure in the job definition. To override vCPU
+        /// requirements that are specified in the <c>resourceRequirements</c> structure in the
+        /// job definition, <c>resourceRequirements</c> must be specified in the <c>SubmitJob</c>
+        /// request, with <c>type</c> set to <c>VCPU</c> and <c>value</c> set to the new value.
+        /// For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't
         /// override job definition resource requirements</a> in the <i>Batch User Guide</i>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>

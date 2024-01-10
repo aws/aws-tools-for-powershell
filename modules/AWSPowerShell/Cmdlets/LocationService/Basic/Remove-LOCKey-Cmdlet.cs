@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter
-        /// <code>true</code> to delete the key or to <code>false</code> to not preemptively delete
-        /// the API key.</para><para>Valid values: <code>true</code>, or <code>false</code>.</para><para>Required: No</para><note><para>This action is irreversible. Only use ForceDelete if you are certain the key is no
+        /// <c>true</c> to delete the key or to <c>false</c> to not preemptively delete the API
+        /// key.</para><para>Valid values: <c>true</c>, or <c>false</c>.</para><para>Required: No</para><note><para>This action is irreversible. Only use ForceDelete if you are certain the key is no
         /// longer in use.</para></note>
         /// </para>
         /// </summary>

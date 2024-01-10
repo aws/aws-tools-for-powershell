@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// is removed. So regardless of which prior snapshots have been deleted, all active snapshots
     /// will have access to all the information needed to restore the disk.
     /// </para><para>
-    /// The <code>delete disk snapshot</code> operation supports tag-based access control
-    /// via resource tags applied to the resource identified by <code>disk snapshot name</code>.
-    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// The <c>delete disk snapshot</c> operation supports tag-based access control via resource
+    /// tags applied to the resource identified by <c>disk snapshot name</c>. For more information,
+    /// see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskSnapshotName
         /// <summary>
         /// <para>
-        /// <para>The name of the disk snapshot you want to delete (<code>my-disk-snapshot</code>).</para>
+        /// <para>The name of the disk snapshot you want to delete (<c>my-disk-snapshot</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

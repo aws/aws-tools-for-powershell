@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>A unique identifier for the matchmaking rule set. A matchmaking configuration identifies
         /// the rule set it uses by this name value. Note that the rule set name is different
-        /// from the optional <code>name</code> field in the rule set body.</para>
+        /// from the optional <c>name</c> field in the rule set body.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

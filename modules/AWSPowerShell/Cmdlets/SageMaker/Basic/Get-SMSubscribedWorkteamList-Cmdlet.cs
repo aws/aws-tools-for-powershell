@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// <summary>
     /// Gets a list of the work teams that you are subscribed to in the Amazon Web Services
     /// Marketplace. The list may be empty if no work team satisfies the filter specified
-    /// in the <code>NameContains</code> parameter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// in the <c>NameContains</c> parameter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMSubscribedWorkteamList")]
     [OutputType("Amazon.SageMaker.Model.SubscribedWorkteam")]
@@ -76,9 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the result of the previous <code>ListSubscribedWorkteams</code> request was truncated,
-        /// the response includes a <code>NextToken</code>. To retrieve the next set of labeling
-        /// jobs, use the token in the next request.</para>
+        /// <para>If the result of the previous <c>ListSubscribedWorkteams</c> request was truncated,
+        /// the response includes a <c>NextToken</c>. To retrieve the next set of labeling jobs,
+        /// use the token in the next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

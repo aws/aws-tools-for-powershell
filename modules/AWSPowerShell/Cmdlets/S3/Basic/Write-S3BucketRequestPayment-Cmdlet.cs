@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// the download. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester
     /// Pays Buckets</a>.
     /// </para><para>
-    /// The following operations are related to <code>PutBucketRequestPayment</code>:
+    /// The following operations are related to <c>PutBucketRequestPayment</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketRequestPayment.html">GetBucketRequestPayment</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketRequestPayment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

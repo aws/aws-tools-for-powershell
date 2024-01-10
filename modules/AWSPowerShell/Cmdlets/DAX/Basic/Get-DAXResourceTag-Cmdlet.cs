@@ -28,8 +28,8 @@ using Amazon.DAX.Model;
 namespace Amazon.PowerShell.Cmdlets.DAX
 {
     /// <summary>
-    /// List all of the tags for a DAX cluster. You can call <code>ListTags</code> up to 10
-    /// times per second, per account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List all of the tags for a DAX cluster. You can call <c>ListTags</c> up to 10 times
+    /// per second, per account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DAXResourceTag")]
     [OutputType("Amazon.DAX.Model.Tag")]

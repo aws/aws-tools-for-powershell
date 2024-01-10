@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <note><para>
     /// This operation is not supported by directory buckets.
     /// </para></note><para>
-    /// This action uses the <code>encryption</code> subresource to configure default encryption
+    /// This action uses the <c>encryption</c> subresource to configure default encryption
     /// and Amazon S3 Bucket Keys for an existing bucket.
     /// </para><para>
     /// By default, all buckets have a default encryption configuration that uses server-side
@@ -48,14 +48,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">
     /// Authenticating Requests (Amazon Web Services Signature Version 4)</a>. 
     /// </para></important><para>
-    /// To use this operation, you must have permission to perform the <code>s3:PutEncryptionConfiguration</code>
+    /// To use this operation, you must have permission to perform the <c>s3:PutEncryptionConfiguration</c>
     /// action. The bucket owner has this permission by default. The bucket owner can grant
     /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// Access Permissions to Your Amazon S3 Resources</a> in the <i>Amazon S3 User Guide</i>.
     /// 
     /// </para><para>
-    /// The following operations are related to <code>PutBucketEncryption</code>:
+    /// The following operations are related to <c>PutBucketEncryption</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html">GetBucketEncryption</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html">DeleteBucketEncryption</a></para></li></ul>
     /// </summary>
     [Cmdlet("Set", "S3BucketEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

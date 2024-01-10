@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <para>
         /// <para>Specifies the version of the RAM permission to associate with the resource share.
         /// You can specify <i>only</i> the version that is currently set as the default version
-        /// for the permission. If you also set the <code>replace</code> pararameter to <code>true</code>,
+        /// for the permission. If you also set the <c>replace</c> pararameter to <c>true</c>,
         /// then this operation updates an outdated version of the permission to the current default
         /// version.</para><note><para>You don't need to specify this parameter because the default behavior is to use the
         /// version that is currently set as the default version for the permission. This parameter
@@ -87,11 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <summary>
         /// <para>
         /// <para>Specifies whether the specified permission should replace the existing permission
-        /// associated with the resource share. Use <code>true</code> to replace the current permissions.
-        /// Use <code>false</code> to add the permission to a resource share that currently doesn't
-        /// have a permission. The default value is <code>false</code>.</para><note><para>A resource share can have only one permission per resource type. If a resource share
-        /// already has a permission for the specified resource type and you don't set <code>replace</code>
-        /// to <code>true</code> then the operation returns an error. This helps prevent accidental
+        /// associated with the resource share. Use <c>true</c> to replace the current permissions.
+        /// Use <c>false</c> to add the permission to a resource share that currently doesn't
+        /// have a permission. The default value is <c>false</c>.</para><note><para>A resource share can have only one permission per resource type. If a resource share
+        /// already has a permission for the specified resource type and you don't set <c>replace</c>
+        /// to <c>true</c> then the operation returns an error. This helps prevent accidental
         /// overwriting of a permission.</para></note>
         /// </para>
         /// </summary>
@@ -127,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// requires that you also pass the same value for all other parameters. We recommend
         /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
         /// type of value.</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
-        /// you.</para><para>If you retry the operation with the same <code>ClientToken</code>, but with different
-        /// parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</para>
+        /// you.</para><para>If you retry the operation with the same <c>ClientToken</c>, but with different parameters,
+        /// the retry fails with an <c>IdempotentParameterMismatch</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

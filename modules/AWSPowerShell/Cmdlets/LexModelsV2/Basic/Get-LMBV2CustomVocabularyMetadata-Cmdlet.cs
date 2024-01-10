@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter LocaleId
         /// <summary>
         /// <para>
-        /// <para>The locale to return the custom vocabulary information for. The locale must be <code>en_GB</code>.</para>
+        /// <para>The locale to return the custom vocabulary information for. The locale must be <c>en_GB</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

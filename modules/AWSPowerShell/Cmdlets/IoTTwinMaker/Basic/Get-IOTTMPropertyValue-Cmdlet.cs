@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     /// 
     ///  
     /// <para>
-    /// You must specify a value for either <code>componentName</code>, <code>componentTypeId</code>,
-    /// <code>entityId</code>, or <code>workspaceId</code>.
+    /// You must specify a value for either <c>componentName</c>, <c>componentTypeId</c>,
+    /// <c>entityId</c>, or <c>workspaceId</c>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTTMPropertyValue")]
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         /// <summary>
         /// <para>
         /// <para>You can filter the request using various logical operators and a key-value format.
-        /// For example:</para><para><code>{"key": "serverType", "value": "webServer"}</code></para>
+        /// For example:</para><para><c>{"key": "serverType", "value": "webServer"}</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

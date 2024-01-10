@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter
-        /// can't be used in conjunction with the <code>DBClusterSnapshotIdentifier</code> parameter.
+        /// can't be used in conjunction with the <c>DBClusterSnapshotIdentifier</c> parameter.
         /// This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBCluster.</para></li></ul>
         /// </para>
         /// </summary>
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A specific DB cluster snapshot identifier to describe. This parameter can't be used
-        /// in conjunction with the <code>DBClusterIdentifier</code> parameter. This value is
-        /// stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBClusterSnapshot.</para></li><li><para>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter
+        /// in conjunction with the <c>DBClusterIdentifier</c> parameter. This value is stored
+        /// as a lowercase string.</para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBClusterSnapshot.</para></li><li><para>If this identifier is for an automated snapshot, the <c>SnapshotType</c> parameter
         /// must also be specified.</para></li></ul>
         /// </para>
         /// </summary>
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter that specifies one or more DB cluster snapshots to describe.</para><para>Supported filters:</para><ul><li><para><code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon
-        /// Resource Names (ARNs).</para></li><li><para><code>db-cluster-snapshot-id</code> - Accepts DB cluster snapshot identifiers.</para></li><li><para><code>snapshot-type</code> - Accepts types of DB cluster snapshots.</para></li><li><para><code>engine</code> - Accepts names of database engines.</para></li></ul>
+        /// <para>A filter that specifies one or more DB cluster snapshots to describe.</para><para>Supported filters:</para><ul><li><para><c>db-cluster-id</c> - Accepts DB cluster identifiers and DB cluster Amazon Resource
+        /// Names (ARNs).</para></li><li><para><c>db-cluster-snapshot-id</c> - Accepts DB cluster snapshot identifiers.</para></li><li><para><c>snapshot-type</c> - Accepts types of DB cluster snapshots.</para></li><li><para><c>engine</c> - Accepts names of database engines.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>Specifies whether to include shared manual DB cluster snapshots from other Amazon
         /// Web Services accounts that this Amazon Web Services account has been given permission
         /// to copy or restore. By default, these snapshots are not included.</para><para>You can give an Amazon Web Services account permission to restore a manual DB cluster
-        /// snapshot from another Amazon Web Services account by the <code>ModifyDBClusterSnapshotAttribute</code>
+        /// snapshot from another Amazon Web Services account by the <c>ModifyDBClusterSnapshotAttribute</c>
         /// API action.</para>
         /// </para>
         /// </summary>
@@ -129,18 +129,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The type of DB cluster snapshots to be returned. You can specify one of the following
-        /// values:</para><ul><li><para><code>automated</code> - Return all DB cluster snapshots that have been automatically
-        /// taken by Amazon RDS for my Amazon Web Services account.</para></li><li><para><code>manual</code> - Return all DB cluster snapshots that have been taken by my
-        /// Amazon Web Services account.</para></li><li><para><code>shared</code> - Return all manual DB cluster snapshots that have been shared
-        /// to my Amazon Web Services account.</para></li><li><para><code>public</code> - Return all DB cluster snapshots that have been marked as public.</para></li></ul><para>If you don't specify a <code>SnapshotType</code> value, then both automated and manual
-        /// DB cluster snapshots are returned. You can include shared DB cluster snapshots with
-        /// these results by enabling the <code>IncludeShared</code> parameter. You can include
-        /// public DB cluster snapshots with these results by enabling the <code>IncludePublic</code>
-        /// parameter.</para><para>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply
-        /// for <code>SnapshotType</code> values of <code>manual</code> or <code>automated</code>.
-        /// The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code>
-        /// is set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply
-        /// when <code>SnapshotType</code> is set to <code>public</code>.</para>
+        /// values:</para><ul><li><para><c>automated</c> - Return all DB cluster snapshots that have been automatically taken
+        /// by Amazon RDS for my Amazon Web Services account.</para></li><li><para><c>manual</c> - Return all DB cluster snapshots that have been taken by my Amazon
+        /// Web Services account.</para></li><li><para><c>shared</c> - Return all manual DB cluster snapshots that have been shared to my
+        /// Amazon Web Services account.</para></li><li><para><c>public</c> - Return all DB cluster snapshots that have been marked as public.</para></li></ul><para>If you don't specify a <c>SnapshotType</c> value, then both automated and manual DB
+        /// cluster snapshots are returned. You can include shared DB cluster snapshots with these
+        /// results by enabling the <c>IncludeShared</c> parameter. You can include public DB
+        /// cluster snapshots with these results by enabling the <c>IncludePublic</c> parameter.</para><para>The <c>IncludeShared</c> and <c>IncludePublic</c> parameters don't apply for <c>SnapshotType</c>
+        /// values of <c>manual</c> or <c>automated</c>. The <c>IncludePublic</c> parameter doesn't
+        /// apply when <c>SnapshotType</c> is set to <c>shared</c>. The <c>IncludeShared</c> parameter
+        /// doesn't apply when <c>SnapshotType</c> is set to <c>public</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,9 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>An optional pagination token provided by a previous <code>DescribeDBClusterSnapshots</code>
+        /// <para>An optional pagination token provided by a previous <c>DescribeDBClusterSnapshots</c>
         /// request. If this parameter is specified, the response includes only records beyond
-        /// the marker, up to the value specified by <code>MaxRecords</code>.</para>
+        /// the marker, up to the value specified by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -168,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// the specified <c>MaxRecords</c> value, a pagination token called a marker is included
+        /// in the response so you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

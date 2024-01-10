@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// in your conformance packs.
     /// 
     ///  <note><para>
-    /// Conformance packs with no evaluation results will have a compliance score of <code>INSUFFICIENT_DATA</code>.
+    /// Conformance packs with no evaluation results will have a compliance score of <c>INSUFFICIENT_DATA</c>.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGConformancePackComplianceScoreList")]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>The names of the conformance packs whose compliance scores you want to include in
         /// the conformance pack compliance score result set. You can include up to 25 conformance
-        /// packs in the <code>ConformancePackNames</code> array of strings, each with a character
-        /// limit of 256 characters for the conformance pack name.</para>
+        /// packs in the <c>ConformancePackNames</c> array of strings, each with a character limit
+        /// of 256 characters for the conformance pack name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>Sorts your conformance pack compliance scores in either ascending or descending order,
-        /// depending on <code>SortOrder</code>.</para><para>By default, conformance pack compliance scores are sorted in alphabetical order by
-        /// name of the conformance pack. Enter <code>SCORE</code>, to sort conformance pack compliance
+        /// depending on <c>SortOrder</c>.</para><para>By default, conformance pack compliance scores are sorted in alphabetical order by
+        /// name of the conformance pack. Enter <c>SCORE</c>, to sort conformance pack compliance
         /// scores by the numerical value of the compliance score.</para>
         /// </para>
         /// </summary>
@@ -85,11 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>Determines the order in which conformance pack compliance scores are sorted. Either
         /// in ascending or descending order.</para><para>By default, conformance pack compliance scores are sorted in alphabetical order by
         /// name of the conformance pack. Conformance pack compliance scores are sorted in reverse
-        /// alphabetical order if you enter <code>DESCENDING</code>.</para><para>You can sort conformance pack compliance scores by the numerical value of the compliance
-        /// score by entering <code>SCORE</code> in the <code>SortBy</code> action. When compliance
-        /// scores are sorted by <code>SCORE</code>, conformance packs with a compliance score
-        /// of <code>INSUFFICIENT_DATA</code> will be last when sorting by ascending order and
-        /// first when sorting by descending order.</para>
+        /// alphabetical order if you enter <c>DESCENDING</c>.</para><para>You can sort conformance pack compliance scores by the numerical value of the compliance
+        /// score by entering <c>SCORE</c> in the <c>SortBy</c> action. When compliance scores
+        /// are sorted by <c>SCORE</c>, conformance packs with a compliance score of <c>INSUFFICIENT_DATA</c>
+        /// will be last when sorting by ascending order and first when sorting by descending
+        /// order.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> string in a prior request that you can use to get the paginated
+        /// <para>The <c>nextToken</c> string in a prior request that you can use to get the paginated
         /// response for the next set of conformance pack compliance scores.</para>
         /// </para>
         /// <para>

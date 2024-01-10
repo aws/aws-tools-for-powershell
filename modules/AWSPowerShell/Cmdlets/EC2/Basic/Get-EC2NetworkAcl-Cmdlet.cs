@@ -51,21 +51,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>association.association-id</code> - The ID of an association ID for the ACL.</para></li><li><para><code>association.network-acl-id</code> - The ID of the network ACL involved in the
-        /// association.</para></li><li><para><code>association.subnet-id</code> - The ID of the subnet involved in the association.</para></li><li><para><code>default</code> - Indicates whether the ACL is the default network ACL for the
-        /// VPC.</para></li><li><para><code>entry.cidr</code> - The IPv4 CIDR range specified in the entry.</para></li><li><para><code>entry.icmp.code</code> - The ICMP code specified in the entry, if any.</para></li><li><para><code>entry.icmp.type</code> - The ICMP type specified in the entry, if any.</para></li><li><para><code>entry.ipv6-cidr</code> - The IPv6 CIDR range specified in the entry.</para></li><li><para><code>entry.port-range.from</code> - The start of the port range specified in the
-        /// entry. </para></li><li><para><code>entry.port-range.to</code> - The end of the port range specified in the entry.
-        /// </para></li><li><para><code>entry.protocol</code> - The protocol specified in the entry (<code>tcp</code>
-        /// | <code>udp</code> | <code>icmp</code> or a protocol number).</para></li><li><para><code>entry.rule-action</code> - Allows or denies the matching traffic (<code>allow</code>
-        /// | <code>deny</code>).</para></li><li><para><code>entry.egress</code> - A Boolean that indicates the type of rule. Specify <code>true</code>
-        /// for egress rules, or <code>false</code> for ingress rules.</para></li><li><para><code>entry.rule-number</code> - The number of an entry (in other words, rule) in
-        /// the set of ACL entries.</para></li><li><para><code>network-acl-id</code> - The ID of the network ACL.</para></li><li><para><code>owner-id</code> - The ID of the Amazon Web Services account that owns the network
-        /// ACL.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
-        /// resource. Use the tag key in the filter name and the tag value as the filter value.
-        /// For example, to find all resources that have a tag with the key <code>Owner</code>
-        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>vpc-id</code> - The ID of the VPC for the network ACL.</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>association.association-id</c> - The ID of an association ID for the ACL.</para></li><li><para><c>association.network-acl-id</c> - The ID of the network ACL involved in the association.</para></li><li><para><c>association.subnet-id</c> - The ID of the subnet involved in the association.</para></li><li><para><c>default</c> - Indicates whether the ACL is the default network ACL for the VPC.</para></li><li><para><c>entry.cidr</c> - The IPv4 CIDR range specified in the entry.</para></li><li><para><c>entry.icmp.code</c> - The ICMP code specified in the entry, if any.</para></li><li><para><c>entry.icmp.type</c> - The ICMP type specified in the entry, if any.</para></li><li><para><c>entry.ipv6-cidr</c> - The IPv6 CIDR range specified in the entry.</para></li><li><para><c>entry.port-range.from</c> - The start of the port range specified in the entry.
+        /// </para></li><li><para><c>entry.port-range.to</c> - The end of the port range specified in the entry. </para></li><li><para><c>entry.protocol</c> - The protocol specified in the entry (<c>tcp</c> | <c>udp</c>
+        /// | <c>icmp</c> or a protocol number).</para></li><li><para><c>entry.rule-action</c> - Allows or denies the matching traffic (<c>allow</c> |
+        /// <c>deny</c>).</para></li><li><para><c>entry.egress</c> - A Boolean that indicates the type of rule. Specify <c>true</c>
+        /// for egress rules, or <c>false</c> for ingress rules.</para></li><li><para><c>entry.rule-number</c> - The number of an entry (in other words, rule) in the set
+        /// of ACL entries.</para></li><li><para><c>network-acl-id</c> - The ID of the network ACL.</para></li><li><para><c>owner-id</c> - The ID of the Amazon Web Services account that owns the network
+        /// ACL.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
+        /// Use the tag key in the filter name and the tag value as the filter value. For example,
+        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>vpc-id</c> - The ID of the VPC for the network ACL.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -49,8 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage
     /// class for automatically optimizing frequently and infrequently accessed objects</a>.
     /// </para><para>
-    /// Operations related to <code>ListBucketIntelligentTieringConfigurations</code> include:
-    /// 
+    /// Operations related to <c>ListBucketIntelligentTieringConfigurations</c> include: 
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketIntelligentTieringConfiguration.html">DeleteBucketIntelligentTieringConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketIntelligentTieringConfiguration.html">PutBucketIntelligentTieringConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketIntelligentTieringConfiguration.html">GetBucketIntelligentTieringConfiguration</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketIntelligentTieringConfigurationList")]

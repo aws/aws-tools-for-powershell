@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
     /// For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on
-    /// Outposts endpoint hostname prefix and <code>x-amz-outpost-id</code> in your request,
-    /// see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListRegionalBuckets.html#API_control_ListRegionalBuckets_Examples">Examples</a>
+    /// Outposts endpoint hostname prefix and <c>x-amz-outpost-id</c> in your request, see
+    /// the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListRegionalBuckets.html#API_control_ListRegionalBuckets_Examples">Examples</a>
     /// section.
     /// </para>
     /// </summary>

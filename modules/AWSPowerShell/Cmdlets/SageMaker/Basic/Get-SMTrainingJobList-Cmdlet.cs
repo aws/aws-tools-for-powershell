@@ -31,19 +31,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// Lists training jobs.
     /// 
     ///  <note><para>
-    /// When <code>StatusEquals</code> and <code>MaxResults</code> are set at the same time,
-    /// the <code>MaxResults</code> number of training jobs are first retrieved ignoring the
-    /// <code>StatusEquals</code> parameter and then they are filtered by the <code>StatusEquals</code>
-    /// parameter, which is returned as a response.
+    /// When <c>StatusEquals</c> and <c>MaxResults</c> are set at the same time, the <c>MaxResults</c>
+    /// number of training jobs are first retrieved ignoring the <c>StatusEquals</c> parameter
+    /// and then they are filtered by the <c>StatusEquals</c> parameter, which is returned
+    /// as a response.
     /// </para><para>
-    /// For example, if <code>ListTrainingJobs</code> is invoked with the following parameters:
-    /// </para><para><code>{ ... MaxResults: 100, StatusEquals: InProgress ... }</code></para><para>
-    /// First, 100 trainings jobs with any status, including those other than <code>InProgress</code>,
+    /// For example, if <c>ListTrainingJobs</c> is invoked with the following parameters:
+    /// </para><para><c>{ ... MaxResults: 100, StatusEquals: InProgress ... }</c></para><para>
+    /// First, 100 trainings jobs with any status, including those other than <c>InProgress</c>,
     /// are selected (sorted according to the creation time, from the most current to the
-    /// oldest). Next, those with a status of <code>InProgress</code> are returned.
+    /// oldest). Next, those with a status of <c>InProgress</c> are returned.
     /// </para><para>
     /// You can quickly test the API using the following Amazon Web Services CLI code.
-    /// </para><para><code>aws sagemaker list-training-jobs --max-results 100 --status-equals InProgress</code></para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><para><c>aws sagemaker list-training-jobs --max-results 100 --status-equals InProgress</c></para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMTrainingJobList")]
     [OutputType("Amazon.SageMaker.Model.TrainingJobSummary")]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The field to sort results by. The default is <code>CreationTime</code>.</para>
+        /// <para>The field to sort results by. The default is <c>CreationTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order for results. The default is <code>Ascending</code>.</para>
+        /// <para>The sort order for results. The default is <c>Ascending</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,9 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the result of the previous <code>ListTrainingJobs</code> request was truncated,
-        /// the response includes a <code>NextToken</code>. To retrieve the next set of training
-        /// jobs, use the token in the next request. </para>
+        /// <para>If the result of the previous <c>ListTrainingJobs</c> request was truncated, the response
+        /// includes a <c>NextToken</c>. To retrieve the next set of training jobs, use the token
+        /// in the next request. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

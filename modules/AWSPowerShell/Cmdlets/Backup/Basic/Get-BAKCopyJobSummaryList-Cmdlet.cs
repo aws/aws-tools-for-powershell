@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>
         /// <para>Returns the job count for the specified account.</para><para>If the request is sent from a member account or an account not part of Amazon Web
         /// Services Organizations, jobs within requestor's account will be returned.</para><para>Root, admin, and delegated administrator accounts can use the value ANY to return
-        /// job counts from every account in the organization.</para><para><code>AGGREGATE_ALL</code> aggregates job counts from all accounts within the authenticated
+        /// job counts from every account in the organization.</para><para><c>AGGREGATE_ALL</c> aggregates job counts from all accounts within the authenticated
         /// organization, then returns the sum.</para>
         /// </para>
         /// </summary>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter AggregationPeriod
         /// <summary>
         /// <para>
-        /// <para>This is the period that sets the boundaries for returned results.</para><ul><li><para><code>ONE_DAY</code> for daily job count for the prior 14 days.</para></li><li><para><code>SEVEN_DAYS</code> for the aggregated job count for the prior 7 days.</para></li><li><para><code>FOURTEEN_DAYS</code> for aggregated job count for prior 14 days.</para></li></ul>
+        /// <para>This is the period that sets the boundaries for returned results.</para><ul><li><para><c>ONE_DAY</c> for daily job count for the prior 14 days.</para></li><li><para><c>SEVEN_DAYS</c> for the aggregated job count for the prior 7 days.</para></li><li><para><c>FOURTEEN_DAYS</c> for aggregated job count for prior 14 days.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,9 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter MessageCategory
         /// <summary>
         /// <para>
-        /// <para>This parameter returns the job count for the specified message category.</para><para>Example accepted strings include <code>AccessDenied</code>, <code>Success</code>,
-        /// and <code>InvalidParameters</code>. See <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
-        /// for a list of accepted MessageCategory strings.</para><para>The the value ANY returns count of all message categories.</para><para><code>AGGREGATE_ALL</code> aggregates job counts for all message categories and returns
+        /// <para>This parameter returns the job count for the specified message category.</para><para>Example accepted strings include <c>AccessDenied</c>, <c>Success</c>, and <c>InvalidParameters</c>.
+        /// See <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+        /// for a list of accepted MessageCategory strings.</para><para>The the value ANY returns count of all message categories.</para><para><c>AGGREGATE_ALL</c> aggregates job counts for all message categories and returns
         /// the sum.</para>
         /// </para>
         /// </summary>
@@ -89,9 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>Returns the job count for the specified resource type. Use request <code>GetSupportedResourceTypes</code>
-        /// to obtain strings for supported resource types.</para><para>The the value ANY returns count of all resource types.</para><para><code>AGGREGATE_ALL</code> aggregates job counts for all resource types and returns
-        /// the sum.</para><para>The type of Amazon Web Services resource to be backed up; for example, an Amazon Elastic
+        /// <para>Returns the job count for the specified resource type. Use request <c>GetSupportedResourceTypes</c>
+        /// to obtain strings for supported resource types.</para><para>The the value ANY returns count of all resource types.</para><para><c>AGGREGATE_ALL</c> aggregates job counts for all resource types and returns the
+        /// sum.</para><para>The type of Amazon Web Services resource to be backed up; for example, an Amazon Elastic
         /// Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS)
         /// database.</para>
         /// </para>
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>This parameter returns the job count for jobs with the specified state.</para><para>The the value ANY returns count of all states.</para><para><code>AGGREGATE_ALL</code> aggregates job counts for all states and returns the sum.</para>
+        /// <para>This parameter returns the job count for jobs with the specified state.</para><para>The the value ANY returns count of all states.</para><para><c>AGGREGATE_ALL</c> aggregates job counts for all states and returns the sum.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,9 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The next item following a partial list of returned resources. For example, if a request
-        /// is made to return <code>MaxResults</code> number of resources, <code>NextToken</code>
-        /// allows you to return more items in your list starting at the location pointed to by
-        /// the next token.</para>
+        /// is made to return <c>MaxResults</c> number of resources, <c>NextToken</c> allows you
+        /// to return more items in your list starting at the location pointed to by the next
+        /// token.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

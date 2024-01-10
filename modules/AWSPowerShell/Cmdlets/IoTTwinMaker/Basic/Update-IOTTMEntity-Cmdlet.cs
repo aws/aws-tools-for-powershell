@@ -56,9 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter CompositeComponentUpdate
         /// <summary>
         /// <para>
-        /// <para>This is an object that maps strings to <code>compositeComponent</code> updates in
-        /// the request. Each key of the map represents the <code>componentPath</code> of the
-        /// <code>compositeComponent</code>.</para>
+        /// <para>This is an object that maps strings to <c>compositeComponent</c> updates in the request.
+        /// Each key of the map represents the <c>componentPath</c> of the <c>compositeComponent</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

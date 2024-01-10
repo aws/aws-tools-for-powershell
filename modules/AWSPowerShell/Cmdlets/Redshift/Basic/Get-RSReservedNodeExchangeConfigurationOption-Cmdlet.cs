@@ -85,11 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>An optional pagination token provided by a previous <code>GetReservedNodeExchangeConfigurationOptions</code>
+        /// <para>An optional pagination token provided by a previous <c>GetReservedNodeExchangeConfigurationOptions</c>
         /// request. If this parameter is specified, the response includes only records beyond
-        /// the marker, up to the value specified by the <code>MaxRecords</code> parameter. You
-        /// can retrieve the next set of response records by providing the returned marker value
-        /// in the <code>Marker</code> parameter and retrying the request.</para>
+        /// the marker, up to the value specified by the <c>MaxRecords</c> parameter. You can
+        /// retrieve the next set of response records by providing the returned marker value in
+        /// the <c>Marker</c> parameter and retrying the request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -105,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The maximum number of response records to return in each call. If the number of remaining
-        /// response records exceeds the specified <code>MaxRecords</code> value, a value is returned
-        /// in a <code>Marker</code> field of the response. You can retrieve the next set of records
+        /// response records exceeds the specified <c>MaxRecords</c> value, a value is returned
+        /// in a <c>Marker</c> field of the response. You can retrieve the next set of records
         /// by retrying the command with the returned marker value.</para>
         /// </para>
         /// </summary>

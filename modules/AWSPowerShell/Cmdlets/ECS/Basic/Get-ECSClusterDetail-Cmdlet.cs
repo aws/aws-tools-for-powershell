@@ -57,11 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>Determines whether to include additional information about the clusters in the response.
-        /// If this field is omitted, this information isn't included.</para><para>If <code>ATTACHMENTS</code> is specified, the attachments for the container instances
-        /// or tasks within the cluster are included, for example the capacity providers.</para><para>If <code>SETTINGS</code> is specified, the settings for the cluster are included.</para><para>If <code>CONFIGURATIONS</code> is specified, the configuration for the cluster is
-        /// included.</para><para>If <code>STATISTICS</code> is specified, the task and service count is included, separated
-        /// by launch type.</para><para>If <code>TAGS</code> is specified, the metadata tags associated with the cluster are
-        /// included.</para>
+        /// If this field is omitted, this information isn't included.</para><para>If <c>ATTACHMENTS</c> is specified, the attachments for the container instances or
+        /// tasks within the cluster are included, for example the capacity providers.</para><para>If <c>SETTINGS</c> is specified, the settings for the cluster are included.</para><para>If <c>CONFIGURATIONS</c> is specified, the configuration for the cluster is included.</para><para>If <c>STATISTICS</c> is specified, the task and service count is included, separated
+        /// by launch type.</para><para>If <c>TAGS</c> is specified, the metadata tags associated with the cluster are included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

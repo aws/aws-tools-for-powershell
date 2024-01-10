@@ -116,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter StatusFilter
         /// <summary>
         /// <para>
-        /// <para>Only returns synchronization jobs with the <code>Status</code> field equal to the
-        /// specified status.</para>
+        /// <para>Only returns synchronization jobs with the <c>Status</c> field equal to the specified
+        /// status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,9 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the <code>maxResults</code> response was incpmplete because there is more data
-        /// to retriever, Amazon Q returns a pagination token in the response. You can use this
-        /// pagination token to retrieve the next set of responses.</para>
+        /// <para>If the <c>maxResults</c> response was incpmplete because there is more data to retriever,
+        /// Amazon Q returns a pagination token in the response. You can use this pagination token
+        /// to retrieve the next set of responses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

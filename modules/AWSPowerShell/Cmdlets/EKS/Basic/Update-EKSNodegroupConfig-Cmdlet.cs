@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Labels_AddOrUpdateLabel
         /// <summary>
         /// <para>
-        /// <para>The Kubernetes <code>labels</code> to add or update.</para>
+        /// <para>The Kubernetes <c>labels</c> to add or update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,18 +100,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The current number of nodes that the managed node group should maintain.</para><important><para>If you use the Kubernetes <a href="https://github.com/kubernetes/autoscaler#kubernetes-autoscaler">Cluster
-        /// Autoscaler</a>, you shouldn't change the <code>desiredSize</code> value directly,
-        /// as this can cause the Cluster Autoscaler to suddenly scale up or scale down.</para></important><para>Whenever this parameter changes, the number of worker nodes in the node group is updated
+        /// Autoscaler</a>, you shouldn't change the <c>desiredSize</c> value directly, as this
+        /// can cause the Cluster Autoscaler to suddenly scale up or scale down.</para></important><para>Whenever this parameter changes, the number of worker nodes in the node group is updated
         /// to the specified size. If this parameter is given a value that is smaller than the
         /// current number of running worker nodes, the necessary number of worker nodes are terminated
         /// to match the given value. When using CloudFormation, no action occurs if you remove
-        /// this parameter from your CFN template.</para><para>This parameter can be different from <code>minSize</code> in some cases, such as when
-        /// starting with extra hosts for testing. This parameter can also be different when you
-        /// want to start with an estimated number of needed hosts, but let the Cluster Autoscaler
-        /// reduce the number if there are too many. When the Cluster Autoscaler is used, the
-        /// <code>desiredSize</code> parameter is altered by the Cluster Autoscaler (but can be
-        /// out-of-date for short periods of time). the Cluster Autoscaler doesn't scale a managed
-        /// node group lower than <code>minSize</code> or higher than <code>maxSize</code>.</para>
+        /// this parameter from your CFN template.</para><para>This parameter can be different from <c>minSize</c> in some cases, such as when starting
+        /// with extra hosts for testing. This parameter can also be different when you want to
+        /// start with an estimated number of needed hosts, but let the Cluster Autoscaler reduce
+        /// the number if there are too many. When the Cluster Autoscaler is used, the <c>desiredSize</c>
+        /// parameter is altered by the Cluster Autoscaler (but can be out-of-date for short periods
+        /// of time). the Cluster Autoscaler doesn't scale a managed node group lower than <c>minSize</c>
+        /// or higher than <c>maxSize</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The maximum number of nodes unavailable at once during a version update. Nodes are
-        /// updated in parallel. This value or <code>maxUnavailablePercentage</code> is required
-        /// to have a value.The maximum number is 100.</para>
+        /// updated in parallel. This value or <c>maxUnavailablePercentage</c> is required to
+        /// have a value.The maximum number is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The maximum percentage of nodes unavailable during a version update. This percentage
-        /// of nodes are updated in parallel, up to 100 nodes at once. This value or <code>maxUnavailable</code>
+        /// of nodes are updated in parallel, up to 100 nodes at once. This value or <c>maxUnavailable</c>
         /// is required to have a value.</para>
         /// </para>
         /// </summary>
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Labels_RemoveLabel
         /// <summary>
         /// <para>
-        /// <para>The Kubernetes <code>labels</code> to remove.</para>
+        /// <para>The Kubernetes <c>labels</c> to remove.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The date and time at which the snapshot lock is to automatically expire, in the UTC
-        /// time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</para><para>You must specify either this parameter or <b>LockDuration</b>, but not both.</para>
+        /// time zone (<c>YYYY-MM-DDThh:mm:ss.sssZ</c>).</para><para>You must specify either this parameter or <b>LockDuration</b>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,14 +101,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LockMode
         /// <summary>
         /// <para>
-        /// <para>The mode in which to lock the snapshot. Specify one of the following:</para><ul><li><para><code>governance</code> - Locks the snapshot in governance mode. Snapshots locked
-        /// in governance mode can't be deleted until one of the following conditions are met:</para><ul><li><para>The lock duration expires.</para></li><li><para>The snapshot is unlocked by a user with the appropriate permissions.</para></li></ul><para>Users with the appropriate IAM permissions can unlock the snapshot, increase or decrease
-        /// the lock duration, and change the lock mode to <code>compliance</code> at any time.</para><para>If you lock a snapshot in <code>governance</code> mode, omit <b> CoolOffPeriod</b>.</para></li><li><para><code>compliance</code> - Locks the snapshot in compliance mode. Snapshots locked
-        /// in compliance mode can't be unlocked by any user. They can be deleted only after the
-        /// lock duration expires. Users can't decrease the lock duration or change the lock mode
-        /// to <code>governance</code>. However, users with appropriate IAM permissions can increase
-        /// the lock duration at any time.</para><para>If you lock a snapshot in <code>compliance</code> mode, you can optionally specify
-        /// <b>CoolOffPeriod</b>.</para></li></ul>
+        /// <para>The mode in which to lock the snapshot. Specify one of the following:</para><ul><li><para><c>governance</c> - Locks the snapshot in governance mode. Snapshots locked in governance
+        /// mode can't be deleted until one of the following conditions are met:</para><ul><li><para>The lock duration expires.</para></li><li><para>The snapshot is unlocked by a user with the appropriate permissions.</para></li></ul><para>Users with the appropriate IAM permissions can unlock the snapshot, increase or decrease
+        /// the lock duration, and change the lock mode to <c>compliance</c> at any time.</para><para>If you lock a snapshot in <c>governance</c> mode, omit <b> CoolOffPeriod</b>.</para></li><li><para><c>compliance</c> - Locks the snapshot in compliance mode. Snapshots locked in compliance
+        /// mode can't be unlocked by any user. They can be deleted only after the lock duration
+        /// expires. Users can't decrease the lock duration or change the lock mode to <c>governance</c>.
+        /// However, users with appropriate IAM permissions can increase the lock duration at
+        /// any time.</para><para>If you lock a snapshot in <c>compliance</c> mode, you can optionally specify <b>CoolOffPeriod</b>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -1,4 +1,12 @@
-﻿### 4.1.490 (2024-01-08 21:46Z)
+﻿### 4.1.491 (2024-01-10 21:42Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.723.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Logs
+    * Modified cmdlet Write-CWLAccountPolicy: added parameter SelectionCriterion.
+  * Amazon Location Service
+    * Modified cmdlet Edit-LOCMap: added parameter ConfigurationUpdate_CustomLayer.
+    * Modified cmdlet New-LOCMap: added parameter Configuration_CustomLayer.
+
+### 4.1.490 (2024-01-08 21:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.722.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Route 53 Resolver
     * Modified cmdlet Edit-R53RFirewallRule: added parameter Qtype.

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
     /// Deletes a Call Analytics job. To use this operation, specify the name of the job you
-    /// want to delete using <code>CallAnalyticsJobName</code>. Job names are case sensitive.
+    /// want to delete using <c>CallAnalyticsJobName</c>. Job names are case sensitive.
     /// </summary>
     [Cmdlet("Remove", "TRSCallAnalyticsJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

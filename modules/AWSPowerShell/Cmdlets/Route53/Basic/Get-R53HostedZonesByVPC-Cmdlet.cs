@@ -30,17 +30,17 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// <summary>
     /// Lists all the private hosted zones that a specified VPC is associated with, regardless
     /// of which Amazon Web Services account or Amazon Web Services service owns the hosted
-    /// zones. The <code>HostedZoneOwner</code> structure in the response contains one of
-    /// the following values:
+    /// zones. The <c>HostedZoneOwner</c> structure in the response contains one of the following
+    /// values:
     /// 
     ///  <ul><li><para>
-    /// An <code>OwningAccount</code> element, which contains the account number of either
-    /// the current Amazon Web Services account or another Amazon Web Services account. Some
-    /// services, such as Cloud Map, create hosted zones using the current account. 
+    /// An <c>OwningAccount</c> element, which contains the account number of either the current
+    /// Amazon Web Services account or another Amazon Web Services account. Some services,
+    /// such as Cloud Map, create hosted zones using the current account. 
     /// </para></li><li><para>
-    /// An <code>OwningService</code> element, which identifies the Amazon Web Services service
+    /// An <c>OwningService</c> element, which identifies the Amazon Web Services service
     /// that created and owns the hosted zone. For example, if a hosted zone was created by
-    /// Amazon Elastic File System (Amazon EFS), the value of <code>Owner</code> is <code>efs.amazonaws.com</code>.
+    /// Amazon Elastic File System (Amazon EFS), the value of <c>Owner</c> is <c>efs.amazonaws.com</c>.
     /// 
     /// </para></li></ul><note><para>
     /// When listing private hosted zones, the hosted zone and the Amazon VPC must belong
@@ -49,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// partition.
     /// </para><para>
     /// The following are the supported partitions:
-    /// </para><ul><li><para><code>aws</code> - Amazon Web Services Regions
-    /// </para></li><li><para><code>aws-cn</code> - China Regions
-    /// </para></li><li><para><code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region
+    /// </para><ul><li><para><c>aws</c> - Amazon Web Services Regions
+    /// </para></li><li><para><c>aws-cn</c> - China Regions
+    /// </para></li><li><para><c>aws-us-gov</c> - Amazon Web Services GovCloud (US) Region
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access
     /// Management</a> in the <i>Amazon Web Services General Reference</i>.
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter VPCRegion
         /// <summary>
         /// <para>
-        /// <para>For the Amazon VPC that you specified for <code>VPCId</code>, the Amazon Web Services
-        /// Region that you created the VPC in. </para>
+        /// <para>For the Amazon VPC that you specified for <c>VPCId</c>, the Amazon Web Services Region
+        /// that you created the VPC in. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,10 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>(Optional) The maximum number of hosted zones that you want Amazon Route 53 to return.
-        /// If the specified VPC is associated with more than <code>MaxItems</code> hosted zones,
-        /// the response includes a <code>NextToken</code> element. <code>NextToken</code> contains
-        /// an encrypted token that identifies the first hosted zone that Route 53 will return
-        /// if you submit another request.</para>
+        /// If the specified VPC is associated with more than <c>MaxItems</c> hosted zones, the
+        /// response includes a <c>NextToken</c> element. <c>NextToken</c> contains an encrypted
+        /// token that identifies the first hosted zone that Route 53 will return if you submit
+        /// another request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,11 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the previous response included a <code>NextToken</code> element, the specified
-        /// VPC is associated with more hosted zones. To get more hosted zones, submit another
-        /// <code>ListHostedZonesByVPC</code> request. </para><para>For the value of <code>NextToken</code>, specify the value of <code>NextToken</code>
-        /// from the previous response.</para><para>If the previous response didn't include a <code>NextToken</code> element, there are
-        /// no more hosted zones to get.</para>
+        /// <para>If the previous response included a <c>NextToken</c> element, the specified VPC is
+        /// associated with more hosted zones. To get more hosted zones, submit another <c>ListHostedZonesByVPC</c>
+        /// request. </para><para>For the value of <c>NextToken</c>, specify the value of <c>NextToken</c> from the
+        /// previous response.</para><para>If the previous response didn't include a <c>NextToken</c> element, there are no more
+        /// hosted zones to get.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

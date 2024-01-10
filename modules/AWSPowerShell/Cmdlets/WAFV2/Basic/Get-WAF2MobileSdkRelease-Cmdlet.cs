@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter ReleaseVersion
         /// <summary>
         /// <para>
-        /// <para>The release version. For the latest available version, specify <code>LATEST</code>.</para>
+        /// <para>The release version. For the latest available version, specify <c>LATEST</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

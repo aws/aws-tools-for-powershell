@@ -30,11 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// <summary>
     /// Creates a managed Contributor Insights rule for a specified Amazon Web Services resource.
     /// When you enable a managed rule, you create a Contributor Insights rule that collects
-    /// data from Amazon Web Services services. You cannot edit these rules with <code>PutInsightRule</code>.
-    /// The rules can be enabled, disabled, and deleted using <code>EnableInsightRules</code>,
-    /// <code>DisableInsightRules</code>, and <code>DeleteInsightRules</code>. If a previously
-    /// created managed rule is currently disabled, a subsequent call to this API will re-enable
-    /// it. Use <code>ListManagedInsightRules</code> to describe all available rules.
+    /// data from Amazon Web Services services. You cannot edit these rules with <c>PutInsightRule</c>.
+    /// The rules can be enabled, disabled, and deleted using <c>EnableInsightRules</c>, <c>DisableInsightRules</c>,
+    /// and <c>DeleteInsightRules</c>. If a previously created managed rule is currently disabled,
+    /// a subsequent call to this API will re-enable it. Use <c>ListManagedInsightRules</c>
+    /// to describe all available rules.
     /// </summary>
     [Cmdlet("Write", "CWManagedInsightRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatch.Model.PartialFailure")]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter ManagedRule
         /// <summary>
         /// <para>
-        /// <para> A list of <code>ManagedRules</code> to enable. </para>
+        /// <para> A list of <c>ManagedRules</c> to enable. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

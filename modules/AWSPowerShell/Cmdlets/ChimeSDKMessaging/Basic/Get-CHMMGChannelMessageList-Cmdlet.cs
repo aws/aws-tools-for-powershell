@@ -28,7 +28,7 @@ using Amazon.ChimeSDKMessaging.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
-    /// List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>.
+    /// List all the messages in a channel. Returns a paginated list of <c>ChannelMessages</c>.
     /// By default, sorted by creation timestamp in descending order.
     /// 
     ///  <note><para>
@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// deleted. Deleted messages do not appear in the results. This action always returns
     /// the latest version of an edited message.
     /// </para><para>
-    /// Also, the <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN
-    /// of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the
-    /// API call as the value in the header.
+    /// Also, the <c>x-amz-chime-bearer</c> request header is mandatory. Use the ARN of the
+    /// <c>AppInstanceUser</c> or <c>AppInstanceBot</c> that makes the API call as the value
+    /// in the header.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CHMMGChannelMessageList")]
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        /// the API call.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c> or <c>AppInstanceBot</c> that makes the API
+        /// call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

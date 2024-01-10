@@ -80,8 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StepType
         /// <summary>
         /// <para>
-        /// <para>A filter to return details about the specified type of subtask.</para><para><code>BENCHMARK</code>: Evaluate the performance of your model on different instance
-        /// types.</para>
+        /// <para>A filter to return details about the specified type of subtask.</para><para><c>BENCHMARK</c>: Evaluate the performance of your model on different instance types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

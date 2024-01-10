@@ -45,11 +45,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// To perform testing, CloudFormation assumes the execution role specified when the type
     /// was registered. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.
     /// </para><para>
-    /// Once you've initiated testing on an extension using <code>TestType</code>, you can
-    /// pass the returned <code>TypeVersionArn</code> into <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>
+    /// Once you've initiated testing on an extension using <c>TestType</c>, you can pass
+    /// the returned <c>TypeVersionArn</c> into <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>
     /// to monitor the current test status and test status description for the extension.
     /// </para><para>
-    /// An extension must have a test status of <code>PASSED</code> before it can be published.
+    /// An extension must have a test status of <c>PASSED</c> before it can be published.
     /// For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-publish.html">Publishing
     /// extensions to make them available for public use</a> in the <i>CloudFormation CLI
     /// User Guide</i>.
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the extension.</para><para>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the extension.</para><para>Conditional: You must specify <c>Arn</c>, or <c>TypeName</c> and <c>Type</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The S3 bucket to which CloudFormation delivers the contract test execution logs.</para><para>CloudFormation delivers the logs by the time contract testing has completed and the
-        /// extension has been assigned a test type status of <code>PASSED</code> or <code>FAILED</code>.</para><para>The user calling <code>TestType</code> must be able to access items in the specified
-        /// S3 bucket. Specifically, the user needs the following permissions:</para><ul><li><para><code>GetObject</code></para></li><li><para><code>PutObject</code></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html">Actions,
+        /// extension has been assigned a test type status of <c>PASSED</c> or <c>FAILED</c>.</para><para>The user calling <c>TestType</c> must be able to access items in the specified S3
+        /// bucket. Specifically, the user needs the following permissions:</para><ul><li><para><c>GetObject</c></para></li><li><para><c>PutObject</c></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html">Actions,
         /// Resources, and Condition Keys for Amazon S3</a> in the <i>Amazon Web Services Identity
         /// and Access Management User Guide</i>.</para>
         /// </para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the extension to test.</para><para>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</para>
+        /// <para>The type of the extension to test.</para><para>Conditional: You must specify <c>Arn</c>, or <c>TypeName</c> and <c>Type</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TypeName
         /// <summary>
         /// <para>
-        /// <para>The name of the extension to test.</para><para>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</para>
+        /// <para>The name of the extension to test.</para><para>Conditional: You must specify <c>Arn</c>, or <c>TypeName</c> and <c>Type</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>The version of the extension to test.</para><para>You can specify the version id with either <code>Arn</code>, or with <code>TypeName</code>
-        /// and <code>Type</code>.</para><para>If you don't specify a version, CloudFormation uses the default version of the extension
+        /// <para>The version of the extension to test.</para><para>You can specify the version id with either <c>Arn</c>, or with <c>TypeName</c> and
+        /// <c>Type</c>.</para><para>If you don't specify a version, CloudFormation uses the default version of the extension
         /// in this account and Region for testing.</para>
         /// </para>
         /// </summary>

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to retrieve per page. For example, <code>5</code> environments
+        /// <para>The maximum number of results to retrieve per page. For example, <c>5</c> environments
         /// per page.</para>
         /// </para>
         /// </summary>

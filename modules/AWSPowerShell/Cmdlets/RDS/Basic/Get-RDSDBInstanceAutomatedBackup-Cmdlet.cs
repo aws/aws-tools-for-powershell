@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// Displays backups for both current and deleted instances. For example, use this operation
     /// to find details about automated backups for previously deleted instances. Current
-    /// instances with retention periods greater than zero (0) are returned for both the <code>DescribeDBInstanceAutomatedBackups</code>
-    /// and <code>DescribeDBInstances</code> operations.
+    /// instances with retention periods greater than zero (0) are returned for both the <c>DescribeDBInstanceAutomatedBackups</c>
+    /// and <c>DescribeDBInstances</c> operations.
     /// 
     ///  
     /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceAutomatedBackupsArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the replicated automated backups, for example, <code>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// <para>The Amazon Resource Name (ARN) of the replicated automated backups, for example, <c>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</c>.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,12 +86,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter that specifies which resources to return based on status.</para><para>Supported filters are the following:</para><ul><li><para><code>status</code></para><ul><li><para><code>active</code> - Automated backups for current instances.</para></li><li><para><code>creating</code> - Automated backups that are waiting for the first automated
-        /// snapshot to be available.</para></li><li><para><code>retained</code> - Automated backups for deleted instances and after backup
-        /// replication is stopped.</para></li></ul></li><li><para><code>db-instance-id</code> - Accepts DB instance identifiers and Amazon Resource
-        /// Names (ARNs). The results list includes only information about the DB instance automated
-        /// backups identified by these ARNs.</para></li><li><para><code>dbi-resource-id</code> - Accepts DB resource identifiers and Amazon Resource
-        /// Names (ARNs). The results list includes only information about the DB instance resources
+        /// <para>A filter that specifies which resources to return based on status.</para><para>Supported filters are the following:</para><ul><li><para><c>status</c></para><ul><li><para><c>active</c> - Automated backups for current instances.</para></li><li><para><c>creating</c> - Automated backups that are waiting for the first automated snapshot
+        /// to be available.</para></li><li><para><c>retained</c> - Automated backups for deleted instances and after backup replication
+        /// is stopped.</para></li></ul></li><li><para><c>db-instance-id</c> - Accepts DB instance identifiers and Amazon Resource Names
+        /// (ARNs). The results list includes only information about the DB instance automated
+        /// backups identified by these ARNs.</para></li><li><para><c>dbi-resource-id</c> - Accepts DB resource identifiers and Amazon Resource Names
+        /// (ARNs). The results list includes only information about the DB instance resources
         /// identified by these ARNs.</para></li></ul><para>Returns all resources by default. The status for each resource is specified in the
         /// response.</para>
         /// </para>
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The pagination token provided in the previous request. If this parameter is specified
-        /// the response includes only records beyond the marker, up to <code>MaxRecords</code>.</para>
+        /// the response includes only records beyond the marker, up to <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -121,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that you can retrieve the remaining results.</para>
+        /// the specified <c>MaxRecords</c> value, a pagination token called a marker is included
+        /// in the response so that you can retrieve the remaining results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

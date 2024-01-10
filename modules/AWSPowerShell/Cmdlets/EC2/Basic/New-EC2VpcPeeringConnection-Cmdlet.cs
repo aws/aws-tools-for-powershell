@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// cannot be accepted or rejected.
     /// </para><para>
     /// If you create a VPC peering connection request between VPCs with overlapping CIDR
-    /// blocks, the VPC peering connection has a status of <code>failed</code>.
+    /// blocks, the VPC peering connection has a status of <c>failed</c>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2VpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

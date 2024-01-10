@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><c>jp</c> - Japanese</para></li><li><para><c>zh</c> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,12 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The search filters.</para><para>When the key is <code>SearchQuery</code>, the searchable fields are <code>arn</code>,
-        /// <code>createdTime</code>, <code>id</code>, <code>lastRecordId</code>, <code>idempotencyToken</code>,
-        /// <code>name</code>, <code>physicalId</code>, <code>productId</code>, <code>provisioningArtifactId</code>,
-        /// <code>type</code>, <code>status</code>, <code>tags</code>, <code>userArn</code>, <code>userArnSession</code>,
-        /// <code>lastProvisioningRecordId</code>, <code>lastSuccessfulProvisioningRecordId</code>,
-        /// <code>productName</code>, and <code>provisioningArtifactName</code>.</para><para>Example: <code>"SearchQuery":["status:AVAILABLE"]</code></para>
+        /// <para>The search filters.</para><para>When the key is <c>SearchQuery</c>, the searchable fields are <c>arn</c>, <c>createdTime</c>,
+        /// <c>id</c>, <c>lastRecordId</c>, <c>idempotencyToken</c>, <c>name</c>, <c>physicalId</c>,
+        /// <c>productId</c>, <c>provisioningArtifactId</c>, <c>type</c>, <c>status</c>, <c>tags</c>,
+        /// <c>userArn</c>, <c>userArnSession</c>, <c>lastProvisioningRecordId</c>, <c>lastSuccessfulProvisioningRecordId</c>,
+        /// <c>productName</c>, and <c>provisioningArtifactName</c>.</para><para>Example: <c>"SearchQuery":["status:AVAILABLE"]</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AccessLevelFilter_Key
         /// <summary>
         /// <para>
-        /// <para>The access level.</para><ul><li><para><code>Account</code> - Filter results based on the account.</para></li><li><para><code>Role</code> - Filter results based on the federated role of the specified user.</para></li><li><para><code>User</code> - Filter results based on the specified user.</para></li></ul>
+        /// <para>The access level.</para><ul><li><para><c>Account</c> - Filter results based on the account.</para></li><li><para><c>Role</c> - Filter results based on the federated role of the specified user.</para></li><li><para><c>User</c> - Filter results based on the specified user.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>The sort field. If no value is specified, the results are not sorted. The valid values
-        /// are <code>arn</code>, <code>id</code>, <code>name</code>, and <code>lastRecordId</code>.</para>
+        /// are <c>arn</c>, <c>id</c>, <c>name</c>, and <c>lastRecordId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AccessLevelFilter_Value
         /// <summary>
         /// <para>
-        /// <para>The user to which the access level applies. The only supported value is <code>self</code>.</para>
+        /// <para>The user to which the access level applies. The only supported value is <c>self</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

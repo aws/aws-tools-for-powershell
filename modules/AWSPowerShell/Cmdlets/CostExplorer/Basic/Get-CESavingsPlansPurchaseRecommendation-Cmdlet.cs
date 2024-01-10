@@ -28,8 +28,8 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// Retrieves the Savings Plans recommendations for your account. First use <code>StartSavingsPlansPurchaseRecommendationGeneration</code>
-    /// to generate a new set of recommendations, and then use <code>GetSavingsPlansPurchaseRecommendation</code>
+    /// Retrieves the Savings Plans recommendations for your account. First use <c>StartSavingsPlansPurchaseRecommendationGeneration</c>
+    /// to generate a new set of recommendations, and then use <c>GetSavingsPlansPurchaseRecommendation</c>
     /// to retrieve them.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CESavingsPlansPurchaseRecommendation")]
@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>
         /// <para>The account scope that you want your recommendations for. Amazon Web Services calculates
         /// recommendations including the management account and member accounts if the value
-        /// is set to <code>PAYER</code>. If the value is <code>LINKED</code>, recommendations
-        /// are calculated for individual member accounts only.</para>
+        /// is set to <c>PAYER</c>. If the value is <c>LINKED</c>, recommendations are calculated
+        /// for individual member accounts only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,15 +60,14 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>You can filter your recommendations by Account ID with the <code>LINKED_ACCOUNT</code>
-        /// dimension. To filter your recommendations by Account ID, specify <code>Key</code>
-        /// as <code>LINKED_ACCOUNT</code> and <code>Value</code> as the comma-separated Acount
-        /// ID(s) that you want to see Savings Plans purchase recommendations for.</para><para>For GetSavingsPlansPurchaseRecommendation, the <code>Filter</code> doesn't include
-        /// <code>CostCategories</code> or <code>Tags</code>. It only includes <code>Dimensions</code>.
-        /// With <code>Dimensions</code>, <code>Key</code> must be <code>LINKED_ACCOUNT</code>
-        /// and <code>Value</code> can be a single Account ID or multiple comma-separated Account
-        /// IDs that you want to see Savings Plans Purchase Recommendations for. <code>AND</code>
-        /// and <code>OR</code> operators are not supported.</para>
+        /// <para>You can filter your recommendations by Account ID with the <c>LINKED_ACCOUNT</c> dimension.
+        /// To filter your recommendations by Account ID, specify <c>Key</c> as <c>LINKED_ACCOUNT</c>
+        /// and <c>Value</c> as the comma-separated Acount ID(s) that you want to see Savings
+        /// Plans purchase recommendations for.</para><para>For GetSavingsPlansPurchaseRecommendation, the <c>Filter</c> doesn't include <c>CostCategories</c>
+        /// or <c>Tags</c>. It only includes <c>Dimensions</c>. With <c>Dimensions</c>, <c>Key</c>
+        /// must be <c>LINKED_ACCOUNT</c> and <c>Value</c> can be a single Account ID or multiple
+        /// comma-separated Account IDs that you want to see Savings Plans Purchase Recommendations
+        /// for. <c>AND</c> and <c>OR</c> operators are not supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ForceDismount
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to force a detachment.</para><note><ul><li><para>Use the <code>Force</code> parameter only as a last resort to detach a network interface
-        /// from a failed instance. </para></li><li><para>If you use the <code>Force</code> parameter to detach a network interface, you might
-        /// not be able to attach a different network interface to the same index on the instance
+        /// <para>Specifies whether to force a detachment.</para><note><ul><li><para>Use the <c>Force</c> parameter only as a last resort to detach a network interface
+        /// from a failed instance. </para></li><li><para>If you use the <c>Force</c> parameter to detach a network interface, you might not
+        /// be able to attach a different network interface to the same index on the instance
         /// without first stopping and starting the instance.</para></li><li><para>If you force the detachment of a network interface, the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">instance
         /// metadata</a> might not get updated. This means that the attributes associated with
         /// the detached network interface might still be visible. The instance metadata will

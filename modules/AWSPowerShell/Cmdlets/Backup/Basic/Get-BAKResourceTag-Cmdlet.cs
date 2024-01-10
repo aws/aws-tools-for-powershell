@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     /// or backup vault.
     /// 
     ///  
-    /// <para><code>ListTags</code> only works for resource types that support full Backup management
+    /// <para><c>ListTags</c> only works for resource types that support full Backup management
     /// of their backups. Those resource types are listed in the "Full Backup management"
     /// section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
     /// Feature availability by resource</a> table.
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the
-        /// ARN depends on the type of resource. Valid targets for <code>ListTags</code> are recovery
+        /// ARN depends on the type of resource. Valid targets for <c>ListTags</c> are recovery
         /// points, backup plans, and backup vaults.</para>
         /// </para>
         /// </summary>
@@ -91,9 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The next item following a partial list of returned items. For example, if a request
-        /// is made to return <code>MaxResults</code> number of items, <code>NextToken</code>
-        /// allows you to return more items in your list starting at the location pointed to by
-        /// the next token.</para>
+        /// is made to return <c>MaxResults</c> number of items, <c>NextToken</c> allows you to
+        /// return more items in your list starting at the location pointed to by the next token.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

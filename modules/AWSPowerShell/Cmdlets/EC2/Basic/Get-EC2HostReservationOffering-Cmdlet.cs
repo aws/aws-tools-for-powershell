@@ -55,9 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>instance-family</code> - The instance family of the offering (for example,
-        /// <code>m4</code>).</para></li><li><para><code>payment-option</code> - The payment option (<code>NoUpfront</code> | <code>PartialUpfront</code>
-        /// | <code>AllUpfront</code>).</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>instance-family</c> - The instance family of the offering (for example, <c>m4</c>).</para></li><li><para><c>payment-option</c> - The payment option (<c>NoUpfront</c> | <c>PartialUpfront</c>
+        /// | <c>AllUpfront</c>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,9 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return for the request in a single page. The remaining
-        /// results can be seen by sending another request with the returned <code>nextToken</code>
-        /// value. This value can be between 5 and 500. If <code>maxResults</code> is given a
-        /// larger value than 500, you receive an error.</para>
+        /// results can be seen by sending another request with the returned <c>nextToken</c>
+        /// value. This value can be between 5 and 500. If <c>maxResults</c> is given a larger
+        /// value than 500, you receive an error.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

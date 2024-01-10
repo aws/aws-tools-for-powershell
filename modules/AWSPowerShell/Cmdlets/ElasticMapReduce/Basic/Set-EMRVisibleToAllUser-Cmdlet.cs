@@ -34,12 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-access-IAM.html">Identity
     /// and Access Management for Amazon EMR</a>. 
     /// </para></important><para>
-    /// Sets the <a>Cluster$VisibleToAllUsers</a> value for an Amazon EMR cluster. When <code>true</code>,
+    /// Sets the <a>Cluster$VisibleToAllUsers</a> value for an Amazon EMR cluster. When <c>true</c>,
     /// IAM principals in the Amazon Web Services account can perform Amazon EMR cluster actions
-    /// that their IAM policies allow. When <code>false</code>, only the IAM principal that
-    /// created the cluster and the Amazon Web Services account root user can perform Amazon
-    /// EMR actions on the cluster, regardless of IAM permissions policies attached to other
-    /// IAM principals.
+    /// that their IAM policies allow. When <c>false</c>, only the IAM principal that created
+    /// the cluster and the Amazon Web Services account root user can perform Amazon EMR actions
+    /// on the cluster, regardless of IAM permissions policies attached to other IAM principals.
     /// </para><para>
     /// This action works on running clusters. When you create a cluster, use the <a>RunJobFlowInput$VisibleToAllUsers</a>
     /// parameter.
@@ -82,11 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter VisibleToAllUser
         /// <summary>
         /// <para>
-        /// <para>A value of <code>true</code> indicates that an IAM principal in the Amazon Web Services
+        /// <para>A value of <c>true</c> indicates that an IAM principal in the Amazon Web Services
         /// account can perform Amazon EMR actions on the cluster that the IAM policies attached
-        /// to the principal allow. A value of <code>false</code> indicates that only the IAM
-        /// principal that created the cluster and the Amazon Web Services root user can perform
-        /// Amazon EMR actions on the cluster.</para>
+        /// to the principal allow. A value of <c>false</c> indicates that only the IAM principal
+        /// that created the cluster and the Amazon Web Services root user can perform Amazon
+        /// EMR actions on the cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

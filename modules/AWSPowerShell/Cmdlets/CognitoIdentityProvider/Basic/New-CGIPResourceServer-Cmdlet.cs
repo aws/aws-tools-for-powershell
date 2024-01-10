@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>A unique resource server identifier for the resource server. This could be an HTTPS
-        /// endpoint where the resource server is located, such as <code>https://my-weather-api.example.com</code>.</para>
+        /// endpoint where the resource server is located, such as <c>https://my-weather-api.example.com</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,8 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Scope
         /// <summary>
         /// <para>
-        /// <para>A list of scopes. Each scope is a key-value map with the keys <code>name</code> and
-        /// <code>description</code>.</para>
+        /// <para>A list of scopes. Each scope is a key-value map with the keys <c>name</c> and <c>description</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

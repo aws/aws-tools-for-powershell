@@ -44,10 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         #region Parameter AnalysisType
         /// <summary>
         /// <para>
-        /// <para>The type of analysis you want CodeGuru Security to perform in the scan, either <code>Security</code>
-        /// or <code>All</code>. The <code>Security</code> type only generates findings related
-        /// to security. The <code>All</code> type generates both security findings and quality
-        /// findings. Defaults to <code>Security</code> type if missing.</para>
+        /// <para>The type of analysis you want CodeGuru Security to perform in the scan, either <c>Security</c>
+        /// or <c>All</c>. The <c>Security</c> type only generates findings related to security.
+        /// The <c>All</c> type generates both security findings and quality findings. Defaults
+        /// to <c>Security</c> type if missing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         /// <summary>
         /// <para>
         /// <para>The unique name that CodeGuru Security uses to track revisions across multiple scans
-        /// of the same resource. Only allowed for a <code>STANDARD</code> scan type. If not specified,
+        /// of the same resource. Only allowed for a <c>STANDARD</c> scan type. If not specified,
         /// it will be auto generated. </para>
         /// </para>
         /// </summary>
@@ -87,10 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         #region Parameter ScanType
         /// <summary>
         /// <para>
-        /// <para>The type of scan, either <code>Standard</code> or <code>Express</code>. Defaults to
-        /// <code>Standard</code> type if missing.</para><para><code>Express</code> scans run on limited resources and use a limited set of detectors
-        /// to analyze your code in near-real time. <code>Standard</code> scans have standard
-        /// resource limits and use the full set of detectors to analyze your code.</para>
+        /// <para>The type of scan, either <c>Standard</c> or <c>Express</c>. Defaults to <c>Standard</c>
+        /// type if missing.</para><para><c>Express</c> scans run on limited resources and use a limited set of detectors
+        /// to analyze your code in near-real time. <c>Standard</c> scans have standard resource
+        /// limits and use the full set of detectors to analyze your code.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         /// <summary>
         /// <para>
         /// <para>An array of key-value pairs used to tag a scan. A tag is a custom attribute label
-        /// with two parts:</para><ul><li><para>A tag key. For example, <code>CostCenter</code>, <code>Environment</code>, or <code>Secret</code>.
-        /// Tag keys are case sensitive.</para></li><li><para>An optional tag value field. For example, <code>111122223333</code>, <code>Production</code>,
+        /// with two parts:</para><ul><li><para>A tag key. For example, <c>CostCenter</c>, <c>Environment</c>, or <c>Secret</c>. Tag
+        /// keys are case sensitive.</para></li><li><para>An optional tag value field. For example, <c>111122223333</c>, <c>Production</c>,
         /// or a team name. Omitting the tag value is the same as using an empty string. Tag values
         /// are case sensitive.</para></li></ul>
         /// </para>

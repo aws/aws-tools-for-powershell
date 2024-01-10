@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The new value that you are specifying for DNSSEC validation for the VPC. The value
-        /// can be <code>ENABLE</code> or <code>DISABLE</code>. Be aware that it can take time
-        /// for a validation status change to be completed.</para>
+        /// can be <c>ENABLE</c> or <c>DISABLE</c>. Be aware that it can take time for a validation
+        /// status change to be completed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

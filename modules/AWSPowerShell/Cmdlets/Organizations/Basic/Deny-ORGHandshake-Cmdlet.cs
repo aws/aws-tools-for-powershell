@@ -28,8 +28,8 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Declines a handshake request. This sets the handshake state to <code>DECLINED</code>
-    /// and effectively deactivates the request.
+    /// Declines a handshake request. This sets the handshake state to <c>DECLINED</c> and
+    /// effectively deactivates the request.
     /// 
     ///  
     /// <para>

@@ -43,30 +43,30 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Reusing the same certificate signing request (CSR) results in a distinct certificate.
     /// </para></note><para>
     /// You can create multiple certificates in a batch by creating a directory, copying multiple
-    /// <code>.csr</code> files into that directory, and then specifying that directory on
-    /// the command line. The following commands show how to create a batch of certificates
-    /// given a batch of CSRs. In the following commands, we assume that a set of CSRs are
-    /// located inside of the directory my-csr-directory:
+    /// <c>.csr</c> files into that directory, and then specifying that directory on the command
+    /// line. The following commands show how to create a batch of certificates given a batch
+    /// of CSRs. In the following commands, we assume that a set of CSRs are located inside
+    /// of the directory my-csr-directory:
     /// </para><para>
     /// On Linux and OS X, the command is: 
-    /// </para><para><code>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request
-    /// file://my-csr-directory/{}</code></para><para>
+    /// </para><para><c>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request
+    /// file://my-csr-directory/{}</c></para><para>
     /// This command lists all of the CSRs in my-csr-directory and pipes each CSR file name
-    /// to the <code>aws iot create-certificate-from-csr</code> Amazon Web Services CLI command
+    /// to the <c>aws iot create-certificate-from-csr</c> Amazon Web Services CLI command
     /// to create a certificate for the corresponding CSR. 
     /// </para><para>
-    /// You can also run the <code>aws iot create-certificate-from-csr</code> part of the
-    /// command in parallel to speed up the certificate creation process:
-    /// </para><para><code>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr
-    /// --certificate-signing-request file://my-csr-directory/{} </code></para><para>
+    /// You can also run the <c>aws iot create-certificate-from-csr</c> part of the command
+    /// in parallel to speed up the certificate creation process:
+    /// </para><para><c>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr
+    /// --certificate-signing-request file://my-csr-directory/{} </c></para><para>
     /// On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory
     /// is:
-    /// </para><para><code>&gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request
-    /// file://my-csr-directory/$_} </code></para><para>
+    /// </para><para><c>&gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request
+    /// file://my-csr-directory/$_} </c></para><para>
     /// On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory
     /// is:
-    /// </para><para><code>&gt; forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr
-    /// --certificate-signing-request file://@path" </code></para>
+    /// </para><para><c>&gt; forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr
+    /// --certificate-signing-request file://@path" </c></para>
     /// </summary>
     [Cmdlet("New", "IOTCertificateFromCsr")]
     [OutputType("Amazon.IoT.Model.CreateCertificateFromCsrResponse")]

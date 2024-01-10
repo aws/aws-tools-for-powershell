@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter IncludeDeleted
         /// <summary>
         /// <para>
-        /// <para>A Boolean value with a default value of <code>FALSE</code> that returns deleted backup
-        /// plans when set to <code>TRUE</code>.</para>
+        /// <para>A Boolean value with a default value of <c>FALSE</c> that returns deleted backup plans
+        /// when set to <c>TRUE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,9 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The next item following a partial list of returned items. For example, if a request
-        /// is made to return <code>MaxResults</code> number of items, <code>NextToken</code>
-        /// allows you to return more items in your list starting at the location pointed to by
-        /// the next token.</para>
+        /// is made to return <c>MaxResults</c> number of items, <c>NextToken</c> allows you to
+        /// return more items in your list starting at the location pointed to by the next token.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

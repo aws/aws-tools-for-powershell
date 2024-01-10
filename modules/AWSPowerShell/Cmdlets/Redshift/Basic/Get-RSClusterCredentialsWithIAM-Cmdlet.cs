@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The name of the database for which you are requesting credentials. If the database
-        /// name is specified, the IAM policy must allow access to the resource <code>dbname</code>
+        /// name is specified, the IAM policy must allow access to the resource <c>dbname</c>
         /// for the specified database name. If the database name is not specified, access to
         /// all databases is allowed.</para>
         /// </para>

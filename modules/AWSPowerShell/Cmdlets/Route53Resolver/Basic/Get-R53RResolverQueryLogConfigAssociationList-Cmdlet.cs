@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An optional specification to return a subset of query logging associations.</para><note><para>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code>
-        /// request and specify the <code>NextToken</code> parameter, you must use the same values
-        /// for <code>Filters</code>, if any, as in the previous request.</para></note>
+        /// <para>An optional specification to return a subset of query logging associations.</para><note><para>If you submit a second or subsequent <c>ListResolverQueryLogConfigAssociations</c>
+        /// request and specify the <c>NextToken</c> parameter, you must use the same values for
+        /// <c>Filters</c>, if any, as in the previous request.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,18 +57,16 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The element that you want Resolver to sort query logging associations by. </para><note><para>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code>
-        /// request and specify the <code>NextToken</code> parameter, you must use the same value
-        /// for <code>SortBy</code>, if any, as in the previous request.</para></note><para>Valid values include the following elements:</para><ul><li><para><code>CreationTime</code>: The ID of the query logging association.</para></li><li><para><code>Error</code>: If the value of <code>Status</code> is <code>FAILED</code>, the
-        /// value of <code>Error</code> indicates the cause: </para><ul><li><para><code>DESTINATION_NOT_FOUND</code>: The specified destination (for example, an Amazon
-        /// S3 bucket) was deleted.</para></li><li><para><code>ACCESS_DENIED</code>: Permissions don't allow sending logs to the destination.</para></li></ul><para>If <code>Status</code> is a value other than <code>FAILED</code>, <code>ERROR</code>
-        /// is null.</para></li><li><para><code>Id</code>: The ID of the query logging association</para></li><li><para><code>ResolverQueryLogConfigId</code>: The ID of the query logging configuration</para></li><li><para><code>ResourceId</code>: The ID of the VPC that is associated with the query logging
-        /// configuration</para></li><li><para><code>Status</code>: The current status of the configuration. Valid values include
-        /// the following:</para><ul><li><para><code>CREATING</code>: Resolver is creating an association between an Amazon VPC
-        /// and a query logging configuration.</para></li><li><para><code>CREATED</code>: The association between an Amazon VPC and a query logging configuration
+        /// <para>The element that you want Resolver to sort query logging associations by. </para><note><para>If you submit a second or subsequent <c>ListResolverQueryLogConfigAssociations</c>
+        /// request and specify the <c>NextToken</c> parameter, you must use the same value for
+        /// <c>SortBy</c>, if any, as in the previous request.</para></note><para>Valid values include the following elements:</para><ul><li><para><c>CreationTime</c>: The ID of the query logging association.</para></li><li><para><c>Error</c>: If the value of <c>Status</c> is <c>FAILED</c>, the value of <c>Error</c>
+        /// indicates the cause: </para><ul><li><para><c>DESTINATION_NOT_FOUND</c>: The specified destination (for example, an Amazon S3
+        /// bucket) was deleted.</para></li><li><para><c>ACCESS_DENIED</c>: Permissions don't allow sending logs to the destination.</para></li></ul><para>If <c>Status</c> is a value other than <c>FAILED</c>, <c>ERROR</c> is null.</para></li><li><para><c>Id</c>: The ID of the query logging association</para></li><li><para><c>ResolverQueryLogConfigId</c>: The ID of the query logging configuration</para></li><li><para><c>ResourceId</c>: The ID of the VPC that is associated with the query logging configuration</para></li><li><para><c>Status</c>: The current status of the configuration. Valid values include the
+        /// following:</para><ul><li><para><c>CREATING</c>: Resolver is creating an association between an Amazon VPC and a
+        /// query logging configuration.</para></li><li><para><c>CREATED</c>: The association between an Amazon VPC and a query logging configuration
         /// was successfully created. Resolver is logging queries that originate in the specified
-        /// VPC.</para></li><li><para><code>DELETING</code>: Resolver is deleting this query logging association.</para></li><li><para><code>FAILED</code>: Resolver either couldn't create or couldn't delete the query
-        /// logging association. Here are two common causes:</para><ul><li><para>The specified destination (for example, an Amazon S3 bucket) was deleted.</para></li><li><para>Permissions don't allow sending logs to the destination.</para></li></ul></li></ul></li></ul>
+        /// VPC.</para></li><li><para><c>DELETING</c>: Resolver is deleting this query logging association.</para></li><li><para><c>FAILED</c>: Resolver either couldn't create or couldn't delete the query logging
+        /// association. Here are two common causes:</para><ul><li><para>The specified destination (for example, an Amazon S3 bucket) was deleted.</para></li><li><para>Permissions don't allow sending logs to the destination.</para></li></ul></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,10 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>If you specified a value for <code>SortBy</code>, the order that you want query logging
-        /// associations to be listed in, <code>ASCENDING</code> or <code>DESCENDING</code>.</para><note><para>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code>
-        /// request and specify the <code>NextToken</code> parameter, you must use the same value
-        /// for <code>SortOrder</code>, if any, as in the previous request.</para></note>
+        /// <para>If you specified a value for <c>SortBy</c>, the order that you want query logging
+        /// associations to be listed in, <c>ASCENDING</c> or <c>DESCENDING</c>.</para><note><para>If you submit a second or subsequent <c>ListResolverQueryLogConfigAssociations</c>
+        /// request and specify the <c>NextToken</c> parameter, you must use the same value for
+        /// <c>SortOrder</c>, if any, as in the previous request.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The maximum number of query logging associations that you want to return in the response
-        /// to a <code>ListResolverQueryLogConfigAssociations</code> request. If you don't specify
-        /// a value for <code>MaxResults</code>, Resolver returns up to 100 query logging associations.
+        /// to a <c>ListResolverQueryLogConfigAssociations</c> request. If you don't specify a
+        /// value for <c>MaxResults</c>, Resolver returns up to 100 query logging associations.
         /// </para>
         /// </para>
         /// </summary>
@@ -106,11 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>For the first <code>ListResolverQueryLogConfigAssociations</code> request, omit this
-        /// value.</para><para>If there are more than <code>MaxResults</code> query logging associations that match
-        /// the values that you specify for <code>Filters</code>, you can submit another <code>ListResolverQueryLogConfigAssociations</code>
+        /// <para>For the first <c>ListResolverQueryLogConfigAssociations</c> request, omit this value.</para><para>If there are more than <c>MaxResults</c> query logging associations that match the
+        /// values that you specify for <c>Filters</c>, you can submit another <c>ListResolverQueryLogConfigAssociations</c>
         /// request to get the next group of associations. In the next request, specify the value
-        /// of <code>NextToken</code> from the previous response. </para>
+        /// of <c>NextToken</c> from the previous response. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

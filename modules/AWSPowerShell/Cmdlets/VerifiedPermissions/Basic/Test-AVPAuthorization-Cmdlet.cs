@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     /// Makes an authorization decision about a service request described in the parameters.
     /// The information in the parameters can also define additional context that Verified
     /// Permissions can include in the evaluation. The request is evaluated against all matching
-    /// policies in the specified policy store. The result of the decision is either <code>Allow</code>
-    /// or <code>Deny</code>, along with a list of the policies that resulted in the decision.
+    /// policies in the specified policy store. The result of the decision is either <c>Allow</c>
+    /// or <c>Deny</c>, along with a list of the policies that resulted in the decision.
     /// </summary>
     [Cmdlet("Test", "AVPAuthorization")]
     [OutputType("Amazon.VerifiedPermissions.Model.IsAuthorizedResponse")]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <summary>
         /// <para>
         /// <para>An list of attributes that are needed to successfully evaluate an authorization request.
-        /// Each attribute in this array must include a map of a data type and its value.</para><para>Example: <code>"contextMap":{"&lt;KeyName1&gt;":{"boolean":true},"&lt;KeyName2&gt;":{"long":1234}}</code></para>
+        /// Each attribute in this array must include a map of a data type and its value.</para><para>Example: <c>"contextMap":{"&lt;KeyName1&gt;":{"boolean":true},"&lt;KeyName2&gt;":{"long":1234}}</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter Principal_EntityId
         /// <summary>
         /// <para>
-        /// <para>The identifier of an entity.</para><para><code>"entityId":"<i>identifier</i>"</code></para>
+        /// <para>The identifier of an entity.</para><para><c>"entityId":"<i>identifier</i>"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter Resource_EntityId
         /// <summary>
         /// <para>
-        /// <para>The identifier of an entity.</para><para><code>"entityId":"<i>identifier</i>"</code></para>
+        /// <para>The identifier of an entity.</para><para><c>"entityId":"<i>identifier</i>"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter Principal_EntityType
         /// <summary>
         /// <para>
-        /// <para>The type of an entity.</para><para>Example: <code>"entityType":"<i>typeName</i>"</code></para>
+        /// <para>The type of an entity.</para><para>Example: <c>"entityType":"<i>typeName</i>"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter Resource_EntityType
         /// <summary>
         /// <para>
-        /// <para>The type of an entity.</para><para>Example: <code>"entityType":"<i>typeName</i>"</code></para>
+        /// <para>The type of an entity.</para><para>Example: <c>"entityType":"<i>typeName</i>"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

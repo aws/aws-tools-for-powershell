@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Modifies the status of a custom engine version (CEV). You can find CEVs to modify
-    /// by calling <code>DescribeDBEngineVersions</code>.
+    /// by calling <c>DescribeDBEngineVersions</c>.
     /// 
     ///  <note><para>
     /// The MediaImport service that imports files from Amazon S3 to create CEVs isn't integrated
     /// with Amazon Web Services CloudTrail. If you turn on data logging for Amazon RDS in
-    /// CloudTrail, calls to the <code>ModifyCustomDbEngineVersion</code> event aren't logged.
-    /// However, you might see calls from the API gateway that accesses your Amazon S3 bucket.
-    /// These calls originate from the MediaImport service for the <code>ModifyCustomDbEngineVersion</code>
+    /// CloudTrail, calls to the <c>ModifyCustomDbEngineVersion</c> event aren't logged. However,
+    /// you might see calls from the API gateway that accesses your Amazon S3 bucket. These
+    /// calls originate from the MediaImport service for the <c>ModifyCustomDbEngineVersion</c>
     /// event.
     /// </para></note><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.modify">Modifying
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The DB engine. The only supported values are <code>custom-oracle-ee</code> and <code>custom-oracle-ee-cdb</code>.</para>
+        /// <para>The DB engine. The only supported values are <c>custom-oracle-ee</c> and <c>custom-oracle-ee-cdb</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The custom engine version (CEV) that you want to modify. This option is required for
-        /// RDS Custom for Oracle, but optional for Amazon RDS. The combination of <code>Engine</code>
-        /// and <code>EngineVersion</code> is unique per customer per Amazon Web Services Region.</para>
+        /// RDS Custom for Oracle, but optional for Amazon RDS. The combination of <c>Engine</c>
+        /// and <c>EngineVersion</c> is unique per customer per Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -106,10 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The availability status to be assigned to the CEV. Valid values are as follows:</para><dl><dt>available</dt><dd><para>You can use this CEV to create a new RDS Custom DB instance.</para></dd><dt>inactive</dt><dd><para>You can create a new RDS Custom instance by restoring a DB snapshot with this CEV.
         /// You can't patch or create new instances with this CEV.</para></dd></dl><para>You can change any status to any status. A typical reason to change status is to prevent
         /// the accidental use of a CEV, or to make a deprecated CEV eligible for use again. For
-        /// example, you might change the status of your CEV from <code>available</code> to <code>inactive</code>,
-        /// and from <code>inactive</code> back to <code>available</code>. To change the availability
-        /// status of the CEV, it must not currently be in use by an RDS Custom instance, snapshot,
-        /// or automated backup.</para>
+        /// example, you might change the status of your CEV from <c>available</c> to <c>inactive</c>,
+        /// and from <c>inactive</c> back to <c>available</c>. To change the availability status
+        /// of the CEV, it must not currently be in use by an RDS Custom instance, snapshot, or
+        /// automated backup.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

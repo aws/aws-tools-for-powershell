@@ -37,12 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     /// <para>
     /// The List Multipart Uploads operation supports pagination. By default, this operation
     /// returns up to 50 multipart uploads in the response. You should always check the response
-    /// for a <code>marker</code> at which to continue the list; if there are no more items
-    /// the <code>marker</code> is <code>null</code>. To return a list of multipart uploads
-    /// that begins at a specific upload, set the <code>marker</code> request parameter to
-    /// the value you obtained from a previous List Multipart Upload request. You can also
-    /// limit the number of uploads returned in the response by specifying the <code>limit</code>
-    /// parameter in the request.
+    /// for a <c>marker</c> at which to continue the list; if there are no more items the
+    /// <c>marker</c> is <c>null</c>. To return a list of multipart uploads that begins at
+    /// a specific upload, set the <c>marker</c> request parameter to the value you obtained
+    /// from a previous List Multipart Upload request. You can also limit the number of uploads
+    /// returned in the response by specifying the <c>limit</c> parameter in the request.
     /// </para><para>
     /// Note the difference between this operation and listing parts (<a>ListParts</a>). The
     /// List Multipart Uploads operation lists all multipart uploads for a vault and does
@@ -75,11 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The <code>AccountId</code> value is the AWS account ID of the account that owns the
-        /// vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-        /// (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with
-        /// the credentials used to sign the request. If you use an account ID, do not include
-        /// any hyphens ('-') in the ID. </para>
+        /// <para>The <c>AccountId</c> value is the AWS account ID of the account that owns the vault.
+        /// You can either specify an AWS account ID or optionally a single '<c>-</c>' (hyphen),
+        /// in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials
+        /// used to sign the request. If you use an account ID, do not include any hyphens ('-')
+        /// in the ID. </para>
         /// </para>
         /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>-</b>'.</para>
         /// </summary>

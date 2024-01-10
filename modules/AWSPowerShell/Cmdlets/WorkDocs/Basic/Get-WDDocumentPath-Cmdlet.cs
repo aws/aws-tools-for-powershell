@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter Field
         /// <summary>
         /// <para>
-        /// <para>A comma-separated list of values. Specify <code>NAME</code> to include the names of
-        /// the parent folders.</para>
+        /// <para>A comma-separated list of values. Specify <c>NAME</c> to include the names of the
+        /// parent folders.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

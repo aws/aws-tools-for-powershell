@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// identifier.
     /// 
     ///  
-    /// <para><code>ListGroupsOlderThanOrderingId</code> is currently not supported in the Amazon
-    /// Web Services GovCloud (US-West) region.
+    /// <para><c>ListGroupsOlderThanOrderingId</c> is currently not supported in the Amazon Web
+    /// Services GovCloud (US-West) region.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KNDRGroupsOlderThanOrderingIdList")]
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter OrderingId
         /// <summary>
         /// <para>
-        /// <para>The timestamp identifier used for the latest <code>PUT</code> or <code>DELETE</code>
-        /// action for mapping users to their groups.</para>
+        /// <para>The timestamp identifier used for the latest <c>PUT</c> or <c>DELETE</c> action for
+        /// mapping users to their groups.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

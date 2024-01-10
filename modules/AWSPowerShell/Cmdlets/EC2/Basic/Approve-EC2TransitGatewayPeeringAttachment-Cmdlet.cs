@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Accepts a transit gateway peering attachment request. The peering attachment must
-    /// be in the <code>pendingAcceptance</code> state.
+    /// be in the <c>pendingAcceptance</c> state.
     /// </summary>
     [Cmdlet("Approve", "EC2TransitGatewayPeeringAttachment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.TransitGatewayPeeringAttachment")]

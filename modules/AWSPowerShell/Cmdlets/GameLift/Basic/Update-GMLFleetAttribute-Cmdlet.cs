@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To update fleet attributes, specify the fleet ID and the property values that you
     /// want to change. 
     /// </para><para>
-    /// If successful, an updated <code>FleetAttributes</code> object is returned.
+    /// If successful, an updated <c>FleetAttributes</c> object is returned.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up Amazon GameLift fleets</a></para>
     /// </summary>
@@ -123,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>The game session protection policy to apply to all new game sessions created in this
         /// fleet. Game sessions that already exist are not affected. You can set protection for
         /// individual game sessions using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a>
-        /// .</para><ul><li><para><b>NoProtection</b> -- The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> -- If the game session is in an <code>ACTIVE</code> status,
-        /// it cannot be terminated during a scale-down event.</para></li></ul>
+        /// .</para><ul><li><para><b>NoProtection</b> -- The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> -- If the game session is in an <c>ACTIVE</c> status, it cannot
+        /// be terminated during a scale-down event.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,9 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A policy that puts limits on the number of game sessions that a player can create
         /// within a specified span of time. With this policy, you can control players' ability
         /// to consume available resources.</para><para>The policy is evaluated when a player tries to create a new game session. On receiving
-        /// a <code>CreateGameSession</code> request, Amazon GameLift checks that the player (identified
-        /// by <code>CreatorId</code>) has created fewer than game session limit in the specified
-        /// time period.</para>
+        /// a <c>CreateGameSession</c> request, Amazon GameLift checks that the player (identified
+        /// by <c>CreatorId</c>) has created fewer than game session limit in the specified time
+        /// period.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

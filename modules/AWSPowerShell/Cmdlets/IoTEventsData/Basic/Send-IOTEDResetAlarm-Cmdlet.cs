@@ -28,8 +28,8 @@ using Amazon.IoTEventsData.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTED
 {
     /// <summary>
-    /// Resets one or more alarms. The alarms return to the <code>NORMAL</code> state after
-    /// you reset them.
+    /// Resets one or more alarms. The alarms return to the <c>NORMAL</c> state after you
+    /// reset them.
     /// </summary>
     [Cmdlet("Send", "IOTEDResetAlarm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTEventsData.Model.BatchAlarmActionErrorEntry")]

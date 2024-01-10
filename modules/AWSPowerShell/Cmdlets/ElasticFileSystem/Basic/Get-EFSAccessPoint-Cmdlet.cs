@@ -28,14 +28,14 @@ using Amazon.ElasticFileSystem.Model;
 namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
-    /// Returns the description of a specific Amazon EFS access point if the <code>AccessPointId</code>
-    /// is provided. If you provide an EFS <code>FileSystemId</code>, it returns descriptions
-    /// of all access points for that file system. You can provide either an <code>AccessPointId</code>
-    /// or a <code>FileSystemId</code> in the request, but not both. 
+    /// Returns the description of a specific Amazon EFS access point if the <c>AccessPointId</c>
+    /// is provided. If you provide an EFS <c>FileSystemId</c>, it returns descriptions of
+    /// all access points for that file system. You can provide either an <c>AccessPointId</c>
+    /// or a <c>FileSystemId</c> in the request, but not both. 
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions for the <code>elasticfilesystem:DescribeAccessPoints</code>
+    /// This operation requires permissions for the <c>elasticfilesystem:DescribeAccessPoints</c>
     /// action.
     /// </para>
     /// </summary>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>(Optional) Specifies an EFS access point to describe in the response; mutually exclusive
-        /// with <code>FileSystemId</code>.</para>
+        /// with <c>FileSystemId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>(Optional) If you provide a <code>FileSystemId</code>, EFS returns all access points
-        /// for that file system; mutually exclusive with <code>AccessPointId</code>.</para>
+        /// <para>(Optional) If you provide a <c>FileSystemId</c>, EFS returns all access points for
+        /// that file system; mutually exclusive with <c>AccessPointId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>(Optional) When retrieving all access points for a file system, you can optionally
-        /// specify the <code>MaxItems</code> parameter to limit the number of objects returned
-        /// in a response. The default value is 100. </para>
+        /// specify the <c>MaxItems</c> parameter to limit the number of objects returned in a
+        /// response. The default value is 100. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para><code>NextToken</code> is present if the response is paginated. You can use <code>NextMarker</code>
+        /// <para><c>NextToken</c> is present if the response is paginated. You can use <c>NextMarker</c>
         /// in the subsequent request to fetch the next page of access point descriptions.</para>
         /// </para>
         /// </summary>

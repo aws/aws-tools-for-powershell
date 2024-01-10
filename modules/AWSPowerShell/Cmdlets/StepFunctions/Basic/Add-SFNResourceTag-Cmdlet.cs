@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// User Guide</i>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling
     /// Access Using IAM Tags</a>.
     /// </para><para>
-    /// Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_
-    /// . : / = + - @</code>.
+    /// Tags may only contain Unicode letters, digits, white space, or these symbols: <c>_
+    /// . : / = + - @</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "SFNResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The list of tags to add to a resource.</para><para>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_
-        /// . : / = + - @</code>.</para>
+        /// <para>The list of tags to add to a resource.</para><para>Tags may only contain Unicode letters, digits, white space, or these symbols: <c>_
+        /// . : / = + - @</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

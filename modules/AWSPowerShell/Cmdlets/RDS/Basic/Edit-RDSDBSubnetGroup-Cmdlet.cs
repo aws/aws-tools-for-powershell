@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name for the DB subnet group. This value is stored as a lowercase string. You
-        /// can't modify the default subnet group.</para><para>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</para><para>Example: <code>mydbsubnetgroup</code></para>
+        /// can't modify the default subnet group.</para><para>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</para><para>Example: <c>mydbsubnetgroup</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

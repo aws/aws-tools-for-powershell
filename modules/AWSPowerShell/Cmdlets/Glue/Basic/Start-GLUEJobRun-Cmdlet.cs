@@ -68,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para>Indicates whether the job is run with a standard or flexible execution class. The
         /// standard execution-class is ideal for time-sensitive workloads that require fast job
         /// startup and dedicated resources.</para><para>The flexible execution class is appropriate for time-insensitive jobs whose start
-        /// and completion times may vary. </para><para>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will
-        /// be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution
-        /// class is available for Spark jobs.</para>
+        /// and completion times may vary. </para><para>Only jobs with Glue version 3.0 and above and command type <c>glueetl</c> will be
+        /// allowed to set <c>ExecutionClass</c> to <c>FLEX</c>. The flexible execution class
+        /// is available for Spark jobs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter JobRunId
         /// <summary>
         /// <para>
-        /// <para>The ID of a previous <code>JobRun</code> to retry.</para>
+        /// <para>The ID of a previous <c>JobRun</c> to retry.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,14 +112,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// Glue data processing units (DPUs) that can be allocated when this job runs. A DPU
         /// is a relative measure of processing power that consists of 4 vCPUs of compute capacity
         /// and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">
-        /// Glue pricing page</a>.</para><para>For Glue version 2.0+ jobs, you cannot specify a <code>Maximum capacity</code>. Instead,
-        /// you should specify a <code>Worker type</code> and the <code>Number of workers</code>.</para><para>Do not set <code>MaxCapacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</para><para>The value that can be allocated for <code>MaxCapacity</code> depends on whether you
-        /// are running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming
-        /// ETL job:</para><ul><li><para>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"),
-        /// you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</para></li><li><para>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl")
-        /// or Apache Spark streaming ETL job (<code>JobCommand.Name</code>="gluestreaming"),
-        /// you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot
-        /// have a fractional DPU allocation.</para></li></ul>
+        /// Glue pricing page</a>.</para><para>For Glue version 2.0+ jobs, you cannot specify a <c>Maximum capacity</c>. Instead,
+        /// you should specify a <c>Worker type</c> and the <c>Number of workers</c>.</para><para>Do not set <c>MaxCapacity</c> if using <c>WorkerType</c> and <c>NumberOfWorkers</c>.</para><para>The value that can be allocated for <c>MaxCapacity</c> depends on whether you are
+        /// running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming
+        /// ETL job:</para><ul><li><para>When you specify a Python shell job (<c>JobCommand.Name</c>="pythonshell"), you can
+        /// allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</para></li><li><para>When you specify an Apache Spark ETL job (<c>JobCommand.Name</c>="glueetl") or Apache
+        /// Spark streaming ETL job (<c>JobCommand.Name</c>="gluestreaming"), you can allocate
+        /// from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional
+        /// DPU allocation.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter NumberOfWorker
         /// <summary>
         /// <para>
-        /// <para>The number of workers of a defined <code>workerType</code> that are allocated when
-        /// a job runs.</para>
+        /// <para>The number of workers of a defined <c>workerType</c> that are allocated when a job
+        /// runs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,8 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SecurityConfiguration
         /// <summary>
         /// <para>
-        /// <para>The name of the <code>SecurityConfiguration</code> structure to be used with this
-        /// job run.</para>
+        /// <para>The name of the <c>SecurityConfiguration</c> structure to be used with this job run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Timeout
         /// <summary>
         /// <para>
-        /// <para>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run
-        /// can consume resources before it is terminated and enters <code>TIMEOUT</code> status.
-        /// This value overrides the timeout value set in the parent job.</para><para>Streaming jobs do not have a timeout. The default for non-streaming jobs is 2,880
+        /// <para>The <c>JobRun</c> timeout in minutes. This is the maximum time that a job run can
+        /// consume resources before it is terminated and enters <c>TIMEOUT</c> status. This value
+        /// overrides the timeout value set in the parent job.</para><para>Streaming jobs do not have a timeout. The default for non-streaming jobs is 2,880
         /// minutes (48 hours).</para>
         /// </para>
         /// </summary>
@@ -177,30 +176,30 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The type of predefined worker that is allocated when a job runs. Accepts a value of
-        /// G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.</para><ul><li><para>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of
+        /// G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.</para><ul><li><para>For the <c>G.1X</c> worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory)
+        /// with 84GB disk (approximately 34GB free), and provides 1 executor per worker. We recommend
+        /// this worker type for workloads such as data transforms, joins, and queries, to offers
+        /// a scalable and cost effective way to run most jobs.</para></li><li><para>For the <c>G.2X</c> worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory)
+        /// with 128GB disk (approximately 77GB free), and provides 1 executor per worker. We
+        /// recommend this worker type for workloads such as data transforms, joins, and queries,
+        /// to offers a scalable and cost effective way to run most jobs.</para></li><li><para>For the <c>G.4X</c> worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory)
+        /// with 256GB disk (approximately 235GB free), and provides 1 executor per worker. We
+        /// recommend this worker type for jobs whose workloads contain your most demanding transforms,
+        /// aggregations, joins, and queries. This worker type is available only for Glue version
+        /// 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions: US East
+        /// (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore), Asia Pacific
+        /// (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland),
+        /// and Europe (Stockholm).</para></li><li><para>For the <c>G.8X</c> worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory)
+        /// with 512GB disk (approximately 487GB free), and provides 1 executor per worker. We
+        /// recommend this worker type for jobs whose workloads contain your most demanding transforms,
+        /// aggregations, joins, and queries. This worker type is available only for Glue version
+        /// 3.0 or later Spark ETL jobs, in the same Amazon Web Services Regions as supported
+        /// for the <c>G.4X</c> worker type.</para></li><li><para>For the <c>G.025X</c> worker type, each worker maps to 0.25 DPU (2 vCPUs, 4 GB of
         /// memory) with 84GB disk (approximately 34GB free), and provides 1 executor per worker.
-        /// We recommend this worker type for workloads such as data transforms, joins, and queries,
-        /// to offers a scalable and cost effective way to run most jobs.</para></li><li><para>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of
-        /// memory) with 128GB disk (approximately 77GB free), and provides 1 executor per worker.
-        /// We recommend this worker type for workloads such as data transforms, joins, and queries,
-        /// to offers a scalable and cost effective way to run most jobs.</para></li><li><para>For the <code>G.4X</code> worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB
-        /// of memory) with 256GB disk (approximately 235GB free), and provides 1 executor per
-        /// worker. We recommend this worker type for jobs whose workloads contain your most demanding
-        /// transforms, aggregations, joins, and queries. This worker type is available only for
-        /// Glue version 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions:
-        /// US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore),
-        /// Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt),
-        /// Europe (Ireland), and Europe (Stockholm).</para></li><li><para>For the <code>G.8X</code> worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB
-        /// of memory) with 512GB disk (approximately 487GB free), and provides 1 executor per
-        /// worker. We recommend this worker type for jobs whose workloads contain your most demanding
-        /// transforms, aggregations, joins, and queries. This worker type is available only for
-        /// Glue version 3.0 or later Spark ETL jobs, in the same Amazon Web Services Regions
-        /// as supported for the <code>G.4X</code> worker type.</para></li><li><para>For the <code>G.025X</code> worker type, each worker maps to 0.25 DPU (2 vCPUs, 4
-        /// GB of memory) with 84GB disk (approximately 34GB free), and provides 1 executor per
-        /// worker. We recommend this worker type for low volume streaming jobs. This worker type
-        /// is only available for Glue version 3.0 streaming jobs.</para></li><li><para>For the <code>Z.2X</code> worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB
-        /// of memory) with 128 GB disk (approximately 120GB free), and provides up to 8 Ray workers
-        /// based on the autoscaler.</para></li></ul>
+        /// We recommend this worker type for low volume streaming jobs. This worker type is only
+        /// available for Glue version 3.0 streaming jobs.</para></li><li><para>For the <c>Z.2X</c> worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory)
+        /// with 128 GB disk (approximately 120GB free), and provides up to 8 Ray workers based
+        /// on the autoscaler.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter AllocatedCapacity
         /// <summary>
         /// <para>
-        /// <para>This field is deprecated. Use <code>MaxCapacity</code> instead.</para><para>The number of Glue data processing units (DPUs) to allocate to this JobRun. You can
+        /// <para>This field is deprecated. Use <c>MaxCapacity</c> instead.</para><para>The number of Glue data processing units (DPUs) to allocate to this JobRun. You can
         /// allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure of processing
         /// power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
         /// see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing page</a>.</para>

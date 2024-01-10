@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Updates the details of an <code>AppInstanceUser</code>. You can update names and metadata.
+    /// Updates the details of an <c>AppInstanceUser</c>. You can update names and metadata.
     /// 
     ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
     /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstanceUser.html">UpdateAppInstanceUser</a>,
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceUserArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code>.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Metadata
         /// <summary>
         /// <para>
-        /// <para>The metadata of the <code>AppInstanceUser</code>.</para>
+        /// <para>The metadata of the <c>AppInstanceUser</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the <code>AppInstanceUser</code>.</para>
+        /// <para>The name of the <c>AppInstanceUser</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

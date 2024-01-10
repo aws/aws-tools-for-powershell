@@ -28,13 +28,13 @@ using Amazon.Keyspaces.Model;
 namespace Amazon.PowerShell.Cmdlets.KS
 {
     /// <summary>
-    /// The <code>DeleteTable</code> operation deletes a table and all of its data. After
-    /// a <code>DeleteTable</code> request is received, the specified table is in the <code>DELETING</code>
-    /// state until Amazon Keyspaces completes the deletion. If the table is in the <code>ACTIVE</code>
-    /// state, you can delete it. If a table is either in the <code>CREATING</code> or <code>UPDATING</code>
-    /// states, then Amazon Keyspaces returns a <code>ResourceInUseException</code>. If the
-    /// specified table does not exist, Amazon Keyspaces returns a <code>ResourceNotFoundException</code>.
-    /// If the table is already in the <code>DELETING</code> state, no error is returned.
+    /// The <c>DeleteTable</c> operation deletes a table and all of its data. After a <c>DeleteTable</c>
+    /// request is received, the specified table is in the <c>DELETING</c> state until Amazon
+    /// Keyspaces completes the deletion. If the table is in the <c>ACTIVE</c> state, you
+    /// can delete it. If a table is either in the <c>CREATING</c> or <c>UPDATING</c> states,
+    /// then Amazon Keyspaces returns a <c>ResourceInUseException</c>. If the specified table
+    /// does not exist, Amazon Keyspaces returns a <c>ResourceNotFoundException</c>. If the
+    /// table is already in the <c>DELETING</c> state, no error is returned.
     /// </summary>
     [Cmdlet("Remove", "KSTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

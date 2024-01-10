@@ -28,9 +28,9 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Deletes a dataset. You can't delete a dataset if an associated <code>DatasetImportJob</code>
-    /// or <code>SolutionVersion</code> is in the CREATE PENDING or IN PROGRESS state. For
-    /// more information on datasets, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.
+    /// Deletes a dataset. You can't delete a dataset if an associated <c>DatasetImportJob</c>
+    /// or <c>SolutionVersion</c> is in the CREATE PENDING or IN PROGRESS state. For more
+    /// information on datasets, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.
     /// </summary>
     [Cmdlet("Remove", "PERSDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

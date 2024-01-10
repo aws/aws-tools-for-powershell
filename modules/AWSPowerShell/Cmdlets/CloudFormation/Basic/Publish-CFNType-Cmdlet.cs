@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the extension.</para><para>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the extension.</para><para>Conditional: You must specify <c>Arn</c>, or <c>TypeName</c> and <c>Type</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The version number to assign to this version of the extension.</para><para>Use the following format, and adhere to semantic versioning when assigning a version
-        /// number to your extension:</para><para><code>MAJOR.MINOR.PATCH</code></para><para>For more information, see <a href="https://semver.org/">Semantic Versioning 2.0.0</a>.</para><para>If you don't specify a version number, CloudFormation increments the version number
+        /// number to your extension:</para><para><c>MAJOR.MINOR.PATCH</c></para><para>For more information, see <a href="https://semver.org/">Semantic Versioning 2.0.0</a>.</para><para>If you don't specify a version number, CloudFormation increments the version number
         /// by one minor version release.</para><para>You cannot specify a version number the first time you publish a type. CloudFormation
-        /// automatically sets the first version number to be <code>1.0.0</code>.</para>
+        /// automatically sets the first version number to be <c>1.0.0</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the extension.</para><para>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</para>
+        /// <para>The type of the extension.</para><para>Conditional: You must specify <c>Arn</c>, or <c>TypeName</c> and <c>Type</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TypeName
         /// <summary>
         /// <para>
-        /// <para>The name of the extension.</para><para>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</para>
+        /// <para>The name of the extension.</para><para>Conditional: You must specify <c>Arn</c>, or <c>TypeName</c> and <c>Type</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The tags used to organize, track, or control access for this resource. For example,
-        /// <code>{ "tags": {"key1":"value1", "key2":"value2"} }</code>.</para>
+        /// <c>{ "tags": {"key1":"value1", "key2":"value2"} }</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

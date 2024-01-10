@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     ///  
     /// <para>
     /// The Identity and Access Management (IAM) permission required for this operation is
-    /// <code>UpdateTable</code>.
+    /// <c>UpdateTable</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "GLUEColumnStatisticsForTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <summary>
     /// Registers a CA certificate with Amazon Web Services IoT Core. There is no limit to
     /// the number of CA certificates you can register in your Amazon Web Services account.
-    /// You can register up to 10 CA certificates with the same <code>CA subject field</code>
-    /// per Amazon Web Services account.
+    /// You can register up to 10 CA certificates with the same <c>CA subject field</c> per
+    /// Amazon Web Services account.
     /// 
     ///  
     /// <para>
@@ -81,13 +81,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>Describes the certificate mode in which the Certificate Authority (CA) will be registered.
-        /// If the <code>verificationCertificate</code> field is not provided, set <code>certificateMode</code>
-        /// to be <code>SNI_ONLY</code>. If the <code>verificationCertificate</code> field is
-        /// provided, set <code>certificateMode</code> to be <code>DEFAULT</code>. When <code>certificateMode</code>
-        /// is not provided, it defaults to <code>DEFAULT</code>. All the device certificates
-        /// that are registered using this CA will be registered in the same certificate mode
-        /// as the CA. For more information about certificate mode for device certificates, see
-        /// <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode">
+        /// If the <c>verificationCertificate</c> field is not provided, set <c>certificateMode</c>
+        /// to be <c>SNI_ONLY</c>. If the <c>verificationCertificate</c> field is provided, set
+        /// <c>certificateMode</c> to be <c>DEFAULT</c>. When <c>certificateMode</c> is not provided,
+        /// it defaults to <c>DEFAULT</c>. All the device certificates that are registered using
+        /// this CA will be registered in the same certificate mode as the CA. For more information
+        /// about certificate mode for device certificates, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode">
         /// certificate mode</a>. </para>
         /// </para>
         /// </summary>
@@ -109,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter SetAsActive
         /// <summary>
         /// <para>
-        /// <para>A boolean value that specifies if the CA certificate is set to active.</para><para>Valid values: <code>ACTIVE | INACTIVE</code></para>
+        /// <para>A boolean value that specifies if the CA certificate is set to active.</para><para>Valid values: <c>ACTIVE | INACTIVE</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,10 +149,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter VerificationCertificate
         /// <summary>
         /// <para>
-        /// <para>The private key verification certificate. If <code>certificateMode</code> is <code>SNI_ONLY</code>,
-        /// the <code>verificationCertificate</code> field must be empty. If <code>certificateMode</code>
-        /// is <code>DEFAULT</code> or not provided, the <code>verificationCertificate</code>
-        /// field must not be empty. </para>
+        /// <para>The private key verification certificate. If <c>certificateMode</c> is <c>SNI_ONLY</c>,
+        /// the <c>verificationCertificate</c> field must be empty. If <c>certificateMode</c>
+        /// is <c>DEFAULT</c> or not provided, the <c>verificationCertificate</c> field must not
+        /// be empty. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

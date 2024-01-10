@@ -202,8 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A list of tags to add to the test set. You can only add tags when you import/generate
-        /// a new test set. You can't use the <code>UpdateTestSet</code> operation to update tags.
-        /// To update tags, use the <code>TagResource</code> operation.</para>
+        /// a new test set. You can't use the <c>UpdateTestSet</c> operation to update tags. To
+        /// update tags, use the <c>TagResource</c> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
 {
     /// <summary>
     /// Deletes a list of specified images that are within a repository in a public registry.
-    /// Images are specified with either an <code>imageTag</code> or <code>imageDigest</code>.
+    /// Images are specified with either an <c>imageTag</c> or <c>imageDigest</c>.
     /// 
     ///  
     /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         /// <summary>
         /// <para>
         /// <para>A list of image ID references that correspond to images to delete. The format of the
-        /// <code>imageIds</code> reference is <code>imageTag=tag</code> or <code>imageDigest=digest</code>.</para>
+        /// <c>imageIds</c> reference is <c>imageTag=tag</c> or <c>imageDigest=digest</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

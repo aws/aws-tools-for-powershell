@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
     /// Performs a manual search against the specified assistant. To retrieve recommendations
-    /// for an assistant, use <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a>.
+    /// for an assistant, use <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a>.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Search", "QCAssistant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QConnect.Model.ResultData")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         "This cmdlet returns a collection of Amazon.QConnect.Model.ResultData objects.",
         "The service call response (type Amazon.QConnect.Model.QueryAssistantResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("QueryAssistant API will be discontinued starting June 1, 2024. To receive generative responses after March 1, 2024 you will need to create a new Assistant in the Connect console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs) into your applications.")]
     public partial class SearchQCAssistantCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {
         

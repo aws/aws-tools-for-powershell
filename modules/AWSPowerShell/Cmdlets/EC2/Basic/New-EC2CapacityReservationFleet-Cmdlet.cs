@@ -46,9 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The strategy used by the Capacity Reservation Fleet to determine which of the specified
-        /// instance types to use. Currently, only the <code>prioritized</code> allocation strategy
+        /// instance types to use. Currently, only the <c>prioritized</c> allocation strategy
         /// is supported. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy">
-        /// Allocation strategy</a> in the Amazon EC2 User Guide.</para><para>Valid values: <code>prioritized</code></para>
+        /// Allocation strategy</a> in the Amazon EC2 User Guide.</para><para>Valid values: <c>prioritized</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,11 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The date and time at which the Capacity Reservation Fleet expires. When the Capacity
-        /// Reservation Fleet expires, its state changes to <code>expired</code> and all of the
-        /// Capacity Reservations in the Fleet expire.</para><para>The Capacity Reservation Fleet expires within an hour after the specified time. For
-        /// example, if you specify <code>5/31/2019</code>, <code>13:30:55</code>, the Capacity
-        /// Reservation Fleet is guaranteed to expire between <code>13:30:55</code> and <code>14:30:55</code>
-        /// on <code>5/31/2019</code>. </para>
+        /// Reservation Fleet expires, its state changes to <c>expired</c> and all of the Capacity
+        /// Reservations in the Fleet expire.</para><para>The Capacity Reservation Fleet expires within an hour after the specified time. For
+        /// example, if you specify <c>5/31/2019</c>, <c>13:30:55</c>, the Capacity Reservation
+        /// Fleet is guaranteed to expire between <c>13:30:55</c> and <c>14:30:55</c> on <c>5/31/2019</c>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,11 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates the type of instance launches that the Capacity Reservation Fleet accepts.
-        /// All Capacity Reservations in the Fleet inherit this instance matching criteria.</para><para>Currently, Capacity Reservation Fleets support <code>open</code> instance matching
-        /// criteria only. This means that instances that have matching attributes (instance type,
-        /// platform, and Availability Zone) run in the Capacity Reservations automatically. Instances
-        /// do not need to explicitly target a Capacity Reservation Fleet to use its reserved
-        /// capacity.</para>
+        /// All Capacity Reservations in the Fleet inherit this instance matching criteria.</para><para>Currently, Capacity Reservation Fleets support <c>open</c> instance matching criteria
+        /// only. This means that instances that have matching attributes (instance type, platform,
+        /// and Availability Zone) run in the Capacity Reservations automatically. Instances do
+        /// not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations
         /// in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of
-        /// the following tenancy settings:</para><ul><li><para><code>default</code> - The Capacity Reservation Fleet is created on hardware that
-        /// is shared with other Amazon Web Services accounts.</para></li><li><para><code>dedicated</code> - The Capacity Reservations are created on single-tenant hardware
+        /// the following tenancy settings:</para><ul><li><para><c>default</c> - The Capacity Reservation Fleet is created on hardware that is shared
+        /// with other Amazon Web Services accounts.</para></li><li><para><c>dedicated</c> - The Capacity Reservations are created on single-tenant hardware
         /// that is dedicated to a single Amazon Web Services account.</para></li></ul>
         /// </para>
         /// </summary>

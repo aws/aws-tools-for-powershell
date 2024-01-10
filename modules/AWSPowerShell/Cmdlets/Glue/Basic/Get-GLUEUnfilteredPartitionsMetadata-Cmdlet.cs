@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// 
     ///  
     /// <para>
-    /// For IAM authorization, the public IAM action associated with this API is <code>glue:GetPartitions</code>.
+    /// For IAM authorization, the public IAM action associated with this API is <c>glue:GetPartitions</c>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GLUEUnfilteredPartitionsMetadata")]
@@ -125,16 +125,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Expression
         /// <summary>
         /// <para>
-        /// <para>An expression that filters the partitions to be returned.</para><para>The expression uses SQL syntax similar to the SQL <code>WHERE</code> filter clause.
-        /// The SQL statement parser <a href="http://jsqlparser.sourceforge.net/home.php">JSQLParser</a>
-        /// parses the expression. </para><para><i>Operators</i>: The following are the operators that you can use in the <code>Expression</code>
+        /// <para>An expression that filters the partitions to be returned.</para><para>The expression uses SQL syntax similar to the SQL <c>WHERE</c> filter clause. The
+        /// SQL statement parser <a href="http://jsqlparser.sourceforge.net/home.php">JSQLParser</a>
+        /// parses the expression. </para><para><i>Operators</i>: The following are the operators that you can use in the <c>Expression</c>
         /// API call:</para><dl><dt>=</dt><dd><para>Checks whether the values of the two operands are equal; if yes, then the condition
         /// becomes true.</para><para>Example: Assume 'variable a' holds 10 and 'variable b' holds 20. </para><para>(a = b) is not true.</para></dd><dt>&lt; &gt;</dt><dd><para>Checks whether the values of two operands are equal; if the values are not equal,
         /// then the condition becomes true.</para><para>Example: (a &lt; &gt; b) is true.</para></dd><dt>&gt;</dt><dd><para>Checks whether the value of the left operand is greater than the value of the right
         /// operand; if yes, then the condition becomes true.</para><para>Example: (a &gt; b) is not true.</para></dd><dt>&lt;</dt><dd><para>Checks whether the value of the left operand is less than the value of the right operand;
         /// if yes, then the condition becomes true.</para><para>Example: (a &lt; b) is true.</para></dd><dt>&gt;=</dt><dd><para>Checks whether the value of the left operand is greater than or equal to the value
         /// of the right operand; if yes, then the condition becomes true.</para><para>Example: (a &gt;= b) is not true.</para></dd><dt>&lt;=</dt><dd><para>Checks whether the value of the left operand is less than or equal to the value of
-        /// the right operand; if yes, then the condition becomes true.</para><para>Example: (a &lt;= b) is true.</para></dd><dt>AND, OR, IN, BETWEEN, LIKE, NOT, IS NULL</dt><dd><para>Logical operators.</para></dd></dl><para><i>Supported Partition Key Types</i>: The following are the supported partition keys.</para><ul><li><para><code>string</code></para></li><li><para><code>date</code></para></li><li><para><code>timestamp</code></para></li><li><para><code>int</code></para></li><li><para><code>bigint</code></para></li><li><para><code>long</code></para></li><li><para><code>tinyint</code></para></li><li><para><code>smallint</code></para></li><li><para><code>decimal</code></para></li></ul><para>If an type is encountered that is not valid, an exception is thrown. </para>
+        /// the right operand; if yes, then the condition becomes true.</para><para>Example: (a &lt;= b) is true.</para></dd><dt>AND, OR, IN, BETWEEN, LIKE, NOT, IS NULL</dt><dd><para>Logical operators.</para></dd></dl><para><i>Supported Partition Key Types</i>: The following are the supported partition keys.</para><ul><li><para><c>string</c></para></li><li><para><c>date</c></para></li><li><para><c>timestamp</c></para></li><li><para><c>int</c></para></li><li><para><c>bigint</c></para></li><li><para><c>long</c></para></li><li><para><c>tinyint</c></para></li><li><para><c>smallint</c></para></li><li><para><c>decimal</c></para></li></ul><para>If an type is encountered that is not valid, an exception is thrown. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

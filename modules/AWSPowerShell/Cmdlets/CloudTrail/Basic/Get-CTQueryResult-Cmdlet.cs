@@ -28,8 +28,8 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Gets event data results of a query. You must specify the <code>QueryID</code> value
-    /// returned by the <code>StartQuery</code> operation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets event data results of a query. You must specify the <c>QueryID</c> value returned
+    /// by the <c>StartQuery</c> operation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CTQueryResult")]
     [OutputType("Amazon.CloudTrail.Model.GetQueryResultsResponse")]

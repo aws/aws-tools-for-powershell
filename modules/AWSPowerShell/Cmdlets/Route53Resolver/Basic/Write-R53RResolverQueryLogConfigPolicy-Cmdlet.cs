@@ -67,9 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>An Identity and Access Management policy statement that lists the query logging configurations
         /// that you want to share with another Amazon Web Services account and the operations
         /// that you want the account to be able to perform. You can specify the following operations
-        /// in the <code>Actions</code> section of the statement:</para><ul><li><para><code>route53resolver:AssociateResolverQueryLogConfig</code></para></li><li><para><code>route53resolver:DisassociateResolverQueryLogConfig</code></para></li><li><para><code>route53resolver:ListResolverQueryLogConfigs</code></para></li></ul><para>In the <code>Resource</code> section of the statement, you specify the ARNs for the
-        /// query logging configurations that you want to share with the account that you specified
-        /// in <code>Arn</code>. </para>
+        /// in the <c>Actions</c> section of the statement:</para><ul><li><para><c>route53resolver:AssociateResolverQueryLogConfig</c></para></li><li><para><c>route53resolver:DisassociateResolverQueryLogConfig</c></para></li><li><para><c>route53resolver:ListResolverQueryLogConfigs</c></para></li></ul><para>In the <c>Resource</c> section of the statement, you specify the ARNs for the query
+        /// logging configurations that you want to share with the account that you specified
+        /// in <c>Arn</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,8 +28,8 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>DeleteQualificationType</code> deletes a Qualification type and deletes
-    /// any HIT types that are associated with the Qualification type. 
+    /// The <c>DeleteQualificationType</c> deletes a Qualification type and deletes any HIT
+    /// types that are associated with the Qualification type. 
     /// 
     ///  
     /// <para>

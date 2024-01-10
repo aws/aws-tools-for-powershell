@@ -64,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>The tags (tag keys) that you want to remove from the resource. When you specify a
-        /// tag key, the action removes both that key and its associated tag value.</para><para>To remove more than one tag from the resource, append the <code>TagKeys</code> parameter
+        /// tag key, the action removes both that key and its associated tag value.</para><para>To remove more than one tag from the resource, append the <c>TagKeys</c> parameter
         /// and argument for each additional tag to remove, separated by an ampersand. For example:
-        /// <code>/v2/email/tags?ResourceArn=ResourceArn&amp;TagKeys=Key1&amp;TagKeys=Key2</code></para>
+        /// <c>/v2/email/tags?ResourceArn=ResourceArn&amp;TagKeys=Key1&amp;TagKeys=Key2</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

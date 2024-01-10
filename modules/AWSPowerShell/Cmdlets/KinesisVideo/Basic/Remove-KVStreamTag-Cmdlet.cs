@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
     /// 
     ///  
     /// <para>
-    /// In the request, you must provide the <code>StreamName</code> or <code>StreamARN</code>.
+    /// In the request, you must provide the <c>StreamName</c> or <c>StreamARN</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "KVStreamTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

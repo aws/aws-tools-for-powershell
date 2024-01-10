@@ -28,7 +28,7 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Updates some of the parameters for an existing profile. Provide the <code>ProfileId</code>
+    /// Updates some of the parameters for an existing profile. Provide the <c>ProfileId</c>
     /// for the profile that you want to update, along with the new values for the parameters
     /// to update.
     /// </summary>

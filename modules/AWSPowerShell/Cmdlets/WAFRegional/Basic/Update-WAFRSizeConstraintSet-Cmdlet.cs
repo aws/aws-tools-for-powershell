@@ -36,42 +36,41 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// for regional and global use. 
     /// </para></note><para>
     /// Inserts or deletes <a>SizeConstraint</a> objects (filters) in a <a>SizeConstraintSet</a>.
-    /// For each <code>SizeConstraint</code> object, you specify the following values: 
+    /// For each <c>SizeConstraint</c> object, you specify the following values: 
     /// </para><ul><li><para>
-    /// Whether to insert or delete the object from the array. If you want to change a <code>SizeConstraintSetUpdate</code>
+    /// Whether to insert or delete the object from the array. If you want to change a <c>SizeConstraintSetUpdate</c>
     /// object, you delete the existing object and add a new one.
     /// </para></li><li><para>
     /// The part of a web request that you want AWS WAF to evaluate, such as the length of
-    /// a query string or the length of the <code>User-Agent</code> header.
+    /// a query string or the length of the <c>User-Agent</c> header.
     /// </para></li><li><para>
     /// Whether to perform any transformations on the request, such as converting it to lowercase,
     /// before checking its length. Note that transformations of the request body are not
-    /// supported because the AWS resource forwards only the first <code>8192</code> bytes
-    /// of your request to AWS WAF.
+    /// supported because the AWS resource forwards only the first <c>8192</c> bytes of your
+    /// request to AWS WAF.
     /// </para><para>
     /// You can only specify a single type of TextTransformation.
     /// </para></li><li><para>
-    /// A <code>ComparisonOperator</code> used for evaluating the selected part of the request
-    /// against the specified <code>Size</code>, such as equals, greater than, less than,
-    /// and so on.
+    /// A <c>ComparisonOperator</c> used for evaluating the selected part of the request against
+    /// the specified <c>Size</c>, such as equals, greater than, less than, and so on.
     /// </para></li><li><para>
     /// The length, in bytes, that you want AWS WAF to watch for in selected part of the request.
     /// The length is computed after applying the transformation.
     /// </para></li></ul><para>
-    /// For example, you can add a <code>SizeConstraintSetUpdate</code> object that matches
-    /// web requests in which the length of the <code>User-Agent</code> header is greater
-    /// than 100 bytes. You can then configure AWS WAF to block those requests.
+    /// For example, you can add a <c>SizeConstraintSetUpdate</c> object that matches web
+    /// requests in which the length of the <c>User-Agent</c> header is greater than 100 bytes.
+    /// You can then configure AWS WAF to block those requests.
     /// </para><para>
-    /// To create and configure a <code>SizeConstraintSet</code>, perform the following steps:
+    /// To create and configure a <c>SizeConstraintSet</c>, perform the following steps:
     /// </para><ol><li><para>
-    /// Create a <code>SizeConstraintSet.</code> For more information, see <a>CreateSizeConstraintSet</a>.
+    /// Create a <c>SizeConstraintSet.</c> For more information, see <a>CreateSizeConstraintSet</a>.
     /// </para></li><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of an <code>UpdateSizeConstraintSet</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of an <c>UpdateSizeConstraintSet</c> request.
     /// </para></li><li><para>
-    /// Submit an <code>UpdateSizeConstraintSet</code> request to specify the part of the
-    /// request that you want AWS WAF to inspect (for example, the header or the URI) and
-    /// the value that you want AWS WAF to watch for.
+    /// Submit an <c>UpdateSizeConstraintSet</c> request to specify the part of the request
+    /// that you want AWS WAF to inspect (for example, the header or the URI) and the value
+    /// that you want AWS WAF to watch for.
     /// </para></li></ol><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
     /// see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
@@ -110,9 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter SizeConstraintSetId
         /// <summary>
         /// <para>
-        /// <para>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want
-        /// to update. <code>SizeConstraintSetId</code> is returned by <a>CreateSizeConstraintSet</a>
-        /// and by <a>ListSizeConstraintSets</a>.</para>
+        /// <para>The <c>SizeConstraintSetId</c> of the <a>SizeConstraintSet</a> that you want to update.
+        /// <c>SizeConstraintSetId</c> is returned by <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -129,10 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter Update
         /// <summary>
         /// <para>
-        /// <para>An array of <code>SizeConstraintSetUpdate</code> objects that you want to insert into
-        /// or delete from a <a>SizeConstraintSet</a>. For more information, see the applicable
-        /// data types:</para><ul><li><para><a>SizeConstraintSetUpdate</a>: Contains <code>Action</code> and <code>SizeConstraint</code></para></li><li><para><a>SizeConstraint</a>: Contains <code>FieldToMatch</code>, <code>TextTransformation</code>,
-        /// <code>ComparisonOperator</code>, and <code>Size</code></para></li><li><para><a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code></para></li></ul>
+        /// <para>An array of <c>SizeConstraintSetUpdate</c> objects that you want to insert into or
+        /// delete from a <a>SizeConstraintSet</a>. For more information, see the applicable data
+        /// types:</para><ul><li><para><a>SizeConstraintSetUpdate</a>: Contains <c>Action</c> and <c>SizeConstraint</c></para></li><li><para><a>SizeConstraint</a>: Contains <c>FieldToMatch</c>, <c>TextTransformation</c>, <c>ComparisonOperator</c>,
+        /// and <c>Size</c></para></li><li><para><a>FieldToMatch</a>: Contains <c>Data</c> and <c>Type</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

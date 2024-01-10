@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter AliasName
         /// <summary>
         /// <para>
-        /// <para>The alias to be deleted. The alias name must begin with <code>alias/</code> followed
-        /// by the alias name, such as <code>alias/ExampleAlias</code>.</para>
+        /// <para>The alias to be deleted. The alias name must begin with <c>alias/</c> followed by
+        /// the alias name, such as <c>alias/ExampleAlias</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter IncludeValue
         /// <summary>
         /// <para>
-        /// <para>A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>)
-        /// the result contains key values.</para>
+        /// <para>A boolean flag to specify whether (<c>true</c>) or not (<c>false</c>) the result contains
+        /// key values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

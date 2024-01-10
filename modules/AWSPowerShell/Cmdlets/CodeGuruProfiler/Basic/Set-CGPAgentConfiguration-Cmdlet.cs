@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
 {
     /// <summary>
     /// Used by profiler agents to report their current state and to receive remote configuration
-    /// updates. For example, <code>ConfigureAgent</code> can be used to tell an agent whether
-    /// to profile or not and for how long to return profiling data.
+    /// updates. For example, <c>ConfigureAgent</c> can be used to tell an agent whether to
+    /// profile or not and for how long to return profiling data.
     /// </summary>
     [Cmdlet("Set", "CGPAgentConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeGuruProfiler.Model.AgentConfiguration")]
@@ -60,13 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         /// <summary>
         /// <para>
         /// <para> Metadata captured about the compute platform the agent is running on. It includes
-        /// information about sampling and reporting. The valid fields are:</para><ul><li><para><code>COMPUTE_PLATFORM</code> - The compute platform on which the agent is running
-        /// </para></li><li><para><code>AGENT_ID</code> - The ID for an agent instance. </para></li><li><para><code>AWS_REQUEST_ID</code> - The AWS request ID of a Lambda invocation. </para></li><li><para><code>EXECUTION_ENVIRONMENT</code> - The execution environment a Lambda function
-        /// is running on. </para></li><li><para><code>LAMBDA_FUNCTION_ARN</code> - The Amazon Resource Name (ARN) that is used to
-        /// invoke a Lambda function. </para></li><li><para><code>LAMBDA_MEMORY_LIMIT_IN_MB</code> - The memory allocated to a Lambda function.
-        /// </para></li><li><para><code>LAMBDA_REMAINING_TIME_IN_MILLISECONDS</code> - The time in milliseconds before
-        /// execution of a Lambda function times out. </para></li><li><para><code>LAMBDA_TIME_GAP_BETWEEN_INVOKES_IN_MILLISECONDS</code> - The time in milliseconds
-        /// between two invocations of a Lambda function. </para></li><li><para><code>LAMBDA_PREVIOUS_EXECUTION_TIME_IN_MILLISECONDS</code> - The time in milliseconds
+        /// information about sampling and reporting. The valid fields are:</para><ul><li><para><c>COMPUTE_PLATFORM</c> - The compute platform on which the agent is running </para></li><li><para><c>AGENT_ID</c> - The ID for an agent instance. </para></li><li><para><c>AWS_REQUEST_ID</c> - The AWS request ID of a Lambda invocation. </para></li><li><para><c>EXECUTION_ENVIRONMENT</c> - The execution environment a Lambda function is running
+        /// on. </para></li><li><para><c>LAMBDA_FUNCTION_ARN</c> - The Amazon Resource Name (ARN) that is used to invoke
+        /// a Lambda function. </para></li><li><para><c>LAMBDA_MEMORY_LIMIT_IN_MB</c> - The memory allocated to a Lambda function. </para></li><li><para><c>LAMBDA_REMAINING_TIME_IN_MILLISECONDS</c> - The time in milliseconds before execution
+        /// of a Lambda function times out. </para></li><li><para><c>LAMBDA_TIME_GAP_BETWEEN_INVOKES_IN_MILLISECONDS</c> - The time in milliseconds
+        /// between two invocations of a Lambda function. </para></li><li><para><c>LAMBDA_PREVIOUS_EXECUTION_TIME_IN_MILLISECONDS</c> - The time in milliseconds
         /// for the previous Lambda invocation. </para></li></ul>
         /// </para>
         /// </summary>

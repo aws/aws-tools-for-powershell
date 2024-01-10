@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     ///  
     /// <para>
     /// This operation is idempotent; if you specify a policy that doesn't exist, the request
-    /// response returns a successful <code>HTTP 200</code> status code.
+    /// response returns a successful <c>HTTP 200</c> status code.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "AVPPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

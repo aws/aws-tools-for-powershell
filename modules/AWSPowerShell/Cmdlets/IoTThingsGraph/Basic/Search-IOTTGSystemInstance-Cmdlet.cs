@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Optional filter to apply to the search. Valid filters are <code>SYSTEM_TEMPLATE_ID</code>,
-        /// <code>STATUS</code>, and <code>GREENGRASS_GROUP_NAME</code>.</para><para>Multiple filters function as OR criteria in the query. Multiple values passed inside
+        /// <para>Optional filter to apply to the search. Valid filters are <c>SYSTEM_TEMPLATE_ID</c>,
+        /// <c>STATUS</c>, and <c>GREENGRASS_GROUP_NAME</c>.</para><para>Multiple filters function as OR criteria in the query. Multiple values passed inside
         /// the filter function as AND criteria.</para>
         /// </para>
         /// </summary>

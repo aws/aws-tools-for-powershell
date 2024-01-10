@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceTagAttribute_IncludeAllTagsOfInstance
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to register all tag keys in the current Region. Specify <code>true</code>
+        /// <para>Indicates whether to register all tag keys in the current Region. Specify <c>true</c>
         /// to register all tag keys.</para>
         /// </para>
         /// </summary>

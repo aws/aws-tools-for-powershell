@@ -37,21 +37,21 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     /// to this update call. You must change the logging configuration one <a>LogDestinationConfig</a>
     /// at a time inside the retrieved <a>LoggingConfiguration</a> object. 
     /// </para><para>
-    /// You can perform only one of the following actions in any call to <code>UpdateLoggingConfiguration</code>:
+    /// You can perform only one of the following actions in any call to <c>UpdateLoggingConfiguration</c>:
     /// 
     /// </para><ul><li><para>
-    /// Create a new log destination object by adding a single <code>LogDestinationConfig</code>
-    /// array element to <code>LogDestinationConfigs</code>.
+    /// Create a new log destination object by adding a single <c>LogDestinationConfig</c>
+    /// array element to <c>LogDestinationConfigs</c>.
     /// </para></li><li><para>
-    /// Delete a log destination object by removing a single <code>LogDestinationConfig</code>
-    /// array element from <code>LogDestinationConfigs</code>.
+    /// Delete a log destination object by removing a single <c>LogDestinationConfig</c> array
+    /// element from <c>LogDestinationConfigs</c>.
     /// </para></li><li><para>
-    /// Change the <code>LogDestination</code> setting in a single <code>LogDestinationConfig</code>
-    /// array element.
+    /// Change the <c>LogDestination</c> setting in a single <c>LogDestinationConfig</c> array
+    /// element.
     /// </para></li></ul><para>
-    /// You can't change the <code>LogDestinationType</code> or <code>LogType</code> in a
-    /// <code>LogDestinationConfig</code>. To change these settings, delete the existing <code>LogDestinationConfig</code>
-    /// object and create a new one, using two separate calls to this update operation.
+    /// You can't change the <c>LogDestinationType</c> or <c>LogType</c> in a <c>LogDestinationConfig</c>.
+    /// To change these settings, delete the existing <c>LogDestinationConfig</c> object and
+    /// create a new one, using two separate calls to this update operation.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "NWFWLoggingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -35,13 +35,13 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// <para>
     /// Text detection with Amazon Rekognition Video is an asynchronous operation. You start
     /// text detection by calling <a>StartTextDetection</a> which returns a job identifier
-    /// (<code>JobId</code>) When the text detection operation finishes, Amazon Rekognition
-    /// publishes a completion status to the Amazon Simple Notification Service topic registered
-    /// in the initial call to <code>StartTextDetection</code>. To get the results of the
-    /// text detection operation, first check that the status value published to the Amazon
-    /// SNS topic is <code>SUCCEEDED</code>. if so, call <code>GetTextDetection</code> and
-    /// pass the job identifier (<code>JobId</code>) from the initial call of <code>StartLabelDetection</code>.
-    /// </para><para><code>GetTextDetection</code> returns an array of detected text (<code>TextDetections</code>)
+    /// (<c>JobId</c>) When the text detection operation finishes, Amazon Rekognition publishes
+    /// a completion status to the Amazon Simple Notification Service topic registered in
+    /// the initial call to <c>StartTextDetection</c>. To get the results of the text detection
+    /// operation, first check that the status value published to the Amazon SNS topic is
+    /// <c>SUCCEEDED</c>. if so, call <c>GetTextDetection</c> and pass the job identifier
+    /// (<c>JobId</c>) from the initial call of <c>StartLabelDetection</c>.
+    /// </para><para><c>GetTextDetection</c> returns an array of detected text (<c>TextDetections</c>)
     /// sorted by the time the text was detected, up to 100 words per frame of video.
     /// </para><para>
     /// Each element of the array includes the detected text, the precentage confidence in
@@ -49,11 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// for where the text was located, and unique identifiers for words and their lines.
     /// </para><para>
     /// Use MaxResults parameter to limit the number of text detections returned. If there
-    /// are more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code>
+    /// are more results than specified in <c>MaxResults</c>, the value of <c>NextToken</c>
     /// in the operation response contains a pagination token for getting the next set of
-    /// results. To get the next page of results, call <code>GetTextDetection</code> and populate
-    /// the <code>NextToken</code> request parameter with the token value returned from the
-    /// previous call to <code>GetTextDetection</code>.
+    /// results. To get the next page of results, call <c>GetTextDetection</c> and populate
+    /// the <c>NextToken</c> request parameter with the token value returned from the previous
+    /// call to <c>GetTextDetection</c>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "REKTextDetection")]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Job identifier for the text detection operation for which you want results returned.
-        /// You get the job identifer from an initial call to <code>StartTextDetection</code>.</para>
+        /// You get the job identifer from an initial call to <c>StartTextDetection</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -33,11 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.RG
     ///  <important><para>
     /// You can use this operation with only resource groups that are configured with the
     /// following types:
-    /// </para><ul><li><para><code>AWS::EC2::HostManagement</code></para></li><li><para><code>AWS::EC2::CapacityReservationPool</code></para></li></ul><para>
+    /// </para><ul><li><para><c>AWS::EC2::HostManagement</c></para></li><li><para><c>AWS::EC2::CapacityReservationPool</c></para></li></ul><para>
     /// Other resource group type and resource types aren't currently supported by this operation.
     /// </para></important><para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para><code>resource-groups:GroupResources</code></para></li></ul>
+    /// </para><ul><li><para><c>resource-groups:GroupResources</c></para></li></ul>
     /// </summary>
     [Cmdlet("Add", "RGResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResourceGroups.Model.GroupResourcesResponse")]

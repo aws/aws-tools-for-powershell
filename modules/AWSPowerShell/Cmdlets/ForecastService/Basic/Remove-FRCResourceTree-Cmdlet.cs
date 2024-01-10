@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// export jobs
     /// </para></li><li><para><b>Predictor</b>: predictor backtest export jobs, forecasts, forecast export jobs
     /// </para></li><li><para><b>Forecast</b>: forecast export jobs
-    /// </para></li></ul><note><para><code>DeleteResourceTree</code> will only delete Amazon Forecast resources, and will
-    /// not delete datasets or exported files stored in Amazon S3. 
+    /// </para></li></ul><note><para><c>DeleteResourceTree</c> will only delete Amazon Forecast resources, and will not
+    /// delete datasets or exported files stored in Amazon S3. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "FRCResourceTree", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

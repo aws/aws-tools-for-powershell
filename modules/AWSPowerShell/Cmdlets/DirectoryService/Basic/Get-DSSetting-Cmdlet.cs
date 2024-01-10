@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>DescribeSettingsResult.NextToken</code> value from a previous call to <a>DescribeSettings</a>.
+        /// <para>The <c>DescribeSettingsResult.NextToken</c> value from a previous call to <a>DescribeSettings</a>.
         /// Pass null if this is the first call.</para>
         /// </para>
         /// <para>

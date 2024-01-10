@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The name of the template alias that you want to describe. If you name a specific alias,
         /// you describe the version that the alias points to. You can specify the latest version
-        /// of the template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
-        /// parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</para>
+        /// of the template by providing the keyword <c>$LATEST</c> in the <c>AliasName</c> parameter.
+        /// The keyword <c>$PUBLISHED</c> doesn't apply to templates.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

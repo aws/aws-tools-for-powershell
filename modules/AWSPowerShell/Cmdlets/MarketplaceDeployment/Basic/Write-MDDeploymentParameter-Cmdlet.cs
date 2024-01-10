@@ -28,8 +28,7 @@ using Amazon.MarketplaceDeployment.Model;
 namespace Amazon.PowerShell.Cmdlets.MD
 {
     /// <summary>
-    /// Creates or updates a deployment parameter and is targeted by <code>catalog</code>
-    /// and <code>agreementId</code>.
+    /// Creates or updates a deployment parameter and is targeted by <c>catalog</c> and <c>agreementId</c>.
     /// </summary>
     [Cmdlet("Write", "MDDeploymentParameter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MarketplaceDeployment.Model.PutDeploymentParameterResponse")]
@@ -64,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.MD
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para>The catalog related to the request. Fixed value: <code>AWS Marketplace</code></para>
+        /// <para>The catalog related to the request. Fixed value: <c>AWS Marketplace</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CidrBlock
         /// <summary>
         /// <para>
-        /// <para>The IPv4 network range for the VPC, in CIDR notation. For example, <code>10.0.0.0/16</code>.
+        /// <para>The IPv4 network range for the VPC, in CIDR notation. For example, <c>10.0.0.0/16</c>.
         /// We modify the specified CIDR block to its canonical form; for example, if you specify
-        /// <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</para>
+        /// <c>100.68.0.18/18</c>, we modify it to <c>100.68.0.0/18</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -85,12 +85,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceTenancy
         /// <summary>
         /// <para>
-        /// <para>The tenancy options for instances launched into the VPC. For <code>default</code>,
-        /// instances are launched with shared tenancy by default. You can launch instances with
-        /// any tenancy into a shared tenancy VPC. For <code>dedicated</code>, instances are launched
-        /// as dedicated tenancy instances by default. You can only launch instances with a tenancy
-        /// of <code>dedicated</code> or <code>host</code> into a dedicated tenancy VPC. </para><para><b>Important:</b> The <code>host</code> value cannot be used with this parameter.
-        /// Use the <code>default</code> or <code>dedicated</code> values only.</para><para>Default: <code>default</code></para>
+        /// <para>The tenancy options for instances launched into the VPC. For <c>default</c>, instances
+        /// are launched with shared tenancy by default. You can launch instances with any tenancy
+        /// into a shared tenancy VPC. For <c>dedicated</c>, instances are launched as dedicated
+        /// tenancy instances by default. You can only launch instances with a tenancy of <c>dedicated</c>
+        /// or <c>host</c> into a dedicated tenancy VPC. </para><para><b>Important:</b> The <c>host</c> value cannot be used with this parameter. Use the
+        /// <c>default</c> or <c>dedicated</c> values only.</para><para>Default: <c>default</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Ipv6CidrBlock
         /// <summary>
         /// <para>
-        /// <para>The IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code>
+        /// <para>The IPv6 CIDR block from the IPv6 address pool. You must also specify <c>Ipv6Pool</c>
         /// in the request.</para><para>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</para>
         /// </para>
         /// </summary>
@@ -137,8 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter
-        /// to limit the address to this location.</para><para> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use
-        /// this parameter.</para>
+        /// to limit the address to this location.</para><para> You must set <c>AmazonProvidedIpv6CidrBlock</c> to <c>true</c> to use this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

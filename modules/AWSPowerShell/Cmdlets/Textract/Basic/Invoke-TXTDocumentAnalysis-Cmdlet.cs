@@ -35,22 +35,19 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// The types of information returned are as follows: 
     /// </para><ul><li><para>
     /// Form data (key-value pairs). The related information is returned in two <a>Block</a>
-    /// objects, each of type <code>KEY_VALUE_SET</code>: a KEY <code>Block</code> object
-    /// and a VALUE <code>Block</code> object. For example, <i>Name: Ana Silva Carolina</i>
-    /// contains a key and value. <i>Name:</i> is the key. <i>Ana Silva Carolina</i> is the
-    /// value.
+    /// objects, each of type <c>KEY_VALUE_SET</c>: a KEY <c>Block</c> object and a VALUE
+    /// <c>Block</c> object. For example, <i>Name: Ana Silva Carolina</i> contains a key and
+    /// value. <i>Name:</i> is the key. <i>Ana Silva Carolina</i> is the value.
     /// </para></li><li><para>
-    /// Table and table cell data. A TABLE <code>Block</code> object contains information
-    /// about a detected table. A CELL <code>Block</code> object is returned for each cell
-    /// in a table.
+    /// Table and table cell data. A TABLE <c>Block</c> object contains information about
+    /// a detected table. A CELL <c>Block</c> object is returned for each cell in a table.
     /// </para></li><li><para>
-    /// Lines and words of text. A LINE <code>Block</code> object contains one or more WORD
-    /// <code>Block</code> objects. All lines and words that are detected in the document
-    /// are returned (including text that doesn't have a relationship with the value of <code>FeatureTypes</code>).
-    /// 
+    /// Lines and words of text. A LINE <c>Block</c> object contains one or more WORD <c>Block</c>
+    /// objects. All lines and words that are detected in the document are returned (including
+    /// text that doesn't have a relationship with the value of <c>FeatureTypes</c>). 
     /// </para></li><li><para>
-    /// Signatures. A SIGNATURE <code>Block</code> object contains the location information
-    /// of a signature in a document. If used in conjunction with forms or tables, a signature
+    /// Signatures. A SIGNATURE <c>Block</c> object contains the location information of a
+    /// signature in a document. If used in conjunction with forms or tables, a signature
     /// can be given a Key-Value pairing or be detected in the cell of a table.
     /// </para></li><li><para>
     /// Query. A QUERY Block object contains the query text, alias and link to the associated
@@ -60,14 +57,14 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// ID that connects it to the query asked. This Block also contains a confidence score.
     /// </para></li></ul><para>
     /// Selection elements such as check boxes and option buttons (radio buttons) can be detected
-    /// in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains
-    /// information about a selection element, including the selection status.
+    /// in form data and in tables. A SELECTION_ELEMENT <c>Block</c> object contains information
+    /// about a selection element, including the selection status.
     /// </para><para>
-    /// You can choose which type of analysis to perform by specifying the <code>FeatureTypes</code>
+    /// You can choose which type of analysis to perform by specifying the <c>FeatureTypes</c>
     /// list. 
     /// </para><para>
-    /// The output is returned in a list of <code>Block</code> objects.
-    /// </para><para><code>AnalyzeDocument</code> is a synchronous operation. To analyze documents asynchronously,
+    /// The output is returned in a list of <c>Block</c> objects.
+    /// </para><para><c>AnalyzeDocument</c> is a synchronous operation. To analyze documents asynchronously,
     /// use <a>StartDocumentAnalysis</a>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document
@@ -113,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// <para>
         /// <para>A blob of base64-encoded document bytes. The maximum size of a document that's provided
         /// in a blob of bytes is 5 MB. The document bytes must be in PNG or JPEG format.</para><para>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode
-        /// image bytes passed using the <code>Bytes</code> field. </para>
+        /// image bytes passed using the <c>Bytes</c> field. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -143,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// form data. Add SIGNATURES to return the locations of detected signatures. Add LAYOUT
         /// to the list to return information about the layout of the document. All lines and
         /// words detected in the document are included in the response (including text that isn't
-        /// related to the value of <code>FeatureTypes</code>). </para>
+        /// related to the value of <c>FeatureTypes</c>). </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The method name to match from the request. If you specify a name, you must also specify
-        /// a <code>serviceName</code>.</para>
+        /// a <c>serviceName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -283,11 +283,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_Http2Route_Match_Prefix
         /// <summary>
         /// <para>
-        /// <para>Specifies the path to match requests with. This parameter must always start with <code>/</code>,
+        /// <para>Specifies the path to match requests with. This parameter must always start with <c>/</c>,
         /// which by itself matches all requests to the virtual service name. You can also match
-        /// for path-based routing of requests. For example, if your virtual service name is <code>my-service.local</code>
-        /// and you want the route to match requests to <code>my-service.local/metrics</code>,
-        /// your prefix should be <code>/metrics</code>.</para>
+        /// for path-based routing of requests. For example, if your virtual service name is <c>my-service.local</c>
+        /// and you want the route to match requests to <c>my-service.local/metrics</c>, your
+        /// prefix should be <c>/metrics</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -297,11 +297,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_HttpRoute_Match_Prefix
         /// <summary>
         /// <para>
-        /// <para>Specifies the path to match requests with. This parameter must always start with <code>/</code>,
+        /// <para>Specifies the path to match requests with. This parameter must always start with <c>/</c>,
         /// which by itself matches all requests to the virtual service name. You can also match
-        /// for path-based routing of requests. For example, if your virtual service name is <code>my-service.local</code>
-        /// and you want the route to match requests to <code>my-service.local/metrics</code>,
-        /// your prefix should be <code>/metrics</code>.</para>
+        /// for path-based routing of requests. For example, if your virtual service name is <c>my-service.local</c>
+        /// and you want the route to match requests to <c>my-service.local/metrics</c>, your
+        /// prefix should be <c>/metrics</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

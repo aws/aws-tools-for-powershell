@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the cluster from which to get the logging status.</para><para>Example: <code>examplecluster</code></para>
+        /// <para>The identifier of the cluster from which to get the logging status.</para><para>Example: <c>examplecluster</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

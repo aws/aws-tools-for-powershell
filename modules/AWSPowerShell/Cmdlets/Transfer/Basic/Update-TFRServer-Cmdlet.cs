@@ -33,8 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     /// 
     ///  
     /// <para>
-    /// The <code>UpdateServer</code> call returns the <code>ServerId</code> of the server
-    /// you updated.
+    /// The <c>UpdateServer</c> call returns the <c>ServerId</c> of the server you updated.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "TFRServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -55,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>A list of address allocation IDs that are required to attach an Elastic IP address
-        /// to your server's endpoint.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>
-        /// and it is only valid in the <code>UpdateServer</code> API.</para></note>
+        /// to your server's endpoint.</para><note><para>This property can only be set when <c>EndpointType</c> is set to <c>VPC</c> and it
+        /// is only valid in the <c>UpdateServer</c> API.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon Web ServicesCertificate Manager (ACM)
-        /// certificate. Required when <code>Protocols</code> is set to <code>FTPS</code>.</para><para>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request
+        /// certificate. Required when <c>Protocols</c> is set to <c>FTPS</c>.</para><para>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request
         /// a public certificate</a> in the <i> Amazon Web ServicesCertificate Manager User Guide</i>.</para><para>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing
         /// certificates into ACM</a> in the <i> Amazon Web ServicesCertificate Manager User Guide</i>.</para><para>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request
         /// a private certificate</a> in the <i> Amazon Web ServicesCertificate Manager User Guide</i>.</para><para>Certificates with the following cryptographic algorithms and key sizes are supported:</para><ul><li><para>2048-bit RSA (RSA_2048)</para></li><li><para>4096-bit RSA (RSA_4096)</para></li><li><para>Elliptic Prime Curve 256 bit (EC_prime256v1)</para></li><li><para>Elliptic Prime Curve 384 bit (EC_secp384r1)</para></li><li><para>Elliptic Prime Curve 521 bit (EC_secp521r1)</para></li></ul><note><para>The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP
@@ -104,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>Specifies whether or not performance for your Amazon S3 directories is optimized.
-        /// This is disabled by default.</para><para>By default, home directory mappings have a <code>TYPE</code> of <code>DIRECTORY</code>.
-        /// If you enable this option, you would then need to explicitly set the <code>HomeDirectoryMapEntry</code><code>Type</code> to <code>FILE</code> if you want a mapping to have a file target.</para>
+        /// This is disabled by default.</para><para>By default, home directory mappings have a <c>TYPE</c> of <c>DIRECTORY</c>. If you
+        /// enable this option, you would then need to explicitly set the <c>HomeDirectoryMapEntry</c><c>Type</c> to <c>FILE</c> if you want a mapping to have a file target.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,15 +119,15 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// server's endpoint publicly accessible (PUBLIC) or host it inside your VPC. With an
         /// endpoint that is hosted in a VPC, you can restrict access to your server and resources
         /// only within your VPC or choose to make it internet facing by attaching Elastic IP
-        /// addresses directly to it.</para><note><para> After May 19, 2021, you won't be able to create a server using <code>EndpointType=VPC_ENDPOINT</code>
+        /// addresses directly to it.</para><note><para> After May 19, 2021, you won't be able to create a server using <c>EndpointType=VPC_ENDPOINT</c>
         /// in your Amazon Web Servicesaccount if your account hasn't already done so before May
-        /// 19, 2021. If you have already created servers with <code>EndpointType=VPC_ENDPOINT</code>
+        /// 19, 2021. If you have already created servers with <c>EndpointType=VPC_ENDPOINT</c>
         /// in your Amazon Web Servicesaccount on or before May 19, 2021, you will not be affected.
-        /// After this date, use <code>EndpointType</code>=<code>VPC</code>.</para><para>For more information, see https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</para><para>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>.
-        /// With this endpoint type, you have the option to directly associate up to three Elastic
-        /// IPv4 addresses (BYO IP included) with your server's endpoint and use VPC security
-        /// groups to restrict traffic by the client's public IP address. This is not possible
-        /// with <code>EndpointType</code> set to <code>VPC_ENDPOINT</code>.</para></note>
+        /// After this date, use <c>EndpointType</c>=<c>VPC</c>.</para><para>For more information, see https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</para><para>It is recommended that you use <c>VPC</c> as the <c>EndpointType</c>. With this endpoint
+        /// type, you have the option to directly associate up to three Elastic IPv4 addresses
+        /// (BYO IP included) with your server's endpoint and use VPC security groups to restrict
+        /// traffic by the client's public IP address. This is not possible with <c>EndpointType</c>
+        /// set to <c>VPC_ENDPOINT</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>The RSA, ECDSA, or ED25519 private key to use for your SFTP-enabled server. You can
         /// add multiple host keys, in case you want to rotate keys, or have a set of active keys
-        /// that use different algorithms.</para><para>Use the following command to generate an RSA 2048 bit key with no passphrase:</para><para><code>ssh-keygen -t rsa -b 2048 -N "" -m PEM -f my-new-server-key</code>.</para><para>Use a minimum value of 2048 for the <code>-b</code> option. You can create a stronger
-        /// key by using 3072 or 4096.</para><para>Use the following command to generate an ECDSA 256 bit key with no passphrase:</para><para><code>ssh-keygen -t ecdsa -b 256 -N "" -m PEM -f my-new-server-key</code>.</para><para>Valid values for the <code>-b</code> option for ECDSA are 256, 384, and 521.</para><para>Use the following command to generate an ED25519 key with no passphrase:</para><para><code>ssh-keygen -t ed25519 -N "" -f my-new-server-key</code>.</para><para>For all of these commands, you can replace <i>my-new-server-key</i> with a string
+        /// that use different algorithms.</para><para>Use the following command to generate an RSA 2048 bit key with no passphrase:</para><para><c>ssh-keygen -t rsa -b 2048 -N "" -m PEM -f my-new-server-key</c>.</para><para>Use a minimum value of 2048 for the <c>-b</c> option. You can create a stronger key
+        /// by using 3072 or 4096.</para><para>Use the following command to generate an ECDSA 256 bit key with no passphrase:</para><para><c>ssh-keygen -t ecdsa -b 256 -N "" -m PEM -f my-new-server-key</c>.</para><para>Valid values for the <c>-b</c> option for ECDSA are 256, 384, and 521.</para><para>Use the following command to generate an ED25519 key with no passphrase:</para><para><c>ssh-keygen -t ed25519 -N "" -f my-new-server-key</c>.</para><para>For all of these commands, you can replace <i>my-new-server-key</i> with a string
         /// of your choice.</para><important><para>If you aren't planning to migrate existing users from an existing SFTP-enabled server
         /// to a new server, don't update the host key. Accidentally changing a server's host
         /// key can be disruptive.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Manage
@@ -166,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter IdentityProviderDetails_InvocationRole
         /// <summary>
         /// <para>
-        /// <para>This parameter is only applicable if your <code>IdentityProviderType</code> is <code>API_GATEWAY</code>.
-        /// Provides the type of <code>InvocationRole</code> used to authenticate the user account.</para>
+        /// <para>This parameter is only applicable if your <c>IdentityProviderType</c> is <c>API_GATEWAY</c>.
+        /// Provides the type of <c>InvocationRole</c> used to authenticate the user account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -200,9 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter WorkflowDetails_OnUpload
         /// <summary>
         /// <para>
-        /// <para>A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.</para><para>To remove an associated workflow from a server, you can provide an empty <code>OnUpload</code>
-        /// object, as in the following example.</para><para><code>aws transfer update-server --server-id s-01234567890abcdef --workflow-details
-        /// '{"OnUpload":[]}'</code></para>
+        /// <para>A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.</para><para>To remove an associated workflow from a server, you can provide an empty <c>OnUpload</c>
+        /// object, as in the following example.</para><para><c>aws transfer update-server --server-id s-01234567890abcdef --workflow-details
+        /// '{"OnUpload":[]}'</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,23 +213,22 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para> Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address,
         /// such as the public IP address of a firewall, router, or load balancer. For example:
-        /// </para><para><code>aws transfer update-server --protocol-details PassiveIp=0.0.0.0</code></para><para>Replace <code>0.0.0.0</code> in the example above with the actual IP address you want
-        /// to use.</para><note><para> If you change the <code>PassiveIp</code> value, you must stop and then restart your
-        /// Transfer Family server for the change to take effect. For details on using passive
-        /// mode (PASV) in a NAT environment, see <a href="http://aws.amazon.com/blogs/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/">Configuring
-        /// your FTPS server behind a firewall or NAT with Transfer Family</a>. </para></note><para><i>Special values</i></para><para>The <code>AUTO</code> and <code>0.0.0.0</code> are special values for the <code>PassiveIp</code>
-        /// parameter. The value <code>PassiveIp=AUTO</code> is assigned by default to FTP and
-        /// FTPS type servers. In this case, the server automatically responds with one of the
-        /// endpoint IPs within the PASV response. <code>PassiveIp=0.0.0.0</code> has a more unique
-        /// application for its usage. For example, if you have a High Availability (HA) Network
-        /// Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a
-        /// single IP address using the <code>PassiveIp</code> parameter. This reduces the effectiveness
-        /// of having High Availability. In this case, you can specify <code>PassiveIp=0.0.0.0</code>.
-        /// This tells the client to use the same IP address as the Control connection and utilize
-        /// all AZs for their connections. Note, however, that not all FTP clients support the
-        /// <code>PassiveIp=0.0.0.0</code> response. FileZilla and WinSCP do support it. If you
-        /// are using other clients, check to see if your client supports the <code>PassiveIp=0.0.0.0</code>
-        /// response.</para>
+        /// </para><para><c>aws transfer update-server --protocol-details PassiveIp=0.0.0.0</c></para><para>Replace <c>0.0.0.0</c> in the example above with the actual IP address you want to
+        /// use.</para><note><para> If you change the <c>PassiveIp</c> value, you must stop and then restart your Transfer
+        /// Family server for the change to take effect. For details on using passive mode (PASV)
+        /// in a NAT environment, see <a href="http://aws.amazon.com/blogs/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/">Configuring
+        /// your FTPS server behind a firewall or NAT with Transfer Family</a>. </para></note><para><i>Special values</i></para><para>The <c>AUTO</c> and <c>0.0.0.0</c> are special values for the <c>PassiveIp</c> parameter.
+        /// The value <c>PassiveIp=AUTO</c> is assigned by default to FTP and FTPS type servers.
+        /// In this case, the server automatically responds with one of the endpoint IPs within
+        /// the PASV response. <c>PassiveIp=0.0.0.0</c> has a more unique application for its
+        /// usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB)
+        /// environment, where you have 3 subnets, you can only specify a single IP address using
+        /// the <c>PassiveIp</c> parameter. This reduces the effectiveness of having High Availability.
+        /// In this case, you can specify <c>PassiveIp=0.0.0.0</c>. This tells the client to use
+        /// the same IP address as the Control connection and utilize all AZs for their connections.
+        /// Note, however, that not all FTP clients support the <c>PassiveIp=0.0.0.0</c> response.
+        /// FileZilla and WinSCP do support it. If you are using other clients, check to see if
+        /// your client supports the <c>PassiveIp=0.0.0.0</c> response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,9 +251,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>Specifies a string to display when users connect to a server. This string is displayed
         /// before the user authenticates. For example, the following banner displays details
-        /// about using the system:</para><para><code>This system is for the use of authorized users only. Individuals using this
-        /// computer system without authority, or in excess of their authority, are subject to
-        /// having all of their activities on this system monitored and recorded by system personnel.</code></para>
+        /// about using the system:</para><para><c>This system is for the use of authorized users only. Individuals using this computer
+        /// system without authority, or in excess of their authority, are subject to having all
+        /// of their activities on this system monitored and recorded by system personnel.</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,18 +264,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>Specifies the file transfer protocol or protocols over which your file transfer protocol
-        /// client can connect to your server's endpoint. The available protocols are:</para><ul><li><para><code>SFTP</code> (Secure Shell (SSH) File Transfer Protocol): File transfer over
-        /// SSH</para></li><li><para><code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS encryption</para></li><li><para><code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</para></li><li><para><code>AS2</code> (Applicability Statement 2): used for transporting structured business-to-business
-        /// data</para></li></ul><note><ul><li><para>If you select <code>FTPS</code>, you must choose a certificate stored in Certificate
-        /// Manager (ACM) which is used to identify your server when clients connect to it over
-        /// FTPS.</para></li><li><para>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
-        /// the <code>EndpointType</code> must be <code>VPC</code> and the <code>IdentityProviderType</code>
-        /// must be either <code>AWS_DIRECTORY_SERVICE</code>, <code>AWS_LAMBDA</code>, or <code>API_GATEWAY</code>.</para></li><li><para>If <code>Protocol</code> includes <code>FTP</code>, then <code>AddressAllocationIds</code>
-        /// cannot be associated.</para></li><li><para>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
-        /// can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be
-        /// set any of the supported identity types: <code>SERVICE_MANAGED</code>, <code>AWS_DIRECTORY_SERVICE</code>,
-        /// <code>AWS_LAMBDA</code>, or <code>API_GATEWAY</code>.</para></li><li><para>If <code>Protocol</code> includes <code>AS2</code>, then the <code>EndpointType</code>
-        /// must be <code>VPC</code>, and domain must be Amazon S3.</para></li></ul></note>
+        /// client can connect to your server's endpoint. The available protocols are:</para><ul><li><para><c>SFTP</c> (Secure Shell (SSH) File Transfer Protocol): File transfer over SSH</para></li><li><para><c>FTPS</c> (File Transfer Protocol Secure): File transfer with TLS encryption</para></li><li><para><c>FTP</c> (File Transfer Protocol): Unencrypted file transfer</para></li><li><para><c>AS2</c> (Applicability Statement 2): used for transporting structured business-to-business
+        /// data</para></li></ul><note><ul><li><para>If you select <c>FTPS</c>, you must choose a certificate stored in Certificate Manager
+        /// (ACM) which is used to identify your server when clients connect to it over FTPS.</para></li><li><para>If <c>Protocol</c> includes either <c>FTP</c> or <c>FTPS</c>, then the <c>EndpointType</c>
+        /// must be <c>VPC</c> and the <c>IdentityProviderType</c> must be either <c>AWS_DIRECTORY_SERVICE</c>,
+        /// <c>AWS_LAMBDA</c>, or <c>API_GATEWAY</c>.</para></li><li><para>If <c>Protocol</c> includes <c>FTP</c>, then <c>AddressAllocationIds</c> cannot be
+        /// associated.</para></li><li><para>If <c>Protocol</c> is set only to <c>SFTP</c>, the <c>EndpointType</c> can be set
+        /// to <c>PUBLIC</c> and the <c>IdentityProviderType</c> can be set any of the supported
+        /// identity types: <c>SERVICE_MANAGED</c>, <c>AWS_DIRECTORY_SERVICE</c>, <c>AWS_LAMBDA</c>,
+        /// or <c>API_GATEWAY</c>.</para></li><li><para>If <c>Protocol</c> includes <c>AS2</c>, then the <c>EndpointType</c> must be <c>VPC</c>,
+        /// and domain must be Amazon S3.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -288,10 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter EndpointDetails_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of security groups IDs that are available to attach to your server's endpoint.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>.</para><para>You can edit the <code>SecurityGroupIds</code> property in the <a href="https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html">UpdateServer</a>
-        /// API only if you are changing the <code>EndpointType</code> from <code>PUBLIC</code>
-        /// or <code>VPC_ENDPOINT</code> to <code>VPC</code>. To change security groups associated
-        /// with your server's VPC endpoint after creation, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html">ModifyVpcEndpoint</a>
+        /// <para>A list of security groups IDs that are available to attach to your server's endpoint.</para><note><para>This property can only be set when <c>EndpointType</c> is set to <c>VPC</c>.</para><para>You can edit the <c>SecurityGroupIds</c> property in the <a href="https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html">UpdateServer</a>
+        /// API only if you are changing the <c>EndpointType</c> from <c>PUBLIC</c> or <c>VPC_ENDPOINT</c>
+        /// to <c>VPC</c>. To change security groups associated with your server's VPC endpoint
+        /// after creation, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html">ModifyVpcEndpoint</a>
         /// API.</para></note>
         /// </para>
         /// </summary>
@@ -331,18 +327,18 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ProtocolDetails_SetStatOption
         /// <summary>
         /// <para>
-        /// <para>Use the <code>SetStatOption</code> to ignore the error that is generated when the
-        /// client attempts to use <code>SETSTAT</code> on a file you are uploading to an S3 bucket.</para><para>Some SFTP file transfer clients can attempt to change the attributes of remote files,
-        /// including timestamp and permissions, using commands, such as <code>SETSTAT</code>
-        /// when uploading the file. However, these commands are not compatible with object storage
-        /// systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients
-        /// can result in errors even when the file is otherwise successfully uploaded.</para><para>Set the value to <code>ENABLE_NO_OP</code> to have the Transfer Family server ignore
-        /// the <code>SETSTAT</code> command, and upload files without needing to make any changes
-        /// to your SFTP client. While the <code>SetStatOption</code><code>ENABLE_NO_OP</code>
-        /// setting ignores the error, it does generate a log entry in Amazon CloudWatch Logs,
-        /// so you can determine when the client is making a <code>SETSTAT</code> call.</para><note><para>If you want to preserve the original timestamp for your file, and modify other file
-        /// attributes using <code>SETSTAT</code>, you can use Amazon EFS as backend storage with
-        /// Transfer Family.</para></note>
+        /// <para>Use the <c>SetStatOption</c> to ignore the error that is generated when the client
+        /// attempts to use <c>SETSTAT</c> on a file you are uploading to an S3 bucket.</para><para>Some SFTP file transfer clients can attempt to change the attributes of remote files,
+        /// including timestamp and permissions, using commands, such as <c>SETSTAT</c> when uploading
+        /// the file. However, these commands are not compatible with object storage systems,
+        /// such as Amazon S3. Due to this incompatibility, file uploads from these clients can
+        /// result in errors even when the file is otherwise successfully uploaded.</para><para>Set the value to <c>ENABLE_NO_OP</c> to have the Transfer Family server ignore the
+        /// <c>SETSTAT</c> command, and upload files without needing to make any changes to your
+        /// SFTP client. While the <c>SetStatOption</c><c>ENABLE_NO_OP</c> setting ignores the
+        /// error, it does generate a log entry in Amazon CloudWatch Logs, so you can determine
+        /// when the client is making a <c>SETSTAT</c> call.</para><note><para>If you want to preserve the original timestamp for your file, and modify other file
+        /// attributes using <c>SETSTAT</c>, you can use Amazon EFS as backend storage with Transfer
+        /// Family.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -354,11 +350,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>For SFTP-enabled servers, and for custom identity providers <i>only</i>, you can specify
-        /// whether to authenticate using a password, SSH key pair, or both.</para><ul><li><para><code>PASSWORD</code> - users must provide their password to connect.</para></li><li><para><code>PUBLIC_KEY</code> - users must provide their private key to connect.</para></li><li><para><code>PUBLIC_KEY_OR_PASSWORD</code> - users can authenticate with either their password
-        /// or their key. This is the default value.</para></li><li><para><code>PUBLIC_KEY_AND_PASSWORD</code> - users must provide both their private key
-        /// and their password to connect. The server checks the key first, and then if the key
-        /// is valid, the system prompts for a password. If the private key provided does not
-        /// match the public key that is stored, authentication fails.</para></li></ul>
+        /// whether to authenticate using a password, SSH key pair, or both.</para><ul><li><para><c>PASSWORD</c> - users must provide their password to connect.</para></li><li><para><c>PUBLIC_KEY</c> - users must provide their private key to connect.</para></li><li><para><c>PUBLIC_KEY_OR_PASSWORD</c> - users can authenticate with either their password
+        /// or their key. This is the default value.</para></li><li><para><c>PUBLIC_KEY_AND_PASSWORD</c> - users must provide both their private key and their
+        /// password to connect. The server checks the key first, and then if the key is valid,
+        /// the system prompts for a password. If the private key provided does not match the
+        /// public key that is stored, authentication fails.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -371,9 +367,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>Specifies the log groups to which your server logs are sent.</para><para>To specify a log group, you must provide the ARN for an existing log group. In this
-        /// case, the format of the log group is as follows:</para><para><code>arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*</code></para><para>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code></para><para>If you have previously specified a log group for a server, you can clear it, and in
+        /// case, the format of the log group is as follows:</para><para><c>arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*</c></para><para>For example, <c>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</c></para><para>If you have previously specified a log group for a server, you can clear it, and in
         /// effect turn off structured logging, by providing an empty value for this parameter
-        /// in an <code>update-server</code> call. For example:</para><para><code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code></para>
+        /// in an <c>update-server</c> call. For example:</para><para><c>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -384,7 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter EndpointDetails_SubnetId
         /// <summary>
         /// <para>
-        /// <para>A list of subnet IDs that are required to host your server endpoint in your VPC.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>.</para></note>
+        /// <para>A list of subnet IDs that are required to host your server endpoint in your VPC.</para><note><para>This property can only be set when <c>EndpointType</c> is set to <c>VPC</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -397,20 +393,19 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>A property used with Transfer Family servers that use the FTPS protocol. TLS Session
         /// Resumption provides a mechanism to resume or share a negotiated secret key between
-        /// the control and data connection for an FTPS session. <code>TlsSessionResumptionMode</code>
+        /// the control and data connection for an FTPS session. <c>TlsSessionResumptionMode</c>
         /// determines whether or not the server resumes recent, negotiated sessions through a
-        /// unique session ID. This property is available during <code>CreateServer</code> and
-        /// <code>UpdateServer</code> calls. If a <code>TlsSessionResumptionMode</code> value
-        /// is not specified during <code>CreateServer</code>, it is set to <code>ENFORCED</code>
-        /// by default.</para><ul><li><para><code>DISABLED</code>: the server does not process TLS session resumption client
-        /// requests and creates a new TLS session for each request. </para></li><li><para><code>ENABLED</code>: the server processes and accepts clients that are performing
-        /// TLS session resumption. The server doesn't reject client data connections that do
-        /// not perform the TLS session resumption client processing.</para></li><li><para><code>ENFORCED</code>: the server processes and accepts clients that are performing
-        /// TLS session resumption. The server rejects client data connections that do not perform
-        /// the TLS session resumption client processing. Before you set the value to <code>ENFORCED</code>,
+        /// unique session ID. This property is available during <c>CreateServer</c> and <c>UpdateServer</c>
+        /// calls. If a <c>TlsSessionResumptionMode</c> value is not specified during <c>CreateServer</c>,
+        /// it is set to <c>ENFORCED</c> by default.</para><ul><li><para><c>DISABLED</c>: the server does not process TLS session resumption client requests
+        /// and creates a new TLS session for each request. </para></li><li><para><c>ENABLED</c>: the server processes and accepts clients that are performing TLS
+        /// session resumption. The server doesn't reject client data connections that do not
+        /// perform the TLS session resumption client processing.</para></li><li><para><c>ENFORCED</c>: the server processes and accepts clients that are performing TLS
+        /// session resumption. The server rejects client data connections that do not perform
+        /// the TLS session resumption client processing. Before you set the value to <c>ENFORCED</c>,
         /// test your clients.</para><note><para>Not all FTPS clients perform TLS session resumption. So, if you choose to enforce
         /// TLS session resumption, you prevent any connections from FTPS clients that don't perform
-        /// the protocol negotiation. To determine whether or not you can use the <code>ENFORCED</code>
+        /// the protocol negotiation. To determine whether or not you can use the <c>ENFORCED</c>
         /// value, you need to test your clients.</para></note></li></ul>
         /// </para>
         /// </summary>
@@ -432,7 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter EndpointDetails_VpcEndpointId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the VPC endpoint.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC_ENDPOINT</code>.</para><para>For more information, see https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</para></note>
+        /// <para>The identifier of the VPC endpoint.</para><note><para>This property can only be set when <c>EndpointType</c> is set to <c>VPC_ENDPOINT</c>.</para><para>For more information, see https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -442,7 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter EndpointDetails_VpcId
         /// <summary>
         /// <para>
-        /// <para>The VPC identifier of the VPC in which a server's endpoint will be hosted.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>.</para></note>
+        /// <para>The VPC identifier of the VPC in which a server's endpoint will be hosted.</para><note><para>This property can only be set when <c>EndpointType</c> is set to <c>VPC</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

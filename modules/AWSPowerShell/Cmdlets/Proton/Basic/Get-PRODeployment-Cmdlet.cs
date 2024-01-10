@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter ServiceInstanceName
         /// <summary>
         /// <para>
-        /// <para>The name of the service instance associated with the given deployment ID. <code>serviceName</code>
+        /// <para>The name of the service instance associated with the given deployment ID. <c>serviceName</c>
         /// must be specified to identify the service instance.</para>
         /// </para>
         /// </summary>

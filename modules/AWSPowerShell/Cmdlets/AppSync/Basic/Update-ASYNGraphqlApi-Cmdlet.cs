@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Updates a <code>GraphqlApi</code> object.
+    /// Updates a <c>GraphqlApi</c> object.
     /// </summary>
     [Cmdlet("Update", "ASYNGraphqlApi", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppSync.Model.GraphqlApi")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter AdditionalAuthenticationProvider
         /// <summary>
         /// <para>
-        /// <para>A list of additional authentication providers for the <code>GraphqlApi</code> API.</para>
+        /// <para>A list of additional authentication providers for the <c>GraphqlApi</c> API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter AuthenticationType
         /// <summary>
         /// <para>
-        /// <para>The new authentication type for the <code>GraphqlApi</code> object.</para>
+        /// <para>The new authentication type for the <c>GraphqlApi</c> object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,9 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>The number of seconds a response should be cached for. The default is 0 seconds, which
-        /// disables caching. If you don't specify a value for <code>authorizerResultTtlInSeconds</code>,
+        /// disables caching. If you don't specify a value for <c>authorizerResultTtlInSeconds</c>,
         /// the default value is used. The maximum value is one hour (3600 seconds). The Lambda
-        /// function can override this by returning a <code>ttlOverride</code> key in its response.</para>
+        /// function can override this by returning a <c>ttlOverride</c> key in its response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,11 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Lambda function to be called for authorization.
-        /// This can be a standard Lambda ARN, a version ARN (<code>.../v3</code>), or an alias
-        /// ARN. </para><para><b>Note</b>: This Lambda function must have the following resource-based policy assigned
+        /// This can be a standard Lambda ARN, a version ARN (<c>.../v3</c>), or an alias ARN.
+        /// </para><para><b>Note</b>: This Lambda function must have the following resource-based policy assigned
         /// to it. When configuring Lambda authorizers in the console, this is done for you. To
-        /// use the Command Line Interface (CLI), run the following:</para><para><code>aws lambda add-permission --function-name "arn:aws:lambda:us-east-2:111122223333:function:my-function"
-        /// --statement-id "appsync" --principal appsync.amazonaws.com --action lambda:InvokeFunction</code></para>
+        /// use the Command Line Interface (CLI), run the following:</para><para><c>aws lambda add-permission --function-name "arn:aws:lambda:us-east-2:111122223333:function:my-function"
+        /// --statement-id "appsync" --principal appsync.amazonaws.com --action lambda:InvokeFunction</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,10 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter IntrospectionConfig
         /// <summary>
         /// <para>
-        /// <para>Sets the value of the GraphQL API to enable (<code>ENABLED</code>) or disable (<code>DISABLED</code>)
+        /// <para>Sets the value of the GraphQL API to enable (<c>ENABLED</c>) or disable (<c>DISABLED</c>)
         /// introspection. If no value is provided, the introspection configuration will be set
-        /// to <code>ENABLED</code> by default. This field will produce an error if the operation
-        /// attempts to use the introspection feature while this field is disabled.</para><para>For more information about introspection, see <a href="https://graphql.org/learn/introspection/">GraphQL
+        /// to <c>ENABLED</c> by default. This field will produce an error if the operation attempts
+        /// to use the introspection feature while this field is disabled.</para><para>For more information about introspection, see <a href="https://graphql.org/learn/introspection/">GraphQL
         /// introspection</a>.</para>
         /// </para>
         /// </summary>
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>The issuer for the OIDC configuration. The issuer returned by discovery must exactly
-        /// match the value of <code>iss</code> in the ID token.</para>
+        /// match the value of <c>iss</c> in the ID token.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,8 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <para>
         /// <para>The Identity and Access Management service role ARN for a merged API. The AppSync
         /// service assumes this role on behalf of the Merged API to validate access to source
-        /// APIs at runtime and to prompt the <code>AUTO_MERGE</code> to update the merged API
-        /// endpoint with the source API changes automatically.</para>
+        /// APIs at runtime and to prompt the <c>AUTO_MERGE</c> to update the merged API endpoint
+        /// with the source API changes automatically.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The new name for the <code>GraphqlApi</code> object.</para>
+        /// <para>The new name for the <c>GraphqlApi</c> object.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -255,10 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>The maximum depth a query can have in a single request. Depth refers to the amount
-        /// of nested levels allowed in the body of query. The default value is <code>0</code>
-        /// (or unspecified), which indicates there's no depth limit. If you set a limit, it can
-        /// be between <code>1</code> and <code>75</code> nested levels. This field will produce
-        /// a limit error if the operation falls out of bounds.</para><para>Note that fields can still be set to nullable or non-nullable. If a non-nullable field
+        /// of nested levels allowed in the body of query. The default value is <c>0</c> (or unspecified),
+        /// which indicates there's no depth limit. If you set a limit, it can be between <c>1</c>
+        /// and <c>75</c> nested levels. This field will produce a limit error if the operation
+        /// falls out of bounds.</para><para>Note that fields can still be set to nullable or non-nullable. If a non-nullable field
         /// produces an error, the error will be thrown upwards to the first nullable field available.</para>
         /// </para>
         /// </summary>
@@ -270,9 +270,9 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>The maximum number of resolvers that can be invoked in a single request. The default
-        /// value is <code>0</code> (or unspecified), which will set the limit to <code>10000</code>.
-        /// When specified, the limit value can be between <code>1</code> and <code>10000</code>.
-        /// This field will produce a limit error if the operation falls out of bounds.</para>
+        /// value is <c>0</c> (or unspecified), which will set the limit to <c>10000</c>. When
+        /// specified, the limit value can be between <c>1</c> and <c>10000</c>. This field will
+        /// produce a limit error if the operation falls out of bounds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -282,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter UserPoolConfig
         /// <summary>
         /// <para>
-        /// <para>The new Amazon Cognito user pool configuration for the <code>~GraphqlApi</code> object.</para>
+        /// <para>The new Amazon Cognito user pool configuration for the <c>~GraphqlApi</c> object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -292,7 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter XrayEnabled
         /// <summary>
         /// <para>
-        /// <para>A flag indicating whether to use X-Ray tracing for the <code>GraphqlApi</code>.</para>
+        /// <para>A flag indicating whether to use X-Ray tracing for the <c>GraphqlApi</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

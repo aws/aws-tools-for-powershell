@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// <summary>
         /// <para>
         /// <para>The number of consecutive health checks successes required before moving the instance
-        /// to the <code>Healthy</code> state.</para>
+        /// to the <c>Healthy</c> state.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         #region Parameter HealthCheck_Timeout
         /// <summary>
         /// <para>
-        /// <para>The amount of time, in seconds, during which no response means a failed health check.</para><para>This value must be less than the <code>Interval</code> value.</para>
+        /// <para>The amount of time, in seconds, during which no response means a failed health check.</para><para>This value must be less than the <c>Interval</c> value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// <summary>
         /// <para>
         /// <para>The number of consecutive health check failures required before moving the instance
-        /// to the <code>Unhealthy</code> state.</para>
+        /// to the <c>Unhealthy</c> state.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
     /// Deletes the specified <a>Firewall</a> and its <a>FirewallStatus</a>. This operation
-    /// requires the firewall's <code>DeleteProtection</code> flag to be <code>FALSE</code>.
-    /// You can't revert this operation. 
+    /// requires the firewall's <c>DeleteProtection</c> flag to be <c>FALSE</c>. You can't
+    /// revert this operation. 
     /// 
     ///  
     /// <para>

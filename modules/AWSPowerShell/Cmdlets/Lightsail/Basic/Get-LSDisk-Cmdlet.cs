@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskName
         /// <summary>
         /// <para>
-        /// <para>The name of the disk (<code>my-disk</code>).</para>
+        /// <para>The name of the disk (<c>my-disk</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

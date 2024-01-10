@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
     /// Deletes a forecast created using the <a>CreateForecast</a> operation. You can delete
-    /// only forecasts that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
-    /// To get the status, use the <a>DescribeForecast</a> operation.
+    /// only forecasts that have a status of <c>ACTIVE</c> or <c>CREATE_FAILED</c>. To get
+    /// the status, use the <a>DescribeForecast</a> operation.
     /// 
     ///  
     /// <para>

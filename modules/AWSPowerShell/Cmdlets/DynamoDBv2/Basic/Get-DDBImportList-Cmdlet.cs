@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para> An optional string that, if supplied, must be copied from the output of a previous
-        /// call to <code>ListImports</code>. When provided in this manner, the API fetches the
-        /// next page of results. </para>
+        /// call to <c>ListImports</c>. When provided in this manner, the API fetches the next
+        /// page of results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para> The number of <code>ImportSummary </code>objects returned in a single page. </para>
+        /// <para> The number of <c>ImportSummary </c>objects returned in a single page. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

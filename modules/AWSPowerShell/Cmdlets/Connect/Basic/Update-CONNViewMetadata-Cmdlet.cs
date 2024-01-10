@@ -28,8 +28,8 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Updates the view metadata. Note that either <code>Name</code> or <code>Description</code>
-    /// must be provided.
+    /// Updates the view metadata. Note that either <c>Name</c> or <c>Description</c> must
+    /// be provided.
     /// </summary>
     [Cmdlet("Update", "CONNViewMetadata", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -86,8 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ViewId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can
-        /// be used.</para>
+        /// <para>The identifier of the view. Both <c>ViewArn</c> and <c>ViewId</c> can be used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

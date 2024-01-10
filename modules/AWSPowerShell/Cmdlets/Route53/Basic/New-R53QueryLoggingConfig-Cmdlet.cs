@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </para></li><li><para>
     /// DNS record type, such as A or AAAA
     /// </para></li><li><para>
-    /// DNS response code, such as <code>NoError</code> or <code>ServFail</code></para></li></ul><dl><dt>Log Group and Resource Policy</dt><dd><para>
+    /// DNS response code, such as <c>NoError</c> or <c>ServFail</c></para></li></ul><dl><dt>Log Group and Resource Policy</dt><dd><para>
     /// Before you create a query logging configuration, perform the following operations.
     /// </para><note><para>
     /// If you create a query logging configuration using the Route 53 console, Route 53 performs
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </para></li><li><para>
     /// When you create log groups for query logging, we recommend that you use a consistent
     /// prefix, for example:
-    /// </para><para><code>/aws/route53/<i>hosted zone name</i></code></para><para>
+    /// </para><para><c>/aws/route53/<i>hosted zone name</i></c></para><para>
     /// In the next step, you'll create a resource policy, which controls access to one or
     /// more log groups and the associated Amazon Web Services resources, such as Route 53
     /// hosted zones. There's a limit on the number of resource policies that you can create,
@@ -67,22 +67,22 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </para></li></ul></li><li><para>
     /// Create a CloudWatch Logs resource policy, and give it the permissions that Route 53
     /// needs to create log streams and to send query logs to log streams. For the value of
-    /// <code>Resource</code>, specify the ARN for the log group that you created in the previous
+    /// <c>Resource</c>, specify the ARN for the log group that you created in the previous
     /// step. To use the same resource policy for all the CloudWatch Logs log groups that
-    /// you created for query logging configurations, replace the hosted zone name with <code>*</code>,
+    /// you created for query logging configurations, replace the hosted zone name with <c>*</c>,
     /// for example:
-    /// </para><para><code>arn:aws:logs:us-east-1:123412341234:log-group:/aws/route53/*</code></para><para>
+    /// </para><para><c>arn:aws:logs:us-east-1:123412341234:log-group:/aws/route53/*</c></para><para>
     /// To avoid the confused deputy problem, a security issue where an entity without a permission
     /// for an action can coerce a more-privileged entity to perform it, you can optionally
     /// limit the permissions that a service has to a resource in a resource-based policy
     /// by supplying the following values:
     /// </para><ul><li><para>
-    /// For <code>aws:SourceArn</code>, supply the hosted zone ARN used in creating the query
-    /// logging configuration. For example, <code>aws:SourceArn: arn:aws:route53:::hostedzone/hosted
-    /// zone ID</code>.
+    /// For <c>aws:SourceArn</c>, supply the hosted zone ARN used in creating the query logging
+    /// configuration. For example, <c>aws:SourceArn: arn:aws:route53:::hostedzone/hosted
+    /// zone ID</c>.
     /// </para></li><li><para>
-    /// For <code>aws:SourceAccount</code>, supply the account ID for the account that creates
-    /// the query logging configuration. For example, <code>aws:SourceAccount:111111111111</code>.
+    /// For <c>aws:SourceAccount</c>, supply the account ID for the account that creates the
+    /// query logging configuration. For example, <c>aws:SourceAccount:111111111111</c>.
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html">The
     /// confused deputy problem</a> in the <i>Amazon Web Services IAM User Guide</i>.
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// Begins to send query logs to the applicable log stream.
     /// </para></li></ul><para>
     /// The name of each log stream is in the following format:
-    /// </para><para><code><i>hosted zone ID</i>/<i>edge location code</i></code></para><para>
+    /// </para><para><c><i>hosted zone ID</i>/<i>edge location code</i></c></para><para>
     /// The edge location code is a three-letter code and an arbitrarily assigned number,
     /// for example, DFW3. The three-letter code typically corresponds with the International
     /// Air Transport Association airport code for an airport near the edge location. (These

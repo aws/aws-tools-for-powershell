@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter KeyFormat
         /// <summary>
         /// <para>
-        /// <para>The format of the key pair.</para><para>Default: <code>pem</code></para>
+        /// <para>The format of the key pair.</para><para>Default: <c>pem</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter KeyType
         /// <summary>
         /// <para>
-        /// <para>The type of key pair. Note that ED25519 keys are not supported for Windows instances.</para><para>Default: <code>rsa</code></para>
+        /// <para>The type of key pair. Note that ED25519 keys are not supported for Windows instances.</para><para>Default: <c>rsa</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

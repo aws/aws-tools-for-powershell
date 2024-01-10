@@ -28,7 +28,7 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Returns the details associated with creating a report as specified by its <code>ReportJobId</code>.
+    /// Returns the details associated with creating a report as specified by its <c>ReportJobId</c>.
     /// </summary>
     [Cmdlet("Get", "BAKReportJob")]
     [OutputType("Amazon.Backup.Model.ReportJob")]

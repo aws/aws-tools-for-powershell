@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>Use this option to view a summary of the deletion request without deleting any data
         /// or the data type. This option is useful when you only want to understand what will
         /// be deleted. Once you validate that the data to be deleted is what you intend to delete,
-        /// you can run the same command without specifying the <code>DryRun</code> option.</para>
+        /// you can run the same command without specifying the <c>DryRun</c> option.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,11 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SchemaDeleteOption
         /// <summary>
         /// <para>
-        /// <para>Use the <code>SchemaDeleteOption</code> to delete a custom inventory type (schema).
-        /// If you don't choose this option, the system only deletes existing inventory data associated
+        /// <para>Use the <c>SchemaDeleteOption</c> to delete a custom inventory type (schema). If you
+        /// don't choose this option, the system only deletes existing inventory data associated
         /// with the custom inventory type. Choose one of the following options:</para><para>DisableSchema: If you choose this option, the system ignores all inventory data for
         /// the specified version, and any earlier versions. To enable this schema again, you
-        /// must call the <code>PutInventory</code> operation for a version greater than the disabled
+        /// must call the <c>PutInventory</c> operation for a version greater than the disabled
         /// version.</para><para>DeleteSchema: This option deletes the specified custom type from the Inventory service.
         /// You can recreate the schema later, if you want.</para>
         /// </para>

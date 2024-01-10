@@ -28,9 +28,8 @@ using Amazon.LexModelBuildingService.Model;
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Deletes all versions of the slot type, including the <code>$LATEST</code> version.
-    /// To delete a specific version of the slot type, use the <a>DeleteSlotTypeVersion</a>
-    /// operation.
+    /// Deletes all versions of the slot type, including the <c>$LATEST</c> version. To delete
+    /// a specific version of the slot type, use the <a>DeleteSlotTypeVersion</a> operation.
     /// 
     ///  
     /// <para>
@@ -38,14 +37,13 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// slot type that is referred to in one or more intents, you must remove those references
     /// first. 
     /// </para><note><para>
-    ///  If you get the <code>ResourceInUseException</code> exception, the exception provides
-    /// an example reference that shows the intent where the slot type is referenced. To remove
+    ///  If you get the <c>ResourceInUseException</c> exception, the exception provides an
+    /// example reference that shows the intent where the slot type is referenced. To remove
     /// the reference to the slot type, either update the intent or delete it. If you get
     /// the same exception when you attempt to delete the slot type again, repeat until the
-    /// slot type has no references and the <code>DeleteSlotType</code> call is successful.
-    /// 
+    /// slot type has no references and the <c>DeleteSlotType</c> call is successful. 
     /// </para></note><para>
-    /// This operation requires permission for the <code>lex:DeleteSlotType</code> action.
+    /// This operation requires permission for the <c>lex:DeleteSlotType</c> action.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LMBSlotType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -36,11 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
     ///  
     /// <para>
     /// This operation supports pagination. By default, the operation returns a maximum of
-    /// up to 100 tapes. You can optionally specify the <code>Limit</code> parameter in the
-    /// body to limit the number of tapes in the response. If the number of tapes returned
-    /// in the response is truncated, the response includes a <code>Marker</code> element
-    /// that you can use in your subsequent request to retrieve the next set of tapes. This
-    /// operation is only supported in the tape gateway type.
+    /// up to 100 tapes. You can optionally specify the <c>Limit</c> parameter in the body
+    /// to limit the number of tapes in the response. If the number of tapes returned in the
+    /// response is truncated, the response includes a <c>Marker</c> element that you can
+    /// use in your subsequent request to retrieve the next set of tapes. This operation is
+    /// only supported in the tape gateway type.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SGTape")]

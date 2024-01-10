@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <para>
         /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Name (ARN)</a> of the managed permission that you want to add tags to. You
-        /// must specify <i>either</i><code>resourceArn</code>, or <code>resourceShareArn</code>,
-        /// but not both.</para>
+        /// must specify <i>either</i><c>resourceArn</c>, or <c>resourceShareArn</c>, but not
+        /// both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,8 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <para>
         /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Name (ARN)</a> of the resource share that you want to add tags to. You must
-        /// specify <i>either</i><code>resourceShareArn</code>, or <code>resourceArn</code>,
-        /// but not both.</para>
+        /// specify <i>either</i><c>resourceShareArn</c>, or <c>resourceArn</c>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

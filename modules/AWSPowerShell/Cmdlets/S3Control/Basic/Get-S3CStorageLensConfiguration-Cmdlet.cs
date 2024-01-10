@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3
     /// Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><note><para>
-    /// To use this action, you must have permission to perform the <code>s3:GetStorageLensConfiguration</code>
+    /// To use this action, you must have permission to perform the <c>s3:GetStorageLensConfiguration</c>
     /// action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting
     /// permissions to use Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></note>

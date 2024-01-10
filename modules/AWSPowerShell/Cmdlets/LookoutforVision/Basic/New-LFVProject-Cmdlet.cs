@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions to perform the <code>lookoutvision:CreateProject</code>
+    /// This operation requires permissions to perform the <c>lookoutvision:CreateProject</c>
     /// operation.
     /// </para>
     /// </summary>
@@ -69,15 +69,14 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>ClientToken is an idempotency token that ensures a call to <code>CreateProject</code>
-        /// completes only once. You choose the value to pass. For example, An issue might prevent
-        /// you from getting a response from <code>CreateProject</code>. In this case, safely
-        /// retry your call to <code>CreateProject</code> by using the same <code>ClientToken</code>
-        /// parameter value. </para><para>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using
-        /// inserts a value for you. This prevents retries after a network error from making multiple
+        /// <para>ClientToken is an idempotency token that ensures a call to <c>CreateProject</c> completes
+        /// only once. You choose the value to pass. For example, An issue might prevent you from
+        /// getting a response from <c>CreateProject</c>. In this case, safely retry your call
+        /// to <c>CreateProject</c> by using the same <c>ClientToken</c> parameter value. </para><para>If you don't supply a value for <c>ClientToken</c>, the AWS SDK you are using inserts
+        /// a value for you. This prevents retries after a network error from making multiple
         /// project creation requests. You'll need to provide your own value for other use cases.
         /// </para><para>An error occurs if the other input parameters are not the same as in the first request.
-        /// Using a different value for <code>ClientToken</code> is considered a new call to <code>CreateProject</code>.
+        /// Using a different value for <c>ClientToken</c> is considered a new call to <c>CreateProject</c>.
         /// An idempotency token is active for 8 hours.</para>
         /// </para>
         /// </summary>

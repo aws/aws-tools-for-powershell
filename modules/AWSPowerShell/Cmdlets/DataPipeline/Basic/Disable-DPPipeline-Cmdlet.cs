@@ -28,7 +28,7 @@ using Amazon.DataPipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.DP
 {
     /// <summary>
-    /// Deactivates the specified running pipeline. The pipeline is set to the <code>DEACTIVATING</code>
+    /// Deactivates the specified running pipeline. The pipeline is set to the <c>DEACTIVATING</c>
     /// state until the deactivation process completes.
     /// 
     ///  
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// <summary>
         /// <para>
         /// <para>Indicates whether to cancel any running objects. The default is true, which sets the
-        /// state of any running objects to <code>CANCELED</code>. If this value is false, the
-        /// pipeline is deactivated after all running objects finish.</para>
+        /// state of any running objects to <c>CANCELED</c>. If this value is false, the pipeline
+        /// is deactivated after all running objects finish.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

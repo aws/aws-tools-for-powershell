@@ -28,8 +28,8 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// If finding aggregation is enabled, then <code>ListFindingAggregators</code> returns
-    /// the ARN of the finding aggregator. You can run this operation from any Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// If finding aggregation is enabled, then <c>ListFindingAggregators</c> returns the
+    /// ARN of the finding aggregator. You can run this operation from any Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBFindingAggregatorList")]
     [OutputType("Amazon.SecurityHub.Model.FindingAggregator")]

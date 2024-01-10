@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Returns a list of resource metadata for a given list of workflow names. After calling
-    /// the <code>ListWorkflows</code> operation, you can call this operation to access the
-    /// data to which you have been granted permissions. This operation supports all IAM permissions,
+    /// the <c>ListWorkflows</c> operation, you can call this operation to access the data
+    /// to which you have been granted permissions. This operation supports all IAM permissions,
     /// including permission conditions that uses tags.
     /// </summary>
     [Cmdlet("Get", "GLUEWorkflowBatch")]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A list of workflow names, which may be the names returned from the <code>ListWorkflows</code>
+        /// <para>A list of workflow names, which may be the names returned from the <c>ListWorkflows</c>
         /// operation.</para>
         /// </para>
         /// </summary>

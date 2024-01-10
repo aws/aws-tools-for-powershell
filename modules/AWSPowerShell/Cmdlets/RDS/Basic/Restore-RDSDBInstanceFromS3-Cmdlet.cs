@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of storage (in gibibytes) to allocate initially for the DB instance. Follow
-        /// the allocation rules specified in <code>CreateDBInstance</code>.</para><note><para>Be sure to allocate enough storage for your new DB instance so that the restore operation
+        /// the allocation rules specified in <c>CreateDBInstance</c>.</para><note><para>Be sure to allocate enough storage for your new DB instance so that the restore operation
         /// can succeed. You can also allocate additional storage for future growth.</para></note>
         /// </para>
         /// </summary>
@@ -77,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The Availability Zone that the DB instance is created in. For information about Amazon
         /// Web Services Regions and Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
         /// and Availability Zones</a> in the <i>Amazon RDS User Guide.</i></para><para>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services
-        /// Region.</para><para>Example: <code>us-east-1d</code></para><para>Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the
-        /// DB instance is a Multi-AZ deployment. The specified Availability Zone must be in the
-        /// same Amazon Web Services Region as the current endpoint.</para>
+        /// Region.</para><para>Example: <c>us-east-1d</c></para><para>Constraint: The <c>AvailabilityZone</c> parameter can't be specified if the DB instance
+        /// is a Multi-AZ deployment. The specified Availability Zone must be in the same Amazon
+        /// Web Services Region as the current endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The number of days for which automated backups are retained. Setting this parameter
-        /// to a positive number enables backups. For more information, see <code>CreateDBInstance</code>.</para>
+        /// to a positive number enables backups. For more information, see <c>CreateDBInstance</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
+        /// <para>The DB instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <c>mydbinstance</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the database to create when the DB instance is created. Follow the naming
-        /// rules specified in <code>CreateDBInstance</code>.</para>
+        /// rules specified in <c>CreateDBInstance</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB parameter group to associate with this DB instance.</para><para>If you do not specify a value for <code>DBParameterGroupName</code>, then the default
-        /// <code>DBParameterGroup</code> for the specified DB engine is used.</para>
+        /// <para>The name of the DB parameter group to associate with this DB instance.</para><para>If you do not specify a value for <c>DBParameterGroupName</c>, then the default <c>DBParameterGroup</c>
+        /// for the specified DB engine is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>A DB subnet group to associate with this DB instance.</para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <code>mydbsubnetgroup</code></para>
+        /// <para>A DB subnet group to associate with this DB instance.</para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <c>mydbsubnetgroup</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this instance.</para><para>Valid Values: <code>mysql</code></para>
+        /// <para>The name of the database engine to be used for this instance.</para><para>Valid Values: <c>mysql</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -271,8 +271,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The version number of the database engine to use. Choose the latest minor version
-        /// of your database engine. For information about engine versions, see <code>CreateDBInstance</code>,
-        /// or call <code>DescribeDBEngineVersions</code>.</para>
+        /// of your database engine. For information about engine versions, see <c>CreateDBInstance</c>,
+        /// or call <c>DescribeDBEngineVersions</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -296,11 +296,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Amazon Web Services KMS key identifier for an encrypted DB instance.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
         /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
-        /// specify the key ARN or alias ARN.</para><para>If the <code>StorageEncrypted</code> parameter is enabled, and you do not specify
-        /// a value for the <code>KmsKeyId</code> parameter, then Amazon RDS will use your default
-        /// KMS key. There is a default KMS key for your Amazon Web Services account. Your Amazon
-        /// Web Services account has a different default KMS key for each Amazon Web Services
-        /// Region.</para>
+        /// specify the key ARN or alias ARN.</para><para>If the <c>StorageEncrypted</c> parameter is enabled, and you do not specify a value
+        /// for the <c>KmsKeyId</c> parameter, then Amazon RDS will use your default KMS key.
+        /// There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services
+        /// account has a different default KMS key for each Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -310,7 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter LicenseModel
         /// <summary>
         /// <para>
-        /// <para>The license model for this DB instance. Use <code>general-public-license</code>.</para>
+        /// <para>The license model for this DB instance. Use <c>general-public-license</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -324,7 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Manager.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
         /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
         /// Guide.</i></para><para>Constraints:</para><ul><li><para>Can't manage the master user password with Amazon Web Services Secrets Manager if
-        /// <code>MasterUserPassword</code> is specified.</para></li></ul>
+        /// <c>MasterUserPassword</c> is specified.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -344,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>The password for the master user.</para><para>Constraints:</para><ul><li><para>Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</para></li><li><para>Can include any printable ASCII character except "/", """, or "@". For RDS for Oracle,
+        /// <para>The password for the master user.</para><para>Constraints:</para><ul><li><para>Can't be specified if <c>ManageMasterUserPassword</c> is turned on.</para></li><li><para>Can include any printable ASCII character except "/", """, or "@". For RDS for Oracle,
         /// can't include the "&amp;" (ampersand) or the "'" (single quotes) character.</para></li></ul><para>Length Constraints:</para><ul><li><para>RDS for Db2 - Must contain from 8 to 128 characters.</para></li><li><para>RDS for MariaDB - Must contain from 8 to 41 characters.</para></li><li><para>RDS for Microsoft SQL Server - Must contain from 8 to 128 characters.</para></li><li><para>RDS for MySQL - Must contain from 8 to 41 characters.</para></li><li><para>RDS for Oracle - Must contain from 8 to 30 characters.</para></li><li><para>RDS for PostgreSQL - Must contain from 8 to 128 characters.</para></li></ul>
         /// </para>
         /// </summary>
@@ -359,10 +358,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// generated and managed in Amazon Web Services Secrets Manager.</para><para>This setting is valid only if the master user password is managed by RDS in Amazon
         /// Web Services Secrets Manager for the DB instance.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
         /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
-        /// specify the key ARN or alias ARN.</para><para>If you don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code>
+        /// specify the key ARN or alias ARN.</para><para>If you don't specify <c>MasterUserSecretKmsKeyId</c>, then the <c>aws/secretsmanager</c>
         /// KMS key is used to encrypt the secret. If the secret is in a different Amazon Web
-        /// Services account, then you can't use the <code>aws/secretsmanager</code> KMS key to
-        /// encrypt the secret, and you must use a customer managed KMS key.</para><para>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services
+        /// Services account, then you can't use the <c>aws/secretsmanager</c> KMS key to encrypt
+        /// the secret, and you must use a customer managed KMS key.</para><para>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services
         /// account has a different default KMS key for each Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
@@ -388,8 +387,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
-        /// for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0.</para><para>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
-        /// to a value other than 0.</para><para>Valid Values: 0, 1, 5, 10, 15, 30, 60</para><para>Default: <code>0</code></para>
+        /// for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0.</para><para>If <c>MonitoringRoleArn</c> is specified, then you must also set <c>MonitoringInterval</c>
+        /// to a value other than 0.</para><para>Valid Values: 0, 1, 5, 10, 15, 30, 60</para><para>Default: <c>0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -400,10 +399,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon
-        /// CloudWatch Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>.
-        /// For information on creating a monitoring role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling">Setting
-        /// Up and Enabling Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i></para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
-        /// a <code>MonitoringRoleArn</code> value.</para>
+        /// CloudWatch Logs. For example, <c>arn:aws:iam:123456789012:role/emaccess</c>. For information
+        /// on creating a monitoring role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling">Setting
+        /// Up and Enabling Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i></para><para>If <c>MonitoringInterval</c> is set to a value other than 0, then you must supply
+        /// a <c>MonitoringRoleArn</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -414,7 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies whether the DB instance is a Multi-AZ deployment. If the DB instance is
-        /// a Multi-AZ deployment, you can't set the <code>AvailabilityZone</code> parameter.</para>
+        /// a Multi-AZ deployment, you can't set the <c>AvailabilityZone</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -424,9 +423,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>The network type of the DB instance.</para><para>Valid Values:</para><ul><li><para><code>IPV4</code></para></li><li><para><code>DUAL</code></para></li></ul><para>The network type is determined by the <code>DBSubnetGroup</code> specified for the
-        /// DB instance. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the
-        /// IPv4 and the IPv6 protocols (<code>DUAL</code>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+        /// <para>The network type of the DB instance.</para><para>Valid Values:</para><ul><li><para><c>IPV4</c></para></li><li><para><c>DUAL</c></para></li></ul><para>The network type is determined by the <c>DBSubnetGroup</c> specified for the DB instance.
+        /// A <c>DBSubnetGroup</c> can support only the IPv4 protocol or the IPv4 and the IPv6
+        /// protocols (<c>DUAL</c>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
         /// Working with a DB instance in a VPC</a> in the <i>Amazon RDS User Guide.</i></para>
         /// </para>
         /// </summary>
@@ -450,7 +449,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Amazon Web Services KMS key identifier for encryption of Performance Insights
         /// data.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
-        /// name for the KMS key.</para><para>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
+        /// name for the KMS key.</para><para>If you do not specify a value for <c>PerformanceInsightsKMSKeyId</c>, then Amazon
         /// RDS uses your default KMS key. There is a default KMS key for your Amazon Web Services
         /// account. Your Amazon Web Services account has a different default KMS key for each
         /// Amazon Web Services Region.</para>
@@ -475,7 +474,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the database accepts connections.</para><para>Type: Integer</para><para>Valid Values: <code>1150</code>-<code>65535</code></para><para>Default: <code>3306</code></para>
+        /// <para>The port number on which the database accepts connections.</para><para>Type: Integer</para><para>Valid Values: <c>1150</c>-<c>65535</c></para><para>Default: <c>3306</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -487,7 +486,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The time range each day during which automated backups are created if automated backups
         /// are enabled. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Backup
-        /// window</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// window</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <c>hh24:mi-hh24:mi</c>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -499,7 +498,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The time range each week during which system maintenance can occur, in Universal Coordinated
         /// Time (UTC). For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance">Amazon
-        /// RDS Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>ddd:hh24:mi-ddd:hh24:mi</code>.</para></li><li><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred backup window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// RDS Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <c>ddd:hh24:mi-ddd:hh24:mi</c>.</para></li><li><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred backup window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -582,7 +581,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceEngine
         /// <summary>
         /// <para>
-        /// <para>The name of the engine of your source database.</para><para>Valid Values: <code>mysql</code></para>
+        /// <para>The name of the engine of your source database.</para><para>Valid Values: <c>mysql</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -599,7 +598,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceEngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the database that the backup files were created from.</para><para>MySQL versions 5.6 and 5.7 are supported.</para><para>Example: <code>5.6.40</code></para>
+        /// <para>The version of the database that the backup files were created from.</para><para>MySQL versions 5.6 and 5.7 are supported.</para><para>Example: <c>5.6.40</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -636,9 +635,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>Specifies the storage type to be associated with the DB instance.</para><para>Valid Values: <code>gp2 | gp3 | io1 | standard</code></para><para>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value
-        /// for the <code>Iops</code> parameter.</para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified; otherwise
-        /// <code>gp2</code></para>
+        /// <para>Specifies the storage type to be associated with the DB instance.</para><para>Valid Values: <c>gp2 | gp3 | io1 | standard</c></para><para>If you specify <c>io1</c> or <c>gp3</c>, you must also include a value for the <c>Iops</c>
+        /// parameter.</para><para>Default: <c>io1</c> if the <c>Iops</c> parameter is specified; otherwise <c>gp2</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

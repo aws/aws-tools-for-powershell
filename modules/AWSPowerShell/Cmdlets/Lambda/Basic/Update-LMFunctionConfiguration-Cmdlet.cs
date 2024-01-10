@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// When you update a function, Lambda provisions an instance of the function and its
     /// supporting resources. If your function connects to a VPC, this process can take a
     /// minute. During this time, you can't modify the function, but you can still invoke
-    /// it. The <code>LastUpdateStatus</code>, <code>LastUpdateStatusReason</code>, and <code>LastUpdateStatusReasonCode</code>
+    /// it. The <c>LastUpdateStatus</c>, <c>LastUpdateStatusReason</c>, and <c>LastUpdateStatusReasonCode</c>
     /// fields in the response from <a>GetFunctionConfiguration</a> indicate when the update
     /// is complete and the function is processing events with the new configuration. For
     /// more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Lambda
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter SnapStart_ApplyOn
         /// <summary>
         /// <para>
-        /// <para>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution
+        /// <para>Set to <c>PublishedVersions</c> to create a snapshot of the initialized execution
         /// environment when you publish a function version.</para>
         /// </para>
         /// </summary>
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The name of the Lambda function.</para><para><b>Name formats</b></para><ul><li><para><b>Function name</b> – <code>my-function</code>.</para></li><li><para><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</para></li><li><para><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</para></li></ul><para>The length constraint applies only to the full ARN. If you specify only the function
+        /// <para>The name of the Lambda function.</para><para><b>Name formats</b></para><ul><li><para><b>Function name</b> – <c>my-function</c>.</para></li><li><para><b>Function ARN</b> – <c>arn:aws:lambda:us-west-2:123456789012:function:my-function</c>.</para></li><li><para><b>Partial ARN</b> – <c>123456789012:function:my-function</c>.</para></li></ul><para>The length constraint applies only to the full ARN. If you specify only the function
         /// name, it is limited to 64 characters in length.</para>
         /// </para>
         /// </summary>
@@ -317,9 +317,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The name of the Amazon CloudWatch log group the function sends logs to. By default,
-        /// Lambda functions send logs to a default log group named <code>/aws/lambda/&lt;function
-        /// name&gt;</code>. To use a different log group, enter an existing log group or enter
-        /// a new log group name.</para>
+        /// Lambda functions send logs to a default log group named <c>/aws/lambda/&lt;function
+        /// name&gt;</c>. To use a different log group, enter an existing log group or enter a
+        /// new log group name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -398,7 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter EphemeralStorage_Size
         /// <summary>
         /// <para>
-        /// <para>The size of the function's <code>/tmp</code> directory.</para>
+        /// <para>The size of the function's <c>/tmp</c> directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

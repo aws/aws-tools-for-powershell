@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
     /// Starts an asynchronous document classification job using a custom classification model.
-    /// Use the <code>DescribeDocumentClassificationJob</code> operation to track the progress
-    /// of the job.
+    /// Use the <c>DescribeDocumentClassificationJob</c> operation to track the progress of
+    /// the job.
     /// </summary>
     [Cmdlet("Start", "COMPDocumentClassificationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Comprehend.Model.StartDocumentClassificationJobResponse")]
@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>
         /// <para>ID for the Amazon Web Services Key Management Service (KMS) key that Amazon Comprehend
         /// uses to encrypt data on the storage volume attached to the ML compute instance(s)
-        /// that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <c>"1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <c>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

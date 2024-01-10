@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.KNRK
 {
     /// <summary>
     /// Deletes a rescore execution plan. A rescore execution plan is an Amazon Kendra Intelligent
-    /// Ranking resource used for provisioning the <code>Rescore</code> API.
+    /// Ranking resource used for provisioning the <c>Rescore</c> API.
     /// </summary>
     [Cmdlet("Remove", "KNRKRescoreExecutionPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

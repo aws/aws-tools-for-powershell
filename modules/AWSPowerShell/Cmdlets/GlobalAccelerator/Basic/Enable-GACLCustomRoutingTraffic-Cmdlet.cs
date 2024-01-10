@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// <para>
         /// <para>A list of specific Amazon EC2 instance IP addresses (destination addresses) in a subnet
         /// that you want to allow to receive traffic. The IP addresses must be a subset of the
-        /// IP addresses that you specified for the endpoint group.</para><para><code>DestinationAddresses</code> is required if <code>AllowAllTrafficToEndpoint</code>
-        /// is <code>FALSE</code> or is not specified.</para>
+        /// IP addresses that you specified for the endpoint group.</para><para><c>DestinationAddresses</c> is required if <c>AllowAllTrafficToEndpoint</c> is <c>FALSE</c>
+        /// or is not specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

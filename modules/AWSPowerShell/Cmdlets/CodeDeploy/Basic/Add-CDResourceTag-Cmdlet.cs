@@ -28,8 +28,8 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Associates the list of tags in the input <code>Tags</code> parameter with the resource
-    /// identified by the <code>ResourceArn</code> input parameter.
+    /// Associates the list of tags in the input <c>Tags</c> parameter with the resource
+    /// identified by the <c>ResourceArn</c> input parameter.
     /// </summary>
     [Cmdlet("Add", "CDResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> A list of tags that <code>TagResource</code> associates with a resource. The resource
-        /// is identified by the <code>ResourceArn</code> input parameter. </para>
+        /// <para> A list of tags that <c>TagResource</c> associates with a resource. The resource is
+        /// identified by the <c>ResourceArn</c> input parameter. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

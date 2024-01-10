@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheNodeCount
         /// <summary>
         /// <para>
-        /// <para>The number of cache node instances to reserve.</para><para>Default: <code>1</code></para>
+        /// <para>The number of cache node instances to reserve.</para><para>Default: <c>1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ReservedCacheNodesOfferingId
         /// <summary>
         /// <para>
-        /// <para>The ID of the reserved cache node offering to purchase.</para><para>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code></para>
+        /// <para>The ID of the reserved cache node offering to purchase.</para><para>Example: <c>438012d3-4052-4cc7-b2e3-8d3372e0e706</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

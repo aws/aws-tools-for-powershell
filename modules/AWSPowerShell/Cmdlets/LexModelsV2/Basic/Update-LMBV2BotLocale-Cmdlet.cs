@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>The version of the bot that contains the locale to be updated. The version can only
-        /// be the <code>DRAFT</code> version.</para>
+        /// be the <c>DRAFT</c> version.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction
-        /// with the user. For more information, see the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine"><code>engine</code> parameter of the <code>SynthesizeSpeech</code> operation</a> in
-        /// the <i>Amazon Polly developer guide</i>.</para><para>If you do not specify a value, the default is <code>standard</code>.</para>
+        /// with the user. For more information, see the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine"><c>engine</c> parameter of the <c>SynthesizeSpeech</c> operation</a> in the <i>Amazon
+        /// Polly developer guide</i>.</para><para>If you do not specify a value, the default is <c>standard</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,9 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter NluIntentConfidenceThreshold
         /// <summary>
         /// <para>
-        /// <para>The new confidence threshold where Amazon Lex inserts the <code>AMAZON.FallbackIntent</code>
-        /// and <code>AMAZON.KendraSearchIntent</code> intents in the list of possible intents
-        /// for an utterance.</para>
+        /// <para>The new confidence threshold where Amazon Lex inserts the <c>AMAZON.FallbackIntent</c>
+        /// and <c>AMAZON.KendraSearchIntent</c> intents in the list of possible intents for an
+        /// utterance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

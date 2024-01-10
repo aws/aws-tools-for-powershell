@@ -48,8 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN
         /// of the account analyzer</a> used to generate the access preview. You can only create
-        /// an access preview for analyzers with an <code>Account</code> type and <code>Active</code>
-        /// status.</para>
+        /// an access preview for analyzers with an <c>Account</c> type and <c>Active</c> status.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

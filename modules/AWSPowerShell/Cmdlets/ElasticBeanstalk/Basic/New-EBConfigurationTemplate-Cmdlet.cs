@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// 
     ///  
     /// <para>
-    /// Templates aren't associated with any environment. The <code>EnvironmentName</code>
-    /// response element is always <code>null</code>.
+    /// Templates aren't associated with any environment. The <c>EnvironmentName</c> response
+    /// element is always <c>null</c>.
     /// </para><para>
     /// Related Topics
     /// </para><ul><li><para><a>DescribeConfigurationOptions</a></para></li><li><para><a>DescribeConfigurationSettings</a></para></li><li><para><a>ListAvailableSolutionStacks</a></para></li></ul>
@@ -94,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>The ID of an environment whose settings you want to use to create the configuration
-        /// template. You must specify <code>EnvironmentId</code> if you don't specify <code>PlatformArn</code>,
-        /// <code>SolutionStackName</code>, or <code>SourceConfiguration</code>.</para>
+        /// template. You must specify <c>EnvironmentId</c> if you don't specify <c>PlatformArn</c>,
+        /// <c>SolutionStackName</c>, or <c>SourceConfiguration</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the custom platform. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html">
-        /// Custom Platforms</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</para><note><para>If you specify <code>PlatformArn</code>, then don't specify <code>SolutionStackName</code>.</para></note>
+        /// Custom Platforms</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</para><note><para>If you specify <c>PlatformArn</c>, then don't specify <c>SolutionStackName</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,12 +132,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>The name of an Elastic Beanstalk solution stack (platform version) that this configuration
-        /// uses. For example, <code>64bit Amazon Linux 2013.09 running Tomcat 7 Java 7</code>.
-        /// A solution stack specifies the operating system, runtime, and application server for
-        /// a configuration template. It also determines the set of configuration options as well
-        /// as the possible and default values. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html">Supported
-        /// Platforms</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</para><para>You must specify <code>SolutionStackName</code> if you don't specify <code>PlatformArn</code>,
-        /// <code>EnvironmentId</code>, or <code>SourceConfiguration</code>.</para><para>Use the <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListAvailableSolutionStacks.html"><code>ListAvailableSolutionStacks</code></a> API to obtain a list of available solution
+        /// uses. For example, <c>64bit Amazon Linux 2013.09 running Tomcat 7 Java 7</c>. A solution
+        /// stack specifies the operating system, runtime, and application server for a configuration
+        /// template. It also determines the set of configuration options as well as the possible
+        /// and default values. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html">Supported
+        /// Platforms</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</para><para>You must specify <c>SolutionStackName</c> if you don't specify <c>PlatformArn</c>,
+        /// <c>EnvironmentId</c>, or <c>SourceConfiguration</c>.</para><para>Use the <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListAvailableSolutionStacks.html"><c>ListAvailableSolutionStacks</c></a> API to obtain a list of available solution
         /// stacks.</para>
         /// </para>
         /// </summary>

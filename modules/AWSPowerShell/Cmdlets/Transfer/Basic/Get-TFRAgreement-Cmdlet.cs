@@ -28,7 +28,7 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Describes the agreement that's identified by the <code>AgreementId</code>.
+    /// Describes the agreement that's identified by the <c>AgreementId</c>.
     /// </summary>
     [Cmdlet("Get", "TFRAgreement")]
     [OutputType("Amazon.Transfer.Model.DescribedAgreement")]

@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         /// <summary>
         /// <para>
         /// <para> Destination information about where the application component can migrate to. For
-        /// example, <code>EC2</code>, <code>ECS</code>, and so on. </para>
+        /// example, <c>EC2</c>, <c>ECS</c>, and so on. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     /// the software update.
     /// 
     ///  <note><para>
-    /// When you make this request, you get a <code>200 OK</code> success response immediately.
+    /// When you make this request, you get a <c>200 OK</c> success response immediately.
     /// However, it might take some time for the update to complete.
     /// </para></note>
     /// </summary>

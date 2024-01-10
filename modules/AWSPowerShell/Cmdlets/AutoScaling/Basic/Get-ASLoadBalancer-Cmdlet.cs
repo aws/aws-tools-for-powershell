@@ -30,10 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <summary>
     /// <note><para>
     /// This API operation is superseded by <a>DescribeTrafficSources</a>, which can describe
-    /// multiple traffic sources types. We recommend using <code>DescribeTrafficSources</code>
-    /// to simplify how you manage traffic sources. However, we continue to support <code>DescribeLoadBalancers</code>.
-    /// You can use both the original <code>DescribeLoadBalancers</code> API operation and
-    /// <code>DescribeTrafficSources</code> on the same Auto Scaling group.
+    /// multiple traffic sources types. We recommend using <c>DescribeTrafficSources</c> to
+    /// simplify how you manage traffic sources. However, we continue to support <c>DescribeLoadBalancers</c>.
+    /// You can use both the original <c>DescribeLoadBalancers</c> API operation and <c>DescribeTrafficSources</c>
+    /// on the same Auto Scaling group.
     /// </para></note><para>
     /// Gets information about the load balancers for the specified Auto Scaling group.
     /// </para><para>
@@ -41,21 +41,20 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a>DescribeLoadBalancerTargetGroups</a>
     /// API instead.
     /// </para><para>
-    /// To determine the attachment status of the load balancer, use the <code>State</code>
-    /// element in the response. When you attach a load balancer to an Auto Scaling group,
-    /// the initial <code>State</code> value is <code>Adding</code>. The state transitions
-    /// to <code>Added</code> after all Auto Scaling instances are registered with the load
-    /// balancer. If Elastic Load Balancing health checks are enabled for the Auto Scaling
-    /// group, the state transitions to <code>InService</code> after at least one Auto Scaling
-    /// instance passes the health check. When the load balancer is in the <code>InService</code>
-    /// state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported
-    /// as unhealthy. If no registered instances pass the health checks, the load balancer
-    /// doesn't enter the <code>InService</code> state. 
+    /// To determine the attachment status of the load balancer, use the <c>State</c> element
+    /// in the response. When you attach a load balancer to an Auto Scaling group, the initial
+    /// <c>State</c> value is <c>Adding</c>. The state transitions to <c>Added</c> after all
+    /// Auto Scaling instances are registered with the load balancer. If Elastic Load Balancing
+    /// health checks are enabled for the Auto Scaling group, the state transitions to <c>InService</c>
+    /// after at least one Auto Scaling instance passes the health check. When the load balancer
+    /// is in the <c>InService</c> state, Amazon EC2 Auto Scaling can terminate and replace
+    /// any instances that are reported as unhealthy. If no registered instances pass the
+    /// health checks, the load balancer doesn't enter the <c>InService</c> state. 
     /// </para><para>
-    /// Load balancers also have an <code>InService</code> state if you attach them in the
-    /// <a>CreateAutoScalingGroup</a> API call. If your load balancer state is <code>InService</code>,
-    /// but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a>
-    /// and take any corrective actions necessary.
+    /// Load balancers also have an <c>InService</c> state if you attach them in the <a>CreateAutoScalingGroup</a>
+    /// API call. If your load balancer state is <c>InService</c>, but it is not working properly,
+    /// check the scaling activities by calling <a>DescribeScalingActivities</a> and take
+    /// any corrective actions necessary.
     /// </para><para>
     /// For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting
     /// Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User
@@ -96,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return with this call. The default value is <code>100</code>
-        /// and the maximum value is <code>100</code>.</para>
+        /// <para>The maximum number of items to return with this call. The default value is <c>100</c>
+        /// and the maximum value is <c>100</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

@@ -34,9 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// 
     ///  
     /// <para>
-    /// You must specify either a <code>QueryID</code> or a <code>QueryAlias</code>. Specifying
-    /// the <code>QueryAlias</code> parameter returns information about the last query run
-    /// for the alias.
+    /// You must specify either a <c>QueryID</c> or a <c>QueryAlias</c>. Specifying the <c>QueryAlias</c>
+    /// parameter returns information about the last query run for the alias.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CTQuery")]

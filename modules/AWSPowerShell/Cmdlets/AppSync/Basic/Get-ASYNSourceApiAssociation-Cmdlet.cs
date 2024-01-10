@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Retrieves a <code>SourceApiAssociation</code> object.
+    /// Retrieves a <c>SourceApiAssociation</c> object.
     /// </summary>
     [Cmdlet("Get", "ASYNSourceApiAssociation")]
     [OutputType("Amazon.AppSync.Model.SourceApiAssociation")]

@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.MH
 {
     /// <summary>
     /// Sets the migration state of an application. For a given application identified by
-    /// the value passed to <code>ApplicationId</code>, its status is set or updated by passing
-    /// one of three values to <code>Status</code>: <code>NOT_STARTED | IN_PROGRESS | COMPLETED</code>.
+    /// the value passed to <c>ApplicationId</c>, its status is set or updated by passing
+    /// one of three values to <c>Status</c>: <c>NOT_STARTED | IN_PROGRESS | COMPLETED</c>.
     /// </summary>
     [Cmdlet("Send", "MHApplicationStateNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

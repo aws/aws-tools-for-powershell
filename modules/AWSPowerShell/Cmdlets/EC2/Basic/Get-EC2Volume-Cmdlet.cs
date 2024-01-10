@@ -54,21 +54,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>attachment.attach-time</code> - The time stamp when the attachment initiated.</para></li><li><para><code>attachment.delete-on-termination</code> - Whether the volume is deleted on
-        /// instance termination.</para></li><li><para><code>attachment.device</code> - The device name specified in the block device mapping
-        /// (for example, <code>/dev/sda1</code>).</para></li><li><para><code>attachment.instance-id</code> - The ID of the instance the volume is attached
-        /// to.</para></li><li><para><code>attachment.status</code> - The attachment state (<code>attaching</code> | <code>attached</code>
-        /// | <code>detaching</code>).</para></li><li><para><code>availability-zone</code> - The Availability Zone in which the volume was created.</para></li><li><para><code>create-time</code> - The time stamp when the volume was created.</para></li><li><para><code>encrypted</code> - Indicates whether the volume is encrypted (<code>true</code>
-        /// | <code>false</code>)</para></li><li><para><code>multi-attach-enabled</code> - Indicates whether the volume is enabled for Multi-Attach
-        /// (<code>true</code> | <code>false</code>)</para></li><li><para><code>fast-restored</code> - Indicates whether the volume was created from a snapshot
-        /// that is enabled for fast snapshot restore (<code>true</code> | <code>false</code>).</para></li><li><para><code>size</code> - The size of the volume, in GiB.</para></li><li><para><code>snapshot-id</code> - The snapshot from which the volume was created.</para></li><li><para><code>status</code> - The state of the volume (<code>creating</code> | <code>available</code>
-        /// | <code>in-use</code> | <code>deleting</code> | <code>deleted</code> | <code>error</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
-        /// resource. Use the tag key in the filter name and the tag value as the filter value.
-        /// For example, to find all resources that have a tag with the key <code>Owner</code>
-        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>volume-id</code> - The volume ID.</para></li><li><para><code>volume-type</code> - The Amazon EBS volume type (<code>gp2</code> | <code>gp3</code>
-        /// | <code>io1</code> | <code>io2</code> | <code>st1</code> | <code>sc1</code>| <code>standard</code>)</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>attachment.attach-time</c> - The time stamp when the attachment initiated.</para></li><li><para><c>attachment.delete-on-termination</c> - Whether the volume is deleted on instance
+        /// termination.</para></li><li><para><c>attachment.device</c> - The device name specified in the block device mapping
+        /// (for example, <c>/dev/sda1</c>).</para></li><li><para><c>attachment.instance-id</c> - The ID of the instance the volume is attached to.</para></li><li><para><c>attachment.status</c> - The attachment state (<c>attaching</c> | <c>attached</c>
+        /// | <c>detaching</c>).</para></li><li><para><c>availability-zone</c> - The Availability Zone in which the volume was created.</para></li><li><para><c>create-time</c> - The time stamp when the volume was created.</para></li><li><para><c>encrypted</c> - Indicates whether the volume is encrypted (<c>true</c> | <c>false</c>)</para></li><li><para><c>multi-attach-enabled</c> - Indicates whether the volume is enabled for Multi-Attach
+        /// (<c>true</c> | <c>false</c>)</para></li><li><para><c>fast-restored</c> - Indicates whether the volume was created from a snapshot that
+        /// is enabled for fast snapshot restore (<c>true</c> | <c>false</c>).</para></li><li><para><c>size</c> - The size of the volume, in GiB.</para></li><li><para><c>snapshot-id</c> - The snapshot from which the volume was created.</para></li><li><para><c>status</c> - The state of the volume (<c>creating</c> | <c>available</c> | <c>in-use</c>
+        /// | <c>deleting</c> | <c>deleted</c> | <c>error</c>).</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
+        /// Use the tag key in the filter name and the tag value as the filter value. For example,
+        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>volume-id</c> - The volume ID.</para></li><li><para><c>volume-type</c> - The Amazon EBS volume type (<c>gp2</c> | <c>gp3</c> | <c>io1</c>
+        /// | <c>io2</c> | <c>st1</c> | <c>sc1</c>| <c>standard</c>)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, ParameterSetName = "ByFilter")]

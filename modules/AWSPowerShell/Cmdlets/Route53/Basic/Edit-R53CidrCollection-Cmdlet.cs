@@ -40,9 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// The max number of CIDR blocks included in the request is 1000. As a result, big updates
     /// require multiple API calls.
     /// </para><para><b> PUT and DELETE_IF_EXISTS</b></para><para>
-    /// Use <code>ChangeCidrCollection</code> to perform the following actions:
-    /// </para><ul><li><para><code>PUT</code>: Create a CIDR block within the specified collection.
-    /// </para></li><li><para><code> DELETE_IF_EXISTS</code>: Delete an existing CIDR block from the collection.
+    /// Use <c>ChangeCidrCollection</c> to perform the following actions:
+    /// </para><ul><li><para><c>PUT</c>: Create a CIDR block within the specified collection.
+    /// </para></li><li><para><c> DELETE_IF_EXISTS</c>: Delete an existing CIDR block from the collection.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Edit", "R53CidrCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -79,13 +79,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>A sequential counter that Amazon Route 53 sets to 1 when you create a collection and
-        /// increments it by 1 each time you update the collection.</para><para>We recommend that you use <code>ListCidrCollection</code> to get the current value
-        /// of <code>CollectionVersion</code> for the collection that you want to update, and
-        /// then include that value with the change request. This prevents Route 53 from overwriting
-        /// an intervening update: </para><ul><li><para>If the value in the request matches the value of <code>CollectionVersion</code> in
-        /// the collection, Route 53 updates the collection.</para></li><li><para>If the value of <code>CollectionVersion</code> in the collection is greater than the
-        /// value in the request, the collection was changed after you got the version number.
-        /// Route 53 does not update the collection, and it returns a <code>CidrCollectionVersionMismatch</code>
+        /// increments it by 1 each time you update the collection.</para><para>We recommend that you use <c>ListCidrCollection</c> to get the current value of <c>CollectionVersion</c>
+        /// for the collection that you want to update, and then include that value with the change
+        /// request. This prevents Route 53 from overwriting an intervening update: </para><ul><li><para>If the value in the request matches the value of <c>CollectionVersion</c> in the collection,
+        /// Route 53 updates the collection.</para></li><li><para>If the value of <c>CollectionVersion</c> in the collection is greater than the value
+        /// in the request, the collection was changed after you got the version number. Route 53
+        /// does not update the collection, and it returns a <c>CidrCollectionVersionMismatch</c>
         /// error. </para></li></ul>
         /// </para>
         /// </summary>

@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter Mode
         /// <summary>
         /// <para>
-        /// <para>The statistics generation mode. One of: <code>DISABLE_AUTOCOMPUTE</code>, <code>ENABLE_AUTOCOMPUTE</code>,
-        /// or <code>REFRESH</code>, the last of which manually triggers DFE statistics generation.</para>
+        /// <para>The statistics generation mode. One of: <c>DISABLE_AUTOCOMPUTE</c>, <c>ENABLE_AUTOCOMPUTE</c>,
+        /// or <c>REFRESH</c>, the last of which manually triggers DFE statistics generation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

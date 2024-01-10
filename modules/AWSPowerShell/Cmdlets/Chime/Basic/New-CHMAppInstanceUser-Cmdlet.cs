@@ -28,8 +28,8 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists
-    /// of a unique <code>appInstanceUserId</code> and <code>Name</code> for that user.
+    /// Creates a user under an Amazon Chime <c>AppInstance</c>. The request consists of a
+    /// unique <c>appInstanceUserId</c> and <c>Name</c> for that user.
     /// 
     ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
     /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceUser.html">CreateAppInstanceUser</a>,
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstance</code> request.</para>
+        /// <para>The ARN of the <c>AppInstance</c> request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceUserId
         /// <summary>
         /// <para>
-        /// <para>The user ID of the <code>AppInstance</code>.</para>
+        /// <para>The user ID of the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>The token assigned to the user requesting an <code>AppInstance</code>.</para>
+        /// <para>The token assigned to the user requesting an <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags assigned to the <code>AppInstanceUser</code>.</para>
+        /// <para>Tags assigned to the <c>AppInstanceUser</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

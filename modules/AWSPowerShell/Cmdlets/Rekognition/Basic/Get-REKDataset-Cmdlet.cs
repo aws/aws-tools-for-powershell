@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// as the current status of a dataset and statistics about the images and labels in a
     /// dataset. 
     /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:DescribeDataset</code>
+    /// This operation requires permissions to perform the <c>rekognition:DescribeDataset</c>
     /// action.
     /// </para>
     /// </summary>

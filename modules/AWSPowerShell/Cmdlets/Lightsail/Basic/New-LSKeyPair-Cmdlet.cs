@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// action to create a Lightsail default key pair in an Amazon Web Services Region where
     /// a default key pair does not currently exist.
     /// </para></note><para>
-    /// The <code>create key pair</code> operation supports tag-based access control via request
+    /// The <c>create key pair</c> operation supports tag-based access control via request
     /// tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <code>TagResource</code> action to tag a resource after it's created.</para>
+        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <c>TagResource</c> action to tag a resource after it's created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

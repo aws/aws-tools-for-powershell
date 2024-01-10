@@ -84,13 +84,13 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of EKS Pod Identity association results returned by <code>ListPodIdentityAssociations</code>
-        /// in paginated output. When you use this parameter, <code>ListPodIdentityAssociations</code>
-        /// returns only <code>maxResults</code> results in a single page along with a <code>nextToken</code>
+        /// <para>The maximum number of EKS Pod Identity association results returned by <c>ListPodIdentityAssociations</c>
+        /// in paginated output. When you use this parameter, <c>ListPodIdentityAssociations</c>
+        /// returns only <c>maxResults</c> results in a single page along with a <c>nextToken</c>
         /// response element. You can see the remaining results of the initial request by sending
-        /// another <code>ListPodIdentityAssociations</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 100. If you don't use this parameter, <code>ListPodIdentityAssociations</code>
-        /// returns up to 100 results and a <code>nextToken</code> value if applicable.</para>
+        /// another <c>ListPodIdentityAssociations</c> request with the returned <c>nextToken</c>
+        /// value. This value can be between 1 and 100. If you don't use this parameter, <c>ListPodIdentityAssociations</c>
+        /// returns up to 100 results and a <c>nextToken</c> value if applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,10 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListUpdates</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value.</para><note><para>This token should be treated as an opaque identifier that is used only to retrieve
+        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>ListUpdates</c> request
+        /// where <c>maxResults</c> was used and the results exceeded the value of that parameter.
+        /// Pagination continues from the end of the previous results that returned the <c>nextToken</c>
+        /// value.</para><note><para>This token should be treated as an opaque identifier that is used only to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

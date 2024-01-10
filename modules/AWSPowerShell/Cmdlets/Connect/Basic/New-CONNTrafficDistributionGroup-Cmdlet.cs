@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// replicated. 
     /// 
     ///  <note><para>
-    /// The <code>SignInConfig</code> distribution is available only on a default <code>TrafficDistributionGroup</code>
-    /// (see the <code>IsDefault</code> parameter in the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html">TrafficDistributionGroup</a>
-    /// data type). If you call <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code>
-    /// and a non-default <code>TrafficDistributionGroup</code>, an <code>InvalidRequestException</code>
+    /// The <c>SignInConfig</c> distribution is available only on a default <c>TrafficDistributionGroup</c>
+    /// (see the <c>IsDefault</c> parameter in the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html">TrafficDistributionGroup</a>
+    /// data type). If you call <c>UpdateTrafficDistribution</c> with a modified <c>SignInConfig</c>
+    /// and a non-default <c>TrafficDistributionGroup</c>, an <c>InvalidRequestException</c>
     /// is returned.
     /// </para></note><para>
     /// For more information about creating traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html">Set
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The identifier of the Amazon Connect instance that has been replicated. You can find
-        /// the <code>instanceId</code> in the ARN of the instance.</para>
+        /// the <c>instanceId</c> in the ARN of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Batch Operations</a> in the <i>Amazon S3 User Guide</i>.
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// To use the <code>UpdateJobPriority</code> operation, you must have permission to perform
-    /// the <code>s3:UpdateJobPriority</code> action.
+    /// To use the <c>UpdateJobPriority</c> operation, you must have permission to perform
+    /// the <c>s3:UpdateJobPriority</c> action.
     /// </para></dd></dl><para>
     /// Related actions include:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html">CreateJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html">ListJobs</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html">DescribeJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a></para></li></ul>

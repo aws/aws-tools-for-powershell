@@ -53,10 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter CreateAccountRequestId
         /// <summary>
         /// <para>
-        /// <para>Specifies the <code>Id</code> value that uniquely identifies the <code>CreateAccount</code>
-        /// request. You can get the value from the <code>CreateAccountStatus.Id</code> response
-        /// in an earlier <a>CreateAccount</a> request, or from the <a>ListCreateAccountStatus</a>
-        /// operation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a create account
+        /// <para>Specifies the <c>Id</c> value that uniquely identifies the <c>CreateAccount</c> request.
+        /// You can get the value from the <c>CreateAccountStatus.Id</c> response in an earlier
+        /// <a>CreateAccount</a> request, or from the <a>ListCreateAccountStatus</a> operation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a create account
         /// request ID string requires "car-" followed by from 8 to 32 lowercase letters or digits.</para>
         /// </para>
         /// </summary>

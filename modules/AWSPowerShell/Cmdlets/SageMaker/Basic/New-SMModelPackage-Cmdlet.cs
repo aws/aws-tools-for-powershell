@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
     ///  
     /// <para>
     /// To create a model package by specifying a Docker container that contains your inference
-    /// code and the Amazon S3 location of your model artifacts, provide values for <code>InferenceSpecification</code>.
+    /// code and the Amazon S3 location of your model artifacts, provide values for <c>InferenceSpecification</c>.
     /// To create a model from an algorithm resource that you created or subscribed to in
-    /// Amazon Web Services Marketplace, provide a value for <code>SourceAlgorithmSpecification</code>.
+    /// Amazon Web Services Marketplace, provide a value for <c>SourceAlgorithmSpecification</c>.
     /// </para><note><para>
     /// There are two types of model packages:
     /// </para><ul><li><para>
@@ -501,8 +501,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Whether the model is approved for deployment.</para><para>This parameter is optional for versioned models, and does not apply to unversioned
-        /// models.</para><para>For versioned models, the value of this parameter must be set to <code>Approved</code>
-        /// to deploy the model.</para>
+        /// models.</para><para>For versioned models, the value of this parameter must be set to <c>Approved</c> to
+        /// deploy the model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -829,9 +829,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A list of key value pairs associated with the model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon
-        /// Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</para><para>If you supply <code>ModelPackageGroupName</code>, your model package belongs to the
-        /// model group you specify and uses the tags associated with the model group. In this
-        /// case, you cannot supply a <code>tag</code> argument. </para>
+        /// Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</para><para>If you supply <c>ModelPackageGroupName</c>, your model package belongs to the model
+        /// group you specify and uses the tags associated with the model group. In this case,
+        /// you cannot supply a <c>tag</c> argument. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -844,9 +844,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The machine learning task your model package accomplishes. Common machine learning
         /// tasks include object detection and image classification. The following tasks are supported
-        /// by Inference Recommender: <code>"IMAGE_CLASSIFICATION"</code> | <code>"OBJECT_DETECTION"</code>
-        /// | <code>"TEXT_GENERATION"</code> |<code>"IMAGE_SEGMENTATION"</code> | <code>"FILL_MASK"</code>
-        /// | <code>"CLASSIFICATION"</code> | <code>"REGRESSION"</code> | <code>"OTHER"</code>.</para><para>Specify "OTHER" if none of the tasks listed fit your use case.</para>
+        /// by Inference Recommender: <c>"IMAGE_CLASSIFICATION"</c> | <c>"OBJECT_DETECTION"</c>
+        /// | <c>"TEXT_GENERATION"</c> |<c>"IMAGE_SEGMENTATION"</c> | <c>"FILL_MASK"</c> | <c>"CLASSIFICATION"</c>
+        /// | <c>"REGRESSION"</c> | <c>"OTHER"</c>.</para><para>Specify "OTHER" if none of the tasks listed fit your use case.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -856,7 +856,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ValidationSpecification_ValidationProfile
         /// <summary>
         /// <para>
-        /// <para>An array of <code>ModelPackageValidationProfile</code> objects, each of which specifies
+        /// <para>An array of <c>ModelPackageValidationProfile</c> objects, each of which specifies
         /// a batch transform job that SageMaker runs to validate your model package.</para>
         /// </para>
         /// </summary>

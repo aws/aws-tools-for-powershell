@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><c>jp</c> - Japanese</para></li><li><para><c>zh</c> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AccessLevelFilter_Key
         /// <summary>
         /// <para>
-        /// <para>The access level.</para><ul><li><para><code>Account</code> - Filter results based on the account.</para></li><li><para><code>Role</code> - Filter results based on the federated role of the specified user.</para></li><li><para><code>User</code> - Filter results based on the specified user.</para></li></ul>
+        /// <para>The access level.</para><ul><li><para><c>Account</c> - Filter results based on the account.</para></li><li><para><c>Role</c> - Filter results based on the federated role of the specified user.</para></li><li><para><c>User</c> - Filter results based on the specified user.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AccessLevelFilter_Value
         /// <summary>
         /// <para>
-        /// <para>The user to which the access level applies. The only supported value is <code>self</code>.</para>
+        /// <para>The user to which the access level applies. The only supported value is <c>self</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

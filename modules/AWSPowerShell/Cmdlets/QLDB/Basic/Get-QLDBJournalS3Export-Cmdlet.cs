@@ -37,10 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     /// This action does not return any expired export jobs. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export
     /// job expiration</a> in the <i>Amazon QLDB Developer Guide</i>.
     /// </para><para>
-    /// If the export job with the given <code>ExportId</code> doesn't exist, then throws
-    /// <code>ResourceNotFoundException</code>.
+    /// If the export job with the given <c>ExportId</c> doesn't exist, then throws <c>ResourceNotFoundException</c>.
     /// </para><para>
-    /// If the ledger with the given <code>Name</code> doesn't exist, then throws <code>ResourceNotFoundException</code>.
+    /// If the ledger with the given <c>Name</c> doesn't exist, then throws <c>ResourceNotFoundException</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "QLDBJournalS3Export")]

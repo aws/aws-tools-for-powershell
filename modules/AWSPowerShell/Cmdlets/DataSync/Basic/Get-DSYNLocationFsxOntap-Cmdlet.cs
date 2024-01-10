@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     /// file system is configured.
     /// 
     ///  <note><para>
-    /// If your location uses SMB, the <code>DescribeLocationFsxOntap</code> operation doesn't
-    /// actually return a <code>Password</code>.
+    /// If your location uses SMB, the <c>DescribeLocationFsxOntap</c> operation doesn't actually
+    /// return a <c>Password</c>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "DSYNLocationFsxOntap")]

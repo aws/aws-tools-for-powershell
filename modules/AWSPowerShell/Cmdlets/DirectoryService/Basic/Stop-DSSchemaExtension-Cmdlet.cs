@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// Cancels an in-progress schema extension to a Microsoft AD directory. Once a schema
     /// extension has started replicating to all domain controllers, the task can no longer
     /// be canceled. A schema extension can be canceled during any of the following states;
-    /// <code>Initializing</code>, <code>CreatingSnapshot</code>, and <code>UpdatingSchema</code>.
+    /// <c>Initializing</c>, <c>CreatingSnapshot</c>, and <c>UpdatingSchema</c>.
     /// </summary>
     [Cmdlet("Stop", "DSSchemaExtension", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

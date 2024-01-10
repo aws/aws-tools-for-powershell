@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.XR
 {
     /// <summary>
     /// Retrieves a list of traces specified by ID. Each trace is a collection of segment
-    /// documents that originates from a single request. Use <code>GetTraceSummaries</code>
-    /// to get a list of trace IDs.<br/><br/>In the AWS.Tools.XRay module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// documents that originates from a single request. Use <c>GetTraceSummaries</c> to get
+    /// a list of trace IDs.<br/><br/>In the AWS.Tools.XRay module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "XRTraceBatch")]
     [OutputType("Amazon.XRay.Model.BatchGetTracesResponse")]

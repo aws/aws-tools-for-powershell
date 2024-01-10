@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The security configuration identifier. For SAML the ID will be <code>saml/&lt;accountId&gt;/&lt;idpProviderName&gt;</code>.
-        /// For example, <code>saml/123456789123/OKTADev</code>.</para>
+        /// <para>The security configuration identifier. For SAML the ID will be <c>saml/&lt;accountId&gt;/&lt;idpProviderName&gt;</c>.
+        /// For example, <c>saml/123456789123/OKTADev</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

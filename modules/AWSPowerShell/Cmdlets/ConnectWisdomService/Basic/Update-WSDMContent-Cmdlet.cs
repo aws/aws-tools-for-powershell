@@ -97,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         /// <summary>
         /// <para>
         /// <para>The URI for the article. If the knowledge base has a templateUri, setting this argument
-        /// overrides it for this piece of content. To remove an existing <code>overrideLinkOurUri</code>,
-        /// exclude this argument and set <code>removeOverrideLinkOutUri</code> to true.</para>
+        /// overrides it for this piece of content. To remove an existing <c>overrideLinkOurUri</c>,
+        /// exclude this argument and set <c>removeOverrideLinkOutUri</c> to true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         #region Parameter RemoveOverrideLinkOutUri
         /// <summary>
         /// <para>
-        /// <para>Unset the existing <code>overrideLinkOutUri</code> if it exists.</para>
+        /// <para>Unset the existing <c>overrideLinkOutUri</c> if it exists.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,11 +118,10 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         #region Parameter RevisionId
         /// <summary>
         /// <para>
-        /// <para>The <code>revisionId</code> of the content resource to update, taken from an earlier
-        /// call to <code>GetContent</code>, <code>GetContentSummary</code>, <code>SearchContent</code>,
-        /// or <code>ListContents</code>. If included, this argument acts as an optimistic lock
-        /// to ensure content was not modified since it was last read. If it has been modified,
-        /// this API throws a <code>PreconditionFailedException</code>.</para>
+        /// <para>The <c>revisionId</c> of the content resource to update, taken from an earlier call
+        /// to <c>GetContent</c>, <c>GetContentSummary</c>, <c>SearchContent</c>, or <c>ListContents</c>.
+        /// If included, this argument acts as an optimistic lock to ensure content was not modified
+        /// since it was last read. If it has been modified, this API throws a <c>PreconditionFailedException</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

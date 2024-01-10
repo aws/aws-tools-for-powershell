@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// Amazon Web Services Support API. 
     /// </para></li><li><para>
     /// If you call the Amazon Web Services Support API from an account that doesn't have
-    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <code>SubscriptionRequiredException</code>
+    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <c>SubscriptionRequiredException</c>
     /// error message appears. For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon
     /// Web Services Support</a>.
     /// </para></li><li><para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// <summary>
         /// <para>
         /// <para>The ISO 639-1 code for the language that you want your checks to appear in.</para><para>The Amazon Web Services Support API currently supports the following languages for
-        /// Trusted Advisor:</para><ul><li><para>Chinese, Simplified - <code>zh</code></para></li><li><para>Chinese, Traditional - <code>zh_TW</code></para></li><li><para>English - <code>en</code></para></li><li><para>French - <code>fr</code></para></li><li><para>German - <code>de</code></para></li><li><para>Indonesian - <code>id</code></para></li><li><para>Italian - <code>it</code></para></li><li><para>Japanese - <code>ja</code></para></li><li><para>Korean - <code>ko</code></para></li><li><para>Portuguese, Brazilian - <code>pt_BR</code></para></li><li><para>Spanish - <code>es</code></para></li></ul>
+        /// Trusted Advisor:</para><ul><li><para>Chinese, Simplified - <c>zh</c></para></li><li><para>Chinese, Traditional - <c>zh_TW</c></para></li><li><para>English - <c>en</c></para></li><li><para>French - <c>fr</c></para></li><li><para>German - <c>de</c></para></li><li><para>Indonesian - <c>id</c></para></li><li><para>Italian - <c>it</c></para></li><li><para>Japanese - <c>ja</c></para></li><li><para>Korean - <c>ko</c></para></li><li><para>Portuguese, Brazilian - <c>pt_BR</c></para></li><li><para>Spanish - <c>es</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

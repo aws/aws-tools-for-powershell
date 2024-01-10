@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>Sorts the list of results. The default is <code>CreationTime</code>.</para>
+        /// <para>Sorts the list of results. The default is <c>CreationTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the result of a <code>ListNotebookInstanceLifecycleConfigs</code> request was truncated,
-        /// the response includes a <code>NextToken</code>. To get the next set of lifecycle configurations,
+        /// <para>If the result of a <c>ListNotebookInstanceLifecycleConfigs</c> request was truncated,
+        /// the response includes a <c>NextToken</c>. To get the next set of lifecycle configurations,
         /// use the token in the next request.</para>
         /// </para>
         /// <para>

@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token used to get the next set of results, or <code>null</code> if there are no
-        /// additional results.</para>
+        /// <para>The token used to get the next set of results, or <c>null</c> if there are no additional
+        /// results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

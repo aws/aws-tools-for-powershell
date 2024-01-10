@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// <summary>
         /// <para>
         /// <para>The first recording configuration to retrieve. This is used for pagination; see the
-        /// <code>nextToken</code> response field.</para>
+        /// <c>nextToken</c> response field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

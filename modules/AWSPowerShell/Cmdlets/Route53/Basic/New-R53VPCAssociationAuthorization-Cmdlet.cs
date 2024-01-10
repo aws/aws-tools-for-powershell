@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// Authorizes the Amazon Web Services account that created a specified VPC to submit
-    /// an <code>AssociateVPCWithHostedZone</code> request to associate the VPC with a specified
-    /// hosted zone that was created by a different account. To submit a <code>CreateVPCAssociationAuthorization</code>
+    /// an <c>AssociateVPCWithHostedZone</c> request to associate the VPC with a specified
+    /// hosted zone that was created by a different account. To submit a <c>CreateVPCAssociationAuthorization</c>
     /// request, you must use the account that created the hosted zone. After you authorize
-    /// the association, use the account that created the VPC to submit an <code>AssociateVPCWithHostedZone</code>
+    /// the association, use the account that created the VPC to submit an <c>AssociateVPCWithHostedZone</c>
     /// request.
     /// 
     ///  <note><para>

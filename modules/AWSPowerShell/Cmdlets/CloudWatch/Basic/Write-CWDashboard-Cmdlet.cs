@@ -36,18 +36,18 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// <para>
     /// All dashboards in your account are global, not region-specific.
     /// </para><para>
-    /// A simple way to create a dashboard using <code>PutDashboard</code> is to copy an existing
+    /// A simple way to create a dashboard using <c>PutDashboard</c> is to copy an existing
     /// dashboard. To copy an existing dashboard using the console, you can load the dashboard
     /// and then use the View/edit source command in the Actions menu to display the JSON
-    /// block for that dashboard. Another way to copy a dashboard is to use <code>GetDashboard</code>,
-    /// and then use the data returned within <code>DashboardBody</code> as the template for
-    /// the new dashboard when you call <code>PutDashboard</code>.
+    /// block for that dashboard. Another way to copy a dashboard is to use <c>GetDashboard</c>,
+    /// and then use the data returned within <c>DashboardBody</c> as the template for the
+    /// new dashboard when you call <c>PutDashboard</c>.
     /// </para><para>
-    /// When you create a dashboard with <code>PutDashboard</code>, a good practice is to
-    /// add a text widget at the top of the dashboard with a message that the dashboard was
-    /// created by script and should not be changed in the console. This message could also
-    /// point console users to the location of the <code>DashboardBody</code> script or the
-    /// CloudFormation template used to create the dashboard.
+    /// When you create a dashboard with <c>PutDashboard</c>, a good practice is to add a
+    /// text widget at the top of the dashboard with a message that the dashboard was created
+    /// by script and should not be changed in the console. This message could also point
+    /// console users to the location of the <c>DashboardBody</c> script or the CloudFormation
+    /// template used to create the dashboard.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

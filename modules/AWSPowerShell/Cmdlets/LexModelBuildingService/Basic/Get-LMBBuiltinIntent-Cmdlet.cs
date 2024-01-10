@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// 
     ///  
     /// <para>
-    /// This operation requires permission for the <code>lex:GetBuiltinIntent</code> action.
+    /// This operation requires permission for the <c>lex:GetBuiltinIntent</c> action.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "LMBBuiltinIntent")]

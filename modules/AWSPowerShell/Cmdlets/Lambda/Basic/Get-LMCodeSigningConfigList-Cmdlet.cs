@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// <summary>
     /// Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html">code
     /// signing configurations</a>. A request returns up to 10,000 configurations per call.
-    /// You can use the <code>MaxItems</code> parameter to return fewer configurations per
-    /// call.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// You can use the <c>MaxItems</c> parameter to return fewer configurations per call.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LMCodeSigningConfigList")]
     [OutputType("Amazon.Lambda.Model.ListCodeSigningConfigsResponse")]

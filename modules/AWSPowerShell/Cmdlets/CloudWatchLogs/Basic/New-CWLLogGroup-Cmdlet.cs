@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// whenever it is requested.
     /// </para><para>
     /// If you attempt to associate a KMS key with the log group but the KMS key does not
-    /// exist or the KMS key is disabled, you receive an <code>InvalidParameterException</code>
+    /// exist or the KMS key is disabled, you receive an <c>InvalidParameterException</c>
     /// error. 
     /// </para><important><para>
     /// CloudWatch Logs supports only symmetric KMS keys. Do not associate an asymmetric KMS
@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>Use this parameter to specify the log group class for this log group. There are two
-        /// classes:</para><ul><li><para>The <code>Standard</code> log class supports all CloudWatch Logs features.</para></li><li><para>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs
-        /// features and incurs lower costs.</para></li></ul><para>If you omit this parameter, the default of <code>STANDARD</code> is used.</para><important><para>After a log group is created, its class can't be changed.</para></important><para>For details about the features supported by each class, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log
+        /// classes:</para><ul><li><para>The <c>Standard</c> log class supports all CloudWatch Logs features.</para></li><li><para>The <c>Infrequent Access</c> log class supports a subset of CloudWatch Logs features
+        /// and incurs lower costs.</para></li></ul><para>If you omit this parameter, the default of <c>STANDARD</c> is used.</para><important><para>The value of <c>logGroupClass</c> can't be changed after a log group is created.</para></important><para>For details about the features supported by each class, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log
         /// classes</a></para>
         /// </para>
         /// </summary>
@@ -120,9 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>The key-value pairs to use for the tags.</para><para>You can grant users access to certain log groups while preventing them from accessing
         /// other log groups. To do so, tag your groups and use IAM policies that refer to those
-        /// tags. To assign tags when you create a log group, you must have either the <code>logs:TagResource</code>
-        /// or <code>logs:TagLogGroup</code> permission. For more information about tagging, see
-        /// <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon
+        /// tags. To assign tags when you create a log group, you must have either the <c>logs:TagResource</c>
+        /// or <c>logs:TagLogGroup</c> permission. For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon
         /// Web Services resources</a>. For more information about using tags to control access,
         /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling
         /// access to Amazon Web Services resources using tags</a>.</para>

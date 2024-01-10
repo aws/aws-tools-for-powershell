@@ -28,7 +28,7 @@ using Amazon.Athena.Model;
 namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Creates an empty <code>ipynb</code> file in the specified Apache Spark enabled workgroup.
+    /// Creates an empty <c>ipynb</c> file in the specified Apache Spark enabled workgroup.
     /// Throws an error if a file in the workgroup with the same name already exists.
     /// </summary>
     [Cmdlet("New", "ATHNotebook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the <code>ipynb</code> file to be created in the Spark workgroup, without
-        /// the <code>.ipynb</code> extension.</para>
+        /// <para>The name of the <c>ipynb</c> file to be created in the Spark workgroup, without the
+        /// <c>.ipynb</c> extension.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

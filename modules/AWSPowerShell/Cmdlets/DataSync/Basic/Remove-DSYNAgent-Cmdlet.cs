@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter AgentArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the agent to delete. Use the <code>ListAgents</code>
-        /// operation to return a list of agents for your account and Amazon Web Services Region.</para>
+        /// <para>The Amazon Resource Name (ARN) of the agent to delete. Use the <c>ListAgents</c> operation
+        /// to return a list of agents for your account and Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

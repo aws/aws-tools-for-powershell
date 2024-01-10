@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
     /// Returns the list of components that can be filtered by name, or by using the listed
-    /// <code>filters</code> to streamline results. Newly created components can take up to
-    /// two minutes to appear in the ListComponents API Results.
+    /// <c>filters</c> to streamline results. Newly created components can take up to two
+    /// minutes to appear in the ListComponents API Results.
     /// 
     ///  <note><para>
     /// The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;.
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Use the following filters to streamline results:</para><ul><li><para><code>description</code></para></li><li><para><code>name</code></para></li><li><para><code>platform</code></para></li><li><para><code>supportedOsVersion</code></para></li><li><para><code>type</code></para></li><li><para><code>version</code></para></li></ul>
+        /// <para>Use the following filters to streamline results:</para><ul><li><para><c>description</c></para></li><li><para><c>name</c></para></li><li><para><c>platform</c></para></li><li><para><c>supportedOsVersion</c></para></li><li><para><c>type</c></para></li><li><para><c>version</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

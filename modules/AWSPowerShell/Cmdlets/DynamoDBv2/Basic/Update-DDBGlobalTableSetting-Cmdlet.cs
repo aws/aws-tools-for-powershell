@@ -55,12 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter GlobalTableBillingMode
         /// <summary>
         /// <para>
-        /// <para>The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not
-        /// specified, the global table defaults to <code>PROVISIONED</code> capacity billing
-        /// mode.</para><ul><li><para><code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for predictable
-        /// workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned
-        /// Mode</a>.</para></li><li><para><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for
-        /// unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand
+        /// <para>The billing mode of the global table. If <c>GlobalTableBillingMode</c> is not specified,
+        /// the global table defaults to <c>PROVISIONED</c> capacity billing mode.</para><ul><li><para><c>PROVISIONED</c> - We recommend using <c>PROVISIONED</c> for predictable workloads.
+        /// <c>PROVISIONED</c> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned
+        /// Mode</a>.</para></li><li><para><c>PAY_PER_REQUEST</c> - We recommend using <c>PAY_PER_REQUEST</c> for unpredictable
+        /// workloads. <c>PAY_PER_REQUEST</c> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand
         /// Mode</a>. </para></li></ul>
         /// </para>
         /// </summary>
@@ -110,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter GlobalTableProvisionedWriteCapacityUnit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code></para>
+        /// <para>The maximum number of writes consumed per second before DynamoDB returns a <c>ThrottlingException.</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

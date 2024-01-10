@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Returns information about the publishing destination specified by the provided <code>destinationId</code>.
+    /// Returns information about the publishing destination specified by the provided <c>destinationId</c>.
     /// </summary>
     [Cmdlet("Get", "GDPublishingDestination")]
     [OutputType("Amazon.GuardDuty.Model.DescribePublishingDestinationResponse")]

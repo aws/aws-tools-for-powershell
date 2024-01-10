@@ -28,15 +28,14 @@ using Amazon.ChimeSDKMessaging.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
-    /// Allows the <code>ChimeBearer</code> to search channels by channel members. Users or
-    /// bots can search across the channels that they belong to. Users in the <code>AppInstanceAdmin</code>
+    /// Allows the <c>ChimeBearer</c> to search channels by channel members. Users or bots
+    /// can search across the channels that they belong to. Users in the <c>AppInstanceAdmin</c>
     /// role can search across all channels.
     /// 
     ///  
     /// <para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
-    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
-    /// as the value in the header.
+    /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the ARN of the <c>AppInstanceUser</c>
+    /// or <c>AppInstanceBot</c> that makes the API call as the value in the header.
     /// </para>
     /// </summary>
     [Cmdlet("Search", "CHMMGChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user making the API call.</para>
+        /// <para>The <c>AppInstanceUserArn</c> of the user making the API call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -68,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter Field
         /// <summary>
         /// <para>
-        /// <para>A list of the <code>Field</code> objects in the channel being searched.</para>
+        /// <para>A list of the <c>Field</c> objects in the channel being searched.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

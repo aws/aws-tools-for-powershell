@@ -30,10 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <summary>
     /// Deletes a Systems Manager resource policy. A resource policy helps you to define the
     /// IAM entity (for example, an Amazon Web Services account) that can manage your Systems
-    /// Manager resources. Currently, <code>OpsItemGroup</code> is the only resource that
-    /// supports Systems Manager resource policies. The resource policy for <code>OpsItemGroup</code>
-    /// enables Amazon Web Services accounts to view and interact with OpsCenter operational
-    /// work items (OpsItems).
+    /// Manager resources. Currently, <c>OpsItemGroup</c> is the only resource that supports
+    /// Systems Manager resource policies. The resource policy for <c>OpsItemGroup</c> enables
+    /// Amazon Web Services accounts to view and interact with OpsCenter operational work
+    /// items (OpsItems).
     /// </summary>
     [Cmdlet("Remove", "SSMResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

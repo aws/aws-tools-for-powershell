@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Disassociates the specified Amazon Web Services Systems Manager document (SSM document)
-    /// from the specified managed node. If you created the association by using the <code>Targets</code>
+    /// from the specified managed node. If you created the association by using the <c>Targets</c>
     /// parameter, then you must delete the association by using the association ID.
     /// 
     ///  
@@ -65,14 +65,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The managed node ID.</para><note><para><code>InstanceId</code> has been deprecated. To specify a managed node ID for an
-        /// association, use the <code>Targets</code> parameter. Requests that include the parameter
-        /// <code>InstanceID</code> with Systems Manager documents (SSM documents) that use schema
-        /// version 2.0 or later will fail. In addition, if you use the parameter <code>InstanceId</code>,
-        /// you can't use the parameters <code>AssociationName</code>, <code>DocumentVersion</code>,
-        /// <code>MaxErrors</code>, <code>MaxConcurrency</code>, <code>OutputLocation</code>,
-        /// or <code>ScheduleExpression</code>. To use these parameters, you must use the <code>Targets</code>
-        /// parameter.</para></note>
+        /// <para>The managed node ID.</para><note><para><c>InstanceId</c> has been deprecated. To specify a managed node ID for an association,
+        /// use the <c>Targets</c> parameter. Requests that include the parameter <c>InstanceID</c>
+        /// with Systems Manager documents (SSM documents) that use schema version 2.0 or later
+        /// will fail. In addition, if you use the parameter <c>InstanceId</c>, you can't use
+        /// the parameters <c>AssociationName</c>, <c>DocumentVersion</c>, <c>MaxErrors</c>, <c>MaxConcurrency</c>,
+        /// <c>OutputLocation</c>, or <c>ScheduleExpression</c>. To use these parameters, you
+        /// must use the <c>Targets</c> parameter.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

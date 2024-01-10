@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The listener port. You can specify a value from <code>1</code> to <code>65535</code>.
-        /// For HTTP, the default is <code>80</code>. For HTTPS, the default is <code>443</code>.</para>
+        /// <para>The listener port. You can specify a value from <c>1</c> to <c>65535</c>. For HTTP,
+        /// the default is <c>80</c>. For HTTPS, the default is <c>443</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

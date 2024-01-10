@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
     /// Returns an asset (or file) that is in a package. For example, for a Maven package
-    /// version, use <code>GetPackageVersionAsset</code> to download a <code>JAR</code> file,
-    /// a <code>POM</code> file, or any other assets in the package version.
+    /// version, use <c>GetPackageVersionAsset</c> to download a <c>JAR</c> file, a <c>POM</c>
+    /// file, or any other assets in the package version.
     /// </summary>
     [Cmdlet("Get", "CAPackageVersionAsset")]
     [OutputType("Amazon.CodeArtifact.Model.GetPackageVersionAssetResponse")]
@@ -111,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para>The namespace of the package version with the requested asset file. The package version
-        /// component that specifies its namespace depends on its type. For example:</para><ul><li><para> The namespace of a Maven package version is its <code>groupId</code>. </para></li><li><para> The namespace of an npm package version is its <code>scope</code>. </para></li><li><para> Python and NuGet package versions do not contain a corresponding component, package
-        /// versions of those formats do not have a namespace. </para></li><li><para> The namespace of a generic package is its <code>namespace</code>. </para></li></ul>
+        /// component that specifies its namespace depends on its type. For example:</para><ul><li><para> The namespace of a Maven package version is its <c>groupId</c>. </para></li><li><para> The namespace of an npm package version is its <c>scope</c>. </para></li><li><para> Python and NuGet package versions do not contain a corresponding component, package
+        /// versions of those formats do not have a namespace. </para></li><li><para> The namespace of a generic package is its <c>namespace</c>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter PackageVersion
         /// <summary>
         /// <para>
-        /// <para> A string that contains the package version (for example, <code>3.5.2</code>). </para>
+        /// <para> A string that contains the package version (for example, <c>3.5.2</c>). </para>
         /// </para>
         /// </summary>
         #if !MODULAR

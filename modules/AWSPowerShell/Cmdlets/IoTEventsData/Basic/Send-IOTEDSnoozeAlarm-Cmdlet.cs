@@ -28,7 +28,7 @@ using Amazon.IoTEventsData.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTED
 {
     /// <summary>
-    /// Changes one or more alarms to the snooze mode. The alarms change to the <code>SNOOZE_DISABLED</code>
+    /// Changes one or more alarms to the snooze mode. The alarms change to the <c>SNOOZE_DISABLED</c>
     /// state after you set them to the snooze mode.
     /// </summary>
     [Cmdlet("Send", "IOTEDSnoozeAlarm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

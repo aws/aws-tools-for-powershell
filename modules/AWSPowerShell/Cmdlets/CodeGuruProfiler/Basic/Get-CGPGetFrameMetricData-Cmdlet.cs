@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         /// <summary>
         /// <para>
         /// <para> The duration of the frame metrics used to return the time series values. Specify
-        /// using the ISO 8601 format. The maximum period duration is one day (<code>PT24H</code>
-        /// or <code>P1D</code>). </para>
+        /// using the ISO 8601 format. The maximum period duration is one day (<c>PT24H</c> or
+        /// <c>P1D</c>). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         /// <para>The requested resolution of time steps for the returned time series of values. If
         /// the requested target resolution is not available due to data not being retained we
         /// provide a best effort result by falling back to the most granular available resolution
-        /// after the target resolution. There are 3 valid values. </para><ul><li><para><code>P1D</code> — 1 day </para></li><li><para><code>PT1H</code> — 1 hour </para></li><li><para><code>PT5M</code> — 5 minutes </para></li></ul>
+        /// after the target resolution. There are 3 valid values. </para><ul><li><para><c>P1D</c> — 1 day </para></li><li><para><c>PT1H</c> — 1 hour </para></li><li><para><c>PT5M</c> — 5 minutes </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

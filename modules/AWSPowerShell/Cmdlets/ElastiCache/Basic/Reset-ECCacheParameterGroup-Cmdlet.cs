@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// <summary>
     /// Modifies the parameters of a cache parameter group to the engine or system default
     /// value. You can reset specific parameters by submitting a list of parameter names.
-    /// To reset the entire cache parameter group, specify the <code>ResetAllParameters</code>
-    /// and <code>CacheParameterGroupName</code> parameters.
+    /// To reset the entire cache parameter group, specify the <c>ResetAllParameters</c> and
+    /// <c>CacheParameterGroupName</c> parameters.
     /// </summary>
     [Cmdlet("Reset", "ECCacheParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -65,9 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ParameterNameValue
         /// <summary>
         /// <para>
-        /// <para>An array of parameter names to reset to their default values. If <code>ResetAllParameters</code>
-        /// is <code>true</code>, do not use <code>ParameterNameValues</code>. If <code>ResetAllParameters</code>
-        /// is <code>false</code>, you must specify the name of at least one parameter to reset.</para>
+        /// <para>An array of parameter names to reset to their default values. If <c>ResetAllParameters</c>
+        /// is <c>true</c>, do not use <c>ParameterNameValues</c>. If <c>ResetAllParameters</c>
+        /// is <c>false</c>, you must specify the name of at least one parameter to reset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ResetAllParameter
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, all parameters in the cache parameter group are reset to their
-        /// default values. If <code>false</code>, only the parameters listed by <code>ParameterNameValues</code>
-        /// are reset to their default values.</para><para>Valid values: <code>true</code> | <code>false</code></para>
+        /// <para>If <c>true</c>, all parameters in the cache parameter group are reset to their default
+        /// values. If <c>false</c>, only the parameters listed by <c>ParameterNameValues</c>
+        /// are reset to their default values.</para><para>Valid values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

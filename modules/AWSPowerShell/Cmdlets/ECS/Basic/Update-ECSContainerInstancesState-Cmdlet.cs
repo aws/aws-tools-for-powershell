@@ -32,49 +32,48 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// 
     ///  
     /// <para>
-    /// Once a container instance has reached an <code>ACTIVE</code> state, you can change
-    /// the status of a container instance to <code>DRAINING</code> to manually remove an
-    /// instance from a cluster, for example to perform system updates, update the Docker
-    /// daemon, or scale down the cluster size.
+    /// Once a container instance has reached an <c>ACTIVE</c> state, you can change the status
+    /// of a container instance to <c>DRAINING</c> to manually remove an instance from a cluster,
+    /// for example to perform system updates, update the Docker daemon, or scale down the
+    /// cluster size.
     /// </para><important><para>
-    /// A container instance can't be changed to <code>DRAINING</code> until it has reached
-    /// an <code>ACTIVE</code> status. If the instance is in any other status, an error will
-    /// be received.
+    /// A container instance can't be changed to <c>DRAINING</c> until it has reached an <c>ACTIVE</c>
+    /// status. If the instance is in any other status, an error will be received.
     /// </para></important><para>
-    /// When you set a container instance to <code>DRAINING</code>, Amazon ECS prevents new
-    /// tasks from being scheduled for placement on the container instance and replacement
-    /// service tasks are started on other container instances in the cluster if the resources
-    /// are available. Service tasks on the container instance that are in the <code>PENDING</code>
+    /// When you set a container instance to <c>DRAINING</c>, Amazon ECS prevents new tasks
+    /// from being scheduled for placement on the container instance and replacement service
+    /// tasks are started on other container instances in the cluster if the resources are
+    /// available. Service tasks on the container instance that are in the <c>PENDING</c>
     /// state are stopped immediately.
     /// </para><para>
-    /// Service tasks on the container instance that are in the <code>RUNNING</code> state
-    /// are stopped and replaced according to the service's deployment configuration parameters,
-    /// <code>minimumHealthyPercent</code> and <code>maximumPercent</code>. You can change
-    /// the deployment configuration of your service using <a>UpdateService</a>.
+    /// Service tasks on the container instance that are in the <c>RUNNING</c> state are stopped
+    /// and replaced according to the service's deployment configuration parameters, <c>minimumHealthyPercent</c>
+    /// and <c>maximumPercent</c>. You can change the deployment configuration of your service
+    /// using <a>UpdateService</a>.
     /// </para><ul><li><para>
-    /// If <code>minimumHealthyPercent</code> is below 100%, the scheduler can ignore <code>desiredCount</code>
-    /// temporarily during task replacement. For example, <code>desiredCount</code> is four
-    /// tasks, a minimum of 50% allows the scheduler to stop two existing tasks before starting
-    /// two new tasks. If the minimum is 100%, the service scheduler can't remove existing
-    /// tasks until the replacement tasks are considered healthy. Tasks for services that
-    /// do not use a load balancer are considered healthy if they're in the <code>RUNNING</code>
-    /// state. Tasks for services that use a load balancer are considered healthy if they're
-    /// in the <code>RUNNING</code> state and are reported as healthy by the load balancer.
+    /// If <c>minimumHealthyPercent</c> is below 100%, the scheduler can ignore <c>desiredCount</c>
+    /// temporarily during task replacement. For example, <c>desiredCount</c> is four tasks,
+    /// a minimum of 50% allows the scheduler to stop two existing tasks before starting two
+    /// new tasks. If the minimum is 100%, the service scheduler can't remove existing tasks
+    /// until the replacement tasks are considered healthy. Tasks for services that do not
+    /// use a load balancer are considered healthy if they're in the <c>RUNNING</c> state.
+    /// Tasks for services that use a load balancer are considered healthy if they're in the
+    /// <c>RUNNING</c> state and are reported as healthy by the load balancer.
     /// </para></li><li><para>
-    /// The <code>maximumPercent</code> parameter represents an upper limit on the number
-    /// of running tasks during task replacement. You can use this to define the replacement
-    /// batch size. For example, if <code>desiredCount</code> is four tasks, a maximum of
-    /// 200% starts four new tasks before stopping the four tasks to be drained, provided
-    /// that the cluster resources required to do this are available. If the maximum is 100%,
-    /// then replacement tasks can't start until the draining tasks have stopped.
+    /// The <c>maximumPercent</c> parameter represents an upper limit on the number of running
+    /// tasks during task replacement. You can use this to define the replacement batch size.
+    /// For example, if <c>desiredCount</c> is four tasks, a maximum of 200% starts four new
+    /// tasks before stopping the four tasks to be drained, provided that the cluster resources
+    /// required to do this are available. If the maximum is 100%, then replacement tasks
+    /// can't start until the draining tasks have stopped.
     /// </para></li></ul><para>
-    /// Any <code>PENDING</code> or <code>RUNNING</code> tasks that do not belong to a service
-    /// aren't affected. You must wait for them to finish or stop them manually.
+    /// Any <c>PENDING</c> or <c>RUNNING</c> tasks that do not belong to a service aren't
+    /// affected. You must wait for them to finish or stop them manually.
     /// </para><para>
-    /// A container instance has completed draining when it has no more <code>RUNNING</code>
-    /// tasks. You can verify this using <a>ListTasks</a>.
+    /// A container instance has completed draining when it has no more <c>RUNNING</c> tasks.
+    /// You can verify this using <a>ListTasks</a>.
     /// </para><para>
-    /// When a container instance has been drained, you can set a container instance to <code>ACTIVE</code>
+    /// When a container instance has been drained, you can set a container instance to <c>ACTIVE</c>
     /// status and once it has reached that status the Amazon ECS scheduler can begin scheduling
     /// tasks on the instance again.
     /// </para>
@@ -123,11 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The container instance state to update the container instance with. The only valid
-        /// values for this action are <code>ACTIVE</code> and <code>DRAINING</code>. A container
-        /// instance can only be updated to <code>DRAINING</code> status once it has reached an
-        /// <code>ACTIVE</code> state. If a container instance is in <code>REGISTERING</code>,
-        /// <code>DEREGISTERING</code>, or <code>REGISTRATION_FAILED</code> state you can describe
-        /// the container instance but can't update the container instance state.</para>
+        /// values for this action are <c>ACTIVE</c> and <c>DRAINING</c>. A container instance
+        /// can only be updated to <c>DRAINING</c> status once it has reached an <c>ACTIVE</c>
+        /// state. If a container instance is in <c>REGISTERING</c>, <c>DEREGISTERING</c>, or
+        /// <c>REGISTRATION_FAILED</c> state you can describe the container instance but can't
+        /// update the container instance state.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

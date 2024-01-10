@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter RecipeProvider
         /// <summary>
         /// <para>
-        /// <para>The default is <code>SERVICE</code>.</para>
+        /// <para>The default is <c>SERVICE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token returned from the previous call to <code>ListRecipes</code> for getting the
-        /// next set of recipes (if they exist).</para>
+        /// <para>A token returned from the previous call to <c>ListRecipes</c> for getting the next
+        /// set of recipes (if they exist).</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

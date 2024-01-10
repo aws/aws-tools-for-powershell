@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// on both ends for comparision without sending or receiving data in ciphertext or plaintext.
     /// You can use this operation to generate a DUPKT, HMAC or EMV MAC by setting generation
     /// attributes and algorithm to the associated values. The MAC generation encryption key
-    /// must have valid values for <code>KeyUsage</code> such as <code>TR31_M7_HMAC_KEY</code>
-    /// for HMAC generation, and they key must have <code>KeyModesOfUse</code> set to <code>Generate</code>
-    /// and <code>Verify</code>.
+    /// must have valid values for <c>KeyUsage</c> such as <c>TR31_M7_HMAC_KEY</c> for HMAC
+    /// generation, and they key must have <c>KeyModesOfUse</c> set to <c>Generate</c> and
+    /// <c>Verify</c>.
     /// </para><para>
     /// For information about valid keys for this operation, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding
     /// key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key
@@ -101,8 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// <para>
         /// <para>The key type derived using DUKPT from a Base Derivation Key (BDK) and Key Serial Number
         /// (KSN). This must be less than or equal to the strength of the BDK. For example, you
-        /// can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code>
-        /// or <code>TDES_2KEY</code>.</para>
+        /// can't use <c>AES_128</c> as a derivation type for a BDK of <c>AES_128</c> or <c>TDES_2KEY</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,8 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// <para>
         /// <para>The key type derived using DUKPT from a Base Derivation Key (BDK) and Key Serial Number
         /// (KSN). This must be less than or equal to the strength of the BDK. For example, you
-        /// can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code>
-        /// or <code>TDES_2KEY</code>.</para>
+        /// can't use <c>AES_128</c> as a derivation type for a BDK of <c>AES_128</c> or <c>TDES_2KEY</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,8 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// <para>
         /// <para>The key type derived using DUKPT from a Base Derivation Key (BDK) and Key Serial Number
         /// (KSN). This must be less than or equal to the strength of the BDK. For example, you
-        /// can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code>
-        /// or <code>TDES_2KEY</code>.</para>
+        /// can't use <c>AES_128</c> as a derivation type for a BDK of <c>AES_128</c> or <c>TDES_2KEY</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter KeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>keyARN</code> of the MAC generation encryption key.</para>
+        /// <para>The <c>keyARN</c> of the MAC generation encryption key.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

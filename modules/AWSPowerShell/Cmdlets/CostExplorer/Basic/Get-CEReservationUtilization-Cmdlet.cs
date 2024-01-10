@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// <summary>
     /// Retrieves the reservation utilization for your account. Management account in an organization
     /// have access to member accounts. You can filter data by dimensions in a time period.
-    /// You can use <code>GetDimensionValues</code> to determine the possible dimension values.
-    /// Currently, you can group only by <code>SUBSCRIPTION_ID</code>.<br/><br/>In the AWS.Tools.CostExplorer module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// You can use <c>GetDimensionValues</c> to determine the possible dimension values.
+    /// Currently, you can group only by <c>SUBSCRIPTION_ID</c>.<br/><br/>In the AWS.Tools.CostExplorer module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CEReservationUtilization")]
     [OutputType("Amazon.CostExplorer.Model.GetReservationUtilizationResponse")]
@@ -47,10 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters utilization data by dimensions. You can filter by the following dimensions:</para><ul><li><para>AZ</para></li><li><para>CACHE_ENGINE</para></li><li><para>DEPLOYMENT_OPTION</para></li><li><para>INSTANCE_TYPE</para></li><li><para>LINKED_ACCOUNT</para></li><li><para>OPERATING_SYSTEM</para></li><li><para>PLATFORM</para></li><li><para>REGION</para></li><li><para>SERVICE</para></li><li><para>SCOPE</para></li><li><para>TENANCY</para></li></ul><para><code>GetReservationUtilization</code> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
-        /// object as the other operations, but only <code>AND</code> is supported among each
-        /// dimension, and nesting is supported up to only one level deep. If there are multiple
-        /// values for a dimension, they are OR'd together.</para>
+        /// <para>Filters utilization data by dimensions. You can filter by the following dimensions:</para><ul><li><para>AZ</para></li><li><para>CACHE_ENGINE</para></li><li><para>DEPLOYMENT_OPTION</para></li><li><para>INSTANCE_TYPE</para></li><li><para>LINKED_ACCOUNT</para></li><li><para>OPERATING_SYSTEM</para></li><li><para>PLATFORM</para></li><li><para>REGION</para></li><li><para>SERVICE</para></li><li><para>SCOPE</para></li><li><para>TENANCY</para></li></ul><para><c>GetReservationUtilization</c> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
+        /// object as the other operations, but only <c>AND</c> is supported among each dimension,
+        /// and nesting is supported up to only one level deep. If there are multiple values for
+        /// a dimension, they are OR'd together.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,11 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Granularity
         /// <summary>
         /// <para>
-        /// <para>If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code>
-        /// isn't set, the response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code>
-        /// or <code>DAILY</code>. If both <code>GroupBy</code> and <code>Granularity</code> aren't
-        /// set, <code>GetReservationUtilization</code> defaults to <code>DAILY</code>.</para><para>The <code>GetReservationUtilization</code> operation supports only <code>DAILY</code>
-        /// and <code>MONTHLY</code> granularities.</para>
+        /// <para>If <c>GroupBy</c> is set, <c>Granularity</c> can't be set. If <c>Granularity</c> isn't
+        /// set, the response object doesn't include <c>Granularity</c>, either <c>MONTHLY</c>
+        /// or <c>DAILY</c>. If both <c>GroupBy</c> and <c>Granularity</c> aren't set, <c>GetReservationUtilization</c>
+        /// defaults to <c>DAILY</c>.</para><para>The <c>GetReservationUtilization</c> operation supports only <c>DAILY</c> and <c>MONTHLY</c>
+        /// granularities.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter GroupBy
         /// <summary>
         /// <para>
-        /// <para>Groups only by <code>SUBSCRIPTION_ID</code>. Metadata is included.</para>
+        /// <para>Groups only by <c>SUBSCRIPTION_ID</c>. Metadata is included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,10 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>Sets the start and end dates for retrieving Reserved Instance (RI) utilization. The
-        /// start date is inclusive, but the end date is exclusive. For example, if <code>start</code>
-        /// is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the
-        /// cost and usage data is retrieved from <code>2017-01-01</code> up to and including
-        /// <code>2017-04-30</code> but not including <code>2017-05-01</code>. </para>
+        /// start date is inclusive, but the end date is exclusive. For example, if <c>start</c>
+        /// is <c>2017-01-01</c> and <c>end</c> is <c>2017-05-01</c>, then the cost and usage
+        /// data is retrieved from <c>2017-01-01</c> up to and including <c>2017-04-30</c> but
+        /// not including <c>2017-05-01</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

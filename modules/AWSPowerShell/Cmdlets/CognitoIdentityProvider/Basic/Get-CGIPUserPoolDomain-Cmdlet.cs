@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The domain string. For custom domains, this is the fully-qualified domain name, such
-        /// as <code>auth.example.com</code>. For Amazon Cognito prefix domains, this is the prefix
-        /// alone, such as <code>auth</code>.</para>
+        /// as <c>auth.example.com</c>. For Amazon Cognito prefix domains, this is the prefix
+        /// alone, such as <c>auth</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

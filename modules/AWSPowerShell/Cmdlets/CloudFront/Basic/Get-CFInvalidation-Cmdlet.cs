@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier for the invalidation request, for example, <code>IDFDVBD632BHDS5</code>.</para>
+        /// <para>The identifier for the invalidation request, for example, <c>IDFDVBD632BHDS5</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

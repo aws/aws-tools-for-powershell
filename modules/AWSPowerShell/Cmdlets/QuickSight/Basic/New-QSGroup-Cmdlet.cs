@@ -28,13 +28,13 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Use the <code>CreateGroup</code> operation to create a group in Amazon QuickSight.
-    /// You can create up to 10,000 groups in a namespace. If you want to create more than
-    /// 10,000 groups in a namespace, contact Amazon Web Services Support.
+    /// Use the <c>CreateGroup</c> operation to create a group in Amazon QuickSight. You can
+    /// create up to 10,000 groups in a namespace. If you want to create more than 10,000
+    /// groups in a namespace, contact Amazon Web Services Support.
     /// 
     ///  
     /// <para>
-    /// The permissions resource is <code>arn:aws:quicksight:&lt;your-region&gt;:<i>&lt;relevant-aws-account-id&gt;</i>:group/default/<i>&lt;group-name&gt;</i></code>.
+    /// The permissions resource is <c>arn:aws:quicksight:&lt;your-region&gt;:<i>&lt;relevant-aws-account-id&gt;</i>:group/default/<i>&lt;group-name&gt;</i></c>.
     /// </para><para>
     /// The response is a group object.
     /// </para>

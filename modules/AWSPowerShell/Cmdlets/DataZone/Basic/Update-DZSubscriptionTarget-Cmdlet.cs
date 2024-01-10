@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter ApplicableAssetType
         /// <summary>
         /// <para>
-        /// <para>The applicable asset types to be updated as part of the <code>UpdateSubscriptionTarget</code>
+        /// <para>The applicable asset types to be updated as part of the <c>UpdateSubscriptionTarget</c>
         /// action.</para>
         /// </para>
         /// </summary>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter AuthorizedPrincipal
         /// <summary>
         /// <para>
-        /// <para>The authorized principals to be updated as part of the <code>UpdateSubscriptionTarget</code>
+        /// <para>The authorized principals to be updated as part of the <c>UpdateSubscriptionTarget</c>
         /// action.</para>
         /// </para>
         /// </summary>
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter ManageAccessRole
         /// <summary>
         /// <para>
-        /// <para>The manage access role to be updated as part of the <code>UpdateSubscriptionTarget</code>
+        /// <para>The manage access role to be updated as part of the <c>UpdateSubscriptionTarget</c>
         /// action.</para>
         /// </para>
         /// </summary>
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</para>
+        /// <para>The name to be updated as part of the <c>UpdateSubscriptionTarget</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Provider
         /// <summary>
         /// <para>
-        /// <para>The provider to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</para>
+        /// <para>The provider to be updated as part of the <c>UpdateSubscriptionTarget</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,8 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter SubscriptionTargetConfig
         /// <summary>
         /// <para>
-        /// <para>The configuration to be updated as part of the <code>UpdateSubscriptionTarget</code>
-        /// action.</para>
+        /// <para>The configuration to be updated as part of the <c>UpdateSubscriptionTarget</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

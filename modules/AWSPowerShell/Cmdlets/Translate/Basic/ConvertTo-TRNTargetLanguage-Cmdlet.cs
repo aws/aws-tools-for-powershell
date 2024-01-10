@@ -100,11 +100,11 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// <para>The language code for the language of the source text. For a list of language codes,
         /// see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported
         /// languages</a>.</para><para>To have Amazon Translate determine the source language of your text, you can specify
-        /// <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>,
-        /// Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon
-        /// Comprehend</a> to determine the source language.</para><note><para>If you specify <code>auto</code>, you must send the <code>TranslateText</code> request
-        /// in a region that supports Amazon Comprehend. Otherwise, the request returns an error
-        /// indicating that autodetect is not supported. </para></note>
+        /// <c>auto</c> in the <c>SourceLanguageCode</c> field. If you specify <c>auto</c>, Amazon
+        /// Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon
+        /// Comprehend</a> to determine the source language.</para><note><para>If you specify <c>auto</c>, you must send the <c>TranslateText</c> request in a region
+        /// that supports Amazon Comprehend. Otherwise, the request returns an error indicating
+        /// that autodetect is not supported. </para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

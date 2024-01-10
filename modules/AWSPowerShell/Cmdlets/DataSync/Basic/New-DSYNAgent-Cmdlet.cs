@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the ID of the VPC endpoint that you want your agent to connect to. For example,
-        /// a VPC endpoint ID looks like <code>vpce-01234d5aff67890e1</code>.</para><important><para>The VPC endpoint you use must include the DataSync service name (for example, <code>com.amazonaws.us-east-2.datasync</code>).</para></important>
+        /// a VPC endpoint ID looks like <c>vpce-01234d5aff67890e1</c>.</para><important><para>The VPC endpoint you use must include the DataSync service name (for example, <c>com.amazonaws.us-east-2.datasync</c>).</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

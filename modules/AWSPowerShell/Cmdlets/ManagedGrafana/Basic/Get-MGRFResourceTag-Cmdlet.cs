@@ -28,8 +28,8 @@ using Amazon.ManagedGrafana.Model;
 namespace Amazon.PowerShell.Cmdlets.MGRF
 {
     /// <summary>
-    /// The <code>ListTagsForResource</code> operation returns the tags that are associated
-    /// with the Amazon Managed Service for Grafana resource specified by the <code>resourceArn</code>.
+    /// The <c>ListTagsForResource</c> operation returns the tags that are associated with
+    /// the Amazon Managed Service for Grafana resource specified by the <c>resourceArn</c>.
     /// Currently, the only resource that can be tagged is a workspace.
     /// </summary>
     [Cmdlet("Get", "MGRFResourceTag")]

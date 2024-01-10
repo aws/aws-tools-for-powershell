@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para> The criterion to be used to list build report groups. Valid values include: </para><ul><li><para><code>CREATED_TIME</code>: List based on when each report group was created.</para></li><li><para><code>LAST_MODIFIED_TIME</code>: List based on when each report group was last changed.</para></li><li><para><code>NAME</code>: List based on each report group's name.</para></li></ul>
+        /// <para> The criterion to be used to list build report groups. Valid values include: </para><ul><li><para><c>CREATED_TIME</c>: List based on when each report group was created.</para></li><li><para><c>LAST_MODIFIED_TIME</c>: List based on when each report group was last changed.</para></li><li><para><c>NAME</c>: List based on each report group's name.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para> Used to specify the order to sort the list of returned report groups. Valid values
-        /// are <code>ASCENDING</code> and <code>DESCENDING</code>. </para>
+        /// are <c>ASCENDING</c> and <c>DESCENDING</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of paginated report groups returned per response. Use <code>nextToken</code>
-        /// to iterate pages in the list of returned <code>ReportGroup</code> objects. The default
-        /// value is 100. </para>
+        /// <para> The maximum number of paginated report groups returned per response. Use <c>nextToken</c>
+        /// to iterate pages in the list of returned <c>ReportGroup</c> objects. The default value
+        /// is 100. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,11 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para> During a previous call, the maximum number of items that can be returned is the value
-        /// specified in <code>maxResults</code>. If there more items in the list, then a unique
-        /// string called a <i>nextToken</i> is returned. To get the next batch of items in the
-        /// list, call this operation again, adding the next token to the call. To get all of
-        /// the items in the list, keep calling this operation with each subsequent next token
-        /// that is returned, until no more next tokens are returned. </para>
+        /// specified in <c>maxResults</c>. If there more items in the list, then a unique string
+        /// called a <i>nextToken</i> is returned. To get the next batch of items in the list,
+        /// call this operation again, adding the next token to the call. To get all of the items
+        /// in the list, keep calling this operation with each subsequent next token that is returned,
+        /// until no more next tokens are returned. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

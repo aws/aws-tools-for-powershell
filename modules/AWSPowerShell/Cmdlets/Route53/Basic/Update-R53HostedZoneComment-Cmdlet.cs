@@ -45,9 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Comment
         /// <summary>
         /// <para>
-        /// <para>The new comment for the hosted zone. If you don't specify a value for <code>Comment</code>,
-        /// Amazon Route 53 deletes the existing value of the <code>Comment</code> element, if
-        /// any.</para>
+        /// <para>The new comment for the hosted zone. If you don't specify a value for <c>Comment</c>,
+        /// Amazon Route 53 deletes the existing value of the <c>Comment</c> element, if any.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

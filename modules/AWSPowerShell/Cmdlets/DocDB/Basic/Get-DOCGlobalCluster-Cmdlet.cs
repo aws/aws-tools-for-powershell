@@ -49,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter that specifies one or more global DB clusters to describe.</para><para>Supported filters: <code>db-cluster-id</code> accepts cluster identifiers and cluster
-        /// Amazon Resource Names (ARNs). The results list will only include information about
-        /// the clusters identified by these ARNs.</para>
+        /// <para>A filter that specifies one or more global DB clusters to describe.</para><para>Supported filters: <c>db-cluster-id</c> accepts cluster identifiers and cluster Amazon
+        /// Resource Names (ARNs). The results list will only include information about the clusters
+        /// identified by these ARNs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>An optional pagination token provided by a previous <code>DescribeGlobalClusters</code>
+        /// <para>An optional pagination token provided by a previous <c>DescribeGlobalClusters</c>
         /// request. If this parameter is specified, the response includes only records beyond
-        /// the marker, up to the value specified by <code>MaxRecords</code>.</para>
+        /// the marker, up to the value specified by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that you can retrieve the remaining results. </para>
+        /// the specified <c>MaxRecords</c> value, a pagination token called a marker is included
+        /// in the response so that you can retrieve the remaining results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

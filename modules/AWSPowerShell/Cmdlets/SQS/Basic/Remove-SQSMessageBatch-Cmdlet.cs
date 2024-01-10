@@ -28,13 +28,13 @@ using Amazon.SQS.Model;
 namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
-    /// Deletes up to ten messages from the specified queue. This is a batch version of <code><a>DeleteMessage</a>.</code> The result of the action on each message is reported
-    /// individually in the response.
+    /// Deletes up to ten messages from the specified queue. This is a batch version of <c><a>DeleteMessage</a>.</c> The result of the action on each message is reported individually
+    /// in the response.
     /// 
     ///  <important><para>
     /// Because the batch request can result in a combination of successful and unsuccessful
     /// actions, you should check for batch errors even when the call returns an HTTP status
-    /// code of <code>200</code>.
+    /// code of <c>200</c>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "SQSMessageBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

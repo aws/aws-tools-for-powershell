@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter SelfManagedActiveDirectoryConfiguration_DomainName
         /// <summary>
         /// <para>
-        /// <para>The fully qualified domain name of the self-managed AD directory, such as <code>corp.example.com</code>.</para>
+        /// <para>The fully qualified domain name of the self-managed AD directory, such as <c>corp.example.com</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,10 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>(Optional) The fully qualified distinguished name of the organizational unit within
         /// your self-managed AD directory. Amazon FSx only accepts OU as the direct parent of
-        /// the file system. An example is <code>OU=FSx,DC=yourdomain,DC=corp,DC=com</code>. To
-        /// learn more, see <a href="https://tools.ietf.org/html/rfc2253">RFC 2253</a>. If none
-        /// is provided, the FSx file system is created in the default location of your self-managed
-        /// AD directory. </para><important><para>Only Organizational Unit (OU) objects can be the direct parent of the file system
+        /// the file system. An example is <c>OU=FSx,DC=yourdomain,DC=corp,DC=com</c>. To learn
+        /// more, see <a href="https://tools.ietf.org/html/rfc2253">RFC 2253</a>. If none is provided,
+        /// the FSx file system is created in the default location of your self-managed AD directory.
+        /// </para><important><para>Only Organizational Unit (OU) objects can be the direct parent of the file system
         /// that you're creating.</para></important>
         /// </para>
         /// </summary>
@@ -170,11 +170,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter RootVolumeSecurityStyle
         /// <summary>
         /// <para>
-        /// <para>The security style of the root volume of the SVM. Specify one of the following values:</para><ul><li><para><code>UNIX</code> if the file system is managed by a UNIX administrator, the majority
-        /// of users are NFS clients, and an application accessing the data uses a UNIX user as
-        /// the service account.</para></li><li><para><code>NTFS</code> if the file system is managed by a Windows administrator, the majority
+        /// <para>The security style of the root volume of the SVM. Specify one of the following values:</para><ul><li><para><c>UNIX</c> if the file system is managed by a UNIX administrator, the majority of
+        /// users are NFS clients, and an application accessing the data uses a UNIX user as the
+        /// service account.</para></li><li><para><c>NTFS</c> if the file system is managed by a Windows administrator, the majority
         /// of users are SMB clients, and an application accessing the data uses a Windows user
-        /// as the service account.</para></li><li><para><code>MIXED</code> if the file system is managed by both UNIX and Windows administrators
+        /// as the service account.</para></li><li><para><c>MIXED</c> if the file system is managed by both UNIX and Windows administrators
         /// and users consist of both NFS and SMB clients.</para></li></ul>
         /// </para>
         /// </summary>
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>The password to use when managing the SVM using the NetApp ONTAP CLI or REST API.
-        /// If you do not specify a password, you can still use the file system's <code>fsxadmin</code>
+        /// If you do not specify a password, you can still use the file system's <c>fsxadmin</c>
         /// user to manage the SVM.</para>
         /// </para>
         /// </summary>
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>The user name for the service account on your self-managed AD domain that Amazon FSx
         /// will use to join to your AD domain. This account must have the permission to join
-        /// computers to the domain in the organizational unit provided in <code>OrganizationalUnitDistinguishedName</code>,
+        /// computers to the domain in the organizational unit provided in <c>OrganizationalUnitDistinguishedName</c>,
         /// or in the default location of your AD domain.</para>
         /// </para>
         /// </summary>

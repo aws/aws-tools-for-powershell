@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// one call, the response will include a continuation token that you can use to list
     /// the additional access points.
     /// </para><para>
-    /// The following actions are related to <code>ListAccessPointsForObjectLambda</code>:
+    /// The following actions are related to <c>ListAccessPointsForObjectLambda</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPointForObjectLambda.html">CreateAccessPointForObjectLambda</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointForObjectLambda.html">DeleteAccessPointForObjectLambda</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointForObjectLambda.html">GetAccessPointForObjectLambda</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3CAccessPointsForObjectLambdaList")]
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>The maximum number of access points that you want to include in the list. The response
         /// may contain fewer access points but will never contain more. If there are more than
         /// this number of access points, then the response will include a continuation token
-        /// in the <code>NextToken</code> field that you can use to retrieve the next page of
-        /// access points.</para>
+        /// in the <c>NextToken</c> field that you can use to retrieve the next page of access
+        /// points.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

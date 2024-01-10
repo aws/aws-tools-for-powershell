@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>The size of your target instance. Fleet Advisor calculates this value based on your
         /// data collection type, such as total capacity and resource utilization. Valid values
-        /// include <code>"total-capacity"</code> and <code>"utilization"</code>.</para>
+        /// include <c>"total-capacity"</c> and <c>"utilization"</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>The deployment option for your target engine. For production databases, Fleet Advisor
         /// chooses Multi-AZ deployment. For development or test databases, Fleet Advisor chooses
-        /// Single-AZ deployment. Valid values include <code>"development"</code> and <code>"production"</code>.</para>
+        /// Single-AZ deployment. Valid values include <c>"development"</c> and <c>"production"</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

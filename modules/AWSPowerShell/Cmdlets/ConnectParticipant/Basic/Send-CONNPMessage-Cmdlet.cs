@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     /// <summary>
     /// Sends a message.
     /// 
-    ///  <note><para><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.
+    ///  <note><para><c>ConnectionToken</c> is used for invoking this API instead of <c>ParticipantToken</c>.
     /// </para></note><para>
     /// The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
     /// Version 4 authentication</a>.
@@ -67,10 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         #region Parameter Content
         /// <summary>
         /// <para>
-        /// <para>The content of the message. </para><ul><li><para>For <code>text/plain</code> and <code>text/markdown</code>, the Length Constraints
-        /// are Minimum of 1, Maximum of 1024. </para></li><li><para>For <code>application/json</code>, the Length Constraints are Minimum of 1, Maximum
-        /// of 12000. </para></li><li><para>For <code>application/vnd.amazonaws.connect.message.interactive.response</code>, the
-        /// Length Constraints are Minimum of 1, Maximum of 12288.</para></li></ul>
+        /// <para>The content of the message. </para><ul><li><para>For <c>text/plain</c> and <c>text/markdown</c>, the Length Constraints are Minimum
+        /// of 1, Maximum of 1024. </para></li><li><para>For <c>application/json</c>, the Length Constraints are Minimum of 1, Maximum of 12000.
+        /// </para></li><li><para>For <c>application/vnd.amazonaws.connect.message.interactive.response</c>, the Length
+        /// Constraints are Minimum of 1, Maximum of 12288.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// <para>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>,
-        /// <code>application/json</code>, and <code>application/vnd.amazonaws.connect.message.interactive.response</code>.</para>
+        /// <para>The type of the content. Supported types are <c>text/plain</c>, <c>text/markdown</c>,
+        /// <c>application/json</c>, and <c>application/vnd.amazonaws.connect.message.interactive.response</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

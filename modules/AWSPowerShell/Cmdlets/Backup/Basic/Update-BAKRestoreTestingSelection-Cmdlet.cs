@@ -28,13 +28,13 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Most elements except the <code>RestoreTestingSelectionName</code> can be updated with
-    /// this request.
+    /// Most elements except the <c>RestoreTestingSelectionName</c> can be updated with this
+    /// request.
     /// 
     ///  
-    /// <para><code>RestoreTestingSelection</code> can use either protected resource ARNs or conditions,
-    /// but not both. That is, if your selection has <code>ProtectedResourceArns</code>, requesting
-    /// an update with the parameter <code>ProtectedResourceConditions</code> will be unsuccessful.
+    /// <para><c>RestoreTestingSelection</c> can use either protected resource ARNs or conditions,
+    /// but not both. That is, if your selection has <c>ProtectedResourceArns</c>, requesting
+    /// an update with the parameter <c>ProtectedResourceConditions</c> will be unsuccessful.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "BAKRestoreTestingSelection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that Backup uses to create the target
-        /// resource; for example: <code>arn:aws:iam::123456789012:role/S3Access</code>.</para>
+        /// resource; for example: <c>arn:aws:iam::123456789012:role/S3Access</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter RestoreTestingSelection_ProtectedResourceArn
         /// <summary>
         /// <para>
-        /// <para>You can include a list of specific ARNs, such as <code>ProtectedResourceArns: ["arn:aws:...",
-        /// "arn:aws:..."]</code> or you can include a wildcard: <code>ProtectedResourceArns:
-        /// ["*"]</code>, but not both.</para>
+        /// <para>You can include a list of specific ARNs, such as <c>ProtectedResourceArns: ["arn:aws:...",
+        /// "arn:aws:..."]</c> or you can include a wildcard: <c>ProtectedResourceArns: ["*"]</c>,
+        /// but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter RestoreTestingSelection_RestoreMetadataOverride
         /// <summary>
         /// <para>
-        /// <para>You can override certain restore metadata keys by including the parameter <code>RestoreMetadataOverrides</code>
-        /// in the body of <code>RestoreTestingSelection</code>. Key values are not case sensitive.</para><para>See the complete list of <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html">restore
+        /// <para>You can override certain restore metadata keys by including the parameter <c>RestoreMetadataOverrides</c>
+        /// in the body of <c>RestoreTestingSelection</c>. Key values are not case sensitive.</para><para>See the complete list of <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html">restore
         /// testing inferred metadata</a>.</para>
         /// </para>
         /// </summary>

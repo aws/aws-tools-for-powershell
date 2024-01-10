@@ -28,17 +28,17 @@ using Amazon.EBS.Model;
 namespace Amazon.PowerShell.Cmdlets.EBS
 {
     /// <summary>
-    /// Creates a new Amazon EBS snapshot. The new snapshot enters the <code>pending</code>
-    /// state after the request completes. 
+    /// Creates a new Amazon EBS snapshot. The new snapshot enters the <c>pending</c> state
+    /// after the request completes. 
     /// 
     ///  
     /// <para>
     /// After creating the snapshot, use <a href="https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html">
     /// PutSnapshotBlock</a> to write blocks of data to the snapshot.
     /// </para><note><para>
-    /// You should always retry requests that receive server (<code>5xx</code>) error responses,
-    /// and <code>ThrottlingException</code> and <code>RequestThrottledException</code> client
-    /// error responses. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error
+    /// You should always retry requests that receive server (<c>5xx</c>) error responses,
+    /// and <c>ThrottlingException</c> and <c>RequestThrottledException</c> client error responses.
+    /// For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error
     /// retries</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para></note>
     /// </summary>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         /// <summary>
         /// <para>
         /// <para>Indicates whether to encrypt the snapshot.</para><para>You can't specify <b>Encrypted</b> and <b> ParentSnapshotId</b> in the same request.
-        /// If you specify both parameters, the request fails with <code>ValidationException</code>.</para><para>The encryption status of the snapshot depends on the values that you specify for <b>Encrypted</b>,
+        /// If you specify both parameters, the request fails with <c>ValidationException</c>.</para><para>The encryption status of the snapshot depends on the values that you specify for <b>Encrypted</b>,
         /// <b>KmsKeyArn</b>, and <b>ParentSnapshotId</b>, and whether your Amazon Web Services
         /// account is enabled for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default">
         /// encryption by default</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         /// <para>
         /// <para>The ID of the parent snapshot. If there is no parent snapshot, or if you are creating
         /// the first snapshot for an on-premises volume, omit this parameter.</para><para>You can't specify <b>ParentSnapshotId</b> and <b>Encrypted</b> in the same request.
-        /// If you specify both parameters, the request fails with <code>ValidationException</code>.</para><para>The encryption status of the snapshot depends on the values that you specify for <b>Encrypted</b>,
+        /// If you specify both parameters, the request fails with <c>ValidationException</c>.</para><para>The encryption status of the snapshot depends on the values that you specify for <b>Encrypted</b>,
         /// <b>KmsKeyArn</b>, and <b>ParentSnapshotId</b>, and whether your Amazon Web Services
         /// account is enabled for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default">
         /// encryption by default</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         /// <summary>
         /// <para>
         /// <para>The amount of time (in minutes) after which the snapshot is automatically cancelled
-        /// if:</para><ul><li><para>No blocks are written to the snapshot.</para></li><li><para>The snapshot is not completed after writing the last block of data.</para></li></ul><para>If no value is specified, the timeout defaults to <code>60</code> minutes.</para>
+        /// if:</para><ul><li><para>No blocks are written to the snapshot.</para></li><li><para>The snapshot is not completed after writing the last block of data.</para></li></ul><para>If no value is specified, the timeout defaults to <c>60</c> minutes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         #region Parameter VolumeSize
         /// <summary>
         /// <para>
-        /// <para>The size of the volume, in GiB. The maximum size is <code>65536</code> GiB (64 TiB).</para>
+        /// <para>The size of the volume, in GiB. The maximum size is <c>65536</c> GiB (64 TiB).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

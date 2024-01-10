@@ -28,7 +28,7 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Deletes the assets in package versions and sets the package versions' status to <code>Disposed</code>.
+    /// Deletes the assets in package versions and sets the package versions' status to <c>Disposed</c>.
     /// A disposed package version cannot be restored in your repository because its assets
     /// are deleted. 
     /// 
@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     /// <para>
     ///  To view all disposed package versions in a repository, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a>
     /// and set the <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax">status</a>
-    /// parameter to <code>Disposed</code>. 
+    /// parameter to <c>Disposed</c>. 
     /// </para><para>
     ///  To view information about a disposed package version, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html">DescribePackageVersion</a>.
     /// 
@@ -113,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para>The namespace of the package versions to be disposed. The package version component
-        /// that specifies its namespace depends on its type. For example:</para><ul><li><para> The namespace of a Maven package version is its <code>groupId</code>. </para></li><li><para> The namespace of an npm package version is its <code>scope</code>. </para></li><li><para> Python and NuGet package versions do not contain a corresponding component, package
-        /// versions of those formats do not have a namespace. </para></li><li><para> The namespace of a generic package is its <code>namespace</code>. </para></li></ul>
+        /// that specifies its namespace depends on its type. For example:</para><ul><li><para> The namespace of a Maven package version is its <c>groupId</c>. </para></li><li><para> The namespace of an npm package version is its <c>scope</c>. </para></li><li><para> Python and NuGet package versions do not contain a corresponding component, package
+        /// versions of those formats do not have a namespace. </para></li><li><para> The namespace of a generic package is its <c>namespace</c>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,8 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Remove the association between one or more <code>DBProxyTarget</code> data structures
-    /// and a <code>DBProxyTargetGroup</code>.
+    /// Remove the association between one or more <c>DBProxyTarget</c> data structures and
+    /// a <c>DBProxyTargetGroup</c>.
     /// </summary>
     [Cmdlet("Unregister", "RDSDBProxyTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBProxyName
         /// <summary>
         /// <para>
-        /// <para>The identifier of the <code>DBProxy</code> that is associated with the <code>DBProxyTargetGroup</code>.</para>
+        /// <para>The identifier of the <c>DBProxy</c> that is associated with the <c>DBProxyTargetGroup</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TargetGroupName
         /// <summary>
         /// <para>
-        /// <para>The identifier of the <code>DBProxyTargetGroup</code>.</para>
+        /// <para>The identifier of the <c>DBProxyTargetGroup</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

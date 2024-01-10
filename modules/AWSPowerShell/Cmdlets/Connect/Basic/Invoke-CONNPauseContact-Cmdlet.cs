@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can find the <code>instanceId</code>
+        /// <para>The identifier of the Amazon Connect instance. You can find the <c>instanceId</c>
         /// in the ARN of the instance.</para>
         /// </para>
         /// </summary>

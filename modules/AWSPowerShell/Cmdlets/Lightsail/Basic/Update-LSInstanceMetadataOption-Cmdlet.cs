@@ -29,11 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
     /// Modifies the Amazon Lightsail instance metadata parameters on a running or stopped
-    /// instance. When you modify the parameters on a running instance, the <code>GetInstance</code>
-    /// or <code>GetInstances</code> API operation initially responds with a state of <code>pending</code>.
-    /// After the parameter modifications are successfully applied, the state changes to <code>applied</code>
-    /// in subsequent <code>GetInstance</code> or <code>GetInstances</code> API calls. For
-    /// more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-instance-metadata-service">Use
+    /// instance. When you modify the parameters on a running instance, the <c>GetInstance</c>
+    /// or <c>GetInstances</c> API operation initially responds with a state of <c>pending</c>.
+    /// After the parameter modifications are successfully applied, the state changes to <c>applied</c>
+    /// in subsequent <c>GetInstance</c> or <c>GetInstances</c> API calls. For more information,
+    /// see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-instance-metadata-service">Use
     /// IMDSv2 with an Amazon Lightsail instance</a> in the <i>Amazon Lightsail Developer
     /// Guide</i>.
     /// </summary>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>Enables or disables the HTTP metadata endpoint on your instances. If this parameter
-        /// is not specified, the existing state is maintained.</para><para>If you specify a value of <code>disabled</code>, you cannot access your instance metadata.</para>
+        /// is not specified, the existing state is maintained.</para><para>If you specify a value of <c>disabled</c>, you cannot access your instance metadata.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>
         /// <para>Enables or disables the IPv6 endpoint for the instance metadata service. This setting
         /// applies only when the HTTP metadata endpoint is enabled.</para><note><para>This parameter is available only for instances in the Europe (Stockholm) Amazon Web
-        /// Services Region (<code>eu-north-1</code>).</para></note>
+        /// Services Region (<c>eu-north-1</c>).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,13 +90,13 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The state of token usage for your instance metadata requests. If the parameter is
-        /// not specified in the request, the default state is <code>optional</code>.</para><para>If the state is <code>optional</code>, you can choose whether to retrieve instance
-        /// metadata with a signed token header on your request. If you retrieve the IAM role
-        /// credentials without a token, the version 1.0 role credentials are returned. If you
-        /// retrieve the IAM role credentials by using a valid signed token, the version 2.0 role
-        /// credentials are returned.</para><para>If the state is <code>required</code>, you must send a signed token header with all
-        /// instance metadata retrieval requests. In this state, retrieving the IAM role credential
-        /// always returns the version 2.0 credentials. The version 1.0 credentials are not available.</para>
+        /// not specified in the request, the default state is <c>optional</c>.</para><para>If the state is <c>optional</c>, you can choose whether to retrieve instance metadata
+        /// with a signed token header on your request. If you retrieve the IAM role credentials
+        /// without a token, the version 1.0 role credentials are returned. If you retrieve the
+        /// IAM role credentials by using a valid signed token, the version 2.0 role credentials
+        /// are returned.</para><para>If the state is <c>required</c>, you must send a signed token header with all instance
+        /// metadata retrieval requests. In this state, retrieving the IAM role credential always
+        /// returns the version 2.0 credentials. The version 1.0 credentials are not available.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

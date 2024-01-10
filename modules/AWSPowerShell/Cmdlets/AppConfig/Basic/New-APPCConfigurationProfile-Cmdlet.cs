@@ -108,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// <para>
         /// <para>The identifier for an Key Management Service key to encrypt new configuration data
         /// versions in the AppConfig hosted configuration store. This attribute is only used
-        /// for <code>hosted</code> configuration types. The identifier can be an KMS key ID,
-        /// alias, or the Amazon Resource Name (ARN) of the key ID or alias. To encrypt data managed
+        /// for <c>hosted</c> configuration types. The identifier can be an KMS key ID, alias,
+        /// or the Amazon Resource Name (ARN) of the key ID or alias. To encrypt data managed
         /// in other configuration stores, see the documentation for how to specify an KMS key
         /// for that particular service.</para>
         /// </para>
@@ -121,13 +121,13 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter LocationUri
         /// <summary>
         /// <para>
-        /// <para>A URI to locate the configuration. You can specify the following:</para><ul><li><para>For the AppConfig hosted configuration store and for feature flags, specify <code>hosted</code>.</para></li><li><para>For an Amazon Web Services Systems Manager Parameter Store parameter, specify either
-        /// the parameter name in the format <code>ssm-parameter://&lt;parameter name&gt;</code>
-        /// or the ARN.</para></li><li><para>For an Amazon Web Services CodePipeline pipeline, specify the URI in the following
-        /// format: <code>codepipeline</code>://&lt;pipeline name&gt;.</para></li><li><para>For an Secrets Manager secret, specify the URI in the following format: <code>secretsmanager</code>://&lt;secret
-        /// name&gt;.</para></li><li><para>For an Amazon S3 object, specify the URI in the following format: <code>s3://&lt;bucket&gt;/&lt;objectKey&gt;
-        /// </code>. Here is an example: <code>s3://my-bucket/my-app/us-east-1/my-config.json</code></para></li><li><para>For an SSM document, specify either the document name in the format <code>ssm-document://&lt;document
-        /// name&gt;</code> or the Amazon Resource Name (ARN).</para></li></ul>
+        /// <para>A URI to locate the configuration. You can specify the following:</para><ul><li><para>For the AppConfig hosted configuration store and for feature flags, specify <c>hosted</c>.</para></li><li><para>For an Amazon Web Services Systems Manager Parameter Store parameter, specify either
+        /// the parameter name in the format <c>ssm-parameter://&lt;parameter name&gt;</c> or
+        /// the ARN.</para></li><li><para>For an Amazon Web Services CodePipeline pipeline, specify the URI in the following
+        /// format: <c>codepipeline</c>://&lt;pipeline name&gt;.</para></li><li><para>For an Secrets Manager secret, specify the URI in the following format: <c>secretsmanager</c>://&lt;secret
+        /// name&gt;.</para></li><li><para>For an Amazon S3 object, specify the URI in the following format: <c>s3://&lt;bucket&gt;/&lt;objectKey&gt;
+        /// </c>. Here is an example: <c>s3://my-bucket/my-app/us-east-1/my-config.json</c></para></li><li><para>For an SSM document, specify either the document name in the format <c>ssm-document://&lt;document
+        /// name&gt;</c> or the Amazon Resource Name (ARN).</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// <summary>
         /// <para>
         /// <para>The ARN of an IAM role with permission to access the configuration at the specified
-        /// <code>LocationUri</code>.</para><important><para>A retrieval role ARN is not required for configurations stored in the AppConfig hosted
+        /// <c>LocationUri</c>.</para><important><para>A retrieval role ARN is not required for configurations stored in the AppConfig hosted
         /// configuration store. It is required for all other sources that store your configuration.
         /// </para></important>
         /// </para>
@@ -187,11 +187,11 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of configurations contained in the profile. AppConfig supports <code>feature
-        /// flags</code> and <code>freeform</code> configurations. We recommend you create feature
-        /// flag configurations to enable or disable new features and freeform configurations
-        /// to distribute configurations to an application. When calling this API, enter one of
-        /// the following values for <code>Type</code>:</para><para><code>AWS.AppConfig.FeatureFlags</code></para><para><code>AWS.Freeform</code></para>
+        /// <para>The type of configurations contained in the profile. AppConfig supports <c>feature
+        /// flags</c> and <c>freeform</c> configurations. We recommend you create feature flag
+        /// configurations to enable or disable new features and freeform configurations to distribute
+        /// configurations to an application. When calling this API, enter one of the following
+        /// values for <c>Type</c>:</para><para><c>AWS.AppConfig.FeatureFlags</c></para><para><c>AWS.Freeform</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

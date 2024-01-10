@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// 
     ///  
     /// <para>
-    /// Updates the name and description of a queue. At least <code>Name</code> or <code>Description</code>
+    /// Updates the name and description of a queue. At least <c>Name</c> or <c>Description</c>
     /// must be provided.
     /// </para>
     /// </summary>

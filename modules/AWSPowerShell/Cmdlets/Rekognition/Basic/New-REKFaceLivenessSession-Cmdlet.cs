@@ -28,20 +28,20 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// This API operation initiates a Face Liveness session. It returns a <code>SessionId</code>,
+    /// This API operation initiates a Face Liveness session. It returns a <c>SessionId</c>,
     /// which you can use to start streaming Face Liveness video and get the results for a
     /// Face Liveness session. 
     /// 
     ///  
     /// <para>
-    /// You can use the <code>OutputConfig</code> option in the Settings parameter to provide
-    /// an Amazon S3 bucket location. The Amazon S3 bucket stores reference images and audit
+    /// You can use the <c>OutputConfig</c> option in the Settings parameter to provide an
+    /// Amazon S3 bucket location. The Amazon S3 bucket stores reference images and audit
     /// images. If no Amazon S3 bucket is defined, raw bytes are sent instead. 
     /// </para><para>
-    /// You can use <code>AuditImagesLimit</code> to limit the number of audit images returned
-    /// when <code>GetFaceLivenessSessionResults</code> is called. This number is between
-    /// 0 and 4. By default, it is set to 0. The limit is best effort and based on the duration
-    /// of the selfie-video. 
+    /// You can use <c>AuditImagesLimit</c> to limit the number of audit images returned when
+    /// <c>GetFaceLivenessSessionResults</c> is called. This number is between 0 and 4. By
+    /// default, it is set to 0. The limit is best effort and based on the duration of the
+    /// selfie-video. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "REKFaceLivenessSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Idempotent token is used to recognize the Face Liveness request. If the same token
-        /// is used with multiple <code>CreateFaceLivenessSession</code> requests, the same session
+        /// is used with multiple <c>CreateFaceLivenessSession</c> requests, the same session
         /// is returned. This token is employed to avoid unintentionally creating the same session
         /// multiple times.</para>
         /// </para>

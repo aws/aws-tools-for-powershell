@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter DataProtectionPolicy
         /// <summary>
         /// <para>
-        /// <para>The JSON serialization of the topic's <code>DataProtectionPolicy</code>.</para><para>The <code>DataProtectionPolicy</code> must be in JSON string format.</para><para>Length Constraints: Maximum length of 30,720.</para>
+        /// <para>The JSON serialization of the topic's <c>DataProtectionPolicy</c>.</para><para>The <c>DataProtectionPolicy</c> must be in JSON string format.</para><para>Length Constraints: Maximum length of 30,720.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to add or update.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// <para>The ARN of the topic whose <c>DataProtectionPolicy</c> you want to add or update.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs)</a> in the Amazon Web Services General Reference.</para>
         /// </para>
         /// </summary>

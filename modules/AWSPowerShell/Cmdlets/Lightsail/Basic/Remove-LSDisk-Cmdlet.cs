@@ -28,15 +28,15 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Deletes the specified block storage disk. The disk must be in the <code>available</code>
+    /// Deletes the specified block storage disk. The disk must be in the <c>available</c>
     /// state (not attached to a Lightsail instance).
     /// 
     ///  <note><para>
-    /// The disk may remain in the <code>deleting</code> state for several minutes.
+    /// The disk may remain in the <c>deleting</c> state for several minutes.
     /// </para></note><para>
-    /// The <code>delete disk</code> operation supports tag-based access control via resource
-    /// tags applied to the resource identified by <code>disk name</code>. For more information,
-    /// see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// The <c>delete disk</c> operation supports tag-based access control via resource tags
+    /// applied to the resource identified by <c>disk name</c>. For more information, see
+    /// the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskName
         /// <summary>
         /// <para>
-        /// <para>The unique name of the disk you want to delete (<code>my-disk</code>).</para>
+        /// <para>The unique name of the disk you want to delete (<c>my-disk</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

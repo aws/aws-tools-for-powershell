@@ -29,16 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
 {
     /// <summary>
     /// Returns a list of insights in your Amazon Web Services account. You can specify which
-    /// insights are returned by their start time, one or more statuses (<code>ONGOING</code>
-    /// or <code>CLOSED</code>), one or more severities (<code>LOW</code>, <code>MEDIUM</code>,
-    /// and <code>HIGH</code>), and type (<code>REACTIVE</code> or <code>PROACTIVE</code>).
-    /// 
+    /// insights are returned by their start time, one or more statuses (<c>ONGOING</c> or
+    /// <c>CLOSED</c>), one or more severities (<c>LOW</c>, <c>MEDIUM</c>, and <c>HIGH</c>),
+    /// and type (<c>REACTIVE</c> or <c>PROACTIVE</c>). 
     /// 
     ///  
     /// <para>
-    ///  Use the <code>Filters</code> parameter to specify status and severity search parameters.
-    /// Use the <code>Type</code> parameter to specify <code>REACTIVE</code> or <code>PROACTIVE</code>
-    /// in your search. 
+    ///  Use the <c>Filters</c> parameter to specify status and severity search parameters.
+    /// Use the <c>Type</c> parameter to specify <c>REACTIVE</c> or <c>PROACTIVE</c> in your
+    /// search. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "DGURUInsight", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -115,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para> The type of insights you are searching for (<code>REACTIVE</code> or <code>PROACTIVE</code>).
+        /// <para> The type of insights you are searching for (<c>REACTIVE</c> or <c>PROACTIVE</c>).
         /// </para>
         /// </para>
         /// </summary>
@@ -134,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

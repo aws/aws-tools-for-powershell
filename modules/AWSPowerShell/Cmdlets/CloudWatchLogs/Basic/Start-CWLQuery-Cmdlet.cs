@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch
     /// Logs Insights Query Syntax</a>.
     /// </para><para>
-    /// After you run a query using <code>StartQuery</code>, the query results are stored
-    /// by CloudWatch Logs. You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html">GetQueryResults</a>
-    /// to retrieve the results of a query, using the <code>queryId</code> that <code>StartQuery</code>
+    /// After you run a query using <c>StartQuery</c>, the query results are stored by CloudWatch
+    /// Logs. You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html">GetQueryResults</a>
+    /// to retrieve the results of a query, using the <c>queryId</c> that <c>StartQuery</c>
     /// returns. 
     /// </para><para>
     /// If you have associated a KMS key with the query results in this account, then <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// If you are using CloudWatch cross-account observability, you can use this operation
     /// in a monitoring account to start a query in a linked source account. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
-    /// cross-account observability</a>. For a cross-account <code>StartQuery</code> operation,
+    /// cross-account observability</a>. For a cross-account <c>StartQuery</c> operation,
     /// the query definition must be defined in the monitoring account.
     /// </para><para>
     /// You can have up to 30 concurrent CloudWatch Logs insights queries, including queries
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The end of the time range to query. The range is inclusive, so the specified end time
-        /// is included in the query. Specified as epoch time, the number of seconds since <code>January
-        /// 1, 1970, 00:00:00 UTC</code>.</para>
+        /// is included in the query. Specified as epoch time, the number of seconds since <c>January
+        /// 1, 1970, 00:00:00 UTC</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,9 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>The list of log groups to query. You can include up to 50 log groups.</para><para>You can specify them by the log group name or ARN. If a log group that you're querying
         /// is in a source account and you're using a monitoring account, you must specify the
         /// ARN of the log group here. The query definition must also be defined in the monitoring
-        /// account.</para><para>If you specify an ARN, the ARN can't end with an asterisk (*).</para><para>A <code>StartQuery</code> operation must include exactly one of the following parameters:
-        /// <code>logGroupName</code>, <code>logGroupNames</code>, or <code>logGroupIdentifiers</code>.
-        /// </para>
+        /// account.</para><para>If you specify an ARN, the ARN can't end with an asterisk (*).</para><para>A <c>StartQuery</c> operation must include exactly one of the following parameters:
+        /// <c>logGroupName</c>, <c>logGroupNames</c>, or <c>logGroupIdentifiers</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,9 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The log group on which to perform the query.</para><note><para>A <code>StartQuery</code> operation must include exactly one of the following parameters:
-        /// <code>logGroupName</code>, <code>logGroupNames</code>, or <code>logGroupIdentifiers</code>.
-        /// </para></note>
+        /// <para>The log group on which to perform the query.</para><note><para>A <c>StartQuery</c> operation must include exactly one of the following parameters:
+        /// <c>logGroupName</c>, <c>logGroupNames</c>, or <c>logGroupIdentifiers</c>. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,9 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupNameList
         /// <summary>
         /// <para>
-        /// <para>The list of log groups to be queried. You can include up to 50 log groups.</para><note><para>A <code>StartQuery</code> operation must include exactly one of the following parameters:
-        /// <code>logGroupName</code>, <code>logGroupNames</code>, or <code>logGroupIdentifiers</code>.
-        /// </para></note>
+        /// <para>The list of log groups to be queried. You can include up to 50 log groups.</para><note><para>A <c>StartQuery</c> operation must include exactly one of the following parameters:
+        /// <c>logGroupName</c>, <c>logGroupNames</c>, or <c>logGroupIdentifiers</c>. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>The beginning of the time range to query. The range is inclusive, so the specified
         /// start time is included in the query. Specified as epoch time, the number of seconds
-        /// since <code>January 1, 1970, 00:00:00 UTC</code>.</para>
+        /// since <c>January 1, 1970, 00:00:00 UTC</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -169,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The maximum number of log events to return in the query. If the query string uses
-        /// the <code>fields</code> command, only the specified fields and their values are returned.
+        /// the <c>fields</c> command, only the specified fields and their values are returned.
         /// The default is 1000.</para>
         /// </para>
         /// </summary>

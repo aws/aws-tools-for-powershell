@@ -31,14 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// Returns bot information as follows: 
     /// 
     ///  <ul><li><para>
-    /// If you provide the <code>nameContains</code> field, the response includes information
-    /// for the <code>$LATEST</code> version of all bots whose name contains the specified
-    /// string.
+    /// If you provide the <c>nameContains</c> field, the response includes information for
+    /// the <c>$LATEST</c> version of all bots whose name contains the specified string.
     /// </para></li><li><para>
-    /// If you don't specify the <code>nameContains</code> field, the operation returns information
-    /// about the <code>$LATEST</code> version of all of your bots.
+    /// If you don't specify the <c>nameContains</c> field, the operation returns information
+    /// about the <c>$LATEST</c> version of all of your bots.
     /// </para></li></ul><para>
-    /// This operation requires permission for the <code>lex:GetBots</code> action.
+    /// This operation requires permission for the <c>lex:GetBots</c> action.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LMBBotList")]

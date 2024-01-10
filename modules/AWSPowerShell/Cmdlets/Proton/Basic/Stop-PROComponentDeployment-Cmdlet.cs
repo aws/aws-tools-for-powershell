@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Attempts to cancel a component deployment (for a component that is in the <code>IN_PROGRESS</code>
+    /// Attempts to cancel a component deployment (for a component that is in the <c>IN_PROGRESS</c>
     /// deployment status).
     /// 
     ///  

@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Maximum number of DNS aliases to return in the response (integer). This parameter
         /// value must be greater than 0. The number of items that Amazon FSx returns is the minimum
-        /// of the <code>MaxResults</code> parameter specified in the request and the service's
-        /// internal maximum number of items per page.</para>
+        /// of the <c>MaxResults</c> parameter specified in the request and the service's internal
+        /// maximum number of items per page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Opaque pagination token returned from a previous <code>DescribeFileSystemAliases</code>
+        /// <para>Opaque pagination token returned from a previous <c>DescribeFileSystemAliases</c>
         /// operation (String). If a token is included in the request, the action continues the
         /// list from where the previous returning call left off.</para>
         /// </para>

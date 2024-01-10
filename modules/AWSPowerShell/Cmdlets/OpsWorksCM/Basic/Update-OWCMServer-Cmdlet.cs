@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter DisableAutomatedBackup
         /// <summary>
         /// <para>
-        /// <para>Setting DisableAutomatedBackup to <code>true</code> disables automated or scheduled
-        /// backups. Automated backups are enabled by default. </para>
+        /// <para>Setting DisableAutomatedBackup to <c>true</c> disables automated or scheduled backups.
+        /// Automated backups are enabled by default. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter DeletePipelineProvisioningRepository
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to remove a configured pipeline repository from the account
-        /// settings. Don't set this field if you are updating the configured pipeline repository.</para>
+        /// <para>Set to <c>true</c> to remove a configured pipeline repository from the account settings.
+        /// Don't set this field if you are updating the configured pipeline repository.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

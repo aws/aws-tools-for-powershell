@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// Calling this API causes a message to be sent to the end user with a confirmation code
-    /// that is required to change the user's password. For the <code>Username</code> parameter,
+    /// that is required to change the user's password. For the <c>Username</c> parameter,
     /// you can use the username or user alias. The method used to send the confirmation code
     /// is sent according to the specified AccountRecoverySetting. For more information, see
     /// <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-recover-a-user-account.html">Recovering
@@ -39,9 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// 
     ///  
     /// <para>
-    /// If neither a verified phone number nor a verified email exists, this API returns <code>InvalidParameterException</code>.
-    /// If your app client has a client secret and you don't provide a <code>SECRET_HASH</code>
-    /// parameter, this API returns <code>NotAuthorizedException</code>.
+    /// If neither a verified phone number nor a verified email exists, this API returns <c>InvalidParameterException</c>.
+    /// If your app client has a client secret and you don't provide a <c>SECRET_HASH</c>
+    /// parameter, this API returns <c>NotAuthorizedException</c>.
     /// </para><note><para>
     /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you can't use IAM credentials to authorize
@@ -116,10 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// you use the ForgotPassword API action, Amazon Cognito invokes any functions that are
         /// assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, and
         /// <i>user migration</i>. When Amazon Cognito invokes any of these functions, it passes
-        /// a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code>
+        /// a JSON payload, which the function receives as input. This payload contains a <c>clientMetadata</c>
         /// attribute, which provides the data that you assigned to the ClientMetadata parameter
         /// in your ForgotPassword request. In your function code in Lambda, you can process the
-        /// <code>clientMetadata</code> value to enhance your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+        /// <c>clientMetadata</c> value to enhance your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
         /// Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito
         /// Developer Guide</i>.</para><note><para>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
         /// following:</para><ul><li><para>Store the ClientMetadata value. This data is available only to Lambda triggers that
@@ -169,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The username of the user that you want to query or modify. The value of this parameter
         /// is typically your user's username, but it can be any of their alias attributes. If
-        /// <code>username</code> isn't an alias attribute in your user pool, you can also use
-        /// their <code>sub</code> in this request.</para>
+        /// <c>username</c> isn't an alias attribute in your user pool, you can also use their
+        /// <c>sub</c> in this request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

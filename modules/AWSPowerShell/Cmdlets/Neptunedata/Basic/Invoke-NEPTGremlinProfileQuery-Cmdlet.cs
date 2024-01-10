@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter IndexOp
         /// <summary>
         /// <para>
-        /// <para>If this flag is set to <code>TRUE</code>, the results include a detailed report of
-        /// all index operations that took place during query execution and serialization.</para>
+        /// <para>If this flag is set to <c>TRUE</c>, the results include a detailed report of all index
+        /// operations that took place during query execution and serialization.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter Result
         /// <summary>
         /// <para>
-        /// <para>If this flag is set to <code>TRUE</code>, the query results are gathered and displayed
-        /// as part of the profile report. If <code>FALSE</code>, only the result count is displayed.</para>
+        /// <para>If this flag is set to <c>TRUE</c>, the query results are gathered and displayed as
+        /// part of the profile report. If <c>FALSE</c>, only the result count is displayed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

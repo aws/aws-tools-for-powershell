@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
         /// <summary>
         /// <para>
         /// <para>The type of environment member permissions you want to associate with this environment
-        /// member. Available values include:</para><ul><li><para><code>read-only</code>: Has read-only access to the environment.</para></li><li><para><code>read-write</code>: Has read-write access to the environment.</para></li></ul>
+        /// member. Available values include:</para><ul><li><para><c>read-only</c>: Has read-only access to the environment.</para></li><li><para><c>read-write</c>: Has read-write access to the environment.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

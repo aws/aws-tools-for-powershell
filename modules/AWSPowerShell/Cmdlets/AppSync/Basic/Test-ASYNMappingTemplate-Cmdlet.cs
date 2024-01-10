@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>The map that holds all of the contextual information for your resolver invocation.
-        /// A <code>context</code> is required for this action.</para>
+        /// A <c>context</c> is required for this action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Template
         /// <summary>
         /// <para>
-        /// <para>The mapping template; this can be a request or response template. A <code>template</code>
+        /// <para>The mapping template; this can be a request or response template. A <c>template</c>
         /// is required for this action.</para>
         /// </para>
         /// </summary>

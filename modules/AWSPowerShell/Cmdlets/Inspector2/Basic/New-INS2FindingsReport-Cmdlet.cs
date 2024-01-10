@@ -28,9 +28,9 @@ using Amazon.Inspector2.Model;
 namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Creates a finding report. By default only <code>ACTIVE</code> findings are returned
-    /// in the report. To see <code>SUPRESSED</code> or <code>CLOSED</code> findings you must
-    /// specify a value for the <code>findingStatus</code> filter criteria.
+    /// Creates a finding report. By default only <c>ACTIVE</c> findings are returned in the
+    /// report. To see <c>SUPRESSED</c> or <c>CLOSED</c> findings you must specify a value
+    /// for the <c>findingStatus</c> filter criteria.
     /// </summary>
     [Cmdlet("New", "INS2FindingsReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -283,9 +283,9 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>Details on whether a fix is available through a version update. This value can be
-        /// <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>. A <code>PARTIAL</code>
-        /// fix means that some, but not all, of the packages identified in the finding have fixes
-        /// available through updated versions.</para>
+        /// <c>YES</c>, <c>NO</c>, or <c>PARTIAL</c>. A <c>PARTIAL</c> fix means that some, but
+        /// not all, of the packages identified in the finding have fixes available through updated
+        /// versions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

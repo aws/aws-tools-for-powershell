@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter RegistryId_RegistryArn
         /// <summary>
         /// <para>
-        /// <para>Arn of the registry to be updated. One of <code>RegistryArn</code> or <code>RegistryName</code>
+        /// <para>Arn of the registry to be updated. One of <c>RegistryArn</c> or <c>RegistryName</c>
         /// has to be provided.</para>
         /// </para>
         /// </summary>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter RegistryId_RegistryName
         /// <summary>
         /// <para>
-        /// <para>Name of the registry. Used only for lookup. One of <code>RegistryArn</code> or <code>RegistryName</code>
+        /// <para>Name of the registry. Used only for lookup. One of <c>RegistryArn</c> or <c>RegistryName</c>
         /// has to be provided. </para>
         /// </para>
         /// </summary>

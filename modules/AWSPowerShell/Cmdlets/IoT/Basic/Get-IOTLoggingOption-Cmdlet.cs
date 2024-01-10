@@ -32,8 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// 
     ///  
     /// <para>
-    /// NOTE: use of this command is not recommended. Use <code>GetV2LoggingOptions</code>
-    /// instead.
+    /// NOTE: use of this command is not recommended. Use <c>GetV2LoggingOptions</c> instead.
     /// </para><para>
     /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetLoggingOptions</a>
     /// action.

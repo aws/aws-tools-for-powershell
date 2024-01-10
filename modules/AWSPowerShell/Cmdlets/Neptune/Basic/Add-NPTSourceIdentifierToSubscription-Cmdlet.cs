@@ -45,10 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter SourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the event source to be added.</para><para>Constraints:</para><ul><li><para>If the source type is a DB instance, then a <code>DBInstanceIdentifier</code> must
-        /// be supplied.</para></li><li><para>If the source type is a DB security group, a <code>DBSecurityGroupName</code> must
-        /// be supplied.</para></li><li><para>If the source type is a DB parameter group, a <code>DBParameterGroupName</code> must
-        /// be supplied.</para></li><li><para>If the source type is a DB snapshot, a <code>DBSnapshotIdentifier</code> must be supplied.</para></li></ul>
+        /// <para>The identifier of the event source to be added.</para><para>Constraints:</para><ul><li><para>If the source type is a DB instance, then a <c>DBInstanceIdentifier</c> must be supplied.</para></li><li><para>If the source type is a DB security group, a <c>DBSecurityGroupName</c> must be supplied.</para></li><li><para>If the source type is a DB parameter group, a <c>DBParameterGroupName</c> must be
+        /// supplied.</para></li><li><para>If the source type is a DB snapshot, a <c>DBSnapshotIdentifier</c> must be supplied.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

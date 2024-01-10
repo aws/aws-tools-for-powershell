@@ -94,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The name of the Identity and Access Management (IAM) role that you want to assign
         /// to the managed node. This IAM role must provide AssumeRole permissions for the Amazon
-        /// Web Services Systems Manager service principal <code>ssm.amazonaws.com</code>. For
-        /// more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create
+        /// Web Services Systems Manager service principal <c>ssm.amazonaws.com</c>. For more
+        /// information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create
         /// an IAM service role for a hybrid environment</a> in the <i>Amazon Web Services Systems
         /// Manager User Guide</i>.</para><note><para>You can't specify an IAM service-linked role for this parameter. You must create a
         /// unique role.</para></note>
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Specify the maximum number of managed nodes you want to register. The default value
-        /// is <code>1</code>.</para>
+        /// is <c>1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// in different ways, such as by purpose, owner, or environment. For example, you might
         /// want to tag an activation to identify which servers or virtual machines (VMs) in your
         /// on-premises environment you intend to activate. In this case, you could specify the
-        /// following key-value pairs:</para><ul><li><para><code>Key=OS,Value=Windows</code></para></li><li><para><code>Key=Environment,Value=Production</code></para></li></ul><important><para>When you install SSM Agent on your on-premises servers and VMs, you specify an activation
+        /// following key-value pairs:</para><ul><li><para><c>Key=OS,Value=Windows</c></para></li><li><para><c>Key=Environment,Value=Production</c></para></li></ul><important><para>When you install SSM Agent on your on-premises servers and VMs, you specify an activation
         /// ID and code. When you specify the activation ID and code, tags assigned to the activation
         /// are automatically applied to the on-premises servers or VMs.</para></important><para>You can't add tags to or delete tags from an existing activation. You can tag your
         /// on-premises servers, edge devices, and VMs after they connect to Systems Manager for

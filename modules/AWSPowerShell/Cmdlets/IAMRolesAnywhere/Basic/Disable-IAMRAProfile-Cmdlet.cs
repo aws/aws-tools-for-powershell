@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// fail.
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:DisableProfile</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:DisableProfile</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Disable", "IAMRAProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Entry
         /// <summary>
         /// <para>
-        /// <para>A list of <code>BatchGetTableOptimizerEntry</code> objects specifying the table optimizers
+        /// <para>A list of <c>BatchGetTableOptimizerEntry</c> objects specifying the table optimizers
         /// to retrieve.</para>
         /// </para>
         /// </summary>

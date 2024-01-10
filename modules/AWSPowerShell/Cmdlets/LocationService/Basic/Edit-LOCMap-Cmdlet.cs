@@ -41,6 +41,20 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ConfigurationUpdate_CustomLayer
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the custom layers for the style. Leave unset to not enable any custom layer,
+        /// or, for styles that support custom layers, you can enable layer(s), such as POI layer
+        /// for the VectorEsriNavigation style. Default is <c>unset</c>.</para><note><para>Not all map resources or styles support custom layers. See Custom Layers for more
+        /// information.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationUpdate_CustomLayers")]
+        public System.String[] ConfigurationUpdate_CustomLayer { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -73,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>
         /// <para>Specifies the political view for the style. Set to an empty string to not use a political
         /// view, or, for styles that support specific political views, you can choose a view,
-        /// such as <code>IND</code> for the Indian view.</para><note><para>Not all map resources or styles support political view styles. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#political-views">Political
+        /// such as <c>IND</c> for the Indian view.</para><note><para>Not all map resources or styles support political view styles. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#political-views">Political
         /// views</a> for more information.</para></note>
         /// </para>
         /// </summary>
@@ -84,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</para>
+        /// <para>No longer used. If included, the only allowed value is <c>RequestBasedUsage</c>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -156,6 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 context.Select = (response, cmdlet) => this.MapName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.ConfigurationUpdate_CustomLayer != null)
+            {
+                context.ConfigurationUpdate_CustomLayer = new List<System.String>(this.ConfigurationUpdate_CustomLayer);
+            }
             context.ConfigurationUpdate_PoliticalView = this.ConfigurationUpdate_PoliticalView;
             context.Description = this.Description;
             context.MapName = this.MapName;
@@ -188,6 +206,16 @@ namespace Amazon.PowerShell.Cmdlets.LOC
              // populate ConfigurationUpdate
             var requestConfigurationUpdateIsNull = true;
             request.ConfigurationUpdate = new Amazon.LocationService.Model.MapConfigurationUpdate();
+            List<System.String> requestConfigurationUpdate_configurationUpdate_CustomLayer = null;
+            if (cmdletContext.ConfigurationUpdate_CustomLayer != null)
+            {
+                requestConfigurationUpdate_configurationUpdate_CustomLayer = cmdletContext.ConfigurationUpdate_CustomLayer;
+            }
+            if (requestConfigurationUpdate_configurationUpdate_CustomLayer != null)
+            {
+                request.ConfigurationUpdate.CustomLayers = requestConfigurationUpdate_configurationUpdate_CustomLayer;
+                requestConfigurationUpdateIsNull = false;
+            }
             System.String requestConfigurationUpdate_configurationUpdate_PoliticalView = null;
             if (cmdletContext.ConfigurationUpdate_PoliticalView != null)
             {
@@ -278,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> ConfigurationUpdate_CustomLayer { get; set; }
             public System.String ConfigurationUpdate_PoliticalView { get; set; }
             public System.String Description { get; set; }
             public System.String MapName { get; set; }

@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     /// Describes a budget.
     /// 
     ///  <important><para>
-    /// The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>,
+    /// The Request Syntax section shows the <c>BudgetLimit</c> syntax. For <c>PlannedBudgetLimits</c>,
     /// see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudget.html#API_DescribeBudget_Examples">Examples</a>
     /// section. 
     /// </para></important>
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The <code>accountId</code> that is associated with the budget that you want a description
+        /// <para>The <c>accountId</c> that is associated with the budget that you want a description
         /// of.</para>
         /// </para>
         /// </summary>

@@ -99,9 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter ResourceSet_ResourceSetStatus
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the resource set is in or out of an admin's Region scope.</para><ul><li><para><code>ACTIVE</code> - The administrator can manage and delete the resource set.</para></li><li><para><code>OUT_OF_ADMIN_SCOPE</code> - The administrator can view the resource set, but
-        /// they can't edit or delete the resource set. Existing protections stay in place. Any
-        /// new resource that come into scope of the resource set won't be protected.</para></li></ul>
+        /// <para>Indicates whether the resource set is in or out of an admin's Region scope.</para><ul><li><para><c>ACTIVE</c> - The administrator can manage and delete the resource set.</para></li><li><para><c>OUT_OF_ADMIN_SCOPE</c> - The administrator can view the resource set, but they
+        /// can't edit or delete the resource set. Existing protections stay in place. Any new
+        /// resource that come into scope of the resource set won't be protected.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// request. Without the token, Firewall Manager performs your updates regardless of whether
         /// the resource set has changed since you last retrieved it.</para><para>To make a conditional change to the resource set, provide the token in your update
         /// request. Firewall Manager uses the token to ensure that the resource set hasn't changed
-        /// since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>.
+        /// since you last retrieved it. If it has changed, the operation fails with an <c>InvalidTokenException</c>.
         /// If this happens, retrieve the resource set again to get a current copy of it with
         /// a new token. Reapply your changes as needed, then try the operation again using the
         /// new token. </para>

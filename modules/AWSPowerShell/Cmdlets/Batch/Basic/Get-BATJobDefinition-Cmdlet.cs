@@ -28,8 +28,8 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Describes a list of job definitions. You can specify a <code>status</code> (such as
-    /// <code>ACTIVE</code>) to only return job definitions that match that status.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes a list of job definitions. You can specify a <c>status</c> (such as <c>ACTIVE</c>)
+    /// to only return job definitions that match that status.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BATJobDefinition")]
     [OutputType("Amazon.Batch.Model.JobDefinition")]
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>A list of up to 100 job definitions. Each entry in the list can either be an ARN in
-        /// the format <code>arn:aws:batch:${Region}:${Account}:job-definition/${JobDefinitionName}:${Revision}</code>
-        /// or a short version using the form <code>${JobDefinitionName}:${Revision}</code>.</para>
+        /// the format <c>arn:aws:batch:${Region}:${Account}:job-definition/${JobDefinitionName}:${Revision}</c>
+        /// or a short version using the form <c>${JobDefinitionName}:${Revision}</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,13 +79,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results returned by <code>DescribeJobDefinitions</code> in paginated
-        /// output. When this parameter is used, <code>DescribeJobDefinitions</code> only returns
-        /// <code>maxResults</code> results in a single page and a <code>nextToken</code> response
-        /// element. The remaining results of the initial request can be seen by sending another
-        /// <code>DescribeJobDefinitions</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 100. If this parameter isn't used, then <code>DescribeJobDefinitions</code>
-        /// returns up to 100 results and a <code>nextToken</code> value if applicable.</para>
+        /// <para>The maximum number of results returned by <c>DescribeJobDefinitions</c> in paginated
+        /// output. When this parameter is used, <c>DescribeJobDefinitions</c> only returns <c>maxResults</c>
+        /// results in a single page and a <c>nextToken</c> response element. The remaining results
+        /// of the initial request can be seen by sending another <c>DescribeJobDefinitions</c>
+        /// request with the returned <c>nextToken</c> value. This value can be between 1 and
+        /// 100. If this parameter isn't used, then <c>DescribeJobDefinitions</c> returns up to
+        /// 100 results and a <c>nextToken</c> value if applicable.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -101,11 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>DescribeJobDefinitions</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return.</para><note><para>Treat this token as an opaque identifier that's only used to retrieve the next items
+        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>DescribeJobDefinitions</c>
+        /// request where <c>maxResults</c> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <c>nextToken</c> value. This value is <c>null</c> when there are no more results
+        /// to return.</para><note><para>Treat this token as an opaque identifier that's only used to retrieve the next items
         /// in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

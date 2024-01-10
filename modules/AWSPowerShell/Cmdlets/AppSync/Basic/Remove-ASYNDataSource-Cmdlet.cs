@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Deletes a <code>DataSource</code> object.
+    /// Deletes a <c>DataSource</c> object.
     /// </summary>
     [Cmdlet("Remove", "ASYNDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the group to return information for. You can specify the group name, the
-        /// ARN, or the group ID as the <code>GroupIdentifier</code>.</para>
+        /// ARN, or the group ID as the <c>GroupIdentifier</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>Specify this parameter to limit how many canary ARNs are returned each time you use
-        /// the <code>ListGroupResources</code> operation. If you omit this parameter, the default
-        /// of 20 is used.</para>
+        /// the <c>ListGroupResources</c> operation. If you omit this parameter, the default of
+        /// 20 is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// changes until you create a new configuration recorder.
     /// </para><para>
     /// This action does not delete the configuration information that was previously recorded.
-    /// You will be able to access the previously recorded information by using the <code>GetResourceConfigHistory</code>
+    /// You will be able to access the previously recorded information by using the <c>GetResourceConfigHistory</c>
     /// action, but you will not be able to access this information in the Config console
     /// until you create a new configuration recorder.
     /// </para>
@@ -57,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The name of the configuration recorder to be deleted. You can retrieve the name of
-        /// your configuration recorder by using the <code>DescribeConfigurationRecorders</code>
-        /// action.</para>
+        /// your configuration recorder by using the <c>DescribeConfigurationRecorders</c> action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

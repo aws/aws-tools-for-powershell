@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// <summary>
         /// <para>
         /// <para>Indicates whether or not to enable deletion protection on the graph. The graph can’t
-        /// be deleted when deletion protection is enabled. (<code>true</code> or <code>false</code>).</para>
+        /// be deleted when deletion protection is enabled. (<c>true</c> or <c>false</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,9 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         #region Parameter FailOnError
         /// <summary>
         /// <para>
-        /// <para>If set to <code>true</code>, the task halts when an import error is encountered. If
-        /// set to <code>false</code>, the task skips the data that caused the error and continues
-        /// if possible.</para>
+        /// <para>If set to <c>true</c>, the task halts when an import error is encountered. If set
+        /// to <c>false</c>, the task skips the data that caused the error and continues if possible.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,9 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         #region Parameter Format
         /// <summary>
         /// <para>
-        /// <para>Specifies the format of S3 data to be imported. Valid values are <code>CSV</code>,
-        /// which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html">Gremlin
-        /// CSV format</a> or <code>OPENCYPHER</code>, which identies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher
+        /// <para>Specifies the format of S3 data to be imported. Valid values are <c>CSV</c>, which
+        /// identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html">Gremlin
+        /// CSV format</a> or <c>OPENCYPHER</c>, which identies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher
         /// load format</a>.</para>
         /// </para>
         /// </summary>
@@ -129,9 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// <summary>
         /// <para>
         /// <para>The maximum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for
-        /// the graph. Default: 1024, or the approved upper limit for your account.</para><para> If both the minimum and maximum values are specified, the max of the <code>min-provisioned-memory</code>
-        /// and <code>max-provisioned memory</code> is used to create the graph. If neither value
-        /// is specified 128 m-NCUs are used.</para>
+        /// the graph. Default: 1024, or the approved upper limit for your account.</para><para> If both the minimum and maximum values are specified, the max of the <c>min-provisioned-memory</c>
+        /// and <c>max-provisioned memory</c> is used to create the graph. If neither value is
+        /// specified 128 m-NCUs are used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,8 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// <summary>
         /// <para>
         /// <para>Specifies whether or not the graph can be reachable over the internet. All access
-        /// to graphs IAM authenticated. (<code>true</code> to enable, or <code>false</code> to
-        /// disable.</para>
+        /// to graphs IAM authenticated. (<c>true</c> to enable, or <c>false</c> to disable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

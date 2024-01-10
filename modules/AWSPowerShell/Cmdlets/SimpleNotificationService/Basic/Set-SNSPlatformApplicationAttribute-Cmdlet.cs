@@ -50,21 +50,20 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>A map of the platform application attributes. Attributes in this map include the following:</para><ul><li><para><code>PlatformCredential</code> – The credential received from the notification service.</para><ul><li><para>For ADM, <code>PlatformCredential</code>is client secret.</para></li><li><para>For Apple Services using certificate credentials, <code>PlatformCredential</code>
-        /// is private key.</para></li><li><para>For Apple Services using token credentials, <code>PlatformCredential</code> is signing
-        /// key.</para></li><li><para>For GCM (Firebase Cloud Messaging), <code>PlatformCredential</code> is API key. </para></li></ul></li></ul><ul><li><para><code>PlatformPrincipal</code> – The principal received from the notification service.</para><ul><li><para>For ADM, <code>PlatformPrincipal</code>is client id.</para></li><li><para>For Apple Services using certificate credentials, <code>PlatformPrincipal</code> is
-        /// SSL certificate.</para></li><li><para>For Apple Services using token credentials, <code>PlatformPrincipal</code> is signing
-        /// key ID.</para></li><li><para>For GCM (Firebase Cloud Messaging), there is no <code>PlatformPrincipal</code>. </para></li></ul></li></ul><ul><li><para><code>EventEndpointCreated</code> – Topic ARN to which <code>EndpointCreated</code>
-        /// event notifications are sent.</para></li><li><para><code>EventEndpointDeleted</code> – Topic ARN to which <code>EndpointDeleted</code>
-        /// event notifications are sent.</para></li><li><para><code>EventEndpointUpdated</code> – Topic ARN to which <code>EndpointUpdate</code>
-        /// event notifications are sent.</para></li><li><para><code>EventDeliveryFailure</code> – Topic ARN to which <code>DeliveryFailure</code>
-        /// event notifications are sent upon Direct Publish delivery failure (permanent) to one
-        /// of the application's endpoints.</para></li><li><para><code>SuccessFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write
-        /// access to use CloudWatch Logs on your behalf.</para></li><li><para><code>FailureFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write
-        /// access to use CloudWatch Logs on your behalf.</para></li><li><para><code>SuccessFeedbackSampleRate</code> – Sample rate percentage (0-100) of successfully
-        /// delivered messages.</para></li></ul><para>The following attributes only apply to <code>APNs</code> token-based authentication:</para><ul><li><para><code>ApplePlatformTeamID</code> – The identifier that's assigned to your Apple developer
-        /// account team.</para></li><li><para><code>ApplePlatformBundleID</code> – The bundle identifier that's assigned to your
-        /// iOS app.</para></li></ul>
+        /// <para>A map of the platform application attributes. Attributes in this map include the following:</para><ul><li><para><c>PlatformCredential</c> – The credential received from the notification service.</para><ul><li><para>For ADM, <c>PlatformCredential</c>is client secret.</para></li><li><para>For Apple Services using certificate credentials, <c>PlatformCredential</c> is private
+        /// key.</para></li><li><para>For Apple Services using token credentials, <c>PlatformCredential</c> is signing key.</para></li><li><para>For GCM (Firebase Cloud Messaging), <c>PlatformCredential</c> is API key. </para></li></ul></li></ul><ul><li><para><c>PlatformPrincipal</c> – The principal received from the notification service.</para><ul><li><para>For ADM, <c>PlatformPrincipal</c>is client id.</para></li><li><para>For Apple Services using certificate credentials, <c>PlatformPrincipal</c> is SSL
+        /// certificate.</para></li><li><para>For Apple Services using token credentials, <c>PlatformPrincipal</c> is signing key
+        /// ID.</para></li><li><para>For GCM (Firebase Cloud Messaging), there is no <c>PlatformPrincipal</c>. </para></li></ul></li></ul><ul><li><para><c>EventEndpointCreated</c> – Topic ARN to which <c>EndpointCreated</c> event notifications
+        /// are sent.</para></li><li><para><c>EventEndpointDeleted</c> – Topic ARN to which <c>EndpointDeleted</c> event notifications
+        /// are sent.</para></li><li><para><c>EventEndpointUpdated</c> – Topic ARN to which <c>EndpointUpdate</c> event notifications
+        /// are sent.</para></li><li><para><c>EventDeliveryFailure</c> – Topic ARN to which <c>DeliveryFailure</c> event notifications
+        /// are sent upon Direct Publish delivery failure (permanent) to one of the application's
+        /// endpoints.</para></li><li><para><c>SuccessFeedbackRoleArn</c> – IAM role ARN used to give Amazon SNS write access
+        /// to use CloudWatch Logs on your behalf.</para></li><li><para><c>FailureFeedbackRoleArn</c> – IAM role ARN used to give Amazon SNS write access
+        /// to use CloudWatch Logs on your behalf.</para></li><li><para><c>SuccessFeedbackSampleRate</c> – Sample rate percentage (0-100) of successfully
+        /// delivered messages.</para></li></ul><para>The following attributes only apply to <c>APNs</c> token-based authentication:</para><ul><li><para><c>ApplePlatformTeamID</c> – The identifier that's assigned to your Apple developer
+        /// account team.</para></li><li><para><c>ApplePlatformBundleID</c> – The bundle identifier that's assigned to your iOS
+        /// app.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

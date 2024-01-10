@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter MaxAgeRule_DeleteSourceFromS3
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to delete a version's source bundle from Amazon S3 when Elastic
+        /// <para>Set to <c>true</c> to delete a version's source bundle from Amazon S3 when Elastic
         /// Beanstalk deletes the application version.</para>
         /// </para>
         /// </summary>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter MaxCountRule_DeleteSourceFromS3
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to delete a version's source bundle from Amazon S3 when Elastic
+        /// <para>Set to <c>true</c> to delete a version's source bundle from Amazon S3 when Elastic
         /// Beanstalk deletes the application version.</para>
         /// </para>
         /// </summary>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter MaxAgeRule_Enabled
         /// <summary>
         /// <para>
-        /// <para>Specify <code>true</code> to apply the rule, or <code>false</code> to disable it.</para>
+        /// <para>Specify <c>true</c> to apply the rule, or <c>false</c> to disable it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter MaxCountRule_Enabled
         /// <summary>
         /// <para>
-        /// <para>Specify <code>true</code> to apply the rule, or <code>false</code> to disable it.</para>
+        /// <para>Specify <c>true</c> to apply the rule, or <c>false</c> to disable it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,13 +129,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ResourceLifecycleConfig_ServiceRole
         /// <summary>
         /// <para>
-        /// <para>The ARN of an IAM service role that Elastic Beanstalk has permission to assume.</para><para>The <code>ServiceRole</code> property is required the first time that you provide
-        /// a <code>VersionLifecycleConfig</code> for the application in one of the supporting
-        /// calls (<code>CreateApplication</code> or <code>UpdateApplicationResourceLifecycle</code>).
+        /// <para>The ARN of an IAM service role that Elastic Beanstalk has permission to assume.</para><para>The <c>ServiceRole</c> property is required the first time that you provide a <c>VersionLifecycleConfig</c>
+        /// for the application in one of the supporting calls (<c>CreateApplication</c> or <c>UpdateApplicationResourceLifecycle</c>).
         /// After you provide it once, in either one of the calls, Elastic Beanstalk persists
         /// the Service Role with the application, and you don't need to specify it again in subsequent
-        /// <code>UpdateApplicationResourceLifecycle</code> calls. You can, however, specify it
-        /// in subsequent calls to change the Service Role to another value.</para>
+        /// <c>UpdateApplicationResourceLifecycle</c> calls. You can, however, specify it in subsequent
+        /// calls to change the Service Role to another value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

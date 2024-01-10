@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the workflow to be deleted.</para><para>The ID should be in the following format.</para><para><code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code></para>
+        /// <para>The ID of the workflow to be deleted.</para><para>The ID should be in the following format.</para><para><c>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

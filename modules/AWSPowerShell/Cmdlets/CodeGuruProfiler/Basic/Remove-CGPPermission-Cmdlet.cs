@@ -29,11 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.CGP
 {
     /// <summary>
     /// Removes permissions from a profiling group's resource-based policy that are provided
-    /// using an action group. The one supported action group that can be removed is <code>agentPermission</code>
-    /// which grants <code>ConfigureAgent</code> and <code>PostAgent</code> permissions. For
-    /// more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-ug/resource-based-policies.html">Resource-based
+    /// using an action group. The one supported action group that can be removed is <c>agentPermission</c>
+    /// which grants <c>ConfigureAgent</c> and <c>PostAgent</c> permissions. For more information,
+    /// see <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-ug/resource-based-policies.html">Resource-based
     /// policies in CodeGuru Profiler</a> in the <i>Amazon CodeGuru Profiler User Guide</i>,
-    /// <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html"><code>ConfigureAgent</code></a>, and <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_PostAgentProfile.html"><code>PostAgentProfile</code></a>.
+    /// <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html"><c>ConfigureAgent</c></a>, and <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_PostAgentProfile.html"><c>PostAgentProfile</c></a>.
     /// </summary>
     [Cmdlet("Remove", "CGPPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.CodeGuruProfiler.Model.RemovePermissionResponse")]
@@ -50,9 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         /// <summary>
         /// <para>
         /// <para> Specifies an action group that contains the permissions to remove from a profiling
-        /// group's resource-based policy. One action group is supported, <code>agentPermissions</code>,
-        /// which grants <code>ConfigureAgent</code> and <code>PostAgentProfile</code> permissions.
-        /// </para>
+        /// group's resource-based policy. One action group is supported, <c>agentPermissions</c>,
+        /// which grants <c>ConfigureAgent</c> and <c>PostAgentProfile</c> permissions. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

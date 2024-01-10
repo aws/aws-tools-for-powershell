@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Creates an endpoint configuration that SageMaker hosting services uses to deploy models.
-    /// In the configuration, you identify one or more models, created using the <code>CreateModel</code>
+    /// In the configuration, you identify one or more models, created using the <c>CreateModel</c>
     /// API, to deploy and the resources that you want SageMaker to provision. Then you call
     /// the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a>
     /// API.
@@ -38,25 +38,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
     ///  Use this API if you want to use SageMaker hosting services to deploy models into
     /// production. 
     /// </para></note><para>
-    /// In the request, you define a <code>ProductionVariant</code>, for each model that you
-    /// want to deploy. Each <code>ProductionVariant</code> parameter also describes the resources
-    /// that you want SageMaker to provision. This includes the number and type of ML compute
-    /// instances to deploy. 
+    /// In the request, you define a <c>ProductionVariant</c>, for each model that you want
+    /// to deploy. Each <c>ProductionVariant</c> parameter also describes the resources that
+    /// you want SageMaker to provision. This includes the number and type of ML compute instances
+    /// to deploy. 
     /// </para><para>
-    /// If you are hosting multiple models, you also assign a <code>VariantWeight</code> to
-    /// specify how much traffic you want to allocate to each model. For example, suppose
-    /// that you want to host two models, A and B, and you assign traffic weight 2 for model
-    /// A and 1 for model B. SageMaker distributes two-thirds of the traffic to Model A, and
-    /// one-third to model B. 
+    /// If you are hosting multiple models, you also assign a <c>VariantWeight</c> to specify
+    /// how much traffic you want to allocate to each model. For example, suppose that you
+    /// want to host two models, A and B, and you assign traffic weight 2 for model A and
+    /// 1 for model B. SageMaker distributes two-thirds of the traffic to Model A, and one-third
+    /// to model B. 
     /// </para><note><para>
     /// When you call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a>,
     /// a load call is made to DynamoDB to verify that your endpoint configuration exists.
-    /// When you read data from a DynamoDB table supporting <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html"><code>Eventually Consistent Reads</code></a>, the response might not reflect the
-    /// results of a recently completed write operation. The response might include some stale
-    /// data. If the dependent entities are not yet in DynamoDB, this causes a validation
-    /// error. If you repeat your read request after a short time, the response should return
-    /// the latest data. So retry logic is recommended to handle these possible issues. We
-    /// also recommend that customers call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html">DescribeEndpointConfig</a>
+    /// When you read data from a DynamoDB table supporting <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html"><c>Eventually Consistent Reads</c></a>, the response might not reflect the results
+    /// of a recently completed write operation. The response might include some stale data.
+    /// If the dependent entities are not yet in DynamoDB, this causes a validation error.
+    /// If you repeat your read request after a short time, the response should return the
+    /// latest data. So retry logic is recommended to handle these possible issues. We also
+    /// recommend that customers call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html">DescribeEndpointConfig</a>
     /// before calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a>
     /// to minimize the potential impact of a DynamoDB eventually consistent read.
     /// </para></note>
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A template string used to format a JSON record into an acceptable model container
-        /// input. For example, a <code>ContentTemplate</code> string <code>'{"myfeatures":$features}'</code>
-        /// will format a list of features <code>[1,2,3]</code> into the record string <code>'{"myfeatures":[1,2,3]}'</code>.
+        /// input. For example, a <c>ContentTemplate</c> string <c>'{"myfeatures":$features}'</c>
+        /// will format a list of features <c>[1,2,3]</c> into the record string <c>'{"myfeatures":[1,2,3]}'</c>.
         /// Required only when the model container input is in JSON Lines format.</para>
         /// </para>
         /// </summary>
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A JMESPath boolean expression used to filter which records to explain. Explanations
-        /// are activated by default. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable"><code>EnableExplanations</code></a>for additional information.</para>
+        /// are activated by default. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable"><c>EnableExplanations</c></a>for additional information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
         /// perform actions on your behalf. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
         /// Roles</a>. </para><note><para>To be able to pass this role to Amazon SageMaker, the caller of this action must have
-        /// the <code>iam:PassRole</code> permission.</para></note>
+        /// the <c>iam:PassRole</c> permission.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The names of the features. If provided, these are included in the endpoint response
-        /// payload to help readability of the <code>InvokeEndpoint</code> output. See the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">Response</a>
+        /// payload to help readability of the <c>InvokeEndpoint</c> output. See the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">Response</a>
         /// section under <b>Invoke the endpoint</b> in the Developer Guide for more information.</para>
         /// </para>
         /// </summary>
@@ -214,9 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Provides the JMESPath expression to extract the features from a model container input
-        /// in JSON Lines format. For example, if <code>FeaturesAttribute</code> is the JMESPath
-        /// expression <code>'myfeatures'</code>, it extracts a list of features <code>[1,2,3]</code>
-        /// from request data <code>'{"myfeatures":[1,2,3]}'</code>.</para>
+        /// in JSON Lines format. For example, if <c>FeaturesAttribute</c> is the JMESPath expression
+        /// <c>'myfeatures'</c>, it extracts a list of features <c>[1,2,3]</c> from request data
+        /// <c>'{"myfeatures":[1,2,3]}'</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -228,11 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A list of data types of the features (optional). Applicable only to NLP explainability.
-        /// If provided, <code>FeatureTypes</code> must have at least one <code>'text'</code>
-        /// string (for example, <code>['text']</code>). If <code>FeatureTypes</code> is not provided,
-        /// the explainer infers the feature types based on the baseline data. The feature types
-        /// are included in the endpoint response payload. For additional information see the
-        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">response</a>
+        /// If provided, <c>FeatureTypes</c> must have at least one <c>'text'</c> string (for
+        /// example, <c>['text']</c>). If <c>FeatureTypes</c> is not provided, the explainer infers
+        /// the feature types based on the baseline data. The feature types are included in the
+        /// endpoint response payload. For additional information see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">response</a>
         /// section under <b>Invoke the endpoint</b> in the Developer Guide for more information.</para>
         /// </para>
         /// </summary>
@@ -245,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The unit of granularity for the analysis of text features. For example, if the unit
-        /// is <code>'token'</code>, then each token (like a word in English) of the text is treated
+        /// is <c>'token'</c>, then each token (like a word in English) of the text is treated
         /// as a feature. SHAP values are computed for each unit/feature.</para>
         /// </para>
         /// </summary>
@@ -306,7 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an Key Management Service key that SageMaker uses
-        /// to encrypt the captured data at rest using Amazon S3 server-side encryption.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
+        /// to encrypt the captured data at rest using Amazon S3 server-side encryption.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Alias name: <c>alias/ExampleAlias</c></para></li><li><para>Alias name ARN: <c>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -318,16 +317,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key
         /// that SageMaker uses to encrypt data on the storage volume attached to the ML compute
-        /// instance that hosts the endpoint.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>The KMS key policy must grant permission to the IAM role that you specify in your
-        /// <code>CreateEndpoint</code>, <code>UpdateEndpoint</code> requests. For more information,
-        /// refer to the Amazon Web Services Key Management Service section<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">
+        /// instance that hosts the endpoint.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Alias name: <c>alias/ExampleAlias</c></para></li><li><para>Alias name ARN: <c>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</c></para></li></ul><para>The KMS key policy must grant permission to the IAM role that you specify in your
+        /// <c>CreateEndpoint</c>, <c>UpdateEndpoint</c> requests. For more information, refer
+        /// to the Amazon Web Services Key Management Service section<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">
         /// Using Key Policies in Amazon Web Services KMS </a></para><note><para>Certain Nitro-based instances include local storage, dependent on the instance type.
         /// Local storage volumes are encrypted using a hardware module on the instance. You can't
-        /// request a <code>KmsKeyId</code> when using an instance type with local storage. If
-        /// any of the models that you specify in the <code>ProductionVariants</code> parameter
-        /// use nitro-based instances with local storage, do not specify a value for the <code>KmsKeyId</code>
-        /// parameter. If you specify a value for <code>KmsKeyId</code> when using any nitro-based
-        /// instances with local storage, the call to <code>CreateEndpointConfig</code> fails.</para><para>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance
+        /// request a <c>KmsKeyId</c> when using an instance type with local storage. If any of
+        /// the models that you specify in the <c>ProductionVariants</c> parameter use nitro-based
+        /// instances with local storage, do not specify a value for the <c>KmsKeyId</c> parameter.
+        /// If you specify a value for <c>KmsKeyId</c> when using any nitro-based instances with
+        /// local storage, the call to <c>CreateEndpointConfig</c> fails.</para><para>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance
         /// Store Volumes</a>.</para><para>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
         /// Instance Store Volumes</a>.</para></note>
         /// </para>
@@ -340,9 +339,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A JMESPath expression used to locate the list of label headers in the model container
-        /// output.</para><para><b>Example</b>: If the model container output of a batch request is <code>'{"labels":["cat","dog","fish"],"probability":[0.6,0.3,0.1]}'</code>,
-        /// then set <code>LabelAttribute</code> to <code>'labels'</code> to extract the list
-        /// of label headers <code>["cat","dog","fish"]</code></para>
+        /// output.</para><para><b>Example</b>: If the model container output of a batch request is <c>'{"labels":["cat","dog","fish"],"probability":[0.6,0.3,0.1]}'</c>,
+        /// then set <c>LabelAttribute</c> to <c>'labels'</c> to extract the list of label headers
+        /// <c>["cat","dog","fish"]</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -355,7 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>For multiclass classification problems, the label headers are the names of the classes.
         /// Otherwise, the label header is the name of the predicted label. These are used to
-        /// help readability for the output of the <code>InvokeEndpoint</code> API. See the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">response</a>
+        /// help readability for the output of the <c>InvokeEndpoint</c> API. See the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">response</a>
         /// section under <b>Invoke the endpoint</b> in the Developer Guide for more information.
         /// If there are no label headers in the model container output, provide them manually
         /// using this parameter.</para>
@@ -371,8 +370,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>A zero-based index used to extract a label header or list of label headers from model
         /// container output in CSV format.</para><para><b>Example for a multiclass model:</b> If the model container output consists of
-        /// label headers followed by probabilities: <code>'"[\'cat\',\'dog\',\'fish\']","[0.1,0.6,0.3]"'</code>,
-        /// set <code>LabelIndex</code> to <code>0</code> to select the label headers <code>['cat','dog','fish']</code>.</para>
+        /// label headers followed by probabilities: <c>'"[\'cat\',\'dog\',\'fish\']","[0.1,0.6,0.3]"'</c>,
+        /// set <c>LabelIndex</c> to <c>0</c> to select the label headers <c>['cat','dog','fish']</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -385,7 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Specifies the language of the text features in <a href=" https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO
         /// 639-1</a> or <a href="https://en.wikipedia.org/wiki/ISO_639-3">ISO 639-3</a> code
-        /// of a supported language. </para><note><para>For a mix of multiple languages, use code <code>'xx'</code>.</para></note>
+        /// of a supported language. </para><note><para>For a mix of multiple languages, use code <c>'xx'</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -410,7 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The maximum payload size (MB) allowed of a request from the explainer to the model
-        /// container. Defaults to <code>6</code> MB.</para>
+        /// container. Defaults to <c>6</c> MB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -424,10 +423,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The maximum number of records in a request that the model container can process when
         /// querying the model container for the predictions of a <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-synthetic">synthetic
         /// dataset</a>. A record is a unit of input data that inference can be made on, for example,
-        /// a single line in CSV data. If <code>MaxRecordCount</code> is <code>1</code>, the model
-        /// container expects one record per request. A value of 2 or greater means that the model
-        /// expects batch requests, which can reduce overhead and speed up the inferencing process.
-        /// If this parameter is not provided, the explainer will tune the record count per request
+        /// a single line in CSV data. If <c>MaxRecordCount</c> is <c>1</c>, the model container
+        /// expects one record per request. A value of 2 or greater means that the model expects
+        /// batch requests, which can reduce overhead and speed up the inferencing process. If
+        /// this parameter is not provided, the explainer will tune the record count per request
         /// according to the model container's capacity at runtime.</para>
         /// </para>
         /// </summary>
@@ -439,8 +438,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ShapBaselineConfig_MimeType
         /// <summary>
         /// <para>
-        /// <para>The MIME type of the baseline data. Choose from <code>'text/csv'</code> or <code>'application/jsonlines'</code>.
-        /// Defaults to <code>'text/csv'</code>.</para>
+        /// <para>The MIME type of the baseline data. Choose from <c>'text/csv'</c> or <c>'application/jsonlines'</c>.
+        /// Defaults to <c>'text/csv'</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -466,8 +465,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A JMESPath expression used to extract the probability (or score) from the model container
-        /// output if the model container is in JSON Lines format.</para><para><b>Example</b>: If the model container output of a single request is <code>'{"predicted_label":1,"probability":0.6}'</code>,
-        /// then set <code>ProbabilityAttribute</code> to <code>'probability'</code>.</para>
+        /// output if the model container is in JSON Lines format.</para><para><b>Example</b>: If the model container output of a single request is <c>'{"predicted_label":1,"probability":0.6}'</c>,
+        /// then set <c>ProbabilityAttribute</c> to <c>'probability'</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -481,12 +480,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>A zero-based index used to extract a probability value (score) or list from model
         /// container output in CSV format. If this value is not provided, the entire model container
         /// output will be treated as a probability value (score) or list.</para><para><b>Example for a single class model:</b> If the model container output consists of
-        /// a string-formatted prediction label followed by its probability: <code>'1,0.6'</code>,
-        /// set <code>ProbabilityIndex</code> to <code>1</code> to select the probability value
-        /// <code>0.6</code>.</para><para><b>Example for a multiclass model:</b> If the model container output consists of
-        /// a string-formatted prediction label followed by its probability: <code>'"[\'cat\',\'dog\',\'fish\']","[0.1,0.6,0.3]"'</code>,
-        /// set <code>ProbabilityIndex</code> to <code>1</code> to select the probability values
-        /// <code>[0.1,0.6,0.3]</code>.</para>
+        /// a string-formatted prediction label followed by its probability: <c>'1,0.6'</c>, set
+        /// <c>ProbabilityIndex</c> to <c>1</c> to select the probability value <c>0.6</c>.</para><para><b>Example for a multiclass model:</b> If the model container output consists of
+        /// a string-formatted prediction label followed by its probability: <c>'"[\'cat\',\'dog\',\'fish\']","[0.1,0.6,0.3]"'</c>,
+        /// set <c>ProbabilityIndex</c> to <c>1</c> to select the probability values <c>[0.1,0.6,0.3]</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -497,8 +494,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ProductionVariant
         /// <summary>
         /// <para>
-        /// <para>An array of <code>ProductionVariant</code> objects, one for each model that you want
-        /// to host at this endpoint.</para>
+        /// <para>An array of <c>ProductionVariant</c> objects, one for each model that you want to
+        /// host at this endpoint.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -538,8 +535,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. Specify the security
-        /// groups for the VPC that is specified in the <code>Subnets</code> field.</para>
+        /// <para>The VPC security group IDs, in the form <c>sg-xxxxxxxx</c>. Specify the security groups
+        /// for the VPC that is specified in the <c>Subnets</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -562,10 +559,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ShadowProductionVariant
         /// <summary>
         /// <para>
-        /// <para>An array of <code>ProductionVariant</code> objects, one for each model that you want
-        /// to host at this endpoint in shadow mode with production traffic replicated from the
-        /// model specified on <code>ProductionVariants</code>. If you use this field, you can
-        /// only specify one variant for <code>ProductionVariants</code> and one variant for <code>ShadowProductionVariants</code>.</para>
+        /// <para>An array of <c>ProductionVariant</c> objects, one for each model that you want to
+        /// host at this endpoint in shadow mode with production traffic replicated from the model
+        /// specified on <c>ProductionVariants</c>. If you use this field, you can only specify
+        /// one variant for <c>ProductionVariants</c> and one variant for <c>ShadowProductionVariants</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -576,16 +573,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ShapBaselineConfig_ShapBaseline
         /// <summary>
         /// <para>
-        /// <para>The inline SHAP baseline data in string format. <code>ShapBaseline</code> can have
-        /// one or multiple records to be used as the baseline dataset. The format of the SHAP
-        /// baseline file should be the same format as the training dataset. For example, if the
-        /// training dataset is in CSV format and each record contains four features, and all
-        /// features are numerical, then the format of the baseline data should also share these
-        /// characteristics. For natural language processing (NLP) of text columns, the baseline
-        /// value should be the value used to replace the unit of text specified by the <code>Granularity</code>
-        /// of the <code>TextConfig</code> parameter. The size limit for <code>ShapBasline</code>
-        /// is 4 KB. Use the <code>ShapBaselineUri</code> parameter if you want to provide more
-        /// than 4 KB of baseline data.</para>
+        /// <para>The inline SHAP baseline data in string format. <c>ShapBaseline</c> can have one or
+        /// multiple records to be used as the baseline dataset. The format of the SHAP baseline
+        /// file should be the same format as the training dataset. For example, if the training
+        /// dataset is in CSV format and each record contains four features, and all features
+        /// are numerical, then the format of the baseline data should also share these characteristics.
+        /// For natural language processing (NLP) of text columns, the baseline value should be
+        /// the value used to replace the unit of text specified by the <c>Granularity</c> of
+        /// the <c>TextConfig</c> parameter. The size limit for <c>ShapBasline</c> is 4 KB. Use
+        /// the <c>ShapBaselineUri</c> parameter if you want to provide more than 4 KB of baseline
+        /// data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -601,7 +598,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// of the training dataset. For example, if the training dataset is in CSV format, and
         /// each record in the training dataset has four features, and all features are numerical,
         /// then the baseline file should also have this same format. Each record should contain
-        /// only the features. If you are using a virtual private cloud (VPC), the <code>ShapBaselineUri</code>
+        /// only the features. If you are using a virtual private cloud (VPC), the <c>ShapBaselineUri</c>
         /// should be accessible to the VPC. For more information about setting up endpoints with
         /// Amazon Virtual Private Cloud, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give
         /// SageMaker access to Resources in your Amazon Virtual Private Cloud</a>.</para>

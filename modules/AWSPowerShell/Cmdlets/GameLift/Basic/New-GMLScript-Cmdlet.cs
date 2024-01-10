@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A data object containing your Realtime scripts and dependencies as a zip file. The
         /// zip file can have one or multiple files. Maximum size of a zip file is 5 MB.</para><para>When using the Amazon Web Services CLI tool to create a script, this parameter is
         /// set to the zip file name. It must be prepended with the string "fileb://" to indicate
-        /// that the file data is a binary object. For example: <code>--zip-file fileb://myRealtimeScript.zip</code>.</para>
+        /// that the file data is a binary object. For example: <c>--zip-file fileb://myRealtimeScript.zip</c>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

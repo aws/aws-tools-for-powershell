@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>The ID of the data's environment.</para><para>If no such environment is found, returns an <code>InvalidParameterValue</code> error.</para><para>Condition: You must specify either this or an EnvironmentName, or both. If you do
-        /// not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
+        /// <para>The ID of the data's environment.</para><para>If no such environment is found, returns an <c>InvalidParameterValue</c> error.</para><para>Condition: You must specify either this or an EnvironmentName, or both. If you do
+        /// not specify either, AWS Elastic Beanstalk returns <c>MissingRequiredParameter</c>
         /// error.</para>
         /// </para>
         /// </summary>
@@ -62,10 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para>The name of the data's environment.</para><para> If no such environment is found, returns an <code>InvalidParameterValue</code> error.
-        /// </para><para> Condition: You must specify either this or an EnvironmentId, or both. If you do not
-        /// specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
-        /// error. </para>
+        /// <para>The name of the data's environment.</para><para> If no such environment is found, returns an <c>InvalidParameterValue</c> error. </para><para> Condition: You must specify either this or an EnvironmentId, or both. If you do not
+        /// specify either, AWS Elastic Beanstalk returns <c>MissingRequiredParameter</c> error.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

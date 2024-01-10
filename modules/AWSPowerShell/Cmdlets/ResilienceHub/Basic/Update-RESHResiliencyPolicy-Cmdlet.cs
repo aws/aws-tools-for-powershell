@@ -31,12 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     /// Updates a resiliency policy.
     /// 
     ///  <note><para>
-    /// Resilience Hub allows you to provide a value of zero for <code>rtoInSecs</code> and
-    /// <code>rpoInSecs</code> of your resiliency policy. But, while assessing your application,
-    /// the lowest possible assessment result is near zero. Hence, if you provide value zero
-    /// for <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated workload RTO
-    /// and estimated workload RPO result will be near zero and the <b>Compliance status</b>
-    /// for your application will be set to <b>Policy breached</b>.
+    /// Resilience Hub allows you to provide a value of zero for <c>rtoInSecs</c> and <c>rpoInSecs</c>
+    /// of your resiliency policy. But, while assessing your application, the lowest possible
+    /// assessment result is near zero. Hence, if you provide value zero for <c>rtoInSecs</c>
+    /// and <c>rpoInSecs</c>, the estimated workload RTO and estimated workload RPO result
+    /// will be near zero and the <b>Compliance status</b> for your application will be set
+    /// to <b>Policy breached</b>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "RESHResiliencyPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>.
+        /// <para>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: arn:<c>partition</c>:resiliencehub:<c>region</c>:<c>account</c>:resiliency-policy/<c>policy-id</c>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>
         /// guide.</para>
@@ -119,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter Tier
         /// <summary>
         /// <para>
-        /// <para>The tier for this resiliency policy, ranging from the highest severity (<code>MissionCritical</code>)
-        /// to lowest (<code>NonCritical</code>).</para>
+        /// <para>The tier for this resiliency policy, ranging from the highest severity (<c>MissionCritical</c>)
+        /// to lowest (<c>NonCritical</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

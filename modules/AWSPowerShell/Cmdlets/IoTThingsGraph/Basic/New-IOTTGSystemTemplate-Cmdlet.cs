@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter Definition_Language
         /// <summary>
         /// <para>
-        /// <para>The language used to define the entity. <code>GRAPHQL</code> is the only valid value.</para>
+        /// <para>The language used to define the entity. <c>GRAPHQL</c> is the only valid value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

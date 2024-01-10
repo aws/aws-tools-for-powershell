@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance ID. If you include this parameter, <code>DescribeElasticIps</code> returns
+        /// <para>The instance ID. If you include this parameter, <c>DescribeElasticIps</c> returns
         /// a description of the Elastic IP addresses associated with the specified instance.</para>
         /// </para>
         /// </summary>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter Ip
         /// <summary>
         /// <para>
-        /// <para>An array of Elastic IP addresses to be described. If you include this parameter, <code>DescribeElasticIps</code>
+        /// <para>An array of Elastic IP addresses to be described. If you include this parameter, <c>DescribeElasticIps</c>
         /// returns a description of the specified Elastic IP addresses. Otherwise, it returns
         /// a description of every Elastic IP address.</para>
         /// </para>
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter StackId
         /// <summary>
         /// <para>
-        /// <para>A stack ID. If you include this parameter, <code>DescribeElasticIps</code> returns
-        /// a description of the Elastic IP addresses that are registered with the specified stack.</para>
+        /// <para>A stack ID. If you include this parameter, <c>DescribeElasticIps</c> returns a description
+        /// of the Elastic IP addresses that are registered with the specified stack.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -52,11 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CacheBehaviorSettings_AllowedHTTPMethod
         /// <summary>
         /// <para>
-        /// <para>The HTTP methods that are processed and forwarded to the distribution's origin.</para><para>You can specify the following options:</para><ul><li><para><code>GET,HEAD</code> - The distribution forwards the <code>GET</code> and <code>HEAD</code>
-        /// methods.</para></li><li><para><code>GET,HEAD,OPTIONS</code> - The distribution forwards the <code>GET</code>, <code>HEAD</code>,
-        /// and <code>OPTIONS</code> methods.</para></li><li><para><code>GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE</code> - The distribution forwards the
-        /// <code>GET</code>, <code>HEAD</code>, <code>OPTIONS</code>, <code>PUT</code>, <code>PATCH</code>,
-        /// <code>POST</code>, and <code>DELETE</code> methods.</para></li></ul><para>If you specify the third option, you might need to restrict access to your distribution's
+        /// <para>The HTTP methods that are processed and forwarded to the distribution's origin.</para><para>You can specify the following options:</para><ul><li><para><c>GET,HEAD</c> - The distribution forwards the <c>GET</c> and <c>HEAD</c> methods.</para></li><li><para><c>GET,HEAD,OPTIONS</c> - The distribution forwards the <c>GET</c>, <c>HEAD</c>,
+        /// and <c>OPTIONS</c> methods.</para></li><li><para><c>GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE</c> - The distribution forwards the <c>GET</c>,
+        /// <c>HEAD</c>, <c>OPTIONS</c>, <c>PUT</c>, <c>PATCH</c>, <c>POST</c>, and <c>DELETE</c>
+        /// methods.</para></li></ul><para>If you specify the third option, you might need to restrict access to your distribution's
         /// origin so users can't perform operations that you don't want them to. For example,
         /// you might not want users to have permission to delete objects from your origin.</para>
         /// </para>
@@ -69,15 +68,15 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DefaultCacheBehavior_Behavior
         /// <summary>
         /// <para>
-        /// <para>The cache behavior of the distribution.</para><para>The following cache behaviors can be specified:</para><ul><li><para><b><code>cache</code></b> - This option is best for static sites. When specified,
-        /// your distribution caches and serves your entire website as static content. This behavior
+        /// <para>The cache behavior of the distribution.</para><para>The following cache behaviors can be specified:</para><ul><li><para><b><c>cache</c></b> - This option is best for static sites. When specified, your
+        /// distribution caches and serves your entire website as static content. This behavior
         /// is ideal for websites with static content that doesn't change depending on who views
         /// it, or for websites that don't use cookies, headers, or query strings to personalize
-        /// content.</para></li><li><para><b><code>dont-cache</code></b> - This option is best for sites that serve a mix
-        /// of static and dynamic content. When specified, your distribution caches and serve
-        /// only the content that is specified in the distribution's <code>CacheBehaviorPerPath</code>
-        /// parameter. This behavior is ideal for websites or web applications that use cookies,
-        /// headers, and query strings to personalize content for individual users.</para></li></ul>
+        /// content.</para></li><li><para><b><c>dont-cache</c></b> - This option is best for sites that serve a mix of static
+        /// and dynamic content. When specified, your distribution caches and serve only the content
+        /// that is specified in the distribution's <c>CacheBehaviorPerPath</c> parameter. This
+        /// behavior is ideal for websites or web applications that use cookies, headers, and
+        /// query strings to personalize content for individual users.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The bundle ID to use for the distribution.</para><para>A distribution bundle describes the specifications of your distribution, such as the
-        /// monthly cost and monthly network transfer quota.</para><para>Use the <code>GetDistributionBundles</code> action to get a list of distribution bundle
+        /// monthly cost and monthly network transfer quota.</para><para>Use the <c>GetDistributionBundles</c> action to get a list of distribution bundle
         /// IDs that you can specify.</para>
         /// </para>
         /// </summary>
@@ -118,9 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CacheBehaviorSettings_CachedHTTPMethod
         /// <summary>
         /// <para>
-        /// <para>The HTTP method responses that are cached by your distribution.</para><para>You can specify the following options:</para><ul><li><para><code>GET,HEAD</code> - The distribution caches responses to the <code>GET</code>
-        /// and <code>HEAD</code> methods.</para></li><li><para><code>GET,HEAD,OPTIONS</code> - The distribution caches responses to the <code>GET</code>,
-        /// <code>HEAD</code>, and <code>OPTIONS</code> methods.</para></li></ul>
+        /// <para>The HTTP method responses that are cached by your distribution.</para><para>You can specify the following options:</para><ul><li><para><c>GET,HEAD</c> - The distribution caches responses to the <c>GET</c> and <c>HEAD</c>
+        /// methods.</para></li><li><para><c>GET,HEAD,OPTIONS</c> - The distribution caches responses to the <c>GET</c>, <c>HEAD</c>,
+        /// and <c>OPTIONS</c> methods.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>The default amount of time that objects stay in the distribution's cache before the
         /// distribution forwards another request to the origin to determine whether the content
         /// has been updated.</para><note><para>The value specified applies only when the origin does not add HTTP headers such as
-        /// <code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>, and <code>Expires</code>
-        /// to objects.</para></note>
+        /// <c>Cache-Control max-age</c>, <c>Cache-Control s-maxage</c>, and <c>Expires</c> to
+        /// objects.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,8 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The IP address type for the distribution.</para><para>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code>
-        /// for IPv4 and IPv6.</para><para>The default value is <code>dualstack</code>.</para>
+        /// <para>The IP address type for the distribution.</para><para>The possible values are <c>ipv4</c> for IPv4 only, and <c>dualstack</c> for IPv4 and
+        /// IPv6.</para><para>The default value is <c>dualstack</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,8 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>
         /// <para>The maximum amount of time that objects stay in the distribution's cache before the
         /// distribution forwards another request to the origin to determine whether the object
-        /// has been updated.</para><para>The value specified applies only when the origin adds HTTP headers such as <code>Cache-Control
-        /// max-age</code>, <code>Cache-Control s-maxage</code>, and <code>Expires</code> to objects.</para>
+        /// has been updated.</para><para>The value specified applies only when the origin adds HTTP headers such as <c>Cache-Control
+        /// max-age</c>, <c>Cache-Control s-maxage</c>, and <c>Expires</c> to objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,8 +210,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>
         /// <para>The minimum amount of time that objects stay in the distribution's cache before the
         /// distribution forwards another request to the origin to determine whether the object
-        /// has been updated.</para><para>A value of <code>0</code> must be specified for <code>minimumTTL</code> if the distribution
-        /// is configured to forward all headers to the origin.</para>
+        /// has been updated.</para><para>A value of <c>0</c> must be specified for <c>minimumTTL</c> if the distribution is
+        /// configured to forward all headers to the origin.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -233,8 +232,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>Specifies which cookies to forward to the distribution's origin for a cache behavior:
-        /// <code>all</code>, <code>none</code>, or <code>allow-list</code> to forward only the
-        /// cookies specified in the <code>cookiesAllowList</code> parameter.</para>
+        /// <c>all</c>, <c>none</c>, or <c>allow-list</c> to forward only the cookies specified
+        /// in the <c>cookiesAllowList</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,8 +246,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The headers that you want your distribution to forward to your origin and base caching
-        /// on.</para><para>You can configure your distribution to do one of the following:</para><ul><li><para><b><code>all</code></b> - Forward all headers to your origin.</para></li><li><para><b><code>none</code></b> - Forward only the default headers.</para></li><li><para><b><code>allow-list</code></b> - Forward only the headers you specify using the
-        /// <code>headersAllowList</code> parameter.</para></li></ul>
+        /// on.</para><para>You can configure your distribution to do one of the following:</para><ul><li><para><b><c>all</c></b> - Forward all headers to your origin.</para></li><li><para><b><c>none</c></b> - Forward only the default headers.</para></li><li><para><b><c>allow-list</c></b> - Forward only the headers you specify using the <c>headersAllowList</c>
+        /// parameter.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -283,9 +282,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter ForwardedQueryStrings_QueryStringsAllowList
         /// <summary>
         /// <para>
-        /// <para>The specific query strings that the distribution forwards to the origin.</para><para>Your distribution will cache content based on the specified query strings.</para><para>If the <code>option</code> parameter is true, then your distribution forwards all
-        /// query strings, regardless of what you specify using the <code>queryStringsAllowList</code>
-        /// parameter.</para>
+        /// <para>The specific query strings that the distribution forwards to the origin.</para><para>Your distribution will cache content based on the specified query strings.</para><para>If the <c>option</c> parameter is true, then your distribution forwards all query
+        /// strings, regardless of what you specify using the <c>queryStringsAllowList</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -307,7 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys and optional values to add to the distribution during create.</para><para>Use the <code>TagResource</code> action to tag a resource after it's created.</para>
+        /// <para>The tag keys and optional values to add to the distribution during create.</para><para>Use the <c>TagResource</c> action to tag a resource after it's created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

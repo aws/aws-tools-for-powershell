@@ -36,10 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     ///  
     /// <para>
     /// The operation returns data for the time range of midnight UTC, one year ago, to midnight
-    /// UTC, today. For example, if the current time is <code>2020-10-26 15:39:32 PDT</code>,
-    /// equal to <code>2020-10-26 22:39:32 UTC</code>, then the time range for the attack
-    /// data returned is from <code>2019-10-26 00:00:00 UTC</code> to <code>2020-10-26 00:00:00
-    /// UTC</code>. 
+    /// UTC, today. For example, if the current time is <c>2020-10-26 15:39:32 PDT</c>, equal
+    /// to <c>2020-10-26 22:39:32 UTC</c>, then the time range for the attack data returned
+    /// is from <c>2019-10-26 00:00:00 UTC</c> to <c>2020-10-26 00:00:00 UTC</c>. 
     /// </para><para>
     /// The time range indicates the period covered by the attack statistics data items.
     /// </para>

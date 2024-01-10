@@ -31,13 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// Returns intent information as follows: 
     /// 
     ///  <ul><li><para>
-    /// If you specify the <code>nameContains</code> field, returns the <code>$LATEST</code>
-    /// version of all intents that contain the specified string.
+    /// If you specify the <c>nameContains</c> field, returns the <c>$LATEST</c> version of
+    /// all intents that contain the specified string.
     /// </para></li><li><para>
-    ///  If you don't specify the <code>nameContains</code> field, returns information about
-    /// the <code>$LATEST</code> version of all intents. 
+    ///  If you don't specify the <c>nameContains</c> field, returns information about the
+    /// <c>$LATEST</c> version of all intents. 
     /// </para></li></ul><para>
-    ///  The operation requires permission for the <code>lex:GetIntents</code> action. 
+    ///  The operation requires permission for the <c>lex:GetIntents</c> action. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LMBIntentList")]

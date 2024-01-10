@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>Specifies the universally unique identifiers (UUIDs) of the storage system resources
         /// that you want information about. You can't use this parameter in combination with
-        /// the <code>Filter</code> parameter.</para>
+        /// the <c>Filter</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

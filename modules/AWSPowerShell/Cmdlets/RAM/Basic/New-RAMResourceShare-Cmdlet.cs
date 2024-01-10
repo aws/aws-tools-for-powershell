@@ -54,10 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <summary>
         /// <para>
         /// <para>Specifies whether principals outside your organization in Organizations can be associated
-        /// with a resource share. A value of <code>true</code> lets you share with individual
-        /// Amazon Web Services accounts that are <i>not</i> in your organization. A value of
-        /// <code>false</code> only has meaning if your account is a member of an Amazon Web Services
-        /// Organization. The default value is <code>true</code>.</para>
+        /// with a resource share. A value of <c>true</c> lets you share with individual Amazon
+        /// Web Services accounts that are <i>not</i> in your organization. A value of <c>false</c>
+        /// only has meaning if your account is a member of an Amazon Web Services Organization.
+        /// The default value is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>Specifies a list of one or more principals to associate with the resource share.</para><para>You can include the following values:</para><ul><li><para>An Amazon Web Services account ID, for example: <code>123456789012</code></para></li><li><para>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of an organization in Organizations, for example: <code>organizations::123456789012:organization/o-exampleorgid</code></para></li><li><para>An ARN of an organizational unit (OU) in Organizations, for example: <code>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</code></para></li><li><para>An ARN of an IAM role, for example: <code>iam::123456789012:role/rolename</code></para></li><li><para>An ARN of an IAM user, for example: <code>iam::123456789012user/username</code></para></li></ul><note><para>Not all resource types can be shared with IAM roles and users. For more information,
+        /// <para>Specifies a list of one or more principals to associate with the resource share.</para><para>You can include the following values:</para><ul><li><para>An Amazon Web Services account ID, for example: <c>123456789012</c></para></li><li><para>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Name (ARN)</a> of an organization in Organizations, for example: <c>organizations::123456789012:organization/o-exampleorgid</c></para></li><li><para>An ARN of an organizational unit (OU) in Organizations, for example: <c>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</c></para></li><li><para>An ARN of an IAM role, for example: <c>iam::123456789012:role/rolename</c></para></li><li><para>An ARN of an IAM user, for example: <c>iam::123456789012user/username</c></para></li></ul><note><para>Not all resource types can be shared with IAM roles and users. For more information,
         /// see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing
         /// with IAM roles and users</a> in the <i>Resource Access Manager User Guide</i>.</para></note>
         /// </para>
@@ -156,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// requires that you also pass the same value for all other parameters. We recommend
         /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
         /// type of value.</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
-        /// you.</para><para>If you retry the operation with the same <code>ClientToken</code>, but with different
-        /// parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</para>
+        /// you.</para><para>If you retry the operation with the same <c>ClientToken</c>, but with different parameters,
+        /// the retry fails with an <c>IdempotentParameterMismatch</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

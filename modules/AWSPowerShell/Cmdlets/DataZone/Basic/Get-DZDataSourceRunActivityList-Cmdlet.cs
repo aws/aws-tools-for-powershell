@@ -92,10 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of activities to return in a single call to <code>ListDataSourceRunActivities</code>.
-        /// When the number of activities to be listed is greater than the value of <code>MaxResults</code>,
-        /// the response contains a <code>NextToken</code> value that you can use in a subsequent
-        /// call to <code>ListDataSourceRunActivities</code> to list the next set of activities.</para>
+        /// <para>The maximum number of activities to return in a single call to <c>ListDataSourceRunActivities</c>.
+        /// When the number of activities to be listed is greater than the value of <c>MaxResults</c>,
+        /// the response contains a <c>NextToken</c> value that you can use in a subsequent call
+        /// to <c>ListDataSourceRunActivities</c> to list the next set of activities.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,11 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When the number of activities is greater than the default value for the <code>MaxResults</code>
-        /// parameter, or if you explicitly specify a value for <code>MaxResults</code> that is
-        /// less than the number of activities, the response includes a pagination token named
-        /// <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent
-        /// call to <code>ListDataSourceRunActivities</code> to list the next set of activities.</para>
+        /// <para>When the number of activities is greater than the default value for the <c>MaxResults</c>
+        /// parameter, or if you explicitly specify a value for <c>MaxResults</c> that is less
+        /// than the number of activities, the response includes a pagination token named <c>NextToken</c>.
+        /// You can specify this <c>NextToken</c> value in a subsequent call to <c>ListDataSourceRunActivities</c>
+        /// to list the next set of activities.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

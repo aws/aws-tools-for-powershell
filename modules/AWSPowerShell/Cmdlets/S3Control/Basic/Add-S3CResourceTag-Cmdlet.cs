@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Access Grants</a>. The tagged resource can be an S3 Storage Lens group or S3 Access
     /// Grants instance, registered location, or grant. 
     /// </para></note><dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3:TagResource</code> permission to use this operation. 
+    /// You must have the <c>s3:TagResource</c> permission to use this operation. 
     /// </para></dd></dl><para>
     /// For more information about the required Storage Lens Groups permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting
     /// account permissions to use S3 Storage Lens groups</a>.

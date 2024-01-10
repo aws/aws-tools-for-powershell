@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DatapointsToAlert
         /// <summary>
         /// <para>
-        /// <para>Within <code>EvaluationPeriod</code>, how many execution failures will raise an alert.</para>
+        /// <para>Within <c>EvaluationPeriod</c>, how many execution failures will raise an alert.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

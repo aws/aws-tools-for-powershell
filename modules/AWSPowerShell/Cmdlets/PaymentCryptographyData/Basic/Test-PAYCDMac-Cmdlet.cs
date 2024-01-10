@@ -98,8 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// <para>
         /// <para>The key type derived using DUKPT from a Base Derivation Key (BDK) and Key Serial Number
         /// (KSN). This must be less than or equal to the strength of the BDK. For example, you
-        /// can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code>
-        /// or <code>TDES_2KEY</code>.</para>
+        /// can't use <c>AES_128</c> as a derivation type for a BDK of <c>AES_128</c> or <c>TDES_2KEY</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,8 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// <para>
         /// <para>The key type derived using DUKPT from a Base Derivation Key (BDK) and Key Serial Number
         /// (KSN). This must be less than or equal to the strength of the BDK. For example, you
-        /// can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code>
-        /// or <code>TDES_2KEY</code>.</para>
+        /// can't use <c>AES_128</c> as a derivation type for a BDK of <c>AES_128</c> or <c>TDES_2KEY</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,8 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// <para>
         /// <para>The key type derived using DUKPT from a Base Derivation Key (BDK) and Key Serial Number
         /// (KSN). This must be less than or equal to the strength of the BDK. For example, you
-        /// can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code>
-        /// or <code>TDES_2KEY</code>.</para>
+        /// can't use <c>AES_128</c> as a derivation type for a BDK of <c>AES_128</c> or <c>TDES_2KEY</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter KeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>keyARN</code> of the encryption key that Amazon Web Services Payment Cryptography
+        /// <para>The <c>keyARN</c> of the encryption key that Amazon Web Services Payment Cryptography
         /// uses to verify MAC data.</para>
         /// </para>
         /// </summary>

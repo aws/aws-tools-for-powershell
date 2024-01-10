@@ -28,15 +28,15 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Starts a CloudTrail Lake query. Use the <code>QueryStatement</code> parameter to provide
-    /// your SQL query, enclosed in single quotation marks. Use the optional <code>DeliveryS3Uri</code>
+    /// Starts a CloudTrail Lake query. Use the <c>QueryStatement</c> parameter to provide
+    /// your SQL query, enclosed in single quotation marks. Use the optional <c>DeliveryS3Uri</c>
     /// parameter to deliver the query results to an S3 bucket.
     /// 
     ///  
-    /// <para><code>StartQuery</code> requires you specify either the <code>QueryStatement</code>
-    /// parameter, or a <code>QueryAlias</code> and any <code>QueryParameters</code>. In the
-    /// current release, the <code>QueryAlias</code> and <code>QueryParameters</code> parameters
-    /// are used only for the queries that populate the CloudTrail Lake dashboards.
+    /// <para><c>StartQuery</c> requires you specify either the <c>QueryStatement</c> parameter,
+    /// or a <c>QueryAlias</c> and any <c>QueryParameters</c>. In the current release, the
+    /// <c>QueryAlias</c> and <c>QueryParameters</c> parameters are used only for the queries
+    /// that populate the CloudTrail Lake dashboards.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "CTQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter QueryParameter
         /// <summary>
         /// <para>
-        /// <para> The query parameters for the specified <code>QueryAlias</code>. </para>
+        /// <para> The query parameters for the specified <c>QueryAlias</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

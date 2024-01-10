@@ -32,11 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     /// 
     ///  
     /// <para>
-    /// If the training job state is <code>TRAINING</code>, the job is marked for termination
-    /// and put into the <code>STOP_REQUESTED</code> state. If the training job completes
-    /// before it can be stopped, it is put into the <code>TRAINED</code>; otherwise the training
-    /// job is stopped and putted into the <code>STOPPED</code> state and the service sends
-    /// back an HTTP 200 response with an empty HTTP body.
+    /// If the training job state is <c>TRAINING</c>, the job is marked for termination and
+    /// put into the <c>STOP_REQUESTED</c> state. If the training job completes before it
+    /// can be stopped, it is put into the <c>TRAINED</c>; otherwise the training job is stopped
+    /// and putted into the <c>STOPPED</c> state and the service sends back an HTTP 200 response
+    /// with an empty HTTP body.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "COMPTrainingEntityRecognizer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
     /// Rejects an invitation to contribute the account data to a behavior graph. This operation
-    /// must be called by an invited member account that has the <code>INVITED</code> status.
+    /// must be called by an invited member account that has the <c>INVITED</c> status.
     /// 
     ///  
-    /// <para><code>RejectInvitation</code> cannot be called by an organization account in the
-    /// organization behavior graph. In the organization behavior graph, organization accounts
-    /// do not receive an invitation.
+    /// <para><c>RejectInvitation</c> cannot be called by an organization account in the organization
+    /// behavior graph. In the organization behavior graph, organization accounts do not receive
+    /// an invitation.
     /// </para>
     /// </summary>
     [Cmdlet("Deny", "DTCTInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         #region Parameter GraphArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the behavior graph to reject the invitation to.</para><para>The member account's current member status in the behavior graph must be <code>INVITED</code>.</para>
+        /// <para>The ARN of the behavior graph to reject the invitation to.</para><para>The member account's current member status in the behavior graph must be <c>INVITED</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

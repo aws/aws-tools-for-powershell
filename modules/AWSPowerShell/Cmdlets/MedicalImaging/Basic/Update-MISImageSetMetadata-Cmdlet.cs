@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         #region Parameter DICOMUpdates_RemovableAttribute
         /// <summary>
         /// <para>
-        /// <para>The DICOM tags to be removed from <code>ImageSetMetadata</code>.</para>
+        /// <para>The DICOM tags to be removed from <c>ImageSetMetadata</c>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         #region Parameter DICOMUpdates_UpdatableAttribute
         /// <summary>
         /// <para>
-        /// <para>The DICOM tags that need to be updated in <code>ImageSetMetadata</code>.</para>
+        /// <para>The DICOM tags that need to be updated in <c>ImageSetMetadata</c>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

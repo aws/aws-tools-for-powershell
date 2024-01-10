@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <summary>
         /// <para>
         /// <para>A friendly name that you can use to refer Amazon Web Services Payment Cryptography
-        /// key. This value must begin with <code>alias/</code> followed by a name, such as <code>alias/ExampleAlias</code>.</para>
+        /// key. This value must begin with <c>alias/</c> followed by a name, such as <c>alias/ExampleAlias</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

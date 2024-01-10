@@ -226,8 +226,8 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter RackPhysicalProperties_MaximumSupportedWeightLb
         /// <summary>
         /// <para>
-        /// <para>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over
-        /// 2000 lbs (907 kg). </para>
+        /// <para>The maximum rack weight that this site can support. <c>NO_LIMIT</c> is over 2000 lbs
+        /// (907 kg). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

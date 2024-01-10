@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// </para></li><li><para>
     /// TENANCY
     /// </para></li></ul><para>
-    /// To determine valid values for a dimension, use the <code>GetDimensionValues</code>
-    /// operation. 
+    /// To determine valid values for a dimension, use the <c>GetDimensionValues</c> operation.
+    /// 
     /// </para><br/><br/>In the AWS.Tools.CostExplorer module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CEReservationCoverage")]
@@ -78,10 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters utilization data by dimensions. You can filter by the following dimensions:</para><ul><li><para>AZ</para></li><li><para>CACHE_ENGINE</para></li><li><para>DATABASE_ENGINE</para></li><li><para>DEPLOYMENT_OPTION</para></li><li><para>INSTANCE_TYPE</para></li><li><para>LINKED_ACCOUNT</para></li><li><para>OPERATING_SYSTEM</para></li><li><para>PLATFORM</para></li><li><para>REGION</para></li><li><para>SERVICE</para></li><li><para>TAG</para></li><li><para>TENANCY</para></li></ul><para><code>GetReservationCoverage</code> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
-        /// object as the other operations, but only <code>AND</code> is supported among each
-        /// dimension. You can nest only one level deep. If there are multiple values for a dimension,
-        /// they are OR'd together.</para><para>If you don't provide a <code>SERVICE</code> filter, Cost Explorer defaults to EC2.</para><para>Cost category is also supported.</para>
+        /// <para>Filters utilization data by dimensions. You can filter by the following dimensions:</para><ul><li><para>AZ</para></li><li><para>CACHE_ENGINE</para></li><li><para>DATABASE_ENGINE</para></li><li><para>DEPLOYMENT_OPTION</para></li><li><para>INSTANCE_TYPE</para></li><li><para>LINKED_ACCOUNT</para></li><li><para>OPERATING_SYSTEM</para></li><li><para>PLATFORM</para></li><li><para>REGION</para></li><li><para>SERVICE</para></li><li><para>TAG</para></li><li><para>TENANCY</para></li></ul><para><c>GetReservationCoverage</c> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
+        /// object as the other operations, but only <c>AND</c> is supported among each dimension.
+        /// You can nest only one level deep. If there are multiple values for a dimension, they
+        /// are OR'd together.</para><para>If you don't provide a <c>SERVICE</c> filter, Cost Explorer defaults to EC2.</para><para>Cost category is also supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,10 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>The granularity of the Amazon Web Services cost data for the reservation. Valid values
-        /// are <code>MONTHLY</code> and <code>DAILY</code>.</para><para>If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code>
-        /// isn't set, the response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code>
-        /// or <code>DAILY</code>.</para><para>The <code>GetReservationCoverage</code> operation supports only <code>DAILY</code>
-        /// and <code>MONTHLY</code> granularities.</para>
+        /// are <c>MONTHLY</c> and <c>DAILY</c>.</para><para>If <c>GroupBy</c> is set, <c>Granularity</c> can't be set. If <c>Granularity</c> isn't
+        /// set, the response object doesn't include <c>Granularity</c>, either <c>MONTHLY</c>
+        /// or <c>DAILY</c>.</para><para>The <c>GetReservationCoverage</c> operation supports only <c>DAILY</c> and <c>MONTHLY</c>
+        /// granularities.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,8 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Metric
         /// <summary>
         /// <para>
-        /// <para>The measurement that you want your reservation coverage reported in.</para><para>Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>. You
-        /// can use multiple values in a request.</para>
+        /// <para>The measurement that you want your reservation coverage reported in.</para><para>Valid values are <c>Hour</c>, <c>Unit</c>, and <c>Cost</c>. You can use multiple values
+        /// in a request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,10 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>The start and end dates of the period that you want to retrieve data about reservation
         /// coverage for. You can retrieve data for a maximum of 13 months: the last 12 months
         /// and the current month. The start date is inclusive, but the end date is exclusive.
-        /// For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code>
-        /// is <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code>
-        /// up to and including <code>2017-04-30</code> but not including <code>2017-05-01</code>.
-        /// </para>
+        /// For example, if <c>start</c> is <c>2017-01-01</c> and <c>end</c> is <c>2017-05-01</c>,
+        /// then the cost and usage data is retrieved from <c>2017-01-01</c> up to and including
+        /// <c>2017-04-30</c> but not including <c>2017-05-01</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

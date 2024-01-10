@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     /// <summary>
     /// Updates data for the resource. To have the latest information, it must be preceded
     /// by a <a>DescribeResource</a> call. The dataset in the request should be the one expected
-    /// when performing another <code>DescribeResource</code> call.
+    /// when performing another <c>DescribeResource</c> call.
     /// </summary>
     [Cmdlet("Update", "WMResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

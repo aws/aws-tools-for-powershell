@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and that allows failed requests to be
-        /// retried without the risk of running the operation twice. <code>CreatorRequestId</code>
-        /// can be any unique string, for example, a date/time stamp. </para>
+        /// retried without the risk of running the operation twice. <c>CreatorRequestId</c> can
+        /// be any unique string, for example, a date/time stamp. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>
         /// <para>If enabled, this setting disallows modification or removal of the association, to
         /// help prevent against accidentally altering DNS firewall protections. When you create
-        /// the association, the default setting is <code>DISABLED</code>. </para>
+        /// the association, the default setting is <c>DISABLED</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// starting from the rule group with the lowest numeric priority setting. </para><para>You must specify a unique priority for each rule group that you associate with a single
         /// VPC. To make it easier to insert rule groups later, leave space between the numbers,
         /// for example, use 101, 200, and so on. You can change the priority setting for a rule
-        /// group association after you create it.</para><para>The allowed values for <code>Priority</code> are between 100 and 9900.</para>
+        /// group association after you create it.</para><para>The allowed values for <c>Priority</c> are between 100 and 9900.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

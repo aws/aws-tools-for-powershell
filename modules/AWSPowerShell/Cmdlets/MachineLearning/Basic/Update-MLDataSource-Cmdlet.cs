@@ -28,11 +28,11 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Updates the <code>DataSourceName</code> of a <code>DataSource</code>.
+    /// Updates the <c>DataSourceName</c> of a <c>DataSource</c>.
     /// 
     ///  
     /// <para>
-    /// You can use the <code>GetDataSource</code> operation to view the contents of the updated
+    /// You can use the <c>GetDataSource</c> operation to view the contents of the updated
     /// data element.
     /// </para>
     /// </summary>
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// <para>The ID assigned to the <code>DataSource</code> during creation.</para>
+        /// <para>The ID assigned to the <c>DataSource</c> during creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter DataSourceName
         /// <summary>
         /// <para>
-        /// <para>A new user-supplied name or description of the <code>DataSource</code> that will replace
+        /// <para>A new user-supplied name or description of the <c>DataSource</c> that will replace
         /// the current description. </para>
         /// </para>
         /// </summary>

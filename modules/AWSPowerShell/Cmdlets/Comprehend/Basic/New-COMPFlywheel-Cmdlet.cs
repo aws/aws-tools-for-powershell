@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>To associate an existing model with the flywheel, specify the Amazon Resource Number
-        /// (ARN) of the model version. Do not set <code>TaskConfig</code> or <code>ModelType</code>
-        /// if you specify an <code>ActiveModelArn</code>.</para>
+        /// (ARN) of the model version. Do not set <c>TaskConfig</c> or <c>ModelType</c> if you
+        /// specify an <c>ActiveModelArn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,8 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DocumentClassificationConfig_Mode
         /// <summary>
         /// <para>
-        /// <para>Classification mode indicates whether the documents are <code>MULTI_CLASS</code> or
-        /// <code>MULTI_LABEL</code>.</para>
+        /// <para>Classification mode indicates whether the documents are <c>MULTI_CLASS</c> or <c>MULTI_LABEL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>ID for the KMS key that Amazon Comprehend uses to encrypt trained custom models. The
-        /// ModelKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// ModelKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <c>"1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <c>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,8 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter ModelType
         /// <summary>
         /// <para>
-        /// <para>The model type. You need to set <code>ModelType</code> if you are creating a flywheel
-        /// for a new model.</para>
+        /// <para>The model type. You need to set <c>ModelType</c> if you are creating a flywheel for
+        /// a new model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

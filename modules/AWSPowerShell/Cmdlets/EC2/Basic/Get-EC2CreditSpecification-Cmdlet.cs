@@ -29,20 +29,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Describes the credit option for CPU usage of the specified burstable performance instances.
-    /// The credit options are <code>standard</code> and <code>unlimited</code>.
+    /// The credit options are <c>standard</c> and <c>unlimited</c>.
     /// 
     ///  
     /// <para>
     /// If you do not specify an instance ID, Amazon EC2 returns burstable performance instances
-    /// with the <code>unlimited</code> credit option, as well as instances that were previously
-    /// configured as T2, T3, and T3a with the <code>unlimited</code> credit option. For example,
-    /// if you resize a T2 instance, while it is configured as <code>unlimited</code>, to
-    /// an M4 instance, Amazon EC2 returns the M4 instance.
+    /// with the <c>unlimited</c> credit option, as well as instances that were previously
+    /// configured as T2, T3, and T3a with the <c>unlimited</c> credit option. For example,
+    /// if you resize a T2 instance, while it is configured as <c>unlimited</c>, to an M4
+    /// instance, Amazon EC2 returns the M4 instance.
     /// </para><para>
-    /// If you specify one or more instance IDs, Amazon EC2 returns the credit option (<code>standard</code>
-    /// or <code>unlimited</code>) of those instances. If you specify an instance ID that
-    /// is not valid, such as an instance that is not a burstable performance instance, an
-    /// error is returned.
+    /// If you specify one or more instance IDs, Amazon EC2 returns the credit option (<c>standard</c>
+    /// or <c>unlimited</c>) of those instances. If you specify an instance ID that is not
+    /// valid, such as an instance that is not a burstable performance instance, an error
+    /// is returned.
     /// </para><para>
     /// Recently terminated instances might appear in the returned results. This interval
     /// is usually less than one hour.
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>instance-id</code> - The ID of the instance.</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>instance-id</c> - The ID of the instance.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

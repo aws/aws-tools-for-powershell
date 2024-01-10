@@ -87,9 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>Provides a list of client IDs, also known as audiences. When a mobile or web app registers
         /// with an OpenID Connect provider, they establish a value that identifies the application.
-        /// This is the value that's sent as the <code>client_id</code> parameter on OAuth requests.</para><para>You can register multiple client IDs with the same provider. For example, you might
+        /// This is the value that's sent as the <c>client_id</c> parameter on OAuth requests.</para><para>You can register multiple client IDs with the same provider. For example, you might
         /// have multiple applications that use the same OIDC provider. You cannot register more
-        /// than 100 client IDs with a single IAM OIDC provider.</para><para>There is no defined format for a client ID. The <code>CreateOpenIDConnectProviderRequest</code>
+        /// than 100 client IDs with a single IAM OIDC provider.</para><para>There is no defined format for a client ID. The <c>CreateOpenIDConnectProviderRequest</c>
         /// operation accepts client IDs up to 255 characters long.</para>
         /// </para>
         /// </summary>
@@ -121,10 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// thumbprints if the identity provider is rotating certificates.</para><para>The server certificate thumbprint is the hex-encoded SHA-1 hash value of the X.509
         /// certificate used by the domain where the OpenID Connect provider makes its keys available.
         /// It is always a 40-character string.</para><para>You must provide at least one thumbprint when creating an IAM OIDC provider. For example,
-        /// assume that the OIDC provider is <code>server.example.com</code> and the provider
-        /// stores its keys at https://keys.server.example.com/openid-connect. In that case, the
-        /// thumbprint string would be the hex-encoded SHA-1 hash value of the certificate used
-        /// by <code>https://keys.server.example.com.</code></para><para>For more information about obtaining the OIDC provider thumbprint, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html">Obtaining
+        /// assume that the OIDC provider is <c>server.example.com</c> and the provider stores
+        /// its keys at https://keys.server.example.com/openid-connect. In that case, the thumbprint
+        /// string would be the hex-encoded SHA-1 hash value of the certificate used by <c>https://keys.server.example.com.</c></para><para>For more information about obtaining the OIDC provider thumbprint, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html">Obtaining
         /// the thumbprint for an OpenID Connect provider</a> in the <i>IAM user Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -142,11 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter Url
         /// <summary>
         /// <para>
-        /// <para>The URL of the identity provider. The URL must begin with <code>https://</code> and
-        /// should correspond to the <code>iss</code> claim in the provider's OpenID Connect ID
-        /// tokens. Per the OIDC standard, path components are allowed but query parameters are
-        /// not. Typically the URL consists of only a hostname, like <code>https://server.example.org</code>
-        /// or <code>https://example.com</code>. The URL should not contain a port number. </para><para>You cannot register the same provider multiple times in a single Amazon Web Services
+        /// <para>The URL of the identity provider. The URL must begin with <c>https://</c> and should
+        /// correspond to the <c>iss</c> claim in the provider's OpenID Connect ID tokens. Per
+        /// the OIDC standard, path components are allowed but query parameters are not. Typically
+        /// the URL consists of only a hostname, like <c>https://server.example.org</c> or <c>https://example.com</c>.
+        /// The URL should not contain a port number. </para><para>You cannot register the same provider multiple times in a single Amazon Web Services
         /// account. If you try to submit a URL that has already been used for an OpenID Connect
         /// provider in the Amazon Web Services account, you will get an error.</para>
         /// </para>

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  <note><para>
     /// By default, when you successfully create a new schedule, the status of a monitoring
-    /// schedule is <code>scheduled</code>.
+    /// schedule is <c>scheduled</c>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Start", "SMMonitoringSchedule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -29,16 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
     /// Adds additional customer communication to an Amazon Web Services Support case. Use
-    /// the <code>caseId</code> parameter to identify the case to which to add communication.
-    /// You can list a set of email addresses to copy on the communication by using the <code>ccEmailAddresses</code>
-    /// parameter. The <code>communicationBody</code> value contains the text of the communication.
+    /// the <c>caseId</c> parameter to identify the case to which to add communication. You
+    /// can list a set of email addresses to copy on the communication by using the <c>ccEmailAddresses</c>
+    /// parameter. The <c>communicationBody</c> value contains the text of the communication.
     /// 
     ///  <note><ul><li><para>
     /// You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the
     /// Amazon Web Services Support API. 
     /// </para></li><li><para>
     /// If you call the Amazon Web Services Support API from an account that doesn't have
-    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <code>SubscriptionRequiredException</code>
+    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <c>SubscriptionRequiredException</c>
     /// error message appears. For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon
     /// Web Services Support</a>.
     /// </para></li></ul></note>

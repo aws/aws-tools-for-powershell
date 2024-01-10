@@ -99,9 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
         #region Parameter InitializationConfiguration_DisabledOnInitialization
         /// <summary>
         /// <para>
-        /// <para>The value must be <code>TRUE</code> or <code>FALSE</code>. If <code>FALSE</code>,
-        /// all alarm instances created based on the alarm model are activated. The default value
-        /// is <code>TRUE</code>.</para>
+        /// <para>The value must be <c>TRUE</c> or <c>FALSE</c>. If <c>FALSE</c>, all alarm instances
+        /// created based on the alarm model are activated. The default value is <c>TRUE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,11 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
         #region Parameter AcknowledgeFlow_Enabled
         /// <summary>
         /// <para>
-        /// <para>The value must be <code>TRUE</code> or <code>FALSE</code>. If <code>TRUE</code>, you
-        /// receive a notification when the alarm state changes. You must choose to acknowledge
-        /// the notification before the alarm state can return to <code>NORMAL</code>. If <code>FALSE</code>,
-        /// you won't receive notifications. The alarm automatically changes to the <code>NORMAL</code>
-        /// state when the input property value returns to the specified range.</para>
+        /// <para>The value must be <c>TRUE</c> or <c>FALSE</c>. If <c>TRUE</c>, you receive a notification
+        /// when the alarm state changes. You must choose to acknowledge the notification before
+        /// the alarm state can return to <c>NORMAL</c>. If <c>FALSE</c>, you won't receive notifications.
+        /// The alarm automatically changes to the <c>NORMAL</c> state when the input property
+        /// value returns to the specified range.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

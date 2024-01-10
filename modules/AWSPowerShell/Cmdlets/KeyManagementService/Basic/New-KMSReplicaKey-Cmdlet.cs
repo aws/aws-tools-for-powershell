@@ -60,25 +60,24 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// states of KMS keys</a>. KMS pricing and quotas for KMS keys apply to each primary
     /// key and replica key.
     /// </para><para>
-    /// When this operation completes, the new replica key has a transient key state of <code>Creating</code>.
-    /// This key state changes to <code>Enabled</code> (or <code>PendingImport</code>) after
-    /// a few seconds when the process of creating the new replica key is complete. While
-    /// the key state is <code>Creating</code>, you can manage key, but you cannot yet use
-    /// it in cryptographic operations. If you are creating and using the replica key programmatically,
-    /// retry on <code>KMSInvalidStateException</code> or call <code>DescribeKey</code> to
-    /// check its <code>KeyState</code> value before using it. For details about the <code>Creating</code>
-    /// key state, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
+    /// When this operation completes, the new replica key has a transient key state of <c>Creating</c>.
+    /// This key state changes to <c>Enabled</c> (or <c>PendingImport</c>) after a few seconds
+    /// when the process of creating the new replica key is complete. While the key state
+    /// is <c>Creating</c>, you can manage key, but you cannot yet use it in cryptographic
+    /// operations. If you are creating and using the replica key programmatically, retry
+    /// on <c>KMSInvalidStateException</c> or call <c>DescribeKey</c> to check its <c>KeyState</c>
+    /// value before using it. For details about the <c>Creating</c> key state, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
     /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para>
     /// You cannot create more than one replica of a primary key in any Region. If the Region
-    /// already includes a replica of the key you're trying to replicate, <code>ReplicateKey</code>
-    /// returns an <code>AlreadyExistsException</code> error. If the key state of the existing
-    /// replica is <code>PendingDeletion</code>, you can cancel the scheduled key deletion
-    /// (<a>CancelKeyDeletion</a>) or wait for the key to be deleted. The new replica key
-    /// you create will have the same <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-sync-properties">shared
+    /// already includes a replica of the key you're trying to replicate, <c>ReplicateKey</c>
+    /// returns an <c>AlreadyExistsException</c> error. If the key state of the existing replica
+    /// is <c>PendingDeletion</c>, you can cancel the scheduled key deletion (<a>CancelKeyDeletion</a>)
+    /// or wait for the key to be deleted. The new replica key you create will have the same
+    /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-sync-properties">shared
     /// properties</a> as the original replica key.
     /// </para><para>
-    /// The CloudTrail log of a <code>ReplicateKey</code> operation records a <code>ReplicateKey</code>
+    /// The CloudTrail log of a <c>ReplicateKey</c> operation records a <c>ReplicateKey</c>
     /// operation in the primary key's Region and a <a>CreateKey</a> operation in the replica
     /// key's Region.
     /// </para><para>
@@ -89,18 +88,17 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// Guide</i>.
     /// </para><para>
     /// To convert a replica key to a primary key, use the <a>UpdatePrimaryRegion</a> operation.
-    /// </para><note><para><code>ReplicateKey</code> uses different default values for the <code>KeyPolicy</code>
-    /// and <code>Tags</code> parameters than those used in the KMS console. For details,
-    /// see the parameter descriptions.
+    /// </para><note><para><c>ReplicateKey</c> uses different default values for the <c>KeyPolicy</c> and <c>Tags</c>
+    /// parameters than those used in the KMS console. For details, see the parameter descriptions.
     /// </para></note><para><b>Cross-account use</b>: No. You cannot use this operation to create a replica key
     /// in a different Amazon Web Services account. 
     /// </para><para><b>Required permissions</b>: 
-    /// </para><ul><li><para><code>kms:ReplicateKey</code> on the primary key (in the primary key's Region). Include
+    /// </para><ul><li><para><c>kms:ReplicateKey</c> on the primary key (in the primary key's Region). Include
     /// this permission in the primary key's key policy.
-    /// </para></li><li><para><code>kms:CreateKey</code> in an IAM policy in the replica Region.
+    /// </para></li><li><para><c>kms:CreateKey</c> in an IAM policy in the replica Region.
     /// </para></li><li><para>
-    /// To use the <code>Tags</code> parameter, <code>kms:TagResource</code> in an IAM policy
-    /// in the replica Region.
+    /// To use the <c>Tags</c> parameter, <c>kms:TagResource</c> in an IAM policy in the replica
+    /// Region.
     /// </para></li></ul><para><b>Related operations</b></para><ul><li><para><a>CreateKey</a></para></li><li><para><a>UpdatePrimaryRegion</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
     /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
     /// eventual consistency</a>.
@@ -149,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Identifies the multi-Region primary key that is being replicated. To determine whether
         /// a KMS key is a multi-Region primary key, use the <a>DescribeKey</a> operation to check
-        /// the value of the <code>MultiRegionKeyType</code> property.</para><para>Specify the key ID or key ARN of a multi-Region primary key.</para><para>For example:</para><ul><li><para>Key ID: <code>mrk-1234abcd12ab34cd56ef1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// the value of the <c>MultiRegionKeyType</c> property.</para><para>Specify the key ID or key ARN of a multi-Region primary key.</para><para>For example:</para><ul><li><para>Key ID: <c>mrk-1234abcd12ab34cd56ef1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -170,20 +168,20 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// provide a key policy, KMS attaches the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">default
         /// key policy</a> to the KMS key.</para><para>The key policy is not a shared property of multi-Region keys. You can specify the
         /// same key policy or a different key policy for each key in a set of related multi-Region
-        /// keys. KMS does not synchronize this property.</para><para>If you provide a key policy, it must meet the following criteria:</para><ul><li><para>The key policy must allow the calling principal to make a subsequent <code>PutKeyPolicy</code>
+        /// keys. KMS does not synchronize this property.</para><para>If you provide a key policy, it must meet the following criteria:</para><ul><li><para>The key policy must allow the calling principal to make a subsequent <c>PutKeyPolicy</c>
         /// request on the KMS key. This reduces the risk that the KMS key becomes unmanageable.
         /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default
         /// key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit this
-        /// condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</para></li><li><para>Each statement in the key policy must contain one or more principals. The principals
+        /// condition, set <c>BypassPolicyLockoutSafetyCheck</c> to true.)</para></li><li><para>Each statement in the key policy must contain one or more principals. The principals
         /// in the key policy must exist and be visible to KMS. When you create a new Amazon Web
         /// Services principal, you might need to enforce a delay before including the new principal
         /// in a key policy because the new principal might not be immediately visible to KMS.
         /// For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
         /// that I make are not always immediately visible</a> in the <i>Amazon Web Services Identity
-        /// and Access Management User Guide</i>.</para></li></ul><para>A key policy document can include only the following characters:</para><ul><li><para>Printable ASCII characters from the space character (<code>\u0020</code>) through
-        /// the end of the ASCII character range.</para></li><li><para>Printable characters in the Basic Latin and Latin-1 Supplement character set (through
-        /// <code>\u00FF</code>).</para></li><li><para>The tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return
-        /// (<code>\u000D</code>) special characters</para></li></ul><para>For information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key
+        /// and Access Management User Guide</i>.</para></li></ul><para>A key policy document can include only the following characters:</para><ul><li><para>Printable ASCII characters from the space character (<c>\u0020</c>) through the end
+        /// of the ASCII character range.</para></li><li><para>Printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// <c>\u00FF</c>).</para></li><li><para>The tab (<c>\u0009</c>), line feed (<c>\u000A</c>), and carriage return (<c>\u000D</c>)
+        /// special characters</para></li></ul><para>For information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key
         /// policies in KMS</a> in the <i>Key Management Service Developer Guide</i>. For help
         /// writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM
         /// JSON Policy Reference</a> in the <i><i>Identity and Access Management User Guide</i></i>.</para>
@@ -196,11 +194,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter ReplicaRegion
         /// <summary>
         /// <para>
-        /// <para>The Region ID of the Amazon Web Services Region for this replica key. </para><para>Enter the Region ID, such as <code>us-east-1</code> or <code>ap-southeast-2</code>.
-        /// For a list of Amazon Web Services Regions in which KMS is supported, see <a href="https://docs.aws.amazon.com/general/latest/gr/kms.html#kms_region">KMS
+        /// <para>The Region ID of the Amazon Web Services Region for this replica key. </para><para>Enter the Region ID, such as <c>us-east-1</c> or <c>ap-southeast-2</c>. For a list
+        /// of Amazon Web Services Regions in which KMS is supported, see <a href="https://docs.aws.amazon.com/general/latest/gr/kms.html#kms_region">KMS
         /// service endpoints</a> in the <i>Amazon Web Services General Reference</i>.</para><note><para>HMAC KMS keys are not supported in all Amazon Web Services Regions. If you try to
         /// replicate an HMAC KMS key in an Amazon Web Services Region in which HMAC keys are
-        /// not supported, the <code>ReplicateKey</code> operation returns an <code>UnsupportedOperationException</code>.
+        /// not supported, the <c>ReplicateKey</c> operation returns an <c>UnsupportedOperationException</c>.
         /// For a list of Regions in which HMAC KMS keys are supported, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC
         /// keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</para></note><para>The replica must be in a different Amazon Web Services Region than its primary key
         /// and other replicas of that primary key, but in the same Amazon Web Services partition.

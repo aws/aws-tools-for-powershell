@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// on the user or their group access to documents. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html">Filtering
     /// on user context</a>.
     /// </para><para>
-    /// If more than five <code>PUT</code> actions for a group are currently processing, a
-    /// validation exception is thrown.
+    /// If more than five <c>PUT</c> actions for a group are currently processing, a validation
+    /// exception is thrown.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "KNDRPrincipalMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -157,14 +157,14 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The timestamp identifier you specify to ensure Amazon Kendra does not override the
-        /// latest <code>PUT</code> action with previous actions. The highest number ID, which
-        /// is the ordering ID, is the latest action you want to process and apply on top of other
-        /// actions with lower number IDs. This prevents previous actions with lower number IDs
-        /// from possibly overriding the latest action.</para><para>The ordering ID can be the Unix time of the last update you made to a group members
-        /// list. You would then provide this list when calling <code>PutPrincipalMapping</code>.
-        /// This ensures your <code>PUT</code> action for that updated group with the latest members
-        /// list doesn't get overwritten by earlier <code>PUT</code> actions for the same group
-        /// which are yet to be processed.</para><para>The default ordering ID is the current Unix time in milliseconds that the action was
+        /// latest <c>PUT</c> action with previous actions. The highest number ID, which is the
+        /// ordering ID, is the latest action you want to process and apply on top of other actions
+        /// with lower number IDs. This prevents previous actions with lower number IDs from possibly
+        /// overriding the latest action.</para><para>The ordering ID can be the Unix time of the last update you made to a group members
+        /// list. You would then provide this list when calling <c>PutPrincipalMapping</c>. This
+        /// ensures your <c>PUT</c> action for that updated group with the latest members list
+        /// doesn't get overwritten by earlier <c>PUT</c> actions for the same group which are
+        /// yet to be processed.</para><para>The default ordering ID is the current Unix time in milliseconds that the action was
         /// received by Amazon Kendra.</para>
         /// </para>
         /// </summary>

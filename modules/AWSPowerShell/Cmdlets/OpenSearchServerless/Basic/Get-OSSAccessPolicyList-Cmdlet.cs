@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         /// <summary>
         /// <para>
         /// <para>An optional parameter that specifies the maximum number of results to return. You
-        /// can use <code>nextToken</code> to get the next page of results. The default is 20.</para>
+        /// can use <c>nextToken</c> to get the next page of results. The default is 20.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your initial <code>ListAccessPolicies</code> operation returns a <code>nextToken</code>,
-        /// you can include the returned <code>nextToken</code> in subsequent <code>ListAccessPolicies</code>
+        /// <para>If your initial <c>ListAccessPolicies</c> operation returns a <c>nextToken</c>, you
+        /// can include the returned <c>nextToken</c> in subsequent <c>ListAccessPolicies</c>
         /// operations, which returns results in the next page. </para>
         /// </para>
         /// </summary>

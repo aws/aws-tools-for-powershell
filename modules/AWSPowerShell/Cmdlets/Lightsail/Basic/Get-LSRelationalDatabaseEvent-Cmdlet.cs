@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The number of minutes in the past from which to retrieve events. For example, to get
-        /// all events from the past 2 hours, enter 120.</para><para>Default: <code>60</code></para><para>The minimum is 1 and the maximum is 14 days (20160 minutes).</para>
+        /// all events from the past 2 hours, enter 120.</para><para>Default: <c>60</c></para><para>The minimum is 1 and the maximum is 14 days (20160 minutes).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>The token to advance to the next page of results from your request.</para><para>To get a page token, perform an initial <code>GetRelationalDatabaseEvents</code> request.
+        /// <para>The token to advance to the next page of results from your request.</para><para>To get a page token, perform an initial <c>GetRelationalDatabaseEvents</c> request.
         /// If your results are paginated, the response will return a next page token that you
         /// can specify as the page token in a subsequent request.</para>
         /// </para>

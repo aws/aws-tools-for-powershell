@@ -28,24 +28,22 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Create a new <code>FeatureGroup</code>. A <code>FeatureGroup</code> is a group of
-    /// <code>Features</code> defined in the <code>FeatureStore</code> to describe a <code>Record</code>.
-    /// 
+    /// Create a new <c>FeatureGroup</c>. A <c>FeatureGroup</c> is a group of <c>Features</c>
+    /// defined in the <c>FeatureStore</c> to describe a <c>Record</c>. 
     /// 
     ///  
     /// <para>
-    /// The <code>FeatureGroup</code> defines the schema and features contained in the <code>FeatureGroup</code>.
-    /// A <code>FeatureGroup</code> definition is composed of a list of <code>Features</code>,
-    /// a <code>RecordIdentifierFeatureName</code>, an <code>EventTimeFeatureName</code> and
-    /// configurations for its <code>OnlineStore</code> and <code>OfflineStore</code>. Check
-    /// <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">Amazon
-    /// Web Services service quotas</a> to see the <code>FeatureGroup</code>s quota for your
-    /// Amazon Web Services account.
+    /// The <c>FeatureGroup</c> defines the schema and features contained in the <c>FeatureGroup</c>.
+    /// A <c>FeatureGroup</c> definition is composed of a list of <c>Features</c>, a <c>RecordIdentifierFeatureName</c>,
+    /// an <c>EventTimeFeatureName</c> and configurations for its <c>OnlineStore</c> and <c>OfflineStore</c>.
+    /// Check <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">Amazon
+    /// Web Services service quotas</a> to see the <c>FeatureGroup</c>s quota for your Amazon
+    /// Web Services account.
     /// </para><para>
-    /// Note that it can take approximately 10-15 minutes to provision an <code>OnlineStore</code><code>FeatureGroup</code> with the <code>InMemory</code><code>StorageType</code>.
+    /// Note that it can take approximately 10-15 minutes to provision an <c>OnlineStore</c><c>FeatureGroup</c> with the <c>InMemory</c><c>StorageType</c>.
     /// </para><important><para>
-    /// You must include at least one of <code>OnlineStoreConfig</code> and <code>OfflineStoreConfig</code>
-    /// to create a <code>FeatureGroup</code>.
+    /// You must include at least one of <c>OnlineStoreConfig</c> and <c>OfflineStoreConfig</c>
+    /// to create a <c>FeatureGroup</c>.
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "SMFeatureGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -85,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A free-form description of a <code>FeatureGroup</code>.</para>
+        /// <para>A free-form description of a <c>FeatureGroup</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,10 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OfflineStoreConfig_DisableGlueTableCreation
         /// <summary>
         /// <para>
-        /// <para>Set to <code>True</code> to disable the automatic creation of an Amazon Web Services
-        /// Glue table when configuring an <code>OfflineStore</code>. If set to <code>False</code>,
-        /// Feature Store will name the <code>OfflineStore</code> Glue table following <a href="https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html">Athena's
-        /// naming recommendations</a>.</para><para>The default value is <code>False</code>.</para>
+        /// <para>Set to <c>True</c> to disable the automatic creation of an Amazon Web Services Glue
+        /// table when configuring an <c>OfflineStore</c>. If set to <c>False</c>, Feature Store
+        /// will name the <c>OfflineStore</c> Glue table following <a href="https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html">Athena's
+        /// naming recommendations</a>.</para><para>The default value is <c>False</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,9 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OnlineStoreConfig_EnableOnlineStore
         /// <summary>
         /// <para>
-        /// <para>Turn <code>OnlineStore</code> off by specifying <code>False</code> for the <code>EnableOnlineStore</code>
-        /// flag. Turn <code>OnlineStore</code> on by specifying <code>True</code> for the <code>EnableOnlineStore</code>
-        /// flag. </para><para>The default value is <code>False</code>.</para>
+        /// <para>Turn <c>OnlineStore</c> off by specifying <c>False</c> for the <c>EnableOnlineStore</c>
+        /// flag. Turn <c>OnlineStore</c> on by specifying <c>True</c> for the <c>EnableOnlineStore</c>
+        /// flag. </para><para>The default value is <c>False</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,19 +118,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter EventTimeFeatureName
         /// <summary>
         /// <para>
-        /// <para>The name of the feature that stores the <code>EventTime</code> of a <code>Record</code>
-        /// in a <code>FeatureGroup</code>.</para><para>An <code>EventTime</code> is a point in time when a new event occurs that corresponds
-        /// to the creation or update of a <code>Record</code> in a <code>FeatureGroup</code>.
-        /// All <code>Records</code> in the <code>FeatureGroup</code> must have a corresponding
-        /// <code>EventTime</code>.</para><para>An <code>EventTime</code> can be a <code>String</code> or <code>Fractional</code>.
-        /// </para><ul><li><para><code>Fractional</code>: <code>EventTime</code> feature values must be a Unix timestamp
-        /// in seconds.</para></li><li><para><code>String</code>: <code>EventTime</code> feature values must be an ISO-8601 string
-        /// in the format. The following formats are supported <code>yyyy-MM-dd'T'HH:mm:ssZ</code>
-        /// and <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code> where <code>yyyy</code>, <code>MM</code>,
-        /// and <code>dd</code> represent the year, month, and day respectively and <code>HH</code>,
-        /// <code>mm</code>, <code>ss</code>, and if applicable, <code>SSS</code> represent the
-        /// hour, month, second and milliseconds respsectively. <code>'T'</code> and <code>Z</code>
-        /// are constants.</para></li></ul>
+        /// <para>The name of the feature that stores the <c>EventTime</c> of a <c>Record</c> in a <c>FeatureGroup</c>.</para><para>An <c>EventTime</c> is a point in time when a new event occurs that corresponds to
+        /// the creation or update of a <c>Record</c> in a <c>FeatureGroup</c>. All <c>Records</c>
+        /// in the <c>FeatureGroup</c> must have a corresponding <c>EventTime</c>.</para><para>An <c>EventTime</c> can be a <c>String</c> or <c>Fractional</c>. </para><ul><li><para><c>Fractional</c>: <c>EventTime</c> feature values must be a Unix timestamp in seconds.</para></li><li><para><c>String</c>: <c>EventTime</c> feature values must be an ISO-8601 string in the
+        /// format. The following formats are supported <c>yyyy-MM-dd'T'HH:mm:ssZ</c> and <c>yyyy-MM-dd'T'HH:mm:ss.SSSZ</c>
+        /// where <c>yyyy</c>, <c>MM</c>, and <c>dd</c> represent the year, month, and day respectively
+        /// and <c>HH</c>, <c>mm</c>, <c>ss</c>, and if applicable, <c>SSS</c> represent the hour,
+        /// month, second and milliseconds respsectively. <c>'T'</c> and <c>Z</c> are constants.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -149,10 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter FeatureDefinition
         /// <summary>
         /// <para>
-        /// <para>A list of <code>Feature</code> names and types. <code>Name</code> and <code>Type</code>
-        /// is compulsory per <code>Feature</code>. </para><para>Valid feature <code>FeatureType</code>s are <code>Integral</code>, <code>Fractional</code>
-        /// and <code>String</code>.</para><para><code>FeatureName</code>s cannot be any of the following: <code>is_deleted</code>,
-        /// <code>write_time</code>, <code>api_invocation_time</code></para><para>You can create up to 2,500 <code>FeatureDefinition</code>s per <code>FeatureGroup</code>.</para>
+        /// <para>A list of <c>Feature</c> names and types. <c>Name</c> and <c>Type</c> is compulsory
+        /// per <c>Feature</c>. </para><para>Valid feature <c>FeatureType</c>s are <c>Integral</c>, <c>Fractional</c> and <c>String</c>.</para><para><c>FeatureName</c>s cannot be any of the following: <c>is_deleted</c>, <c>write_time</c>,
+        /// <c>api_invocation_time</c></para><para>You can create up to 2,500 <c>FeatureDefinition</c>s per <c>FeatureGroup</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -170,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter FeatureGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the <code>FeatureGroup</code>. The name must be unique within an Amazon
-        /// Web Services Region in an Amazon Web Services account. The name:</para><ul><li><para>Must start and end with an alphanumeric character.</para></li><li><para>Can only contain alphanumeric character and hyphens. Spaces are not allowed. </para></li></ul>
+        /// <para>The name of the <c>FeatureGroup</c>. The name must be unique within an Amazon Web
+        /// Services Region in an Amazon Web Services account. The name:</para><ul><li><para>Must start and end with an alphanumeric character.</para></li><li><para>Can only contain alphanumeric character and hyphens. Spaces are not allowed. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -189,8 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services Key Management Service (KMS) key ARN of the key used to encrypt
-        /// any objects written into the <code>OfflineStore</code> S3 location.</para><para>The IAM <code>roleARN</code> that is passed as a parameter to <code>CreateFeatureGroup</code>
-        /// must have below permissions to the <code>KmsKeyId</code>:</para><ul><li><para><code>"kms:GenerateDataKey"</code></para></li></ul>
+        /// any objects written into the <c>OfflineStore</c> S3 location.</para><para>The IAM <c>roleARN</c> that is passed as a parameter to <c>CreateFeatureGroup</c>
+        /// must have below permissions to the <c>KmsKeyId</c>:</para><ul><li><para><c>"kms:GenerateDataKey"</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,10 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services Key Management Service (KMS) key ARN that SageMaker Feature
-        /// Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.</para><para>The caller (either user or IAM role) of <code>CreateFeatureGroup</code> must have
-        /// below permissions to the <code>OnlineStore</code><code>KmsKeyId</code>:</para><ul><li><para><code>"kms:Encrypt"</code></para></li><li><para><code>"kms:Decrypt"</code></para></li><li><para><code>"kms:DescribeKey"</code></para></li><li><para><code>"kms:CreateGrant"</code></para></li><li><para><code>"kms:RetireGrant"</code></para></li><li><para><code>"kms:ReEncryptFrom"</code></para></li><li><para><code>"kms:ReEncryptTo"</code></para></li><li><para><code>"kms:GenerateDataKey"</code></para></li><li><para><code>"kms:ListAliases"</code></para></li><li><para><code>"kms:ListGrants"</code></para></li><li><para><code>"kms:RevokeGrant"</code></para></li></ul><para>The caller (either user or IAM role) to all DataPlane operations (<code>PutRecord</code>,
-        /// <code>GetRecord</code>, <code>DeleteRecord</code>) must have the following permissions
-        /// to the <code>KmsKeyId</code>:</para><ul><li><para><code>"kms:Decrypt"</code></para></li></ul>
+        /// Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.</para><para>The caller (either user or IAM role) of <c>CreateFeatureGroup</c> must have below
+        /// permissions to the <c>OnlineStore</c><c>KmsKeyId</c>:</para><ul><li><para><c>"kms:Encrypt"</c></para></li><li><para><c>"kms:Decrypt"</c></para></li><li><para><c>"kms:DescribeKey"</c></para></li><li><para><c>"kms:CreateGrant"</c></para></li><li><para><c>"kms:RetireGrant"</c></para></li><li><para><c>"kms:ReEncryptFrom"</c></para></li><li><para><c>"kms:ReEncryptTo"</c></para></li><li><para><c>"kms:GenerateDataKey"</c></para></li><li><para><c>"kms:ListAliases"</c></para></li><li><para><c>"kms:ListGrants"</c></para></li><li><para><c>"kms:RevokeGrant"</c></para></li></ul><para>The caller (either user or IAM role) to all DataPlane operations (<c>PutRecord</c>,
+        /// <c>GetRecord</c>, <c>DeleteRecord</c>) must have the following permissions to the
+        /// <c>KmsKeyId</c>:</para><ul><li><para><c>"kms:Decrypt"</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -240,10 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RecordIdentifierFeatureName
         /// <summary>
         /// <para>
-        /// <para>The name of the <code>Feature</code> whose value uniquely identifies a <code>Record</code>
-        /// defined in the <code>FeatureStore</code>. Only the latest record per identifier value
-        /// will be stored in the <code>OnlineStore</code>. <code>RecordIdentifierFeatureName</code>
-        /// must be one of feature definitions' names.</para><para>You use the <code>RecordIdentifierFeatureName</code> to access data in a <code>FeatureStore</code>.</para><para>This name:</para><ul><li><para>Must start and end with an alphanumeric character.</para></li><li><para>Can only contains alphanumeric characters, hyphens, underscores. Spaces are not allowed.
+        /// <para>The name of the <c>Feature</c> whose value uniquely identifies a <c>Record</c> defined
+        /// in the <c>FeatureStore</c>. Only the latest record per identifier value will be stored
+        /// in the <c>OnlineStore</c>. <c>RecordIdentifierFeatureName</c> must be one of feature
+        /// definitions' names.</para><para>You use the <c>RecordIdentifierFeatureName</c> to access data in a <c>FeatureStore</c>.</para><para>This name:</para><ul><li><para>Must start and end with an alphanumeric character.</para></li><li><para>Can only contains alphanumeric characters, hyphens, underscores. Spaces are not allowed.
         /// </para></li></ul>
         /// </para>
         /// </summary>
@@ -273,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM execution role used to persist data into
-        /// the <code>OfflineStore</code> if an <code>OfflineStoreConfig</code> is provided.</para>
+        /// the <c>OfflineStore</c> if an <c>OfflineStoreConfig</c> is provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -283,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter S3StorageConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>The S3 URI, or location in Amazon S3, of <code>OfflineStore</code>.</para><para>S3 URIs have a format similar to the following: <code>s3://example-bucket/prefix/</code>.</para>
+        /// <para>The S3 URI, or location in Amazon S3, of <c>OfflineStore</c>.</para><para>S3 URIs have a format similar to the following: <c>s3://example-bucket/prefix/</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -294,8 +285,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OnlineStoreConfig_StorageType
         /// <summary>
         /// <para>
-        /// <para>Option for different tiers of low latency storage for real-time data retrieval.</para><ul><li><para><code>Standard</code>: A managed low latency data store for feature groups.</para></li><li><para><code>InMemory</code>: A managed data store for feature groups that supports very
-        /// low latency retrieval. </para></li></ul>
+        /// <para>Option for different tiers of low latency storage for real-time data retrieval.</para><ul><li><para><c>Standard</c>: A managed low latency data store for feature groups.</para></li><li><para><c>InMemory</c>: A managed data store for feature groups that supports very low latency
+        /// retrieval. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -329,7 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags used to identify <code>Features</code> in each <code>FeatureGroup</code>.</para>
+        /// <para>Tags used to identify <c>Features</c> in each <c>FeatureGroup</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -340,7 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ThroughputConfig_ThroughputMode
         /// <summary>
         /// <para>
-        /// <para>The mode used for your feature group throughput: <code>ON_DEMAND</code> or <code>PROVISIONED</code>.
+        /// <para>The mode used for your feature group throughput: <c>ON_DEMAND</c> or <c>PROVISIONED</c>.
         /// </para>
         /// </para>
         /// </summary>
@@ -352,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TtlDuration_Unit
         /// <summary>
         /// <para>
-        /// <para><code>TtlDuration</code> time unit.</para>
+        /// <para><c>TtlDuration</c> time unit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -364,7 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TtlDuration_Value
         /// <summary>
         /// <para>
-        /// <para><code>TtlDuration</code> time value.</para>
+        /// <para><c>TtlDuration</c> time value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter DestinationTypeParams_DestinationType
         /// <summary>
         /// <para>
-        /// <para>Destination type for a Dataview.</para><ul><li><para><code>GLUE_TABLE</code> – Glue table destination type.</para></li><li><para><code>S3</code> – S3 destination type.</para></li></ul>
+        /// <para>Destination type for a Dataview.</para><ul><li><para><c>GLUE_TABLE</c> – Glue table destination type.</para></li><li><para><c>S3</c> – S3 destination type.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter DestinationTypeParams_S3DestinationExportFileFormat
         /// <summary>
         /// <para>
-        /// <para>Dataview export file format.</para><ul><li><para><code>PARQUET</code> – Parquet export file format.</para></li><li><para><code>DELIMITED_TEXT</code> – Delimited text export file format.</para></li></ul>
+        /// <para>Dataview export file format.</para><ul><li><para><c>PARQUET</c> – Parquet export file format.</para></li><li><para><c>DELIMITED_TEXT</c> – Delimited text export file format.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter DestinationTypeParams_S3DestinationExportFileFormatOption
         /// <summary>
         /// <para>
-        /// <para>Format Options for S3 Destination type.</para><para>Here is an example of how you could specify the <code>s3DestinationExportFileFormatOptions</code></para><para><code> { "header": "true", "delimiter": ",", "compression": "gzip" }</code></para>
+        /// <para>Format Options for S3 Destination type.</para><para>Here is an example of how you could specify the <c>s3DestinationExportFileFormatOptions</c></para><para><c> { "header": "true", "delimiter": ",", "compression": "gzip" }</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

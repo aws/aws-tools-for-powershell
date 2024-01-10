@@ -37,9 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.KV
     /// 
     ///  
     /// <para>
-    /// You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.
+    /// You must provide either the <c>StreamName</c> or the <c>StreamARN</c>.
     /// </para><para>
-    /// This operation requires permission for the <code>KinesisVideo:TagStream</code> action.
+    /// This operation requires permission for the <c>KinesisVideo:TagStream</c> action.
     /// </para><para>
     /// A Kinesis video stream can support up to 50 tags.
     /// </para>

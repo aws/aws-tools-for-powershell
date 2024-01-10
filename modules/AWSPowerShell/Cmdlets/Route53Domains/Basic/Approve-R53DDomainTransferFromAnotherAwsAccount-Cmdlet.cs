@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// Use either <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html">ListOperations</a>
     /// or <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
     /// to determine whether the operation succeeded. <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
-    /// provides additional information, for example, <code>Domain Transfer from Aws Account
-    /// 111122223333 has been cancelled</code>. 
+    /// provides additional information, for example, <c>Domain Transfer from Aws Account
+    /// 111122223333 has been cancelled</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Approve", "R53DDomainTransferFromAnotherAwsAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

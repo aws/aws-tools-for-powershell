@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         #region Parameter CreateTimestamp
         /// <summary>
         /// <para>
-        /// <para>Use the <code>DescribeApplication</code> operation to get this value.</para>
+        /// <para>Use the <c>DescribeApplication</c> operation to get this value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

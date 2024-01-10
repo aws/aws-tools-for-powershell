@@ -55,12 +55,12 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A list of authorization scopes configured on the method. The scopes are used with
-        /// a <code>COGNITO_USER_POOLS</code> authorizer to authorize the method invocation. The
-        /// authorization works by matching the method scopes against the scopes parsed from the
-        /// access token in the incoming request. The method invocation is authorized if any method
-        /// scopes matches a claimed scope in the access token. Otherwise, the invocation is not
-        /// authorized. When the method scope is configured, the client must provide an access
-        /// token instead of an identity token for authorization purposes.</para>
+        /// a <c>COGNITO_USER_POOLS</c> authorizer to authorize the method invocation. The authorization
+        /// works by matching the method scopes against the scopes parsed from the access token
+        /// in the incoming request. The method invocation is authorized if any method scopes
+        /// matches a claimed scope in the access token. Otherwise, the invocation is not authorized.
+        /// When the method scope is configured, the client must provide an access token instead
+        /// of an identity token for authorization purposes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter AuthorizationType
         /// <summary>
         /// <para>
-        /// <para>The method's authorization type. Valid values are <code>NONE</code> for open access,
-        /// <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using
-        /// a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</para>
+        /// <para>The method's authorization type. Valid values are <c>NONE</c> for open access, <c>AWS_IAM</c>
+        /// for using AWS IAM permissions, <c>CUSTOM</c> for using a custom authorizer, or <c>COGNITO_USER_POOLS</c>
+        /// for using a Cognito user pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A human-friendly operation identifier for the method. For example, you can assign
-        /// the <code>operationName</code> of <code>ListPets</code> for the <code>GET /pets</code>
-        /// method in the <code>PetStore</code> example.</para>
+        /// the <c>operationName</c> of <c>ListPets</c> for the <c>GET /pets</c> method in the
+        /// <c>PetStore</c> example.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,12 +146,12 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>A key-value map defining required or optional method request parameters that can be
         /// accepted by API Gateway. A key defines a method request parameter name matching the
-        /// pattern of <code>method.request.{location}.{name}</code>, where <code>location</code>
-        /// is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code>
-        /// is a valid and unique parameter name. The value associated with the key is a Boolean
-        /// flag indicating whether the parameter is required (<code>true</code>) or optional
-        /// (<code>false</code>). The method request parameter names defined here are available
-        /// in Integration to be mapped to integration request parameters or body-mapping templates.</para>
+        /// pattern of <c>method.request.{location}.{name}</c>, where <c>location</c> is <c>querystring</c>,
+        /// <c>path</c>, or <c>header</c> and <c>name</c> is a valid and unique parameter name.
+        /// The value associated with the key is a Boolean flag indicating whether the parameter
+        /// is required (<c>true</c>) or optional (<c>false</c>). The method request parameter
+        /// names defined here are available in Integration to be mapped to integration request
+        /// parameters or body-mapping templates.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

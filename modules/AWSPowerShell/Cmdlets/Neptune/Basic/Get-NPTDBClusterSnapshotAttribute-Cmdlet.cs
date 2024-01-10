@@ -33,11 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     /// 
     ///  
     /// <para>
-    /// When sharing snapshots with other Amazon accounts, <code>DescribeDBClusterSnapshotAttributes</code>
-    /// returns the <code>restore</code> attribute and a list of IDs for the Amazon accounts
-    /// that are authorized to copy or restore the manual DB cluster snapshot. If <code>all</code>
-    /// is included in the list of values for the <code>restore</code> attribute, then the
-    /// manual DB cluster snapshot is public and can be copied or restored by all Amazon accounts.
+    /// When sharing snapshots with other Amazon accounts, <c>DescribeDBClusterSnapshotAttributes</c>
+    /// returns the <c>restore</c> attribute and a list of IDs for the Amazon accounts that
+    /// are authorized to copy or restore the manual DB cluster snapshot. If <c>all</c> is
+    /// included in the list of values for the <c>restore</c> attribute, then the manual DB
+    /// cluster snapshot is public and can be copied or restored by all Amazon accounts.
     /// </para><para>
     /// To add or remove access for an Amazon account to copy or restore a manual DB cluster
     /// snapshot, or to make the manual DB cluster snapshot public or private, use the <a>ModifyDBClusterSnapshotAttribute</a>

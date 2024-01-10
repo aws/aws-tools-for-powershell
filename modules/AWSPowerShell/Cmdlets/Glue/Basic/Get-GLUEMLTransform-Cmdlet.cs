@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// Machine learning transforms are a special type of transform that use machine learning
     /// to learn the details of the transformation to be performed by learning from examples
     /// provided by humans. These transformations are then saved by Glue. You can retrieve
-    /// their metadata by calling <code>GetMLTransform</code>.
+    /// their metadata by calling <c>GetMLTransform</c>.
     /// </summary>
     [Cmdlet("Get", "GLUEMLTransform")]
     [OutputType("Amazon.Glue.Model.GetMLTransformResponse")]

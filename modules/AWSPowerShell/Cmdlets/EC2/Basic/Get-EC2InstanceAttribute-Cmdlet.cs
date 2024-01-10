@@ -29,11 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Describes the specified attribute of the specified instance. You can specify only
-    /// one attribute at a time. Valid attribute values are: <code>instanceType</code> | <code>kernel</code>
-    /// | <code>ramdisk</code> | <code>userData</code> | <code>disableApiTermination</code>
-    /// | <code>instanceInitiatedShutdownBehavior</code> | <code>rootDeviceName</code> | <code>blockDeviceMapping</code>
-    /// | <code>productCodes</code> | <code>sourceDestCheck</code> | <code>groupSet</code>
-    /// | <code>ebsOptimized</code> | <code>sriovNetSupport</code>
+    /// one attribute at a time. Valid attribute values are: <c>instanceType</c> | <c>kernel</c>
+    /// | <c>ramdisk</c> | <c>userData</c> | <c>disableApiTermination</c> | <c>instanceInitiatedShutdownBehavior</c>
+    /// | <c>rootDeviceName</c> | <c>blockDeviceMapping</c> | <c>productCodes</c> | <c>sourceDestCheck</c>
+    /// | <c>groupSet</c> | <c>ebsOptimized</c> | <c>sriovNetSupport</c>
     /// </summary>
     [Cmdlet("Get", "EC2InstanceAttribute")]
     [OutputType("Amazon.EC2.Model.InstanceAttribute")]
@@ -50,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The instance attribute.</para><para>Note: The <code>enaSupport</code> attribute is not supported at this time.</para>
+        /// <para>The instance attribute.</para><para>Note: The <c>enaSupport</c> attribute is not supported at this time.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

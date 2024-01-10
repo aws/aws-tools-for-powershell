@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// association is a link between a directory on the file system and an Amazon S3 bucket
     /// or prefix. You can have a maximum of 8 data repository associations on a file system.
     /// Data repository associations are supported on all FSx for Lustre 2.12 and 2.15 file
-    /// systems, excluding <code>scratch_1</code> deployment type.
+    /// systems, excluding <c>scratch_1</c> deployment type.
     /// 
     ///  
     /// <para>
@@ -41,9 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// association for automatic import only, for automatic export only, or for both. To
     /// learn more about linking a data repository to your file system, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html">Linking
     /// your file system to an S3 bucket</a>.
-    /// </para><note><para><code>CreateDataRepositoryAssociation</code> isn't supported on Amazon File Cache
-    /// resources. To create a DRA on Amazon File Cache, use the <code>CreateFileCache</code>
-    /// operation.
+    /// </para><note><para><c>CreateDataRepositoryAssociation</c> isn't supported on Amazon File Cache resources.
+    /// To create a DRA on Amazon File Cache, use the <c>CreateFileCache</c> operation.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "FSXDataRepositoryAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -61,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter BatchImportMetaDataOnCreate
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to run an import data repository task to import metadata
-        /// from the data repository to the file system after the data repository association
-        /// is created. Default is <code>false</code>.</para>
+        /// <para>Set to <c>true</c> to run an import data repository task to import metadata from the
+        /// data repository to the file system after the data repository association is created.
+        /// Default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>The path to the Amazon S3 data repository that will be linked to the file system.
-        /// The path can be an S3 bucket or prefix in the format <code>s3://myBucket/myPrefix/</code>.
+        /// The path can be an S3 bucket or prefix in the format <c>s3://myBucket/myPrefix/</c>.
         /// This path specifies where in the S3 data repository files will be imported from or
         /// exported to.</para>
         /// </para>
@@ -103,10 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter AutoExportPolicy_Event
         /// <summary>
         /// <para>
-        /// <para>The <code>AutoExportPolicy</code> can have the following event values:</para><ul><li><para><code>NEW</code> - New files and directories are automatically exported to the data
-        /// repository as they are added to the file system.</para></li><li><para><code>CHANGED</code> - Changes to files and directories on the file system are automatically
-        /// exported to the data repository.</para></li><li><para><code>DELETED</code> - Files and directories are automatically deleted on the data
-        /// repository when they are deleted on the file system.</para></li></ul><para>You can define any combination of event types for your <code>AutoExportPolicy</code>.</para>
+        /// <para>The <c>AutoExportPolicy</c> can have the following event values:</para><ul><li><para><c>NEW</c> - New files and directories are automatically exported to the data repository
+        /// as they are added to the file system.</para></li><li><para><c>CHANGED</c> - Changes to files and directories on the file system are automatically
+        /// exported to the data repository.</para></li><li><para><c>DELETED</c> - Files and directories are automatically deleted on the data repository
+        /// when they are deleted on the file system.</para></li></ul><para>You can define any combination of event types for your <c>AutoExportPolicy</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,10 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter AutoImportPolicy_Event
         /// <summary>
         /// <para>
-        /// <para>The <code>AutoImportPolicy</code> can have the following event values:</para><ul><li><para><code>NEW</code> - Amazon FSx automatically imports metadata of files added to the
-        /// linked S3 bucket that do not currently exist in the FSx file system.</para></li><li><para><code>CHANGED</code> - Amazon FSx automatically updates file metadata and invalidates
-        /// existing file content on the file system as files change in the data repository.</para></li><li><para><code>DELETED</code> - Amazon FSx automatically deletes files on the file system
-        /// as corresponding files are deleted in the data repository.</para></li></ul><para>You can define any combination of event types for your <code>AutoImportPolicy</code>.</para>
+        /// <para>The <c>AutoImportPolicy</c> can have the following event values:</para><ul><li><para><c>NEW</c> - Amazon FSx automatically imports metadata of files added to the linked
+        /// S3 bucket that do not currently exist in the FSx file system.</para></li><li><para><c>CHANGED</c> - Amazon FSx automatically updates file metadata and invalidates existing
+        /// file content on the file system as files change in the data repository.</para></li><li><para><c>DELETED</c> - Amazon FSx automatically deletes files on the file system as corresponding
+        /// files are deleted in the data repository.</para></li></ul><para>You can define any combination of event types for your <c>AutoImportPolicy</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,16 +147,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter FileSystemPath
         /// <summary>
         /// <para>
-        /// <para>A path on the file system that points to a high-level directory (such as <code>/ns1/</code>)
-        /// or subdirectory (such as <code>/ns1/subdir/</code>) that will be mapped 1-1 with <code>DataRepositoryPath</code>.
+        /// <para>A path on the file system that points to a high-level directory (such as <c>/ns1/</c>)
+        /// or subdirectory (such as <c>/ns1/subdir/</c>) that will be mapped 1-1 with <c>DataRepositoryPath</c>.
         /// The leading forward slash in the name is required. Two data repository associations
         /// cannot have overlapping file system paths. For example, if a data repository is associated
-        /// with file system path <code>/ns1/</code>, then you cannot link another data repository
-        /// with file system path <code>/ns1/ns2</code>.</para><para>This path specifies where in your file system files will be exported from or imported
+        /// with file system path <c>/ns1/</c>, then you cannot link another data repository with
+        /// file system path <c>/ns1/ns2</c>.</para><para>This path specifies where in your file system files will be exported from or imported
         /// to. This file system directory can be linked to only one Amazon S3 bucket, and no
-        /// other S3 bucket can be linked to the directory.</para><note><para>If you specify only a forward slash (<code>/</code>) as the file system path, you
-        /// can link only one data repository to the file system. You can only specify "/" as
-        /// the file system path for the first data repository associated with a file system.</para></note>
+        /// other S3 bucket can be linked to the directory.</para><note><para>If you specify only a forward slash (<c>/</c>) as the file system path, you can link
+        /// only one data repository to the file system. You can only specify "/" as the file
+        /// system path for the first data repository associated with a file system.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -34,13 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  
     /// <para>
     /// To update settings, specify the fleet ID to be updated and specify the changes to
-    /// be made. List the permissions you want to add in <code>InboundPermissionAuthorizations</code>,
-    /// and permissions you want to remove in <code>InboundPermissionRevocations</code>. Permissions
+    /// be made. List the permissions you want to add in <c>InboundPermissionAuthorizations</c>,
+    /// and permissions you want to remove in <c>InboundPermissionRevocations</c>. Permissions
     /// to be removed must match existing fleet permissions. 
     /// </para><para>
     /// If successful, the fleet ID for the updated fleet is returned. For fleets with remote
     /// locations, port setting updates can take time to propagate across all locations. You
-    /// can check the status of updates in each location by calling <code>DescribeFleetPortSettings</code>
+    /// can check the status of updates in each location by calling <c>DescribeFleetPortSettings</c>
     /// with a location name.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up Amazon GameLift fleets</a></para>

@@ -103,14 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The identifier of the event source for which events are returned. If not specified,
-        /// then all sources are included in the response.</para><para>Constraints:</para><ul><li><para>If <code>SourceIdentifier</code> is supplied, <code>SourceType</code> must also be
-        /// provided.</para></li><li><para>If the source type is a DB instance, a <code>DBInstanceIdentifier</code> value must
-        /// be supplied.</para></li><li><para>If the source type is a DB cluster, a <code>DBClusterIdentifier</code> value must
-        /// be supplied.</para></li><li><para>If the source type is a DB parameter group, a <code>DBParameterGroupName</code> value
-        /// must be supplied.</para></li><li><para>If the source type is a DB security group, a <code>DBSecurityGroupName</code> value
-        /// must be supplied.</para></li><li><para>If the source type is a DB snapshot, a <code>DBSnapshotIdentifier</code> value must
-        /// be supplied.</para></li><li><para>If the source type is a DB cluster snapshot, a <code>DBClusterSnapshotIdentifier</code>
-        /// value must be supplied.</para></li><li><para>If the source type is an RDS Proxy, a <code>DBProxyName</code> value must be supplied.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
+        /// then all sources are included in the response.</para><para>Constraints:</para><ul><li><para>If <c>SourceIdentifier</c> is supplied, <c>SourceType</c> must also be provided.</para></li><li><para>If the source type is a DB instance, a <c>DBInstanceIdentifier</c> value must be supplied.</para></li><li><para>If the source type is a DB cluster, a <c>DBClusterIdentifier</c> value must be supplied.</para></li><li><para>If the source type is a DB parameter group, a <c>DBParameterGroupName</c> value must
+        /// be supplied.</para></li><li><para>If the source type is a DB security group, a <c>DBSecurityGroupName</c> value must
+        /// be supplied.</para></li><li><para>If the source type is a DB snapshot, a <c>DBSnapshotIdentifier</c> value must be supplied.</para></li><li><para>If the source type is a DB cluster snapshot, a <c>DBClusterSnapshotIdentifier</c>
+        /// value must be supplied.</para></li><li><para>If the source type is an RDS Proxy, a <c>DBProxyName</c> value must be supplied.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -165,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>An optional pagination token provided by a previous DescribeEvents request. If this
         /// parameter is specified, the response includes only records beyond the marker, up to
-        /// the value specified by <code>MaxRecords</code>.</para>
+        /// the value specified by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -181,8 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// the specified <c>MaxRecords</c> value, a pagination token called a marker is included
+        /// in the response so that you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

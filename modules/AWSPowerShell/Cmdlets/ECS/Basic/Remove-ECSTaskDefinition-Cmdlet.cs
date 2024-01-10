@@ -36,23 +36,22 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html">DeregisterTaskDefinition</a>.
     /// </para><para>
     /// When you delete a task definition revision, it is immediately transitions from the
-    /// <code>INACTIVE</code> to <code>DELETE_IN_PROGRESS</code>. Existing tasks and services
-    /// that reference a <code>DELETE_IN_PROGRESS</code> task definition revision continue
-    /// to run without disruption. Existing services that reference a <code>DELETE_IN_PROGRESS</code>
-    /// task definition revision can still scale up or down by modifying the service's desired
-    /// count.
+    /// <c>INACTIVE</c> to <c>DELETE_IN_PROGRESS</c>. Existing tasks and services that reference
+    /// a <c>DELETE_IN_PROGRESS</c> task definition revision continue to run without disruption.
+    /// Existing services that reference a <c>DELETE_IN_PROGRESS</c> task definition revision
+    /// can still scale up or down by modifying the service's desired count.
     /// </para><para>
-    /// You can't use a <code>DELETE_IN_PROGRESS</code> task definition revision to run new
-    /// tasks or create new services. You also can't update an existing service to reference
-    /// a <code>DELETE_IN_PROGRESS</code> task definition revision.
+    /// You can't use a <c>DELETE_IN_PROGRESS</c> task definition revision to run new tasks
+    /// or create new services. You also can't update an existing service to reference a <c>DELETE_IN_PROGRESS</c>
+    /// task definition revision.
     /// </para><para>
-    ///  A task definition revision will stay in <code>DELETE_IN_PROGRESS</code> status until
-    /// all the associated tasks and services have been terminated.
+    ///  A task definition revision will stay in <c>DELETE_IN_PROGRESS</c> status until all
+    /// the associated tasks and services have been terminated.
     /// </para><para>
-    /// When you delete all <code>INACTIVE</code> task definition revisions, the task definition
+    /// When you delete all <c>INACTIVE</c> task definition revisions, the task definition
     /// name is not displayed in the console and not returned in the API. If a task definition
-    /// revisions are in the <code>DELETE_IN_PROGRESS</code> state, the task definition name
-    /// is displayed in the console and returned in the API. The task definition name is retained
+    /// revisions are in the <c>DELETE_IN_PROGRESS</c> state, the task definition name is
+    /// displayed in the console and returned in the API. The task definition name is retained
     /// by Amazon ECS and the revision is incremented the next time you create a task definition
     /// with that name.
     /// </para>
@@ -71,9 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter TaskDefinition
         /// <summary>
         /// <para>
-        /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
-        /// full Amazon Resource Name (ARN) of the task definition to delete. You must specify
-        /// a <code>revision</code>.</para><para>You can specify up to 10 task definitions as a comma separated list.</para>
+        /// <para>The <c>family</c> and <c>revision</c> (<c>family:revision</c>) or full Amazon Resource
+        /// Name (ARN) of the task definition to delete. You must specify a <c>revision</c>.</para><para>You can specify up to 10 task definitions as a comma separated list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

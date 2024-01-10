@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions to perform the <code>lookoutvision:ListModelPackagingJobs</code>
+    /// This operation requires permissions to perform the <c>lookoutvision:ListModelPackagingJobs</c>
     /// operation. 
     /// </para><para>
     /// For more information, see <i>Using your Amazon Lookout for Vision model on an edge

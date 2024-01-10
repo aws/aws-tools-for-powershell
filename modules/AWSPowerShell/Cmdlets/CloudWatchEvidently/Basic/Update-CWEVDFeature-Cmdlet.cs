@@ -103,9 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         #region Parameter EvaluationStrategy
         /// <summary>
         /// <para>
-        /// <para>Specify <code>ALL_RULES</code> to activate the traffic allocation specified by any
-        /// ongoing launches or experiments. Specify <code>DEFAULT_VARIATION</code> to serve the
-        /// default variation to all users instead.</para>
+        /// <para>Specify <c>ALL_RULES</c> to activate the traffic allocation specified by any ongoing
+        /// launches or experiments. Specify <c>DEFAULT_VARIATION</c> to serve the default variation
+        /// to all users instead.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

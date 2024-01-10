@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter CatalogId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Data Catalog from which to retrieve <code>Databases</code>. If none
-        /// is provided, the Amazon Web Services account ID is used by default.</para>
+        /// <para>The ID of the Data Catalog from which to retrieve <c>Databases</c>. If none is provided,
+        /// the Amazon Web Services account ID is used by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -57,11 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>Allows you to specify that you want to list the databases shared with your account.
-        /// The allowable values are <code>FEDERATED</code>, <code>FOREIGN</code> or <code>ALL</code>.
-        /// </para><ul><li><para>If set to <code>FEDERATED</code>, will list the federated databases (referencing an
-        /// external entity) shared with your account.</para></li><li><para>If set to <code>FOREIGN</code>, will list the databases shared with your account.
-        /// </para></li><li><para>If set to <code>ALL</code>, will list the databases shared with your account, as well
-        /// as the databases in yor local account. </para></li></ul>
+        /// The allowable values are <c>FEDERATED</c>, <c>FOREIGN</c> or <c>ALL</c>. </para><ul><li><para>If set to <c>FEDERATED</c>, will list the federated databases (referencing an external
+        /// entity) shared with your account.</para></li><li><para>If set to <c>FOREIGN</c>, will list the databases shared with your account. </para></li><li><para>If set to <c>ALL</c>, will list the databases shared with your account, as well as
+        /// the databases in yor local account. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

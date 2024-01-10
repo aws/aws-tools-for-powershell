@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token returned from the previous call to <code>ListSolutionVersions</code> for getting
+        /// <para>A token returned from the previous call to <c>ListSolutionVersions</c> for getting
         /// the next set of solution versions (if they exist).</para>
         /// </para>
         /// <para>

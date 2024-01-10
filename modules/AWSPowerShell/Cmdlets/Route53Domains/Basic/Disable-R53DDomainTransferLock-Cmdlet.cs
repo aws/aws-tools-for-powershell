@@ -28,7 +28,7 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// This operation removes the transfer lock on the domain (specifically the <code>clientTransferProhibited</code>
+    /// This operation removes the transfer lock on the domain (specifically the <c>clientTransferProhibited</c>
     /// status) to allow domain transfers. We recommend you refrain from performing this action
     /// unless you intend to transfer the domain to a different registrar. Successful submission
     /// returns an operation ID that you can use to track the progress and completion of the

@@ -28,7 +28,7 @@ using Amazon.ChimeSDKMessaging.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
-    /// Creates a new <code>ChannelModerator</code>. A channel moderator can:
+    /// Creates a new <c>ChannelModerator</c>. A channel moderator can:
     /// 
     ///  <ul><li><para>
     /// Add and remove other members of the channel.
@@ -41,9 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// </para></li><li><para>
     /// List messages in the channel.
     /// </para></li></ul><note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
-    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code>of the user that makes
-    /// the API call as the value in the header.
+    /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the ARN of the <c>AppInstanceUser</c>
+    /// or <c>AppInstanceBot</c>of the user that makes the API call as the value in the header.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "CHMMGChannelModerator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -79,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChannelModeratorArn
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the moderator.</para>
+        /// <para>The <c>AppInstanceUserArn</c> of the moderator.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        /// the API call.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c> or <c>AppInstanceBot</c> that makes the API
+        /// call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

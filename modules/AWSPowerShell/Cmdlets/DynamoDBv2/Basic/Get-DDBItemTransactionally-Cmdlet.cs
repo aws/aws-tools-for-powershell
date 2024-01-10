@@ -28,17 +28,17 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// <code>TransactGetItems</code> is a synchronous operation that atomically retrieves
-    /// multiple items from one or more tables (but not from indexes) in a single account
-    /// and Region. A <code>TransactGetItems</code> call can contain up to 100 <code>TransactGetItem</code>
-    /// objects, each of which contains a <code>Get</code> structure that specifies an item
-    /// to retrieve from a table in the account and Region. A call to <code>TransactGetItems</code>
-    /// cannot retrieve items from tables in more than one Amazon Web Services account or
-    /// Region. The aggregate size of the items in the transaction cannot exceed 4 MB.
+    /// <c>TransactGetItems</c> is a synchronous operation that atomically retrieves multiple
+    /// items from one or more tables (but not from indexes) in a single account and Region.
+    /// A <c>TransactGetItems</c> call can contain up to 100 <c>TransactGetItem</c> objects,
+    /// each of which contains a <c>Get</c> structure that specifies an item to retrieve from
+    /// a table in the account and Region. A call to <c>TransactGetItems</c> cannot retrieve
+    /// items from tables in more than one Amazon Web Services account or Region. The aggregate
+    /// size of the items in the transaction cannot exceed 4 MB.
     /// 
     ///  
     /// <para>
-    /// DynamoDB rejects the entire <code>TransactGetItems</code> request if any of the following
+    /// DynamoDB rejects the entire <c>TransactGetItems</c> request if any of the following
     /// is true:
     /// </para><ul><li><para>
     /// A conflicting operation is in the process of updating an item to be read.
@@ -64,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter ReturnConsumedCapacity
         /// <summary>
         /// <para>
-        /// <para>A value of <code>TOTAL</code> causes consumed capacity information to be returned,
-        /// and a value of <code>NONE</code> prevents that information from being returned. No
-        /// other value is valid.</para>
+        /// <para>A value of <c>TOTAL</c> causes consumed capacity information to be returned, and a
+        /// value of <c>NONE</c> prevents that information from being returned. No other value
+        /// is valid.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TransactItem
         /// <summary>
         /// <para>
-        /// <para>An ordered array of up to 100 <code>TransactGetItem</code> objects, each of which
-        /// contains a <code>Get</code> structure.</para>
+        /// <para>An ordered array of up to 100 <c>TransactGetItem</c> objects, each of which contains
+        /// a <c>Get</c> structure.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

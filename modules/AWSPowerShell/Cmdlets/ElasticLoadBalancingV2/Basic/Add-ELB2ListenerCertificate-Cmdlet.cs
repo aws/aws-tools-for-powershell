@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Certificate
         /// <summary>
         /// <para>
-        /// <para>The certificate to add. You can specify one certificate per call. Set <code>CertificateArn</code>
-        /// to the certificate ARN but do not set <code>IsDefault</code>.</para>
+        /// <para>The certificate to add. You can specify one certificate per call. Set <c>CertificateArn</c>
+        /// to the certificate ARN but do not set <c>IsDefault</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

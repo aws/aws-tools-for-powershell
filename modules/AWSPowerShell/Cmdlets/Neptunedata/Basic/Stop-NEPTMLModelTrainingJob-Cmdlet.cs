@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
 {
     /// <summary>
     /// Cancels a Neptune ML model training job. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-modeltraining.html">Model
-    /// training using the <code>modeltraining</code> command</a>.
+    /// training using the <c>modeltraining</c> command</a>.
     /// 
     ///  
     /// <para>
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter Clean
         /// <summary>
         /// <para>
-        /// <para>If set to <code>TRUE</code>, this flag specifies that all Amazon S3 artifacts should
-        /// be deleted when the job is stopped. The default is <code>FALSE</code>.</para>
+        /// <para>If set to <c>TRUE</c>, this flag specifies that all Amazon S3 artifacts should be
+        /// deleted when the job is stopped. The default is <c>FALSE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

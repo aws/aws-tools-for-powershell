@@ -46,10 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>STATUS</code> - The status (<code>AVAILABLE</code> | <code>CREATED</code> |
-        /// <code>DELETED</code> | <code>DEPROVISIONING</code> | <code>PROVISIONING</code>).</para></li></ul><para>Filter values are case sensitive. If you specify multiple values for a filter, the
-        /// values are joined with an <code>OR</code>, and the request returns all results that
-        /// match any of the specified values.</para>
+        /// <para>The filters.</para><ul><li><para><c>STATUS</c> - The status (<c>AVAILABLE</c> | <c>CREATED</c> | <c>DELETED</c> |
+        /// <c>DEPROVISIONING</c> | <c>PROVISIONING</c>).</para></li></ul><para>Filter values are case sensitive. If you specify multiple values for a filter, the
+        /// values are joined with an <c>OR</c>, and the request returns all results that match
+        /// any of the specified values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

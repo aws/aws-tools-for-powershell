@@ -77,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter EnableCachingForHttp
         /// <summary>
         /// <para>
-        /// <para>When <code>true</code>, the result from the authorizer’s Lambda function is cached
-        /// for the time specified in <code>refreshAfterInSeconds</code>. The cached result is
-        /// used while the device reuses the same HTTP connection.</para>
+        /// <para>When <c>true</c>, the result from the authorizer’s Lambda function is cached for the
+        /// time specified in <c>refreshAfterInSeconds</c>. The cached result is used while the
+        /// device reuses the same HTTP connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

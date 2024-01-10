@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// policy, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-create.html#olap-create-cli">Creating
     /// Object Lambda Access Points</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
-    /// The following actions are related to <code>PutAccessPointPolicyForObjectLambda</code>:
+    /// The following actions are related to <c>PutAccessPointPolicyForObjectLambda</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicyForObjectLambda.html">DeleteAccessPointPolicyForObjectLambda</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicyForObjectLambda.html">GetAccessPointPolicyForObjectLambda</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3CAccessPointPolicyForObjectLambda", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

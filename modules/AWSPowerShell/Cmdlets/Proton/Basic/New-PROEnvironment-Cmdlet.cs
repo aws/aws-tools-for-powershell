@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision
         /// infrastructure using CodeBuild-based provisioning on your behalf.</para><para>To use CodeBuild-based provisioning for the environment or for any service instance
-        /// running in the environment, specify either the <code>environmentAccountConnectionId</code>
-        /// or <code>codebuildRoleArn</code> parameter.</para>
+        /// running in the environment, specify either the <c>environmentAccountConnectionId</c>
+        /// or <c>codebuildRoleArn</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning
         /// directly defined components in this environment. It determines the scope of infrastructure
-        /// that a component can provision.</para><para>You must specify <code>componentRoleArn</code> to allow directly defined components
-        /// to be associated with this environment.</para><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
+        /// that a component can provision.</para><para>You must specify <c>componentRoleArn</c> to allow directly defined components to be
+        /// associated with this environment.</para><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
         /// components</a> in the <i>Proton User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// your environment infrastructure resources to an environment account. For more information,
         /// see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment
         /// account connections</a> in the <i>Proton User guide</i>.</para><para>To use Amazon Web Services-managed provisioning for the environment, specify either
-        /// the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code>
-        /// parameter and omit the <code>provisioningRepository</code> parameter.</para>
+        /// the <c>environmentAccountConnectionId</c> or <c>protonServiceRoleArn</c> parameter
+        /// and omit the <c>provisioningRepository</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make
         /// calls to other services on your behalf.</para><para>To use Amazon Web Services-managed provisioning for the environment, specify either
-        /// the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code>
-        /// parameter and omit the <code>provisioningRepository</code> parameter.</para>
+        /// the <c>environmentAccountConnectionId</c> or <c>protonServiceRoleArn</c> parameter
+        /// and omit the <c>provisioningRepository</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

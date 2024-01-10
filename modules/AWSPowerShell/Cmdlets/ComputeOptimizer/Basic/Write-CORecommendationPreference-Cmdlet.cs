@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para>The status of the enhanced infrastructure metrics recommendation preference to create
-        /// or update.</para><para>Specify the <code>Active</code> status to activate the preference, or specify <code>Inactive</code>
+        /// or update.</para><para>Specify the <c>Active</c> status to activate the preference, or specify <c>Inactive</c>
         /// to deactivate the preference.</para><para>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Enhanced
         /// infrastructure metrics</a> in the <i>Compute Optimizer User Guide</i>.</para>
         /// </para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para>The status of the inferred workload types recommendation preference to create or update.</para><note><para>The inferred workload type feature is active by default. To deactivate it, create
-        /// a recommendation preference.</para></note><para>Specify the <code>Inactive</code> status to deactivate the feature, or specify <code>Active</code>
+        /// a recommendation preference.</para></note><para>Specify the <c>Inactive</c> status to deactivate the feature, or specify <c>Active</c>
         /// to activate it.</para><para>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/inferred-workload-types.html">Inferred
         /// workload types</a> in the <i>Compute Optimizer User Guide</i>.</para>
         /// </para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <para>
         /// <para> The preference to control the number of days the utilization metrics of the Amazon
         /// Web Services resource are analyzed. When this preference isn't specified, we use the
-        /// default value <code>DAYS_14</code>. </para><note><para>You can only set this preference for the Amazon EC2 instance and Auto Scaling group
+        /// default value <c>DAYS_14</c>. </para><note><para>You can only set this preference for the Amazon EC2 instance and Auto Scaling group
         /// resource types.</para></note>
         /// </para>
         /// </summary>
@@ -96,10 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter Scope_Name
         /// <summary>
         /// <para>
-        /// <para>The name of the scope.</para><para>The following scopes are possible:</para><ul><li><para><code>Organization</code> - Specifies that the recommendation preference applies
-        /// at the organization level, for all member accounts of an organization.</para></li><li><para><code>AccountId</code> - Specifies that the recommendation preference applies at
-        /// the account level, for all resources of a given resource type in an account.</para></li><li><para><code>ResourceArn</code> - Specifies that the recommendation preference applies at
-        /// the individual resource level.</para></li></ul>
+        /// <para>The name of the scope.</para><para>The following scopes are possible:</para><ul><li><para><c>Organization</c> - Specifies that the recommendation preference applies at the
+        /// organization level, for all member accounts of an organization.</para></li><li><para><c>AccountId</c> - Specifies that the recommendation preference applies at the account
+        /// level, for all resources of a given resource type in an account.</para></li><li><para><c>ResourceArn</c> - Specifies that the recommendation preference applies at the
+        /// individual resource level.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <para>
         /// <para> The preference to control which resource type values are considered when generating
         /// rightsizing recommendations. You can specify this preference as a combination of include
-        /// and exclude lists. You must specify either an <code>includeList</code> or <code>excludeList</code>.
+        /// and exclude lists. You must specify either an <c>includeList</c> or <c>excludeList</c>.
         /// If the preference is an empty set of resource type values, an error occurs. </para><note><para>You can only set this preference for the Amazon EC2 instance and Auto Scaling group
         /// resource types.</para></note>
         /// </para>
@@ -125,9 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The target resource type of the recommendation preference to create.</para><para>The <code>Ec2Instance</code> option encompasses standalone instances and instances
-        /// that are part of Auto Scaling groups. The <code>AutoScalingGroup</code> option encompasses
-        /// only instances that are part of an Auto Scaling group.</para><note><para>The valid values for this parameter are <code>Ec2Instance</code> and <code>AutoScalingGroup</code>.</para></note>
+        /// <para>The target resource type of the recommendation preference to create.</para><para>The <c>Ec2Instance</c> option encompasses standalone instances and instances that
+        /// are part of Auto Scaling groups. The <c>AutoScalingGroup</c> option encompasses only
+        /// instances that are part of an Auto Scaling group.</para><note><para>The valid values for this parameter are <c>Ec2Instance</c> and <c>AutoScalingGroup</c>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -144,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter SavingsEstimationMode
         /// <summary>
         /// <para>
-        /// <para> The status of the savings estimation mode preference to create or update. </para><para>Specify the <code>AfterDiscounts</code> status to activate the preference, or specify
-        /// <code>BeforeDiscounts</code> to deactivate the preference.</para><para>Only the account manager or delegated administrator of your organization can activate
+        /// <para> The status of the savings estimation mode preference to create or update. </para><para>Specify the <c>AfterDiscounts</c> status to activate the preference, or specify <c>BeforeDiscounts</c>
+        /// to deactivate the preference.</para><para>Only the account manager or delegated administrator of your organization can activate
         /// this preference.</para><para>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/savings-estimation-mode.html">
         /// Savings estimation mode</a> in the <i>Compute Optimizer User Guide</i>.</para>
         /// </para>
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <para>
         /// <para> The preference to control the resource’s CPU utilization thresholds - threshold and
         /// headroom. When this preference isn't specified, we use the following default values:
-        /// </para><ul><li><para><code>P99_5</code> for threshold</para></li><li><para><code>PERCENT_17</code> for headroom</para></li></ul><note><para>You can only set this preference for the Amazon EC2 instance resource type.</para></note>
+        /// </para><ul><li><para><c>P99_5</c> for threshold</para></li><li><para><c>PERCENT_17</c> for headroom</para></li></ul><note><para>You can only set this preference for the Amazon EC2 instance resource type.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,9 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter Scope_Value
         /// <summary>
         /// <para>
-        /// <para>The value of the scope.</para><para>If you specified the <code>name</code> of the scope as:</para><ul><li><para><code>Organization</code> - The <code>value</code> must be <code>ALL_ACCOUNTS</code>.</para></li><li><para><code>AccountId</code> - The <code>value</code> must be a 12-digit Amazon Web Services
-        /// account ID.</para></li><li><para><code>ResourceArn</code> - The <code>value</code> must be the Amazon Resource Name
-        /// (ARN) of an EC2 instance or an Auto Scaling group.</para></li></ul><para>Only EC2 instance and Auto Scaling group ARNs are currently supported.</para>
+        /// <para>The value of the scope.</para><para>If you specified the <c>name</c> of the scope as:</para><ul><li><para><c>Organization</c> - The <c>value</c> must be <c>ALL_ACCOUNTS</c>.</para></li><li><para><c>AccountId</c> - The <c>value</c> must be a 12-digit Amazon Web Services account
+        /// ID.</para></li><li><para><c>ResourceArn</c> - The <c>value</c> must be the Amazon Resource Name (ARN) of an
+        /// EC2 instance or an Auto Scaling group.</para></li></ul><para>Only EC2 instance and Auto Scaling group ARNs are currently supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

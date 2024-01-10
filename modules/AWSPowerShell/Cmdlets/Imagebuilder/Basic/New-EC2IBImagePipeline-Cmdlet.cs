@@ -183,13 +183,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The condition configures when the pipeline should trigger a new image build. When
-        /// the <code>pipelineExecutionStartCondition</code> is set to <code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>,
+        /// the <c>pipelineExecutionStartCondition</c> is set to <c>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</c>,
         /// and you use semantic version filters on the base image or components in your image
         /// recipe, EC2 Image Builder will build a new image only when there are new versions
         /// of the image or components in your recipe that match the semantic version filter.
-        /// When it is set to <code>EXPRESSION_MATCH_ONLY</code>, it will build a new image every
-        /// time the CRON expression matches the current time. For semantic version syntax, see
-        /// <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html">CreateComponent</a>
+        /// When it is set to <c>EXPRESSION_MATCH_ONLY</c>, it will build a new image every time
+        /// the CRON expression matches the current time. For semantic version syntax, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html">CreateComponent</a>
         /// in the <i> EC2 Image Builder API Reference</i>.</para>
         /// </para>
         /// </summary>
@@ -204,8 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>The name of the container repository that Amazon Inspector scans to identify findings
         /// for your container images. The name includes the path for the repository location.
         /// If you don’t provide this information, Image Builder creates a repository in your
-        /// account named <code>image-builder-image-scanning-repository</code> for vulnerability
-        /// scans of your output container images.</para>
+        /// account named <c>image-builder-image-scanning-repository</c> for vulnerability scans
+        /// of your output container images.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Schedule_ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para>The cron expression determines how often EC2 Image Builder evaluates your <code>pipelineExecutionStartCondition</code>.</para><para>For information on how to format a cron expression in Image Builder, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html">Use
+        /// <para>The cron expression determines how often EC2 Image Builder evaluates your <c>pipelineExecutionStartCondition</c>.</para><para>For information on how to format a cron expression in Image Builder, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html">Use
         /// cron expressions in EC2 Image Builder</a>.</para>
         /// </para>
         /// </summary>

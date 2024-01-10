@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions for the <code>elasticfilesystem:DeleteAccessPoint</code>
+    /// This operation requires permissions for the <c>elasticfilesystem:DeleteAccessPoint</c>
     /// action.
     /// </para>
     /// </summary>

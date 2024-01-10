@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para> The maximum number of VOD sources that you want MediaTailor to return in response
-        /// to the current request. If there are more than <code>MaxResults</code> VOD sources,
-        /// use the value of <code>NextToken</code> in the response to get the next page of results.</para>
+        /// to the current request. If there are more than <c>MaxResults</c> VOD sources, use
+        /// the value of <c>NextToken</c> in the response to get the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

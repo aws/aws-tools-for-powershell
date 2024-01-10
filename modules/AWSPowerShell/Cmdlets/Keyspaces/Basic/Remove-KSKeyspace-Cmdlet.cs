@@ -28,7 +28,7 @@ using Amazon.Keyspaces.Model;
 namespace Amazon.PowerShell.Cmdlets.KS
 {
     /// <summary>
-    /// The <code>DeleteKeyspace</code> operation deletes a keyspace and all of its tables.
+    /// The <c>DeleteKeyspace</c> operation deletes a keyspace and all of its tables.
     /// </summary>
     [Cmdlet("Remove", "KSKeyspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

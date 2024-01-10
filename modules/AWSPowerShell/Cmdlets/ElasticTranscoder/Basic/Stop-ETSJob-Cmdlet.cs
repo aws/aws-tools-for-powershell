@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     /// The CancelJob operation cancels an unfinished job.
     /// 
     ///  <note><para>
-    /// You can only cancel a job that has a status of <code>Submitted</code>. To prevent
-    /// a pipeline from starting to process a job while you're getting the job identifier,
-    /// use <a>UpdatePipelineStatus</a> to temporarily pause the pipeline.
+    /// You can only cancel a job that has a status of <c>Submitted</c>. To prevent a pipeline
+    /// from starting to process a job while you're getting the job identifier, use <a>UpdatePipelineStatus</a>
+    /// to temporarily pause the pipeline.
     /// </para></note>
     /// </summary>
     [Cmdlet("Stop", "ETSJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the job that you want to cancel.</para><para>To get a list of the jobs (including their <code>jobId</code>) that have a status
-        /// of <code>Submitted</code>, use the <a>ListJobsByStatus</a> API action.</para>
+        /// <para>The identifier of the job that you want to cancel.</para><para>To get a list of the jobs (including their <c>jobId</c>) that have a status of <c>Submitted</c>,
+        /// use the <a>ListJobsByStatus</a> API action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -150,8 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>An array of Amazon Web Services resource types to return coverage statistics for.
-        /// The values can be <code>AWS_EC2_INSTANCE</code>, <code>AWS_LAMBDA_FUNCTION</code>
-        /// or <code>AWS_ECR_REPOSITORY</code>.</para>
+        /// The values can be <c>AWS_EC2_INSTANCE</c>, <c>AWS_LAMBDA_FUNCTION</c> or <c>AWS_ECR_REPOSITORY</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,9 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_ScanStatusCode
         /// <summary>
         /// <para>
-        /// <para>The scan status code to filter on. Valid values are: <code>ValidationException</code>,
-        /// <code>InternalServerException</code>, <code>ResourceNotFoundException</code>, <code>BadRequestException</code>,
-        /// and <code>ThrottlingException</code>.</para>
+        /// <para>The scan status code to filter on. Valid values are: <c>ValidationException</c>, <c>InternalServerException</c>,
+        /// <c>ResourceNotFoundException</c>, <c>BadRequestException</c>, and <c>ThrottlingException</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,8 +193,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <para>
         /// <para>A token to use for paginating results that are returned in the response. Set the value
         /// of this parameter to null for the first request to a list action. For subsequent calls,
-        /// use the <code>NextToken</code> value returned from the previous request to continue
-        /// listing results after the first page.</para>
+        /// use the <c>NextToken</c> value returned from the previous request to continue listing
+        /// results after the first page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

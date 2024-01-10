@@ -35,23 +35,23 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     ///  
     /// <para>
     /// Only a management account and a delegated administrator can call this API. When calling
-    /// this API with a delegated administrator, you must ensure Organizations <code>ListDelegatedAdministrator</code>
+    /// this API with a delegated administrator, you must ensure Organizations <c>ListDelegatedAdministrator</c>
     /// permissions are added. An organization can have up to 3 delegated administrators.
     /// </para><para>
-    /// This API enables organization service access for <code>config-multiaccountsetup.amazonaws.com</code>
-    /// through the <code>EnableAWSServiceAccess</code> action and creates a service-linked
-    /// role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the management or delegated
-    /// administrator account of your organization. The service-linked role is created only
-    /// when the role does not exist in the caller account. To use this API with delegated
-    /// administrator, register a delegated administrator by calling Amazon Web Services Organization
-    /// <code>register-delegate-admin</code> for <code>config-multiaccountsetup.amazonaws.com</code>.
+    /// This API enables organization service access for <c>config-multiaccountsetup.amazonaws.com</c>
+    /// through the <c>EnableAWSServiceAccess</c> action and creates a service-linked role
+    /// <c>AWSServiceRoleForConfigMultiAccountSetup</c> in the management or delegated administrator
+    /// account of your organization. The service-linked role is created only when the role
+    /// does not exist in the caller account. To use this API with delegated administrator,
+    /// register a delegated administrator by calling Amazon Web Services Organization <c>register-delegate-admin</c>
+    /// for <c>config-multiaccountsetup.amazonaws.com</c>.
     /// </para><note><para>
-    /// Prerequisite: Ensure you call <code>EnableAllFeatures</code> API to enable all features
+    /// Prerequisite: Ensure you call <c>EnableAllFeatures</c> API to enable all features
     /// in an organization.
     /// </para><para>
-    /// You must specify either the <code>TemplateS3Uri</code> or the <code>TemplateBody</code>
-    /// parameter, but not both. If you provide both Config uses the <code>TemplateS3Uri</code>
-    /// parameter and ignores the <code>TemplateBody</code> parameter.
+    /// You must specify either the <c>TemplateS3Uri</c> or the <c>TemplateBody</c> parameter,
+    /// but not both. If you provide both Config uses the <c>TemplateS3Uri</c> parameter and
+    /// ignores the <c>TemplateBody</c> parameter.
     /// </para><para>
     /// Config sets the state of a conformance pack to CREATE_IN_PROGRESS and UPDATE_IN_PROGRESS
     /// until the conformance pack is created or updated. You cannot update a conformance
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConformancePackInputParameter
         /// <summary>
         /// <para>
-        /// <para>A list of <code>ConformancePackInputParameter</code> objects.</para>
+        /// <para>A list of <c>ConformancePackInputParameter</c> objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter DeliveryS3Bucket
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon S3 bucket where Config stores conformance pack templates.</para><note><para>This field is optional. If used, it must be prefixed with <code>awsconfigconforms</code>.</para></note>
+        /// <para>The name of the Amazon S3 bucket where Config stores conformance pack templates.</para><note><para>This field is optional. If used, it must be prefixed with <c>awsconfigconforms</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

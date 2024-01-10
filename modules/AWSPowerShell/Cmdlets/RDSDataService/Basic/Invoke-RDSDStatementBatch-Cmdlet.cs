@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     /// with different parameter sets. Bulk operations can provide a significant performance
     /// improvement over individual insert and update operations.
     /// </para><note><para>
-    /// If a call isn't part of a transaction because it doesn't include the <code>transactionID</code>
+    /// If a call isn't part of a transaction because it doesn't include the <c>transactionID</c>
     /// parameter, changes that result from the call are committed automatically.
     /// </para><para>
     /// There isn't a fixed upper limit on the number of parameter sets. However, the maximum
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         /// <summary>
         /// <para>
         /// <para>The parameter set for the batch operation.</para><para>The SQL statement is executed as many times as the number of parameter sets provided.
-        /// To execute a SQL statement with no parameters, use one of the following options:</para><ul><li><para>Specify one or more empty parameter sets.</para></li><li><para>Use the <code>ExecuteStatement</code> operation instead of the <code>BatchExecuteStatement</code>
+        /// To execute a SQL statement with no parameters, use one of the following options:</para><ul><li><para>Specify one or more empty parameter sets.</para></li><li><para>Use the <c>ExecuteStatement</c> operation instead of the <c>BatchExecuteStatement</c>
         /// operation.</para></li></ul><note><para>Array parameters are not supported.</para></note>
         /// </para>
         /// </summary>
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         #region Parameter Schema
         /// <summary>
         /// <para>
-        /// <para>The name of the database schema.</para><note><para>Currently, the <code>schema</code> parameter isn't supported.</para></note>
+        /// <para>The name of the database schema.</para><note><para>Currently, the <c>schema</c> parameter isn't supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         #region Parameter TransactionId
         /// <summary>
         /// <para>
-        /// <para>The identifier of a transaction that was started by using the <code>BeginTransaction</code>
+        /// <para>The identifier of a transaction that was started by using the <c>BeginTransaction</c>
         /// operation. Specify the transaction ID of the transaction that you want to include
         /// the SQL statement in.</para><para>If the SQL statement is not part of a transaction, don't set this parameter.</para>
         /// </para>

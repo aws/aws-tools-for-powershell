@@ -61,19 +61,19 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>Key-value pairs to specify advanced configuration options. The following key-value
-        /// pairs are supported:</para><ul><li><para><code>"rest.action.multi.allow_explicit_index": "true" | "false"</code> - Note the
-        /// use of a string rather than a boolean. Specifies whether explicit references to indexes
+        /// pairs are supported:</para><ul><li><para><c>"rest.action.multi.allow_explicit_index": "true" | "false"</c> - Note the use
+        /// of a string rather than a boolean. Specifies whether explicit references to indexes
         /// are allowed inside the body of HTTP requests. If you want to configure access policies
         /// for domain sub-resources, such as specific indexes and domain APIs, you must disable
-        /// this property. Default is true.</para></li><li><para><code>"indices.fielddata.cache.size": "80" </code> - Note the use of a string rather
-        /// than a boolean. Specifies the percentage of heap space allocated to field data. Default
-        /// is unbounded.</para></li><li><para><code>"indices.query.bool.max_clause_count": "1024"</code> - Note the use of a string
-        /// rather than a boolean. Specifies the maximum number of clauses allowed in a Lucene
-        /// boolean query. Default is 1,024. Queries with more than the permitted number of clauses
-        /// result in a <code>TooManyClauses</code> error.</para></li><li><para><code>"override_main_response_version": "true" | "false"</code> - Note the use of
-        /// a string rather than a boolean. Specifies whether the domain reports its version as
-        /// 7.10 to allow Elasticsearch OSS clients and plugins to continue working with it. Default
-        /// is false when creating a domain and true when upgrading a domain.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options">Advanced
+        /// this property. Default is true.</para></li><li><para><c>"indices.fielddata.cache.size": "80" </c> - Note the use of a string rather than
+        /// a boolean. Specifies the percentage of heap space allocated to field data. Default
+        /// is unbounded.</para></li><li><para><c>"indices.query.bool.max_clause_count": "1024"</c> - Note the use of a string rather
+        /// than a boolean. Specifies the maximum number of clauses allowed in a Lucene boolean
+        /// query. Default is 1,024. Queries with more than the permitted number of clauses result
+        /// in a <c>TooManyClauses</c> error.</para></li><li><para><c>"override_main_response_version": "true" | "false"</c> - Note the use of a string
+        /// rather than a boolean. Specifies whether the domain reports its version as 7.10 to
+        /// allow Elasticsearch OSS clients and plugins to continue working with it. Default is
+        /// false when creating a domain and true when upgrading a domain.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options">Advanced
         /// cluster parameters</a>.</para>
         /// </para>
         /// </summary>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>The time, in UTC format, when OpenSearch Service takes a daily automated snapshot
-        /// of the specified domain. Default is <code>0</code> hours.</para>
+        /// of the specified domain. Default is <c>0</c> hours.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>If you enabled multiple Availability Zones, this value is the number of zones that
-        /// you want the domain to use. Valid values are <code>2</code> and <code>3</code>. If
-        /// your domain is provisioned within a VPC, this value be equal to number of subnets.</para>
+        /// you want the domain to use. Valid values are <c>2</c> and <c>3</c>. If your domain
+        /// is provisioned within a VPC, this value be equal to number of subnets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,9 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ClusterConfig_DedicatedMasterEnabled
         /// <summary>
         /// <para>
-        /// <para>Indicates whether dedicated master nodes are enabled for the cluster.<code>True</code>
-        /// if the cluster will use a dedicated master node.<code>False</code> if the cluster
-        /// will not.</para>
+        /// <para>Indicates whether dedicated master nodes are enabled for the cluster.<c>True</c> if
+        /// the cluster will use a dedicated master node.<c>False</c> if the cluster will not.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -322,7 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>String of format Elasticsearch_X.Y or OpenSearch_X.Y to specify the engine version
-        /// for the OpenSearch Service domain. For example, <code>OpenSearch_1.0</code> or <code>Elasticsearch_7.9</code>.
+        /// for the OpenSearch Service domain. For example, <c>OpenSearch_1.0</c> or <c>Elasticsearch_7.9</c>.
         /// For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains">Creating
         /// and managing Amazon OpenSearch Service domains</a>.</para>
         /// </para>
@@ -346,7 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>The start hour of the window in Coordinated Universal Time (UTC), using 24-hour time.
-        /// For example, <code>17</code> refers to 5:00 P.M. UTC.</para>
+        /// For example, <c>17</c> refers to 5:00 P.M. UTC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -401,7 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>Specifies the baseline input/output (I/O) performance of EBS volumes attached to data
-        /// nodes. Applicable only for the <code>gp3</code> and provisioned IOPS EBS volume types.</para>
+        /// nodes. Applicable only for the <c>gp3</c> and provisioned IOPS EBS volume types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -425,7 +424,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter EncryptionAtRestOptions_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The KMS key ID. Takes the form <code>1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a</code>.</para>
+        /// <para>The KMS key ID. Takes the form <c>1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -470,8 +469,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter MasterUserOptions_MasterUserARN
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (ARN) for the master user. Only specify if <code>InternalUserDatabaseEnabled</code>
-        /// is <code>false</code>.</para>
+        /// <para>Amazon Resource Name (ARN) for the master user. Only specify if <c>InternalUserDatabaseEnabled</c>
+        /// is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -482,8 +481,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter MasterUserOptions_MasterUserName
         /// <summary>
         /// <para>
-        /// <para>User name for the master user. Only specify if <code>InternalUserDatabaseEnabled</code>
-        /// is <code>true</code>.</para>
+        /// <para>User name for the master user. Only specify if <c>InternalUserDatabaseEnabled</c>
+        /// is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -505,8 +504,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter MasterUserOptions_MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>Password for the master user. Only specify if <code>InternalUserDatabaseEnabled</code>
-        /// is <code>true</code>.</para>
+        /// <para>Password for the master user. Only specify if <c>InternalUserDatabaseEnabled</c> is
+        /// <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -551,8 +550,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter CognitoOptions_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The <code>AmazonOpenSearchServiceCognitoAccess</code> role that allows OpenSearch
-        /// Service to configure your user pool and identity pool.</para>
+        /// <para>The <c>AmazonOpenSearchServiceCognitoAccess</c> role that allows OpenSearch Service
+        /// to configure your user pool and identity pool.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -562,7 +561,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter SAMLOptions_RolesKey
         /// <summary>
         /// <para>
-        /// <para>Element of the SAML assertion to use for backend roles. Default is <code>roles</code>.</para>
+        /// <para>Element of the SAML assertion to use for backend roles. Default is <c>roles</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -598,7 +597,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter SAMLOptions_SubjectKey
         /// <summary>
         /// <para>
-        /// <para>Element of the SAML assertion to use for the user name. Default is <code>NameID</code>.</para>
+        /// <para>Element of the SAML assertion to use for the user name. Default is <c>NameID</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -633,7 +632,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable
-        /// only for the <code>gp3</code> volume type.</para>
+        /// only for the <c>gp3</c> volume type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

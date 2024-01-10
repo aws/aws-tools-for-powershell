@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
     /// To make sure that you have the latest version of the stream before updating it, you
     /// can specify the stream version. Kinesis Video Streams assigns a version to each stream.
     /// When you update a stream, Kinesis Video Streams assigns a new version number. To get
-    /// the latest stream version, use the <code>DescribeStream</code> API. 
-    /// </para><para><code>UpdateStream</code> is an asynchronous operation, and takes time to complete.
+    /// the latest stream version, use the <c>DescribeStream</c> API. 
+    /// </para><para><c>UpdateStream</c> is an asynchronous operation, and takes time to complete.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "KVStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -83,12 +83,12 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter MediaType
         /// <summary>
         /// <para>
-        /// <para>The stream's media type. Use <code>MediaType</code> to specify the type of content
-        /// that the stream contains to the consumers of the stream. For more information about
-        /// media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media
-        /// Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming
+        /// <para>The stream's media type. Use <c>MediaType</c> to specify the type of content that
+        /// the stream contains to the consumers of the stream. For more information about media
+        /// types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media
+        /// Types</a>. If you choose to specify the <c>MediaType</c>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming
         /// Requirements</a>.</para><para>To play video on the console, you must specify the correct video type. For example,
-        /// if the video in the stream is H.264, specify <code>video/h264</code> as the <code>MediaType</code>.</para>
+        /// if the video in the stream is H.264, specify <c>video/h264</c> as the <c>MediaType</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

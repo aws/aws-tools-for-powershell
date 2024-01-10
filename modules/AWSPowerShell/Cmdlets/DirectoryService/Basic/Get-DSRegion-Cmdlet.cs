@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter RegionName
         /// <summary>
         /// <para>
-        /// <para>The name of the Region. For example, <code>us-east-1</code>.</para>
+        /// <para>The name of the Region. For example, <c>us-east-1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>DescribeRegionsResult.NextToken</code> value from a previous call to <a>DescribeRegions</a>.
+        /// <para>The <c>DescribeRegionsResult.NextToken</c> value from a previous call to <a>DescribeRegions</a>.
         /// Pass null if this is the first call.</para>
         /// </para>
         /// <para>

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     /// see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html">Limits</a>.
     /// 
     /// </para><para>
-    ///  This operation requires permissions to perform the <code>kinesisanalytics:AddApplicationOutput</code>
+    ///  This operation requires permissions to perform the <c>kinesisanalytics:AddApplicationOutput</c>
     /// action. 
     /// </para>
     /// </summary>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// <para>Version of the application for which you are adding the reference data source. You
         /// can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
         /// operation to get the current application version. If the version specified is not
-        /// the current version, the <code>ConcurrentModificationException</code> is returned.</para>
+        /// the current version, the <c>ConcurrentModificationException</c> is returned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter ReferenceSchema_RecordColumn
         /// <summary>
         /// <para>
-        /// <para>A list of <code>RecordColumn</code> objects.</para>
+        /// <para>A list of <c>RecordColumn</c> objects.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -206,9 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// <summary>
         /// <para>
         /// <para>ARN of the IAM role that the service can assume to read data on your behalf. This
-        /// role must have permission for the <code>s3:GetObject</code> action on the object and
-        /// trust policy that allows Amazon Kinesis Analytics service principal to assume this
-        /// role.</para>
+        /// role must have permission for the <c>s3:GetObject</c> action on the object and trust
+        /// policy that allows Amazon Kinesis Analytics service principal to assume this role.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

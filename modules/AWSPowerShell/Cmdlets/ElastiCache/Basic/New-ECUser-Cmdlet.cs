@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AuthenticationMode_Password
         /// <summary>
         /// <para>
-        /// <para>Specifies the passwords to use for authentication if <code>Type</code> is set to <code>password</code>.</para>
+        /// <para>Specifies the passwords to use for authentication if <c>Type</c> is set to <c>password</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

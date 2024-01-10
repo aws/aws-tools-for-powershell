@@ -108,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies a file with the certificates that are used to sign the object storage server's
-        /// certificate (for example, <code>file:///home/user/.ssh/storage_sys_certificate.pem</code>).
-        /// The file you specify must include the following:</para><ul><li><para>The certificate of the signing certificate authority (CA)</para></li><li><para>Any intermediate certificates</para></li><li><para>base64 encoding</para></li><li><para>A <code>.pem</code> extension</para></li></ul><para>The file can be up to 32768 bytes (before base64 encoding).</para><para>To use this parameter, configure <code>ServerProtocol</code> to <code>HTTPS</code>.</para>
+        /// certificate (for example, <c>file:///home/user/.ssh/storage_sys_certificate.pem</c>).
+        /// The file you specify must include the following:</para><ul><li><para>The certificate of the signing certificate authority (CA)</para></li><li><para>Any intermediate certificates</para></li><li><para>base64 encoding</para></li><li><para>A <c>.pem</c> extension</para></li></ul><para>The file can be up to 32768 bytes (before base64 encoding).</para><para>To use this parameter, configure <c>ServerProtocol</c> to <c>HTTPS</c>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

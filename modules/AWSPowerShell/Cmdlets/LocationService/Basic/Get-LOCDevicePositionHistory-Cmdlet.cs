@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Specify the end time for the position history in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">
-        /// ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. By default, the value
-        /// will be the time that the request is made.</para><para>Requirement:</para><ul><li><para>The time specified for <code>EndTimeExclusive</code> must be after the time for <code>StartTimeInclusive</code>.</para></li></ul>
+        /// ISO 8601</a> format: <c>YYYY-MM-DDThh:mm:ss.sssZ</c>. By default, the value will be
+        /// the time that the request is made.</para><para>Requirement:</para><ul><li><para>The time specified for <c>EndTimeExclusive</c> must be after the time for <c>StartTimeInclusive</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Specify the start time for the position history in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">
-        /// ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. By default, the value
-        /// will be 24 hours prior to the time that the request is made.</para><para>Requirement:</para><ul><li><para>The time specified for <code>StartTimeInclusive</code> must be before <code>EndTimeExclusive</code>.</para></li></ul>
+        /// ISO 8601</a> format: <c>YYYY-MM-DDThh:mm:ss.sssZ</c>. By default, the value will be
+        /// 24 hours prior to the time that the request is made.</para><para>Requirement:</para><ul><li><para>The time specified for <c>StartTimeInclusive</c> must be before <c>EndTimeExclusive</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An optional limit for the number of device positions returned in a single call.</para><para>Default value: <code>100</code></para>
+        /// <para>An optional limit for the number of device positions returned in a single call.</para><para>Default value: <c>100</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>The pagination token specifying which page of results to return in the response. If
-        /// no token is provided, the default page is the first page. </para><para>Default value: <code>null</code></para>
+        /// no token is provided, the default page is the first page. </para><para>Default value: <c>null</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

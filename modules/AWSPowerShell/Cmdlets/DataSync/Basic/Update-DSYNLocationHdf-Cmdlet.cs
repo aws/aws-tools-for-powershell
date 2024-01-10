@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>The data transfer protection setting configured on the HDFS cluster. This setting
-        /// corresponds to your <code>dfs.data.transfer.protection</code> setting in the <code>hdfs-site.xml</code>
+        /// corresponds to your <c>dfs.data.transfer.protection</c> setting in the <c>hdfs-site.xml</c>
         /// file on your Hadoop cluster.</para>
         /// </para>
         /// </summary>
@@ -106,9 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter KerberosKrb5Conf
         /// <summary>
         /// <para>
-        /// <para>The <code>krb5.conf</code> file that contains the Kerberos configuration information.
-        /// You can load the <code>krb5.conf</code> file by providing the file's address. If you're
-        /// using the CLI, it performs the base64 encoding for you. Otherwise, provide the base64-encoded
+        /// <para>The <c>krb5.conf</c> file that contains the Kerberos configuration information. You
+        /// can load the <c>krb5.conf</c> file by providing the file's address. If you're using
+        /// the CLI, it performs the base64 encoding for you. Otherwise, provide the base64-encoded
         /// text.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
@@ -183,8 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>The RPC protection setting configured on the HDFS cluster. This setting corresponds
-        /// to your <code>hadoop.rpc.protection</code> setting in your <code>core-site.xml</code>
-        /// file on your Hadoop cluster.</para>
+        /// to your <c>hadoop.rpc.protection</c> setting in your <c>core-site.xml</c> file on
+        /// your Hadoop cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

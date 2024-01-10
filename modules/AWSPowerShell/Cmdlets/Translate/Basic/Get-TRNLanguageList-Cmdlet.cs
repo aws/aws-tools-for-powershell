@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// <summary>
         /// <para>
         /// <para>The language code for the language to use to display the language names in the response.
-        /// The language code is <code>en</code> by default. </para>
+        /// The language code is <c>en</c> by default. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

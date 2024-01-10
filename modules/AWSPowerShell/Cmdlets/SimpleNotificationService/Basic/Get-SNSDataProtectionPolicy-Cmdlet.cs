@@ -28,8 +28,8 @@ using Amazon.SimpleNotificationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
-    /// Retrieves the specified inline <code>DataProtectionPolicy</code> document that is
-    /// stored in the specified Amazon SNS topic.
+    /// Retrieves the specified inline <c>DataProtectionPolicy</c> document that is stored
+    /// in the specified Amazon SNS topic.
     /// </summary>
     [Cmdlet("Get", "SNSDataProtectionPolicy")]
     [OutputType("System.String")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to get.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// <para>The ARN of the topic whose <c>DataProtectionPolicy</c> you want to get.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs)</a> in the Amazon Web Services General Reference.</para>
         /// </para>
         /// </summary>

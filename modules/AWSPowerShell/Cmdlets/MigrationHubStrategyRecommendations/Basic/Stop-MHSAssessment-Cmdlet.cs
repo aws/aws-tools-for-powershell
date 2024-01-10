@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         #region Parameter AssessmentId
         /// <summary>
         /// <para>
-        /// <para> The <code>assessmentId</code> returned by <a>StartAssessment</a>. </para>
+        /// <para> The <c>assessmentId</c> returned by <a>StartAssessment</a>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Deletes a real time endpoint of an <code>MLModel</code>.
+    /// Deletes a real time endpoint of an <c>MLModel</c>.
     /// </summary>
     [Cmdlet("Remove", "MLRealtimeEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.MachineLearning.Model.DeleteRealtimeEndpointResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter MLModelId
         /// <summary>
         /// <para>
-        /// <para>The ID assigned to the <code>MLModel</code> during creation.</para>
+        /// <para>The ID assigned to the <c>MLModel</c> during creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

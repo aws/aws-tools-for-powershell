@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The key to use as the starting point for the list of tags. If you set this parameter,
-        /// <code>ListTagsForDeliveryStream</code> gets all tags that occur after <code>ExclusiveStartTagKey</code>.</para>
+        /// <c>ListTagsForDeliveryStream</c> gets all tags that occur after <c>ExclusiveStartTagKey</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The number of tags to return. If this number is less than the total number of tags
-        /// associated with the delivery stream, <code>HasMoreTags</code> is set to <code>true</code>
-        /// in the response. To list additional tags, set <code>ExclusiveStartTagKey</code> to
-        /// the last key in the response. </para>
+        /// associated with the delivery stream, <c>HasMoreTags</c> is set to <c>true</c> in the
+        /// response. To list additional tags, set <c>ExclusiveStartTagKey</c> to the last key
+        /// in the response. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

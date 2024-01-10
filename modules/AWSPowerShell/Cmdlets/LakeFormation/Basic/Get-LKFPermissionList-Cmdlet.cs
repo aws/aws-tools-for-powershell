@@ -150,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter TableWithColumns_ColumnName
         /// <summary>
         /// <para>
-        /// <para>The list of column names for the table. At least one of <code>ColumnNames</code> or
-        /// <code>ColumnWildcard</code> is required.</para>
+        /// <para>The list of column names for the table. At least one of <c>ColumnNames</c> or <c>ColumnWildcard</c>
+        /// is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -342,8 +342,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter Table_TableWildcard
         /// <summary>
         /// <para>
-        /// <para>A wildcard object representing every table under a database.</para><para>At least one of <code>TableResource$Name</code> or <code>TableResource$TableWildcard</code>
-        /// is required.</para>
+        /// <para>A wildcard object representing every table under a database.</para><para>At least one of <c>TableResource$Name</c> or <c>TableResource$TableWildcard</c> is
+        /// required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

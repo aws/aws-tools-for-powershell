@@ -32,11 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// tags to a data stream.
     /// 
     ///  <note><para>
-    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
-    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
-    /// parameter when you invoke this API.
+    /// When invoking this API, you must use either the <c>StreamARN</c> or the <c>StreamName</c>
+    /// parameter, or both. It is recommended that you use the <c>StreamARN</c> input parameter
+    /// when you invoke this API.
     /// </para></note><para>
-    /// If tags have already been assigned to the stream, <code>AddTagsToStream</code> overwrites
+    /// If tags have already been assigned to the stream, <c>AddTagsToStream</c> overwrites
     /// any existing tags that correspond to the specified tag keys.
     /// </para><para><a>AddTagsToStream</a> has a limit of five transactions per second per account.
     /// </para>

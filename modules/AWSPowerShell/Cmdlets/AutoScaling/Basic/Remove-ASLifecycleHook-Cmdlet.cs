@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// If there are any outstanding lifecycle actions, they are completed first (<code>ABANDON</code>
-    /// for launching instances, <code>CONTINUE</code> for terminating instances).
+    /// If there are any outstanding lifecycle actions, they are completed first (<c>ABANDON</c>
+    /// for launching instances, <c>CONTINUE</c> for terminating instances).
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "ASLifecycleHook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

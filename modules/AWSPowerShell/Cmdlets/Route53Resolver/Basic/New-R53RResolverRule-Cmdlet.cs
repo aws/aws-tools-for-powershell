@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and that allows failed requests to be
-        /// retried without the risk of running the operation twice. <code>CreatorRequestId</code>
-        /// can be any unique string, for example, a date/time stamp. </para>
+        /// retried without the risk of running the operation twice. <c>CreatorRequestId</c> can
+        /// be any unique string, for example, a date/time stamp. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,9 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>DNS queries for this domain name are forwarded to the IP addresses that you specify
-        /// in <code>TargetIps</code>. If a query matches multiple Resolver rules (example.com
-        /// and www.example.com), outbound DNS queries are routed using the Resolver rule that
-        /// contains the most specific domain name (www.example.com).</para>
+        /// in <c>TargetIps</c>. If a query matches multiple Resolver rules (example.com and www.example.com),
+        /// outbound DNS queries are routed using the Resolver rule that contains the most specific
+        /// domain name (www.example.com).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The ID of the outbound Resolver endpoint that you want to use to route DNS queries
-        /// to the IP addresses that you specify in <code>TargetIps</code>.</para>
+        /// to the IP addresses that you specify in <c>TargetIps</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,12 +102,12 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>When you want to forward DNS queries for specified domain name to resolvers on your
-        /// network, specify <code>FORWARD</code>.</para><para>When you have a forwarding rule to forward DNS queries for a domain to your network
-        /// and you want Resolver to process queries for a subdomain of that domain, specify <code>SYSTEM</code>.</para><para>For example, to forward DNS queries for example.com to resolvers on your network,
-        /// you create a rule and specify <code>FORWARD</code> for <code>RuleType</code>. To then
-        /// have Resolver process queries for apex.example.com, you create a rule and specify
-        /// <code>SYSTEM</code> for <code>RuleType</code>.</para><para>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code>
-        /// for <code>RuleType</code>.</para>
+        /// network, specify <c>FORWARD</c>.</para><para>When you have a forwarding rule to forward DNS queries for a domain to your network
+        /// and you want Resolver to process queries for a subdomain of that domain, specify <c>SYSTEM</c>.</para><para>For example, to forward DNS queries for example.com to resolvers on your network,
+        /// you create a rule and specify <c>FORWARD</c> for <c>RuleType</c>. To then have Resolver
+        /// process queries for apex.example.com, you create a rule and specify <c>SYSTEM</c>
+        /// for <c>RuleType</c>.</para><para>Currently, only Resolver can create rules that have a value of <c>RECURSIVE</c> for
+        /// <c>RuleType</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -136,8 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The IPs that you want Resolver to forward DNS queries to. You can specify either Ipv4
-        /// or Ipv6 addresses but not both in the same rule. Separate IP addresses with a space.</para><para><code>TargetIps</code> is available only when the value of <code>Rule type</code>
-        /// is <code>FORWARD</code>.</para>
+        /// or Ipv6 addresses but not both in the same rule. Separate IP addresses with a space.</para><para><c>TargetIps</c> is available only when the value of <c>Rule type</c> is <c>FORWARD</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

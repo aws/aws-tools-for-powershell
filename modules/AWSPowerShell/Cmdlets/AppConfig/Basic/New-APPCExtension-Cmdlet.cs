@@ -38,17 +38,17 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     /// provided by AppConfig. For an AppConfig extension that uses Lambda, you must create
     /// a Lambda function to perform any computation and processing defined in the extension.
     /// If you plan to create custom versions of the Amazon Web Services authored notification
-    /// extensions, you only need to specify an Amazon Resource Name (ARN) in the <code>Uri</code>
+    /// extensions, you only need to specify an Amazon Resource Name (ARN) in the <c>Uri</c>
     /// field for the new extension version.
     /// </para><ul><li><para>
     /// For a custom EventBridge notification extension, enter the ARN of the EventBridge
-    /// default events in the <code>Uri</code> field.
+    /// default events in the <c>Uri</c> field.
     /// </para></li><li><para>
     /// For a custom Amazon SNS notification extension, enter the ARN of an Amazon SNS topic
-    /// in the <code>Uri</code> field.
+    /// in the <c>Uri</c> field.
     /// </para></li><li><para>
     /// For a custom Amazon SQS notification extension, enter the ARN of an Amazon SQS message
-    /// queue in the <code>Uri</code> field. 
+    /// queue in the <c>Uri</c> field. 
     /// </para></li></ul><para>
     /// For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working
     /// with AppConfig extensions</a> in the <i>AppConfig User Guide</i>.
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// <summary>
         /// <para>
         /// <para>The parameters accepted by the extension. You specify parameter values when you associate
-        /// the extension to an AppConfig resource by using the <code>CreateExtensionAssociation</code>
+        /// the extension to an AppConfig resource by using the <c>CreateExtensionAssociation</c>
         /// API action. For Lambda extension actions, these parameters are included in the Lambda
         /// request object.</para>
         /// </para>

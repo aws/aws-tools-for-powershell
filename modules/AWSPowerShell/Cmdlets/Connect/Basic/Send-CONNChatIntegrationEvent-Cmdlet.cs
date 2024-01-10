@@ -74,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Event_Content
         /// <summary>
         /// <para>
-        /// <para>Content of the message or event. This is required when <code>Type</code> is <code>MESSAGE</code>
-        /// and for certain <code>ContentTypes</code> when <code>Type</code> is <code>EVENT</code>.</para><ul><li><para>For allowed message content, see the <code>Content</code> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendMessage.html">SendMessage</a>
-        /// topic in the <i>Amazon Connect Participant Service API Reference</i>.</para></li><li><para>For allowed event content, see the <code>Content</code> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendEvent.html">SendEvent</a>
+        /// <para>Content of the message or event. This is required when <c>Type</c> is <c>MESSAGE</c>
+        /// and for certain <c>ContentTypes</c> when <c>Type</c> is <c>EVENT</c>.</para><ul><li><para>For allowed message content, see the <c>Content</c> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendMessage.html">SendMessage</a>
+        /// topic in the <i>Amazon Connect Participant Service API Reference</i>.</para></li><li><para>For allowed event content, see the <c>Content</c> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendEvent.html">SendEvent</a>
         /// topic in the <i>Amazon Connect Participant Service API Reference</i>. </para></li></ul>
         /// </para>
         /// </summary>
@@ -87,11 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Event_ContentType
         /// <summary>
         /// <para>
-        /// <para>Type of content. This is required when <code>Type</code> is <code>MESSAGE</code> or
-        /// <code>EVENT</code>. </para><ul><li><para>For allowed message content types, see the <code>ContentType</code> parameter in the
-        /// <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendMessage.html">SendMessage</a>
-        /// topic in the <i>Amazon Connect Participant Service API Reference</i>.</para></li><li><para>For allowed event content types, see the <code>ContentType</code> parameter in the
-        /// <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendEvent.html">SendEvent</a>
+        /// <para>Type of content. This is required when <c>Type</c> is <c>MESSAGE</c> or <c>EVENT</c>.
+        /// </para><ul><li><para>For allowed message content types, see the <c>ContentType</c> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendMessage.html">SendMessage</a>
+        /// topic in the <i>Amazon Connect Participant Service API Reference</i>.</para></li><li><para>For allowed event content types, see the <c>ContentType</c> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendEvent.html">SendEvent</a>
         /// topic in the <i>Amazon Connect Participant Service API Reference</i>. </para></li></ul>
         /// </para>
         /// </summary>
@@ -164,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Subtype
         /// <summary>
         /// <para>
-        /// <para>Classification of a channel. This is used in part to uniquely identify chat. </para><para>Valid value: <code>["connect:sms"]</code></para>
+        /// <para>Classification of a channel. This is used in part to uniquely identify chat. </para><para>Valid value: <c>["connect:sms"]</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,12 +172,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter NewSessionDetails_SupportedMessagingContentType
         /// <summary>
         /// <para>
-        /// <para> The supported chat message content types. Supported types are <code>text/plain</code>,
-        /// <code>text/markdown</code>, <code>application/json</code>, <code>application/vnd.amazonaws.connect.message.interactive</code>,
-        /// and <code>application/vnd.amazonaws.connect.message.interactive.response</code>. </para><para>Content types must always contain <code> text/plain</code>. You can then put any other
-        /// supported type in the list. For example, all the following lists are valid because
-        /// they contain <code>text/plain</code>: <code>[text/plain, text/markdown, application/json]</code>,
-        /// <code> [text/markdown, text/plain]</code>, <code>[text/plain, application/json, application/vnd.amazonaws.connect.message.interactive.response]</code>.
+        /// <para> The supported chat message content types. Supported types are <c>text/plain</c>,
+        /// <c>text/markdown</c>, <c>application/json</c>, <c>application/vnd.amazonaws.connect.message.interactive</c>,
+        /// and <c>application/vnd.amazonaws.connect.message.interactive.response</c>. </para><para>Content types must always contain <c> text/plain</c>. You can then put any other supported
+        /// type in the list. For example, all the following lists are valid because they contain
+        /// <c>text/plain</c>: <c>[text/plain, text/markdown, application/json]</c>, <c> [text/markdown,
+        /// text/plain]</c>, <c>[text/plain, application/json, application/vnd.amazonaws.connect.message.interactive.response]</c>.
         /// </para>
         /// </para>
         /// </summary>

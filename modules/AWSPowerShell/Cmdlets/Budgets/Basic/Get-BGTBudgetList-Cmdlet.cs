@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     /// Lists the budgets that are associated with an account.
     /// 
     ///  <important><para>
-    /// The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>,
+    /// The Request Syntax section shows the <c>BudgetLimit</c> syntax. For <c>PlannedBudgetLimits</c>,
     /// see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudgets.html#API_DescribeBudgets_Examples">Examples</a>
     /// section. 
     /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The <code>accountId</code> that is associated with the budgets that you want to describe.</para>
+        /// <para>The <c>accountId</c> that is associated with the budgets that you want to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

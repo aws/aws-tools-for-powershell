@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         #region Parameter MonitorName
         /// <summary>
         /// <para>
-        /// <para>The name of the monitor to delete. For a list of the available monitors, use the <code>ListMonitors</code>
+        /// <para>The name of the monitor to delete. For a list of the available monitors, use the <c>ListMonitors</c>
         /// action.</para>
         /// </para>
         /// </summary>
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         #region Parameter ProbeId
         /// <summary>
         /// <para>
-        /// <para>The ID of the probe to delete. Run <code>GetMonitor</code> to get a lst of all probes
-        /// and probe IDs associated with the monitor.</para>
+        /// <para>The ID of the probe to delete. Run <c>GetMonitor</c> to get a lst of all probes and
+        /// probe IDs associated with the monitor.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

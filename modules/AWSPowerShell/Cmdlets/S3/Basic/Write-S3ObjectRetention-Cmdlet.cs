@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// This operation is not supported by directory buckets.
     /// </para></note><para>
     /// Places an Object Retention configuration on an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.
-    /// Users or accounts require the <code>s3:PutObjectRetention</code> permission in order
-    /// to place an Object Retention configuration on objects. Bypassing a Governance Retention
-    /// configuration requires the <code>s3:BypassGovernanceRetention</code> permission. 
+    /// Users or accounts require the <c>s3:PutObjectRetention</c> permission in order to
+    /// place an Object Retention configuration on objects. Bypassing a Governance Retention
+    /// configuration requires the <c>s3:BypassGovernanceRetention</c> permission. 
     /// </para><para>
     /// This functionality is not supported for Amazon S3 on Outposts.
     /// </para>

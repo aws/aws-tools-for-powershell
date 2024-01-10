@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para> Specifies the endpoint type for what type of IP address the endpoint uses to forward
-        /// DNS queries. </para><para>Updating to <code>IPV6</code> type isn't currently supported.</para>
+        /// DNS queries. </para><para>Updating to <c>IPV6</c> type isn't currently supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

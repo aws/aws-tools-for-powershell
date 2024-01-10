@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Filters_Association
         /// <summary>
         /// <para>
-        /// <para><code>MONITORED</code>: linked accounts that are associated to billing groups.</para><para><code>UNMONITORED</code>: linked accounts that are not associated to billing groups.</para><para><code>Billing Group Arn</code>: linked accounts that are associated to the provided
-        /// Billing Group Arn.</para>
+        /// <para><c>MONITORED</c>: linked accounts that are associated to billing groups.</para><para><c>UNMONITORED</c>: linked accounts that are not associated to billing groups.</para><para><c>Billing Group Arn</c>: linked accounts that are associated to the provided Billing
+        /// Group Arn.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

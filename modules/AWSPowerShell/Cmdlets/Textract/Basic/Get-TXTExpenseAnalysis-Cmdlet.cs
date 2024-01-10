@@ -35,20 +35,19 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     ///  
     /// <para>
     /// You start asynchronous invoice/receipt analysis by calling <a>StartExpenseAnalysis</a>,
-    /// which returns a job identifier (<code>JobId</code>). Upon completion of the invoice/receipt
+    /// which returns a job identifier (<c>JobId</c>). Upon completion of the invoice/receipt
     /// analysis, Amazon Textract publishes the completion status to the Amazon Simple Notification
-    /// Service (Amazon SNS) topic. This topic must be registered in the initial call to <code>StartExpenseAnalysis</code>.
+    /// Service (Amazon SNS) topic. This topic must be registered in the initial call to <c>StartExpenseAnalysis</c>.
     /// To get the results of the invoice/receipt analysis operation, first ensure that the
-    /// status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call
-    /// <code>GetExpenseAnalysis</code>, and pass the job identifier (<code>JobId</code>)
-    /// from the initial call to <code>StartExpenseAnalysis</code>.
+    /// status value published to the Amazon SNS topic is <c>SUCCEEDED</c>. If so, call <c>GetExpenseAnalysis</c>,
+    /// and pass the job identifier (<c>JobId</c>) from the initial call to <c>StartExpenseAnalysis</c>.
     /// </para><para>
     /// Use the MaxResults parameter to limit the number of blocks that are returned. If there
-    /// are more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code>
+    /// are more results than specified in <c>MaxResults</c>, the value of <c>NextToken</c>
     /// in the operation response contains a pagination token for getting the next set of
-    /// results. To get the next page of results, call <code>GetExpenseAnalysis</code>, and
-    /// populate the <code>NextToken</code> request parameter with the token value that's
-    /// returned from the previous call to <code>GetExpenseAnalysis</code>.
+    /// results. To get the next page of results, call <c>GetExpenseAnalysis</c>, and populate
+    /// the <c>NextToken</c> request parameter with the token value that's returned from the
+    /// previous call to <c>GetExpenseAnalysis</c>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/invoices-receipts.html">Analyzing
     /// Invoices and Receipts</a>.
@@ -68,9 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the text detection job. The <code>JobId</code> is returned
-        /// from <code>StartExpenseAnalysis</code>. A <code>JobId</code> value is only valid for
-        /// 7 days.</para>
+        /// <para>A unique identifier for the text detection job. The <c>JobId</c> is returned from
+        /// <c>StartExpenseAnalysis</c>. A <c>JobId</c> value is only valid for 7 days.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

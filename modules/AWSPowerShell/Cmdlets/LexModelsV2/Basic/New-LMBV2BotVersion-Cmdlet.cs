@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter BotVersionLocaleSpecification
         /// <summary>
         /// <para>
-        /// <para>Specifies the locales that Amazon Lex adds to this version. You can choose the <code>Draft</code>
+        /// <para>Specifies the locales that Amazon Lex adds to this version. You can choose the <c>Draft</c>
         /// version or any other previously published version for each locale. When you specify
         /// a source version, the locale data is copied from the source version to the new version.</para>
         /// </para>

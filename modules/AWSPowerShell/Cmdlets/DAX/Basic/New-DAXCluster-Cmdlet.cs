@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         /// <summary>
         /// <para>
         /// <para>The Availability Zones (AZs) in which the cluster nodes will reside after the cluster
-        /// has been created or updated. If provided, the length of this list must equal the <code>ReplicationFactor</code>
+        /// has been created or updated. If provided, the length of this list must equal the <c>ReplicationFactor</c>
         /// parameter. If you omit this parameter, DAX will spread the nodes across Availability
         /// Zones for the highest availability.</para>
         /// </para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         #region Parameter ClusterEndpointEncryptionType
         /// <summary>
         /// <para>
-        /// <para>The type of encryption the cluster's endpoint should support. Values are:</para><ul><li><para><code>NONE</code> for no encryption</para></li><li><para><code>TLS</code> for Transport Layer Security</para></li></ul>
+        /// <para>The type of encryption the cluster's endpoint should support. Values are:</para><ul><li><para><c>NONE</c> for no encryption</para></li><li><para><c>TLS</c> for Transport Layer Security</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         /// <para>
         /// <para>Specifies the weekly time range during which maintenance on the DAX cluster is performed.
         /// It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
-        /// The minimum maintenance window is a 60 minute period. Valid values for <code>ddd</code>
-        /// are:</para><ul><li><para><code>sun</code></para></li><li><para><code>mon</code></para></li><li><para><code>tue</code></para></li><li><para><code>wed</code></para></li><li><para><code>thu</code></para></li><li><para><code>fri</code></para></li><li><para><code>sat</code></para></li></ul><para>Example: <code>sun:05:00-sun:09:00</code></para><note><para>If you don't specify a preferred maintenance window when you create or modify a cache
+        /// The minimum maintenance window is a 60 minute period. Valid values for <c>ddd</c>
+        /// are:</para><ul><li><para><c>sun</c></para></li><li><para><c>mon</c></para></li><li><para><c>tue</c></para></li><li><para><c>wed</c></para></li><li><para><c>thu</c></para></li><li><para><c>fri</c></para></li><li><para><c>sat</c></para></li></ul><para>Example: <c>sun:05:00-sun:09:00</c></para><note><para>If you don't specify a preferred maintenance window when you create or modify a cache
         /// cluster, DAX assigns a 60-minute maintenance window on a randomly selected day of
         /// the week.</para></note>
         /// </para>
@@ -181,10 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         /// <para>
         /// <para>The number of nodes in the DAX cluster. A replication factor of 1 will create a single-node
         /// cluster, without any read replicas. For additional fault tolerance, you can create
-        /// a multiple node cluster with one or more read replicas. To do this, set <code>ReplicationFactor</code>
+        /// a multiple node cluster with one or more read replicas. To do this, set <c>ReplicationFactor</c>
         /// to a number between 3 (one primary and two read replicas) and 10 (one primary and
-        /// nine read replicas). <code>If the AvailabilityZones</code> parameter is provided,
-        /// its length must equal the <code>ReplicationFactor</code>.</para><note><para>AWS recommends that you have at least two read replicas per cluster.</para></note>
+        /// nine read replicas). <c>If the AvailabilityZones</c> parameter is provided, its length
+        /// must equal the <c>ReplicationFactor</c>.</para><note><para>AWS recommends that you have at least two read replicas per cluster.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>Specifies a certificate to authenticate with an object storage system that uses a
         /// private or self-signed certificate authority (CA). You must specify a Base64-encoded
-        /// <code>.pem</code> file (for example, <code>file:///home/user/.ssh/storage_sys_certificate.pem</code>).
-        /// The certificate can be up to 32768 bytes (before Base64 encoding).</para><para>To use this parameter, configure <code>ServerProtocol</code> to <code>HTTPS</code>.</para><para>Updating the certificate doesn't interfere with tasks that you have in progress.</para>
+        /// <c>.pem</c> file (for example, <c>file:///home/user/.ssh/storage_sys_certificate.pem</c>).
+        /// The certificate can be up to 32768 bytes (before Base64 encoding).</para><para>To use this parameter, configure <c>ServerProtocol</c> to <c>HTTPS</c>.</para><para>Updating the certificate doesn't interfere with tasks that you have in progress.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters to scope the results. The following filters are supported:</para><ul><li><para><code>ProductSKU</code></para></li><li><para><code>Status</code></para></li><li><para><code>Fingerprint</code></para></li><li><para><code>IssuerName</code></para></li><li><para><code>Beneficiary</code></para></li></ul>
+        /// <para>Filters to scope the results. The following filters are supported:</para><ul><li><para><c>ProductSKU</c></para></li><li><para><c>Status</c></para></li><li><para><c>Fingerprint</c></para></li><li><para><c>IssuerName</c></para></li><li><para><c>Beneficiary</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

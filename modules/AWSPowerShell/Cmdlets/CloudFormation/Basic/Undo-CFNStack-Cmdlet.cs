@@ -28,19 +28,19 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// When specifying <code>RollbackStack</code>, you preserve the state of previously provisioned
+    /// When specifying <c>RollbackStack</c>, you preserve the state of previously provisioned
     /// resources when an operation fails. You can check the status of the stack through the
     /// <a>DescribeStacks</a> operation.
     /// 
     ///  
     /// <para>
-    /// Rolls back the specified stack to the last known stable state from <code>CREATE_FAILED</code>
-    /// or <code>UPDATE_FAILED</code> stack statuses.
+    /// Rolls back the specified stack to the last known stable state from <c>CREATE_FAILED</c>
+    /// or <c>UPDATE_FAILED</c> stack statuses.
     /// </para><para>
     /// This operation will delete a stack if it doesn't contain a last known stable state.
-    /// A last known stable state includes any status in a <code>*_COMPLETE</code>. This includes
+    /// A last known stable state includes any status in a <c>*_COMPLETE</c>. This includes
     /// the following stack statuses.
-    /// </para><ul><li><para><code>CREATE_COMPLETE</code></para></li><li><para><code>UPDATE_COMPLETE</code></para></li><li><para><code>UPDATE_ROLLBACK_COMPLETE</code></para></li><li><para><code>IMPORT_COMPLETE</code></para></li><li><para><code>IMPORT_ROLLBACK_COMPLETE</code></para></li></ul>
+    /// </para><ul><li><para><c>CREATE_COMPLETE</c></para></li><li><para><c>UPDATE_COMPLETE</c></para></li><li><para><c>UPDATE_ROLLBACK_COMPLETE</c></para></li><li><para><c>IMPORT_COMPLETE</c></para></li><li><para><c>IMPORT_ROLLBACK_COMPLETE</c></para></li></ul>
     /// </summary>
     [Cmdlet("Undo", "CFNStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for this <code>RollbackStack</code> request.</para>
+        /// <para>A unique identifier for this <c>RollbackStack</c> request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,9 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter RetainExceptOnCreate
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, newly created resources are deleted when the operation
-        /// rolls back. This includes newly created resources marked with a deletion policy of
-        /// <code>Retain</code>.</para><para>Default: <code>false</code></para>
+        /// <para>When set to <c>true</c>, newly created resources are deleted when the operation rolls
+        /// back. This includes newly created resources marked with a deletion policy of <c>Retain</c>.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

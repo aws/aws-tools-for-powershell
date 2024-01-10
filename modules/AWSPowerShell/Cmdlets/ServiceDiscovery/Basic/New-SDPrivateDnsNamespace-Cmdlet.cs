@@ -30,12 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// <summary>
     /// Creates a private namespace based on DNS, which is visible only inside a specified
     /// Amazon VPC. The namespace defines your service naming scheme. For example, if you
-    /// name your namespace <code>example.com</code> and name your service <code>backend</code>,
-    /// the resulting DNS name for the service is <code>backend.example.com</code>. Service
-    /// instances that are registered using a private DNS namespace can be discovered using
-    /// either a <code>DiscoverInstances</code> request or using DNS. For the current quota
-    /// on the number of namespaces that you can create using the same Amazon Web Services
-    /// account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud
+    /// name your namespace <c>example.com</c> and name your service <c>backend</c>, the resulting
+    /// DNS name for the service is <c>backend.example.com</c>. Service instances that are
+    /// registered using a private DNS namespace can be discovered using either a <c>DiscoverInstances</c>
+    /// request or using DNS. For the current quota on the number of namespaces that you can
+    /// create using the same Amazon Web Services account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud
     /// Map quotas</a> in the <i>Cloud Map Developer Guide</i>.
     /// </summary>
     [Cmdlet("New", "SDPrivateDnsNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter CreatorRequestId
         /// <summary>
         /// <para>
-        /// <para>A unique string that identifies the request and that allows failed <code>CreatePrivateDnsNamespace</code>
-        /// requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code>
+        /// <para>A unique string that identifies the request and that allows failed <c>CreatePrivateDnsNamespace</c>
+        /// requests to be retried without the risk of running the operation twice. <c>CreatorRequestId</c>
         /// can be any unique string (for example, a date/timestamp).</para>
         /// </para>
         /// </summary>

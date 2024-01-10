@@ -57,11 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// DELETE PENDING
     /// </para></li></ul><para>
     /// To get the status of the dataset group, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>.
-    /// If the status shows as CREATE FAILED, the response includes a <code>failureReason</code>
+    /// If the status shows as CREATE FAILED, the response includes a <c>failureReason</c>
     /// key, which describes why the creation failed.
     /// </para><note><para>
-    /// You must wait until the <code>status</code> of the dataset group is <code>ACTIVE</code>
-    /// before adding a dataset to the group.
+    /// You must wait until the <c>status</c> of the dataset group is <c>ACTIVE</c> before
+    /// adding a dataset to the group.
     /// </para></note><para>
     /// You can specify an Key Management Service (KMS) key to encrypt the datasets in the
     /// group. If you specify a KMS key, you must also include an Identity and Access Management

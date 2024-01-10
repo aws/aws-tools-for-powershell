@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Data
         /// <summary>
         /// <para>
-        /// <para>The data of the component. Used to specify the data inline. Either <code>data</code>
-        /// or <code>uri</code> can be used to specify the data within the component.</para>
+        /// <para>The data of the component. Used to specify the data inline. Either <c>data</c> or
+        /// <c>uri</c> can be used to specify the data within the component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,8 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>
         /// <para>The uri of the component. Must be an Amazon S3 URL and the requester must have permission
         /// to access the Amazon S3 bucket. If you use Amazon S3, you can specify component content
-        /// up to your service quota. Either <code>data</code> or <code>uri</code> can be used
-        /// to specify the data within the component.</para>
+        /// up to your service quota. Either <c>data</c> or <c>uri</c> can be used to specify
+        /// the data within the component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

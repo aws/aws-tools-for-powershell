@@ -94,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSEncrypted
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS
-        /// key, or <code>false</code> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// <para>Set to <c>true</c> to use Amazon S3 server-side encryption with your own KMS key,
+        /// or <c>false</c> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
         /// S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
-        /// value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</para>
+        /// value can only be set when <c>KMSEncrypted</c> is <c>true</c>. Optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter PreserveExistingData
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> if you want to preserve the data on the local disk. Otherwise,
-        /// set to <code>false</code> to create an empty volume.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// <para>Set to <c>true</c> if you want to preserve the data on the local disk. Otherwise,
+        /// set to <c>false</c> to create an empty volume.</para><para>Valid Values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -182,8 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The name of the iSCSI target used by an initiator to connect to a volume and used
-        /// as a suffix for the target ARN. For example, specifying <code>TargetName</code> as
-        /// <i>myvolume</i> results in the target ARN of <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</code>.
+        /// as a suffix for the target ARN. For example, specifying <c>TargetName</c> as <i>myvolume</i>
+        /// results in the target ARN of <c>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</c>.
         /// The target name must be unique across all volumes on a gateway.</para><para>If you don't specify a value, Storage Gateway uses the value that was previously used
         /// for this volume as the new target name.</para>
         /// </para>

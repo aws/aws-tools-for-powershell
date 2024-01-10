@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ActualEndTime
         /// <summary>
         /// <para>
-        /// <para>The time a runbook workflow ended. Currently reported only for the OpsItem type <code>/aws/changerequest</code>.</para>
+        /// <para>The time a runbook workflow ended. Currently reported only for the OpsItem type <c>/aws/changerequest</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The time a runbook workflow started. Currently reported only for the OpsItem type
-        /// <code>/aws/changerequest</code>.</para>
+        /// <c>/aws/changerequest</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,15 +113,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// object.</para><para>Operational data is custom data that provides useful reference details about the OpsItem.
         /// For example, you can specify log files, error strings, license keys, troubleshooting
         /// tips, or other relevant data. You enter operational data as key-value pairs. The key
-        /// has a maximum length of 128 characters. The value has a maximum size of 20 KB.</para><important><para>Operational data keys <i>can't</i> begin with the following: <code>amazon</code>,
-        /// <code>aws</code>, <code>amzn</code>, <code>ssm</code>, <code>/amazon</code>, <code>/aws</code>,
-        /// <code>/amzn</code>, <code>/ssm</code>.</para></important><para>You can choose to make the data searchable by other users in the account or you can
+        /// has a maximum length of 128 characters. The value has a maximum size of 20 KB.</para><important><para>Operational data keys <i>can't</i> begin with the following: <c>amazon</c>, <c>aws</c>,
+        /// <c>amzn</c>, <c>ssm</c>, <c>/amazon</c>, <c>/aws</c>, <c>/amzn</c>, <c>/ssm</c>.</para></important><para>You can choose to make the data searchable by other users in the account or you can
         /// restrict search access. Searchable data means that all users with access to the OpsItem
         /// Overview page (as provided by the <a>DescribeOpsItems</a> API operation) can view
         /// and search on the specified data. Operational data that isn't searchable is only viewable
         /// by users who have access to the OpsItem (as provided by the <a>GetOpsItem</a> API
-        /// operation).</para><para>Use the <code>/aws/resources</code> key in OperationalData to specify a related resource
-        /// in the request. Use the <code>/aws/automations</code> key in OperationalData to associate
+        /// operation).</para><para>Use the <c>/aws/resources</c> key in OperationalData to specify a related resource
+        /// in the request. Use the <c>/aws/automations</c> key in OperationalData to associate
         /// an Automation runbook with the OpsItem. To view Amazon Web Services CLI example commands
         /// that use these keys, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-manually-create-OpsItems.html">Creating
         /// OpsItems manually</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
@@ -172,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The time specified in a change request for a runbook workflow to end. Currently supported
-        /// only for the OpsItem type <code>/aws/changerequest</code>.</para>
+        /// only for the OpsItem type <c>/aws/changerequest</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The time specified in a change request for a runbook workflow to start. Currently
-        /// supported only for the OpsItem type <code>/aws/changerequest</code>.</para>
+        /// supported only for the OpsItem type <c>/aws/changerequest</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -226,8 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
-        /// <code>Resolved</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html">Editing
+        /// <para>The OpsItem status. Status can be <c>Open</c>, <c>In Progress</c>, or <c>Resolved</c>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html">Editing
         /// OpsItem details</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>

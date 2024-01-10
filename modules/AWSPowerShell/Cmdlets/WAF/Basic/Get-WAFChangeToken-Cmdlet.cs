@@ -40,14 +40,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// that your application doesn't submit conflicting requests to AWS WAF.
     /// </para><para>
     /// Each create, update, or delete request must use a unique change token. If your application
-    /// submits a <code>GetChangeToken</code> request and then submits a second <code>GetChangeToken</code>
-    /// request before submitting a create, update, or delete request, the second <code>GetChangeToken</code>
-    /// request returns the same value as the first <code>GetChangeToken</code> request.
+    /// submits a <c>GetChangeToken</c> request and then submits a second <c>GetChangeToken</c>
+    /// request before submitting a create, update, or delete request, the second <c>GetChangeToken</c>
+    /// request returns the same value as the first <c>GetChangeToken</c> request.
     /// </para><para>
     /// When you use a change token in a create, update, or delete request, the status of
-    /// the change token changes to <code>PENDING</code>, which indicates that AWS WAF is
-    /// propagating the change to all AWS WAF servers. Use <code>GetChangeTokenStatus</code>
-    /// to determine the status of your change token.
+    /// the change token changes to <c>PENDING</c>, which indicates that AWS WAF is propagating
+    /// the change to all AWS WAF servers. Use <c>GetChangeTokenStatus</c> to determine the
+    /// status of your change token.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "WAFChangeToken")]

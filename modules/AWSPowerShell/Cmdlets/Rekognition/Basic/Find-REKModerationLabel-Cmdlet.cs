@@ -28,14 +28,14 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Detects unsafe content in a specified JPEG or PNG format image. Use <code>DetectModerationLabels</code>
+    /// Detects unsafe content in a specified JPEG or PNG format image. Use <c>DetectModerationLabels</c>
     /// to moderate images depending on your requirements. For example, you might want to
     /// filter images that contain nudity, but not images containing suggestive content.
     /// 
     ///  
     /// <para>
-    /// To filter images, use the labels returned by <code>DetectModerationLabels</code> to
-    /// determine which types of content are appropriate.
+    /// To filter images, use the labels returned by <c>DetectModerationLabels</c> to determine
+    /// which types of content are appropriate.
     /// </para><para>
     /// For information about moderation labels, see Detecting Unsafe Content in the Amazon
     /// Rekognition Developer Guide.
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// JPEG formatted file. 
     /// </para><para>
     /// You can specify an adapter to use when retrieving label predictions by providing a
-    /// <code>ProjectVersionArn</code> to the <code>ProjectVersion</code> argument.
+    /// <c>ProjectVersionArn</c> to the <c>ProjectVersion</c> argument.
     /// </para>
     /// </summary>
     [Cmdlet("Find", "REKModerationLabel")]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Blob of image bytes up to 5 MBs. Note that the maximum image size you can pass to
-        /// <code>DetectCustomLabels</code> is 4MB. </para>
+        /// <c>DetectCustomLabels</c> is 4MB. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -123,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Specifies the minimum confidence level for the labels to return. Amazon Rekognition
-        /// doesn't return any labels with a confidence level lower than this specified value.</para><para>If you don't specify <code>MinConfidence</code>, the operation returns labels with
-        /// confidence values greater than or equal to 50 percent.</para>
+        /// doesn't return any labels with a confidence level lower than this specified value.</para><para>If you don't specify <c>MinConfidence</c>, the operation returns labels with confidence
+        /// values greater than or equal to 50 percent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

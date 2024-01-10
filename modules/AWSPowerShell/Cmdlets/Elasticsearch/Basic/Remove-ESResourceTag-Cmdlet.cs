@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter ARN
         /// <summary>
         /// <para>
-        /// <para>Specifies the <code>ARN</code> for the Elasticsearch domain from which you want to
-        /// delete the specified tags.</para>
+        /// <para>Specifies the <c>ARN</c> for the Elasticsearch domain from which you want to delete
+        /// the specified tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>Specifies the <code>TagKey</code> list which you want to remove from the Elasticsearch
-        /// domain.</para>
+        /// <para>Specifies the <c>TagKey</c> list which you want to remove from the Elasticsearch domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

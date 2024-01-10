@@ -98,11 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The log setting to use for redirecting logs for your execute command results. The
-        /// following log settings are available.</para><ul><li><para><code>NONE</code>: The execute command session is not logged.</para></li><li><para><code>DEFAULT</code>: The <code>awslogs</code> configuration in the task definition
-        /// is used. If no logging parameter is specified, it defaults to this value. If no <code>awslogs</code>
-        /// log driver is configured in the task definition, the output won't be logged.</para></li><li><para><code>OVERRIDE</code>: Specify the logging details as a part of <code>logConfiguration</code>.
-        /// If the <code>OVERRIDE</code> logging option is specified, the <code>logConfiguration</code>
-        /// is required.</para></li></ul>
+        /// following log settings are available.</para><ul><li><para><c>NONE</c>: The execute command session is not logged.</para></li><li><para><c>DEFAULT</c>: The <c>awslogs</c> configuration in the task definition is used.
+        /// If no logging parameter is specified, it defaults to this value. If no <c>awslogs</c>
+        /// log driver is configured in the task definition, the output won't be logged.</para></li><li><para><c>OVERRIDE</c>: Specify the logging details as a part of <c>logConfiguration</c>.
+        /// If the <c>OVERRIDE</c> logging option is specified, the <c>logConfiguration</c> is
+        /// required.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,9 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// Web Services Region.</para><para>If you enter a new name, a Cloud Map namespace will be created. Amazon ECS creates
         /// a Cloud Map namespace with the "API calls" method of instance discovery only. This
         /// instance discovery method is the "HTTP" namespace type in the Command Line Interface.
-        /// Other types of instance discovery aren't used by Service Connect.</para><para>If you update the cluster with an empty string <code>""</code> for the namespace name,
-        /// the cluster configuration for Service Connect is removed. Note that the namespace
-        /// will remain in Cloud Map and must be deleted separately.</para><para>For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html">Working
+        /// Other types of instance discovery aren't used by Service Connect.</para><para>If you update the cluster with an empty string <c>""</c> for the namespace name, the
+        /// cluster configuration for Service Connect is removed. Note that the namespace will
+        /// remain in Cloud Map and must be deleted separately.</para><para>For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html">Working
         /// with Services</a> in the <i>Cloud Map Developer Guide</i>.</para>
         /// </para>
         /// </summary>

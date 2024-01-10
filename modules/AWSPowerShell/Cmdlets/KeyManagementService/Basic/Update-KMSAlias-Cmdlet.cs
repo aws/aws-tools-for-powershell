@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// key, use <a>DeleteAlias</a> to delete the old alias and <a>CreateAlias</a> to create
     /// a new alias.
     /// </para><para>
-    /// You cannot use <code>UpdateAlias</code> to change an alias name. To change an alias
-    /// name, use <a>DeleteAlias</a> to delete the old alias and <a>CreateAlias</a> to create
-    /// a new alias.
+    /// You cannot use <c>UpdateAlias</c> to change an alias name. To change an alias name,
+    /// use <a>DeleteAlias</a> to delete the old alias and <a>CreateAlias</a> to create a
+    /// new alias.
     /// </para><para>
     /// Because an alias is not a property of a KMS key, you can create, update, and delete
     /// the aliases of a KMS key without affecting the KMS key. Also, aliases do not appear
@@ -86,9 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter AliasName
         /// <summary>
         /// <para>
-        /// <para>Identifies the alias that is changing its KMS key. This value must begin with <code>alias/</code>
-        /// followed by the alias name, such as <code>alias/ExampleAlias</code>. You cannot use
-        /// <code>UpdateAlias</code> to change the alias name.</para><important><para>Do not include confidential or sensitive information in this field. This field may
+        /// <para>Identifies the alias that is changing its KMS key. This value must begin with <c>alias/</c>
+        /// followed by the alias name, such as <c>alias/ExampleAlias</c>. You cannot use <c>UpdateAlias</c>
+        /// to change the alias name.</para><important><para>Do not include confidential or sensitive information in this field. This field may
         /// be displayed in plaintext in CloudTrail logs and other output.</para></important>
         /// </para>
         /// </summary>
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// Web Services managed key</a>.</para><para>The KMS key must be in the same Amazon Web Services account and Region as the alias.
         /// Also, the new target KMS key must be the same type as the current target KMS key (both
         /// symmetric or both asymmetric or both HMAC) and they must have the same key usage.
-        /// </para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para><para>To verify that the alias is mapped to the correct KMS key, use <a>ListAliases</a>.</para>
+        /// </para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para><para>To verify that the alias is mapped to the correct KMS key, use <a>ListAliases</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

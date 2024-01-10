@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// When you create a Fargate profile, you must specify a pod execution role to use with
     /// the pods that are scheduled with the profile. This role is added to the cluster's
     /// Kubernetes <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Role
-    /// Based Access Control</a> (RBAC) for authorization so that the <code>kubelet</code>
-    /// that is running on the Fargate infrastructure can register with your Amazon EKS cluster
+    /// Based Access Control</a> (RBAC) for authorization so that the <c>kubelet</c> that
+    /// is running on the Fargate infrastructure can register with your Amazon EKS cluster
     /// so that it can appear in your cluster as a node. The pod execution role also provides
     /// IAM permissions to the Fargate infrastructure to allow read access to Amazon ECR image
     /// repositories. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html">Pod
@@ -55,9 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// an existing profile and then delete the original after the updated profile has finished
     /// creating.
     /// </para><para>
-    /// If any Fargate profiles in a cluster are in the <code>DELETING</code> status, you
-    /// must wait for that Fargate profile to finish deleting before you can create any other
-    /// profiles in that cluster.
+    /// If any Fargate profiles in a cluster are in the <c>DELETING</c> status, you must wait
+    /// for that Fargate profile to finish deleting before you can create any other profiles
+    /// in that cluster.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html">Fargate
     /// profile</a> in the <i>Amazon EKS User Guide</i>.
@@ -123,11 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter PodExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the <code>Pod</code> execution role to use for a
-        /// <code>Pod</code> that matches the selectors in the Fargate profile. The <code>Pod</code>
-        /// execution role allows Fargate infrastructure to register with your cluster as a node,
-        /// and it provides read access to Amazon ECR image repositories. For more information,
-        /// see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html"><code>Pod</code> execution role</a> in the <i>Amazon EKS User Guide</i>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the <c>Pod</c> execution role to use for a <c>Pod</c>
+        /// that matches the selectors in the Fargate profile. The <c>Pod</c> execution role allows
+        /// Fargate infrastructure to register with your cluster as a node, and it provides read
+        /// access to Amazon ECR image repositories. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html"><c>Pod</c> execution role</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -144,10 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Selector
         /// <summary>
         /// <para>
-        /// <para>The selectors to match for a <code>Pod</code> to use this Fargate profile. Each selector
-        /// must have an associated Kubernetes <code>namespace</code>. Optionally, you can also
-        /// specify <code>labels</code> for a <code>namespace</code>. You may specify up to five
-        /// selectors in a Fargate profile.</para>
+        /// <para>The selectors to match for a <c>Pod</c> to use this Fargate profile. Each selector
+        /// must have an associated Kubernetes <c>namespace</c>. Optionally, you can also specify
+        /// <c>labels</c> for a <c>namespace</c>. You may specify up to five selectors in a Fargate
+        /// profile.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,9 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Subnet
         /// <summary>
         /// <para>
-        /// <para>The IDs of subnets to launch a <code>Pod</code> into. A <code>Pod</code> running on
-        /// Fargate isn't assigned a public IP address, so only private subnets (with no direct
-        /// route to an Internet Gateway) are accepted for this parameter.</para>
+        /// <para>The IDs of subnets to launch a <c>Pod</c> into. A <c>Pod</c> running on Fargate isn't
+        /// assigned a public IP address, so only private subnets (with no direct route to an
+        /// Internet Gateway) are accepted for this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

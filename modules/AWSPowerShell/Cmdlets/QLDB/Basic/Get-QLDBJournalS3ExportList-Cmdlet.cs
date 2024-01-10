@@ -33,9 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     /// 
     ///  
     /// <para>
-    /// This action returns a maximum of <code>MaxResults</code> items, and is paginated so
-    /// that you can retrieve all the items by calling <code>ListJournalS3Exports</code> multiple
-    /// times.
+    /// This action returns a maximum of <c>MaxResults</c> items, and is paginated so that
+    /// you can retrieve all the items by calling <c>ListJournalS3Exports</c> multiple times.
     /// </para><para>
     /// This action does not return any expired export jobs. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export
     /// job expiration</a> in the <i>Amazon QLDB Developer Guide</i>.
@@ -56,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in a single <code>ListJournalS3Exports</code>
-        /// request. (The actual number of results returned might be fewer.)</para>
+        /// <para>The maximum number of results to return in a single <c>ListJournalS3Exports</c> request.
+        /// (The actual number of results returned might be fewer.)</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -74,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         /// <summary>
         /// <para>
         /// <para>A pagination token, indicating that you want to retrieve the next page of results.
-        /// If you received a value for <code>NextToken</code> in the response from a previous
-        /// <code>ListJournalS3Exports</code> call, then you should use that value as input here.</para>
+        /// If you received a value for <c>NextToken</c> in the response from a previous <c>ListJournalS3Exports</c>
+        /// call, then you should use that value as input here.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

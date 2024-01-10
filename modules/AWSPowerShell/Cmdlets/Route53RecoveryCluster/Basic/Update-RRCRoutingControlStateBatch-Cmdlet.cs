@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RRC
     /// state to reroute traffic. In a "break glass" scenario like this, you can override
     /// one or more safety rules to change a routing control state and fail over your application.
     /// </para><para>
-    /// The <code>SafetyRulesToOverride</code> property enables you override one or more safety
+    /// The <c>SafetyRulesToOverride</c> property enables you override one or more safety
     /// rules and update routing control states. For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html">
     /// Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery
     /// Controller Developer Guide.

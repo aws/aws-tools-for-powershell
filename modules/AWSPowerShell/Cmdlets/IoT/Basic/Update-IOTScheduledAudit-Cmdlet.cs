@@ -52,10 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter DayOfMonth
         /// <summary>
         /// <para>
-        /// <para>The day of the month on which the scheduled audit takes place. This can be <code>1</code>
-        /// through <code>31</code> or <code>LAST</code>. This field is required if the <code>frequency</code>
-        /// parameter is set to <code>MONTHLY</code>. If days 29-31 are specified, and the month
-        /// does not have that many days, the audit takes place on the "LAST" day of the month.</para>
+        /// <para>The day of the month on which the scheduled audit takes place. This can be <c>1</c>
+        /// through <c>31</c> or <c>LAST</c>. This field is required if the <c>frequency</c> parameter
+        /// is set to <c>MONTHLY</c>. If days 29-31 are specified, and the month does not have
+        /// that many days, the audit takes place on the "LAST" day of the month.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,10 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter DayOfWeek
         /// <summary>
         /// <para>
-        /// <para>The day of the week on which the scheduled audit takes place. This can be one of <code>SUN</code>,
-        /// <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>,
-        /// or <code>SAT</code>. This field is required if the "frequency" parameter is set to
-        /// <code>WEEKLY</code> or <code>BIWEEKLY</code>.</para>
+        /// <para>The day of the week on which the scheduled audit takes place. This can be one of <c>SUN</c>,
+        /// <c>MON</c>, <c>TUE</c>, <c>WED</c>, <c>THU</c>, <c>FRI</c>, or <c>SAT</c>. This field
+        /// is required if the "frequency" parameter is set to <c>WEEKLY</c> or <c>BIWEEKLY</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,9 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Frequency
         /// <summary>
         /// <para>
-        /// <para>How often the scheduled audit takes place, either <code>DAILY</code>, <code>WEEKLY</code>,
-        /// <code>BIWEEKLY</code>, or <code>MONTHLY</code>. The start time of each audit is determined
-        /// by the system.</para>
+        /// <para>How often the scheduled audit takes place, either <c>DAILY</c>, <c>WEEKLY</c>, <c>BIWEEKLY</c>,
+        /// or <c>MONTHLY</c>. The start time of each audit is determined by the system.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>Which checks are performed during the scheduled audit. Checks must be enabled for
-        /// your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
-        /// of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
+        /// your account. (Use <c>DescribeAccountAuditConfiguration</c> to see the list of all
+        /// checks, including those that are enabled or use <c>UpdateAccountAuditConfiguration</c>
         /// to select which checks are enabled.)</para>
         /// </para>
         /// </summary>

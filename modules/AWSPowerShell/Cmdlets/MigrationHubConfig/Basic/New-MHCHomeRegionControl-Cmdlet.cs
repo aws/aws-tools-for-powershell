@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.MHC
         #region Parameter Target_Id
         /// <summary>
         /// <para>
-        /// <para>The <code>TargetID</code> is a 12-character identifier of the <code>ACCOUNT</code>
-        /// for which the control was created. (This must be the current account.) </para>
+        /// <para>The <c>TargetID</c> is a 12-character identifier of the <c>ACCOUNT</c> for which the
+        /// control was created. (This must be the current account.) </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.MHC
         #region Parameter Target_Type
         /// <summary>
         /// <para>
-        /// <para>The target type is always an <code>ACCOUNT</code>.</para>
+        /// <para>The target type is always an <c>ACCOUNT</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

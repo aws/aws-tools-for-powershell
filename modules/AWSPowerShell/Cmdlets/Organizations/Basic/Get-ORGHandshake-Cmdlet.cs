@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  
     /// <para>
-    /// You can access handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>, or
-    /// <code>CANCELED</code> for only 30 days after they change to that state. They're then
-    /// deleted and no longer accessible.
+    /// You can access handshakes that are <c>ACCEPTED</c>, <c>DECLINED</c>, or <c>CANCELED</c>
+    /// for only 30 days after they change to that state. They're then deleted and no longer
+    /// accessible.
     /// </para><para>
     /// This operation can be called from any account in the organization.
     /// </para>

@@ -28,9 +28,9 @@ using Amazon.CodePipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.CP
 {
     /// <summary>
-    /// Returns information about any jobs for CodePipeline to act on. <code>PollForJobs</code>
+    /// Returns information about any jobs for CodePipeline to act on. <c>PollForJobs</c>
     /// is valid only for action types with "Custom" in the owner field. If the action type
-    /// contains <code>AWS</code> or <code>ThirdParty</code> in the owner field, the <code>PollForJobs</code>
+    /// contains <c>AWS</c> or <c>ThirdParty</c> in the owner field, the <c>PollForJobs</c>
     /// action returns an error.
     /// 
     ///  <important><para>
@@ -86,9 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter ActionTypeId_Owner
         /// <summary>
         /// <para>
-        /// <para>The creator of the action being called. There are three valid values for the <code>Owner</code>
-        /// field in the action category section within your pipeline structure: <code>AWS</code>,
-        /// <code>ThirdParty</code>, and <code>Custom</code>. For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid
+        /// <para>The creator of the action being called. There are three valid values for the <c>Owner</c>
+        /// field in the action category section within your pipeline structure: <c>AWS</c>, <c>ThirdParty</c>,
+        /// and <c>Custom</c>. For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid
         /// Action Types and Providers in CodePipeline</a>.</para>
         /// </para>
         /// </summary>
@@ -108,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <para>
         /// <para>The provider of the service being called by the action. Valid providers are determined
         /// by the action category. For example, an action in the Deploy category type might have
-        /// a provider of CodeDeploy, which would be specified as <code>CodeDeploy</code>. For
-        /// more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid
+        /// a provider of CodeDeploy, which would be specified as <c>CodeDeploy</c>. For more
+        /// information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid
         /// Action Types and Providers in CodePipeline</a>.</para>
         /// </para>
         /// </summary>

@@ -36,11 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// functions in the deleted database. Glue deletes these "orphaned" resources asynchronously
     /// in a timely manner, at the discretion of the service.
     /// </para><para>
-    /// To ensure the immediate deletion of all related resources, before calling <code>DeleteDatabase</code>,
-    /// use <code>DeleteTableVersion</code> or <code>BatchDeleteTableVersion</code>, <code>DeletePartition</code>
-    /// or <code>BatchDeletePartition</code>, <code>DeleteUserDefinedFunction</code>, and
-    /// <code>DeleteTable</code> or <code>BatchDeleteTable</code>, to delete any resources
-    /// that belong to the database.
+    /// To ensure the immediate deletion of all related resources, before calling <c>DeleteDatabase</c>,
+    /// use <c>DeleteTableVersion</c> or <c>BatchDeleteTableVersion</c>, <c>DeletePartition</c>
+    /// or <c>BatchDeletePartition</c>, <c>DeleteUserDefinedFunction</c>, and <c>DeleteTable</c>
+    /// or <c>BatchDeleteTable</c>, to delete any resources that belong to the database.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "GLUEDatabase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

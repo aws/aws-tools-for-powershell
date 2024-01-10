@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <note><para>
     /// This operation is not supported by directory buckets.
     /// </para></note><para>
-    /// This implementation of the <code>PUT</code> action adds an inventory configuration
-    /// (identified by the inventory ID) to the bucket. You can have up to 1,000 inventory
-    /// configurations per bucket. 
+    /// This implementation of the <c>PUT</c> action adds an inventory configuration (identified
+    /// by the inventory ID) to the bucket. You can have up to 1,000 inventory configurations
+    /// per bucket. 
     /// </para><para>
     /// Amazon S3 inventory generates inventories of the objects in the bucket on a daily
     /// or weekly basis, and the results are published to a flat file. The bucket that is
@@ -54,12 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// policy, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-9">
     /// Granting Permissions for Amazon S3 Inventory and Storage Class Analysis</a>.
     /// </para></important><dl><dt>Permissions</dt><dd><para>
-    /// To use this operation, you must have permission to perform the <code>s3:PutInventoryConfiguration</code>
+    /// To use this operation, you must have permission to perform the <c>s3:PutInventoryConfiguration</c>
     /// action. The bucket owner has this permission by default and can grant this permission
     /// to others. 
     /// </para><para>
-    /// The <code>s3:PutInventoryConfiguration</code> permission allows a user to create an
-    /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html">S3
+    /// The <c>s3:PutInventoryConfiguration</c> permission allows a user to create an <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html">S3
     /// Inventory</a> report that includes all object metadata fields available and to specify
     /// the destination bucket to store the inventory. A user with read access to objects
     /// in the destination bucket can also access all object metadata fields that are available
@@ -72,17 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// related to bucket subresource operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Identity
     /// and access management in Amazon S3</a> in the <i>Amazon S3 User Guide</i>.
-    /// </para></dd></dl><para><code>PutBucketInventoryConfiguration</code> has the following special errors:
+    /// </para></dd></dl><para><c>PutBucketInventoryConfiguration</c> has the following special errors:
     /// </para><dl><dt>HTTP 400 Bad Request Error</dt><dd><para><i>Code:</i> InvalidArgument
     /// </para><para><i>Cause:</i> Invalid Argument
     /// </para></dd><dt>HTTP 400 Bad Request Error</dt><dd><para><i>Code:</i> TooManyConfigurations
     /// </para><para><i>Cause:</i> You are attempting to create a new configuration but have already reached
     /// the 1,000-configuration limit. 
     /// </para></dd><dt>HTTP 403 Forbidden Error</dt><dd><para><i>Cause:</i> You are not the owner of the specified bucket, or you do not have the
-    /// <code>s3:PutInventoryConfiguration</code> bucket permission to set the configuration
-    /// on the bucket. 
+    /// <c>s3:PutInventoryConfiguration</c> bucket permission to set the configuration on
+    /// the bucket. 
     /// </para></dd></dl><para>
-    /// The following operations are related to <code>PutBucketInventoryConfiguration</code>:
+    /// The following operations are related to <c>PutBucketInventoryConfiguration</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketInventoryConfiguration.html">GetBucketInventoryConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketInventoryConfiguration.html">DeleteBucketInventoryConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html">ListBucketInventoryConfigurations</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketInventoryConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

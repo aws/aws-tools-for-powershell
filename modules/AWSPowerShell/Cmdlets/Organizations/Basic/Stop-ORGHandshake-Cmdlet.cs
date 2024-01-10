@@ -28,7 +28,7 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Cancels a handshake. Canceling a handshake sets the handshake state to <code>CANCELED</code>.
+    /// Cancels a handshake. Canceling a handshake sets the handshake state to <c>CANCELED</c>.
     /// 
     ///  
     /// <para>

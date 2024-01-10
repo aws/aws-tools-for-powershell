@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
         /// <summary>
         /// <para>
         /// <para>(Optional) The timestamp of the date when you want the human loops to begin in ISO
-        /// 8601 format. For example, <code>2020-02-24</code>.</para>
+        /// 8601 format. For example, <c>2020-02-24</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
         /// <summary>
         /// <para>
         /// <para>(Optional) The timestamp of the date before which you want the human loops to begin
-        /// in ISO 8601 format. For example, <code>2020-02-24</code>.</para>
+        /// in ISO 8601 format. For example, <c>2020-02-24</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,8 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>Optional. The order for displaying results. Valid values: <code>Ascending</code> and
-        /// <code>Descending</code>.</para>
+        /// <para>Optional. The order for displaying results. Valid values: <c>Ascending</c> and <c>Descending</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,9 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
         /// <summary>
         /// <para>
         /// <para>The total number of items to return. If the total number of available items is more
-        /// than the value specified in <code>MaxResults</code>, then a <code>NextToken</code>
-        /// is returned in the output. You can use this token to display the next page of results.
-        /// </para>
+        /// than the value specified in <c>MaxResults</c>, then a <c>NextToken</c> is returned
+        /// in the output. You can use this token to display the next page of results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

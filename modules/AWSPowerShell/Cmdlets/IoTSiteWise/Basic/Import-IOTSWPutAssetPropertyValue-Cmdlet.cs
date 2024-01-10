@@ -36,22 +36,22 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     /// <para>
     /// To identify an asset property, you must specify one of the following:
     /// </para><ul><li><para>
-    /// The <code>assetId</code> and <code>propertyId</code> of an asset property.
+    /// The <c>assetId</c> and <c>propertyId</c> of an asset property.
     /// </para></li><li><para>
-    /// A <code>propertyAlias</code>, which is a data stream alias (for example, <code>/company/windfarm/3/turbine/7/temperature</code>).
+    /// A <c>propertyAlias</c>, which is a data stream alias (for example, <c>/company/windfarm/3/turbine/7/temperature</c>).
     /// To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.
     /// </para></li></ul><important><para>
     /// With respect to Unix epoch time, IoT SiteWise accepts only TQVs that have a timestamp
     /// of no more than 7 days in the past and no more than 10 minutes in the future. IoT
     /// SiteWise rejects timestamps outside of the inclusive range of [-7 days, +10 minutes]
-    /// and returns a <code>TimestampOutOfRangeException</code> error.
+    /// and returns a <c>TimestampOutOfRangeException</c> error.
     /// </para><para>
     /// For each asset property, IoT SiteWise overwrites TQVs with duplicate timestamps unless
-    /// the newer TQV has a different quality. For example, if you store a TQV <code>{T1,
-    /// GOOD, V1}</code>, then storing <code>{T1, GOOD, V2}</code> replaces the existing TQV.
+    /// the newer TQV has a different quality. For example, if you store a TQV <c>{T1, GOOD,
+    /// V1}</c>, then storing <c>{T1, GOOD, V2}</c> replaces the existing TQV.
     /// </para></important><para>
-    /// IoT SiteWise authorizes access to each <code>BatchPutAssetPropertyValue</code> entry
-    /// individually. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action">BatchPutAssetPropertyValue
+    /// IoT SiteWise authorizes access to each <c>BatchPutAssetPropertyValue</c> entry individually.
+    /// For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action">BatchPutAssetPropertyValue
     /// authorization</a> in the <i>IoT SiteWise User Guide</i>.
     /// </para>
     /// </summary>

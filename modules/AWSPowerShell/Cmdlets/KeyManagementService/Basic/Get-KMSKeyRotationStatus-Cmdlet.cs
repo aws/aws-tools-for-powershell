@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// of the key material in customer managed KMS keys. Key material rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
     /// Web Services managed KMS keys</a> is not configurable. KMS always rotates the key
     /// material in Amazon Web Services managed KMS keys every year. The key rotation status
-    /// for Amazon Web Services managed KMS keys is always <code>true</code>.
+    /// for Amazon Web Services managed KMS keys is always <c>true</c>.
     /// </para><note><para>
     /// In May 2022, KMS changed the rotation schedule for Amazon Web Services managed keys
     /// from every three years to every year. For details, see <a>EnableKeyRotation</a>.
@@ -67,10 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// the KMS key resumes its prior rotation schedule.
     /// </para></li><li><para>
     /// Pending deletion: While a KMS key is pending deletion, its key rotation status is
-    /// <code>false</code> and KMS does not rotate the key material. If you cancel the deletion,
-    /// the original key rotation status returns to <code>true</code>.
+    /// <c>false</c> and KMS does not rotate the key material. If you cancel the deletion,
+    /// the original key rotation status returns to <c>true</c>.
     /// </para></li></ul><para><b>Cross-account use</b>: Yes. To perform this operation on a KMS key in a different
-    /// Amazon Web Services account, specify the key ARN in the value of the <code>KeyId</code>
+    /// Amazon Web Services account, specify the key ARN in the value of the <c>KeyId</c>
     /// parameter.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GetKeyRotationStatus</a>
     /// (key policy)
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Gets the rotation status for the specified KMS key.</para><para>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different
-        /// Amazon Web Services account, you must use the key ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// Amazon Web Services account, you must use the key ARN.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -59,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Idempotency token used to prevent the accidental creation of duplicate versions. If
-        /// you use the same token with multiple <code>StartMediaAnalysisJobRequest</code> requests,
-        /// the same response is returned. Use <code>ClientRequestToken</code> to prevent the
-        /// same request from being processed more than once.</para>
+        /// you use the same token with multiple <c>StartMediaAnalysisJobRequest</c> requests,
+        /// the same response is returned. Use <c>ClientRequestToken</c> to prevent the same request
+        /// from being processed more than once.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

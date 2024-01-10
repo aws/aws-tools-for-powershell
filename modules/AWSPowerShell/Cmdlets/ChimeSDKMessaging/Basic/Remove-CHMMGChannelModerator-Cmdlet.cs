@@ -31,9 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// Deletes a channel moderator.
     /// 
     ///  <note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
-    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
-    /// as the value in the header.
+    /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the ARN of the <c>AppInstanceUser</c>
+    /// or <c>AppInstanceBot</c> that makes the API call as the value in the header.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "CHMMGChannelModerator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -68,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChannelModeratorArn
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the moderator being deleted.</para>
+        /// <para>The <c>AppInstanceUserArn</c> of the moderator being deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        /// the API call.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c> or <c>AppInstanceBot</c> that makes the API
+        /// call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

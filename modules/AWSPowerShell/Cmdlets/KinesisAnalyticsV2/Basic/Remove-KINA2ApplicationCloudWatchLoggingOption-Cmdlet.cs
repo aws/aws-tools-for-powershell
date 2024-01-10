@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         #region Parameter CloudWatchLoggingOptionId
         /// <summary>
         /// <para>
-        /// <para>The <code>CloudWatchLoggingOptionId</code> of the Amazon CloudWatch logging option
-        /// to delete. You can get the <code>CloudWatchLoggingOptionId</code> by using the <a>DescribeApplication</a>
+        /// <para>The <c>CloudWatchLoggingOptionId</c> of the Amazon CloudWatch logging option to delete.
+        /// You can get the <c>CloudWatchLoggingOptionId</c> by using the <a>DescribeApplication</a>
         /// operation. </para>
         /// </para>
         /// </summary>
@@ -81,10 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         /// <summary>
         /// <para>
         /// <para>A value you use to implement strong concurrency for application updates. You must
-        /// provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>.
-        /// You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>.
-        /// For better concurrency support, use the <code>ConditionalToken</code> parameter instead
-        /// of <code>CurrentApplicationVersionId</code>.</para>
+        /// provide the <c>CurrentApplicationVersionId</c> or the <c>ConditionalToken</c>. You
+        /// get the application's current <c>ConditionalToken</c> using <a>DescribeApplication</a>.
+        /// For better concurrency support, use the <c>ConditionalToken</c> parameter instead
+        /// of <c>CurrentApplicationVersionId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,10 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         #region Parameter CurrentApplicationVersionId
         /// <summary>
         /// <para>
-        /// <para>The version ID of the application. You must provide the <code>CurrentApplicationVersionId</code>
-        /// or the <code>ConditionalToken</code>. You can retrieve the application version ID
-        /// using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code>
-        /// parameter instead of <code>CurrentApplicationVersionId</code>.</para>
+        /// <para>The version ID of the application. You must provide the <c>CurrentApplicationVersionId</c>
+        /// or the <c>ConditionalToken</c>. You can retrieve the application version ID using
+        /// <a>DescribeApplication</a>. For better concurrency support, use the <c>ConditionalToken</c>
+        /// parameter instead of <c>CurrentApplicationVersionId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

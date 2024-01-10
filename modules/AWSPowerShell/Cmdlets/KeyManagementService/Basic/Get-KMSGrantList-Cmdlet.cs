@@ -40,13 +40,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// of working with grants in several programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming
     /// grants</a>. 
     /// </para><note><para>
-    /// The <code>GranteePrincipal</code> field in the <code>ListGrants</code> response usually
-    /// contains the user or role designated as the grantee principal in the grant. However,
-    /// when the grantee principal in the grant is an Amazon Web Services service, the <code>GranteePrincipal</code>
+    /// The <c>GranteePrincipal</c> field in the <c>ListGrants</c> response usually contains
+    /// the user or role designated as the grantee principal in the grant. However, when the
+    /// grantee principal in the grant is an Amazon Web Services service, the <c>GranteePrincipal</c>
     /// field contains the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service
     /// principal</a>, which might represent several different grantee principals.
     /// </para></note><para><b>Cross-account use</b>: Yes. To perform this operation on a KMS key in a different
-    /// Amazon Web Services account, specify the key ARN in the value of the <code>KeyId</code>
+    /// Amazon Web Services account, specify the key ARN in the value of the <c>KeyId</c>
     /// parameter.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListGrants</a>
     /// (key policy)
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Returns only grants for the specified KMS key. This parameter is required.</para><para>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different
-        /// Amazon Web Services account, you must use the key ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// Amazon Web Services account, you must use the key ARN.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Use this parameter in a subsequent request after you receive a response with truncated
-        /// results. Set it to the value of <code>NextMarker</code> from the truncated response
-        /// you just received.</para>
+        /// results. Set it to the value of <c>NextMarker</c> from the truncated response you
+        /// just received.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

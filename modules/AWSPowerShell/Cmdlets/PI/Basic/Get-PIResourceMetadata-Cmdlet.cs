@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <para>
         /// <para>An immutable identifier for a data source that is unique for an Amazon Web Services
         /// Region. Performance Insights gathers metrics from this data source. To use a DB instance
-        /// as a data source, specify its <code>DbiResourceId</code> value. For example, specify
-        /// <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>. </para>
+        /// as a data source, specify its <c>DbiResourceId</c> value. For example, specify <c>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</c>.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

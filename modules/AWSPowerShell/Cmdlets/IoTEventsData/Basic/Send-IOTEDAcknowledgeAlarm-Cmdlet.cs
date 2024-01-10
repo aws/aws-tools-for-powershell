@@ -28,8 +28,8 @@ using Amazon.IoTEventsData.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTED
 {
     /// <summary>
-    /// Acknowledges one or more alarms. The alarms change to the <code>ACKNOWLEDGED</code>
-    /// state after you acknowledge them.
+    /// Acknowledges one or more alarms. The alarms change to the <c>ACKNOWLEDGED</c> state
+    /// after you acknowledge them.
     /// </summary>
     [Cmdlet("Send", "IOTEDAcknowledgeAlarm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTEventsData.Model.BatchAlarmActionErrorEntry")]

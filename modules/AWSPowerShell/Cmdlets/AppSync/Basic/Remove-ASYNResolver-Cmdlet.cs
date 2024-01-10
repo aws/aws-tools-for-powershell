@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Deletes a <code>Resolver</code> object.
+    /// Deletes a <c>Resolver</c> object.
     /// </summary>
     [Cmdlet("Remove", "ASYNResolver", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

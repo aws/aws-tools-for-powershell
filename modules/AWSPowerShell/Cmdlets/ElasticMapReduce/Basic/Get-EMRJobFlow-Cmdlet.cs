@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// Job flows created and completed in the last two weeks
     /// </para></li><li><para>
     ///  Job flows created within the last two months that are in one of the following states:
-    /// <code>RUNNING</code>, <code>WAITING</code>, <code>SHUTTING_DOWN</code>, <code>STARTING</code></para></li></ul><para>
+    /// <c>RUNNING</c>, <c>WAITING</c>, <c>SHUTTING_DOWN</c>, <c>STARTING</c></para></li></ul><para>
     /// Amazon EMR can return a maximum of 512 job flow descriptions.
     /// </para><br/><br/>This operation is deprecated.
     /// </summary>

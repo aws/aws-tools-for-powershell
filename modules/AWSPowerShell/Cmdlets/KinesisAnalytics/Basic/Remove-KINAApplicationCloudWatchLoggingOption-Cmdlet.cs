@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter CloudWatchLoggingOptionId
         /// <summary>
         /// <para>
-        /// <para>The <code>CloudWatchLoggingOptionId</code> of the CloudWatch logging option to delete.
-        /// You can get the <code>CloudWatchLoggingOptionId</code> by using the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
+        /// <para>The <c>CloudWatchLoggingOptionId</c> of the CloudWatch logging option to delete. You
+        /// can get the <c>CloudWatchLoggingOptionId</c> by using the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
         /// operation. </para>
         /// </para>
         /// </summary>

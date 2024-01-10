@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
         /// <summary>
         /// <para>
         /// <para>Specify a friendly human-readable name to use to identify this source account when
-        /// you are viewing data from it in the monitoring account.</para><para>You can use a custom label or use the following variables:</para><ul><li><para><code>$AccountName</code> is the name of the account</para></li><li><para><code>$AccountEmail</code> is the globally unique email address of the account</para></li><li><para><code>$AccountEmailNoDomain</code> is the email address of the account without the
-        /// domain name</para></li></ul>
+        /// you are viewing data from it in the monitoring account.</para><para>You can use a custom label or use the following variables:</para><ul><li><para><c>$AccountName</c> is the name of the account</para></li><li><para><c>$AccountEmail</c> is the globally unique email address of the account</para></li><li><para><c>$AccountEmailNoDomain</c> is the email address of the account without the domain
+        /// name</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The name for the subnet group. Amazon Redshift stores the value as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain no more than 255 alphanumeric characters or hyphens.</para></li><li><para>Must not be "Default".</para></li><li><para>Must be unique for all subnet groups that are created by your Amazon Web Services
-        /// account.</para></li></ul><para>Example: <code>examplesubnetgroup</code></para>
+        /// account.</para></li></ul><para>Example: <c>examplesubnetgroup</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

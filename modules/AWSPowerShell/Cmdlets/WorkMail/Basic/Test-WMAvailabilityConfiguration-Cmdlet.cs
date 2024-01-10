@@ -32,14 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.WM
     /// EWS, it verifies the provided credentials can be used to successfully log in. For
     /// Lambda, it verifies that the Lambda function can be invoked and that the resource
     /// access policy was configured to deny anonymous access. An anonymous invocation is
-    /// one done without providing either a <code>SourceArn</code> or <code>SourceAccount</code>
-    /// header.
+    /// one done without providing either a <c>SourceArn</c> or <c>SourceAccount</c> header.
     /// 
     ///  <note><para>
-    /// The request must contain either one provider definition (<code>EwsProvider</code>
-    /// or <code>LambdaProvider</code>) or the <code>DomainName</code> parameter. If the <code>DomainName</code>
-    /// parameter is provided, the configuration stored under the <code>DomainName</code>
-    /// will be tested.
+    /// The request must contain either one provider definition (<c>EwsProvider</c> or <c>LambdaProvider</c>)
+    /// or the <c>DomainName</c> parameter. If the <c>DomainName</c> parameter is provided,
+    /// the configuration stored under the <c>DomainName</c> will be tested.
     /// </para></note>
     /// </summary>
     [Cmdlet("Test", "WMAvailabilityConfiguration")]

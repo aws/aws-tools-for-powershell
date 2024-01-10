@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>.
-        /// This must be of the form:</para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code></para>
+        /// This must be of the form:</para><para><c>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,11 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <para>
         /// <para>The certificate signing request (CSR) for the certificate you want to issue. As an
         /// example, you can use the following OpenSSL command to create the CSR and a 2048 bit
-        /// RSA private key. </para><para><code>openssl req -new -newkey rsa:2048 -days 365 -keyout private/test_cert_priv_key.pem
-        /// -out csr/test_cert_.csr</code></para><para>If you have a configuration file, you can then use the following OpenSSL command.
-        /// The <code>usr_cert</code> block in the configuration file contains your X509 version
-        /// 3 extensions. </para><para><code>openssl req -new -config openssl_rsa.cnf -extensions usr_cert -newkey rsa:2048
-        /// -days 365 -keyout private/test_cert_priv_key.pem -out csr/test_cert_.csr</code></para><para>Note: A CSR must provide either a <i>subject name</i> or a <i>subject alternative
+        /// RSA private key. </para><para><c>openssl req -new -newkey rsa:2048 -days 365 -keyout private/test_cert_priv_key.pem
+        /// -out csr/test_cert_.csr</c></para><para>If you have a configuration file, you can then use the following OpenSSL command.
+        /// The <c>usr_cert</c> block in the configuration file contains your X509 version 3 extensions.
+        /// </para><para><c>openssl req -new -config openssl_rsa.cnf -extensions usr_cert -newkey rsa:2048
+        /// -days 365 -keyout private/test_cert_priv_key.pem -out csr/test_cert_.csr</c></para><para>Note: A CSR must provide either a <i>subject name</i> or a <i>subject alternative
         /// name</i> or the request will be rejected. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>Specifies additional purposes for which the certified public key may be used other
-        /// than basic purposes indicated in the <code>KeyUsage</code> extension.</para>
+        /// than basic purposes indicated in the <c>KeyUsage</c> extension.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -394,8 +394,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>The name of the algorithm that will be used to sign the certificate to be issued.
-        /// </para><para>This parameter should not be confused with the <code>SigningAlgorithm</code> parameter
-        /// used to sign a CSR in the <code>CreateCertificateAuthority</code> action.</para><note><para>The specified signing algorithm family (RSA or ECDSA) must match the algorithm family
+        /// </para><para>This parameter should not be confused with the <c>SigningAlgorithm</c> parameter used
+        /// to sign a CSR in the <c>CreateCertificateAuthority</c> action.</para><note><para>The specified signing algorithm family (RSA or ECDSA) must match the algorithm family
         /// of the CA's secret key.</para></note>
         /// </para>
         /// </summary>
@@ -450,13 +450,13 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>Specifies a custom configuration template to use when issuing a certificate. If this
-        /// parameter is not provided, Amazon Web Services Private CA defaults to the <code>EndEntityCertificate/V1</code>
+        /// parameter is not provided, Amazon Web Services Private CA defaults to the <c>EndEntityCertificate/V1</c>
         /// template. For CA certificates, you should choose the shortest path length that meets
         /// your needs. The path length is indicated by the PathLen<i>N</i> portion of the ARN,
         /// where <i>N</i> is the <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaTerms.html#terms-cadepth">CA
         /// depth</a>.</para><para>Note: The CA depth configured on a subordinate CA certificate must not exceed the
-        /// limit set by its parents in the CA hierarchy.</para><para>For a list of <code>TemplateArn</code> values supported by Amazon Web Services Private
-        /// CA, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html">Understanding
+        /// limit set by its parents in the CA hierarchy.</para><para>For a list of <c>TemplateArn</c> values supported by Amazon Web Services Private CA,
+        /// see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html">Understanding
         /// Certificate Templates</a>.</para>
         /// </para>
         /// </summary>
@@ -484,10 +484,9 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// can be expressed as an explicit date and time when the certificate expires, or as
         /// a span of time after issuance, stated in days, months, or years. For more information,
         /// see <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5">Validity</a>
-        /// in RFC 5280. </para><para>This value is unaffected when <code>ValidityNotBefore</code> is also specified. For
-        /// example, if <code>Validity</code> is set to 20 days in the future, the certificate
-        /// will expire 20 days from issuance time regardless of the <code>ValidityNotBefore</code>
-        /// value.</para><para>The end of the validity period configured on a certificate must not exceed the limit
+        /// in RFC 5280. </para><para>This value is unaffected when <c>ValidityNotBefore</c> is also specified. For example,
+        /// if <c>Validity</c> is set to 20 days in the future, the certificate will expire 20
+        /// days from issuance time regardless of the <c>ValidityNotBefore</c> value.</para><para>The end of the validity period configured on a certificate must not exceed the limit
         /// set on its parents in the CA hierarchy.</para>
         /// </para>
         /// </summary>
@@ -507,11 +506,9 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <para>Information describing the start of the validity period of the certificate. This parameter
         /// sets the “Not Before" date for the certificate.</para><para>By default, when issuing a certificate, Amazon Web Services Private CA sets the "Not
         /// Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies
-        /// across computer systems. The <code>ValidityNotBefore</code> parameter can be used
-        /// to customize the “Not Before” value. </para><para>Unlike the <code>Validity</code> parameter, the <code>ValidityNotBefore</code> parameter
-        /// is optional.</para><para>The <code>ValidityNotBefore</code> value is expressed as an explicit date and time,
-        /// using the <code>Validity</code> type value <code>ABSOLUTE</code>. For more information,
-        /// see <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_Validity.html">Validity</a>
+        /// across computer systems. The <c>ValidityNotBefore</c> parameter can be used to customize
+        /// the “Not Before” value. </para><para>Unlike the <c>Validity</c> parameter, the <c>ValidityNotBefore</c> parameter is optional.</para><para>The <c>ValidityNotBefore</c> value is expressed as an explicit date and time, using
+        /// the <c>Validity</c> type value <c>ABSOLUTE</c>. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_Validity.html">Validity</a>
         /// in this API reference and <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5">Validity</a>
         /// in RFC 5280.</para>
         /// </para>

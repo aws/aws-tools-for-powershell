@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter AddArgument
         /// <summary>
         /// <para>
-        /// <para>The map of arguments to add the map of arguments used to configure the <code>DevEndpoint</code>.</para><para>Valid arguments are:</para><ul><li><para><code>"--enable-glue-datacatalog": ""</code></para></li></ul><para>You can specify a version of Python support for development endpoints by using the
-        /// <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code>
+        /// <para>The map of arguments to add the map of arguments used to configure the <c>DevEndpoint</c>.</para><para>Valid arguments are:</para><ul><li><para><c>"--enable-glue-datacatalog": ""</c></para></li></ul><para>You can specify a version of Python support for development endpoints by using the
+        /// <c>Arguments</c> parameter in the <c>CreateDevEndpoint</c> or <c>UpdateDevEndpoint</c>
         /// APIs. If no arguments are provided, the version defaults to Python 2.</para>
         /// </para>
         /// </summary>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter AddPublicKey
         /// <summary>
         /// <para>
-        /// <para>The list of public keys for the <code>DevEndpoint</code> to use.</para>
+        /// <para>The list of public keys for the <c>DevEndpoint</c> to use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter CustomLibrary
         /// <summary>
         /// <para>
-        /// <para>Custom Python or Java libraries to be loaded in the <code>DevEndpoint</code>.</para>
+        /// <para>Custom Python or Java libraries to be loaded in the <c>DevEndpoint</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The list of argument keys to be deleted from the map of arguments used to configure
-        /// the <code>DevEndpoint</code>.</para>
+        /// the <c>DevEndpoint</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter DeletePublicKey
         /// <summary>
         /// <para>
-        /// <para>The list of public keys to be deleted from the <code>DevEndpoint</code>.</para>
+        /// <para>The list of public keys to be deleted from the <c>DevEndpoint</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter EndpointName
         /// <summary>
         /// <para>
-        /// <para>The name of the <code>DevEndpoint</code> to be updated.</para>
+        /// <para>The name of the <c>DevEndpoint</c> to be updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter PublicKey
         /// <summary>
         /// <para>
-        /// <para>The public key for the <code>DevEndpoint</code> to use.</para>
+        /// <para>The public key for the <c>DevEndpoint</c> to use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter UpdateEtlLibrary
         /// <summary>
         /// <para>
-        /// <para><code>True</code> if the list of custom libraries to be loaded in the development
-        /// endpoint needs to be updated, or <code>False</code> if otherwise.</para>
+        /// <para><c>True</c> if the list of custom libraries to be loaded in the development endpoint
+        /// needs to be updated, or <c>False</c> if otherwise.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

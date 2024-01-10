@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
-        /// ARNs</a> in the <i>IAM User Guide</i>. This parameter is required if you specify <code>IAM</code>
-        /// for <code>identityType</code>.</para>
+        /// ARNs</a> in the <i>IAM User Guide</i>. This parameter is required if you specify <c>IAM</c>
+        /// for <c>identityType</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter IdentityId
         /// <summary>
         /// <para>
-        /// <para>The ID of the identity. This parameter is required if you specify <code>USER</code>
-        /// or <code>GROUP</code> for <code>identityType</code>.</para>
+        /// <para>The ID of the identity. This parameter is required if you specify <c>USER</c> or <c>GROUP</c>
+        /// for <c>identityType</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The type of identity (IAM Identity Center user, IAM Identity Center group, or IAM
-        /// user). This parameter is required if you specify <code>identityId</code>.</para>
+        /// user). This parameter is required if you specify <c>identityId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource. This parameter is required if you specify <code>resourceType</code>.</para>
+        /// <para>The ID of the resource. This parameter is required if you specify <c>resourceType</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The type of resource (portal or project). This parameter is required if you specify
-        /// <code>resourceId</code>.</para>
+        /// <c>resourceId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

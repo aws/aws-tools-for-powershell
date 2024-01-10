@@ -34,8 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     /// message that contains the content that you plan to send to your customers. Amazon
     /// Pinpoint then sends that message to special email addresses spread across several
     /// major email providers. After about 24 hours, the test is complete, and you can use
-    /// the <code>GetDeliverabilityTestReport</code> operation to view the results of the
-    /// test.
+    /// the <c>GetDeliverabilityTestReport</c> operation to view the results of the test.
     /// </summary>
     [Cmdlet("New", "PINEDeliverabilityTestReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PinpointEmail.Model.CreateDeliverabilityTestReportResponse")]
@@ -54,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         /// <para>The character set for the content. Because of the constraints of the SMTP protocol,
         /// Amazon Pinpoint uses 7-bit ASCII by default. If the text includes characters outside
         /// of the ASCII range, you have to specify a character set. For example, you could specify
-        /// <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</para>
+        /// <c>UTF-8</c>, <c>ISO-8859-1</c>, or <c>Shift_JIS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         /// <para>The character set for the content. Because of the constraints of the SMTP protocol,
         /// Amazon Pinpoint uses 7-bit ASCII by default. If the text includes characters outside
         /// of the ASCII range, you have to specify a character set. For example, you could specify
-        /// <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</para>
+        /// <c>UTF-8</c>, <c>ISO-8859-1</c>, or <c>Shift_JIS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         /// <para>The character set for the content. Because of the constraints of the SMTP protocol,
         /// Amazon Pinpoint uses 7-bit ASCII by default. If the text includes characters outside
         /// of the ASCII range, you have to specify a character set. For example, you could specify
-        /// <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</para>
+        /// <c>UTF-8</c>, <c>ISO-8859-1</c>, or <c>Shift_JIS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EMS
     /// 
     ///  
     /// <para>
-    /// To use this operation, you must have permission to perform the <code>MediaStore:DeleteCorsPolicy</code>
+    /// To use this operation, you must have permission to perform the <c>MediaStore:DeleteCorsPolicy</c>
     /// action. The container owner has this permission by default and can grant this permission
     /// to others.
     /// </para>

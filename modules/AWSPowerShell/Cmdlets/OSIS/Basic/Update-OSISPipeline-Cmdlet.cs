@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         /// <summary>
         /// <para>
         /// <para>The name of the CloudWatch Logs group to send pipeline logs to. You can specify an
-        /// existing log group or create a new one. For example, <code>/aws/OpenSearchService/IngestionService/my-pipeline</code>.</para>
+        /// existing log group or create a new one. For example, <c>/aws/OpenSearchService/IngestionService/my-pipeline</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         /// <para>
         /// <para>The pipeline configuration in YAML format. The command accepts the pipeline configuration
         /// as a string or within a .yaml file. If you provide the configuration as a string,
-        /// each new line must be escaped with <code>\n</code>.</para>
+        /// each new line must be escaped with <c>\n</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

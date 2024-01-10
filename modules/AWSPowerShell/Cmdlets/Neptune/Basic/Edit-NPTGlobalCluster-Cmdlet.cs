@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether major version upgrades are allowed.</para><para>Constraints: You must allow major version upgrades if you specify a value for the
-        /// <code>EngineVersion</code> parameter that is a different major version than the DB
-        /// cluster's current version.</para><para>If you upgrade the major version of a global database, the cluster and DB instance
+        /// <c>EngineVersion</c> parameter that is a different major version than the DB cluster's
+        /// current version.</para><para>If you upgrade the major version of a global database, the cluster and DB instance
         /// parameter groups are set to the default parameter groups for the new version, so you
         /// will need to apply any custom parameter groups after completing the upgrade.</para>
         /// </para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>The version number of the database engine to which you want to upgrade. Changing this
         /// parameter will result in an outage. The change is applied during the next maintenance
-        /// window unless <code>ApplyImmediately</code> is enabled.</para><para>To list all of the available Neptune engine versions, use the following command:</para>
+        /// window unless <c>ApplyImmediately</c> is enabled.</para><para>To list all of the available Neptune engine versions, use the following command:</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>A new cluster identifier to assign to the global database. This value is stored as
-        /// a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-cluster2</code></para>
+        /// a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <c>my-cluster2</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

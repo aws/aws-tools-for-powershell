@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Enable or disable support for appliance mode. If enabled, a traffic flow between a
         /// source and destination uses the same Availability Zone for the VPC attachment for
-        /// the lifetime of that flow. The default is <code>disable</code>.</para>
+        /// the lifetime of that flow. The default is <c>disable</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_DnsSupport
         /// <summary>
         /// <para>
-        /// <para>Enable or disable DNS support. The default is <code>enable</code>.</para>
+        /// <para>Enable or disable DNS support. The default is <c>enable</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_Ipv6Support
         /// <summary>
         /// <para>
-        /// <para>Enable or disable IPv6 support. The default is <code>disable</code>.</para>
+        /// <para>Enable or disable IPv6 support. The default is <c>disable</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

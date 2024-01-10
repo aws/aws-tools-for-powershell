@@ -37,14 +37,14 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     /// </para><para>
     /// When an IAM role's permissions are insufficient to call this API, the service sends
     /// back an HTTP 200 response with an empty HTTP body, but the recovery point is not deleted.
-    /// Instead, it enters an <code>EXPIRED</code> state.
-    /// </para><para><code>EXPIRED</code> recovery points can be deleted with this API once the IAM role
-    /// has the <code>iam:CreateServiceLinkedRole</code> action. To learn more about adding
-    /// this role, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/deleting-backups.html#deleting-backups-troubleshooting">
+    /// Instead, it enters an <c>EXPIRED</c> state.
+    /// </para><para><c>EXPIRED</c> recovery points can be deleted with this API once the IAM role has
+    /// the <c>iam:CreateServiceLinkedRole</c> action. To learn more about adding this role,
+    /// see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/deleting-backups.html#deleting-backups-troubleshooting">
     /// Troubleshooting manual deletions</a>.
     /// </para><para>
     /// If the user or role is deleted or the permission within the role is removed, the deletion
-    /// will not be successful and will enter an <code>EXPIRED</code> state.
+    /// will not be successful and will enter an <c>EXPIRED</c> state.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "BAKRecoveryPoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example,
-        /// <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</para>
+        /// <c>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

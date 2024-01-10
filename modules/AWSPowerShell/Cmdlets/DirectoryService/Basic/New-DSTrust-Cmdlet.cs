@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter TrustType
         /// <summary>
         /// <para>
-        /// <para>The trust relationship type. <code>Forest</code> is the default.</para>
+        /// <para>The trust relationship type. <c>Forest</c> is the default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

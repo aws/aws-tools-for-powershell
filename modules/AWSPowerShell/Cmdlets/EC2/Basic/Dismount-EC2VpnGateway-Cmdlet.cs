@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// You must wait for the attachment's state to switch to <code>detached</code> before
-    /// you can delete the VPC or attach a different VPC to the virtual private gateway.
+    /// You must wait for the attachment's state to switch to <c>detached</c> before you can
+    /// delete the VPC or attach a different VPC to the virtual private gateway.
     /// </para>
     /// </summary>
     [Cmdlet("Dismount", "EC2VpnGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

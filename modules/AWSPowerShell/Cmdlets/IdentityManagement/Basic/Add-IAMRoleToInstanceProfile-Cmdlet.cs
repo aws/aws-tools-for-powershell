@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// the instance profile</a>, or you can stop your instance and then restart it.
     /// 
     ///  <note><para>
-    /// The caller of this operation must be granted the <code>PassRole</code> permission
-    /// on the IAM role by a permissions policy.
+    /// The caller of this operation must be granted the <c>PassRole</c> permission on the
+    /// IAM role by a permissions policy.
     /// </para></note><para>
     ///  For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
     /// roles</a> in the <i>IAM User Guide</i>. For more information about instance profiles,

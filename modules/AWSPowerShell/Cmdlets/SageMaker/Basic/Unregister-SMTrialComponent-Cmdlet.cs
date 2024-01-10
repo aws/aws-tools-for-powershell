@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     ///  
     /// <para>
     /// To get a list of the trials a component is associated with, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a>
-    /// API. Specify <code>ExperimentTrialComponent</code> for the <code>Resource</code> parameter.
-    /// The list appears in the response under <code>Results.TrialComponent.Parents</code>.
+    /// API. Specify <c>ExperimentTrialComponent</c> for the <c>Resource</c> parameter. The
+    /// list appears in the response under <c>Results.TrialComponent.Parents</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Unregister", "SMTrialComponent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

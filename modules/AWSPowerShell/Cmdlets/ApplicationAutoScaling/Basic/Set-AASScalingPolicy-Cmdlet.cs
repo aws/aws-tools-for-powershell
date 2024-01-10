@@ -77,11 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter StepScalingPolicyConfiguration_AdjustmentType
         /// <summary>
         /// <para>
-        /// <para>Specifies how the <code>ScalingAdjustment</code> value in a <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html">StepAdjustment</a>
+        /// <para>Specifies how the <c>ScalingAdjustment</c> value in a <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html">StepAdjustment</a>
         /// is interpreted (for example, an absolute number or a percentage). The valid values
-        /// are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.
-        /// </para><para><code>AdjustmentType</code> is required if you are adding a new step scaling policy
-        /// configuration.</para>
+        /// are <c>ChangeInCapacity</c>, <c>ExactCapacity</c>, and <c>PercentChangeInCapacity</c>.
+        /// </para><para><c>AdjustmentType</c> is required if you are adding a new step scaling policy configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,10 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>Indicates whether scale in by the target tracking scaling policy is disabled. If the
-        /// value is <code>true</code>, scale in is disabled and the target tracking scaling policy
+        /// value is <c>true</c>, scale in is disabled and the target tracking scaling policy
         /// won't remove capacity from the scalable target. Otherwise, scale in is enabled and
         /// the target tracking scaling policy can remove capacity from the scalable target. The
-        /// default value is <code>false</code>.</para>
+        /// default value is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,9 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter StepScalingPolicyConfiguration_MetricAggregationType
         /// <summary>
         /// <para>
-        /// <para>The aggregation type for the CloudWatch metrics. Valid values are <code>Minimum</code>,
-        /// <code>Maximum</code>, and <code>Average</code>. If the aggregation type is null, the
-        /// value is treated as <code>Average</code>.</para>
+        /// <para>The aggregation type for the CloudWatch metrics. Valid values are <c>Minimum</c>,
+        /// <c>Maximum</c>, and <c>Average</c>. If the aggregation type is null, the value is
+        /// treated as <c>Average</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,12 +167,12 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter StepScalingPolicyConfiguration_MinAdjustmentMagnitude
         /// <summary>
         /// <para>
-        /// <para>The minimum value to scale by when the adjustment type is <code>PercentChangeInCapacity</code>.
+        /// <para>The minimum value to scale by when the adjustment type is <c>PercentChangeInCapacity</c>.
         /// For example, suppose that you create a step scaling policy to scale out an Amazon
-        /// ECS service by 25 percent and you specify a <code>MinAdjustmentMagnitude</code> of
-        /// 2. If the service has 4 tasks and the scaling policy is performed, 25 percent of 4
-        /// is 1. However, because you specified a <code>MinAdjustmentMagnitude</code> of 2, Application
-        /// Auto Scaling scales out the service by 2 tasks.</para>
+        /// ECS service by 25 percent and you specify a <c>MinAdjustmentMagnitude</c> of 2. If
+        /// the service has 4 tasks and the scaling policy is performed, 25 percent of 4 is 1.
+        /// However, because you specified a <c>MinAdjustmentMagnitude</c> of 2, Application Auto
+        /// Scaling scales out the service by 2 tasks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>The scaling policy type. This parameter is required if you are creating a scaling
-        /// policy.</para><para>The following policy types are supported: </para><para><code>TargetTrackingScaling</code>—Not supported for Amazon EMR.</para><para><code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon
+        /// policy.</para><para>The following policy types are supported: </para><para><c>TargetTrackingScaling</c>—Not supported for Amazon EMR.</para><para><c>StepScaling</c>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon
         /// Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
         /// tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step
         /// scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</para>
@@ -227,8 +226,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter PredefinedMetricSpecification_PredefinedMetricType
         /// <summary>
         /// <para>
-        /// <para>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only
-        /// to Spot Fleets and ECS services.</para>
+        /// <para>The metric type. The <c>ALBRequestCountPerTarget</c> metric type applies only to Spot
+        /// Fleets and ECS services.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -241,30 +240,28 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>The identifier of the resource associated with the scaling policy. This string consists
-        /// of the resource type and unique identifier.</para><ul><li><para>ECS service - The resource type is <code>service</code> and the unique identifier
-        /// is the cluster name and service name. Example: <code>service/default/sample-webapp</code>.</para></li><li><para>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier
-        /// is the Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</para></li><li><para>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier
-        /// is the cluster ID and instance group ID. Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</para></li><li><para>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier
-        /// is the fleet name. Example: <code>fleet/sample-fleet</code>.</para></li><li><para>DynamoDB table - The resource type is <code>table</code> and the unique identifier
-        /// is the table name. Example: <code>table/my-table</code>.</para></li><li><para>DynamoDB global secondary index - The resource type is <code>index</code> and the
-        /// unique identifier is the index name. Example: <code>table/my-table/index/my-table-index</code>.</para></li><li><para>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier
-        /// is the cluster name. Example: <code>cluster:my-db-cluster</code>.</para></li><li><para>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique
-        /// identifier is the resource ID. Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</para></li><li><para>Custom resources are not supported with a resource type. This parameter must specify
-        /// the <code>OutputValue</code> from the CloudFormation template stack used to access
-        /// the resources. The unique identifier is defined by the service provider. More information
-        /// is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
-        /// repository</a>.</para></li><li><para>Amazon Comprehend document classification endpoint - The resource type and unique
-        /// identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</para></li><li><para>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier
-        /// are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</code>.</para></li><li><para>Lambda provisioned concurrency - The resource type is <code>function</code> and the
-        /// unique identifier is the function name with a function version or alias name suffix
-        /// that is not <code>$LATEST</code>. Example: <code>function:my-function:prod</code>
-        /// or <code>function:my-function:1</code>.</para></li><li><para>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier
-        /// is the table name. Example: <code>keyspace/mykeyspace/table/mytable</code>.</para></li><li><para>Amazon MSK cluster - The resource type and unique identifier are specified using the
-        /// cluster ARN. Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</para></li><li><para>Amazon ElastiCache replication group - The resource type is <code>replication-group</code>
-        /// and the unique identifier is the replication group name. Example: <code>replication-group/mycluster</code>.</para></li><li><para>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier
-        /// is the cluster name. Example: <code>cluster:mycluster</code>.</para></li><li><para>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the
-        /// unique identifier is the resource ID. Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</para></li><li><para>SageMaker inference component - The resource type is <code>inference-component</code>
-        /// and the unique identifier is the resource ID. Example: <code>inference-component/my-inference-component</code>.</para></li></ul>
+        /// of the resource type and unique identifier.</para><ul><li><para>ECS service - The resource type is <c>service</c> and the unique identifier is the
+        /// cluster name and service name. Example: <c>service/default/sample-webapp</c>.</para></li><li><para>Spot Fleet - The resource type is <c>spot-fleet-request</c> and the unique identifier
+        /// is the Spot Fleet request ID. Example: <c>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</c>.</para></li><li><para>EMR cluster - The resource type is <c>instancegroup</c> and the unique identifier
+        /// is the cluster ID and instance group ID. Example: <c>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</c>.</para></li><li><para>AppStream 2.0 fleet - The resource type is <c>fleet</c> and the unique identifier
+        /// is the fleet name. Example: <c>fleet/sample-fleet</c>.</para></li><li><para>DynamoDB table - The resource type is <c>table</c> and the unique identifier is the
+        /// table name. Example: <c>table/my-table</c>.</para></li><li><para>DynamoDB global secondary index - The resource type is <c>index</c> and the unique
+        /// identifier is the index name. Example: <c>table/my-table/index/my-table-index</c>.</para></li><li><para>Aurora DB cluster - The resource type is <c>cluster</c> and the unique identifier
+        /// is the cluster name. Example: <c>cluster:my-db-cluster</c>.</para></li><li><para>SageMaker endpoint variant - The resource type is <c>variant</c> and the unique identifier
+        /// is the resource ID. Example: <c>endpoint/my-end-point/variant/KMeansClustering</c>.</para></li><li><para>Custom resources are not supported with a resource type. This parameter must specify
+        /// the <c>OutputValue</c> from the CloudFormation template stack used to access the resources.
+        /// The unique identifier is defined by the service provider. More information is available
+        /// in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub repository</a>.</para></li><li><para>Amazon Comprehend document classification endpoint - The resource type and unique
+        /// identifier are specified using the endpoint ARN. Example: <c>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</c>.</para></li><li><para>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier
+        /// are specified using the endpoint ARN. Example: <c>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</c>.</para></li><li><para>Lambda provisioned concurrency - The resource type is <c>function</c> and the unique
+        /// identifier is the function name with a function version or alias name suffix that
+        /// is not <c>$LATEST</c>. Example: <c>function:my-function:prod</c> or <c>function:my-function:1</c>.</para></li><li><para>Amazon Keyspaces table - The resource type is <c>table</c> and the unique identifier
+        /// is the table name. Example: <c>keyspace/mykeyspace/table/mytable</c>.</para></li><li><para>Amazon MSK cluster - The resource type and unique identifier are specified using the
+        /// cluster ARN. Example: <c>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</c>.</para></li><li><para>Amazon ElastiCache replication group - The resource type is <c>replication-group</c>
+        /// and the unique identifier is the replication group name. Example: <c>replication-group/mycluster</c>.</para></li><li><para>Neptune cluster - The resource type is <c>cluster</c> and the unique identifier is
+        /// the cluster name. Example: <c>cluster:mycluster</c>.</para></li><li><para>SageMaker Serverless endpoint - The resource type is <c>variant</c> and the unique
+        /// identifier is the resource ID. Example: <c>endpoint/my-end-point/variant/KMeansClustering</c>.</para></li><li><para>SageMaker inference component - The resource type is <c>inference-component</c> and
+        /// the unique identifier is the resource ID. Example: <c>inference-component/my-inference-component</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -282,10 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>Identifies the resource associated with the metric type. You can't specify a resource
-        /// label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is
-        /// a target group attached to the Spot Fleet or ECS service.</para><para>You create the resource label by appending the final portion of the load balancer
+        /// label unless the metric type is <c>ALBRequestCountPerTarget</c> and there is a target
+        /// group attached to the Spot Fleet or ECS service.</para><para>You create the resource label by appending the final portion of the load balancer
         /// ARN and the final portion of the target group ARN into a single value, separated by
-        /// a forward slash (/). The format of the resource label is:</para><para><code>app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff</code>.</para><para>Where:</para><ul><li><para>app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt; is the final portion of the
+        /// a forward slash (/). The format of the resource label is:</para><para><c>app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff</c>.</para><para>Where:</para><ul><li><para>app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt; is the final portion of the
         /// load balancer ARN</para></li><li><para>targetgroup/&lt;target-group-name&gt;/&lt;target-group-id&gt; is the final portion
         /// of the target group ARN.</para></li></ul><para>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a>
         /// API operation. To find the ARN for the target group, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a>
@@ -301,29 +298,28 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>The scalable dimension. This string consists of the service namespace, resource type,
-        /// and scaling property.</para><ul><li><para><code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</para></li><li><para><code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of
-        /// an EMR Instance Group.</para></li><li><para><code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot
-        /// Fleet.</para></li><li><para><code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream
-        /// 2.0 fleet.</para></li><li><para><code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for
-        /// a DynamoDB table.</para></li><li><para><code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for
-        /// a DynamoDB table.</para></li><li><para><code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for
-        /// a DynamoDB global secondary index.</para></li><li><para><code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for
-        /// a DynamoDB global secondary index.</para></li><li><para><code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora
-        /// DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible
-        /// edition.</para></li><li><para><code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances
-        /// for a SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
-        /// custom resource provided by your own application or service.</para></li><li><para><code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The
-        /// number of inference units for an Amazon Comprehend document classification endpoint.</para></li><li><para><code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number
-        /// of inference units for an Amazon Comprehend entity recognizer endpoint.</para></li><li><para><code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency
-        /// for a Lambda function.</para></li><li><para><code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for
-        /// an Amazon Keyspaces table.</para></li><li><para><code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity
-        /// for an Amazon Keyspaces table.</para></li><li><para><code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB)
-        /// for brokers in an Amazon MSK cluster.</para></li><li><para><code>elasticache:replication-group:NodeGroups</code> - The number of node groups
-        /// for an Amazon ElastiCache replication group.</para></li><li><para><code>elasticache:replication-group:Replicas</code> - The number of replicas per
-        /// node group for an Amazon ElastiCache replication group.</para></li><li><para><code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an
-        /// Amazon Neptune DB cluster.</para></li><li><para><code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency
-        /// for a SageMaker Serverless endpoint.</para></li><li><para><code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies
-        /// across an endpoint for a SageMaker inference component.</para></li></ul>
+        /// and scaling property.</para><ul><li><para><c>ecs:service:DesiredCount</c> - The desired task count of an ECS service.</para></li><li><para><c>elasticmapreduce:instancegroup:InstanceCount</c> - The instance count of an EMR
+        /// Instance Group.</para></li><li><para><c>ec2:spot-fleet-request:TargetCapacity</c> - The target capacity of a Spot Fleet.</para></li><li><para><c>appstream:fleet:DesiredCapacity</c> - The desired capacity of an AppStream 2.0
+        /// fleet.</para></li><li><para><c>dynamodb:table:ReadCapacityUnits</c> - The provisioned read capacity for a DynamoDB
+        /// table.</para></li><li><para><c>dynamodb:table:WriteCapacityUnits</c> - The provisioned write capacity for a DynamoDB
+        /// table.</para></li><li><para><c>dynamodb:index:ReadCapacityUnits</c> - The provisioned read capacity for a DynamoDB
+        /// global secondary index.</para></li><li><para><c>dynamodb:index:WriteCapacityUnits</c> - The provisioned write capacity for a DynamoDB
+        /// global secondary index.</para></li><li><para><c>rds:cluster:ReadReplicaCount</c> - The count of Aurora Replicas in an Aurora DB
+        /// cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible
+        /// edition.</para></li><li><para><c>sagemaker:variant:DesiredInstanceCount</c> - The number of EC2 instances for a
+        /// SageMaker model endpoint variant.</para></li><li><para><c>custom-resource:ResourceType:Property</c> - The scalable dimension for a custom
+        /// resource provided by your own application or service.</para></li><li><para><c>comprehend:document-classifier-endpoint:DesiredInferenceUnits</c> - The number
+        /// of inference units for an Amazon Comprehend document classification endpoint.</para></li><li><para><c>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</c> - The number of
+        /// inference units for an Amazon Comprehend entity recognizer endpoint.</para></li><li><para><c>lambda:function:ProvisionedConcurrency</c> - The provisioned concurrency for a
+        /// Lambda function.</para></li><li><para><c>cassandra:table:ReadCapacityUnits</c> - The provisioned read capacity for an Amazon
+        /// Keyspaces table.</para></li><li><para><c>cassandra:table:WriteCapacityUnits</c> - The provisioned write capacity for an
+        /// Amazon Keyspaces table.</para></li><li><para><c>kafka:broker-storage:VolumeSize</c> - The provisioned volume size (in GiB) for
+        /// brokers in an Amazon MSK cluster.</para></li><li><para><c>elasticache:replication-group:NodeGroups</c> - The number of node groups for an
+        /// Amazon ElastiCache replication group.</para></li><li><para><c>elasticache:replication-group:Replicas</c> - The number of replicas per node group
+        /// for an Amazon ElastiCache replication group.</para></li><li><para><c>neptune:cluster:ReadReplicaCount</c> - The count of read replicas in an Amazon
+        /// Neptune DB cluster.</para></li><li><para><c>sagemaker:variant:DesiredProvisionedConcurrency</c> - The provisioned concurrency
+        /// for a SageMaker Serverless endpoint.</para></li><li><para><c>sagemaker:inference-component:DesiredCopyCount</c> - The number of copies across
+        /// an endpoint for a SageMaker inference component.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -365,8 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>The namespace of the Amazon Web Services service that provides the resource. For a
-        /// resource provided by your own application or service, use <code>custom-resource</code>
-        /// instead.</para>
+        /// resource provided by your own application or service, use <c>custom-resource</c> instead.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -412,9 +407,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// range of -2^360 to 2^360. The value must be a valid number based on the choice of
         /// metric. For example, if the metric is CPU utilization, then the target value is a
         /// percent value that represents how much of the CPU can be used before scaling out.
-        /// </para><note><para>If the scaling policy specifies the <code>ALBRequestCountPerTarget</code> predefined
-        /// metric, specify the target utilization as the optimal average request count per target
-        /// during any one-minute interval.</para></note>
+        /// </para><note><para>If the scaling policy specifies the <c>ALBRequestCountPerTarget</c> predefined metric,
+        /// specify the target utilization as the optimal average request count per target during
+        /// any one-minute interval.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

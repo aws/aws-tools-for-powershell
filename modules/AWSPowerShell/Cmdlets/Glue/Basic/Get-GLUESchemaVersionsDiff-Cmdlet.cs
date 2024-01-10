@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SchemaId_SchemaArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code>
+        /// <para>The Amazon Resource Name (ARN) of the schema. One of <c>SchemaArn</c> or <c>SchemaName</c>
         /// has to be provided.</para>
         /// </para>
         /// </summary>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SchemaDiffType
         /// <summary>
         /// <para>
-        /// <para>Refers to <code>SYNTAX_DIFF</code>, which is the currently supported diff type.</para>
+        /// <para>Refers to <c>SYNTAX_DIFF</c>, which is the currently supported diff type.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,8 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SchemaId_SchemaName
         /// <summary>
         /// <para>
-        /// <para>The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has
-        /// to be provided.</para>
+        /// <para>The name of the schema. One of <c>SchemaArn</c> or <c>SchemaName</c> has to be provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

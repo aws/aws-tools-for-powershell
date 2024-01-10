@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// 
     ///  
     /// <para>
-    /// To view the current configuration data for an extension, refer to the <code>ConfigurationSchema</code>
+    /// To view the current configuration data for an extension, refer to the <c>ConfigurationSchema</c>
     /// element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>.
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring
     /// extensions at the account level</a> in the <i>CloudFormation User Guide</i>.
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The configuration data for the extension, in this account and Region.</para><para>The configuration data must be formatted as JSON, and validate against the schema
-        /// returned in the <code>ConfigurationSchema</code> response element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>.
+        /// returned in the <c>ConfigurationSchema</c> response element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>.
         /// For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration">Defining
         /// account-level configuration data for an extension</a> in the <i>CloudFormation CLI
         /// User Guide</i>.</para>
@@ -91,8 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of extension.</para><para>Conditional: You must specify <code>ConfigurationArn</code>, or <code>Type</code>
-        /// and <code>TypeName</code>.</para>
+        /// <para>The type of extension.</para><para>Conditional: You must specify <c>ConfigurationArn</c>, or <c>Type</c> and <c>TypeName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,8 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TypeName
         /// <summary>
         /// <para>
-        /// <para>The name of the extension.</para><para>Conditional: You must specify <code>ConfigurationArn</code>, or <code>Type</code>
-        /// and <code>TypeName</code>.</para>
+        /// <para>The name of the extension.</para><para>Conditional: You must specify <c>ConfigurationArn</c>, or <c>Type</c> and <c>TypeName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

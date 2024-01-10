@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A complex type that contains <code>Tag</code> elements.</para>
+        /// <para>A complex type that contains <c>Tag</c> elements.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

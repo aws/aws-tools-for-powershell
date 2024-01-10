@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// Existing service instances and the service pipeline <i>can't</i> be edited using this
     /// API. They can only be deleted.
     /// </para></note><para>
-    /// Use the <code>description</code> parameter to modify the description.
+    /// Use the <c>description</c> parameter to modify the description.
     /// </para><para>
-    /// Edit the <code>spec</code> parameter to add or delete instances.
+    /// Edit the <c>spec</c> parameter to add or delete instances.
     /// </para><note><para>
     /// You can't delete a service instance (remove it from the spec) if it has an attached
     /// component.

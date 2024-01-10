@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// When you no longer want to use an On-Demand Dedicated Host it can be released. On-Demand
-    /// billing is stopped and the host goes into <code>released</code> state. The host ID
-    /// of Dedicated Hosts that have been released can no longer be specified in another request,
-    /// for example, to modify the host. You must stop or terminate all instances on a host
-    /// before it can be released.
+    /// billing is stopped and the host goes into <c>released</c> state. The host ID of Dedicated
+    /// Hosts that have been released can no longer be specified in another request, for example,
+    /// to modify the host. You must stop or terminate all instances on a host before it can
+    /// be released.
     /// 
     ///  
     /// <para>

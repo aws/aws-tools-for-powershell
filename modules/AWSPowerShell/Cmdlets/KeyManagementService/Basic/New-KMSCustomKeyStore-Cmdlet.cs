@@ -53,18 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// To create a custom key store, use the following parameters.
     /// </para><ul><li><para>
-    /// To create an CloudHSM key store, specify the <code>CustomKeyStoreName</code>, <code>CloudHsmClusterId</code>,
-    /// <code>KeyStorePassword</code>, and <code>TrustAnchorCertificate</code>. The <code>CustomKeyStoreType</code>
+    /// To create an CloudHSM key store, specify the <c>CustomKeyStoreName</c>, <c>CloudHsmClusterId</c>,
+    /// <c>KeyStorePassword</c>, and <c>TrustAnchorCertificate</c>. The <c>CustomKeyStoreType</c>
     /// parameter is optional for CloudHSM key stores. If you include it, set it to the default
-    /// value, <code>AWS_CLOUDHSM</code>. For help with failures, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting
+    /// value, <c>AWS_CLOUDHSM</c>. For help with failures, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting
     /// an CloudHSM key store</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para></li><li><para>
-    /// To create an external key store, specify the <code>CustomKeyStoreName</code> and a
-    /// <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>. Also, specify
-    /// values for <code>XksProxyConnectivity</code>, <code>XksProxyAuthenticationCredential</code>,
-    /// <code>XksProxyUriEndpoint</code>, and <code>XksProxyUriPath</code>. If your <code>XksProxyConnectivity</code>
-    /// value is <code>VPC_ENDPOINT_SERVICE</code>, specify the <code>XksProxyVpcEndpointServiceName</code>
-    /// parameter. For help with failures, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/xks-troubleshooting.html">Troubleshooting
+    /// To create an external key store, specify the <c>CustomKeyStoreName</c> and a <c>CustomKeyStoreType</c>
+    /// of <c>EXTERNAL_KEY_STORE</c>. Also, specify values for <c>XksProxyConnectivity</c>,
+    /// <c>XksProxyAuthenticationCredential</c>, <c>XksProxyUriEndpoint</c>, and <c>XksProxyUriPath</c>.
+    /// If your <c>XksProxyConnectivity</c> value is <c>VPC_ENDPOINT_SERVICE</c>, specify
+    /// the <c>XksProxyVpcEndpointServiceName</c> parameter. For help with failures, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/xks-troubleshooting.html">Troubleshooting
     /// an external key store</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para></li></ul><note><para>
     /// For external key stores:
@@ -74,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// When creating an external key store in the KMS console, you can upload a JSON-based
     /// proxy configuration file with the desired values. You cannot use a proxy configuration
-    /// with the <code>CreateCustomKeyStore</code> operation. However, you can use the values
-    /// in the file to help you determine the correct values for the <code>CreateCustomKeyStore</code>
+    /// with the <c>CreateCustomKeyStore</c> operation. However, you can use the values in
+    /// the file to help you determine the correct values for the <c>CreateCustomKeyStore</c>
     /// parameters.
     /// </para></note><para>
     /// When the operation completes successfully, it returns the ID of the new custom key
@@ -125,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Identifies the CloudHSM cluster for an CloudHSM key store. This parameter is required
-        /// for custom key stores with <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</para><para>Enter the cluster ID of any active CloudHSM cluster that is not already associated
+        /// for custom key stores with <c>CustomKeyStoreType</c> of <c>AWS_CLOUDHSM</c>.</para><para>Enter the cluster ID of any active CloudHSM cluster that is not already associated
         /// with a custom key store. To find the cluster ID, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
         /// operation.</para>
         /// </para>
@@ -157,10 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter CustomKeyStoreType
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of custom key store. The default value is <code>AWS_CLOUDHSM</code>.</para><para>For a custom key store backed by an CloudHSM cluster, omit the parameter or enter
-        /// <code>AWS_CLOUDHSM</code>. For a custom key store backed by an external key manager
-        /// outside of Amazon Web Services, enter <code>EXTERNAL_KEY_STORE</code>. You cannot
-        /// change this property after the key store is created.</para>
+        /// <para>Specifies the type of custom key store. The default value is <c>AWS_CLOUDHSM</c>.</para><para>For a custom key store backed by an CloudHSM cluster, omit the parameter or enter
+        /// <c>AWS_CLOUDHSM</c>. For a custom key store backed by an external key manager outside
+        /// of Amazon Web Services, enter <c>EXTERNAL_KEY_STORE</c>. You cannot change this property
+        /// after the key store is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,10 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyStorePassword
         /// <summary>
         /// <para>
-        /// <para>Specifies the <code>kmsuser</code> password for an CloudHSM key store. This parameter
-        /// is required for custom key stores with a <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</para><para>Enter the password of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser"><code>kmsuser</code> crypto user (CU) account</a> in the specified CloudHSM cluster.
-        /// KMS logs into the cluster as this user to manage key material on your behalf.</para><para>The password must be a string of 7 to 32 characters. Its value is case sensitive.</para><para>This parameter tells KMS the <code>kmsuser</code> account password; it does not change
-        /// the password in the CloudHSM cluster.</para>
+        /// <para>Specifies the <c>kmsuser</c> password for an CloudHSM key store. This parameter is
+        /// required for custom key stores with a <c>CustomKeyStoreType</c> of <c>AWS_CLOUDHSM</c>.</para><para>Enter the password of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser"><c>kmsuser</c> crypto user (CU) account</a> in the specified CloudHSM cluster. KMS
+        /// logs into the cluster as this user to manage key material on your behalf.</para><para>The password must be a string of 7 to 32 characters. Its value is case sensitive.</para><para>This parameter tells KMS the <c>kmsuser</c> account password; it does not change the
+        /// password in the CloudHSM cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,8 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Specifies the certificate for an CloudHSM key store. This parameter is required for
-        /// custom key stores with a <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</para><para>Enter the content of the trust anchor certificate for the CloudHSM cluster. This is
-        /// the content of the <code>customerCA.crt</code> file that you created when you <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html">initialized
+        /// custom key stores with a <c>CustomKeyStoreType</c> of <c>AWS_CLOUDHSM</c>.</para><para>Enter the content of the trust anchor certificate for the CloudHSM cluster. This is
+        /// the content of the <c>customerCA.crt</c> file that you created when you <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html">initialized
         /// the cluster</a>.</para>
         /// </para>
         /// </summary>
@@ -209,10 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Indicates how KMS communicates with the external key store proxy. This parameter is
-        /// required for custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</para><para>If the external key store proxy uses a public endpoint, specify <code>PUBLIC_ENDPOINT</code>.
+        /// required for custom key stores with a <c>CustomKeyStoreType</c> of <c>EXTERNAL_KEY_STORE</c>.</para><para>If the external key store proxy uses a public endpoint, specify <c>PUBLIC_ENDPOINT</c>.
         /// If the external key store proxy uses a Amazon VPC endpoint service for communication
-        /// with KMS, specify <code>VPC_ENDPOINT_SERVICE</code>. For help making this choice,
-        /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/plan-xks-keystore.html#choose-xks-connectivity">Choosing
+        /// with KMS, specify <c>VPC_ENDPOINT_SERVICE</c>. For help making this choice, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/plan-xks-keystore.html#choose-xks-connectivity">Choosing
         /// a connectivity option</a> in the <i>Key Management Service Developer Guide</i>.</para><para>An Amazon VPC endpoint service keeps your communication with KMS in a private address
         /// space entirely within Amazon Web Services, but it requires more configuration, including
         /// establishing a Amazon VPC with multiple subnets, a VPC endpoint service, a network
@@ -234,24 +232,22 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Specifies the endpoint that KMS uses to send requests to the external key store proxy
-        /// (XKS proxy). This parameter is required for custom key stores with a <code>CustomKeyStoreType</code>
-        /// of <code>EXTERNAL_KEY_STORE</code>.</para><para>The protocol must be HTTPS. KMS communicates on port 443. Do not specify the port
-        /// in the <code>XksProxyUriEndpoint</code> value.</para><para>For external key stores with <code>XksProxyConnectivity</code> value of <code>VPC_ENDPOINT_SERVICE</code>,
-        /// specify <code>https://</code> followed by the private DNS name of the VPC endpoint
-        /// service.</para><para>For external key stores with <code>PUBLIC_ENDPOINT</code> connectivity, this endpoint
-        /// must be reachable before you create the custom key store. KMS connects to the external
+        /// (XKS proxy). This parameter is required for custom key stores with a <c>CustomKeyStoreType</c>
+        /// of <c>EXTERNAL_KEY_STORE</c>.</para><para>The protocol must be HTTPS. KMS communicates on port 443. Do not specify the port
+        /// in the <c>XksProxyUriEndpoint</c> value.</para><para>For external key stores with <c>XksProxyConnectivity</c> value of <c>VPC_ENDPOINT_SERVICE</c>,
+        /// specify <c>https://</c> followed by the private DNS name of the VPC endpoint service.</para><para>For external key stores with <c>PUBLIC_ENDPOINT</c> connectivity, this endpoint must
+        /// be reachable before you create the custom key store. KMS connects to the external
         /// key store proxy while creating the custom key store. For external key stores with
-        /// <code>VPC_ENDPOINT_SERVICE</code> connectivity, KMS connects when you call the <a>ConnectCustomKeyStore</a>
-        /// operation.</para><para>The value of this parameter must begin with <code>https://</code>. The remainder can
-        /// contain upper and lower case letters (A-Z and a-z), numbers (0-9), dots (<code>.</code>),
-        /// and hyphens (<code>-</code>). Additional slashes (<code>/</code> and <code>\</code>)
-        /// are not permitted.</para><para><b>Uniqueness requirements: </b></para><ul><li><para>The combined <code>XksProxyUriEndpoint</code> and <code>XksProxyUriPath</code> values
-        /// must be unique in the Amazon Web Services account and Region.</para></li><li><para>An external key store with <code>PUBLIC_ENDPOINT</code> connectivity cannot use the
-        /// same <code>XksProxyUriEndpoint</code> value as an external key store with <code>VPC_ENDPOINT_SERVICE</code>
-        /// connectivity in this Amazon Web Services Region.</para></li><li><para>Each external key store with <code>VPC_ENDPOINT_SERVICE</code> connectivity must have
-        /// its own private DNS name. The <code>XksProxyUriEndpoint</code> value for external
-        /// key stores with <code>VPC_ENDPOINT_SERVICE</code> connectivity (private DNS name)
-        /// must be unique in the Amazon Web Services account and Region.</para></li></ul>
+        /// <c>VPC_ENDPOINT_SERVICE</c> connectivity, KMS connects when you call the <a>ConnectCustomKeyStore</a>
+        /// operation.</para><para>The value of this parameter must begin with <c>https://</c>. The remainder can contain
+        /// upper and lower case letters (A-Z and a-z), numbers (0-9), dots (<c>.</c>), and hyphens
+        /// (<c>-</c>). Additional slashes (<c>/</c> and <c>\</c>) are not permitted.</para><para><b>Uniqueness requirements: </b></para><ul><li><para>The combined <c>XksProxyUriEndpoint</c> and <c>XksProxyUriPath</c> values must be
+        /// unique in the Amazon Web Services account and Region.</para></li><li><para>An external key store with <c>PUBLIC_ENDPOINT</c> connectivity cannot use the same
+        /// <c>XksProxyUriEndpoint</c> value as an external key store with <c>VPC_ENDPOINT_SERVICE</c>
+        /// connectivity in this Amazon Web Services Region.</para></li><li><para>Each external key store with <c>VPC_ENDPOINT_SERVICE</c> connectivity must have its
+        /// own private DNS name. The <c>XksProxyUriEndpoint</c> value for external key stores
+        /// with <c>VPC_ENDPOINT_SERVICE</c> connectivity (private DNS name) must be unique in
+        /// the Amazon Web Services account and Region.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -263,10 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Specifies the base path to the proxy APIs for this external key store. To find this
         /// value, see the documentation for your external key store proxy. This parameter is
-        /// required for all custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</para><para>The value must start with <code>/</code> and must end with <code>/kms/xks/v1</code>
-        /// where <code>v1</code> represents the version of the KMS external key store proxy API.
-        /// This path can include an optional prefix between the required elements such as <code>/<i>prefix</i>/kms/xks/v1</code>.</para><para><b>Uniqueness requirements: </b></para><ul><li><para>The combined <code>XksProxyUriEndpoint</code> and <code>XksProxyUriPath</code> values
-        /// must be unique in the Amazon Web Services account and Region.</para></li></ul>
+        /// required for all custom key stores with a <c>CustomKeyStoreType</c> of <c>EXTERNAL_KEY_STORE</c>.</para><para>The value must start with <c>/</c> and must end with <c>/kms/xks/v1</c> where <c>v1</c>
+        /// represents the version of the KMS external key store proxy API. This path can include
+        /// an optional prefix between the required elements such as <c>/<i>prefix</i>/kms/xks/v1</c>.</para><para><b>Uniqueness requirements: </b></para><ul><li><para>The combined <c>XksProxyUriEndpoint</c> and <c>XksProxyUriPath</c> values must be
+        /// unique in the Amazon Web Services account and Region.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -278,11 +274,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Specifies the name of the Amazon VPC endpoint service for interface endpoints that
         /// is used to communicate with your external key store proxy (XKS proxy). This parameter
-        /// is required when the value of <code>CustomKeyStoreType</code> is <code>EXTERNAL_KEY_STORE</code>
-        /// and the value of <code>XksProxyConnectivity</code> is <code>VPC_ENDPOINT_SERVICE</code>.</para><para>The Amazon VPC endpoint service must <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keystore.html#xks-requirements">fulfill
-        /// all requirements</a> for use with an external key store. </para><para><b>Uniqueness requirements:</b></para><ul><li><para>External key stores with <code>VPC_ENDPOINT_SERVICE</code> connectivity can share
-        /// an Amazon VPC, but each external key store must have its own VPC endpoint service
-        /// and private DNS name.</para></li></ul>
+        /// is required when the value of <c>CustomKeyStoreType</c> is <c>EXTERNAL_KEY_STORE</c>
+        /// and the value of <c>XksProxyConnectivity</c> is <c>VPC_ENDPOINT_SERVICE</c>.</para><para>The Amazon VPC endpoint service must <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keystore.html#xks-requirements">fulfill
+        /// all requirements</a> for use with an external key store. </para><para><b>Uniqueness requirements:</b></para><ul><li><para>External key stores with <c>VPC_ENDPOINT_SERVICE</c> connectivity can share an Amazon
+        /// VPC, but each external key store must have its own VPC endpoint service and private
+        /// DNS name.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

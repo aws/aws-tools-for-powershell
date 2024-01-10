@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter CopyStrategy
         /// <summary>
         /// <para>
-        /// <para>Specifies the strategy to use when copying data from a snapshot to the volume. </para><ul><li><para><code>FULL_COPY</code> - Copies all data from the snapshot to the volume. </para></li><li><para><code>INCREMENTAL_COPY</code> - Copies only the snapshot data that's changed since
-        /// the previous replication.</para></li></ul><note><para><code>CLONE</code> isn't a valid copy strategy option for the <code>CopySnapshotAndUpdateVolume</code>
+        /// <para>Specifies the strategy to use when copying data from a snapshot to the volume. </para><ul><li><para><c>FULL_COPY</c> - Copies all data from the snapshot to the volume. </para></li><li><para><c>INCREMENTAL_COPY</c> - Copies only the snapshot data that's changed since the
+        /// previous replication.</para></li></ul><note><para><c>CLONE</c> isn't a valid copy strategy option for the <c>CopySnapshotAndUpdateVolume</c>
         /// operation.</para></note>
         /// </para>
         /// </summary>
@@ -73,10 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Confirms that you want to delete data on the destination volume that wasn’t there
         /// during the previous snapshot replication.</para><para>Your replication will fail if you don’t include an option for a specific type of data
-        /// and that data is on your destination. For example, if you don’t include <code>DELETE_INTERMEDIATE_SNAPSHOTS</code>
-        /// and there are intermediate snapshots on the destination, you can’t copy the snapshot.</para><ul><li><para><code>DELETE_INTERMEDIATE_SNAPSHOTS</code> - Deletes snapshots on the destination
-        /// volume that aren’t on the source volume.</para></li><li><para><code>DELETE_CLONED_VOLUMES</code> - Deletes snapshot clones on the destination volume
-        /// that aren't on the source volume.</para></li><li><para><code>DELETE_INTERMEDIATE_DATA</code> - Overwrites snapshots on the destination volume
+        /// and that data is on your destination. For example, if you don’t include <c>DELETE_INTERMEDIATE_SNAPSHOTS</c>
+        /// and there are intermediate snapshots on the destination, you can’t copy the snapshot.</para><ul><li><para><c>DELETE_INTERMEDIATE_SNAPSHOTS</c> - Deletes snapshots on the destination volume
+        /// that aren’t on the source volume.</para></li><li><para><c>DELETE_CLONED_VOLUMES</c> - Deletes snapshot clones on the destination volume
+        /// that aren't on the source volume.</para></li><li><para><c>DELETE_INTERMEDIATE_DATA</c> - Overwrites snapshots on the destination volume
         /// that don’t match the source snapshot that you’re copying.</para></li></ul>
         /// </para>
         /// </summary>

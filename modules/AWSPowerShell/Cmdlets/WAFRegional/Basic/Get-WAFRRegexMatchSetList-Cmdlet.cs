@@ -53,10 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of <code>RegexMatchSet</code> objects that you want AWS WAF to
-        /// return for this request. If you have more <code>RegexMatchSet</code> objects than
-        /// the number you specify for <code>Limit</code>, the response includes a <code>NextMarker</code>
-        /// value that you can use to get another batch of <code>RegexMatchSet</code> objects.</para>
+        /// <para>Specifies the number of <c>RegexMatchSet</c> objects that you want AWS WAF to return
+        /// for this request. If you have more <c>RegexMatchSet</c> objects than the number you
+        /// specify for <c>Limit</c>, the response includes a <c>NextMarker</c> value that you
+        /// can use to get another batch of <c>RegexMatchSet</c> objects.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -73,12 +73,12 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter NextMarker
         /// <summary>
         /// <para>
-        /// <para>If you specify a value for <code>Limit</code> and you have more <code>RegexMatchSet</code>
-        /// objects than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code>
-        /// value in the response that allows you to list another group of <code>ByteMatchSets</code>.
-        /// For the second and subsequent <code>ListRegexMatchSets</code> requests, specify the
-        /// value of <code>NextMarker</code> from the previous response to get information about
-        /// another batch of <code>RegexMatchSet</code> objects.</para>
+        /// <para>If you specify a value for <c>Limit</c> and you have more <c>RegexMatchSet</c> objects
+        /// than the value of <c>Limit</c>, AWS WAF returns a <c>NextMarker</c> value in the response
+        /// that allows you to list another group of <c>ByteMatchSets</c>. For the second and
+        /// subsequent <c>ListRegexMatchSets</c> requests, specify the value of <c>NextMarker</c>
+        /// from the previous response to get information about another batch of <c>RegexMatchSet</c>
+        /// objects.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

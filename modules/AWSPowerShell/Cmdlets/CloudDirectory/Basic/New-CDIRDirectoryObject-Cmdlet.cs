@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
     /// Creates an object in a <a>Directory</a>. Additionally attaches the object to a parent,
-    /// if a parent reference and <code>LinkName</code> is specified. An object is simply
-    /// a collection of <a>Facet</a> attributes. You can also use this API call to create
-    /// a policy object, if the facet from which you create the object is a policy facet.
+    /// if a parent reference and <c>LinkName</c> is specified. An object is simply a collection
+    /// of <a>Facet</a> attributes. You can also use this API call to create a policy object,
+    /// if the facet from which you create the object is a policy facet.
     /// </summary>
     [Cmdlet("New", "CDIRDirectoryObject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

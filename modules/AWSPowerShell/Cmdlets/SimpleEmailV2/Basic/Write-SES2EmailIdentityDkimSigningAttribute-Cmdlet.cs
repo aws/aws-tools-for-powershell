@@ -113,9 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>The method to use to configure DKIM for the identity. There are the following possible
-        /// values:</para><ul><li><para><code>AWS_SES</code> – Configure DKIM for the identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
-        /// DKIM</a>.</para></li><li><para><code>EXTERNAL</code> – Configure DKIM for the identity by using Bring Your Own DKIM
-        /// (BYODKIM).</para></li></ul>
+        /// values:</para><ul><li><para><c>AWS_SES</c> – Configure DKIM for the identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
+        /// DKIM</a>.</para></li><li><para><c>EXTERNAL</c> – Configure DKIM for the identity by using Bring Your Own DKIM (BYODKIM).</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     /// 
     ///  <note><para>
     /// If the permission set is already referenced by one or more account assignments, you
-    /// will need to call <code><a>ProvisionPermissionSet</a></code> after this operation.
-    /// Calling <code>ProvisionPermissionSet</code> applies the corresponding IAM policy updates
-    /// to all assigned accounts.
+    /// will need to call <c><a>ProvisionPermissionSet</a></c> after this operation. Calling
+    /// <c>ProvisionPermissionSet</c> applies the corresponding IAM policy updates to all
+    /// assigned accounts.
     /// </para></note>
     /// </summary>
     [Cmdlet("Mount", "SSOADMNManagedPolicyToPermissionSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

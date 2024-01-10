@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     /// </para><para>
     ///  To read data from your source stream or write data to destination streams, Amazon
     /// Kinesis Analytics needs your permissions. You grant these permissions by creating
-    /// IAM roles. This operation requires permissions to perform the <code>kinesisanalytics:CreateApplication</code>
+    /// IAM roles. This operation requires permissions to perform the <c>kinesisanalytics:CreateApplication</c>
     /// action. 
     /// </para><para>
     ///  For introductory exercises to create an Amazon Kinesis Analytics application, see
@@ -85,9 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// Code</a>. </para><para>You can provide such series of SQL statements, where output of one statement can be
         /// used as the input for the next statement. You store intermediate results by creating
         /// in-application streams and pumps.</para><para>Note that the application code must create the streams with names specified in the
-        /// <code>Outputs</code>. For example, if your <code>Outputs</code> defines output streams
-        /// named <code>ExampleOutputStream1</code> and <code>ExampleOutputStream2</code>, then
-        /// your application code must create these streams. </para>
+        /// <c>Outputs</c>. For example, if your <c>Outputs</c> defines output streams named <c>ExampleOutputStream1</c>
+        /// and <c>ExampleOutputStream2</c>, then your application code must create these streams.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>Name of your Amazon Kinesis Analytics application (for example, <code>sample-app</code>).</para>
+        /// <para>Name of your Amazon Kinesis Analytics application (for example, <c>sample-app</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

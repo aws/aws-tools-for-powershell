@@ -28,9 +28,9 @@ using Amazon.VPCLattice.Model;
 namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
-    /// Deletes the specified auth policy. If an auth is set to <code>Amazon Web Services_IAM</code>
+    /// Deletes the specified auth policy. If an auth is set to <c>Amazon Web Services_IAM</c>
     /// and the auth policy is deleted, all requests will be denied by default. If you are
-    /// trying to remove the auth policy completely, you must set the auth_type to <code>NONE</code>.
+    /// trying to remove the auth policy completely, you must set the auth_type to <c>NONE</c>.
     /// If auth is enabled on the resource, but no auth policy is set, all requests will be
     /// denied.
     /// </summary>

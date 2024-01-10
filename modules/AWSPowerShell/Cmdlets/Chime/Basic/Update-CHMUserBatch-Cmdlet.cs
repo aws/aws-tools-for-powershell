@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Updates user details within the <a>UpdateUserRequestItem</a> object for up to 20 users
-    /// for the specified Amazon Chime account. Currently, only <code>LicenseType</code> updates
+    /// for the specified Amazon Chime account. Currently, only <c>LicenseType</c> updates
     /// are supported for this action.
     /// </summary>
     [Cmdlet("Update", "CHMUserBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

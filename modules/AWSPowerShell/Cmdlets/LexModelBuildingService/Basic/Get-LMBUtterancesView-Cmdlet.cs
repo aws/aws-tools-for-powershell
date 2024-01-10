@@ -28,18 +28,17 @@ using Amazon.LexModelBuildingService.Model;
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Use the <code>GetUtterancesView</code> operation to get information about the utterances
+    /// Use the <c>GetUtterancesView</c> operation to get information about the utterances
     /// that your users have made to your bot. You can use this list to tune the utterances
     /// that your bot responds to.
     /// 
     ///  
     /// <para>
     /// For example, say that you have created a bot to order flowers. After your users have
-    /// used your bot for a while, use the <code>GetUtterancesView</code> operation to see
-    /// the requests that they have made and whether they have been successful. You might
-    /// find that the utterance "I want flowers" is not being recognized. You could add this
-    /// utterance to the <code>OrderFlowers</code> intent so that your bot recognizes that
-    /// utterance.
+    /// used your bot for a while, use the <c>GetUtterancesView</c> operation to see the requests
+    /// that they have made and whether they have been successful. You might find that the
+    /// utterance "I want flowers" is not being recognized. You could add this utterance to
+    /// the <c>OrderFlowers</c> intent so that your bot recognizes that utterance.
     /// </para><para>
     /// After you publish a new version of a bot, you can get information about the old version
     /// and the new so that you can compare the performance across the two versions. 
@@ -49,11 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// Lex returns the most frequent utterances received by the bot in the last 15 days.
     /// The response contains information about a maximum of 100 utterances for each version.
     /// </para><para>
-    /// If you set <code>childDirected</code> field to true when you created your bot, if
-    /// you are using slot obfuscation with one or more slots, or if you opted out of participating
+    /// If you set <c>childDirected</c> field to true when you created your bot, if you are
+    /// using slot obfuscation with one or more slots, or if you opted out of participating
     /// in improving Amazon Lex, utterances are not available.
     /// </para><para>
-    /// This operation requires permissions for the <code>lex:GetUtterancesView</code> action.
+    /// This operation requires permissions for the <c>lex:GetUtterancesView</c> action.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "LMBUtterancesView")]
@@ -106,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter StatusType
         /// <summary>
         /// <para>
-        /// <para>To return utterances that were recognized and handled, use <code>Detected</code>.
-        /// To return utterances that were not recognized, use <code>Missed</code>.</para>
+        /// <para>To return utterances that were recognized and handled, use <c>Detected</c>. To return
+        /// utterances that were not recognized, use <c>Missed</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

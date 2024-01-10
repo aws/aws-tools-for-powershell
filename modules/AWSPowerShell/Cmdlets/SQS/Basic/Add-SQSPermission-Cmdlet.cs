@@ -38,17 +38,17 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// about these permissions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue">Allow
     /// Developers to Write Messages to a Shared Queue</a> in the <i>Amazon SQS Developer
     /// Guide</i>.
-    /// </para><note><ul><li><para><code>AddPermission</code> generates a policy for you. You can use <code><a>SetQueueAttributes</a></code> to upload your policy. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html">Using
+    /// </para><note><ul><li><para><c>AddPermission</c> generates a policy for you. You can use <c><a>SetQueueAttributes</a></c> to upload your policy. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html">Using
     /// Custom Policies with the Amazon SQS Access Policy Language</a> in the <i>Amazon SQS
     /// Developer Guide</i>.
     /// </para></li><li><para>
     /// An Amazon SQS policy can have a maximum of seven actions per statement.
     /// </para></li><li><para>
     /// To remove the ability to change queue permissions, you must deny permission to the
-    /// <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetQueueAttributes</code>
-    /// actions in your IAM policy.
+    /// <c>AddPermission</c>, <c>RemovePermission</c>, and <c>SetQueueAttributes</c> actions
+    /// in your IAM policy.
     /// </para></li><li><para>
-    /// Amazon SQS <code>AddPermission</code> does not support adding a non-account principal.
+    /// Amazon SQS <c>AddPermission</c> does not support adding a non-account principal.
     /// </para></li></ul></note><note><para>
     /// Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
     /// cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer
@@ -71,12 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>The action the client wants to allow for the specified principal. Valid values: the
-        /// name of any action or <code>*</code>.</para><para>For more information about these actions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html">Overview
+        /// name of any action or <c>*</c>.</para><para>For more information about these actions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html">Overview
         /// of Managing Access Permissions to Your Amazon Simple Queue Service Resource</a> in
-        /// the <i>Amazon SQS Developer Guide</i>.</para><para>Specifying <code>SendMessage</code>, <code>DeleteMessage</code>, or <code>ChangeMessageVisibility</code>
-        /// for <code>ActionName.n</code> also grants permissions for the corresponding batch
-        /// versions of those actions: <code>SendMessageBatch</code>, <code>DeleteMessageBatch</code>,
-        /// and <code>ChangeMessageVisibilityBatch</code>.</para>
+        /// the <i>Amazon SQS Developer Guide</i>.</para><para>Specifying <c>SendMessage</c>, <c>DeleteMessage</c>, or <c>ChangeMessageVisibility</c>
+        /// for <c>ActionName.n</c> also grants permissions for the corresponding batch versions
+        /// of those actions: <c>SendMessageBatch</c>, <c>DeleteMessageBatch</c>, and <c>ChangeMessageVisibilityBatch</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,9 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter Label
         /// <summary>
         /// <para>
-        /// <para>The unique identification of the permission you're setting (for example, <code>AliceSendMessage</code>).
+        /// <para>The unique identification of the permission you're setting (for example, <c>AliceSendMessage</c>).
         /// Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens
-        /// (<code>-</code>), and underscores (<code>_</code>).</para>
+        /// (<c>-</c>), and underscores (<c>_</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

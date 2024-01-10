@@ -28,7 +28,7 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Creates an Amazon FSx for Lustre data repository task. A <code>CreateDataRepositoryTask</code>
+    /// Creates an Amazon FSx for Lustre data repository task. A <c>CreateDataRepositoryTask</c>
     /// operation will fail if a data repository is not linked to the FSx file system.
     /// 
     ///  
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter CapacityToRelease
         /// <summary>
         /// <para>
-        /// <para>Specifies the amount of data to release, in GiB, by an Amazon File Cache <code>AUTO_RELEASE_DATA</code>
+        /// <para>Specifies the amount of data to release, in GiB, by an Amazon File Cache <c>AUTO_RELEASE_DATA</c>
         /// task that automatically releases files from the cache.</para>
         /// </para>
         /// </summary>
@@ -86,11 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter Report_Enabled
         /// <summary>
         /// <para>
-        /// <para>Set <code>Enabled</code> to <code>True</code> to generate a <code>CompletionReport</code>
-        /// when the task completes. If set to <code>true</code>, then you need to provide a report
-        /// <code>Scope</code>, <code>Path</code>, and <code>Format</code>. Set <code>Enabled</code>
-        /// to <code>False</code> if you do not want a <code>CompletionReport</code> generated
-        /// when the task completes.</para>
+        /// <para>Set <c>Enabled</c> to <c>True</c> to generate a <c>CompletionReport</c> when the task
+        /// completes. If set to <c>true</c>, then you need to provide a report <c>Scope</c>,
+        /// <c>Path</c>, and <c>Format</c>. Set <c>Enabled</c> to <c>False</c> if you do not want
+        /// a <c>CompletionReport</c> generated when the task completes.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,11 +122,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter Report_Format
         /// <summary>
         /// <para>
-        /// <para>Required if <code>Enabled</code> is set to <code>true</code>. Specifies the format
-        /// of the <code>CompletionReport</code>. <code>REPORT_CSV_20191124</code> is the only
-        /// format currently supported. When <code>Format</code> is set to <code>REPORT_CSV_20191124</code>,
-        /// the <code>CompletionReport</code> is provided in CSV format, and is delivered to <code>{path}/task-{id}/failures.csv</code>.
-        /// </para>
+        /// <para>Required if <c>Enabled</c> is set to <c>true</c>. Specifies the format of the <c>CompletionReport</c>.
+        /// <c>REPORT_CSV_20191124</c> is the only format currently supported. When <c>Format</c>
+        /// is set to <c>REPORT_CSV_20191124</c>, the <c>CompletionReport</c> is provided in CSV
+        /// format, and is delivered to <c>{path}/task-{id}/failures.csv</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,13 +136,12 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter Report_Path
         /// <summary>
         /// <para>
-        /// <para>Required if <code>Enabled</code> is set to <code>true</code>. Specifies the location
-        /// of the report on the file system's linked S3 data repository. An absolute path that
-        /// defines where the completion report will be stored in the destination location. The
-        /// <code>Path</code> you provide must be located within the file system’s ExportPath.
-        /// An example <code>Path</code> value is "s3://myBucket/myExportPath/optionalPrefix".
-        /// The report provides the following information for each file in the report: FilePath,
-        /// FileStatus, and ErrorCode.</para>
+        /// <para>Required if <c>Enabled</c> is set to <c>true</c>. Specifies the location of the report
+        /// on the file system's linked S3 data repository. An absolute path that defines where
+        /// the completion report will be stored in the destination location. The <c>Path</c>
+        /// you provide must be located within the file system’s ExportPath. An example <c>Path</c>
+        /// value is "s3://myBucket/myExportPath/optionalPrefix". The report provides the following
+        /// information for each file in the report: FilePath, FileStatus, and ErrorCode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,11 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// time criteria (for release tasks).</para><ul><li><para>For export tasks, the list contains paths on the FSx for Lustre file system from which
         /// the files are exported to the Amazon S3 bucket. The default path is the file system
         /// root directory. The paths you provide need to be relative to the mount point of the
-        /// file system. If the mount point is <code>/mnt/fsx</code> and <code>/mnt/fsx/path1</code>
-        /// is a directory or file on the file system you want to export, then the path to provide
-        /// is <code>path1</code>.</para></li><li><para>For import tasks, the list contains paths in the Amazon S3 bucket from which POSIX
+        /// file system. If the mount point is <c>/mnt/fsx</c> and <c>/mnt/fsx/path1</c> is a
+        /// directory or file on the file system you want to export, then the path to provide
+        /// is <c>path1</c>.</para></li><li><para>For import tasks, the list contains paths in the Amazon S3 bucket from which POSIX
         /// metadata changes are imported to the FSx for Lustre file system. The path can be an
-        /// S3 bucket or prefix in the format <code>s3://myBucket/myPrefix</code> (where <code>myPrefix</code>
+        /// S3 bucket or prefix in the format <c>s3://myBucket/myPrefix</c> (where <c>myPrefix</c>
         /// is optional). </para></li><li><para>For release tasks, the list contains directory or file paths on the FSx for Lustre
         /// file system from which to release exported files. If a directory is specified, files
         /// within the directory are released. If a file path is specified, only that file is
@@ -182,11 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter Report_Scope
         /// <summary>
         /// <para>
-        /// <para>Required if <code>Enabled</code> is set to <code>true</code>. Specifies the scope
-        /// of the <code>CompletionReport</code>; <code>FAILED_FILES_ONLY</code> is the only scope
-        /// currently supported. When <code>Scope</code> is set to <code>FAILED_FILES_ONLY</code>,
-        /// the <code>CompletionReport</code> only contains information about files that the data
-        /// repository task failed to process.</para>
+        /// <para>Required if <c>Enabled</c> is set to <c>true</c>. Specifies the scope of the <c>CompletionReport</c>;
+        /// <c>FAILED_FILES_ONLY</c> is the only scope currently supported. When <c>Scope</c>
+        /// is set to <c>FAILED_FILES_ONLY</c>, the <c>CompletionReport</c> only contains information
+        /// about files that the data repository task failed to process.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,12 +204,12 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of data repository task to create.</para><ul><li><para><code>EXPORT_TO_REPOSITORY</code> tasks export from your Amazon FSx for Lustre file
-        /// system to a linked data repository.</para></li><li><para><code>IMPORT_METADATA_FROM_REPOSITORY</code> tasks import metadata changes from a
-        /// linked S3 bucket to your Amazon FSx for Lustre file system.</para></li><li><para><code>RELEASE_DATA_FROM_FILESYSTEM</code> tasks release files in your Amazon FSx
-        /// for Lustre file system that have been exported to a linked S3 bucket and that meet
-        /// your specified release criteria.</para></li><li><para><code>AUTO_RELEASE_DATA</code> tasks automatically release files from an Amazon File
-        /// Cache resource.</para></li></ul>
+        /// <para>Specifies the type of data repository task to create.</para><ul><li><para><c>EXPORT_TO_REPOSITORY</c> tasks export from your Amazon FSx for Lustre file system
+        /// to a linked data repository.</para></li><li><para><c>IMPORT_METADATA_FROM_REPOSITORY</c> tasks import metadata changes from a linked
+        /// S3 bucket to your Amazon FSx for Lustre file system.</para></li><li><para><c>RELEASE_DATA_FROM_FILESYSTEM</c> tasks release files in your Amazon FSx for Lustre
+        /// file system that have been exported to a linked S3 bucket and that meet your specified
+        /// release criteria.</para></li><li><para><c>AUTO_RELEASE_DATA</c> tasks automatically release files from an Amazon File Cache
+        /// resource.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -230,9 +226,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter DurationSinceLastAccess_Unit
         /// <summary>
         /// <para>
-        /// <para>The unit of time used by the <code>Value</code> parameter to determine if a file can
-        /// be released, based on when it was last accessed. <code>DAYS</code> is the only supported
-        /// value. This is a required parameter.</para>
+        /// <para>The unit of time used by the <c>Value</c> parameter to determine if a file can be
+        /// released, based on when it was last accessed. <c>DAYS</c> is the only supported value.
+        /// This is a required parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,12 +241,12 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>An integer that represents the minimum amount of time (in days) since a file was last
-        /// accessed in the file system. Only exported files with a <code>MAX(atime, ctime, mtime)</code>
+        /// accessed in the file system. Only exported files with a <c>MAX(atime, ctime, mtime)</c>
         /// timestamp that is more than this amount of time in the past (relative to the task
-        /// create time) will be released. The default of <code>Value</code> is <code>0</code>.
-        /// This is a required parameter.</para><note><para>If an exported file meets the last accessed time criteria, its file or directory path
-        /// must also be specified in the <code>Paths</code> parameter of the operation in order
-        /// for the file to be released.</para></note>
+        /// create time) will be released. The default of <c>Value</c> is <c>0</c>. This is a
+        /// required parameter.</para><note><para>If an exported file meets the last accessed time criteria, its file or directory path
+        /// must also be specified in the <c>Paths</c> parameter of the operation in order for
+        /// the file to be released.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

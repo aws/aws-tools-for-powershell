@@ -48,8 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>
         /// <para>The user-supplied certificate identifier. If this parameter is specified, information
         /// for only the specified certificate is returned. If this parameter is omitted, a list
-        /// of up to <code>MaxRecords</code> certificates is returned. This parameter is not case
-        /// sensitive.</para><para>Constraints</para><ul><li><para>Must match an existing <code>CertificateIdentifier</code>.</para></li></ul>
+        /// of up to <c>MaxRecords</c> certificates is returned. This parameter is not case sensitive.</para><para>Constraints</para><ul><li><para>Must match an existing <c>CertificateIdentifier</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -70,9 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>An optional pagination token provided by a previous <code>DescribeCertificates</code>
-        /// request. If this parameter is specified, the response includes only records beyond
-        /// the marker, up to the value specified by <code>MaxRecords</code>.</para>
+        /// <para>An optional pagination token provided by a previous <c>DescribeCertificates</c> request.
+        /// If this parameter is specified, the response includes only records beyond the marker,
+        /// up to the value specified by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -88,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints:</para><ul><li><para>Minimum: 20</para></li><li><para>Maximum: 100</para></li></ul>
+        /// the specified <c>MaxRecords</c> value, a pagination token called a marker is included
+        /// in the response so that the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints:</para><ul><li><para>Minimum: 20</para></li><li><para>Maximum: 100</para></li></ul>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

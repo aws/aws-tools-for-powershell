@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <summary>
     /// Returns complete information about one <i>delivery</i>. A delivery is a connection
     /// between a logical <i>delivery source</i> and a logical <i>delivery destination</i><para>
-    /// You need to specify the delivery <code>id</code> in this operation. You can find the
-    /// IDs of the deliveries in your account with the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html">DescribeDeliveries</a>
+    /// You need to specify the delivery <c>id</c> in this operation. You can find the IDs
+    /// of the deliveries in your account with the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html">DescribeDeliveries</a>
     /// operation.
     /// </para>
     /// </summary>

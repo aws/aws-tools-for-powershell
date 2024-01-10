@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         /// <summary>
         /// <para>
         /// <para>Filters the response list to only show participants who published during the stage
-        /// session. Only one of <code>filterByUserId</code>, <code>filterByPublished</code>,
-        /// or <code>filterByState</code> can be provided per request.</para>
+        /// session. Only one of <c>filterByUserId</c>, <c>filterByPublished</c>, or <c>filterByState</c>
+        /// can be provided per request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         /// <summary>
         /// <para>
         /// <para>Filters the response list to only show participants in the specified state. Only one
-        /// of <code>filterByUserId</code>, <code>filterByPublished</code>, or <code>filterByState</code>
-        /// can be provided per request.</para>
+        /// of <c>filterByUserId</c>, <c>filterByPublished</c>, or <c>filterByState</c> can be
+        /// provided per request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,10 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         #region Parameter FilterByUserId
         /// <summary>
         /// <para>
-        /// <para>Filters the response list to match the specified user ID. Only one of <code>filterByUserId</code>,
-        /// <code>filterByPublished</code>, or <code>filterByState</code> can be provided per
-        /// request. A <code>userId</code> is a customer-assigned name to help identify the token;
-        /// this can be used to link a participant to a user in the customer’s own systems.</para>
+        /// <para>Filters the response list to match the specified user ID. Only one of <c>filterByUserId</c>,
+        /// <c>filterByPublished</c>, or <c>filterByState</c> can be provided per request. A <c>userId</c>
+        /// is a customer-assigned name to help identify the token; this can be used to link a
+        /// participant to a user in the customer’s own systems.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The first participant to retrieve. This is used for pagination; see the <code>nextToken</code>
+        /// <para>The first participant to retrieve. This is used for pagination; see the <c>nextToken</c>
         /// response field.</para>
         /// </para>
         /// </summary>

@@ -28,7 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Disables the standards specified by the provided <code>StandardsSubscriptionArns</code>.
+    /// Disables the standards specified by the provided <c>StandardsSubscriptionArns</c>.
     /// 
     ///  
     /// <para>

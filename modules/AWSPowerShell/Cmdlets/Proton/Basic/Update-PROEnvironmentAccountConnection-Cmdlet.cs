@@ -66,9 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning
         /// directly defined components in the associated environment account. It determines the
-        /// scope of infrastructure that a component can provision in the account.</para><para>The environment account connection must have a <code>componentRoleArn</code> to allow
-        /// directly defined components to be associated with any environments running in the
-        /// account.</para><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
+        /// scope of infrastructure that a component can provision in the account.</para><para>The environment account connection must have a <c>componentRoleArn</c> to allow directly
+        /// defined components to be associated with any environments running in the account.</para><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
         /// components</a> in the <i>Proton User Guide</i>.</para>
         /// </para>
         /// </summary>

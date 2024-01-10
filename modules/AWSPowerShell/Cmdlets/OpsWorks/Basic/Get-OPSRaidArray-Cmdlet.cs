@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance ID. If you use this parameter, <code>DescribeRaidArrays</code> returns
-        /// descriptions of the RAID arrays associated with the specified instance. </para>
+        /// <para>The instance ID. If you use this parameter, <c>DescribeRaidArrays</c> returns descriptions
+        /// of the RAID arrays associated with the specified instance. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -64,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter RaidArrayId
         /// <summary>
         /// <para>
-        /// <para>An array of RAID array IDs. If you use this parameter, <code>DescribeRaidArrays</code>
-        /// returns descriptions of the specified arrays. Otherwise, it returns a description
-        /// of every array.</para>
+        /// <para>An array of RAID array IDs. If you use this parameter, <c>DescribeRaidArrays</c> returns
+        /// descriptions of the specified arrays. Otherwise, it returns a description of every
+        /// array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

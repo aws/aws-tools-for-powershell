@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the CloudTrail channel attached to the resource-based
-        /// policy. The following is the format of a resource ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</code>.
+        /// policy. The following is the format of a resource ARN: <c>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</c>.
         /// </para>
         /// </para>
         /// </summary>

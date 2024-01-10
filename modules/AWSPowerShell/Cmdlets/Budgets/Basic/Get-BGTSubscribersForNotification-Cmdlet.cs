@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The <code>accountId</code> that is associated with the budget whose subscribers you
-        /// want descriptions of.</para>
+        /// <para>The <c>accountId</c> that is associated with the budget whose subscribers you want
+        /// descriptions of.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         /// <summary>
         /// <para>
         /// <para>Specifies whether this notification is in alarm. If a budget notification is in the
-        /// <code>ALARM</code> state, you passed the set threshold for the budget.</para>
+        /// <c>ALARM</c> state, you passed the set threshold for the budget.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Notification_NotificationType
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the notification is for how much you have spent (<code>ACTUAL</code>)
-        /// or for how much that you're forecasted to spend (<code>FORECASTED</code>).</para>
+        /// <para>Specifies whether the notification is for how much you have spent (<c>ACTUAL</c>)
+        /// or for how much that you're forecasted to spend (<c>FORECASTED</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -147,13 +147,12 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Notification_ThresholdType
         /// <summary>
         /// <para>
-        /// <para>The type of threshold for a notification. For <code>ABSOLUTE_VALUE</code> thresholds,
-        /// Amazon Web Services notifies you when you go over or are forecasted to go over your
-        /// total cost threshold. For <code>PERCENTAGE</code> thresholds, Amazon Web Services
-        /// notifies you when you go over or are forecasted to go over a certain percentage of
-        /// your forecasted spend. For example, if you have a budget for 200 dollars and you have
-        /// a <code>PERCENTAGE</code> threshold of 80%, Amazon Web Services notifies you when
-        /// you go over 160 dollars.</para>
+        /// <para>The type of threshold for a notification. For <c>ABSOLUTE_VALUE</c> thresholds, Amazon
+        /// Web Services notifies you when you go over or are forecasted to go over your total
+        /// cost threshold. For <c>PERCENTAGE</c> thresholds, Amazon Web Services notifies you
+        /// when you go over or are forecasted to go over a certain percentage of your forecasted
+        /// spend. For example, if you have a budget for 200 dollars and you have a <c>PERCENTAGE</c>
+        /// threshold of 80%, Amazon Web Services notifies you when you go over 160 dollars.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

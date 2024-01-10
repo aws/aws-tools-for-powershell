@@ -37,14 +37,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// that is already available to the public.
     /// </para><para>
     /// Use the following syntax to determine whether a continent is supported for geolocation:
-    /// </para><para><code>GET /2013-04-01/geolocation?continentcode=<i>two-letter abbreviation for a
-    /// continent</i></code></para><para>
+    /// </para><para><c>GET /2013-04-01/geolocation?continentcode=<i>two-letter abbreviation for a continent</i></c></para><para>
     /// Use the following syntax to determine whether a country is supported for geolocation:
-    /// </para><para><code>GET /2013-04-01/geolocation?countrycode=<i>two-character country code</i></code></para><para>
+    /// </para><para><c>GET /2013-04-01/geolocation?countrycode=<i>two-character country code</i></c></para><para>
     /// Use the following syntax to determine whether a subdivision of a country is supported
     /// for geolocation:
-    /// </para><para><code>GET /2013-04-01/geolocation?countrycode=<i>two-character country code</i>&amp;subdivisioncode=<i>subdivision
-    /// code</i></code></para>
+    /// </para><para><c>GET /2013-04-01/geolocation?countrycode=<i>two-character country code</i>&amp;subdivisioncode=<i>subdivision
+    /// code</i></c></para>
     /// </summary>
     [Cmdlet("Get", "R53GeoLocation")]
     [OutputType("Amazon.Route53.Model.GeoLocationDetails")]
@@ -73,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>Amazon Route 53 uses the two-letter country codes that are specified in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO
-        /// standard 3166-1 alpha-2</a>.</para><para>Route 53 also supports the contry code <b>UA</b> forr Ukraine.</para>
+        /// standard 3166-1 alpha-2</a>.</para><para>Route 53 also supports the country code <b>UA</b> for Ukraine.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

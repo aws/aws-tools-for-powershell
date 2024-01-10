@@ -28,8 +28,8 @@ using Amazon.KinesisVideo.Model;
 namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
-    /// Returns an array of <code>StreamInfo</code> objects. Each object describes a stream.
-    /// To retrieve only streams that satisfy a specific condition, you can specify a <code>StreamNameCondition</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns an array of <c>StreamInfo</c> objects. Each object describes a stream. To
+    /// retrieve only streams that satisfy a specific condition, you can specify a <c>StreamNameCondition</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KVStreamList")]
     [OutputType("Amazon.KinesisVideo.Model.StreamInfo")]
@@ -74,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If you specify this parameter, when the result of a <code>ListStreams</code> operation
-        /// is truncated, the call returns the <code>NextToken</code> in the response. To get
-        /// another batch of streams, provide this token in your next request.</para>
+        /// <para>If you specify this parameter, when the result of a <c>ListStreams</c> operation is
+        /// truncated, the call returns the <c>NextToken</c> in the response. To get another batch
+        /// of streams, provide this token in your next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

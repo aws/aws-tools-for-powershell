@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         /// <summary>
         /// <para>
         /// <para>Specifies whether the service should exempt a backup from the retention policy for
-        /// the cluster. <code>True</code> exempts a backup from the retention policy. <code>False</code>
+        /// the cluster. <c>True</c> exempts a backup from the retention policy. <c>False</c>
         /// means the service applies the backup retention policy defined at the cluster.</para>
         /// </para>
         /// </summary>

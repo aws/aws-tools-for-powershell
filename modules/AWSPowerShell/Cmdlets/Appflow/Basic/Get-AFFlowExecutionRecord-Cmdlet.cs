@@ -64,8 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <summary>
         /// <para>
         /// <para> Specifies the maximum number of items that should be returned in the result set.
-        /// The default for <code>maxResults</code> is 20 (for all paginated API operations).
-        /// </para>
+        /// The default for <c>maxResults</c> is 20 (for all paginated API operations). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

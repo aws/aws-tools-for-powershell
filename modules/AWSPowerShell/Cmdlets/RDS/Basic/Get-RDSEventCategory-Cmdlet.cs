@@ -58,9 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceType
         /// <summary>
         /// <para>
-        /// <para>The type of source that is generating the events. For RDS Proxy events, specify <code>db-proxy</code>.</para><para>Valid Values: <code>db-instance</code> | <code>db-cluster</code> | <code>db-parameter-group</code>
-        /// | <code>db-security-group</code> | <code>db-snapshot</code> | <code>db-cluster-snapshot</code>
-        /// | <code>db-proxy</code></para>
+        /// <para>The type of source that is generating the events. For RDS Proxy events, specify <c>db-proxy</c>.</para><para>Valid Values: <c>db-instance</c> | <c>db-cluster</c> | <c>db-parameter-group</c> |
+        /// <c>db-security-group</c> | <c>db-snapshot</c> | <c>db-cluster-snapshot</c> | <c>db-proxy</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -28,9 +28,9 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a version of the SageMaker image specified by <code>ImageName</code>. The
-    /// version represents the Amazon Elastic Container Registry (ECR) container image specified
-    /// by <code>BaseImage</code>.
+    /// Creates a version of the SageMaker image specified by <c>ImageName</c>. The version
+    /// represents the Amazon Elastic Container Registry (ECR) container image specified by
+    /// <c>BaseImage</c>.
     /// </summary>
     [Cmdlet("New", "SMImageVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -59,8 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The registry path of the container image to use as the starting point for this version.
-        /// The path is an Amazon Elastic Container Registry (ECR) URI in the following format:</para><para><code>&lt;acct-id&gt;.dkr.ecr.&lt;region&gt;.amazonaws.com/&lt;repo-name[:tag] or
-        /// [@digest]&gt;</code></para>
+        /// The path is an Amazon Elastic Container Registry (ECR) URI in the following format:</para><para><c>&lt;acct-id&gt;.dkr.ecr.&lt;region&gt;.amazonaws.com/&lt;repo-name[:tag] or [@digest]&gt;</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ImageName
         /// <summary>
         /// <para>
-        /// <para>The <code>ImageName</code> of the <code>Image</code> to create a version of.</para>
+        /// <para>The <c>ImageName</c> of the <c>Image</c> to create a version of.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,9 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter JobType
         /// <summary>
         /// <para>
-        /// <para>Indicates SageMaker job type compatibility.</para><ul><li><para><code>TRAINING</code>: The image version is compatible with SageMaker training jobs.</para></li><li><para><code>INFERENCE</code>: The image version is compatible with SageMaker inference
-        /// jobs.</para></li><li><para><code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker notebook
-        /// kernels.</para></li></ul>
+        /// <para>Indicates SageMaker job type compatibility.</para><ul><li><para><c>TRAINING</c>: The image version is compatible with SageMaker training jobs.</para></li><li><para><c>INFERENCE</c>: The image version is compatible with SageMaker inference jobs.</para></li><li><para><c>NOTEBOOK_KERNEL</c>: The image version is compatible with SageMaker notebook kernels.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Processor
         /// <summary>
         /// <para>
-        /// <para>Indicates CPU or GPU compatibility.</para><ul><li><para><code>CPU</code>: The image version is compatible with CPU.</para></li><li><para><code>GPU</code>: The image version is compatible with GPU.</para></li></ul>
+        /// <para>Indicates CPU or GPU compatibility.</para><ul><li><para><c>CPU</c>: The image version is compatible with CPU.</para></li><li><para><c>GPU</c>: The image version is compatible with GPU.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,10 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VendorGuidance
         /// <summary>
         /// <para>
-        /// <para>The stability of the image version, specified by the maintainer.</para><ul><li><para><code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version
-        /// stability.</para></li><li><para><code>STABLE</code>: The image version is stable.</para></li><li><para><code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image
-        /// versions that are set to be archived are automatically archived after three months.</para></li><li><para><code>ARCHIVED</code>: The image version is archived. Archived image versions are
-        /// not searchable and are no longer actively supported. </para></li></ul>
+        /// <para>The stability of the image version, specified by the maintainer.</para><ul><li><para><c>NOT_PROVIDED</c>: The maintainers did not provide a status for image version stability.</para></li><li><para><c>STABLE</c>: The image version is stable.</para></li><li><para><c>TO_BE_ARCHIVED</c>: The image version is set to be archived. Custom image versions
+        /// that are set to be archived are automatically archived after three months.</para></li><li><para><c>ARCHIVED</c>: The image version is archived. Archived image versions are not searchable
+        /// and are no longer actively supported. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

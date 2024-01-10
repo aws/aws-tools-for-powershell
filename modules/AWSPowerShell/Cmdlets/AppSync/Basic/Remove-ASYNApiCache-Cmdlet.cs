@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Deletes an <code>ApiCache</code> object.
+    /// Deletes an <c>ApiCache</c> object.
     /// </summary>
     [Cmdlet("Remove", "ASYNApiCache", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

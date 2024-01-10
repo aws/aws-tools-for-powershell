@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Returns a list of resource metadata for a given list of trigger names. After calling
-    /// the <code>ListTriggers</code> operation, you can call this operation to access the
-    /// data to which you have been granted permissions. This operation supports all IAM permissions,
+    /// the <c>ListTriggers</c> operation, you can call this operation to access the data
+    /// to which you have been granted permissions. This operation supports all IAM permissions,
     /// including permission conditions that uses tags.
     /// </summary>
     [Cmdlet("Get", "GLUETriggerBatch")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter TriggerName
         /// <summary>
         /// <para>
-        /// <para>A list of trigger names, which may be the names returned from the <code>ListTriggers</code>
+        /// <para>A list of trigger names, which may be the names returned from the <c>ListTriggers</c>
         /// operation.</para>
         /// </para>
         /// </summary>

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// a batch inference job </a>.
     /// </para><para>
     ///  If you use the Similar-Items recipe, Amazon Personalize can add descriptive themes
-    /// to batch recommendations. To generate themes, set the job's mode to <code>THEME_GENERATION</code>
+    /// to batch recommendations. To generate themes, set the job's mode to <c>THEME_GENERATION</c>
     /// and specify the name of the field that contains item names in the input data.
     /// </para><para>
     ///  For more information about generating themes, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/themed-batch-recommendations.html">Batch
@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>The mode of the batch inference job. To generate descriptive themes for groups of
-        /// similar items, set the job mode to <code>THEME_GENERATION</code>. If you don't want
-        /// to generate themes, use the default <code>BATCH_INFERENCE</code>.</para><para> When you get batch recommendations with themes, you will incur additional costs.
+        /// similar items, set the job mode to <c>THEME_GENERATION</c>. If you don't want to generate
+        /// themes, use the default <c>BATCH_INFERENCE</c>.</para><para> When you get batch recommendations with themes, you will incur additional costs.
         /// For more information, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon
         /// Personalize pricing</a>. </para>
         /// </para>
@@ -95,9 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>A string to string map specifying the exploration configuration hyperparameters, including
-        /// <code>explorationWeight</code> and <code>explorationItemAgeCutOff</code>, you want
-        /// to use to configure the amount of item exploration Amazon Personalize uses when recommending
-        /// items. See <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>.</para>
+        /// <c>explorationWeight</c> and <c>explorationItemAgeCutOff</c>, you want to use to configure
+        /// the amount of item exploration Amazon Personalize uses when recommending items. See
+        /// <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

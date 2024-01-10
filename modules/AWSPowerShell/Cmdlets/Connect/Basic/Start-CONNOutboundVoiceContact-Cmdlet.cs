@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// Places an outbound call to a contact, and then initiates the flow. It performs the
-    /// actions in the flow that's specified (in <code>ContactFlowId</code>).
+    /// actions in the flow that's specified (in <c>ContactFlowId</c>).
     /// 
     ///  
     /// <para>
@@ -45,9 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon
     /// Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. 
     /// </para></note><note><para>
-    /// Campaign calls are not allowed by default. Before you can make a call with <code>TrafficType</code>
-    /// = <code>CAMPAIGN</code>, you must submit a service quota increase request to the quota
-    /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas">Amazon
+    /// Campaign calls are not allowed by default. Before you can make a call with <c>TrafficType</c>
+    /// = <c>CAMPAIGN</c>, you must submit a service quota increase request to the quota <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas">Amazon
     /// Connect campaigns</a>. 
     /// </para></note>
     /// </summary>
@@ -151,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The flag to indicate if answer machine detection analysis needs to be performed for
-        /// a voice call. If set to <code>true</code>, <code>TrafficType</code> must be set as
-        /// <code>CAMPAIGN</code>. </para>
+        /// a voice call. If set to <c>true</c>, <c>TrafficType</c> must be set as <c>CAMPAIGN</c>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,9 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Contacts
-        /// can have the following reference types at the time of creation: <code>URL</code> |
-        /// <code>NUMBER</code> | <code>STRING</code> | <code>DATE</code> | <code>EMAIL</code>.
-        /// <code>ATTACHMENT</code> is not a supported reference type during voice contact creation.</para>
+        /// can have the following reference types at the time of creation: <c>URL</c> | <c>NUMBER</c>
+        /// | <c>STRING</c> | <c>DATE</c> | <c>EMAIL</c>. <c>ATTACHMENT</c> is not a supported
+        /// reference type during voice contact creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -218,11 +217,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter RelatedContactId
         /// <summary>
         /// <para>
-        /// <para>The <code>contactId</code> that is related to this contact. Linking voice, task, or
-        /// chat by using <code>RelatedContactID</code> copies over contact attributes from the
-        /// related contact to the new contact. All updates to user-defined attributes in the
-        /// new contact are limited to the individual contact ID. There are no limits to the number
-        /// of contacts that can be linked by using <code>RelatedContactId</code>. </para>
+        /// <para>The <c>contactId</c> that is related to this contact. Linking voice, task, or chat
+        /// by using <c>RelatedContactID</c> copies over contact attributes from the related contact
+        /// to the new contact. All updates to user-defined attributes in the new contact are
+        /// limited to the individual contact ID. There are no limits to the number of contacts
+        /// that can be linked by using <c>RelatedContactId</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,9 +243,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>Denotes the class of traffic. Calls with different traffic types are handled differently
-        /// by Amazon Connect. The default value is <code>GENERAL</code>. Use <code>CAMPAIGN</code>
-        /// if <code>EnableAnswerMachineDetection</code> is set to <code>true</code>. For all
-        /// other cases, use <code>GENERAL</code>. </para>
+        /// by Amazon Connect. The default value is <c>GENERAL</c>. Use <c>CAMPAIGN</c> if <c>EnableAnswerMachineDetection</c>
+        /// is set to <c>true</c>. For all other cases, use <c>GENERAL</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

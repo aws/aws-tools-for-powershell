@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ResetAllParameter
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, all parameters in the specified parameter group will be reset
-        /// to their default values. </para><para>Default: <code>true</code></para>
+        /// <para>If <c>true</c>, all parameters in the specified parameter group will be reset to their
+        /// default values. </para><para>Default: <c>true</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

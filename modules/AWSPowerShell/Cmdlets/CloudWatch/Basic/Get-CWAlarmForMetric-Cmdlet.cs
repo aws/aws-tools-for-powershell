@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The statistic for the metric, other than percentiles. For percentile statistics, use
-        /// <code>ExtendedStatistics</code>.</para>
+        /// <c>ExtendedStatistics</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

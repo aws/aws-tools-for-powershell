@@ -29,14 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Lists the platform application objects for the supported push notification services,
-    /// such as APNS and GCM (Firebase Cloud Messaging). The results for <code>ListPlatformApplications</code>
+    /// such as APNS and GCM (Firebase Cloud Messaging). The results for <c>ListPlatformApplications</c>
     /// are paginated and return a limited list of applications, up to 100. If additional
     /// records are available after the first page results, then a NextToken string will be
-    /// returned. To receive the next page, you call <code>ListPlatformApplications</code>
-    /// using the NextToken string received from the previous call. When there are no more
-    /// records to return, <code>NextToken</code> will be null. For more information, see
-    /// <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon
-    /// SNS Mobile Push Notifications</a>. 
+    /// returned. To receive the next page, you call <c>ListPlatformApplications</c> using
+    /// the NextToken string received from the previous call. When there are no more records
+    /// to return, <c>NextToken</c> will be null. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
+    /// Amazon SNS Mobile Push Notifications</a>. 
     /// 
     ///  
     /// <para>

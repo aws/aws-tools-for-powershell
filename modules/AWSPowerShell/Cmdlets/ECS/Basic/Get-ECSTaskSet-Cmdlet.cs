@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
     /// Describes the task sets in the specified cluster and service. This is used when a
-    /// service uses the <code>EXTERNAL</code> deployment controller type. For more information,
+    /// service uses the <c>EXTERNAL</c> deployment controller type. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon
     /// ECS Deployment Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </summary>
@@ -65,9 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Include
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to see the resource tags for the task set. If <code>TAGS</code>
-        /// is specified, the tags are included in the response. If this field is omitted, tags
-        /// aren't included in the response.</para>
+        /// <para>Specifies whether to see the resource tags for the task set. If <c>TAGS</c> is specified,
+        /// the tags are included in the response. If this field is omitted, tags aren't included
+        /// in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

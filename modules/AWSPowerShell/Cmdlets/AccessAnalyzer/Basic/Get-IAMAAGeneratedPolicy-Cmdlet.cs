@@ -28,7 +28,7 @@ using Amazon.AccessAnalyzer.Model;
 namespace Amazon.PowerShell.Cmdlets.IAMAA
 {
     /// <summary>
-    /// Retrieves the policy that was generated using <code>StartPolicyGeneration</code>.
+    /// Retrieves the policy that was generated using <c>StartPolicyGeneration</c>.
     /// </summary>
     [Cmdlet("Get", "IAMAAGeneratedPolicy")]
     [OutputType("Amazon.AccessAnalyzer.Model.GetGeneratedPolicyResponse")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         /// <para>The level of detail that you want to generate. You can specify whether to generate
         /// policies with placeholders for resource ARNs for actions that support resource level
         /// granularity in policies.</para><para>For example, in the resource section of a policy, you can receive a placeholder such
-        /// as <code>"Resource":"arn:aws:s3:::${BucketName}"</code> instead of <code>"*"</code>.</para>
+        /// as <c>"Resource":"arn:aws:s3:::${BucketName}"</c> instead of <c>"*"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         /// <summary>
         /// <para>
         /// <para>The level of detail that you want to generate. You can specify whether to generate
-        /// service-level policies. </para><para>IAM Access Analyzer uses <code>iam:servicelastaccessed</code> to identify services
-        /// that have been used recently to create this service-level template.</para>
+        /// service-level policies. </para><para>IAM Access Analyzer uses <c>iam:servicelastaccessed</c> to identify services that
+        /// have been used recently to create this service-level template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,10 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code>
-        /// operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code>
-        /// to retrieve the generated policies or used with <code>CancelPolicyGeneration</code>
-        /// to cancel the policy generation request.</para>
+        /// <para>The <c>JobId</c> that is returned by the <c>StartPolicyGeneration</c> operation. The
+        /// <c>JobId</c> can be used with <c>GetGeneratedPolicy</c> to retrieve the generated
+        /// policies or used with <c>CancelPolicyGeneration</c> to cancel the policy generation
+        /// request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -89,9 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.VID
         /// <summary>
         /// <para>
         /// <para>The action to take when a fraudster is identified as a duplicate. The default action
-        /// is <code>SKIP</code>, which skips registering the duplicate fraudster. Setting the
-        /// value to <code>REGISTER_AS_NEW</code> always registers a new fraudster into the specified
-        /// domain.</para>
+        /// is <c>SKIP</c>, which skips registering the duplicate fraudster. Setting the value
+        /// to <c>REGISTER_AS_NEW</c> always registers a new fraudster into the specified domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,10 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter OutputDataConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>The S3 path of the folder where Voice ID writes the job output file. It has a <code>*.out</code>
-        /// extension. For example, if the input file name is <code>input-file.json</code> and
-        /// the output folder path is <code>s3://output-bucket/output-folder</code>, the full
-        /// output file path is <code>s3://output-bucket/output-folder/job-Id/input-file.json.out</code>.</para>
+        /// <para>The S3 path of the folder where Voice ID writes the job output file. It has a <c>*.out</c>
+        /// extension. For example, if the input file name is <c>input-file.json</c> and the output
+        /// folder path is <c>s3://output-bucket/output-folder</c>, the full output file path
+        /// is <c>s3://output-bucket/output-folder/job-Id/input-file.json.out</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

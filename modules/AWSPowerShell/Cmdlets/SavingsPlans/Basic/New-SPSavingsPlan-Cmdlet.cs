@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SP
         /// <para>
         /// <para>The up-front payment amount. This is a whole number between 50 and 99 percent of the
         /// total value of the Savings Plan. This parameter is supported only if the payment option
-        /// is <code>Partial Upfront</code>.</para>
+        /// is <c>Partial Upfront</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Returns a list of media analysis jobs. Results are sorted by <code>CreationTimestamp</code>
+    /// Returns a list of media analysis jobs. Results are sorted by <c>CreationTimestamp</c>
     /// in descending order.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "REKMediaAnalysisJobList")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return per paginated call. The largest value user
-        /// can specify is 100. If user specifies a value greater than 100, an <code>InvalidParameterException</code>
+        /// can specify is 100. If user specifies a value greater than 100, an <c>InvalidParameterException</c>
         /// error occurs. The default value is 100.</para>
         /// </para>
         /// </summary>

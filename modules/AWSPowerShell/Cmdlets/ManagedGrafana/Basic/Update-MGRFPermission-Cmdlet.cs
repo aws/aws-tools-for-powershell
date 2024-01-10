@@ -28,7 +28,7 @@ using Amazon.ManagedGrafana.Model;
 namespace Amazon.PowerShell.Cmdlets.MGRF
 {
     /// <summary>
-    /// Updates which users in a workspace have the Grafana <code>Admin</code> or <code>Editor</code>
+    /// Updates which users in a workspace have the Grafana <c>Admin</c> or <c>Editor</c>
     /// roles.
     /// </summary>
     [Cmdlet("Update", "MGRFPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

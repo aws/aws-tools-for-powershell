@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     /// with the image.
     /// </para><note><para>
     /// This operation is used by the Amazon ECR proxy and is not generally used by customers
-    /// for pulling and pushing images. In most cases, you should use the <code>docker</code>
-    /// CLI to pull, tag, and push images.
+    /// for pulling and pushing images. In most cases, you should use the <c>docker</c> CLI
+    /// to pull, tag, and push images.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "ECRPImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         /// <summary>
         /// <para>
         /// <para>The media type of the image manifest. If you push an image manifest that doesn't contain
-        /// the <code>mediaType</code> field, you must specify the <code>imageManifestMediaType</code>
-        /// in the request.</para>
+        /// the <c>mediaType</c> field, you must specify the <c>imageManifestMediaType</c> in
+        /// the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

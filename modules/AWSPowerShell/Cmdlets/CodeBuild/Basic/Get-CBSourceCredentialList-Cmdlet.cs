@@ -28,7 +28,7 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Returns a list of <code>SourceCredentialsInfo</code> objects.
+    /// Returns a list of <c>SourceCredentialsInfo</c> objects.
     /// </summary>
     [Cmdlet("Get", "CBSourceCredentialList")]
     [OutputType("Amazon.CodeBuild.Model.SourceCredentialsInfo")]

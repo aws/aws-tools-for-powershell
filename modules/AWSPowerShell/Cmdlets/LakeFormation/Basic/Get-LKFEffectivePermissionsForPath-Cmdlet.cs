@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
 {
     /// <summary>
     /// Returns the Lake Formation permissions for a specified table or database resource
-    /// located at a path in Amazon S3. <code>GetEffectivePermissionsForPath</code> will not
-    /// return databases and tables if the catalog is encrypted.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// located at a path in Amazon S3. <c>GetEffectivePermissionsForPath</c> will not return
+    /// databases and tables if the catalog is encrypted.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LKFEffectivePermissionsForPath")]
     [OutputType("Amazon.LakeFormation.Model.PrincipalResourcePermissions")]

@@ -46,15 +46,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>A value that you specify to uniquely identify an invalidation request. CloudFront
         /// uses the value to prevent you from accidentally resubmitting an identical request.
-        /// Whenever you create a new invalidation request, you must specify a new value for <code>CallerReference</code>
+        /// Whenever you create a new invalidation request, you must specify a new value for <c>CallerReference</c>
         /// and change other values in the request as applicable. One way to ensure that the value
-        /// of <code>CallerReference</code> is unique is to use a <code>timestamp</code>, for
-        /// example, <code>20120301090000</code>.</para><para>If you make a second invalidation request with the same value for <code>CallerReference</code>,
+        /// of <c>CallerReference</c> is unique is to use a <c>timestamp</c>, for example, <c>20120301090000</c>.</para><para>If you make a second invalidation request with the same value for <c>CallerReference</c>,
         /// and if the rest of the request is the same, CloudFront doesn't create a new invalidation
         /// request. Instead, CloudFront returns information about the invalidation request that
-        /// you previously created with the same <code>CallerReference</code>.</para><para>If <code>CallerReference</code> is a value you already sent in a previous invalidation
-        /// batch request but the content of any <code>Path</code> is different from the original
-        /// request, CloudFront returns an <code>InvalidationBatchAlreadyExists</code> error.</para>
+        /// you previously created with the same <c>CallerReference</c>.</para><para>If <c>CallerReference</c> is a value you already sent in a previous invalidation batch
+        /// request but the content of any <c>Path</c> is different from the original request,
+        /// CloudFront returns an <c>InvalidationBatchAlreadyExists</c> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

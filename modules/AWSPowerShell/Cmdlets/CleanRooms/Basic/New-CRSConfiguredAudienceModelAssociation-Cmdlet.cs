@@ -89,15 +89,14 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter ManageResourcePolicy
         /// <summary>
         /// <para>
-        /// <para>When <code>TRUE</code>, indicates that the resource policy for the configured audience
-        /// model resource being associated is configured for Clean Rooms to manage permissions
-        /// related to the given collaboration. When <code>FALSE</code>, indicates that the configured
-        /// audience model resource owner will manage permissions related to the given collaboration.</para><para>Setting this to <code>TRUE</code> requires you to have permissions to create, update,
-        /// and delete the resource policy for the <code>cleanrooms-ml</code> resource when you
-        /// call the <a>DeleteConfiguredAudienceModelAssociation</a> resource. In addition, if
-        /// you are the collaboration creator and specify <code>TRUE</code>, you must have the
-        /// same permissions when you call the <a>DeleteMember</a> and <a>DeleteCollaboration</a>
-        /// APIs.</para>
+        /// <para>When <c>TRUE</c>, indicates that the resource policy for the configured audience model
+        /// resource being associated is configured for Clean Rooms to manage permissions related
+        /// to the given collaboration. When <c>FALSE</c>, indicates that the configured audience
+        /// model resource owner will manage permissions related to the given collaboration.</para><para>Setting this to <c>TRUE</c> requires you to have permissions to create, update, and
+        /// delete the resource policy for the <c>cleanrooms-ml</c> resource when you call the
+        /// <a>DeleteConfiguredAudienceModelAssociation</a> resource. In addition, if you are
+        /// the collaboration creator and specify <c>TRUE</c>, you must have the same permissions
+        /// when you call the <a>DeleteMember</a> and <a>DeleteCollaboration</a> APIs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

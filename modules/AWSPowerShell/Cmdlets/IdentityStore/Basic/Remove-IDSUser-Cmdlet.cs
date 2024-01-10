@@ -28,7 +28,7 @@ using Amazon.IdentityStore.Model;
 namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// Deletes a user within an identity store given <code>UserId</code>.
+    /// Deletes a user within an identity store given <c>UserId</c>.
     /// </summary>
     [Cmdlet("Remove", "IDSUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

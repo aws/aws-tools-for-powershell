@@ -31,12 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// Creates an AWS CloudFormation stack, which creates a new Amazon EC2 instance from
     /// an exported Amazon Lightsail snapshot. This operation results in a CloudFormation
     /// stack record that can be used to track the AWS CloudFormation stack created. Use the
-    /// <code>get cloud formation stack records</code> operation to get a list of the CloudFormation
+    /// <c>get cloud formation stack records</c> operation to get a list of the CloudFormation
     /// stacks created.
     /// 
     ///  <important><para>
-    /// Wait until after your new Amazon EC2 instance is created before running the <code>create
-    /// cloud formation stack</code> operation again with the same export snapshot record.
+    /// Wait until after your new Amazon EC2 instance is created before running the <c>create
+    /// cloud formation stack</c> operation again with the same export snapshot record.
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "LSCloudFormationStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

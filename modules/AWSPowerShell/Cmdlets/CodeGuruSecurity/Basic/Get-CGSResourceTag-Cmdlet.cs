@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>ScanName</code> object. You can retrieve this ARN by calling
-        /// <code>ListScans</code> or <code>GetScan</code>.</para>
+        /// <para>The ARN of the <c>ScanName</c> object. You can retrieve this ARN by calling <c>ListScans</c>
+        /// or <c>GetScan</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

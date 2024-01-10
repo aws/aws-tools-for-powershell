@@ -35,41 +35,40 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Inserts or deletes <a>Predicate</a> objects in a rule and updates the <code>RateLimit</code>
+    /// Inserts or deletes <a>Predicate</a> objects in a rule and updates the <c>RateLimit</c>
     /// in the rule. 
     /// </para><para>
-    /// Each <code>Predicate</code> object identifies a predicate, such as a <a>ByteMatchSet</a>
+    /// Each <c>Predicate</c> object identifies a predicate, such as a <a>ByteMatchSet</a>
     /// or an <a>IPSet</a>, that specifies the web requests that you want to block or count.
-    /// The <code>RateLimit</code> specifies the number of requests every five minutes that
-    /// triggers the rule.
+    /// The <c>RateLimit</c> specifies the number of requests every five minutes that triggers
+    /// the rule.
     /// </para><para>
-    /// If you add more than one predicate to a <code>RateBasedRule</code>, a request must
-    /// match all the predicates and exceed the <code>RateLimit</code> to be counted or blocked.
-    /// For example, suppose you add the following to a <code>RateBasedRule</code>:
+    /// If you add more than one predicate to a <c>RateBasedRule</c>, a request must match
+    /// all the predicates and exceed the <c>RateLimit</c> to be counted or blocked. For example,
+    /// suppose you add the following to a <c>RateBasedRule</c>:
     /// </para><ul><li><para>
-    /// An <code>IPSet</code> that matches the IP address <code>192.0.2.44/32</code></para></li><li><para>
-    /// A <code>ByteMatchSet</code> that matches <code>BadBot</code> in the <code>User-Agent</code>
-    /// header
+    /// An <c>IPSet</c> that matches the IP address <c>192.0.2.44/32</c></para></li><li><para>
+    /// A <c>ByteMatchSet</c> that matches <c>BadBot</c> in the <c>User-Agent</c> header
     /// </para></li></ul><para>
-    /// Further, you specify a <code>RateLimit</code> of 1,000.
+    /// Further, you specify a <c>RateLimit</c> of 1,000.
     /// </para><para>
-    /// You then add the <code>RateBasedRule</code> to a <code>WebACL</code> and specify that
-    /// you want to block requests that satisfy the rule. For a request to be blocked, it
-    /// must come from the IP address 192.0.2.44 <i>and</i> the <code>User-Agent</code> header
-    /// in the request must contain the value <code>BadBot</code>. Further, requests that
-    /// match these two conditions much be received at a rate of more than 1,000 every five
-    /// minutes. If the rate drops below this limit, AWS WAF no longer blocks the requests.
+    /// You then add the <c>RateBasedRule</c> to a <c>WebACL</c> and specify that you want
+    /// to block requests that satisfy the rule. For a request to be blocked, it must come
+    /// from the IP address 192.0.2.44 <i>and</i> the <c>User-Agent</c> header in the request
+    /// must contain the value <c>BadBot</c>. Further, requests that match these two conditions
+    /// much be received at a rate of more than 1,000 every five minutes. If the rate drops
+    /// below this limit, AWS WAF no longer blocks the requests.
     /// </para><para>
     /// As a second example, suppose you want to limit requests to a particular page on your
-    /// site. To do this, you could add the following to a <code>RateBasedRule</code>:
+    /// site. To do this, you could add the following to a <c>RateBasedRule</c>:
     /// </para><ul><li><para>
-    /// A <code>ByteMatchSet</code> with <code>FieldToMatch</code> of <code>URI</code></para></li><li><para>
-    /// A <code>PositionalConstraint</code> of <code>STARTS_WITH</code></para></li><li><para>
-    /// A <code>TargetString</code> of <code>login</code></para></li></ul><para>
-    /// Further, you specify a <code>RateLimit</code> of 1,000.
+    /// A <c>ByteMatchSet</c> with <c>FieldToMatch</c> of <c>URI</c></para></li><li><para>
+    /// A <c>PositionalConstraint</c> of <c>STARTS_WITH</c></para></li><li><para>
+    /// A <c>TargetString</c> of <c>login</c></para></li></ul><para>
+    /// Further, you specify a <c>RateLimit</c> of 1,000.
     /// </para><para>
-    /// By adding this <code>RateBasedRule</code> to a <code>WebACL</code>, you could limit
-    /// requests to your login page without affecting the rest of your site.
+    /// By adding this <c>RateBasedRule</c> to a <c>WebACL</c>, you could limit requests to
+    /// your login page without affecting the rest of your site.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "WAFRRateBasedRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -105,9 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// <summary>
         /// <para>
         /// <para>The maximum number of requests, which have an identical value in the field specified
-        /// by the <code>RateKey</code>, allowed in a five-minute period. If the number of requests
-        /// exceeds the <code>RateLimit</code> and the other predicates specified in the rule
-        /// are also met, AWS WAF triggers the action that is specified for this rule.</para>
+        /// by the <c>RateKey</c>, allowed in a five-minute period. If the number of requests
+        /// exceeds the <c>RateLimit</c> and the other predicates specified in the rule are also
+        /// met, AWS WAF triggers the action that is specified for this rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter RuleId
         /// <summary>
         /// <para>
-        /// <para>The <code>RuleId</code> of the <code>RateBasedRule</code> that you want to update.
-        /// <code>RuleId</code> is returned by <code>CreateRateBasedRule</code> and by <a>ListRateBasedRules</a>.</para>
+        /// <para>The <c>RuleId</c> of the <c>RateBasedRule</c> that you want to update. <c>RuleId</c>
+        /// is returned by <c>CreateRateBasedRule</c> and by <a>ListRateBasedRules</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -141,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter Update
         /// <summary>
         /// <para>
-        /// <para>An array of <code>RuleUpdate</code> objects that you want to insert into or delete
-        /// from a <a>RateBasedRule</a>. </para>
+        /// <para>An array of <c>RuleUpdate</c> objects that you want to insert into or delete from
+        /// a <a>RateBasedRule</a>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

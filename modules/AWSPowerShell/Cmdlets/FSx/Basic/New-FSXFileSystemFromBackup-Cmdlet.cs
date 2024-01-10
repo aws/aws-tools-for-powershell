@@ -36,11 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// If a file system with the specified client request token exists and the parameters
     /// match, this operation returns the description of the file system. If a file system
     /// with the specified client request token exists but the parameters don't match, this
-    /// call returns <code>IncompatibleParameterError</code>. If a file system with the specified
+    /// call returns <c>IncompatibleParameterError</c>. If a file system with the specified
     /// client request token doesn't exist, this operation does the following:
     /// </para><ul><li><para>
     /// Creates a new Amazon FSx file system from backup with an assigned ID, and an initial
-    /// lifecycle state of <code>CREATING</code>.
+    /// lifecycle state of <c>CREATING</c>.
     /// </para></li><li><para>
     /// Returns the description of the file system.
     /// </para></li></ul><para>
@@ -48,16 +48,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// settings default to the parameters of the file system that was backed up, unless overridden.
     /// You can explicitly supply other settings.
     /// </para><para>
-    /// By using the idempotent operation, you can retry a <code>CreateFileSystemFromBackup</code>
+    /// By using the idempotent operation, you can retry a <c>CreateFileSystemFromBackup</c>
     /// call without the risk of creating an extra file system. This approach can be useful
     /// when an initial call fails in a way that makes it unclear whether a file system was
     /// created. Examples are if a transport level timeout occurred, or your connection was
     /// reset. If you use the same client request token and the initial call created a file
     /// system, the client receives a success message as long as the parameters are the same.
     /// </para><note><para>
-    /// The <code>CreateFileSystemFromBackup</code> call returns while the file system's lifecycle
-    /// state is still <code>CREATING</code>. You can check the file-system creation status
-    /// by calling the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html">
+    /// The <c>CreateFileSystemFromBackup</c> call returns while the file system's lifecycle
+    /// state is still <c>CREATING</c>. You can check the file-system creation status by calling
+    /// the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html">
     /// DescribeFileSystems</a> operation, which returns the file system state along with
     /// other information.
     /// </para></note>
@@ -122,12 +122,12 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>A Boolean value indicating whether tags for the file system should be copied to backups.
-        /// This value defaults to <code>false</code>. If it's set to <code>true</code>, all tags
-        /// for the file system are copied to all automatic and user-initiated backups where the
-        /// user doesn't specify tags. If this value is <code>true</code>, and you specify one
-        /// or more tags, only the specified tags are copied to backups. If you specify one or
-        /// more tags when creating a user-initiated backup, no tags are copied from the file
-        /// system, regardless of this value.</para>
+        /// This value defaults to <c>false</c>. If it's set to <c>true</c>, all tags for the
+        /// file system are copied to all automatic and user-initiated backups where the user
+        /// doesn't specify tags. If this value is <c>true</c>, and you specify one or more tags,
+        /// only the specified tags are copied to backups. If you specify one or more tags when
+        /// creating a user-initiated backup, no tags are copied from the file system, regardless
+        /// of this value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,10 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>A Boolean value indicating whether tags for the volume should be copied to snapshots
-        /// of the volume. This value defaults to <code>false</code>. If it's set to <code>true</code>,
-        /// all tags for the volume are copied to snapshots where the user doesn't specify tags.
-        /// If this value is <code>true</code> and you specify one or more tags, only the specified
-        /// tags are copied to snapshots. If you specify one or more tags when creating the snapshot,
+        /// of the volume. This value defaults to <c>false</c>. If it's set to <c>true</c>, all
+        /// tags for the volume are copied to snapshots where the user doesn't specify tags. If
+        /// this value is <c>true</c> and you specify one or more tags, only the specified tags
+        /// are copied to snapshots. If you specify one or more tags when creating the snapshot,
         /// no tags are copied from the volume, regardless of this value. </para>
         /// </para>
         /// </summary>
@@ -155,11 +155,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>A Boolean value indicating whether tags for the file system should be copied to volumes.
-        /// This value defaults to <code>false</code>. If it's set to <code>true</code>, all tags
-        /// for the file system are copied to volumes where the user doesn't specify tags. If
-        /// this value is <code>true</code>, and you specify one or more tags, only the specified
-        /// tags are copied to volumes. If you specify one or more tags when creating the volume,
-        /// no tags are copied from the file system, regardless of this value.</para>
+        /// This value defaults to <c>false</c>. If it's set to <c>true</c>, all tags for the
+        /// file system are copied to volumes where the user doesn't specify tags. If this value
+        /// is <c>true</c>, and you specify one or more tags, only the specified tags are copied
+        /// to volumes. If you specify one or more tags when creating the volume, no tags are
+        /// copied from the file system, regardless of this value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,10 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the method used to compress the data on the volume. The compression type
-        /// is <code>NONE</code> by default.</para><ul><li><para><code>NONE</code> - Doesn't compress the data on the volume. <code>NONE</code> is
-        /// the default.</para></li><li><para><code>ZSTD</code> - Compresses the data in the volume using the Zstandard (ZSTD)
-        /// compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio
-        /// to minimize on-disk storage utilization.</para></li><li><para><code>LZ4</code> - Compresses the data in the volume using the LZ4 compression algorithm.
+        /// is <c>NONE</c> by default.</para><ul><li><para><c>NONE</c> - Doesn't compress the data on the volume. <c>NONE</c> is the default.</para></li><li><para><c>ZSTD</c> - Compresses the data in the volume using the Zstandard (ZSTD) compression
+        /// algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize
+        /// on-disk storage utilization.</para></li><li><para><c>LZ4</c> - Compresses the data in the volume using the LZ4 compression algorithm.
         /// Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput
         /// speeds.</para></li></ul>
         /// </para>
@@ -200,16 +199,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Specifies the file system deployment type. Single AZ deployment types are configured
         /// for redundancy within a single Availability Zone in an Amazon Web Services Region
-        /// . Valid values are the following:</para><ul><li><para><code>MULTI_AZ_1</code>- Creates file systems with high availability that are configured
+        /// . Valid values are the following:</para><ul><li><para><c>MULTI_AZ_1</c>- Creates file systems with high availability that are configured
         /// for Multi-AZ redundancy to tolerate temporary unavailability in Availability Zones
-        /// (AZs). <code>Multi_AZ_1</code> is available only in the US East (N. Virginia), US
-        /// East (Ohio), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Tokyo), and
-        /// Europe (Ireland) Amazon Web Services Regions.</para></li><li><para><code>SINGLE_AZ_1</code>- Creates file systems with throughput capacities of 64 -
-        /// 4,096 MB/s. <code>Single_AZ_1</code> is available in all Amazon Web Services Regions
-        /// where Amazon FSx for OpenZFS is available.</para></li><li><para><code>SINGLE_AZ_2</code>- Creates file systems with throughput capacities of 160
-        /// - 10,240 MB/s using an NVMe L2ARC cache. <code>Single_AZ_2</code> is available only
-        /// in the US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Singapore),
-        /// Asia Pacific (Tokyo), and Europe (Ireland) Amazon Web Services Regions.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions">Deployment
+        /// (AZs). <c>Multi_AZ_1</c> is available only in the US East (N. Virginia), US East (Ohio),
+        /// US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Tokyo), and Europe (Ireland)
+        /// Amazon Web Services Regions.</para></li><li><para><c>SINGLE_AZ_1</c>- Creates file systems with throughput capacities of 64 - 4,096
+        /// MB/s. <c>Single_AZ_1</c> is available in all Amazon Web Services Regions where Amazon
+        /// FSx for OpenZFS is available.</para></li><li><para><c>SINGLE_AZ_2</c>- Creates file systems with throughput capacities of 160 - 10,240
+        /// MB/s using an NVMe L2ARC cache. <c>Single_AZ_2</c> is available only in the US East
+        /// (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Singapore), Asia Pacific
+        /// (Tokyo), and Europe (Ireland) Amazon Web Services Regions.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions">Deployment
         /// type availability</a> and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#zfs-fs-performance">File
         /// system performance</a> in the <i>Amazon FSx for OpenZFS User Guide</i>.</para>
         /// </para>
@@ -237,10 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Sets the version for the Amazon FSx for Lustre file system that you're creating from
-        /// a backup. Valid values are <code>2.10</code>, <code>2.12</code>, and <code>2.15</code>.</para><para>You don't need to specify <code>FileSystemTypeVersion</code> because it will be applied
-        /// using the backup's <code>FileSystemTypeVersion</code> setting. If you choose to specify
-        /// <code>FileSystemTypeVersion</code> when creating from backup, the value must match
-        /// the backup's <code>FileSystemTypeVersion</code> setting.</para>
+        /// a backup. Valid values are <c>2.10</c>, <c>2.12</c>, and <c>2.15</c>.</para><para>You don't need to specify <c>FileSystemTypeVersion</c> because it will be applied
+        /// using the backup's <c>FileSystemTypeVersion</c> setting. If you choose to specify
+        /// <c>FileSystemTypeVersion</c> when creating from backup, the value must match the backup's
+        /// <c>FileSystemTypeVersion</c> setting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -250,10 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter DiskIopsConfiguration_Iops
         /// <summary>
         /// <para>
-        /// <para>The total number of SSD IOPS provisioned for the file system.</para><para>The minimum and maximum values for this property depend on the value of <code>HAPairs</code>
-        /// and <code>StorageCapacity</code>. The minimum value is calculated as <code>StorageCapacity</code>
-        /// * 3 * <code>HAPairs</code> (3 IOPS per GB of <code>StorageCapacity</code>). The maximum
-        /// value is calculated as 200,000 * <code>HAPairs</code>.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) if the value of <code>Iops</code>
+        /// <para>The total number of SSD IOPS provisioned for the file system.</para><para>The minimum and maximum values for this property depend on the value of <c>HAPairs</c>
+        /// and <c>StorageCapacity</c>. The minimum value is calculated as <c>StorageCapacity</c>
+        /// * 3 * <c>HAPairs</c> (3 IOPS per GB of <c>StorageCapacity</c>). The maximum value
+        /// is calculated as 200,000 * <c>HAPairs</c>.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) if the value of <c>Iops</c>
         /// is outside of the minimum or maximum values.</para>
         /// </para>
         /// </summary>
@@ -285,9 +284,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter DiskIopsConfiguration_Mode
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the file system is using the <code>AUTOMATIC</code> setting of SSD
-        /// IOPS of 3 IOPS per GB of storage capacity, , or if it using a <code>USER_PROVISIONED</code>
-        /// value.</para>
+        /// <para>Specifies whether the file system is using the <c>AUTOMATIC</c> setting of SSD IOPS
+        /// of 3 IOPS per GB of storage capacity, , or if it using a <c>USER_PROVISIONED</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -310,8 +308,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_PreferredSubnetId
         /// <summary>
         /// <para>
-        /// <para>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>. This
-        /// specifies the subnet in which you want the preferred file server to be located.</para>
+        /// <para>Required when <c>DeploymentType</c> is set to <c>MULTI_AZ_1</c>. This specifies the
+        /// subnet in which you want the preferred file server to be located.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -322,8 +320,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>A Boolean value indicating whether the volume is read-only. Setting this value to
-        /// <code>true</code> can be useful after you have completed changes to a volume and no
-        /// longer want changes to occur. </para>
+        /// <c>true</c> can be useful after you have completed changes to a volume and no longer
+        /// want changes to occur. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -366,7 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>A list of IDs for the security groups that apply to the specified network interfaces
         /// created for file system access. These security groups apply to all network interfaces.
-        /// This value isn't returned in later <code>DescribeFileSystem</code> requests.</para>
+        /// This value isn't returned in later <c>DescribeFileSystem</c> requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -380,10 +378,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>Sets the storage capacity of the OpenZFS file system that you're creating from a backup,
         /// in gibibytes (GiB). Valid values are from 64 GiB up to 524,288 GiB (512 TiB). However,
         /// the value that you specify must be equal to or greater than the backup's storage capacity
-        /// value. If you don't use the <code>StorageCapacity</code> parameter, the default is
-        /// the backup's <code>StorageCapacity</code> value.</para><para>If used to create a file system other than OpenZFS, you must provide a value that
-        /// matches the backup's <code>StorageCapacity</code> value. If you provide any other
-        /// value, Amazon FSx responds with with an HTTP status code 400 Bad Request. </para>
+        /// value. If you don't use the <c>StorageCapacity</c> parameter, the default is the backup's
+        /// <c>StorageCapacity</c> value.</para><para>If used to create a file system other than OpenZFS, you must provide a value that
+        /// matches the backup's <c>StorageCapacity</c> value. If you provide any other value,
+        /// Amazon FSx responds with with an HTTP status code 400 Bad Request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -394,9 +392,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Sets the storage type for the Windows or OpenZFS file system that you're creating
-        /// from a backup. Valid values are <code>SSD</code> and <code>HDD</code>.</para><ul><li><para>Set to <code>SSD</code> to use solid state drive storage. SSD is supported on all
-        /// Windows and OpenZFS deployment types.</para></li><li><para>Set to <code>HDD</code> to use hard disk drive storage. HDD is supported on <code>SINGLE_AZ_2</code>
-        /// and <code>MULTI_AZ_1</code> FSx for Windows File Server file system deployment types.</para></li></ul><para> The default value is <code>SSD</code>. </para><note><para>HDD and SSD storage types have different minimum storage capacity requirements. A
+        /// from a backup. Valid values are <c>SSD</c> and <c>HDD</c>.</para><ul><li><para>Set to <c>SSD</c> to use solid state drive storage. SSD is supported on all Windows
+        /// and OpenZFS deployment types.</para></li><li><para>Set to <c>HDD</c> to use hard disk drive storage. HDD is supported on <c>SINGLE_AZ_2</c>
+        /// and <c>MULTI_AZ_1</c> FSx for Windows File Server file system deployment types.</para></li></ul><para> The default value is <c>SSD</c>. </para><note><para>HDD and SSD storage types have different minimum storage capacity requirements. A
         /// restored file system's storage capacity is tied to the file system that was backed
         /// up. You can create a file system that uses HDD storage from a backup of a file system
         /// that used SSD storage if the original SSD file system had a storage capacity of at
@@ -412,12 +410,12 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the IDs of the subnets that the file system will be accessible from. For
-        /// Windows <code>MULTI_AZ_1</code> file system deployment types, provide exactly two
-        /// subnet IDs, one for the preferred file server and one for the standby file server.
-        /// You specify one of these subnets as the preferred subnet using the <code>WindowsConfiguration
-        /// &gt; PreferredSubnetID</code> property.</para><para>Windows <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> file system deployment
-        /// types, Lustre file systems, and OpenZFS file systems provide exactly one subnet ID.
-        /// The file server is launched in that subnet's Availability Zone.</para>
+        /// Windows <c>MULTI_AZ_1</c> file system deployment types, provide exactly two subnet
+        /// IDs, one for the preferred file server and one for the standby file server. You specify
+        /// one of these subnets as the preferred subnet using the <c>WindowsConfiguration &gt;
+        /// PreferredSubnetID</c> property.</para><para>Windows <c>SINGLE_AZ_1</c> and <c>SINGLE_AZ_2</c> file system deployment types, Lustre
+        /// file systems, and OpenZFS file systems provide exactly one subnet ID. The file server
+        /// is launched in that subnet's Availability Zone.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -436,7 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>The tags to be applied to the file system at file system creation. The key value of
-        /// the <code>Name</code> tag appears in the console as the file system name.</para>
+        /// the <c>Name</c> tag appears in the console as the file system name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -448,9 +446,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes
-        /// per second (MBps). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <code>MULTI_AZ_1</code> and <code>SINGLE_AZ_2</code>, valid values are 160, 320,
-        /// 640, 1280, 2560, 3840, 5120, 7680, or 10240 MBps.</para></li><li><para>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072,
-        /// or 4096 MBps.</para></li></ul><para>You pay for additional throughput capacity that you provision.</para>
+        /// per second (MBps). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <c>MULTI_AZ_1</c> and <c>SINGLE_AZ_2</c>, valid values are 160, 320, 640, 1280,
+        /// 2560, 3840, 5120, 7680, or 10240 MBps.</para></li><li><para>For <c>SINGLE_AZ_1</c>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096
+        /// MBps.</para></li></ul><para>You pay for additional throughput capacity that you provision.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

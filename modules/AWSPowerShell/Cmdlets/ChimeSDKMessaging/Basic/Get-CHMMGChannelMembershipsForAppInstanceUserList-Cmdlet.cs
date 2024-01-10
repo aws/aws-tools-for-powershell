@@ -28,14 +28,13 @@ using Amazon.ChimeSDKMessaging.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
-    /// Lists all channels that an <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-    /// is a part of. Only an <code>AppInstanceAdmin</code> can call the API with a user ARN
-    /// that is not their own. 
+    /// Lists all channels that an <c>AppInstanceUser</c> or <c>AppInstanceBot</c> is a part
+    /// of. Only an <c>AppInstanceAdmin</c> can call the API with a user ARN that is not their
+    /// own. 
     /// 
     ///  <note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
-    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
-    /// as the value in the header.
+    /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the ARN of the <c>AppInstanceUser</c>
+    /// or <c>AppInstanceBot</c> that makes the API call as the value in the header.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CHMMGChannelMembershipsForAppInstanceUserList")]
@@ -67,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        /// the API call.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c> or <c>AppInstanceBot</c> that makes the API
+        /// call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

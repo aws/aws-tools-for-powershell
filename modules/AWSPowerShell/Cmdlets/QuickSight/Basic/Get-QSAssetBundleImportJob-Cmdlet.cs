@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AssetBundleImportJobId
         /// <summary>
         /// <para>
-        /// <para>The ID of the job. The job ID is set when you start a new job with a <code>StartAssetBundleImportJob</code>
+        /// <para>The ID of the job. The job ID is set when you start a new job with a <c>StartAssetBundleImportJob</c>
         /// API call.</para>
         /// </para>
         /// </summary>

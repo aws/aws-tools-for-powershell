@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
     /// Retrieves a list of configuration items as specified by the value passed to the required
-    /// parameter <code>configurationType</code>. Optional filtering may be applied to refine
-    /// search results.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// parameter <c>configurationType</c>. Optional filtering may be applied to refine search
+    /// results.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ADSConfigurationList")]
     [OutputType("System.Collections.Generic.Dictionary<System.String, System.String>")]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para>You can filter the request using various logical operators and a <i>key</i>-<i>value</i>
-        /// format. For example: </para><para><code>{"key": "serverType", "value": "webServer"}</code></para><para>For a complete list of filter options and guidance about using them with this action,
+        /// format. For example: </para><para><c>{"key": "serverType", "value": "webServer"}</c></para><para>For a complete list of filter options and guidance about using them with this action,
         /// see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations">Using
         /// the ListConfigurations Action</a> in the <i>Amazon Web Services Application Discovery
         /// Service User Guide</i>.</para>
@@ -110,9 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para>Token to retrieve the next set of results. For example, if a previous call to ListConfigurations
-        /// returned 100 items, but you set <code>ListConfigurationsRequest$maxResults</code>
-        /// to 10, you received a set of 10 results along with a token. Use that token in this
-        /// query to get the next set of 10.</para>
+        /// returned 100 items, but you set <c>ListConfigurationsRequest$maxResults</c> to 10,
+        /// you received a set of 10 results along with a token. Use that token in this query
+        /// to get the next set of 10.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

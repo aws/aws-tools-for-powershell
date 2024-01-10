@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the CloudTrail channel you're deleting the resource-based
-        /// policy from. The following is the format of a resource ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</code>.
+        /// policy from. The following is the format of a resource ARN: <c>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</c>.
         /// </para>
         /// </para>
         /// </summary>

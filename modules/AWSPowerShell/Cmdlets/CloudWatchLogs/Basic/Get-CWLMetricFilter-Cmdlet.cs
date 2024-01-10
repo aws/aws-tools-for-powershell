@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The prefix to match. CloudWatch Logs uses the value that you set here only if you
-        /// also include the <code>logGroupName</code> parameter in your request.</para>
+        /// also include the <c>logGroupName</c> parameter in your request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,8 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>Filters results to include only those with the specified metric name. If you include
-        /// this parameter in your request, you must also include the <code>metricNamespace</code>
-        /// parameter.</para>
+        /// this parameter in your request, you must also include the <c>metricNamespace</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>Filters results to include only those in the specified namespace. If you include this
-        /// parameter in your request, you must also include the <code>metricName</code> parameter.</para>
+        /// parameter in your request, you must also include the <c>metricName</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

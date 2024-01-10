@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter IdentityProviderConfig_Type
         /// <summary>
         /// <para>
-        /// <para>The type of the identity provider configuration. The only type available is <code>oidc</code>.</para>
+        /// <para>The type of the identity provider configuration. The only type available is <c>oidc</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

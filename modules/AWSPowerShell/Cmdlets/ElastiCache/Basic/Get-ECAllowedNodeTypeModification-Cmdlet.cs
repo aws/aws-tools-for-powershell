@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// 
     ///  
     /// <para>
-    /// When you use the <code>ModifyCacheCluster</code> or <code>ModifyReplicationGroup</code>
-    /// operations to scale your cluster or replication group, the value of the <code>CacheNodeType</code>
+    /// When you use the <c>ModifyCacheCluster</c> or <c>ModifyReplicationGroup</c> operations
+    /// to scale your cluster or replication group, the value of the <c>CacheNodeType</c>
     /// parameter must be one of the node types returned by this operation.
     /// </para>
     /// </summary>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The name of the cluster you want to scale up to a larger node instanced type. ElastiCache
         /// uses the cluster id to identify the current node type of this cluster and from that
-        /// to create a list of node types you can scale up to.</para><important><para>You must provide a value for either the <code>CacheClusterId</code> or the <code>ReplicationGroupId</code>.</para></important>
+        /// to create a list of node types you can scale up to.</para><important><para>You must provide a value for either the <c>CacheClusterId</c> or the <c>ReplicationGroupId</c>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The name of the replication group want to scale up to a larger node type. ElastiCache
         /// uses the replication group id to identify the current node type being used by this
-        /// replication group, and from that to create a list of node types you can scale up to.</para><important><para>You must provide a value for either the <code>CacheClusterId</code> or the <code>ReplicationGroupId</code>.</para></important>
+        /// replication group, and from that to create a list of node types you can scale up to.</para><important><para>You must provide a value for either the <c>CacheClusterId</c> or the <c>ReplicationGroupId</c>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// Removes the association of tags from an Amazon DynamoDB resource. You can call <code>UntagResource</code>
+    /// Removes the association of tags from an Amazon DynamoDB resource. You can call <c>UntagResource</c>
     /// up to five times per second, per account. 
     /// 
     ///  

@@ -109,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The unique ID for an existing job. This is required if the value of <code>jobType</code>
-        /// is <code>RETRY</code>. </para>
+        /// <para>The unique ID for an existing job. This is required if the value of <c>jobType</c>
+        /// is <c>RETRY</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,10 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter JobType
         /// <summary>
         /// <para>
-        /// <para>Describes the type for the job. The job type <code>RELEASE</code> starts a new job
-        /// with the latest change from the specified branch. This value is available only for
-        /// apps that are connected to a repository. </para><para>The job type <code>RETRY</code> retries an existing job. If the job type value is
-        /// <code>RETRY</code>, the <code>jobId</code> is also required. </para>
+        /// <para>Describes the type for the job. The job type <c>RELEASE</c> starts a new job with
+        /// the latest change from the specified branch. This value is available only for apps
+        /// that are connected to a repository. </para><para>The job type <c>RETRY</c> retries an existing job. If the job type value is <c>RETRY</c>,
+        /// the <c>jobId</c> is also required. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

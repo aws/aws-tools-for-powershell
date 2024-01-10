@@ -99,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter StatusFilter
         /// <summary>
         /// <para>
-        /// <para>Only returns synchronization jobs with the <code>Status</code> field equal to the
-        /// specified status.</para>
+        /// <para>Only returns synchronization jobs with the <c>Status</c> field equal to the specified
+        /// status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

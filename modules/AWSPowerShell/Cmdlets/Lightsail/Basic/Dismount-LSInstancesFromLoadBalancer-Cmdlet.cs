@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// This operation waits until the instances are no longer needed before they are detached
     /// from the load balancer.
     /// </para><para>
-    /// The <code>detach instances from load balancer</code> operation supports tag-based
-    /// access control via resource tags applied to the resource identified by <code>load
-    /// balancer name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// The <c>detach instances from load balancer</c> operation supports tag-based access
+    /// control via resource tags applied to the resource identified by <c>load balancer name</c>.
+    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>

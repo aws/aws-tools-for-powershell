@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter MessageId
         /// <summary>
         /// <para>
-        /// <para> A <code>MessageId</code> is a unique identifier for a message, and is returned when
-        /// sending emails through Amazon SES. </para>
+        /// <para> A <c>MessageId</c> is a unique identifier for a message, and is returned when sending
+        /// emails through Amazon SES. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

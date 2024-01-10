@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
 {
     /// <summary>
     /// Gets summary information about all your rooms in the AWS region where the API request
-    /// is processed. Results are sorted in descending order of <code>updateTime</code>.
+    /// is processed. Results are sorted in descending order of <c>updateTime</c>.
     /// </summary>
     [Cmdlet("Get", "IVSCRoomList")]
     [OutputType("Amazon.Ivschat.Model.RoomSummary")]
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The first room to retrieve. This is used for pagination; see the <code>nextToken</code>
+        /// <para>The first room to retrieve. This is used for pagination; see the <c>nextToken</c>
         /// response field.</para>
         /// </para>
         /// </summary>

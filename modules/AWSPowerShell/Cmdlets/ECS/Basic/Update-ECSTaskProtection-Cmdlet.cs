@@ -28,21 +28,20 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Updates the protection status of a task. You can set <code>protectionEnabled</code>
-    /// to <code>true</code> to protect your task from termination during scale-in events
-    /// from <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html">Service
+    /// Updates the protection status of a task. You can set <c>protectionEnabled</c> to <c>true</c>
+    /// to protect your task from termination during scale-in events from <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html">Service
     /// Autoscaling</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">deployments</a>.
     /// 
     ///  
     /// <para>
     /// Task-protection, by default, expires after 2 hours at which point Amazon ECS clears
-    /// the <code>protectionEnabled</code> property making the task eligible for termination
-    /// by a subsequent scale-in event.
+    /// the <c>protectionEnabled</c> property making the task eligible for termination by
+    /// a subsequent scale-in event.
     /// </para><para>
     /// You can specify a custom expiration period for task protection from 1 minute to up
-    /// to 2,880 minutes (48 hours). To specify the custom expiration period, set the <code>expiresInMinutes</code>
-    /// property. The <code>expiresInMinutes</code> property is always reset when you invoke
-    /// this operation for a task that already has <code>protectionEnabled</code> set to <code>true</code>.
+    /// to 2,880 minutes (48 hours). To specify the custom expiration period, set the <c>expiresInMinutes</c>
+    /// property. The <c>expiresInMinutes</c> property is always reset when you invoke this
+    /// operation for a task that already has <c>protectionEnabled</c> set to <c>true</c>.
     /// You can keep extending the protection expiration period of a task by invoking this
     /// operation repeatedly.
     /// </para><para>
@@ -50,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// scale-in protection</a> in the <i><i>Amazon Elastic Container Service Developer Guide</i></i>.
     /// </para><note><para>
     /// This operation is only supported for tasks belonging to an Amazon ECS service. Invoking
-    /// this operation for a standalone task will result in an <code>TASK_NOT_VALID</code>
-    /// failure. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html">API
+    /// this operation for a standalone task will result in an <c>TASK_NOT_VALID</c> failure.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html">API
     /// failure reasons</a>.
     /// </para></note><important><para>
     /// If you prefer to set task protection from within the container, we recommend using
@@ -91,11 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ExpiresInMinute
         /// <summary>
         /// <para>
-        /// <para>If you set <code>protectionEnabled</code> to <code>true</code>, you can specify the
-        /// duration for task protection in minutes. You can specify a value from 1 minute to
-        /// up to 2,880 minutes (48 hours). During this time, your task will not be terminated
-        /// by scale-in events from Service Auto Scaling or deployments. After this time period
-        /// lapses, <code>protectionEnabled</code> will be reset to <code>false</code>.</para><para>If you don’t specify the time, then the task is automatically protected for 120 minutes
+        /// <para>If you set <c>protectionEnabled</c> to <c>true</c>, you can specify the duration for
+        /// task protection in minutes. You can specify a value from 1 minute to up to 2,880 minutes
+        /// (48 hours). During this time, your task will not be terminated by scale-in events
+        /// from Service Auto Scaling or deployments. After this time period lapses, <c>protectionEnabled</c>
+        /// will be reset to <c>false</c>.</para><para>If you don’t specify the time, then the task is automatically protected for 120 minutes
         /// (2 hours).</para>
         /// </para>
         /// </summary>
@@ -107,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ProtectionEnabled
         /// <summary>
         /// <para>
-        /// <para>Specify <code>true</code> to mark a task for protection and <code>false</code> to
-        /// unset protection, making it eligible for termination.</para>
+        /// <para>Specify <c>true</c> to mark a task for protection and <c>false</c> to unset protection,
+        /// making it eligible for termination.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

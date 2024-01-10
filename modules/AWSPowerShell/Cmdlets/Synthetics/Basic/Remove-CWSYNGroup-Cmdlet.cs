@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>Specifies which group to delete. You can specify the group name, the ARN, or the group
-        /// ID as the <code>GroupIdentifier</code>.</para>
+        /// ID as the <c>GroupIdentifier</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

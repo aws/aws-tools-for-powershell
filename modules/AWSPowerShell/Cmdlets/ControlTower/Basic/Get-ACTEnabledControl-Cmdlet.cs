@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         #region Parameter EnabledControlIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>controlIdentifier</code> of the enabled control.</para>
+        /// <para>The <c>controlIdentifier</c> of the enabled control.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

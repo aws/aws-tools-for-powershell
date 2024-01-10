@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         /// <summary>
         /// <para>
         /// <para>The AWS Region in which the Amazon Chime SDK Voice Connector is created. Default value:
-        /// <code>us-east-1</code> .</para>
+        /// <c>us-east-1</c> .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

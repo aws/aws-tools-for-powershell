@@ -126,8 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter EncryptionMode
         /// <summary>
         /// <para>
-        /// <para>The encryption mode for the job, which can be one of the following:</para><ul><li><para><code>SSE-KMS</code> - <code>SSE-KMS</code> - Server-side encryption with KMS-managed
-        /// keys.</para></li><li><para><code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</para></li></ul>
+        /// <para>The encryption mode for the job, which can be one of the following:</para><ul><li><para><c>SSE-KMS</c> - <c>SSE-KMS</c> - Server-side encryption with KMS-managed keys.</para></li><li><para><c>SSE-S3</c> - Server-side encryption with keys managed by Amazon S3.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <summary>
         /// <para>
         /// <para>A value that determines whether the profile job is run on the entire dataset or a
-        /// specified number of rows. This value must be one of the following:</para><ul><li><para>FULL_DATASET - The profile job is run on the entire dataset.</para></li><li><para>CUSTOM_ROWS - The profile job is run on the number of rows specified in the <code>Size</code>
+        /// specified number of rows. This value must be one of the following:</para><ul><li><para>FULL_DATASET - The profile job is run on the entire dataset.</para></li><li><para>CUSTOM_ROWS - The profile job is run on the number of rows specified in the <c>Size</c>
         /// parameter.</para></li></ul>
         /// </para>
         /// </summary>
@@ -278,9 +277,8 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         #region Parameter JobSample_Size
         /// <summary>
         /// <para>
-        /// <para>The <code>Size</code> parameter is only required when the mode is CUSTOM_ROWS. The
-        /// profile job is run on the specified number of rows. The maximum value for size is
-        /// Long.MAX_VALUE.</para><para>Long.MAX_VALUE = 9223372036854775807</para>
+        /// <para>The <c>Size</c> parameter is only required when the mode is CUSTOM_ROWS. The profile
+        /// job is run on the specified number of rows. The maximum value for size is Long.MAX_VALUE.</para><para>Long.MAX_VALUE = 9223372036854775807</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -302,7 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <summary>
         /// <para>
         /// <para>The job's timeout in minutes. A job that attempts to run longer than this timeout
-        /// period ends with a status of <code>TIMEOUT</code>.</para>
+        /// period ends with a status of <c>TIMEOUT</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.Neptunedata.Model;
 namespace Amazon.PowerShell.Cmdlets.NEPT
 {
     /// <summary>
-    /// Retrieves a list of the <code>loadIds</code> for all active loader jobs.
+    /// Retrieves a list of the <c>loadIds</c> for all active loader jobs.
     /// 
     ///  
     /// <para>
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// <summary>
         /// <para>
         /// <para>An optional parameter that can be used to exclude the load IDs of queued load requests
-        /// when requesting a list of load IDs by setting the parameter to <code>FALSE</code>.
-        /// The default value is <code>TRUE</code>.</para>
+        /// when requesting a list of load IDs by setting the parameter to <c>FALSE</c>. The default
+        /// value is <c>TRUE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// <summary>
         /// <para>
         /// <para>The number of load IDs to list. Must be a positive integer greater than zero and not
-        /// more than <code>100</code> (which is the default).</para>
+        /// more than <c>100</c> (which is the default).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

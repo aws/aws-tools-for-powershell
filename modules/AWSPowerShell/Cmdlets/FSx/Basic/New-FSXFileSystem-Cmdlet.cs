@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
     /// Creates a new, empty Amazon FSx file system. You can create the following supported
-    /// Amazon FSx file systems using the <code>CreateFileSystem</code> API operation:
+    /// Amazon FSx file systems using the <c>CreateFileSystem</c> API operation:
     /// 
     ///  <ul><li><para>
     /// Amazon FSx for Lustre
@@ -43,28 +43,28 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// This operation requires a client request token in the request that Amazon FSx uses
     /// to ensure idempotent creation. This means that calling the operation multiple times
     /// with the same client request token has no effect. By using the idempotent operation,
-    /// you can retry a <code>CreateFileSystem</code> operation without the risk of creating
-    /// an extra file system. This approach can be useful when an initial call fails in a
-    /// way that makes it unclear whether a file system was created. Examples are if a transport
+    /// you can retry a <c>CreateFileSystem</c> operation without the risk of creating an
+    /// extra file system. This approach can be useful when an initial call fails in a way
+    /// that makes it unclear whether a file system was created. Examples are if a transport
     /// level timeout occurred, or your connection was reset. If you use the same client request
     /// token and the initial call created a file system, the client receives success as long
     /// as the parameters are the same.
     /// </para><para>
     /// If a file system with the specified client request token exists and the parameters
-    /// match, <code>CreateFileSystem</code> returns the description of the existing file
-    /// system. If a file system with the specified client request token exists and the parameters
-    /// don't match, this call returns <code>IncompatibleParameterError</code>. If a file
-    /// system with the specified client request token doesn't exist, <code>CreateFileSystem</code>
-    /// does the following: 
+    /// match, <c>CreateFileSystem</c> returns the description of the existing file system.
+    /// If a file system with the specified client request token exists and the parameters
+    /// don't match, this call returns <c>IncompatibleParameterError</c>. If a file system
+    /// with the specified client request token doesn't exist, <c>CreateFileSystem</c> does
+    /// the following: 
     /// </para><ul><li><para>
     /// Creates a new, empty Amazon FSx file system with an assigned ID, and an initial lifecycle
-    /// state of <code>CREATING</code>.
+    /// state of <c>CREATING</c>.
     /// </para></li><li><para>
     /// Returns the description of the file system in JSON format.
     /// </para></li></ul><note><para>
-    /// The <code>CreateFileSystem</code> call returns while the file system's lifecycle state
-    /// is still <code>CREATING</code>. You can check the file-system creation status by calling
-    /// the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html">DescribeFileSystems</a>
+    /// The <c>CreateFileSystem</c> call returns while the file system's lifecycle state is
+    /// still <c>CREATING</c>. You can check the file-system creation status by calling the
+    /// <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html">DescribeFileSystems</a>
     /// operation, which returns the file system state along with other information.
     /// </para></note>
     /// </summary>
@@ -122,12 +122,12 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>A Boolean value indicating whether tags for the file system should be copied to backups.
-        /// This value defaults to <code>false</code>. If it's set to <code>true</code>, all tags
-        /// for the file system are copied to all automatic and user-initiated backups where the
-        /// user doesn't specify tags. If this value is <code>true</code>, and you specify one
-        /// or more tags, only the specified tags are copied to backups. If you specify one or
-        /// more tags when creating a user-initiated backup, no tags are copied from the file
-        /// system, regardless of this value.</para>
+        /// This value defaults to <c>false</c>. If it's set to <c>true</c>, all tags for the
+        /// file system are copied to all automatic and user-initiated backups where the user
+        /// doesn't specify tags. If this value is <c>true</c>, and you specify one or more tags,
+        /// only the specified tags are copied to backups. If you specify one or more tags when
+        /// creating a user-initiated backup, no tags are copied from the file system, regardless
+        /// of this value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,10 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>A Boolean value indicating whether tags for the volume should be copied to snapshots
-        /// of the volume. This value defaults to <code>false</code>. If it's set to <code>true</code>,
-        /// all tags for the volume are copied to snapshots where the user doesn't specify tags.
-        /// If this value is <code>true</code> and you specify one or more tags, only the specified
-        /// tags are copied to snapshots. If you specify one or more tags when creating the snapshot,
+        /// of the volume. This value defaults to <c>false</c>. If it's set to <c>true</c>, all
+        /// tags for the volume are copied to snapshots where the user doesn't specify tags. If
+        /// this value is <c>true</c> and you specify one or more tags, only the specified tags
+        /// are copied to snapshots. If you specify one or more tags when creating the snapshot,
         /// no tags are copied from the volume, regardless of this value. </para>
         /// </para>
         /// </summary>
@@ -155,11 +155,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>A Boolean value indicating whether tags for the file system should be copied to volumes.
-        /// This value defaults to <code>false</code>. If it's set to <code>true</code>, all tags
-        /// for the file system are copied to volumes where the user doesn't specify tags. If
-        /// this value is <code>true</code>, and you specify one or more tags, only the specified
-        /// tags are copied to volumes. If you specify one or more tags when creating the volume,
-        /// no tags are copied from the file system, regardless of this value.</para>
+        /// This value defaults to <c>false</c>. If it's set to <c>true</c>, all tags for the
+        /// file system are copied to volumes where the user doesn't specify tags. If this value
+        /// is <c>true</c>, and you specify one or more tags, only the specified tags are copied
+        /// to volumes. If you specify one or more tags when creating the volume, no tags are
+        /// copied from the file system, regardless of this value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,10 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the method used to compress the data on the volume. The compression type
-        /// is <code>NONE</code> by default.</para><ul><li><para><code>NONE</code> - Doesn't compress the data on the volume. <code>NONE</code> is
-        /// the default.</para></li><li><para><code>ZSTD</code> - Compresses the data in the volume using the Zstandard (ZSTD)
-        /// compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio
-        /// to minimize on-disk storage utilization.</para></li><li><para><code>LZ4</code> - Compresses the data in the volume using the LZ4 compression algorithm.
+        /// is <c>NONE</c> by default.</para><ul><li><para><c>NONE</c> - Doesn't compress the data on the volume. <c>NONE</c> is the default.</para></li><li><para><c>ZSTD</c> - Compresses the data in the volume using the Zstandard (ZSTD) compression
+        /// algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize
+        /// on-disk storage utilization.</para></li><li><para><c>LZ4</c> - Compresses the data in the volume using the LZ4 compression algorithm.
         /// Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput
         /// speeds.</para></li></ul>
         /// </para>
@@ -209,9 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the FSx for ONTAP file system deployment type to use in creating the file
-        /// system. </para><ul><li><para><code>MULTI_AZ_1</code> - (Default) A high availability file system configured for
-        /// Multi-AZ redundancy to tolerate temporary Availability Zone (AZ) unavailability. </para></li><li><para><code>SINGLE_AZ_1</code> - A file system configured for Single-AZ redundancy.</para></li><li><para><code>SINGLE_AZ_2</code> - A file system configured with multiple high-availability
-        /// (HA) pairs for Single-AZ redundancy.</para></li></ul><para>For information about the use cases for Multi-AZ and Single-AZ deployments, refer
+        /// system. </para><ul><li><para><c>MULTI_AZ_1</c> - (Default) A high availability file system configured for Multi-AZ
+        /// redundancy to tolerate temporary Availability Zone (AZ) unavailability. </para></li><li><para><c>SINGLE_AZ_1</c> - A file system configured for Single-AZ redundancy.</para></li><li><para><c>SINGLE_AZ_2</c> - A file system configured with multiple high-availability (HA)
+        /// pairs for Single-AZ redundancy.</para></li></ul><para>For information about the use cases for Multi-AZ and Single-AZ deployments, refer
         /// to <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-AZ.html">Choosing
         /// a file system deployment type</a>. </para>
         /// </para>
@@ -226,16 +225,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Specifies the file system deployment type. Single AZ deployment types are configured
         /// for redundancy within a single Availability Zone in an Amazon Web Services Region
-        /// . Valid values are the following:</para><ul><li><para><code>MULTI_AZ_1</code>- Creates file systems with high availability that are configured
+        /// . Valid values are the following:</para><ul><li><para><c>MULTI_AZ_1</c>- Creates file systems with high availability that are configured
         /// for Multi-AZ redundancy to tolerate temporary unavailability in Availability Zones
-        /// (AZs). <code>Multi_AZ_1</code> is available only in the US East (N. Virginia), US
-        /// East (Ohio), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Tokyo), and
-        /// Europe (Ireland) Amazon Web Services Regions.</para></li><li><para><code>SINGLE_AZ_1</code>- Creates file systems with throughput capacities of 64 -
-        /// 4,096 MB/s. <code>Single_AZ_1</code> is available in all Amazon Web Services Regions
-        /// where Amazon FSx for OpenZFS is available.</para></li><li><para><code>SINGLE_AZ_2</code>- Creates file systems with throughput capacities of 160
-        /// - 10,240 MB/s using an NVMe L2ARC cache. <code>Single_AZ_2</code> is available only
-        /// in the US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Singapore),
-        /// Asia Pacific (Tokyo), and Europe (Ireland) Amazon Web Services Regions.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions">Deployment
+        /// (AZs). <c>Multi_AZ_1</c> is available only in the US East (N. Virginia), US East (Ohio),
+        /// US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Tokyo), and Europe (Ireland)
+        /// Amazon Web Services Regions.</para></li><li><para><c>SINGLE_AZ_1</c>- Creates file systems with throughput capacities of 64 - 4,096
+        /// MB/s. <c>Single_AZ_1</c> is available in all Amazon Web Services Regions where Amazon
+        /// FSx for OpenZFS is available.</para></li><li><para><c>SINGLE_AZ_2</c>- Creates file systems with throughput capacities of 160 - 10,240
+        /// MB/s using an NVMe L2ARC cache. <c>Single_AZ_2</c> is available only in the US East
+        /// (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Singapore), Asia Pacific
+        /// (Tokyo), and Europe (Ireland) Amazon Web Services Regions.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions">Deployment
         /// type availability</a> and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#zfs-fs-performance">File
         /// system performance</a> in the <i>Amazon FSx for OpenZFS User Guide</i>.</para>
         /// </para>
@@ -278,8 +277,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter FileSystemType
         /// <summary>
         /// <para>
-        /// <para>The type of Amazon FSx file system to create. Valid values are <code>WINDOWS</code>,
-        /// <code>LUSTRE</code>, <code>ONTAP</code>, and <code>OPENZFS</code>.</para>
+        /// <para>The type of Amazon FSx file system to create. Valid values are <c>WINDOWS</c>, <c>LUSTRE</c>,
+        /// <c>ONTAP</c>, and <c>OPENZFS</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -297,10 +296,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>(Optional) For FSx for Lustre file systems, sets the Lustre version for the file system
-        /// that you're creating. Valid values are <code>2.10</code>, <code>2.12</code>, and <code>2.15</code>:</para><ul><li><para>2.10 is supported by the Scratch and Persistent_1 Lustre deployment types.</para></li><li><para>2.12 and 2.15 are supported by all Lustre deployment types. <code>2.12</code> or <code>2.15</code>
-        /// is required when setting FSx for Lustre <code>DeploymentType</code> to <code>PERSISTENT_2</code>.</para></li></ul><para>Default value = <code>2.10</code>, except when <code>DeploymentType</code> is set
-        /// to <code>PERSISTENT_2</code>, then the default is <code>2.12</code>.</para><note><para>If you set <code>FileSystemTypeVersion</code> to <code>2.10</code> for a <code>PERSISTENT_2</code>
-        /// Lustre deployment type, the <code>CreateFileSystem</code> operation fails.</para></note>
+        /// that you're creating. Valid values are <c>2.10</c>, <c>2.12</c>, and <c>2.15</c>:</para><ul><li><para>2.10 is supported by the Scratch and Persistent_1 Lustre deployment types.</para></li><li><para>2.12 and 2.15 are supported by all Lustre deployment types. <c>2.12</c> or <c>2.15</c>
+        /// is required when setting FSx for Lustre <c>DeploymentType</c> to <c>PERSISTENT_2</c>.</para></li></ul><para>Default value = <c>2.10</c>, except when <c>DeploymentType</c> is set to <c>PERSISTENT_2</c>,
+        /// then the default is <c>2.12</c>.</para><note><para>If you set <c>FileSystemTypeVersion</c> to <c>2.10</c> for a <c>PERSISTENT_2</c> Lustre
+        /// deployment type, the <c>CreateFileSystem</c> operation fails.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -310,8 +309,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_FsxAdminPassword
         /// <summary>
         /// <para>
-        /// <para>The ONTAP administrative password for the <code>fsxadmin</code> user with which you
-        /// administer your file system using the NetApp ONTAP CLI and REST API.</para>
+        /// <para>The ONTAP administrative password for the <c>fsxadmin</c> user with which you administer
+        /// your file system using the NetApp ONTAP CLI and REST API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -322,11 +321,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies how many high-availability (HA) pairs the file system will have. The default
-        /// value is 1. The value of this property affects the values of <code>StorageCapacity</code>,
-        /// <code>Iops</code>, and <code>ThroughputCapacity</code>. For more information, see
-        /// <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/HA-pairs.html">High-availability
-        /// (HA) pairs</a> in the FSx for ONTAP user guide.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <code>HAPairs</code> is less than 1 or greater than 6.</para></li><li><para>The value of <code>HAPairs</code> is greater than 1 and the value of <code>DeploymentType</code>
-        /// is <code>SINGLE_AZ_1</code> or <code>MULTI_AZ_1</code>.</para></li></ul>
+        /// value is 1. The value of this property affects the values of <c>StorageCapacity</c>,
+        /// <c>Iops</c>, and <c>ThroughputCapacity</c>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/HA-pairs.html">High-availability
+        /// (HA) pairs</a> in the FSx for ONTAP user guide.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <c>HAPairs</c> is less than 1 or greater than 6.</para></li><li><para>The value of <c>HAPairs</c> is greater than 1 and the value of <c>DeploymentType</c>
+        /// is <c>SINGLE_AZ_1</c> or <c>MULTI_AZ_1</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -337,10 +335,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_DiskIopsConfiguration_Iops
         /// <summary>
         /// <para>
-        /// <para>The total number of SSD IOPS provisioned for the file system.</para><para>The minimum and maximum values for this property depend on the value of <code>HAPairs</code>
-        /// and <code>StorageCapacity</code>. The minimum value is calculated as <code>StorageCapacity</code>
-        /// * 3 * <code>HAPairs</code> (3 IOPS per GB of <code>StorageCapacity</code>). The maximum
-        /// value is calculated as 200,000 * <code>HAPairs</code>.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) if the value of <code>Iops</code>
+        /// <para>The total number of SSD IOPS provisioned for the file system.</para><para>The minimum and maximum values for this property depend on the value of <c>HAPairs</c>
+        /// and <c>StorageCapacity</c>. The minimum value is calculated as <c>StorageCapacity</c>
+        /// * 3 * <c>HAPairs</c> (3 IOPS per GB of <c>StorageCapacity</c>). The maximum value
+        /// is calculated as 200,000 * <c>HAPairs</c>.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) if the value of <c>Iops</c>
         /// is outside of the minimum or maximum values.</para>
         /// </para>
         /// </summary>
@@ -351,10 +349,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_DiskIopsConfiguration_Iops
         /// <summary>
         /// <para>
-        /// <para>The total number of SSD IOPS provisioned for the file system.</para><para>The minimum and maximum values for this property depend on the value of <code>HAPairs</code>
-        /// and <code>StorageCapacity</code>. The minimum value is calculated as <code>StorageCapacity</code>
-        /// * 3 * <code>HAPairs</code> (3 IOPS per GB of <code>StorageCapacity</code>). The maximum
-        /// value is calculated as 200,000 * <code>HAPairs</code>.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) if the value of <code>Iops</code>
+        /// <para>The total number of SSD IOPS provisioned for the file system.</para><para>The minimum and maximum values for this property depend on the value of <c>HAPairs</c>
+        /// and <c>StorageCapacity</c>. The minimum value is calculated as <c>StorageCapacity</c>
+        /// * 3 * <c>HAPairs</c> (3 IOPS per GB of <c>StorageCapacity</c>). The maximum value
+        /// is calculated as 200,000 * <c>HAPairs</c>.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) if the value of <c>Iops</c>
         /// is outside of the minimum or maximum values.</para>
         /// </para>
         /// </summary>
@@ -385,9 +383,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_DiskIopsConfiguration_Mode
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the file system is using the <code>AUTOMATIC</code> setting of SSD
-        /// IOPS of 3 IOPS per GB of storage capacity, , or if it using a <code>USER_PROVISIONED</code>
-        /// value.</para>
+        /// <para>Specifies whether the file system is using the <c>AUTOMATIC</c> setting of SSD IOPS
+        /// of 3 IOPS per GB of storage capacity, , or if it using a <c>USER_PROVISIONED</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -398,9 +395,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_DiskIopsConfiguration_Mode
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the file system is using the <code>AUTOMATIC</code> setting of SSD
-        /// IOPS of 3 IOPS per GB of storage capacity, , or if it using a <code>USER_PROVISIONED</code>
-        /// value.</para>
+        /// <para>Specifies whether the file system is using the <c>AUTOMATIC</c> setting of SSD IOPS
+        /// of 3 IOPS per GB of storage capacity, , or if it using a <c>USER_PROVISIONED</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -422,8 +418,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_PreferredSubnetId
         /// <summary>
         /// <para>
-        /// <para>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>. This
-        /// specifies the subnet in which you want the preferred file server to be located.</para>
+        /// <para>Required when <c>DeploymentType</c> is set to <c>MULTI_AZ_1</c>. This specifies the
+        /// subnet in which you want the preferred file server to be located.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -433,8 +429,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_PreferredSubnetId
         /// <summary>
         /// <para>
-        /// <para>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>. This
-        /// specifies the subnet in which you want the preferred file server to be located.</para>
+        /// <para>Required when <c>DeploymentType</c> is set to <c>MULTI_AZ_1</c>. This specifies the
+        /// subnet in which you want the preferred file server to be located.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -445,8 +441,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>A Boolean value indicating whether the volume is read-only. Setting this value to
-        /// <code>true</code> can be useful after you have completed changes to a volume and no
-        /// longer want changes to occur. </para>
+        /// <c>true</c> can be useful after you have completed changes to a volume and no longer
+        /// want changes to occur. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -515,17 +511,17 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Sets the storage capacity of the file system that you're creating, in gibibytes (GiB).</para><para><b>FSx for Lustre file systems</b> - The amount of storage capacity that you can
-        /// configure depends on the value that you set for <code>StorageType</code> and the Lustre
-        /// <code>DeploymentType</code>, as follows:</para><ul><li><para>For <code>SCRATCH_2</code>, <code>PERSISTENT_2</code> and <code>PERSISTENT_1</code>
-        /// deployment types using SSD storage type, the valid values are 1200 GiB, 2400 GiB,
-        /// and increments of 2400 GiB.</para></li><li><para>For <code>PERSISTENT_1</code> HDD file systems, valid values are increments of 6000
-        /// GiB for 12 MB/s/TiB file systems and increments of 1800 GiB for 40 MB/s/TiB file systems.</para></li><li><para>For <code>SCRATCH_1</code> deployment type, valid values are 1200 GiB, 2400 GiB, and
-        /// increments of 3600 GiB.</para></li></ul><para><b>FSx for ONTAP file systems</b> - The amount of storage capacity that you can configure
-        /// depends on the value of the <code>HAPairs</code> property. The minimum value is calculated
-        /// as 1,024 * <code>HAPairs</code> and the maxium is calculated as 524,288 * <code>HAPairs</code>..</para><para><b>FSx for OpenZFS file systems</b> - The amount of storage capacity that you can
+        /// configure depends on the value that you set for <c>StorageType</c> and the Lustre
+        /// <c>DeploymentType</c>, as follows:</para><ul><li><para>For <c>SCRATCH_2</c>, <c>PERSISTENT_2</c> and <c>PERSISTENT_1</c> deployment types
+        /// using SSD storage type, the valid values are 1200 GiB, 2400 GiB, and increments of
+        /// 2400 GiB.</para></li><li><para>For <c>PERSISTENT_1</c> HDD file systems, valid values are increments of 6000 GiB
+        /// for 12 MB/s/TiB file systems and increments of 1800 GiB for 40 MB/s/TiB file systems.</para></li><li><para>For <c>SCRATCH_1</c> deployment type, valid values are 1200 GiB, 2400 GiB, and increments
+        /// of 3600 GiB.</para></li></ul><para><b>FSx for ONTAP file systems</b> - The amount of storage capacity that you can configure
+        /// depends on the value of the <c>HAPairs</c> property. The minimum value is calculated
+        /// as 1,024 * <c>HAPairs</c> and the maxium is calculated as 524,288 * <c>HAPairs</c>..</para><para><b>FSx for OpenZFS file systems</b> - The amount of storage capacity that you can
         /// configure is from 64 GiB up to 524,288 GiB (512 TiB).</para><para><b>FSx for Windows File Server file systems</b> - The amount of storage capacity
-        /// that you can configure depends on the value that you set for <code>StorageType</code>
-        /// as follows:</para><ul><li><para>For SSD storage, valid values are 32 GiB-65,536 GiB (64 TiB).</para></li><li><para>For HDD storage, valid values are 2000 GiB-65,536 GiB (64 TiB).</para></li></ul>
+        /// that you can configure depends on the value that you set for <c>StorageType</c> as
+        /// follows:</para><ul><li><para>For SSD storage, valid values are 32 GiB-65,536 GiB (64 TiB).</para></li><li><para>For HDD storage, valid values are 2000 GiB-65,536 GiB (64 TiB).</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -541,11 +537,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>Sets the storage type for the file system that you're creating. Valid values are <code>SSD</code>
-        /// and <code>HDD</code>.</para><ul><li><para>Set to <code>SSD</code> to use solid state drive storage. SSD is supported on all
-        /// Windows, Lustre, ONTAP, and OpenZFS deployment types.</para></li><li><para>Set to <code>HDD</code> to use hard disk drive storage. HDD is supported on <code>SINGLE_AZ_2</code>
-        /// and <code>MULTI_AZ_1</code> Windows file system deployment types, and on <code>PERSISTENT_1</code>
-        /// Lustre file system deployment types. </para></li></ul><para>Default value is <code>SSD</code>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options">
+        /// <para>Sets the storage type for the file system that you're creating. Valid values are <c>SSD</c>
+        /// and <c>HDD</c>.</para><ul><li><para>Set to <c>SSD</c> to use solid state drive storage. SSD is supported on all Windows,
+        /// Lustre, ONTAP, and OpenZFS deployment types.</para></li><li><para>Set to <c>HDD</c> to use hard disk drive storage. HDD is supported on <c>SINGLE_AZ_2</c>
+        /// and <c>MULTI_AZ_1</c> Windows file system deployment types, and on <c>PERSISTENT_1</c>
+        /// Lustre file system deployment types. </para></li></ul><para>Default value is <c>SSD</c>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options">
         /// Storage type options</a> in the <i>FSx for Windows File Server User Guide</i> and
         /// <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options">Multiple
         /// storage options</a> in the <i>FSx for Lustre User Guide</i>. </para>
@@ -560,16 +556,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the IDs of the subnets that the file system will be accessible from. For
-        /// Windows and ONTAP <code>MULTI_AZ_1</code> deployment types,provide exactly two subnet
-        /// IDs, one for the preferred file server and one for the standby file server. You specify
-        /// one of these subnets as the preferred subnet using the <code>WindowsConfiguration
-        /// &gt; PreferredSubnetID</code> or <code>OntapConfiguration &gt; PreferredSubnetID</code>
-        /// properties. For more information about Multi-AZ file system configuration, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">
+        /// Windows and ONTAP <c>MULTI_AZ_1</c> deployment types,provide exactly two subnet IDs,
+        /// one for the preferred file server and one for the standby file server. You specify
+        /// one of these subnets as the preferred subnet using the <c>WindowsConfiguration &gt;
+        /// PreferredSubnetID</c> or <c>OntapConfiguration &gt; PreferredSubnetID</c> properties.
+        /// For more information about Multi-AZ file system configuration, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">
         /// Availability and durability: Single-AZ and Multi-AZ file systems</a> in the <i>Amazon
         /// FSx for Windows User Guide</i> and <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-multiAZ.html">
-        /// Availability and durability</a> in the <i>Amazon FSx for ONTAP User Guide</i>.</para><para>For Windows <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> and all Lustre deployment
-        /// types, provide exactly one subnet ID. The file server is launched in that subnet's
-        /// Availability Zone.</para>
+        /// Availability and durability</a> in the <i>Amazon FSx for ONTAP User Guide</i>.</para><para>For Windows <c>SINGLE_AZ_1</c> and <c>SINGLE_AZ_2</c> and all Lustre deployment types,
+        /// provide exactly one subnet ID. The file server is launched in that subnet's Availability
+        /// Zone.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -587,7 +583,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to apply to the file system that's being created. The key value of the <code>Name</code>
+        /// <para>The tags to apply to the file system that's being created. The key value of the <c>Name</c>
         /// tag appears in the console as the file system name.</para>
         /// </para>
         /// </summary>
@@ -601,9 +597,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Sets the throughput capacity for the file system that you're creating in megabytes
         /// per second (MBps). For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-throughput-capacity.html">Managing
-        /// throughput capacity</a> in the FSx for ONTAP User Guide.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <code>ThroughputCapacity</code> and <code>ThroughputCapacityPerHAPair</code>
-        /// are not the same value.</para></li><li><para>The value of <code>ThroughputCapacity</code> when divided by the value of <code>HAPairs</code>
-        /// is outside of the valid range for <code>ThroughputCapacity</code>.</para></li></ul>
+        /// throughput capacity</a> in the FSx for ONTAP User Guide.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <c>ThroughputCapacity</c> and <c>ThroughputCapacityPerHAPair</c> are
+        /// not the same value.</para></li><li><para>The value of <c>ThroughputCapacity</c> when divided by the value of <c>HAPairs</c>
+        /// is outside of the valid range for <c>ThroughputCapacity</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -614,9 +610,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes
-        /// per second (MBps). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <code>MULTI_AZ_1</code> and <code>SINGLE_AZ_2</code>, valid values are 160, 320,
-        /// 640, 1280, 2560, 3840, 5120, 7680, or 10240 MBps.</para></li><li><para>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072,
-        /// or 4096 MBps.</para></li></ul><para>You pay for additional throughput capacity that you provision.</para>
+        /// per second (MBps). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <c>MULTI_AZ_1</c> and <c>SINGLE_AZ_2</c>, valid values are 160, 320, 640, 1280,
+        /// 2560, 3840, 5120, 7680, or 10240 MBps.</para></li><li><para>For <c>SINGLE_AZ_1</c>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096
+        /// MBps.</para></li></ul><para>You pay for additional throughput capacity that you provision.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -627,13 +623,12 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Use to choose the throughput capacity per HA pair, rather than the total throughput
-        /// for the file system. </para><para>This field and <code>ThroughputCapacity</code> cannot be defined in the same API call,
-        /// but one is required.</para><para>This field and <code>ThroughputCapacity</code> are the same for file systems with
-        /// one HA pair.</para><ul><li><para>For <code>SINGLE_AZ_1</code> and <code>MULTI_AZ_1</code>, valid values are 128, 256,
-        /// 512, 1024, 2048, or 4096 MBps.</para></li><li><para>For <code>SINGLE_AZ_2</code>, valid values are 3072 or 6144 MBps.</para></li></ul><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <code>ThroughputCapacity</code> and <code>ThroughputCapacityPerHAPair</code>
-        /// are not the same value for file systems with one HA pair.</para></li><li><para>The value of deployment type is <code>SINGLE_AZ_2</code> and <code>ThroughputCapacity</code>
-        /// / <code>ThroughputCapacityPerHAPair</code> is a valid HA pair (a value between 2 and
-        /// 6).</para></li><li><para>The value of <code>ThroughputCapacityPerHAPair</code> is not a valid value.</para></li></ul>
+        /// for the file system. </para><para>This field and <c>ThroughputCapacity</c> cannot be defined in the same API call, but
+        /// one is required.</para><para>This field and <c>ThroughputCapacity</c> are the same for file systems with one HA
+        /// pair.</para><ul><li><para>For <c>SINGLE_AZ_1</c> and <c>MULTI_AZ_1</c>, valid values are 128, 256, 512, 1024,
+        /// 2048, or 4096 MBps.</para></li><li><para>For <c>SINGLE_AZ_2</c>, valid values are 3072 or 6144 MBps.</para></li></ul><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <c>ThroughputCapacity</c> and <c>ThroughputCapacityPerHAPair</c> are
+        /// not the same value for file systems with one HA pair.</para></li><li><para>The value of deployment type is <c>SINGLE_AZ_2</c> and <c>ThroughputCapacity</c> /
+        /// <c>ThroughputCapacityPerHAPair</c> is a valid HA pair (a value between 2 and 6).</para></li><li><para>The value of <c>ThroughputCapacityPerHAPair</c> is not a valid value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

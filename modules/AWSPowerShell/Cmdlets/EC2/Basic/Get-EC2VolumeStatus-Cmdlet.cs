@@ -38,29 +38,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// The <code>DescribeVolumeStatus</code> operation provides the following information
-    /// about the specified volumes:
+    /// The <c>DescribeVolumeStatus</c> operation provides the following information about
+    /// the specified volumes:
     /// </para><para><i>Status</i>: Reflects the current status of the volume. The possible values are
-    /// <code>ok</code>, <code>impaired</code> , <code>warning</code>, or <code>insufficient-data</code>.
-    /// If all checks pass, the overall status of the volume is <code>ok</code>. If the check
-    /// fails, the overall status is <code>impaired</code>. If the status is <code>insufficient-data</code>,
-    /// then the checks might still be taking place on your volume at the time. We recommend
-    /// that you retry the request. For more information about volume status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitor
+    /// <c>ok</c>, <c>impaired</c> , <c>warning</c>, or <c>insufficient-data</c>. If all checks
+    /// pass, the overall status of the volume is <c>ok</c>. If the check fails, the overall
+    /// status is <c>impaired</c>. If the status is <c>insufficient-data</c>, then the checks
+    /// might still be taking place on your volume at the time. We recommend that you retry
+    /// the request. For more information about volume status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitor
     /// the status of your volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para><i>Events</i>: Reflect the cause of a volume status and might require you to take
-    /// action. For example, if your volume returns an <code>impaired</code> status, then
-    /// the volume event might be <code>potential-data-inconsistency</code>. This means that
-    /// your volume has been affected by an issue with the underlying host, has all I/O operations
-    /// disabled, and might have inconsistent data.
+    /// action. For example, if your volume returns an <c>impaired</c> status, then the volume
+    /// event might be <c>potential-data-inconsistency</c>. This means that your volume has
+    /// been affected by an issue with the underlying host, has all I/O operations disabled,
+    /// and might have inconsistent data.
     /// </para><para><i>Actions</i>: Reflect the actions you might have to take in response to an event.
-    /// For example, if the status of the volume is <code>impaired</code> and the volume event
-    /// shows <code>potential-data-inconsistency</code>, then the action shows <code>enable-volume-io</code>.
+    /// For example, if the status of the volume is <c>impaired</c> and the volume event shows
+    /// <c>potential-data-inconsistency</c>, then the action shows <c>enable-volume-io</c>.
     /// This means that you may want to enable the I/O operations for the volume by calling
     /// the <a>EnableVolumeIO</a> action and then check the volume for data consistency.
     /// </para><para>
     /// Volume status is based on the volume status checks, and does not reflect the volume
-    /// state. Therefore, volume status does not indicate volumes in the <code>error</code>
-    /// state (for example, when a volume is incapable of accepting I/O.)
+    /// state. Therefore, volume status does not indicate volumes in the <c>error</c> state
+    /// (for example, when a volume is incapable of accepting I/O.)
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2VolumeStatus")]
@@ -78,13 +78,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>action.code</code> - The action code for the event (for example, <code>enable-volume-io</code>).</para></li><li><para><code>action.description</code> - A description of the action.</para></li><li><para><code>action.event-id</code> - The event ID associated with the action.</para></li><li><para><code>availability-zone</code> - The Availability Zone of the instance.</para></li><li><para><code>event.description</code> - A description of the event.</para></li><li><para><code>event.event-id</code> - The event ID.</para></li><li><para><code>event.event-type</code> - The event type (for <code>io-enabled</code>: <code>passed</code>
-        /// | <code>failed</code>; for <code>io-performance</code>: <code>io-performance:degraded</code>
-        /// | <code>io-performance:severely-degraded</code> | <code>io-performance:stalled</code>).</para></li><li><para><code>event.not-after</code> - The latest end time for the event.</para></li><li><para><code>event.not-before</code> - The earliest start time for the event.</para></li><li><para><code>volume-status.details-name</code> - The cause for <code>volume-status.status</code>
-        /// (<code>io-enabled</code> | <code>io-performance</code>).</para></li><li><para><code>volume-status.details-status</code> - The status of <code>volume-status.details-name</code>
-        /// (for <code>io-enabled</code>: <code>passed</code> | <code>failed</code>; for <code>io-performance</code>:
-        /// <code>normal</code> | <code>degraded</code> | <code>severely-degraded</code> | <code>stalled</code>).</para></li><li><para><code>volume-status.status</code> - The status of the volume (<code>ok</code> | <code>impaired</code>
-        /// | <code>warning</code> | <code>insufficient-data</code>).</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>action.code</c> - The action code for the event (for example, <c>enable-volume-io</c>).</para></li><li><para><c>action.description</c> - A description of the action.</para></li><li><para><c>action.event-id</c> - The event ID associated with the action.</para></li><li><para><c>availability-zone</c> - The Availability Zone of the instance.</para></li><li><para><c>event.description</c> - A description of the event.</para></li><li><para><c>event.event-id</c> - The event ID.</para></li><li><para><c>event.event-type</c> - The event type (for <c>io-enabled</c>: <c>passed</c> |
+        /// <c>failed</c>; for <c>io-performance</c>: <c>io-performance:degraded</c> | <c>io-performance:severely-degraded</c>
+        /// | <c>io-performance:stalled</c>).</para></li><li><para><c>event.not-after</c> - The latest end time for the event.</para></li><li><para><c>event.not-before</c> - The earliest start time for the event.</para></li><li><para><c>volume-status.details-name</c> - The cause for <c>volume-status.status</c> (<c>io-enabled</c>
+        /// | <c>io-performance</c>).</para></li><li><para><c>volume-status.details-status</c> - The status of <c>volume-status.details-name</c>
+        /// (for <c>io-enabled</c>: <c>passed</c> | <c>failed</c>; for <c>io-performance</c>:
+        /// <c>normal</c> | <c>degraded</c> | <c>severely-degraded</c> | <c>stalled</c>).</para></li><li><para><c>volume-status.status</c> - The status of the volume (<c>ok</c> | <c>impaired</c>
+        /// | <c>warning</c> | <c>insufficient-data</c>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

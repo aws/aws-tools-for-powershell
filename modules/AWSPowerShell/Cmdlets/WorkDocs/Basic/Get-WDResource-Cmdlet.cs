@@ -28,8 +28,8 @@ using Amazon.WorkDocs.Model;
 namespace Amazon.PowerShell.Cmdlets.WD
 {
     /// <summary>
-    /// Retrieves a collection of resources, including folders and documents. The only <code>CollectionType</code>
-    /// supported is <code>SHARED_WITH_ME</code>.<br/><br/>In the AWS.Tools.WorkDocs module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a collection of resources, including folders and documents. The only <c>CollectionType</c>
+    /// supported is <c>SHARED_WITH_ME</c>.<br/><br/>In the AWS.Tools.WorkDocs module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "WDResource")]
     [OutputType("Amazon.WorkDocs.Model.GetResourcesResponse")]

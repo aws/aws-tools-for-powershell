@@ -32,12 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// grants. You can create one S3 Access Grants instance per Region per account. 
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3:CreateAccessGrantsInstance</code> permission to use this
-    /// operation. 
+    /// You must have the <c>s3:CreateAccessGrantsInstance</c> permission to use this operation.
+    /// 
     /// </para></dd><dt>Additional Permissions</dt><dd><para>
     /// To associate an IAM Identity Center instance with your S3 Access Grants instance,
-    /// you must also have the <code>sso:DescribeInstance</code>, <code>sso:CreateApplication</code>,
-    /// <code>sso:PutApplicationGrant</code>, and <code>sso:PutApplicationAuthenticationMethod</code>
+    /// you must also have the <c>sso:DescribeInstance</c>, <c>sso:CreateApplication</c>,
+    /// <c>sso:PutApplicationGrant</c>, and <c>sso:PutApplicationAuthenticationMethod</c>
     /// permissions. 
     /// </para></dd></dl>
     /// </summary>

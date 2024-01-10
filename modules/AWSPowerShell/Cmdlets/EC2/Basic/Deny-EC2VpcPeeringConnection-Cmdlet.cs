@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Rejects a VPC peering connection request. The VPC peering connection must be in the
-    /// <code>pending-acceptance</code> state. Use the <a>DescribeVpcPeeringConnections</a>
-    /// request to view your outstanding VPC peering connection requests. To delete an active
-    /// VPC peering connection, or to delete a VPC peering connection request that you initiated,
+    /// <c>pending-acceptance</c> state. Use the <a>DescribeVpcPeeringConnections</a> request
+    /// to view your outstanding VPC peering connection requests. To delete an active VPC
+    /// peering connection, or to delete a VPC peering connection request that you initiated,
     /// use <a>DeleteVpcPeeringConnection</a>.
     /// </summary>
     [Cmdlet("Deny", "EC2VpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

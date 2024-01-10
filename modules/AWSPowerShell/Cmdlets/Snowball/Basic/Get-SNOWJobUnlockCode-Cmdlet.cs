@@ -28,20 +28,19 @@ using Amazon.Snowball.Model;
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
-    /// Returns the <code>UnlockCode</code> code value for the specified job. A particular
-    /// <code>UnlockCode</code> value can be accessed for up to 360 days after the associated
-    /// job has been created.
+    /// Returns the <c>UnlockCode</c> code value for the specified job. A particular <c>UnlockCode</c>
+    /// value can be accessed for up to 360 days after the associated job has been created.
     /// 
     ///  
     /// <para>
-    /// The <code>UnlockCode</code> value is a 29-character code with 25 alphanumeric characters
+    /// The <c>UnlockCode</c> value is a 29-character code with 25 alphanumeric characters
     /// and 4 hyphens. This code is used to decrypt the manifest file when it is passed along
     /// with the manifest to the Snow device through the Snowball client when the client is
-    /// started for the first time. The only valid status for calling this API is <code>WithCustomer</code>
-    /// as the manifest and <code>Unlock</code> code values are used for securing your device
-    /// and should only be used when you have the device.
+    /// started for the first time. The only valid status for calling this API is <c>WithCustomer</c>
+    /// as the manifest and <c>Unlock</c> code values are used for securing your device and
+    /// should only be used when you have the device.
     /// </para><para>
-    /// As a best practice, we recommend that you don't save a copy of the <code>UnlockCode</code>
+    /// As a best practice, we recommend that you don't save a copy of the <c>UnlockCode</c>
     /// in the same location as the manifest file for that job. Saving these separately helps
     /// prevent unauthorized parties from gaining access to the Snow device associated with
     /// that job.
@@ -62,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The ID for the job that you want to get the <code>UnlockCode</code> value for, for
-        /// example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</para>
+        /// <para>The ID for the job that you want to get the <c>UnlockCode</c> value for, for example
+        /// <c>JID123e4567-e89b-12d3-a456-426655440000</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

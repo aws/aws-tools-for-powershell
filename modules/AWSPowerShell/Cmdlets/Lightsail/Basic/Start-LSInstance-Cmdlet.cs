@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
     /// Starts a specific Amazon Lightsail instance from a stopped state. To restart an instance,
-    /// use the <code>reboot instance</code> operation.
+    /// use the <c>reboot instance</c> operation.
     /// 
     ///  <note><para>
     /// When you start a stopped instance, Lightsail assigns a new public IP address to the
@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// a static IP address and attach it to the instance. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para></note><para>
-    /// The <code>start instance</code> operation supports tag-based access control via resource
-    /// tags applied to the resource identified by <code>instance name</code>. For more information,
+    /// The <c>start instance</c> operation supports tag-based access control via resource
+    /// tags applied to the resource identified by <c>instance name</c>. For more information,
     /// see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>

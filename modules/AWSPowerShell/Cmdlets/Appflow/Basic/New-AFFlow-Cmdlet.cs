@@ -577,7 +577,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <summary>
         /// <para>
         /// <para>The time at which the scheduled flow ends. The time is formatted as a timestamp that
-        /// follows the ISO 8601 standard, such as <code>2022-04-27T13:00:00-07:00</code>.</para>
+        /// follows the ISO 8601 standard, such as <c>2022-04-27T13:00:00-07:00</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -589,7 +589,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <summary>
         /// <para>
         /// <para> The scheduling expression that determines the rate at which the schedule will run,
-        /// for example <code>rate(5minutes)</code>. </para>
+        /// for example <c>rate(5minutes)</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -613,7 +613,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <summary>
         /// <para>
         /// <para>The time at which the scheduled flow starts. The time is formatted as a timestamp
-        /// that follows the ISO 8601 standard, such as <code>2022-04-26T13:00:00-07:00</code>.</para>
+        /// that follows the ISO 8601 standard, such as <c>2022-04-26T13:00:00-07:00</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -668,12 +668,11 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <summary>
         /// <para>
         /// <para>Specifies the time zone used when referring to the dates and times of a scheduled
-        /// flow, such as <code>America/New_York</code>. This time zone is only a descriptive
-        /// label. It doesn't affect how Amazon AppFlow interprets the timestamps that you specify
-        /// to schedule the flow.</para><para>If you want to schedule a flow by using times in a particular time zone, indicate
+        /// flow, such as <c>America/New_York</c>. This time zone is only a descriptive label.
+        /// It doesn't affect how Amazon AppFlow interprets the timestamps that you specify to
+        /// schedule the flow.</para><para>If you want to schedule a flow by using times in a particular time zone, indicate
         /// the time zone as a UTC offset in your timestamps. For example, the UTC offsets for
-        /// the <code>America/New_York</code> timezone are <code>-04:00</code> EDT and <code>-05:00
-        /// EST</code>.</para>
+        /// the <c>America/New_York</c> timezone are <c>-04:00</c> EDT and <c>-05:00 EST</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -684,8 +683,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
         #region Parameter TriggerConfig_TriggerType
         /// <summary>
         /// <para>
-        /// <para> Specifies the type of flow trigger. This can be <code>OnDemand</code>, <code>Scheduled</code>,
-        /// or <code>Event</code>. </para>
+        /// <para> Specifies the type of flow trigger. This can be <c>OnDemand</c>, <c>Scheduled</c>,
+        /// or <c>Event</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -716,14 +715,14 @@ namespace Amazon.PowerShell.Cmdlets.AF
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The <code>clientToken</code> parameter is an idempotency token. It ensures that your
-        /// <code>CreateFlow</code> request completes only once. You choose the value to pass.
-        /// For example, if you don't receive a response from your request, you can safely retry
-        /// the request with the same <code>clientToken</code> parameter value.</para><para>If you omit a <code>clientToken</code> value, the Amazon Web Services SDK that you
-        /// are using inserts a value for you. This way, the SDK can safely retry requests multiple
-        /// times after a network error. You must provide your own value for other use cases.</para><para>If you specify input parameters that differ from your first request, an error occurs.
-        /// If you use a different value for <code>clientToken</code>, Amazon AppFlow considers
-        /// it a new call to <code>CreateFlow</code>. The token is active for 8 hours.</para>
+        /// <para>The <c>clientToken</c> parameter is an idempotency token. It ensures that your <c>CreateFlow</c>
+        /// request completes only once. You choose the value to pass. For example, if you don't
+        /// receive a response from your request, you can safely retry the request with the same
+        /// <c>clientToken</c> parameter value.</para><para>If you omit a <c>clientToken</c> value, the Amazon Web Services SDK that you are using
+        /// inserts a value for you. This way, the SDK can safely retry requests multiple times
+        /// after a network error. You must provide your own value for other use cases.</para><para>If you specify input parameters that differ from your first request, an error occurs.
+        /// If you use a different value for <c>clientToken</c>, Amazon AppFlow considers it a
+        /// new call to <c>CreateFlow</c>. The token is active for 8 hours.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -150,10 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer
-        /// to it. Tasks can only be created from <code>ACTIVE</code> templates. If a template
-        /// is marked as <code>INACTIVE</code>, then a task that refers to this template cannot
-        /// be created.</para>
+        /// <para>Marks a template as <c>ACTIVE</c> or <c>INACTIVE</c> for a task to refer to it. Tasks
+        /// can only be created from <c>ACTIVE</c> templates. If a template is marked as <c>INACTIVE</c>,
+        /// then a task that refers to this template cannot be created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

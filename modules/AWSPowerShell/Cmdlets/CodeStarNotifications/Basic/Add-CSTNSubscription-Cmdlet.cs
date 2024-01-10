@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         #region Parameter Target_TargetType
         /// <summary>
         /// <para>
-        /// <para>The target type. Can be an Chatbot topic or Chatbot client.</para><ul><li><para>Chatbot topics are specified as <code>SNS</code>.</para></li><li><para>Chatbot clients are specified as <code>AWSChatbotSlack</code>.</para></li></ul>
+        /// <para>The target type. Can be an Chatbot topic or Chatbot client.</para><ul><li><para>Chatbot topics are specified as <c>SNS</c>.</para></li><li><para>Chatbot clients are specified as <c>AWSChatbotSlack</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

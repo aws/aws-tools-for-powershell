@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     ///  
     /// <para>
     /// After a subnet is removed, all EC2 instances registered with the load balancer in
-    /// the removed subnet go into the <code>OutOfService</code> state. Then, the load balancer
+    /// the removed subnet go into the <c>OutOfService</c> state. Then, the load balancer
     /// balances the traffic among the remaining routable subnets.
     /// </para>
     /// </summary>

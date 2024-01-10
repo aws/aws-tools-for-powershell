@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     ///  <ol><li><para>
     /// Using the path
     /// </para></li><li><para>
-    /// Using <code>ObjectIdentifier</code></para></li></ol>
+    /// Using <c>ObjectIdentifier</c></para></li></ol>
     /// </summary>
     [Cmdlet("Connect", "CDIRObject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

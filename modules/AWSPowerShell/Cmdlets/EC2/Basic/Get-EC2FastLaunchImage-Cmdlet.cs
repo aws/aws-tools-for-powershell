@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Use the following filters to streamline results.</para><ul><li><para><code>resource-type</code> - The resource type for pre-provisioning.</para></li><li><para><code>owner-id</code> - The owner ID for the pre-provisioning resource.</para></li><li><para><code>state</code> - The current state of fast launching for the Windows AMI.</para></li></ul>
+        /// <para>Use the following filters to streamline results.</para><ul><li><para><c>resource-type</c> - The resource type for pre-provisioning.</para></li><li><para><c>owner-id</c> - The owner ID for the pre-provisioning resource.</para></li><li><para><c>state</c> - The current state of fast launching for the Windows AMI.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

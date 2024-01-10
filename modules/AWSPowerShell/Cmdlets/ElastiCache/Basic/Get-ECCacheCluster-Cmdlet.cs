@@ -79,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ShowCacheClustersNotInReplicationGroup
         /// <summary>
         /// <para>
-        /// <para>An optional flag that can be included in the <code>DescribeCacheCluster</code> request
-        /// to show only nodes (API/CLI: clusters) that are not members of a replication group.
-        /// In practice, this mean Memcached and single node Redis clusters.</para>
+        /// <para>An optional flag that can be included in the <c>DescribeCacheCluster</c> request to
+        /// show only nodes (API/CLI: clusters) that are not members of a replication group. In
+        /// practice, this mean Memcached and single node Redis clusters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ShowCacheNodeInfo
         /// <summary>
         /// <para>
-        /// <para>An optional flag that can be included in the <code>DescribeCacheCluster</code> request
-        /// to retrieve information about the individual cache nodes.</para>
+        /// <para>An optional flag that can be included in the <c>DescribeCacheCluster</c> request to
+        /// retrieve information about the individual cache nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>An optional marker returned from a prior request. Use this marker for pagination of
         /// results from this operation. If this parameter is specified, the response includes
-        /// only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</para>
+        /// only records beyond the marker, up to the value specified by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -121,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a marker is included in the response
-        /// so that the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints: minimum 20; maximum 100.</para>
+        /// the specified <c>MaxRecords</c> value, a marker is included in the response so that
+        /// the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints: minimum 20; maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

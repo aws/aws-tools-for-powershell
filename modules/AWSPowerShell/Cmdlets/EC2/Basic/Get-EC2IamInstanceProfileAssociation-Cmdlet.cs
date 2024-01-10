@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>instance-id</code> - The ID of the instance.</para></li><li><para><code>state</code> - The state of the association (<code>associating</code> | <code>associated</code>
-        /// | <code>disassociating</code>).</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>instance-id</c> - The ID of the instance.</para></li><li><para><c>state</c> - The state of the association (<c>associating</c> | <c>associated</c>
+        /// | <c>disassociating</c>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

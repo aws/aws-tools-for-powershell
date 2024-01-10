@@ -47,9 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>The access protocol action. Valid values include <code>ActiveSync</code>, <code>AutoDiscover</code>,
-        /// <code>EWS</code>, <code>IMAP</code>, <code>SMTP</code>, <code>WindowsOutlook</code>,
-        /// and <code>WebMail</code>.</para>
+        /// <para>The access protocol action. Valid values include <c>ActiveSync</c>, <c>AutoDiscover</c>,
+        /// <c>EWS</c>, <c>IMAP</c>, <c>SMTP</c>, <c>WindowsOutlook</c>, and <c>WebMail</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

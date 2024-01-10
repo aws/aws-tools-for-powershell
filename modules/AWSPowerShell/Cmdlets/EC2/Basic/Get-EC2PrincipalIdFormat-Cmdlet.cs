@@ -37,17 +37,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// user, unless they explicitly override the settings. This request is useful for identifying
     /// those IAM users and IAM roles that have overridden the default ID settings.
     /// </para><para>
-    /// The following resource types support longer IDs: <code>bundle</code> | <code>conversion-task</code>
-    /// | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code>
-    /// | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code>
-    /// | <code>image</code> | <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code>
-    /// | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code>
-    /// | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>reservation</code>
-    /// | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code>
-    /// | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code>
-    /// | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code>
-    /// | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code>
-    /// | <code>vpn-gateway</code>. 
+    /// The following resource types support longer IDs: <c>bundle</c> | <c>conversion-task</c>
+    /// | <c>customer-gateway</c> | <c>dhcp-options</c> | <c>elastic-ip-allocation</c> | <c>elastic-ip-association</c>
+    /// | <c>export-task</c> | <c>flow-log</c> | <c>image</c> | <c>import-task</c> | <c>instance</c>
+    /// | <c>internet-gateway</c> | <c>network-acl</c> | <c>network-acl-association</c> |
+    /// <c>network-interface</c> | <c>network-interface-attachment</c> | <c>prefix-list</c>
+    /// | <c>reservation</c> | <c>route-table</c> | <c>route-table-association</c> | <c>security-group</c>
+    /// | <c>snapshot</c> | <c>subnet</c> | <c>subnet-cidr-block-association</c> | <c>volume</c>
+    /// | <c>vpc</c> | <c>vpc-cidr-block-association</c> | <c>vpc-endpoint</c> | <c>vpc-peering-connection</c>
+    /// | <c>vpn-connection</c> | <c>vpn-gateway</c>. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2PrincipalIdFormat")]
@@ -65,16 +63,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code>
-        /// | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code>
-        /// | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code>
-        /// | <code>instance</code> | <code>internet-gateway</code> | <code>network-acl</code>
-        /// | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code>
-        /// | <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
-        /// <code>route-table-association</code> | <code>security-group</code> | <code>snapshot</code>
-        /// | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>volume</code>
-        /// | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code>
-        /// | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code></para>
+        /// <para>The type of resource: <c>bundle</c> | <c>conversion-task</c> | <c>customer-gateway</c>
+        /// | <c>dhcp-options</c> | <c>elastic-ip-allocation</c> | <c>elastic-ip-association</c>
+        /// | <c>export-task</c> | <c>flow-log</c> | <c>image</c> | <c>import-task</c> | <c>instance</c>
+        /// | <c>internet-gateway</c> | <c>network-acl</c> | <c>network-acl-association</c> |
+        /// <c>network-interface</c> | <c>network-interface-attachment</c> | <c>prefix-list</c>
+        /// | <c>reservation</c> | <c>route-table</c> | <c>route-table-association</c> | <c>security-group</c>
+        /// | <c>snapshot</c> | <c>subnet</c> | <c>subnet-cidr-block-association</c> | <c>volume</c>
+        /// | <c>vpc</c> | <c>vpc-cidr-block-association</c> | <c>vpc-endpoint</c> | <c>vpc-peering-connection</c>
+        /// | <c>vpn-connection</c> | <c>vpn-gateway</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

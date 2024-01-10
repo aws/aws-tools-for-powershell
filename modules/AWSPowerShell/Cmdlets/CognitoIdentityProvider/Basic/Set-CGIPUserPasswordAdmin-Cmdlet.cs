@@ -34,22 +34,22 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     ///  
     /// <para>
     /// The password can be temporary or permanent. If it is temporary, the user status enters
-    /// the <code>FORCE_CHANGE_PASSWORD</code> state. When the user next tries to sign in,
-    /// the InitiateAuth/AdminInitiateAuth response will contain the <code>NEW_PASSWORD_REQUIRED</code>
-    /// challenge. If the user doesn't sign in before it expires, the user won't be able to
-    /// sign in, and an administrator must reset their password. 
+    /// the <c>FORCE_CHANGE_PASSWORD</c> state. When the user next tries to sign in, the InitiateAuth/AdminInitiateAuth
+    /// response will contain the <c>NEW_PASSWORD_REQUIRED</c> challenge. If the user doesn't
+    /// sign in before it expires, the user won't be able to sign in, and an administrator
+    /// must reset their password. 
     /// </para><para>
     /// Once the user has set a new password, or the password is permanent, the user status
-    /// is set to <code>Confirmed</code>.
-    /// </para><para><code>AdminSetUserPassword</code> can set a password for the user profile that Amazon
-    /// Cognito creates for third-party federated users. When you set a password, the federated
-    /// user's status changes from <code>EXTERNAL_PROVIDER</code> to <code>CONFIRMED</code>.
-    /// A user in this state can sign in as a federated user, and initiate authentication
-    /// flows in the API like a linked native user. They can also modify their password and
-    /// attributes in token-authenticated API requests like <code>ChangePassword</code> and
-    /// <code>UpdateUserAttributes</code>. As a best security practice and to keep users in
-    /// sync with your external IdP, don't set passwords on federated user profiles. To set
-    /// up a federated user for native sign-in with a linked native user, refer to <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html">Linking
+    /// is set to <c>Confirmed</c>.
+    /// </para><para><c>AdminSetUserPassword</c> can set a password for the user profile that Amazon Cognito
+    /// creates for third-party federated users. When you set a password, the federated user's
+    /// status changes from <c>EXTERNAL_PROVIDER</c> to <c>CONFIRMED</c>. A user in this state
+    /// can sign in as a federated user, and initiate authentication flows in the API like
+    /// a linked native user. They can also modify their password and attributes in token-authenticated
+    /// API requests like <c>ChangePassword</c> and <c>UpdateUserAttributes</c>. As a best
+    /// security practice and to keep users in sync with your external IdP, don't set passwords
+    /// on federated user profiles. To set up a federated user for native sign-in with a linked
+    /// native user, refer to <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html">Linking
     /// federated users to an existing user profile</a>.
     /// </para><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Permanent
         /// <summary>
         /// <para>
-        /// <para><code>True</code> if the password is permanent, <code>False</code> if it is temporary.</para>
+        /// <para><c>True</c> if the password is permanent, <c>False</c> if it is temporary.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The username of the user that you want to query or modify. The value of this parameter
         /// is typically your user's username, but it can be any of their alias attributes. If
-        /// <code>username</code> isn't an alias attribute in your user pool, you can also use
-        /// their <code>sub</code> in this request.</para>
+        /// <c>username</c> isn't an alias attribute in your user pool, you can also use their
+        /// <c>sub</c> in this request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

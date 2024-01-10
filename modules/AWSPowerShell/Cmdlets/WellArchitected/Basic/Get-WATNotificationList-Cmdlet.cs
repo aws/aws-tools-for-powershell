@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN for the related resource for the notification.</para><note><para>Only one of <code>WorkloadID</code> or <code>ResourceARN</code> should be specified.</para></note>
+        /// <para>The ARN for the related resource for the notification.</para><note><para>Only one of <c>WorkloadID</c> or <c>ResourceARN</c> should be specified.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

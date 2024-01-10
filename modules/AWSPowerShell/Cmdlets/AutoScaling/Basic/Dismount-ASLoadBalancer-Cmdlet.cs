@@ -30,9 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <summary>
     /// <note><para>
     /// This API operation is superseded by <a>DetachTrafficSources</a>, which can detach
-    /// multiple traffic sources types. We recommend using <code>DetachTrafficSources</code>
-    /// to simplify how you manage traffic sources. However, we continue to support <code>DetachLoadBalancers</code>.
-    /// You can use both the original <code>DetachLoadBalancers</code> API operation and <code>DetachTrafficSources</code>
+    /// multiple traffic sources types. We recommend using <c>DetachTrafficSources</c> to
+    /// simplify how you manage traffic sources. However, we continue to support <c>DetachLoadBalancers</c>.
+    /// You can use both the original <c>DetachLoadBalancers</c> API operation and <c>DetachTrafficSources</c>
     /// on the same Auto Scaling group.
     /// </para></note><para>
     /// Detaches one or more Classic Load Balancers from the specified Auto Scaling group.
@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a>DetachLoadBalancerTargetGroups</a>
     /// API instead.
     /// </para><para>
-    /// When you detach a load balancer, it enters the <code>Removing</code> state while deregistering
+    /// When you detach a load balancer, it enters the <c>Removing</c> state while deregistering
     /// the instances in the group. When all instances are deregistered, then you can no longer
     /// describe the load balancer using the <a>DescribeLoadBalancers</a> API call. The instances
     /// remain running.

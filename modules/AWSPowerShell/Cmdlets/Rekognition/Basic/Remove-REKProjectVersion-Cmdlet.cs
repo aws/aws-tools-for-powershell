@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// To stop a project version call <a>StopProjectVersion</a>. If the project version is
     /// training, wait until it finishes.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:DeleteProjectVersion</code>
+    /// This operation requires permissions to perform the <c>rekognition:DeleteProjectVersion</c>
     /// action. 
     /// </para>
     /// </summary>

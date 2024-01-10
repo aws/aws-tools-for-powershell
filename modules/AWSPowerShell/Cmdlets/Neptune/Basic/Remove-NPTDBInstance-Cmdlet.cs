@@ -30,19 +30,19 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     /// <summary>
     /// The DeleteDBInstance action deletes a previously provisioned DB instance. When you
     /// delete a DB instance, all automated backups for that instance are deleted and can't
-    /// be recovered. Manual DB snapshots of the DB instance to be deleted by <code>DeleteDBInstance</code>
+    /// be recovered. Manual DB snapshots of the DB instance to be deleted by <c>DeleteDBInstance</c>
     /// are not deleted.
     /// 
     ///  
     /// <para>
     ///  If you request a final DB snapshot the status of the Amazon Neptune DB instance is
-    /// <code>deleting</code> until the DB snapshot is created. The API action <code>DescribeDBInstance</code>
+    /// <c>deleting</c> until the DB snapshot is created. The API action <c>DescribeDBInstance</c>
     /// is used to monitor the status of this operation. The action can't be canceled or reverted
     /// once submitted.
     /// </para><para>
-    /// Note that when a DB instance is in a failure state and has a status of <code>failed</code>,
-    /// <code>incompatible-restore</code>, or <code>incompatible-network</code>, you can only
-    /// delete it when the <code>SkipFinalSnapshot</code> parameter is set to <code>true</code>.
+    /// Note that when a DB instance is in a failure state and has a status of <c>failed</c>,
+    /// <c>incompatible-restore</c>, or <c>incompatible-network</c>, you can only delete it
+    /// when the <c>SkipFinalSnapshot</c> parameter is set to <c>true</c>.
     /// </para><para>
     /// You can't delete a DB instance if it is the only instance in the DB cluster, or if
     /// it has deletion protection enabled.
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para> The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is
-        /// set to <code>false</code>.</para><note><para>Specifying this parameter and also setting the SkipFinalShapshot parameter to true
+        /// set to <c>false</c>.</para><note><para>Specifying this parameter and also setting the SkipFinalShapshot parameter to true
         /// results in an error.</para></note><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters or numbers.</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li><li><para>Cannot be specified when deleting a Read Replica.</para></li></ul>
         /// </para>
         /// </summary>
@@ -94,11 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para> Determines whether a final DB snapshot is created before the DB instance is deleted.
-        /// If <code>true</code> is specified, no DBSnapshot is created. If <code>false</code>
-        /// is specified, a DB snapshot is created before the DB instance is deleted.</para><para>Note that when a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore',
+        /// If <c>true</c> is specified, no DBSnapshot is created. If <c>false</c> is specified,
+        /// a DB snapshot is created before the DB instance is deleted.</para><para>Note that when a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore',
         /// or 'incompatible-network', it can only be deleted when the SkipFinalSnapshot parameter
-        /// is set to "true".</para><para>Specify <code>true</code> when deleting a Read Replica.</para><note><para>The FinalDBSnapshotIdentifier parameter must be specified if SkipFinalSnapshot is
-        /// <code>false</code>.</para></note><para>Default: <code>false</code></para>
+        /// is set to "true".</para><para>Specify <c>true</c> when deleting a Read Replica.</para><note><para>The FinalDBSnapshotIdentifier parameter must be specified if SkipFinalSnapshot is
+        /// <c>false</c>.</para></note><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

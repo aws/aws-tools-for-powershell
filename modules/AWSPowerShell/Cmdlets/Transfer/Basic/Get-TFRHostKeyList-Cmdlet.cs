@@ -28,7 +28,7 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Returns a list of host keys for the server that's specified by the <code>ServerId</code>
+    /// Returns a list of host keys for the server that's specified by the <c>ServerId</c>
     /// parameter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TFRHostKeyList")]
@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When there are additional results that were not returned, a <code>NextToken</code>
-        /// parameter is returned. You can use that value for a subsequent call to <code>ListHostKeys</code>
-        /// to continue listing results.</para>
+        /// <para>When there are additional results that were not returned, a <c>NextToken</c> parameter
+        /// is returned. You can use that value for a subsequent call to <c>ListHostKeys</c> to
+        /// continue listing results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

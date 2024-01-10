@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// of up to 500 requests, and you can specify any time range in the previous three hours.
     /// 
     ///  
-    /// <para><code>GetSampledRequests</code> returns a time range, which is usually the time range
-    /// that you specified. However, if your resource (such as a CloudFront distribution)
-    /// received 5,000 requests before the specified time range elapsed, <code>GetSampledRequests</code>
+    /// <para><c>GetSampledRequests</c> returns a time range, which is usually the time range that
+    /// you specified. However, if your resource (such as a CloudFront distribution) received
+    /// 5,000 requests before the specified time range elapsed, <c>GetSampledRequests</c>
     /// returns an updated time range. This new time range indicates the actual period during
     /// which WAF selected the requests in the sample.
     /// </para>
@@ -55,11 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter TimeWindow_EndTime
         /// <summary>
         /// <para>
-        /// <para>The end of the time range from which you want <code>GetSampledRequests</code> to return
+        /// <para>The end of the time range from which you want <c>GetSampledRequests</c> to return
         /// a sample of the requests that your Amazon Web Services resource received. You must
         /// specify the times in Coordinated Universal Time (UTC) format. UTC format includes
-        /// the special designator, <code>Z</code>. For example, <code>"2016-09-27T14:50Z"</code>.
-        /// You can specify any time range in the previous three hours.</para>
+        /// the special designator, <c>Z</c>. For example, <c>"2016-09-27T14:50Z"</c>. You can
+        /// specify any time range in the previous three hours.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter RuleMetricName
         /// <summary>
         /// <para>
-        /// <para>The metric name assigned to the <code>Rule</code> or <code>RuleGroup</code> dimension
-        /// for which you want a sample of requests.</para>
+        /// <para>The metric name assigned to the <c>Rule</c> or <c>RuleGroup</c> dimension for which
+        /// you want a sample of requests.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// application. A regional application can be an Application Load Balancer (ALB), an
         /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
         /// an App Runner service, or an Amazon Web Services Verified Access instance. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
-        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
-        /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
+        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <c>--scope=CLOUDFRONT
+        /// --region=us-east-1</c>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,11 +115,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter TimeWindow_StartTime
         /// <summary>
         /// <para>
-        /// <para>The beginning of the time range from which you want <code>GetSampledRequests</code>
-        /// to return a sample of the requests that your Amazon Web Services resource received.
-        /// You must specify the times in Coordinated Universal Time (UTC) format. UTC format
-        /// includes the special designator, <code>Z</code>. For example, <code>"2016-09-27T14:50Z"</code>.
-        /// You can specify any time range in the previous three hours.</para>
+        /// <para>The beginning of the time range from which you want <c>GetSampledRequests</c> to return
+        /// a sample of the requests that your Amazon Web Services resource received. You must
+        /// specify the times in Coordinated Universal Time (UTC) format. UTC format includes
+        /// the special designator, <c>Z</c>. For example, <c>"2016-09-27T14:50Z"</c>. You can
+        /// specify any time range in the previous three hours.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -135,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter WebAclArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon resource name (ARN) of the <code>WebACL</code> for which you want a sample
-        /// of requests.</para>
+        /// <para>The Amazon resource name (ARN) of the <c>WebACL</c> for which you want a sample of
+        /// requests.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>
         /// <para>The number of requests that you want WAF to return from among the first 5,000 requests
         /// that your Amazon Web Services resource received during the time range. If your resource
-        /// received fewer requests than the value of <code>MaxItems</code>, <code>GetSampledRequests</code>
+        /// received fewer requests than the value of <c>MaxItems</c>, <c>GetSampledRequests</c>
         /// returns information about all of them. </para>
         /// </para>
         /// </summary>

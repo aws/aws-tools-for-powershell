@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of servers to return as a response to the <code>ListServers</code>
+        /// <para>Specifies the number of servers to return as a response to the <c>ListServers</c>
         /// query.</para>
         /// </para>
         /// <para>
@@ -64,10 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When additional results are obtained from the <code>ListServers</code> command, a
-        /// <code>NextToken</code> parameter is returned in the output. You can then pass the
-        /// <code>NextToken</code> parameter in a subsequent command to continue listing additional
-        /// servers.</para>
+        /// <para>When additional results are obtained from the <c>ListServers</c> command, a <c>NextToken</c>
+        /// parameter is returned in the output. You can then pass the <c>NextToken</c> parameter
+        /// in a subsequent command to continue listing additional servers.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

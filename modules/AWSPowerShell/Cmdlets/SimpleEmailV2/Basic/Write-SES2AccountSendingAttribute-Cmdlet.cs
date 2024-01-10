@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter SendingEnabled
         /// <summary>
         /// <para>
-        /// <para>Enables or disables your account's ability to send email. Set to <code>true</code>
-        /// to enable email sending, or set to <code>false</code> to disable email sending.</para><note><para>If Amazon Web Services paused your account's ability to send email, you can't use
+        /// <para>Enables or disables your account's ability to send email. Set to <c>true</c> to enable
+        /// email sending, or set to <c>false</c> to disable email sending.</para><note><para>If Amazon Web Services paused your account's ability to send email, you can't use
         /// this operation to resume your account's ability to send email.</para></note>
         /// </para>
         /// </summary>

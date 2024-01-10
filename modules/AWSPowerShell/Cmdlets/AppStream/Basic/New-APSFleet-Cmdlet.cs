@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a
-        /// role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code>
+        /// role, a fleet instance calls the AWS Security Token Service (STS) <c>AssumeRole</c>
         /// API operation and passes the ARN of the role to use. The operation creates a new session
         /// with temporary credentials. AppStream 2.0 retrieves the temporary credentials and
         /// creates the <b>appstream_machine_role</b> credential profile on the instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
@@ -156,15 +156,14 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The amount of time that users can be idle (inactive) before they are disconnected
-        /// from their streaming session and the <code>DisconnectTimeoutInSeconds</code> time
-        /// interval begins. Users are notified before they are disconnected due to inactivity.
-        /// If they try to reconnect to the streaming session before the time interval specified
-        /// in <code>DisconnectTimeoutInSeconds</code> elapses, they are connected to their previous
-        /// session. Users are considered idle when they stop providing keyboard or mouse input
-        /// during their streaming session. File uploads and downloads, audio in, audio out, and
-        /// pixels changing do not qualify as user activity. If users continue to be idle after
-        /// the time interval in <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are
-        /// disconnected.</para><para>To prevent users from being disconnected due to inactivity, specify a value of 0.
+        /// from their streaming session and the <c>DisconnectTimeoutInSeconds</c> time interval
+        /// begins. Users are notified before they are disconnected due to inactivity. If they
+        /// try to reconnect to the streaming session before the time interval specified in <c>DisconnectTimeoutInSeconds</c>
+        /// elapses, they are connected to their previous session. Users are considered idle when
+        /// they stop providing keyboard or mouse input during their streaming session. File uploads
+        /// and downloads, audio in, audio out, and pixels changing do not qualify as user activity.
+        /// If users continue to be idle after the time interval in <c>IdleDisconnectTimeoutInSeconds</c>
+        /// elapses, they are disconnected.</para><para>To prevent users from being disconnected due to inactivity, specify a value of 0.
         /// Otherwise, specify a value between 60 and 3600. The default value is 0.</para><note><para>If you enable this feature, we recommend that you specify a value that corresponds
         /// exactly to a whole number of minutes (for example, 60, 120, and 180). If you don't
         /// do this, the value is rounded to the nearest minute. For example, if you specify a
@@ -306,11 +305,11 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter SessionScriptS3Location_S3Key
         /// <summary>
         /// <para>
-        /// <para>The S3 key of the S3 object.</para><para>This is required when used for the following:</para><ul><li><para>IconS3Location (Actions: CreateApplication and UpdateApplication)</para></li><li><para>SessionScriptS3Location (Actions: CreateFleet and UpdateFleet)</para></li><li><para>ScriptDetails (Actions: CreateAppBlock)</para></li><li><para>SourceS3Location when creating an app block with <code>CUSTOM</code> PackagingType
-        /// (Actions: CreateAppBlock)</para></li><li><para>SourceS3Location when creating an app block with <code>APPSTREAM2</code> PackagingType,
-        /// and using an existing application package (VHD file). In this case, <code>S3Key</code>
-        /// refers to the VHD file. If a new application package is required, then <code>S3Key</code>
-        /// is not required. (Actions: CreateAppBlock)</para></li></ul>
+        /// <para>The S3 key of the S3 object.</para><para>This is required when used for the following:</para><ul><li><para>IconS3Location (Actions: CreateApplication and UpdateApplication)</para></li><li><para>SessionScriptS3Location (Actions: CreateFleet and UpdateFleet)</para></li><li><para>ScriptDetails (Actions: CreateAppBlock)</para></li><li><para>SourceS3Location when creating an app block with <c>CUSTOM</c> PackagingType (Actions:
+        /// CreateAppBlock)</para></li><li><para>SourceS3Location when creating an app block with <c>APPSTREAM2</c> PackagingType,
+        /// and using an existing application package (VHD file). In this case, <c>S3Key</c> refers
+        /// to the VHD file. If a new application package is required, then <c>S3Key</c> is not
+        /// required. (Actions: CreateAppBlock)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -332,9 +331,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The AppStream 2.0 view that is displayed to your users when they stream from the fleet.
-        /// When <code>APP</code> is specified, only the windows of applications opened by users
-        /// display. When <code>DESKTOP</code> is specified, the standard desktop that is provided
-        /// by the operating system displays.</para><para>The default value is <code>APP</code>.</para>
+        /// When <c>APP</c> is specified, only the windows of applications opened by users display.
+        /// When <c>DESKTOP</c> is specified, the standard desktop that is provided by the operating
+        /// system displays.</para><para>The default value is <c>APP</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

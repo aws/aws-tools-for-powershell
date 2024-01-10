@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  <note><para>
     /// To disable your email-receiving through Amazon SES completely, you can call this operation
-    /// with <code>RuleSetName</code> set to null.
+    /// with <c>RuleSetName</c> set to null.
     /// </para></note><para>
     /// For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html">Amazon
     /// SES Developer Guide</a>.

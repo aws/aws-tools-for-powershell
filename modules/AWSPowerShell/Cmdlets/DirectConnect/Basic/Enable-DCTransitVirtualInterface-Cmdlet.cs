@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </para><para>
     /// After you create a transit virtual interface, it must be confirmed by the owner using
     /// <a>ConfirmTransitVirtualInterface</a>. Until this step has been completed, the transit
-    /// virtual interface is in the <code>requested</code> state and is not available to handle
+    /// virtual interface is in the <c>requested</c> state and is not available to handle
     /// traffic.
     /// </para>
     /// </summary>

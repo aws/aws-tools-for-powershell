@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>Whether the task's elastic network interface receives a public IP address. The default
-        /// value is <code>DISABLED</code>.</para>
+        /// value is <c>DISABLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,11 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter CapacityProviderStrategy
         /// <summary>
         /// <para>
-        /// <para>The capacity provider strategy to use for the task.</para><para>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
-        /// parameter must be omitted. If no <code>capacityProviderStrategy</code> or <code>launchType</code>
-        /// is specified, the <code>defaultCapacityProviderStrategy</code> for the cluster is
-        /// used.</para><para>When you use cluster auto scaling, you must specify <code>capacityProviderStrategy</code>
-        /// and not <code>launchType</code>. </para><para>A capacity provider strategy may contain a maximum of 6 capacity providers.</para>
+        /// <para>The capacity provider strategy to use for the task.</para><para>If a <c>capacityProviderStrategy</c> is specified, the <c>launchType</c> parameter
+        /// must be omitted. If no <c>capacityProviderStrategy</c> or <c>launchType</c> is specified,
+        /// the <c>defaultCapacityProviderStrategy</c> for the cluster is used.</para><para>When you use cluster auto scaling, you must specify <c>capacityProviderStrategy</c>
+        /// and not <c>launchType</c>. </para><para>A capacity provider strategy may contain a maximum of 6 capacity providers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,9 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>Determines whether to use the execute command functionality for the containers in
-        /// this task. If <code>true</code>, this enables execute command functionality on all
-        /// containers in the task.</para><para>If <code>true</code>, then the task definition must have a task role, or you must
-        /// provide one as an override.</para>
+        /// this task. If <c>true</c>, this enables execute command functionality on all containers
+        /// in the task.</para><para>If <c>true</c>, then the task definition must have a task role, or you must provide
+        /// one as an override.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The name of the task group to associate with the task. The default value is the family
-        /// name of the task definition (for example, <code>family:my-family-name</code>).</para>
+        /// name of the task definition (for example, <c>family:my-family-name</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,13 +213,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The infrastructure to run your standalone task on. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
-        /// ECS launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>The <code>FARGATE</code> launch type runs your tasks on Fargate On-Demand infrastructure.</para><note><para>Fargate Spot infrastructure is available for use but a capacity provider strategy
+        /// ECS launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>The <c>FARGATE</c> launch type runs your tasks on Fargate On-Demand infrastructure.</para><note><para>Fargate Spot infrastructure is available for use but a capacity provider strategy
         /// must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html">Fargate
-        /// capacity providers</a> in the <i>Amazon ECS User Guide for Fargate</i>.</para></note><para>The <code>EC2</code> launch type runs your tasks on Amazon EC2 instances registered
-        /// to your cluster.</para><para>The <code>EXTERNAL</code> launch type runs your tasks on your on-premises server or
-        /// virtual machine (VM) capacity registered to your cluster.</para><para>A task can use either a launch type or a capacity provider strategy. If a <code>launchType</code>
-        /// is specified, the <code>capacityProviderStrategy</code> parameter must be omitted.</para><para>When you use cluster auto scaling, you must specify <code>capacityProviderStrategy</code>
-        /// and not <code>launchType</code>. </para>
+        /// capacity providers</a> in the <i>Amazon ECS User Guide for Fargate</i>.</para></note><para>The <c>EC2</c> launch type runs your tasks on Amazon EC2 instances registered to your
+        /// cluster.</para><para>The <c>EXTERNAL</c> launch type runs your tasks on your on-premises server or virtual
+        /// machine (VM) capacity registered to your cluster.</para><para>A task can use either a launch type or a capacity provider strategy. If a <c>launchType</c>
+        /// is specified, the <c>capacityProviderStrategy</c> parameter must be omitted.</para><para>When you use cluster auto scaling, you must specify <c>capacityProviderStrategy</c>
+        /// and not <c>launchType</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,8 +265,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The platform version the task uses. A platform version is only specified for tasks
-        /// hosted on Fargate. If one isn't specified, the <code>LATEST</code> platform version
-        /// is used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate
+        /// hosted on Fargate. If one isn't specified, the <c>LATEST</c> platform version is used.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate
         /// platform versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -281,8 +280,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>Specifies whether to propagate the tags from the task definition to the task. If no
         /// value is specified, the tags aren't propagated. Tags can only be propagated to the
         /// task during task creation. To add tags to a task after task creation, use the <a>TagResource</a>
-        /// API action.</para><note><para>An error will be received if you specify the <code>SERVICE</code> option when running
-        /// a task.</para></note>
+        /// API action.</para><note><para>An error will be received if you specify the <c>SERVICE</c> option when running a
+        /// task.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -307,7 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The IDs of the security groups associated with the task or service. If you don't specify
         /// a security group, the default security group for the VPC is used. There's a limit
-        /// of 5 security groups that can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
+        /// of 5 security groups that can be specified per <c>AwsVpcConfiguration</c>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -319,7 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported
-        /// value is <code>21</code> GiB and the maximum supported value is <code>200</code> GiB.</para>
+        /// value is <c>21</c> GiB and the maximum supported value is <c>200</c> GiB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -332,10 +331,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>An optional tag specified when a task is started. For example, if you automatically
         /// trigger a task to run a batch process job, you could apply a unique identifier for
-        /// that job to your task with the <code>startedBy</code> parameter. You can then identify
-        /// which tasks belong to that job by filtering the results of a <a>ListTasks</a> call
-        /// with the <code>startedBy</code> value. Up to 128 letters (uppercase and lowercase),
-        /// numbers, hyphens (-), and underscores (_) are allowed.</para><para>If a task is started by an Amazon ECS service, then the <code>startedBy</code> parameter
+        /// that job to your task with the <c>startedBy</c> parameter. You can then identify which
+        /// tasks belong to that job by filtering the results of a <a>ListTasks</a> call with
+        /// the <c>startedBy</c> value. Up to 128 letters (uppercase and lowercase), numbers,
+        /// hyphens (-), and underscores (_) are allowed.</para><para>If a task is started by an Amazon ECS service, then the <c>startedBy</c> parameter
         /// contains the deployment ID of the service that starts it.</para>
         /// </para>
         /// </summary>
@@ -347,7 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The IDs of the subnets associated with the task or service. There's a limit of 16
-        /// subnets that can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
+        /// subnets that can be specified per <c>AwsVpcConfiguration</c>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -363,10 +362,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// value.</para></li><li><para>Maximum key length - 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length - 256 Unicode characters in UTF-8</para></li><li><para>If your tagging schema is used across multiple services and resources, remember that
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
-        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case-sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for either keys or values as it is reserved for Amazon Web Services
-        /// use. You cannot edit or delete tag keys or values with this prefix. Tags with this
-        /// prefix do not count against your tags per resource limit.</para></li></ul>
+        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case-sensitive.</para></li><li><para>Do not use <c>aws:</c>, <c>AWS:</c>, or any upper or lowercase combination of such
+        /// as a prefix for either keys or values as it is reserved for Amazon Web Services use.
+        /// You cannot edit or delete tag keys or values with this prefix. Tags with this prefix
+        /// do not count against your tags per resource limit.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -377,16 +376,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter TaskDefinition
         /// <summary>
         /// <para>
-        /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
-        /// full ARN of the task definition to run. If a <code>revision</code> isn't specified,
-        /// the latest <code>ACTIVE</code> revision is used.</para><para>When you create a policy for run-task, you can set the resource to be the latest task
-        /// definition revision, or a specific revision.</para><para>The full ARN value must match the value that you specified as the <code>Resource</code>
+        /// <para>The <c>family</c> and <c>revision</c> (<c>family:revision</c>) or full ARN of the
+        /// task definition to run. If a <c>revision</c> isn't specified, the latest <c>ACTIVE</c>
+        /// revision is used.</para><para>When you create a policy for run-task, you can set the resource to be the latest task
+        /// definition revision, or a specific revision.</para><para>The full ARN value must match the value that you specified as the <c>Resource</c>
         /// of the principal's permissions policy.</para><para>When you specify the policy resource as the latest task definition version (by setting
-        /// the <code>Resource</code> in the policy to <code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName</code>),
-        /// then set this value to <code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName</code>.</para><para>When you specify the policy resource as a specific task definition version (by setting
-        /// the <code>Resource</code> in the policy to <code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:1</code>
-        /// or <code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:*</code>),
-        /// then set this value to <code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:1</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-resources">Policy
+        /// the <c>Resource</c> in the policy to <c>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName</c>),
+        /// then set this value to <c>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName</c>.</para><para>When you specify the policy resource as a specific task definition version (by setting
+        /// the <c>Resource</c> in the policy to <c>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:1</c>
+        /// or <c>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:*</c>), then
+        /// set this value to <c>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:1</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-resources">Policy
         /// Resources for Amazon ECS</a> in the Amazon Elastic Container Service developer Guide.</para>
         /// </para>
         /// </summary>

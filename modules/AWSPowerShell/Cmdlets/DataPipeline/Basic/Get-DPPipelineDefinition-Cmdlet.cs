@@ -28,7 +28,7 @@ using Amazon.DataPipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.DP
 {
     /// <summary>
-    /// Gets the definition of the specified pipeline. You can call <code>GetPipelineDefinition</code>
+    /// Gets the definition of the specified pipeline. You can call <c>GetPipelineDefinition</c>
     /// to retrieve the pipeline definition that you provided using <a>PutPipelineDefinition</a>.
     /// </summary>
     [Cmdlet("Get", "DPPipelineDefinition")]
@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>The version of the pipeline definition to retrieve. Set this parameter to <code>latest</code>
-        /// (default) to use the last definition saved to the pipeline or <code>active</code>
-        /// to use the last definition that was activated.</para>
+        /// <para>The version of the pipeline definition to retrieve. Set this parameter to <c>latest</c>
+        /// (default) to use the last definition saved to the pipeline or <c>active</c> to use
+        /// the last definition that was activated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

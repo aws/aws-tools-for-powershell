@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>Which checks are performed during the audit. The checks you specify must be enabled
-        /// for your account or an exception occurs. Use <code>DescribeAccountAuditConfiguration</code>
-        /// to see the list of all checks, including those that are enabled or <code>UpdateAccountAuditConfiguration</code>
+        /// for your account or an exception occurs. Use <c>DescribeAccountAuditConfiguration</c>
+        /// to see the list of all checks, including those that are enabled or <c>UpdateAccountAuditConfiguration</c>
         /// to select which checks are enabled.</para>
         /// </para>
         /// </summary>

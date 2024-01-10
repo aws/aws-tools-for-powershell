@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// ID and a location. Port setting updates can take time to propagate across all locations.
     /// 
     /// </para></li></ul><para>
-    /// If successful, a set of <code>IpPermission</code> objects is returned for the requested
+    /// If successful, a set of <c>IpPermission</c> objects is returned for the requested
     /// fleet ID. When a location is specified, a pending status is included. If the requested
     /// fleet has been deleted, the result set is empty.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A remote location to check for status of port setting updates. Use the Amazon Web
-        /// Services Region code format, such as <code>us-west-2</code>.</para>
+        /// Services Region code format, such as <c>us-west-2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     ///  
     /// <para>
     /// Certificates that are currently attached to a distribution cannot be deleted. Use
-    /// the <code>DetachCertificateFromDistribution</code> action to detach a certificate
-    /// from a distribution.
+    /// the <c>DetachCertificateFromDistribution</c> action to detach a certificate from a
+    /// distribution.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LSCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CertificateName
         /// <summary>
         /// <para>
-        /// <para>The name of the certificate to delete.</para><para>Use the <code>GetCertificates</code> action to get a list of certificate names that
-        /// you can specify.</para>
+        /// <para>The name of the certificate to delete.</para><para>Use the <c>GetCertificates</c> action to get a list of certificate names that you
+        /// can specify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

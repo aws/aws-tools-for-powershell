@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Creates a static route for the specified local gateway route table. You must specify
     /// one of the following targets: 
     /// 
-    ///  <ul><li><para><code>LocalGatewayVirtualInterfaceGroupId</code></para></li><li><para><code>NetworkInterfaceId</code></para></li></ul>
+    ///  <ul><li><para><c>LocalGatewayVirtualInterfaceGroupId</c></para></li><li><para><c>NetworkInterfaceId</c></para></li></ul>
     /// </summary>
     [Cmdlet("New", "EC2LocalGatewayRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.LocalGatewayRoute")]
@@ -59,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DestinationPrefixListId
         /// <summary>
         /// <para>
-        /// <para> The ID of the prefix list. Use a prefix list in place of <code>DestinationCidrBlock</code>.
-        /// You cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code>
-        /// in the same request. </para>
+        /// <para> The ID of the prefix list. Use a prefix list in place of <c>DestinationCidrBlock</c>.
+        /// You cannot use <c>DestinationPrefixListId</c> and <c>DestinationCidrBlock</c> in the
+        /// same request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

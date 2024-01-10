@@ -28,7 +28,7 @@ using Amazon.GlueDataBrew.Model;
 namespace Amazon.PowerShell.Cmdlets.GDB
 {
     /// <summary>
-    /// Modifies the definition of the <code>LATEST_WORKING</code> version of a DataBrew recipe.
+    /// Modifies the definition of the <c>LATEST_WORKING</c> version of a DataBrew recipe.
     /// </summary>
     [Cmdlet("Update", "GDBRecipe", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

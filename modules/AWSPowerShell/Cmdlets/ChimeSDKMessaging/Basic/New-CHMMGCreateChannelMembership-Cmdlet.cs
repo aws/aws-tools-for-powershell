@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        /// the API call.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c> or <c>AppInstanceBot</c> that makes the API
+        /// call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter MemberArn
         /// <summary>
         /// <para>
-        /// <para>The ARNs of the members you want to add to the channel. Only <code>AppInstanceUsers</code>
-        /// and <code>AppInstanceBots</code> can be added as a channel member.</para>
+        /// <para>The ARNs of the members you want to add to the channel. Only <c>AppInstanceUsers</c>
+        /// and <c>AppInstanceBots</c> can be added as a channel member.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -111,11 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default
-        /// members are always returned as part of <code>ListChannelMemberships</code>. Hidden
-        /// members are only returned if the type filter in <code>ListChannelMemberships</code>
-        /// equals <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only
-        /// supported by moderators.</para>
+        /// <para>The membership type of a user, <c>DEFAULT</c> or <c>HIDDEN</c>. Default members are
+        /// always returned as part of <c>ListChannelMemberships</c>. Hidden members are only
+        /// returned if the type filter in <c>ListChannelMemberships</c> equals <c>HIDDEN</c>.
+        /// Otherwise hidden members are not returned. This is only supported by moderators.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

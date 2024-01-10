@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Finds SageMaker resources that match a search query. Matching resources are returned
-    /// as a list of <code>SearchRecord</code> objects in the response. You can sort the search
+    /// as a list of <c>SearchRecord</c> objects in the response. You can sort the search
     /// results by any resource property in a ascending or descending order.
     /// 
     ///  
@@ -58,13 +58,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CrossAccountFilterOption
         /// <summary>
         /// <para>
-        /// <para> A cross account filter option. When the value is <code>"CrossAccount"</code> the
-        /// search results will only include resources made discoverable to you from other accounts.
-        /// When the value is <code>"SameAccount"</code> or <code>null</code> the search results
-        /// will only include resources from your account. Default is <code>null</code>. For more
-        /// information on searching for resources made discoverable to your account, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-cross-account-discoverability-use.html">
+        /// <para> A cross account filter option. When the value is <c>"CrossAccount"</c> the search
+        /// results will only include resources made discoverable to you from other accounts.
+        /// When the value is <c>"SameAccount"</c> or <c>null</c> the search results will only
+        /// include resources from your account. Default is <c>null</c>. For more information
+        /// on searching for resources made discoverable to your account, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-cross-account-discoverability-use.html">
         /// Search discoverable resources</a> in the SageMaker Developer Guide. The maximum number
-        /// of <code>ResourceCatalog</code>s viewable is 1000. </para>
+        /// of <c>ResourceCatalog</c>s viewable is 1000. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,9 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>A Boolean operator used to evaluate the search expression. If you want every conditional
         /// statement in all lists to be satisfied for the entire search expression to be true,
-        /// specify <code>And</code>. If only a single conditional statement needs to be true
-        /// for the entire search expression to be true, specify <code>Or</code>. The default
-        /// value is <code>And</code>.</para>
+        /// specify <c>And</c>. If only a single conditional statement needs to be true for the
+        /// entire search expression to be true, specify <c>Or</c>. The default value is <c>And</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The name of the resource property used to sort the <code>SearchResults</code>. The
-        /// default is <code>LastModifiedTime</code>.</para>
+        /// <para>The name of the resource property used to sort the <c>SearchResults</c>. The default
+        /// is <c>LastModifiedTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>How <code>SearchResults</code> are ordered. Valid values are <code>Ascending</code>
-        /// or <code>Descending</code>. The default is <code>Descending</code>.</para>
+        /// <para>How <c>SearchResults</c> are ordered. Valid values are <c>Ascending</c> or <c>Descending</c>.
+        /// The default is <c>Descending</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,9 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If more than <code>MaxResults</code> resources match the specified <code>SearchExpression</code>,
-        /// the response includes a <code>NextToken</code>. The <code>NextToken</code> can be
-        /// passed to the next <code>SearchRequest</code> to continue retrieving results.</para>
+        /// <para>If more than <c>MaxResults</c> resources match the specified <c>SearchExpression</c>,
+        /// the response includes a <c>NextToken</c>. The <c>NextToken</c> can be passed to the
+        /// next <c>SearchRequest</c> to continue retrieving results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

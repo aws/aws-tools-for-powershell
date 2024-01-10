@@ -43,21 +43,21 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// Use the Service Quotas <a href="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_RequestServiceQuotaIncrease.html">RequestServiceQuotaIncrease</a>
     /// operation.
     /// </para></li></ul><para>
-    /// A successful <code>CreateCase</code> request returns an Amazon Web Services Support
-    /// case number. You can use the <a>DescribeCases</a> operation and specify the case number
+    /// A successful <c>CreateCase</c> request returns an Amazon Web Services Support case
+    /// number. You can use the <a>DescribeCases</a> operation and specify the case number
     /// to get existing Amazon Web Services Support cases. After you create a case, use the
     /// <a>AddCommunicationToCase</a> operation to add additional communication or attachments
     /// to an existing case.
     /// </para><para>
-    /// The <code>caseId</code> is separate from the <code>displayId</code> that appears in
-    /// the <a href="https://console.aws.amazon.com/support">Amazon Web Services Support Center</a>.
-    /// Use the <a>DescribeCases</a> operation to get the <code>displayId</code>.
+    /// The <c>caseId</c> is separate from the <c>displayId</c> that appears in the <a href="https://console.aws.amazon.com/support">Amazon
+    /// Web Services Support Center</a>. Use the <a>DescribeCases</a> operation to get the
+    /// <c>displayId</c>.
     /// </para><note><ul><li><para>
     /// You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the
     /// Amazon Web Services Support API. 
     /// </para></li><li><para>
     /// If you call the Amazon Web Services Support API from an account that doesn't have
-    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <code>SubscriptionRequiredException</code>
+    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <c>SubscriptionRequiredException</c>
     /// error message appears. For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon
     /// Web Services Support</a>.
     /// </para></li></ul></note>
@@ -132,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter IssueType
         /// <summary>
         /// <para>
-        /// <para>The type of issue for the case. You can specify <code>customer-service</code> or <code>technical</code>.
-        /// If you don't specify a value, the default is <code>technical</code>.</para>
+        /// <para>The type of issue for the case. You can specify <c>customer-service</c> or <c>technical</c>.
+        /// If you don't specify a value, the default is <c>technical</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// <para>
         /// <para>The language in which Amazon Web Services Support handles the case. Amazon Web Services
         /// Support currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean
-        /// (“ko”). You must specify the ISO 639-1 code for the <code>language</code> parameter
-        /// if you want support in that language.</para>
+        /// (“ko”). You must specify the ISO 639-1 code for the <c>language</c> parameter if you
+        /// want support in that language.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// <summary>
         /// <para>
         /// <para>The code for the Amazon Web Services service. You can use the <a>DescribeServices</a>
-        /// operation to get the possible <code>serviceCode</code> values.</para>
+        /// operation to get the possible <c>serviceCode</c> values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// <para>A value that indicates the urgency of the case. This value determines the response
         /// time according to your service level agreement with Amazon Web Services Support. You
         /// can use the <a>DescribeSeverityLevels</a> operation to get the possible values for
-        /// <code>severityCode</code>. </para><para>For more information, see <a>SeverityLevel</a> and <a href="https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity">Choosing
+        /// <c>severityCode</c>. </para><para>For more information, see <a>SeverityLevel</a> and <a href="https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity">Choosing
         /// a Severity</a> in the <i>Amazon Web Services Support User Guide</i>.</para><note><para>The availability of severity levels depends on the support plan for the Amazon Web
         /// Services account.</para></note>
         /// </para>

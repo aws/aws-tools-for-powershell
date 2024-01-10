@@ -37,14 +37,14 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// <para>
     /// Note that if a delegated admin is de-registered, they can no longer create portfolio
     /// shares.
-    /// </para><para><code>AWSOrganizationsAccess</code> must be enabled in order to create a portfolio
-    /// share to an organization node.
+    /// </para><para><c>AWSOrganizationsAccess</c> must be enabled in order to create a portfolio share
+    /// to an organization node.
     /// </para><para>
     /// You can't share a shared resource, including portfolios that contain a shared product.
     /// </para><para>
     /// If the portfolio share with the specified account or organization node already exists,
     /// this action will have no effect and will not return an error. To update an existing
-    /// share, you must use the <code> UpdatePortfolioShare</code> API instead. 
+    /// share, you must use the <c> UpdatePortfolioShare</c> API instead. 
     /// </para><note><para>
     /// When you associate a principal with portfolio, a potential privilege escalation path
     /// may occur when that portfolio is then shared with other accounts. For a user in a
@@ -53,9 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// a principal name association for the portfolio. Although this user may not know which
     /// principal names are associated through Service Catalog, they may be able to guess
     /// the user. If this potential escalation path is a concern, then Service Catalog recommends
-    /// using <code>PrincipalType</code> as <code>IAM</code>. With this configuration, the
-    /// <code>PrincipalARN</code> must already exist in the recipient account before it can
-    /// be associated. 
+    /// using <c>PrincipalType</c> as <c>IAM</c>. With this configuration, the <c>PrincipalARN</c>
+    /// must already exist in the recipient account before it can be associated. 
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "SCPortfolioShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><c>jp</c> - Japanese</para></li><li><para><c>zh</c> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID. For example, <code>123456789012</code>.</para>
+        /// <para>The Amazon Web Services account ID. For example, <c>123456789012</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -111,13 +110,13 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>This parameter is only supported for portfolios with an <b>OrganizationalNode</b>
-        /// Type of <code>ORGANIZATION</code> or <code>ORGANIZATIONAL_UNIT</code>. </para><para>Enables or disables <code>Principal</code> sharing when creating the portfolio share.
-        /// If you do <b>not</b> provide this flag, principal sharing is disabled. </para><para>When you enable Principal Name Sharing for a portfolio share, the share recipient
+        /// Type of <c>ORGANIZATION</c> or <c>ORGANIZATIONAL_UNIT</c>. </para><para>Enables or disables <c>Principal</c> sharing when creating the portfolio share. If
+        /// you do <b>not</b> provide this flag, principal sharing is disabled. </para><para>When you enable Principal Name Sharing for a portfolio share, the share recipient
         /// account end users with a principal that matches any of the associated IAM patterns
         /// can provision products from the portfolio. Once shared, the share recipient can view
-        /// associations of <code>PrincipalType</code>: <code>IAM_PATTERN</code> on their portfolio.
-        /// You can create the principals in the recipient account before or after creating the
-        /// share. </para>
+        /// associations of <c>PrincipalType</c>: <c>IAM_PATTERN</c> on their portfolio. You can
+        /// create the principals in the recipient account before or after creating the share.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ShareTagOption
         /// <summary>
         /// <para>
-        /// <para>Enables or disables <code>TagOptions </code> sharing when creating the portfolio share.
+        /// <para>Enables or disables <c>TagOptions </c> sharing when creating the portfolio share.
         /// If this flag is not provided, TagOptions sharing is disabled.</para>
         /// </para>
         /// </summary>

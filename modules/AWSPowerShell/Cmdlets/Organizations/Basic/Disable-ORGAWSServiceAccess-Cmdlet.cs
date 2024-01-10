@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
     /// Disables the integration of an Amazon Web Services service (the service that is specified
-    /// by <code>ServicePrincipal</code>) with Organizations. When you disable integration,
-    /// the specified service no longer can create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked
+    /// by <c>ServicePrincipal</c>) with Organizations. When you disable integration, the
+    /// specified service no longer can create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked
     /// role</a> in <i>new</i> accounts in your organization. This means the service can't
     /// perform operations on your behalf on any new accounts in your organization. The service
     /// can still perform operations in older accounts until the service completes its clean-up
@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// accounts depends on that service. For more information, see the documentation for
     /// the other Amazon Web Services service. 
     /// </para></important><para>
-    /// After you perform the <code>DisableAWSServiceAccess</code> operation, the specified
-    /// service can no longer perform operations in your organization's accounts 
+    /// After you perform the <c>DisableAWSServiceAccess</c> operation, the specified service
+    /// can no longer perform operations in your organization's accounts 
     /// </para><para>
     /// For more information about integrating other services with Organizations, including
     /// the list of services that work with Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Using
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>
         /// <para>The service principal name of the Amazon Web Services service for which you want to
         /// disable integration with your organization. This is typically in the form of a URL,
-        /// such as <code><i>service-abbreviation</i>.amazonaws.com</code>.</para>
+        /// such as <c><i>service-abbreviation</i>.amazonaws.com</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

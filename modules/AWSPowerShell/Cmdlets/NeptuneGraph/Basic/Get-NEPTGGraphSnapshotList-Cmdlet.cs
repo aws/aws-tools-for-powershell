@@ -55,10 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The total number of records to return in the command's output.</para><para>If the total number of records available is more than the value specified, <code>nextToken</code>
-        /// is provided in the command's output. To resume pagination, provide the <code>nextToken</code>
-        /// output value in the <code>nextToken</code> argument of a subsequent command. Do not
-        /// use the <code>nextToken</code> response element directly outside of the Amazon CLI.</para>
+        /// <para>The total number of records to return in the command's output.</para><para>If the total number of records available is more than the value specified, <c>nextToken</c>
+        /// is provided in the command's output. To resume pagination, provide the <c>nextToken</c>
+        /// output value in the <c>nextToken</c> argument of a subsequent command. Do not use
+        /// the <c>nextToken</c> response element directly outside of the Amazon CLI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>owner-id</code> - The ID of the prefix list owner.</para></li><li><para><code>prefix-list-id</code> - The ID of the prefix list.</para></li><li><para><code>prefix-list-name</code> - The name of the prefix list.</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><c>owner-id</c> - The ID of the prefix list owner.</para></li><li><para><c>prefix-list-id</c> - The ID of the prefix list.</para></li><li><para><c>prefix-list-name</c> - The name of the prefix list.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

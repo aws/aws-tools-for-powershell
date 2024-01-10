@@ -68,11 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The power for the container service.</para><para>The power specifies the amount of memory, vCPUs, and base monthly cost of each node
-        /// of the container service. The <code>power</code> and <code>scale</code> of a container
-        /// service makes up its configured capacity. To determine the monthly price of your container
-        /// service, multiply the base price of the <code>power</code> with the <code>scale</code>
-        /// (the number of nodes) of the service.</para><para>Use the <code>GetContainerServicePowers</code> action to view the specifications of
-        /// each power option.</para>
+        /// of the container service. The <c>power</c> and <c>scale</c> of a container service
+        /// makes up its configured capacity. To determine the monthly price of your container
+        /// service, multiply the base price of the <c>power</c> with the <c>scale</c> (the number
+        /// of nodes) of the service.</para><para>Use the <c>GetContainerServicePowers</c> action to view the specifications of each
+        /// power option.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,14 +83,13 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PublicDomainName
         /// <summary>
         /// <para>
-        /// <para>The public domain names to use with the container service, such as <code>example.com</code>
-        /// and <code>www.example.com</code>.</para><para>You can specify up to four public domain names for a container service. The domain
+        /// <para>The public domain names to use with the container service, such as <c>example.com</c>
+        /// and <c>www.example.com</c>.</para><para>You can specify up to four public domain names for a container service. The domain
         /// names that you specify are used when you create a deployment with a container configured
         /// as the public endpoint of your container service.</para><para>If you don't specify public domain names, then you can use the default domain of the
         /// container service.</para><important><para>You must create and validate an SSL/TLS certificate before you can use public domain
-        /// names with your container service. Use the <code>CreateCertificate</code> action to
-        /// create a certificate for the public domain names you want to use with your container
-        /// service.</para></important><para>You can specify public domain names using a string to array map as shown in the example
+        /// names with your container service. Use the <c>CreateCertificate</c> action to create
+        /// a certificate for the public domain names you want to use with your container service.</para></important><para>You can specify public domain names using a string to array map as shown in the example
         /// later on this page.</para>
         /// </para>
         /// </summary>
@@ -102,10 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Scale
         /// <summary>
         /// <para>
-        /// <para>The scale for the container service.</para><para>The scale specifies the allocated compute nodes of the container service. The <code>power</code>
-        /// and <code>scale</code> of a container service makes up its configured capacity. To
-        /// determine the monthly price of your container service, multiply the base price of
-        /// the <code>power</code> with the <code>scale</code> (the number of nodes) of the service.</para>
+        /// <para>The scale for the container service.</para><para>The scale specifies the allocated compute nodes of the container service. The <c>power</c>
+        /// and <c>scale</c> of a container service makes up its configured capacity. To determine
+        /// the monthly price of your container service, multiply the base price of the <c>power</c>
+        /// with the <c>scale</c> (the number of nodes) of the service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -74,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The status to assign to the SSH public key. <code>Active</code> means that the key
-        /// can be used for authentication with an CodeCommit repository. <code>Inactive</code>
-        /// means that the key cannot be used.</para>
+        /// <para>The status to assign to the SSH public key. <c>Active</c> means that the key can be
+        /// used for authentication with an CodeCommit repository. <c>Inactive</c> means that
+        /// the key cannot be used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

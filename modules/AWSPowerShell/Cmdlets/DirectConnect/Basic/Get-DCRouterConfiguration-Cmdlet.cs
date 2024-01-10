@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// <summary>
         /// <para>
         /// <para>Identifies the router by a combination of vendor, platform, and software version.
-        /// For example, <code>CiscoSystemsInc-2900SeriesRouters-IOS124</code>.</para>
+        /// For example, <c>CiscoSystemsInc-2900SeriesRouters-IOS124</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

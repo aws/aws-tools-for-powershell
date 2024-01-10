@@ -31,15 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     /// Retrieves summary statistics for a path of intents that users take over sessions with
     /// your bot. The following fields are required:
     /// 
-    ///  <ul><li><para><code>startDateTime</code> and <code>endDateTime</code> – Define a time range for
-    /// which you want to retrieve results.
-    /// </para></li><li><para><code>intentPath</code> – Define an order of intents for which you want to retrieve
-    /// metrics. Separate intents in the path with a forward slash. For example, populate
-    /// the <code>intentPath</code> field with <code>/BookCar/BookHotel</code> to see details
-    /// about how many times users invoked the <code>BookCar</code> and <code>BookHotel</code>
-    /// intents in that order.
+    ///  <ul><li><para><c>startDateTime</c> and <c>endDateTime</c> – Define a time range for which you want
+    /// to retrieve results.
+    /// </para></li><li><para><c>intentPath</c> – Define an order of intents for which you want to retrieve metrics.
+    /// Separate intents in the path with a forward slash. For example, populate the <c>intentPath</c>
+    /// field with <c>/BookCar/BookHotel</c> to see details about how many times users invoked
+    /// the <c>BookCar</c> and <c>BookHotel</c> intents in that order.
     /// </para></li></ul><para>
-    /// Use the optional <code>filters</code> field to filter the results.
+    /// Use the optional <c>filters</c> field to filter the results.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "LMBV2IntentPathList")]

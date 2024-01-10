@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.NPT
 {
     /// <summary>
     /// Modifies the parameters of a DB cluster parameter group to the default value. To
-    /// reset specific parameters submit a list of the following: <code>ParameterName</code>
-    /// and <code>ApplyMethod</code>. To reset the entire DB cluster parameter group, specify
-    /// the <code>DBClusterParameterGroupName</code> and <code>ResetAllParameters</code> parameters.
+    /// reset specific parameters submit a list of the following: <c>ParameterName</c> and
+    /// <c>ApplyMethod</c>. To reset the entire DB cluster parameter group, specify the <c>DBClusterParameterGroupName</c>
+    /// and <c>ResetAllParameters</c> parameters.
     /// 
     ///  
     /// <para>
     ///  When resetting the entire group, dynamic parameters are updated immediately and static
-    /// parameters are set to <code>pending-reboot</code> to take effect on the next DB instance
+    /// parameters are set to <c>pending-reboot</c> to take effect on the next DB instance
     /// restart or <a>RebootDBInstance</a> request. You must call <a>RebootDBInstance</a>
     /// for every DB instance in your DB cluster that you want the updated static parameter
     /// to apply to.
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>A list of parameter names in the DB cluster parameter group to reset to the default
-        /// values. You can't use this parameter if the <code>ResetAllParameters</code> parameter
-        /// is set to <code>true</code>.</para>
+        /// values. You can't use this parameter if the <c>ResetAllParameters</c> parameter is
+        /// set to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,10 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter ResetAllParameter
         /// <summary>
         /// <para>
-        /// <para>A value that is set to <code>true</code> to reset all parameters in the DB cluster
-        /// parameter group to their default values, and <code>false</code> otherwise. You can't
-        /// use this parameter if there is a list of parameter names specified for the <code>Parameters</code>
-        /// parameter.</para>
+        /// <para>A value that is set to <c>true</c> to reset all parameters in the DB cluster parameter
+        /// group to their default values, and <c>false</c> otherwise. You can't use this parameter
+        /// if there is a list of parameter names specified for the <c>Parameters</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

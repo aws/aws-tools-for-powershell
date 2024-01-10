@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.KNRK
 {
     /// <summary>
     /// Lists your rescore execution plans. A rescore execution plan is an Amazon Kendra Intelligent
-    /// Ranking resource used for provisioning the <code>Rescore</code> API.
+    /// Ranking resource used for provisioning the <c>Rescore</c> API.
     /// </summary>
     [Cmdlet("Get", "KNRKRescoreExecutionPlanList")]
     [OutputType("Amazon.KendraRanking.Model.RescoreExecutionPlanSummary")]

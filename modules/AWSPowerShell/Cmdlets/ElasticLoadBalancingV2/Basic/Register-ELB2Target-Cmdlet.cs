@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// 
     ///  
     /// <para>
-    /// If the target is an EC2 instance, it must be in the <code>running</code> state when
-    /// you register it.
+    /// If the target is an EC2 instance, it must be in the <c>running</c> state when you
+    /// register it.
     /// </para><para>
     /// By default, the load balancer routes requests to registered targets using the protocol
     /// and port for the target group. Alternatively, you can override the port for a target

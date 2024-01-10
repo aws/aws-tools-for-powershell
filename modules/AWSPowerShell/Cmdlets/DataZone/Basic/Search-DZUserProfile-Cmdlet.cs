@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter UserType
         /// <summary>
         /// <para>
-        /// <para>Specifies the user type for the <code>SearchUserProfiles</code> action.</para>
+        /// <para>Specifies the user type for the <c>SearchUserProfiles</c> action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,10 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in a single call to <code>SearchUserProfiles</code>.
-        /// When the number of results to be listed is greater than the value of <code>MaxResults</code>,
-        /// the response contains a <code>NextToken</code> value that you can use in a subsequent
-        /// call to <code>SearchUserProfiles</code> to list the next set of results. </para>
+        /// <para>The maximum number of results to return in a single call to <c>SearchUserProfiles</c>.
+        /// When the number of results to be listed is greater than the value of <c>MaxResults</c>,
+        /// the response contains a <c>NextToken</c> value that you can use in a subsequent call
+        /// to <c>SearchUserProfiles</c> to list the next set of results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,10 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When the number of results is greater than the default value for the <code>MaxResults</code>
-        /// parameter, or if you explicitly specify a value for <code>MaxResults</code> that is
-        /// less than the number of results, the response includes a pagination token named <code>NextToken</code>.
-        /// You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchUserProfiles</code>
+        /// <para>When the number of results is greater than the default value for the <c>MaxResults</c>
+        /// parameter, or if you explicitly specify a value for <c>MaxResults</c> that is less
+        /// than the number of results, the response includes a pagination token named <c>NextToken</c>.
+        /// You can specify this <c>NextToken</c> value in a subsequent call to <c>SearchUserProfiles</c>
         /// to list the next set of results.</para>
         /// </para>
         /// <para>

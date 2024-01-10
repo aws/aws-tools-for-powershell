@@ -34,16 +34,16 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     /// web token (JWT)</a>. The information in the parameters can also define additional
     /// context that Verified Permissions can include in the evaluation. The request is evaluated
     /// against all matching policies in the specified policy store. The result of the decision
-    /// is either <code>Allow</code> or <code>Deny</code>, along with a list of the policies
-    /// that resulted in the decision.
+    /// is either <c>Allow</c> or <c>Deny</c>, along with a list of the policies that resulted
+    /// in the decision.
     /// 
     ///  <important><para>
-    /// If you specify the <code>identityToken</code> parameter, then this operation derives
-    /// the principal from that token. You must not also include that principal in the <code>entities</code>
+    /// If you specify the <c>identityToken</c> parameter, then this operation derives the
+    /// principal from that token. You must not also include that principal in the <c>entities</c>
     /// parameter or the operation fails and reports a conflict between the two entity sources.
     /// </para><para>
-    /// If you provide only an <code>accessToken</code>, then you can include the entity as
-    /// part of the <code>entities</code> parameter to provide additional attributes.
+    /// If you provide only an <c>accessToken</c>, then you can include the entity as part
+    /// of the <c>entities</c> parameter to provide additional attributes.
     /// </para></important><para>
     /// At this time, Verified Permissions accepts tokens from only Amazon Cognito.
     /// </para><para>
@@ -72,8 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <para>
         /// <para>Specifies an access token for the principal to be authorized. This token is provided
         /// to you by the identity provider (IdP) associated with the specified identity source.
-        /// You must specify either an <code>AccessToken</code>, or an <code>IdentityToken</code>,
-        /// or both.</para>
+        /// You must specify either an <c>AccessToken</c>, or an <c>IdentityToken</c>, or both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <summary>
         /// <para>
         /// <para>An list of attributes that are needed to successfully evaluate an authorization request.
-        /// Each attribute in this array must include a map of a data type and its value.</para><para>Example: <code>"contextMap":{"&lt;KeyName1&gt;":{"boolean":true},"&lt;KeyName2&gt;":{"long":1234}}</code></para>
+        /// Each attribute in this array must include a map of a data type and its value.</para><para>Example: <c>"contextMap":{"&lt;KeyName1&gt;":{"boolean":true},"&lt;KeyName2&gt;":{"long":1234}}</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter Resource_EntityId
         /// <summary>
         /// <para>
-        /// <para>The identifier of an entity.</para><para><code>"entityId":"<i>identifier</i>"</code></para>
+        /// <para>The identifier of an entity.</para><para><c>"entityId":"<i>identifier</i>"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter Resource_EntityType
         /// <summary>
         /// <para>
-        /// <para>The type of an entity.</para><para>Example: <code>"entityType":"<i>typeName</i>"</code></para>
+        /// <para>The type of an entity.</para><para>Example: <c>"entityType":"<i>typeName</i>"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,8 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <para>
         /// <para>Specifies an identity token for the principal to be authorized. This token is provided
         /// to you by the identity provider (IdP) associated with the specified identity source.
-        /// You must specify either an <code>AccessToken</code> or an <code>IdentityToken</code>,
-        /// or both.</para>
+        /// You must specify either an <c>AccessToken</c> or an <c>IdentityToken</c>, or both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of resource you want to retrieve information about. For example, <code>INSTANCE</code>.</para>
+        /// <para>The type of resource you want to retrieve information about. For example, <c>INSTANCE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

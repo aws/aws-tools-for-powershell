@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para>The namespace of the package version with the requested readme file. The package version
-        /// component that specifies its namespace depends on its type. For example:</para><ul><li><para> The namespace of an npm package version is its <code>scope</code>. </para></li><li><para> Python and NuGet package versions do not contain a corresponding component, package
+        /// component that specifies its namespace depends on its type. For example:</para><ul><li><para> The namespace of an npm package version is its <c>scope</c>. </para></li><li><para> Python and NuGet package versions do not contain a corresponding component, package
         /// versions of those formats do not have a namespace. </para></li></ul>
         /// </para>
         /// </summary>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter PackageVersion
         /// <summary>
         /// <para>
-        /// <para> A string that contains the package version (for example, <code>3.5.2</code>). </para>
+        /// <para> A string that contains the package version (for example, <c>3.5.2</c>). </para>
         /// </para>
         /// </summary>
         #if !MODULAR

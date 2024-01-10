@@ -49,11 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>A set of alternate data source parameters that you want to share for these credentials.
         /// The credentials are applied in tandem with the data source parameters when you copy
         /// a data source by using a create or update request. The API operation compares the
-        /// <code>DataSourceParameters</code> structure that's in the request with the structures
-        /// in the <code>AlternateDataSourceParameters</code> allow list. If the structures are
-        /// an exact match, the request is allowed to use the new data source with the existing
-        /// credentials. If the <code>AlternateDataSourceParameters</code> list is null, the <code>DataSourceParameters</code>
-        /// originally used with these <code>Credentials</code> is automatically allowed.</para>
+        /// <c>DataSourceParameters</c> structure that's in the request with the structures in
+        /// the <c>AlternateDataSourceParameters</c> allow list. If the structures are an exact
+        /// match, the request is allowed to use the new data source with the existing credentials.
+        /// If the <c>AlternateDataSourceParameters</c> list is null, the <c>DataSourceParameters</c>
+        /// originally used with these <c>Credentials</c> is automatically allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,11 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter IAMParameters_AutoCreateDatabaseUser
         /// <summary>
         /// <para>
-        /// <para>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>,
-        /// set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>,
-        /// Amazon QuickSight can't connect to your cluster. The <code>RoleArn</code> that you
-        /// use for this operation must grant access to <code>redshift:CreateClusterUser</code>
-        /// to successfully create the user.</para>
+        /// <para>Automatically creates a database user. If your database doesn't have a <c>DatabaseUser</c>,
+        /// set this parameter to <c>True</c>. If there is no <c>DatabaseUser</c>, Amazon QuickSight
+        /// can't connect to your cluster. The <c>RoleArn</c> that you use for this operation
+        /// must grant access to <c>redshift:CreateClusterUser</c> to successfully create the
+        /// user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,8 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter RedshiftParameters_ClusterId
         /// <summary>
         /// <para>
-        /// <para>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code>
-        /// are provided.</para>
+        /// <para>Cluster ID. This field can be blank if the <c>Host</c> and <c>Port</c> are provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a data source that has the credential pair that
-        /// you want to use. When <code>CopySourceArn</code> is not null, the credential pair
-        /// from the data source in the ARN is used as the credentials for the <code>DataSourceCredentials</code>
+        /// you want to use. When <c>CopySourceArn</c> is not null, the credential pair from the
+        /// data source in the ARN is used as the credentials for the <c>DataSourceCredentials</c>
         /// structure.</para>
         /// </para>
         /// </summary>
@@ -288,8 +287,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>A list of groups whose permissions will be granted to Amazon QuickSight to access
         /// the cluster. These permissions are combined with the permissions granted to Amazon
-        /// QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter,
-        /// the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</para>
+        /// QuickSight by the <c>DatabaseUser</c>. If you choose to include this parameter, the
+        /// <c>RoleArn</c> must grant access to <c>redshift:JoinGroup</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -303,8 +302,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>The user whose permissions and group memberships will be used by Amazon QuickSight
         /// to access the cluster. If this user already exists in your database, Amazon QuickSight
         /// is granted the same permissions that the user has. If the user doesn't exist, set
-        /// the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a
-        /// new user with PUBLIC permissions.</para>
+        /// the value of <c>AutoCreateDatabaseUser</c> to <c>True</c> to create a new user with
+        /// PUBLIC permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -508,7 +507,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter RedshiftParameters_Host
         /// <summary>
         /// <para>
-        /// <para>Host. This field can be blank if <code>ClusterId</code> is provided.</para>
+        /// <para>Host. This field can be blank if <c>ClusterId</c> is provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -756,7 +755,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter RedshiftParameters_Port
         /// <summary>
         /// <para>
-        /// <para>Port. This field can be blank if the <code>ClusterId</code> is provided.</para>
+        /// <para>Port. This field can be blank if the <c>ClusterId</c> is provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -856,12 +855,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AthenaParameters_RoleArn
         /// <summary>
         /// <para>
-        /// <para>Use the <code>RoleArn</code> structure to override an account-wide role for a specific
-        /// Athena data source. For example, say an account administrator has turned off all Athena
-        /// access with an account-wide role. The administrator can then use <code>RoleArn</code>
-        /// to bypass the account-wide role and allow Athena access for the single Athena data
-        /// source that is specified in the structure, even if the account-wide role forbidding
-        /// Athena access is still active.</para>
+        /// <para>Use the <c>RoleArn</c> structure to override an account-wide role for a specific Athena
+        /// data source. For example, say an account administrator has turned off all Athena access
+        /// with an account-wide role. The administrator can then use <c>RoleArn</c> to bypass
+        /// the account-wide role and allow Athena access for the single Athena data source that
+        /// is specified in the structure, even if the account-wide role forbidding Athena access
+        /// is still active.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -872,10 +871,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter IAMParameters_RoleArn
         /// <summary>
         /// <para>
-        /// <para>Use the <code>RoleArn</code> structure to allow Amazon QuickSight to call <code>redshift:GetClusterCredentials</code>
-        /// on your cluster. The calling principal must have <code>iam:PassRole</code> access
-        /// to pass the role to Amazon QuickSight. The role's trust policy must allow the Amazon
-        /// QuickSight service principal to assume the role.</para>
+        /// <para>Use the <c>RoleArn</c> structure to allow Amazon QuickSight to call <c>redshift:GetClusterCredentials</c>
+        /// on your cluster. The calling principal must have <c>iam:PassRole</c> access to pass
+        /// the role to Amazon QuickSight. The role's trust policy must allow the Amazon QuickSight
+        /// service principal to assume the role.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -886,12 +885,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter S3Parameters_RoleArn
         /// <summary>
         /// <para>
-        /// <para>Use the <code>RoleArn</code> structure to override an account-wide role for a specific
-        /// S3 data source. For example, say an account administrator has turned off all S3 access
-        /// with an account-wide role. The administrator can then use <code>RoleArn</code> to
-        /// bypass the account-wide role and allow S3 access for the single S3 data source that
-        /// is specified in the structure, even if the account-wide role forbidding S3 access
-        /// is still active.</para>
+        /// <para>Use the <c>RoleArn</c> structure to override an account-wide role for a specific S3
+        /// data source. For example, say an account administrator has turned off all S3 access
+        /// with an account-wide role. The administrator can then use <c>RoleArn</c> to bypass
+        /// the account-wide role and allow S3 access for the single S3 data source that is specified
+        /// in the structure, even if the account-wide role forbidding S3 access is still active.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -958,7 +956,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the data source. To return a list of all data sources, use <code>ListDataSources</code>.</para><para>Use <code>AMAZON_ELASTICSEARCH</code> for Amazon OpenSearch Service.</para>
+        /// <para>The type of the data source. To return a list of all data sources, use <c>ListDataSources</c>.</para><para>Use <c>AMAZON_ELASTICSEARCH</c> for Amazon OpenSearch Service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

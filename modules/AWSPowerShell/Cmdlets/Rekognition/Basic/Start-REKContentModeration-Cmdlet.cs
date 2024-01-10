@@ -35,15 +35,14 @@ namespace Amazon.PowerShell.Cmdlets.REK
     ///  
     /// <para>
     /// Amazon Rekognition Video can moderate content in a video stored in an Amazon S3 bucket.
-    /// Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartContentModeration</code>
-    /// returns a job identifier (<code>JobId</code>) which you use to get the results of
-    /// the analysis. When content analysis is finished, Amazon Rekognition Video publishes
-    /// a completion status to the Amazon Simple Notification Service topic that you specify
-    /// in <code>NotificationChannel</code>.
+    /// Use <a>Video</a> to specify the bucket name and the filename of the video. <c>StartContentModeration</c>
+    /// returns a job identifier (<c>JobId</c>) which you use to get the results of the analysis.
+    /// When content analysis is finished, Amazon Rekognition Video publishes a completion
+    /// status to the Amazon Simple Notification Service topic that you specify in <c>NotificationChannel</c>.
     /// </para><para>
     /// To get the results of the content analysis, first check that the status value published
-    /// to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetContentModeration</a>
-    /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>.
+    /// to the Amazon SNS topic is <c>SUCCEEDED</c>. If so, call <a>GetContentModeration</a>
+    /// and pass the job identifier (<c>JobId</c>) from the initial call to <c>StartContentModeration</c>.
     /// 
     /// </para><para>
     /// For more information, see Moderating content in the Amazon Rekognition Developer Guide.
@@ -65,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Idempotent token used to identify the start request. If you use the same token with
-        /// multiple <code>StartContentModeration</code> requests, the same <code>JobId</code>
-        /// is returned. Use <code>ClientRequestToken</code> to prevent the same job from being
-        /// accidently started more than once. </para>
+        /// multiple <c>StartContentModeration</c> requests, the same <c>JobId</c> is returned.
+        /// Use <c>ClientRequestToken</c> to prevent the same job from being accidently started
+        /// more than once. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>An identifier you specify that's returned in the completion notification that's published
-        /// to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code>
+        /// to your Amazon Simple Notification Service topic. For example, you can use <c>JobTag</c>
         /// to group related jobs and identify them in the completion notification.</para>
         /// </para>
         /// </summary>
@@ -94,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// that the moderated content is correctly identified. 0 is the lowest confidence. 100
         /// is the highest confidence. Amazon Rekognition doesn't return any moderated content
         /// labels with a confidence level lower than this specified value. If you don't specify
-        /// <code>MinConfidence</code>, <code>GetContentModeration</code> returns labels with
-        /// confidence values greater than or equal to 50 percent.</para>
+        /// <c>MinConfidence</c>, <c>GetContentModeration</c> returns labels with confidence values
+        /// greater than or equal to 50 percent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

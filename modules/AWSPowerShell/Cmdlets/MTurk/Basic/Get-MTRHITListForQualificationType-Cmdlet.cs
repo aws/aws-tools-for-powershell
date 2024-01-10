@@ -28,10 +28,10 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>ListHITsForQualificationType</code> operation returns the HITs that use
-    /// the given Qualification type for a Qualification requirement. The operation returns
-    /// HITs of any status, except for HITs that have been deleted with the <code>DeleteHIT</code>
-    /// operation or that have been auto-deleted.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// The <c>ListHITsForQualificationType</c> operation returns the HITs that use the given
+    /// Qualification type for a Qualification requirement. The operation returns HITs of
+    /// any status, except for HITs that have been deleted with the <c>DeleteHIT</c> operation
+    /// or that have been auto-deleted.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MTRHITListForQualificationType")]
     [OutputType("Amazon.MTurk.Model.HIT")]

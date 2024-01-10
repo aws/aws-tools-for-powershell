@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter IncludeWaiting
         /// <summary>
         /// <para>
-        /// <para> When set to <code>TRUE</code> and other parameters are not present, causes status
-        /// information to be returned for waiting queries as well as for running queries.</para>
+        /// <para> When set to <c>TRUE</c> and other parameters are not present, causes status information
+        /// to be returned for waiting queries as well as for running queries.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

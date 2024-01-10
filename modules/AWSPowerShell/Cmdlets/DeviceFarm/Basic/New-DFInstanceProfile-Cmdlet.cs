@@ -56,8 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <summary>
         /// <para>
         /// <para>An array of strings that specifies the list of app packages that should not be cleaned
-        /// up from the device after a test run.</para><para>The list of packages is considered only if you set <code>packageCleanup</code> to
-        /// <code>true</code>.</para>
+        /// up from the device after a test run.</para><para>The list of packages is considered only if you set <c>packageCleanup</c> to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter PackageCleanup
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, Device Farm removes app packages after a test run.
-        /// The default value is <code>false</code> for private devices.</para>
+        /// <para>When set to <c>true</c>, Device Farm removes app packages after a test run. The default
+        /// value is <c>false</c> for private devices.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter RebootAfterUse
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, Device Farm reboots the instance after a test run.
-        /// The default value is <code>true</code>.</para>
+        /// <para>When set to <c>true</c>, Device Farm reboots the instance after a test run. The default
+        /// value is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

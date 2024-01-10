@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The character set for your tenant database. If you don't specify a value, the character
-        /// set name defaults to <code>AL32UTF8</code>.</para>
+        /// set name defaults to <c>AL32UTF8</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,9 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>The password for the master user in your tenant database.</para><para>Constraints:</para><ul><li><para>Must be 8 to 30 characters.</para></li><li><para>Can include any printable ASCII character except forward slash (<code>/</code>), double
-        /// quote (<code>"</code>), at symbol (<code>@</code>), ampersand (<code>&amp;</code>),
-        /// or single quote (<code>'</code>).</para></li></ul>
+        /// <para>The password for the master user in your tenant database.</para><para>Constraints:</para><ul><li><para>Must be 8 to 30 characters.</para></li><li><para>Can include any printable ASCII character except forward slash (<c>/</c>), double
+        /// quote (<c>"</c>), at symbol (<c>@</c>), ampersand (<c>&amp;</c>), or single quote
+        /// (<c>'</c>).</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NcharCharacterSetName
         /// <summary>
         /// <para>
-        /// <para>The <code>NCHAR</code> value for the tenant database.</para>
+        /// <para>The <c>NCHAR</c> value for the tenant database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The user-supplied name of the tenant database that you want to create in your DB instance.
-        /// This parameter has the same constraints as <code>DBName</code> in <code>CreateDBInstance</code>.</para>
+        /// This parameter has the same constraints as <c>DBName</c> in <c>CreateDBInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

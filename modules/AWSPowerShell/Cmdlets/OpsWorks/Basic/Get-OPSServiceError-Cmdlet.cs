@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance ID. If you use this parameter, <code>DescribeServiceErrors</code> returns
-        /// descriptions of the errors associated with the specified instance.</para>
+        /// <para>The instance ID. If you use this parameter, <c>DescribeServiceErrors</c> returns descriptions
+        /// of the errors associated with the specified instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter ServiceErrorId
         /// <summary>
         /// <para>
-        /// <para>An array of service error IDs. If you use this parameter, <code>DescribeServiceErrors</code>
+        /// <para>An array of service error IDs. If you use this parameter, <c>DescribeServiceErrors</c>
         /// returns descriptions of the specified errors. Otherwise, it returns a description
         /// of every error.</para>
         /// </para>
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter StackId
         /// <summary>
         /// <para>
-        /// <para>The stack ID. If you use this parameter, <code>DescribeServiceErrors</code> returns
-        /// descriptions of the errors associated with the specified stack.</para>
+        /// <para>The stack ID. If you use this parameter, <c>DescribeServiceErrors</c> returns descriptions
+        /// of the errors associated with the specified stack.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

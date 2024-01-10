@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Fleet, the following happens:
     /// 
     ///  <ul><li><para>
-    /// The Capacity Reservation Fleet's status changes to <code>cancelled</code>.
+    /// The Capacity Reservation Fleet's status changes to <c>cancelled</c>.
     /// </para></li><li><para>
     /// The individual Capacity Reservations in the Fleet are cancelled. Instances running
     /// in the Capacity Reservations at the time of cancelling the Fleet continue to run in

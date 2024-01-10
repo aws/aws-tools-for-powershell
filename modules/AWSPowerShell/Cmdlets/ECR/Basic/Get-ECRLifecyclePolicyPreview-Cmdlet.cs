@@ -94,15 +94,15 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of repository results returned by <code>GetLifecyclePolicyPreviewRequest</code>
-        /// in  paginated output. When this parameter is used, <code>GetLifecyclePolicyPreviewRequest</code>
-        /// only returns  <code>maxResults</code> results in a single page along with a
-        /// <code>nextToken</code>  response element. The remaining results of the initial
-        /// request can be seen by sending  another <code>GetLifecyclePolicyPreviewRequest</code>
-        /// request with the returned <code>nextToken</code>  value. This value can be
-        /// between 1 and 1000. If this  parameter is not used, then <code>GetLifecyclePolicyPreviewRequest</code>
-        /// returns up to  100 results and a <code>nextToken</code> value, if  applicable.
-        /// This option cannot be used when you specify images with <code>imageIds</code>.</para>
+        /// <para>The maximum number of repository results returned by <c>GetLifecyclePolicyPreviewRequest</c>
+        /// in  paginated output. When this parameter is used, <c>GetLifecyclePolicyPreviewRequest</c>
+        /// only returns  <c>maxResults</c> results in a single page along with a <c>nextToken</c> 
+        /// response element. The remaining results of the initial request can be seen by sending 
+        /// another <c>GetLifecyclePolicyPreviewRequest</c> request with the returned <c>nextToken</c> 
+        /// value. This value can be between 1 and 1000. If this  parameter is not used,
+        /// then <c>GetLifecyclePolicyPreviewRequest</c> returns up to  100 results and
+        /// a <c>nextToken</c> value, if  applicable. This option cannot be used when you
+        /// specify images with <c>imageIds</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,12 +113,12 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated  <code>GetLifecyclePolicyPreviewRequest</code>
-        /// request where <code>maxResults</code> was used and the  results exceeded the
-        /// value of that parameter. Pagination continues from the end of the  previous
-        /// results that returned the <code>nextToken</code> value. This value is  <code>null</code>
-        /// when there are no more results to return. This option cannot be used when you specify
-        /// images with <code>imageIds</code>.</para>
+        /// <para>The <c>nextToken</c> value returned from a previous paginated  <c>GetLifecyclePolicyPreviewRequest</c>
+        /// request where <c>maxResults</c> was used and the  results exceeded the value
+        /// of that parameter. Pagination continues from the end of the  previous results
+        /// that returned the <c>nextToken</c> value. This value is  <c>null</c> when there
+        /// are no more results to return. This option cannot be used when you specify images
+        /// with <c>imageIds</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.ECR module, this parameter is only used if you are manually controlling output pagination of the service API call.

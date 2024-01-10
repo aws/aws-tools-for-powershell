@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to
-        /// update the notification configuration. You must specify either the <code>StreamName</code>
-        /// or the <code>StreamARN</code>.</para>
+        /// update the notification configuration. You must specify either the <c>StreamName</c>
+        /// or the <c>StreamARN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The name of the stream from which to update the notification configuration. You must
-        /// specify either the <code>StreamName</code> or the <code>StreamARN</code>.</para>
+        /// specify either the <c>StreamName</c> or the <c>StreamARN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

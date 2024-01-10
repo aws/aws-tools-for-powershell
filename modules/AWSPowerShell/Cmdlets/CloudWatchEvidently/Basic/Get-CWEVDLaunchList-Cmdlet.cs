@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// <summary>
         /// <para>
         /// <para>The token to use when requesting the next set of results. You received this token
-        /// from a previous <code>ListLaunches</code> operation.</para>
+        /// from a previous <c>ListLaunches</c> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

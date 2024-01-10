@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters the list for <code>AWS</code> or <code>CUSTOM</code> locations.</para>
+        /// <para>Filters the list for <c>AWS</c> or <c>CUSTOM</c> locations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
+        /// <para>The maximum number of results to return. Use this parameter with <c>NextToken</c>
         /// to get results as a set of sequential pages.</para>
         /// </para>
         /// </summary>

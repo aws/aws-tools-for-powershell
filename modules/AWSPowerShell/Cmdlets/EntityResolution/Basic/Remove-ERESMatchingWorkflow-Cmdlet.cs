@@ -28,7 +28,7 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Deletes the <code>MatchingWorkflow</code> with a given name. This operation will succeed
+    /// Deletes the <c>MatchingWorkflow</c> with a given name. This operation will succeed
     /// even if a workflow with the given name does not exist.
     /// </summary>
     [Cmdlet("Remove", "ERESMatchingWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

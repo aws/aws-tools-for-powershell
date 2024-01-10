@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// For example, create five separate launch requests for 100 instances each instead of
     /// one launch request for 500 instances.
     /// </para><para>
-    /// An instance is ready for you to use when it's in the <code>running</code> state. You
-    /// can check the state of your instance using <a>DescribeInstances</a>. You can tag instances
+    /// An instance is ready for you to use when it's in the <c>running</c> state. You can
+    /// check the state of your instance using <a>DescribeInstances</a>. You can tag instances
     /// and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a>
     /// and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
     /// your Amazon EC2 resources</a>.
@@ -175,9 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CapacityReservationSpecification_CapacityReservationPreference
         /// <summary>
         /// <para>
-        /// <para>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</para><ul><li><para><code>open</code> - The instance can run in any <code>open</code> Capacity Reservation
-        /// that has matching attributes (instance type, platform, Availability Zone).</para></li><li><para><code>none</code> - The instance avoids running in a Capacity Reservation even if
-        /// one is available. The instance runs as an On-Demand Instance.</para></li></ul>
+        /// <para>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</para><ul><li><para><c>open</c> - The instance can run in any <c>open</c> Capacity Reservation that has
+        /// matching attributes (instance type, platform, Availability Zone).</para></li><li><para><c>none</c> - The instance avoids running in a Capacity Reservation even if one is
+        /// available. The instance runs as an On-Demand Instance.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,10 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter HibernationOptions_Configured
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to enable your instance for hibernation.</para><para>For Spot Instances, if you set <code>Configured</code> to <code>true</code>, either
-        /// omit the <code>InstanceInterruptionBehavior</code> parameter (for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotMarketOptions.html"><code>SpotMarketOptions</code></a>), or set it to <code>hibernate</code>. When <code>Configured</code>
-        /// is true:</para><ul><li><para>If you omit <code>InstanceInterruptionBehavior</code>, it defaults to <code>hibernate</code>.</para></li><li><para>If you set <code>InstanceInterruptionBehavior</code> to a value other than <code>hibernate</code>,
-        /// you'll get an error.</para></li></ul><para>Default: <code>false</code></para>
+        /// <para>Set to <c>true</c> to enable your instance for hibernation.</para><para>For Spot Instances, if you set <c>Configured</c> to <c>true</c>, either omit the <c>InstanceInterruptionBehavior</c>
+        /// parameter (for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotMarketOptions.html"><c>SpotMarketOptions</c></a>), or set it to <c>hibernate</c>. When <c>Configured</c>
+        /// is true:</para><ul><li><para>If you omit <c>InstanceInterruptionBehavior</c>, it defaults to <c>hibernate</c>.</para></li><li><para>If you set <c>InstanceInterruptionBehavior</c> to a value other than <c>hibernate</c>,
+        /// you'll get an error.</para></li></ul><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CreditSpecification_CpuCredit
         /// <summary>
         /// <para>
-        /// <para>The credit option for CPU usage of a T instance.</para><para>Valid values: <code>standard</code> | <code>unlimited</code></para>
+        /// <para>The credit option for CPU usage of a T instance.</para><para>Valid values: <c>standard</c> | <c>unlimited</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,11 +247,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DisableApiTermination
         /// <summary>
         /// <para>
-        /// <para>If you set this parameter to <code>true</code>, you can't terminate the instance using
-        /// the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute
-        /// after launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>.
-        /// Alternatively, if you set <code>InstanceInitiatedShutdownBehavior</code> to <code>terminate</code>,
-        /// you can terminate the instance by running the shutdown command from the instance.</para><para>Default: <code>false</code></para>
+        /// <para>If you set this parameter to <c>true</c>, you can't terminate the instance using the
+        /// Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after
+        /// launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>.
+        /// Alternatively, if you set <c>InstanceInitiatedShutdownBehavior</c> to <c>terminate</c>,
+        /// you can terminate the instance by running the shutdown command from the instance.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -264,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Indicates whether the instance is optimized for Amazon EBS I/O. This optimization
         /// provides dedicated throughput to Amazon EBS and an optimized configuration stack to
         /// provide optimal Amazon EBS I/O performance. This optimization isn't available with
-        /// all instance types. Additional usage charges apply when using an EBS-optimized instance.</para><para>Default: <code>false</code></para>
+        /// all instance types. Additional usage charges apply when using an EBS-optimized instance.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -307,7 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter
-        /// to <code>true</code>.</para>
+        /// to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -358,8 +358,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_GroupId
         /// <summary>
         /// <para>
-        /// <para>The ID of the placement group that the instance is in. If you specify <code>GroupId</code>,
-        /// you can't specify <code>GroupName</code>.</para>
+        /// <para>The ID of the placement group that the instance is in. If you specify <c>GroupId</c>,
+        /// you can't specify <c>GroupName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -369,8 +369,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the placement group that the instance is in. If you specify <code>GroupName</code>,
-        /// you can't specify <code>GroupId</code>.</para>
+        /// <para>The name of the placement group that the instance is in. If you specify <c>GroupName</c>,
+        /// you can't specify <c>GroupId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -408,7 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ARN of the host resource group in which to launch the instances.</para><para>If you specify this parameter, either omit the <b>Tenancy</b> parameter or set it
-        /// to <code>host</code>.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
+        /// to <c>host</c>.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -418,7 +418,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MetadataOptions_HttpEndpoint
         /// <summary>
         /// <para>
-        /// <para>Enables or disables the HTTP metadata endpoint on your instances.</para><para>If you specify a value of <code>disabled</code>, you cannot access your instance metadata.</para><para>Default: <code>enabled</code></para>
+        /// <para>Enables or disables the HTTP metadata endpoint on your instances.</para><para>If you specify a value of <c>disabled</c>, you cannot access your instance metadata.</para><para>Default: <c>enabled</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -451,15 +451,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MetadataOptions_HttpToken
         /// <summary>
         /// <para>
-        /// <para>IMDSv2 uses token-backed sessions. Set the use of HTTP tokens to <code>optional</code>
-        /// (in other words, set the use of IMDSv2 to <code>optional</code>) or <code>required</code>
-        /// (in other words, set the use of IMDSv2 to <code>required</code>).</para><ul><li><para><code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance
-        /// metadata with or without a session token in your request. If you retrieve the IAM
-        /// role credentials without a token, the IMDSv1 role credentials are returned. If you
-        /// retrieve the IAM role credentials using a valid session token, the IMDSv2 role credentials
-        /// are returned.</para></li><li><para><code>required</code> - When IMDSv2 is required, you must send a session token with
-        /// any instance metadata retrieval requests. In this state, retrieving the IAM role credentials
-        /// always returns IMDSv2 credentials; IMDSv1 credentials are not available.</para></li></ul><para>Default: <code>optional</code></para>
+        /// <para>IMDSv2 uses token-backed sessions. Set the use of HTTP tokens to <c>optional</c> (in
+        /// other words, set the use of IMDSv2 to <c>optional</c>) or <c>required</c> (in other
+        /// words, set the use of IMDSv2 to <c>required</c>).</para><ul><li><para><c>optional</c> - When IMDSv2 is optional, you can choose to retrieve instance metadata
+        /// with or without a session token in your request. If you retrieve the IAM role credentials
+        /// without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM
+        /// role credentials using a valid session token, the IMDSv2 role credentials are returned.</para></li><li><para><c>required</c> - When IMDSv2 is required, you must send a session token with any
+        /// instance metadata retrieval requests. In this state, retrieving the IAM role credentials
+        /// always returns IMDSv2 credentials; IMDSv1 credentials are not available.</para></li></ul><para>Default: <c>optional</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -483,7 +482,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates whether an instance stops or terminates when you initiate shutdown from
-        /// the instance (using the operating system command for system shutdown).</para><para>Default: <code>stop</code></para>
+        /// the instance (using the operating system command for system shutdown).</para><para>Default: <c>stop</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -495,7 +494,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The market (purchasing) option for the instances.</para><para>For <a>RunInstances</a>, persistent Spot Instance requests are only supported when
-        /// <b>InstanceInterruptionBehavior</b> is set to either <code>hibernate</code> or <code>stop</code>.</para>
+        /// <b>InstanceInterruptionBehavior</b> is set to either <c>hibernate</c> or <c>stop</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -506,10 +505,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MetadataOptions_InstanceMetadataTag
         /// <summary>
         /// <para>
-        /// <para>Set to <code>enabled</code> to allow access to instance tags from the instance metadata.
-        /// Set to <code>disabled</code> to turn off access to instance tags from the instance
-        /// metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work
-        /// with instance tags using the instance metadata</a>.</para><para>Default: <code>disabled</code></para>
+        /// <para>Set to <c>enabled</c> to allow access to instance tags from the instance metadata.
+        /// Set to <c>disabled</c> to turn off access to instance tags from the instance metadata.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work
+        /// with instance tags using the instance metadata</a>.</para><para>Default: <c>disabled</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -609,7 +608,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The maximum number of instances to launch. If you specify more instances than Amazon
         /// EC2 can launch in the target Availability Zone, Amazon EC2 launches the largest possible
-        /// number of instances above <code>MinCount</code>.</para><para>Constraints: Between 1 and the maximum number you're allowed for the specified instance
+        /// number of instances above <c>MinCount</c>.</para><para>Constraints: Between 1 and the maximum number you're allowed for the specified instance
         /// type. For more information about the default limits, and how to request an increase,
         /// see <a href="http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2">How
         /// many instances can I run in Amazon EC2</a> in the Amazon EC2 FAQ.</para>
@@ -674,7 +673,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of the partition that the instance is in. Valid only if the placement group
-        /// strategy is set to <code>partition</code>.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
+        /// strategy is set to <c>partition</c>.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -769,11 +768,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_Tenancy
         /// <summary>
         /// <para>
-        /// <para>The tenancy of the instance. An instance with a tenancy of <code>dedicated</code>
-        /// runs on single-tenant hardware.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.
-        /// The <code>host</code> tenancy is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
-        /// or for T3 instances that are configured for the <code>unlimited</code> CPU credit
-        /// option.</para>
+        /// <para>The tenancy of the instance. An instance with a tenancy of <c>dedicated</c> runs on
+        /// single-tenant hardware.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.
+        /// The <c>host</c> tenancy is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
+        /// or for T3 instances that are configured for the <c>unlimited</c> CPU credit option.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

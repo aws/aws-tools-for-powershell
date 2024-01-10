@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// availability of your fleet.
     /// </para><para>
     /// You can specify tags for the Spot Fleet request and instances launched by the fleet.
-    /// You cannot tag other resource types in a Spot Fleet request because only the <code>spot-fleet-request</code>
-    /// and <code>instance</code> resource types are supported.
+    /// You cannot tag other resource types in a Spot Fleet request because only the <c>spot-fleet-request</c>
+    /// and <c>instance</c> resource types are supported.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot
     /// Fleet requests</a> in the <i>Amazon EC2 User Guide</i>.
@@ -85,21 +85,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// Spot Fleet then requests Spot Instances from the lowest priced of these pools.</para></dd><dt>capacityOptimized</dt><dd><para>Spot Fleet identifies the pools with the highest capacity availability for the number
         /// of instances that are launching. This means that we will request Spot Instances from
         /// the pools that we believe have the lowest chance of interruption in the near term.
-        /// To give certain instance types a higher chance of launching first, use <code>capacityOptimizedPrioritized</code>.
-        /// Set a priority for each instance type by using the <code>Priority</code> parameter
-        /// for <code>LaunchTemplateOverrides</code>. You can assign the same priority to different
-        /// <code>LaunchTemplateOverrides</code>. EC2 implements the priorities on a best-effort
-        /// basis, but optimizes for capacity first. <code>capacityOptimizedPrioritized</code>
-        /// is supported only if your Spot Fleet uses a launch template. Note that if the <code>OnDemandAllocationStrategy</code>
-        /// is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
-        /// capacity.</para></dd><dt>diversified</dt><dd><para>Spot Fleet requests instances from all of the Spot Instance pools that you specify.</para></dd><dt>lowestPrice</dt><dd><para>Spot Fleet requests instances from the lowest priced Spot Instance pool that has available
+        /// To give certain instance types a higher chance of launching first, use <c>capacityOptimizedPrioritized</c>.
+        /// Set a priority for each instance type by using the <c>Priority</c> parameter for <c>LaunchTemplateOverrides</c>.
+        /// You can assign the same priority to different <c>LaunchTemplateOverrides</c>. EC2
+        /// implements the priorities on a best-effort basis, but optimizes for capacity first.
+        /// <c>capacityOptimizedPrioritized</c> is supported only if your Spot Fleet uses a launch
+        /// template. Note that if the <c>OnDemandAllocationStrategy</c> is set to <c>prioritized</c>,
+        /// the same priority is applied when fulfilling On-Demand capacity.</para></dd><dt>diversified</dt><dd><para>Spot Fleet requests instances from all of the Spot Instance pools that you specify.</para></dd><dt>lowestPrice</dt><dd><para>Spot Fleet requests instances from the lowest priced Spot Instance pool that has available
         /// capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances
         /// come from the next lowest priced pool that has available capacity. If a pool runs
         /// out of capacity before fulfilling your desired capacity, Spot Fleet will continue
         /// to fulfill your request by drawing from the next lowest priced pool. To ensure that
         /// your desired capacity is met, you might receive Spot Instances from several pools.
         /// Because this strategy only considers instance price and not capacity availability,
-        /// it might lead to high interruption rates.</para></dd></dl><para>Default: <code>lowestPrice</code></para>
+        /// it might lead to high interruption rates.</para></dd></dl><para>Default: <c>lowestPrice</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates whether running instances should be terminated if you decrease the target
-        /// capacity of the Spot Fleet request below the current size of the Spot Fleet.</para><para>Supported only for fleets of type <code>maintain</code>.</para>
+        /// capacity of the Spot Fleet request below the current size of the Spot Fleet.</para><para>Supported only for fleets of type <c>maintain</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites">Spot
         /// Fleet prerequisites</a> in the <i>Amazon EC2 User Guide</i>. Spot Fleet can terminate
         /// Spot Instances on your behalf when you cancel its Spot Fleet request using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests">CancelSpotFleetRequests</a>
-        /// or when the Spot Fleet request expires, if you set <code>TerminateInstancesWithExpiration</code>.</para>
+        /// or when the Spot Fleet request expires, if you set <c>TerminateInstancesWithExpiration</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -188,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_InstanceInterruptionBehavior
         /// <summary>
         /// <para>
-        /// <para>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</para>
+        /// <para>The behavior when a Spot Instance is interrupted. The default is <c>terminate</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -200,9 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of Spot pools across which to allocate your target Spot capacity. Valid
-        /// only when Spot <b>AllocationStrategy</b> is set to <code>lowest-price</code>. Spot
-        /// Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity
-        /// across the number of Spot pools that you specify.</para><para>Note that Spot Fleet attempts to draw Spot Instances from the number of pools that
+        /// only when Spot <b>AllocationStrategy</b> is set to <c>lowest-price</c>. Spot Fleet
+        /// selects the cheapest Spot pools and evenly allocates your target Spot capacity across
+        /// the number of Spot pools that you specify.</para><para>Note that Spot Fleet attempts to draw Spot Instances from the number of pools that
         /// you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling
         /// your target capacity, Spot Fleet will continue to fulfill your request by drawing
         /// from the next cheapest pool. To ensure that your target capacity is met, you might
@@ -218,9 +217,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_LaunchSpecification
         /// <summary>
         /// <para>
-        /// <para>The launch specifications for the Spot Fleet request. If you specify <code>LaunchSpecifications</code>,
-        /// you can't specify <code>LaunchTemplateConfigs</code>. If you include On-Demand capacity
-        /// in your request, you must use <code>LaunchTemplateConfigs</code>.</para>
+        /// <para>The launch specifications for the Spot Fleet request. If you specify <c>LaunchSpecifications</c>,
+        /// you can't specify <c>LaunchTemplateConfigs</c>. If you include On-Demand capacity
+        /// in your request, you must use <c>LaunchTemplateConfigs</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,9 +230,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_LaunchTemplateConfig
         /// <summary>
         /// <para>
-        /// <para>The launch template and overrides. If you specify <code>LaunchTemplateConfigs</code>,
-        /// you can't specify <code>LaunchSpecifications</code>. If you include On-Demand capacity
-        /// in your request, you must use <code>LaunchTemplateConfigs</code>.</para>
+        /// <para>The launch template and overrides. If you specify <c>LaunchTemplateConfigs</c>, you
+        /// can't specify <c>LaunchSpecifications</c>. If you include On-Demand capacity in your
+        /// request, you must use <c>LaunchTemplateConfigs</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,11 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The order of the launch template overrides to use in fulfilling On-Demand capacity.
-        /// If you specify <code>lowestPrice</code>, Spot Fleet uses price to determine the order,
-        /// launching the lowest price first. If you specify <code>prioritized</code>, Spot Fleet
-        /// uses the priority that you assign to each Spot Fleet launch template override, launching
-        /// the highest priority first. If you do not specify a value, Spot Fleet defaults to
-        /// <code>lowestPrice</code>.</para>
+        /// If you specify <c>lowestPrice</c>, Spot Fleet uses price to determine the order, launching
+        /// the lowest price first. If you specify <c>prioritized</c>, Spot Fleet uses the priority
+        /// that you assign to each Spot Fleet launch template override, launching the highest
+        /// priority first. If you do not specify a value, Spot Fleet defaults to <c>lowestPrice</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -272,17 +270,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum amount per hour for On-Demand Instances that you're willing to pay. You
-        /// can use the <code>onDemandMaxTotalPrice</code> parameter, the <code>spotMaxTotalPrice</code>
-        /// parameter, or both parameters to ensure that your fleet cost does not exceed your
-        /// budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances
-        /// in your request, Spot Fleet will launch instances until it reaches the maximum amount
+        /// can use the <c>onDemandMaxTotalPrice</c> parameter, the <c>spotMaxTotalPrice</c> parameter,
+        /// or both parameters to ensure that your fleet cost does not exceed your budget. If
+        /// you set a maximum price per hour for the On-Demand Instances and Spot Instances in
+        /// your request, Spot Fleet will launch instances until it reaches the maximum amount
         /// you're willing to pay. When the maximum amount you're willing to pay is reached, the
-        /// fleet stops launching instances even if it hasn’t met the target capacity.</para><note><para>If your fleet includes T instances that are configured as <code>unlimited</code>,
-        /// and if their average CPU usage exceeds the baseline utilization, you will incur a
-        /// charge for surplus credits. The <code>onDemandMaxTotalPrice</code> does not account
-        /// for surplus credits, and, if you use surplus credits, your final cost might be higher
-        /// than what you specified for <code>onDemandMaxTotalPrice</code>. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus
+        /// fleet stops launching instances even if it hasn’t met the target capacity.</para><note><para>If your fleet includes T instances that are configured as <c>unlimited</c>, and if
+        /// their average CPU usage exceeds the baseline utilization, you will incur a charge
+        /// for surplus credits. The <c>onDemandMaxTotalPrice</c> does not account for surplus
+        /// credits, and, if you use surplus credits, your final cost might be higher than what
+        /// you specified for <c>onDemandMaxTotalPrice</c>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus
         /// credits can incur charges</a> in the <i>EC2 User Guide</i>.</para></note>
         /// </para>
         /// </summary>
@@ -295,8 +292,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The number of On-Demand units to request. You can choose to set the target capacity
         /// in terms of instances or a performance characteristic that is important to your application
-        /// workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>,
-        /// you can specify a target capacity of 0 and add capacity later.</para>
+        /// workload, such as vCPUs, memory, or I/O. If the request type is <c>maintain</c>, you
+        /// can specify a target capacity of 0 and add capacity later.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -306,14 +303,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CapacityRebalance_ReplacementStrategy
         /// <summary>
         /// <para>
-        /// <para>The replacement strategy to use. Only available for fleets of type <code>maintain</code>.</para><para><code>launch</code> - Spot Fleet launches a new replacement Spot Instance when a
-        /// rebalance notification is emitted for an existing Spot Instance in the fleet. Spot
-        /// Fleet does not terminate the instances that receive a rebalance notification. You
-        /// can terminate the old instances, or you can leave them running. You are charged for
-        /// all instances while they are running. </para><para><code>launch-before-terminate</code> - Spot Fleet launches a new replacement Spot
-        /// Instance when a rebalance notification is emitted for an existing Spot Instance in
-        /// the fleet, and then, after a delay that you specify (in <code>TerminationDelay</code>),
-        /// terminates the instances that received a rebalance notification.</para>
+        /// <para>The replacement strategy to use. Only available for fleets of type <c>maintain</c>.</para><para><c>launch</c> - Spot Fleet launches a new replacement Spot Instance when a rebalance
+        /// notification is emitted for an existing Spot Instance in the fleet. Spot Fleet does
+        /// not terminate the instances that receive a rebalance notification. You can terminate
+        /// the old instances, or you can leave them running. You are charged for all instances
+        /// while they are running. </para><para><c>launch-before-terminate</c> - Spot Fleet launches a new replacement Spot Instance
+        /// when a rebalance notification is emitted for an existing Spot Instance in the fleet,
+        /// and then, after a delay that you specify (in <c>TerminationDelay</c>), terminates
+        /// the instances that received a rebalance notification.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -337,17 +334,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum amount per hour for Spot Instances that you're willing to pay. You can
-        /// use the <code>spotMaxTotalPrice</code> parameter, the <code>onDemandMaxTotalPrice</code>
-        /// parameter, or both parameters to ensure that your fleet cost does not exceed your
-        /// budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances
-        /// in your request, Spot Fleet will launch instances until it reaches the maximum amount
+        /// use the <c>spotMaxTotalPrice</c> parameter, the <c>onDemandMaxTotalPrice</c> parameter,
+        /// or both parameters to ensure that your fleet cost does not exceed your budget. If
+        /// you set a maximum price per hour for the On-Demand Instances and Spot Instances in
+        /// your request, Spot Fleet will launch instances until it reaches the maximum amount
         /// you're willing to pay. When the maximum amount you're willing to pay is reached, the
-        /// fleet stops launching instances even if it hasn’t met the target capacity.</para><note><para>If your fleet includes T instances that are configured as <code>unlimited</code>,
-        /// and if their average CPU usage exceeds the baseline utilization, you will incur a
-        /// charge for surplus credits. The <code>spotMaxTotalPrice</code> does not account for
-        /// surplus credits, and, if you use surplus credits, your final cost might be higher
-        /// than what you specified for <code>spotMaxTotalPrice</code>. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus
+        /// fleet stops launching instances even if it hasn’t met the target capacity.</para><note><para>If your fleet includes T instances that are configured as <c>unlimited</c>, and if
+        /// their average CPU usage exceeds the baseline utilization, you will incur a charge
+        /// for surplus credits. The <c>spotMaxTotalPrice</c> does not account for surplus credits,
+        /// and, if you use surplus credits, your final cost might be higher than what you specified
+        /// for <c>spotMaxTotalPrice</c>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus
         /// credits can incur charges</a> in the <i>EC2 User Guide</i>.</para></note>
         /// </para>
         /// </summary>
@@ -371,12 +367,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_TagSpecification
         /// <summary>
         /// <para>
-        /// <para>The key-value pair for tagging the Spot Fleet request on creation. The value for <code>ResourceType</code>
-        /// must be <code>spot-fleet-request</code>, otherwise the Spot Fleet request fails. To
-        /// tag instances at launch, specify the tags in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
-        /// template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in the
-        /// <code><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">SpotFleetTagSpecification</a></code> (valid only if you use <code>LaunchSpecifications</code>). For information
-        /// about tagging after launch, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tag
+        /// <para>The key-value pair for tagging the Spot Fleet request on creation. The value for <c>ResourceType</c>
+        /// must be <c>spot-fleet-request</c>, otherwise the Spot Fleet request fails. To tag
+        /// instances at launch, specify the tags in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
+        /// template</a> (valid only if you use <c>LaunchTemplateConfigs</c>) or in the <c><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">SpotFleetTagSpecification</a></c> (valid only if you use <c>LaunchSpecifications</c>). For information about tagging
+        /// after launch, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tag
         /// your resources</a>.</para>
         /// </para>
         /// </summary>
@@ -390,7 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The number of units to request for the Spot Fleet. You can choose to set the target
         /// capacity in terms of instances or a performance characteristic that is important to
-        /// your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>,
+        /// your application workload, such as vCPUs, memory, or I/O. If the request type is <c>maintain</c>,
         /// you can specify a target capacity of 0 and add capacity later.</para>
         /// </para>
         /// </summary>
@@ -407,8 +402,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_TargetCapacityUnitType
         /// <summary>
         /// <para>
-        /// <para>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be
-        /// specified when <code>InstanceRequirements</code> is specified.</para><para>Default: <code>units</code> (translates to number of instances)</para>
+        /// <para>The unit for the target capacity. <c>TargetCapacityUnitType</c> can only be specified
+        /// when <c>InstanceRequirements</c> is specified.</para><para>Default: <c>units</c> (translates to number of instances)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -442,8 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
-        /// Instance after launching a new replacement Spot Instance.</para><para>Required when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</para><para>Not valid when <code>ReplacementStrategy</code> is set to <code>launch</code>.</para><para>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code>
-        /// seconds.</para>
+        /// Instance after launching a new replacement Spot Instance.</para><para>Required when <c>ReplacementStrategy</c> is set to <c>launch-before-terminate</c>.</para><para>Not valid when <c>ReplacementStrategy</c> is set to <c>launch</c>.</para><para>Valid values: Minimum value of <c>120</c> seconds. Maximum value of <c>7200</c> seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -455,13 +449,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The type of request. Indicates whether the Spot Fleet only requests the target capacity
-        /// or also attempts to maintain it. When this value is <code>request</code>, the Spot
-        /// Fleet only places the required requests. It does not attempt to replenish Spot Instances
+        /// or also attempts to maintain it. When this value is <c>request</c>, the Spot Fleet
+        /// only places the required requests. It does not attempt to replenish Spot Instances
         /// if capacity is diminished, nor does it submit requests in alternative Spot pools if
-        /// capacity is not available. When this value is <code>maintain</code>, the Spot Fleet
-        /// maintains the target capacity. The Spot Fleet places the required requests to meet
-        /// capacity and automatically replenishes any interrupted instances. Default: <code>maintain</code>.
-        /// <code>instant</code> is listed but is not used by Spot Fleet.</para>
+        /// capacity is not available. When this value is <c>maintain</c>, the Spot Fleet maintains
+        /// the target capacity. The Spot Fleet places the required requests to meet capacity
+        /// and automatically replenishes any interrupted instances. Default: <c>maintain</c>.
+        /// <c>instant</c> is listed but is not used by Spot Fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

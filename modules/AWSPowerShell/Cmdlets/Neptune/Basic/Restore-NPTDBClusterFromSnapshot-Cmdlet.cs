@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
-        /// <para><i>If set to <code>true</code>, tags are copied to any snapshot of the restored DB
-        /// cluster that is created.</i></para>
+        /// <para><i>If set to <c>true</c>, tags are copied to any snapshot of the restored DB cluster
+        /// that is created.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The name of the DB cluster to create from the DB snapshot or DB cluster snapshot.
-        /// This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
+        /// This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <c>my-snapshot-id</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB subnet group to use for the new DB cluster.</para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <code>mySubnetgroup</code></para>
+        /// <para>The name of the DB subnet group to use for the new DB cluster.</para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <c>mySubnetgroup</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>True to enable mapping of Amazon Identity and Access Management (IAM) accounts to
-        /// database accounts, and otherwise false.</para><para>Default: <code>false</code></para>
+        /// database accounts, and otherwise false.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,11 +191,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// DB snapshot or DB cluster snapshot.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
         /// If you are restoring a DB cluster with the same Amazon account that owns the KMS encryption
         /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
-        /// of the ARN for the KMS encryption key.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
-        /// will occur:</para><ul><li><para>If the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is encrypted,
+        /// of the ARN for the KMS encryption key.</para><para>If you do not specify a value for the <c>KmsKeyId</c> parameter, then the following
+        /// will occur:</para><ul><li><para>If the DB snapshot or DB cluster snapshot in <c>SnapshotIdentifier</c> is encrypted,
         /// then the restored DB cluster is encrypted using the KMS key that was used to encrypt
-        /// the DB snapshot or DB cluster snapshot.</para></li><li><para>If the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is not
-        /// encrypted, then the restored DB cluster is not encrypted.</para></li></ul>
+        /// the DB snapshot or DB cluster snapshot.</para></li><li><para>If the DB snapshot or DB cluster snapshot in <c>SnapshotIdentifier</c> is not encrypted,
+        /// then the restored DB cluster is not encrypted.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the new DB cluster accepts connections.</para><para>Constraints: Value must be <code>1150-65535</code></para><para>Default: The same port as the original DB cluster.</para>
+        /// <para>The port number on which the new DB cluster accepts connections.</para><para>Constraints: Value must be <c>1150-65535</c></para><para>Default: The same port as the original DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>Specifies the storage type to be associated with the DB cluster.</para><para>Valid values: <code>standard</code>, <code>iopt1</code></para><para>Default: <code>standard</code></para>
+        /// <para>Specifies the storage type to be associated with the DB cluster.</para><para>Valid values: <c>standard</c>, <c>iopt1</c></para><para>Default: <c>standard</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

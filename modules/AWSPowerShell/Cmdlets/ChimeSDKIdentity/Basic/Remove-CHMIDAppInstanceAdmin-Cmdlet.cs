@@ -28,7 +28,7 @@ using Amazon.ChimeSDKIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMID
 {
     /// <summary>
-    /// Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.
+    /// Demotes an <c>AppInstanceAdmin</c> to an <c>AppInstanceUser</c> or <c>AppInstanceBot</c>.
     /// This action does not delete the user.
     /// </summary>
     [Cmdlet("Remove", "CHMIDAppInstanceAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter AppInstanceAdminArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstance</code>'s administrator.</para>
+        /// <para>The ARN of the <c>AppInstance</c>'s administrator.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstance</code>.</para>
+        /// <para>The ARN of the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

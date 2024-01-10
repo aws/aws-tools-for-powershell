@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.S3O
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If a previous response from this operation included a <code>NextToken</code> value,
-        /// you can provide that value here to retrieve the next page of results.</para>
+        /// <para>If a previous response from this operation included a <c>NextToken</c> value, you
+        /// can provide that value here to retrieve the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

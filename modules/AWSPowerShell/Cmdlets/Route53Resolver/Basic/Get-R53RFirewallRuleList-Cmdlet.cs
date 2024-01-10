@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     ///  
     /// <para>
     /// A single call might return only a partial list of the rules. For information, see
-    /// <code>MaxResults</code>. 
+    /// <c>MaxResults</c>. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53RFirewallRuleList")]
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>Optional additional filter for the rules to retrieve.</para><para>The action that DNS Firewall should take on a DNS query when it matches one of the
-        /// domains in the rule's domain list:</para><ul><li><para><code>ALLOW</code> - Permit the request to go through.</para></li><li><para><code>ALERT</code> - Permit the request to go through but send an alert to the logs.</para></li><li><para><code>BLOCK</code> - Disallow the request. If this is specified, additional handling
-        /// details are provided in the rule's <code>BlockResponse</code> setting. </para></li></ul>
+        /// domains in the rule's domain list:</para><ul><li><para><c>ALLOW</c> - Permit the request to go through.</para></li><li><para><c>ALERT</c> - Permit the request to go through but send an alert to the logs.</para></li><li><para><c>BLOCK</c> - Disallow the request. If this is specified, additional handling details
+        /// are provided in the rule's <c>BlockResponse</c> setting. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,9 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The maximum number of objects that you want Resolver to return for this request. If
-        /// more objects are available, in the response, Resolver provides a <code>NextToken</code>
-        /// value that you can use in a subsequent call to get the next batch of objects.</para><para>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100
-        /// objects. </para>
+        /// more objects are available, in the response, Resolver provides a <c>NextToken</c>
+        /// value that you can use in a subsequent call to get the next batch of objects.</para><para>If you don't specify a value for <c>MaxResults</c>, Resolver returns up to 100 objects.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,10 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>For the first call to this list request, omit this value.</para><para>When you request a list of objects, Resolver returns at most the number of objects
-        /// specified in <code>MaxResults</code>. If more objects are available for retrieval,
-        /// Resolver returns a <code>NextToken</code> value in the response. To retrieve the next
-        /// batch of objects, use the token that was returned for the prior request in your next
-        /// request.</para>
+        /// specified in <c>MaxResults</c>. If more objects are available for retrieval, Resolver
+        /// returns a <c>NextToken</c> value in the response. To retrieve the next batch of objects,
+        /// use the token that was returned for the prior request in your next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

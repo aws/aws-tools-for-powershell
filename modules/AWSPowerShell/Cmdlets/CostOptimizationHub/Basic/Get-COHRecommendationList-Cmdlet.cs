@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.COH
         /// <summary>
         /// <para>
         /// <para>List of all recommendations for a resource, or a single recommendation if de-duped
-        /// by <code>resourceId</code>.</para>
+        /// by <c>resourceId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

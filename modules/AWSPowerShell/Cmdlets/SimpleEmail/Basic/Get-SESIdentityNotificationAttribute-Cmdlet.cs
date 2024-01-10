@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>A list of one or more identities. You can specify an identity by using its name or
-        /// by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>,
-        /// <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</para>
+        /// by using its Amazon Resource Name (ARN). Examples: <c>user@example.com</c>, <c>example.com</c>,
+        /// <c>arn:aws:ses:us-east-1:123456789012:identity/example.com</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

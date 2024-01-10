@@ -46,10 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter ConnectionPasswordEncryption_AwsKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>An KMS key that is used to encrypt the connection password. </para><para>If connection password protection is enabled, the caller of <code>CreateConnection</code>
-        /// and <code>UpdateConnection</code> needs at least <code>kms:Encrypt</code> permission
-        /// on the specified KMS key, to encrypt passwords before storing them in the Data Catalog.
-        /// </para><para>You can set the decrypt permission to enable or restrict access on the password key
+        /// <para>An KMS key that is used to encrypt the connection password. </para><para>If connection password protection is enabled, the caller of <c>CreateConnection</c>
+        /// and <c>UpdateConnection</c> needs at least <c>kms:Encrypt</c> permission on the specified
+        /// KMS key, to encrypt passwords before storing them in the Data Catalog. </para><para>You can set the decrypt permission to enable or restrict access on the password key
         /// according to your security requirements.</para>
         /// </para>
         /// </summary>
@@ -84,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter ConnectionPasswordEncryption_ReturnConnectionPasswordEncrypted
         /// <summary>
         /// <para>
-        /// <para>When the <code>ReturnConnectionPasswordEncrypted</code> flag is set to "true", passwords
-        /// remain encrypted in the responses of <code>GetConnection</code> and <code>GetConnections</code>.
+        /// <para>When the <c>ReturnConnectionPasswordEncrypted</c> flag is set to "true", passwords
+        /// remain encrypted in the responses of <c>GetConnection</c> and <c>GetConnections</c>.
         /// This encryption takes effect independently from catalog encryption. </para>
         /// </para>
         /// </summary>

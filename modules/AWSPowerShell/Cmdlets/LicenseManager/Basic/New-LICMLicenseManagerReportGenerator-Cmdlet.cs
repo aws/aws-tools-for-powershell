@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         /// <summary>
         /// <para>
         /// <para>Number of times within the frequency period that a report is generated. The only supported
-        /// value is <code>1</code>.</para>
+        /// value is <c>1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

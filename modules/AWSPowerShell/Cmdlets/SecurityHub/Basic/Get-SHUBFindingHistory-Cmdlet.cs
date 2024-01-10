@@ -47,18 +47,17 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> An ISO 8601-formatted timestamp that indicates the end time of the requested finding
-        /// history. A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The
-        /// value cannot contain spaces, and date and time should be separated by <code>T</code>.
-        /// For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC
-        /// 3339 section 5.6, Internet Date/Time Format</a>.</para><para>If you provide values for both <code>StartTime</code> and <code>EndTime</code>, Security
-        /// Hub returns finding history for the specified time period. If you provide a value
-        /// for <code>StartTime</code> but not for <code>EndTime</code>, Security Hub returns
-        /// finding history from the <code>StartTime</code> to the time at which the API is called.
-        /// If you provide a value for <code>EndTime</code> but not for <code>StartTime</code>,
-        /// Security Hub returns finding history from the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSecurityFindingFilters.html#securityhub-Type-AwsSecurityFindingFilters-CreatedAt">CreatedAt</a>
-        /// timestamp of the finding to the <code>EndTime</code>. If you provide neither <code>StartTime</code>
-        /// nor <code>EndTime</code>, Security Hub returns finding history from the CreatedAt
-        /// timestamp of the finding to the time at which the API is called. In all of these scenarios,
+        /// history. A correctly formatted example is <c>2020-05-21T20:16:34.724Z</c>. The value
+        /// cannot contain spaces, and date and time should be separated by <c>T</c>. For more
+        /// information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC
+        /// 3339 section 5.6, Internet Date/Time Format</a>.</para><para>If you provide values for both <c>StartTime</c> and <c>EndTime</c>, Security Hub returns
+        /// finding history for the specified time period. If you provide a value for <c>StartTime</c>
+        /// but not for <c>EndTime</c>, Security Hub returns finding history from the <c>StartTime</c>
+        /// to the time at which the API is called. If you provide a value for <c>EndTime</c>
+        /// but not for <c>StartTime</c>, Security Hub returns finding history from the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSecurityFindingFilters.html#securityhub-Type-AwsSecurityFindingFilters-CreatedAt">CreatedAt</a>
+        /// timestamp of the finding to the <c>EndTime</c>. If you provide neither <c>StartTime</c>
+        /// nor <c>EndTime</c>, Security Hub returns finding history from the CreatedAt timestamp
+        /// of the finding to the time at which the API is called. In all of these scenarios,
         /// the response is limited to 100 results, and the maximum time period is limited to
         /// 90 days.</para>
         /// </para>
@@ -107,18 +106,17 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para> An ISO 8601-formatted timestamp that indicates the start time of the requested finding
-        /// history. A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The
-        /// value cannot contain spaces, and date and time should be separated by <code>T</code>.
-        /// For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC
-        /// 3339 section 5.6, Internet Date/Time Format</a>.</para><para>If you provide values for both <code>StartTime</code> and <code>EndTime</code>, Security
-        /// Hub returns finding history for the specified time period. If you provide a value
-        /// for <code>StartTime</code> but not for <code>EndTime</code>, Security Hub returns
-        /// finding history from the <code>StartTime</code> to the time at which the API is called.
-        /// If you provide a value for <code>EndTime</code> but not for <code>StartTime</code>,
-        /// Security Hub returns finding history from the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSecurityFindingFilters.html#securityhub-Type-AwsSecurityFindingFilters-CreatedAt">CreatedAt</a>
-        /// timestamp of the finding to the <code>EndTime</code>. If you provide neither <code>StartTime</code>
-        /// nor <code>EndTime</code>, Security Hub returns finding history from the CreatedAt
-        /// timestamp of the finding to the time at which the API is called. In all of these scenarios,
+        /// history. A correctly formatted example is <c>2020-05-21T20:16:34.724Z</c>. The value
+        /// cannot contain spaces, and date and time should be separated by <c>T</c>. For more
+        /// information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC
+        /// 3339 section 5.6, Internet Date/Time Format</a>.</para><para>If you provide values for both <c>StartTime</c> and <c>EndTime</c>, Security Hub returns
+        /// finding history for the specified time period. If you provide a value for <c>StartTime</c>
+        /// but not for <c>EndTime</c>, Security Hub returns finding history from the <c>StartTime</c>
+        /// to the time at which the API is called. If you provide a value for <c>EndTime</c>
+        /// but not for <c>StartTime</c>, Security Hub returns finding history from the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSecurityFindingFilters.html#securityhub-Type-AwsSecurityFindingFilters-CreatedAt">CreatedAt</a>
+        /// timestamp of the finding to the <c>EndTime</c>. If you provide neither <c>StartTime</c>
+        /// nor <c>EndTime</c>, Security Hub returns finding history from the CreatedAt timestamp
+        /// of the finding to the time at which the API is called. In all of these scenarios,
         /// the response is limited to 100 results, and the maximum time period is limited to
         /// 90 days. </para>
         /// </para>
@@ -142,10 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A token for pagination purposes. Provide <code>NULL</code> as the initial value.
-        /// In subsequent requests, provide the token included in the response to get up to an
-        /// additional 100 results of finding history. If you don’t provide <code>NextToken</code>,
-        /// Security Hub returns up to 100 results of finding history for each request. </para>
+        /// <para> A token for pagination purposes. Provide <c>NULL</c> as the initial value. In subsequent
+        /// requests, provide the token included in the response to get up to an additional 100
+        /// results of finding history. If you don’t provide <c>NextToken</c>, Security Hub returns
+        /// up to 100 results of finding history for each request. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

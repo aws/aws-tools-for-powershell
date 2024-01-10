@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC
     /// for KMS</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para></note><para>
-    /// When it succeeds, the <code>UntagResource</code> operation doesn't return any output.
-    /// Also, if the specified tag key isn't found on the KMS key, it doesn't throw an exception
+    /// When it succeeds, the <c>UntagResource</c> operation doesn't return any output. Also,
+    /// if the specified tag key isn't found on the KMS key, it doesn't throw an exception
     /// or return a response. To confirm that the operation worked, use the <a>ListResourceTags</a>
     /// operation.
     /// </para><para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>Identifies the KMS key from which you are removing tags.</para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// <para>Identifies the KMS key from which you are removing tags.</para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

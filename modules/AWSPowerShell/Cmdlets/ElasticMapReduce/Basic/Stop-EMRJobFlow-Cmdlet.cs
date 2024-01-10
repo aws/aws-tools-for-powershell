@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// 
     ///  
     /// <para>
-    /// The maximum number of clusters allowed is 10. The call to <code>TerminateJobFlows</code>
+    /// The maximum number of clusters allowed is 10. The call to <c>TerminateJobFlows</c>
     /// is asynchronous. Depending on the configuration of the cluster, it may take up to
     /// 1-5 minutes for the cluster to completely terminate and release allocated resources,
     /// such as Amazon EC2 instances.

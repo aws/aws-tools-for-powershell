@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter JobRunId
         /// <summary>
         /// <para>
-        /// <para>A list of the <code>JobRunIds</code> that should be stopped for that job definition.</para>
+        /// <para>A list of the <c>JobRunIds</c> that should be stopped for that job definition.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

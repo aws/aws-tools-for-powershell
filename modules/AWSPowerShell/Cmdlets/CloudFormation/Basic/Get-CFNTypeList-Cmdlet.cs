@@ -45,10 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Filters_Category
         /// <summary>
         /// <para>
-        /// <para>The category of extensions to return.</para><ul><li><para><code>REGISTERED</code>: Private extensions that have been registered for this account
-        /// and Region.</para></li><li><para><code>ACTIVATED</code>: Public extensions that have been activated for this account
-        /// and Region.</para></li><li><para><code>THIRD_PARTY</code>: Extensions available for use from publishers other than
-        /// Amazon. This includes:</para><ul><li><para>Private extensions registered in the account.</para></li><li><para>Public extensions from publishers other than Amazon, whether activated or not.</para></li></ul></li><li><para><code>AWS_TYPES</code>: Extensions available for use from Amazon.</para></li></ul>
+        /// <para>The category of extensions to return.</para><ul><li><para><c>REGISTERED</c>: Private extensions that have been registered for this account
+        /// and Region.</para></li><li><para><c>ACTIVATED</c>: Public extensions that have been activated for this account and
+        /// Region.</para></li><li><para><c>THIRD_PARTY</c>: Extensions available for use from publishers other than Amazon.
+        /// This includes:</para><ul><li><para>Private extensions registered in the account.</para></li><li><para>Public extensions from publishers other than Amazon, whether activated or not.</para></li></ul></li><li><para><c>AWS_TYPES</c>: Extensions available for use from Amazon.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeprecatedStatus
         /// <summary>
         /// <para>
-        /// <para>The deprecation status of the extension that you want to get summary information about.</para><para>Valid values include:</para><ul><li><para><code>LIVE</code>: The extension is registered for use in CloudFormation operations.</para></li><li><para><code>DEPRECATED</code>: The extension has been deregistered and can no longer be
-        /// used in CloudFormation operations.</para></li></ul>
+        /// <para>The deprecation status of the extension that you want to get summary information about.</para><para>Valid values include:</para><ul><li><para><c>LIVE</c>: The extension is registered for use in CloudFormation operations.</para></li><li><para><c>DEPRECATED</c>: The extension has been deregistered and can no longer be used
+        /// in CloudFormation operations.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,10 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>For resource types, the provisioning behavior of the resource type. CloudFormation
         /// determines the provisioning type during registration, based on the types of handlers
-        /// in the schema handler package submitted.</para><para>Valid values include:</para><ul><li><para><code>FULLY_MUTABLE</code>: The resource type includes an update handler to process
-        /// updates to the type during stack update operations.</para></li><li><para><code>IMMUTABLE</code>: The resource type doesn't include an update handler, so the
-        /// type can't be updated and must instead be replaced during stack update operations.</para></li><li><para><code>NON_PROVISIONABLE</code>: The resource type doesn't include create, read, and
-        /// delete handlers, and therefore can't actually be provisioned.</para></li></ul><para>The default is <code>FULLY_MUTABLE</code>.</para>
+        /// in the schema handler package submitted.</para><para>Valid values include:</para><ul><li><para><c>FULLY_MUTABLE</c>: The resource type includes an update handler to process updates
+        /// to the type during stack update operations.</para></li><li><para><c>IMMUTABLE</c>: The resource type doesn't include an update handler, so the type
+        /// can't be updated and must instead be replaced during stack update operations.</para></li><li><para><c>NON_PROVISIONABLE</c>: The resource type doesn't include create, read, and delete
+        /// handlers, and therefore can't actually be provisioned.</para></li></ul><para>The default is <c>FULLY_MUTABLE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Filters_PublisherId
         /// <summary>
         /// <para>
-        /// <para>The id of the publisher of the extension.</para><para>Extensions published by Amazon aren't assigned a publisher ID. Use the <code>AWS_TYPES</code>
+        /// <para>The id of the publisher of the extension.</para><para>Extensions published by Amazon aren't assigned a publisher ID. Use the <c>AWS_TYPES</c>
         /// category to specify a list of types published by Amazon.</para>
         /// </para>
         /// </summary>
@@ -119,10 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Visibility
         /// <summary>
         /// <para>
-        /// <para>The scope at which the extensions are visible and usable in CloudFormation operations.</para><para>Valid values include:</para><ul><li><para><code>PRIVATE</code>: Extensions that are visible and usable within this account
-        /// and Region. This includes:</para><ul><li><para>Private extensions you have registered in this account and Region.</para></li><li><para>Public extensions that you have activated in this account and Region.</para></li></ul></li><li><para><code>PUBLIC</code>: Extensions that are publicly visible and available to be activated
+        /// <para>The scope at which the extensions are visible and usable in CloudFormation operations.</para><para>Valid values include:</para><ul><li><para><c>PRIVATE</c>: Extensions that are visible and usable within this account and Region.
+        /// This includes:</para><ul><li><para>Private extensions you have registered in this account and Region.</para></li><li><para>Public extensions that you have activated in this account and Region.</para></li></ul></li><li><para><c>PUBLIC</c>: Extensions that are publicly visible and available to be activated
         /// within any Amazon Web Services account. This includes extensions from Amazon Web Services,
-        /// in addition to third-party publishers.</para></li></ul><para>The default is <code>PRIVATE</code>.</para>
+        /// in addition to third-party publishers.</para></li></ul><para>The default is <c>PRIVATE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,9 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to be returned with a single call. If the number of
-        /// available results exceeds this maximum, the response includes a <code>NextToken</code>
-        /// value that you can assign to the <code>NextToken</code> request parameter to get the
-        /// next set of results.</para>
+        /// available results exceeds this maximum, the response includes a <c>NextToken</c> value
+        /// that you can assign to the <c>NextToken</c> request parameter to get the next set
+        /// of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,10 +148,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>If the previous paginated request didn't return all the remaining results, the response
-        /// object's <code>NextToken</code> parameter value is set to a token. To retrieve the
-        /// next set of results, call this action again and assign that token to the request object's
-        /// <code>NextToken</code> parameter. If there are no remaining results, the previous
-        /// response object's <code>NextToken</code> parameter is set to <code>null</code>.</para>
+        /// object's <c>NextToken</c> parameter value is set to a token. To retrieve the next
+        /// set of results, call this action again and assign that token to the request object's
+        /// <c>NextToken</c> parameter. If there are no remaining results, the previous response
+        /// object's <c>NextToken</c> parameter is set to <c>null</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

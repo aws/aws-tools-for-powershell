@@ -28,15 +28,14 @@ using Amazon.ElasticFileSystem.Model;
 namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
-    /// Returns the current <code>LifecycleConfiguration</code> object for the specified Amazon
-    /// EFS file system. Lifecycle management uses the <code>LifecycleConfiguration</code>
-    /// object to identify when to move files between storage classes. For a file system without
-    /// a <code>LifecycleConfiguration</code> object, the call returns an empty array in the
-    /// response.
+    /// Returns the current <c>LifecycleConfiguration</c> object for the specified Amazon
+    /// EFS file system. Lifecycle management uses the <c>LifecycleConfiguration</c> object
+    /// to identify when to move files between storage classes. For a file system without
+    /// a <c>LifecycleConfiguration</c> object, the call returns an empty array in the response.
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions for the <code>elasticfilesystem:DescribeLifecycleConfiguration</code>
+    /// This operation requires permissions for the <c>elasticfilesystem:DescribeLifecycleConfiguration</c>
     /// operation.
     /// </para>
     /// </summary>
@@ -55,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>The ID of the file system whose <code>LifecycleConfiguration</code> object you want
-        /// to retrieve (String).</para>
+        /// <para>The ID of the file system whose <c>LifecycleConfiguration</c> object you want to retrieve
+        /// (String).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

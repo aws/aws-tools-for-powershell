@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to include in each response (result page). Used for
-        /// a paginated request.</para><para>If you don't specify <code>MaxResults</code>, the request retrieves all available
-        /// results in a single response.</para>
+        /// a paginated request.</para><para>If you don't specify <c>MaxResults</c>, the request retrieves all available results
+        /// in a single response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,8 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <para>
         /// <para>A token from a previous result page. Used for a paginated request. The request retrieves
         /// the next result page. All other parameter values must be identical to the ones specified
-        /// in the initial request.</para><para>If you don't specify <code>NextToken</code>, the request retrieves the first result
-        /// page.</para>
+        /// in the initial request.</para><para>If you don't specify <c>NextToken</c>, the request retrieves the first result page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

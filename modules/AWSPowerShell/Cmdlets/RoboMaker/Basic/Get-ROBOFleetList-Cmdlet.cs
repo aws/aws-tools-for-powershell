@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Optional filters to limit results.</para><para>The filter name <code>name</code> is supported. When filtering, you must use the complete
+        /// <para>Optional filters to limit results.</para><para>The filter name <c>name</c> is supported. When filtering, you must use the complete
         /// value of the filtered item. You can use up to three filters.</para>
         /// </para>
         /// </summary>
@@ -64,12 +64,12 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>When this parameter is used, <code>ListFleets</code> only returns <code>maxResults</code>
-        /// results in a single page along with a <code>nextToken</code> response element. The
-        /// remaining results of the initial request can be seen by sending another <code>ListFleets</code>
-        /// request with the returned <code>nextToken</code> value. This value can be between
-        /// 1 and 200. If this parameter is not used, then <code>ListFleets</code> returns up
-        /// to 200 results and a <code>nextToken</code> value if applicable. </para>
+        /// <para>When this parameter is used, <c>ListFleets</c> only returns <c>maxResults</c> results
+        /// in a single page along with a <c>nextToken</c> response element. The remaining results
+        /// of the initial request can be seen by sending another <c>ListFleets</c> request with
+        /// the returned <c>nextToken</c> value. This value can be between 1 and 200. If this
+        /// parameter is not used, then <c>ListFleets</c> returns up to 200 results and a <c>nextToken</c>
+        /// value if applicable. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -87,10 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         /// <summary>
         /// <para>
         /// <para>If the previous paginated request did not return all of the remaining results, the
-        /// response object's <code>nextToken</code> parameter value is set to a token. To retrieve
-        /// the next set of results, call <code>ListFleets</code> again and assign that token
-        /// to the request object's <code>nextToken</code> parameter. If there are no remaining
-        /// results, the previous response object's NextToken parameter is set to null. </para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// response object's <c>nextToken</c> parameter value is set to a token. To retrieve
+        /// the next set of results, call <c>ListFleets</c> again and assign that token to the
+        /// request object's <c>nextToken</c> parameter. If there are no remaining results, the
+        /// previous response object's NextToken parameter is set to null. </para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

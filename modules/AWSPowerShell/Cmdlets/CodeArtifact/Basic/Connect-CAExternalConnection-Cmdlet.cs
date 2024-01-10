@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para> The name of the external connection to add to the repository. The following values
-        /// are supported: </para><ul><li><para><code>public:npmjs</code> - for the npm public repository. </para></li><li><para><code>public:nuget-org</code> - for the NuGet Gallery. </para></li><li><para><code>public:pypi</code> - for the Python Package Index. </para></li><li><para><code>public:maven-central</code> - for Maven Central. </para></li><li><para><code>public:maven-googleandroid</code> - for the Google Android repository. </para></li><li><para><code>public:maven-gradleplugins</code> - for the Gradle plugins repository. </para></li><li><para><code>public:maven-commonsware</code> - for the CommonsWare Android repository. </para></li><li><para><code>public:maven-clojars</code> - for the Clojars repository. </para></li></ul>
+        /// are supported: </para><ul><li><para><c>public:npmjs</c> - for the npm public repository. </para></li><li><para><c>public:nuget-org</c> - for the NuGet Gallery. </para></li><li><para><c>public:pypi</c> - for the Python Package Index. </para></li><li><para><c>public:maven-central</c> - for Maven Central. </para></li><li><para><c>public:maven-googleandroid</c> - for the Google Android repository. </para></li><li><para><c>public:maven-gradleplugins</c> - for the Gradle plugins repository. </para></li><li><para><c>public:maven-commonsware</c> - for the CommonsWare Android repository. </para></li><li><para><c>public:maven-clojars</c> - for the Clojars repository. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

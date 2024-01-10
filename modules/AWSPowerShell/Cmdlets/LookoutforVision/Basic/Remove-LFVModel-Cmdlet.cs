@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     ///  
     /// <para>
     /// It might take a few seconds to delete a model. To determine if a model has been deleted,
-    /// call <a>ListModels</a> and check if the version of the model (<code>ModelVersion</code>)
-    /// is in the <code>Models</code> array. 
+    /// call <a>ListModels</a> and check if the version of the model (<c>ModelVersion</c>)
+    /// is in the <c>Models</c> array. 
     /// </para><para>
-    /// This operation requires permissions to perform the <code>lookoutvision:DeleteModel</code>
+    /// This operation requires permissions to perform the <c>lookoutvision:DeleteModel</c>
     /// operation.
     /// </para>
     /// </summary>
@@ -90,14 +90,13 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>ClientToken is an idempotency token that ensures a call to <code>DeleteModel</code>
-        /// completes only once. You choose the value to pass. For example, an issue might prevent
-        /// you from getting a response from <code>DeleteModel</code>. In this case, safely retry
-        /// your call to <code>DeleteModel</code> by using the same <code>ClientToken</code> parameter
-        /// value.</para><para>If you don't supply a value for ClientToken, the AWS SDK you are using inserts a value
+        /// <para>ClientToken is an idempotency token that ensures a call to <c>DeleteModel</c> completes
+        /// only once. You choose the value to pass. For example, an issue might prevent you from
+        /// getting a response from <c>DeleteModel</c>. In this case, safely retry your call to
+        /// <c>DeleteModel</c> by using the same <c>ClientToken</c> parameter value.</para><para>If you don't supply a value for ClientToken, the AWS SDK you are using inserts a value
         /// for you. This prevents retries after a network error from making multiple model deletion
         /// requests. You'll need to provide your own value for other use cases. </para><para>An error occurs if the other input parameters are not the same as in the first request.
-        /// Using a different value for <code>ClientToken</code> is considered a new call to <code>DeleteModel</code>.
+        /// Using a different value for <c>ClientToken</c> is considered a new call to <c>DeleteModel</c>.
         /// An idempotency token is active for 8 hours.</para>
         /// </para>
         /// </summary>

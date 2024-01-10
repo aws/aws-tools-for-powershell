@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// tasks, replication instances, and assessment run status values.
     /// </para><note><para>
     /// This operation doesn't return information about individual assessments. For this information,
-    /// see the <code>DescribeReplicationTaskIndividualAssessments</code> operation. 
+    /// see the <c>DescribeReplicationTaskIndividualAssessments</c> operation. 
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DMSReplicationTaskAssessmentRun")]
@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Filters applied to the premigration assessment runs described in the form of key-value
-        /// pairs.</para><para>Valid filter names: <code>replication-task-assessment-run-arn</code>, <code>replication-task-arn</code>,
-        /// <code>replication-instance-arn</code>, <code>status</code></para>
+        /// pairs.</para><para>Valid filter names: <c>replication-task-assessment-run-arn</c>, <c>replication-task-arn</c>,
+        /// <c>replication-instance-arn</c>, <c>status</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>An optional pagination token provided by a previous request. If this parameter is
         /// specified, the response includes only records beyond the marker, up to the value specified
-        /// by <code>MaxRecords</code>.</para>
+        /// by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that the remaining results can be retrieved.</para>
+        /// the specified <c>MaxRecords</c> value, a pagination token called a marker is included
+        /// in the response so that the remaining results can be retrieved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

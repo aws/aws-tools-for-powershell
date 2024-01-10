@@ -46,15 +46,15 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></para></li><li><para>
     /// The maximum message size is 10 MB.
     /// </para></li><li><para>
-    /// Each <code>Destination</code> parameter must include at least one recipient email
-    /// address. The recipient address can be a To: address, a CC: address, or a BCC: address.
-    /// If a recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>),
+    /// Each <c>Destination</c> parameter must include at least one recipient email address.
+    /// The recipient address can be a To: address, a CC: address, or a BCC: address. If a
+    /// recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>),
     /// the entire message is rejected, even if the message contains other recipients that
     /// are valid.
     /// </para></li><li><para>
     /// The message may not include more than 50 recipients, across the To:, CC: and BCC:
     /// fields. If you need to send an email message to a larger audience, you can divide
-    /// your recipient list into groups of 50 or fewer, and then call the <code>SendBulkTemplatedEmail</code>
+    /// your recipient list into groups of 50 or fewer, and then call the <c>SendBulkTemplatedEmail</c>
     /// operation several times to send the message to each group.
     /// </para></li><li><para>
     /// The number of destinations you can contact in a single call can be limited by your
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration set to use when you send an email using <code>SendBulkTemplatedEmail</code>.</para>
+        /// <para>The name of the configuration set to use when you send an email using <c>SendBulkTemplatedEmail</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>A list of tags, in the form of name/value pairs, to apply to an email that you send
-        /// to a destination using <code>SendBulkTemplatedEmail</code>.</para>
+        /// to a destination using <c>SendBulkTemplatedEmail</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,9 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter Destination
         /// <summary>
         /// <para>
-        /// <para>One or more <code>Destination</code> objects. All of the recipients in a <code>Destination</code>
-        /// receive the same version of the email. You can specify up to 50 <code>Destination</code>
-        /// objects within a <code>Destinations</code> array.</para>
+        /// <para>One or more <c>Destination</c> objects. All of the recipients in a <c>Destination</c>
+        /// receive the same version of the email. You can specify up to 50 <c>Destination</c>
+        /// objects within a <c>Destinations</c> array.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -146,9 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>The email address that bounces and complaints are forwarded to when feedback forwarding
         /// is enabled. If the message cannot be delivered to the recipient, then an error message
         /// is returned from the recipient's ISP; this message is forwarded to the email address
-        /// specified by the <code>ReturnPath</code> parameter. The <code>ReturnPath</code> parameter
-        /// is never overwritten. This email address must be either individually verified with
-        /// Amazon SES, or from a domain that has been verified with Amazon SES. </para>
+        /// specified by the <c>ReturnPath</c> parameter. The <c>ReturnPath</c> parameter is never
+        /// overwritten. This email address must be either individually verified with Amazon SES,
+        /// or from a domain that has been verified with Amazon SES. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,10 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>
         /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
         /// that is associated with the sending authorization policy that permits you to use the
-        /// email address specified in the <code>ReturnPath</code> parameter.</para><para>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>)
-        /// attaches a policy to it that authorizes you to use <code>feedback@example.com</code>,
-        /// then you would specify the <code>ReturnPathArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>,
-        /// and the <code>ReturnPath</code> to be <code>feedback@example.com</code>.</para><para>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html">Amazon
+        /// email address specified in the <c>ReturnPath</c> parameter.</para><para>For example, if the owner of <c>example.com</c> (which has ARN <c>arn:aws:ses:us-east-1:123456789012:identity/example.com</c>)
+        /// attaches a policy to it that authorizes you to use <c>feedback@example.com</c>, then
+        /// you would specify the <c>ReturnPathArn</c> to be <c>arn:aws:ses:us-east-1:123456789012:identity/example.com</c>,
+        /// and the <c>ReturnPath</c> to be <c>feedback@example.com</c>.</para><para>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html">Amazon
         /// SES Developer Guide</a>.</para>
         /// </para>
         /// </summary>
@@ -178,8 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// verified with Amazon SES, or from a domain that has been verified with Amazon SES.
         /// For information about verifying identities, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html">Amazon
         /// SES Developer Guide</a>.</para><para>If you are sending on behalf of another user and have been permitted to do so by a
-        /// sending authorization policy, then you must also specify the <code>SourceArn</code>
-        /// parameter. For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html">Amazon
+        /// sending authorization policy, then you must also specify the <c>SourceArn</c> parameter.
+        /// For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html">Amazon
         /// SES Developer Guide</a>.</para><note><para>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>.
         /// For this reason, the email address string must be 7-bit ASCII. If you want to send
         /// to or from email addresses that contain Unicode characters in the domain part of an
@@ -207,10 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>
         /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
         /// that is associated with the sending authorization policy that permits you to send
-        /// for the email address specified in the <code>Source</code> parameter.</para><para>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>)
-        /// attaches a policy to it that authorizes you to send from <code>user@example.com</code>,
-        /// then you would specify the <code>SourceArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>,
-        /// and the <code>Source</code> to be <code>user@example.com</code>.</para><para>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html">Amazon
+        /// for the email address specified in the <c>Source</c> parameter.</para><para>For example, if the owner of <c>example.com</c> (which has ARN <c>arn:aws:ses:us-east-1:123456789012:identity/example.com</c>)
+        /// attaches a policy to it that authorizes you to send from <c>user@example.com</c>,
+        /// then you would specify the <c>SourceArn</c> to be <c>arn:aws:ses:us-east-1:123456789012:identity/example.com</c>,
+        /// and the <c>Source</c> to be <c>user@example.com</c>.</para><para>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html">Amazon
         /// SES Developer Guide</a>.</para>
         /// </para>
         /// </summary>

@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     /// specified permission set.
     /// 
     ///  <note><para>
-    /// After a successful response, call <code>DescribeAccountAssignmentDeletionStatus</code>
-    /// to describe the status of an assignment deletion request.
+    /// After a successful response, call <c>DescribeAccountAssignmentDeletionStatus</c> to
+    /// describe the status of an assignment deletion request.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "SSOADMNAccountAssignment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

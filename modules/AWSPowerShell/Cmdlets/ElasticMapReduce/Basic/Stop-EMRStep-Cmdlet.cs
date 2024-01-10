@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// in each CancelSteps request. CancelSteps is idempotent but asynchronous; it does not
     /// guarantee that a step will be canceled, even if the request is successfully submitted.
     /// When you use Amazon EMR releases 5.28.0 and later, you can cancel steps that are in
-    /// a <code>PENDING</code> or <code>RUNNING</code> state. In earlier versions of Amazon
-    /// EMR, you can only cancel steps that are in a <code>PENDING</code> state.
+    /// a <c>PENDING</c> or <c>RUNNING</c> state. In earlier versions of Amazon EMR, you can
+    /// only cancel steps that are in a <c>PENDING</c> state.
     /// </summary>
     [Cmdlet("Stop", "EMRStep", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticMapReduce.Model.CancelStepsInfo")]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ClusterId
         /// <summary>
         /// <para>
-        /// <para>The <code>ClusterID</code> for the specified steps that will be canceled. Use <a>RunJobFlow</a>
+        /// <para>The <c>ClusterID</c> for the specified steps that will be canceled. Use <a>RunJobFlow</a>
         /// and <a>ListClusters</a> to get ClusterIDs. </para>
         /// </para>
         /// </summary>
@@ -69,8 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter StepCancellationOption
         /// <summary>
         /// <para>
-        /// <para>The option to choose to cancel <code>RUNNING</code> steps. By default, the value is
-        /// <code>SEND_INTERRUPT</code>.</para>
+        /// <para>The option to choose to cancel <c>RUNNING</c> steps. By default, the value is <c>SEND_INTERRUPT</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter StepId
         /// <summary>
         /// <para>
-        /// <para>The list of <code>StepIDs</code> to cancel. Use <a>ListSteps</a> to get steps and
-        /// their states for the specified cluster.</para>
+        /// <para>The list of <c>StepIDs</c> to cancel. Use <a>ListSteps</a> to get steps and their
+        /// states for the specified cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -55,9 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The strategy that determines the order of the launch template overrides to use in
-        /// fulfilling On-Demand capacity.</para><para><code>lowest-price</code> - EC2 Fleet uses price to determine the order, launching
-        /// the lowest price first.</para><para><code>prioritized</code> - EC2 Fleet uses the priority that you assigned to each
-        /// launch template override, launching the highest priority first.</para><para>Default: <code>lowest-price</code></para>
+        /// fulfilling On-Demand capacity.</para><para><c>lowest-price</c> - EC2 Fleet uses price to determine the order, launching the
+        /// lowest price first.</para><para><c>prioritized</c> - EC2 Fleet uses the priority that you assigned to each launch
+        /// template override, launching the highest priority first.</para><para>Default: <c>lowest-price</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,21 +77,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// EC2 Fleet then requests Spot Instances from the lowest priced of these pools.</para></dd><dt>capacity-optimized</dt><dd><para>EC2 Fleet identifies the pools with the highest capacity availability for the number
         /// of instances that are launching. This means that we will request Spot Instances from
         /// the pools that we believe have the lowest chance of interruption in the near term.
-        /// To give certain instance types a higher chance of launching first, use <code>capacity-optimized-prioritized</code>.
-        /// Set a priority for each instance type by using the <code>Priority</code> parameter
-        /// for <code>LaunchTemplateOverrides</code>. You can assign the same priority to different
-        /// <code>LaunchTemplateOverrides</code>. EC2 implements the priorities on a best-effort
-        /// basis, but optimizes for capacity first. <code>capacity-optimized-prioritized</code>
-        /// is supported only if your EC2 Fleet uses a launch template. Note that if the On-Demand
-        /// <code>AllocationStrategy</code> is set to <code>prioritized</code>, the same priority
-        /// is applied when fulfilling On-Demand capacity.</para></dd><dt>diversified</dt><dd><para>EC2 Fleet requests instances from all of the Spot Instance pools that you specify.</para></dd><dt>lowest-price</dt><dd><para>EC2 Fleet requests instances from the lowest priced Spot Instance pool that has available
+        /// To give certain instance types a higher chance of launching first, use <c>capacity-optimized-prioritized</c>.
+        /// Set a priority for each instance type by using the <c>Priority</c> parameter for <c>LaunchTemplateOverrides</c>.
+        /// You can assign the same priority to different <c>LaunchTemplateOverrides</c>. EC2
+        /// implements the priorities on a best-effort basis, but optimizes for capacity first.
+        /// <c>capacity-optimized-prioritized</c> is supported only if your EC2 Fleet uses a launch
+        /// template. Note that if the On-Demand <c>AllocationStrategy</c> is set to <c>prioritized</c>,
+        /// the same priority is applied when fulfilling On-Demand capacity.</para></dd><dt>diversified</dt><dd><para>EC2 Fleet requests instances from all of the Spot Instance pools that you specify.</para></dd><dt>lowest-price</dt><dd><para>EC2 Fleet requests instances from the lowest priced Spot Instance pool that has available
         /// capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances
         /// come from the next lowest priced pool that has available capacity. If a pool runs
         /// out of capacity before fulfilling your desired capacity, EC2 Fleet will continue to
         /// fulfill your request by drawing from the next lowest priced pool. To ensure that your
         /// desired capacity is met, you might receive Spot Instances from several pools. Because
         /// this strategy only considers instance price and not capacity availability, it might
-        /// lead to high interruption rates.</para></dd></dl><para>Default: <code>lowest-price</code></para>
+        /// lead to high interruption rates.</para></dd></dl><para>Default: <c>lowest-price</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,8 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TargetCapacitySpecification_DefaultTargetCapacityType
         /// <summary>
         /// <para>
-        /// <para>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or
-        /// <code>On-Demand</code>.</para>
+        /// <para>The default <c>TotalTargetCapacity</c>, which is either <c>Spot</c> or <c>On-Demand</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates whether running instances should be terminated if the total target capacity
-        /// of the EC2 Fleet is decreased below the current size of the EC2 Fleet.</para><para>Supported only for fleets of type <code>maintain</code>.</para>
+        /// of the EC2 Fleet is decreased below the current size of the EC2 Fleet.</para><para>Supported only for fleets of type <c>maintain</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotOptions_InstanceInterruptionBehavior
         /// <summary>
         /// <para>
-        /// <para>The behavior when a Spot Instance is interrupted.</para><para>Default: <code>terminate</code></para>
+        /// <para>The behavior when a Spot Instance is interrupted.</para><para>Default: <c>terminate</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,9 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of Spot pools across which to allocate your target Spot capacity. Supported
-        /// only when Spot <code>AllocationStrategy</code> is set to <code>lowest-price</code>.
-        /// EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity
-        /// across the number of Spot pools that you specify.</para><para>Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that
+        /// only when Spot <c>AllocationStrategy</c> is set to <c>lowest-price</c>. EC2 Fleet
+        /// selects the cheapest Spot pools and evenly allocates your target Spot capacity across
+        /// the number of Spot pools that you specify.</para><para>Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that
         /// you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling
         /// your target capacity, EC2 Fleet will continue to fulfill your request by drawing from
         /// the next cheapest pool. To ensure that your target capacity is met, you might receive
@@ -184,11 +182,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter OnDemandOptions_MaxTotalPrice
         /// <summary>
         /// <para>
-        /// <para>The maximum amount per hour for On-Demand Instances that you're willing to pay.</para><note><para>If your fleet includes T instances that are configured as <code>unlimited</code>,
-        /// and if their average CPU usage exceeds the baseline utilization, you will incur a
-        /// charge for surplus credits. The <code>MaxTotalPrice</code> does not account for surplus
-        /// credits, and, if you use surplus credits, your final cost might be higher than what
-        /// you specified for <code>MaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus
+        /// <para>The maximum amount per hour for On-Demand Instances that you're willing to pay.</para><note><para>If your fleet includes T instances that are configured as <c>unlimited</c>, and if
+        /// their average CPU usage exceeds the baseline utilization, you will incur a charge
+        /// for surplus credits. The <c>MaxTotalPrice</c> does not account for surplus credits,
+        /// and, if you use surplus credits, your final cost might be higher than what you specified
+        /// for <c>MaxTotalPrice</c>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus
         /// credits can incur charges</a> in the <i>EC2 User Guide</i>.</para></note>
         /// </para>
         /// </summary>
@@ -202,11 +200,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The maximum amount per hour for Spot Instances that you're willing to pay. We do not
         /// recommend using this parameter because it can lead to increased interruptions. If
         /// you do not specify this parameter, you will pay the current Spot price.</para><important><para>If you specify a maximum price, your Spot Instances will be interrupted more frequently
-        /// than if you do not specify this parameter.</para></important><note><para>If your fleet includes T instances that are configured as <code>unlimited</code>,
-        /// and if their average CPU usage exceeds the baseline utilization, you will incur a
-        /// charge for surplus credits. The <code>MaxTotalPrice</code> does not account for surplus
-        /// credits, and, if you use surplus credits, your final cost might be higher than what
-        /// you specified for <code>MaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus
+        /// than if you do not specify this parameter.</para></important><note><para>If your fleet includes T instances that are configured as <c>unlimited</c>, and if
+        /// their average CPU usage exceeds the baseline utilization, you will incur a charge
+        /// for surplus credits. The <c>MaxTotalPrice</c> does not account for surplus credits,
+        /// and, if you use surplus credits, your final cost might be higher than what you specified
+        /// for <c>MaxTotalPrice</c>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus
         /// credits can incur charges</a> in the <i>EC2 User Guide</i>.</para></note>
         /// </para>
         /// </summary>
@@ -218,8 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The minimum target capacity for On-Demand Instances in the fleet. If the minimum target
-        /// capacity is not reached, the fleet launches no instances.</para><para>Supported only for fleets of type <code>instant</code>.</para><para>At least one of the following must be specified: <code>SingleAvailabilityZone</code>
-        /// | <code>SingleInstanceType</code></para>
+        /// capacity is not reached, the fleet launches no instances.</para><para>Supported only for fleets of type <c>instant</c>.</para><para>At least one of the following must be specified: <c>SingleAvailabilityZone</c> | <c>SingleInstanceType</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -230,8 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The minimum target capacity for Spot Instances in the fleet. If the minimum target
-        /// capacity is not reached, the fleet launches no instances.</para><para>Supported only for fleets of type <code>instant</code>.</para><para>At least one of the following must be specified: <code>SingleAvailabilityZone</code>
-        /// | <code>SingleInstanceType</code></para>
+        /// capacity is not reached, the fleet launches no instances.</para><para>Supported only for fleets of type <c>instant</c>.</para><para>At least one of the following must be specified: <c>SingleAvailabilityZone</c> | <c>SingleInstanceType</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -251,14 +247,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CapacityRebalance_ReplacementStrategy
         /// <summary>
         /// <para>
-        /// <para>The replacement strategy to use. Only available for fleets of type <code>maintain</code>.</para><para><code>launch</code> - EC2 Fleet launches a replacement Spot Instance when a rebalance
-        /// notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet does
-        /// not terminate the instances that receive a rebalance notification. You can terminate
-        /// the old instances, or you can leave them running. You are charged for all instances
-        /// while they are running. </para><para><code>launch-before-terminate</code> - EC2 Fleet launches a replacement Spot Instance
-        /// when a rebalance notification is emitted for an existing Spot Instance in the fleet,
-        /// and then, after a delay that you specify (in <code>TerminationDelay</code>), terminates
-        /// the instances that received a rebalance notification.</para>
+        /// <para>The replacement strategy to use. Only available for fleets of type <c>maintain</c>.</para><para><c>launch</c> - EC2 Fleet launches a replacement Spot Instance when a rebalance notification
+        /// is emitted for an existing Spot Instance in the fleet. EC2 Fleet does not terminate
+        /// the instances that receive a rebalance notification. You can terminate the old instances,
+        /// or you can leave them running. You are charged for all instances while they are running.
+        /// </para><para><c>launch-before-terminate</c> - EC2 Fleet launches a replacement Spot Instance when
+        /// a rebalance notification is emitted for an existing Spot Instance in the fleet, and
+        /// then, after a delay that you specify (in <c>TerminationDelay</c>), terminates the
+        /// instances that received a rebalance notification.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only
-        /// for fleets of type <code>maintain</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks">EC2
+        /// for fleets of type <c>maintain</c>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks">EC2
         /// Fleet health checks</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -284,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates that the fleet launches all On-Demand Instances into a single Availability
-        /// Zone.</para><para>Supported only for fleets of type <code>instant</code>.</para>
+        /// Zone.</para><para>Supported only for fleets of type <c>instant</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -294,7 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotOptions_SingleAvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>Indicates that the fleet launches all Spot Instances into a single Availability Zone.</para><para>Supported only for fleets of type <code>instant</code>.</para>
+        /// <para>Indicates that the fleet launches all Spot Instances into a single Availability Zone.</para><para>Supported only for fleets of type <c>instant</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -305,7 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates that the fleet uses a single instance type to launch all On-Demand Instances
-        /// in the fleet.</para><para>Supported only for fleets of type <code>instant</code>.</para>
+        /// in the fleet.</para><para>Supported only for fleets of type <c>instant</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -316,7 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates that the fleet uses a single instance type to launch all Spot Instances
-        /// in the fleet.</para><para>Supported only for fleets of type <code>instant</code>.</para>
+        /// in the fleet.</para><para>Supported only for fleets of type <c>instant</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -338,10 +334,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The key-value pair for tagging the EC2 Fleet request on creation. For more information,
         /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tag
-        /// your resources</a>.</para><para>If the fleet type is <code>instant</code>, specify a resource type of <code>fleet</code>
-        /// to tag the fleet or <code>instance</code> to tag the instances at launch.</para><para>If the fleet type is <code>maintain</code> or <code>request</code>, specify a resource
-        /// type of <code>fleet</code> to tag the fleet. You cannot specify a resource type of
-        /// <code>instance</code>. To tag instances at launch, specify the tags in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
+        /// your resources</a>.</para><para>If the fleet type is <c>instant</c>, specify a resource type of <c>fleet</c> to tag
+        /// the fleet or <c>instance</c> to tag the instances at launch.</para><para>If the fleet type is <c>maintain</c> or <c>request</c>, specify a resource type of
+        /// <c>fleet</c> to tag the fleet. You cannot specify a resource type of <c>instance</c>.
+        /// To tag instances at launch, specify the tags in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
         /// template</a>.</para>
         /// </para>
         /// </summary>
@@ -353,8 +349,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TargetCapacitySpecification_TargetCapacityUnitType
         /// <summary>
         /// <para>
-        /// <para>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be
-        /// specified when <code>InstanceRequirements</code> is specified.</para><para>Default: <code>units</code> (translates to number of instances)</para>
+        /// <para>The unit for the target capacity. <c>TargetCapacityUnitType</c> can only be specified
+        /// when <c>InstanceRequirements</c> is specified.</para><para>Default: <c>units</c> (translates to number of instances)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -376,8 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
-        /// Instance after launching a new replacement Spot Instance.</para><para>Required when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</para><para>Not valid when <code>ReplacementStrategy</code> is set to <code>launch</code>.</para><para>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code>
-        /// seconds.</para>
+        /// Instance after launching a new replacement Spot Instance.</para><para>Required when <c>ReplacementStrategy</c> is set to <c>launch-before-terminate</c>.</para><para>Not valid when <c>ReplacementStrategy</c> is set to <c>launch</c>.</para><para>Valid values: Minimum value of <c>120</c> seconds. Maximum value of <c>7200</c> seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -388,7 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TargetCapacitySpecification_TotalTargetCapacity
         /// <summary>
         /// <para>
-        /// <para>The number of units to request, filled using <code>DefaultTargetCapacityType</code>.</para>
+        /// <para>The number of units to request, filled using <c>DefaultTargetCapacityType</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -404,13 +399,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The fleet type. The default value is <code>maintain</code>.</para><ul><li><para><code>maintain</code> - The EC2 Fleet places an asynchronous request for your desired
-        /// capacity, and continues to maintain your desired Spot capacity by replenishing interrupted
-        /// Spot Instances.</para></li><li><para><code>request</code> - The EC2 Fleet places an asynchronous one-time request for
-        /// your desired capacity, but does submit Spot requests in alternative capacity pools
-        /// if Spot capacity is unavailable, and does not maintain Spot capacity if Spot Instances
-        /// are interrupted.</para></li><li><para><code>instant</code> - The EC2 Fleet places a synchronous one-time request for your
-        /// desired capacity, and returns errors for any instances that could not be launched.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html">EC2
+        /// <para>The fleet type. The default value is <c>maintain</c>.</para><ul><li><para><c>maintain</c> - The EC2 Fleet places an asynchronous request for your desired capacity,
+        /// and continues to maintain your desired Spot capacity by replenishing interrupted Spot
+        /// Instances.</para></li><li><para><c>request</c> - The EC2 Fleet places an asynchronous one-time request for your desired
+        /// capacity, but does submit Spot requests in alternative capacity pools if Spot capacity
+        /// is unavailable, and does not maintain Spot capacity if Spot Instances are interrupted.</para></li><li><para><c>instant</c> - The EC2 Fleet places a synchronous one-time request for your desired
+        /// capacity, and returns errors for any instances that could not be launched.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html">EC2
         /// Fleet request types</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -422,13 +416,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CapacityReservationOptions_UsageStrategy
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.</para><para>If you specify <code>use-capacity-reservations-first</code>, the fleet uses unused
-        /// Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity.
-        /// If multiple instance pools have unused Capacity Reservations, the On-Demand allocation
-        /// strategy (<code>lowest-price</code> or <code>prioritized</code>) is applied. If the
-        /// number of unused Capacity Reservations is less than the On-Demand target capacity,
-        /// the remaining On-Demand target capacity is launched according to the On-Demand allocation
-        /// strategy (<code>lowest-price</code> or <code>prioritized</code>).</para><para>If you do not specify a value, the fleet fulfils the On-Demand capacity according
+        /// <para>Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.</para><para>If you specify <c>use-capacity-reservations-first</c>, the fleet uses unused Capacity
+        /// Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If
+        /// multiple instance pools have unused Capacity Reservations, the On-Demand allocation
+        /// strategy (<c>lowest-price</c> or <c>prioritized</c>) is applied. If the number of
+        /// unused Capacity Reservations is less than the On-Demand target capacity, the remaining
+        /// On-Demand target capacity is launched according to the On-Demand allocation strategy
+        /// (<c>lowest-price</c> or <c>prioritized</c>).</para><para>If you do not specify a value, the fleet fulfils the On-Demand capacity according
         /// to the chosen On-Demand allocation strategy.</para>
         /// </para>
         /// </summary>

@@ -28,8 +28,8 @@ using Amazon.KinesisVideo.Model;
 namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
-    /// Returns the most current information about the stream. The <code>streamName</code>
-    /// or <code>streamARN</code> should be provided in the input.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the most current information about the stream. The <c>streamName</c> or <c>streamARN</c>
+    /// should be provided in the input.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KVMappedResourceConfiguration")]
     [OutputType("Amazon.KinesisVideo.Model.MappedResourceConfigurationListItem")]

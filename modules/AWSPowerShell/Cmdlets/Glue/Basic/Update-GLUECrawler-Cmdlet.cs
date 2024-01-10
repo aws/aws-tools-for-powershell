@@ -28,7 +28,7 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Updates a crawler. If a crawler is running, you must stop it using <code>StopCrawler</code>
+    /// Updates a crawler. If a crawler is running, you must stop it using <c>StopCrawler</c>
     /// before updating it.
     /// </summary>
     [Cmdlet("Update", "GLUECrawler", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter CrawlerSecurityConfiguration
         /// <summary>
         /// <para>
-        /// <para>The name of the <code>SecurityConfiguration</code> structure to be used by this crawler.</para>
+        /// <para>The name of the <c>SecurityConfiguration</c> structure to be used by this crawler.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
-        /// <para>The Glue database where results are stored, such as: <code>arn:aws:daylight:us-east-1::database/sometable/*</code>.</para>
+        /// <para>The Glue database where results are stored, such as: <c>arn:aws:daylight:us-east-1::database/sometable/*</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>Specifies whether to crawl the entire dataset again or to crawl only folders that
-        /// were added since the last crawler run.</para><para>A value of <code>CRAWL_EVERYTHING</code> specifies crawling the entire dataset again.</para><para>A value of <code>CRAWL_NEW_FOLDERS_ONLY</code> specifies crawling only folders that
-        /// were added since the last crawler run.</para><para>A value of <code>CRAWL_EVENT_MODE</code> specifies crawling only the changes identified
+        /// were added since the last crawler run.</para><para>A value of <c>CRAWL_EVERYTHING</c> specifies crawling the entire dataset again.</para><para>A value of <c>CRAWL_NEW_FOLDERS_ONLY</c> specifies crawling only folders that were
+        /// added since the last crawler run.</para><para>A value of <c>CRAWL_EVENT_MODE</c> specifies crawling only the changes identified
         /// by Amazon S3 events.</para>
         /// </para>
         /// </summary>
@@ -166,9 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Schedule
         /// <summary>
         /// <para>
-        /// <para>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+        /// <para>A <c>cron</c> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
         /// Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15
-        /// UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</para>
+        /// UTC, you would specify: <c>cron(15 12 * * ? *)</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

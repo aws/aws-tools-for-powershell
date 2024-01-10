@@ -32,26 +32,26 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     /// 
     ///  
     /// <para>
-    /// When you run the <code>DeleteAssessmentReport</code> operation, Audit Manager attempts
-    /// to delete the following data:
+    /// When you run the <c>DeleteAssessmentReport</c> operation, Audit Manager attempts to
+    /// delete the following data:
     /// </para><ol><li><para>
     /// The specified assessment report that’s stored in your S3 bucket
     /// </para></li><li><para>
     /// The associated metadata that’s stored in Audit Manager
     /// </para></li></ol><para>
     /// If Audit Manager can’t access the assessment report in your S3 bucket, the report
-    /// isn’t deleted. In this event, the <code>DeleteAssessmentReport</code> operation doesn’t
+    /// isn’t deleted. In this event, the <c>DeleteAssessmentReport</c> operation doesn’t
     /// fail. Instead, it proceeds to delete the associated metadata only. You must then delete
     /// the assessment report from the S3 bucket yourself. 
     /// </para><para>
-    /// This scenario happens when Audit Manager receives a <code>403 (Forbidden)</code> or
-    /// <code>404 (Not Found)</code> error from Amazon S3. To avoid this, make sure that your
-    /// S3 bucket is available, and that you configured the correct permissions for Audit
-    /// Manager to delete resources in your S3 bucket. For an example permissions policy that
-    /// you can use, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/security_iam_id-based-policy-examples.html#full-administrator-access-assessment-report-destination">Assessment
+    /// This scenario happens when Audit Manager receives a <c>403 (Forbidden)</c> or <c>404
+    /// (Not Found)</c> error from Amazon S3. To avoid this, make sure that your S3 bucket
+    /// is available, and that you configured the correct permissions for Audit Manager to
+    /// delete resources in your S3 bucket. For an example permissions policy that you can
+    /// use, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/security_iam_id-based-policy-examples.html#full-administrator-access-assessment-report-destination">Assessment
     /// report destination permissions</a> in the <i>Audit Manager User Guide</i>. For information
-    /// about the issues that could cause a <code>403 (Forbidden)</code> or <code>404 (Not
-    /// Found</code>) error from Amazon S3, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List
+    /// about the issues that could cause a <c>403 (Forbidden)</c> or <c>404 (Not Found</c>)
+    /// error from Amazon S3, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List
     /// of Error Codes</a> in the <i>Amazon Simple Storage Service API Reference</i>. 
     /// </para>
     /// </summary>

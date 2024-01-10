@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>An optional parameter that specifies the maximum number of results to return. You
-        /// can use <code>nextToken</code> to display the next page of results.</para>
+        /// can use <c>nextToken</c> to display the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,9 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your initial <code>ListRecoveryPoints</code> operation returns a <code>nextToken</code>,
-        /// you can include the returned <code>nextToken</code> in following <code>ListRecoveryPoints</code>
-        /// operations, which returns results in the next page.</para>
+        /// <para>If your initial <c>ListRecoveryPoints</c> operation returns a <c>nextToken</c>, you
+        /// can include the returned <c>nextToken</c> in following <c>ListRecoveryPoints</c> operations,
+        /// which returns results in the next page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

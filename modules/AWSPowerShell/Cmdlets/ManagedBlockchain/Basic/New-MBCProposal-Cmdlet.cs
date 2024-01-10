@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter Actions_Invitation
         /// <summary>
         /// <para>
-        /// <para> The actions to perform for an <code>APPROVED</code> proposal to invite an Amazon
-        /// Web Services account to create a member and join the network. </para>
+        /// <para> The actions to perform for an <c>APPROVED</c> proposal to invite an Amazon Web Services
+        /// account to create a member and join the network. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,9 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter Actions_Removal
         /// <summary>
         /// <para>
-        /// <para> The actions to perform for an <code>APPROVED</code> proposal to remove a member from
-        /// the network, which deletes the member and all associated member resources from the
-        /// network. </para>
+        /// <para> The actions to perform for an <c>APPROVED</c> proposal to remove a member from the
+        /// network, which deletes the member and all associated member resources from the network.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

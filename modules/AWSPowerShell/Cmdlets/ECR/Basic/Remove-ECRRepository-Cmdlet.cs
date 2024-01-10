@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
     /// Deletes a repository. If the repository isn't empty, you must either delete the contents
-    /// of the repository or use the <code>force</code> option to delete the repository and
-    /// have Amazon ECR delete all of its contents on your behalf.
+    /// of the repository or use the <c>force</c> option to delete the repository and have
+    /// Amazon ECR delete all of its contents on your behalf.
     /// </summary>
     [Cmdlet("Remove", "ECRRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECR.Model.Repository")]

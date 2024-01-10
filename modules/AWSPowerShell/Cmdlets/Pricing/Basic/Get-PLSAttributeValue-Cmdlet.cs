@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         #region Parameter AttributeName
         /// <summary>
         /// <para>
-        /// <para>The name of the attribute that you want to retrieve the values for, such as <code>volumeType</code>.</para>
+        /// <para>The name of the attribute that you want to retrieve the values for, such as <c>volumeType</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         /// <summary>
         /// <para>
         /// <para>The service code for the service whose attributes you want to retrieve. For example,
-        /// if you want the retrieve an EC2 attribute, use <code>AmazonEC2</code>.</para>
+        /// if you want the retrieve an EC2 attribute, use <c>AmazonEC2</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

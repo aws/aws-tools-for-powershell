@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
     /// Creates an alias for a directory and assigns the alias to the directory. The alias
-    /// is used to construct the access URL for the directory, such as <code>http://&lt;alias&gt;.awsapps.com</code>.
+    /// is used to construct the access URL for the directory, such as <c>http://&lt;alias&gt;.awsapps.com</c>.
     /// 
     ///  <important><para>
     /// After an alias has been created, it cannot be deleted or reused, so this operation
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// <summary>
         /// <para>
         /// <para>The requested alias.</para><para>The alias must be unique amongst all aliases in Amazon Web Services. This operation
-        /// throws an <code>EntityAlreadyExistsException</code> error if the alias already exists.</para>
+        /// throws an <c>EntityAlreadyExistsException</c> error if the alias already exists.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

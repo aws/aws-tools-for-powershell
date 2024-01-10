@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// <summary>
         /// <para>
         /// <para>The statistic used to calculate experiment results. Currently the only valid value
-        /// is <code>mean</code>, which uses the mean of the collected values as the statistic.</para>
+        /// is <c>mean</c>, which uses the mean of the collected values as the statistic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         #region Parameter ReportName
         /// <summary>
         /// <para>
-        /// <para>The names of the report types that you want to see. Currently, <code>BayesianInference</code>
+        /// <para>The names of the report types that you want to see. Currently, <c>BayesianInference</c>
         /// is the only valid value.</para>
         /// </para>
         /// </summary>
@@ -153,18 +153,17 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         #region Parameter ResultStat
         /// <summary>
         /// <para>
-        /// <para>The statistics that you want to see in the returned results.</para><ul><li><para><code>PValue</code> specifies to use p-values for the results. A p-value is used
-        /// in hypothesis testing to measure how often you are willing to make a mistake in rejecting
-        /// the null hypothesis. A general practice is to reject the null hypothesis and declare
-        /// that the results are statistically significant when the p-value is less than 0.05.</para></li><li><para><code>ConfidenceInterval</code> specifies a confidence interval for the results.
-        /// The confidence interval represents the range of values for the chosen metric that
-        /// is likely to contain the true difference between the <code>baseStat</code> of a variation
-        /// and the baseline. Evidently returns the 95% confidence interval. </para></li><li><para><code>TreatmentEffect</code> is the difference in the statistic specified by the
-        /// <code>baseStat</code> parameter between each variation and the default variation.
-        /// </para></li><li><para><code>BaseStat</code> returns the statistical values collected for the metric for
-        /// each variation. The statistic uses the same statistic specified in the <code>baseStat</code>
-        /// parameter. Therefore, if <code>baseStat</code> is <code>mean</code>, this returns
-        /// the mean of the values collected for each variation.</para></li></ul>
+        /// <para>The statistics that you want to see in the returned results.</para><ul><li><para><c>PValue</c> specifies to use p-values for the results. A p-value is used in hypothesis
+        /// testing to measure how often you are willing to make a mistake in rejecting the null
+        /// hypothesis. A general practice is to reject the null hypothesis and declare that the
+        /// results are statistically significant when the p-value is less than 0.05.</para></li><li><para><c>ConfidenceInterval</c> specifies a confidence interval for the results. The confidence
+        /// interval represents the range of values for the chosen metric that is likely to contain
+        /// the true difference between the <c>baseStat</c> of a variation and the baseline. Evidently
+        /// returns the 95% confidence interval. </para></li><li><para><c>TreatmentEffect</c> is the difference in the statistic specified by the <c>baseStat</c>
+        /// parameter between each variation and the default variation. </para></li><li><para><c>BaseStat</c> returns the statistical values collected for the metric for each
+        /// variation. The statistic uses the same statistic specified in the <c>baseStat</c>
+        /// parameter. Therefore, if <c>baseStat</c> is <c>mean</c>, this returns the mean of
+        /// the values collected for each variation.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

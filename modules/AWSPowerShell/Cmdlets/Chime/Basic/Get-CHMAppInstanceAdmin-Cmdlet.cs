@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Returns the full details of an <code>AppInstanceAdmin</code>.
+    /// Returns the full details of an <c>AppInstanceAdmin</c>.
     /// 
     ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
     /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceAdmin.html">DescribeAppInstanceAdmin</a>,
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceAdminArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceAdmin</code>.</para>
+        /// <para>The ARN of the <c>AppInstanceAdmin</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstance</code>.</para>
+        /// <para>The ARN of the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

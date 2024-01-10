@@ -28,9 +28,9 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>UpdateQualificationType</code> operation modifies the attributes of an
-    /// existing Qualification type, which is represented by a QualificationType data structure.
-    /// Only the owner of a Qualification type can modify its attributes. 
+    /// The <c>UpdateQualificationType</c> operation modifies the attributes of an existing
+    /// Qualification type, which is represented by a QualificationType data structure. Only
+    /// the owner of a Qualification type can modify its attributes. 
     /// 
     ///  
     /// <para>
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         /// <summary>
         /// <para>
         /// <para>The questions for the Qualification test a Worker must answer correctly to obtain
-        /// a Qualification of this type. If this parameter is specified, <code>TestDurationInSeconds</code>
+        /// a Qualification of this type. If this parameter is specified, <c>TestDurationInSeconds</c>
         /// must also be specified.</para><para>Constraints: Must not be longer than 65535 bytes. Must be a QuestionForm data structure.
         /// This parameter cannot be specified if AutoGranted is true.</para><para>Constraints: None. If not specified, the Worker may request the Qualification without
         /// answering any questions.</para>

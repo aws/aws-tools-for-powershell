@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         /// <summary>
         /// <para>
         /// <para>Configure how the service tags audience generation jobs created using this configured
-        /// audience model. If you specify <code>NONE</code>, the tags from the <a>StartAudienceGenerationJob</a>
-        /// request determine the tags of the audience generation job. If you specify <code>FROM_PARENT_RESOURCE</code>,
+        /// audience model. If you specify <c>NONE</c>, the tags from the <a>StartAudienceGenerationJob</a>
+        /// request determine the tags of the audience generation job. If you specify <c>FROM_PARENT_RESOURCE</c>,
         /// the audience generation job inherits the tags from the configured audience model,
         /// by default. Tags in the <a>StartAudienceGenerationJob</a> will override the default.</para><para>When the client is in a different account than the configured audience model, the
         /// tags from the client are never applied to a resource in the caller's account.</para>

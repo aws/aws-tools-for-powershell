@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ApplyImmediately
         /// <summary>
         /// <para>
-        /// <para>If <code>True</code>, redistribution is applied immediately.</para>
+        /// <para>If <c>True</c>, redistribution is applied immediately.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

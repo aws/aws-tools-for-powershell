@@ -29,22 +29,20 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
     /// Returns a link to an Amazon S3 presigned URL for the manifest file associated with
-    /// the specified <code>JobId</code> value. You can access the manifest file for up to
-    /// 60 minutes after this request has been made. To access the manifest file after 60
-    /// minutes have passed, you'll have to make another call to the <code>GetJobManifest</code>
-    /// action.
+    /// the specified <c>JobId</c> value. You can access the manifest file for up to 60 minutes
+    /// after this request has been made. To access the manifest file after 60 minutes have
+    /// passed, you'll have to make another call to the <c>GetJobManifest</c> action.
     /// 
     ///  
     /// <para>
     /// The manifest is an encrypted file that you can download after your job enters the
-    /// <code>WithCustomer</code> status. This is the only valid status for calling this API
-    /// as the manifest and <code>UnlockCode</code> code value are used for securing your
-    /// device and should only be used when you have the device. The manifest is decrypted
-    /// by using the <code>UnlockCode</code> code value, when you pass both values to the
-    /// Snow device through the Snowball client when the client is started for the first time.
-    /// 
+    /// <c>WithCustomer</c> status. This is the only valid status for calling this API as
+    /// the manifest and <c>UnlockCode</c> code value are used for securing your device and
+    /// should only be used when you have the device. The manifest is decrypted by using the
+    /// <c>UnlockCode</c> code value, when you pass both values to the Snow device through
+    /// the Snowball client when the client is started for the first time. 
     /// </para><para>
-    /// As a best practice, we recommend that you don't save a copy of an <code>UnlockCode</code>
+    /// As a best practice, we recommend that you don't save a copy of an <c>UnlockCode</c>
     /// value in the same location as the manifest file for that job. Saving these separately
     /// helps prevent unauthorized parties from gaining access to the Snow device associated
     /// with that job.
@@ -68,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The ID for a job that you want to get the manifest file for, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</para>
+        /// <para>The ID for a job that you want to get the manifest file for, for example <c>JID123e4567-e89b-12d3-a456-426655440000</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

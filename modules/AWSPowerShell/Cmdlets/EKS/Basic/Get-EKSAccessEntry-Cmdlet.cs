@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter PrincipalArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM principal for the <code>AccessEntry</code>.</para>
+        /// <para>The ARN of the IAM principal for the <c>AccessEntry</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

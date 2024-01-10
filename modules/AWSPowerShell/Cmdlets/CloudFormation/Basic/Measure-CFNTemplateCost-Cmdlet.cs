@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>A list of <code>Parameter</code> structures that specify input parameters.</para>
+        /// <para>A list of <c>Parameter</c> structures that specify input parameters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
         /// length of 51,200 bytes. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the <i>CloudFormation User Guide</i>.)</para><para>Conditional: You must pass <code>TemplateBody</code> or <code>TemplateURL</code>.
-        /// If both are passed, only <code>TemplateBody</code> is used.</para>
+        /// Anatomy</a> in the <i>CloudFormation User Guide</i>.)</para><para>Conditional: You must pass <c>TemplateBody</c> or <c>TemplateURL</c>. If both are
+        /// passed, only <c>TemplateBody</c> is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>Location of file containing the template body. The URL must point to a template that's
         /// located in an Amazon S3 bucket or a Systems Manager document. For more information,
         /// go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the <i>CloudFormation User Guide</i>.</para><para>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>.
-        /// If both are passed, only <code>TemplateBody</code> is used.</para>
+        /// Anatomy</a> in the <i>CloudFormation User Guide</i>.</para><para>Conditional: You must pass <c>TemplateURL</c> or <c>TemplateBody</c>. If both are
+        /// passed, only <c>TemplateBody</c> is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

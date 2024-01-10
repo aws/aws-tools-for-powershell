@@ -302,9 +302,9 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>Details on whether a fix is available through a version update. This value can be
-        /// <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>. A <code>PARTIAL</code>
-        /// fix means that some, but not all, of the packages identified in the finding have fixes
-        /// available through updated versions.</para>
+        /// <c>YES</c>, <c>NO</c>, or <c>PARTIAL</c>. A <c>PARTIAL</c> fix means that some, but
+        /// not all, of the packages identified in the finding have fixes available through updated
+        /// versions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

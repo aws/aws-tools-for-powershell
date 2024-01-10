@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// name or creation time. You can filter the list to show only components that were created
     /// in a specific time range. You can also filter on one of the following:
     /// 
-    ///  <ul><li><para><code>ExperimentName</code></para></li><li><para><code>SourceArn</code></para></li><li><para><code>TrialName</code></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    ///  <ul><li><para><c>ExperimentName</c></para></li><li><para><c>SourceArn</c></para></li><li><para><c>TrialName</c></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMTrialComponentList")]
     [OutputType("Amazon.SageMaker.Model.TrialComponentSummary")]
@@ -70,8 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A filter that returns only components that are part of the specified experiment. If
-        /// you specify <code>ExperimentName</code>, you can't filter by <code>SourceArn</code>
-        /// or <code>TrialName</code>.</para>
+        /// you specify <c>ExperimentName</c>, you can't filter by <c>SourceArn</c> or <c>TrialName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The property used to sort results. The default value is <code>CreationTime</code>.</para>
+        /// <para>The property used to sort results. The default value is <c>CreationTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order. The default value is <code>Descending</code>.</para>
+        /// <para>The sort order. The default value is <c>Descending</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A filter that returns only components that have the specified source Amazon Resource
-        /// Name (ARN). If you specify <code>SourceArn</code>, you can't filter by <code>ExperimentName</code>
-        /// or <code>TrialName</code>.</para>
+        /// Name (ARN). If you specify <c>SourceArn</c>, you can't filter by <c>ExperimentName</c>
+        /// or <c>TrialName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,8 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A filter that returns only components that are part of the specified trial. If you
-        /// specify <code>TrialName</code>, you can't filter by <code>ExperimentName</code> or
-        /// <code>SourceArn</code>.</para>
+        /// specify <c>TrialName</c>, you can't filter by <c>ExperimentName</c> or <c>SourceArn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the previous call to <code>ListTrialComponents</code> didn't return the full set
-        /// of components, the call returns a token for getting the next set of components.</para>
+        /// <para>If the previous call to <c>ListTrialComponents</c> didn't return the full set of components,
+        /// the call returns a token for getting the next set of components.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

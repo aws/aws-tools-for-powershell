@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para> The ID of an in-progress batch import job to cancel. </para><para>Amazon Fraud Detector will throw an error if the batch import job is in <code>FAILED</code>,
-        /// <code>CANCELED</code>, or <code>COMPLETED</code> state.</para>
+        /// <para> The ID of an in-progress batch import job to cancel. </para><para>Amazon Fraud Detector will throw an error if the batch import job is in <c>FAILED</c>,
+        /// <c>CANCELED</c>, or <c>COMPLETED</c> state.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -31,13 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     /// Returns a list of image scan aggregations for your account. You can filter by the
     /// type of key that Image Builder uses to group results. For example, if you want to
     /// get a list of findings by severity level for one of your pipelines, you might specify
-    /// your pipeline with the <code>imagePipelineArn</code> filter. If you don't specify
-    /// a filter, Image Builder returns an aggregation for your account.
+    /// your pipeline with the <c>imagePipelineArn</c> filter. If you don't specify a filter,
+    /// Image Builder returns an aggregation for your account.
     /// 
     ///  
     /// <para>
     /// To streamline results, you can use the following filters in your request:
-    /// </para><ul><li><para><code>accountId</code></para></li><li><para><code>imageBuildVersionArn</code></para></li><li><para><code>imagePipelineArn</code></para></li><li><para><code>vulnerabilityId</code></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><ul><li><para><c>accountId</c></para></li><li><para><c>imageBuildVersionArn</c></para></li><li><para><c>imagePipelineArn</c></para></li><li><para><c>vulnerabilityId</c></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2IBImageScanFindingAggregationList")]
     [OutputType("Amazon.Imagebuilder.Model.ListImageScanFindingAggregationsResponse")]

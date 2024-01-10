@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>The name of the route calculator resource. </para><para>Requirements:</para><ul><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores
-        /// (_).</para></li><li><para>Must be a unique Route calculator resource name.</para></li><li><para>No spaces allowed. For example, <code>ExampleRouteCalculator</code>.</para></li></ul>
+        /// (_).</para></li><li><para>Must be a unique Route calculator resource name.</para></li><li><para>No spaces allowed. For example, <c>ExampleRouteCalculator</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,13 +75,13 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Specifies the data provider of traffic and road network data.</para><note><para>This field is case-sensitive. Enter the valid values as shown. For example, entering
-        /// <code>HERE</code> returns an error.</para></note><para>Valid values include:</para><ul><li><para><code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s
+        /// <c>HERE</c> returns an error.</para></note><para>Valid values include:</para><ul><li><para><c>Esri</c> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s
         /// coverage in your region of interest, see <a href="https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm">Esri
         /// details on street networks and traffic coverage</a>.</para><para>Route calculators that use Esri as a data source only calculate routes that are shorter
-        /// than 400 km.</para></li><li><para><code>Grab</code> – Grab provides routing functionality for Southeast Asia. For additional
+        /// than 400 km.</para></li><li><para><c>Grab</c> – Grab provides routing functionality for Southeast Asia. For additional
         /// information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>'
         /// coverage, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps
-        /// countries and areas covered</a>.</para></li><li><para><code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
+        /// countries and areas covered</a>.</para></li><li><para><c>Here</c> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
         /// Technologies</a>' coverage in your region of interest, see <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html">HERE
         /// car routing coverage</a> and <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/truck-routing.html">HERE
         /// truck routing coverage</a>.</para></li></ul><para>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Applies one or more tags to the route calculator resource. A tag is a key-value pair
-        /// helps manage, identify, search, and filter your resources by labelling them.</para><ul><li><para>For example: { <code>"tag1" : "value1"</code>, <code>"tag2" : "value2"</code>}</para></li></ul><para>Format: <code>"key" : "value"</code></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource</para></li><li><para>Each resource tag must be unique with a maximum of one value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
+        /// helps manage, identify, search, and filter your resources by labelling them.</para><ul><li><para>For example: { <c>"tag1" : "value1"</c>, <c>"tag2" : "value2"</c>}</para></li></ul><para>Format: <c>"key" : "value"</c></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource</para></li><li><para>Each resource tag must be unique with a maximum of one value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
         /// = . _ : / @. </para></li><li><para>Cannot use "aws:" as a prefix for a key.</para></li></ul>
         /// </para>
         /// </summary>
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</para>
+        /// <para>No longer used. If included, the only allowed value is <c>RequestBasedUsage</c>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

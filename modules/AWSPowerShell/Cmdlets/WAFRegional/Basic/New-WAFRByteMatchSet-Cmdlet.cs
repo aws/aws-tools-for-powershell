@@ -35,22 +35,21 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Creates a <code>ByteMatchSet</code>. You then use <a>UpdateByteMatchSet</a> to identify
+    /// Creates a <c>ByteMatchSet</c>. You then use <a>UpdateByteMatchSet</a> to identify
     /// the part of a web request that you want AWS WAF to inspect, such as the values of
-    /// the <code>User-Agent</code> header or the query string. For example, you can create
-    /// a <code>ByteMatchSet</code> that matches any requests with <code>User-Agent</code>
-    /// headers that contain the string <code>BadBot</code>. You can then configure AWS WAF
-    /// to reject those requests.
+    /// the <c>User-Agent</c> header or the query string. For example, you can create a <c>ByteMatchSet</c>
+    /// that matches any requests with <c>User-Agent</c> headers that contain the string <c>BadBot</c>.
+    /// You can then configure AWS WAF to reject those requests.
     /// </para><para>
-    /// To create and configure a <code>ByteMatchSet</code>, perform the following steps:
+    /// To create and configure a <c>ByteMatchSet</c>, perform the following steps:
     /// </para><ol><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>CreateByteMatchSet</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of a <c>CreateByteMatchSet</c> request.
     /// </para></li><li><para>
-    /// Submit a <code>CreateByteMatchSet</code> request.
+    /// Submit a <c>CreateByteMatchSet</c> request.
     /// </para></li><li><para>
-    /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of an <code>UpdateByteMatchSet</code> request.
+    /// Use <c>GetChangeToken</c> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of an <c>UpdateByteMatchSet</c> request.
     /// </para></li><li><para>
     /// Submit an <a>UpdateByteMatchSet</a> request to specify the part of the request that
     /// you want AWS WAF to inspect (for example, the header or the URI) and the value that
@@ -92,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A friendly name or description of the <a>ByteMatchSet</a>. You can't change <code>Name</code>
-        /// after you create a <code>ByteMatchSet</code>.</para>
+        /// <para>A friendly name or description of the <a>ByteMatchSet</a>. You can't change <c>Name</c>
+        /// after you create a <c>ByteMatchSet</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

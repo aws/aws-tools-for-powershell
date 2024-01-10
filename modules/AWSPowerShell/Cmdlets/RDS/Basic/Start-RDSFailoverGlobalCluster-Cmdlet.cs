@@ -41,11 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// How you use this operation depends on whether you are failing over or switching over
     /// your global database cluster:
     /// </para><ul><li><para>
-    /// Failing over - Specify the <code>AllowDataLoss</code> parameter and don't specify
-    /// the <code>Switchover</code> parameter.
+    /// Failing over - Specify the <c>AllowDataLoss</c> parameter and don't specify the <c>Switchover</c>
+    /// parameter.
     /// </para></li><li><para>
-    /// Switching over - Specify the <code>Switchover</code> parameter or omit it, but don't
-    /// specify the <code>AllowDataLoss</code> parameter.
+    /// Switching over - Specify the <c>Switchover</c> parameter or omit it, but don't specify
+    /// the <c>AllowDataLoss</c> parameter.
     /// </para></li></ul><para><b>About failing over and switching over</b></para><para>
     /// While failing over and switching over a global database cluster both change the primary
     /// DB cluster, you use these operations for different reasons:
@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies whether to allow data loss for this global database cluster operation. Allowing
-        /// data loss triggers a global failover operation.</para><para>If you don't specify <code>AllowDataLoss</code>, the global database cluster operation
-        /// defaults to a switchover.</para><para>Constraints:</para><ul><li><para>Can't be specified together with the <code>Switchover</code> parameter.</para></li></ul>
+        /// data loss triggers a global failover operation.</para><para>If you don't specify <c>AllowDataLoss</c>, the global database cluster operation defaults
+        /// to a switchover.</para><para>Constraints:</para><ul><li><para>Can't be specified together with the <c>Switchover</c> parameter.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Switchover
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to switch over this global database cluster.</para><para>Constraints:</para><ul><li><para>Can't be specified together with the <code>AllowDataLoss</code> parameter.</para></li></ul>
+        /// <para>Specifies whether to switch over this global database cluster.</para><para>Constraints:</para><ul><li><para>Can't be specified together with the <c>AllowDataLoss</c> parameter.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

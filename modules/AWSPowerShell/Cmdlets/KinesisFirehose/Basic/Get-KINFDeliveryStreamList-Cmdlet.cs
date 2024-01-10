@@ -33,12 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     ///  
     /// <para>
     /// The number of delivery streams might be too large to return using a single call to
-    /// <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned,
-    /// using the <code>Limit</code> parameter. To determine whether there are more delivery
-    /// streams to list, check the value of <code>HasMoreDeliveryStreams</code> in the output.
-    /// If there are more delivery streams to list, you can request them by calling this operation
-    /// again and setting the <code>ExclusiveStartDeliveryStreamName</code> parameter to the
-    /// name of the last delivery stream returned in the last call.
+    /// <c>ListDeliveryStreams</c>. You can limit the number of delivery streams returned,
+    /// using the <c>Limit</c> parameter. To determine whether there are more delivery streams
+    /// to list, check the value of <c>HasMoreDeliveryStreams</c> in the output. If there
+    /// are more delivery streams to list, you can request them by calling this operation
+    /// again and setting the <c>ExclusiveStartDeliveryStreamName</c> parameter to the name
+    /// of the last delivery stream returned in the last call.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "KINFDeliveryStreamList")]
@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DeliveryStreamType
         /// <summary>
         /// <para>
-        /// <para>The delivery stream type. This can be one of the following values:</para><ul><li><para><code>DirectPut</code>: Provider applications access the delivery stream directly.</para></li><li><para><code>KinesisStreamAsSource</code>: The delivery stream uses a Kinesis data stream
-        /// as a source.</para></li></ul><para>This parameter is optional. If this parameter is omitted, delivery streams of all
+        /// <para>The delivery stream type. This can be one of the following values:</para><ul><li><para><c>DirectPut</c>: Provider applications access the delivery stream directly.</para></li><li><para><c>KinesisStreamAsSource</c>: The delivery stream uses a Kinesis data stream as a
+        /// source.</para></li></ul><para>This parameter is optional. If this parameter is omitted, delivery streams of all
         /// types are returned.</para>
         /// </para>
         /// </summary>
@@ -68,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ExclusiveStartDeliveryStreamName
         /// <summary>
         /// <para>
-        /// <para>The list of delivery streams returned by this call to <code>ListDeliveryStreams</code>
-        /// will start with the delivery stream whose name comes alphabetically immediately after
-        /// the name you specify in <code>ExclusiveStartDeliveryStreamName</code>.</para>
+        /// <para>The list of delivery streams returned by this call to <c>ListDeliveryStreams</c> will
+        /// start with the delivery stream whose name comes alphabetically immediately after the
+        /// name you specify in <c>ExclusiveStartDeliveryStreamName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

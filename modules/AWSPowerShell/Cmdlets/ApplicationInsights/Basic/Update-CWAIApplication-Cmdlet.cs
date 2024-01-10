@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         /// <summary>
         /// <para>
         /// <para> Indicates whether Application Insights can listen to CloudWatch events for the application
-        /// resources, such as <code>instance terminated</code>, <code>failed deployment</code>,
-        /// and others. </para>
+        /// resources, such as <c>instance terminated</c>, <c>failed deployment</c>, and others.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         #region Parameter OpsCenterEnabled
         /// <summary>
         /// <para>
-        /// <para> When set to <code>true</code>, creates opsItems for any problems detected on an application.
+        /// <para> When set to <c>true</c>, creates opsItems for any problems detected on an application.
         /// </para>
         /// </para>
         /// </summary>

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     /// table that you created using the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html">AddApplicationReferenceDataSource</a>
     /// operation. 
     /// </para><para>
-    /// This operation requires permissions to perform the <code>kinesisanalytics.DeleteApplicationReferenceDataSource</code>
+    /// This operation requires permissions to perform the <c>kinesisanalytics.DeleteApplicationReferenceDataSource</c>
     /// action.
     /// </para>
     /// </summary>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// <para>
         /// <para>Version of the application. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
         /// operation to get the current application version. If the version specified is not
-        /// the current version, the <code>ConcurrentModificationException</code> is returned.</para>
+        /// the current version, the <c>ConcurrentModificationException</c> is returned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

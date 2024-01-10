@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// Model or custom adapter. You can specify a feature to create the project with, if
     /// no feature is specified then Custom Labels is used by default. For adapters, you can
     /// also choose whether or not to have the project auto update by using the AutoUpdate
-    /// argument. This operation requires permissions to perform the <code>rekognition:CreateProject</code>
+    /// argument. This operation requires permissions to perform the <c>rekognition:CreateProject</c>
     /// action.
     /// </summary>
     [Cmdlet("New", "REKProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -38,12 +38,12 @@ namespace Amazon.PowerShell.Cmdlets.AF
     /// You can cancel a flow run only when the run is in progress. You can't cancel a run
     /// that has already completed or failed. You also can't cancel a run that's scheduled
     /// to occur but hasn't started yet. To prevent a scheduled run, you can deactivate the
-    /// flow with the <code>StopFlow</code> action.
+    /// flow with the <c>StopFlow</c> action.
     /// </para><para>
     /// You cannot resume a run after you cancel it.
     /// </para><para>
-    /// When you send your request, the status for each run becomes <code>CancelStarted</code>.
-    /// When the cancellation completes, the status becomes <code>Canceled</code>.
+    /// When you send your request, the status for each run becomes <c>CancelStarted</c>.
+    /// When the cancellation completes, the status becomes <c>Canceled</c>.
     /// </para><note><para>
     /// When you cancel a run, you still incur charges for any data that the run already processed
     /// before the cancellation. If the run had already written some data to the flow destination,

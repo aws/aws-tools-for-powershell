@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// action. 
     /// </para><para><b>About Permissions</b></para><ul><li><para>
     /// If the private CA and the certificates it issues reside in the same account, you can
-    /// use <code>CreatePermission</code> to grant permissions for ACM to carry out automatic
-    /// certificate renewals.
+    /// use <c>CreatePermission</c> to grant permissions for ACM to carry out automatic certificate
+    /// renewals.
     /// </para></li><li><para>
     /// For automatic certificate renewal to succeed, the ACM service principal needs permissions
     /// to create, retrieve, and list certificates.
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <para>
         /// <para>The Amazon Resource Number (ARN) of the private CA that issued the permissions. You
         /// can find the CA's ARN by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a>
-        /// action. This must have the following form: </para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code>. </para>
+        /// action. This must have the following form: </para><para><c>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services service or identity that will have its CA permissions revoked.
-        /// At this time, the only valid service principal is <code>acm.amazonaws.com</code></para>
+        /// At this time, the only valid service principal is <c>acm.amazonaws.com</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

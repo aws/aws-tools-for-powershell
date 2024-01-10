@@ -32,11 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Grants instance. 
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3:DissociateAccessGrantsIdentityCenter</code> permission
-    /// to use this operation. 
+    /// You must have the <c>s3:DissociateAccessGrantsIdentityCenter</c> permission to use
+    /// this operation. 
     /// </para></dd><dt>Additional Permissions</dt><dd><para>
-    /// You must have the <code>sso:DeleteApplication</code> permission to use this operation.
-    /// 
+    /// You must have the <c>sso:DeleteApplication</c> permission to use this operation. 
     /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Disconnect", "S3CAccessGrantsIdentityCenter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// </para></li><li><para>
     /// DELETE PENDING &gt; DELETE IN_PROGRESS
     /// </para></li></ul><para>
-    /// When the <code>status</code> is <code>CREATE FAILED</code>, the response includes
-    /// the <code>failureReason</code> key, which describes why.
+    /// When the <c>status</c> is <c>CREATE FAILED</c>, the response includes the <c>failureReason</c>
+    /// key, which describes why.
     /// </para><para>
     /// For more information on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.
     /// </para>

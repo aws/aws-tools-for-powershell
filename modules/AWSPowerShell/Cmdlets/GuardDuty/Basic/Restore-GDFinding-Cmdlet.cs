@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Unarchives GuardDuty findings specified by the <code>findingIds</code>.
+    /// Unarchives GuardDuty findings specified by the <c>findingIds</c>.
     /// </summary>
     [Cmdlet("Restore", "GDFinding", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

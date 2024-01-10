@@ -34,8 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// <para>
     /// A notification setting includes information such as event name, threshold, status
     /// of the notification setting, and the channel to notify.
-    /// </para><para><b>Required permissions: </b><code>rolesanywhere:PutNotificationSettings</code>.
-    /// 
+    /// </para><para><b>Required permissions: </b><c>rolesanywhere:PutNotificationSettings</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Write", "IAMRANotificationSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

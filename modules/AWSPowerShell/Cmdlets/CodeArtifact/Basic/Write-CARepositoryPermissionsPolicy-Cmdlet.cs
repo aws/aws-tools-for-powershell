@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.CA
     /// 
     ///  
     /// <para>
-    ///  When you call <code>PutRepositoryPermissionsPolicy</code>, the resource policy on
-    /// the repository is ignored when evaluting permissions. This ensures that the owner
-    /// of a repository cannot lock themselves out of the repository, which would prevent
-    /// them from being able to update the resource policy. 
+    ///  When you call <c>PutRepositoryPermissionsPolicy</c>, the resource policy on the repository
+    /// is ignored when evaluting permissions. This ensures that the owner of a repository
+    /// cannot lock themselves out of the repository, which would prevent them from being
+    /// able to update the resource policy. 
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CARepositoryPermissionsPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

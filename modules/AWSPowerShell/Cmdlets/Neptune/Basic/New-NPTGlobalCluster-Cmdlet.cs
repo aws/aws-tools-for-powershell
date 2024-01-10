@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used in the global database.</para><para>Valid values: <code>neptune</code></para>
+        /// <para>The name of the database engine to be used in the global database.</para><para>Valid values: <c>neptune</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The Neptune engine version to be used by the global database.</para><para>Valid values: <code>1.2.0.0</code> or above.</para>
+        /// <para>The Neptune engine version to be used by the global database.</para><para>Valid values: <c>1.2.0.0</c> or above.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -35,20 +35,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  
     /// <para>
-    /// You can specify the type of source (<code>SourceType</code>) that you want to be notified
-    /// of and provide a list of RDS sources (<code>SourceIds</code>) that triggers the events.
-    /// You can also provide a list of event categories (<code>EventCategories</code>) for
-    /// events that you want to be notified of. For example, you can specify <code>SourceType</code>
-    /// = <code>db-instance</code>, <code>SourceIds</code> = <code>mydbinstance1</code>, <code>mydbinstance2</code>
-    /// and <code>EventCategories</code> = <code>Availability</code>, <code>Backup</code>.
+    /// You can specify the type of source (<c>SourceType</c>) that you want to be notified
+    /// of and provide a list of RDS sources (<c>SourceIds</c>) that triggers the events.
+    /// You can also provide a list of event categories (<c>EventCategories</c>) for events
+    /// that you want to be notified of. For example, you can specify <c>SourceType</c> =
+    /// <c>db-instance</c>, <c>SourceIds</c> = <c>mydbinstance1</c>, <c>mydbinstance2</c>
+    /// and <c>EventCategories</c> = <c>Availability</c>, <c>Backup</c>.
     /// </para><para>
-    /// If you specify both the <code>SourceType</code> and <code>SourceIds</code>, such as
-    /// <code>SourceType</code> = <code>db-instance</code> and <code>SourceIds</code> = <code>myDBInstance1</code>,
-    /// you are notified of all the <code>db-instance</code> events for the specified source.
-    /// If you specify a <code>SourceType</code> but do not specify <code>SourceIds</code>,
-    /// you receive notice of the events for that source type for all your RDS sources. If
-    /// you don't specify either the SourceType or the <code>SourceIds</code>, you are notified
-    /// of events generated from all RDS sources belonging to your customer account.
+    /// If you specify both the <c>SourceType</c> and <c>SourceIds</c>, such as <c>SourceType</c>
+    /// = <c>db-instance</c> and <c>SourceIds</c> = <c>myDBInstance1</c>, you are notified
+    /// of all the <c>db-instance</c> events for the specified source. If you specify a <c>SourceType</c>
+    /// but do not specify <c>SourceIds</c>, you receive notice of the events for that source
+    /// type for all your RDS sources. If you don't specify either the SourceType or the <c>SourceIds</c>,
+    /// you are notified of events generated from all RDS sources belonging to your customer
+    /// account.
     /// </para><para>
     /// For more information about subscribing to an event for RDS DB engines, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Subscribing.html">
     /// Subscribing to Amazon RDS event notification</a> in the <i>Amazon RDS User Guide</i>.
@@ -83,9 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EventCategory
         /// <summary>
         /// <para>
-        /// <para>A list of event categories for a particular source type (<code>SourceType</code>)
-        /// that you want to subscribe to. You can see a list of the categories for a given source
-        /// type in the "Amazon RDS event categories and event messages" section of the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html"><i>Amazon RDS User Guide</i></a> or the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html"><i>Amazon Aurora User Guide</i></a>. You can also see this list by using the <code>DescribeEventCategories</code>
+        /// <para>A list of event categories for a particular source type (<c>SourceType</c>) that you
+        /// want to subscribe to. You can see a list of the categories for a given source type
+        /// in the "Amazon RDS event categories and event messages" section of the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html"><i>Amazon RDS User Guide</i></a> or the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html"><i>Amazon Aurora User Guide</i></a>. You can also see this list by using the <c>DescribeEventCategories</c>
         /// operation.</para>
         /// </para>
         /// </summary>
@@ -118,13 +118,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The list of identifiers of the event sources for which events are returned. If not
         /// specified, then all sources are included in the response. An identifier must begin
         /// with a letter and must contain only ASCII letters, digits, and hyphens. It can't end
-        /// with a hyphen or contain two consecutive hyphens.</para><para>Constraints:</para><ul><li><para>If <code>SourceIds</code> are supplied, <code>SourceType</code> must also be provided.</para></li><li><para>If the source type is a DB instance, a <code>DBInstanceIdentifier</code> value must
-        /// be supplied.</para></li><li><para>If the source type is a DB cluster, a <code>DBClusterIdentifier</code> value must
-        /// be supplied.</para></li><li><para>If the source type is a DB parameter group, a <code>DBParameterGroupName</code> value
-        /// must be supplied.</para></li><li><para>If the source type is a DB security group, a <code>DBSecurityGroupName</code> value
-        /// must be supplied.</para></li><li><para>If the source type is a DB snapshot, a <code>DBSnapshotIdentifier</code> value must
-        /// be supplied.</para></li><li><para>If the source type is a DB cluster snapshot, a <code>DBClusterSnapshotIdentifier</code>
-        /// value must be supplied.</para></li><li><para>If the source type is an RDS Proxy, a <code>DBProxyName</code> value must be supplied.</para></li></ul>
+        /// with a hyphen or contain two consecutive hyphens.</para><para>Constraints:</para><ul><li><para>If <c>SourceIds</c> are supplied, <c>SourceType</c> must also be provided.</para></li><li><para>If the source type is a DB instance, a <c>DBInstanceIdentifier</c> value must be supplied.</para></li><li><para>If the source type is a DB cluster, a <c>DBClusterIdentifier</c> value must be supplied.</para></li><li><para>If the source type is a DB parameter group, a <c>DBParameterGroupName</c> value must
+        /// be supplied.</para></li><li><para>If the source type is a DB security group, a <c>DBSecurityGroupName</c> value must
+        /// be supplied.</para></li><li><para>If the source type is a DB snapshot, a <c>DBSnapshotIdentifier</c> value must be supplied.</para></li><li><para>If the source type is a DB cluster snapshot, a <c>DBClusterSnapshotIdentifier</c>
+        /// value must be supplied.</para></li><li><para>If the source type is an RDS Proxy, a <c>DBProxyName</c> value must be supplied.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,11 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The type of source that is generating the events. For example, if you want to be notified
-        /// of events generated by a DB instance, you set this parameter to <code>db-instance</code>.
-        /// For RDS Proxy events, specify <code>db-proxy</code>. If this value isn't specified,
-        /// all events are returned.</para><para>Valid Values: <code>db-instance</code> | <code>db-cluster</code> | <code>db-parameter-group</code>
-        /// | <code>db-security-group</code> | <code>db-snapshot</code> | <code>db-cluster-snapshot</code>
-        /// | <code>db-proxy</code></para>
+        /// of events generated by a DB instance, you set this parameter to <c>db-instance</c>.
+        /// For RDS Proxy events, specify <c>db-proxy</c>. If this value isn't specified, all
+        /// events are returned.</para><para>Valid Values: <c>db-instance</c> | <c>db-cluster</c> | <c>db-parameter-group</c> |
+        /// <c>db-security-group</c> | <c>db-snapshot</c> | <c>db-cluster-snapshot</c> | <c>db-proxy</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

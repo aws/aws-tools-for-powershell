@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// current status, call <a>DescribeProjectVersions</a>. Only applies to Custom Labels
     /// projects.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code>
+    /// This operation requires permissions to perform the <c>rekognition:StopProjectVersion</c>
     /// action.
     /// </para>
     /// </summary>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter ProjectVersionArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the model version that you want to stop.</para><para>This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code>
+        /// <para>The Amazon Resource Name (ARN) of the model version that you want to stop.</para><para>This operation requires permissions to perform the <c>rekognition:StopProjectVersion</c>
         /// action.</para>
         /// </para>
         /// </summary>

@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Describes a model that you created using the <code>CreateModel</code> API.
+    /// Describes a model that you created using the <c>CreateModel</c> API.
     /// </summary>
     [Cmdlet("Get", "SMModel")]
     [OutputType("Amazon.SageMaker.Model.DescribeModelResponse")]

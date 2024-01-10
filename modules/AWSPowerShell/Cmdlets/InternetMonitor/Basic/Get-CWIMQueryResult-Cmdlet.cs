@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
 {
     /// <summary>
     /// Return the data for a query with the Amazon CloudWatch Internet Monitor query interface.
-    /// Specify the query that you want to return results for by providing a <code>QueryId</code>
+    /// Specify the query that you want to return results for by providing a <c>QueryId</c>
     /// and a monitor name.
     /// 
     ///  
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         #region Parameter QueryId
         /// <summary>
         /// <para>
-        /// <para>The ID of the query that you want to return data results for. A <code>QueryId</code>
-        /// is an internally-generated identifier for a specific query.</para>
+        /// <para>The ID of the query that you want to return data results for. A <c>QueryId</c> is
+        /// an internally-generated identifier for a specific query.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

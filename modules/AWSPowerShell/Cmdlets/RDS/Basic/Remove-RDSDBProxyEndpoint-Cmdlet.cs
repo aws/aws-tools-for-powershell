@@ -28,10 +28,10 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Deletes a <code>DBProxyEndpoint</code>. Doing so removes the ability to access the
-    /// DB proxy using the endpoint that you defined. The endpoint that you delete might have
-    /// provided capabilities such as read/write or read-only operations, or using a different
-    /// VPC than the DB proxy's default VPC.
+    /// Deletes a <c>DBProxyEndpoint</c>. Doing so removes the ability to access the DB proxy
+    /// using the endpoint that you defined. The endpoint that you delete might have provided
+    /// capabilities such as read/write or read-only operations, or using a different VPC
+    /// than the DB proxy's default VPC.
     /// </summary>
     [Cmdlet("Remove", "RDSDBProxyEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RDS.Model.DBProxyEndpoint")]

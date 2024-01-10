@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
         #region Parameter GatewayArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the gateway. Use the <code>ListGateways</code> operation
+        /// <para>The Amazon Resource Name (ARN) of the gateway. Use the <c>ListGateways</c> operation
         /// to return a list of gateways for your account and Amazon Web Services Region.</para>
         /// </para>
         /// </summary>

@@ -32,16 +32,16 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// 
     ///  
     /// <para>
-    /// The <code>GetIntentVersions</code> operation returns an <code>IntentMetadata</code>
-    /// object for each version of an intent. For example, if an intent has three numbered
-    /// versions, the <code>GetIntentVersions</code> operation returns four <code>IntentMetadata</code>
-    /// objects in the response, one for each numbered version and one for the <code>$LATEST</code>
-    /// version. 
+    /// The <c>GetIntentVersions</c> operation returns an <c>IntentMetadata</c> object for
+    /// each version of an intent. For example, if an intent has three numbered versions,
+    /// the <c>GetIntentVersions</c> operation returns four <c>IntentMetadata</c> objects
+    /// in the response, one for each numbered version and one for the <c>$LATEST</c> version.
+    /// 
     /// </para><para>
-    /// The <code>GetIntentVersions</code> operation always returns at least one version,
-    /// the <code>$LATEST</code> version.
+    /// The <c>GetIntentVersions</c> operation always returns at least one version, the <c>$LATEST</c>
+    /// version.
     /// </para><para>
-    /// This operation requires permissions for the <code>lex:GetIntentVersions</code> action.
+    /// This operation requires permissions for the <c>lex:GetIntentVersions</c> action.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LMBIntentVersion")]

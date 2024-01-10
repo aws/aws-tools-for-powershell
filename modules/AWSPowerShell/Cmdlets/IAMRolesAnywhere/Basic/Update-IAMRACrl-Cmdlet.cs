@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// against the CRL before issuing credentials.
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:UpdateCrl</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:UpdateCrl</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Update", "IAMRACrl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

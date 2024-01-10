@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The cluster identifier for the cluster to be deleted. This parameter isn't case sensitive.</para><para>Constraints:</para><ul><li><para>Must match an existing <code>DBClusterIdentifier</code>.</para></li></ul>
+        /// <para>The cluster identifier for the cluster to be deleted. This parameter isn't case sensitive.</para><para>Constraints:</para><ul><li><para>Must match an existing <c>DBClusterIdentifier</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter FinalDBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> The cluster snapshot identifier of the new cluster snapshot created when <code>SkipFinalSnapshot</code>
-        /// is set to <code>false</code>. </para><note><para> Specifying this parameter and also setting the <code>SkipFinalShapshot</code> parameter
-        /// to <code>true</code> results in an error. </para></note><para>Constraints:</para><ul><li><para>Must be from 1 to 255 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
+        /// <para> The cluster snapshot identifier of the new cluster snapshot created when <c>SkipFinalSnapshot</c>
+        /// is set to <c>false</c>. </para><note><para> Specifying this parameter and also setting the <c>SkipFinalShapshot</c> parameter
+        /// to <c>true</c> results in an error. </para></note><para>Constraints:</para><ul><li><para>Must be from 1 to 255 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para> Determines whether a final cluster snapshot is created before the cluster is deleted.
-        /// If <code>true</code> is specified, no cluster snapshot is created. If <code>false</code>
-        /// is specified, a cluster snapshot is created before the DB cluster is deleted. </para><note><para>If <code>SkipFinalSnapshot</code> is <code>false</code>, you must specify a <code>FinalDBSnapshotIdentifier</code>
-        /// parameter.</para></note><para>Default: <code>false</code></para>
+        /// If <c>true</c> is specified, no cluster snapshot is created. If <c>false</c> is specified,
+        /// a cluster snapshot is created before the DB cluster is deleted. </para><note><para>If <c>SkipFinalSnapshot</c> is <c>false</c>, you must specify a <c>FinalDBSnapshotIdentifier</c>
+        /// parameter.</para></note><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

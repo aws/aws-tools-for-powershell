@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     /// is terminated.
     /// 
     ///  <note><para>
-    /// The DB cluster snapshot must be in the <code>available</code> state to be deleted.
+    /// The DB cluster snapshot must be in the <c>available</c> state to be deleted.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "NPTDBClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter DBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the DB cluster snapshot to delete.</para><para>Constraints: Must be the name of an existing DB cluster snapshot in the <code>available</code>
+        /// <para>The identifier of the DB cluster snapshot to delete.</para><para>Constraints: Must be the name of an existing DB cluster snapshot in the <c>available</c>
         /// state.</para>
         /// </para>
         /// </summary>

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// </para><para>
     /// There must be at least one Availability Zone registered with a load balancer at all
     /// times. After an Availability Zone is removed, all instances registered with the load
-    /// balancer that are in the removed Availability Zone go into the <code>OutOfService</code>
+    /// balancer that are in the removed Availability Zone go into the <c>OutOfService</c>
     /// state. Then, the load balancer attempts to equally balance the traffic among its remaining
     /// Availability Zones.
     /// </para><para>

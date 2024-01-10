@@ -32,13 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// 
     ///  
     /// <para>
-    ///  Setting the <code>InfoType</code> to <code>tail</code> compiles the last lines from
-    /// the application server log files of every Amazon EC2 instance in your environment.
-    /// 
+    ///  Setting the <c>InfoType</c> to <c>tail</c> compiles the last lines from the application
+    /// server log files of every Amazon EC2 instance in your environment. 
     /// </para><para>
-    ///  Setting the <code>InfoType</code> to <code>bundle</code> compresses the application
-    /// server log files for every Amazon EC2 instance into a <code>.zip</code> file. Legacy
-    /// and .NET containers do not support bundle logs. 
+    ///  Setting the <c>InfoType</c> to <c>bundle</c> compresses the application server log
+    /// files for every Amazon EC2 instance into a <c>.zip</c> file. Legacy and .NET containers
+    /// do not support bundle logs. 
     /// </para><para>
     ///  Use <a>RetrieveEnvironmentInfo</a> to obtain the set of logs. 
     /// </para><para>
@@ -60,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>The ID of the environment of the requested data.</para><para>If no such environment is found, <code>RequestEnvironmentInfo</code> returns an <code>InvalidParameterValue</code>
+        /// <para>The ID of the environment of the requested data.</para><para>If no such environment is found, <c>RequestEnvironmentInfo</c> returns an <c>InvalidParameterValue</c>
         /// error. </para><para>Condition: You must specify either this or an EnvironmentName, or both. If you do
-        /// not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
+        /// not specify either, AWS Elastic Beanstalk returns <c>MissingRequiredParameter</c>
         /// error. </para>
         /// </para>
         /// </summary>
@@ -73,10 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para>The name of the environment of the requested data.</para><para>If no such environment is found, <code>RequestEnvironmentInfo</code> returns an <code>InvalidParameterValue</code>
+        /// <para>The name of the environment of the requested data.</para><para>If no such environment is found, <c>RequestEnvironmentInfo</c> returns an <c>InvalidParameterValue</c>
         /// error. </para><para>Condition: You must specify either this or an EnvironmentId, or both. If you do not
-        /// specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
-        /// error. </para>
+        /// specify either, AWS Elastic Beanstalk returns <c>MissingRequiredParameter</c> error.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

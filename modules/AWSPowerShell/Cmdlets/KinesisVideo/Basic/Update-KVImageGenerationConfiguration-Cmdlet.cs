@@ -28,8 +28,7 @@ using Amazon.KinesisVideo.Model;
 namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
-    /// Updates the <code>StreamInfo</code> and <code>ImageProcessingConfiguration</code>
-    /// fields.
+    /// Updates the <c>StreamInfo</c> and <c>ImageProcessingConfiguration</c> fields.
     /// </summary>
     [Cmdlet("Update", "KVImageGenerationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -47,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services Region of the S3 bucket where images will be delivered. This
-        /// <code>DestinationRegion</code> must match the Region where the stream is located.</para>
+        /// <c>DestinationRegion</c> must match the Region where the stream is located.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,12 +69,12 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The list of a key-value pair structure that contains extra parameters that can be
-        /// applied when the image is generated. The <code>FormatConfig</code> key is the <code>JPEGQuality</code>,
-        /// which indicates the JPEG quality key to be used to generate the image. The <code>FormatConfig</code>
+        /// applied when the image is generated. The <c>FormatConfig</c> key is the <c>JPEGQuality</c>,
+        /// which indicates the JPEG quality key to be used to generate the image. The <c>FormatConfig</c>
         /// value accepts ints from 1 to 100. If the value is 1, the image will be generated with
         /// less quality and the best compression. If the value is 100, the image will be generated
         /// with the best quality and less compression. If no value is provided, the default value
-        /// of the <code>JPEGQuality</code> key will be set to 80.</para>
+        /// of the <c>JPEGQuality</c> key will be set to 80.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,12 +84,11 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter ImageGenerationConfiguration_HeightPixel
         /// <summary>
         /// <para>
-        /// <para>The height of the output image that is used in conjunction with the <code>WidthPixels</code>
-        /// parameter. When both <code>HeightPixels</code> and <code>WidthPixels</code> parameters
-        /// are provided, the image will be stretched to fit the specified aspect ratio. If only
-        /// the <code>HeightPixels</code> parameter is provided, its original aspect ratio will
-        /// be used to calculate the <code>WidthPixels</code> ratio. If neither parameter is provided,
-        /// the original image size will be returned.</para>
+        /// <para>The height of the output image that is used in conjunction with the <c>WidthPixels</c>
+        /// parameter. When both <c>HeightPixels</c> and <c>WidthPixels</c> parameters are provided,
+        /// the image will be stretched to fit the specified aspect ratio. If only the <c>HeightPixels</c>
+        /// parameter is provided, its original aspect ratio will be used to calculate the <c>WidthPixels</c>
+        /// ratio. If neither parameter is provided, the original image size will be returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <para>
         /// <para>The time interval in milliseconds (ms) at which the images need to be generated from
         /// the stream. The minimum value that can be provided is 200 ms. If the timestamp range
-        /// is less than the sampling interval, the Image from the <code>StartTimestamp</code>
-        /// will be returned if available. </para>
+        /// is less than the sampling interval, the Image from the <c>StartTimestamp</c> will
+        /// be returned if available. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter ImageGenerationConfiguration_Status
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the <code>ContinuousImageGenerationConfigurations</code> API is
-        /// enabled or disabled.</para>
+        /// <para>Indicates whether the <c>ContinuousImageGenerationConfigurations</c> API is enabled
+        /// or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to
-        /// update the image generation configuration. You must specify either the <code>StreamName</code>
-        /// or the <code>StreamARN</code>.</para>
+        /// update the image generation configuration. You must specify either the <c>StreamName</c>
+        /// or the <c>StreamARN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -150,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The name of the stream from which to update the image generation configuration. You
-        /// must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</para>
+        /// must specify either the <c>StreamName</c> or the <c>StreamARN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,12 +169,11 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter ImageGenerationConfiguration_WidthPixel
         /// <summary>
         /// <para>
-        /// <para>The width of the output image that is used in conjunction with the <code>HeightPixels</code>
-        /// parameter. When both <code>WidthPixels</code> and <code>HeightPixels</code> parameters
-        /// are provided, the image will be stretched to fit the specified aspect ratio. If only
-        /// the <code>WidthPixels</code> parameter is provided, its original aspect ratio will
-        /// be used to calculate the <code>HeightPixels</code> ratio. If neither parameter is
-        /// provided, the original image size will be returned.</para>
+        /// <para>The width of the output image that is used in conjunction with the <c>HeightPixels</c>
+        /// parameter. When both <c>WidthPixels</c> and <c>HeightPixels</c> parameters are provided,
+        /// the image will be stretched to fit the specified aspect ratio. If only the <c>WidthPixels</c>
+        /// parameter is provided, its original aspect ratio will be used to calculate the <c>HeightPixels</c>
+        /// ratio. If neither parameter is provided, the original image size will be returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

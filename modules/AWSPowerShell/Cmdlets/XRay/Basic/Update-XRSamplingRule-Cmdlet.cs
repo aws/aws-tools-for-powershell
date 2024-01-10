@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #region Parameter SamplingRuleUpdate_ServiceName
         /// <summary>
         /// <para>
-        /// <para>Matches the <code>name</code> that the service uses to identify itself in segments.</para>
+        /// <para>Matches the <c>name</c> that the service uses to identify itself in segments.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #region Parameter SamplingRuleUpdate_ServiceType
         /// <summary>
         /// <para>
-        /// <para>Matches the <code>origin</code> that the service uses to identify its type in segments.</para>
+        /// <para>Matches the <c>origin</c> that the service uses to identify its type in segments.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,12 +28,12 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Deletes the specified EBS volume. The volume must be in the <code>available</code>
-    /// state (not attached to an instance).
+    /// Deletes the specified EBS volume. The volume must be in the <c>available</c> state
+    /// (not attached to an instance).
     /// 
     ///  
     /// <para>
-    /// The volume can remain in the <code>deleting</code> state for several minutes.
+    /// The volume can remain in the <c>deleting</c> state for several minutes.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html">Delete
     /// an Amazon EBS volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.

@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The <code>MaxResults</code> parameter sets the maximum number of results returned
-        /// in a single page. This is for future use and is not supported currently.</para>
+        /// <para>The <c>MaxResults</c> parameter sets the maximum number of results returned in a single
+        /// page. This is for future use and is not supported currently.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

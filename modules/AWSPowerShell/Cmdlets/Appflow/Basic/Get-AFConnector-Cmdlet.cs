@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         #region Parameter ConnectorLabel
         /// <summary>
         /// <para>
-        /// <para>The label of the connector. The label is unique for each <code>ConnectorRegistration</code>
+        /// <para>The label of the connector. The label is unique for each <c>ConnectorRegistration</c>
         /// in your Amazon Web Services account. Only needed if calling for CUSTOMCONNECTOR connector
         /// type/.</para>
         /// </para>

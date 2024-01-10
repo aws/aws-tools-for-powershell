@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>An optional value that specifies whether you want the results sorted in <code>Ascending</code>
-        /// or <code>Descending</code> order.</para>
+        /// <para>An optional value that specifies whether you want the results sorted in <c>Ascending</c>
+        /// or <c>Descending</c> order.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The total number of items to return. If the total number of available items is more
-        /// than the value specified in <code>MaxResults</code>, then a <code>NextToken</code>
-        /// will be provided in the output that you can use to resume pagination.</para>
+        /// than the value specified in <c>MaxResults</c>, then a <c>NextToken</c> will be provided
+        /// in the output that you can use to resume pagination.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

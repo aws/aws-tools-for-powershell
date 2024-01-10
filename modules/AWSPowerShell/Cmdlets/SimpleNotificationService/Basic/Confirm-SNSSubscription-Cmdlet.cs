@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Verifies an endpoint owner's intent to receive messages by validating the token sent
-    /// to the endpoint by an earlier <code>Subscribe</code> action. If the token is valid,
-    /// the action creates a new subscription and returns its Amazon Resource Name (ARN).
-    /// This call requires an AWS signature only when the <code>AuthenticateOnUnsubscribe</code>
-    /// flag is set to "true".
+    /// to the endpoint by an earlier <c>Subscribe</c> action. If the token is valid, the
+    /// action creates a new subscription and returns its Amazon Resource Name (ARN). This
+    /// call requires an AWS signature only when the <c>AuthenticateOnUnsubscribe</c> flag
+    /// is set to "true".
     /// </summary>
     [Cmdlet("Confirm", "SNSSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>Disallows unauthenticated unsubscribes of the subscription. If the value of this parameter
-        /// is <code>true</code> and the request has an Amazon Web Services signature, then only
-        /// the topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe
+        /// is <c>true</c> and the request has an Amazon Web Services signature, then only the
+        /// topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe
         /// action requires Amazon Web Services authentication. </para>
         /// </para>
         /// </summary>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Token
         /// <summary>
         /// <para>
-        /// <para>Short-lived token sent to an endpoint during the <code>Subscribe</code> action.</para>
+        /// <para>Short-lived token sent to an endpoint during the <c>Subscribe</c> action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

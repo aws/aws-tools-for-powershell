@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
 {
     /// <summary>
     /// Delete an App Runner connection. You must first ensure that there are no running App
-    /// Runner services that use this connection. If there are any, the <code>DeleteConnection</code>
+    /// Runner services that use this connection. If there are any, the <c>DeleteConnection</c>
     /// action fails.
     /// </summary>
     [Cmdlet("Remove", "AARConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

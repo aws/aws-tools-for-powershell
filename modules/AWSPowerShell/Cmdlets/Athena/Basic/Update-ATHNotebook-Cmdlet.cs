@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The notebook content type. Currently, the only valid type is <code>IPYNB</code>.</para>
+        /// <para>The notebook content type. Currently, the only valid type is <c>IPYNB</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

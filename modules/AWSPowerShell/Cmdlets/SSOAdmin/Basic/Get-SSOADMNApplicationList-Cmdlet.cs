@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     /// <summary>
     /// Lists all applications associated with the instance of IAM Identity Center. When listing
     /// applications for an instance in the management account, member accounts must use the
-    /// <code>applicationAccount</code> parameter to filter the list to only applications
-    /// created from that account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// <c>applicationAccount</c> parameter to filter the list to only applications created
+    /// from that account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSOADMNApplicationList")]
     [OutputType("Amazon.SSOAdmin.Model.Application")]
@@ -89,11 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <summary>
         /// <para>
         /// <para>Specifies the total number of results that you want included in each response. If
-        /// additional items exist beyond the number you specify, the <code>NextToken</code> response
-        /// element is returned with a value (not null). Include the specified value as the <code>NextToken</code>
+        /// additional items exist beyond the number you specify, the <c>NextToken</c> response
+        /// element is returned with a value (not null). Include the specified value as the <c>NextToken</c>
         /// request parameter in the next call to the operation to get the next set of results.
         /// Note that the service might return fewer results than the maximum even when there
-        /// are more results available. You should check <code>NextToken</code> after every operation
+        /// are more results available. You should check <c>NextToken</c> after every operation
         /// to ensure that you receive all of the results.</para>
         /// </para>
         /// </summary>
@@ -106,9 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <summary>
         /// <para>
         /// <para>Specifies that you want to receive the next page of results. Valid only if you received
-        /// a <code>NextToken</code> response in the previous request. If you did, it indicates
-        /// that more output is available. Set this parameter to the value provided by the previous
-        /// call's <code>NextToken</code> response to request the next page of results.</para>
+        /// a <c>NextToken</c> response in the previous request. If you did, it indicates that
+        /// more output is available. Set this parameter to the value provided by the previous
+        /// call's <c>NextToken</c> response to request the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

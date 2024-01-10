@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>An idempotency token provided by the customer. If this token matches a previous endpoint
-        /// creation request, Amazon Comprehend will not return a <code>ResourceInUseException</code>.
+        /// creation request, Amazon Comprehend will not return a <c>ResourceInUseException</c>.
         /// </para>
         /// </para>
         /// </summary>
@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter EndpointName
         /// <summary>
         /// <para>
-        /// <para>This is the descriptive suffix that becomes part of the <code>EndpointArn</code> used
-        /// for all subsequent requests to this resource. </para>
+        /// <para>This is the descriptive suffix that becomes part of the <c>EndpointArn</c> used for
+        /// all subsequent requests to this resource. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

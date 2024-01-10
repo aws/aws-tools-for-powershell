@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// operation, and then use the face IDs returned in subsequent calls to the <a>SearchFaces</a>
     /// operation. 
     /// </para><para>
-    ///  You can also call the <code>DetectFaces</code> operation and use the bounding boxes
-    /// in the response to make face crops, which then you can pass in to the <code>SearchFacesByImage</code>
+    ///  You can also call the <c>DetectFaces</c> operation and use the bounding boxes in
+    /// the response to make face crops, which then you can pass in to the <c>SearchFacesByImage</c>
     /// operation. 
     /// </para></note><para>
     /// You pass the input image either as base64-encoded image bytes or as a reference to
@@ -48,29 +48,28 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para><para>
     ///  The response returns an array of faces that match, ordered by similarity score with
     /// the highest similarity first. More specifically, it is an array of metadata for each
-    /// face match found. Along with the metadata, the response also includes a <code>similarity</code>
+    /// face match found. Along with the metadata, the response also includes a <c>similarity</c>
     /// indicating how similar the face is to the input face. In the response, the operation
     /// also returns the bounding box (and a confidence level that the bounding box contains
     /// a face) of the face that Amazon Rekognition used for the input image. 
     /// </para><para>
-    /// If no faces are detected in the input image, <code>SearchFacesByImage</code> returns
-    /// an <code>InvalidParameterException</code> error. 
+    /// If no faces are detected in the input image, <c>SearchFacesByImage</c> returns an
+    /// <c>InvalidParameterException</c> error. 
     /// </para><para>
     /// For an example, Searching for a Face Using an Image in the Amazon Rekognition Developer
     /// Guide.
     /// </para><para>
-    /// The <code>QualityFilter</code> input parameter allows you to filter out detected faces
-    /// that don’t meet a required quality bar. The quality bar is based on a variety of common
-    /// use cases. Use <code>QualityFilter</code> to set the quality bar for filtering by
-    /// specifying <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you do
-    /// not want to filter detected faces, specify <code>NONE</code>. The default value is
-    /// <code>NONE</code>.
+    /// The <c>QualityFilter</c> input parameter allows you to filter out detected faces that
+    /// don’t meet a required quality bar. The quality bar is based on a variety of common
+    /// use cases. Use <c>QualityFilter</c> to set the quality bar for filtering by specifying
+    /// <c>LOW</c>, <c>MEDIUM</c>, or <c>HIGH</c>. If you do not want to filter detected faces,
+    /// specify <c>NONE</c>. The default value is <c>NONE</c>.
     /// </para><note><para>
     /// To use quality filtering, you need a collection associated with version 3 of the face
     /// model or higher. To get the version of the face model associated with a collection,
     /// call <a>DescribeCollection</a>. 
     /// </para></note><para>
-    /// This operation requires permissions to perform the <code>rekognition:SearchFacesByImage</code>
+    /// This operation requires permissions to perform the <c>rekognition:SearchFacesByImage</c>
     /// action.
     /// </para>
     /// </summary>
@@ -99,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Blob of image bytes up to 5 MBs. Note that the maximum image size you can pass to
-        /// <code>DetectCustomLabels</code> is 4MB. </para>
+        /// <c>DetectCustomLabels</c> is 4MB. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -163,14 +162,14 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>A filter that specifies a quality bar for how much filtering is done to identify faces.
-        /// Filtered faces aren't searched for in the collection. If you specify <code>AUTO</code>,
-        /// Amazon Rekognition chooses the quality bar. If you specify <code>LOW</code>, <code>MEDIUM</code>,
-        /// or <code>HIGH</code>, filtering removes all faces that don’t meet the chosen quality
-        /// bar. The quality bar is based on a variety of common use cases. Low-quality detections
+        /// Filtered faces aren't searched for in the collection. If you specify <c>AUTO</c>,
+        /// Amazon Rekognition chooses the quality bar. If you specify <c>LOW</c>, <c>MEDIUM</c>,
+        /// or <c>HIGH</c>, filtering removes all faces that don’t meet the chosen quality bar.
+        /// The quality bar is based on a variety of common use cases. Low-quality detections
         /// can occur for a number of reasons. Some examples are an object that's misidentified
         /// as a face, a face that's too blurry, or a face with a pose that's too extreme to use.
-        /// If you specify <code>NONE</code>, no filtering is performed. The default value is
-        /// <code>NONE</code>. </para><para>To use quality filtering, the collection you are using must be associated with version
+        /// If you specify <c>NONE</c>, no filtering is performed. The default value is <c>NONE</c>.
+        /// </para><para>To use quality filtering, the collection you are using must be associated with version
         /// 3 of the face model or higher.</para>
         /// </para>
         /// </summary>

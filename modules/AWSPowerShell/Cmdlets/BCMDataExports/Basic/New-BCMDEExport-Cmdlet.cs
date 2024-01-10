@@ -33,23 +33,23 @@ namespace Amazon.PowerShell.Cmdlets.BCMDE
     /// 
     ///  
     /// <para>
-    /// A <code>DataQuery</code> consists of both a <code>QueryStatement</code> and <code>TableConfigurations</code>.
+    /// A <c>DataQuery</c> consists of both a <c>QueryStatement</c> and <c>TableConfigurations</c>.
     /// </para><para>
-    /// The <code>QueryStatement</code> is an SQL statement. Data Exports only supports a
-    /// limited subset of the SQL syntax. For more information on the SQL syntax that is supported,
+    /// The <c>QueryStatement</c> is an SQL statement. Data Exports only supports a limited
+    /// subset of the SQL syntax. For more information on the SQL syntax that is supported,
     /// see <a href="https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html">Data
     /// query</a>. To view the available tables and columns, see the <a href="https://docs.aws.amazon.com/cur/latest/userguide/de-table-dictionary.html">Data
     /// Exports table dictionary</a>.
     /// </para><para>
-    /// The <code>TableConfigurations</code> is a collection of specified <code>TableProperties</code>
-    /// for the table being queried in the <code>QueryStatement</code>. TableProperties are
-    /// additional configurations you can provide to change the data and schema of a table.
-    /// Each table can have different TableProperties. However, tables are not required to
-    /// have any TableProperties. Each table property has a default value that it assumes
-    /// if not specified. For more information on table configurations, see <a href="https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html">Data
+    /// The <c>TableConfigurations</c> is a collection of specified <c>TableProperties</c>
+    /// for the table being queried in the <c>QueryStatement</c>. TableProperties are additional
+    /// configurations you can provide to change the data and schema of a table. Each table
+    /// can have different TableProperties. However, tables are not required to have any TableProperties.
+    /// Each table property has a default value that it assumes if not specified. For more
+    /// information on table configurations, see <a href="https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html">Data
     /// query</a>. To view the table properties available for each table, see the <a href="https://docs.aws.amazon.com/cur/latest/userguide/de-table-dictionary.html">Data
-    /// Exports table dictionary</a> or use the <code>ListTables</code> API to get a response
-    /// of all tables and their available properties.
+    /// Exports table dictionary</a> or use the <c>ListTables</c> API to get a response of
+    /// all tables and their available properties.
     /// </para>
     /// </summary>
     [Cmdlet("New", "BCMDEExport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>AgentId</code> - ID of the agent whose collected data will be exported</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><c>AgentId</c> - ID of the agent whose collected data will be exported</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,10 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of volume results returned by <code>DescribeExportTasks</code>
-        /// in paginated output. When this parameter is used, <code>DescribeExportTasks</code>
-        /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-        /// response element.</para>
+        /// <para>The maximum number of volume results returned by <c>DescribeExportTasks</c> in paginated
+        /// output. When this parameter is used, <c>DescribeExportTasks</c> only returns <c>maxResults</c>
+        /// results in a single page along with a <c>nextToken</c> response element.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -88,11 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>DescribeExportTasks</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. This value is null when there are no more
-        /// results to return.</para>
+        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>DescribeExportTasks</c>
+        /// request where <c>maxResults</c> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <c>nextToken</c> value. This value is null when there are no more results to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

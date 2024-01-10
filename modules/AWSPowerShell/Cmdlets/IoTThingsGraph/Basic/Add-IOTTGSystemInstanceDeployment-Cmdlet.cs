@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
     /// <b>Greengrass and Cloud Deployments</b><para>
-    /// Deploys the system instance to the target specified in <code>CreateSystemInstance</code>.
+    /// Deploys the system instance to the target specified in <c>CreateSystemInstance</c>.
     /// 
     /// </para><para><b>Greengrass Deployments</b></para><para>
     /// If the system or any workflows and entities have been updated before this action is
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the system instance. This value is returned by the <code>CreateSystemInstance</code>
-        /// action.</para><para>The ID should be in the following format.</para><para><code>urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME</code></para>
+        /// <para>The ID of the system instance. This value is returned by the <c>CreateSystemInstance</c>
+        /// action.</para><para>The ID should be in the following format.</para><para><c>urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

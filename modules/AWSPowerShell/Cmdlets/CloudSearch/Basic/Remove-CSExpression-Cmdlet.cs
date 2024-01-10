@@ -28,7 +28,7 @@ using Amazon.CloudSearch.Model;
 namespace Amazon.PowerShell.Cmdlets.CS
 {
     /// <summary>
-    /// Removes an <code><a>Expression</a></code> from the search domain. For more information,
+    /// Removes an <c><a>Expression</a></c> from the search domain. For more information,
     /// see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html" target="_blank">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer
     /// Guide</i>.
     /// </summary>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         #region Parameter ExpressionName
         /// <summary>
         /// <para>
-        /// <para>The name of the <code><a>Expression</a></code> to delete.</para>
+        /// <para>The name of the <c><a>Expression</a></c> to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

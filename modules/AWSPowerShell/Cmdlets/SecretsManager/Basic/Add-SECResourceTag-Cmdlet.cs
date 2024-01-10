@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// include sensitive information in request parameters because it might be logged. For
     /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
     /// Secrets Manager events with CloudTrail</a>.
-    /// </para><para><b>Required permissions: </b><code>secretsmanager:TagResource</code>. For more information,
+    /// </para><para><b>Required permissions: </b><c>secretsmanager:TagResource</c>. For more information,
     /// see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
     /// and access control in Secrets Manager</a>. 
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>The tags to attach to the secret as a JSON text string argument. Each element in the
-        /// list consists of a <code>Key</code> and a <code>Value</code>.</para><para>For storing multiple values, we recommend that you use a JSON text string argument
+        /// list consists of a <c>Key</c> and a <c>Value</c>.</para><para>For storing multiple values, we recommend that you use a JSON text string argument
         /// and specify key/value pairs. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html">Specifying
         /// parameter values for the Amazon Web Services CLI</a> in the Amazon Web Services CLI
         /// User Guide.</para>

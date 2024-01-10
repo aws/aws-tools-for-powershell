@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
         /// <summary>
         /// <para>
         /// <para>The first logging configurations to retrieve. This is used for pagination; see the
-        /// <code>nextToken</code> response field.</para>
+        /// <c>nextToken</c> response field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     ///  
     /// <para>
     /// For example, if the input consists of accountID 12345678910 and the region is us-east-1
-    /// for resource type <code>AWS::EC2::Instance</code> then the API returns all the EC2
-    /// instance identifiers of accountID 12345678910 and region us-east-1.
+    /// for resource type <c>AWS::EC2::Instance</c> then the API returns all the EC2 instance
+    /// identifiers of accountID 12345678910 and region us-east-1.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGAggregateDiscoveredResourceList")]
@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
-        /// the next page of results in a paginated response.</para>
+        /// <para>The <c>nextToken</c> string returned on a previous page that you use to get the next
+        /// page of results in a paginated response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

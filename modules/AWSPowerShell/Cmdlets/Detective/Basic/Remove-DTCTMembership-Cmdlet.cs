@@ -29,13 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
     /// Removes the member account from the specified behavior graph. This operation can only
-    /// be called by an invited member account that has the <code>ENABLED</code> status.
+    /// be called by an invited member account that has the <c>ENABLED</c> status.
     /// 
     ///  
-    /// <para><code>DisassociateMembership</code> cannot be called by an organization account in
-    /// the organization behavior graph. For the organization behavior graph, the Detective
-    /// administrator account determines which organization accounts to enable or disable
-    /// as member accounts.
+    /// <para><c>DisassociateMembership</c> cannot be called by an organization account in the
+    /// organization behavior graph. For the organization behavior graph, the Detective administrator
+    /// account determines which organization accounts to enable or disable as member accounts.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "DTCTMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -53,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         #region Parameter GraphArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the behavior graph to remove the member account from.</para><para>The member account's member status in the behavior graph must be <code>ENABLED</code>.</para>
+        /// <para>The ARN of the behavior graph to remove the member account from.</para><para>The member account's member status in the behavior graph must be <c>ENABLED</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

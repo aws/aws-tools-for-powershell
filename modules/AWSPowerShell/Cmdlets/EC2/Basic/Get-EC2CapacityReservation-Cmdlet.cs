@@ -57,37 +57,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>instance-type</code> - The type of instance for which the Capacity Reservation
-        /// reserves capacity.</para></li><li><para><code>owner-id</code> - The ID of the Amazon Web Services account that owns the Capacity
-        /// Reservation.</para></li><li><para><code>instance-platform</code> - The type of operating system for which the Capacity
-        /// Reservation reserves capacity.</para></li><li><para><code>availability-zone</code> - The Availability Zone of the Capacity Reservation.</para></li><li><para><code>tenancy</code> - Indicates the tenancy of the Capacity Reservation. A Capacity
-        /// Reservation can have one of the following tenancy settings:</para><ul><li><para><code>default</code> - The Capacity Reservation is created on hardware that is shared
-        /// with other Amazon Web Services accounts.</para></li><li><para><code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware
-        /// that is dedicated to a single Amazon Web Services account.</para></li></ul></li><li><para><code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost on which
-        /// the Capacity Reservation was created.</para></li><li><para><code>state</code> - The current state of the Capacity Reservation. A Capacity Reservation
-        /// can be in one of the following states:</para><ul><li><para><code>active</code>- The Capacity Reservation is active and the capacity is available
-        /// for your use.</para></li><li><para><code>expired</code> - The Capacity Reservation expired automatically at the date
-        /// and time specified in your request. The reserved capacity is no longer available for
-        /// your use.</para></li><li><para><code>cancelled</code> - The Capacity Reservation was cancelled. The reserved capacity
-        /// is no longer available for your use.</para></li><li><para><code>pending</code> - The Capacity Reservation request was successful but the capacity
-        /// provisioning is still pending.</para></li><li><para><code>failed</code> - The Capacity Reservation request has failed. A request might
-        /// fail due to invalid request parameters, capacity constraints, or instance limit constraints.
-        /// Failed requests are retained for 60 minutes.</para></li></ul></li><li><para><code>start-date</code> - The date and time at which the Capacity Reservation was
-        /// started.</para></li><li><para><code>end-date</code> - The date and time at which the Capacity Reservation expires.
-        /// When a Capacity Reservation expires, the reserved capacity is released and you can
-        /// no longer launch instances into it. The Capacity Reservation's state changes to expired
-        /// when it reaches its end date and time.</para></li><li><para><code>end-date-type</code> - Indicates the way in which the Capacity Reservation
-        /// ends. A Capacity Reservation can have one of the following end types:</para><ul><li><para><code>unlimited</code> - The Capacity Reservation remains active until you explicitly
-        /// cancel it.</para></li><li><para><code>limited</code> - The Capacity Reservation expires automatically at a specified
-        /// date and time.</para></li></ul></li><li><para><code>instance-match-criteria</code> - Indicates the type of instance launches that
-        /// the Capacity Reservation accepts. The options include:</para><ul><li><para><code>open</code> - The Capacity Reservation accepts all instances that have matching
-        /// attributes (instance type, platform, and Availability Zone). Instances that have matching
-        /// attributes launch into the Capacity Reservation automatically without specifying any
-        /// additional parameters.</para></li><li><para><code>targeted</code> - The Capacity Reservation only accepts instances that have
-        /// matching attributes (instance type, platform, and Availability Zone), and explicitly
-        /// target the Capacity Reservation. This ensures that only permitted instances can use
-        /// the reserved capacity.</para></li></ul></li><li><para><code>placement-group-arn</code> - The ARN of the cluster placement group in which
-        /// the Capacity Reservation was created.</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><c>instance-type</c> - The type of instance for which the Capacity Reservation reserves
+        /// capacity.</para></li><li><para><c>owner-id</c> - The ID of the Amazon Web Services account that owns the Capacity
+        /// Reservation.</para></li><li><para><c>instance-platform</c> - The type of operating system for which the Capacity Reservation
+        /// reserves capacity.</para></li><li><para><c>availability-zone</c> - The Availability Zone of the Capacity Reservation.</para></li><li><para><c>tenancy</c> - Indicates the tenancy of the Capacity Reservation. A Capacity Reservation
+        /// can have one of the following tenancy settings:</para><ul><li><para><c>default</c> - The Capacity Reservation is created on hardware that is shared with
+        /// other Amazon Web Services accounts.</para></li><li><para><c>dedicated</c> - The Capacity Reservation is created on single-tenant hardware
+        /// that is dedicated to a single Amazon Web Services account.</para></li></ul></li><li><para><c>outpost-arn</c> - The Amazon Resource Name (ARN) of the Outpost on which the Capacity
+        /// Reservation was created.</para></li><li><para><c>state</c> - The current state of the Capacity Reservation. A Capacity Reservation
+        /// can be in one of the following states:</para><ul><li><para><c>active</c>- The Capacity Reservation is active and the capacity is available for
+        /// your use.</para></li><li><para><c>expired</c> - The Capacity Reservation expired automatically at the date and time
+        /// specified in your request. The reserved capacity is no longer available for your use.</para></li><li><para><c>cancelled</c> - The Capacity Reservation was cancelled. The reserved capacity
+        /// is no longer available for your use.</para></li><li><para><c>pending</c> - The Capacity Reservation request was successful but the capacity
+        /// provisioning is still pending.</para></li><li><para><c>failed</c> - The Capacity Reservation request has failed. A request might fail
+        /// due to invalid request parameters, capacity constraints, or instance limit constraints.
+        /// Failed requests are retained for 60 minutes.</para></li></ul></li><li><para><c>start-date</c> - The date and time at which the Capacity Reservation was started.</para></li><li><para><c>end-date</c> - The date and time at which the Capacity Reservation expires. When
+        /// a Capacity Reservation expires, the reserved capacity is released and you can no longer
+        /// launch instances into it. The Capacity Reservation's state changes to expired when
+        /// it reaches its end date and time.</para></li><li><para><c>end-date-type</c> - Indicates the way in which the Capacity Reservation ends.
+        /// A Capacity Reservation can have one of the following end types:</para><ul><li><para><c>unlimited</c> - The Capacity Reservation remains active until you explicitly cancel
+        /// it.</para></li><li><para><c>limited</c> - The Capacity Reservation expires automatically at a specified date
+        /// and time.</para></li></ul></li><li><para><c>instance-match-criteria</c> - Indicates the type of instance launches that the
+        /// Capacity Reservation accepts. The options include:</para><ul><li><para><c>open</c> - The Capacity Reservation accepts all instances that have matching attributes
+        /// (instance type, platform, and Availability Zone). Instances that have matching attributes
+        /// launch into the Capacity Reservation automatically without specifying any additional
+        /// parameters.</para></li><li><para><c>targeted</c> - The Capacity Reservation only accepts instances that have matching
+        /// attributes (instance type, platform, and Availability Zone), and explicitly target
+        /// the Capacity Reservation. This ensures that only permitted instances can use the reserved
+        /// capacity.</para></li></ul></li><li><para><c>placement-group-arn</c> - The ARN of the cluster placement group in which the
+        /// Capacity Reservation was created.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,9 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return for the request in a single page. The remaining
-        /// results can be seen by sending another request with the returned <code>nextToken</code>
-        /// value. This value can be between 5 and 500. If <code>maxResults</code> is given a
-        /// larger value than 500, you receive an error.</para>
+        /// results can be seen by sending another request with the returned <c>nextToken</c>
+        /// value. This value can be between 5 and 500. If <c>maxResults</c> is given a larger
+        /// value than 500, you receive an error.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

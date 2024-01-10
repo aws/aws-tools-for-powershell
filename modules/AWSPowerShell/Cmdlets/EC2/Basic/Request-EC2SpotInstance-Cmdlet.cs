@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Indicates whether the instance is optimized for EBS I/O. This optimization provides
         /// dedicated throughput to Amazon EBS and an optimized configuration stack to provide
         /// optimal EBS I/O performance. This optimization isn't available with all instance types.
-        /// Additional usage charges apply when using an EBS Optimized instance.</para><para>Default: <code>false</code></para>
+        /// Additional usage charges apply when using an EBS Optimized instance.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceInterruptionBehavior
         /// <summary>
         /// <para>
-        /// <para>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</para>
+        /// <para>The behavior when a Spot Instance is interrupted. The default is <c>terminate</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -322,9 +322,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The key-value pair for tagging the Spot Instance request on creation. The value for
-        /// <code>ResourceType</code> must be <code>spot-instances-request</code>, otherwise the
-        /// Spot Instance request fails. To tag the Spot Instance request after it has been created,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.
+        /// <c>ResourceType</c> must be <c>spot-instances-request</c>, otherwise the Spot Instance
+        /// request fails. To tag the Spot Instance request after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.
         /// </para>
         /// </para>
         /// </summary>
@@ -337,8 +336,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The tenancy of the instance (if the instance is running in a VPC). An instance with
-        /// a tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code>
-        /// tenancy is not supported for Spot Instances.</para>
+        /// a tenancy of <c>dedicated</c> runs on single-tenant hardware. The <c>host</c> tenancy
+        /// is not supported for Spot Instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,7 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The Spot Instance request type.</para><para>Default: <code>one-time</code></para>
+        /// <para>The Spot Instance request type.</para><para>Default: <c>one-time</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -386,10 +385,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter UtcValidUntil
         /// <summary>
         /// <para>
-        /// <para>The end date of the request, in UTC format (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</para><ul><li><para>For a persistent request, the request remains active until the <code>ValidUntil</code>
-        /// date and time is reached. Otherwise, the request remains active until you cancel it.
-        /// </para></li><li><para>For a one-time request, the request remains active until all instances launch, the
-        /// request is canceled, or the <code>ValidUntil</code> date and time is reached. By default,
+        /// <para>The end date of the request, in UTC format (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</para><ul><li><para>For a persistent request, the request remains active until the <c>ValidUntil</c> date
+        /// and time is reached. Otherwise, the request remains active until you cancel it. </para></li><li><para>For a one-time request, the request remains active until all instances launch, the
+        /// request is canceled, or the <c>ValidUntil</c> date and time is reached. By default,
         /// the request is valid for 7 days from the date the request was created.</para></li></ul>
         /// </para>
         /// </summary>
@@ -438,10 +436,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// ValidUntilUtc results in both ValidUntil and ValidUntilUtc being assigned, the latest
         /// assignment to either one of the two property is reflected in the value of both. ValidUntil
         /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
-        /// results in the wrong timestamp being passed to the service.</para><para>The end date of the request, in UTC format (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</para><ul><li><para>For a persistent request, the request remains active until the <code>ValidUntil</code>
-        /// date and time is reached. Otherwise, the request remains active until you cancel it.
-        /// </para></li><li><para>For a one-time request, the request remains active until all instances launch, the
-        /// request is canceled, or the <code>ValidUntil</code> date and time is reached. By default,
+        /// results in the wrong timestamp being passed to the service.</para><para>The end date of the request, in UTC format (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</para><ul><li><para>For a persistent request, the request remains active until the <c>ValidUntil</c> date
+        /// and time is reached. Otherwise, the request remains active until you cancel it. </para></li><li><para>For a one-time request, the request remains active until all instances launch, the
+        /// request is canceled, or the <c>ValidUntil</c> date and time is reached. By default,
         /// the request is valid for 7 days from the date the request was created.</para></li></ul>
         /// </para>
         /// <para>This parameter is deprecated.</para>

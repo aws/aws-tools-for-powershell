@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PublicKeyBase64
         /// <summary>
         /// <para>
-        /// <para>A base64-encoded public key of the <code>ssh-rsa</code> type.</para>
+        /// <para>A base64-encoded public key of the <c>ssh-rsa</c> type.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// 
     ///  
     /// <para>
-    /// Before you can delete a compute environment, you must set its state to <code>DISABLED</code>
+    /// Before you can delete a compute environment, you must set its state to <c>DISABLED</c>
     /// with the <a>UpdateComputeEnvironment</a> API operation and disassociate it from any
     /// job queues with the <a>UpdateJobQueue</a> API operation. Compute environments that
     /// use Fargate resources must terminate all active jobs on that compute environment before

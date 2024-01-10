@@ -36,13 +36,13 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// for 15 days for use with the <a>GetUtterancesView</a> operation, and then stored indefinitely
     /// for use in improving the ability of your bot to respond to user input.
     /// </para><para>
-    /// Use the <code>DeleteUtterances</code> operation to manually delete stored utterances
-    /// for a specific user. When you use the <code>DeleteUtterances</code> operation, utterances
-    /// stored for improving your bot's ability to respond to user input are deleted immediately.
-    /// Utterances stored for use with the <code>GetUtterancesView</code> operation are deleted
+    /// Use the <c>DeleteUtterances</c> operation to manually delete stored utterances for
+    /// a specific user. When you use the <c>DeleteUtterances</c> operation, utterances stored
+    /// for improving your bot's ability to respond to user input are deleted immediately.
+    /// Utterances stored for use with the <c>GetUtterancesView</c> operation are deleted
     /// after 15 days.
     /// </para><para>
-    /// This operation requires permissions for the <code>lex:DeleteUtterances</code> action.
+    /// This operation requires permissions for the <c>lex:DeleteUtterances</c> action.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LMBUtterance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

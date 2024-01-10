@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>
         /// <para>The name of the rate-based rule to get the keys for. If you have the rule defined
         /// inside a rule group that you're using in your web ACL, also provide the name of the
-        /// rule group reference statement in the request parameter <code>RuleGroupRuleName</code>.</para>
+        /// rule group reference statement in the request parameter <c>RuleGroupRuleName</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// application. A regional application can be an Application Load Balancer (ALB), an
         /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
         /// an App Runner service, or an Amazon Web Services Verified Access instance. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
-        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
-        /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
+        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <c>--scope=CLOUDFRONT
+        /// --region=us-east-1</c>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

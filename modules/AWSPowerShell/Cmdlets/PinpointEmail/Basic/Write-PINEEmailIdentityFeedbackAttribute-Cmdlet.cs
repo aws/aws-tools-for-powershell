@@ -60,14 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         #region Parameter EmailForwardingEnabled
         /// <summary>
         /// <para>
-        /// <para>Sets the feedback forwarding configuration for the identity.</para><para>If the value is <code>true</code>, Amazon Pinpoint sends you email notifications when
-        /// bounce or complaint events occur. Amazon Pinpoint sends this notification to the address
-        /// that you specified in the Return-Path header of the original email.</para><para>When you set this value to <code>false</code>, Amazon Pinpoint sends notifications
-        /// through other mechanisms, such as by notifying an Amazon SNS topic or another event
-        /// destination. You're required to have a method of tracking bounces and complaints.
-        /// If you haven't set up another mechanism for receiving bounce or complaint notifications,
-        /// Amazon Pinpoint sends an email notification when these events occur (even if this
-        /// setting is disabled).</para>
+        /// <para>Sets the feedback forwarding configuration for the identity.</para><para>If the value is <c>true</c>, Amazon Pinpoint sends you email notifications when bounce
+        /// or complaint events occur. Amazon Pinpoint sends this notification to the address
+        /// that you specified in the Return-Path header of the original email.</para><para>When you set this value to <c>false</c>, Amazon Pinpoint sends notifications through
+        /// other mechanisms, such as by notifying an Amazon SNS topic or another event destination.
+        /// You're required to have a method of tracking bounces and complaints. If you haven't
+        /// set up another mechanism for receiving bounce or complaint notifications, Amazon Pinpoint
+        /// sends an email notification when these events occur (even if this setting is disabled).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

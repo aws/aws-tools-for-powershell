@@ -72,10 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>Specifies whether the modifications in this request and any pending modifications
-        /// are asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code>
-        /// setting for the DB instance.</para><para> If this parameter is set to <code>false</code>, changes to the DB instance are applied
+        /// are asynchronously applied as soon as possible, regardless of the <c>PreferredMaintenanceWindow</c>
+        /// setting for the DB instance.</para><para> If this parameter is set to <c>false</c>, changes to the DB instance are applied
         /// during the next maintenance window. Some parameter changes can cause an outage and
-        /// are applied on the next call to <a>RebootDBInstance</a>, or the next failure reboot.</para><para>Default: <code>false</code></para>
+        /// are applied on the next call to <a>RebootDBInstance</a>, or the next failure reboot.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para> Indicates that minor version upgrades are applied automatically to the DB instance
         /// during the maintenance window. Changing this parameter doesn't result in an outage
         /// except in the following case and the change is asynchronously applied as soon as possible.
-        /// An outage will result if this parameter is set to <code>true</code> during the maintenance
+        /// An outage will result if this parameter is set to <c>true</c> during the maintenance
         /// window, and a newer minor version is available, and Neptune has enabled auto patching
         /// for that engine version.</para>
         /// </para>
@@ -132,10 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para>The new compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
+        /// <para>The new compute and memory capacity of the DB instance, for example, <c>db.m4.large</c>.
         /// Not all DB instance classes are available in all Amazon Regions.</para><para>If you modify the DB instance class, an outage occurs during the change. The change
-        /// is applied during the next maintenance window, unless <code>ApplyImmediately</code>
-        /// is specified as <code>true</code> for this request.</para><para>Default: Uses existing setting</para>
+        /// is applied during the next maintenance window, unless <c>ApplyImmediately</c> is specified
+        /// as <c>true</c> for this request.</para><para>Default: Uses existing setting</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,9 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter DBPortNumber
         /// <summary>
         /// <para>
-        /// <para>The port number on which the database accepts connections.</para><para>The value of the <code>DBPortNumber</code> parameter must not match any of the port
-        /// values specified for options in the option group for the DB instance.</para><para>Your database will restart when you change the <code>DBPortNumber</code> value regardless
-        /// of the value of the <code>ApplyImmediately</code> parameter.</para><para> Default: <code>8182</code></para>
+        /// <para>The port number on which the database accepts connections.</para><para>The value of the <c>DBPortNumber</c> parameter must not match any of the port values
+        /// specified for options in the option group for the DB instance.</para><para>Your database will restart when you change the <c>DBPortNumber</c> value regardless
+        /// of the value of the <c>ApplyImmediately</c> parameter.</para><para> Default: <c>8182</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,8 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>The new DB subnet group for the DB instance. You can use this parameter to move your
         /// DB instance to a different VPC.</para><para>Changing the subnet group causes an outage during the change. The change is applied
-        /// during the next maintenance window, unless you specify <code>true</code> for the <code>ApplyImmediately</code>
-        /// parameter.</para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <code>mySubnetGroup</code></para>
+        /// during the next maintenance window, unless you specify <c>true</c> for the <c>ApplyImmediately</c>
+        /// parameter.</para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <c>mySubnetGroup</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>True to enable mapping of Amazon Identity and Access Management (IAM) accounts to
         /// database accounts, and otherwise false.</para><para>You can enable IAM database authentication for the following database engines</para><para>Not applicable. Mapping Amazon IAM accounts to database accounts is managed by the
-        /// DB cluster. For more information, see <a>ModifyDBCluster</a>.</para><para>Default: <code>false</code></para>
+        /// DB cluster. For more information, see <a>ModifyDBCluster</a>.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -305,8 +305,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The new Provisioned IOPS (I/O operations per second) value for the instance.</para><para>Changing this setting doesn't result in an outage and the change is applied during
-        /// the next maintenance window unless the <code>ApplyImmediately</code> parameter is
-        /// set to <code>true</code> for this request.</para><para>Default: Uses existing setting</para>
+        /// the next maintenance window unless the <c>ApplyImmediately</c> parameter is set to
+        /// <c>true</c> for this request.</para><para>Default: Uses existing setting</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -338,8 +338,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
         /// for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0.
-        /// The default is 0.</para><para>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
-        /// to a value other than 0.</para><para>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code></para>
+        /// The default is 0.</para><para>If <c>MonitoringRoleArn</c> is specified, then you must also set <c>MonitoringInterval</c>
+        /// to a value other than 0.</para><para>Valid Values: <c>0, 1, 5, 10, 15, 30, 60</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,8 +350,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The ARN for the IAM role that permits Neptune to send enhanced monitoring metrics
-        /// to Amazon CloudWatch Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>.</para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
-        /// a <code>MonitoringRoleArn</code> value.</para>
+        /// to Amazon CloudWatch Logs. For example, <c>arn:aws:iam:123456789012:role/emaccess</c>.</para><para>If <c>MonitoringInterval</c> is set to a value other than 0, then you must supply
+        /// a <c>MonitoringRoleArn</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -363,7 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter doesn't
         /// result in an outage and the change is applied during the next maintenance window unless
-        /// the <code>ApplyImmediately</code> parameter is set to <code>true</code> for this request.</para>
+        /// the <c>ApplyImmediately</c> parameter is set to <c>true</c> for this request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -375,9 +375,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para> The new DB instance identifier for the DB instance when renaming a DB instance. When
         /// you change the DB instance identifier, an instance reboot will occur immediately if
-        /// you set <code>Apply Immediately</code> to true, or will occur during the next maintenance
-        /// window if <code>Apply Immediately</code> to false. This value is stored as a lowercase
-        /// string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
+        /// you set <c>Apply Immediately</c> to true, or will occur during the next maintenance
+        /// window if <c>Apply Immediately</c> to false. This value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <c>mydbinstance</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

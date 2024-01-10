@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>DescribeSharedDirectoriesResult.NextToken</code> value from a previous call
-        /// to <a>DescribeSharedDirectories</a>. Pass null if this is the first call. </para>
+        /// <para>The <c>DescribeSharedDirectoriesResult.NextToken</c> value from a previous call to
+        /// <a>DescribeSharedDirectories</a>. Pass null if this is the first call. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

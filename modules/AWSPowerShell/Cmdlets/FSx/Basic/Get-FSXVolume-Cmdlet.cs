@@ -47,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Enter a filter <code>Name</code> and <code>Values</code> pair to view a select set
-        /// of volumes.</para>
+        /// <para>Enter a filter <c>Name</c> and <c>Values</c> pair to view a select set of volumes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

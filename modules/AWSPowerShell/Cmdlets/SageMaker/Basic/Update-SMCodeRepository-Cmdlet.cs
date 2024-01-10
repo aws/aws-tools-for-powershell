@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that
         /// contains the credentials used to access the git repository. The secret must have a
-        /// staging label of <code>AWSCURRENT</code> and must be in the following format:</para><para><code>{"username": <i>UserName</i>, "password": <i>Password</i>}</code></para>
+        /// staging label of <c>AWSCURRENT</c> and must be in the following format:</para><para><c>{"username": <i>UserName</i>, "password": <i>Password</i>}</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

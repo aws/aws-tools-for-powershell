@@ -33,8 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     ///  <note><para>
     /// API keys are deleted automatically 60 days after they expire. However, they may still
     /// be included in the response until they have actually been deleted. You can safely
-    /// call <code>DeleteApiKey</code> to manually delete a key before it's automatically
-    /// deleted.
+    /// call <c>DeleteApiKey</c> to manually delete a key before it's automatically deleted.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASYNApiKeyList")]

@@ -37,12 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// 
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3:CreateAccessGrant</code> permission to use this operation.
-    /// 
+    /// You must have the <c>s3:CreateAccessGrant</c> permission to use this operation. 
     /// </para></dd><dt>Additional Permissions</dt><dd><para>
-    /// For any directory identity - <code>sso:DescribeInstance</code> and <code>sso:DescribeApplication</code></para><para>
-    /// For directory users - <code>identitystore:DescribeUser</code></para><para>
-    /// For directory groups - <code>identitystore:DescribeGroup</code></para></dd></dl>
+    /// For any directory identity - <c>sso:DescribeInstance</c> and <c>sso:DescribeApplication</c></para><para>
+    /// For directory users - <c>identitystore:DescribeUser</c></para><para>
+    /// For directory groups - <c>identitystore:DescribeGroup</c></para></dd></dl>
     /// </summary>
     [Cmdlet("New", "S3CAccessGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3Control.Model.CreateAccessGrantResponse")]
@@ -59,11 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The ID of the registered location to which you are granting access. S3 Access Grants
-        /// assigns this ID when you register the location. S3 Access Grants assigns the ID <code>default</code>
-        /// to the default location <code>s3://</code> and assigns an auto-generated ID to other
-        /// locations that you register. </para><para>If you are passing the <code>default</code> location, you cannot create an access
-        /// grant for the entire default location. You must also specify a bucket or a bucket
-        /// and prefix in the <code>Subprefix</code> field. </para>
+        /// assigns this ID when you register the location. S3 Access Grants assigns the ID <c>default</c>
+        /// to the default location <c>s3://</c> and assigns an auto-generated ID to other locations
+        /// that you register. </para><para>If you are passing the <c>default</c> location, you cannot create an access grant
+        /// for the entire default location. You must also specify a bucket or a bucket and prefix
+        /// in the <c>Subprefix</c> field. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,11 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Grantee_GranteeIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the <code>Grantee</code>. If the grantee type is <code>IAM</code>,
-        /// the identifier is the IAM Amazon Resource Name (ARN) of the user or role. If the grantee
+        /// <para>The unique identifier of the <c>Grantee</c>. If the grantee type is <c>IAM</c>, the
+        /// identifier is the IAM Amazon Resource Name (ARN) of the user or role. If the grantee
         /// type is a directory user or group, the identifier is 128-bit universally unique identifier
-        /// (UUID) in the format <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>. You can obtain
-        /// this UUID from your Amazon Web Services IAM Identity Center instance.</para>
+        /// (UUID) in the format <c>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</c>. You can obtain this
+        /// UUID from your Amazon Web Services IAM Identity Center instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,9 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The type of the grantee to which access has been granted. It can be one of the following
-        /// values:</para><ul><li><para><code>IAM</code> - An IAM user or role.</para></li><li><para><code>DIRECTORY_USER</code> - Your corporate directory user. You can use this option
-        /// if you have added your corporate identity directory to IAM Identity Center and associated
-        /// the IAM Identity Center instance with your S3 Access Grants instance.</para></li><li><para><code>DIRECTORY_GROUP</code> - Your corporate directory group. You can use this option
+        /// values:</para><ul><li><para><c>IAM</c> - An IAM user or role.</para></li><li><para><c>DIRECTORY_USER</c> - Your corporate directory user. You can use this option if
+        /// you have added your corporate identity directory to IAM Identity Center and associated
+        /// the IAM Identity Center instance with your S3 Access Grants instance.</para></li><li><para><c>DIRECTORY_GROUP</c> - Your corporate directory group. You can use this option
         /// if you have added your corporate identity directory to IAM Identity Center and associated
         /// the IAM Identity Center instance with your S3 Access Grants instance.</para></li></ul>
         /// </para>
@@ -141,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The type of access that you are granting to your S3 data, which can be set to one
-        /// of the following values:</para><ul><li><para><code>READ</code> – Grant read-only access to the S3 data.</para></li><li><para><code>WRITE</code> – Grant write-only access to the S3 data.</para></li><li><para><code>READWRITE</code> – Grant both read and write access to the S3 data.</para></li></ul>
+        /// of the following values:</para><ul><li><para><c>READ</c> – Grant read-only access to the S3 data.</para></li><li><para><c>WRITE</c> – Grant write-only access to the S3 data.</para></li><li><para><c>READWRITE</c> – Grant both read and write access to the S3 data.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -158,9 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PrefixType
         /// <summary>
         /// <para>
-        /// <para>The type of <code>S3SubPrefix</code>. The only possible value is <code>Object</code>.
-        /// Pass this value if the access grant scope is an object. Do not pass this value if
-        /// the access grant scope is a bucket or a bucket and a prefix. </para>
+        /// <para>The type of <c>S3SubPrefix</c>. The only possible value is <c>Object</c>. Pass this
+        /// value if the access grant scope is an object. Do not pass this value if the access
+        /// grant scope is a bucket or a bucket and a prefix. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,15 +170,14 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccessGrantsLocationConfiguration_S3SubPrefix
         /// <summary>
         /// <para>
-        /// <para>The <code>S3SubPrefix</code> is appended to the location scope creating the grant
-        /// scope. Use this field to narrow the scope of the grant to a subset of the location
-        /// scope. This field is required if the location scope is the default location <code>s3://</code>
+        /// <para>The <c>S3SubPrefix</c> is appended to the location scope creating the grant scope.
+        /// Use this field to narrow the scope of the grant to a subset of the location scope.
+        /// This field is required if the location scope is the default location <c>s3://</c>
         /// because you cannot create a grant for all of your S3 data in the Region and must narrow
-        /// the scope. For example, if the location scope is the default location <code>s3://</code>,
-        /// the <code>S3SubPrefx</code> can be a &lt;bucket-name&gt;/*, so the full grant scope
-        /// path would be <code>s3://&lt;bucket-name&gt;/*</code>. Or the <code>S3SubPrefx</code>
-        /// can be <code>&lt;bucket-name&gt;/&lt;prefix-name&gt;*</code>, so the full grant scope
-        /// path would be or <code>s3://&lt;bucket-name&gt;/&lt;prefix-name&gt;*</code>.</para><para>If the <code>S3SubPrefix</code> includes a prefix, append the wildcard character <code>*</code>
+        /// the scope. For example, if the location scope is the default location <c>s3://</c>,
+        /// the <c>S3SubPrefx</c> can be a &lt;bucket-name&gt;/*, so the full grant scope path
+        /// would be <c>s3://&lt;bucket-name&gt;/*</c>. Or the <c>S3SubPrefx</c> can be <c>&lt;bucket-name&gt;/&lt;prefix-name&gt;*</c>,
+        /// so the full grant scope path would be or <c>s3://&lt;bucket-name&gt;/&lt;prefix-name&gt;*</c>.</para><para>If the <c>S3SubPrefix</c> includes a prefix, append the wildcard character <c>*</c>
         /// after the prefix to indicate that you want to include all object key names in the
         /// bucket that start with that prefix. </para>
         /// </para>

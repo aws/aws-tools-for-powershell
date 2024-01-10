@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     ///  
     /// <para>
     /// If deletion protection is enabled, you must first disable it before you can delete
-    /// the ledger. You can disable it by calling the <code>UpdateLedger</code> operation
-    /// to set this parameter to <code>false</code>.
+    /// the ledger. You can disable it by calling the <c>UpdateLedger</c> operation to set
+    /// this parameter to <c>false</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "QLDBLedger", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

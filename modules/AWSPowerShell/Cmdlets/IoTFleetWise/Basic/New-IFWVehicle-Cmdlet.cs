@@ -66,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>Static information about a vehicle in a key-value pair. For example: <code>"engineType"</code>
-        /// : <code>"1.3 L R2"</code></para><para>A campaign must include the keys (attribute names) in <code>dataExtraDimensions</code>
-        /// for them to display in Amazon Timestream.</para>
+        /// <para>Static information about a vehicle in a key-value pair. For example: <c>"engineType"</c>
+        /// : <c>"1.3 L R2"</c></para><para>A campaign must include the keys (attribute names) in <c>dataExtraDimensions</c> for
+        /// them to display in Amazon Timestream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the tagged ML object. For example, <code>exampleModelId</code>.</para>
+        /// <para>The ID of the tagged ML object. For example, <c>exampleModelId</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

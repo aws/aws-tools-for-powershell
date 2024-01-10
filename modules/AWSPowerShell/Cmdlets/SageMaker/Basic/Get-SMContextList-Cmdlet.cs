@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The property used to sort results. The default value is <code>CreationTime</code>.</para>
+        /// <para>The property used to sort results. The default value is <c>CreationTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order. The default value is <code>Descending</code>.</para>
+        /// <para>The sort order. The default value is <c>Descending</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the previous call to <code>ListContexts</code> didn't return the full set of contexts,
+        /// <para>If the previous call to <c>ListContexts</c> didn't return the full set of contexts,
         /// the call returns a token for getting the next set of contexts.</para>
         /// </para>
         /// <para>

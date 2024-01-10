@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>ListSchemaExtensions.NextToken</code> value from a previous call to <code>ListSchemaExtensions</code>.
+        /// <para>The <c>ListSchemaExtensions.NextToken</c> value from a previous call to <c>ListSchemaExtensions</c>.
         /// Pass null if this is the first call.</para>
         /// </para>
         /// <para>

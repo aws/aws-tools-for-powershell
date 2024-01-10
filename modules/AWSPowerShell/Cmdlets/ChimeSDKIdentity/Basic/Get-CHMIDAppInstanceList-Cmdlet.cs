@@ -28,7 +28,7 @@ using Amazon.ChimeSDKIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMID
 {
     /// <summary>
-    /// Lists all Amazon Chime <code>AppInstance</code>s created under a single AWS account.
+    /// Lists all Amazon Chime <c>AppInstance</c>s created under a single AWS account.
     /// </summary>
     [Cmdlet("Get", "CHMIDAppInstanceList")]
     [OutputType("Amazon.ChimeSDKIdentity.Model.AppInstanceSummary")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of <code>AppInstance</code>s that you want to return.</para>
+        /// <para>The maximum number of <c>AppInstance</c>s that you want to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token passed by previous API requests until you reach the maximum number of <code>AppInstances</code>.</para>
+        /// <para>The token passed by previous API requests until you reach the maximum number of <c>AppInstances</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

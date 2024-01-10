@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// Modify a WorkSpace</a>. 
     /// 
     ///  <note><para>
-    /// The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces
-    /// Core. Contact your account team to be allow-listed to use this value. For more information,
+    /// The <c>MANUAL</c> running mode value is only supported by Amazon WorkSpaces Core.
+    /// Contact your account team to be allow-listed to use this value. For more information,
     /// see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.
     /// </para></note>
     /// </summary>
@@ -88,8 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The protocol. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-protocols.html">
-        /// Protocols for Amazon WorkSpaces</a>.</para><note><ul><li><para>Only available for WorkSpaces created with PCoIP bundles.</para></li><li><para>The <code>Protocols</code> property is case sensitive. Ensure you use <code>PCOIP</code>
-        /// or <code>WSP</code>.</para></li><li><para>Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based bundles (Graphics,
+        /// Protocols for Amazon WorkSpaces</a>.</para><note><ul><li><para>Only available for WorkSpaces created with PCoIP bundles.</para></li><li><para>The <c>Protocols</c> property is case sensitive. Ensure you use <c>PCOIP</c> or <c>WSP</c>.</para></li><li><para>Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based bundles (Graphics,
         /// GraphicsPro, Graphics.g4dn, and GraphicsPro.g4dn).</para></li></ul></note>
         /// </para>
         /// </summary>
@@ -114,9 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The running mode. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html">Manage
-        /// the WorkSpace Running Mode</a>.</para><note><ul><li><para>The <code>MANUAL</code> value is only supported by Amazon WorkSpaces Core. Contact
-        /// your account team to be allow-listed to use this value. For more information, see
-        /// <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.</para></li><li><para>Ensure you review your running mode to ensure you are using a running mode that is
+        /// the WorkSpace Running Mode</a>.</para><note><ul><li><para>The <c>MANUAL</c> value is only supported by Amazon WorkSpaces Core. Contact your
+        /// account team to be allow-listed to use this value. For more information, see <a href="http://aws.amazon.com/workspaces/core/">Amazon
+        /// WorkSpaces Core</a>.</para></li><li><para>Ensure you review your running mode to ensure you are using a running mode that is
         /// optimal for your needs and budget. For more information on switching running modes,
         /// see <a href="https://aws.amazon.com/workspaces/faqs/#:~:text=Q%3A%20Can%20I%20switch%20between%20hourly%20and%20monthly%20billing%3F">
         /// Can I switch between hourly and monthly billing?</a></para></li></ul></note>

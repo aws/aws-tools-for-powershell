@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Validates the supplied schema. This call has no side effects, it simply validates
-    /// using the supplied schema using <code>DataFormat</code> as the format. Since it does
-    /// not take a schema set name, no compatibility checks are performed.
+    /// using the supplied schema using <c>DataFormat</c> as the format. Since it does not
+    /// take a schema set name, no compatibility checks are performed.
     /// </summary>
     [Cmdlet("Get", "GLUESchemaVersionValidity")]
     [OutputType("Amazon.Glue.Model.CheckSchemaVersionValidityResponse")]
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter DataFormat
         /// <summary>
         /// <para>
-        /// <para>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code>
-        /// and <code>PROTOBUF</code> are supported.</para>
+        /// <para>The data format of the schema definition. Currently <c>AVRO</c>, <c>JSON</c> and <c>PROTOBUF</c>
+        /// are supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter FunctionInput
         /// <summary>
         /// <para>
-        /// <para>A <code>FunctionInput</code> object that redefines the function in the Data Catalog.</para>
+        /// <para>A <c>FunctionInput</c> object that redefines the function in the Data Catalog.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

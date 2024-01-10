@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>A single point geometry, specifying the center of the circle, using <a href="https://gisgeography.com/wgs84-world-geodetic-system/">WGS
-        /// 84</a> coordinates, in the form <code>[longitude, latitude]</code>.</para>
+        /// 84</a> coordinates, in the form <c>[longitude, latitude]</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter GeofenceId
         /// <summary>
         /// <para>
-        /// <para>An identifier for the geofence. For example, <code>ExampleGeofence-1</code>.</para>
+        /// <para>An identifier for the geofence. For example, <c>ExampleGeofence-1</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Associates one of more properties with the geofence. A property is a key-value pair
-        /// stored with the geofence and added to any geofence event triggered with that geofence.</para><para>Format: <code>"key" : "value"</code></para>
+        /// stored with the geofence and added to any geofence event triggered with that geofence.</para><para>Format: <c>"key" : "value"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,14 +105,13 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Geometry_Polygon
         /// <summary>
         /// <para>
-        /// <para>A polygon is a list of linear rings which are each made up of a list of vertices.</para><para>Each vertex is a 2-dimensional point of the form: <code>[longitude, latitude]</code>.
-        /// This is represented as an array of doubles of length 2 (so <code>[double, double]</code>).</para><para>An array of 4 or more vertices, where the first and last vertex are the same (to form
+        /// <para>A polygon is a list of linear rings which are each made up of a list of vertices.</para><para>Each vertex is a 2-dimensional point of the form: <c>[longitude, latitude]</c>. This
+        /// is represented as an array of doubles of length 2 (so <c>[double, double]</c>).</para><para>An array of 4 or more vertices, where the first and last vertex are the same (to form
         /// a closed boundary), is called a linear ring. The linear ring vertices must be listed
         /// in counter-clockwise order around the ring’s interior. The linear ring is represented
-        /// as an array of vertices, or an array of arrays of doubles (<code>[[double, double],
-        /// ...]</code>).</para><para>A geofence consists of a single linear ring. To allow for future expansion, the Polygon
+        /// as an array of vertices, or an array of arrays of doubles (<c>[[double, double], ...]</c>).</para><para>A geofence consists of a single linear ring. To allow for future expansion, the Polygon
         /// parameter takes an array of linear rings, which is represented as an array of arrays
-        /// of arrays of doubles (<code>[[[double, double], ...], ...]</code>).</para><para>A linear ring for use in geofences can consist of between 4 and 1,000 vertices.</para>
+        /// of arrays of doubles (<c>[[[double, double], ...], ...]</c>).</para><para>A linear ring for use in geofences can consist of between 4 and 1,000 vertices.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

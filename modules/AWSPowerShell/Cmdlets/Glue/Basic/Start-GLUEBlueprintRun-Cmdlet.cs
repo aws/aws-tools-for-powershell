@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>Specifies the parameters as a <code>BlueprintParameters</code> object.</para>
+        /// <para>Specifies the parameters as a <c>BlueprintParameters</c> object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

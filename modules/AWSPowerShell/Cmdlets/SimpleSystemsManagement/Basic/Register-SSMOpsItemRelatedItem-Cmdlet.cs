@@ -48,8 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The type of association that you want to create between an OpsItem and a resource.
-        /// OpsCenter supports <code>IsParentOf</code> and <code>RelatesTo</code> association
-        /// types.</para>
+        /// OpsCenter supports <c>IsParentOf</c> and <c>RelatesTo</c> association types.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The type of resource that you want to associate with an OpsItem. OpsCenter supports
-        /// the following types:</para><para><code>AWS::SSMIncidents::IncidentRecord</code>: an Incident Manager incident. </para><para><code>AWS::SSM::Document</code>: a Systems Manager (SSM) document.</para>
+        /// the following types:</para><para><c>AWS::SSMIncidents::IncidentRecord</c>: an Incident Manager incident. </para><para><c>AWS::SSM::Document</c>: a Systems Manager (SSM) document.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
 {
     /// <summary>
     /// Retrieves information about a Neptune ML model training job. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-modeltraining.html">Model
-    /// training using the <code>modeltraining</code> command</a>.
+    /// training using the <c>modeltraining</c> command</a>.
     /// 
     ///  
     /// <para>

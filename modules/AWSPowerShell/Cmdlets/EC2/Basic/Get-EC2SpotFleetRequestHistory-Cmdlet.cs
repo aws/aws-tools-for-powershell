@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The token to include in another request to get the next page of items. This value
-        /// is <code>null</code> when there are no more items to return.</para>
+        /// is <c>null</c> when there are no more items to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.EC2 module, this parameter is only used if you are manually controlling output pagination of the service API call.

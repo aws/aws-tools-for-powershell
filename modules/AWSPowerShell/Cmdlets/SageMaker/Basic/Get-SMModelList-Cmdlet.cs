@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Lists models created with the <code>CreateModel</code> API.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists models created with the <c>CreateModel</c> API.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMModelList")]
     [OutputType("Amazon.SageMaker.Model.ModelSummary")]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>Sorts the list of results. The default is <code>CreationTime</code>.</para>
+        /// <para>Sorts the list of results. The default is <c>CreationTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order for results. The default is <code>Descending</code>.</para>
+        /// <para>The sort order for results. The default is <c>Descending</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,9 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the response to a previous <code>ListModels</code> request was truncated, the response
-        /// includes a <code>NextToken</code>. To retrieve the next set of models, use the token
-        /// in the next request.</para>
+        /// <para>If the response to a previous <c>ListModels</c> request was truncated, the response
+        /// includes a <c>NextToken</c>. To retrieve the next set of models, use the token in
+        /// the next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

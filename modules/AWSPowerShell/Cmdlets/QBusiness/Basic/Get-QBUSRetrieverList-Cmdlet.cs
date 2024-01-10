@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the number of retrievers returned exceeds <code>maxResults</code>, Amazon Q returns
-        /// a next token as a pagination token to retrieve the next set of retrievers.</para>
+        /// <para>If the number of retrievers returned exceeds <c>maxResults</c>, Amazon Q returns a
+        /// next token as a pagination token to retrieve the next set of retrievers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

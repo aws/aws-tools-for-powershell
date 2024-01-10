@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         /// <summary>
         /// <para>
         /// <para> Indicates whether Application Insights can listen to CloudWatch events for the application
-        /// resources, such as <code>instance terminated</code>, <code>failed deployment</code>,
-        /// and others. </para>
+        /// resources, such as <c>instance terminated</c>, <c>failed deployment</c>, and others.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         /// <para>
         /// <para>Application Insights can create applications based on a resource group or on an account.
         /// To create an account-based application using all of the resources in the account,
-        /// set this parameter to <code>ACCOUNT_BASED</code>. </para>
+        /// set this parameter to <c>ACCOUNT_BASED</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         #region Parameter OpsCenterEnabled
         /// <summary>
         /// <para>
-        /// <para> When set to <code>true</code>, creates opsItems for any problems detected on an application.
+        /// <para> When set to <c>true</c>, creates opsItems for any problems detected on an application.
         /// </para>
         /// </para>
         /// </summary>
@@ -135,9 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>List of tags to add to the application. tag key (<code>Key</code>) and an associated
-        /// tag value (<code>Value</code>). The maximum length of a tag key is 128 characters.
-        /// The maximum length of a tag value is 256 characters.</para>
+        /// <para>List of tags to add to the application. tag key (<c>Key</c>) and an associated tag
+        /// value (<c>Value</c>). The maximum length of a tag key is 128 characters. The maximum
+        /// length of a tag value is 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

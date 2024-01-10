@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <para>
         /// <para>The namespace of the gateway capability configuration to be updated. For example,
         /// if you configure OPC-UA sources from the IoT SiteWise console, your OPC-UA capability
-        /// configuration has the namespace <code>iotsitewise:opcuacollector:version</code>, where
-        /// <code>version</code> is a number such as <code>1</code>.</para>
+        /// configuration has the namespace <c>iotsitewise:opcuacollector:version</c>, where <c>version</c>
+        /// is a number such as <c>1</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

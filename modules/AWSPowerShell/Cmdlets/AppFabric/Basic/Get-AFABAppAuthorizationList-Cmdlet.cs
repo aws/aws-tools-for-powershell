@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results that are returned per call. You can use <code>nextToken</code>
+        /// <para>The maximum number of results that are returned per call. You can use <c>nextToken</c>
         /// to obtain further pages of results.</para><para>This is only an upper limit. The actual number of results returned per call might
         /// be fewer than the specified maximum.</para>
         /// </para>
@@ -76,11 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If <code>nextToken</code> is returned, there are more results available. The value
-        /// of <code>nextToken</code> is a unique pagination token for each page. Make the call
-        /// again using the returned token to retrieve the next page. Keep all other arguments
-        /// unchanged. Each pagination token expires after 24 hours. Using an expired pagination
-        /// token will return an <i>HTTP 400 InvalidToken error</i>.</para>
+        /// <para>If <c>nextToken</c> is returned, there are more results available. The value of <c>nextToken</c>
+        /// is a unique pagination token for each page. Make the call again using the returned
+        /// token to retrieve the next page. Keep all other arguments unchanged. Each pagination
+        /// token expires after 24 hours. Using an expired pagination token will return an <i>HTTP
+        /// 400 InvalidToken error</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

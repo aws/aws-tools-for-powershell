@@ -56,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DestinationPrefixListId
         /// <summary>
         /// <para>
-        /// <para> The ID of the prefix list. Use a prefix list in place of <code>DestinationCidrBlock</code>.
-        /// You cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code>
-        /// in the same request. </para>
+        /// <para> The ID of the prefix list. Use a prefix list in place of <c>DestinationCidrBlock</c>.
+        /// You cannot use <c>DestinationPrefixListId</c> and <c>DestinationCidrBlock</c> in the
+        /// same request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

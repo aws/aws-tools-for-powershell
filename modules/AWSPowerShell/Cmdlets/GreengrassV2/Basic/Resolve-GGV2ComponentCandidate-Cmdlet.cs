@@ -36,9 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     /// <para>
     /// This operation identifies components that meet all dependency requirements for a deployment.
     /// If the requirements conflict, then this operation returns an error and the deployment
-    /// fails. For example, this occurs if component <code>A</code> requires version <code>&gt;2.0.0</code>
-    /// and component <code>B</code> requires version <code>&lt;2.0.0</code> of a component
-    /// dependency.
+    /// fails. For example, this occurs if component <c>A</c> requires version <c>&gt;2.0.0</c>
+    /// and component <c>B</c> requires version <c>&lt;2.0.0</c> of a component dependency.
     /// </para><para>
     /// When you specify the component candidates to resolve, IoT Greengrass compares each
     /// component's digest from the core device with the component's digest in the Amazon
@@ -66,9 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>A dictionary of attributes for the platform. The IoT Greengrass Core software defines
-        /// the <code>os</code> and <code>architecture</code> by default. You can specify additional
-        /// platform attributes for a core device when you deploy the Greengrass nucleus component.
-        /// For more information, see the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html">Greengrass
+        /// the <c>os</c> and <c>architecture</c> by default. You can specify additional platform
+        /// attributes for a core device when you deploy the Greengrass nucleus component. For
+        /// more information, see the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html">Greengrass
         /// nucleus component</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -91,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter Platform_Name
         /// <summary>
         /// <para>
-        /// <para>The friendly name of the platform. This name helps you identify the platform.</para><para>If you omit this parameter, IoT Greengrass creates a friendly name from the <code>os</code>
-        /// and <code>architecture</code> of the platform.</para>
+        /// <para>The friendly name of the platform. This name helps you identify the platform.</para><para>If you omit this parameter, IoT Greengrass creates a friendly name from the <c>os</c>
+        /// and <c>architecture</c> of the platform.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

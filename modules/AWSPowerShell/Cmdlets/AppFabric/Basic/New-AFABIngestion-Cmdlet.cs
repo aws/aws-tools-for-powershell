@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
         #region Parameter App
         /// <summary>
         /// <para>
-        /// <para>The name of the application.</para><para>Valid values are:</para><ul><li><para><code>SLACK</code></para></li><li><para><code>ASANA</code></para></li><li><para><code>JIRA</code></para></li><li><para><code>M365</code></para></li><li><para><code>M365AUDITLOGS</code></para></li><li><para><code>ZOOM</code></para></li><li><para><code>ZENDESK</code></para></li><li><para><code>OKTA</code></para></li><li><para><code>GOOGLE</code></para></li><li><para><code>DROPBOX</code></para></li><li><para><code>SMARTSHEET</code></para></li><li><para><code>CISCO</code></para></li></ul>
+        /// <para>The name of the application.</para><para>Valid values are:</para><ul><li><para><c>SLACK</c></para></li><li><para><c>ASANA</c></para></li><li><para><c>JIRA</c></para></li><li><para><c>M365</c></para></li><li><para><c>M365AUDITLOGS</c></para></li><li><para><c>ZOOM</c></para></li><li><para><c>ZENDESK</c></para></li><li><para><c>OKTA</c></para></li><li><para><c>GOOGLE</c></para></li><li><para><c>DROPBOX</c></para></li><li><para><c>SMARTSHEET</c></para></li><li><para><c>CISCO</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -131,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
         /// requires that you also pass the same value for all other parameters. We recommend
         /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
         /// type of value</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
-        /// you.</para><para>If you retry the operation with the same <code>ClientToken</code>, but with different
-        /// parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</para>
+        /// you.</para><para>If you retry the operation with the same <c>ClientToken</c>, but with different parameters,
+        /// the retry fails with an <c>IdempotentParameterMismatch</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

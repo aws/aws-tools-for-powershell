@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Specifies the tags for the <code>TagResource</code> action.</para>
+        /// <para>Specifies the tags for the <c>TagResource</c> action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The filters to apply to the search. Currently, you can search only by the parent folder
-        /// ARN. For example, <code>"Filters": [ { "Name": "PARENT_FOLDER_ARN", "Operator": "StringEquals",
-        /// "Value": "arn:aws:quicksight:us-east-1:1:folder/folderId" } ]</code>.</para>
+        /// ARN. For example, <c>"Filters": [ { "Name": "PARENT_FOLDER_ARN", "Operator": "StringEquals",
+        /// "Value": "arn:aws:quicksight:us-east-1:1:folder/folderId" } ]</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

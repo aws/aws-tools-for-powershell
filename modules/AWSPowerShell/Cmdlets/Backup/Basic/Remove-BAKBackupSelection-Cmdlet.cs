@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
     /// Deletes the resource selection associated with a backup plan that is specified by
-    /// the <code>SelectionId</code>.
+    /// the <c>SelectionId</c>.
     /// </summary>
     [Cmdlet("Remove", "BAKBackupSelection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

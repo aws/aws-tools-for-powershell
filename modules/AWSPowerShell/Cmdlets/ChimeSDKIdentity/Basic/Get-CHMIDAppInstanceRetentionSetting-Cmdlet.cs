@@ -28,7 +28,7 @@ using Amazon.ChimeSDKIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMID
 {
     /// <summary>
-    /// Gets the retention settings for an <code>AppInstance</code>.
+    /// Gets the retention settings for an <c>AppInstance</c>.
     /// </summary>
     [Cmdlet("Get", "CHMIDAppInstanceRetentionSetting")]
     [OutputType("Amazon.ChimeSDKIdentity.Model.GetAppInstanceRetentionSettingsResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstance</code>.</para>
+        /// <para>The ARN of the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Returns the <code>MatchingWorkflow</code> with a given name, if it exists.
+    /// Returns the <c>MatchingWorkflow</c> with a given name, if it exists.
     /// </summary>
     [Cmdlet("Get", "ERESMatchingWorkflow")]
     [OutputType("Amazon.EntityResolution.Model.GetMatchingWorkflowResponse")]

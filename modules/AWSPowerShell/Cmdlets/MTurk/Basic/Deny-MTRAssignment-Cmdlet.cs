@@ -28,7 +28,7 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>RejectAssignment</code> operation rejects the results of a completed assignment.
+    /// The <c>RejectAssignment</c> operation rejects the results of a completed assignment.
     /// 
     /// 
     ///  

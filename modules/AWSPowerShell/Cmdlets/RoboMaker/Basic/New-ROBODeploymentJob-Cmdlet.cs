@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     ///  <important><para>
     /// This API is no longer supported and will throw an error if used.
     /// </para></important><para>
-    /// The robot application must have a numbered <code>applicationVersion</code> for consistency
-    /// reasons. To create a new version, use <code>CreateRobotApplicationVersion</code> or
-    /// see <a href="https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html">Creating
+    /// The robot application must have a numbered <c>applicationVersion</c> for consistency
+    /// reasons. To create a new version, use <c>CreateRobotApplicationVersion</c> or see
+    /// <a href="https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html">Creating
     /// a Robot Application Version</a>. 
     /// </para><note><para>
     /// After 90 days, deployment jobs expire and will be deleted. They will no longer be

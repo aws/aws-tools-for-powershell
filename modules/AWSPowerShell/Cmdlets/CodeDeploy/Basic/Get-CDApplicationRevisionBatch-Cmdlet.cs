@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Revision
         /// <summary>
         /// <para>
-        /// <para>An array of <code>RevisionLocation</code> objects that specify information to get
-        /// about the application revisions, including type and location. The maximum number of
-        /// <code>RevisionLocation</code> objects you can specify is 25.</para>
+        /// <para>An array of <c>RevisionLocation</c> objects that specify information to get about
+        /// the application revisions, including type and location. The maximum number of <c>RevisionLocation</c>
+        /// objects you can specify is 25.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

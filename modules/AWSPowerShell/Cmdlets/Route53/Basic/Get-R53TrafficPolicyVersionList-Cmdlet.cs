@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    /// Traffic policy versions are listed in numerical order by <code>VersionNumber</code>.
+    /// Traffic policy versions are listed in numerical order by <c>VersionNumber</c>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53TrafficPolicyVersionList")]
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>Specify the value of <code>Id</code> of the traffic policy for which you want to list
-        /// all versions.</para>
+        /// <para>Specify the value of <c>Id</c> of the traffic policy for which you want to list all
+        /// versions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,10 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>The maximum number of traffic policy versions that you want Amazon Route 53 to include
         /// in the response body for this request. If the specified traffic policy has more than
-        /// <code>MaxItems</code> versions, the value of <code>IsTruncated</code> in the response
-        /// is <code>true</code>, and the value of the <code>TrafficPolicyVersionMarker</code>
-        /// element is the ID of the first version that Route 53 will return if you submit another
-        /// request.</para>
+        /// <c>MaxItems</c> versions, the value of <c>IsTruncated</c> in the response is <c>true</c>,
+        /// and the value of the <c>TrafficPolicyVersionMarker</c> element is the ID of the first
+        /// version that Route 53 will return if you submit another request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -90,12 +89,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter TrafficPolicyVersionMarker
         /// <summary>
         /// <para>
-        /// <para>For your first request to <code>ListTrafficPolicyVersions</code>, don't include the
-        /// <code>TrafficPolicyVersionMarker</code> parameter.</para><para>If you have more traffic policy versions than the value of <code>MaxItems</code>,
-        /// <code>ListTrafficPolicyVersions</code> returns only the first group of <code>MaxItems</code>
-        /// versions. To get more traffic policy versions, submit another <code>ListTrafficPolicyVersions</code>
-        /// request. For the value of <code>TrafficPolicyVersionMarker</code>, specify the value
-        /// of <code>TrafficPolicyVersionMarker</code> in the previous response.</para>
+        /// <para>For your first request to <c>ListTrafficPolicyVersions</c>, don't include the <c>TrafficPolicyVersionMarker</c>
+        /// parameter.</para><para>If you have more traffic policy versions than the value of <c>MaxItems</c>, <c>ListTrafficPolicyVersions</c>
+        /// returns only the first group of <c>MaxItems</c> versions. To get more traffic policy
+        /// versions, submit another <c>ListTrafficPolicyVersions</c> request. For the value of
+        /// <c>TrafficPolicyVersionMarker</c>, specify the value of <c>TrafficPolicyVersionMarker</c>
+        /// in the previous response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

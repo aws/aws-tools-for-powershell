@@ -28,12 +28,12 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Upgrades a single directory in-place using the <code>PublishedSchemaArn</code> with
-    /// schema updates found in <code>MinorVersion</code>. Backwards-compatible minor version
-    /// upgrades are instantaneously available for readers on all objects in the directory.
-    /// Note: This is a synchronous API call and upgrades only one schema on a given directory
-    /// per call. To upgrade multiple directories from one schema, you would need to call
-    /// this API on each directory.
+    /// Upgrades a single directory in-place using the <c>PublishedSchemaArn</c> with schema
+    /// updates found in <c>MinorVersion</c>. Backwards-compatible minor version upgrades
+    /// are instantaneously available for readers on all objects in the directory. Note: This
+    /// is a synchronous API call and upgrades only one schema on a given directory per call.
+    /// To upgrade multiple directories from one schema, you would need to call this API on
+    /// each directory.
     /// </summary>
     [Cmdlet("Update", "CDIRAppliedSchema", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudDirectory.Model.UpgradeAppliedSchemaResponse")]

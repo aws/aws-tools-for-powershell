@@ -107,10 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <para>
         /// <para>For an initial request for a list of operations, omit this element. If the number
         /// of operations that are not yet complete is greater than the value that you specified
-        /// for <code>MaxItems</code>, you can use <code>Marker</code> to return additional operations.
-        /// Get the value of <code>NextPageMarker</code> from the previous response, and submit
-        /// another request that includes the value of <code>NextPageMarker</code> in the <code>Marker</code>
-        /// element.</para>
+        /// for <c>MaxItems</c>, you can use <c>Marker</c> to return additional operations. Get
+        /// the value of <c>NextPageMarker</c> from the previous response, and submit another
+        /// request that includes the value of <c>NextPageMarker</c> in the <c>Marker</c> element.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

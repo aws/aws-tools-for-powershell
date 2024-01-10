@@ -33,19 +33,19 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// can be one of the following: 
     /// 
     ///  <ul><li><para>
-    /// The default S3 location <code>s3://</code></para></li><li><para>
-    /// A bucket - <code>S3://&lt;bucket-name&gt;</code></para></li><li><para>
-    /// A bucket and prefix - <code>S3://&lt;bucket-name&gt;/&lt;prefix&gt;</code></para></li></ul><para>
+    /// The default S3 location <c>s3://</c></para></li><li><para>
+    /// A bucket - <c>S3://&lt;bucket-name&gt;</c></para></li><li><para>
+    /// A bucket and prefix - <c>S3://&lt;bucket-name&gt;/&lt;prefix&gt;</c></para></li></ul><para>
     /// When you register a location, you must include the IAM role that has permission to
     /// manage the S3 location that you are registering. Give S3 Access Grants permission
     /// to assume this role <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-location.html">using
     /// a policy</a>. S3 Access Grants assumes this role to manage access to the location
     /// and to vend temporary credentials to grantees or client applications. 
     /// </para><dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3:CreateAccessGrantsLocation</code> permission to use this
-    /// operation. 
+    /// You must have the <c>s3:CreateAccessGrantsLocation</c> permission to use this operation.
+    /// 
     /// </para></dd><dt>Additional Permissions</dt><dd><para>
-    /// You must also have the following permission for the specified IAM role: <code>iam:PassRole</code></para></dd></dl>
+    /// You must also have the following permission for the specified IAM role: <c>iam:PassRole</c></para></dd></dl>
     /// </summary>
     [Cmdlet("New", "S3CAccessGrantsLocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3Control.Model.CreateAccessGrantsLocationResponse")]
@@ -97,12 +97,12 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The S3 path to the location that you are registering. The location scope can be the
-        /// default S3 location <code>s3://</code>, the S3 path to a bucket <code>s3://&lt;bucket&gt;</code>,
-        /// or the S3 path to a bucket and prefix <code>s3://&lt;bucket&gt;/&lt;prefix&gt;</code>.
-        /// A prefix in S3 is a string of characters at the beginning of an object key name used
+        /// default S3 location <c>s3://</c>, the S3 path to a bucket <c>s3://&lt;bucket&gt;</c>,
+        /// or the S3 path to a bucket and prefix <c>s3://&lt;bucket&gt;/&lt;prefix&gt;</c>. A
+        /// prefix in S3 is a string of characters at the beginning of an object key name used
         /// to organize the objects that you store in your S3 buckets. For example, object key
-        /// names that start with the <code>engineering/</code> prefix or object key names that
-        /// start with the <code>marketing/campaigns/</code> prefix.</para>
+        /// names that start with the <c>engineering/</c> prefix or object key names that start
+        /// with the <c>marketing/campaigns/</c> prefix.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the canary or group that you're removing tags from.</para><para>The ARN format of a canary is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i></code>.</para><para>The ARN format of a group is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:group:<i>group-name</i></code></para>
+        /// <para>The ARN of the canary or group that you're removing tags from.</para><para>The ARN format of a canary is <c>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i></c>.</para><para>The ARN format of a group is <c>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:group:<i>group-name</i></c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

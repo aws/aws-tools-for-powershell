@@ -28,8 +28,8 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>DisassociateQualificationFromWorker</code> revokes a previously granted
-    /// Qualification from a user. 
+    /// The <c>DisassociateQualificationFromWorker</c> revokes a previously granted Qualification
+    /// from a user. 
     /// 
     ///  
     /// <para>

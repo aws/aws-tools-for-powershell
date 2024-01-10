@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The list of tags to associate with the resource. Tag key names cannot start with "<code>aws</code>".</para>
+        /// <para>The list of tags to associate with the resource. Tag key names cannot start with "<c>aws</c>".</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Comment
         /// <summary>
         /// <para>
-        /// <para>The comment that you specified in the <code>CreateTrafficPolicyVersion</code> request,
-        /// if any.</para>
+        /// <para>The comment that you specified in the <c>CreateTrafficPolicyVersion</c> request, if
+        /// any.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>The definition of this version of the traffic policy, in JSON format. You specified
-        /// the JSON in the <code>CreateTrafficPolicyVersion</code> request. For more information
-        /// about the JSON format, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html">CreateTrafficPolicy</a>.</para>
+        /// the JSON in the <c>CreateTrafficPolicyVersion</c> request. For more information about
+        /// the JSON format, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html">CreateTrafficPolicy</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

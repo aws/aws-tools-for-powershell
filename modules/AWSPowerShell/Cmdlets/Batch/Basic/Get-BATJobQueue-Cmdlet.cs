@@ -56,13 +56,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results returned by <code>DescribeJobQueues</code> in paginated
-        /// output. When this parameter is used, <code>DescribeJobQueues</code> only returns <code>maxResults</code>
-        /// results in a single page and a <code>nextToken</code> response element. The remaining
-        /// results of the initial request can be seen by sending another <code>DescribeJobQueues</code>
-        /// request with the returned <code>nextToken</code> value. This value can be between
-        /// 1 and 100. If this parameter isn't used, then <code>DescribeJobQueues</code> returns
-        /// up to 100 results and a <code>nextToken</code> value if applicable.</para>
+        /// <para>The maximum number of results returned by <c>DescribeJobQueues</c> in paginated output.
+        /// When this parameter is used, <c>DescribeJobQueues</c> only returns <c>maxResults</c>
+        /// results in a single page and a <c>nextToken</c> response element. The remaining results
+        /// of the initial request can be seen by sending another <c>DescribeJobQueues</c> request
+        /// with the returned <c>nextToken</c> value. This value can be between 1 and 100. If
+        /// this parameter isn't used, then <c>DescribeJobQueues</c> returns up to 100 results
+        /// and a <c>nextToken</c> value if applicable.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -78,11 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>DescribeJobQueues</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return.</para><note><para>Treat this token as an opaque identifier that's only used to retrieve the next items
+        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>DescribeJobQueues</c>
+        /// request where <c>maxResults</c> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <c>nextToken</c> value. This value is <c>null</c> when there are no more results
+        /// to return.</para><note><para>Treat this token as an opaque identifier that's only used to retrieve the next items
         /// in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

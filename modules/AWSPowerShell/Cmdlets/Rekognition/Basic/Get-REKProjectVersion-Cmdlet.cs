@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
     /// Lists and describes the versions of an Amazon Rekognition project. You can specify
-    /// up to 10 model or adapter versions in <code>ProjectVersionArns</code>. If you don't
-    /// specify a value, descriptions for all model/adapter versions in the project are returned.
+    /// up to 10 model or adapter versions in <c>ProjectVersionArns</c>. If you don't specify
+    /// a value, descriptions for all model/adapter versions in the project are returned.
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions to perform the <code>rekognition:DescribeProjectVersions</code>
+    /// This operation requires permissions to perform the <c>rekognition:DescribeProjectVersions</c>
     /// action.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>A list of model or project version names that you want to describe. You can add up
         /// to 10 model or project version names to the list. If you don't specify a value, all
         /// project version descriptions are returned. A version name is part of a project version
-        /// ARN. For example, <code>my-model.2020-01-21T09.10.15</code> is the version name in
-        /// the following ARN. <code>arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version/<i>my-model.2020-01-21T09.10.15</i>/1234567890123</code>.</para>
+        /// ARN. For example, <c>my-model.2020-01-21T09.10.15</c> is the version name in the following
+        /// ARN. <c>arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version/<i>my-model.2020-01-21T09.10.15</i>/1234567890123</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

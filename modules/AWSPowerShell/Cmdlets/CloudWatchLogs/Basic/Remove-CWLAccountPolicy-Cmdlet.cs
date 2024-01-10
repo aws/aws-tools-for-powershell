@@ -28,13 +28,21 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Deletes a CloudWatch Logs account policy.
+    /// Deletes a CloudWatch Logs account policy. This stops the policy from applying to all
+    /// log groups or a subset of log groups in the account. Log-group level policies will
+    /// still be in effect.
     /// 
     ///  
     /// <para>
-    /// To use this operation, you must be signed on with the <code>logs:DeleteDataProtectionPolicy</code>
-    /// and <code>logs:DeleteAccountPolicy</code> permissions.
-    /// </para>
+    /// To use this operation, you must be signed on with the correct permissions depending
+    /// on the type of policy that you are deleting.
+    /// </para><ul><li><para>
+    /// To delete a data protection policy, you must have the <c>logs:DeleteDataProtectionPolicy</c>
+    /// and <c>logs:DeleteAccountPolicy</c> permissions.
+    /// </para></li><li><para>
+    /// To delete a subscription filter policy, you must have the <c>logs:DeleteSubscriptionFilter</c>
+    /// and <c>logs:DeleteAccountPolicy</c> permissions.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "CWLAccountPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -68,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter PolicyType
         /// <summary>
         /// <para>
-        /// <para>The type of policy to delete. Currently, the only valid value is <code>DATA_PROTECTION_POLICY</code>.</para>
+        /// <para>The type of policy to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

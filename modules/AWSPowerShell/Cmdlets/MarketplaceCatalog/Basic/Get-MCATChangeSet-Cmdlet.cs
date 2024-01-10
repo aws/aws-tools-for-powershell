@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para>Required. The catalog related to the request. Fixed value: <code>AWSMarketplace</code></para>
+        /// <para>Required. The catalog related to the request. Fixed value: <c>AWSMarketplace</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ChangeSetId
         /// <summary>
         /// <para>
-        /// <para>Required. The unique identifier for the <code>StartChangeSet</code> request that you
-        /// want to describe the details for.</para>
+        /// <para>Required. The unique identifier for the <c>StartChangeSet</c> request that you want
+        /// to describe the details for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

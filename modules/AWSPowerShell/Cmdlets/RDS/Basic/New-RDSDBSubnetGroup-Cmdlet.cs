@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The name for the DB subnet group. This value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.</para></li><li><para>Must not be default.</para></li><li><para>First character must be a letter.</para></li></ul><para>Example: <code>mydbsubnetgroup</code></para>
+        /// <para>The name for the DB subnet group. This value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.</para></li><li><para>Must not be default.</para></li><li><para>First character must be a letter.</para></li></ul><para>Example: <c>mydbsubnetgroup</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

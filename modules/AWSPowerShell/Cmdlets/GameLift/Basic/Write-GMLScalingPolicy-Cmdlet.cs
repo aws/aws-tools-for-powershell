@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// To create or update a target-based policy, specify a fleet ID and name, and set the
     /// policy type to "TargetBased". Specify the metric to track (PercentAvailableGameSessions)
-    /// and reference a <code>TargetConfiguration</code> object with your desired buffer value.
+    /// and reference a <c>TargetConfiguration</c> object with your desired buffer value.
     /// Exclude all other parameters. On a successful request, the policy name is returned.
     /// The scaling policy is automatically in force as soon as it's successfully created.
     /// If the fleet's auto-scaling actions are temporarily suspended, the new policy will
@@ -78,14 +78,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// A policy's rule statement has the following structure:
     /// </para><para>
-    /// If <code>[MetricName]</code> is <code>[ComparisonOperator]</code><code>[Threshold]</code>
-    /// for <code>[EvaluationPeriods]</code> minutes, then <code>[ScalingAdjustmentType]</code>
-    /// to/by <code>[ScalingAdjustment]</code>.
+    /// If <c>[MetricName]</c> is <c>[ComparisonOperator]</c><c>[Threshold]</c> for <c>[EvaluationPeriods]</c>
+    /// minutes, then <c>[ScalingAdjustmentType]</c> to/by <c>[ScalingAdjustment]</c>.
     /// </para><para>
     /// To implement the example, the rule statement would look like this:
     /// </para><para>
-    /// If <code>[PercentIdleInstances]</code> is <code>[GreaterThanThreshold]</code><code>[20]</code>
-    /// for <code>[15]</code> minutes, then <code>[PercentChangeInCapacity]</code> to/by <code>[10]</code>.
+    /// If <c>[PercentIdleInstances]</c> is <c>[GreaterThanThreshold]</c><c>[20]</c> for
+    /// <c>[15]</c> minutes, then <c>[PercentChangeInCapacity]</c> to/by <c>[10]</c>.
     /// </para><para>
     /// To create or update a scaling policy, specify a unique combination of name and fleet
     /// ID, and set the policy type to "RuleBased". Specify the parameter values for a policy

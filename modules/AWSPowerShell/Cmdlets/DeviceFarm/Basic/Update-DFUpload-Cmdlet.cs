@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// <para>The upload's content type (for example, <code>application/x-yaml</code>).</para>
+        /// <para>The upload's content type (for example, <c>application/x-yaml</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,8 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <summary>
         /// <para>
         /// <para>The upload's test spec file name. The name must not contain any forward slashes (/).
-        /// The test spec file name must end with the <code>.yaml</code> or <code>.yml</code>
-        /// file extension.</para>
+        /// The test spec file name must end with the <c>.yaml</c> or <c>.yml</c> file extension.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

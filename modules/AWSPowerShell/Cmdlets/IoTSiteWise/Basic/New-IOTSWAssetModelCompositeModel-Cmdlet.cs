@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
     /// Creates a custom composite model from specified property and hierarchy definitions.
-    /// There are two types of custom composite models, <code>inline</code> and <code>component-model-based</code>.
+    /// There are two types of custom composite models, <c>inline</c> and <c>component-model-based</c>.
     /// 
     /// 
     ///  
@@ -45,11 +45,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     /// properties of inline custom composite models are local to the asset model where they
     /// are included and can't be used to create multiple assets.
     /// </para><para>
-    /// To create a component-model-based model, specify the <code>composedAssetModelId</code>
-    /// of an existing asset model with <code>assetModelType</code> of <code>COMPONENT_MODEL</code>.
+    /// To create a component-model-based model, specify the <c>composedAssetModelId</c> of
+    /// an existing asset model with <c>assetModelType</c> of <c>COMPONENT_MODEL</c>.
     /// </para><para>
-    /// To create an inline model, specify the <code>assetModelCompositeModelProperties</code>
-    /// and don't include an <code>composedAssetModelId</code>.
+    /// To create an inline model, specify the <c>assetModelCompositeModelProperties</c> and
+    /// don't include an <c>composedAssetModelId</c>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "IOTSWAssetModelCompositeModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>An external ID to assign to the composite model.</para><para>If the composite model is a derived composite model, or one nested inside a component
-        /// model, you can only set the external ID using <code>UpdateAssetModelCompositeModel</code>
+        /// model, you can only set the external ID using <c>UpdateAssetModelCompositeModel</c>
         /// and specifying the derived ID of the model or property from the created model it's
         /// a part of.</para>
         /// </para>
@@ -132,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter AssetModelCompositeModelType
         /// <summary>
         /// <para>
-        /// <para>The composite model type. Valid values are <code>AWS/ALARM</code>, <code>CUSTOM</code>,
-        /// or <code> AWS/L4E_ANOMALY</code>.</para>
+        /// <para>The composite model type. Valid values are <c>AWS/ALARM</c>, <c>CUSTOM</c>, or <c>
+        /// AWS/L4E_ANOMALY</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

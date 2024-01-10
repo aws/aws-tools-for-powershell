@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         /// <summary>
         /// <para>
         /// <para>The type of the data source for the schema. Currently, the only valid value is an
-        /// Amplify <code>DataStore</code>.</para>
+        /// Amplify <c>DataStore</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         #region Parameter GenericDataSchema_Enum
         /// <summary>
         /// <para>
-        /// <para>The name of a <code>CodegenGenericDataEnum</code>.</para>
+        /// <para>The name of a <c>CodegenGenericDataEnum</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         #region Parameter GenericDataSchema_Model
         /// <summary>
         /// <para>
-        /// <para>The name of a <code>CodegenGenericDataModel</code>.</para>
+        /// <para>The name of a <c>CodegenGenericDataModel</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         #region Parameter GenericDataSchema_NonModel
         /// <summary>
         /// <para>
-        /// <para>The name of a <code>CodegenGenericDataNonModel</code>.</para>
+        /// <para>The name of a <c>CodegenGenericDataNonModel</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

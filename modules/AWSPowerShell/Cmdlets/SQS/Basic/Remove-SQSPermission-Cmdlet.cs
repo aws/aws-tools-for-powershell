@@ -28,7 +28,7 @@ using Amazon.SQS.Model;
 namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
-    /// Revokes any permissions in the queue policy that matches the specified <code>Label</code>
+    /// Revokes any permissions in the queue policy that matches the specified <c>Label</c>
     /// parameter.
     /// 
     ///  <note><ul><li><para>
@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// Guide</i>.
     /// </para></li><li><para>
     /// To remove the ability to change queue permissions, you must deny permission to the
-    /// <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetQueueAttributes</code>
-    /// actions in your IAM policy.
+    /// <c>AddPermission</c>, <c>RemovePermission</c>, and <c>SetQueueAttributes</c> actions
+    /// in your IAM policy.
     /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Remove", "SQSPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>The identification of the permission to remove. This is the label added using the
-        /// <code><a>AddPermission</a></code> action.</para>
+        /// <c><a>AddPermission</a></c> action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>Indicates whether to decrement the desired capacity of the Auto Scaling group by the
-        /// number of instances moved to <code>Standby</code> mode.</para>
+        /// number of instances moved to <c>Standby</c> mode.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

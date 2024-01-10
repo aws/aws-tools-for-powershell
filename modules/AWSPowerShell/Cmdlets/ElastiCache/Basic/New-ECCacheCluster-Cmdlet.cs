@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Specifies whether the nodes in this Memcached cluster are created in a single Availability
-        /// Zone or created across multiple Availability Zones in the cluster's region.</para><para>This parameter is only supported for Memcached clusters.</para><para>If the <code>AZMode</code> and <code>PreferredAvailabilityZones</code> are not specified,
-        /// ElastiCache assumes <code>single-az</code> mode.</para>
+        /// Zone or created across multiple Availability Zones in the cluster's region.</para><para>This parameter is only supported for Memcached clusters.</para><para>If the <c>AZMode</c> and <c>PreferredAvailabilityZones</c> are not specified, ElastiCache
+        /// assumes <c>single-az</c> mode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,36 +107,29 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The compute and memory capacity of the nodes in the node group (shard).</para><para>The following node types are supported by ElastiCache. Generally speaking, the current
         /// generation types provide more memory and computational power at lower cost when compared
-        /// to their equivalent previous generation counterparts.</para><ul><li><para>General purpose:</para><ul><li><para>Current generation: </para><para><b>M7g node types</b>: <code>cache.m7g.large</code>, <code>cache.m7g.xlarge</code>,
-        /// <code>cache.m7g.2xlarge</code>, <code>cache.m7g.4xlarge</code>, <code>cache.m7g.8xlarge</code>,
-        /// <code>cache.m7g.12xlarge</code>, <code>cache.m7g.16xlarge</code></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
+        /// to their equivalent previous generation counterparts.</para><ul><li><para>General purpose:</para><ul><li><para>Current generation: </para><para><b>M7g node types</b>: <c>cache.m7g.large</c>, <c>cache.m7g.xlarge</c>, <c>cache.m7g.2xlarge</c>,
+        /// <c>cache.m7g.4xlarge</c>, <c>cache.m7g.8xlarge</c>, <c>cache.m7g.12xlarge</c>, <c>cache.m7g.16xlarge</c></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
         /// Node Types</a></para></note><para><b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for
-        /// Memcached engine version 1.5.16 onward): <code>cache.m6g.large</code>, <code>cache.m6g.xlarge</code>,
-        /// <code>cache.m6g.2xlarge</code>, <code>cache.m6g.4xlarge</code>, <code>cache.m6g.8xlarge</code>,
-        /// <code>cache.m6g.12xlarge</code>, <code>cache.m6g.16xlarge</code></para><para><b>M5 node types:</b><code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
-        /// <code>cache.m5.2xlarge</code>, <code>cache.m5.4xlarge</code>, <code>cache.m5.12xlarge</code>,
-        /// <code>cache.m5.24xlarge</code></para><para><b>M4 node types:</b><code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
-        /// <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>, <code>cache.m4.10xlarge</code></para><para><b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached
-        /// engine version 1.5.16 onward): <code>cache.t4g.micro</code>, <code>cache.t4g.small</code>,
-        /// <code>cache.t4g.medium</code></para><para><b>T3 node types:</b><code>cache.t3.micro</code>, <code>cache.t3.small</code>, <code>cache.t3.medium</code></para><para><b>T2 node types:</b><code>cache.t2.micro</code>, <code>cache.t2.small</code>, <code>cache.t2.medium</code></para></li><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
-        /// of new clusters is not supported for these types.)</para><para><b>T1 node types:</b><code>cache.t1.micro</code></para><para><b>M1 node types:</b><code>cache.m1.small</code>, <code>cache.m1.medium</code>,
-        /// <code>cache.m1.large</code>, <code>cache.m1.xlarge</code></para><para><b>M3 node types:</b><code>cache.m3.medium</code>, <code>cache.m3.large</code>,
-        /// <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code></para></li></ul></li><li><para>Compute optimized:</para><ul><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
-        /// of new clusters is not supported for these types.)</para><para><b>C1 node types:</b><code>cache.c1.xlarge</code></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R7g node types</b>: <code>cache.r7g.large</code>, <code>cache.r7g.xlarge</code>,
-        /// <code>cache.r7g.2xlarge</code>, <code>cache.r7g.4xlarge</code>, <code>cache.r7g.8xlarge</code>,
-        /// <code>cache.r7g.12xlarge</code>, <code>cache.r7g.16xlarge</code></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
+        /// Memcached engine version 1.5.16 onward): <c>cache.m6g.large</c>, <c>cache.m6g.xlarge</c>,
+        /// <c>cache.m6g.2xlarge</c>, <c>cache.m6g.4xlarge</c>, <c>cache.m6g.8xlarge</c>, <c>cache.m6g.12xlarge</c>,
+        /// <c>cache.m6g.16xlarge</c></para><para><b>M5 node types:</b><c>cache.m5.large</c>, <c>cache.m5.xlarge</c>, <c>cache.m5.2xlarge</c>,
+        /// <c>cache.m5.4xlarge</c>, <c>cache.m5.12xlarge</c>, <c>cache.m5.24xlarge</c></para><para><b>M4 node types:</b><c>cache.m4.large</c>, <c>cache.m4.xlarge</c>, <c>cache.m4.2xlarge</c>,
+        /// <c>cache.m4.4xlarge</c>, <c>cache.m4.10xlarge</c></para><para><b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached
+        /// engine version 1.5.16 onward): <c>cache.t4g.micro</c>, <c>cache.t4g.small</c>, <c>cache.t4g.medium</c></para><para><b>T3 node types:</b><c>cache.t3.micro</c>, <c>cache.t3.small</c>, <c>cache.t3.medium</c></para><para><b>T2 node types:</b><c>cache.t2.micro</c>, <c>cache.t2.small</c>, <c>cache.t2.medium</c></para></li><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
+        /// of new clusters is not supported for these types.)</para><para><b>T1 node types:</b><c>cache.t1.micro</c></para><para><b>M1 node types:</b><c>cache.m1.small</c>, <c>cache.m1.medium</c>, <c>cache.m1.large</c>,
+        /// <c>cache.m1.xlarge</c></para><para><b>M3 node types:</b><c>cache.m3.medium</c>, <c>cache.m3.large</c>, <c>cache.m3.xlarge</c>,
+        /// <c>cache.m3.2xlarge</c></para></li></ul></li><li><para>Compute optimized:</para><ul><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
+        /// of new clusters is not supported for these types.)</para><para><b>C1 node types:</b><c>cache.c1.xlarge</c></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R7g node types</b>: <c>cache.r7g.large</c>, <c>cache.r7g.xlarge</c>, <c>cache.r7g.2xlarge</c>,
+        /// <c>cache.r7g.4xlarge</c>, <c>cache.r7g.8xlarge</c>, <c>cache.r7g.12xlarge</c>, <c>cache.r7g.16xlarge</c></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
         /// Node Types</a></para></note><para><b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for
-        /// Memcached engine version 1.5.16 onward): <code>cache.r6g.large</code>, <code>cache.r6g.xlarge</code>,
-        /// <code>cache.r6g.2xlarge</code>, <code>cache.r6g.4xlarge</code>, <code>cache.r6g.8xlarge</code>,
-        /// <code>cache.r6g.12xlarge</code>, <code>cache.r6g.16xlarge</code></para><para><b>R5 node types:</b><code>cache.r5.large</code>, <code>cache.r5.xlarge</code>,
-        /// <code>cache.r5.2xlarge</code>, <code>cache.r5.4xlarge</code>, <code>cache.r5.12xlarge</code>,
-        /// <code>cache.r5.24xlarge</code></para><para><b>R4 node types:</b><code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
-        /// <code>cache.r4.2xlarge</code>, <code>cache.r4.4xlarge</code>, <code>cache.r4.8xlarge</code>,
-        /// <code>cache.r4.16xlarge</code></para></li><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
-        /// of new clusters is not supported for these types.)</para><para><b>M2 node types:</b><code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
-        /// <code>cache.m2.4xlarge</code></para><para><b>R3 node types:</b><code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
-        /// <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code></para></li></ul></li></ul><para><b>Additional node type info</b></para><ul><li><para>All current generation instance types are created in Amazon VPC by default.</para></li><li><para>Redis append-only files (AOF) are not supported for T1 or T2 instances.</para></li><li><para>Redis Multi-AZ with automatic failover is not supported on T1 instances.</para></li><li><para>Redis configuration variables <code>appendonly</code> and <code>appendfsync</code>
-        /// are not supported on Redis version 2.8.22 and later.</para></li></ul>
+        /// Memcached engine version 1.5.16 onward): <c>cache.r6g.large</c>, <c>cache.r6g.xlarge</c>,
+        /// <c>cache.r6g.2xlarge</c>, <c>cache.r6g.4xlarge</c>, <c>cache.r6g.8xlarge</c>, <c>cache.r6g.12xlarge</c>,
+        /// <c>cache.r6g.16xlarge</c></para><para><b>R5 node types:</b><c>cache.r5.large</c>, <c>cache.r5.xlarge</c>, <c>cache.r5.2xlarge</c>,
+        /// <c>cache.r5.4xlarge</c>, <c>cache.r5.12xlarge</c>, <c>cache.r5.24xlarge</c></para><para><b>R4 node types:</b><c>cache.r4.large</c>, <c>cache.r4.xlarge</c>, <c>cache.r4.2xlarge</c>,
+        /// <c>cache.r4.4xlarge</c>, <c>cache.r4.8xlarge</c>, <c>cache.r4.16xlarge</c></para></li><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
+        /// of new clusters is not supported for these types.)</para><para><b>M2 node types:</b><c>cache.m2.xlarge</c>, <c>cache.m2.2xlarge</c>, <c>cache.m2.4xlarge</c></para><para><b>R3 node types:</b><c>cache.r3.large</c>, <c>cache.r3.xlarge</c>, <c>cache.r3.2xlarge</c>,
+        /// <c>cache.r3.4xlarge</c>, <c>cache.r3.8xlarge</c></para></li></ul></li></ul><para><b>Additional node type info</b></para><ul><li><para>All current generation instance types are created in Amazon VPC by default.</para></li><li><para>Redis append-only files (AOF) are not supported for T1 or T2 instances.</para></li><li><para>Redis Multi-AZ with automatic failover is not supported on T1 instances.</para></li><li><para>Redis configuration variables <c>appendonly</c> and <c>appendfsync</c> are not supported
+        /// on Redis version 2.8.22 and later.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,8 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The name of the parameter group to associate with this cluster. If this argument is
         /// omitted, the default parameter group for the specified engine is used. You cannot
-        /// use any parameter group which has <code>cluster-enabled='yes'</code> when creating
-        /// a cluster.</para>
+        /// use any parameter group which has <c>cluster-enabled='yes'</c> when creating a cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the cache engine to be used for this cluster.</para><para>Valid values for this parameter are: <code>memcached</code> | <code>redis</code></para>
+        /// <para>The name of the cache engine to be used for this cluster.</para><para>Valid values for this parameter are: <c>memcached</c> | <c>redis</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter IpDiscovery
         /// <summary>
         /// <para>
-        /// <para>The network type you choose when modifying a cluster, either <code>ipv4</code> | <code>ipv6</code>.
+        /// <para>The network type you choose when modifying a cluster, either <c>ipv4</c> | <c>ipv6</c>.
         /// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached
         /// engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro
         /// system</a>.</para>
@@ -233,10 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6
-        /// is supported for workloads using Redis engine version 6.2 onward or Memcached engine
-        /// version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro
-        /// system</a>. </para>
+        /// <para>Must be either <c>ipv4</c> | <c>ipv6</c> | <c>dual_stack</c>. IPv6 is supported for
+        /// workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6
+        /// on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -294,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The EC2 Availability Zone in which the cluster is created.</para><para>All nodes belonging to this cluster are placed in the preferred Availability Zone.
-        /// If you want to create your nodes across multiple Availability Zones, use <code>PreferredAvailabilityZones</code>.</para><para>Default: System chosen Availability Zone.</para>
+        /// If you want to create your nodes across multiple Availability Zones, use <c>PreferredAvailabilityZones</c>.</para><para>Default: System chosen Availability Zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -307,7 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>A list of the Availability Zones in which cache nodes are created. The order of the
         /// zones in the list is not important.</para><para>This option is only supported on Memcached.</para><note><para>If you are creating your cluster in an Amazon VPC (recommended) you can only locate
         /// nodes in Availability Zones that are associated with the subnets in the selected subnet
-        /// group.</para><para>The number of Availability Zones listed must equal the value of <code>NumCacheNodes</code>.</para></note><para>If you want all the nodes in the same Availability Zone, use <code>PreferredAvailabilityZone</code>
+        /// group.</para><para>The number of Availability Zones listed must equal the value of <c>NumCacheNodes</c>.</para></note><para>If you want all the nodes in the same Availability Zone, use <c>PreferredAvailabilityZone</c>
         /// instead, or repeat the Availability Zone multiple times in the list.</para><para>Default: System chosen Availability Zones.</para>
         /// </para>
         /// </summary>
@@ -357,7 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// otherwise, the cluster is a standalone primary that is not part of any replication
         /// group.</para><para>If the specified replication group is Multi-AZ enabled and the Availability Zone is
         /// not specified, the cluster is created in Availability Zones that provide the best
-        /// spread of read replicas across Availability Zones.</para><note><para>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</para></note>
+        /// spread of read replicas across Availability Zones.</para><note><para>This parameter is only valid if the <c>Engine</c> parameter is <c>redis</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -382,7 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>A single-element string list containing an Amazon Resource Name (ARN) that uniquely
         /// identifies a Redis RDB snapshot file stored in Amazon S3. The snapshot file is used
         /// to populate the node group (shard). The Amazon S3 object name in the ARN cannot contain
-        /// any commas.</para><note><para>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</para></note><para>Example of an Amazon S3 ARN: <code>arn:aws:s3:::my_bucket/snapshot1.rdb</code></para>
+        /// any commas.</para><note><para>This parameter is only valid if the <c>Engine</c> parameter is <c>redis</c>.</para></note><para>Example of an Amazon S3 ARN: <c>arn:aws:s3:::my_bucket/snapshot1.rdb</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -394,8 +386,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The name of a Redis snapshot from which to restore data into the new node group (shard).
-        /// The snapshot status changes to <code>restoring</code> while the new node group (shard)
-        /// is being created.</para><note><para>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</para></note>
+        /// The snapshot status changes to <c>restoring</c> while the new node group (shard) is
+        /// being created.</para><note><para>This parameter is only valid if the <c>Engine</c> parameter is <c>redis</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -406,8 +398,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The number of days for which ElastiCache retains automatic snapshots before deleting
-        /// them. For example, if you set <code>SnapshotRetentionLimit</code> to 5, a snapshot
-        /// taken today is retained for 5 days before being deleted.</para><note><para>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</para></note><para>Default: 0 (i.e., automatic backups are disabled for this cache cluster).</para>
+        /// them. For example, if you set <c>SnapshotRetentionLimit</c> to 5, a snapshot taken
+        /// today is retained for 5 days before being deleted.</para><note><para>This parameter is only valid if the <c>Engine</c> parameter is <c>redis</c>.</para></note><para>Default: 0 (i.e., automatic backups are disabled for this cache cluster).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -418,8 +410,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot
-        /// of your node group (shard).</para><para>Example: <code>05:00-09:00</code></para><para>If you do not specify this parameter, ElastiCache automatically chooses an appropriate
-        /// time range.</para><note><para>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</para></note>
+        /// of your node group (shard).</para><para>Example: <c>05:00-09:00</c></para><para>If you do not specify this parameter, ElastiCache automatically chooses an appropriate
+        /// time range.</para><note><para>This parameter is only valid if the <c>Engine</c> parameter is <c>redis</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

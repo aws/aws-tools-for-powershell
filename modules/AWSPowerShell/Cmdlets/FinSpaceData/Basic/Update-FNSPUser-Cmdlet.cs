@@ -28,8 +28,8 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Modifies the details of the specified user. You cannot update the <code>userId</code>
-    /// for a user.<br/><br/>This operation is deprecated.
+    /// Modifies the details of the specified user. You cannot update the <c>userId</c> for
+    /// a user.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "FNSPUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -49,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter ApiAccess
         /// <summary>
         /// <para>
-        /// <para>The option to indicate whether the user can use the <code>GetProgrammaticAccessCredentials</code>
+        /// <para>The option to indicate whether the user can use the <c>GetProgrammaticAccessCredentials</c>
         /// API to obtain credentials that can then be used to access other FinSpace Data API
-        /// operations.</para><ul><li><para><code>ENABLED</code> – The user has permissions to use the APIs.</para></li><li><para><code>DISABLED</code> – The user does not have permissions to use any APIs.</para></li></ul>
+        /// operations.</para><ul><li><para><c>ENABLED</c> – The user has permissions to use the APIs.</para></li><li><para><c>DISABLED</c> – The user does not have permissions to use any APIs.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter ApiAccessPrincipalArn
         /// <summary>
         /// <para>
-        /// <para>The ARN identifier of an AWS user or role that is allowed to call the <code>GetProgrammaticAccessCredentials</code>
+        /// <para>The ARN identifier of an AWS user or role that is allowed to call the <c>GetProgrammaticAccessCredentials</c>
         /// API to obtain a credentials token for a specific FinSpace user. This must be an IAM
         /// role within your FinSpace account.</para>
         /// </para>
@@ -94,9 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The option to indicate the type of user.</para><ul><li><para><code>SUPER_USER</code>– A user with permission to all the functionality and data
-        /// in FinSpace.</para></li><li><para><code>APP_USER</code> – A user with specific permissions in FinSpace. The users are
-        /// assigned permissions by adding them to a permission group.</para></li></ul>
+        /// <para>The option to indicate the type of user.</para><ul><li><para><c>SUPER_USER</c>– A user with permission to all the functionality and data in FinSpace.</para></li><li><para><c>APP_USER</c> – A user with specific permissions in FinSpace. The users are assigned
+        /// permissions by adding them to a permission group.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

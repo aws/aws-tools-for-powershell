@@ -48,16 +48,16 @@ namespace Amazon.PowerShell.Cmdlets.POL
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>Specifies the engine (<code>standard</code>, <code>neural</code> or <code>long-form</code>)
-        /// for Amazon Polly to use when processing input text for speech synthesis. For information
-        /// on Amazon Polly voices and which voices are available for each engine, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available
+        /// <para>Specifies the engine (<c>standard</c>, <c>neural</c> or <c>long-form</c>) for Amazon
+        /// Polly to use when processing input text for speech synthesis. For information on Amazon
+        /// Polly voices and which voices are available for each engine, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available
         /// Voices</a>.</para><para><b>NTTS-only voices</b></para><para>When using NTTS-only voices such as Kevin (en-US), this parameter is required and
-        /// must be set to <code>neural</code>. If the engine is not specified, or is set to <code>standard</code>,
+        /// must be set to <c>neural</c>. If the engine is not specified, or is set to <c>standard</c>,
         /// this will result in an error. </para><para><b>long-form-only voices</b></para><para>When using long-form-only voices such as Danielle (en-US), this parameter is required
-        /// and must be set to <code>long-form</code>. If the engine is not specified, or is set
-        /// to <code>standard</code> or <code>neural</code>, this will result in an error. </para><para>Type: String</para><para>Valid Values: <code>standard</code> | <code>neural</code> | <code>long-form</code></para><para>Required: Yes</para><para><b>Standard voices</b></para><para>For standard voices, this is not required; the engine parameter defaults to <code>standard</code>.
-        /// If the engine is not specified, or is set to <code>standard</code> and an NTTS-only
-        /// voice is selected, this will result in an error. </para>
+        /// and must be set to <c>long-form</c>. If the engine is not specified, or is set to
+        /// <c>standard</c> or <c>neural</c>, this will result in an error. </para><para>Type: String</para><para>Valid Values: <c>standard</c> | <c>neural</c> | <c>long-form</c></para><para>Required: Yes</para><para><b>Standard voices</b></para><para>For standard voices, this is not required; the engine parameter defaults to <c>standard</c>.
+        /// If the engine is not specified, or is set to <c>standard</c> and an NTTS-only voice
+        /// is selected, this will result in an error. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
         /// (en-IN) or Hindi (hi-IN). </para><para>If a bilingual voice is used and no language code is specified, Amazon Polly uses
         /// the default language of the bilingual voice. The default language for any voice is
         /// the one returned by the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a>
-        /// operation for the <code>LanguageCode</code> parameter. For example, if no language
-        /// code is specified, Aditi will use Indian English rather than Hindi.</para>
+        /// operation for the <c>LanguageCode</c> parameter. For example, if no language code
+        /// is specified, Aditi will use Indian English rather than Hindi.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
         #region Parameter Text
         /// <summary>
         /// <para>
-        /// <para> Input text to synthesize. If you specify <code>ssml</code> as the <code>TextType</code>,
-        /// follow the SSML format for the input text. </para>
+        /// <para> Input text to synthesize. If you specify <c>ssml</c> as the <c>TextType</c>, follow
+        /// the SSML format for the input text. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

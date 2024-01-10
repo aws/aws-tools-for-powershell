@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// shard list.
     /// 
     ///  <note><para>
-    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
-    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
-    /// parameter when you invoke this API.
+    /// When invoking this API, you must use either the <c>StreamARN</c> or the <c>StreamName</c>
+    /// parameter, or both. It is recommended that you use the <c>StreamARN</c> input parameter
+    /// when you invoke this API.
     /// </para></note><para>
     /// The information returned includes the stream name, Amazon Resource Name (ARN), status,
     /// record retention period, approximate creation time, monitoring, encryption details,

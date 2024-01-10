@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <summary>
         /// <para>
         /// <para>The unique system-generated ID of the job that succeeded. This is the same ID returned
-        /// from <code>PollForJobs</code>.</para>
+        /// from <c>PollForJobs</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -111,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <summary>
         /// <para>
         /// <para>Key-value pairs produced as output by a job worker that can be made available to a
-        /// downstream action configuration. <code>outputVariables</code> can be included only
-        /// when there is no continuation token on the request.</para>
+        /// downstream action configuration. <c>outputVariables</c> can be included only when
+        /// there is no continuation token on the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

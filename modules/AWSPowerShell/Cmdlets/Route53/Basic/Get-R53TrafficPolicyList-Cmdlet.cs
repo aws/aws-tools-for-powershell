@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    /// For information about how of deleting a traffic policy affects the response from <code>ListTrafficPolicies</code>,
+    /// For information about how of deleting a traffic policy affects the response from <c>ListTrafficPolicies</c>,
     /// see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html">DeleteTrafficPolicy</a>.
     /// 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -55,10 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>(Optional) The maximum number of traffic policies that you want Amazon Route 53 to
-        /// return in response to this request. If you have more than <code>MaxItems</code> traffic
-        /// policies, the value of <code>IsTruncated</code> in the response is <code>true</code>,
-        /// and the value of <code>TrafficPolicyIdMarker</code> is the ID of the first traffic
-        /// policy that Route 53 will return if you submit another request.</para>
+        /// return in response to this request. If you have more than <c>MaxItems</c> traffic
+        /// policies, the value of <c>IsTruncated</c> in the response is <c>true</c>, and the
+        /// value of <c>TrafficPolicyIdMarker</c> is the ID of the first traffic policy that Route
+        /// 53 will return if you submit another request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -75,12 +75,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter TrafficPolicyIdMarker
         /// <summary>
         /// <para>
-        /// <para>(Conditional) For your first request to <code>ListTrafficPolicies</code>, don't include
-        /// the <code>TrafficPolicyIdMarker</code> parameter.</para><para>If you have more traffic policies than the value of <code>MaxItems</code>, <code>ListTrafficPolicies</code>
-        /// returns only the first <code>MaxItems</code> traffic policies. To get the next group
-        /// of policies, submit another request to <code>ListTrafficPolicies</code>. For the value
-        /// of <code>TrafficPolicyIdMarker</code>, specify the value of <code>TrafficPolicyIdMarker</code>
-        /// that was returned in the previous response.</para>
+        /// <para>(Conditional) For your first request to <c>ListTrafficPolicies</c>, don't include
+        /// the <c>TrafficPolicyIdMarker</c> parameter.</para><para>If you have more traffic policies than the value of <c>MaxItems</c>, <c>ListTrafficPolicies</c>
+        /// returns only the first <c>MaxItems</c> traffic policies. To get the next group of
+        /// policies, submit another request to <c>ListTrafficPolicies</c>. For the value of <c>TrafficPolicyIdMarker</c>,
+        /// specify the value of <c>TrafficPolicyIdMarker</c> that was returned in the previous
+        /// response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

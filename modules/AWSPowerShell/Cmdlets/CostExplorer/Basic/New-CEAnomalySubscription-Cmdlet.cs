@@ -94,12 +94,12 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter ResourceTag
         /// <summary>
         /// <para>
-        /// <para>An optional list of tags to associate with the specified <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html"><code>AnomalySubscription</code></a>. You can use resource tags to control access
-        /// to your <code>subscription</code> using IAM policies.</para><para>Each tag consists of a key and a value, and each key must be unique for the resource.
+        /// <para>An optional list of tags to associate with the specified <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html"><c>AnomalySubscription</c></a>. You can use resource tags to control access to your
+        /// <c>subscription</c> using IAM policies.</para><para>Each tag consists of a key and a value, and each key must be unique for the resource.
         /// The following restrictions apply to resource tags:</para><ul><li><para>Although the maximum number of array members is 200, you can assign a maximum of 50
         /// user-tags to one resource. The remaining are reserved for Amazon Web Services use</para></li><li><para>The maximum length of a key is 128 characters</para></li><li><para>The maximum length of a value is 256 characters</para></li><li><para>Keys and values can only contain alphanumeric characters, spaces, and any of the following:
-        /// <code>_.:/=+@-</code></para></li><li><para>Keys and values are case sensitive</para></li><li><para>Keys and values are trimmed for any leading or trailing whitespaces</para></li><li><para>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for
-        /// Amazon Web Services use</para></li></ul>
+        /// <c>_.:/=+@-</c></para></li><li><para>Keys and values are case sensitive</para></li><li><para>Keys and values are trimmed for any leading or trailing whitespaces</para></li><li><para>Don’t use <c>aws:</c> as a prefix for your keys. This prefix is reserved for Amazon
+        /// Web Services use</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter AnomalySubscription_SubscriptionArn
         /// <summary>
         /// <para>
-        /// <para>The <code>AnomalySubscription</code> Amazon Resource Name (ARN). </para>
+        /// <para>The <c>AnomalySubscription</c> Amazon Resource Name (ARN). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,21 +157,21 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>
         /// <para>An <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
         /// object used to specify the anomalies that you want to generate alerts for. This supports
-        /// dimensions and nested expressions. The supported dimensions are <code>ANOMALY_TOTAL_IMPACT_ABSOLUTE</code>
-        /// and <code>ANOMALY_TOTAL_IMPACT_PERCENTAGE</code>, corresponding to an anomaly’s TotalImpact
+        /// dimensions and nested expressions. The supported dimensions are <c>ANOMALY_TOTAL_IMPACT_ABSOLUTE</c>
+        /// and <c>ANOMALY_TOTAL_IMPACT_PERCENTAGE</c>, corresponding to an anomaly’s TotalImpact
         /// and TotalImpactPercentage, respectively (see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Impact.html">Impact</a>
-        /// for more details). The supported nested expression types are <code>AND</code> and
-        /// <code>OR</code>. The match option <code>GREATER_THAN_OR_EQUAL</code> is required.
-        /// Values must be numbers between 0 and 10,000,000,000 in string format.</para><para>One of Threshold or ThresholdExpression is required for this resource. You cannot
-        /// specify both.</para><para>The following are examples of valid ThresholdExpressions:</para><ul><li><para>Absolute threshold: <code>{ "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-        /// "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }</code></para></li><li><para>Percentage threshold: <code>{ "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
-        /// "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }</code></para></li><li><para><code>AND</code> two thresholds together: <code>{ "And": [ { "Dimensions": { "Key":
-        /// "ANOMALY_TOTAL_IMPACT_ABSOLUTE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values":
-        /// [ "100" ] } }, { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE", "MatchOptions":
-        /// [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } } ] }</code></para></li><li><para><code>OR</code> two thresholds together: <code>{ "Or": [ { "Dimensions": { "Key":
-        /// "ANOMALY_TOTAL_IMPACT_ABSOLUTE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values":
-        /// [ "100" ] } }, { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE", "MatchOptions":
-        /// [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } } ] }</code></para></li></ul>
+        /// for more details). The supported nested expression types are <c>AND</c> and <c>OR</c>.
+        /// The match option <c>GREATER_THAN_OR_EQUAL</c> is required. Values must be numbers
+        /// between 0 and 10,000,000,000 in string format.</para><para>One of Threshold or ThresholdExpression is required for this resource. You cannot
+        /// specify both.</para><para>The following are examples of valid ThresholdExpressions:</para><ul><li><para>Absolute threshold: <c>{ "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE", "MatchOptions":
+        /// [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }</c></para></li><li><para>Percentage threshold: <c>{ "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+        /// "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }</c></para></li><li><para><c>AND</c> two thresholds together: <c>{ "And": [ { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+        /// "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }, { "Dimensions":
+        /// { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL"
+        /// ], "Values": [ "100" ] } } ] }</c></para></li><li><para><c>OR</c> two thresholds together: <c>{ "Or": [ { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+        /// "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }, { "Dimensions":
+        /// { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL"
+        /// ], "Values": [ "100" ] } } ] }</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

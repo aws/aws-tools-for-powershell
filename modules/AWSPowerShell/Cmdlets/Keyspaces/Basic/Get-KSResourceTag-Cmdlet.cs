@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.KS
         /// <summary>
         /// <para>
         /// <para>The total number of tags to return in the output. If the total number of tags available
-        /// is more than the value specified, a <code>NextToken</code> is provided in the output.
-        /// To resume pagination, provide the <code>NextToken</code> value as an argument of a
-        /// subsequent API invocation.</para>
+        /// is more than the value specified, a <c>NextToken</c> is provided in the output. To
+        /// resume pagination, provide the <c>NextToken</c> value as an argument of a subsequent
+        /// API invocation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token. To resume pagination, provide the <code>NextToken</code> value
-        /// as argument of a subsequent API invocation.</para>
+        /// <para>The pagination token. To resume pagination, provide the <c>NextToken</c> value as
+        /// argument of a subsequent API invocation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

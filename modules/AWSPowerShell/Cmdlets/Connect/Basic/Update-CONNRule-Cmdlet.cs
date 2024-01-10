@@ -104,9 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the rule. You can change the name only if <code>TriggerEventSource</code>
-        /// is one of the following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code>
-        /// | <code>OnSalesforceCaseCreate</code></para>
+        /// <para>The name of the rule. You can change the name only if <c>TriggerEventSource</c> is
+        /// one of the following values: <c>OnZendeskTicketCreate</c> | <c>OnZendeskTicketStatusUpdate</c>
+        /// | <c>OnSalesforceCaseCreate</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

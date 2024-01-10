@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     ///  
     /// <para>
     /// The Identity and Access Management (IAM) permission required for this operation is
-    /// <code>DeleteTable</code>.
+    /// <c>DeleteTable</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "GLUEColumnStatisticsForTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

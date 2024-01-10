@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>If this value is set to true, the operation disassociates an Amazon FSx file system
         /// immediately. It ends all data uploads to the file system, and the file system association
-        /// enters the <code>FORCE_DELETING</code> status. If this value is set to false, the
-        /// Amazon FSx file system does not disassociate until all data is uploaded.</para>
+        /// enters the <c>FORCE_DELETING</c> status. If this value is set to false, the Amazon
+        /// FSx file system does not disassociate until all data is uploaded.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

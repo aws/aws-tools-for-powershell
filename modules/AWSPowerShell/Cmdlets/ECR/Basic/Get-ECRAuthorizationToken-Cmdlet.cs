@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// 
     ///  
     /// <para>
-    /// The <code>authorizationToken</code> returned is a base64 encoded string that can be
-    /// decoded and used in a <code>docker login</code> command to authenticate to a registry.
-    /// The CLI offers an <code>get-login-password</code> command that simplifies the login
-    /// process. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth">Registry
+    /// The <c>authorizationToken</c> returned is a base64 encoded string that can be decoded
+    /// and used in a <c>docker login</c> command to authenticate to a registry. The CLI offers
+    /// an <c>get-login-password</c> command that simplifies the login process. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth">Registry
     /// authentication</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
     /// </para>
     /// </summary>

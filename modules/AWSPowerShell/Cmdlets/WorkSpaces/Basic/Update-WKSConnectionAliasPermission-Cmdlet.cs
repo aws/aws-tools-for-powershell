@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     ///  <note><ul><li><para>
     /// Before performing this operation, call <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html">
     /// DescribeConnectionAliases</a> to make sure that the current state of the connection
-    /// alias is <code>CREATED</code>.
+    /// alias is <c>CREATED</c>.
     /// </para></li><li><para>
     /// To delete a connection alias that has been shared, the shared account must first disassociate
     /// the connection alias from any directories it has been associated with. Then you must

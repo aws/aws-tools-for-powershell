@@ -28,13 +28,13 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Describes a task definition. You can specify a <code>family</code> and <code>revision</code>
-    /// to find information about a specific task definition, or you can simply specify the
-    /// family to find the latest <code>ACTIVE</code> revision in that family.
+    /// Describes a task definition. You can specify a <c>family</c> and <c>revision</c> to
+    /// find information about a specific task definition, or you can simply specify the family
+    /// to find the latest <c>ACTIVE</c> revision in that family.
     /// 
     ///  <note><para>
-    /// You can only describe <code>INACTIVE</code> task definitions while an active task
-    /// or service references them.
+    /// You can only describe <c>INACTIVE</c> task definitions while an active task or service
+    /// references them.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "ECSTaskDefinitionDetail")]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Include
         /// <summary>
         /// <para>
-        /// <para>Determines whether to see the resource tags for the task definition. If <code>TAGS</code>
+        /// <para>Determines whether to see the resource tags for the task definition. If <c>TAGS</c>
         /// is specified, the tags are included in the response. If this field is omitted, tags
         /// aren't included in the response.</para>
         /// </para>
@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter TaskDefinition
         /// <summary>
         /// <para>
-        /// <para>The <code>family</code> for the latest <code>ACTIVE</code> revision, <code>family</code>
-        /// and <code>revision</code> (<code>family:revision</code>) for a specific revision in
-        /// the family, or full Amazon Resource Name (ARN) of the task definition to describe.</para>
+        /// <para>The <c>family</c> for the latest <c>ACTIVE</c> revision, <c>family</c> and <c>revision</c>
+        /// (<c>family:revision</c>) for a specific revision in the family, or full Amazon Resource
+        /// Name (ARN) of the task definition to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

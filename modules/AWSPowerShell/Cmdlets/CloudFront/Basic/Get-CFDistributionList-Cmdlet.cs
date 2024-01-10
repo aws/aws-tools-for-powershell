@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>Use this when paginating results to indicate where to begin in your list of distributions.
         /// The results include distributions in the list that occur after the marker. To get
-        /// the next page of results, set the <code>Marker</code> to the value of the <code>NextMarker</code>
+        /// the next page of results, set the <c>Marker</c> to the value of the <c>NextMarker</c>
         /// from the current page's response (which is also the ID of the last distribution on
         /// that page).</para>
         /// </para>

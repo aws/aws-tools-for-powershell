@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Deletes the entire schema set, including the schema set and all of its versions. To
-    /// get the status of the delete operation, you can call <code>GetSchema</code> API after
-    /// the asynchronous call. Deleting a registry will deactivate all online operations for
-    /// the schema, such as the <code>GetSchemaByDefinition</code>, and <code>RegisterSchemaVersion</code>
+    /// get the status of the delete operation, you can call <c>GetSchema</c> API after the
+    /// asynchronous call. Deleting a registry will deactivate all online operations for the
+    /// schema, such as the <c>GetSchemaByDefinition</c>, and <c>RegisterSchemaVersion</c>
     /// APIs.
     /// </summary>
     [Cmdlet("Remove", "GLUESchema", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SchemaId_SchemaArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code>
+        /// <para>The Amazon Resource Name (ARN) of the schema. One of <c>SchemaArn</c> or <c>SchemaName</c>
         /// has to be provided.</para>
         /// </para>
         /// </summary>
@@ -69,8 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SchemaId_SchemaName
         /// <summary>
         /// <para>
-        /// <para>The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has
-        /// to be provided.</para>
+        /// <para>The name of the schema. One of <c>SchemaArn</c> or <c>SchemaName</c> has to be provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

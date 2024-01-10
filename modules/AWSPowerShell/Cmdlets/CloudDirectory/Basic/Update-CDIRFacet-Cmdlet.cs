@@ -31,11 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// Does the following:
     /// 
     ///  <ol><li><para>
-    /// Adds new <code>Attributes</code>, <code>Rules</code>, or <code>ObjectTypes</code>.
+    /// Adds new <c>Attributes</c>, <c>Rules</c>, or <c>ObjectTypes</c>.
     /// </para></li><li><para>
-    /// Updates existing <code>Attributes</code>, <code>Rules</code>, or <code>ObjectTypes</code>.
+    /// Updates existing <c>Attributes</c>, <c>Rules</c>, or <c>ObjectTypes</c>.
     /// </para></li><li><para>
-    /// Deletes existing <code>Attributes</code>, <code>Rules</code>, or <code>ObjectTypes</code>.
+    /// Deletes existing <c>Attributes</c>, <c>Rules</c>, or <c>ObjectTypes</c>.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Update", "CDIRFacet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <summary>
         /// <para>
         /// <para>List of attributes that need to be updated in a given schema <a>Facet</a>. Each attribute
-        /// is followed by <code>AttributeAction</code>, which specifies the type of update operation
+        /// is followed by <c>AttributeAction</c>, which specifies the type of update operation
         /// to perform. </para>
         /// </para>
         /// </summary>

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     ///  <ul><li><para>
     /// Gets the list of the created artifacts while migration is taking place.
     /// </para></li><li><para>
-    /// Shows the artifacts created by the migration tool that was associated by the <code>AssociateCreatedArtifact</code>
+    /// Shows the artifacts created by the migration tool that was associated by the <c>AssociateCreatedArtifact</c>
     /// API. 
     /// </para></li><li><para>
     /// Lists created artifacts in a paginated interface. 
@@ -106,9 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.MH
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If a <code>NextToken</code> was returned by a previous call, there are more results
-        /// available. To retrieve the next page of results, make the call again using the returned
-        /// token in <code>NextToken</code>.</para>
+        /// <para>If a <c>NextToken</c> was returned by a previous call, there are more results available.
+        /// To retrieve the next page of results, make the call again using the returned token
+        /// in <c>NextToken</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

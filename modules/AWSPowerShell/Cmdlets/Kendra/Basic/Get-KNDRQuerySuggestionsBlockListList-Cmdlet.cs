@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// <para>
     /// For information on the current quota limits for block lists, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
     /// for Amazon Kendra</a>.
-    /// </para><para><code>ListQuerySuggestionsBlockLists</code> is currently not supported in the Amazon
-    /// Web Services GovCloud (US-West) region.
+    /// </para><para><c>ListQuerySuggestionsBlockLists</c> is currently not supported in the Amazon Web
+    /// Services GovCloud (US-West) region.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KNDRQuerySuggestionsBlockListList")]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>
         /// <para>If the previous response was incomplete (because there is more data to retrieve),
         /// Amazon Kendra returns a pagination token in the response. You can use this pagination
-        /// token to retrieve the next set of block lists (<code>BlockListSummaryItems</code>).</para>
+        /// token to retrieve the next set of block lists (<c>BlockListSummaryItems</c>).</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

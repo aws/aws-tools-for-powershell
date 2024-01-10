@@ -47,11 +47,11 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters to scope the results. The following filters and logical operators are supported:</para><ul><li><para><code>resourceArn</code> - The ARN of the license configuration resource. Logical
-        /// operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li><li><para><code>resourceType</code> - The resource type (<code>EC2_INSTANCE</code> | <code>EC2_HOST</code>
-        /// | <code>EC2_AMI</code> | <code>SYSTEMS_MANAGER_MANAGED_INSTANCE</code>). Logical operators
-        /// are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li><li><para><code>resourceAccount</code> - The ID of the account that owns the resource. Logical
-        /// operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li></ul>
+        /// <para>Filters to scope the results. The following filters and logical operators are supported:</para><ul><li><para><c>resourceArn</c> - The ARN of the license configuration resource. Logical operators
+        /// are <c>EQUALS</c> | <c>NOT_EQUALS</c>.</para></li><li><para><c>resourceType</c> - The resource type (<c>EC2_INSTANCE</c> | <c>EC2_HOST</c> |
+        /// <c>EC2_AMI</c> | <c>SYSTEMS_MANAGER_MANAGED_INSTANCE</c>). Logical operators are <c>EQUALS</c>
+        /// | <c>NOT_EQUALS</c>.</para></li><li><para><c>resourceAccount</c> - The ID of the account that owns the resource. Logical operators
+        /// are <c>EQUALS</c> | <c>NOT_EQUALS</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         /// <summary>
         /// <para>
         /// <para>A filter to include rotations in list results based on their common prefix. For example,
-        /// entering prod returns a list of all rotation names that begin with <code>prod</code>,
-        /// such as <code>production</code> and <code>prod-1</code>.</para>
+        /// entering prod returns a list of all rotation names that begin with <c>prod</c>, such
+        /// as <c>production</c> and <c>prod-1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

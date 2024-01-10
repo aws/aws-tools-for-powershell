@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para>Tags that you want to associate with one or more configuration items. Specify the
-        /// tags that you want to create in a <i>key</i>-<i>value</i> format. For example:</para><para><code>{"key": "serverType", "value": "webServer"}</code></para>
+        /// tags that you want to create in a <i>key</i>-<i>value</i> format. For example:</para><para><c>{"key": "serverType", "value": "webServer"}</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

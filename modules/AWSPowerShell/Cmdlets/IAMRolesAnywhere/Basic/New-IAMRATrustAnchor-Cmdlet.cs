@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// CA in exchange for temporary Amazon Web Services credentials.
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:CreateTrustAnchor</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:CreateTrustAnchor</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "IAMRATrustAnchor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         /// <para>
         /// <para> The root certificate of the Private Certificate Authority specified by this ARN is
         /// used in trust validation for temporary credential requests. Included for trust anchors
-        /// of type <code>AWS_ACM_PCA</code>. </para>
+        /// of type <c>AWS_ACM_PCA</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         /// <summary>
         /// <para>
         /// <para>The PEM-encoded data for the certificate anchor. Included for trust anchors of type
-        /// <code>CERTIFICATE_BUNDLE</code>. </para>
+        /// <c>CERTIFICATE_BUNDLE</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

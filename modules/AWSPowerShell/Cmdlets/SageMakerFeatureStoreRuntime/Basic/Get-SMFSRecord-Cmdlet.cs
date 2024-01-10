@@ -28,9 +28,9 @@ using Amazon.SageMakerFeatureStoreRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.SMFS
 {
     /// <summary>
-    /// Use for <code>OnlineStore</code> serving from a <code>FeatureStore</code>. Only the
-    /// latest records stored in the <code>OnlineStore</code> can be retrieved. If no Record
-    /// with <code>RecordIdentifierValue</code> is found, then an empty result is returned.
+    /// Use for <c>OnlineStore</c> serving from a <c>FeatureStore</c>. Only the latest records
+    /// stored in the <c>OnlineStore</c> can be retrieved. If no Record with <c>RecordIdentifierValue</c>
+    /// is found, then an empty result is returned.
     /// </summary>
     [Cmdlet("Get", "SMFSRecord")]
     [OutputType("Amazon.SageMakerFeatureStoreRuntime.Model.FeatureValue")]
@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         #region Parameter ExpirationTimeResponse
         /// <summary>
         /// <para>
-        /// <para>Parameter to request <code>ExpiresAt</code> in response. If <code>Enabled</code>,
-        /// <code>GetRecord</code> will return the value of <code>ExpiresAt</code>, if it is not
-        /// null. If <code>Disabled</code> and null, <code>GetRecord</code> will return null.</para>
+        /// <para>Parameter to request <c>ExpiresAt</c> in response. If <c>Enabled</c>, <c>GetRecord</c>
+        /// will return the value of <c>ExpiresAt</c>, if it is not null. If <c>Disabled</c> and
+        /// null, <c>GetRecord</c> will return null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         #region Parameter RecordIdentifierValueAsString
         /// <summary>
         /// <para>
-        /// <para>The value that corresponds to <code>RecordIdentifier</code> type and uniquely identifies
-        /// the record in the <code>FeatureGroup</code>. </para>
+        /// <para>The value that corresponds to <c>RecordIdentifier</c> type and uniquely identifies
+        /// the record in the <c>FeatureGroup</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

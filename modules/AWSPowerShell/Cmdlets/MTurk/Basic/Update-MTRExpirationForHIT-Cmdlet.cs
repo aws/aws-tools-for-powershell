@@ -28,9 +28,8 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>UpdateExpirationForHIT</code> operation allows you update the expiration
-    /// time of a HIT. If you update it to a time in the past, the HIT will be immediately
-    /// expired.
+    /// The <c>UpdateExpirationForHIT</c> operation allows you update the expiration time
+    /// of a HIT. If you update it to a time in the past, the HIT will be immediately expired.
     /// </summary>
     [Cmdlet("Update", "MTRExpirationForHIT", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

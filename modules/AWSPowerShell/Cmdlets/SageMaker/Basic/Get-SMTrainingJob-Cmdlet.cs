@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
     ///  
     /// <para>
     /// Some of the attributes below only appear if the training job successfully starts.
-    /// If the training job fails, <code>TrainingJobStatus</code> is <code>Failed</code> and,
-    /// depending on the <code>FailureReason</code>, attributes like <code>TrainingStartTime</code>,
-    /// <code>TrainingTimeInSeconds</code>, <code>TrainingEndTime</code>, and <code>BillableTimeInSeconds</code>
-    /// may not be present in the response.
+    /// If the training job fails, <c>TrainingJobStatus</c> is <c>Failed</c> and, depending
+    /// on the <c>FailureReason</c>, attributes like <c>TrainingStartTime</c>, <c>TrainingTimeInSeconds</c>,
+    /// <c>TrainingEndTime</c>, and <c>BillableTimeInSeconds</c> may not be present in the
+    /// response.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SMTrainingJob")]

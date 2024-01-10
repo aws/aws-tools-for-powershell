@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter CallAs
         /// <summary>
         /// <para>
-        /// <para>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
-        /// self-managed permissions.</para><ul><li><para>If you are signed in to the management account, specify <code>SELF</code>.</para></li><li><para>For service managed stack sets, specify <code>DELEGATED_ADMIN</code>.</para></li></ul>
+        /// <para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for stack sets with self-managed
+        /// permissions.</para><ul><li><para>If you are signed in to the management account, specify <c>SELF</c>.</para></li><li><para>For service managed stack sets, specify <c>DELEGATED_ADMIN</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The IDs of the stacks you are importing into a stack set. You import up to 10 stacks
-        /// per stack set at a time.</para><para>Specify either <code>StackIds</code> or <code>StackIdsUrl</code>.</para>
+        /// per stack set at a time.</para><para>Specify either <c>StackIds</c> or <c>StackIdsUrl</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackIdsUrl
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 URL which contains list of stack ids to be inputted.</para><para>Specify either <code>StackIds</code> or <code>StackIdsUrl</code>.</para>
+        /// <para>The Amazon S3 URL which contains list of stack ids to be inputted.</para><para>Specify either <c>StackIds</c> or <c>StackIdsUrl</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

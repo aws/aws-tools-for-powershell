@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Updates the resource permissions for a theme. Permissions apply to the action to grant
-    /// or revoke permissions on, for example <code>"quicksight:DescribeTheme"</code>.
+    /// or revoke permissions on, for example <c>"quicksight:DescribeTheme"</c>.
     /// 
     ///  
     /// <para>
@@ -37,9 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// three levels of permissions, which are user, owner, or no permissions: 
     /// </para><ul><li><para>
     /// User
-    /// </para><ul><li><para><code>"quicksight:DescribeTheme"</code></para></li><li><para><code>"quicksight:DescribeThemeAlias"</code></para></li><li><para><code>"quicksight:ListThemeAliases"</code></para></li><li><para><code>"quicksight:ListThemeVersions"</code></para></li></ul></li><li><para>
+    /// </para><ul><li><para><c>"quicksight:DescribeTheme"</c></para></li><li><para><c>"quicksight:DescribeThemeAlias"</c></para></li><li><para><c>"quicksight:ListThemeAliases"</c></para></li><li><para><c>"quicksight:ListThemeVersions"</c></para></li></ul></li><li><para>
     /// Owner
-    /// </para><ul><li><para><code>"quicksight:DescribeTheme"</code></para></li><li><para><code>"quicksight:DescribeThemeAlias"</code></para></li><li><para><code>"quicksight:ListThemeAliases"</code></para></li><li><para><code>"quicksight:ListThemeVersions"</code></para></li><li><para><code>"quicksight:DeleteTheme"</code></para></li><li><para><code>"quicksight:UpdateTheme"</code></para></li><li><para><code>"quicksight:CreateThemeAlias"</code></para></li><li><para><code>"quicksight:DeleteThemeAlias"</code></para></li><li><para><code>"quicksight:UpdateThemeAlias"</code></para></li><li><para><code>"quicksight:UpdateThemePermissions"</code></para></li><li><para><code>"quicksight:DescribeThemePermissions"</code></para></li></ul></li><li><para>
+    /// </para><ul><li><para><c>"quicksight:DescribeTheme"</c></para></li><li><para><c>"quicksight:DescribeThemeAlias"</c></para></li><li><para><c>"quicksight:ListThemeAliases"</c></para></li><li><para><c>"quicksight:ListThemeVersions"</c></para></li><li><para><c>"quicksight:DeleteTheme"</c></para></li><li><para><c>"quicksight:UpdateTheme"</c></para></li><li><para><c>"quicksight:CreateThemeAlias"</c></para></li><li><para><c>"quicksight:DeleteThemeAlias"</c></para></li><li><para><c>"quicksight:UpdateThemeAlias"</c></para></li><li><para><c>"quicksight:UpdateThemePermissions"</c></para></li><li><para><c>"quicksight:DescribeThemePermissions"</c></para></li></ul></li><li><para>
     /// To specify no permissions, omit the permissions list.
     /// </para></li></ul>
     /// </summary>

@@ -51,17 +51,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>key</code> - The tag key.</para></li><li><para><code>resource-id</code> - The ID of the resource.</para></li><li><para><code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dedicated-host</code>
-        /// | <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code>
-        /// | <code>host-reservation</code> | <code>image</code> | <code>instance</code> | <code>internet-gateway</code>
-        /// | <code>key-pair</code> | <code>launch-template</code> | <code>natgateway</code> |
-        /// <code>network-acl</code> | <code>network-interface</code> | <code>placement-group</code>
-        /// | <code>reserved-instances</code> | <code>route-table</code> | <code>security-group</code>
-        /// | <code>snapshot</code> | <code>spot-instances-request</code> | <code>subnet</code>
-        /// | <code>volume</code> | <code>vpc</code> | <code>vpc-endpoint</code> | <code>vpc-endpoint-service</code>
-        /// | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example,
-        /// specify "tag:Owner" for the filter name and "TeamA" for the filter value to find resources
-        /// with the tag "Owner=TeamA".</para></li><li><para><code>value</code> - The tag value.</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>key</c> - The tag key.</para></li><li><para><c>resource-id</c> - The ID of the resource.</para></li><li><para><c>resource-type</c> - The resource type (<c>customer-gateway</c> | <c>dedicated-host</c>
+        /// | <c>dhcp-options</c> | <c>elastic-ip</c> | <c>fleet</c> | <c>fpga-image</c> | <c>host-reservation</c>
+        /// | <c>image</c> | <c>instance</c> | <c>internet-gateway</c> | <c>key-pair</c> | <c>launch-template</c>
+        /// | <c>natgateway</c> | <c>network-acl</c> | <c>network-interface</c> | <c>placement-group</c>
+        /// | <c>reserved-instances</c> | <c>route-table</c> | <c>security-group</c> | <c>snapshot</c>
+        /// | <c>spot-instances-request</c> | <c>subnet</c> | <c>volume</c> | <c>vpc</c> | <c>vpc-endpoint</c>
+        /// | <c>vpc-endpoint-service</c> | <c>vpc-peering-connection</c> | <c>vpn-connection</c>
+        /// | <c>vpn-gateway</c>).</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of the tag. For example, specify
+        /// "tag:Owner" for the filter name and "TeamA" for the filter value to find resources
+        /// with the tag "Owner=TeamA".</para></li><li><para><c>value</c> - The tag value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

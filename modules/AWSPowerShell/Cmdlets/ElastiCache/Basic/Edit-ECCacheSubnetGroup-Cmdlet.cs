@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The name for the cache subnet group. This value is stored as a lowercase string.</para><para>Constraints: Must contain no more than 255 alphanumeric characters or hyphens.</para><para>Example: <code>mysubnetgroup</code></para>
+        /// <para>The name for the cache subnet group. This value is stored as a lowercase string.</para><para>Constraints: Must contain no more than 255 alphanumeric characters or hyphens.</para><para>Example: <c>mysubnetgroup</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

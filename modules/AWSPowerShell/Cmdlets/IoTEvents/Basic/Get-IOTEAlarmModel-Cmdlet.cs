@@ -28,7 +28,7 @@ using Amazon.IoTEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTE
 {
     /// <summary>
-    /// Retrieves information about an alarm model. If you don't specify a value for the <code>alarmModelVersion</code>
+    /// Retrieves information about an alarm model. If you don't specify a value for the <c>alarmModelVersion</c>
     /// parameter, the latest version is returned.
     /// </summary>
     [Cmdlet("Get", "IOTEAlarmModel")]

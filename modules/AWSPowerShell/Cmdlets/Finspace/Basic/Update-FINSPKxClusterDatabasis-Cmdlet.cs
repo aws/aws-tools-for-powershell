@@ -28,7 +28,7 @@ using Amazon.Finspace.Model;
 namespace Amazon.PowerShell.Cmdlets.FINSP
 {
     /// <summary>
-    /// Updates the databases mounted on a kdb cluster, which includes the <code>changesetId</code>
+    /// Updates the databases mounted on a kdb cluster, which includes the <c>changesetId</c>
     /// and all the dbPaths to be cached. This API does not allow you to change a database
     /// name or add a database if you created a cluster without one. 
     /// 
@@ -89,9 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// <para>
         /// <para> The type of deployment that you want on a cluster. </para><ul><li><para>ROLLING – This options updates the cluster by stopping the exiting q process and starting
         /// a new q process with updated configuration.</para></li><li><para>NO_RESTART – This option updates the cluster without stopping the running q process.
-        /// It is only available for <code>HDB</code> type cluster. This option is quicker as
-        /// it reduces the turn around time to update configuration on a cluster. </para><para>With this deployment mode, you cannot update the <code>initializationScript</code>
-        /// and <code>commandLineArguments</code> parameters.</para></li></ul>
+        /// It is only available for <c>HDB</c> type cluster. This option is quicker as it reduces
+        /// the turn around time to update configuration on a cluster. </para><para>With this deployment mode, you cannot update the <c>initializationScript</c> and <c>commandLineArguments</c>
+        /// parameters.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

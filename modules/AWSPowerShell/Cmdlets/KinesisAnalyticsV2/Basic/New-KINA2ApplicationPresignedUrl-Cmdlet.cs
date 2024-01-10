@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
     /// this URL. IAM authorization policies for this API are also enforced for every HTTP
     /// request that attempts to connect to the extension. 
     /// </para><para>
-    /// You control the amount of time that the URL will be valid using the <code>SessionExpirationDurationInSeconds</code>
+    /// You control the amount of time that the URL will be valid using the <c>SessionExpirationDurationInSeconds</c>
     /// parameter. If you do not provide this parameter, the returned URL is valid for twelve
     /// hours.
     /// </para><note><para>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         /// <summary>
         /// <para>
         /// <para>The type of the extension for which to create and return a URL. Currently, the only
-        /// valid extension URL type is <code>FLINK_DASHBOARD_URL</code>. </para>
+        /// valid extension URL type is <c>FLINK_DASHBOARD_URL</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

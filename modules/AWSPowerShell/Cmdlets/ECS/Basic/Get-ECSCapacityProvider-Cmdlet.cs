@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of one or more capacity providers.
-        /// Up to <code>100</code> capacity providers can be described in an action.</para>
+        /// Up to <c>100</c> capacity providers can be described in an action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>Specifies whether or not you want to see the resource tags for the capacity provider.
-        /// If <code>TAGS</code> is specified, the tags are included in the response. If this
-        /// field is omitted, tags aren't included in the response.</para>
+        /// If <c>TAGS</c> is specified, the tags are included in the response. If this field
+        /// is omitted, tags aren't included in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,13 +69,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of account setting results returned by <code>DescribeCapacityProviders</code>
-        /// in paginated output. When this parameter is used, <code>DescribeCapacityProviders</code>
-        /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
+        /// <para>The maximum number of account setting results returned by <c>DescribeCapacityProviders</c>
+        /// in paginated output. When this parameter is used, <c>DescribeCapacityProviders</c>
+        /// only returns <c>maxResults</c> results in a single page along with a <c>nextToken</c>
         /// response element. The remaining results of the initial request can be seen by sending
-        /// another <code>DescribeCapacityProviders</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 10. If this parameter is not used, then <code>DescribeCapacityProviders</code>
-        /// returns up to 10 results and a <code>nextToken</code> value if applicable.</para>
+        /// another <c>DescribeCapacityProviders</c> request with the returned <c>nextToken</c>
+        /// value. This value can be between 1 and 10. If this parameter is not used, then <c>DescribeCapacityProviders</c>
+        /// returns up to 10 results and a <c>nextToken</c> value if applicable.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -91,10 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>DescribeCapacityProviders</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>DescribeCapacityProviders</c>
+        /// request where <c>maxResults</c> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <c>nextToken</c> value.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

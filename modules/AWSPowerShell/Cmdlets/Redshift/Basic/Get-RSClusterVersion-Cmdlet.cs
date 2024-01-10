@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterVersion
         /// <summary>
         /// <para>
-        /// <para>The specific cluster version to return.</para><para>Example: <code>1.0</code></para>
+        /// <para>The specific cluster version to return.</para><para>Example: <c>1.0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -70,9 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>An optional parameter that specifies the starting point to return a set of response
         /// records. When the results of a <a>DescribeClusterVersions</a> request exceed the value
-        /// specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code>
+        /// specified in <c>MaxRecords</c>, Amazon Web Services returns a value in the <c>Marker</c>
         /// field of the response. You can retrieve the next set of response records by providing
-        /// the returned marker value in the <code>Marker</code> parameter and retrying the request.
+        /// the returned marker value in the <c>Marker</c> parameter and retrying the request.
         /// </para>
         /// </para>
         /// <para>
@@ -89,9 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The maximum number of response records to return in each call. If the number of remaining
-        /// response records exceeds the specified <code>MaxRecords</code> value, a value is returned
-        /// in a <code>marker</code> field of the response. You can retrieve the next set of records
-        /// by retrying the command with the returned marker value. </para><para>Default: <code>100</code></para><para>Constraints: minimum 20, maximum 100.</para>
+        /// response records exceeds the specified <c>MaxRecords</c> value, a value is returned
+        /// in a <c>marker</c> field of the response. You can retrieve the next set of records
+        /// by retrying the command with the returned marker value. </para><para>Default: <c>100</c></para><para>Constraints: minimum 20, maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

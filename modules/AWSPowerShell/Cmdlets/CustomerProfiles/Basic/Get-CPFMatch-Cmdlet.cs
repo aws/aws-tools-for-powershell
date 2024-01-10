@@ -30,22 +30,22 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     /// <summary>
     /// Before calling this API, use <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html">CreateDomain</a>
     /// or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html">UpdateDomain</a>
-    /// to enable identity resolution: set <code>Matching</code> to true.
+    /// to enable identity resolution: set <c>Matching</c> to true.
     /// 
     ///  
     /// <para>
     /// GetMatches returns potentially matching profiles, based on the results of the latest
     /// run of a machine learning process. 
     /// </para><important><para>
-    /// The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>,
-    /// Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution
+    /// The process of matching duplicate profiles. If <c>Matching</c> = <c>true</c>, Amazon
+    /// Connect Customer Profiles starts a weekly batch process called Identity Resolution
     /// Job. If you do not specify a date and time for Identity Resolution Job to run, by
     /// default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains.
     /// 
     /// </para><para>
     /// After the Identity Resolution Job completes, use the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
-    /// API to return and review the results. Or, if you have configured <code>ExportingConfig</code>
-    /// in the <code>MatchingRequest</code>, you can download the results from S3.
+    /// API to return and review the results. Or, if you have configured <c>ExportingConfig</c>
+    /// in the <c>MatchingRequest</c>, you can download the results from S3.
     /// </para></important><para>
     /// Amazon Connect uses the following profile attributes to identify matches:
     /// </para><ul><li><para>

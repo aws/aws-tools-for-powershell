@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     /// <para>
     /// This is a paginated operation, which means that each response might contain only a
     /// subset of all the tags. When the response contains only a subset of tags, it includes
-    /// a <code>NextToken</code> value. Use this value in a subsequent <code>ListTags</code>
-    /// request to get more tags. When you receive a response with no <code>NextToken</code>
-    /// (or an empty or null value), that means there are no more tags to get.
+    /// a <c>NextToken</c> value. Use this value in a subsequent <c>ListTags</c> request to
+    /// get more tags. When you receive a response with no <c>NextToken</c> (or an empty or
+    /// null value), that means there are no more tags to get.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "HSM2ResourceTag")]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         /// <summary>
         /// <para>
         /// <para>The maximum number of tags to return in the response. When there are more tags than
-        /// the number you specify, the response contains a <code>NextToken</code> value.</para>
+        /// the number you specify, the response contains a <c>NextToken</c> value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>NextToken</code> value that you received in the previous response. Use this
-        /// value to get more tags.</para>
+        /// <para>The <c>NextToken</c> value that you received in the previous response. Use this value
+        /// to get more tags.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

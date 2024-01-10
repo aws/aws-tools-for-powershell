@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         /// <summary>
         /// <para>
         /// <para>The last day (in Unix time) that you want to obtain domain deliverability metrics
-        /// for. The <code>EndDate</code> that you specify has to be less than or equal to 30
-        /// days after the <code>StartDate</code>.</para>
+        /// for. The <c>EndDate</c> that you specify has to be less than or equal to 30 days after
+        /// the <c>StartDate</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

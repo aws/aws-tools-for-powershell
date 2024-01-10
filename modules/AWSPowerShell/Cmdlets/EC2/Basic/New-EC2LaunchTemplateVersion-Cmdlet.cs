@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchTemplateId
         /// <summary>
         /// <para>
-        /// <para>The ID of the launch template.</para><para>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>,
+        /// <para>The ID of the launch template.</para><para>You must specify either the <c>LaunchTemplateId</c> or the <c>LaunchTemplateName</c>,
         /// but not both.</para>
         /// </para>
         /// </summary>
@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchTemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the launch template.</para><para>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>,
-        /// but not both.</para>
+        /// <para>The name of the launch template.</para><para>You must specify the <c>LaunchTemplateName</c> or the <c>LaunchTemplateId</c>, but
+        /// not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,11 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ResolveAlias
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>,
-        /// the AMI ID is displayed in the response for <code>imageID</code>. For more information,
+        /// <para>If <c>true</c>, and if a Systems Manager parameter is specified for <c>ImageId</c>,
+        /// the AMI ID is displayed in the response for <c>imageID</c>. For more information,
         /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use
         /// a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute
-        /// Cloud User Guide</i>.</para><para>Default: <code>false</code></para>
+        /// Cloud User Guide</i>.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,9 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The version number of the launch template version on which to base the new version.
         /// The new version inherits the same launch parameters as the source version, except
-        /// for parameters that you specify in <code>LaunchTemplateData</code>. Snapshots applied
-        /// to the block device mapping are ignored when creating a new version unless they are
-        /// explicitly included.</para>
+        /// for parameters that you specify in <c>LaunchTemplateData</c>. Snapshots applied to
+        /// the block device mapping are ignored when creating a new version unless they are explicitly
+        /// included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

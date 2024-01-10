@@ -78,9 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>Specifies the status of your VDM engagement metrics collection. Can be one of the
-        /// following:</para><ul><li><para><code>ENABLED</code> – Amazon SES enables engagement metrics for the configuration
-        /// set.</para></li><li><para><code>DISABLED</code> – Amazon SES disables engagement metrics for the configuration
-        /// set.</para></li></ul>
+        /// following:</para><ul><li><para><c>ENABLED</c> – Amazon SES enables engagement metrics for the configuration set.</para></li><li><para><c>DISABLED</c> – Amazon SES disables engagement metrics for the configuration set.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter GuardianOptions_OptimizedSharedDelivery
         /// <summary>
         /// <para>
-        /// <para>Specifies the status of your VDM optimized shared delivery. Can be one of the following:</para><ul><li><para><code>ENABLED</code> – Amazon SES enables optimized shared delivery for the configuration
-        /// set.</para></li><li><para><code>DISABLED</code> – Amazon SES disables optimized shared delivery for the configuration
+        /// <para>Specifies the status of your VDM optimized shared delivery. Can be one of the following:</para><ul><li><para><c>ENABLED</c> – Amazon SES enables optimized shared delivery for the configuration
+        /// set.</para></li><li><para><c>DISABLED</c> – Amazon SES disables optimized shared delivery for the configuration
         /// set.</para></li></ul>
         /// </para>
         /// </summary>
@@ -118,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ReputationOptions_ReputationMetricsEnabled
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, tracking of reputation metrics is enabled for the configuration
-        /// set. If <code>false</code>, tracking of reputation metrics is disabled for the configuration
+        /// <para>If <c>true</c>, tracking of reputation metrics is enabled for the configuration set.
+        /// If <c>false</c>, tracking of reputation metrics is disabled for the configuration
         /// set.</para>
         /// </para>
         /// </summary>
@@ -130,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter SendingOptions_SendingEnabled
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, email sending is enabled for the configuration set. If <code>false</code>,
+        /// <para>If <c>true</c>, email sending is enabled for the configuration set. If <c>false</c>,
         /// email sending is disabled for the configuration set.</para>
         /// </para>
         /// </summary>
@@ -152,9 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>A list that contains the reasons that email addresses are automatically added to the
-        /// suppression list for your account. This list can contain any or all of the following:</para><ul><li><para><code>COMPLAINT</code> – Amazon SES adds an email address to the suppression list
-        /// for your account when a message sent to that address results in a complaint.</para></li><li><para><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for
-        /// your account when a message sent to that address results in a hard bounce.</para></li></ul>
+        /// suppression list for your account. This list can contain any or all of the following:</para><ul><li><para><c>COMPLAINT</c> – Amazon SES adds an email address to the suppression list for your
+        /// account when a message sent to that address results in a complaint.</para></li><li><para><c>BOUNCE</c> – Amazon SES adds an email address to the suppression list for your
+        /// account when a message sent to that address results in a hard bounce.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,8 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>Specifies whether messages that use the configuration set are required to use Transport
-        /// Layer Security (TLS). If the value is <code>Require</code>, messages are only delivered
-        /// if a TLS connection can be established. If the value is <code>Optional</code>, messages
+        /// Layer Security (TLS). If the value is <c>Require</c>, messages are only delivered
+        /// if a TLS connection can be established. If the value is <c>Optional</c>, messages
         /// can be delivered in plain text if a TLS connection can't be established.</para>
         /// </para>
         /// </summary>

@@ -50,20 +50,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage
     /// class for automatically optimizing frequently and infrequently accessed objects</a>.
     /// </para><para>
-    /// Operations related to <code>PutBucketIntelligentTieringConfiguration</code> include:
-    /// 
+    /// Operations related to <c>PutBucketIntelligentTieringConfiguration</c> include: 
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketIntelligentTieringConfiguration.html">DeleteBucketIntelligentTieringConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketIntelligentTieringConfiguration.html">GetBucketIntelligentTieringConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketIntelligentTieringConfigurations.html">ListBucketIntelligentTieringConfigurations</a></para></li></ul><note><para>
     /// You only need S3 Intelligent-Tiering enabled on a bucket if you want to automatically
     /// move objects stored in the S3 Intelligent-Tiering storage class to the Archive Access
     /// or Deep Archive Access tier.
-    /// </para></note><para><code>PutBucketIntelligentTieringConfiguration</code> has the following special errors:
+    /// </para></note><para><c>PutBucketIntelligentTieringConfiguration</c> has the following special errors:
     /// </para><dl><dt>HTTP 400 Bad Request Error</dt><dd><para><i>Code:</i> InvalidArgument
     /// </para><para><i>Cause:</i> Invalid Argument
     /// </para></dd><dt>HTTP 400 Bad Request Error</dt><dd><para><i>Code:</i> TooManyConfigurations
     /// </para><para><i>Cause:</i> You are attempting to create a new configuration but have already reached
     /// the 1,000-configuration limit. 
     /// </para></dd><dt>HTTP 403 Forbidden Error</dt><dd><para><i>Cause:</i> You are not the owner of the specified bucket, or you do not have the
-    /// <code>s3:PutIntelligentTieringConfiguration</code> bucket permission to set the configuration
+    /// <c>s3:PutIntelligentTieringConfiguration</c> bucket permission to set the configuration
     /// on the bucket. 
     /// </para></dd></dl>
     /// </summary>

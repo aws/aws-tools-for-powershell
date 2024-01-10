@@ -32,20 +32,20 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// 
     ///  
     /// <para>
-    /// Access keys consist of two parts: an access key ID (for example, <code>AKIAIOSFODNN7EXAMPLE</code>)
-    /// and a secret access key (for example, <code>wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</code>).
+    /// Access keys consist of two parts: an access key ID (for example, <c>AKIAIOSFODNN7EXAMPLE</c>)
+    /// and a secret access key (for example, <c>wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</c>).
     /// For more information about access keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html">Managing
     /// Access Keys for IAM Users</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// When you pass an access key ID to this operation, it returns the ID of the Amazon
-    /// Web Services account to which the keys belong. Access key IDs beginning with <code>AKIA</code>
+    /// Web Services account to which the keys belong. Access key IDs beginning with <c>AKIA</c>
     /// are long-term credentials for an IAM user or the Amazon Web Services account root
-    /// user. Access key IDs beginning with <code>ASIA</code> are temporary credentials that
-    /// are created using STS operations. If the account in the response belongs to you, you
-    /// can sign in as the root user and review your root user access keys. Then, you can
-    /// pull a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">credentials
+    /// user. Access key IDs beginning with <c>ASIA</c> are temporary credentials that are
+    /// created using STS operations. If the account in the response belongs to you, you can
+    /// sign in as the root user and review your root user access keys. Then, you can pull
+    /// a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">credentials
     /// report</a> to learn which IAM user owns the keys. To learn who requested the temporary
-    /// credentials for an <code>ASIA</code> access key, view the STS events in your <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">CloudTrail
+    /// credentials for an <c>ASIA</c> access key, view the STS events in your <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">CloudTrail
     /// logs</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// This operation does not indicate the state of the access key. The key might be active,

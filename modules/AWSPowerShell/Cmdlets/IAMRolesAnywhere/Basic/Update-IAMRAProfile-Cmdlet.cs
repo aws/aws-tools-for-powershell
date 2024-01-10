@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// to assume. You use profiles to intersect permissions with IAM managed policies.
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:UpdateProfile</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:UpdateProfile</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Update", "IAMRAProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

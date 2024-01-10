@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Each element in the array is a structure containing a key-value pair.</para><para>Supported keys for <code>DescribePatchBaselines</code> include the following:</para><ul><li><para><b><code>NAME_PREFIX</code></b></para><para>Sample values: <code>AWS-</code> | <code>My-</code></para></li><li><para><b><code>OWNER</code></b></para><para>Sample values: <code>AWS</code> | <code>Self</code></para></li><li><para><b><code>OPERATING_SYSTEM</code></b></para><para>Sample values: <code>AMAZON_LINUX</code> | <code>SUSE</code> | <code>WINDOWS</code></para></li></ul>
+        /// <para>Each element in the array is a structure containing a key-value pair.</para><para>Supported keys for <c>DescribePatchBaselines</c> include the following:</para><ul><li><para><b><c>NAME_PREFIX</c></b></para><para>Sample values: <c>AWS-</c> | <c>My-</c></para></li><li><para><b><c>OWNER</c></b></para><para>Sample values: <c>AWS</c> | <c>Self</c></para></li><li><para><b><c>OPERATING_SYSTEM</c></b></para><para>Sample values: <c>AMAZON_LINUX</c> | <c>SUSE</c> | <c>WINDOWS</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

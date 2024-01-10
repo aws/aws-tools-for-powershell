@@ -36,10 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// If the call successfully completes, CloudFormation successfully deleted the change
     /// set.
     /// </para><para>
-    /// If <code>IncludeNestedStacks</code> specifies <code>True</code> during the creation
-    /// of the nested change set, then <code>DeleteChangeSet</code> will delete all change
-    /// sets that belong to the stacks hierarchy and will also delete all change sets for
-    /// nested stacks with the status of <code>REVIEW_IN_PROGRESS</code>.
+    /// If <c>IncludeNestedStacks</c> specifies <c>True</c> during the creation of the nested
+    /// change set, then <c>DeleteChangeSet</c> will delete all change sets that belong to
+    /// the stacks hierarchy and will also delete all change sets for nested stacks with the
+    /// status of <c>REVIEW_IN_PROGRESS</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CFNChangeSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

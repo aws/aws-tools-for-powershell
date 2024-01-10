@@ -28,9 +28,9 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>UpdateHITReviewStatus</code> operation updates the status of a HIT. If
-    /// the status is Reviewable, this operation can update the status to Reviewing, or it
-    /// can revert a Reviewing HIT back to the Reviewable status.
+    /// The <c>UpdateHITReviewStatus</c> operation updates the status of a HIT. If the status
+    /// is Reviewable, this operation can update the status to Reviewing, or it can revert
+    /// a Reviewing HIT back to the Reviewable status.
     /// </summary>
     [Cmdlet("Update", "MTRHITReviewStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -64,8 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         #region Parameter Revert
         /// <summary>
         /// <para>
-        /// <para> Specifies how to update the HIT status. Default is <code>False</code>. </para><ul><li><para> Setting this to false will only transition a HIT from <code>Reviewable</code> to
-        /// <code>Reviewing</code></para></li><li><para> Setting this to true will only transition a HIT from <code>Reviewing</code> to <code>Reviewable</code></para></li></ul>
+        /// <para> Specifies how to update the HIT status. Default is <c>False</c>. </para><ul><li><para> Setting this to false will only transition a HIT from <c>Reviewable</c> to <c>Reviewing</c></para></li><li><para> Setting this to true will only transition a HIT from <c>Reviewing</c> to <c>Reviewable</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

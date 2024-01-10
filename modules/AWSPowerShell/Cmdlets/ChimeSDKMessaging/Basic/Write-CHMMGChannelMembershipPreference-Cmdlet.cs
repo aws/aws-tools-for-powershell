@@ -28,15 +28,15 @@ using Amazon.ChimeSDKMessaging.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
-    /// Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+    /// Sets the membership preferences of an <c>AppInstanceUser</c> or <c>AppInstanceBot</c>
     /// for the specified channel. The user or bot must be a member of the channel. Only the
-    /// user or bot who owns the membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code>
+    /// user or bot who owns the membership can set preferences. Users or bots in the <c>AppInstanceAdmin</c>
     /// and channel moderator roles can't set preferences for other users. Banned users or
     /// bots can't set membership preferences for the channel from which they are banned.
     /// 
     ///  <note><para>
-    /// The x-amz-chime-bearer request header is mandatory. Use the ARN of an <code>AppInstanceUser</code>
-    /// or <code>AppInstanceBot</code> that makes the API call as the value in the header.
+    /// The x-amz-chime-bearer request header is mandatory. Use the ARN of an <c>AppInstanceUser</c>
+    /// or <c>AppInstanceBot</c> that makes the API call as the value in the header.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CHMMGChannelMembershipPreference", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,9 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         /// <summary>
         /// <para>
         /// <para>Enum value that indicates which push notifications to send to the requested member
-        /// of a channel. <code>ALL</code> sends all push notifications, <code>NONE</code> sends
-        /// no push notifications, <code>FILTERED</code> sends only filtered push notifications.
-        /// </para>
+        /// of a channel. <c>ALL</c> sends all push notifications, <c>NONE</c> sends no push notifications,
+        /// <c>FILTERED</c> sends only filtered push notifications. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        /// the API call.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c> or <c>AppInstanceBot</c> that makes the API
+        /// call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

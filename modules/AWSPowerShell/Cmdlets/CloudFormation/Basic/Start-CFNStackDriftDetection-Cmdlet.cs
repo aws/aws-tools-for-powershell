@@ -40,20 +40,20 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// 
     ///  
     /// <para>
-    /// Use <code>DetectStackDrift</code> to detect drift on all supported resources for a
-    /// given stack, or <a>DetectStackResourceDrift</a> to detect drift on individual resources.
+    /// Use <c>DetectStackDrift</c> to detect drift on all supported resources for a given
+    /// stack, or <a>DetectStackResourceDrift</a> to detect drift on individual resources.
     /// </para><para>
     /// For a list of stack resources that currently support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources
     /// that Support Drift Detection</a>.
-    /// </para><para><code>DetectStackDrift</code> can take up to several minutes, depending on the number
-    /// of resources contained within the stack. Use <a>DescribeStackDriftDetectionStatus</a>
+    /// </para><para><c>DetectStackDrift</c> can take up to several minutes, depending on the number of
+    /// resources contained within the stack. Use <a>DescribeStackDriftDetectionStatus</a>
     /// to monitor the progress of a detect stack drift operation. Once the drift detection
     /// operation has completed, use <a>DescribeStackResourceDrifts</a> to return drift information
     /// about the stack and its resources.
     /// </para><para>
     /// When detecting drift on a stack, CloudFormation doesn't detect drift on any nested
-    /// stacks belonging to that stack. Perform <code>DetectStackDrift</code> directly on
-    /// the nested stack itself.
+    /// stacks belonging to that stack. Perform <c>DetectStackDrift</c> directly on the nested
+    /// stack itself.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "CFNStackDriftDetection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

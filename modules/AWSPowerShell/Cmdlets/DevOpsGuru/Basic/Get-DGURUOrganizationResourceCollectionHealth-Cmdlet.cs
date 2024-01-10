@@ -29,8 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
 {
     /// <summary>
     /// Provides an overview of your system's health. If additional member accounts are part
-    /// of your organization, you can filter those accounts using the <code>AccountIds</code>
-    /// field.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// of your organization, you can filter those accounts using the <c>AccountIds</c> field.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DGURUOrganizationResourceCollectionHealth")]
     [OutputType("Amazon.DevOpsGuru.Model.DescribeOrganizationResourceCollectionHealthResponse")]
@@ -92,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

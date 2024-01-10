@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the group to return information for. You can specify the group name, the
-        /// ARN, or the group ID as the <code>GroupIdentifier</code>.</para>
+        /// ARN, or the group ID as the <c>GroupIdentifier</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

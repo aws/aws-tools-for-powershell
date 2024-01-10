@@ -36,21 +36,20 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// 
     ///  
     /// <para>
-    /// You can specify the type of source (<code>SourceType</code>) that you want to be notified
-    /// of. You can also provide a list of Amazon DocumentDB sources (<code>SourceIds</code>)
-    /// that trigger the events, and you can provide a list of event categories (<code>EventCategories</code>)
-    /// for events that you want to be notified of. For example, you can specify <code>SourceType
-    /// = db-instance</code>, <code>SourceIds = mydbinstance1, mydbinstance2</code> and <code>EventCategories
-    /// = Availability, Backup</code>.
+    /// You can specify the type of source (<c>SourceType</c>) that you want to be notified
+    /// of. You can also provide a list of Amazon DocumentDB sources (<c>SourceIds</c>) that
+    /// trigger the events, and you can provide a list of event categories (<c>EventCategories</c>)
+    /// for events that you want to be notified of. For example, you can specify <c>SourceType
+    /// = db-instance</c>, <c>SourceIds = mydbinstance1, mydbinstance2</c> and <c>EventCategories
+    /// = Availability, Backup</c>.
     /// </para><para>
-    /// If you specify both the <code>SourceType</code> and <code>SourceIds</code> (such as
-    /// <code>SourceType = db-instance</code> and <code>SourceIdentifier = myDBInstance1</code>),
-    /// you are notified of all the <code>db-instance</code> events for the specified source.
-    /// If you specify a <code>SourceType</code> but do not specify a <code>SourceIdentifier</code>,
-    /// you receive notice of the events for that source type for all your Amazon DocumentDB
-    /// sources. If you do not specify either the <code>SourceType</code> or the <code>SourceIdentifier</code>,
-    /// you are notified of events generated from all Amazon DocumentDB sources belonging
-    /// to your customer account.
+    /// If you specify both the <c>SourceType</c> and <c>SourceIds</c> (such as <c>SourceType
+    /// = db-instance</c> and <c>SourceIdentifier = myDBInstance1</c>), you are notified of
+    /// all the <c>db-instance</c> events for the specified source. If you specify a <c>SourceType</c>
+    /// but do not specify a <c>SourceIdentifier</c>, you receive notice of the events for
+    /// that source type for all your Amazon DocumentDB sources. If you do not specify either
+    /// the <c>SourceType</c> or the <c>SourceIdentifier</c>, you are notified of events generated
+    /// from all Amazon DocumentDB sources belonging to your customer account.
     /// </para>
     /// </summary>
     [Cmdlet("New", "DOCEventSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -68,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Enabled
         /// <summary>
         /// <para>
-        /// <para> A Boolean value; set to <code>true</code> to activate the subscription, set to <code>false</code>
+        /// <para> A Boolean value; set to <c>true</c> to activate the subscription, set to <c>false</c>
         /// to create the subscription but not active it. </para>
         /// </para>
         /// </summary>
@@ -79,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter EventCategory
         /// <summary>
         /// <para>
-        /// <para> A list of event categories for a <code>SourceType</code> that you want to subscribe
-        /// to. </para>
+        /// <para> A list of event categories for a <c>SourceType</c> that you want to subscribe to.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,9 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>The list of identifiers of the event sources for which events are returned. If not
         /// specified, then all sources are included in the response. An identifier must begin
         /// with a letter and must contain only ASCII letters, digits, and hyphens; it can't end
-        /// with a hyphen or contain two consecutive hyphens.</para><para>Constraints:</para><ul><li><para>If <code>SourceIds</code> are provided, <code>SourceType</code> must also be provided.</para></li><li><para>If the source type is an instance, a <code>DBInstanceIdentifier</code> must be provided.</para></li><li><para>If the source type is a security group, a <code>DBSecurityGroupName</code> must be
-        /// provided.</para></li><li><para>If the source type is a parameter group, a <code>DBParameterGroupName</code> must
-        /// be provided.</para></li><li><para>If the source type is a snapshot, a <code>DBSnapshotIdentifier</code> must be provided.</para></li></ul>
+        /// with a hyphen or contain two consecutive hyphens.</para><para>Constraints:</para><ul><li><para>If <c>SourceIds</c> are provided, <c>SourceType</c> must also be provided.</para></li><li><para>If the source type is an instance, a <c>DBInstanceIdentifier</c> must be provided.</para></li><li><para>If the source type is a security group, a <c>DBSecurityGroupName</c> must be provided.</para></li><li><para>If the source type is a parameter group, a <c>DBParameterGroupName</c> must be provided.</para></li><li><para>If the source type is a snapshot, a <c>DBSnapshotIdentifier</c> must be provided.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,9 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The type of source that is generating the events. For example, if you want to be notified
-        /// of events generated by an instance, you would set this parameter to <code>db-instance</code>.
-        /// If this value is not specified, all events are returned.</para><para>Valid values: <code>db-instance</code>, <code>db-cluster</code>, <code>db-parameter-group</code>,
-        /// <code>db-security-group</code>, <code>db-cluster-snapshot</code></para>
+        /// of events generated by an instance, you would set this parameter to <c>db-instance</c>.
+        /// If this value is not specified, all events are returned.</para><para>Valid values: <c>db-instance</c>, <c>db-cluster</c>, <c>db-parameter-group</c>, <c>db-security-group</c>,
+        /// <c>db-cluster-snapshot</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
     /// Upgrades a published schema under a new minor version revision using the current contents
-    /// of <code>DevelopmentSchemaArn</code>.
+    /// of <c>DevelopmentSchemaArn</c>.
     /// </summary>
     [Cmdlet("Update", "CDIRPublishedSchema", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

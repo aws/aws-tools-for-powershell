@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of client authentication to enable. Currently only the value <code>SmartCard</code>
+        /// <para>The type of client authentication to enable. Currently only the value <c>SmartCard</c>
         /// is supported. Smart card authentication in AD Connector requires that you enable Kerberos
         /// Constrained Delegation for the Service User to the LDAP service in your self-managed
         /// AD. </para>

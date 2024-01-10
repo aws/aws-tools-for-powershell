@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// application. A regional application can be an Application Load Balancer (ALB), an
         /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
         /// an App Runner service, or an Amazon Web Services Verified Access instance. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
-        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
-        /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
+        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <c>--scope=CLOUDFRONT
+        /// --region=us-east-1</c>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter TokenDomain
         /// <summary>
         /// <para>
-        /// <para>The client application domains that you want to use this API key for. </para><para>Example JSON: <code>"TokenDomains": ["abc.com", "store.abc.com"]</code></para><para>Public suffixes aren't allowed. For example, you can't use <code>usa.gov</code> or
-        /// <code>co.uk</code> as token domains.</para>
+        /// <para>The client application domains that you want to use this API key for. </para><para>Example JSON: <c>"TokenDomains": ["abc.com", "store.abc.com"]</c></para><para>Public suffixes aren't allowed. For example, you can't use <c>usa.gov</c> or <c>co.uk</c>
+        /// as token domains.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

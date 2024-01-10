@@ -37,9 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// CloudWatch retains the history of an alarm even if you delete the alarm.
     /// </para><para>
     /// To use this operation and return information about a composite alarm, you must be
-    /// signed on with the <code>cloudwatch:DescribeAlarmHistory</code> permission that is
-    /// scoped to <code>*</code>. You can't return information about composite alarms if your
-    /// <code>cloudwatch:DescribeAlarmHistory</code> permission has a narrower scope.
+    /// signed on with the <c>cloudwatch:DescribeAlarmHistory</c> permission that is scoped
+    /// to <c>*</c>. You can't return information about composite alarms if your <c>cloudwatch:DescribeAlarmHistory</c>
+    /// permission has a narrower scope.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWAlarmHistory")]
@@ -100,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter ScanBy
         /// <summary>
         /// <para>
-        /// <para>Specified whether to return the newest or oldest alarm history first. Specify <code>TimestampDescending</code>
-        /// to have the newest event history returned first, and specify <code>TimestampAscending</code>
+        /// <para>Specified whether to return the newest or oldest alarm history first. Specify <c>TimestampDescending</c>
+        /// to have the newest event history returned first, and specify <c>TimestampAscending</c>
         /// to have the oldest history returned first.</para>
         /// </para>
         /// </summary>

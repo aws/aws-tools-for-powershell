@@ -54,12 +54,12 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <summary>
         /// <para>
         /// <para>The list of accounts within the organization that the specified Firewall Manager administrator
-        /// either can or cannot apply policies to, based on the value of <code>ExcludeSpecifiedAccounts</code>.
-        /// If <code>ExcludeSpecifiedAccounts</code> is set to <code>true</code>, then the Firewall
-        /// Manager administrator can apply policies to all members of the organization except
-        /// for the accounts in this list. If <code>ExcludeSpecifiedAccounts</code> is set to
-        /// <code>false</code>, then the Firewall Manager administrator can only apply policies
-        /// to the accounts in this list.</para>
+        /// either can or cannot apply policies to, based on the value of <c>ExcludeSpecifiedAccounts</c>.
+        /// If <c>ExcludeSpecifiedAccounts</c> is set to <c>true</c>, then the Firewall Manager
+        /// administrator can apply policies to all members of the organization except for the
+        /// accounts in this list. If <c>ExcludeSpecifiedAccounts</c> is set to <c>false</c>,
+        /// then the Firewall Manager administrator can only apply policies to the accounts in
+        /// this list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <para>A boolean value that indicates if the administrator can apply policies to all accounts
         /// within an organization. If true, the administrator can apply policies to all accounts
         /// within the organization. You can either enable management of all accounts through
-        /// this operation, or you can specify a list of accounts to manage in <code>AccountScope$Accounts</code>.
+        /// this operation, or you can specify a list of accounts to manage in <c>AccountScope$Accounts</c>.
         /// You cannot specify both.</para>
         /// </para>
         /// </summary>
@@ -108,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <para>A boolean value that indicates if the administrator can apply policies to all OUs
         /// within an organization. If true, the administrator can manage all OUs within the organization.
         /// You can either enable management of all OUs through this operation, or you can specify
-        /// OUs to manage in <code>OrganizationalUnitScope$OrganizationalUnits</code>. You cannot
-        /// specify both.</para>
+        /// OUs to manage in <c>OrganizationalUnitScope$OrganizationalUnits</c>. You cannot specify
+        /// both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,11 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter AccountScope_ExcludeSpecifiedAccount
         /// <summary>
         /// <para>
-        /// <para>A boolean value that excludes the accounts in <code>AccountScope$Accounts</code> from
-        /// the administrator's scope. If true, the Firewall Manager administrator can apply policies
-        /// to all members of the organization except for the accounts listed in <code>AccountScope$Accounts</code>.
-        /// You can either specify a list of accounts to exclude by <code>AccountScope$Accounts</code>,
-        /// or you can enable management of all accounts by <code>AccountScope$AllAccountsEnabled</code>.
+        /// <para>A boolean value that excludes the accounts in <c>AccountScope$Accounts</c> from the
+        /// administrator's scope. If true, the Firewall Manager administrator can apply policies
+        /// to all members of the organization except for the accounts listed in <c>AccountScope$Accounts</c>.
+        /// You can either specify a list of accounts to exclude by <c>AccountScope$Accounts</c>,
+        /// or you can enable management of all accounts by <c>AccountScope$AllAccountsEnabled</c>.
         /// You cannot specify both.</para>
         /// </para>
         /// </summary>
@@ -161,11 +161,11 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter OrganizationalUnitScope_ExcludeSpecifiedOrganizationalUnit
         /// <summary>
         /// <para>
-        /// <para>A boolean value that excludes the OUs in <code>OrganizationalUnitScope$OrganizationalUnits</code>
+        /// <para>A boolean value that excludes the OUs in <c>OrganizationalUnitScope$OrganizationalUnits</c>
         /// from the administrator's scope. If true, the Firewall Manager administrator can apply
-        /// policies to all OUs in the organization except for the OUs listed in <code>OrganizationalUnitScope$OrganizationalUnits</code>.
-        /// You can either specify a list of OUs to exclude by <code>OrganizationalUnitScope$OrganizationalUnits</code>,
-        /// or you can enable management of all OUs by <code>OrganizationalUnitScope$AllOrganizationalUnitsEnabled</code>.
+        /// policies to all OUs in the organization except for the OUs listed in <c>OrganizationalUnitScope$OrganizationalUnits</c>.
+        /// You can either specify a list of OUs to exclude by <c>OrganizationalUnitScope$OrganizationalUnits</c>,
+        /// or you can enable management of all OUs by <c>OrganizationalUnitScope$AllOrganizationalUnitsEnabled</c>.
         /// You cannot specify both.</para>
         /// </para>
         /// </summary>
@@ -178,12 +178,12 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <summary>
         /// <para>
         /// <para>The list of OUs within the organization that the specified Firewall Manager administrator
-        /// either can or cannot apply policies to, based on the value of <code>OrganizationalUnitScope$ExcludeSpecifiedOrganizationalUnits</code>.
-        /// If <code>OrganizationalUnitScope$ExcludeSpecifiedOrganizationalUnits</code> is set
-        /// to <code>true</code>, then the Firewall Manager administrator can apply policies to
-        /// all OUs in the organization except for the OUs in this list. If <code>OrganizationalUnitScope$ExcludeSpecifiedOrganizationalUnits</code>
-        /// is set to <code>false</code>, then the Firewall Manager administrator can only apply
-        /// policies to the OUs in this list.</para>
+        /// either can or cannot apply policies to, based on the value of <c>OrganizationalUnitScope$ExcludeSpecifiedOrganizationalUnits</c>.
+        /// If <c>OrganizationalUnitScope$ExcludeSpecifiedOrganizationalUnits</c> is set to <c>true</c>,
+        /// then the Firewall Manager administrator can apply policies to all OUs in the organization
+        /// except for the OUs in this list. If <c>OrganizationalUnitScope$ExcludeSpecifiedOrganizationalUnits</c>
+        /// is set to <c>false</c>, then the Firewall Manager administrator can only apply policies
+        /// to the OUs in this list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

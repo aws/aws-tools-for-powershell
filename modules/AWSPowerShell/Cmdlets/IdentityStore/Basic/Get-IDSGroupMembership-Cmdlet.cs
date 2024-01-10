@@ -28,8 +28,8 @@ using Amazon.IdentityStore.Model;
 namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// Retrieves membership metadata and attributes from <code>MembershipId</code> in an
-    /// identity store.
+    /// Retrieves membership metadata and attributes from <c>MembershipId</c> in an identity
+    /// store.
     /// 
     ///  <note><para>
     /// If you have administrator access to a member account, you can use this API from the
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter MembershipId
         /// <summary>
         /// <para>
-        /// <para>The identifier for a <code>GroupMembership</code> in an identity store.</para>
+        /// <para>The identifier for a <c>GroupMembership</c> in an identity store.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

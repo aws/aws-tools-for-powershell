@@ -28,8 +28,8 @@ using Amazon.VoiceID.Model;
 namespace Amazon.PowerShell.Cmdlets.VID
 {
     /// <summary>
-    /// Lists all the speaker enrollment jobs in the domain with the specified <code>JobStatus</code>.
-    /// If <code>JobStatus</code> is not provided, this lists all jobs with all possible speaker
+    /// Lists all the speaker enrollment jobs in the domain with the specified <c>JobStatus</c>.
+    /// If <c>JobStatus</c> is not provided, this lists all jobs with all possible speaker
     /// enrollment job statuses.
     /// </summary>
     [Cmdlet("Get", "VIDSpeakerEnrollmentJobList")]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results that are returned per call. You can use <code>NextToken</code>
+        /// <para>The maximum number of results that are returned per call. You can use <c>NextToken</c>
         /// to obtain more pages of results. The default is 100; the maximum allowed page size
         /// is also 100.</para>
         /// </para>
@@ -90,10 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If <code>NextToken</code> is returned, there are more results available. The value
-        /// of <code>NextToken</code> is a unique pagination token for each page. Make the call
-        /// again using the returned token to retrieve the next page. Keep all other arguments
-        /// unchanged. Each pagination token expires after 24 hours.</para>
+        /// <para>If <c>NextToken</c> is returned, there are more results available. The value of <c>NextToken</c>
+        /// is a unique pagination token for each page. Make the call again using the returned
+        /// token to retrieve the next page. Keep all other arguments unchanged. Each pagination
+        /// token expires after 24 hours.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

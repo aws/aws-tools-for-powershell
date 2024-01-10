@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <summary>
         /// <para>
         /// <para>The ID of the applications list that you want to delete. You can retrieve this ID
-        /// from <code>PutAppsList</code>, <code>ListAppsLists</code>, and <code>GetAppsList</code>.</para>
+        /// from <c>PutAppsList</c>, <c>ListAppsLists</c>, and <c>GetAppsList</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

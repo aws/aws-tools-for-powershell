@@ -29,13 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// Retrieves a list of the public and private hosted zones that are associated with the
-    /// current Amazon Web Services account. The response includes a <code>HostedZones</code>
-    /// child element for each hosted zone.
+    /// current Amazon Web Services account. The response includes a <c>HostedZones</c> child
+    /// element for each hosted zone.
     /// 
     ///  
     /// <para>
     /// Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot
-    /// of hosted zones, you can use the <code>maxitems</code> parameter to list them in groups
+    /// of hosted zones, you can use the <c>maxitems</c> parameter to list them in groups
     /// of up to 100.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -77,12 +77,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>If the value of <code>IsTruncated</code> in the previous response was <code>true</code>,
-        /// you have more hosted zones. To get more hosted zones, submit another <code>ListHostedZones</code>
-        /// request. </para><para>For the value of <code>marker</code>, specify the value of <code>NextMarker</code>
-        /// from the previous response, which is the ID of the first hosted zone that Amazon Route
-        /// 53 will return if you submit another request.</para><para>If the value of <code>IsTruncated</code> in the previous response was <code>false</code>,
-        /// there are no more hosted zones to get.</para>
+        /// <para>If the value of <c>IsTruncated</c> in the previous response was <c>true</c>, you have
+        /// more hosted zones. To get more hosted zones, submit another <c>ListHostedZones</c>
+        /// request. </para><para>For the value of <c>marker</c>, specify the value of <c>NextMarker</c> from the previous
+        /// response, which is the ID of the first hosted zone that Amazon Route 53 will return
+        /// if you submit another request.</para><para>If the value of <c>IsTruncated</c> in the previous response was <c>false</c>, there
+        /// are no more hosted zones to get.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -98,10 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>(Optional) The maximum number of hosted zones that you want Amazon Route 53 to return.
-        /// If you have more than <code>maxitems</code> hosted zones, the value of <code>IsTruncated</code>
-        /// in the response is <code>true</code>, and the value of <code>NextMarker</code> is
-        /// the hosted zone ID of the first hosted zone that Route 53 will return if you submit
-        /// another request.</para>
+        /// If you have more than <c>maxitems</c> hosted zones, the value of <c>IsTruncated</c>
+        /// in the response is <c>true</c>, and the value of <c>NextMarker</c> is the hosted zone
+        /// ID of the first hosted zone that Route 53 will return if you submit another request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

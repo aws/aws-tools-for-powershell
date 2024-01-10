@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter City
         /// <summary>
         /// <para>
-        /// <para>The address city, such as <code>Portland</code>.</para>
+        /// <para>The address city, such as <c>Portland</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Country
         /// <summary>
         /// <para>
-        /// <para>The address country, such as <code>US</code>. </para>
+        /// <para>The address country, such as <c>US</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter PostalCode
         /// <summary>
         /// <para>
-        /// <para>The address postal code, such as <code>04352</code>.</para>
+        /// <para>The address postal code, such as <c>04352</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>The address state, such as <code>ME</code>.</para>
+        /// <para>The address state, such as <c>ME</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter StreetInfo
         /// <summary>
         /// <para>
-        /// <para>The address street information, such as <code>8th Avenue</code>.</para>
+        /// <para>The address street information, such as <c>8th Avenue</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter StreetNumber
         /// <summary>
         /// <para>
-        /// <para>The address street number, such as <code>200</code> or <code>2121</code>.</para>
+        /// <para>The address street number, such as <c>200</c> or <c>2121</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

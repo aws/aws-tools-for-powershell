@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><para>
     /// This functionality is not supported for Amazon S3 on Outposts.
     /// </para><para>
-    /// The following action is related to <code>GetObjectLegalHold</code>:
+    /// The following action is related to <c>GetObjectLegalHold</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3ObjectLegalHold")]

@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// search queries in your index.
     /// </para><para>
     /// You can still enable/disable query suggestions at any time.
-    /// </para><para><code>UpdateQuerySuggestionsConfig</code> is currently not supported in the Amazon
-    /// Web Services GovCloud (US-West) region.
+    /// </para><para><c>UpdateQuerySuggestionsConfig</c> is currently not supported in the Amazon Web
+    /// Services GovCloud (US-West) region.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "KNDRQuerySuggestionsConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -62,13 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter AttributeSuggestionsConfig_AttributeSuggestionsMode
         /// <summary>
         /// <para>
-        /// <para>You can set the mode to <code>ACTIVE</code> or <code>INACTIVE</code>. You must also
-        /// set <code>SuggestionTypes</code> as either <code>QUERY</code> or <code>DOCUMENT_ATTRIBUTES</code>
-        /// and then call <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html">GetQuerySuggestions</a>.
-        /// If <code>Mode</code> to use query history is set to <code>ENABLED</code> when calling
-        /// <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html">UpdateQuerySuggestionsConfig</a>
-        /// and <code>AttributeSuggestionsMode</code> to use fields/attributes is set to <code>ACTIVE</code>,
-        /// and you haven't set your <code>SuggestionTypes</code> preference to <code>DOCUMENT_ATTRIBUTES</code>,
+        /// <para>You can set the mode to <c>ACTIVE</c> or <c>INACTIVE</c>. You must also set <c>SuggestionTypes</c>
+        /// as either <c>QUERY</c> or <c>DOCUMENT_ATTRIBUTES</c> and then call <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html">GetQuerySuggestions</a>.
+        /// If <c>Mode</c> to use query history is set to <c>ENABLED</c> when calling <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html">UpdateQuerySuggestionsConfig</a>
+        /// and <c>AttributeSuggestionsMode</c> to use fields/attributes is set to <c>ACTIVE</c>,
+        /// and you haven't set your <c>SuggestionTypes</c> preference to <c>DOCUMENT_ATTRIBUTES</c>,
         /// then Amazon Kendra uses the query history.</para>
         /// </para>
         /// </summary>
@@ -80,14 +78,13 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IncludeQueriesWithoutUserInformation
         /// <summary>
         /// <para>
-        /// <para><code>TRUE</code> to include queries without user information (i.e. all queries,
-        /// irrespective of the user), otherwise <code>FALSE</code> to only include queries with
-        /// user information.</para><para>If you pass user information to Amazon Kendra along with the queries, you can set
-        /// this flag to <code>FALSE</code> and instruct Amazon Kendra to only consider queries
-        /// with user information.</para><para>If you set to <code>FALSE</code>, Amazon Kendra only considers queries searched at
-        /// least <code>MinimumQueryCount</code> times across <code>MinimumNumberOfQueryingUsers</code>
-        /// unique users for suggestions.</para><para>If you set to <code>TRUE</code>, Amazon Kendra ignores all user information and learns
-        /// from all queries.</para>
+        /// <para><c>TRUE</c> to include queries without user information (i.e. all queries, irrespective
+        /// of the user), otherwise <c>FALSE</c> to only include queries with user information.</para><para>If you pass user information to Amazon Kendra along with the queries, you can set
+        /// this flag to <c>FALSE</c> and instruct Amazon Kendra to only consider queries with
+        /// user information.</para><para>If you set to <c>FALSE</c>, Amazon Kendra only considers queries searched at least
+        /// <c>MinimumQueryCount</c> times across <c>MinimumNumberOfQueryingUsers</c> unique users
+        /// for suggestions.</para><para>If you set to <c>TRUE</c>, Amazon Kendra ignores all user information and learns from
+        /// all queries.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,9 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Mode
         /// <summary>
         /// <para>
-        /// <para>Set the mode to <code>ENABLED</code> or <code>LEARN_ONLY</code>.</para><para>By default, Amazon Kendra enables query suggestions. <code>LEARN_ONLY</code> mode
-        /// allows you to turn off query suggestions. You can to update this at any time.</para><para>In <code>LEARN_ONLY</code> mode, Amazon Kendra continues to learn from new queries
-        /// to keep suggestions up to date for when you are ready to switch to ENABLED mode again.</para>
+        /// <para>Set the mode to <c>ENABLED</c> or <c>LEARN_ONLY</c>.</para><para>By default, Amazon Kendra enables query suggestions. <c>LEARN_ONLY</c> mode allows
+        /// you to turn off query suggestions. You can to update this at any time.</para><para>In <c>LEARN_ONLY</c> mode, Amazon Kendra continues to learn from new queries to keep
+        /// suggestions up to date for when you are ready to switch to ENABLED mode again.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

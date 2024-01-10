@@ -28,13 +28,13 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Configures actions on detected risks. To delete the risk configuration for <code>UserPoolId</code>
-    /// or <code>ClientId</code>, pass null values for all four configuration types.
+    /// Configures actions on detected risks. To delete the risk configuration for <c>UserPoolId</c>
+    /// or <c>ClientId</c>, pass null values for all four configuration types.
     /// 
     ///  
     /// <para>
     /// To activate Amazon Cognito advanced security features, update the user pool to include
-    /// the <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.
+    /// the <c>UserPoolAddOns</c> key<c>AdvancedSecurityMode</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "CGIPRiskConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -68,11 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The app client ID. If <code>ClientId</code> is null, then the risk configuration is
-        /// mapped to <code>userPoolId</code>. When the client ID is null, the same risk configuration
-        /// is applied to all the clients in the userPool.</para><para>Otherwise, <code>ClientId</code> is mapped to the client. When the client ID isn't
-        /// null, the user pool configuration is overridden and the risk configuration for the
-        /// client is used instead.</para>
+        /// <para>The app client ID. If <c>ClientId</c> is null, then the risk configuration is mapped
+        /// to <c>userPoolId</c>. When the client ID is null, the same risk configuration is applied
+        /// to all the clients in the userPool.</para><para>Otherwise, <c>ClientId</c> is mapped to the client. When the client ID isn't null,
+        /// the user pool configuration is overridden and the risk configuration for the client
+        /// is used instead.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,9 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The action to take in response to the account takeover action. Valid values are as
-        /// follows:</para><ul><li><para><code>BLOCK</code> Choosing this action will block the request.</para></li><li><para><code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it,
-        /// else allow the request.</para></li><li><para><code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else
-        /// block the request.</para></li><li><para><code>NO_ACTION</code> Allow the user to sign in.</para></li></ul>
+        /// follows:</para><ul><li><para><c>BLOCK</c> Choosing this action will block the request.</para></li><li><para><c>MFA_IF_CONFIGURED</c> Present an MFA challenge if user has configured it, else
+        /// allow the request.</para></li><li><para><c>MFA_REQUIRED</c> Present an MFA challenge if user has configured it, else block
+        /// the request.</para></li><li><para><c>NO_ACTION</c> Allow the user to sign in.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,9 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The action to take in response to the account takeover action. Valid values are as
-        /// follows:</para><ul><li><para><code>BLOCK</code> Choosing this action will block the request.</para></li><li><para><code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it,
-        /// else allow the request.</para></li><li><para><code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else
-        /// block the request.</para></li><li><para><code>NO_ACTION</code> Allow the user to sign in.</para></li></ul>
+        /// follows:</para><ul><li><para><c>BLOCK</c> Choosing this action will block the request.</para></li><li><para><c>MFA_IF_CONFIGURED</c> Present an MFA challenge if user has configured it, else
+        /// allow the request.</para></li><li><para><c>MFA_REQUIRED</c> Present an MFA challenge if user has configured it, else block
+        /// the request.</para></li><li><para><c>NO_ACTION</c> Allow the user to sign in.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,9 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The action to take in response to the account takeover action. Valid values are as
-        /// follows:</para><ul><li><para><code>BLOCK</code> Choosing this action will block the request.</para></li><li><para><code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it,
-        /// else allow the request.</para></li><li><para><code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else
-        /// block the request.</para></li><li><para><code>NO_ACTION</code> Allow the user to sign in.</para></li></ul>
+        /// follows:</para><ul><li><para><c>BLOCK</c> Choosing this action will block the request.</para></li><li><para><c>MFA_IF_CONFIGURED</c> Present an MFA challenge if user has configured it, else
+        /// allow the request.</para></li><li><para><c>MFA_REQUIRED</c> Present an MFA challenge if user has configured it, else block
+        /// the request.</para></li><li><para><c>NO_ACTION</c> Allow the user to sign in.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the identity that is associated with the sending
         /// authorization policy. This identity permits Amazon Cognito to send for the email address
-        /// specified in the <code>From</code> parameter.</para>
+        /// specified in the <c>From</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

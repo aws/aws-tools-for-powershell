@@ -90,8 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         /// <summary>
         /// <para>
         /// <para>Whether the audience size is defined in absolute terms or as a percentage. You can
-        /// use the <code>ABSOLUTE</code><a>AudienceSize</a> to configure out audience sizes
-        /// using the count of identifiers in the output. You can use the <code>Percentage</code><a>AudienceSize</a> to configure sizes in the range 1-100 percent.</para>
+        /// use the <c>ABSOLUTE</c><a>AudienceSize</a> to configure out audience sizes using
+        /// the count of identifiers in the output. You can use the <c>Percentage</c><a>AudienceSize</a>
+        /// to configure sizes in the range 1-100 percent.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

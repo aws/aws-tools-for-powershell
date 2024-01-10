@@ -28,9 +28,9 @@ using Amazon.MedicalImaging.Model;
 namespace Amazon.PowerShell.Cmdlets.MIS
 {
     /// <summary>
-    /// Start importing bulk data into an <code>ACTIVE</code> data store. The import job imports
-    /// DICOM P10 files found in the S3 prefix specified by the <code>inputS3Uri</code> parameter.
-    /// The import job stores processing results in the file specified by the <code>outputS3Uri</code>
+    /// Start importing bulk data into an <c>ACTIVE</c> data store. The import job imports
+    /// DICOM P10 files found in the S3 prefix specified by the <c>inputS3Uri</c> parameter.
+    /// The import job stores processing results in the file specified by the <c>outputS3Uri</c>
     /// parameter.
     /// </summary>
     [Cmdlet("Start", "MISDICOMImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

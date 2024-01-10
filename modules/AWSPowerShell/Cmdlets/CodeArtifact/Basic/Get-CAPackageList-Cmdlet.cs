@@ -89,9 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <para>
         /// <para>The namespace prefix used to filter requested packages. Only packages with a namespace
         /// that starts with the provided string value are returned. Note that although this option
-        /// is called <code>--namespace</code> and not <code>--namespace-prefix</code>, it has
-        /// prefix-matching behavior.</para><para>Each package format uses namespace as follows:</para><ul><li><para> The namespace of a Maven package is its <code>groupId</code>. </para></li><li><para> The namespace of an npm package is its <code>scope</code>. </para></li><li><para> Python and NuGet packages do not contain a corresponding component, packages of those
-        /// formats do not have a namespace. </para></li><li><para> The namespace of a generic package is its <code>namespace</code>. </para></li></ul>
+        /// is called <c>--namespace</c> and not <c>--namespace-prefix</c>, it has prefix-matching
+        /// behavior.</para><para>Each package format uses namespace as follows:</para><ul><li><para> The namespace of a Maven package is its <c>groupId</c>. </para></li><li><para> The namespace of an npm package is its <c>scope</c>. </para></li><li><para> Python and NuGet packages do not contain a corresponding component, packages of those
+        /// formats do not have a namespace. </para></li><li><para> The namespace of a generic package is its <c>namespace</c>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para> A prefix used to filter requested packages. Only packages with names that start with
-        /// <code>packagePrefix</code> are returned. </para>
+        /// <c>packagePrefix</c> are returned. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Publish
         /// <summary>
         /// <para>
-        /// <para>The value of the <code>Publish</code> package origin control restriction used to filter
+        /// <para>The value of the <c>Publish</c> package origin control restriction used to filter
         /// requested packages. Only packages with the provided restriction are returned. For
         /// more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</para>
         /// </para>
@@ -142,9 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Upstream
         /// <summary>
         /// <para>
-        /// <para>The value of the <code>Upstream</code> package origin control restriction used to
-        /// filter requested packages. Only packages with the provided restriction are returned.
-        /// For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</para>
+        /// <para>The value of the <c>Upstream</c> package origin control restriction used to filter
+        /// requested packages. Only packages with the provided restriction are returned. For
+        /// more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

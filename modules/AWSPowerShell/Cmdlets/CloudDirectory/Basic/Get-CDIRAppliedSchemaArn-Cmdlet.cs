@@ -28,7 +28,7 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Lists schema major versions applied to a directory. If <code>SchemaArn</code> is provided,
+    /// Lists schema major versions applied to a directory. If <c>SchemaArn</c> is provided,
     /// lists the minor version.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CDIRAppliedSchemaArn")]
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter SchemaArn
         /// <summary>
         /// <para>
-        /// <para>The response for <code>ListAppliedSchemaArns</code> when this parameter is used will
-        /// list all minor version ARNs for a major version.</para>
+        /// <para>The response for <c>ListAppliedSchemaArns</c> when this parameter is used will list
+        /// all minor version ARNs for a major version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

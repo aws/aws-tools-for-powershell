@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Filters_ComplianceType
         /// <summary>
         /// <para>
-        /// <para>Filters the results by compliance.</para><para>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code>
+        /// <para>Filters the results by compliance.</para><para>The allowed values are <c>COMPLIANT</c> and <c>NON_COMPLIANT</c>. <c>INSUFFICIENT_DATA</c>
         /// is not supported.</para>
         /// </para>
         /// </summary>
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> string returned in a previous request that you use to request
+        /// <para>The <c>nextToken</c> string returned in a previous request that you use to request
         /// the next page of results in a paginated response.</para>
         /// </para>
         /// <para>

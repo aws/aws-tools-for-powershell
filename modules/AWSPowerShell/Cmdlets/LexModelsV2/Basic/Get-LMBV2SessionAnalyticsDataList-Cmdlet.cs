@@ -28,18 +28,18 @@ using Amazon.LexModelsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.LMBV2
 {
     /// <summary>
-    /// Retrieves a list of metadata for individual user sessions with your bot. The <code>startDateTime</code>
-    /// and <code>endDateTime</code> fields are required. These fields define a time range
-    /// for which you want to retrieve results. Of the optional fields, you can organize the
-    /// results in the following ways:
+    /// Retrieves a list of metadata for individual user sessions with your bot. The <c>startDateTime</c>
+    /// and <c>endDateTime</c> fields are required. These fields define a time range for which
+    /// you want to retrieve results. Of the optional fields, you can organize the results
+    /// in the following ways:
     /// 
     ///  <ul><li><para>
-    /// Use the <code>filters</code> field to filter the results and the <code>sortBy</code>
-    /// field to specify the values by which to sort the results.
+    /// Use the <c>filters</c> field to filter the results and the <c>sortBy</c> field to
+    /// specify the values by which to sort the results.
     /// </para></li><li><para>
-    /// Use the <code>maxResults</code> field to limit the number of results to return in
-    /// a single response and the <code>nextToken</code> field to return the next batch of
-    /// results if the response does not return the full set of results.
+    /// Use the <c>maxResults</c> field to limit the number of results to return in a single
+    /// response and the <c>nextToken</c> field to return the next batch of results if the
+    /// response does not return the full set of results.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "LMBV2SessionAnalyticsDataList")]
@@ -102,9 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter SortBy_Name
         /// <summary>
         /// <para>
-        /// <para>The measure by which to sort the session analytics data.</para><ul><li><para><code>conversationStartTime</code> – The date and time when the conversation began.
-        /// A conversation is defined as a unique combination of a <code>sessionId</code> and
-        /// an <code>originatingRequestId</code>.</para></li><li><para><code>numberOfTurns</code> – The number of turns that the session took.</para></li><li><para><code>conversationDurationSeconds</code> – The duration of the conversation in seconds.</para></li></ul>
+        /// <para>The measure by which to sort the session analytics data.</para><ul><li><para><c>conversationStartTime</c> – The date and time when the conversation began. A conversation
+        /// is defined as a unique combination of a <c>sessionId</c> and an <c>originatingRequestId</c>.</para></li><li><para><c>numberOfTurns</c> – The number of turns that the session took.</para></li><li><para><c>conversationDurationSeconds</c> – The duration of the conversation in seconds.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

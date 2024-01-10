@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter MajorVersion
         /// <summary>
         /// <para>
-        /// <para>To update a major version of a service template, include <code>major Version</code>.</para>
+        /// <para>To update a major version of a service template, include <c>major Version</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter MinorVersion
         /// <summary>
         /// <para>
-        /// <para>To update a minor version of a service template, include <code>minorVersion</code>.</para>
+        /// <para>To update a minor version of a service template, include <c>minorVersion</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,9 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>An array of supported component sources. Components with supported sources can be
-        /// attached to service instances based on this service template version.</para><note><para>A change to <code>supportedComponentSources</code> doesn't impact existing component
-        /// attachments to instances based on this template version. A change only affects later
-        /// associations.</para></note><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
+        /// attached to service instances based on this service template version.</para><note><para>A change to <c>supportedComponentSources</c> doesn't impact existing component attachments
+        /// to instances based on this template version. A change only affects later associations.</para></note><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
         /// components</a> in the <i>Proton User Guide</i>.</para>
         /// </para>
         /// </summary>

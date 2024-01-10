@@ -28,15 +28,15 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Retrieves the names of all <code>DevEndpoint</code> resources in this Amazon Web Services
+    /// Retrieves the names of all <c>DevEndpoint</c> resources in this Amazon Web Services
     /// account, or the resources with the specified tag. This operation allows you to see
     /// which resources are available in your account, and their names.
     /// 
     ///  
     /// <para>
-    /// This operation takes the optional <code>Tags</code> field, which you can use as a
-    /// filter on the response so that tagged resources can be retrieved as a group. If you
-    /// choose to use tags filtering, only resources with the tag are retrieved.
+    /// This operation takes the optional <c>Tags</c> field, which you can use as a filter
+    /// on the response so that tagged resources can be retrieved as a group. If you choose
+    /// to use tags filtering, only resources with the tag are retrieved.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GLUEDevEndpointNameList")]

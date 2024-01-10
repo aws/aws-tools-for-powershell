@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Specify this parameter to limit how many runs are returned each time you use the <code>GetCanaryRuns</code>
+        /// <para>Specify this parameter to limit how many runs are returned each time you use the <c>GetCanaryRuns</c>
         /// operation. If you omit this parameter, the default of 100 is used.</para>
         /// </para>
         /// </summary>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>A token that indicates that there is more data available. You can use this token in
-        /// a subsequent <code>GetCanaryRuns</code> operation to retrieve the next set of results.</para>
+        /// a subsequent <c>GetCanaryRuns</c> operation to retrieve the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -28,7 +28,7 @@ using Amazon.MigrationHub.Model;
 namespace Amazon.PowerShell.Cmdlets.MH
 {
     /// <summary>
-    /// Lists discovered resources associated with the given <code>MigrationTask</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists discovered resources associated with the given <c>MigrationTask</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MHDiscoveredResourceList")]
     [OutputType("Amazon.MigrationHub.Model.DiscoveredResource")]
@@ -95,9 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.MH
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If a <code>NextToken</code> was returned by a previous call, there are more results
-        /// available. To retrieve the next page of results, make the call again using the returned
-        /// token in <code>NextToken</code>.</para>
+        /// <para>If a <c>NextToken</c> was returned by a previous call, there are more results available.
+        /// To retrieve the next page of results, make the call again using the returned token
+        /// in <c>NextToken</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

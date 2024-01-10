@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
     /// Deletes an account-level monthly spending limit override for sending text messages.
-    /// Deleting a spend limit override will set the <code>EnforcedLimit</code> to equal the
-    /// <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more information
-    /// on spend limits (quotas) see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/quotas.html">Amazon
+    /// Deleting a spend limit override will set the <c>EnforcedLimit</c> to equal the <c>MaxLimit</c>,
+    /// which is controlled by Amazon Web Services. For more information on spend limits (quotas)
+    /// see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/quotas.html">Amazon
     /// Pinpoint quotas </a> in the <i>Amazon Pinpoint Developer Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "SMSVTextMessageSpendLimitOverride", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

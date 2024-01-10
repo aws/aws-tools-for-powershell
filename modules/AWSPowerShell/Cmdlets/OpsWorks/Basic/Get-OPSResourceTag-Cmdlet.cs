@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Do not use. A validation exception occurs if you add a <code>MaxResults</code> parameter
-        /// to a <code>ListTagsRequest</code> call. </para>
+        /// <para>Do not use. A validation exception occurs if you add a <c>MaxResults</c> parameter
+        /// to a <c>ListTagsRequest</c> call. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Do not use. A validation exception occurs if you add a <code>NextToken</code> parameter
-        /// to a <code>ListTagsRequest</code> call. </para>
+        /// <para>Do not use. A validation exception occurs if you add a <c>NextToken</c> parameter
+        /// to a <c>ListTagsRequest</c> call. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

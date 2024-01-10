@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.LLMS
         /// <para>
         /// <para>An array of structures that you can use to filter the results to those that match
         /// one or more sets of key-value pairs that you specify. For example, you can filter
-        /// by the name of <code>Subscription</code> with an optional operator to see subscriptions
-        /// that match, partially match, or don't match a certain subscription's name.</para><para>The valid names for this filter are:</para><ul><li><para><code>Subscription</code></para></li></ul><para>The valid Operators for this filter are:</para><ul><li><para><code>contains</code></para></li><li><para><code>equals</code></para></li><li><para><code>Notequal</code></para></li></ul>
+        /// by the name of <c>Subscription</c> with an optional operator to see subscriptions
+        /// that match, partially match, or don't match a certain subscription's name.</para><para>The valid names for this filter are:</para><ul><li><para><c>Subscription</c></para></li></ul><para>The valid Operators for this filter are:</para><ul><li><para><c>contains</c></para></li><li><para><c>equals</c></para></li><li><para><c>Notequal</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

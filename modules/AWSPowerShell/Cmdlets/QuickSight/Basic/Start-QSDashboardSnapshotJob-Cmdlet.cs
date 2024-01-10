@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// </para></li><li><para>
     /// 5 CSVs
     /// </para></li></ul><para>
-    /// Poll job descriptions with a <code>DescribeDashboardSnapshotJob</code> API call. Once
-    /// the job succeeds, use the <code>DescribeDashboardSnapshotJobResult</code> API to obtain
-    /// the download URIs that the job generates.
+    /// Poll job descriptions with a <c>DescribeDashboardSnapshotJob</c> API call. Once the
+    /// job succeeds, use the <c>DescribeDashboardSnapshotJobResult</c> API to obtain the
+    /// download URIs that the job generates.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "QSDashboardSnapshotJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -128,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter SnapshotConfiguration_FileGroup
         /// <summary>
         /// <para>
-        /// <para>A list of <code>SnapshotJobResultFileGroup</code> objects that contain information
-        /// about the snapshot that is generated. This list can hold a maximum of 6 <code>FileGroup</code>
+        /// <para>A list of <c>SnapshotJobResultFileGroup</c> objects that contain information about
+        /// the snapshot that is generated. This list can hold a maximum of 6 <c>FileGroup</c>
         /// configurations.</para>
         /// </para>
         /// </summary>
@@ -159,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DestinationConfiguration_S3Destination
         /// <summary>
         /// <para>
-        /// <para> A list of <code>SnapshotS3DestinationConfiguration</code> objects that contain Amazon
-        /// S3 destination configurations. This structure can hold a maximum of 1 <code>S3DestinationConfiguration</code>.
+        /// <para> A list of <c>SnapshotS3DestinationConfiguration</c> objects that contain Amazon S3
+        /// destination configurations. This structure can hold a maximum of 1 <c>S3DestinationConfiguration</c>.
         /// </para>
         /// </para>
         /// </summary>
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>An ID for the dashboard snapshot job. This ID is unique to the dashboard while the
-        /// job is running. This ID can be used to poll the status of a job with a <code>DescribeDashboardSnapshotJob</code>
+        /// job is running. This ID can be used to poll the status of a job with a <c>DescribeDashboardSnapshotJob</c>
         /// while the job runs. You can reuse this ID for another job 24 hours after the current
         /// job is completed.</para>
         /// </para>

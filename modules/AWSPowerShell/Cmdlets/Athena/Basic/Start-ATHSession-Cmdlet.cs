@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
     /// Creates a session for running calculations within a workgroup. The session is ready
-    /// when it reaches an <code>IDLE</code> state.
+    /// when it reaches an <c>IDLE</c> state.
     /// </summary>
     [Cmdlet("Start", "ATHSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Athena.Model.StartSessionResponse")]
@@ -45,11 +45,11 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter EngineConfiguration_AdditionalConfig
         /// <summary>
         /// <para>
-        /// <para>Contains additional notebook engine <code>MAP&lt;string, string&gt;</code> parameter
-        /// mappings in the form of key-value pairs. To specify an Athena notebook that the Jupyter
-        /// server will download and serve, specify a value for the <a>StartSessionRequest$NotebookVersion</a>
-        /// field, and then add a key named <code>NotebookId</code> to <code>AdditionalConfigs</code>
-        /// that has the value of the Athena notebook ID.</para>
+        /// <para>Contains additional notebook engine <c>MAP&lt;string, string&gt;</c> parameter mappings
+        /// in the form of key-value pairs. To specify an Athena notebook that the Jupyter server
+        /// will download and serve, specify a value for the <a>StartSessionRequest$NotebookVersion</a>
+        /// field, and then add a key named <c>NotebookId</c> to <c>AdditionalConfigs</c> that
+        /// has the value of the Athena notebook ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>A unique case-sensitive string used to ensure the request to create the session is
-        /// idempotent (executes only once). If another <code>StartSessionRequest</code> is received,
+        /// idempotent (executes only once). If another <c>StartSessionRequest</c> is received,
         /// the same response is returned and another session is not created. If a parameter has
         /// changed, an error is returned.</para><important><para>This token is listed as not required because Amazon Web Services SDKs (for example
         /// the Amazon Web Services SDK for Java) auto-generate the token for users. If you are
@@ -127,9 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <para>
         /// <para>The notebook version. This value is supplied automatically for notebook sessions in
         /// the Athena console and is not required for programmatic session access. The only valid
-        /// notebook version is <code>Athena notebook version 1</code>. If you specify a value
-        /// for <code>NotebookVersion</code>, you must also specify a value for <code>NotebookId</code>.
-        /// See <a>EngineConfiguration$AdditionalConfigs</a>.</para>
+        /// notebook version is <c>Athena notebook version 1</c>. If you specify a value for <c>NotebookVersion</c>,
+        /// you must also specify a value for <c>NotebookId</c>. See <a>EngineConfiguration$AdditionalConfigs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

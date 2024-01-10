@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The account ID to list the jobs from. Returns only backup jobs associated with the
-        /// specified account ID.</para><para>If used from an Organizations management account, passing <code>*</code> returns all
-        /// jobs across the organization.</para>
+        /// specified account ID.</para><para>If used from an Organizations management account, passing <c>*</c> returns all jobs
+        /// across the organization.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>This is an optional parameter that can be used to filter out jobs with a MessageCategory
-        /// which matches the value you input.</para><para>Example strings may include <code>AccessDenied</code>, <code>SUCCESS</code>, <code>AGGREGATE_ALL</code>,
-        /// and <code>InvalidParameters</code>.</para><para>View <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a></para><para>The wildcard () returns count of all message categories.</para><para><code>AGGREGATE_ALL</code> aggregates job counts for all message categories and returns
+        /// which matches the value you input.</para><para>Example strings may include <c>AccessDenied</c>, <c>SUCCESS</c>, <c>AGGREGATE_ALL</c>,
+        /// and <c>InvalidParameters</c>.</para><para>View <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a></para><para>The wildcard () returns count of all message categories.</para><para><c>AGGREGATE_ALL</c> aggregates job counts for all message categories and returns
         /// the sum.</para>
         /// </para>
         /// </summary>
@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ByResourceType
         /// <summary>
         /// <para>
-        /// <para>Returns only backup jobs for the specified resources:</para><ul><li><para><code>Aurora</code> for Amazon Aurora</para></li><li><para><code>CloudFormation</code> for CloudFormation</para></li><li><para><code>DocumentDB</code> for Amazon DocumentDB (with MongoDB compatibility)</para></li><li><para><code>DynamoDB</code> for Amazon DynamoDB</para></li><li><para><code>EBS</code> for Amazon Elastic Block Store</para></li><li><para><code>EC2</code> for Amazon Elastic Compute Cloud</para></li><li><para><code>EFS</code> for Amazon Elastic File System</para></li><li><para><code>FSx</code> for Amazon FSx</para></li><li><para><code>Neptune</code> for Amazon Neptune</para></li><li><para><code>Redshift</code> for Amazon Redshift</para></li><li><para><code>RDS</code> for Amazon Relational Database Service</para></li><li><para><code>SAP HANA on Amazon EC2</code> for SAP HANA databases</para></li><li><para><code>Storage Gateway</code> for Storage Gateway</para></li><li><para><code>S3</code> for Amazon S3</para></li><li><para><code>Timestream</code> for Amazon Timestream</para></li><li><para><code>VirtualMachine</code> for virtual machines</para></li></ul>
+        /// <para>Returns only backup jobs for the specified resources:</para><ul><li><para><c>Aurora</c> for Amazon Aurora</para></li><li><para><c>CloudFormation</c> for CloudFormation</para></li><li><para><c>DocumentDB</c> for Amazon DocumentDB (with MongoDB compatibility)</para></li><li><para><c>DynamoDB</c> for Amazon DynamoDB</para></li><li><para><c>EBS</c> for Amazon Elastic Block Store</para></li><li><para><c>EC2</c> for Amazon Elastic Compute Cloud</para></li><li><para><c>EFS</c> for Amazon Elastic File System</para></li><li><para><c>FSx</c> for Amazon FSx</para></li><li><para><c>Neptune</c> for Amazon Neptune</para></li><li><para><c>Redshift</c> for Amazon Redshift</para></li><li><para><c>RDS</c> for Amazon Relational Database Service</para></li><li><para><c>SAP HANA on Amazon EC2</c> for SAP HANA databases</para></li><li><para><c>Storage Gateway</c> for Storage Gateway</para></li><li><para><c>S3</c> for Amazon S3</para></li><li><para><c>Timestream</c> for Amazon Timestream</para></li><li><para><c>VirtualMachine</c> for virtual machines</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,9 +185,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The next item following a partial list of returned items. For example, if a request
-        /// is made to return <code>MaxResults</code> number of items, <code>NextToken</code>
-        /// allows you to return more items in your list starting at the location pointed to by
-        /// the next token.</para>
+        /// is made to return <c>MaxResults</c> number of items, <c>NextToken</c> allows you to
+        /// return more items in your list starting at the location pointed to by the next token.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

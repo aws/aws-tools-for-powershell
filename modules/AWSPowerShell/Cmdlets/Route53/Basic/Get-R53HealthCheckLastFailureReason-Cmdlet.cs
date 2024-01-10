@@ -46,9 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>The ID for the health check for which you want the last failure reason. When you created
-        /// the health check, <code>CreateHealthCheck</code> returned the ID in the response,
-        /// in the <code>HealthCheckId</code> element.</para><note><para>If you want to get the last failure reason for a calculated health check, you must
-        /// use the Amazon Route 53 console or the CloudWatch console. You can't use <code>GetHealthCheckLastFailureReason</code>
+        /// the health check, <c>CreateHealthCheck</c> returned the ID in the response, in the
+        /// <c>HealthCheckId</c> element.</para><note><para>If you want to get the last failure reason for a calculated health check, you must
+        /// use the Amazon Route 53 console or the CloudWatch console. You can't use <c>GetHealthCheckLastFailureReason</c>
         /// for a calculated health check.</para></note>
         /// </para>
         /// </summary>

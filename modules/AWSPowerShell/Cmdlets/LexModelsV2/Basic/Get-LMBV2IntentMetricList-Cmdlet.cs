@@ -30,27 +30,26 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     /// <summary>
     /// Retrieves summary metrics for the intents in your bot. The following fields are required:
     /// 
-    ///  <ul><li><para><code>metrics</code> – A list of <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsIntentMetric.html">AnalyticsIntentMetric</a>
-    /// objects. In each object, use the <code>name</code> field to specify the metric to
-    /// calculate, the <code>statistic</code> field to specify whether to calculate the <code>Sum</code>,
-    /// <code>Average</code>, or <code>Max</code> number, and the <code>order</code> field
-    /// to specify whether to sort the results in <code>Ascending</code> or <code>Descending</code>
-    /// order.
-    /// </para></li><li><para><code>startDateTime</code> and <code>endDateTime</code> – Define a time range for
-    /// which you want to retrieve results.
+    ///  <ul><li><para><c>metrics</c> – A list of <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsIntentMetric.html">AnalyticsIntentMetric</a>
+    /// objects. In each object, use the <c>name</c> field to specify the metric to calculate,
+    /// the <c>statistic</c> field to specify whether to calculate the <c>Sum</c>, <c>Average</c>,
+    /// or <c>Max</c> number, and the <c>order</c> field to specify whether to sort the results
+    /// in <c>Ascending</c> or <c>Descending</c> order.
+    /// </para></li><li><para><c>startDateTime</c> and <c>endDateTime</c> – Define a time range for which you want
+    /// to retrieve results.
     /// </para></li></ul><para>
     /// Of the optional fields, you can organize the results in the following ways:
     /// </para><ul><li><para>
-    /// Use the <code>filters</code> field to filter the results, the <code>groupBy</code>
-    /// field to specify categories by which to group the results, and the <code>binBy</code>
-    /// field to specify time intervals by which to group the results.
+    /// Use the <c>filters</c> field to filter the results, the <c>groupBy</c> field to specify
+    /// categories by which to group the results, and the <c>binBy</c> field to specify time
+    /// intervals by which to group the results.
     /// </para></li><li><para>
-    /// Use the <code>maxResults</code> field to limit the number of results to return in
-    /// a single response and the <code>nextToken</code> field to return the next batch of
-    /// results if the response does not return the full set of results.
+    /// Use the <c>maxResults</c> field to limit the number of results to return in a single
+    /// response and the <c>nextToken</c> field to return the next batch of results if the
+    /// response does not return the full set of results.
     /// </para></li></ul><para>
-    /// Note that an <code>order</code> field exists in both <code>binBy</code> and <code>metrics</code>.
-    /// You can specify only one <code>order</code> in a given request.
+    /// Note that an <c>order</c> field exists in both <c>binBy</c> and <c>metrics</c>. You
+    /// can specify only one <c>order</c> in a given request.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "LMBV2IntentMetricList")]
@@ -125,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>A list of objects, each of which specifies how to group the results. You can group
-        /// by the following criteria:</para><ul><li><para><code>IntentName</code> – The name of the intent.</para></li><li><para><code>IntentEndState</code> – The final state of the intent. The possible end states
-        /// are detailed in <a href="https://docs.aws.amazon.com/analytics-key-definitions-intents">Key
+        /// by the following criteria:</para><ul><li><para><c>IntentName</c> – The name of the intent.</para></li><li><para><c>IntentEndState</c> – The final state of the intent. The possible end states are
+        /// detailed in <a href="https://docs.aws.amazon.com/analytics-key-definitions-intents">Key
         /// definitions</a> in the user guide.</para></li></ul>
         /// </para>
         /// </summary>

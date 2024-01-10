@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><c>jp</c> - Japanese</para></li><li><para><c>zh</c> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisionedProductId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the provisioned product. You cannot specify both <code>ProvisionedProductName</code>
-        /// and <code>ProvisionedProductId</code>.</para>
+        /// <para>The identifier of the provisioned product. You cannot specify both <c>ProvisionedProductName</c>
+        /// and <c>ProvisionedProductId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisionedProductName
         /// <summary>
         /// <para>
-        /// <para>The name of the provisioned product. You cannot specify both <code>ProvisionedProductName</code>
-        /// and <code>ProvisionedProductId</code>.</para>
+        /// <para>The name of the provisioned product. You cannot specify both <c>ProvisionedProductName</c>
+        /// and <c>ProvisionedProductId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter RetainPhysicalResource
         /// <summary>
         /// <para>
-        /// <para>When this boolean parameter is set to true, the <code>TerminateProvisionedProduct</code>
+        /// <para>When this boolean parameter is set to true, the <c>TerminateProvisionedProduct</c>
         /// API deletes the Service Catalog provisioned product. However, it does not remove the
         /// CloudFormation stack, stack set, or the underlying resources of the deleted provisioned
         /// product. The default value is false.</para>

@@ -46,33 +46,31 @@ namespace Amazon.PowerShell.Cmdlets.TSW
     /// See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.write.html">code
     /// sample</a> for details.
     /// </para><para><b>Upserts</b></para><para>
-    /// You can use the <code>Version</code> parameter in a <code>WriteRecords</code> request
-    /// to update data points. Timestream tracks a version number with each record. <code>Version</code>
-    /// defaults to <code>1</code> when it's not specified for the record in the request.
-    /// Timestream updates an existing record’s measure value along with its <code>Version</code>
-    /// when it receives a write request with a higher <code>Version</code> number for that
-    /// record. When it receives an update request where the measure value is the same as
-    /// that of the existing record, Timestream still updates <code>Version</code>, if it
-    /// is greater than the existing value of <code>Version</code>. You can update a data
-    /// point as many times as desired, as long as the value of <code>Version</code> continuously
-    /// increases. 
+    /// You can use the <c>Version</c> parameter in a <c>WriteRecords</c> request to update
+    /// data points. Timestream tracks a version number with each record. <c>Version</c> defaults
+    /// to <c>1</c> when it's not specified for the record in the request. Timestream updates
+    /// an existing record’s measure value along with its <c>Version</c> when it receives
+    /// a write request with a higher <c>Version</c> number for that record. When it receives
+    /// an update request where the measure value is the same as that of the existing record,
+    /// Timestream still updates <c>Version</c>, if it is greater than the existing value
+    /// of <c>Version</c>. You can update a data point as many times as desired, as long as
+    /// the value of <c>Version</c> continuously increases. 
     /// </para><para>
-    ///  For example, suppose you write a new record without indicating <code>Version</code>
-    /// in the request. Timestream stores this record, and set <code>Version</code> to <code>1</code>.
-    /// Now, suppose you try to update this record with a <code>WriteRecords</code> request
-    /// of the same record with a different measure value but, like before, do not provide
-    /// <code>Version</code>. In this case, Timestream will reject this update with a <code>RejectedRecordsException</code>
+    ///  For example, suppose you write a new record without indicating <c>Version</c> in
+    /// the request. Timestream stores this record, and set <c>Version</c> to <c>1</c>. Now,
+    /// suppose you try to update this record with a <c>WriteRecords</c> request of the same
+    /// record with a different measure value but, like before, do not provide <c>Version</c>.
+    /// In this case, Timestream will reject this update with a <c>RejectedRecordsException</c>
     /// since the updated record’s version is not greater than the existing value of Version.
     /// 
     /// </para><para>
-    /// However, if you were to resend the update request with <code>Version</code> set to
-    /// <code>2</code>, Timestream would then succeed in updating the record’s value, and
-    /// the <code>Version</code> would be set to <code>2</code>. Next, suppose you sent a
-    /// <code>WriteRecords</code> request with this same record and an identical measure value,
-    /// but with <code>Version</code> set to <code>3</code>. In this case, Timestream would
-    /// only update <code>Version</code> to <code>3</code>. Any further updates would need
-    /// to send a version number greater than <code>3</code>, or the update requests would
-    /// receive a <code>RejectedRecordsException</code>. 
+    /// However, if you were to resend the update request with <c>Version</c> set to <c>2</c>,
+    /// Timestream would then succeed in updating the record’s value, and the <c>Version</c>
+    /// would be set to <c>2</c>. Next, suppose you sent a <c>WriteRecords</c> request with
+    /// this same record and an identical measure value, but with <c>Version</c> set to <c>3</c>.
+    /// In this case, Timestream would only update <c>Version</c> to <c>3</c>. Any further
+    /// updates would need to send a version number greater than <c>3</c>, or the update requests
+    /// would receive a <c>RejectedRecordsException</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Write", "TSWRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -138,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         #region Parameter CommonAttributes_MeasureValueList
         /// <summary>
         /// <para>
-        /// <para> Contains the list of MeasureValue for time-series data points. </para><para> This is only allowed for type <code>MULTI</code>. For scalar values, use <code>MeasureValue</code>
+        /// <para> Contains the list of MeasureValue for time-series data points. </para><para> This is only allowed for type <c>MULTI</c>. For scalar values, use <c>MeasureValue</c>
         /// attribute of the record directly. </para>
         /// </para>
         /// </summary>
@@ -150,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         /// <summary>
         /// <para>
         /// <para> Contains the data type of the measure value for the time-series data point. Default
-        /// type is <code>DOUBLE</code>. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/writes.html#writes.data-types">Data
+        /// type is <c>DOUBLE</c>. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/writes.html#writes.data-types">Data
         /// types</a>.</para>
         /// </para>
         /// </summary>
@@ -200,8 +198,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         /// <para>
         /// <para> Contains the time at which the measure value for the data point was collected. The
         /// time value plus the unit provides the time elapsed since the epoch. For example, if
-        /// the time value is <code>12345</code> and the unit is <code>ms</code>, then <code>12345
-        /// ms</code> have elapsed since the epoch. </para>
+        /// the time value is <c>12345</c> and the unit is <c>ms</c>, then <c>12345 ms</c> have
+        /// elapsed since the epoch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -212,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         /// <summary>
         /// <para>
         /// <para> The granularity of the timestamp unit. It indicates if the time value is in seconds,
-        /// milliseconds, nanoseconds, or other supported values. Default is <code>MILLISECONDS</code>.
+        /// milliseconds, nanoseconds, or other supported values. Default is <c>MILLISECONDS</c>.
         /// </para>
         /// </para>
         /// </summary>
@@ -226,8 +224,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         /// <para>
         /// <para>64-bit attribute used for record updates. Write requests for duplicate data with a
         /// higher version number will update the existing measure value and version. In cases
-        /// where the measure value is the same, <code>Version</code> will still be updated. Default
-        /// value is <code>1</code>.</para><note><para><code>Version</code> must be <code>1</code> or greater, or you will receive a <code>ValidationException</code>
+        /// where the measure value is the same, <c>Version</c> will still be updated. Default
+        /// value is <c>1</c>.</para><note><para><c>Version</c> must be <c>1</c> or greater, or you will receive a <c>ValidationException</c>
         /// error.</para></note>
         /// </para>
         /// </summary>

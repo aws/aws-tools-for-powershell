@@ -36,12 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// the request. You cannot update some fields independent of others. To update a key
     /// group:
     /// </para><ol><li><para>
-    /// Get the current key group with <code>GetKeyGroup</code> or <code>GetKeyGroupConfig</code>.
+    /// Get the current key group with <c>GetKeyGroup</c> or <c>GetKeyGroupConfig</c>.
     /// </para></li><li><para>
     /// Locally modify the fields in the key group that you want to update. For example, add
     /// or remove public key IDs.
     /// </para></li><li><para>
-    /// Call <code>UpdateKeyGroup</code> with the entire key group object, including the fields
+    /// Call <c>UpdateKeyGroup</c> with the entire key group object, including the fields
     /// that you modified and those that you didn't.
     /// </para></li></ol>
     /// </summary>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The version of the key group that you are updating. The version is the key group's
-        /// <code>ETag</code> value.</para>
+        /// <c>ETag</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

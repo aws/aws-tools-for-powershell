@@ -46,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> If you specify any of the following filters, the output includes information for
-        /// only those collectors that meet the filter criteria:</para><ul><li><para><code>collector-referenced-id</code> – The ID of the collector agent, for example
-        /// <code>d4610ac5-e323-4ad9-bc50-eaf7249dfe9d</code>.</para></li><li><para><code>collector-name</code> – The name of the collector agent.</para></li></ul><para>An example is: <code>describe-fleet-advisor-collectors --filter Name="collector-referenced-id",Values="d4610ac5-e323-4ad9-bc50-eaf7249dfe9d"</code></para>
+        /// only those collectors that meet the filter criteria:</para><ul><li><para><c>collector-referenced-id</c> – The ID of the collector agent, for example <c>d4610ac5-e323-4ad9-bc50-eaf7249dfe9d</c>.</para></li><li><para><c>collector-name</c> – The name of the collector agent.</para></li></ul><para>An example is: <c>describe-fleet-advisor-collectors --filter Name="collector-referenced-id",Values="d4610ac5-e323-4ad9-bc50-eaf7249dfe9d"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,10 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If <code>NextToken</code> is returned by a previous response, there are more results
-        /// available. The value of <code>NextToken</code> is a unique pagination token for each
-        /// page. Make the call again using the returned token to retrieve the next page. Keep
-        /// all other arguments unchanged. </para>
+        /// <para>If <c>NextToken</c> is returned by a previous response, there are more results available.
+        /// The value of <c>NextToken</c> is a unique pagination token for each page. Make the
+        /// call again using the returned token to retrieve the next page. Keep all other arguments
+        /// unchanged. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

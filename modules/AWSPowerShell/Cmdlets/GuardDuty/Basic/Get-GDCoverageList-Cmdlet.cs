@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter SortCriteria_AttributeName
         /// <summary>
         /// <para>
-        /// <para>Represents the field name used to sort the coverage details.</para><note><para>Replace the enum value <code>CLUSTER_NAME</code> with <code>EKS_CLUSTER_NAME</code>.
-        /// <code>CLUSTER_NAME</code> has been deprecated.</para></note>
+        /// <para>Represents the field name used to sort the coverage details.</para><note><para>Replace the enum value <c>CLUSTER_NAME</c> with <c>EKS_CLUSTER_NAME</c>. <c>CLUSTER_NAME</c>
+        /// has been deprecated.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

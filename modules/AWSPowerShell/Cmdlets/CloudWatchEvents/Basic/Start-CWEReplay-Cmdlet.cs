@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// Starts the specified replay. Events are not necessarily replayed in the exact same
     /// order that they were added to the archive. A replay processes events to replay based
     /// on the time in the event, and replays them using 1 minute intervals. If you specify
-    /// an <code>EventStartTime</code> and an <code>EventEndTime</code> that covers a 20 minute
-    /// time range, the events are replayed from the first minute of that 20 minute range
-    /// first. Then the events from the second minute are replayed. You can use <code>DescribeReplay</code>
-    /// to determine the progress of a replay. The value returned for <code>EventLastReplayedTime</code>
+    /// an <c>EventStartTime</c> and an <c>EventEndTime</c> that covers a 20 minute time range,
+    /// the events are replayed from the first minute of that 20 minute range first. Then
+    /// the events from the second minute are replayed. You can use <c>DescribeReplay</c>
+    /// to determine the progress of a replay. The value returned for <c>EventLastReplayedTime</c>
     /// indicates the time within the specified time range associated with the last event
     /// replayed.
     /// </summary>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <summary>
         /// <para>
         /// <para>A time stamp for the time to stop replaying events. Only events that occurred between
-        /// the <code>EventStartTime</code> and <code>EventEndTime</code> are replayed.</para>
+        /// the <c>EventStartTime</c> and <c>EventEndTime</c> are replayed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <summary>
         /// <para>
         /// <para>A time stamp for the time to start replaying events. Only events that occurred between
-        /// the <code>EventStartTime</code> and <code>EventEndTime</code> are replayed.</para>
+        /// the <c>EventStartTime</c> and <c>EventEndTime</c> are replayed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -55,30 +55,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>association.route-table-association-id</code> - The ID of an association ID
-        /// for the route table.</para></li><li><para><code>association.route-table-id</code> - The ID of the route table involved in the
-        /// association.</para></li><li><para><code>association.subnet-id</code> - The ID of the subnet involved in the association.</para></li><li><para><code>association.main</code> - Indicates whether the route table is the main route
-        /// table for the VPC (<code>true</code> | <code>false</code>). Route tables that do not
-        /// have an association ID are not returned in the response.</para></li><li><para><code>owner-id</code> - The ID of the Amazon Web Services account that owns the route
-        /// table.</para></li><li><para><code>route-table-id</code> - The ID of the route table.</para></li><li><para><code>route.destination-cidr-block</code> - The IPv4 CIDR range specified in a route
-        /// in the table.</para></li><li><para><code>route.destination-ipv6-cidr-block</code> - The IPv6 CIDR range specified in
-        /// a route in the route table.</para></li><li><para><code>route.destination-prefix-list-id</code> - The ID (prefix) of the Amazon Web
-        /// Service specified in a route in the table.</para></li><li><para><code>route.egress-only-internet-gateway-id</code> - The ID of an egress-only Internet
-        /// gateway specified in a route in the route table.</para></li><li><para><code>route.gateway-id</code> - The ID of a gateway specified in a route in the table.</para></li><li><para><code>route.instance-id</code> - The ID of an instance specified in a route in the
-        /// table.</para></li><li><para><code>route.nat-gateway-id</code> - The ID of a NAT gateway.</para></li><li><para><code>route.transit-gateway-id</code> - The ID of a transit gateway.</para></li><li><para><code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code>
+        /// <para>The filters.</para><ul><li><para><c>association.route-table-association-id</c> - The ID of an association ID for the
+        /// route table.</para></li><li><para><c>association.route-table-id</c> - The ID of the route table involved in the association.</para></li><li><para><c>association.subnet-id</c> - The ID of the subnet involved in the association.</para></li><li><para><c>association.main</c> - Indicates whether the route table is the main route table
+        /// for the VPC (<c>true</c> | <c>false</c>). Route tables that do not have an association
+        /// ID are not returned in the response.</para></li><li><para><c>owner-id</c> - The ID of the Amazon Web Services account that owns the route table.</para></li><li><para><c>route-table-id</c> - The ID of the route table.</para></li><li><para><c>route.destination-cidr-block</c> - The IPv4 CIDR range specified in a route in
+        /// the table.</para></li><li><para><c>route.destination-ipv6-cidr-block</c> - The IPv6 CIDR range specified in a route
+        /// in the route table.</para></li><li><para><c>route.destination-prefix-list-id</c> - The ID (prefix) of the Amazon Web Service
+        /// specified in a route in the table.</para></li><li><para><c>route.egress-only-internet-gateway-id</c> - The ID of an egress-only Internet
+        /// gateway specified in a route in the route table.</para></li><li><para><c>route.gateway-id</c> - The ID of a gateway specified in a route in the table.</para></li><li><para><c>route.instance-id</c> - The ID of an instance specified in a route in the table.</para></li><li><para><c>route.nat-gateway-id</c> - The ID of a NAT gateway.</para></li><li><para><c>route.transit-gateway-id</c> - The ID of a transit gateway.</para></li><li><para><c>route.origin</c> - Describes how the route was created. <c>CreateRouteTable</c>
         /// indicates that the route was automatically created when the route table was created;
-        /// <code>CreateRoute</code> indicates that the route was manually added to the route
-        /// table; <code>EnableVgwRoutePropagation</code> indicates that the route was propagated
-        /// by route propagation.</para></li><li><para><code>route.state</code> - The state of a route in the route table (<code>active</code>
-        /// | <code>blackhole</code>). The blackhole state indicates that the route's target isn't
-        /// available (for example, the specified gateway isn't attached to the VPC, the specified
-        /// NAT instance has been terminated, and so on).</para></li><li><para><code>route.vpc-peering-connection-id</code> - The ID of a VPC peering connection
-        /// specified in a route in the table.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
-        /// resource. Use the tag key in the filter name and the tag value as the filter value.
-        /// For example, to find all resources that have a tag with the key <code>Owner</code>
-        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>vpc-id</code> - The ID of the VPC for the route table.</para></li></ul>
+        /// <c>CreateRoute</c> indicates that the route was manually added to the route table;
+        /// <c>EnableVgwRoutePropagation</c> indicates that the route was propagated by route
+        /// propagation.</para></li><li><para><c>route.state</c> - The state of a route in the route table (<c>active</c> | <c>blackhole</c>).
+        /// The blackhole state indicates that the route's target isn't available (for example,
+        /// the specified gateway isn't attached to the VPC, the specified NAT instance has been
+        /// terminated, and so on).</para></li><li><para><c>route.vpc-peering-connection-id</c> - The ID of a VPC peering connection specified
+        /// in a route in the table.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
+        /// Use the tag key in the filter name and the tag value as the filter value. For example,
+        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>vpc-id</c> - The ID of the VPC for the route table.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

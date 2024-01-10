@@ -28,13 +28,13 @@ using Amazon.SQS.Model;
 namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
-    /// Changes the visibility timeout of multiple messages. This is a batch version of <code><a>ChangeMessageVisibility</a>.</code> The result of the action on each message is
-    /// reported individually in the response. You can send up to 10 <code><a>ChangeMessageVisibility</a></code> requests with each <code>ChangeMessageVisibilityBatch</code> action.
+    /// Changes the visibility timeout of multiple messages. This is a batch version of <c><a>ChangeMessageVisibility</a>.</c> The result of the action on each message is reported
+    /// individually in the response. You can send up to 10 <c><a>ChangeMessageVisibility</a></c> requests with each <c>ChangeMessageVisibilityBatch</c> action.
     /// 
     ///  <important><para>
     /// Because the batch request can result in a combination of successful and unsuccessful
     /// actions, you should check for batch errors even when the call returns an HTTP status
-    /// code of <code>200</code>.
+    /// code of <c>200</c>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Edit", "SQSMessageVisibilityBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

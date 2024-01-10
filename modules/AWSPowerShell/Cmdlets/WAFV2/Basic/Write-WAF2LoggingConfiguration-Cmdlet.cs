@@ -51,22 +51,22 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// an Amazon Simple Storage Service (Amazon S3) bucket, or an Amazon Kinesis Data Firehose.
     /// 
     /// </para><para>
-    /// The name that you give the destination must start with <code>aws-waf-logs-</code>.
-    /// Depending on the type of destination, you might need to configure additional settings
-    /// or permissions. 
+    /// The name that you give the destination must start with <c>aws-waf-logs-</c>. Depending
+    /// on the type of destination, you might need to configure additional settings or permissions.
+    /// 
     /// </para><para>
     /// For configuration requirements and pricing information for each destination type,
     /// see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
     /// web ACL traffic</a> in the <i>WAF Developer Guide</i>.
     /// </para></li><li><para>
-    /// Associate your logging destination to your web ACL using a <code>PutLoggingConfiguration</code>
+    /// Associate your logging destination to your web ACL using a <c>PutLoggingConfiguration</c>
     /// request.
     /// </para></li></ol><para>
-    /// When you successfully enable logging using a <code>PutLoggingConfiguration</code>
-    /// request, WAF creates an additional role or policy that is required to write logs to
-    /// the logging destination. For an Amazon CloudWatch Logs log group, WAF creates a resource
-    /// policy on the log group. For an Amazon S3 bucket, WAF creates a bucket policy. For
-    /// an Amazon Kinesis Data Firehose, WAF creates a service-linked role.
+    /// When you successfully enable logging using a <c>PutLoggingConfiguration</c> request,
+    /// WAF creates an additional role or policy that is required to write logs to the logging
+    /// destination. For an Amazon CloudWatch Logs log group, WAF creates a resource policy
+    /// on the log group. For an Amazon S3 bucket, WAF creates a bucket policy. For an Amazon
+    /// Kinesis Data Firehose, WAF creates a service-linked role.
     /// </para><para>
     /// For additional information about web ACL logging, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
     /// web ACL traffic information</a> in the <i>WAF Developer Guide</i>.
@@ -141,11 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter LoggingConfiguration_RedactedField
         /// <summary>
         /// <para>
-        /// <para>The parts of the request that you want to keep out of the logs.</para><para>For example, if you redact the <code>SingleHeader</code> field, the <code>HEADER</code>
-        /// field in the logs will be <code>REDACTED</code> for all rules that use the <code>SingleHeader</code><code>FieldToMatch</code> setting. </para><para>Redaction applies only to the component that's specified in the rule's <code>FieldToMatch</code>
-        /// setting, so the <code>SingleHeader</code> redaction doesn't apply to rules that use
-        /// the <code>Headers</code><code>FieldToMatch</code>.</para><note><para>You can specify only the following fields for redaction: <code>UriPath</code>, <code>QueryString</code>,
-        /// <code>SingleHeader</code>, and <code>Method</code>.</para></note>
+        /// <para>The parts of the request that you want to keep out of the logs.</para><para>For example, if you redact the <c>SingleHeader</c> field, the <c>HEADER</c> field
+        /// in the logs will be <c>REDACTED</c> for all rules that use the <c>SingleHeader</c><c>FieldToMatch</c> setting. </para><para>Redaction applies only to the component that's specified in the rule's <c>FieldToMatch</c>
+        /// setting, so the <c>SingleHeader</c> redaction doesn't apply to rules that use the
+        /// <c>Headers</c><c>FieldToMatch</c>.</para><note><para>You can specify only the following fields for redaction: <c>UriPath</c>, <c>QueryString</c>,
+        /// <c>SingleHeader</c>, and <c>Method</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter LoggingConfiguration_ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the web ACL that you want to associate with <code>LogDestinationConfigs</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the web ACL that you want to associate with <c>LogDestinationConfigs</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

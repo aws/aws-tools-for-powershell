@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
         /// <summary>
         /// <para>
         /// <para>Determines whether the commitment period for a radio unit is set to automatically
-        /// renew for an additional 1 year after your current commitment period expires.</para><para>Set to <code>True</code>, if you want your commitment period to automatically renew.
-        /// Set to <code>False</code> if you do not want your commitment to automatically renew.</para><para>You can do the following:</para><ul><li><para>Set a 1-year commitment to automatically renew for an additional 1 year. The hourly
+        /// renew for an additional 1 year after your current commitment period expires.</para><para>Set to <c>True</c>, if you want your commitment period to automatically renew. Set
+        /// to <c>False</c> if you do not want your commitment to automatically renew.</para><para>You can do the following:</para><ul><li><para>Set a 1-year commitment to automatically renew for an additional 1 year. The hourly
         /// rate for the additional year will continue to be the same as your existing 1-year
         /// rate.</para></li><li><para>Set a 3-year commitment to automatically renew for an additional 1 year. The hourly
         /// rate for the additional year will continue to be the same as your existing 3-year

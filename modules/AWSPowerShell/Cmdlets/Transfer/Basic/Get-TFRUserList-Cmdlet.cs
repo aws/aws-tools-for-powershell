@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
     /// Lists the users for a file transfer protocol-enabled server that you specify by passing
-    /// the <code>ServerId</code> parameter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// the <c>ServerId</c> parameter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TFRUserList")]
     [OutputType("Amazon.Transfer.Model.ListedUser")]
@@ -63,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of users to return as a response to the <code>ListUsers</code>
-        /// request.</para>
+        /// <para>Specifies the number of users to return as a response to the <c>ListUsers</c> request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -81,9 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If there are additional results from the <code>ListUsers</code> call, a <code>NextToken</code>
-        /// parameter is returned in the output. You can then pass the <code>NextToken</code>
-        /// to a subsequent <code>ListUsers</code> command, to continue listing additional users.</para>
+        /// <para>If there are additional results from the <c>ListUsers</c> call, a <c>NextToken</c>
+        /// parameter is returned in the output. You can then pass the <c>NextToken</c> to a subsequent
+        /// <c>ListUsers</c> command, to continue listing additional users.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

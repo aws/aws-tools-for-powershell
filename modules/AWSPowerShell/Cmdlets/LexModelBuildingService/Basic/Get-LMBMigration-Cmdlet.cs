@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter MigrationId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the migration to view. The <code>migrationID</code> is returned
+        /// <para>The unique identifier of the migration to view. The <c>migrationID</c> is returned
         /// by the operation.</para>
         /// </para>
         /// </summary>

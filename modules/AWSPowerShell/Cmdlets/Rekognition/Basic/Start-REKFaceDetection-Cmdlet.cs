@@ -33,13 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.REK
     ///  
     /// <para>
     /// Amazon Rekognition Video can detect faces in a video stored in an Amazon S3 bucket.
-    /// Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartFaceDetection</code>
-    /// returns a job identifier (<code>JobId</code>) that you use to get the results of the
-    /// operation. When face detection is finished, Amazon Rekognition Video publishes a completion
-    /// status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.
+    /// Use <a>Video</a> to specify the bucket name and the filename of the video. <c>StartFaceDetection</c>
+    /// returns a job identifier (<c>JobId</c>) that you use to get the results of the operation.
+    /// When face detection is finished, Amazon Rekognition Video publishes a completion status
+    /// to the Amazon Simple Notification Service topic that you specify in <c>NotificationChannel</c>.
     /// To get the results of the face detection operation, first check that the status value
-    /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetFaceDetection</a>
-    /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartFaceDetection</code>.
+    /// published to the Amazon SNS topic is <c>SUCCEEDED</c>. If so, call <a>GetFaceDetection</a>
+    /// and pass the job identifier (<c>JobId</c>) from the initial call to <c>StartFaceDetection</c>.
     /// </para><para>
     /// For more information, see Detecting faces in a stored video in the Amazon Rekognition
     /// Developer Guide.
@@ -61,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Idempotent token used to identify the start request. If you use the same token with
-        /// multiple <code>StartFaceDetection</code> requests, the same <code>JobId</code> is
-        /// returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidently
-        /// started more than once. </para>
+        /// multiple <c>StartFaceDetection</c> requests, the same <c>JobId</c> is returned. Use
+        /// <c>ClientRequestToken</c> to prevent the same job from being accidently started more
+        /// than once. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter FaceAttribute
         /// <summary>
         /// <para>
-        /// <para>The face attributes you want returned.</para><para><code>DEFAULT</code> - The following subset of facial attributes are returned: BoundingBox,
-        /// Confidence, Pose, Quality and Landmarks. </para><para><code>ALL</code> - All facial attributes are returned.</para>
+        /// <para>The face attributes you want returned.</para><para><c>DEFAULT</c> - The following subset of facial attributes are returned: BoundingBox,
+        /// Confidence, Pose, Quality and Landmarks. </para><para><c>ALL</c> - All facial attributes are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>An identifier you specify that's returned in the completion notification that's published
-        /// to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code>
+        /// to your Amazon Simple Notification Service topic. For example, you can use <c>JobTag</c>
         /// to group related jobs and identify them in the completion notification.</para>
         /// </para>
         /// </summary>

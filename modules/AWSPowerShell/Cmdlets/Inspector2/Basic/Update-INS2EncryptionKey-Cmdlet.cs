@@ -28,8 +28,8 @@ using Amazon.Inspector2.Model;
 namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Updates an encryption key. A <code>ResourceNotFoundException</code> means that an
-    /// AWS owned key is being used for encryption.
+    /// Updates an encryption key. A <c>ResourceNotFoundException</c> means that an AWS owned
+    /// key is being used for encryption.
     /// </summary>
     [Cmdlet("Update", "INS2EncryptionKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

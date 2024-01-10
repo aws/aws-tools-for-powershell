@@ -28,12 +28,12 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Removes the tags identified by the <code>TagKeys</code> list from the named resource.
-    /// A tag is a key-value pair where the key and value are case-sensitive. You can use
-    /// tags to categorize and track all your ElastiCache resources, with the exception of
-    /// global replication group. When you add or remove tags on replication groups, those
-    /// actions will be replicated to all nodes in the replication group. For more information,
-    /// see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html">Resource-level
+    /// Removes the tags identified by the <c>TagKeys</c> list from the named resource. A
+    /// tag is a key-value pair where the key and value are case-sensitive. You can use tags
+    /// to categorize and track all your ElastiCache resources, with the exception of global
+    /// replication group. When you add or remove tags on replication groups, those actions
+    /// will be replicated to all nodes in the replication group. For more information, see
+    /// <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html">Resource-level
     /// permissions</a>.
     /// </summary>
     [Cmdlet("Remove", "ECTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -52,8 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource from which you want the tags removed,
-        /// for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>
-        /// or <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// for example <c>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</c> or <c>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</c>.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and Amazon Service Namespaces</a>.</para>
         /// </para>
         /// </summary>
@@ -71,8 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>A list of <code>TagKeys</code> identifying the tags you want removed from the named
-        /// resource.</para>
+        /// <para>A list of <c>TagKeys</c> identifying the tags you want removed from the named resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

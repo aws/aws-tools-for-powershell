@@ -28,7 +28,7 @@ using Amazon.ChimeSDKMessaging.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
-    /// Sets the data streaming configuration for an <code>AppInstance</code>. For more information,
+    /// Sets the data streaming configuration for an <c>AppInstance</c>. For more information,
     /// see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming
     /// messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.
     /// </summary>

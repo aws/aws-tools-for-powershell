@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter AllowMajorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether upgrades between different major versions are allowed.</para><para>Constraints: You must set the allow-major-version-upgrade flag when providing an <code>EngineVersion</code>
+        /// <para>A value that indicates whether upgrades between different major versions are allowed.</para><para>Constraints: You must set the allow-major-version-upgrade flag when providing an <c>EngineVersion</c>
         /// parameter that uses a different major version than the DB cluster's current version.</para>
         /// </para>
         /// </summary>
@@ -58,13 +58,12 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>A value that specifies whether the modifications in this request and any pending modifications
-        /// are asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code>
-        /// setting for the DB cluster. If this parameter is set to <code>false</code>, changes
-        /// to the DB cluster are applied during the next maintenance window.</para><para>The <code>ApplyImmediately</code> parameter only affects <code>NewDBClusterIdentifier</code>
-        /// values. If you set the <code>ApplyImmediately</code> parameter value to false, then
-        /// changes to <code>NewDBClusterIdentifier</code> values are applied during the next
-        /// maintenance window. All other changes are applied immediately, regardless of the value
-        /// of the <code>ApplyImmediately</code> parameter.</para><para>Default: <code>false</code></para>
+        /// are asynchronously applied as soon as possible, regardless of the <c>PreferredMaintenanceWindow</c>
+        /// setting for the DB cluster. If this parameter is set to <c>false</c>, changes to the
+        /// DB cluster are applied during the next maintenance window.</para><para>The <c>ApplyImmediately</c> parameter only affects <c>NewDBClusterIdentifier</c> values.
+        /// If you set the <c>ApplyImmediately</c> parameter value to false, then changes to <c>NewDBClusterIdentifier</c>
+        /// values are applied during the next maintenance window. All other changes are applied
+        /// immediately, regardless of the value of the <c>ApplyImmediately</c> parameter.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
-        /// <para><i>If set to <code>true</code>, tags are copied to any snapshot of the DB cluster
-        /// that is created.</i></para>
+        /// <para><i>If set to <c>true</c>, tags are copied to any snapshot of the DB cluster that
+        /// is created.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,11 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter DBInstanceParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB parameter group to apply to all instances of the DB cluster. </para><note><para>When you apply a parameter group using <code>DBInstanceParameterGroupName</code>,
-        /// parameter changes aren't applied during the next maintenance window but instead are
-        /// applied immediately.</para></note><para>Default: The existing name setting</para><para>Constraints:</para><ul><li><para>The DB parameter group must be in the same DB parameter group family as the target
-        /// DB cluster version.</para></li><li><para>The <code>DBInstanceParameterGroupName</code> parameter is only valid in combination
-        /// with the <code>AllowMajorVersionUpgrade</code> parameter.</para></li></ul>
+        /// <para>The name of the DB parameter group to apply to all instances of the DB cluster. </para><note><para>When you apply a parameter group using <c>DBInstanceParameterGroupName</c>, parameter
+        /// changes aren't applied during the next maintenance window but instead are applied
+        /// immediately.</para></note><para>Default: The existing name setting</para><para>Constraints:</para><ul><li><para>The DB parameter group must be in the same DB parameter group family as the target
+        /// DB cluster version.</para></li><li><para>The <c>DBInstanceParameterGroupName</c> parameter is only valid in combination with
+        /// the <c>AllowMajorVersionUpgrade</c> parameter.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>True to enable mapping of Amazon Identity and Access Management (IAM) accounts to
-        /// database accounts, and otherwise false.</para><para>Default: <code>false</code></para>
+        /// database accounts, and otherwise false.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>The version number of the database engine to which you want to upgrade. Changing this
         /// parameter results in an outage. The change is applied during the next maintenance
-        /// window unless the <code>ApplyImmediately</code> parameter is set to true.</para><para>For a list of valid engine versions, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases.html">Engine
+        /// window unless the <c>ApplyImmediately</c> parameter is set to true.</para><para>For a list of valid engine versions, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases.html">Engine
         /// Releases for Amazon Neptune</a>, or call <a>DescribeDBEngineVersions</a>.</para>
         /// </para>
         /// </summary>
@@ -230,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The new DB cluster identifier for the DB cluster when renaming a DB cluster. This
-        /// value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>The first character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-cluster2</code></para>
+        /// value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para></li><li><para>The first character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <c>my-cluster2</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -250,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the DB cluster accepts connections.</para><para>Constraints: Value must be <code>1150-65535</code></para><para>Default: The same port as the original DB cluster.</para>
+        /// <para>The port number on which the DB cluster accepts connections.</para><para>Constraints: Value must be <c>1150-65535</c></para><para>Default: The same port as the original DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -261,8 +260,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The daily time range during which automated backups are created if automated backups
-        /// are enabled, using the <code>BackupRetentionPeriod</code> parameter.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each Amazon Region.</para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// are enabled, using the <c>BackupRetentionPeriod</c> parameter.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// for each Amazon Region.</para><para>Constraints:</para><ul><li><para>Must be in the format <c>hh24:mi-hh24:mi</c>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -273,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
-        /// Time (UTC).</para><para>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// Time (UTC).</para><para>Format: <c>ddd:hh24:mi-ddd:hh24:mi</c></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Region, occurring on a random day of the week.</para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>
@@ -284,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>The storage type to associate with the DB cluster.</para><para>Valid Values:</para><ul><li><para><code>standard | iopt1</code></para></li></ul><para>Default:</para><ul><li><para><code>standard</code></para></li></ul>
+        /// <para>The storage type to associate with the DB cluster.</para><para>Valid Values:</para><ul><li><para><c>standard | iopt1</c></para></li></ul><para>Default:</para><ul><li><para><c>standard</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

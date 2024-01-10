@@ -128,9 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter AvailSuppression_FillPolicy
         /// <summary>
         /// <para>
-        /// <para>Defines the policy to apply to the avail suppression mode. <code>BEHIND_LIVE_EDGE</code>
-        /// will always use the full avail suppression policy. <code>AFTER_LIVE_EDGE</code> mode
-        /// can be used to invoke partial ad break fills when a session starts mid-break.</para>
+        /// <para>Defines the policy to apply to the avail suppression mode. <c>BEHIND_LIVE_EDGE</c>
+        /// will always use the full avail suppression policy. <c>AFTER_LIVE_EDGE</c> mode can
+        /// be used to invoke partial ad break fills when a session starts mid-break.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,9 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>Sets the ad suppression mode. By default, ad suppression is off and all ad breaks
-        /// are filled with ads or slate. When Mode is set to <code>BEHIND_LIVE_EDGE</code>, ad
-        /// suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression
-        /// Value time in the manifest lookback window. When Mode is set to <code>AFTER_LIVE_EDGE</code>,
+        /// are filled with ads or slate. When Mode is set to <c>BEHIND_LIVE_EDGE</c>, ad suppression
+        /// is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value
+        /// time in the manifest lookback window. When Mode is set to <c>AFTER_LIVE_EDGE</c>,
         /// ad suppression is active and MediaTailor won't fill ad breaks that are within the
         /// live edge plus the avail suppression value.</para>
         /// </para>

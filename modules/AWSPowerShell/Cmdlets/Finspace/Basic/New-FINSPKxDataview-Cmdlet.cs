@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// <summary>
         /// <para>
         /// <para>The number of availability zones you want to assign per cluster. This can be one of
-        /// the following </para><ul><li><para><code>SINGLE</code> – Assigns one availability zone per cluster.</para></li><li><para><code>MULTI</code> – Assigns all the availability zones per cluster.</para></li></ul>
+        /// the following </para><ul><li><para><c>SINGLE</c> – Assigns one availability zone per cluster.</para></li><li><para><c>MULTI</c> – Assigns all the availability zones per cluster.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

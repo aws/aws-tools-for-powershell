@@ -35,12 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// 
     ///  
     /// <para>
-    /// Updates from <code>BatchUpdateFindings</code> do not affect the value of <code>UpdatedAt</code>
+    /// Updates from <c>BatchUpdateFindings</c> do not affect the value of <c>UpdatedAt</c>
     /// for a finding.
     /// </para><para>
-    /// Administrator and member accounts can use <code>BatchUpdateFindings</code> to update
-    /// the following finding fields and objects.
-    /// </para><ul><li><para><code>Confidence</code></para></li><li><para><code>Criticality</code></para></li><li><para><code>Note</code></para></li><li><para><code>RelatedFindings</code></para></li><li><para><code>Severity</code></para></li><li><para><code>Types</code></para></li><li><para><code>UserDefinedFields</code></para></li><li><para><code>VerificationState</code></para></li><li><para><code>Workflow</code></para></li></ul><para>
+    /// Administrator and member accounts can use <c>BatchUpdateFindings</c> to update the
+    /// following finding fields and objects.
+    /// </para><ul><li><para><c>Confidence</c></para></li><li><para><c>Criticality</c></para></li><li><para><c>Note</c></para></li><li><para><c>RelatedFindings</c></para></li><li><para><c>Severity</c></para></li><li><para><c>Types</c></para></li><li><para><c>UserDefinedFields</c></para></li><li><para><c>VerificationState</c></para></li><li><para><c>Workflow</c></para></li></ul><para>
     /// You can configure IAM policies to restrict access to fields and field values. For
     /// example, you might not want member accounts to be able to suppress findings or change
     /// the finding severity. See <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access">Configuring
@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter FindingIdentifier
         /// <summary>
         /// <para>
-        /// <para>The list of findings to update. <code>BatchUpdateFindings</code> can be used to update
-        /// up to 100 findings at a time.</para><para>For each finding, the list provides the finding identifier and the ARN of the finding
+        /// <para>The list of findings to update. <c>BatchUpdateFindings</c> can be used to update up
+        /// to 100 findings at a time.</para><para>For each finding, the list provides the finding identifier and the ARN of the finding
         /// provider.</para>
         /// </para>
         /// </summary>
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Severity_Label
         /// <summary>
         /// <para>
-        /// <para>The severity value of the finding. The allowed values are the following.</para><ul><li><para><code>INFORMATIONAL</code> - No issue was found.</para></li><li><para><code>LOW</code> - The issue does not require action on its own.</para></li><li><para><code>MEDIUM</code> - The issue must be addressed but not urgently.</para></li><li><para><code>HIGH</code> - The issue must be addressed as a priority.</para></li><li><para><code>CRITICAL</code> - The issue must be remediated immediately to avoid it escalating.</para></li></ul>
+        /// <para>The severity value of the finding. The allowed values are the following.</para><ul><li><para><c>INFORMATIONAL</c> - No issue was found.</para></li><li><para><c>LOW</c> - The issue does not require action on its own.</para></li><li><para><c>MEDIUM</c> - The issue must be addressed but not urgently.</para></li><li><para><c>HIGH</c> - The issue must be addressed as a priority.</para></li><li><para><c>CRITICAL</c> - The issue must be remediated immediately to avoid it escalating.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>The normalized severity for the finding. This attribute is to be deprecated in favor
-        /// of <code>Label</code>.</para><para>If you provide <code>Normalized</code> and do not provide <code>Label</code>, <code>Label</code>
-        /// is set automatically as follows.</para><ul><li><para>0 - <code>INFORMATIONAL</code></para></li><li><para>1–39 - <code>LOW</code></para></li><li><para>40–69 - <code>MEDIUM</code></para></li><li><para>70–89 - <code>HIGH</code></para></li><li><para>90–100 - <code>CRITICAL</code></para></li></ul>
+        /// of <c>Label</c>.</para><para>If you provide <c>Normalized</c> and do not provide <c>Label</c>, <c>Label</c> is
+        /// set automatically as follows.</para><ul><li><para>0 - <c>INFORMATIONAL</c></para></li><li><para>1–39 - <c>LOW</c></para></li><li><para>40–69 - <c>MEDIUM</c></para></li><li><para>70–89 - <c>HIGH</c></para></li><li><para>90–100 - <c>CRITICAL</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,14 +153,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>
         /// <para>The status of the investigation into the finding. The workflow status is specific
         /// to an individual finding. It does not affect the generation of new findings. For example,
-        /// setting the workflow status to <code>SUPPRESSED</code> or <code>RESOLVED</code> does
-        /// not prevent a new finding for the same issue.</para><para>The allowed values are the following.</para><ul><li><para><code>NEW</code> - The initial state of a finding, before it is reviewed.</para><para>Security Hub also resets <code>WorkFlowStatus</code> from <code>NOTIFIED</code> or
-        /// <code>RESOLVED</code> to <code>NEW</code> in the following cases:</para><ul><li><para>The record state changes from <code>ARCHIVED</code> to <code>ACTIVE</code>.</para></li><li><para>The compliance status changes from <code>PASSED</code> to either <code>WARNING</code>,
-        /// <code>FAILED</code>, or <code>NOT_AVAILABLE</code>.</para></li></ul></li><li><para><code>NOTIFIED</code> - Indicates that you notified the resource owner about the
-        /// security issue. Used when the initial reviewer is not the resource owner, and needs
-        /// intervention from the resource owner.</para></li><li><para><code>RESOLVED</code> - The finding was reviewed and remediated and is now considered
-        /// resolved.</para></li><li><para><code>SUPPRESSED</code> - Indicates that you reviewed the finding and do not believe
-        /// that any action is needed. The finding is no longer updated.</para></li></ul>
+        /// setting the workflow status to <c>SUPPRESSED</c> or <c>RESOLVED</c> does not prevent
+        /// a new finding for the same issue.</para><para>The allowed values are the following.</para><ul><li><para><c>NEW</c> - The initial state of a finding, before it is reviewed.</para><para>Security Hub also resets <c>WorkFlowStatus</c> from <c>NOTIFIED</c> or <c>RESOLVED</c>
+        /// to <c>NEW</c> in the following cases:</para><ul><li><para>The record state changes from <c>ARCHIVED</c> to <c>ACTIVE</c>.</para></li><li><para>The compliance status changes from <c>PASSED</c> to either <c>WARNING</c>, <c>FAILED</c>,
+        /// or <c>NOT_AVAILABLE</c>.</para></li></ul></li><li><para><c>NOTIFIED</c> - Indicates that you notified the resource owner about the security
+        /// issue. Used when the initial reviewer is not the resource owner, and needs intervention
+        /// from the resource owner.</para></li><li><para><c>RESOLVED</c> - The finding was reviewed and remediated and is now considered resolved.</para></li><li><para><c>SUPPRESSED</c> - Indicates that you reviewed the finding and do not believe that
+        /// any action is needed. The finding is no longer updated.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,8 +214,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter VerificationState
         /// <summary>
         /// <para>
-        /// <para>Indicates the veracity of a finding.</para><para>The available values for <code>VerificationState</code> are as follows.</para><ul><li><para><code>UNKNOWN</code> – The default disposition of a security finding</para></li><li><para><code>TRUE_POSITIVE</code> – The security finding is confirmed</para></li><li><para><code>FALSE_POSITIVE</code> – The security finding was determined to be a false alarm</para></li><li><para><code>BENIGN_POSITIVE</code> – A special case of <code>TRUE_POSITIVE</code> where
-        /// the finding doesn't pose any threat, is expected, or both</para></li></ul>
+        /// <para>Indicates the veracity of a finding.</para><para>The available values for <c>VerificationState</c> are as follows.</para><ul><li><para><c>UNKNOWN</c> – The default disposition of a security finding</para></li><li><para><c>TRUE_POSITIVE</c> – The security finding is confirmed</para></li><li><para><c>FALSE_POSITIVE</c> – The security finding was determined to be a false alarm</para></li><li><para><c>BENIGN_POSITIVE</c> – A special case of <c>TRUE_POSITIVE</c> where the finding
+        /// doesn't pose any threat, is expected, or both</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

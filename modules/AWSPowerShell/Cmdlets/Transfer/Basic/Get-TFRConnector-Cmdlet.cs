@@ -28,7 +28,7 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Describes the connector that's identified by the <code>ConnectorId.</code>
+    /// Describes the connector that's identified by the <c>ConnectorId.</c>
     /// </summary>
     [Cmdlet("Get", "TFRConnector")]
     [OutputType("Amazon.Transfer.Model.DescribedConnector")]

@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         #region Parameter SigningEnabled
         /// <summary>
         /// <para>
-        /// <para>Sets the DKIM signing configuration for the identity.</para><para>When you set this value <code>true</code>, then the messages that Amazon Pinpoint
-        /// sends from the identity are DKIM-signed. When you set this value to <code>false</code>,
-        /// then the messages that Amazon Pinpoint sends from the identity aren't DKIM-signed.</para>
+        /// <para>Sets the DKIM signing configuration for the identity.</para><para>When you set this value <c>true</c>, then the messages that Amazon Pinpoint sends
+        /// from the identity are DKIM-signed. When you set this value to <c>false</c>, then the
+        /// messages that Amazon Pinpoint sends from the identity aren't DKIM-signed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

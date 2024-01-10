@@ -28,8 +28,8 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Searches for vocabularies within a specific Amazon Connect instance using <code>State</code>,
-    /// <code>NameStartsWith</code>, and <code>LanguageCode</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Searches for vocabularies within a specific Amazon Connect instance using <c>State</c>,
+    /// <c>NameStartsWith</c>, and <c>LanguageCode</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "CONNVocabulary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.VocabularySummary")]

@@ -54,8 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>An array of layer IDs that specify the layers to be described. If you omit this parameter,
-        /// <code>DescribeLayers</code> returns a description of every layer in the specified
-        /// stack.</para>
+        /// <c>DescribeLayers</c> returns a description of every layer in the specified stack.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

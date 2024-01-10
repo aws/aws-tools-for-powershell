@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Returns the description of an endpoint configuration created using the <code>CreateEndpointConfig</code>
+    /// Returns the description of an endpoint configuration created using the <c>CreateEndpointConfig</c>
     /// API.
     /// </summary>
     [Cmdlet("Get", "SMEndpointConfig")]

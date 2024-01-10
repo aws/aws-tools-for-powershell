@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  
     /// <para>
-    /// The <code>create relational database</code> operation supports tag-based access control
+    /// The <c>create relational database</c> operation supports tag-based access control
     /// via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
@@ -54,9 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone in which to create your new database. Use the <code>us-east-2a</code>
-        /// case-sensitive format.</para><para>You can get a list of Availability Zones by using the <code>get regions</code> operation.
-        /// Be sure to add the <code>include relational database Availability Zones</code> parameter
+        /// <para>The Availability Zone in which to create your new database. Use the <c>us-east-2a</c>
+        /// case-sensitive format.</para><para>You can get a list of Availability Zones by using the <c>get regions</c> operation.
+        /// Be sure to add the <c>include relational database Availability Zones</c> parameter
         /// to your request.</para>
         /// </para>
         /// </summary>
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// Words articles for <a href="https://dev.mysql.com/doc/refman/5.6/en/keywords.html">MySQL
         /// 5.6</a>, <a href="https://dev.mysql.com/doc/refman/5.7/en/keywords.html">MySQL 5.7</a>,
         /// and <a href="https://dev.mysql.com/doc/refman/8.0/en/keywords.html">MySQL 8.0</a>.</para></li></ul><para><b>PostgreSQL</b></para><para>The name of the database to create when the Lightsail database resource is created.
-        /// If this parameter isn't specified, a database named <code>postgres</code> is created
-        /// in the database resource.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 63 letters or numbers.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
+        /// If this parameter isn't specified, a database named <c>postgres</c> is created in
+        /// the database resource.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 63 letters or numbers.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
         /// (0- 9).</para></li><li><para>Can't be a word reserved by the specified database engine.</para><para>For more information about reserved words in PostgreSQL, see the SQL Key Words articles
         /// for <a href="https://www.postgresql.org/docs/9.6/sql-keywords-appendix.html">PostgreSQL
         /// 9.6</a>, <a href="https://www.postgresql.org/docs/10/sql-keywords-appendix.html">PostgreSQL
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// if automated backups are enabled.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each AWS Region. For more information about the preferred backup window time blocks
         /// for each region, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Working
-        /// With Backups</a> guide in the Amazon Relational Database Service documentation.</para><para>Constraints:</para><ul><li><para>Must be in the <code>hh24:mi-hh24:mi</code> format.</para><para>Example: <code>16:00-16:30</code></para></li><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// With Backups</a> guide in the Amazon Relational Database Service documentation.</para><para>Constraints:</para><ul><li><para>Must be in the <c>hh24:mi-hh24:mi</c> format.</para><para>Example: <c>16:00-16:30</c></para></li><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur on your new database.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region, occurring on a random day of the week.</para><para>Constraints:</para><ul><li><para>Must be in the <code>ddd:hh24:mi-ddd:hh24:mi</code> format.</para></li><li><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para></li><li><para>Must be at least 30 minutes.</para></li><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Example: <code>Tue:17:00-Tue:17:30</code></para></li></ul>
+        /// for each AWS Region, occurring on a random day of the week.</para><para>Constraints:</para><ul><li><para>Must be in the <c>ddd:hh24:mi-ddd:hh24:mi</c> format.</para></li><li><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para></li><li><para>Must be at least 30 minutes.</para></li><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Example: <c>Tue:17:00-Tue:17:30</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,10 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>Specifies the accessibility options for your new database. A value of <code>true</code>
+        /// <para>Specifies the accessibility options for your new database. A value of <c>true</c>
         /// specifies a database that is available to resources outside of your Lightsail account.
-        /// A value of <code>false</code> specifies a database that is available only to your
-        /// Lightsail resources in the same region as your database.</para>
+        /// A value of <c>false</c> specifies a database that is available only to your Lightsail
+        /// resources in the same region as your database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,8 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The blueprint ID for your new database. A blueprint describes the major engine version
-        /// of a database.</para><para>You can get a list of database blueprints IDs by using the <code>get relational database
-        /// blueprints</code> operation.</para>
+        /// of a database.</para><para>You can get a list of database blueprints IDs by using the <c>get relational database
+        /// blueprints</c> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -191,8 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The bundle ID for your new database. A bundle describes the performance specifications
-        /// for your database.</para><para>You can get a list of database bundle IDs by using the <code>get relational database
-        /// bundles</code> operation.</para>
+        /// for your database.</para><para>You can get a list of database bundle IDs by using the <c>get relational database
+        /// bundles</c> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <code>TagResource</code> action to tag a resource after it's created.</para>
+        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <c>TagResource</c> action to tag a resource after it's created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

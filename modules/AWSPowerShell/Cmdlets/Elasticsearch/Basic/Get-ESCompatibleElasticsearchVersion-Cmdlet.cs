@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
 {
     /// <summary>
     /// Returns a list of upgrade compatible Elastisearch versions. You can optionally pass
-    /// a <code><a>DomainName</a></code> to get all upgrade compatible Elasticsearch versions
+    /// a <c><a>DomainName</a></c> to get all upgrade compatible Elasticsearch versions
     /// for that specific domain.
     /// </summary>
     [Cmdlet("Get", "ESCompatibleElasticsearchVersion")]

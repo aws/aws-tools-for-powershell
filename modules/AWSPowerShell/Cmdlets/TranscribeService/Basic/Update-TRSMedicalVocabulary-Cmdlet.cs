@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The language code that represents the language of the entries in the custom vocabulary
-        /// you want to update. US English (<code>en-US</code>) is the only language supported
-        /// with Amazon Transcribe Medical.</para>
+        /// you want to update. US English (<c>en-US</c>) is the only language supported with
+        /// Amazon Transcribe Medical.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>The Amazon S3 location of the text file that contains your custom medical vocabulary.
         /// The URI must be located in the same Amazon Web Services Region as the resource you're
-        /// calling.</para><para>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-file.txt</code></para>
+        /// calling.</para><para>Here's an example URI path: <c>s3://DOC-EXAMPLE-BUCKET/my-vocab-file.txt</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <summary>
     /// Returns the count, average, sum, minimum, maximum, sum of squares, variance, and standard
     /// deviation for the specified aggregated field. If the aggregation field is of type
-    /// <code>String</code>, only the count statistic is returned.
+    /// <c>String</c>, only the count statistic is returned.
     /// 
     ///  
     /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter IndexName
         /// <summary>
         /// <para>
-        /// <para>The name of the index to search. The default value is <code>AWS_Things</code>.</para>
+        /// <para>The name of the index to search. The default value is <c>AWS_Things</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

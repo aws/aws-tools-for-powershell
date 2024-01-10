@@ -35,22 +35,19 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Permanently deletes a <a>GeoMatchSet</a>. You can't delete a <code>GeoMatchSet</code>
-    /// if it's still used in any <code>Rules</code> or if it still includes any countries.
+    /// Permanently deletes a <a>GeoMatchSet</a>. You can't delete a <c>GeoMatchSet</c> if
+    /// it's still used in any <c>Rules</c> or if it still includes any countries.
     /// </para><para>
-    /// If you just want to remove a <code>GeoMatchSet</code> from a <code>Rule</code>, use
-    /// <a>UpdateRule</a>.
+    /// If you just want to remove a <c>GeoMatchSet</c> from a <c>Rule</c>, use <a>UpdateRule</a>.
     /// </para><para>
-    /// To permanently delete a <code>GeoMatchSet</code> from AWS WAF, perform the following
-    /// steps:
+    /// To permanently delete a <c>GeoMatchSet</c> from AWS WAF, perform the following steps:
     /// </para><ol><li><para>
-    /// Update the <code>GeoMatchSet</code> to remove any countries. For more information,
-    /// see <a>UpdateGeoMatchSet</a>.
+    /// Update the <c>GeoMatchSet</c> to remove any countries. For more information, see <a>UpdateGeoMatchSet</a>.
     /// </para></li><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>DeleteGeoMatchSet</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of a <c>DeleteGeoMatchSet</c> request.
     /// </para></li><li><para>
-    /// Submit a <code>DeleteGeoMatchSet</code> request.
+    /// Submit a <c>DeleteGeoMatchSet</c> request.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Remove", "WAFRGeoMatchSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -85,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter GeoMatchSetId
         /// <summary>
         /// <para>
-        /// <para>The <code>GeoMatchSetID</code> of the <a>GeoMatchSet</a> that you want to delete.
-        /// <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by <a>ListGeoMatchSets</a>.</para>
+        /// <para>The <c>GeoMatchSetID</c> of the <a>GeoMatchSet</a> that you want to delete. <c>GeoMatchSetId</c>
+        /// is returned by <a>CreateGeoMatchSet</a> and by <a>ListGeoMatchSets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

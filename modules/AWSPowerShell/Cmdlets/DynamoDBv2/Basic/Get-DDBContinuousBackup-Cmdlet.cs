@@ -29,20 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
     /// Checks the status of continuous backups and point in time recovery on the specified
-    /// table. Continuous backups are <code>ENABLED</code> on all tables at table creation.
-    /// If point in time recovery is enabled, <code>PointInTimeRecoveryStatus</code> will
-    /// be set to ENABLED.
+    /// table. Continuous backups are <c>ENABLED</c> on all tables at table creation. If point
+    /// in time recovery is enabled, <c>PointInTimeRecoveryStatus</c> will be set to ENABLED.
     /// 
     ///  
     /// <para>
     ///  After continuous backups and point in time recovery are enabled, you can restore
-    /// to any point in time within <code>EarliestRestorableDateTime</code> and <code>LatestRestorableDateTime</code>.
+    /// to any point in time within <c>EarliestRestorableDateTime</c> and <c>LatestRestorableDateTime</c>.
     /// 
-    /// </para><para><code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.
-    /// You can restore your table to any point in time during the last 35 days. 
+    /// </para><para><c>LatestRestorableDateTime</c> is typically 5 minutes before the current time. You
+    /// can restore your table to any point in time during the last 35 days. 
     /// </para><para>
-    /// You can call <code>DescribeContinuousBackups</code> at a maximum rate of 10 times
-    /// per second.
+    /// You can call <c>DescribeContinuousBackups</c> at a maximum rate of 10 times per second.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "DDBContinuousBackup")]

@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// only when all your replication instance versions are 3.4.5 or higher. If any replication
     /// instances are from versions earlier than 3.4.5, the operation raises an error and
     /// tells you to upgrade these instances to version 3.4.5 or higher. To enable migration
-    /// regardless of version, set the <code>Force</code> option to true. However, if you
-    /// don't upgrade instances earlier than version 3.4.5, some types of events might not
-    /// be available when you use Amazon EventBridge.
+    /// regardless of version, set the <c>Force</c> option to true. However, if you don't
+    /// upgrade instances earlier than version 3.4.5, some types of events might not be available
+    /// when you use Amazon EventBridge.
     /// 
     ///  
     /// <para>

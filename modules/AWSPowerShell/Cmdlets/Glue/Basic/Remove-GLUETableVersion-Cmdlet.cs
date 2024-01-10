@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the table version to be deleted. A <code>VersionID</code> is a string representation
+        /// <para>The ID of the table version to be deleted. A <c>VersionID</c> is a string representation
         /// of an integer. Each version is incremented by 1.</para>
         /// </para>
         /// </summary>

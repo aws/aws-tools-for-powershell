@@ -37,16 +37,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// you have readily available.
     /// </para><para>
     /// In the request body, you provide the following:
-    /// </para><ul><li><para><code>TransformJobName</code> - Identifies the transform job. The name must be unique
-    /// within an Amazon Web Services Region in an Amazon Web Services account.
-    /// </para></li><li><para><code>ModelName</code> - Identifies the model to use. <code>ModelName</code> must
-    /// be the name of an existing Amazon SageMaker model in the same Amazon Web Services
-    /// Region and Amazon Web Services account. For information on creating a model, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html">CreateModel</a>.
-    /// </para></li><li><para><code>TransformInput</code> - Describes the dataset to be transformed and the Amazon
-    /// S3 location where it is stored.
-    /// </para></li><li><para><code>TransformOutput</code> - Identifies the Amazon S3 location where you want Amazon
+    /// </para><ul><li><para><c>TransformJobName</c> - Identifies the transform job. The name must be unique within
+    /// an Amazon Web Services Region in an Amazon Web Services account.
+    /// </para></li><li><para><c>ModelName</c> - Identifies the model to use. <c>ModelName</c> must be the name
+    /// of an existing Amazon SageMaker model in the same Amazon Web Services Region and Amazon
+    /// Web Services account. For information on creating a model, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html">CreateModel</a>.
+    /// </para></li><li><para><c>TransformInput</c> - Describes the dataset to be transformed and the Amazon S3
+    /// location where it is stored.
+    /// </para></li><li><para><c>TransformOutput</c> - Identifies the Amazon S3 location where you want Amazon
     /// SageMaker to save the results from the transform job.
-    /// </para></li><li><para><code>TransformResources</code> - Identifies the ML compute instances for the transform
+    /// </para></li><li><para><c>TransformResources</c> - Identifies the ML compute instances for the transform
     /// job.
     /// </para></li></ul><para>
     /// For more information about how batch transformation works, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Batch
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Defines how to assemble the results of the transform job as a single S3 object. Choose
         /// a format that is most convenient to you. To concatenate the results in binary format,
-        /// specify <code>None</code>. To add a newline character at the end of every transformed
-        /// record, specify <code>Line</code>.</para>
+        /// specify <c>None</c>. To add a newline character at the end of every transformed record,
+        /// specify <c>Line</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,12 +95,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Specifies the number of records to include in a mini-batch for an HTTP inference request.
         /// A <i>record</i><i /> is a single unit of input data that inference can be made on.
-        /// For example, a single line in a CSV file is a record. </para><para>To enable the batch strategy, you must set the <code>SplitType</code> property to
-        /// <code>Line</code>, <code>RecordIO</code>, or <code>TFRecord</code>.</para><para>To use only one record when making an HTTP invocation request to a container, set
-        /// <code>BatchStrategy</code> to <code>SingleRecord</code> and <code>SplitType</code>
-        /// to <code>Line</code>.</para><para>To fit as many records in a mini-batch as can fit within the <code>MaxPayloadInMB</code>
-        /// limit, set <code>BatchStrategy</code> to <code>MultiRecord</code> and <code>SplitType</code>
-        /// to <code>Line</code>.</para>
+        /// For example, a single line in a CSV file is a record. </para><para>To enable the batch strategy, you must set the <c>SplitType</c> property to <c>Line</c>,
+        /// <c>RecordIO</c>, or <c>TFRecord</c>.</para><para>To use only one record when making an HTTP invocation request to a container, set
+        /// <c>BatchStrategy</c> to <c>SingleRecord</c> and <c>SplitType</c> to <c>Line</c>.</para><para>To fit as many records in a mini-batch as can fit within the <c>MaxPayloadInMB</c>
+        /// limit, set <c>BatchStrategy</c> to <c>MultiRecord</c> and <c>SplitType</c> to <c>Line</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>If your transform data is compressed, specify the compression type. Amazon SageMaker
         /// automatically decompresses the data for the transform job accordingly. The default
-        /// value is <code>None</code>.</para>
+        /// value is <c>None</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,9 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>A <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators">JSONPath</a>
         /// expression used to select a portion of the input data to pass to the algorithm. Use
-        /// the <code>InputFilter</code> parameter to exclude fields, such as an ID column, from
-        /// the input. If you want SageMaker to pass the entire input dataset to the algorithm,
-        /// accept the default value <code>$</code>.</para><para>Examples: <code>"$"</code>, <code>"$[1:]"</code>, <code>"$.features"</code></para>
+        /// the <c>InputFilter</c> parameter to exclude fields, such as an ID column, from the
+        /// input. If you want SageMaker to pass the entire input dataset to the algorithm, accept
+        /// the default value <c>$</c>.</para><para>Examples: <c>"$"</c>, <c>"$[1:]"</c>, <c>"$.features"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,8 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The number of ML compute instances to use in the transform job. The default value
-        /// is <code>1</code>, and the maximum is <code>100</code>. For distributed transform
-        /// jobs, specify a value greater than <code>1</code>.</para>
+        /// is <c>1</c>, and the maximum is <c>100</c>. For distributed transform jobs, specify
+        /// a value greater than <c>1</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -209,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The ML compute instance type for the transform job. If you are using built-in algorithms
-        /// to transform moderately sized datasets, we recommend using ml.m4.xlarge or <code>ml.m5.large</code>instance
+        /// to transform moderately sized datasets, we recommend using ml.m4.xlarge or <c>ml.m5.large</c>instance
         /// types.</para>
         /// </para>
         /// </summary>
@@ -251,16 +249,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Specifies the source of the data to join with the transformed data. The valid values
-        /// are <code>None</code> and <code>Input</code>. The default value is <code>None</code>,
-        /// which specifies not to join the input with the transformed data. If you want the batch
-        /// transform job to join the original input data with the transformed data, set <code>JoinSource</code>
-        /// to <code>Input</code>. You can specify <code>OutputFilter</code> as an additional
-        /// filter to select a portion of the joined dataset and store it in the output file.</para><para>For JSON or JSONLines objects, such as a JSON array, SageMaker adds the transformed
-        /// data to the input JSON object in an attribute called <code>SageMakerOutput</code>.
-        /// The joined result for JSON must be a key-value pair object. If the input is not a
-        /// key-value pair object, SageMaker creates a new JSON file. In the new JSON file, and
-        /// the input data is stored under the <code>SageMakerInput</code> key and the results
-        /// are stored in <code>SageMakerOutput</code>.</para><para>For CSV data, SageMaker takes each row as a JSON array and joins the transformed data
+        /// are <c>None</c> and <c>Input</c>. The default value is <c>None</c>, which specifies
+        /// not to join the input with the transformed data. If you want the batch transform job
+        /// to join the original input data with the transformed data, set <c>JoinSource</c> to
+        /// <c>Input</c>. You can specify <c>OutputFilter</c> as an additional filter to select
+        /// a portion of the joined dataset and store it in the output file.</para><para>For JSON or JSONLines objects, such as a JSON array, SageMaker adds the transformed
+        /// data to the input JSON object in an attribute called <c>SageMakerOutput</c>. The joined
+        /// result for JSON must be a key-value pair object. If the input is not a key-value pair
+        /// object, SageMaker creates a new JSON file. In the new JSON file, and the input data
+        /// is stored under the <c>SageMakerInput</c> key and the results are stored in <c>SageMakerOutput</c>.</para><para>For CSV data, SageMaker takes each row as a JSON array and joins the transformed data
         /// with the input by appending each transformed row to the end of the input. The joined
         /// data has the original input data followed by the transformed data and the output is
         /// a CSV file.</para><para>For information on how joining in applied, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow">Workflow
@@ -277,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key
         /// that SageMaker uses to encrypt data on the storage volume attached to the ML compute
-        /// instance that hosts the batch transform job.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
+        /// instance that hosts the batch transform job.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Alias name: <c>alias/ExampleAlias</c></para></li><li><para>Alias name ARN: <c>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -289,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
         /// Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side
-        /// encryption. The <code>KmsKeyId</code> can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon
+        /// encryption. The <c>KmsKeyId</c> can be any of the following formats: </para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Alias name: <c>alias/ExampleAlias</c></para></li><li><para>Alias name ARN: <c>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</c></para></li></ul><para>If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon
         /// S3 for your role's account. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed
         /// Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i></para><para>The KMS key policy must grant permission to the IAM role that you specify in your
         /// <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html">CreateModel</a>
@@ -306,13 +303,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The maximum number of parallel requests that can be sent to each instance in a transform
-        /// job. If <code>MaxConcurrentTransforms</code> is set to <code>0</code> or left unset,
-        /// Amazon SageMaker checks the optional execution-parameters to determine the settings
-        /// for your chosen algorithm. If the execution-parameters endpoint is not enabled, the
-        /// default value is <code>1</code>. For more information on execution-parameters, see
-        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How
+        /// job. If <c>MaxConcurrentTransforms</c> is set to <c>0</c> or left unset, Amazon SageMaker
+        /// checks the optional execution-parameters to determine the settings for your chosen
+        /// algorithm. If the execution-parameters endpoint is not enabled, the default value
+        /// is <c>1</c>. For more information on execution-parameters, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How
         /// Containers Serve Requests</a>. For built-in algorithms, you don't need to set a value
-        /// for <code>MaxConcurrentTransforms</code>.</para>
+        /// for <c>MaxConcurrentTransforms</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -324,14 +320,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The maximum allowed size of the payload, in MB. A <i>payload</i> is the data portion
-        /// of a record (without metadata). The value in <code>MaxPayloadInMB</code> must be greater
+        /// of a record (without metadata). The value in <c>MaxPayloadInMB</c> must be greater
         /// than, or equal to, the size of a single record. To estimate the size of a record in
         /// MB, divide the size of your dataset by the number of records. To ensure that the records
         /// fit within the maximum payload size, we recommend using a slightly larger value. The
-        /// default value is <code>6</code> MB. </para><para>The value of <code>MaxPayloadInMB</code> cannot be greater than 100 MB. If you specify
-        /// the <code>MaxConcurrentTransforms</code> parameter, the value of <code>(MaxConcurrentTransforms
-        /// * MaxPayloadInMB)</code> also cannot exceed 100 MB.</para><para>For cases where the payload might be arbitrarily large and is transmitted using HTTP
-        /// chunked encoding, set the value to <code>0</code>. This feature works only in supported
+        /// default value is <c>6</c> MB. </para><para>The value of <c>MaxPayloadInMB</c> cannot be greater than 100 MB. If you specify the
+        /// <c>MaxConcurrentTransforms</c> parameter, the value of <c>(MaxConcurrentTransforms
+        /// * MaxPayloadInMB)</c> also cannot exceed 100 MB.</para><para>For cases where the payload might be arbitrarily large and is transmitted using HTTP
+        /// chunked encoding, set the value to <c>0</c>. This feature works only in supported
         /// algorithms. Currently, Amazon SageMaker built-in algorithms do not support HTTP chunked
         /// encoding.</para>
         /// </para>
@@ -343,7 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelName
         /// <summary>
         /// <para>
-        /// <para>The name of the model that you want to use for the transform job. <code>ModelName</code>
+        /// <para>The name of the model that you want to use for the transform job. <c>ModelName</c>
         /// must be the name of an existing Amazon SageMaker model within an Amazon Web Services
         /// Region in an Amazon Web Services account.</para>
         /// </para>
@@ -365,8 +361,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>A <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators">JSONPath</a>
         /// expression used to select a portion of the joined dataset to save in the output file
         /// for a batch transform job. If you want SageMaker to store the entire input dataset
-        /// in the output file, leave the default value, <code>$</code>. If you specify indexes
-        /// that aren't within the dimension size of the joined dataset, you get an error.</para><para>Examples: <code>"$"</code>, <code>"$[0,5:]"</code>, <code>"$['id','SageMakerOutput']"</code></para>
+        /// in the output file, leave the default value, <c>$</c>. If you specify indexes that
+        /// aren't within the dimension size of the joined dataset, you get an error.</para><para>Examples: <c>"$"</c>, <c>"$[0,5:]"</c>, <c>"$['id','SageMakerOutput']"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -386,11 +382,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter S3DataSource_S3DataType
         /// <summary>
         /// <para>
-        /// <para>If you choose <code>S3Prefix</code>, <code>S3Uri</code> identifies a key name prefix.
-        /// Amazon SageMaker uses all objects with the specified key name prefix for batch transform.
-        /// </para><para>If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object that
-        /// is a manifest file containing a list of object keys that you want Amazon SageMaker
-        /// to use for batch transform. </para><para>The following values are compatible: <code>ManifestFile</code>, <code>S3Prefix</code></para><para>The following value is not compatible: <code>AugmentedManifestFile</code></para>
+        /// <para>If you choose <c>S3Prefix</c>, <c>S3Uri</c> identifies a key name prefix. Amazon SageMaker
+        /// uses all objects with the specified key name prefix for batch transform. </para><para>If you choose <c>ManifestFile</c>, <c>S3Uri</c> identifies an object that is a manifest
+        /// file containing a list of object keys that you want Amazon SageMaker to use for batch
+        /// transform. </para><para>The following values are compatible: <c>ManifestFile</c>, <c>S3Prefix</c></para><para>The following value is not compatible: <c>AugmentedManifestFile</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -409,12 +404,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 path where you want Amazon SageMaker to store the results of the transform
-        /// job. For example, <code>s3://bucket-name/key-name-prefix</code>.</para><para>For every S3 object used as input for the transform job, batch transform stores the
-        /// transformed data with an .<code>out</code> suffix in a corresponding subfolder in
-        /// the location in the output prefix. For example, for the input data stored at <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code>,
-        /// batch transform stores the transformed data at <code>s3://bucket-name/output-name-prefix/input-name-prefix/data.csv.out</code>.
+        /// job. For example, <c>s3://bucket-name/key-name-prefix</c>.</para><para>For every S3 object used as input for the transform job, batch transform stores the
+        /// transformed data with an .<c>out</c> suffix in a corresponding subfolder in the location
+        /// in the output prefix. For example, for the input data stored at <c>s3://bucket-name/input-name-prefix/dataset01/data.csv</c>,
+        /// batch transform stores the transformed data at <c>s3://bucket-name/output-name-prefix/input-name-prefix/data.csv.out</c>.
         /// Batch transform doesn't upload partially processed objects. For an input S3 object
-        /// that contains multiple records, it creates an .<code>out</code> file only if the transform
+        /// that contains multiple records, it creates an .<c>out</c> file only if the transform
         /// job succeeds on the entire file. When the input contains multiple S3 objects, the
         /// batch transform job processes the listed S3 objects and uploads only the output for
         /// successfully processed objects. If any object fails in the transform job batch transform
@@ -435,12 +430,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter S3DataSource_S3Uri
         /// <summary>
         /// <para>
-        /// <para>Depending on the value specified for the <code>S3DataType</code>, identifies either
-        /// a key name prefix or a manifest. For example:</para><ul><li><para> A key name prefix might look like this: <code>s3://bucketname/exampleprefix</code>.
-        /// </para></li><li><para> A manifest might look like this: <code>s3://bucketname/example.manifest</code></para><para> The manifest is an S3 object which is a JSON file with the following format: </para><para><code>[ {"prefix": "s3://customer_bucket/some/prefix/"},</code></para><para><code>"relative/path/to/custdata-1",</code></para><para><code>"relative/path/custdata-2",</code></para><para><code>...</code></para><para><code>"relative/path/custdata-N"</code></para><para><code>]</code></para><para> The preceding JSON matches the following <code>S3Uris</code>: </para><para><code>s3://customer_bucket/some/prefix/relative/path/to/custdata-1</code></para><para><code>s3://customer_bucket/some/prefix/relative/path/custdata-2</code></para><para><code>...</code></para><para><code>s3://customer_bucket/some/prefix/relative/path/custdata-N</code></para><para> The complete set of <code>S3Uris</code> in this manifest constitutes the input data
-        /// for the channel for this datasource. The object that each <code>S3Uris</code> points
-        /// to must be readable by the IAM role that Amazon SageMaker uses to perform tasks on
-        /// your behalf.</para></li></ul>
+        /// <para>Depending on the value specified for the <c>S3DataType</c>, identifies either a key
+        /// name prefix or a manifest. For example:</para><ul><li><para> A key name prefix might look like this: <c>s3://bucketname/exampleprefix</c>. </para></li><li><para> A manifest might look like this: <c>s3://bucketname/example.manifest</c></para><para> The manifest is an S3 object which is a JSON file with the following format: </para><para><c>[ {"prefix": "s3://customer_bucket/some/prefix/"},</c></para><para><c>"relative/path/to/custdata-1",</c></para><para><c>"relative/path/custdata-2",</c></para><para><c>...</c></para><para><c>"relative/path/custdata-N"</c></para><para><c>]</c></para><para> The preceding JSON matches the following <c>S3Uris</c>: </para><para><c>s3://customer_bucket/some/prefix/relative/path/to/custdata-1</c></para><para><c>s3://customer_bucket/some/prefix/relative/path/custdata-2</c></para><para><c>...</c></para><para><c>s3://customer_bucket/some/prefix/relative/path/custdata-N</c></para><para> The complete set of <c>S3Uris</c> in this manifest constitutes the input data for
+        /// the channel for this datasource. The object that each <c>S3Uris</c> points to must
+        /// be readable by the IAM role that Amazon SageMaker uses to perform tasks on your behalf.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -461,21 +454,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The method to use to split the transform job's data files into smaller batches. Splitting
         /// is necessary when the total size of each object is too large to fit in a single request.
         /// You can also use data splitting to improve performance by processing multiple concurrent
-        /// mini-batches. The default value for <code>SplitType</code> is <code>None</code>, which
-        /// indicates that input data files are not split, and request payloads contain the entire
-        /// contents of an input object. Set the value of this parameter to <code>Line</code>
-        /// to split records on a newline character boundary. <code>SplitType</code> also supports
-        /// a number of record-oriented binary data formats. Currently, the supported record formats
-        /// are:</para><ul><li><para>RecordIO</para></li><li><para>TFRecord</para></li></ul><para>When splitting is enabled, the size of a mini-batch depends on the values of the <code>BatchStrategy</code>
-        /// and <code>MaxPayloadInMB</code> parameters. When the value of <code>BatchStrategy</code>
-        /// is <code>MultiRecord</code>, Amazon SageMaker sends the maximum number of records
-        /// in each request, up to the <code>MaxPayloadInMB</code> limit. If the value of <code>BatchStrategy</code>
-        /// is <code>SingleRecord</code>, Amazon SageMaker sends individual records in each request.</para><note><para>Some data formats represent a record as a binary payload wrapped with extra padding
+        /// mini-batches. The default value for <c>SplitType</c> is <c>None</c>, which indicates
+        /// that input data files are not split, and request payloads contain the entire contents
+        /// of an input object. Set the value of this parameter to <c>Line</c> to split records
+        /// on a newline character boundary. <c>SplitType</c> also supports a number of record-oriented
+        /// binary data formats. Currently, the supported record formats are:</para><ul><li><para>RecordIO</para></li><li><para>TFRecord</para></li></ul><para>When splitting is enabled, the size of a mini-batch depends on the values of the <c>BatchStrategy</c>
+        /// and <c>MaxPayloadInMB</c> parameters. When the value of <c>BatchStrategy</c> is <c>MultiRecord</c>,
+        /// Amazon SageMaker sends the maximum number of records in each request, up to the <c>MaxPayloadInMB</c>
+        /// limit. If the value of <c>BatchStrategy</c> is <c>SingleRecord</c>, Amazon SageMaker
+        /// sends individual records in each request.</para><note><para>Some data formats represent a record as a binary payload wrapped with extra padding
         /// bytes. When splitting is applied to a binary data format, padding is removed if the
-        /// value of <code>BatchStrategy</code> is set to <code>SingleRecord</code>. Padding is
-        /// not removed if the value of <code>BatchStrategy</code> is set to <code>MultiRecord</code>.</para><para>For more information about <code>RecordIO</code>, see <a href="https://mxnet.apache.org/api/faq/recordio">Create
+        /// value of <c>BatchStrategy</c> is set to <c>SingleRecord</c>. Padding is not removed
+        /// if the value of <c>BatchStrategy</c> is set to <c>MultiRecord</c>.</para><para>For more information about <c>RecordIO</c>, see <a href="https://mxnet.apache.org/api/faq/recordio">Create
         /// a Dataset Using RecordIO</a> in the MXNet documentation. For more information about
-        /// <code>TFRecord</code>, see <a href="https://www.tensorflow.org/guide/data#consuming_tfrecord_data">Consuming
+        /// <c>TFRecord</c>, see <a href="https://www.tensorflow.org/guide/data#consuming_tfrecord_data">Consuming
         /// TFRecord data</a> in the TensorFlow documentation.</para></note>
         /// </para>
         /// </summary>
@@ -544,9 +536,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// Amazon SageMaker uses to encrypt model data on the storage volume attached to the
         /// ML compute instance(s) that run the batch transform job.</para><note><para>Certain Nitro-based instances include local storage, dependent on the instance type.
         /// Local storage volumes are encrypted using a hardware module on the instance. You can't
-        /// request a <code>VolumeKmsKeyId</code> when using an instance type with local storage.</para><para>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance
+        /// request a <c>VolumeKmsKeyId</c> when using an instance type with local storage.</para><para>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance
         /// Store Volumes</a>.</para><para>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
-        /// Instance Store Volumes</a>.</para></note><para> The <code>VolumeKmsKeyId</code> can be any of the following formats:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
+        /// Instance Store Volumes</a>.</para></note><para> The <c>VolumeKmsKeyId</c> can be any of the following formats:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Alias name: <c>alias/ExampleAlias</c></para></li><li><para>Alias name ARN: <c>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

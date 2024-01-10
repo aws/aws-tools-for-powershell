@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     /// <summary>
     /// Creates an Amazon Chime SDK Voice Connector group under the administrator's AWS account.
     /// You can associate Amazon Chime SDK Voice Connectors with the Voice Connector group
-    /// by including <code>VoiceConnectorItems</code> in the request. 
+    /// by including <c>VoiceConnectorItems</c> in the request. 
     /// 
     ///  
     /// <para>

@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Use the <code>SearchDataSources</code> operation to search for data sources that belong
+    /// Use the <c>SearchDataSources</c> operation to search for data sources that belong
     /// to an account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "QSDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

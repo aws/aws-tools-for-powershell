@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
     /// 
     ///  
     /// <para>
-    /// With <code>autoEnableOrganizationMembers</code> configuration for your organization
-    /// set to <code>ALL</code>, you'll receive an error if you attempt to disable GuardDuty
-    /// for a member account in your organization.
+    /// With <c>autoEnableOrganizationMembers</c> configuration for your organization set
+    /// to <c>ALL</c>, you'll receive an error if you attempt to disable GuardDuty for a member
+    /// account in your organization.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "GDMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

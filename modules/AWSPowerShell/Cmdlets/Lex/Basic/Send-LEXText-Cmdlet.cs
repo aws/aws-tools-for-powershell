@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.LEX
     /// 
     ///  
     /// <para>
-    ///  In response, Amazon Lex returns the next <code>message</code> to convey to the user
-    /// an optional <code>responseCard</code> to display. Consider the following example messages:
+    ///  In response, Amazon Lex returns the next <c>message</c> to convey to the user an
+    /// optional <c>responseCard</c> to display. Consider the following example messages:
     /// 
     /// </para><ul><li><para>
     ///  For a user input "I would like a pizza", Amazon Lex might return a response with
@@ -51,28 +51,28 @@ namespace Amazon.PowerShell.Cmdlets.LEX
     /// </para></li></ul><para>
     ///  Not all Amazon Lex messages require a user response. For example, a conclusion statement
     /// does not require a response. Some messages require only a "yes" or "no" user response.
-    /// In addition to the <code>message</code>, Amazon Lex provides additional context about
-    /// the message in the response that you might use to enhance client behavior, for example,
-    /// to display the appropriate client user interface. These are the <code>slotToElicit</code>,
-    /// <code>dialogState</code>, <code>intentName</code>, and <code>slots</code> fields in
-    /// the response. Consider the following examples: 
+    /// In addition to the <c>message</c>, Amazon Lex provides additional context about the
+    /// message in the response that you might use to enhance client behavior, for example,
+    /// to display the appropriate client user interface. These are the <c>slotToElicit</c>,
+    /// <c>dialogState</c>, <c>intentName</c>, and <c>slots</c> fields in the response. Consider
+    /// the following examples: 
     /// </para><ul><li><para>
     /// If the message is to elicit slot data, Amazon Lex returns the following context information:
-    /// </para><ul><li><para><code>dialogState</code> set to ElicitSlot 
-    /// </para></li><li><para><code>intentName</code> set to the intent name in the current context 
-    /// </para></li><li><para><code>slotToElicit</code> set to the slot name for which the <code>message</code>
-    /// is eliciting information 
-    /// </para></li><li><para><code>slots</code> set to a map of slots, configured for the intent, with currently
-    /// known values 
+    /// </para><ul><li><para><c>dialogState</c> set to ElicitSlot 
+    /// </para></li><li><para><c>intentName</c> set to the intent name in the current context 
+    /// </para></li><li><para><c>slotToElicit</c> set to the slot name for which the <c>message</c> is eliciting
+    /// information 
+    /// </para></li><li><para><c>slots</c> set to a map of slots, configured for the intent, with currently known
+    /// values 
     /// </para></li></ul></li><li><para>
-    ///  If the message is a confirmation prompt, the <code>dialogState</code> is set to ConfirmIntent
-    /// and <code>SlotToElicit</code> is set to null. 
+    ///  If the message is a confirmation prompt, the <c>dialogState</c> is set to ConfirmIntent
+    /// and <c>SlotToElicit</c> is set to null. 
     /// </para></li><li><para>
     /// If the message is a clarification prompt (configured for the intent) that indicates
-    /// that user intent is not understood, the <code>dialogState</code> is set to ElicitIntent
-    /// and <code>slotToElicit</code> is set to null. 
+    /// that user intent is not understood, the <c>dialogState</c> is set to ElicitIntent
+    /// and <c>slotToElicit</c> is set to null. 
     /// </para></li></ul><para>
-    ///  In addition, Amazon Lex also returns your application-specific <code>sessionAttributes</code>.
+    ///  In addition, Amazon Lex also returns your application-specific <c>sessionAttributes</c>.
     /// For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html">Managing
     /// Conversation Context</a>. 
     /// </para>
@@ -159,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         #region Parameter RequestAttribute
         /// <summary>
         /// <para>
-        /// <para>Request-specific information passed between Amazon Lex and a client application.</para><para>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create
-        /// any request attributes with the prefix <code>x-amz-lex:</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs">Setting
+        /// <para>Request-specific information passed between Amazon Lex and a client application.</para><para>The namespace <c>x-amz-lex:</c> is reserved for special attributes. Don't create any
+        /// request attributes with the prefix <c>x-amz-lex:</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs">Setting
         /// Request Attributes</a>.</para>
         /// </para>
         /// </summary>
@@ -185,9 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         /// <summary>
         /// <para>
         /// <para>The ID of the client application user. Amazon Lex uses this to identify a user's conversation
-        /// with your bot. At runtime, each request must contain the <code>userID</code> field.</para><para>To decide the user ID to use for your application, consider the following factors.</para><ul><li><para>The <code>userID</code> field must not contain any personally identifiable information
-        /// of the user, for example, name, personal identification numbers, or other end user
-        /// personal information.</para></li><li><para>If you want a user to start a conversation on one device and continue on another device,
+        /// with your bot. At runtime, each request must contain the <c>userID</c> field.</para><para>To decide the user ID to use for your application, consider the following factors.</para><ul><li><para>The <c>userID</c> field must not contain any personally identifiable information of
+        /// the user, for example, name, personal identification numbers, or other end user personal
+        /// information.</para></li><li><para>If you want a user to start a conversation on one device and continue on another device,
         /// use a user-specific identifier.</para></li><li><para>If you want the same user to be able to have two independent conversations on two
         /// different devices, choose a device-specific identifier.</para></li><li><para>A user can't have two independent conversations with two different versions of the
         /// same bot. For example, a user can't have a conversation with the PROD and BETA versions

@@ -28,20 +28,20 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Suspends up to 50 users from a <code>Team</code> or <code>EnterpriseLWA</code> Amazon
-    /// Chime account. For more information about different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing
+    /// Suspends up to 50 users from a <c>Team</c> or <c>EnterpriseLWA</c> Amazon Chime account.
+    /// For more information about different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing
     /// Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration Guide</i>.
     /// 
     ///  
     /// <para>
-    /// Users suspended from a <code>Team</code> account are disassociated from the account,but
+    /// Users suspended from a <c>Team</c> account are disassociated from the account,but
     /// they can continue to use Amazon Chime as free users. To remove the suspension from
-    /// suspended <code>Team</code> account users, invite them to the <code>Team</code> account
-    /// again. You can use the <a>InviteUsers</a> action to do so.
+    /// suspended <c>Team</c> account users, invite them to the <c>Team</c> account again.
+    /// You can use the <a>InviteUsers</a> action to do so.
     /// </para><para>
-    /// Users suspended from an <code>EnterpriseLWA</code> account are immediately signed
-    /// out of Amazon Chime and can no longer sign in. To remove the suspension from suspended
-    /// <code>EnterpriseLWA</code> account users, use the <a>BatchUnsuspendUser</a> action.
+    /// Users suspended from an <c>EnterpriseLWA</c> account are immediately signed out of
+    /// Amazon Chime and can no longer sign in. To remove the suspension from suspended <c>EnterpriseLWA</c>
+    /// account users, use the <a>BatchUnsuspendUser</a> action.
     /// </para><para>
     ///  To sign out users without suspending them, use the <a>LogoutUser</a> action.
     /// </para>

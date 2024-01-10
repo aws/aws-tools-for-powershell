@@ -94,9 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The ARN of the Identity and Access Management (IAM) role that Amazon Forecast can
-        /// assume to access the Amazon S3 bucket or files. If you provide a value for the <code>KMSKeyArn</code>
+        /// assume to access the Amazon S3 bucket or files. If you provide a value for the <c>KMSKeyArn</c>
         /// key, the role must allow access to the key.</para><para>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role
-        /// that isn't in your account, you get an <code>InvalidInputException</code> error.</para>
+        /// that isn't in your account, you get an <c>InvalidInputException</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

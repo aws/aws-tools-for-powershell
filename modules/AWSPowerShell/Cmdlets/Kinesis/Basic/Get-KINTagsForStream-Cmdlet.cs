@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// five transactions per second per account.
     /// 
     ///  <note><para>
-    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
-    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
-    /// parameter when you invoke this API.
+    /// When invoking this API, you must use either the <c>StreamARN</c> or the <c>StreamName</c>
+    /// parameter, or both. It is recommended that you use the <c>StreamARN</c> input parameter
+    /// when you invoke this API.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "KINTagsForStream")]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <summary>
         /// <para>
         /// <para>The key to use as the starting point for the list of tags. If this parameter is set,
-        /// <code>ListTagsForStream</code> gets all tags that occur after <code>ExclusiveStartTagKey</code>.
+        /// <c>ListTagsForStream</c> gets all tags that occur after <c>ExclusiveStartTagKey</c>.
         /// </para>
         /// </para>
         /// </summary>
@@ -84,9 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <summary>
         /// <para>
         /// <para>The number of tags to return. If this number is less than the total number of tags
-        /// associated with the stream, <code>HasMoreTags</code> is set to <code>true</code>.
-        /// To list additional tags, set <code>ExclusiveStartTagKey</code> to the last key in
-        /// the response.</para>
+        /// associated with the stream, <c>HasMoreTags</c> is set to <c>true</c>. To list additional
+        /// tags, set <c>ExclusiveStartTagKey</c> to the last key in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

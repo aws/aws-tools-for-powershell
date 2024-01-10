@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>A list of authorization info objects. Simulating authorization will create a response
-        /// for each <code>authInfo</code> object in the list.</para>
+        /// for each <c>authInfo</c> object in the list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

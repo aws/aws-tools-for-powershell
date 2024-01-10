@@ -39,9 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
     /// Request that you return a network resource.
     /// </para></li></ul><para>
     /// After you submit a request to replace or return a network resource, the status of
-    /// the network resource changes to <code>CREATING_SHIPPING_LABEL</code>. The shipping
-    /// label is available when the status of the network resource is <code>PENDING_RETURN</code>.
-    /// After the network resource is successfully returned, its status changes to <code>DELETED</code>.
+    /// the network resource changes to <c>CREATING_SHIPPING_LABEL</c>. The shipping label
+    /// is available when the status of the network resource is <c>PENDING_RETURN</c>. After
+    /// the network resource is successfully returned, its status changes to <c>DELETED</c>.
     /// For more information, see <a href="https://docs.aws.amazon.com/private-networks/latest/userguide/radio-units.html#return-radio-unit">Return
     /// a radio unit</a>.
     /// </para>
@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
         /// <summary>
         /// <para>
         /// <para>Determines whether the commitment period for a radio unit is set to automatically
-        /// renew for an additional 1 year after your current commitment period expires.</para><para>Set to <code>True</code>, if you want your commitment period to automatically renew.
-        /// Set to <code>False</code> if you do not want your commitment to automatically renew.</para><para>You can do the following:</para><ul><li><para>Set a 1-year commitment to automatically renew for an additional 1 year. The hourly
+        /// renew for an additional 1 year after your current commitment period expires.</para><para>Set to <c>True</c>, if you want your commitment period to automatically renew. Set
+        /// to <c>False</c> if you do not want your commitment to automatically renew.</para><para>You can do the following:</para><ul><li><para>Set a 1-year commitment to automatically renew for an additional 1 year. The hourly
         /// rate for the additional year will continue to be the same as your existing 1-year
         /// rate.</para></li><li><para>Set a 3-year commitment to automatically renew for an additional 1 year. The hourly
         /// rate for the additional year will continue to be the same as your existing 3-year
@@ -230,11 +230,11 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
         #region Parameter UpdateType
         /// <summary>
         /// <para>
-        /// <para>The update type.</para><ul><li><para><code>REPLACE</code> - Submits a request to replace a defective radio unit. We provide
+        /// <para>The update type.</para><ul><li><para><c>REPLACE</c> - Submits a request to replace a defective radio unit. We provide
         /// a shipping label that you can use for the return process and we ship a replacement
-        /// radio unit to you.</para></li><li><para><code>RETURN</code> - Submits a request to return a radio unit that you no longer
-        /// need. We provide a shipping label that you can use for the return process.</para></li><li><para><code>COMMITMENT</code> - Submits a request to change or renew the commitment period.
-        /// If you choose this value, then you must set <a href="https://docs.aws.amazon.com/private-networks/latest/APIReference/API_StartNetworkResourceUpdate.html#privatenetworks-StartNetworkResourceUpdate-request-commitmentConfiguration"><code>commitmentConfiguration</code></a>.</para></li></ul>
+        /// radio unit to you.</para></li><li><para><c>RETURN</c> - Submits a request to return a radio unit that you no longer need.
+        /// We provide a shipping label that you can use for the return process.</para></li><li><para><c>COMMITMENT</c> - Submits a request to change or renew the commitment period. If
+        /// you choose this value, then you must set <a href="https://docs.aws.amazon.com/private-networks/latest/APIReference/API_StartNetworkResourceUpdate.html#privatenetworks-StartNetworkResourceUpdate-request-commitmentConfiguration"><c>commitmentConfiguration</c></a>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

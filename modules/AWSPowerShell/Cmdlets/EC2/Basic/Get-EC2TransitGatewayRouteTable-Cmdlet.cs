@@ -46,11 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. The possible values are:</para><ul><li><para><code>default-association-route-table</code> - Indicates whether this is the default
-        /// association route table for the transit gateway (<code>true</code> | <code>false</code>).</para></li><li><para><code>default-propagation-route-table</code> - Indicates whether this is the default
-        /// propagation route table for the transit gateway (<code>true</code> | <code>false</code>).</para></li><li><para><code>state</code> - The state of the route table (<code>available</code> | <code>deleting</code>
-        /// | <code>deleted</code> | <code>pending</code>).</para></li><li><para><code>transit-gateway-id</code> - The ID of the transit gateway.</para></li><li><para><code>transit-gateway-route-table-id</code> - The ID of the transit gateway route
-        /// table.</para></li></ul>
+        /// <para>One or more filters. The possible values are:</para><ul><li><para><c>default-association-route-table</c> - Indicates whether this is the default association
+        /// route table for the transit gateway (<c>true</c> | <c>false</c>).</para></li><li><para><c>default-propagation-route-table</c> - Indicates whether this is the default propagation
+        /// route table for the transit gateway (<c>true</c> | <c>false</c>).</para></li><li><para><c>state</c> - The state of the route table (<c>available</c> | <c>deleting</c> |
+        /// <c>deleted</c> | <c>pending</c>).</para></li><li><para><c>transit-gateway-id</c> - The ID of the transit gateway.</para></li><li><para><c>transit-gateway-route-table-id</c> - The ID of the transit gateway route table.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

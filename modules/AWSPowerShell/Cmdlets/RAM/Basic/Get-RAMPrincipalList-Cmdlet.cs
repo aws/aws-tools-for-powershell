@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>Specifies that you want to list information for only the listed principals.</para><para>You can include the following values:</para><ul><li><para>An Amazon Web Services account ID, for example: <code>123456789012</code></para></li><li><para>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of an organization in Organizations, for example: <code>organizations::123456789012:organization/o-exampleorgid</code></para></li><li><para>An ARN of an organizational unit (OU) in Organizations, for example: <code>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</code></para></li><li><para>An ARN of an IAM role, for example: <code>iam::123456789012:role/rolename</code></para></li><li><para>An ARN of an IAM user, for example: <code>iam::123456789012user/username</code></para></li></ul><note><para>Not all resource types can be shared with IAM roles and users. For more information,
+        /// <para>Specifies that you want to list information for only the listed principals.</para><para>You can include the following values:</para><ul><li><para>An Amazon Web Services account ID, for example: <c>123456789012</c></para></li><li><para>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Name (ARN)</a> of an organization in Organizations, for example: <c>organizations::123456789012:organization/o-exampleorgid</c></para></li><li><para>An ARN of an organizational unit (OU) in Organizations, for example: <c>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</c></para></li><li><para>An ARN of an IAM role, for example: <c>iam::123456789012:role/rolename</c></para></li><li><para>An ARN of an IAM user, for example: <c>iam::123456789012user/username</c></para></li></ul><note><para>Not all resource types can be shared with IAM roles and users. For more information,
         /// see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing
         /// with IAM roles and users</a> in the <i>Resource Access Manager User Guide</i>.</para></note>
         /// </para>
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <summary>
         /// <para>
         /// <para>Specifies that you want to list information for only resource shares that match the
-        /// following:</para><ul><li><para><b><code>SELF</code></b> – principals that your account is sharing resources with</para></li><li><para><b><code>OTHER-ACCOUNTS</code></b> – principals that are sharing resources with
-        /// your account</para></li></ul>
+        /// following:</para><ul><li><para><b><c>SELF</c></b> – principals that your account is sharing resources with</para></li><li><para><b><c>OTHER-ACCOUNTS</c></b> – principals that are sharing resources with your
+        /// account</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -117,11 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <para>
         /// <para>Specifies the total number of results that you want included on each page of the response.
         /// If you do not include this parameter, it defaults to a value that is specific to the
-        /// operation. If additional items exist beyond the number you specify, the <code>NextToken</code>
+        /// operation. If additional items exist beyond the number you specify, the <c>NextToken</c>
         /// response element is returned with a value (not null). Include the specified value
-        /// as the <code>NextToken</code> request parameter in the next call to the operation
-        /// to get the next part of the results. Note that the service might return fewer results
-        /// than the maximum even when there are more results available. You should check <code>NextToken</code>
+        /// as the <c>NextToken</c> request parameter in the next call to the operation to get
+        /// the next part of the results. Note that the service might return fewer results than
+        /// the maximum even when there are more results available. You should check <c>NextToken</c>
         /// after every operation to ensure that you receive all of the results.</para>
         /// </para>
         /// <para>
@@ -140,9 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <summary>
         /// <para>
         /// <para>Specifies that you want to receive the next page of results. Valid only if you received
-        /// a <code>NextToken</code> response in the previous request. If you did, it indicates
-        /// that more output is available. Set this parameter to the value provided by the previous
-        /// call's <code>NextToken</code> response to request the next page of results.</para>
+        /// a <c>NextToken</c> response in the previous request. If you did, it indicates that
+        /// more output is available. Set this parameter to the value provided by the previous
+        /// call's <c>NextToken</c> response to request the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

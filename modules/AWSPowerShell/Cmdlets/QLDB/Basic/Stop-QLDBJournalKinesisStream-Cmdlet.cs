@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
 {
     /// <summary>
     /// Ends a given Amazon QLDB journal stream. Before a stream can be canceled, its current
-    /// status must be <code>ACTIVE</code>.
+    /// status must be <c>ACTIVE</c>.
     /// 
     ///  
     /// <para>

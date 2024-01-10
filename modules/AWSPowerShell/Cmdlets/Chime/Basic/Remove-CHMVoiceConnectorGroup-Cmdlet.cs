@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Deletes the specified Amazon Chime Voice Connector group. Any <code>VoiceConnectorItems</code>
+    /// Deletes the specified Amazon Chime Voice Connector group. Any <c>VoiceConnectorItems</c>
     /// and phone numbers associated with the group must be removed before it can be deleted.
     /// 
     ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// the CRL are unauthorized to receive session credentials.
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:EnableCrl</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:EnableCrl</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "IAMRACrl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

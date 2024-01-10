@@ -28,7 +28,7 @@ using Amazon.IoTThingsGraph.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
-    /// Gets the latest version of the <code>DefinitionDocument</code> and <code>FlowTemplateSummary</code>
+    /// Gets the latest version of the <c>DefinitionDocument</c> and <c>FlowTemplateSummary</c>
     /// for the specified workflow.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "IOTTGFlowTemplate")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the workflow.</para><para>The ID should be in the following format.</para><para><code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code></para>
+        /// <para>The ID of the workflow.</para><para>The ID should be in the following format.</para><para><c>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

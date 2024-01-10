@@ -85,46 +85,41 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// <para>The metric for which you want to return information.</para><para>Valid instance metric names are listed below, along with the most useful <code>statistics</code>
-        /// to include in your request, and the published <code>unit</code> value.</para><ul><li><para><b><code>BurstCapacityPercentage</code></b> - The percentage of CPU performance
-        /// available for your instance to burst above its baseline. Your instance continuously
-        /// accrues and consumes burst capacity. Burst capacity stops accruing when your instance's
-        /// <code>BurstCapacityPercentage</code> reaches 100%. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-burst-capacity">Viewing
-        /// instance burst capacity in Amazon Lightsail</a>.</para><para><code>Statistics</code>: The most useful statistics are <code>Maximum</code> and
-        /// <code>Average</code>.</para><para><code>Unit</code>: The published unit is <code>Percent</code>.</para></li><li><para><b><code>BurstCapacityTime</code></b> - The available amount of time for your instance
+        /// <para>The metric for which you want to return information.</para><para>Valid instance metric names are listed below, along with the most useful <c>statistics</c>
+        /// to include in your request, and the published <c>unit</c> value.</para><ul><li><para><b><c>BurstCapacityPercentage</c></b> - The percentage of CPU performance available
+        /// for your instance to burst above its baseline. Your instance continuously accrues
+        /// and consumes burst capacity. Burst capacity stops accruing when your instance's <c>BurstCapacityPercentage</c>
+        /// reaches 100%. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-burst-capacity">Viewing
+        /// instance burst capacity in Amazon Lightsail</a>.</para><para><c>Statistics</c>: The most useful statistics are <c>Maximum</c> and <c>Average</c>.</para><para><c>Unit</c>: The published unit is <c>Percent</c>.</para></li><li><para><b><c>BurstCapacityTime</c></b> - The available amount of time for your instance
         /// to burst at 100% CPU utilization. Your instance continuously accrues and consumes
-        /// burst capacity. Burst capacity time stops accruing when your instance's <code>BurstCapacityPercentage</code>
+        /// burst capacity. Burst capacity time stops accruing when your instance's <c>BurstCapacityPercentage</c>
         /// metric reaches 100%.</para><para>Burst capacity time is consumed at the full rate only when your instance operates
         /// at 100% CPU utilization. For example, if your instance operates at 50% CPU utilization
         /// in the burstable zone for a 5-minute period, then it consumes CPU burst capacity minutes
         /// at a 50% rate in that period. Your instance consumed 2 minutes and 30 seconds of CPU
         /// burst capacity minutes in the 5-minute period. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-burst-capacity">Viewing
-        /// instance burst capacity in Amazon Lightsail</a>.</para><para><code>Statistics</code>: The most useful statistics are <code>Maximum</code> and
-        /// <code>Average</code>.</para><para><code>Unit</code>: The published unit is <code>Seconds</code>.</para></li><li><para><b><code>CPUUtilization</code></b> - The percentage of allocated compute units
-        /// that are currently in use on the instance. This metric identifies the processing power
-        /// to run the applications on the instance. Tools in your operating system can show a
-        /// lower percentage than Lightsail when the instance is not allocated a full processor
-        /// core.</para><para><code>Statistics</code>: The most useful statistics are <code>Maximum</code> and
-        /// <code>Average</code>.</para><para><code>Unit</code>: The published unit is <code>Percent</code>.</para></li><li><para><b><code>NetworkIn</code></b> - The number of bytes received on all network interfaces
+        /// instance burst capacity in Amazon Lightsail</a>.</para><para><c>Statistics</c>: The most useful statistics are <c>Maximum</c> and <c>Average</c>.</para><para><c>Unit</c>: The published unit is <c>Seconds</c>.</para></li><li><para><b><c>CPUUtilization</c></b> - The percentage of allocated compute units that are
+        /// currently in use on the instance. This metric identifies the processing power to run
+        /// the applications on the instance. Tools in your operating system can show a lower
+        /// percentage than Lightsail when the instance is not allocated a full processor core.</para><para><c>Statistics</c>: The most useful statistics are <c>Maximum</c> and <c>Average</c>.</para><para><c>Unit</c>: The published unit is <c>Percent</c>.</para></li><li><para><b><c>NetworkIn</c></b> - The number of bytes received on all network interfaces
         /// by the instance. This metric identifies the volume of incoming network traffic to
         /// the instance. The number reported is the number of bytes received during the period.
         /// Because this metric is reported in 5-minute intervals, divide the reported number
-        /// by 300 to find Bytes/second.</para><para><code>Statistics</code>: The most useful statistic is <code>Sum</code>.</para><para><code>Unit</code>: The published unit is <code>Bytes</code>.</para></li><li><para><b><code>NetworkOut</code></b> - The number of bytes sent out on all network interfaces
+        /// by 300 to find Bytes/second.</para><para><c>Statistics</c>: The most useful statistic is <c>Sum</c>.</para><para><c>Unit</c>: The published unit is <c>Bytes</c>.</para></li><li><para><b><c>NetworkOut</c></b> - The number of bytes sent out on all network interfaces
         /// by the instance. This metric identifies the volume of outgoing network traffic from
         /// the instance. The number reported is the number of bytes sent during the period. Because
         /// this metric is reported in 5-minute intervals, divide the reported number by 300 to
-        /// find Bytes/second.</para><para><code>Statistics</code>: The most useful statistic is <code>Sum</code>.</para><para><code>Unit</code>: The published unit is <code>Bytes</code>.</para></li><li><para><b><code>StatusCheckFailed</code></b> - Reports whether the instance passed or
-        /// failed both the instance status check and the system status check. This metric can
-        /// be either 0 (passed) or 1 (failed). This metric data is available in 1-minute (60
-        /// seconds) granularity.</para><para><code>Statistics</code>: The most useful statistic is <code>Sum</code>.</para><para><code>Unit</code>: The published unit is <code>Count</code>.</para></li><li><para><b><code>StatusCheckFailed_Instance</code></b> - Reports whether the instance passed
+        /// find Bytes/second.</para><para><c>Statistics</c>: The most useful statistic is <c>Sum</c>.</para><para><c>Unit</c>: The published unit is <c>Bytes</c>.</para></li><li><para><b><c>StatusCheckFailed</c></b> - Reports whether the instance passed or failed
+        /// both the instance status check and the system status check. This metric can be either
+        /// 0 (passed) or 1 (failed). This metric data is available in 1-minute (60 seconds) granularity.</para><para><c>Statistics</c>: The most useful statistic is <c>Sum</c>.</para><para><c>Unit</c>: The published unit is <c>Count</c>.</para></li><li><para><b><c>StatusCheckFailed_Instance</c></b> - Reports whether the instance passed
         /// or failed the instance status check. This metric can be either 0 (passed) or 1 (failed).
-        /// This metric data is available in 1-minute (60 seconds) granularity.</para><para><code>Statistics</code>: The most useful statistic is <code>Sum</code>.</para><para><code>Unit</code>: The published unit is <code>Count</code>.</para></li><li><para><b><code>StatusCheckFailed_System</code></b> - Reports whether the instance passed
-        /// or failed the system status check. This metric can be either 0 (passed) or 1 (failed).
-        /// This metric data is available in 1-minute (60 seconds) granularity.</para><para><code>Statistics</code>: The most useful statistic is <code>Sum</code>.</para><para><code>Unit</code>: The published unit is <code>Count</code>.</para></li><li><para><b><code>MetadataNoToken</code></b> - Reports the number of times that the instance
-        /// metadata service was successfully accessed without a token. This metric determines
-        /// if there are any processes accessing instance metadata by using Instance Metadata
-        /// Service Version 1, which doesn't use a token. If all requests use token-backed sessions,
-        /// such as Instance Metadata Service Version 2, then the value is 0.</para><para><code>Statistics</code>: The most useful statistic is <code>Sum</code>.</para><para><code>Unit</code>: The published unit is <code>Count</code>.</para></li></ul>
+        /// This metric data is available in 1-minute (60 seconds) granularity.</para><para><c>Statistics</c>: The most useful statistic is <c>Sum</c>.</para><para><c>Unit</c>: The published unit is <c>Count</c>.</para></li><li><para><b><c>StatusCheckFailed_System</c></b> - Reports whether the instance passed or
+        /// failed the system status check. This metric can be either 0 (passed) or 1 (failed).
+        /// This metric data is available in 1-minute (60 seconds) granularity.</para><para><c>Statistics</c>: The most useful statistic is <c>Sum</c>.</para><para><c>Unit</c>: The published unit is <c>Count</c>.</para></li><li><para><b><c>MetadataNoToken</c></b> - Reports the number of times that the instance metadata
+        /// service was successfully accessed without a token. This metric determines if there
+        /// are any processes accessing instance metadata by using Instance Metadata Service Version
+        /// 1, which doesn't use a token. If all requests use token-backed sessions, such as Instance
+        /// Metadata Service Version 2, then the value is 0.</para><para><c>Statistics</c>: The most useful statistic is <c>Sum</c>.</para><para><c>Unit</c>: The published unit is <c>Count</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -141,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para>The granularity, in seconds, of the returned data points.</para><para>The <code>StatusCheckFailed</code>, <code>StatusCheckFailed_Instance</code>, and <code>StatusCheckFailed_System</code>
+        /// <para>The granularity, in seconds, of the returned data points.</para><para>The <c>StatusCheckFailed</c>, <c>StatusCheckFailed_Instance</c>, and <c>StatusCheckFailed_System</c>
         /// instance metric data is available in 1-minute (60 seconds) granularity. All other
         /// instance metric data is available in 5-minute (300 seconds) granularity.</para>
         /// </para>
@@ -175,13 +170,13 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Statistic
         /// <summary>
         /// <para>
-        /// <para>The statistic for the metric.</para><para>The following statistics are available:</para><ul><li><para><code>Minimum</code> - The lowest value observed during the specified period. Use
-        /// this value to determine low volumes of activity for your application.</para></li><li><para><code>Maximum</code> - The highest value observed during the specified period. Use
-        /// this value to determine high volumes of activity for your application.</para></li><li><para><code>Sum</code> - All values submitted for the matching metric added together. You
-        /// can use this statistic to determine the total volume of a metric.</para></li><li><para><code>Average</code> - The value of Sum / SampleCount during the specified period.
-        /// By comparing this statistic with the Minimum and Maximum values, you can determine
-        /// the full scope of a metric and how close the average use is to the Minimum and Maximum
-        /// values. This comparison helps you to know when to increase or decrease your resources.</para></li><li><para><code>SampleCount</code> - The count, or number, of data points used for the statistical
+        /// <para>The statistic for the metric.</para><para>The following statistics are available:</para><ul><li><para><c>Minimum</c> - The lowest value observed during the specified period. Use this
+        /// value to determine low volumes of activity for your application.</para></li><li><para><c>Maximum</c> - The highest value observed during the specified period. Use this
+        /// value to determine high volumes of activity for your application.</para></li><li><para><c>Sum</c> - All values submitted for the matching metric added together. You can
+        /// use this statistic to determine the total volume of a metric.</para></li><li><para><c>Average</c> - The value of Sum / SampleCount during the specified period. By comparing
+        /// this statistic with the Minimum and Maximum values, you can determine the full scope
+        /// of a metric and how close the average use is to the Minimum and Maximum values. This
+        /// comparison helps you to know when to increase or decrease your resources.</para></li><li><para><c>SampleCount</c> - The count, or number, of data points used for the statistical
         /// calculation.</para></li></ul>
         /// </para>
         /// </summary>
@@ -201,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The unit for the metric data request. Valid units depend on the metric data being
-        /// requested. For the valid units to specify with each available metric, see the <code>metricName</code>
+        /// requested. For the valid units to specify with each available metric, see the <c>metricName</c>
         /// parameter.</para>
         /// </para>
         /// </summary>

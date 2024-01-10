@@ -88,8 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The list of geolocation targets that you select to index. The default maximum number
-        /// of geolocation targets for indexing is <code>1</code>. To increase the limit, see
-        /// <a href="https://docs.aws.amazon.com/general/latest/gr/iot_device_management.html#fleet-indexing-limits">Amazon
+        /// of geolocation targets for indexing is <c>1</c>. To increase the limit, see <a href="https://docs.aws.amazon.com/general/latest/gr/iot_device_management.html#fleet-indexing-limits">Amazon
         /// Web Services IoT Device Management Quotas</a> in the <i>Amazon Web Services General
         /// Reference</i>.</para>
         /// </para>

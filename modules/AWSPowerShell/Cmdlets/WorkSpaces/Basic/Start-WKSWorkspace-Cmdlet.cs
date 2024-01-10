@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// 
     ///  
     /// <para>
-    /// You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code>
-    /// and a state of <code>STOPPED</code>.
+    /// You cannot start a WorkSpace unless it has a running mode of <c>AutoStop</c> and a
+    /// state of <c>STOPPED</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "WKSWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName="IdFromRequestObject")]

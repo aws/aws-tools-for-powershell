@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter FinalDBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>DBSnapshotIdentifier</code> of the new <code>DBSnapshot</code> created when
-        /// the <code>SkipFinalSnapshot</code> parameter is disabled.</para><note><para>If you enable this parameter and also enable <code>SkipFinalShapshot</code>, the command
+        /// <para>The <c>DBSnapshotIdentifier</c> of the new <c>DBSnapshot</c> created when the <c>SkipFinalSnapshot</c>
+        /// parameter is disabled.</para><note><para>If you enable this parameter and also enable <c>SkipFinalShapshot</c>, the command
         /// results in an error.</para></note>
         /// </para>
         /// </summary>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// tenant database from your DB instance. If you enable this parameter, RDS doesn't create
         /// a DB snapshot. If you don't enable this parameter, RDS creates a DB snapshot before
         /// it deletes the tenant database. By default, RDS doesn't skip the final snapshot. If
-        /// you don't enable this parameter, you must specify the <code>FinalDBSnapshotIdentifier</code>
+        /// you don't enable this parameter, you must specify the <c>FinalDBSnapshotIdentifier</c>
         /// parameter.</para>
         /// </para>
         /// </summary>

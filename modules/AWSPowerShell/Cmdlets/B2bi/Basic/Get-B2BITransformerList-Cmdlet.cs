@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When additional results are obtained from the command, a <code>NextToken</code> parameter
-        /// is returned in the output. You can then pass the <code>NextToken</code> parameter
-        /// in a subsequent command to continue listing additional resources.</para>
+        /// <para>When additional results are obtained from the command, a <c>NextToken</c> parameter
+        /// is returned in the output. You can then pass the <c>NextToken</c> parameter in a subsequent
+        /// command to continue listing additional resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

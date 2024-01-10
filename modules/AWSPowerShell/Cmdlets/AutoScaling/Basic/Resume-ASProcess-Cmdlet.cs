@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ScalingProcess
         /// <summary>
         /// <para>
-        /// <para>One or more of the following processes:</para><ul><li><para><code>Launch</code></para></li><li><para><code>Terminate</code></para></li><li><para><code>AddToLoadBalancer</code></para></li><li><para><code>AlarmNotification</code></para></li><li><para><code>AZRebalance</code></para></li><li><para><code>HealthCheck</code></para></li><li><para><code>InstanceRefresh</code></para></li><li><para><code>ReplaceUnhealthy</code></para></li><li><para><code>ScheduledActions</code></para></li></ul><para>If you omit this property, all processes are specified.</para>
+        /// <para>One or more of the following processes:</para><ul><li><para><c>Launch</c></para></li><li><para><c>Terminate</c></para></li><li><para><c>AddToLoadBalancer</c></para></li><li><para><c>AlarmNotification</c></para></li><li><para><c>AZRebalance</c></para></li><li><para><c>HealthCheck</c></para></li><li><para><c>InstanceRefresh</c></para></li><li><para><c>ReplaceUnhealthy</c></para></li><li><para><c>ScheduledActions</c></para></li></ul><para>If you omit this property, all processes are specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

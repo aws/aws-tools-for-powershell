@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// 
     ///  
     /// <para>
-    /// Before you call <code>CreateDirectory</code>, ensure that all of the required permissions
+    /// Before you call <c>CreateDirectory</c>, ensure that all of the required permissions
     /// have been explicitly granted through a policy. For details about what permissions
-    /// are required to run the <code>CreateDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">Directory
+    /// are required to run the <c>CreateDirectory</c> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">Directory
     /// Service API Permissions: Actions, Resources, and Conditions Reference</a>.
     /// </para>
     /// </summary>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The fully qualified name for the directory, such as <code>corp.example.com</code>.</para>
+        /// <para>The fully qualified name for the directory, such as <c>corp.example.com</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// <summary>
         /// <para>
         /// <para>The password for the directory administrator. The directory creation process creates
-        /// a directory administrator account with the user name <code>Administrator</code> and
-        /// this password.</para><para>If you need to change the password for the administrator account, you can use the
+        /// a directory administrator account with the user name <c>Administrator</c> and this
+        /// password.</para><para>If you need to change the password for the administrator account, you can use the
         /// <a>ResetUserPassword</a> API call.</para><para>The regex pattern for this string is made up of the following conditions:</para><ul><li><para>Length (?=^.{8,64}$) – Must be between 8 and 64 characters</para></li></ul><para>AND any 3 of the following password complexity rules required by Active Directory:</para><ul><li><para>Numbers and upper case and lowercase (?=.*\d)(?=.*[A-Z])(?=.*[a-z])</para></li><li><para>Numbers and special characters and lower case (?=.*\d)(?=.*[^A-Za-z0-9\s])(?=.*[a-z])</para></li><li><para>Special characters and upper case and lower case (?=.*[^A-Za-z0-9\s])(?=.*[A-Z])(?=.*[a-z])</para></li><li><para>Numbers and upper case and special characters (?=.*\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\s])</para></li></ul><para>For additional information about how Active Directory passwords are enforced, see
         /// <a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements">Password
         /// must meet complexity requirements</a> on the Microsoft website.</para>
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter ShortName
         /// <summary>
         /// <para>
-        /// <para>The NetBIOS name of the directory, such as <code>CORP</code>.</para>
+        /// <para>The NetBIOS name of the directory, such as <c>CORP</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

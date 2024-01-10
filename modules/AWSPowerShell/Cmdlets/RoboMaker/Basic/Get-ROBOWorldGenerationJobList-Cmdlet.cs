@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Optional filters to limit results. You can use <code>status</code> and <code>templateId</code>.</para>
+        /// <para>Optional filters to limit results. You can use <c>status</c> and <c>templateId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,12 +56,12 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>When this parameter is used, <code>ListWorldGeneratorJobs</code> only returns <code>maxResults</code>
-        /// results in a single page along with a <code>nextToken</code> response element. The
-        /// remaining results of the initial request can be seen by sending another <code>ListWorldGeneratorJobs</code>
-        /// request with the returned <code>nextToken</code> value. This value can be between
-        /// 1 and 100. If this parameter is not used, then <code>ListWorldGeneratorJobs</code>
-        /// returns up to 100 results and a <code>nextToken</code> value if applicable. </para>
+        /// <para>When this parameter is used, <c>ListWorldGeneratorJobs</c> only returns <c>maxResults</c>
+        /// results in a single page along with a <c>nextToken</c> response element. The remaining
+        /// results of the initial request can be seen by sending another <c>ListWorldGeneratorJobs</c>
+        /// request with the returned <c>nextToken</c> value. This value can be between 1 and
+        /// 100. If this parameter is not used, then <c>ListWorldGeneratorJobs</c> returns up
+        /// to 100 results and a <c>nextToken</c> value if applicable. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -79,11 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         /// <summary>
         /// <para>
         /// <para>If the previous paginated request did not return all of the remaining results, the
-        /// response object's <code>nextToken</code> parameter value is set to a token. To retrieve
-        /// the next set of results, call <code>ListWorldGenerationJobsRequest</code> again and
-        /// assign that token to the request object's <code>nextToken</code> parameter. If there
-        /// are no remaining results, the previous response object's NextToken parameter is set
-        /// to null. </para>
+        /// response object's <c>nextToken</c> parameter value is set to a token. To retrieve
+        /// the next set of results, call <c>ListWorldGenerationJobsRequest</c> again and assign
+        /// that token to the request object's <c>nextToken</c> parameter. If there are no remaining
+        /// results, the previous response object's NextToken parameter is set to null. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

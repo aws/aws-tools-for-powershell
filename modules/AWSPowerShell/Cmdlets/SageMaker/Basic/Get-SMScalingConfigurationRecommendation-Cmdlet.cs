@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The name of an endpoint benchmarked during a previously completed inference recommendation
         /// job. This name should come from one of the recommendations returned by the job specified
-        /// in the <code>InferenceRecommendationsJobName</code> field.</para><para>Specify either this field or the <code>RecommendationId</code> field.</para>
+        /// in the <c>InferenceRecommendationsJobName</c> field.</para><para>Specify either this field or the <c>RecommendationId</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The recommendation ID of a previously completed inference recommendation. This ID
-        /// should come from one of the recommendations returned by the job specified in the <code>InferenceRecommendationsJobName</code>
-        /// field.</para><para>Specify either this field or the <code>EndpointName</code> field.</para>
+        /// should come from one of the recommendations returned by the job specified in the <c>InferenceRecommendationsJobName</c>
+        /// field.</para><para>Specify either this field or the <c>EndpointName</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,12 +28,11 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Retrieves a schema by the <code>SchemaDefinition</code>. The schema definition is
-    /// sent to the Schema Registry, canonicalized, and hashed. If the hash is matched within
-    /// the scope of the <code>SchemaName</code> or ARN (or the default registry, if none
-    /// is supplied), that schema’s metadata is returned. Otherwise, a 404 or NotFound error
-    /// is returned. Schema versions in <code>Deleted</code> statuses will not be included
-    /// in the results.
+    /// Retrieves a schema by the <c>SchemaDefinition</c>. The schema definition is sent to
+    /// the Schema Registry, canonicalized, and hashed. If the hash is matched within the
+    /// scope of the <c>SchemaName</c> or ARN (or the default registry, if none is supplied),
+    /// that schema’s metadata is returned. Otherwise, a 404 or NotFound error is returned.
+    /// Schema versions in <c>Deleted</c> statuses will not be included in the results.
     /// </summary>
     [Cmdlet("Get", "GLUESchemaByDefinition")]
     [OutputType("Amazon.Glue.Model.GetSchemaByDefinitionResponse")]
@@ -59,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SchemaId_SchemaArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code>
+        /// <para>The Amazon Resource Name (ARN) of the schema. One of <c>SchemaArn</c> or <c>SchemaName</c>
         /// has to be provided.</para>
         /// </para>
         /// </summary>
@@ -87,8 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SchemaId_SchemaName
         /// <summary>
         /// <para>
-        /// <para>The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has
-        /// to be provided.</para>
+        /// <para>The name of the schema. One of <c>SchemaArn</c> or <c>SchemaName</c> has to be provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

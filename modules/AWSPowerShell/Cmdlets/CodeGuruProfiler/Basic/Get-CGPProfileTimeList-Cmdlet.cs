@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         /// <summary>
         /// <para>
         /// <para>The order (ascending or descending by start time of the profile) to use when listing
-        /// profiles. Defaults to <code>TIMESTAMP_DESCENDING</code>. </para>
+        /// profiles. Defaults to <c>TIMESTAMP_DESCENDING</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         /// <summary>
         /// <para>
         /// <para> The aggregation period. This specifies the period during which an aggregation profile
-        /// collects posted agent profiles for a profiling group. There are 3 valid values. </para><ul><li><para><code>P1D</code> — 1 day </para></li><li><para><code>PT1H</code> — 1 hour </para></li><li><para><code>PT5M</code> — 5 minutes </para></li></ul>
+        /// collects posted agent profiles for a profiling group. There are 3 valid values. </para><ul><li><para><c>P1D</c> — 1 day </para></li><li><para><c>PT1H</c> — 1 hour </para></li><li><para><c>PT5M</c> — 5 minutes </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,12 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of profile time results returned by <code>ListProfileTimes</code>
-        /// in paginated output. When this parameter is used, <code>ListProfileTimes</code> only
-        /// returns <code>maxResults</code> results in a single page with a <code>nextToken</code>
-        /// response element. The remaining results of the initial request can be seen by sending
-        /// another <code>ListProfileTimes</code> request with the returned <code>nextToken</code>
-        /// value. </para>
+        /// <para>The maximum number of profile time results returned by <c>ListProfileTimes</c> in
+        /// paginated output. When this parameter is used, <c>ListProfileTimes</c> only returns
+        /// <c>maxResults</c> results in a single page with a <c>nextToken</c> response element.
+        /// The remaining results of the initial request can be seen by sending another <c>ListProfileTimes</c>
+        /// request with the returned <c>nextToken</c> value. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,10 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListProfileTimes</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. </para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>ListProfileTimes</c>
+        /// request where <c>maxResults</c> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <c>nextToken</c> value. </para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

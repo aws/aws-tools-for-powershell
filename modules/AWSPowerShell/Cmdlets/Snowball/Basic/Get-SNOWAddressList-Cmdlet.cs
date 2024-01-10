@@ -28,9 +28,9 @@ using Amazon.Snowball.Model;
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
-    /// Returns a specified number of <code>ADDRESS</code> objects. Calling this API in one
-    /// of the US regions will return addresses from the list of all addresses associated
-    /// with this account in all US regions.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a specified number of <c>ADDRESS</c> objects. Calling this API in one of the
+    /// US regions will return addresses from the list of all addresses associated with this
+    /// account in all US regions.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SNOWAddressList")]
     [OutputType("Amazon.Snowball.Model.Address")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The number of <code>ADDRESS</code> objects to return.</para>
+        /// <para>The number of <c>ADDRESS</c> objects to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>HTTP requests are stateless. To identify what object comes "next" in the list of <code>ADDRESS</code>
-        /// objects, you have the option of specifying a value for <code>NextToken</code> as the
-        /// starting point for your list of returned addresses.</para>
+        /// <para>HTTP requests are stateless. To identify what object comes "next" in the list of <c>ADDRESS</c>
+        /// objects, you have the option of specifying a value for <c>NextToken</c> as the starting
+        /// point for your list of returned addresses.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

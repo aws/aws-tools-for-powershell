@@ -28,10 +28,10 @@ using Amazon.WorkDocs.Model;
 namespace Amazon.PowerShell.Cmdlets.WD
 {
     /// <summary>
-    /// Describes the current user's special folders; the <code>RootFolder</code> and the
-    /// <code>RecycleBin</code>. <code>RootFolder</code> is the root of user's files and folders
-    /// and <code>RecycleBin</code> is the root of recycled items. This is not a valid action
-    /// for SigV4 (administrative API) clients.
+    /// Describes the current user's special folders; the <c>RootFolder</c> and the <c>RecycleBin</c>.
+    /// <c>RootFolder</c> is the root of user's files and folders and <c>RecycleBin</c> is
+    /// the root of recycled items. This is not a valid action for SigV4 (administrative API)
+    /// clients.
     /// 
     ///  
     /// <para>

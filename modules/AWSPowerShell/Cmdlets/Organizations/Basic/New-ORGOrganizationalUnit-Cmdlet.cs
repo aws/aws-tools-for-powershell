@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// For more information about OUs, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html">Managing
     /// organizational units (OUs)</a> in the <i>Organizations User Guide</i>.
     /// </para><para>
-    /// If the request includes tags, then the requester must have the <code>organizations:TagResource</code>
+    /// If the request includes tags, then the requester must have the <c>organizations:TagResource</c>
     /// permission.
     /// </para><para>
     /// This operation can be called only from the organization's management account.
@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>
         /// <para>A list of tags that you want to attach to the newly created OU. For each tag in the
         /// list, you must specify both a tag key and a value. You can set the value to an empty
-        /// string, but you can't set it to <code>null</code>. For more information about tagging,
-        /// see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging
+        /// string, but you can't set it to <c>null</c>. For more information about tagging, see
+        /// <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging
         /// Organizations resources</a> in the Organizations User Guide.</para><note><para>If any one of the tags is not valid or if you exceed the allowed number of tags for
         /// an OU, then the entire request fails and the OU is not created.</para></note>
         /// </para>

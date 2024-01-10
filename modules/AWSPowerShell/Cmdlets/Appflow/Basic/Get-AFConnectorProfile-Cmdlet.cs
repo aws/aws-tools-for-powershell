@@ -28,13 +28,13 @@ using Amazon.Appflow.Model;
 namespace Amazon.PowerShell.Cmdlets.AF
 {
     /// <summary>
-    /// Returns a list of <code>connector-profile</code> details matching the provided <code>connector-profile</code>
-    /// names and <code>connector-types</code>. Both input lists are optional, and you can
-    /// use them to filter the result. 
+    /// Returns a list of <c>connector-profile</c> details matching the provided <c>connector-profile</c>
+    /// names and <c>connector-types</c>. Both input lists are optional, and you can use them
+    /// to filter the result. 
     /// 
     ///  
     /// <para>
-    /// If no names or <code>connector-types</code> are provided, returns all connector profiles
+    /// If no names or <c>connector-types</c> are provided, returns all connector profiles
     /// in a paginated form. If there is no match, this operation returns an empty list.
     /// </para>
     /// </summary>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         #region Parameter ConnectorLabel
         /// <summary>
         /// <para>
-        /// <para>The name of the connector. The name is unique for each <code>ConnectorRegistration</code>
+        /// <para>The name of the connector. The name is unique for each <c>ConnectorRegistration</c>
         /// in your Amazon Web Services account. Only needed if calling for CUSTOMCONNECTOR connector
         /// type/.</para>
         /// </para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         #region Parameter ConnectorProfileName
         /// <summary>
         /// <para>
-        /// <para> The name of the connector profile. The name is unique for each <code>ConnectorProfile</code>
+        /// <para> The name of the connector profile. The name is unique for each <c>ConnectorProfile</c>
         /// in the Amazon Web Services account. </para>
         /// </para>
         /// </summary>
@@ -89,8 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <summary>
         /// <para>
         /// <para> Specifies the maximum number of items that should be returned in the result set.
-        /// The default for <code>maxResults</code> is 20 (for all paginated API operations).
-        /// </para>
+        /// The default for <c>maxResults</c> is 20 (for all paginated API operations). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

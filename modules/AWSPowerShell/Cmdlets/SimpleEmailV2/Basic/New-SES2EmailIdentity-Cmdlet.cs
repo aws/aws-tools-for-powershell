@@ -39,19 +39,19 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// When you verify an email address, Amazon SES sends an email to the address. Your email
     /// address is verified as soon as you follow the link in the verification email. 
     /// </para><para>
-    /// When you verify a domain without specifying the <code>DkimSigningAttributes</code>
-    /// object, this operation provides a set of DKIM tokens. You can convert these tokens
-    /// into CNAME records, which you then add to the DNS configuration for your domain. Your
-    /// domain is verified when Amazon SES detects these records in the DNS configuration
-    /// for your domain. This verification method is known as <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
+    /// When you verify a domain without specifying the <c>DkimSigningAttributes</c> object,
+    /// this operation provides a set of DKIM tokens. You can convert these tokens into CNAME
+    /// records, which you then add to the DNS configuration for your domain. Your domain
+    /// is verified when Amazon SES detects these records in the DNS configuration for your
+    /// domain. This verification method is known as <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
     /// DKIM</a>.
     /// </para><para>
     /// Alternatively, you can perform the verification process by providing your own public-private
     /// key pair. This verification method is known as Bring Your Own DKIM (BYODKIM). To use
-    /// BYODKIM, your call to the <code>CreateEmailIdentity</code> operation has to include
-    /// the <code>DkimSigningAttributes</code> object. When you specify this object, you provide
-    /// a selector (a component of the DNS record name that identifies the public key to use
-    /// for DKIM authentication) and a private key.
+    /// BYODKIM, your call to the <c>CreateEmailIdentity</c> operation has to include the
+    /// <c>DkimSigningAttributes</c> object. When you specify this object, you provide a selector
+    /// (a component of the DNS record name that identifies the public key to use for DKIM
+    /// authentication) and a private key.
     /// </para><para>
     /// When you verify a domain, this operation provides a set of DKIM tokens, which you
     /// can convert into CNAME tokens. You add these CNAME tokens to the DNS configuration

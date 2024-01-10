@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>The Amazon Resource Name (ARN) string that uniquely identifies the task. When this
         /// input parameter is specified, the API returns only one result and ignore the values
-        /// of the <code>MaxRecords</code> and <code>Marker</code> parameters. </para>
+        /// of the <c>MaxRecords</c> and <c>Marker</c> parameters. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para> An optional pagination token provided by a previous request. If this parameter is
         /// specified, the response includes only records beyond the marker, up to the value specified
-        /// by <code>MaxRecords</code>. </para>
+        /// by <c>MaxRecords</c>. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.DatabaseMigrationService module, this parameter is only used if you are manually controlling output pagination of the service API call.
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that the remaining results can be retrieved. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// the specified <c>MaxRecords</c> value, a pagination token called a marker is included
+        /// in the response so that the remaining results can be retrieved. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

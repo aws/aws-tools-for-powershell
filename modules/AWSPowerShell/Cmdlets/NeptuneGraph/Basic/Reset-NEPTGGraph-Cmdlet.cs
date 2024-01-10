@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// <summary>
         /// <para>
         /// <para>Determines whether a final graph snapshot is created before the graph data is deleted.
-        /// If set to <code>true</code>, no graph snapshot is created. If set to <code>false</code>,
-        /// a graph snapshot is created before the data is deleted.</para>
+        /// If set to <c>true</c>, no graph snapshot is created. If set to <c>false</c>, a graph
+        /// snapshot is created before the data is deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

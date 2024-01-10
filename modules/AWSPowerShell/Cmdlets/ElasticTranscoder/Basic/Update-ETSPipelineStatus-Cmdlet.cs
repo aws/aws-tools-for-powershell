@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The desired status of the pipeline:</para><ul><li><para><code>Active</code>: The pipeline is processing jobs.</para></li><li><para><code>Paused</code>: The pipeline is not currently processing jobs.</para></li></ul>
+        /// <para>The desired status of the pipeline:</para><ul><li><para><c>Active</c>: The pipeline is processing jobs.</para></li><li><para><c>Paused</c>: The pipeline is not currently processing jobs.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

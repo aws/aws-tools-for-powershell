@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ApplyImmediately
         /// <summary>
         /// <para>
-        /// <para>If <code>True</code>, the number of replica nodes is decreased immediately. <code>ApplyImmediately=False</code>
+        /// <para>If <c>True</c>, the number of replica nodes is decreased immediately. <c>ApplyImmediately=False</c>
         /// is not currently supported.</para>
         /// </para>
         /// </summary>
@@ -79,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ReplicaConfiguration
         /// <summary>
         /// <para>
-        /// <para>A list of <code>ConfigureShard</code> objects that can be used to configure each shard
-        /// in a Redis (cluster mode enabled) replication group. The <code>ConfigureShard</code>
-        /// has three members: <code>NewReplicaCount</code>, <code>NodeGroupId</code>, and <code>PreferredAvailabilityZones</code>.</para>
+        /// <para>A list of <c>ConfigureShard</c> objects that can be used to configure each shard in
+        /// a Redis (cluster mode enabled) replication group. The <c>ConfigureShard</c> has three
+        /// members: <c>NewReplicaCount</c>, <c>NodeGroupId</c>, and <c>PreferredAvailabilityZones</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

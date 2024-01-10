@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// This command doesn't apply to RDS Custom.
     /// </para><para>
     /// If your DB instance is part of a Multi-AZ DB cluster, you can reboot the DB cluster
-    /// with the <code>RebootDBCluster</code> operation.
+    /// with the <c>RebootDBCluster</c> operation.
     /// </para>
     /// </summary>
     [Cmdlet("Restart", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

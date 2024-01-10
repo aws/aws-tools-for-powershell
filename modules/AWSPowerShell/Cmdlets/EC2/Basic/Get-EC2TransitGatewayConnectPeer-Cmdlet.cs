@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. The possible values are:</para><ul><li><para><code>state</code> - The state of the Connect peer (<code>pending</code> | <code>available</code>
-        /// | <code>deleting</code> | <code>deleted</code>).</para></li><li><para><code>transit-gateway-attachment-id</code> - The ID of the attachment.</para></li><li><para><code>transit-gateway-connect-peer-id</code> - The ID of the Connect peer.</para></li></ul>
+        /// <para>One or more filters. The possible values are:</para><ul><li><para><c>state</c> - The state of the Connect peer (<c>pending</c> | <c>available</c> |
+        /// <c>deleting</c> | <c>deleted</c>).</para></li><li><para><c>transit-gateway-attachment-id</c> - The ID of the attachment.</para></li><li><para><c>transit-gateway-connect-peer-id</c> - The ID of the Connect peer.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

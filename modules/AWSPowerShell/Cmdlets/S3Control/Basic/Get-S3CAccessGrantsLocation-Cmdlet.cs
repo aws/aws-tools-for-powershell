@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// instance. 
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3:GetAccessGrantsLocation</code> permission to use this operation.
+    /// You must have the <c>s3:GetAccessGrantsLocation</c> permission to use this operation.
     /// 
     /// </para></dd></dl>
     /// </summary>
@@ -51,9 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The ID of the registered location that you are retrieving. S3 Access Grants assigns
-        /// this ID when you register the location. S3 Access Grants assigns the ID <code>default</code>
-        /// to the default location <code>s3://</code> and assigns an auto-generated ID to other
-        /// locations that you register. </para>
+        /// this ID when you register the location. S3 Access Grants assigns the ID <c>default</c>
+        /// to the default location <c>s3://</c> and assigns an auto-generated ID to other locations
+        /// that you register. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

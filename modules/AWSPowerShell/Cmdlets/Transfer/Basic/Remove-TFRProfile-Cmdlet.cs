@@ -28,7 +28,7 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Deletes the profile that's specified in the <code>ProfileId</code> parameter.
+    /// Deletes the profile that's specified in the <c>ProfileId</c> parameter.
     /// </summary>
     [Cmdlet("Remove", "TFRProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

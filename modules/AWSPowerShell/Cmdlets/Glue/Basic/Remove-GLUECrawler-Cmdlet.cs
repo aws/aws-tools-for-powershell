@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Removes a specified crawler from the Glue Data Catalog, unless the crawler state is
-    /// <code>RUNNING</code>.
+    /// <c>RUNNING</c>.
     /// </summary>
     [Cmdlet("Remove", "GLUECrawler", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

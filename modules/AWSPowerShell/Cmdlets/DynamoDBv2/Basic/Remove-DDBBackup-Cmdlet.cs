@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// 
     ///  
     /// <para>
-    /// You can call <code>DeleteBackup</code> at a maximum rate of 10 times per second.
+    /// You can call <c>DeleteBackup</c> at a maximum rate of 10 times per second.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "DDBBackup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

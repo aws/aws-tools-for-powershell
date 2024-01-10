@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// This operation uses the imported ARQC and an major encryption key (DUKPT) created
     /// by calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a>
     /// to either provide a boolean ARQC verification result or provide an APRC (Authorization
-    /// Response Cryptogram) response using Method 1 or Method 2. The <code>ARPC_METHOD_1</code>
-    /// uses <code>AuthResponseCode</code> to generate ARPC and <code>ARPC_METHOD_2</code>
-    /// uses <code>CardStatusUpdate</code> to generate ARPC. 
+    /// Response Cryptogram) response using Method 1 or Method 2. The <c>ARPC_METHOD_1</c>
+    /// uses <c>AuthResponseCode</c> to generate ARPC and <c>ARPC_METHOD_2</c> uses <c>CardStatusUpdate</c>
+    /// to generate ARPC. 
     /// </para><para>
     /// For information about valid keys for this operation, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding
     /// key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key
@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter KeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>keyARN</code> of the major encryption key that Amazon Web Services Payment
-        /// Cryptography uses for ARQC verification.</para>
+        /// <para>The <c>keyARN</c> of the major encryption key that Amazon Web Services Payment Cryptography
+        /// uses for ARQC verification.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

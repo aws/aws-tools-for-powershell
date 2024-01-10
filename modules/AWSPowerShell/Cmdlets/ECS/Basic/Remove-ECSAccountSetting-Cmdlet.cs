@@ -45,11 +45,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The resource name to disable the account setting for. If <code>serviceLongArnFormat</code>
-        /// is specified, the ARN for your Amazon ECS services is affected. If <code>taskLongArnFormat</code>
-        /// is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If <code>containerInstanceLongArnFormat</code>
+        /// <para>The resource name to disable the account setting for. If <c>serviceLongArnFormat</c>
+        /// is specified, the ARN for your Amazon ECS services is affected. If <c>taskLongArnFormat</c>
+        /// is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If <c>containerInstanceLongArnFormat</c>
         /// is specified, the ARN and resource ID for your Amazon ECS container instances is affected.
-        /// If <code>awsvpcTrunking</code> is specified, the ENI limit for your Amazon ECS container
+        /// If <c>awsvpcTrunking</c> is specified, the ENI limit for your Amazon ECS container
         /// instances is affected.</para>
         /// </para>
         /// </summary>

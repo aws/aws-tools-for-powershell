@@ -28,10 +28,9 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Creates an <code>IdMappingWorkflow</code> object which stores the configuration of
-    /// the data processing job to be run. Each <code>IdMappingWorkflow</code> must have a
-    /// unique workflow name. To modify an existing workflow, use the <code>UpdateIdMappingWorkflow</code>
-    /// API.
+    /// Creates an <c>IdMappingWorkflow</c> object which stores the configuration of the data
+    /// processing job to be run. Each <c>IdMappingWorkflow</c> must have a unique workflow
+    /// name. To modify an existing workflow, use the <c>UpdateIdMappingWorkflow</c> API.
     /// </summary>
     [Cmdlet("New", "ERESIdMappingWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EntityResolution.Model.CreateIdMappingWorkflowResponse")]
@@ -74,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter InputSourceConfig
         /// <summary>
         /// <para>
-        /// <para>A list of <code>InputSource</code> objects, which have the fields <code>InputSourceARN</code>
-        /// and <code>SchemaName</code>.</para>
+        /// <para>A list of <c>InputSource</c> objects, which have the fields <c>InputSourceARN</c>
+        /// and <c>SchemaName</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter IntermediateSourceConfiguration_IntermediateS3Path
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 location (bucket and prefix). For example: <code>s3://provider_bucket/DOC-EXAMPLE-BUCKET</code></para>
+        /// <para>The Amazon S3 location (bucket and prefix). For example: <c>s3://provider_bucket/DOC-EXAMPLE-BUCKET</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter OutputSourceConfig
         /// <summary>
         /// <para>
-        /// <para>A list of <code>IdMappingWorkflowOutputSource</code> objects, each of which contains
-        /// fields <code>OutputS3Path</code> and <code>Output</code>.</para>
+        /// <para>A list of <c>IdMappingWorkflowOutputSource</c> objects, each of which contains fields
+        /// <c>OutputS3Path</c> and <c>Output</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -179,8 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter WorkflowName
         /// <summary>
         /// <para>
-        /// <para>The name of the workflow. There can't be multiple <code>IdMappingWorkflows</code>
-        /// with the same name.</para>
+        /// <para>The name of the workflow. There can't be multiple <c>IdMappingWorkflows</c> with the
+        /// same name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

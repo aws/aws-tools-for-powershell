@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The first stage session to retrieve. This is used for pagination; see the <code>nextToken</code>
+        /// <para>The first stage session to retrieve. This is used for pagination; see the <c>nextToken</c>
         /// response field.</para>
         /// </para>
         /// </summary>

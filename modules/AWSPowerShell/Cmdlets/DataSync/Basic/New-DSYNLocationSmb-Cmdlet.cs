@@ -124,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>Specifies the name of the share exported by your SMB file server where DataSync will
         /// read or write data. You can include a subdirectory in the share path (for example,
-        /// <code>/path/to/subdirectory</code>). Make sure that other SMB clients in your network
-        /// can also mount this path.</para><para>To copy all data in the specified subdirectory, DataSync must be able to mount the
+        /// <c>/path/to/subdirectory</c>). Make sure that other SMB clients in your network can
+        /// also mount this path.</para><para>To copy all data in the specified subdirectory, DataSync must be able to mount the
         /// SMB share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required
         /// permissions</a> for SMB locations.</para>
         /// </para>
@@ -179,9 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>By default, DataSync automatically chooses an SMB protocol version based on negotiation
         /// with your SMB file server. You also can configure DataSync to use a specific SMB version,
         /// but we recommend doing this only if DataSync has trouble negotiating with the SMB
-        /// file server automatically.</para><para>These are the following options for configuring the SMB version:</para><ul><li><para><code>AUTOMATIC</code> (default): DataSync and the SMB file server negotiate the
-        /// highest version of SMB that they mutually support between 2.1 and 3.1.1.</para><para>This is the recommended option. If you instead choose a specific version that your
-        /// file server doesn't support, you may get an <code>Operation Not Supported</code> error.</para></li><li><para><code>SMB3</code>: Restricts the protocol negotiation to only SMB version 3.0.2.</para></li><li><para><code>SMB2</code>: Restricts the protocol negotiation to only SMB version 2.1.</para></li><li><para><code>SMB2_0</code>: Restricts the protocol negotiation to only SMB version 2.0.</para></li><li><para><code>SMB1</code>: Restricts the protocol negotiation to only SMB version 1.0.</para><note><para>The <code>SMB1</code> option isn't available when <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationFsxOntap.html">creating
+        /// file server automatically.</para><para>These are the following options for configuring the SMB version:</para><ul><li><para><c>AUTOMATIC</c> (default): DataSync and the SMB file server negotiate the highest
+        /// version of SMB that they mutually support between 2.1 and 3.1.1.</para><para>This is the recommended option. If you instead choose a specific version that your
+        /// file server doesn't support, you may get an <c>Operation Not Supported</c> error.</para></li><li><para><c>SMB3</c>: Restricts the protocol negotiation to only SMB version 3.0.2.</para></li><li><para><c>SMB2</c>: Restricts the protocol negotiation to only SMB version 2.1.</para></li><li><para><c>SMB2_0</c>: Restricts the protocol negotiation to only SMB version 2.0.</para></li><li><para><c>SMB1</c>: Restricts the protocol negotiation to only SMB version 1.0.</para><note><para>The <c>SMB1</c> option isn't available when <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationFsxOntap.html">creating
         /// an Amazon FSx for NetApp ONTAP location</a>.</para></note></li></ul>
         /// </para>
         /// </summary>

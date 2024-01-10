@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ApplyAction
         /// <summary>
         /// <para>
-        /// <para>The pending maintenance action to apply to this resource.</para><para>Valid values: <code>os-upgrade</code>, <code>system-update</code>, <code>db-upgrade</code></para>
+        /// <para>The pending maintenance action to apply to this resource.</para><para>Valid values: <c>os-upgrade</c>, <c>system-update</c>, <c>db-upgrade</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,9 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>A value that specifies the type of opt-in request, or undoes an opt-in request. You
-        /// can't undo an opt-in request of type <code>immediate</code>.</para><para>Valid values:</para><ul><li><para><code>immediate</code> - Apply the maintenance action immediately.</para></li><li><para><code>next-maintenance</code> - Apply the maintenance action during the next maintenance
-        /// window for the resource.</para></li><li><para><code>undo-opt-in</code> - Cancel any existing <code>next-maintenance</code> opt-in
-        /// requests.</para></li></ul>
+        /// can't undo an opt-in request of type <c>immediate</c>.</para><para>Valid values:</para><ul><li><para><c>immediate</c> - Apply the maintenance action immediately.</para></li><li><para><c>next-maintenance</c> - Apply the maintenance action during the next maintenance
+        /// window for the resource.</para></li><li><para><c>undo-opt-in</c> - Cancel any existing <c>next-maintenance</c> opt-in requests.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

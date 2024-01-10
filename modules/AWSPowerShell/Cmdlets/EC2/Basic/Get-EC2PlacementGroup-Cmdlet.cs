@@ -47,15 +47,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>group-name</code> - The name of the placement group.</para></li><li><para><code>group-arn</code> - The Amazon Resource Name (ARN) of the placement group.</para></li><li><para><code>spread-level</code> - The spread level for the placement group (<code>host</code>
-        /// | <code>rack</code>). </para></li><li><para><code>state</code> - The state of the placement group (<code>pending</code> | <code>available</code>
-        /// | <code>deleting</code> | <code>deleted</code>).</para></li><li><para><code>strategy</code> - The strategy of the placement group (<code>cluster</code>
-        /// | <code>spread</code> | <code>partition</code>).</para></li><li><para><code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the
-        /// resource. Use the tag key in the filter name and the tag value as the filter value.
-        /// For example, to find all resources that have a tag with the key <code>Owner</code>
-        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources that have a tag with a specific key, regardless of the tag value.</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>group-name</c> - The name of the placement group.</para></li><li><para><c>group-arn</c> - The Amazon Resource Name (ARN) of the placement group.</para></li><li><para><c>spread-level</c> - The spread level for the placement group (<c>host</c> | <c>rack</c>).
+        /// </para></li><li><para><c>state</c> - The state of the placement group (<c>pending</c> | <c>available</c>
+        /// | <c>deleting</c> | <c>deleted</c>).</para></li><li><para><c>strategy</c> - The strategy of the placement group (<c>cluster</c> | <c>spread</c>
+        /// | <c>partition</c>).</para></li><li><para><c>tag:&lt;key&gt;</c> - The key/value combination of a tag assigned to the resource.
+        /// Use the tag key in the filter name and the tag value as the filter value. For example,
+        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
+        /// all resources that have a tag with a specific key, regardless of the tag value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

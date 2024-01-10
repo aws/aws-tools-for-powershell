@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     /// Updates the permissions mode of a ledger.
     /// 
     ///  <important><para>
-    /// Before you switch to the <code>STANDARD</code> permissions mode, you must first create
-    /// all required IAM policies and table tags to avoid disruption to your users. To learn
-    /// more, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/ledger-management.basics.html#ledger-mgmt.basics.update-permissions.migrating">Migrating
+    /// Before you switch to the <c>STANDARD</c> permissions mode, you must first create all
+    /// required IAM policies and table tags to avoid disruption to your users. To learn more,
+    /// see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/ledger-management.basics.html#ledger-mgmt.basics.update-permissions.migrating">Migrating
     /// to the standard permissions mode</a> in the <i>Amazon QLDB Developer Guide</i>.
     /// </para></important>
     /// </summary>
@@ -69,17 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         /// <summary>
         /// <para>
         /// <para>The permissions mode to assign to the ledger. This parameter can have one of the following
-        /// values:</para><ul><li><para><code>ALLOW_ALL</code>: A legacy permissions mode that enables access control with
-        /// API-level granularity for ledgers.</para><para>This mode allows users who have the <code>SendCommand</code> API permission for this
-        /// ledger to run all PartiQL commands (hence, <code>ALLOW_ALL</code>) on any tables in
-        /// the specified ledger. This mode disregards any table-level or command-level IAM permissions
-        /// policies that you create for the ledger.</para></li><li><para><code>STANDARD</code>: (<i>Recommended</i>) A permissions mode that enables access
-        /// control with finer granularity for ledgers, tables, and PartiQL commands.</para><para>By default, this mode denies all user requests to run any PartiQL commands on any
+        /// values:</para><ul><li><para><c>ALLOW_ALL</c>: A legacy permissions mode that enables access control with API-level
+        /// granularity for ledgers.</para><para>This mode allows users who have the <c>SendCommand</c> API permission for this ledger
+        /// to run all PartiQL commands (hence, <c>ALLOW_ALL</c>) on any tables in the specified
+        /// ledger. This mode disregards any table-level or command-level IAM permissions policies
+        /// that you create for the ledger.</para></li><li><para><c>STANDARD</c>: (<i>Recommended</i>) A permissions mode that enables access control
+        /// with finer granularity for ledgers, tables, and PartiQL commands.</para><para>By default, this mode denies all user requests to run any PartiQL commands on any
         /// tables in this ledger. To allow PartiQL commands to run, you must create IAM permissions
-        /// policies for specific table resources and PartiQL actions, in addition to the <code>SendCommand</code>
+        /// policies for specific table resources and PartiQL actions, in addition to the <c>SendCommand</c>
         /// API permission for the ledger. For information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/getting-started-standard-mode.html">Getting
-        /// started with the standard permissions mode</a> in the <i>Amazon QLDB Developer Guide</i>.</para></li></ul><note><para>We strongly recommend using the <code>STANDARD</code> permissions mode to maximize
-        /// the security of your ledger data.</para></note>
+        /// started with the standard permissions mode</a> in the <i>Amazon QLDB Developer Guide</i>.</para></li></ul><note><para>We strongly recommend using the <c>STANDARD</c> permissions mode to maximize the security
+        /// of your ledger data.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

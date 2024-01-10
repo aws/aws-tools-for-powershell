@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The first channel to retrieve. This is used for pagination; see the <code>nextToken</code>
+        /// <para>The first channel to retrieve. This is used for pagination; see the <c>nextToken</c>
         /// response field.</para>
         /// </para>
         /// </summary>

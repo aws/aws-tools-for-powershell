@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <summary>
         /// <para>
         /// <para>List the tags for the Amazon Web Services service for which Performance Insights returns
-        /// metrics. Valid value is <code>RDS</code>.</para>
+        /// metrics. Valid value is <c>RDS</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

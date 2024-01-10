@@ -28,17 +28,17 @@ using Amazon.ForecastService.Model;
 namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
-    /// Creates a forecast for each item in the <code>TARGET_TIME_SERIES</code> dataset that
-    /// was used to train the predictor. This is known as inference. To retrieve the forecast
+    /// Creates a forecast for each item in the <c>TARGET_TIME_SERIES</c> dataset that was
+    /// used to train the predictor. This is known as inference. To retrieve the forecast
     /// for a single item at low latency, use the operation. To export the complete forecast
     /// into your Amazon Simple Storage Service (Amazon S3) bucket, use the <a>CreateForecastExportJob</a>
     /// operation.
     /// 
     ///  
     /// <para>
-    /// The range of the forecast is determined by the <code>ForecastHorizon</code> value,
-    /// which you specify in the <a>CreatePredictor</a> request. When you query a forecast,
-    /// you can request a specific date range within the forecast.
+    /// The range of the forecast is determined by the <c>ForecastHorizon</c> value, which
+    /// you specify in the <a>CreatePredictor</a> request. When you query a forecast, you
+    /// can request a specific date range within the forecast.
     /// </para><para>
     /// To get a list of all your forecasts, use the <a>ListForecasts</a> operation.
     /// </para><note><para>
@@ -47,16 +47,14 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// </para></note><para>
     /// For more information, see <a>howitworks-forecast</a>.
     /// </para><note><para>
-    /// The <code>Status</code> of the forecast must be <code>ACTIVE</code> before you can
-    /// query or export the forecast. Use the <a>DescribeForecast</a> operation to get the
-    /// status.
+    /// The <c>Status</c> of the forecast must be <c>ACTIVE</c> before you can query or export
+    /// the forecast. Use the <a>DescribeForecast</a> operation to get the status.
     /// </para></note><para>
-    /// By default, a forecast includes predictions for every item (<code>item_id</code>)
-    /// in the dataset group that was used to train the predictor. However, you can use the
-    /// <code>TimeSeriesSelector</code> object to generate a forecast on a subset of time
-    /// series. Forecast creation is skipped for any time series that you specify that are
-    /// not in the input dataset. The forecast export file will not contain these time series
-    /// or their forecasted values.
+    /// By default, a forecast includes predictions for every item (<c>item_id</c>) in the
+    /// dataset group that was used to train the predictor. However, you can use the <c>TimeSeriesSelector</c>
+    /// object to generate a forecast on a subset of time series. Forecast creation is skipped
+    /// for any time series that you specify that are not in the input dataset. The forecast
+    /// export file will not contain these time series or their forecasted values.
     /// </para>
     /// </summary>
     [Cmdlet("New", "FRCForecast", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -105,11 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The quantiles at which probabilistic forecasts are generated. <b>You can currently
-        /// specify up to 5 quantiles per forecast</b>. Accepted values include <code>0.01 to
-        /// 0.99</code> (increments of .01 only) and <code>mean</code>. The mean forecast is different
-        /// from the median (0.50) when the distribution is not symmetric (for example, Beta and
-        /// Negative Binomial). </para><para>The default quantiles are the quantiles you specified during predictor creation. If
-        /// you didn't specify quantiles, the default values are <code>["0.1", "0.5", "0.9"]</code>.
+        /// specify up to 5 quantiles per forecast</b>. Accepted values include <c>0.01 to 0.99</c>
+        /// (increments of .01 only) and <c>mean</c>. The mean forecast is different from the
+        /// median (0.50) when the distribution is not symmetric (for example, Beta and Negative
+        /// Binomial). </para><para>The default quantiles are the quantiles you specified during predictor creation. If
+        /// you didn't specify quantiles, the default values are <c>["0.1", "0.5", "0.9"]</c>.
         /// </para>
         /// </para>
         /// </summary>
@@ -173,9 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The ARN of the Identity and Access Management (IAM) role that Amazon Forecast can
-        /// assume to access the Amazon S3 bucket or files. If you provide a value for the <code>KMSKeyArn</code>
+        /// assume to access the Amazon S3 bucket or files. If you provide a value for the <c>KMSKeyArn</c>
         /// key, the role must allow access to the key.</para><para>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role
-        /// that isn't in your account, you get an <code>InvalidInputException</code> error.</para>
+        /// that isn't in your account, you get an <c>InvalidInputException</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,12 +189,12 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// value.</para></li><li><para>Maximum key length - 128 Unicode characters in UTF-8.</para></li><li><para>Maximum value length - 256 Unicode characters in UTF-8.</para></li><li><para>If your tagging schema is used across multiple services and resources, remember that
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
-        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot
-        /// edit or delete tag keys with this prefix. Values can have this prefix. If a tag value
-        /// has <code>aws</code> as its prefix but the key does not, then Forecast considers it
-        /// to be a user tag and will count against the limit of 50 tags. Tags with only the key
-        /// prefix of <code>aws</code> do not count against your tags per resource limit.</para></li></ul>
+        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use <c>aws:</c>, <c>AWS:</c>, or any upper or lowercase combination of such
+        /// as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit
+        /// or delete tag keys with this prefix. Values can have this prefix. If a tag value has
+        /// <c>aws</c> as its prefix but the key does not, then Forecast considers it to be a
+        /// user tag and will count against the limit of 50 tags. Tags with only the key prefix
+        /// of <c>aws</c> do not count against your tags per resource limit.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

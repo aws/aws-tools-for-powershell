@@ -28,15 +28,14 @@ using Amazon.Budgets.Model;
 namespace Amazon.PowerShell.Cmdlets.BGT
 {
     /// <summary>
-    /// Updates a budget. You can change every part of a budget except for the <code>budgetName</code>
-    /// and the <code>calculatedSpend</code>. When you modify a budget, the <code>calculatedSpend</code>
+    /// Updates a budget. You can change every part of a budget except for the <c>budgetName</c>
+    /// and the <c>calculatedSpend</c>. When you modify a budget, the <c>calculatedSpend</c>
     /// drops to zero until Amazon Web Services has new usage data to use for forecasting.
     /// 
     ///  <important><para>
-    /// Only one of <code>BudgetLimit</code> or <code>PlannedBudgetLimits</code> can be present
-    /// in the syntax at one time. Use the syntax that matches your case. The Request Syntax
-    /// section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>,
-    /// see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_UpdateBudget.html#API_UpdateBudget_Examples">Examples</a>
+    /// Only one of <c>BudgetLimit</c> or <c>PlannedBudgetLimits</c> can be present in the
+    /// syntax at one time. Use the syntax that matches your case. The Request Syntax section
+    /// shows the <c>BudgetLimit</c> syntax. For <c>PlannedBudgetLimits</c>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_UpdateBudget.html#API_UpdateBudget_Examples">Examples</a>
     /// section. 
     /// </para></important>
     /// </summary>
@@ -55,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The <code>accountId</code> that is associated with the budget that you want to update.</para>
+        /// <para>The <c>accountId</c> that is associated with the budget that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -122,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         /// <summary>
         /// <para>
         /// <para>The number of budget periods included in the moving-average calculation that determines
-        /// your auto-adjusted budget amount. The maximum value depends on the <code>TimeUnit</code>
-        /// granularity of the budget:</para><ul><li><para>For the <code>DAILY</code> granularity, the maximum value is <code>60</code>.</para></li><li><para>For the <code>MONTHLY</code> granularity, the maximum value is <code>12</code>.</para></li><li><para>For the <code>QUARTERLY</code> granularity, the maximum value is <code>4</code>.</para></li><li><para>For the <code>ANNUALLY</code> granularity, the maximum value is <code>1</code>.</para></li></ul>
+        /// your auto-adjusted budget amount. The maximum value depends on the <c>TimeUnit</c>
+        /// granularity of the budget:</para><ul><li><para>For the <c>DAILY</c> granularity, the maximum value is <c>60</c>.</para></li><li><para>For the <c>MONTHLY</c> granularity, the maximum value is <c>12</c>.</para></li><li><para>For the <c>QUARTERLY</c> granularity, the maximum value is <c>4</c>.</para></li><li><para>For the <c>ANNUALLY</c> granularity, the maximum value is <c>1</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewBudget_BudgetName
         /// <summary>
         /// <para>
-        /// <para>The name of a budget. The name must be unique within an account. The <code>:</code>
-        /// and <code>\</code> characters, and the "/action/" substring, aren't allowed in <code>BudgetName</code>.</para>
+        /// <para>The name of a budget. The name must be unique within an account. The <c>:</c> and
+        /// <c>\</c> characters, and the "/action/" substring, aren't allowed in <c>BudgetName</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -170,10 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewBudget_CostFilter
         /// <summary>
         /// <para>
-        /// <para>The cost filters, such as <code>Region</code>, <code>Service</code>, <code>member
-        /// account</code>, <code>Tag</code>, or <code>Cost Category</code>, that are applied
-        /// to a budget.</para><para>Amazon Web Services Budgets supports the following services as a <code>Service</code>
-        /// filter for RI budgets:</para><ul><li><para>Amazon EC2</para></li><li><para>Amazon Redshift</para></li><li><para>Amazon Relational Database Service</para></li><li><para>Amazon ElastiCache</para></li><li><para>Amazon OpenSearch Service</para></li></ul>
+        /// <para>The cost filters, such as <c>Region</c>, <c>Service</c>, <c>member account</c>, <c>Tag</c>,
+        /// or <c>Cost Category</c>, that are applied to a budget.</para><para>Amazon Web Services Budgets supports the following services as a <c>Service</c> filter
+        /// for RI budgets:</para><ul><li><para>Amazon EC2</para></li><li><para>Amazon Redshift</para></li><li><para>Amazon Relational Database Service</para></li><li><para>Amazon ElastiCache</para></li><li><para>Amazon OpenSearch Service</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,9 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         /// <summary>
         /// <para>
         /// <para>The end date for a budget. If you didn't specify an end date, Amazon Web Services
-        /// set your end date to <code>06/15/87 00:00 UTC</code>. The defaults are the same for
-        /// the Billing and Cost Management console and the API.</para><para>After the end date, Amazon Web Services deletes the budget and all the associated
-        /// notifications and subscribers. You can change your end date with the <code>UpdateBudget</code>
+        /// set your end date to <c>06/15/87 00:00 UTC</c>. The defaults are the same for the
+        /// Billing and Cost Management console and the API.</para><para>After the end date, Amazon Web Services deletes the budget and all the associated
+        /// notifications and subscribers. You can change your end date with the <c>UpdateBudget</c>
         /// operation.</para>
         /// </para>
         /// </summary>
@@ -199,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeCredit
         /// <summary>
         /// <para>
-        /// <para>Specifies whether a budget includes credits.</para><para>The default value is <code>true</code>.</para>
+        /// <para>Specifies whether a budget includes credits.</para><para>The default value is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeDiscount
         /// <summary>
         /// <para>
-        /// <para>Specifies whether a budget includes discounts.</para><para>The default value is <code>true</code>.</para>
+        /// <para>Specifies whether a budget includes discounts.</para><para>The default value is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeOtherSubscription
         /// <summary>
         /// <para>
-        /// <para>Specifies whether a budget includes non-RI subscription costs.</para><para>The default value is <code>true</code>.</para>
+        /// <para>Specifies whether a budget includes non-RI subscription costs.</para><para>The default value is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeRecurring
         /// <summary>
         /// <para>
-        /// <para>Specifies whether a budget includes recurring fees such as monthly RI fees.</para><para>The default value is <code>true</code>.</para>
+        /// <para>Specifies whether a budget includes recurring fees such as monthly RI fees.</para><para>The default value is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeRefund
         /// <summary>
         /// <para>
-        /// <para>Specifies whether a budget includes refunds.</para><para>The default value is <code>true</code>.</para>
+        /// <para>Specifies whether a budget includes refunds.</para><para>The default value is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeSubscription
         /// <summary>
         /// <para>
-        /// <para>Specifies whether a budget includes subscriptions.</para><para>The default value is <code>true</code>.</para>
+        /// <para>Specifies whether a budget includes subscriptions.</para><para>The default value is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -265,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeSupport
         /// <summary>
         /// <para>
-        /// <para>Specifies whether a budget includes support subscription fees.</para><para>The default value is <code>true</code>.</para>
+        /// <para>Specifies whether a budget includes support subscription fees.</para><para>The default value is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeTax
         /// <summary>
         /// <para>
-        /// <para>Specifies whether a budget includes taxes.</para><para>The default value is <code>true</code>.</para>
+        /// <para>Specifies whether a budget includes taxes.</para><para>The default value is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,7 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_IncludeUpfront
         /// <summary>
         /// <para>
-        /// <para>Specifies whether a budget includes upfront RI costs.</para><para>The default value is <code>true</code>.</para>
+        /// <para>Specifies whether a budget includes upfront RI costs.</para><para>The default value is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -319,14 +317,14 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter HistoricalOptions_LookBackAvailablePeriod
         /// <summary>
         /// <para>
-        /// <para>The integer that describes how many budget periods in your <code>BudgetAdjustmentPeriod</code>
-        /// are included in the calculation of your current <code>BudgetLimit</code>. If the first
-        /// budget period in your <code>BudgetAdjustmentPeriod</code> has no cost data, then that
-        /// budget period isn’t included in the average that determines your budget limit. </para><para>For example, if you set <code>BudgetAdjustmentPeriod</code> as <code>4</code> quarters,
-        /// but your account had no cost data in the first quarter, then only the last three quarters
-        /// are included in the calculation. In this scenario, <code>LookBackAvailablePeriods</code>
-        /// returns <code>3</code>. </para><para>You can’t set your own <code>LookBackAvailablePeriods</code>. The value is automatically
-        /// calculated from the <code>BudgetAdjustmentPeriod</code> and your historical cost data.</para>
+        /// <para>The integer that describes how many budget periods in your <c>BudgetAdjustmentPeriod</c>
+        /// are included in the calculation of your current <c>BudgetLimit</c>. If the first budget
+        /// period in your <c>BudgetAdjustmentPeriod</c> has no cost data, then that budget period
+        /// isn’t included in the average that determines your budget limit. </para><para>For example, if you set <c>BudgetAdjustmentPeriod</c> as <c>4</c> quarters, but your
+        /// account had no cost data in the first quarter, then only the last three quarters are
+        /// included in the calculation. In this scenario, <c>LookBackAvailablePeriods</c> returns
+        /// <c>3</c>. </para><para>You can’t set your own <c>LookBackAvailablePeriods</c>. The value is automatically
+        /// calculated from the <c>BudgetAdjustmentPeriod</c> and your historical cost data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -337,23 +335,21 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewBudget_PlannedBudgetLimit
         /// <summary>
         /// <para>
-        /// <para>A map containing multiple <code>BudgetLimit</code>, including current or future limits.</para><para><code>PlannedBudgetLimits</code> is available for cost or usage budget and supports
-        /// both monthly and quarterly <code>TimeUnit</code>. </para><para>For monthly budgets, provide 12 months of <code>PlannedBudgetLimits</code> values.
-        /// This must start from the current month and include the next 11 months. The <code>key</code>
-        /// is the start of the month, <code>UTC</code> in epoch seconds. </para><para>For quarterly budgets, provide four quarters of <code>PlannedBudgetLimits</code> value
-        /// entries in standard calendar quarter increments. This must start from the current
-        /// quarter and include the next three quarters. The <code>key</code> is the start of
-        /// the quarter, <code>UTC</code> in epoch seconds. </para><para>If the planned budget expires before 12 months for monthly or four quarters for quarterly,
-        /// provide the <code>PlannedBudgetLimits</code> values only for the remaining periods.</para><para>If the budget begins at a date in the future, provide <code>PlannedBudgetLimits</code>
-        /// values from the start date of the budget. </para><para>After all of the <code>BudgetLimit</code> values in <code>PlannedBudgetLimits</code>
-        /// are used, the budget continues to use the last limit as the <code>BudgetLimit</code>.
-        /// At that point, the planned budget provides the same experience as a fixed budget.
-        /// </para><para><code>DescribeBudget</code> and <code>DescribeBudgets</code> response along with
-        /// <code>PlannedBudgetLimits</code> also contain <code>BudgetLimit</code> representing
-        /// the current month or quarter limit present in <code>PlannedBudgetLimits</code>. This
-        /// only applies to budgets that are created with <code>PlannedBudgetLimits</code>. Budgets
-        /// that are created without <code>PlannedBudgetLimits</code> only contain <code>BudgetLimit</code>.
-        /// They don't contain <code>PlannedBudgetLimits</code>.</para>
+        /// <para>A map containing multiple <c>BudgetLimit</c>, including current or future limits.</para><para><c>PlannedBudgetLimits</c> is available for cost or usage budget and supports both
+        /// monthly and quarterly <c>TimeUnit</c>. </para><para>For monthly budgets, provide 12 months of <c>PlannedBudgetLimits</c> values. This
+        /// must start from the current month and include the next 11 months. The <c>key</c> is
+        /// the start of the month, <c>UTC</c> in epoch seconds. </para><para>For quarterly budgets, provide four quarters of <c>PlannedBudgetLimits</c> value entries
+        /// in standard calendar quarter increments. This must start from the current quarter
+        /// and include the next three quarters. The <c>key</c> is the start of the quarter, <c>UTC</c>
+        /// in epoch seconds. </para><para>If the planned budget expires before 12 months for monthly or four quarters for quarterly,
+        /// provide the <c>PlannedBudgetLimits</c> values only for the remaining periods.</para><para>If the budget begins at a date in the future, provide <c>PlannedBudgetLimits</c> values
+        /// from the start date of the budget. </para><para>After all of the <c>BudgetLimit</c> values in <c>PlannedBudgetLimits</c> are used,
+        /// the budget continues to use the last limit as the <c>BudgetLimit</c>. At that point,
+        /// the planned budget provides the same experience as a fixed budget. </para><para><c>DescribeBudget</c> and <c>DescribeBudgets</c> response along with <c>PlannedBudgetLimits</c>
+        /// also contain <c>BudgetLimit</c> representing the current month or quarter limit present
+        /// in <c>PlannedBudgetLimits</c>. This only applies to budgets that are created with
+        /// <c>PlannedBudgetLimits</c>. Budgets that are created without <c>PlannedBudgetLimits</c>
+        /// only contain <c>BudgetLimit</c>. They don't contain <c>PlannedBudgetLimits</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -367,10 +363,10 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         /// <para>The start date for a budget. If you created your budget and didn't specify a start
         /// date, Amazon Web Services defaults to the start of your chosen time period (DAILY,
         /// MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January
-        /// 24, 2018, chose <code>DAILY</code>, and didn't set a start date, Amazon Web Services
-        /// set your start date to <code>01/24/18 00:00 UTC</code>. If you chose <code>MONTHLY</code>,
-        /// Amazon Web Services set your start date to <code>01/01/18 00:00 UTC</code>. The defaults
-        /// are the same for the Billing and Cost Management console and the API.</para><para>You can change your start date with the <code>UpdateBudget</code> operation.</para>
+        /// 24, 2018, chose <c>DAILY</c>, and didn't set a start date, Amazon Web Services set
+        /// your start date to <c>01/24/18 00:00 UTC</c>. If you chose <c>MONTHLY</c>, Amazon
+        /// Web Services set your start date to <c>01/01/18 00:00 UTC</c>. The defaults are the
+        /// same for the Billing and Cost Management console and the API.</para><para>You can change your start date with the <c>UpdateBudget</c> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -434,7 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_UseAmortized
         /// <summary>
         /// <para>
-        /// <para>Specifies whether a budget uses the amortized rate.</para><para>The default value is <code>false</code>.</para>
+        /// <para>Specifies whether a budget uses the amortized rate.</para><para>The default value is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -445,7 +441,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_UseBlended
         /// <summary>
         /// <para>
-        /// <para>Specifies whether a budget uses a blended rate.</para><para>The default value is <code>false</code>.</para>
+        /// <para>Specifies whether a budget uses a blended rate.</para><para>The default value is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

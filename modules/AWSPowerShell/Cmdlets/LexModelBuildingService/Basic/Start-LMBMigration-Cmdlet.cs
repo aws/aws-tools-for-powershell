@@ -51,11 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter MigrationStrategy
         /// <summary>
         /// <para>
-        /// <para>The strategy used to conduct the migration.</para><ul><li><para><code>CREATE_NEW</code> - Creates a new Amazon Lex V2 bot and migrates the Amazon
-        /// Lex V1 bot to the new bot.</para></li><li><para><code>UPDATE_EXISTING</code> - Overwrites the existing Amazon Lex V2 bot metadata
-        /// and the locale being migrated. It doesn't change any other locales in the Amazon Lex
-        /// V2 bot. If the locale doesn't exist, a new locale is created in the Amazon Lex V2
-        /// bot.</para></li></ul>
+        /// <para>The strategy used to conduct the migration.</para><ul><li><para><c>CREATE_NEW</c> - Creates a new Amazon Lex V2 bot and migrates the Amazon Lex V1
+        /// bot to the new bot.</para></li><li><para><c>UPDATE_EXISTING</c> - Overwrites the existing Amazon Lex V2 bot metadata and the
+        /// locale being migrated. It doesn't change any other locales in the Amazon Lex V2 bot.
+        /// If the locale doesn't exist, a new locale is created in the Amazon Lex V2 bot.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter V1BotVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the bot to migrate to Amazon Lex V2. You can migrate the <code>$LATEST</code>
+        /// <para>The version of the bot to migrate to Amazon Lex V2. You can migrate the <c>$LATEST</c>
         /// version as well as any numbered version.</para>
         /// </para>
         /// </summary>
@@ -108,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <summary>
         /// <para>
         /// <para>The name of the Amazon Lex V2 bot that you are migrating the Amazon Lex V1 bot to.
-        /// </para><ul><li><para>If the Amazon Lex V2 bot doesn't exist, you must use the <code>CREATE_NEW</code> migration
-        /// strategy.</para></li><li><para>If the Amazon Lex V2 bot exists, you must use the <code>UPDATE_EXISTING</code> migration
+        /// </para><ul><li><para>If the Amazon Lex V2 bot doesn't exist, you must use the <c>CREATE_NEW</c> migration
+        /// strategy.</para></li><li><para>If the Amazon Lex V2 bot exists, you must use the <c>UPDATE_EXISTING</c> migration
         /// strategy to change the contents of the Amazon Lex V2 bot.</para></li></ul>
         /// </para>
         /// </summary>

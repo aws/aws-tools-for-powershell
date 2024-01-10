@@ -51,9 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         /// <para>
         /// <para>The personal access token for a GitHub repository for an Amplify app. The personal
         /// access token is used to authorize access to a GitHub repository using the Amplify
-        /// GitHub App. The token is not stored.</para><para>Use <code>accessToken</code> for GitHub repositories only. To authorize access to
-        /// a repository provider such as Bitbucket or CodeCommit, use <code>oauthToken</code>.</para><para>You must specify either <code>accessToken</code> or <code>oauthToken</code> when you
-        /// update an app.</para><para>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work
+        /// GitHub App. The token is not stored.</para><para>Use <c>accessToken</c> for GitHub repositories only. To authorize access to a repository
+        /// provider such as Bitbucket or CodeCommit, use <c>oauthToken</c>.</para><para>You must specify either <c>accessToken</c> or <c>oauthToken</c> when you update an
+        /// app.</para><para>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work
         /// with CI/CD. However, we strongly recommend that you migrate these apps to use the
         /// GitHub App. For more information, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth">Migrating
         /// an existing OAuth app to the Amplify GitHub App</a> in the <i>Amplify User Guide</i>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         /// <summary>
         /// <para>
         /// <para>The basic authorization credentials for the autocreated branch. You must base64-encode
-        /// the authorization credentials and provide them in the format <code>user:password</code>.</para>
+        /// the authorization credentials and provide them in the format <c>user:password</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         /// <summary>
         /// <para>
         /// <para>The basic authorization credentials for an Amplify app. You must base64-encode the
-        /// authorization credentials and provide them in the format <code>user:password</code>.</para>
+        /// authorization credentials and provide them in the format <c>user:password</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -308,9 +308,9 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         /// <para>
         /// <para>The OAuth token for a third-party source control system for an Amplify app. The OAuth
         /// token is used to create a webhook and a read-only deploy key using SSH cloning. The
-        /// OAuth token is not stored.</para><para>Use <code>oauthToken</code> for repository providers other than GitHub, such as Bitbucket
-        /// or CodeCommit.</para><para>To authorize access to GitHub as your repository provider, use <code>accessToken</code>.</para><para>You must specify either <code>oauthToken</code> or <code>accessToken</code> when you
-        /// update an app.</para><para>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work
+        /// OAuth token is not stored.</para><para>Use <c>oauthToken</c> for repository providers other than GitHub, such as Bitbucket
+        /// or CodeCommit.</para><para>To authorize access to GitHub as your repository provider, use <c>accessToken</c>.</para><para>You must specify either <c>oauthToken</c> or <c>accessToken</c> when you update an
+        /// app.</para><para>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work
         /// with CI/CD. However, we strongly recommend that you migrate these apps to use the
         /// GitHub App. For more information, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth">Migrating
         /// an existing OAuth app to the Amplify GitHub App</a> in the <i>Amplify User Guide</i>
@@ -324,10 +324,10 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter Platform
         /// <summary>
         /// <para>
-        /// <para>The platform for the Amplify app. For a static app, set the platform type to <code>WEB</code>.
-        /// For a dynamic server-side rendered (SSR) app, set the platform type to <code>WEB_COMPUTE</code>.
+        /// <para>The platform for the Amplify app. For a static app, set the platform type to <c>WEB</c>.
+        /// For a dynamic server-side rendered (SSR) app, set the platform type to <c>WEB_COMPUTE</c>.
         /// For an app requiring Amplify Hosting's original SSR support only, set the platform
-        /// type to <code>WEB_DYNAMIC</code>.</para>
+        /// type to <c>WEB_DYNAMIC</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

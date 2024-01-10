@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>principal</code> - The ARN of the principal.</para></li><li><para><code>principal-type</code> - The principal type (<code>All</code> | <code>Service</code>
-        /// | <code>OrganizationUnit</code> | <code>Account</code> | <code>User</code> | <code>Role</code>).</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>principal</c> - The ARN of the principal.</para></li><li><para><c>principal-type</c> - The principal type (<c>All</c> | <c>Service</c> | <c>OrganizationUnit</c>
+        /// | <c>Account</c> | <c>User</c> | <c>Role</c>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The maximum number of results to return for the request in a single page. The remaining
         /// results of the initial request can be seen by sending another request with the returned
-        /// <code>NextToken</code> value. This value can be between 5 and 1,000; if <code>MaxResults</code>
+        /// <c>NextToken</c> value. This value can be between 5 and 1,000; if <c>MaxResults</c>
         /// is given a value larger than 1,000, only 1,000 results are returned.</para>
         /// </para>
         /// <para>

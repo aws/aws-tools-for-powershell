@@ -37,13 +37,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// authorize with a signed-out user's access tokens. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
     /// the Amazon Cognito user pools API and user pool endpoints</a>.
     /// </para><para>
-    /// Amazon Cognito returns an <code>Access Token has been revoked</code> error when your
-    /// app attempts to authorize a user pools API request with a revoked access token that
-    /// contains the scope <code>aws.cognito.signin.user.admin</code>.
+    /// Amazon Cognito returns an <c>Access Token has been revoked</c> error when your app
+    /// attempts to authorize a user pools API request with a revoked access token that contains
+    /// the scope <c>aws.cognito.signin.user.admin</c>.
     /// </para></li><li><para>
     /// Amazon Cognito no longer accepts a signed-out user's ID token in a <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetId.html">GetId
-    /// </a> request to an identity pool with <code>ServerSideTokenCheck</code> enabled for
-    /// its user pool IdP configuration in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_CognitoIdentityProvider.html">CognitoIdentityProvider</a>.
+    /// </a> request to an identity pool with <c>ServerSideTokenCheck</c> enabled for its
+    /// user pool IdP configuration in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_CognitoIdentityProvider.html">CognitoIdentityProvider</a>.
     /// </para></li><li><para>
     /// Amazon Cognito no longer accepts a signed-out user's refresh tokens in refresh requests.
     /// </para></li></ul><para>

@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
     /// Lists exports as specified by ID. All continuous exports associated with your user
-    /// can be listed if you call <code>DescribeContinuousExports</code> as is without passing
-    /// any parameters.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// can be listed if you call <c>DescribeContinuousExports</c> as is without passing any
+    /// parameters.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ADSContinuousExport")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.ContinuousExportDescription")]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token from the previous call to <code>DescribeExportTasks</code>.</para>
+        /// <para>The token from the previous call to <c>DescribeExportTasks</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

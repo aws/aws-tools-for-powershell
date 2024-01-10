@@ -80,10 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>The Amazon resource name (ARN) for a customer managed key in Key Management Service
-        /// (KMS). The <code>KeyManagementServiceArn</code> must be unique for each key-signing
-        /// key (KSK) in a single hosted zone. To see an example of <code>KeyManagementServiceArn</code>
+        /// (KMS). The <c>KeyManagementServiceArn</c> must be unique for each key-signing key
+        /// (KSK) in a single hosted zone. To see an example of <c>KeyManagementServiceArn</c>
         /// that grants the correct permissions for DNSSEC, scroll down to <b>Example</b>. </para><para>You must configure the customer managed customer managed key as follows:</para><dl><dt>Status</dt><dd><para>Enabled</para></dd><dt>Key spec</dt><dd><para>ECC_NIST_P256</para></dd><dt>Key usage</dt><dd><para>Sign and verify</para></dd><dt>Key policy</dt><dd><para>The key policy must give permission for the following actions:</para><ul><li><para>DescribeKey</para></li><li><para>GetPublicKey</para></li><li><para>Sign</para></li></ul><para>The key policy must also include the Amazon Route 53 service in the principal for
-        /// your account. Specify the following:</para><ul><li><para><code>"Service": "dnssec-route53.amazonaws.com"</code></para></li></ul></dd></dl><para>For more information about working with a customer managed key in KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">Key
+        /// your account. Specify the following:</para><ul><li><para><c>"Service": "dnssec-route53.amazonaws.com"</c></para></li></ul></dd></dl><para>For more information about working with a customer managed key in KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">Key
         /// Management Service concepts</a>.</para>
         /// </para>
         /// </summary>
@@ -101,9 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A string used to identify a key-signing key (KSK). <code>Name</code> can include numbers,
-        /// letters, and underscores (_). <code>Name</code> must be unique for each key-signing
-        /// key in the same hosted zone.</para>
+        /// <para>A string used to identify a key-signing key (KSK). <c>Name</c> can include numbers,
+        /// letters, and underscores (_). <c>Name</c> must be unique for each key-signing key
+        /// in the same hosted zone.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>A string specifying the initial status of the key-signing key (KSK). You can set the
-        /// value to <code>ACTIVE</code> or <code>INACTIVE</code>.</para>
+        /// value to <c>ACTIVE</c> or <c>INACTIVE</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -32,32 +32,32 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// action is requested by the finding provider to import its findings into Security Hub.
     /// 
     ///  
-    /// <para><code>BatchImportFindings</code> must be called by one of the following:
+    /// <para><c>BatchImportFindings</c> must be called by one of the following:
     /// </para><ul><li><para>
     /// The Amazon Web Services account that is associated with a finding if you are using
     /// the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-providers.html#securityhub-custom-providers-bfi-reqs">default
     /// product ARN</a> or are a partner sending findings from within a customer's Amazon
     /// Web Services account. In these cases, the identifier of the account that you are calling
-    /// <code>BatchImportFindings</code> from needs to be the same as the <code>AwsAccountId</code>
-    /// attribute for the finding.
+    /// <c>BatchImportFindings</c> from needs to be the same as the <c>AwsAccountId</c> attribute
+    /// for the finding.
     /// </para></li><li><para>
     /// An Amazon Web Services account that Security Hub has allow-listed for an official
-    /// partner integration. In this case, you can call <code>BatchImportFindings</code> from
-    /// the allow-listed account and send findings from different customer accounts in the
-    /// same batch.
+    /// partner integration. In this case, you can call <c>BatchImportFindings</c> from the
+    /// allow-listed account and send findings from different customer accounts in the same
+    /// batch.
     /// </para></li></ul><para>
     /// The maximum allowed size for a finding is 240 Kb. An error is returned for any finding
     /// larger than 240 Kb.
     /// </para><para>
-    /// After a finding is created, <code>BatchImportFindings</code> cannot be used to update
-    /// the following finding fields and objects, which Security Hub customers use to manage
-    /// their investigation workflow.
-    /// </para><ul><li><para><code>Note</code></para></li><li><para><code>UserDefinedFields</code></para></li><li><para><code>VerificationState</code></para></li><li><para><code>Workflow</code></para></li></ul><para>
-    /// Finding providers also should not use <code>BatchImportFindings</code> to update the
-    /// following attributes.
-    /// </para><ul><li><para><code>Confidence</code></para></li><li><para><code>Criticality</code></para></li><li><para><code>RelatedFindings</code></para></li><li><para><code>Severity</code></para></li><li><para><code>Types</code></para></li></ul><para>
-    /// Instead, finding providers use <code>FindingProviderFields</code> to provide values
-    /// for these attributes.
+    /// After a finding is created, <c>BatchImportFindings</c> cannot be used to update the
+    /// following finding fields and objects, which Security Hub customers use to manage their
+    /// investigation workflow.
+    /// </para><ul><li><para><c>Note</c></para></li><li><para><c>UserDefinedFields</c></para></li><li><para><c>VerificationState</c></para></li><li><para><c>Workflow</c></para></li></ul><para>
+    /// Finding providers also should not use <c>BatchImportFindings</c> to update the following
+    /// attributes.
+    /// </para><ul><li><para><c>Confidence</c></para></li><li><para><c>Criticality</c></para></li><li><para><c>RelatedFindings</c></para></li><li><para><c>Severity</c></para></li><li><para><c>Types</c></para></li></ul><para>
+    /// Instead, finding providers use <c>FindingProviderFields</c> to provide values for
+    /// these attributes.
     /// </para>
     /// </summary>
     [Cmdlet("Import", "SHUBFindingsBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

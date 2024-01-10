@@ -28,11 +28,11 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Returns metadata of the User such as <code>UserID</code> in the specified collection.
-    /// Anonymous User (to reserve faces without any identity) is not returned as part of
-    /// this request. The results are sorted by system generated primary key ID. If the response
-    /// is truncated, <code>NextToken</code> is returned in the response that can be used
-    /// in the subsequent request to retrieve the next set of identities.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns metadata of the User such as <c>UserID</c> in the specified collection. Anonymous
+    /// User (to reserve faces without any identity) is not returned as part of this request.
+    /// The results are sorted by system generated primary key ID. If the response is truncated,
+    /// <c>NextToken</c> is returned in the response that can be used in the subsequent request
+    /// to retrieve the next set of identities.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "REKUserList")]
     [OutputType("Amazon.Rekognition.Model.User")]

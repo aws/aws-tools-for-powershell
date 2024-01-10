@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter DatabaseInput
         /// <summary>
         /// <para>
-        /// <para>A <code>DatabaseInput</code> object specifying the new definition of the metadata
-        /// database in the catalog.</para>
+        /// <para>A <c>DatabaseInput</c> object specifying the new definition of the metadata database
+        /// in the catalog.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -44,10 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// When requesting attributes for multiple locations, use the pagination parameters to
     /// retrieve results as a set of sequential pages. 
     /// </para><para>
-    /// If successful, a <code>LocationAttributes</code> object is returned for each requested
-    /// location. If the fleet does not have a requested location, no information is returned.
-    /// This operation does not return the home Region. To get information on a fleet's home
-    /// Region, call <code>DescribeFleetAttributes</code>.
+    /// If successful, a <c>LocationAttributes</c> object is returned for each requested location.
+    /// If the fleet does not have a requested location, no information is returned. This
+    /// operation does not return the home Region. To get information on a fleet's home Region,
+    /// call <c>DescribeFleetAttributes</c>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up Amazon GameLift fleets</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A list of fleet locations to retrieve information for. Specify locations in the form
-        /// of an Amazon Web Services Region code, such as <code>us-west-2</code>.</para>
+        /// of an Amazon Web Services Region code, such as <c>us-west-2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
+        /// <para>The maximum number of results to return. Use this parameter with <c>NextToken</c>
         /// to get results as a set of sequential pages. This limit is not currently enforced.</para>
         /// </para>
         /// </summary>

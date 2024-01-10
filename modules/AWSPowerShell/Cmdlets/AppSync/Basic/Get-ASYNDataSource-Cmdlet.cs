@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Retrieves a <code>DataSource</code> object.
+    /// Retrieves a <c>DataSource</c> object.
     /// </summary>
     [Cmdlet("Get", "ASYNDataSource")]
     [OutputType("Amazon.AppSync.Model.DataSource")]

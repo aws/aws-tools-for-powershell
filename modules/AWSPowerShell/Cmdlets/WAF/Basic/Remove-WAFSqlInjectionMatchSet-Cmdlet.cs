@@ -35,23 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Permanently deletes a <a>SqlInjectionMatchSet</a>. You can't delete a <code>SqlInjectionMatchSet</code>
-    /// if it's still used in any <code>Rules</code> or if it still contains any <a>SqlInjectionMatchTuple</a>
+    /// Permanently deletes a <a>SqlInjectionMatchSet</a>. You can't delete a <c>SqlInjectionMatchSet</c>
+    /// if it's still used in any <c>Rules</c> or if it still contains any <a>SqlInjectionMatchTuple</a>
     /// objects.
     /// </para><para>
-    /// If you just want to remove a <code>SqlInjectionMatchSet</code> from a <code>Rule</code>,
-    /// use <a>UpdateRule</a>.
+    /// If you just want to remove a <c>SqlInjectionMatchSet</c> from a <c>Rule</c>, use <a>UpdateRule</a>.
     /// </para><para>
-    /// To permanently delete a <code>SqlInjectionMatchSet</code> from AWS WAF, perform the
-    /// following steps:
+    /// To permanently delete a <c>SqlInjectionMatchSet</c> from AWS WAF, perform the following
+    /// steps:
     /// </para><ol><li><para>
-    /// Update the <code>SqlInjectionMatchSet</code> to remove filters, if any. For more information,
+    /// Update the <c>SqlInjectionMatchSet</c> to remove filters, if any. For more information,
     /// see <a>UpdateSqlInjectionMatchSet</a>.
     /// </para></li><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>DeleteSqlInjectionMatchSet</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of a <c>DeleteSqlInjectionMatchSet</c> request.
     /// </para></li><li><para>
-    /// Submit a <code>DeleteSqlInjectionMatchSet</code> request.
+    /// Submit a <c>DeleteSqlInjectionMatchSet</c> request.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Remove", "WAFSqlInjectionMatchSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -86,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter SqlInjectionMatchSetId
         /// <summary>
         /// <para>
-        /// <para>The <code>SqlInjectionMatchSetId</code> of the <a>SqlInjectionMatchSet</a> that you
-        /// want to delete. <code>SqlInjectionMatchSetId</code> is returned by <a>CreateSqlInjectionMatchSet</a>
+        /// <para>The <c>SqlInjectionMatchSetId</c> of the <a>SqlInjectionMatchSet</a> that you want
+        /// to delete. <c>SqlInjectionMatchSetId</c> is returned by <a>CreateSqlInjectionMatchSet</a>
         /// and by <a>ListSqlInjectionMatchSets</a>.</para>
         /// </para>
         /// </summary>

@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     /// You can filter applications using only one filter at a time or without using any filter.
     /// If you try to filter applications using multiple filters, you will get the following
     /// error:
-    /// </para><para><code>An error occurred (ValidationException) when calling the ListApps operation:
-    /// Only one filter is supported for this operation.</code></para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><para><c>An error occurred (ValidationException) when calling the ListApps operation: Only
+    /// one filter is supported for this operation.</c></para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RESHAppList")]
     [OutputType("Amazon.ResilienceHub.Model.AppSummary")]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <summary>
         /// <para>
         /// <para>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
-        /// ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
+        /// ARN is: arn:<c>partition</c>:resiliencehub:<c>region</c>:<c>account</c>:app/<c>app-id</c>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>
         /// guide.</para>
@@ -87,9 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter ReverseOrder
         /// <summary>
         /// <para>
-        /// <para>The application list is sorted based on the values of <code>lastAppComplianceEvaluationTime</code>
+        /// <para>The application list is sorted based on the values of <c>lastAppComplianceEvaluationTime</c>
         /// field. By default, application list is sorted in ascending order. To sort the appliation
-        /// list in descending order, set this field to <code>True</code>.</para>
+        /// list in descending order, set this field to <c>True</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <summary>
         /// <para>
         /// <para>Maximum number of results to include in the response. If more results exist than the
-        /// specified <code>MaxResults</code> value, a token is included in the response so that
-        /// the remaining results can be retrieved.</para>
+        /// specified <c>MaxResults</c> value, a token is included in the response so that the
+        /// remaining results can be retrieved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

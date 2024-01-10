@@ -30,9 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// <summary>
     /// Deletes the specified UserID within the collection. Faces that are associated with
     /// the UserID are disassociated from the UserID before deleting the specified UserID.
-    /// If the specified <code>Collection</code> or <code>UserID</code> is already deleted
-    /// or not found, a <code>ResourceNotFoundException</code> will be thrown. If the action
-    /// is successful with a 200 response, an empty HTTP body is returned.
+    /// If the specified <c>Collection</c> or <c>UserID</c> is already deleted or not found,
+    /// a <c>ResourceNotFoundException</c> will be thrown. If the action is successful with
+    /// a 200 response, an empty HTTP body is returned.
     /// </summary>
     [Cmdlet("Remove", "REKUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -49,10 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>Idempotent token used to identify the request to <code>DeleteUser</code>. If you use
-        /// the same token with multiple <code>DeleteUser </code>requests, the same response is
-        /// returned. Use ClientRequestToken to prevent the same request from being processed
-        /// more than once.</para>
+        /// <para>Idempotent token used to identify the request to <c>DeleteUser</c>. If you use the
+        /// same token with multiple <c>DeleteUser </c>requests, the same response is returned.
+        /// Use ClientRequestToken to prevent the same request from being processed more than
+        /// once.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

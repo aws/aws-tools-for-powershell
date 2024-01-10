@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
     /// Returns a list of your report plans. For detailed information about a single report
-    /// plan, use <code>DescribeReportPlan</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// plan, use <c>DescribeReportPlan</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BAKReportPlanList")]
     [OutputType("Amazon.Backup.Model.ReportPlan")]

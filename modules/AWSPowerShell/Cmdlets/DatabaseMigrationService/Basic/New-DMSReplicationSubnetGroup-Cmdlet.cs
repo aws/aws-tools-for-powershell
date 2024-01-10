@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     ///  
     /// <para>
     /// The VPC needs to have at least one subnet in at least two availability zones in the
-    /// Amazon Web Services Region, otherwise the service will throw a <code>ReplicationSubnetGroupDoesNotCoverEnoughAZs</code>
+    /// Amazon Web Services Region, otherwise the service will throw a <c>ReplicationSubnetGroupDoesNotCoverEnoughAZs</c>
     /// exception.
     /// </para><para>
     /// If a replication subnet group exists in your Amazon Web Services account, the CreateReplicationSubnetGroup
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The name for the replication subnet group. This value is stored as a lowercase string.</para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, spaces,
-        /// underscores, or hyphens. Must not be "default".</para><para>Example: <code>mySubnetgroup</code></para>
+        /// underscores, or hyphens. Must not be "default".</para><para>Example: <c>mySubnetgroup</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

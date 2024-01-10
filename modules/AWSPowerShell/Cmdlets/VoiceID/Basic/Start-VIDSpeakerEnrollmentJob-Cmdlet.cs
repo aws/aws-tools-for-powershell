@@ -89,10 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.VID
         /// <summary>
         /// <para>
         /// <para> The action to take when the specified speaker is already enrolled in the specified
-        /// domain. The default value is <code>SKIP</code>, which skips the enrollment for the
-        /// existing speaker. Setting the value to <code>OVERWRITE</code> replaces the existing
-        /// voice prints and enrollment audio stored for that speaker with new data generated
-        /// from the latest audio.</para>
+        /// domain. The default value is <c>SKIP</c>, which skips the enrollment for the existing
+        /// speaker. Setting the value to <c>OVERWRITE</c> replaces the existing voice prints
+        /// and enrollment audio stored for that speaker with new data generated from the latest
+        /// audio.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,9 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.VID
         /// <summary>
         /// <para>
         /// <para>The action to take when the given speaker is flagged by the fraud detection system.
-        /// The default value is <code>FAIL</code>, which fails the speaker enrollment. Changing
-        /// this value to <code>IGNORE</code> results in the speaker being enrolled even if they
-        /// are flagged by the fraud detection system.</para>
+        /// The default value is <c>FAIL</c>, which fails the speaker enrollment. Changing this
+        /// value to <c>IGNORE</c> results in the speaker being enrolled even if they are flagged
+        /// by the fraud detection system.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,10 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter OutputDataConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>The S3 path of the folder where Voice ID writes the job output file. It has a <code>*.out</code>
-        /// extension. For example, if the input file name is <code>input-file.json</code> and
-        /// the output folder path is <code>s3://output-bucket/output-folder</code>, the full
-        /// output file path is <code>s3://output-bucket/output-folder/job-Id/input-file.json.out</code>.</para>
+        /// <para>The S3 path of the folder where Voice ID writes the job output file. It has a <c>*.out</c>
+        /// extension. For example, if the input file name is <c>input-file.json</c> and the output
+        /// folder path is <c>s3://output-bucket/output-folder</c>, the full output file path
+        /// is <c>s3://output-bucket/output-folder/job-Id/input-file.json.out</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

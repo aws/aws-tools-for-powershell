@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// <summary>
     /// Trains or retrains an active solution in a Custom dataset group. A solution is created
     /// using the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
-    /// operation and must be in the ACTIVE state before calling <code>CreateSolutionVersion</code>.
+    /// operation and must be in the ACTIVE state before calling <c>CreateSolutionVersion</c>.
     /// A new version of the solution is created every time you call this operation.
     /// 
     ///  
@@ -50,9 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// CREATE STOPPED
     /// </para></li></ul><para>
     /// To get the status of the version, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a>.
-    /// Wait until the status shows as ACTIVE before calling <code>CreateCampaign</code>.
+    /// Wait until the status shows as ACTIVE before calling <c>CreateCampaign</c>.
     /// </para><para>
-    /// If the status shows as CREATE FAILED, the response includes a <code>failureReason</code>
+    /// If the status shows as CREATE FAILED, the response includes a <c>failureReason</c>
     /// key, which describes why the job failed.
     /// </para><para><b>Related APIs</b></para><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html">ListSolutionVersions</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html">ListSolutions</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html">DeleteSolution</a></para></li></ul>
     /// </summary>
@@ -112,17 +112,17 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>The scope of training to be performed when creating the solution version. The default
-        /// is <code>FULL</code>. This creates a completely new model based on the entirety of
-        /// the training data from the datasets in your dataset group. </para><para>If you use <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>,
-        /// you can specify a training mode of <code>UPDATE</code>. This updates the model to
-        /// consider new items for recommendations. It is not a full retraining. You should still
-        /// complete a full retraining weekly. If you specify <code>UPDATE</code>, Amazon Personalize
-        /// will stop automatic updates for the solution version. To resume updates, create a
-        /// new solution with training mode set to <code>FULL</code> and deploy it in a campaign.
-        /// For more information about automatic updates, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/use-case-recipe-features.html#maintaining-with-automatic-updates">Automatic
-        /// updates</a>. </para><para>The <code>UPDATE</code> option can only be used when you already have an active solution
-        /// version created from the input solution using the <code>FULL</code> option and the
-        /// input solution was trained with the <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>
+        /// is <c>FULL</c>. This creates a completely new model based on the entirety of the training
+        /// data from the datasets in your dataset group. </para><para>If you use <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>,
+        /// you can specify a training mode of <c>UPDATE</c>. This updates the model to consider
+        /// new items for recommendations. It is not a full retraining. You should still complete
+        /// a full retraining weekly. If you specify <c>UPDATE</c>, Amazon Personalize will stop
+        /// automatic updates for the solution version. To resume updates, create a new solution
+        /// with training mode set to <c>FULL</c> and deploy it in a campaign. For more information
+        /// about automatic updates, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/use-case-recipe-features.html#maintaining-with-automatic-updates">Automatic
+        /// updates</a>. </para><para>The <c>UPDATE</c> option can only be used when you already have an active solution
+        /// version created from the input solution using the <c>FULL</c> option and the input
+        /// solution was trained with the <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>
         /// recipe or the legacy <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html">HRNN-Coldstart</a>
         /// recipe.</para>
         /// </para>

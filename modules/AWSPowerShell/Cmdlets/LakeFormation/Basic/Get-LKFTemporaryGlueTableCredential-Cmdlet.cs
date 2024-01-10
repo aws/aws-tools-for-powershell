@@ -143,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter SupportedPermissionType
         /// <summary>
         /// <para>
-        /// <para>A list of supported permission types for the table. Valid values are <code>COLUMN_PERMISSION</code>
-        /// and <code>CELL_FILTER_PERMISSION</code>.</para>
+        /// <para>A list of supported permission types for the table. Valid values are <c>COLUMN_PERMISSION</c>
+        /// and <c>CELL_FILTER_PERMISSION</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

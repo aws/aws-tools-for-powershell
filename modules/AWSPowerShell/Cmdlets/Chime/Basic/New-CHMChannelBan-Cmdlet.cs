@@ -29,16 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Permanently bans a member from a channel. Moderators can't add banned members to a
-    /// channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then
-    /// <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or
-    /// channels.
+    /// channel. To undo a ban, you first have to <c>DeleteChannelBan</c>, and then <c>CreateChannelMembership</c>.
+    /// Bans are cleaned up when you delete users or channels.
     /// 
     ///  
     /// <para>
     /// If you ban a user who is already part of a channel, that user is automatically kicked
     /// from the channel.
     /// </para><note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
+    /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the <c>AppInstanceUserArn</c>
     /// of the user that makes the API call as the value in the header.
     /// </para></note><important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
     /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelBan.html">CreateChannelBan</a>,
@@ -83,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// <para>The <c>AppInstanceUserArn</c> of the user that makes the API call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

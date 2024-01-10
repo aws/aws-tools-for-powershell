@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// Enables temporary credential requests for a profile. 
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:EnableProfile</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:EnableProfile</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "IAMRAProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

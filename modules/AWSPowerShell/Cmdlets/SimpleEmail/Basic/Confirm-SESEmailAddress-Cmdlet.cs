@@ -28,8 +28,7 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Deprecated. Use the <code>VerifyEmailIdentity</code> operation to verify a new email
-    /// address.
+    /// Deprecated. Use the <c>VerifyEmailIdentity</c> operation to verify a new email address.
     /// </summary>
     [Cmdlet("Confirm", "SESEmailAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

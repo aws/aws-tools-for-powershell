@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name for your database of up to 64 alphanumeric characters. If you don't specify
-        /// a name, Amazon Aurora doesn't create a database in the global database cluster.</para><para>Constraints:</para><ul><li><para>Can't be specified if <code>SourceDBClusterIdentifier</code> is specified. In this
-        /// case, Amazon Aurora uses the database name from the source DB cluster.</para></li></ul>
+        /// a name, Amazon Aurora doesn't create a database in the global database cluster.</para><para>Constraints:</para><ul><li><para>Can't be specified if <c>SourceDBClusterIdentifier</c> is specified. In this case,
+        /// Amazon Aurora uses the database name from the source DB cluster.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The database engine to use for this global database cluster.</para><para>Valid Values: <code>aurora-mysql | aurora-postgresql</code></para><para>Constraints:</para><ul><li><para>Can't be specified if <code>SourceDBClusterIdentifier</code> is specified. In this
-        /// case, Amazon Aurora uses the engine of the source DB cluster.</para></li></ul>
+        /// <para>The database engine to use for this global database cluster.</para><para>Valid Values: <c>aurora-mysql | aurora-postgresql</c></para><para>Constraints:</para><ul><li><para>Can't be specified if <c>SourceDBClusterIdentifier</c> is specified. In this case,
+        /// Amazon Aurora uses the engine of the source DB cluster.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The engine version to use for this global database cluster.</para><para>Constraints:</para><ul><li><para>Can't be specified if <code>SourceDBClusterIdentifier</code> is specified. In this
-        /// case, Amazon Aurora uses the engine version of the source DB cluster.</para></li></ul>
+        /// <para>The engine version to use for this global database cluster.</para><para>Constraints:</para><ul><li><para>Can't be specified if <c>SourceDBClusterIdentifier</c> is specified. In this case,
+        /// Amazon Aurora uses the engine version of the source DB cluster.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) to use as the primary cluster of the global database.</para><para>If you provide a value for this parameter, don't specify values for the following
-        /// settings because Amazon Aurora uses the values from the specified source DB cluster:</para><ul><li><para><code>DatabaseName</code></para></li><li><para><code>Engine</code></para></li><li><para><code>EngineVersion</code></para></li><li><para><code>StorageEncrypted</code></para></li></ul>
+        /// settings because Amazon Aurora uses the values from the specified source DB cluster:</para><ul><li><para><c>DatabaseName</c></para></li><li><para><c>Engine</c></para></li><li><para><c>EngineVersion</c></para></li><li><para><c>StorageEncrypted</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageEncrypted
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to enable storage encryption for the new global database cluster.</para><para>Constraints:</para><ul><li><para>Can't be specified if <code>SourceDBClusterIdentifier</code> is specified. In this
-        /// case, Amazon Aurora uses the setting from the source DB cluster.</para></li></ul>
+        /// <para>Specifies whether to enable storage encryption for the new global database cluster.</para><para>Constraints:</para><ul><li><para>Can't be specified if <c>SourceDBClusterIdentifier</c> is specified. In this case,
+        /// Amazon Aurora uses the setting from the source DB cluster.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

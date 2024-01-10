@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An opaque pagination token returned from previous <code>ListLexicons</code> operation.
-        /// If present, indicates where to continue the list of lexicons.</para>
+        /// <para>An opaque pagination token returned from previous <c>ListLexicons</c> operation. If
+        /// present, indicates where to continue the list of lexicons.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

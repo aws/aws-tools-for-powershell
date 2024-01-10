@@ -46,11 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Performing this operation on an instance that uses an instance store as its root device
     /// returns an error.
     /// </para><para>
-    /// If you attempt to start a T3 instance with <code>host</code> tenancy and the <code>unlimted</code>
-    /// CPU credit option, the request fails. The <code>unlimited</code> CPU credit option
-    /// is not supported on Dedicated Hosts. Before you start the instance, either change
-    /// its CPU credit option to <code>standard</code>, or change its tenancy to <code>default</code>
-    /// or <code>dedicated</code>.
+    /// If you attempt to start a T3 instance with <c>host</c> tenancy and the <c>unlimted</c>
+    /// CPU credit option, the request fails. The <c>unlimited</c> CPU credit option is not
+    /// supported on Dedicated Hosts. Before you start the instance, either change its CPU
+    /// credit option to <c>standard</c>, or change its tenancy to <c>default</c> or <c>dedicated</c>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop
     /// and start your instance</a> in the <i>Amazon EC2 User Guide</i>.

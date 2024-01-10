@@ -37,11 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.ACD
     ///  <important><para>
     /// Note the following important information.
     /// </para><ul><li><para>
-    /// Each configuration token is only valid for one call to <code>GetLatestConfiguration</code>.
-    /// The <code>GetLatestConfiguration</code> response includes a <code>NextPollConfigurationToken</code>
+    /// Each configuration token is only valid for one call to <c>GetLatestConfiguration</c>.
+    /// The <c>GetLatestConfiguration</c> response includes a <c>NextPollConfigurationToken</c>
     /// that should always replace the token used for the just-completed call in preparation
     /// for the next one. 
-    /// </para></li><li><para><code>GetLatestConfiguration</code> is a priced call. For more information, see <a href="https://aws.amazon.com/systems-manager/pricing/">Pricing</a>.
+    /// </para></li><li><para><c>GetLatestConfiguration</c> is a priced call. For more information, see <a href="https://aws.amazon.com/systems-manager/pricing/">Pricing</a>.
     /// </para></li></ul></important>
     /// </summary>
     [Cmdlet("Get", "ACDLatestConfiguration")]
@@ -61,12 +61,12 @@ namespace Amazon.PowerShell.Cmdlets.ACD
         /// <summary>
         /// <para>
         /// <para>Token describing the current state of the configuration session. To obtain a token,
-        /// first call the <a>StartConfigurationSession</a> API. Note that every call to <code>GetLatestConfiguration</code>
-        /// will return a new <code>ConfigurationToken</code> (<code>NextPollConfigurationToken</code>
-        /// in the response) and <i>must</i> be provided to subsequent <code>GetLatestConfiguration</code>
+        /// first call the <a>StartConfigurationSession</a> API. Note that every call to <c>GetLatestConfiguration</c>
+        /// will return a new <c>ConfigurationToken</c> (<c>NextPollConfigurationToken</c> in
+        /// the response) and <i>must</i> be provided to subsequent <c>GetLatestConfiguration</c>
         /// API calls.</para><important><para>This token should only be used once. To support long poll use cases, the token is
-        /// valid for up to 24 hours. If a <code>GetLatestConfiguration</code> call uses an expired
-        /// token, the system returns <code>BadRequestException</code>.</para></important>
+        /// valid for up to 24 hours. If a <c>GetLatestConfiguration</c> call uses an expired
+        /// token, the system returns <c>BadRequestException</c>.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

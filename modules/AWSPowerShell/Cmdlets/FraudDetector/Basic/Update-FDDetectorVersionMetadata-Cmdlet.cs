@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
     /// Updates the detector version's description. You can update the metadata for any detector
-    /// version (<code>DRAFT, ACTIVE,</code> or <code>INACTIVE</code>).
+    /// version (<c>DRAFT, ACTIVE,</c> or <c>INACTIVE</c>).
     /// </summary>
     [Cmdlet("Update", "FDDetectorVersionMetadata", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

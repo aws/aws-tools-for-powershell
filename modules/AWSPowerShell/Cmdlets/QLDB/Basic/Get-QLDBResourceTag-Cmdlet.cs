@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for which to list the tags. For example:</para><para><code>arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger</code></para>
+        /// <para>The Amazon Resource Name (ARN) for which to list the tags. For example:</para><para><c>arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

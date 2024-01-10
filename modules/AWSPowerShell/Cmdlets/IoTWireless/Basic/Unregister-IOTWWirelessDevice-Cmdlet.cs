@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter WirelessDeviceType
         /// <summary>
         /// <para>
-        /// <para>The type of wireless device to deregister from AWS IoT Wireless, which can be <code>LoRaWAN</code>
-        /// or <code>Sidewalk</code>.</para>
+        /// <para>The type of wireless device to deregister from AWS IoT Wireless, which can be <c>LoRaWAN</c>
+        /// or <c>Sidewalk</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

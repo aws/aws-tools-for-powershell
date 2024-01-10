@@ -28,7 +28,7 @@ using Amazon.ComprehendMedical.Model;
 namespace Amazon.PowerShell.Cmdlets.CMPM
 {
     /// <summary>
-    /// The <code>DetectEntities</code> operation is deprecated. You should use the <a>DetectEntitiesV2</a>
+    /// The <c>DetectEntities</c> operation is deprecated. You should use the <a>DetectEntitiesV2</a>
     /// operation instead.
     /// 
     ///  

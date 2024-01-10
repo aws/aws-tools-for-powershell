@@ -28,11 +28,11 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Re-enables a disabled AMI. The re-enabled AMI is marked as <code>available</code>
-    /// and can be used for instance launches, appears in describe operations, and can be
-    /// shared. Amazon Web Services accounts, organizations, and Organizational Units that
-    /// lost access to the AMI when it was disabled do not regain access automatically. Once
-    /// the AMI is available, it can be shared with them again.
+    /// Re-enables a disabled AMI. The re-enabled AMI is marked as <c>available</c> and can
+    /// be used for instance launches, appears in describe operations, and can be shared.
+    /// Amazon Web Services accounts, organizations, and Organizational Units that lost access
+    /// to the AMI when it was disabled do not regain access automatically. Once the AMI is
+    /// available, it can be shared with them again.
     /// 
     ///  
     /// <para>

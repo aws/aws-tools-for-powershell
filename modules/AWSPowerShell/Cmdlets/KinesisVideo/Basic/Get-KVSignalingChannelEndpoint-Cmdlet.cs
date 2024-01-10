@@ -29,19 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
     /// Provides an endpoint for the specified signaling channel to send and receive messages.
-    /// This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter,
-    /// which consists of the <code>Protocols</code> and <code>Role</code> properties.
+    /// This API uses the <c>SingleMasterChannelEndpointConfiguration</c> input parameter,
+    /// which consists of the <c>Protocols</c> and <c>Role</c> properties.
     /// 
     ///  
-    /// <para><code>Protocols</code> is used to determine the communication mechanism. For example,
-    /// if you specify <code>WSS</code> as the protocol, this API produces a secure websocket
-    /// endpoint. If you specify <code>HTTPS</code> as the protocol, this API generates an
-    /// HTTPS endpoint. 
-    /// </para><para><code>Role</code> determines the messaging permissions. A <code>MASTER</code> role
-    /// results in this API generating an endpoint that a client can use to communicate with
-    /// any of the viewers on the channel. A <code>VIEWER</code> role results in this API
-    /// generating an endpoint that a client can use to communicate only with a <code>MASTER</code>.
+    /// <para><c>Protocols</c> is used to determine the communication mechanism. For example, if
+    /// you specify <c>WSS</c> as the protocol, this API produces a secure websocket endpoint.
+    /// If you specify <c>HTTPS</c> as the protocol, this API generates an HTTPS endpoint.
     /// 
+    /// </para><para><c>Role</c> determines the messaging permissions. A <c>MASTER</c> role results in
+    /// this API generating an endpoint that a client can use to communicate with any of the
+    /// viewers on the channel. A <c>VIEWER</c> role results in this API generating an endpoint
+    /// that a client can use to communicate only with a <c>MASTER</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "KVSignalingChannelEndpoint")]
@@ -77,10 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter SingleMasterChannelEndpointConfiguration_Protocol
         /// <summary>
         /// <para>
-        /// <para>This property is used to determine the nature of communication over this <code>SINGLE_MASTER</code>
-        /// signaling channel. If <code>WSS</code> is specified, this API returns a websocket
-        /// endpoint. If <code>HTTPS</code> is specified, this API returns an <code>HTTPS</code>
-        /// endpoint.</para>
+        /// <para>This property is used to determine the nature of communication over this <c>SINGLE_MASTER</c>
+        /// signaling channel. If <c>WSS</c> is specified, this API returns a websocket endpoint.
+        /// If <c>HTTPS</c> is specified, this API returns an <c>HTTPS</c> endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,12 +89,12 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter SingleMasterChannelEndpointConfiguration_Role
         /// <summary>
         /// <para>
-        /// <para>This property is used to determine messaging permissions in this <code>SINGLE_MASTER</code>
-        /// signaling channel. If <code>MASTER</code> is specified, this API returns an endpoint
-        /// that a client can use to receive offers from and send answers to any of the viewers
-        /// on this signaling channel. If <code>VIEWER</code> is specified, this API returns an
-        /// endpoint that a client can use only to send offers to another <code>MASTER</code>
-        /// client on this signaling channel. </para>
+        /// <para>This property is used to determine messaging permissions in this <c>SINGLE_MASTER</c>
+        /// signaling channel. If <c>MASTER</c> is specified, this API returns an endpoint that
+        /// a client can use to receive offers from and send answers to any of the viewers on
+        /// this signaling channel. If <c>VIEWER</c> is specified, this API returns an endpoint
+        /// that a client can use only to send offers to another <c>MASTER</c> client on this
+        /// signaling channel. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

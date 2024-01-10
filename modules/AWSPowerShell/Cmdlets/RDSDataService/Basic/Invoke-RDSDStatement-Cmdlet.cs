@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     /// Runs a SQL statement against a database.
     /// 
     ///  <note><para>
-    /// If a call isn't part of a transaction because it doesn't include the <code>transactionID</code>
+    /// If a call isn't part of a transaction because it doesn't include the <c>transactionID</c>
     /// parameter, changes that result from the call are committed automatically.
     /// </para><para>
     /// If the binary response data from the database is more than 1 MB, the call is terminated.
@@ -74,10 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         #region Parameter ResultSetOptions_DecimalReturnType
         /// <summary>
         /// <para>
-        /// <para>A value that indicates how a field of <code>DECIMAL</code> type is represented in
-        /// the response. The value of <code>STRING</code>, the default, specifies that it is
-        /// converted to a String value. The value of <code>DOUBLE_OR_LONG</code> specifies that
-        /// it is converted to a Long value if its scale is 0, or to a Double value otherwise.</para><note><para>Conversion to Double or Long can result in roundoff errors due to precision loss.
+        /// <para>A value that indicates how a field of <c>DECIMAL</c> type is represented in the response.
+        /// The value of <c>STRING</c>, the default, specifies that it is converted to a String
+        /// value. The value of <c>DOUBLE_OR_LONG</c> specifies that it is converted to a Long
+        /// value if its scale is 0, or to a Double value otherwise.</para><note><para>Conversion to Double or Long can result in roundoff errors due to precision loss.
         /// We recommend converting to String, especially when working with currency values.</para></note>
         /// </para>
         /// </summary>
@@ -90,10 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to format the result set as a single JSON string. This
-        /// parameter only applies to <code>SELECT</code> statements and is ignored for other
-        /// types of statements. Allowed values are <code>NONE</code> and <code>JSON</code>. The
-        /// default value is <code>NONE</code>. The result is returned in the <code>formattedRecords</code>
-        /// field.</para><para>For usage information about the JSON format for result sets, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
+        /// parameter only applies to <c>SELECT</c> statements and is ignored for other types
+        /// of statements. Allowed values are <c>NONE</c> and <c>JSON</c>. The default value is
+        /// <c>NONE</c>. The result is returned in the <c>formattedRecords</c> field.</para><para>For usage information about the JSON format for result sets, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
         /// the Data API</a> in the <i>Amazon Aurora User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -115,10 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         #region Parameter ResultSetOptions_LongReturnType
         /// <summary>
         /// <para>
-        /// <para>A value that indicates how a field of <code>LONG</code> type is represented. Allowed
-        /// values are <code>LONG</code> and <code>STRING</code>. The default is <code>LONG</code>.
-        /// Specify <code>STRING</code> if the length or precision of numeric values might cause
-        /// truncation or rounding errors. </para>
+        /// <para>A value that indicates how a field of <c>LONG</c> type is represented. Allowed values
+        /// are <c>LONG</c> and <c>STRING</c>. The default is <c>LONG</c>. Specify <c>STRING</c>
+        /// if the length or precision of numeric values might cause truncation or rounding errors.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         #region Parameter Schema
         /// <summary>
         /// <para>
-        /// <para>The name of the database schema.</para><note><para>Currently, the <code>schema</code> parameter isn't supported.</para></note>
+        /// <para>The name of the database schema.</para><note><para>Currently, the <c>schema</c> parameter isn't supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         #region Parameter TransactionId
         /// <summary>
         /// <para>
-        /// <para>The identifier of a transaction that was started by using the <code>BeginTransaction</code>
+        /// <para>The identifier of a transaction that was started by using the <c>BeginTransaction</c>
         /// operation. Specify the transaction ID of the transaction that you want to include
         /// the SQL statement in.</para><para>If the SQL statement is not part of a transaction, don't set this parameter.</para>
         /// </para>

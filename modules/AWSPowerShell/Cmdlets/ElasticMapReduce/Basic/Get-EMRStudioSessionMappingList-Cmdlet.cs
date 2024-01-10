@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
     /// Returns a list of all user or group session mappings for the Amazon EMR Studio specified
-    /// by <code>StudioId</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// by <c>StudioId</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EMRStudioSessionMappingList")]
     [OutputType("Amazon.ElasticMapReduce.Model.SessionMappingSummary")]

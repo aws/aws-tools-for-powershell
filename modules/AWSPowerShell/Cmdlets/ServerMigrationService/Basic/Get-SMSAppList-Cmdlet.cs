@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return in a single call. The default value is 100.
-        /// To retrieve the remaining results, make another call with the returned <code>NextToken</code>
+        /// To retrieve the remaining results, make another call with the returned <c>NextToken</c>
         /// value. </para>
         /// </para>
         /// <para>

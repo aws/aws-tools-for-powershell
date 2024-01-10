@@ -67,9 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         #region Parameter ApplicationMode
         /// <summary>
         /// <para>
-        /// <para>Use the <code>STREAMING</code> mode to create a Kinesis Data Analytics For Flink application.
-        /// To create a Kinesis Data Analytics Studio notebook, use the <code>INTERACTIVE</code>
-        /// mode.</para>
+        /// <para>Use the <c>STREAMING</c> mode to create a Kinesis Data Analytics For Flink application.
+        /// To create a Kinesis Data Analytics Studio notebook, use the <c>INTERACTIVE</c> mode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of your application (for example, <code>sample-app</code>).</para>
+        /// <para>The name of your application (for example, <c>sample-app</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

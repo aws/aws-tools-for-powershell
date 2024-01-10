@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TunnelOptions_DPDTimeoutAction
         /// <summary>
         /// <para>
-        /// <para>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart
-        /// the IKE initiation. Specify <code>clear</code> to end the IKE session.</para><para>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code></para><para>Default: <code>clear</code></para>
+        /// <para>The action to take after DPD timeout occurs. Specify <c>restart</c> to restart the
+        /// IKE initiation. Specify <c>clear</c> to end the IKE session.</para><para>Valid Values: <c>clear</c> | <c>none</c> | <c>restart</c></para><para>Default: <c>clear</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The number of seconds after which a DPD timeout occurs. A DPD timeout of 40 seconds
         /// means that the VPN endpoint will consider the peer dead 30 seconds after the first
-        /// failed keep-alive.</para><para>Constraints: A value greater than or equal to 30.</para><para>Default: <code>40</code></para>
+        /// failed keep-alive.</para><para>Constraints: A value greater than or equal to 30.</para><para>Default: <c>40</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TunnelOptions_IKEVersion
         /// <summary>
         /// <para>
-        /// <para>The IKE versions that are permitted for the VPN tunnel.</para><para>Valid values: <code>ikev1</code> | <code>ikev2</code></para>
+        /// <para>The IKE versions that are permitted for the VPN tunnel.</para><para>Valid values: <c>ikev1</c> | <c>ikev2</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CloudWatchLogOptions_LogEnabled
         /// <summary>
         /// <para>
-        /// <para>Enable or disable VPN tunnel logging feature. Default value is <code>False</code>.</para><para>Valid values: <code>True</code> | <code>False</code></para>
+        /// <para>Enable or disable VPN tunnel logging feature. Default value is <c>False</c>.</para><para>Valid values: <c>True</c> | <c>False</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CloudWatchLogOptions_LogOutputFormat
         /// <summary>
         /// <para>
-        /// <para>Set log format. Default format is <code>json</code>.</para><para>Valid values: <code>json</code> | <code>text</code></para>
+        /// <para>Set log format. Default format is <c>json</c>.</para><para>Valid values: <c>json</c> | <c>text</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,9 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
-        /// phase 1 IKE negotiations.</para><para>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code>
-        /// | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> | <code>21</code>
-        /// | <code>22</code> | <code>23</code> | <code>24</code></para>
+        /// phase 1 IKE negotiations.</para><para>Valid values: <c>2</c> | <c>14</c> | <c>15</c> | <c>16</c> | <c>17</c> | <c>18</c>
+        /// | <c>19</c> | <c>20</c> | <c>21</c> | <c>22</c> | <c>23</c> | <c>24</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,8 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more encryption algorithms that are permitted for the VPN tunnel for phase
-        /// 1 IKE negotiations.</para><para>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code>
-        /// | <code>AES256-GCM-16</code></para>
+        /// 1 IKE negotiations.</para><para>Valid values: <c>AES128</c> | <c>AES256</c> | <c>AES128-GCM-16</c> | <c>AES256-GCM-16</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,8 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1
-        /// IKE negotiations.</para><para>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
-        /// <code>SHA2-512</code></para>
+        /// IKE negotiations.</para><para>Valid values: <c>SHA1</c> | <c>SHA2-256</c> | <c>SHA2-384</c> | <c>SHA2-512</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TunnelOptions_Phase1LifetimeSecond
         /// <summary>
         /// <para>
-        /// <para>The lifetime for phase 1 of the IKE negotiation, in seconds.</para><para>Constraints: A value between 900 and 28,800.</para><para>Default: <code>28800</code></para>
+        /// <para>The lifetime for phase 1 of the IKE negotiation, in seconds.</para><para>Constraints: A value between 900 and 28,800.</para><para>Default: <c>28800</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,9 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
-        /// phase 2 IKE negotiations.</para><para>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code>
-        /// | <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code>
-        /// | <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code></para>
+        /// phase 2 IKE negotiations.</para><para>Valid values: <c>2</c> | <c>5</c> | <c>14</c> | <c>15</c> | <c>16</c> | <c>17</c>
+        /// | <c>18</c> | <c>19</c> | <c>20</c> | <c>21</c> | <c>22</c> | <c>23</c> | <c>24</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,8 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more encryption algorithms that are permitted for the VPN tunnel for phase
-        /// 2 IKE negotiations.</para><para>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code>
-        /// | <code>AES256-GCM-16</code></para>
+        /// 2 IKE negotiations.</para><para>Valid values: <c>AES128</c> | <c>AES256</c> | <c>AES128-GCM-16</c> | <c>AES256-GCM-16</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,8 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2
-        /// IKE negotiations.</para><para>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
-        /// <code>SHA2-512</code></para>
+        /// IKE negotiations.</para><para>Valid values: <c>SHA1</c> | <c>SHA2-256</c> | <c>SHA2-384</c> | <c>SHA2-512</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The lifetime for phase 2 of the IKE negotiation, in seconds.</para><para>Constraints: A value between 900 and 3,600. The value must be less than the value
-        /// for <code>Phase1LifetimeSeconds</code>.</para><para>Default: <code>3600</code></para>
+        /// for <c>Phase1LifetimeSeconds</c>.</para><para>Default: <c>3600</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -246,8 +240,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TunnelOptions_RekeyFuzzPercentage
         /// <summary>
         /// <para>
-        /// <para>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>)
-        /// during which the rekey time is randomly selected.</para><para>Constraints: A value between 0 and 100.</para><para>Default: <code>100</code></para>
+        /// <para>The percentage of the rekey window (determined by <c>RekeyMarginTimeSeconds</c>) during
+        /// which the rekey time is randomly selected.</para><para>Constraints: A value between 0 and 100.</para><para>Default: <c>100</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -259,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The margin time, in seconds, before the phase 2 lifetime expires, during which the
         /// Amazon Web Services side of the VPN connection performs an IKE rekey. The exact time
-        /// of the rekey is randomly selected based on the value for <code>RekeyFuzzPercentage</code>.</para><para>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</para><para>Default: <code>540</code></para>
+        /// of the rekey is randomly selected based on the value for <c>RekeyFuzzPercentage</c>.</para><para>Constraints: A value between 60 and half of <c>Phase2LifetimeSeconds</c>.</para><para>Default: <c>540</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -270,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TunnelOptions_ReplayWindowSize
         /// <summary>
         /// <para>
-        /// <para>The number of packets in an IKE replay window.</para><para>Constraints: A value between 64 and 2048.</para><para>Default: <code>1024</code></para>
+        /// <para>The number of packets in an IKE replay window.</para><para>Constraints: A value between 64 and 2048.</para><para>Default: <c>1024</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -281,7 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Choose whether or not to trigger immediate tunnel replacement. This is only applicable
-        /// when turning on or off <code>EnableTunnelLifecycleControl</code>.</para><para>Valid values: <code>True</code> | <code>False</code></para>
+        /// when turning on or off <c>EnableTunnelLifecycleControl</c>.</para><para>Valid values: <c>True</c> | <c>False</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -293,7 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The action to take when the establishing the tunnel for the VPN connection. By default,
         /// your customer gateway device must initiate the IKE negotiation and bring up the tunnel.
-        /// Specify <code>start</code> for Amazon Web Services to initiate the IKE negotiation.</para><para>Valid Values: <code>add</code> | <code>start</code></para><para>Default: <code>add</code></para>
+        /// Specify <c>start</c> for Amazon Web Services to initiate the IKE negotiation.</para><para>Valid Values: <c>add</c> | <c>start</c></para><para>Default: <c>add</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -304,8 +298,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must
-        /// be unique across all VPN connections that use the same virtual private gateway. </para><para>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
-        /// following CIDR blocks are reserved and cannot be used:</para><ul><li><para><code>169.254.0.0/30</code></para></li><li><para><code>169.254.1.0/30</code></para></li><li><para><code>169.254.2.0/30</code></para></li><li><para><code>169.254.3.0/30</code></para></li><li><para><code>169.254.4.0/30</code></para></li><li><para><code>169.254.5.0/30</code></para></li><li><para><code>169.254.169.252/30</code></para></li></ul>
+        /// be unique across all VPN connections that use the same virtual private gateway. </para><para>Constraints: A size /30 CIDR block from the <c>169.254.0.0/16</c> range. The following
+        /// CIDR blocks are reserved and cannot be used:</para><ul><li><para><c>169.254.0.0/30</c></para></li><li><para><c>169.254.1.0/30</c></para></li><li><para><c>169.254.2.0/30</c></para></li><li><para><c>169.254.3.0/30</c></para></li><li><para><c>169.254.4.0/30</c></para></li><li><para><c>169.254.5.0/30</c></para></li><li><para><c>169.254.169.252/30</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -316,7 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must
-        /// be unique across all VPN connections that use the same transit gateway.</para><para>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</para>
+        /// be unique across all VPN connections that use the same transit gateway.</para><para>Constraints: A size /126 CIDR block from the local <c>fd00::/8</c> range.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

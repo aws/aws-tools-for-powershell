@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// Describes a monitor resource. In addition to listing the properties provided in the
     /// <a>CreateMonitor</a> request, this operation lists the following properties:
     /// 
-    ///  <ul><li><para><code>Baseline</code></para></li><li><para><code>CreationTime</code></para></li><li><para><code>LastEvaluationTime</code></para></li><li><para><code>LastEvaluationState</code></para></li><li><para><code>LastModificationTime</code></para></li><li><para><code>Message</code></para></li><li><para><code>Status</code></para></li></ul>
+    ///  <ul><li><para><c>Baseline</c></para></li><li><para><c>CreationTime</c></para></li><li><para><c>LastEvaluationTime</c></para></li><li><para><c>LastEvaluationState</c></para></li><li><para><c>LastModificationTime</c></para></li><li><para><c>Message</c></para></li><li><para><c>Status</c></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "FRCMonitor")]
     [OutputType("Amazon.ForecastService.Model.DescribeMonitorResponse")]

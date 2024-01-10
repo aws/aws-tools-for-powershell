@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <summary>
         /// <para>
         /// <para>The ID of the protocols list that you want to delete. You can retrieve this ID from
-        /// <code>PutProtocolsList</code>, <code>ListProtocolsLists</code>, and <code>GetProtocolsLost</code>.</para>
+        /// <c>PutProtocolsList</c>, <c>ListProtocolsLists</c>, and <c>GetProtocolsLost</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

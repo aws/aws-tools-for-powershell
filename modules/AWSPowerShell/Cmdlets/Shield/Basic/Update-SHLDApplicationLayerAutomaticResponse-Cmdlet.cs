@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter Action_Block
         /// <summary>
         /// <para>
-        /// <para>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Block</code>
-        /// action. </para><para>You must specify exactly one action, either <code>Block</code> or <code>Count</code>.</para>
+        /// <para>Specifies that Shield Advanced should configure its WAF rules with the WAF <c>Block</c>
+        /// action. </para><para>You must specify exactly one action, either <c>Block</c> or <c>Count</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter Action_Count
         /// <summary>
         /// <para>
-        /// <para>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Count</code>
-        /// action. </para><para>You must specify exactly one action, either <code>Block</code> or <code>Count</code>.</para>
+        /// <para>Specifies that Shield Advanced should configure its WAF rules with the WAF <c>Count</c>
+        /// action. </para><para>You must specify exactly one action, either <c>Block</c> or <c>Count</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

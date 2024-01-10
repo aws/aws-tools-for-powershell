@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// 
     ///  
     /// <para>
-    /// Config sets the conformance pack to <code>DELETE_IN_PROGRESS</code> until the deletion
-    /// is complete. You cannot update a conformance pack while it is in this state.
+    /// Config sets the conformance pack to <c>DELETE_IN_PROGRESS</c> until the deletion is
+    /// complete. You cannot update a conformance pack while it is in this state.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CFGConformancePack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

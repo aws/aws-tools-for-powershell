@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter CommitMessage
         /// <summary>
         /// <para>
-        /// <para>Commit message for the updated file, which is shown as part of <code>GetPackageVersionHistoryResponse</code>.</para>
+        /// <para>Commit message for the updated file, which is shown as part of <c>GetPackageVersionHistoryResponse</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

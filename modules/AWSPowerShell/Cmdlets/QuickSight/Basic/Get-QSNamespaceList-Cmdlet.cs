@@ -76,12 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A unique pagination token that can be used in a subsequent request. You will receive
-        /// a pagination token in the response body of a previous <code>ListNameSpaces</code>
-        /// API call if there is more data that can be returned. To receive the data, make another
-        /// <code>ListNamespaces</code> API call with the returned token to retrieve the next
-        /// page of data. Each token is valid for 24 hours. If you try to make a <code>ListNamespaces</code>
-        /// API call with an expired token, you will receive a <code>HTTP 400 InvalidNextTokenException</code>
-        /// error.</para>
+        /// a pagination token in the response body of a previous <c>ListNameSpaces</c> API call
+        /// if there is more data that can be returned. To receive the data, make another <c>ListNamespaces</c>
+        /// API call with the returned token to retrieve the next page of data. Each token is
+        /// valid for 24 hours. If you try to make a <c>ListNamespaces</c> API call with an expired
+        /// token, you will receive a <c>HTTP 400 InvalidNextTokenException</c> error.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

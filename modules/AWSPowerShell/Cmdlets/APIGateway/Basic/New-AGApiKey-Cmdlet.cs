@@ -75,9 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter GenerateDistinctId
         /// <summary>
         /// <para>
-        /// <para>Specifies whether (<code>true</code>) or not (<code>false</code>) the key identifier
-        /// is distinct from the created API key value. This parameter is deprecated and should
-        /// not be used.</para>
+        /// <para>Specifies whether (<c>true</c>) or not (<c>false</c>) the key identifier is distinct
+        /// from the created API key value. This parameter is deprecated and should not be used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag
-        /// key can be up to 128 characters and must not start with <code>aws:</code>. The tag
-        /// value can be up to 256 characters.</para>
+        /// key can be up to 128 characters and must not start with <c>aws:</c>. The tag value
+        /// can be up to 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

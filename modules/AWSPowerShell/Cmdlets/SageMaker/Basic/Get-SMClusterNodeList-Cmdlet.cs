@@ -65,9 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A filter that returns nodes in a SageMaker HyperPod cluster created after the specified
-        /// time. Timestamps are formatted according to the ISO 8601 standard. </para><para>Acceptable formats include:</para><ul><li><para><code>YYYY-MM-DDThh:mm:ss.sssTZD</code> (UTC), for example, <code>2014-10-01T20:30:00.000Z</code></para></li><li><para><code>YYYY-MM-DDThh:mm:ss.sssTZD</code> (with offset), for example, <code>2014-10-01T12:30:00.000-08:00</code></para></li><li><para><code>YYYY-MM-DD</code>, for example, <code>2014-10-01</code></para></li><li><para>Unix time in seconds, for example, <code>1412195400</code>. This is also referred
-        /// to as Unix Epoch time and represents the number of seconds since midnight, January
-        /// 1, 1970 UTC.</para></li></ul><para>For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a>
+        /// time. Timestamps are formatted according to the ISO 8601 standard. </para><para>Acceptable formats include:</para><ul><li><para><c>YYYY-MM-DDThh:mm:ss.sssTZD</c> (UTC), for example, <c>2014-10-01T20:30:00.000Z</c></para></li><li><para><c>YYYY-MM-DDThh:mm:ss.sssTZD</c> (with offset), for example, <c>2014-10-01T12:30:00.000-08:00</c></para></li><li><para><c>YYYY-MM-DD</c>, for example, <c>2014-10-01</c></para></li><li><para>Unix time in seconds, for example, <c>1412195400</c>. This is also referred to as
+        /// Unix Epoch time and represents the number of seconds since midnight, January 1, 1970
+        /// UTC.</para></li></ul><para>For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a>
         /// in the <i>Amazon Web Services Command Line Interface User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A filter that returns nodes in a SageMaker HyperPod cluster created before the specified
-        /// time. The acceptable formats are the same as the timestamp formats for <code>CreationTimeAfter</code>.
+        /// time. The acceptable formats are the same as the timestamp formats for <c>CreationTimeAfter</c>.
         /// For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a>
         /// in the <i>Amazon Web Services Command Line Interface User Guide</i>.</para>
         /// </para>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The field by which to sort results. The default value is <code>CREATION_TIME</code>.</para>
+        /// <para>The field by which to sort results. The default value is <c>CREATION_TIME</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order for results. The default value is <code>Ascending</code>.</para>
+        /// <para>The sort order for results. The default value is <c>Ascending</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,9 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the result of the previous <code>ListClusterNodes</code> request was truncated,
-        /// the response includes a <code>NextToken</code>. To retrieve the next set of cluster
-        /// nodes, use the token in the next request.</para>
+        /// <para>If the result of the previous <c>ListClusterNodes</c> request was truncated, the response
+        /// includes a <c>NextToken</c>. To retrieve the next set of cluster nodes, use the token
+        /// in the next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

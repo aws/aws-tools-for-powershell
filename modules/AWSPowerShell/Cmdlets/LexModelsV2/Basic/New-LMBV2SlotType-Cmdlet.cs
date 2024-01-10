@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>The built-in slot type used as a parent of this slot type. When you define a parent
-        /// slot type, the new slot type has the configuration of the parent slot type.</para><para>Only <code>AMAZON.AlphaNumeric</code> is supported.</para>
+        /// slot type, the new slot type has the configuration of the parent slot type.</para><para>Only <c>AMAZON.AlphaNumeric</c> is supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,10 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
-        /// The field can be set to one of the following values:</para><ul><li><para><code>ORIGINAL_VALUE</code> - Returns the value entered by the user, if the user
-        /// value is similar to the slot value.</para></li><li><para><code>TOP_RESOLUTION</code> - If there is a resolution list for the slot, return
-        /// the first value in the resolution list as the slot type value. If there is no resolution
-        /// list, null is returned.</para></li></ul><para>If you don't specify the <code>valueSelectionStrategy</code>, the default is <code>ORIGINAL_VALUE</code>.</para>
+        /// The field can be set to one of the following values:</para><ul><li><para><c>ORIGINAL_VALUE</c> - Returns the value entered by the user, if the user value
+        /// is similar to the slot value.</para></li><li><para><c>TOP_RESOLUTION</c> - If there is a resolution list for the slot, return the first
+        /// value in the resolution list as the slot type value. If there is no resolution list,
+        /// null is returned.</para></li></ul><para>If you don't specify the <c>valueSelectionStrategy</c>, the default is <c>ORIGINAL_VALUE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,9 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter SlotTypeValue
         /// <summary>
         /// <para>
-        /// <para>A list of <code>SlotTypeValue</code> objects that defines the values that the slot
-        /// type can take. Each value can have a list of synonyms, additional values that help
-        /// train the machine learning model about the values that it resolves for a slot.</para>
+        /// <para>A list of <c>SlotTypeValue</c> objects that defines the values that the slot type
+        /// can take. Each value can have a list of synonyms, additional values that help train
+        /// the machine learning model about the values that it resolves for a slot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -33,23 +33,23 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// 
     ///  
     /// <para>
-    /// By default, the <code>ListAliases</code> operation returns all aliases in the account
-    /// and region. To get only the aliases associated with a particular KMS key, use the
-    /// <code>KeyId</code> parameter.
+    /// By default, the <c>ListAliases</c> operation returns all aliases in the account and
+    /// region. To get only the aliases associated with a particular KMS key, use the <c>KeyId</c>
+    /// parameter.
     /// </para><para>
-    /// The <code>ListAliases</code> response can include aliases that you created and associated
+    /// The <c>ListAliases</c> response can include aliases that you created and associated
     /// with your customer managed keys, and aliases that Amazon Web Services created and
     /// associated with Amazon Web Services managed keys in your account. You can recognize
-    /// Amazon Web Services aliases because their names have the format <code>aws/&lt;service-name&gt;</code>,
-    /// such as <code>aws/dynamodb</code>.
+    /// Amazon Web Services aliases because their names have the format <c>aws/&lt;service-name&gt;</c>,
+    /// such as <c>aws/dynamodb</c>.
     /// </para><para>
-    /// The response might also include aliases that have no <code>TargetKeyId</code> field.
-    /// These are predefined aliases that Amazon Web Services has created but has not yet
-    /// associated with a KMS key. Aliases that Amazon Web Services creates in your account,
-    /// including predefined aliases, do not count against your <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit">KMS
+    /// The response might also include aliases that have no <c>TargetKeyId</c> field. These
+    /// are predefined aliases that Amazon Web Services has created but has not yet associated
+    /// with a KMS key. Aliases that Amazon Web Services creates in your account, including
+    /// predefined aliases, do not count against your <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit">KMS
     /// aliases quota</a>.
-    /// </para><para><b>Cross-account use</b>: No. <code>ListAliases</code> does not return aliases in
-    /// other Amazon Web Services accounts.
+    /// </para><para><b>Cross-account use</b>: No. <c>ListAliases</c> does not return aliases in other
+    /// Amazon Web Services accounts.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListAliases</a>
     /// (IAM policy)
     /// </para><para>
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Lists only aliases that are associated with the specified KMS key. Enter a KMS key
-        /// in your Amazon Web Services account. </para><para>This parameter is optional. If you omit it, <code>ListAliases</code> returns all aliases
-        /// in the account and Region.</para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// in your Amazon Web Services account. </para><para>This parameter is optional. If you omit it, <c>ListAliases</c> returns all aliases
+        /// in the account and Region.</para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -107,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Use this parameter in a subsequent request after you receive a response with truncated
-        /// results. Set it to the value of <code>NextMarker</code> from the truncated response
-        /// you just received.</para>
+        /// results. Set it to the value of <c>NextMarker</c> from the truncated response you
+        /// just received.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

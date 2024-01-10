@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <para>
         /// <para>An immutable identifier for a data source that is unique within an Amazon Web Services
         /// Region. Performance Insights gathers metrics from this data source. To use an Amazon
-        /// RDS DB instance as a data source, specify its <code>DbiResourceId</code> value. For
-        /// example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VWZ</code>. </para>
+        /// RDS DB instance as a data source, specify its <c>DbiResourceId</c> value. For example,
+        /// specify <c>db-ABCDEFGHIJKLMNOPQRSTU1VWZ</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
         #region Parameter Metric
         /// <summary>
         /// <para>
-        /// <para>The types of metrics for which to retrieve dimensions. Valid values include <code>db.load</code>.</para>
+        /// <para>The types of metrics for which to retrieve dimensions. Valid values include <c>db.load</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return in the response. If more items exist than the
-        /// specified <code>MaxRecords</code> value, a pagination token is included in the response
+        /// specified <c>MaxRecords</c> value, a pagination token is included in the response
         /// so that the remaining results can be retrieved.</para>
         /// </para>
         /// </summary>
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <para>
         /// <para>An optional pagination token provided by a previous request. If this parameter is
         /// specified, the response includes only records beyond the token, up to the value specified
-        /// by <code>MaxRecords</code>. </para>
+        /// by <c>MaxRecords</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

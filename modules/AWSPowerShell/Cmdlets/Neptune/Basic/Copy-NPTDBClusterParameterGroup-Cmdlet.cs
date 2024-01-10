@@ -48,9 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group.
         /// For information about creating an ARN, see <a href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
         /// Constructing an Amazon Resource Name (ARN)</a>.</para><para>Constraints:</para><ul><li><para>Must specify a valid DB cluster parameter group.</para></li><li><para>If the source DB cluster parameter group is in the same Amazon Region as the copy,
-        /// specify a valid DB parameter group identifier, for example <code>my-db-cluster-param-group</code>,
+        /// specify a valid DB parameter group identifier, for example <c>my-db-cluster-param-group</c>,
         /// or a valid ARN.</para></li><li><para>If the source DB parameter group is in a different Amazon Region than the copy, specify
-        /// a valid DB cluster parameter group ARN, for example <code>arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1</code>.</para></li></ul>
+        /// a valid DB cluster parameter group ARN, for example <c>arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter TargetDBClusterParameterGroupIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the copied DB cluster parameter group.</para><para>Constraints:</para><ul><li><para>Cannot be null, empty, or blank</para></li><li><para>Must contain from 1 to 255 letters, numbers, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-cluster-param-group1</code></para>
+        /// <para>The identifier for the copied DB cluster parameter group.</para><para>Constraints:</para><ul><li><para>Cannot be null, empty, or blank</para></li><li><para>Must contain from 1 to 255 letters, numbers, or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <c>my-cluster-param-group1</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

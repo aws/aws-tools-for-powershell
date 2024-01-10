@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter FileFormat
         /// <summary>
         /// <para>
-        /// <para>The format of the export file.</para><para>The only export file format currently supported is <code>Csv</code>.</para>
+        /// <para>The format of the export file.</para><para>The only export file format currently supported is <c>Csv</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

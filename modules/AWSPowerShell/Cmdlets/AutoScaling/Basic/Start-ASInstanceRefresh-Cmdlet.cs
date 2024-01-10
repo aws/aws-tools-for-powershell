@@ -47,15 +47,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para><para>
     /// An instance refresh might fail for several reasons, such as EC2 launch failures, misconfigured
     /// health checks, or not ignoring or allowing the termination of instances that are in
-    /// <code>Standby</code> state or protected from scale in. You can monitor for failed
-    /// EC2 launches using the scaling activities. To find the scaling activities, call the
-    /// <a>DescribeScalingActivities</a> API.
+    /// <c>Standby</c> state or protected from scale in. You can monitor for failed EC2 launches
+    /// using the scaling activities. To find the scaling activities, call the <a>DescribeScalingActivities</a>
+    /// API.
     /// </para><para>
     /// If you enable auto rollback, your Auto Scaling group will be rolled back automatically
     /// when the instance refresh fails. You can enable this feature before starting an instance
-    /// refresh by specifying the <code>AutoRollback</code> property in the instance refresh
-    /// preferences. Otherwise, to roll back an instance refresh before it finishes, use the
-    /// <a>RollbackInstanceRefresh</a> API. 
+    /// refresh by specifying the <c>AutoRollback</c> property in the instance refresh preferences.
+    /// Otherwise, to roll back an instance refresh before it finishes, use the <a>RollbackInstanceRefresh</a>
+    /// API. 
     /// </para>
     /// </summary>
     [Cmdlet("Start", "ASInstanceRefresh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>(Optional) Indicates whether to roll back the Auto Scaling group to its previous configuration
         /// if the instance refresh fails or a CloudWatch alarm threshold is met. The default
-        /// is <code>false</code>.</para><para>A rollback is not supported in the following situations: </para><ul><li><para>There is no desired configuration specified for the instance refresh.</para></li><li><para>The Auto Scaling group has a launch template that uses an Amazon Web Services Systems
-        /// Manager parameter instead of an AMI ID for the <code>ImageId</code> property.</para></li><li><para>The Auto Scaling group uses the launch template's <code>$Latest</code> or <code>$Default</code>
+        /// is <c>false</c>.</para><para>A rollback is not supported in the following situations: </para><ul><li><para>There is no desired configuration specified for the instance refresh.</para></li><li><para>The Auto Scaling group has a launch template that uses an Amazon Web Services Systems
+        /// Manager parameter instead of an AMI ID for the <c>ImageId</c> property.</para></li><li><para>The Auto Scaling group uses the launch template's <c>$Latest</c> or <c>$Default</c>
         /// version.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-refresh-rollback.html">Undo
         /// changes with a rollback</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
@@ -119,9 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>(Optional) The amount of time, in seconds, to wait after a checkpoint before continuing.
         /// This property is optional, but if you specify a value for it, you must also specify
-        /// a value for <code>CheckpointPercentages</code>. If you specify a value for <code>CheckpointPercentages</code>
-        /// and not for <code>CheckpointDelay</code>, the <code>CheckpointDelay</code> defaults
-        /// to <code>3600</code> (1 hour). </para>
+        /// a value for <c>CheckpointPercentages</c>. If you specify a value for <c>CheckpointPercentages</c>
+        /// and not for <c>CheckpointDelay</c>, the <c>CheckpointDelay</c> defaults to <c>3600</c>
+        /// (1 hour). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>(Optional) Threshold values for each checkpoint in ascending order. Each number must
         /// be unique. To replace all instances in the Auto Scaling group, the last number in
-        /// the array must be <code>100</code>.</para><para>For usage examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html">Adding
+        /// the array must be <c>100</c>.</para><para>For usage examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html">Adding
         /// checkpoints to an instance refresh</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -146,13 +146,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>A time period, in seconds, during which an instance refresh waits before moving on
-        /// to replacing the next instance after a new instance enters the <code>InService</code>
-        /// state.</para><para>This property is not required for normal usage. Instead, use the <code>DefaultInstanceWarmup</code>
-        /// property of the Auto Scaling group. The <code>InstanceWarmup</code> and <code>DefaultInstanceWarmup</code>
+        /// to replacing the next instance after a new instance enters the <c>InService</c> state.</para><para>This property is not required for normal usage. Instead, use the <c>DefaultInstanceWarmup</c>
+        /// property of the Auto Scaling group. The <c>InstanceWarmup</c> and <c>DefaultInstanceWarmup</c>
         /// properties work the same way. Only specify this property if you must override the
-        /// <code>DefaultInstanceWarmup</code> property. </para><para> If you do not specify this property, the instance warmup by default is the value
-        /// of the <code>DefaultInstanceWarmup</code> property, if defined (which is recommended
-        /// in all cases), or the <code>HealthCheckGracePeriod</code> property otherwise.</para>
+        /// <c>DefaultInstanceWarmup</c> property. </para><para> If you do not specify this property, the instance warmup by default is the value
+        /// of the <c>DefaultInstanceWarmup</c> property, if defined (which is recommended in
+        /// all cases), or the <c>HealthCheckGracePeriod</c> property otherwise.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The ID of the launch template. To get the template ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a>
         /// API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a>
-        /// API. </para><para>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</para>
+        /// API. </para><para>Conditional: You must specify either a <c>LaunchTemplateId</c> or a <c>LaunchTemplateName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The name of the launch template. To get the template name, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a>
         /// API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a>
-        /// API. </para><para>Conditional: You must specify either a <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</para>
+        /// API. </para><para>Conditional: You must specify either a <c>LaunchTemplateId</c> or a <c>LaunchTemplateName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>Specifies the maximum percentage of the group that can be in service and healthy,
         /// or pending, to support your workload when replacing instances. The value is expressed
         /// as a percentage of the desired capacity of the Auto Scaling group. Value range is
-        /// 100 to 200.</para><para>If you specify <code>MaxHealthyPercentage</code>, you must also specify <code>MinHealthyPercentage</code>,
+        /// 100 to 200.</para><para>If you specify <c>MaxHealthyPercentage</c>, you must also specify <c>MinHealthyPercentage</c>,
         /// and the difference between them cannot be greater than 100. A larger range increases
         /// the number of instances that can be replaced at the same time.</para><para>If you do not specify this property, the default is 100 percent, or the percentage
         /// set in the instance maintenance policy for the Auto Scaling group, if defined.</para>
@@ -247,11 +246,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Preferences_SkipMatching
         /// <summary>
         /// <para>
-        /// <para>(Optional) Indicates whether skip matching is enabled. If enabled (<code>true</code>),
-        /// then Amazon EC2 Auto Scaling skips replacing instances that match the desired configuration.
+        /// <para>(Optional) Indicates whether skip matching is enabled. If enabled (<c>true</c>), then
+        /// Amazon EC2 Auto Scaling skips replacing instances that match the desired configuration.
         /// If no desired configuration is specified, then it skips replacing instances that have
         /// the same launch template and instance types that the Auto Scaling group was using
-        /// before the start of the instance refresh. The default is <code>false</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh-skip-matching.html">Use
+        /// before the start of the instance refresh. The default is <c>false</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh-skip-matching.html">Use
         /// an instance refresh with skip matching</a> in the <i>Amazon EC2 Auto Scaling User
         /// Guide</i>.</para>
         /// </para>
@@ -263,9 +262,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Preferences_StandbyInstance
         /// <summary>
         /// <para>
-        /// <para>Choose the behavior that you want Amazon EC2 Auto Scaling to use if instances in <code>Standby</code>
-        /// state are found.</para><para>The following lists the valid values:</para><dl><dt>Terminate</dt><dd><para>Amazon EC2 Auto Scaling terminates instances that are in <code>Standby</code>.</para></dd><dt>Ignore</dt><dd><para>Amazon EC2 Auto Scaling ignores instances that are in <code>Standby</code> and continues
-        /// to replace instances that are in the <code>InService</code> state.</para></dd><dt>Wait (default)</dt><dd><para>Amazon EC2 Auto Scaling waits one hour for you to return the instances to service.
+        /// <para>Choose the behavior that you want Amazon EC2 Auto Scaling to use if instances in <c>Standby</c>
+        /// state are found.</para><para>The following lists the valid values:</para><dl><dt>Terminate</dt><dd><para>Amazon EC2 Auto Scaling terminates instances that are in <c>Standby</c>.</para></dd><dt>Ignore</dt><dd><para>Amazon EC2 Auto Scaling ignores instances that are in <c>Standby</c> and continues
+        /// to replace instances that are in the <c>InService</c> state.</para></dd><dt>Wait (default)</dt><dd><para>Amazon EC2 Auto Scaling waits one hour for you to return the instances to service.
         /// Otherwise, the instance refresh will fail.</para></dd></dl>
         /// </para>
         /// </summary>
@@ -278,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Strategy
         /// <summary>
         /// <para>
-        /// <para>The strategy to use for the instance refresh. The only valid value is <code>Rolling</code>.</para>
+        /// <para>The strategy to use for the instance refresh. The only valid value is <c>Rolling</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -289,13 +288,13 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LaunchTemplate_Version
         /// <summary>
         /// <para>
-        /// <para>The version number, <code>$Latest</code>, or <code>$Default</code>. To get the version
-        /// number, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplateVersions.html">DescribeLaunchTemplateVersions</a>
+        /// <para>The version number, <c>$Latest</c>, or <c>$Default</c>. To get the version number,
+        /// use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplateVersions.html">DescribeLaunchTemplateVersions</a>
         /// API operation. New launch template versions can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html">CreateLaunchTemplateVersion</a>
-        /// API. If the value is <code>$Latest</code>, Amazon EC2 Auto Scaling selects the latest
-        /// version of the launch template when launching instances. If the value is <code>$Default</code>,
+        /// API. If the value is <c>$Latest</c>, Amazon EC2 Auto Scaling selects the latest version
+        /// of the launch template when launching instances. If the value is <c>$Default</c>,
         /// Amazon EC2 Auto Scaling selects the default version of the launch template when launching
-        /// instances. The default value is <code>$Default</code>.</para>
+        /// instances. The default value is <c>$Default</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

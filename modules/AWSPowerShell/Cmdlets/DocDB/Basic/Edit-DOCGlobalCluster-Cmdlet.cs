@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The new identifier for a global cluster when you modify a global cluster. This value
-        /// is stored as a lowercase string.</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para><para>The first character must be a letter</para><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-cluster2</code></para>
+        /// is stored as a lowercase string.</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens</para><para>The first character must be a letter</para><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <c>my-cluster2</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

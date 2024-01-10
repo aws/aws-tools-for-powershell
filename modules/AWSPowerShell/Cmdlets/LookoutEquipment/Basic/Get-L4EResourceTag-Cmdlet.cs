@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource (such as the dataset or model) that
-        /// is the focus of the <code>ListTagsForResource</code> operation. </para>
+        /// is the focus of the <c>ListTagsForResource</c> operation. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

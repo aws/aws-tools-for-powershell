@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>Identifies the Application Auto Scaling scalable target from which to remove tags.</para><para>For example: <code>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</code></para><para>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</para>
+        /// <para>Identifies the Application Auto Scaling scalable target from which to remove tags.</para><para>For example: <c>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</c></para><para>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

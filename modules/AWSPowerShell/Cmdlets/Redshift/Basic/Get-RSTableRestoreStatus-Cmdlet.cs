@@ -29,11 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
     /// Lists the status of one or more table restore requests made using the <a>RestoreTableFromClusterSnapshot</a>
-    /// API action. If you don't specify a value for the <code>TableRestoreRequestId</code>
-    /// parameter, then <code>DescribeTableRestoreStatus</code> returns the status of all
-    /// table restore requests ordered by the date and time of the request in ascending order.
-    /// Otherwise <code>DescribeTableRestoreStatus</code> returns the status of the table
-    /// specified by <code>TableRestoreRequestId</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// API action. If you don't specify a value for the <c>TableRestoreRequestId</c> parameter,
+    /// then <c>DescribeTableRestoreStatus</c> returns the status of all table restore requests
+    /// ordered by the date and time of the request in ascending order. Otherwise <c>DescribeTableRestoreStatus</c>
+    /// returns the status of the table specified by <c>TableRestoreRequestId</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RSTableRestoreStatus")]
     [OutputType("Amazon.Redshift.Model.TableRestoreStatus")]
@@ -61,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The identifier of the table restore request to return status for. If you don't specify
-        /// a <code>TableRestoreRequestId</code> value, then <code>DescribeTableRestoreStatus</code>
-        /// returns the status of all in-progress table restore requests.</para>
+        /// a <c>TableRestoreRequestId</c> value, then <c>DescribeTableRestoreStatus</c> returns
+        /// the status of all in-progress table restore requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>An optional pagination token provided by a previous <code>DescribeTableRestoreStatus</code>
+        /// <para>An optional pagination token provided by a previous <c>DescribeTableRestoreStatus</c>
         /// request. If this parameter is specified, the response includes only records beyond
-        /// the marker, up to the value specified by the <code>MaxRecords</code> parameter.</para>
+        /// the marker, up to the value specified by the <c>MaxRecords</c> parameter.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -90,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that the remaining results can be retrieved.</para>
+        /// the specified <c>MaxRecords</c> value, a pagination token called a marker is included
+        /// in the response so that the remaining results can be retrieved.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

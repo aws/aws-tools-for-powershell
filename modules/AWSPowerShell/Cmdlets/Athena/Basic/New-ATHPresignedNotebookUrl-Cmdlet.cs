@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
     /// Gets an authentication token and the URL at which the notebook can be accessed. During
-    /// programmatic access, <code>CreatePresignedNotebookUrl</code> must be called every
-    /// 10 minutes to refresh the authentication token. For information about granting programmatic
-    /// access, see <a href="https://docs.aws.amazon.com/athena/latest/ug/setting-up.html#setting-up-grant-programmatic-access">Grant
+    /// programmatic access, <c>CreatePresignedNotebookUrl</c> must be called every 10 minutes
+    /// to refresh the authentication token. For information about granting programmatic access,
+    /// see <a href="https://docs.aws.amazon.com/athena/latest/ug/setting-up.html#setting-up-grant-programmatic-access">Grant
     /// programmatic access</a>.
     /// </summary>
     [Cmdlet("New", "ATHPresignedNotebookUrl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

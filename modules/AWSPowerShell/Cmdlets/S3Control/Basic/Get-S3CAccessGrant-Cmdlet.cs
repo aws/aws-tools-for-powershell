@@ -31,8 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Get the details of an access grant from your S3 Access Grants instance.
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3:GetAccessGrant</code> permission to use this operation.
-    /// 
+    /// You must have the <c>s3:GetAccessGrant</c> permission to use this operation. 
     /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Get", "S3CAccessGrant")]

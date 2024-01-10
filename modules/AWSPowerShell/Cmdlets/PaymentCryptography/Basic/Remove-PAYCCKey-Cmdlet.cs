@@ -39,10 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// Because key deletion is destructive, Amazon Web Services Payment Cryptography has
     /// a safety mechanism to prevent accidental deletion of a key. When you call this operation,
     /// Amazon Web Services Payment Cryptography disables the specified key but doesn't delete
-    /// it until after a waiting period set using <code>DeleteKeyInDays</code>. The default
-    /// waiting period is 7 days. During the waiting period, the <code>KeyState</code> is
-    /// <code>DELETE_PENDING</code>. After the key is deleted, the <code>KeyState</code> is
-    /// <code>DELETE_COMPLETE</code>.
+    /// it until after a waiting period set using <c>DeleteKeyInDays</c>. The default waiting
+    /// period is 7 days. During the waiting period, the <c>KeyState</c> is <c>DELETE_PENDING</c>.
+    /// After the key is deleted, the <c>KeyState</c> is <c>DELETE_COMPLETE</c>.
     /// </para><para>
     /// You should delete a key only when you are sure that you don't need to use it anymore
     /// and no other parties are utilizing this key. If you aren't sure, consider deactivating
@@ -77,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter KeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>KeyARN</code> of the key that is scheduled for deletion.</para>
+        /// <para>The <c>KeyARN</c> of the key that is scheduled for deletion.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

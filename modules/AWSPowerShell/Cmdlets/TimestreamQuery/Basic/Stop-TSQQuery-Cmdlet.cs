@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     /// <summary>
     /// Cancels a query that has been issued. Cancellation is provided only if the query
     /// has not completed running before the cancellation request was issued. Because cancellation
-    /// is an idempotent operation, subsequent cancellation requests will return a <code>CancellationMessage</code>,
+    /// is an idempotent operation, subsequent cancellation requests will return a <c>CancellationMessage</c>,
     /// indicating that the query has already been canceled. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.cancel-query.html">code
     /// sample</a> for details.
     /// </summary>
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         #region Parameter QueryId
         /// <summary>
         /// <para>
-        /// <para> The ID of the query that needs to be cancelled. <code>QueryID</code> is returned
-        /// as part of the query result. </para>
+        /// <para> The ID of the query that needs to be cancelled. <c>QueryID</c> is returned as part
+        /// of the query result. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

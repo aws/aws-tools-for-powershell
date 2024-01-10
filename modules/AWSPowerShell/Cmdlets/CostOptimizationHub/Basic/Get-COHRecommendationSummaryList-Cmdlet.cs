@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.COH
     /// de-duped savings across different types of recommendations.
     /// 
     ///  <note><para>
-    /// The following filters are not supported for this API: <code>recommendationIds</code>,
-    /// <code>resourceArns</code>, and <code>resourceIds</code>.
+    /// The following filters are not supported for this API: <c>recommendationIds</c>, <c>resourceArns</c>,
+    /// and <c>resourceIds</c>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "COHRecommendationSummaryList")]

@@ -28,7 +28,7 @@ using Amazon.FinSpaceData.Model;
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
-    /// Modifies the details of a permission group. You cannot modify a <code>permissionGroupID</code>.<br/><br/>This operation is deprecated.
+    /// Modifies the details of a permission group. You cannot modify a <c>permissionGroupID</c>.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "FNSPPermissionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -48,13 +48,12 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         #region Parameter ApplicationPermission
         /// <summary>
         /// <para>
-        /// <para>The permissions that are granted to a specific group for accessing the FinSpace application.</para><important><para>When assigning application permissions, be aware that the permission <code>ManageUsersAndGroups</code>
+        /// <para>The permissions that are granted to a specific group for accessing the FinSpace application.</para><important><para>When assigning application permissions, be aware that the permission <c>ManageUsersAndGroups</c>
         /// allows users to grant themselves or others access to any functionality in their FinSpace
-        /// environment's application. It should only be granted to trusted users.</para></important><ul><li><para><code>CreateDataset</code> – Group members can create new datasets.</para></li><li><para><code>ManageClusters</code> – Group members can manage Apache Spark clusters from
-        /// FinSpace notebooks.</para></li><li><para><code>ManageUsersAndGroups</code> – Group members can manage users and permission
-        /// groups. This is a privileged permission that allows users to grant themselves or others
-        /// access to any functionality in the application. It should only be granted to trusted
-        /// users.</para></li><li><para><code>ManageAttributeSets</code> – Group members can manage attribute sets.</para></li><li><para><code>ViewAuditData</code> – Group members can view audit data.</para></li><li><para><code>AccessNotebooks</code> – Group members will have access to FinSpace notebooks.</para></li><li><para><code>GetTemporaryCredentials</code> – Group members can get temporary API credentials.</para></li></ul>
+        /// environment's application. It should only be granted to trusted users.</para></important><ul><li><para><c>CreateDataset</c> – Group members can create new datasets.</para></li><li><para><c>ManageClusters</c> – Group members can manage Apache Spark clusters from FinSpace
+        /// notebooks.</para></li><li><para><c>ManageUsersAndGroups</c> – Group members can manage users and permission groups.
+        /// This is a privileged permission that allows users to grant themselves or others access
+        /// to any functionality in the application. It should only be granted to trusted users.</para></li><li><para><c>ManageAttributeSets</c> – Group members can manage attribute sets.</para></li><li><para><c>ViewAuditData</c> – Group members can view audit data.</para></li><li><para><c>AccessNotebooks</c> – Group members will have access to FinSpace notebooks.</para></li><li><para><c>GetTemporaryCredentials</c> – Group members can get temporary API credentials.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

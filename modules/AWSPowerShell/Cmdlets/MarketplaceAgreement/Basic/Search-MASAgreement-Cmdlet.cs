@@ -34,17 +34,16 @@ namespace Amazon.PowerShell.Cmdlets.MAS
     ///  
     /// <para>
     /// The following filter combinations are supported:
-    /// </para><ul><li><para><code>PartyType</code> as <code>Proposer</code> + <code>AgreementType</code> + <code>ResourceIdentifier</code></para></li><li><para><code>PartyType</code> as <code>Proposer</code> + <code>AgreementType</code> + <code>OfferId</code></para></li><li><para><code>PartyType</code> as <code>Proposer</code> + <code>AgreementType</code> + <code>AcceptorAccountId</code></para></li><li><para><code>PartyType</code> as <code>Proposer</code> + <code>AgreementType</code> + <code>Status</code></para></li><li><para><code>PartyType</code> as <code>Proposer</code> + <code>AgreementType</code> + <code>ResourceIdentifier</code>
-    /// + <code>Status</code></para></li><li><para><code>PartyType</code> as <code>Proposer</code> + <code>AgreementType</code> + <code>OfferId</code>
-    /// + <code>Status</code></para></li><li><para><code>PartyType</code> as <code>Proposer</code> + <code>AgreementType</code> + <code>AcceptorAccountId</code>
-    /// + <code>Status</code></para></li><li><para><code>PartyType</code> as <code>Proposer</code> + <code>AgreementType</code> + <code>ResourceType</code>
-    /// + <code>Status</code></para></li><li><para><code>PartyType</code> as <code>Proposer</code> + <code>AgreementType</code> + <code>AcceptorAccountId</code>
-    /// + <code>ResourceType</code> + <code>Status</code></para></li><li><para><code>PartyType</code> as <code>Proposer</code> + <code>AgreementType</code> + <code>AcceptorAccountId</code>
-    /// + <code>OfferId</code></para></li><li><para><code>PartyType</code> as <code>Proposer</code> + <code>AgreementType</code> + <code>AcceptorAccountId</code>
-    /// + <code>OfferId</code> + <code>Status</code></para></li><li><para><code>PartyType</code> as <code>Proposer</code> + <code>AgreementType</code> + <code>AcceptorAccountId</code>
-    /// + <code>ResourceIdentifier</code></para></li><li><para><code>PartyType</code> as <code>Proposer</code> + <code>AgreementType</code> + <code>AcceptorAccountId</code>
-    /// + <code>ResourceIdentifier</code> + <code>Status</code></para></li><li><para><code>PartyType</code> as <code>Proposer</code> + <code>AgreementType</code> + <code>AcceptorAccountId</code>
-    /// + <code>ResourceType</code></para></li></ul>
+    /// </para><ul><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>ResourceIdentifier</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>OfferId</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>AcceptorAccountId</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>Status</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>ResourceIdentifier</c>
+    /// + <c>Status</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>OfferId</c> + <c>Status</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>AcceptorAccountId</c>
+    /// + <c>Status</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>ResourceType</c>
+    /// + <c>Status</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>AcceptorAccountId</c>
+    /// + <c>ResourceType</c> + <c>Status</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>AcceptorAccountId</c>
+    /// + <c>OfferId</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>AcceptorAccountId</c>
+    /// + <c>OfferId</c> + <c>Status</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>AcceptorAccountId</c>
+    /// + <c>ResourceIdentifier</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>AcceptorAccountId</c>
+    /// + <c>ResourceIdentifier</c> + <c>Status</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>AcceptorAccountId</c>
+    /// + <c>ResourceType</c></para></li></ul>
     /// </summary>
     [Cmdlet("Search", "MASAgreement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MarketplaceAgreement.Model.SearchAgreementsResponse")]
@@ -70,18 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filter name and value pair used to return a specific list of results.</para><para>The following filters are supported:</para><ul><li><para><code>ResourceIdentifier</code> – The unique identifier of the resource.</para></li><li><para><code>ResourceType</code> – Type of the resource, which is the product (<code>AmiProduct</code>,
-        /// <code>ContainerProduct</code>, or <code>SaaSProduct</code>).</para></li><li><para><code>PartyType</code> – The party type (either <code>Acceptor</code> or <code>Proposer</code>)
-        /// of the caller. For agreements where the caller is the proposer, use the <code>Proposer</code>
-        /// filter. For agreements where the caller is the acceptor, use the <code>Acceptor</code>
-        /// filter.</para></li><li><para><code>AcceptorAccountId</code> – The AWS account ID of the party accepting the agreement
-        /// terms.</para></li><li><para><code>OfferId</code> – The unique identifier of the offer in which the terms are
-        /// registered in the agreement token.</para></li><li><para><code>Status</code> – The current status of the agreement. Values include <code>ACTIVE</code>,
-        /// <code>ARCHIVED</code>, <code>CANCELLED</code>, <code>EXPIRED</code>, <code>RENEWED</code>,
-        /// <code>REPLACED</code>, and <code>TERMINATED</code>.</para></li><li><para><code>BeforeEndTime</code> – A date used to filter agreements with a date before
-        /// the <code>endTime</code> of an agreement.</para></li><li><para><code>AfterEndTime</code> – A date used to filter agreements with a date after the
-        /// <code>endTime</code> of an agreement.</para></li><li><para><code>AgreementType</code> – The type of agreement. Values include <code>PurchaseAgreement</code>
-        /// or <code>VendorInsightsAgreement</code>.</para></li></ul>
+        /// <para>The filter name and value pair used to return a specific list of results.</para><para>The following filters are supported:</para><ul><li><para><c>ResourceIdentifier</c> – The unique identifier of the resource.</para></li><li><para><c>ResourceType</c> – Type of the resource, which is the product (<c>AmiProduct</c>,
+        /// <c>ContainerProduct</c>, or <c>SaaSProduct</c>).</para></li><li><para><c>PartyType</c> – The party type (either <c>Acceptor</c> or <c>Proposer</c>) of
+        /// the caller. For agreements where the caller is the proposer, use the <c>Proposer</c>
+        /// filter. For agreements where the caller is the acceptor, use the <c>Acceptor</c> filter.</para></li><li><para><c>AcceptorAccountId</c> – The AWS account ID of the party accepting the agreement
+        /// terms.</para></li><li><para><c>OfferId</c> – The unique identifier of the offer in which the terms are registered
+        /// in the agreement token.</para></li><li><para><c>Status</c> – The current status of the agreement. Values include <c>ACTIVE</c>,
+        /// <c>ARCHIVED</c>, <c>CANCELLED</c>, <c>EXPIRED</c>, <c>RENEWED</c>, <c>REPLACED</c>,
+        /// and <c>TERMINATED</c>.</para></li><li><para><c>BeforeEndTime</c> – A date used to filter agreements with a date before the <c>endTime</c>
+        /// of an agreement.</para></li><li><para><c>AfterEndTime</c> – A date used to filter agreements with a date after the <c>endTime</c>
+        /// of an agreement.</para></li><li><para><c>AgreementType</c> – The type of agreement. Values include <c>PurchaseAgreement</c>
+        /// or <c>VendorInsightsAgreement</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         #region Parameter Sort_SortBy
         /// <summary>
         /// <para>
-        /// <para>The attribute on which the data is grouped, which can be by <code>StartTime</code>
-        /// and <code>EndTime</code>. The default value is <code>EndTime</code>.</para>
+        /// <para>The attribute on which the data is grouped, which can be by <c>StartTime</c> and <c>EndTime</c>.
+        /// The default value is <c>EndTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         #region Parameter Sort_SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sorting order, which can be <code>ASCENDING</code> or <code>DESCENDING</code>.
-        /// The default value is <code>DESCENDING</code>.</para>
+        /// <para>The sorting order, which can be <c>ASCENDING</c> or <c>DESCENDING</c>. The default
+        /// value is <c>DESCENDING</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

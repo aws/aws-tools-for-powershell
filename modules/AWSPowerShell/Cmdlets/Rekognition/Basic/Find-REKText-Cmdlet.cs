@@ -38,11 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// passing image bytes is not supported. The image must be either a .png or .jpeg formatted
     /// file. 
     /// </para><para>
-    /// The <code>DetectText</code> operation returns text in an array of <a>TextDetection</a>
-    /// elements, <code>TextDetections</code>. Each <code>TextDetection</code> element provides
-    /// information about a single word or line of text that was detected in the image. 
+    /// The <c>DetectText</c> operation returns text in an array of <a>TextDetection</a> elements,
+    /// <c>TextDetections</c>. Each <c>TextDetection</c> element provides information about
+    /// a single word or line of text that was detected in the image. 
     /// </para><para>
-    /// A word is one or more script characters that are not separated by spaces. <code>DetectText</code>
+    /// A word is one or more script characters that are not separated by spaces. <c>DetectText</c>
     /// can detect up to 100 words in an image.
     /// </para><para>
     /// A line is a string of equally spaced words. A line isn't necessarily a complete sentence.
@@ -51,10 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// relative to the length of the words. This means, depending on the gap between words,
     /// Amazon Rekognition may detect multiple lines in text aligned in the same direction.
     /// Periods don't represent the end of a line. If a sentence spans multiple lines, the
-    /// <code>DetectText</code> operation returns multiple lines.
+    /// <c>DetectText</c> operation returns multiple lines.
     /// </para><para>
-    /// To determine whether a <code>TextDetection</code> element is a line of text or a word,
-    /// use the <code>TextDetection</code> object <code>Type</code> field. 
+    /// To determine whether a <c>TextDetection</c> element is a line of text or a word, use
+    /// the <c>TextDetection</c> object <c>Type</c> field. 
     /// </para><para>
     /// To be detected, text must be within +/- 90 degrees orientation of the horizontal axis.
     /// </para><para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Blob of image bytes up to 5 MBs. Note that the maximum image size you can pass to
-        /// <code>DetectCustomLabels</code> is 4MB. </para>
+        /// <c>DetectCustomLabels</c> is 4MB. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter Filters_RegionsOfInterest
         /// <summary>
         /// <para>
-        /// <para> A Filter focusing on a certain area of the image. Uses a <code>BoundingBox</code>
-        /// object to set the region of the image.</para>
+        /// <para> A Filter focusing on a certain area of the image. Uses a <c>BoundingBox</c> object
+        /// to set the region of the image.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

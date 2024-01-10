@@ -28,7 +28,7 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Returns the template specified by its <code>templateId</code> as a backup plan.
+    /// Returns the template specified by its <c>templateId</c> as a backup plan.
     /// </summary>
     [Cmdlet("Get", "BAKBackupPlanFromTemplate")]
     [OutputType("Amazon.Backup.Model.BackupPlan")]

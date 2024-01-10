@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The action the Auto Scaling group takes when the lifecycle hook timeout elapses or
-        /// if an unexpected failure occurs. The default value is <code>ABANDON</code>.</para><para>Valid values: <code>CONTINUE</code> | <code>ABANDON</code></para>
+        /// if an unexpected failure occurs. The default value is <c>ABANDON</c>.</para><para>Valid values: <c>CONTINUE</c> | <c>ABANDON</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The maximum time, in seconds, that can elapse before the lifecycle hook times out.
-        /// The range is from <code>30</code> to <code>7200</code> seconds. The default value
-        /// is <code>3600</code> seconds (1 hour).</para>
+        /// The range is from <c>30</c> to <c>7200</c> seconds. The default value is <c>3600</c>
+        /// seconds (1 hour).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LifecycleTransition
         /// <summary>
         /// <para>
-        /// <para>The lifecycle transition. For Auto Scaling groups, there are two major lifecycle transitions.</para><ul><li><para>To create a lifecycle hook for scale-out events, specify <code>autoscaling:EC2_INSTANCE_LAUNCHING</code>.</para></li><li><para>To create a lifecycle hook for scale-in events, specify <code>autoscaling:EC2_INSTANCE_TERMINATING</code>.</para></li></ul><para>Required for new lifecycle hooks, but optional when updating existing hooks.</para>
+        /// <para>The lifecycle transition. For Auto Scaling groups, there are two major lifecycle transitions.</para><ul><li><para>To create a lifecycle hook for scale-out events, specify <c>autoscaling:EC2_INSTANCE_LAUNCHING</c>.</para></li><li><para>To create a lifecycle hook for scale-in events, specify <c>autoscaling:EC2_INSTANCE_TERMINATING</c>.</para></li></ul><para>Required for new lifecycle hooks, but optional when updating existing hooks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// uses to notify you when an instance is in a wait state for the lifecycle hook. You
         /// can specify either an Amazon SNS topic or an Amazon SQS queue.</para><para>If you specify an empty string, this overrides the current ARN.</para><para>This operation uses the JSON format when sending notifications to an Amazon SQS queue,
         /// and an email key-value pair format when sending notifications to an Amazon SNS topic.</para><para>When you specify a notification target, Amazon EC2 Auto Scaling sends it a test message.
-        /// Test messages contain the following additional key-value pair: <code>"Event": "autoscaling:TEST_NOTIFICATION"</code>.</para>
+        /// Test messages contain the following additional key-value pair: <c>"Event": "autoscaling:TEST_NOTIFICATION"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -42,12 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// Remove a global secondary index from the table.
     /// </para></li><li><para>
     /// Create a new global secondary index on the table. After the index begins backfilling,
-    /// you can use <code>UpdateTable</code> to perform other operations.
-    /// </para></li></ul><para><code>UpdateTable</code> is an asynchronous operation; while it is executing, the
-    /// table status changes from <code>ACTIVE</code> to <code>UPDATING</code>. While it is
-    /// <code>UPDATING</code>, you cannot issue another <code>UpdateTable</code> request.
-    /// When the table returns to the <code>ACTIVE</code> state, the <code>UpdateTable</code>
-    /// operation is complete.
+    /// you can use <c>UpdateTable</c> to perform other operations.
+    /// </para></li></ul><para><c>UpdateTable</c> is an asynchronous operation; while it is executing, the table
+    /// status changes from <c>ACTIVE</c> to <c>UPDATING</c>. While it is <c>UPDATING</c>,
+    /// you cannot issue another <c>UpdateTable</c> request. When the table returns to the
+    /// <c>ACTIVE</c> state, the <c>UpdateTable</c> operation is complete.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "DDBTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -66,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>An array of attributes that describe the key schema for the table and indexes. If
-        /// you are adding a new global secondary index to the table, <code>AttributeDefinitions</code>
+        /// you are adding a new global secondary index to the table, <c>AttributeDefinitions</c>
         /// must include the key element(s) of the new index.</para>
         /// </para>
         /// </summary>
@@ -82,10 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// When switching from pay-per-request to provisioned capacity, initial provisioned capacity
         /// values must be set. The initial provisioned capacity values are estimated based on
         /// the consumed read and write capacity of your table and global secondary indexes over
-        /// the past 30 minutes.</para><ul><li><para><code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for predictable
-        /// workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned
-        /// Mode</a>.</para></li><li><para><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for
-        /// unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand
+        /// the past 30 minutes.</para><ul><li><para><c>PROVISIONED</c> - We recommend using <c>PROVISIONED</c> for predictable workloads.
+        /// <c>PROVISIONED</c> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned
+        /// Mode</a>.</para></li><li><para><c>PAY_PER_REQUEST</c> - We recommend using <c>PAY_PER_REQUEST</c> for unpredictable
+        /// workloads. <c>PAY_PER_REQUEST</c> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand
         /// Mode</a>. </para></li></ul>
         /// </para>
         /// </summary>
@@ -110,9 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>
         /// <para>Indicates whether server-side encryption is done using an Amazon Web Services managed
         /// key or an Amazon Web Services owned key. If enabled (true), server-side encryption
-        /// type is set to <code>KMS</code> and an Amazon Web Services managed key is used (KMS
-        /// charges apply). If disabled (false) or not specified, server-side encryption is set
-        /// to Amazon Web Services owned key.</para>
+        /// type is set to <c>KMS</c> and an Amazon Web Services managed key is used (KMS charges
+        /// apply). If disabled (false) or not specified, server-side encryption is set to Amazon
+        /// Web Services owned key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,9 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>An array of one or more global secondary indexes for the table. For each index in
-        /// the array, you can request one action:</para><ul><li><para><code>Create</code> - add a new global secondary index to the table.</para></li><li><para><code>Update</code> - modify the provisioned throughput settings of an existing global
-        /// secondary index.</para></li><li><para><code>Delete</code> - remove a global secondary index from the table.</para></li></ul><para>You can create or delete only one global secondary index per <code>UpdateTable</code>
-        /// operation.</para><para>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
+        /// the array, you can request one action:</para><ul><li><para><c>Create</c> - add a new global secondary index to the table.</para></li><li><para><c>Update</c> - modify the provisioned throughput settings of an existing global
+        /// secondary index.</para></li><li><para><c>Delete</c> - remove a global secondary index from the table.</para></li></ul><para>You can create or delete only one global secondary index per <c>UpdateTable</c> operation.</para><para>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
         /// Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </para>
         /// </para>
         /// </summary>
@@ -140,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>The KMS key that should be used for the KMS encryption. To specify a key, use its
         /// key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should
         /// only provide this parameter if the key is different from the default DynamoDB key
-        /// <code>alias/aws/dynamodb</code>.</para>
+        /// <c>alias/aws/dynamodb</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>The maximum number of strongly consistent reads consumed per second before DynamoDB
-        /// returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying
-        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</para>
+        /// returns a <c>ThrottlingException</c>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying
+        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>If read/write capacity mode is <c>PAY_PER_REQUEST</c> the value is set to 0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,8 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter SSESpecification_SSEType
         /// <summary>
         /// <para>
-        /// <para>Server-side encryption type. The only supported value is:</para><ul><li><para><code>KMS</code> - Server-side encryption that uses Key Management Service. The key
-        /// is stored in your account and is managed by KMS (KMS charges apply).</para></li></ul>
+        /// <para>Server-side encryption type. The only supported value is:</para><ul><li><para><c>KMS</c> - Server-side encryption that uses Key Management Service. The key is
+        /// stored in your account and is managed by KMS (KMS charges apply).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,13 +195,12 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter StreamSpecification_StreamViewType
         /// <summary>
         /// <para>
-        /// <para> When an item in the table is modified, <code>StreamViewType</code> determines what
-        /// information is written to the stream for this table. Valid values for <code>StreamViewType</code>
-        /// are:</para><ul><li><para><code>KEYS_ONLY</code> - Only the key attributes of the modified item are written
-        /// to the stream.</para></li><li><para><code>NEW_IMAGE</code> - The entire item, as it appears after it was modified, is
-        /// written to the stream.</para></li><li><para><code>OLD_IMAGE</code> - The entire item, as it appeared before it was modified,
-        /// is written to the stream.</para></li><li><para><code>NEW_AND_OLD_IMAGES</code> - Both the new and the old item images of the item
-        /// are written to the stream.</para></li></ul>
+        /// <para> When an item in the table is modified, <c>StreamViewType</c> determines what information
+        /// is written to the stream for this table. Valid values for <c>StreamViewType</c> are:</para><ul><li><para><c>KEYS_ONLY</c> - Only the key attributes of the modified item are written to the
+        /// stream.</para></li><li><para><c>NEW_IMAGE</c> - The entire item, as it appears after it was modified, is written
+        /// to the stream.</para></li><li><para><c>OLD_IMAGE</c> - The entire item, as it appeared before it was modified, is written
+        /// to the stream.</para></li><li><para><c>NEW_AND_OLD_IMAGES</c> - Both the new and the old item images of the item are
+        /// written to the stream.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,8 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TableClass
         /// <summary>
         /// <para>
-        /// <para>The table class of the table to be updated. Valid values are <code>STANDARD</code>
-        /// and <code>STANDARD_INFREQUENT_ACCESS</code>.</para>
+        /// <para>The table class of the table to be updated. Valid values are <c>STANDARD</c> and <c>STANDARD_INFREQUENT_ACCESS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,9 +239,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter WriteCapacity
         /// <summary>
         /// <para>
-        /// <para>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>.
+        /// <para>The maximum number of writes consumed per second before DynamoDB returns a <c>ThrottlingException</c>.
         /// For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying
-        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</para>
+        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>If read/write capacity mode is <c>PAY_PER_REQUEST</c> the value is set to 0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

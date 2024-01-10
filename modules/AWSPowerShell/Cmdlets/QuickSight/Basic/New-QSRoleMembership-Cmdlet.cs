@@ -28,8 +28,8 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Use <code>CreateRoleMembership</code> to add an existing Amazon QuickSight group to
-    /// an existing role.
+    /// Use <c>CreateRoleMembership</c> to add an existing Amazon QuickSight group to an existing
+    /// role.
     /// </summary>
     [Cmdlet("New", "QSRoleMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.CreateRoleMembershipResponse")]

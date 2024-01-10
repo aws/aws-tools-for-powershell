@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     ///  
     /// <para>
     /// If the environment is associated with an environment account connection, <i>don't</i>
-    /// update or include the <code>protonServiceRoleArn</code> and <code>provisioningRepository</code>
+    /// update or include the <c>protonServiceRoleArn</c> and <c>provisioningRepository</c>
     /// parameter to update or connect to an environment account connection.
     /// </para><para>
     /// You can only update to a new environment account connection if that connection was
@@ -41,38 +41,38 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// was created in. The account connection must also be associated with the current environment.
     /// </para><para>
     /// If the environment <i>isn't</i> associated with an environment account connection,
-    /// <i>don't</i> update or include the <code>environmentAccountConnectionId</code> parameter.
+    /// <i>don't</i> update or include the <c>environmentAccountConnectionId</c> parameter.
     /// You <i>can't</i> update or connect the environment to an environment account connection
     /// if it <i>isn't</i> already associated with an environment connection.
     /// </para><para>
-    /// You can update either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code>
+    /// You can update either the <c>environmentAccountConnectionId</c> or <c>protonServiceRoleArn</c>
     /// parameter and value. You can’t update both.
     /// </para><para>
     /// If the environment was configured for Amazon Web Services-managed provisioning, omit
-    /// the <code>provisioningRepository</code> parameter.
+    /// the <c>provisioningRepository</c> parameter.
     /// </para><para>
-    /// If the environment was configured for self-managed provisioning, specify the <code>provisioningRepository</code>
-    /// parameter and omit the <code>protonServiceRoleArn</code> and <code>environmentAccountConnectionId</code>
+    /// If the environment was configured for self-managed provisioning, specify the <c>provisioningRepository</c>
+    /// parameter and omit the <c>protonServiceRoleArn</c> and <c>environmentAccountConnectionId</c>
     /// parameters.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a>
     /// and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html">Provisioning
     /// methods</a> in the <i>Proton User Guide</i>.
     /// </para><para>
-    /// There are four modes for updating an environment. The <code>deploymentType</code>
-    /// field defines the mode.
-    /// </para><dl><dt /><dd><para><code>NONE</code></para><para>
+    /// There are four modes for updating an environment. The <c>deploymentType</c> field
+    /// defines the mode.
+    /// </para><dl><dt /><dd><para><c>NONE</c></para><para>
     /// In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters
     /// are updated.
-    /// </para></dd><dt /><dd><para><code>CURRENT_VERSION</code></para><para>
+    /// </para></dd><dt /><dd><para><c>CURRENT_VERSION</c></para><para>
     /// In this mode, the environment is deployed and updated with the new spec that you provide.
     /// Only requested parameters are updated. <i>Don’t</i> include minor or major version
-    /// parameters when you use this <code>deployment-type</code>.
-    /// </para></dd><dt /><dd><para><code>MINOR_VERSION</code></para><para>
+    /// parameters when you use this <c>deployment-type</c>.
+    /// </para></dd><dt /><dd><para><c>MINOR_VERSION</c></para><para>
     /// In this mode, the environment is deployed and updated with the published, recommended
     /// (latest) minor version of the current major version in use, by default. You can also
     /// specify a different minor version of the current major version in use.
-    /// </para></dd><dt /><dd><para><code>MAJOR_VERSION</code></para><para>
+    /// </para></dd><dt /><dd><para><c>MAJOR_VERSION</c></para><para>
     /// In this mode, the environment is deployed and updated with the published, recommended
     /// (latest) major and minor version of the current template, by default. You can also
     /// specify a different major version that's higher than the major version in use and
@@ -121,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning
         /// directly defined components in this environment. It determines the scope of infrastructure
-        /// that a component can provision.</para><para>The environment must have a <code>componentRoleArn</code> to allow directly defined
-        /// components to be associated with the environment.</para><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
+        /// that a component can provision.</para><para>The environment must have a <c>componentRoleArn</c> to allow directly defined components
+        /// to be associated with the environment.</para><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
         /// components</a> in the <i>Proton User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -133,13 +133,13 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter DeploymentType
         /// <summary>
         /// <para>
-        /// <para>There are four modes for updating an environment. The <code>deploymentType</code>
-        /// field defines the mode.</para><dl><dt /><dd><para><code>NONE</code></para><para>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters
-        /// are updated.</para></dd><dt /><dd><para><code>CURRENT_VERSION</code></para><para>In this mode, the environment is deployed and updated with the new spec that you provide.
+        /// <para>There are four modes for updating an environment. The <c>deploymentType</c> field
+        /// defines the mode.</para><dl><dt /><dd><para><c>NONE</c></para><para>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters
+        /// are updated.</para></dd><dt /><dd><para><c>CURRENT_VERSION</c></para><para>In this mode, the environment is deployed and updated with the new spec that you provide.
         /// Only requested parameters are updated. <i>Don’t</i> include major or minor version
-        /// parameters when you use this <code>deployment-type</code>.</para></dd><dt /><dd><para><code>MINOR_VERSION</code></para><para>In this mode, the environment is deployed and updated with the published, recommended
+        /// parameters when you use this <c>deployment-type</c>.</para></dd><dt /><dd><para><c>MINOR_VERSION</c></para><para>In this mode, the environment is deployed and updated with the published, recommended
         /// (latest) minor version of the current major version in use, by default. You can also
-        /// specify a different minor version of the current major version in use.</para></dd><dt /><dd><para><code>MAJOR_VERSION</code></para><para>In this mode, the environment is deployed and updated with the published, recommended
+        /// specify a different minor version of the current major version in use.</para></dd><dt /><dd><para><c>MAJOR_VERSION</c></para><para>In this mode, the environment is deployed and updated with the published, recommended
         /// (latest) major and minor version of the current template, by default. You can also
         /// specify a different major version that is higher than the major version in use and
         /// a minor version (optional).</para></dd></dl>

@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SourceDestCheck
         /// <summary>
         /// <para>
-        /// <para>The source/destination checking attribute. Resets the value to <code>true</code>.</para>
+        /// <para>The source/destination checking attribute. Resets the value to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

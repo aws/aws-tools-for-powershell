@@ -94,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// <para>
         /// <para>The identifier for a Key Management Service key to encrypt new configuration data
         /// versions in the AppConfig hosted configuration store. This attribute is only used
-        /// for <code>hosted</code> configuration types. The identifier can be an KMS key ID,
-        /// alias, or the Amazon Resource Name (ARN) of the key ID or alias. To encrypt data managed
+        /// for <c>hosted</c> configuration types. The identifier can be an KMS key ID, alias,
+        /// or the Amazon Resource Name (ARN) of the key ID or alias. To encrypt data managed
         /// in other configuration stores, see the documentation for how to specify an KMS key
         /// for that particular service.</para>
         /// </para>
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// <summary>
         /// <para>
         /// <para>The ARN of an IAM role with permission to access the configuration at the specified
-        /// <code>LocationUri</code>.</para>
+        /// <c>LocationUri</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

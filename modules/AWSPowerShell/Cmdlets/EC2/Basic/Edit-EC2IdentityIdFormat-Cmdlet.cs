@@ -37,15 +37,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// This request can only be used to modify longer ID settings for resource types that
     /// are within the opt-in period. Resources currently in their opt-in period include:
-    /// <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code>
-    /// | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code>
-    /// | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code>
-    /// | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code>
-    /// | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code>
-    /// | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code>
-    /// | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code>
-    /// | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code>
-    /// | <code>vpn-connection</code> | <code>vpn-gateway</code>. 
+    /// <c>bundle</c> | <c>conversion-task</c> | <c>customer-gateway</c> | <c>dhcp-options</c>
+    /// | <c>elastic-ip-allocation</c> | <c>elastic-ip-association</c> | <c>export-task</c>
+    /// | <c>flow-log</c> | <c>image</c> | <c>import-task</c> | <c>internet-gateway</c> |
+    /// <c>network-acl</c> | <c>network-acl-association</c> | <c>network-interface</c> | <c>network-interface-attachment</c>
+    /// | <c>prefix-list</c> | <c>route-table</c> | <c>route-table-association</c> | <c>security-group</c>
+    /// | <c>subnet</c> | <c>subnet-cidr-block-association</c> | <c>vpc</c> | <c>vpc-cidr-block-association</c>
+    /// | <c>vpc-endpoint</c> | <c>vpc-peering-connection</c> | <c>vpn-connection</c> | <c>vpn-gateway</c>.
+    /// 
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource
     /// IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. 
@@ -54,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// to the principal that makes the request. 
     /// </para><para>
     /// Resources created with longer IDs are visible to all IAM roles and users, regardless
-    /// of these settings and provided that they have permission to use the relevant <code>Describe</code>
+    /// of these settings and provided that they have permission to use the relevant <c>Describe</c>
     /// command for the resource type.
     /// </para>
     /// </summary>
@@ -74,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify
-        /// <code>all</code> to modify the ID format for all IAM users, IAM roles, and the root
-        /// user of the account.</para>
+        /// <c>all</c> to modify the ID format for all IAM users, IAM roles, and the root user
+        /// of the account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,16 +91,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code>
-        /// | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code>
-        /// | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code>
-        /// | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code>
-        /// | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code>
-        /// | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code>
-        /// | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code>
-        /// | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code>
-        /// | <code>vpn-connection</code> | <code>vpn-gateway</code>.</para><para>Alternatively, use the <code>all-current</code> option to include all resource types
-        /// that are currently within their opt-in period for longer IDs.</para>
+        /// <para>The type of resource: <c>bundle</c> | <c>conversion-task</c> | <c>customer-gateway</c>
+        /// | <c>dhcp-options</c> | <c>elastic-ip-allocation</c> | <c>elastic-ip-association</c>
+        /// | <c>export-task</c> | <c>flow-log</c> | <c>image</c> | <c>import-task</c> | <c>internet-gateway</c>
+        /// | <c>network-acl</c> | <c>network-acl-association</c> | <c>network-interface</c> |
+        /// <c>network-interface-attachment</c> | <c>prefix-list</c> | <c>route-table</c> | <c>route-table-association</c>
+        /// | <c>security-group</c> | <c>subnet</c> | <c>subnet-cidr-block-association</c> | <c>vpc</c>
+        /// | <c>vpc-cidr-block-association</c> | <c>vpc-endpoint</c> | <c>vpc-peering-connection</c>
+        /// | <c>vpn-connection</c> | <c>vpn-gateway</c>.</para><para>Alternatively, use the <c>all-current</c> option to include all resource types that
+        /// are currently within their opt-in period for longer IDs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

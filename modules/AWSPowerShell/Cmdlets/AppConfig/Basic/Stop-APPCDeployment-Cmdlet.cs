@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
     /// Stops a deployment. This API action works only on deployments that have a status of
-    /// <code>DEPLOYING</code>. This action moves the deployment to a status of <code>ROLLED_BACK</code>.
+    /// <c>DEPLOYING</c>. This action moves the deployment to a status of <c>ROLLED_BACK</c>.
     /// </summary>
     [Cmdlet("Stop", "APPCDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppConfig.Model.StopDeploymentResponse")]

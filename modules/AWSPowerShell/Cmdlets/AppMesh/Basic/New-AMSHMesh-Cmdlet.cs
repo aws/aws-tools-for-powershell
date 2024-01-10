@@ -99,11 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter EgressFilter_Type
         /// <summary>
         /// <para>
-        /// <para>The egress filter type. By default, the type is <code>DROP_ALL</code>, which allows
-        /// egress only from virtual nodes to other defined resources in the service mesh (and
-        /// any traffic to <code>*.amazonaws.com</code> for Amazon Web Services API calls). You
-        /// can set the egress filter type to <code>ALLOW_ALL</code> to allow egress to any endpoint
-        /// inside or outside of the service mesh.</para>
+        /// <para>The egress filter type. By default, the type is <c>DROP_ALL</c>, which allows egress
+        /// only from virtual nodes to other defined resources in the service mesh (and any traffic
+        /// to <c>*.amazonaws.com</c> for Amazon Web Services API calls). You can set the egress
+        /// filter type to <c>ALLOW_ALL</c> to allow egress to any endpoint inside or outside
+        /// of the service mesh.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

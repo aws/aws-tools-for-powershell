@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>A list of users or groups in the Active Directory that have administrator rights to
         /// the file share. A group must be prefixed with the @ character. Acceptable formats
-        /// include: <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
-        /// <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to <code>ActiveDirectory</code>.</para>
+        /// include: <c>DOMAIN\User1</c>, <c>user1</c>, <c>@group1</c>, and <c>@DOMAIN\group1</c>.
+        /// Can only be set if Authentication is set to <c>ActiveDirectory</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,9 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter CaseSensitivity
         /// <summary>
         /// <para>
-        /// <para>The case of an object name in an Amazon S3 bucket. For <code>ClientSpecified</code>,
-        /// the client determines the case sensitivity. For <code>CaseSensitive</code>, the gateway
-        /// determines the case sensitivity. The default value is <code>ClientSpecified</code>.</para>
+        /// <para>The case of an object name in an Amazon S3 bucket. For <c>ClientSpecified</c>, the
+        /// client determines the case sensitivity. For <c>CaseSensitive</c>, the gateway determines
+        /// the case sensitivity. The default value is <c>ClientSpecified</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The default storage class for objects put into an Amazon S3 bucket by the S3 File
-        /// Gateway. The default value is <code>S3_STANDARD</code>. Optional.</para><para>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> | <code>S3_STANDARD_IA</code>
-        /// | <code>S3_ONEZONE_IA</code></para>
+        /// Gateway. The default value is <c>S3_STANDARD</c>. Optional.</para><para>Valid Values: <c>S3_STANDARD</c> | <c>S3_INTELLIGENT_TIERING</c> | <c>S3_STANDARD_IA</c>
+        /// | <c>S3_ONEZONE_IA</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter FileShareName
         /// <summary>
         /// <para>
-        /// <para>The name of the file share. Optional.</para><note><para><code>FileShareName</code> must be set if an S3 prefix name is set in <code>LocationARN</code>,
+        /// <para>The name of the file share. Optional.</para><note><para><c>FileShareName</c> must be set if an S3 prefix name is set in <c>LocationARN</c>,
         /// or if an access point or access point alias is used.</para></note>
         /// </para>
         /// </summary>
@@ -161,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A value that enables guessing of the MIME type for uploaded objects based on file
-        /// extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise
-        /// set to <code>false</code>. The default value is <code>true</code>.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// extensions. Set this value to <c>true</c> to enable MIME type guessing, otherwise
+        /// set to <c>false</c>. The default value is <c>true</c>.</para><para>Valid Values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,8 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>A list of users or groups in the Active Directory that are not allowed to access the
         /// file share. A group must be prefixed with the @ character. Acceptable formats include:
-        /// <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and <code>@DOMAIN\group1</code>.
-        /// Can only be set if Authentication is set to <code>ActiveDirectory</code>.</para>
+        /// <c>DOMAIN\User1</c>, <c>user1</c>, <c>@group1</c>, and <c>@DOMAIN\group1</c>. Can
+        /// only be set if Authentication is set to <c>ActiveDirectory</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,8 +185,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSEncrypted
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS
-        /// key, or <code>false</code> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// <para>Set to <c>true</c> to use Amazon S3 server-side encryption with your own KMS key,
+        /// or <c>false</c> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
         /// S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
-        /// value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</para>
+        /// value can only be set when <c>KMSEncrypted</c> is <c>true</c>. Optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,13 +208,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter NotificationPolicy
         /// <summary>
         /// <para>
-        /// <para>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls
-        /// the number of seconds to wait after the last point in time a client wrote to a file
-        /// before generating an <code>ObjectUploaded</code> notification. Because clients can
-        /// make many small writes to files, it's best to set this parameter for as long as possible
-        /// to avoid generating multiple notifications for the same file in a small time period.</para><note><para><code>SettlingTimeInSeconds</code> has no effect on the timing of the object uploading
-        /// to Amazon S3, only the timing of the notification.</para></note><para>The following example sets <code>NotificationPolicy</code> on with <code>SettlingTimeInSeconds</code>
-        /// set to 60.</para><para><code>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</code></para><para>The following example sets <code>NotificationPolicy</code> off.</para><para><code>{}</code></para>
+        /// <para>The notification policy of the file share. <c>SettlingTimeInSeconds</c> controls the
+        /// number of seconds to wait after the last point in time a client wrote to a file before
+        /// generating an <c>ObjectUploaded</c> notification. Because clients can make many small
+        /// writes to files, it's best to set this parameter for as long as possible to avoid
+        /// generating multiple notifications for the same file in a small time period.</para><note><para><c>SettlingTimeInSeconds</c> has no effect on the timing of the object uploading
+        /// to Amazon S3, only the timing of the notification.</para></note><para>The following example sets <c>NotificationPolicy</c> on with <c>SettlingTimeInSeconds</c>
+        /// set to 60.</para><para><c>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</c></para><para>The following example sets <c>NotificationPolicy</c> off.</para><para><c>{}</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A value that sets the access control list (ACL) permission for objects in the S3 bucket
-        /// that a S3 File Gateway puts objects into. The default value is <code>private</code>.</para>
+        /// that a S3 File Gateway puts objects into. The default value is <c>private</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>Specifies whether opportunistic locking is enabled for the SMB file share.</para><note><para>Enabling opportunistic locking on case-sensitive shares is not recommended for workloads
-        /// that involve access to files with the same name in different case.</para></note><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// that involve access to files with the same name in different case.</para></note><para>Valid Values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,8 +247,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter ReadOnly
         /// <summary>
         /// <para>
-        /// <para>A value that sets the write status of a file share. Set this value to <code>true</code>
-        /// to set write status to read-only, otherwise set to <code>false</code>.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// <para>A value that sets the write status of a file share. Set this value to <c>true</c>
+        /// to set write status to read-only, otherwise set to <c>false</c>.</para><para>Valid Values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -259,11 +259,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A value that sets who pays the cost of the request and the cost associated with data
-        /// download from the S3 bucket. If this value is set to <code>true</code>, the requester
-        /// pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner
-        /// always pays the cost of storing data.</para><note><para><code>RequesterPays</code> is a configuration for the S3 bucket that backs the file
-        /// share, so make sure that the configuration on the file share is the same as the S3
-        /// bucket configuration.</para></note><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// download from the S3 bucket. If this value is set to <c>true</c>, the requester pays
+        /// the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always
+        /// pays the cost of storing data.</para><note><para><c>RequesterPays</c> is a configuration for the S3 bucket that backs the file share,
+        /// so make sure that the configuration on the file share is the same as the S3 bucket
+        /// configuration.</para></note><para>Valid Values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -274,11 +274,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter SMBACLEnabled
         /// <summary>
         /// <para>
-        /// <para>Set this value to <code>true</code> to enable access control list (ACL) on the SMB
-        /// file share. Set it to <code>false</code> to map file and directory permissions to
-        /// the POSIX permissions.</para><para>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html">Using
+        /// <para>Set this value to <c>true</c> to enable access control list (ACL) on the SMB file
+        /// share. Set it to <c>false</c> to map file and directory permissions to the POSIX permissions.</para><para>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html">Using
         /// Microsoft Windows ACLs to control access to an SMB file share</a> in the <i>Storage
-        /// Gateway User Guide</i>.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
+        /// Gateway User Guide</i>.</para><para>Valid Values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -290,8 +289,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>A list of users or groups in the Active Directory that are allowed to access the file
         /// share. A group must be prefixed with the @ character. Acceptable formats include:
-        /// <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and <code>@DOMAIN\group1</code>.
-        /// Can only be set if Authentication is set to <code>ActiveDirectory</code>.</para>
+        /// <c>DOMAIN\User1</c>, <c>user1</c>, <c>@group1</c>, and <c>@DOMAIN\group1</c>. Can
+        /// only be set if Authentication is set to <c>ActiveDirectory</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

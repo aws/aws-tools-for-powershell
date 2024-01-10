@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCertificateProvider</a>
     /// action. 
     /// </para><para>
-    /// If you delete the certificate provider resource, the behavior of <code>CreateCertificateFromCsr</code>
+    /// If you delete the certificate provider resource, the behavior of <c>CreateCertificateFromCsr</c>
     /// will resume, and IoT will create certificates signed by IoT from a certificate signing
     /// request (CSR).
     /// </para>

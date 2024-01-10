@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter AttributePayload
         /// <summary>
         /// <para>
-        /// <para>A list of thing attributes, a JSON string containing name-value pairs. For example:</para><para><code>{\"attributes\":{\"name1\":\"value2\"}}</code></para><para>This data is used to add new attributes or update existing attributes.</para>
+        /// <para>A list of thing attributes, a JSON string containing name-value pairs. For example:</para><para><c>{\"attributes\":{\"name1\":\"value2\"}}</c></para><para>This data is used to add new attributes or update existing attributes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>The expected version of the thing record in the registry. If the version of the record
         /// in the registry does not match the expected version specified in the request, the
-        /// <code>UpdateThing</code> request is rejected with a <code>VersionConflictException</code>.</para>
+        /// <c>UpdateThing</c> request is rejected with a <c>VersionConflictException</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

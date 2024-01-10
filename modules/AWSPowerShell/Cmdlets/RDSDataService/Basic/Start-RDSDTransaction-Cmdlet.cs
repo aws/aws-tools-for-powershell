@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     /// transaction times out before it's committed, it's rolled back automatically.
     /// </para><para>
     /// DDL statements inside a transaction cause an implicit commit. We recommend that you
-    /// run each DDL statement in a separate <code>ExecuteStatement</code> call with <code>continueAfterTimeout</code>
+    /// run each DDL statement in a separate <c>ExecuteStatement</c> call with <c>continueAfterTimeout</c>
     /// enabled.
     /// </para></note>
     /// </summary>

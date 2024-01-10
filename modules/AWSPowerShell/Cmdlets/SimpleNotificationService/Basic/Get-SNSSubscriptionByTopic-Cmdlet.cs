@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Returns a list of the subscriptions to a specific topic. Each call returns a limited
-    /// list of subscriptions, up to 100. If there are more subscriptions, a <code>NextToken</code>
-    /// is also returned. Use the <code>NextToken</code> parameter in a new <code>ListSubscriptionsByTopic</code>
+    /// list of subscriptions, up to 100. If there are more subscriptions, a <c>NextToken</c>
+    /// is also returned. Use the <c>NextToken</c> parameter in a new <c>ListSubscriptionsByTopic</c>
     /// call to get further results.
     /// 
     ///  
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token returned by the previous <code>ListSubscriptionsByTopic</code> request.</para>
+        /// <para>Token returned by the previous <c>ListSubscriptionsByTopic</c> request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -33,15 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  
     /// <para>
-    /// After the certificate is valid, use the <code>AttachCertificateToDistribution</code>
-    /// action to use the certificate and its domains with your distribution. Or use the <code>UpdateContainerService</code>
+    /// After the certificate is valid, use the <c>AttachCertificateToDistribution</c> action
+    /// to use the certificate and its domains with your distribution. Or use the <c>UpdateContainerService</c>
     /// action to use the certificate and its domains with your container service.
     /// </para><important><para>
-    /// Only certificates created in the <code>us-east-1</code> Amazon Web Services Region
-    /// can be attached to Lightsail distributions. Lightsail distributions are global resources
+    /// Only certificates created in the <c>us-east-1</c> Amazon Web Services Region can be
+    /// attached to Lightsail distributions. Lightsail distributions are global resources
     /// that can reference an origin in any Amazon Web Services Region, and distribute its
-    /// content globally. However, all distributions are located in the <code>us-east-1</code>
-    /// Region.
+    /// content globally. However, all distributions are located in the <c>us-east-1</c> Region.
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "LSCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -75,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The domain name (<code>example.com</code>) for the certificate.</para>
+        /// <para>The domain name (<c>example.com</c>) for the certificate.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,9 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter SubjectAlternativeName
         /// <summary>
         /// <para>
-        /// <para>An array of strings that specify the alternate domains (<code>example2.com</code>)
-        /// and subdomains (<code>blog.example.com</code>) for the certificate.</para><para>You can specify a maximum of nine alternate domains (in addition to the primary domain
-        /// name).</para><para>Wildcard domain entries (<code>*.example.com</code>) are not supported.</para>
+        /// <para>An array of strings that specify the alternate domains (<c>example2.com</c>) and subdomains
+        /// (<c>blog.example.com</c>) for the certificate.</para><para>You can specify a maximum of nine alternate domains (in addition to the primary domain
+        /// name).</para><para>Wildcard domain entries (<c>*.example.com</c>) are not supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys and optional values to add to the certificate during create.</para><para>Use the <code>TagResource</code> action to tag a resource after it's created.</para>
+        /// <para>The tag keys and optional values to add to the certificate during create.</para><para>Use the <c>TagResource</c> action to tag a resource after it's created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

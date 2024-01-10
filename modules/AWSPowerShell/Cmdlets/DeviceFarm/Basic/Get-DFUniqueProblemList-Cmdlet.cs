@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// <para>
     /// Unique problems are defined as a single instance of an error across a run, job, or
     /// suite. For example, if a call in your application consistently raises an exception
-    /// (<code>OutOfBoundsException in MyActivity.java:386</code>), <code>ListUniqueProblems</code>
-    /// returns a single entry instead of many individual entries for that exception.
+    /// (<c>OutOfBoundsException in MyActivity.java:386</c>), <c>ListUniqueProblems</c> returns
+    /// a single entry instead of many individual entries for that exception.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DFUniqueProblemList")]

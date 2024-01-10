@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ExportConfig_ExportConfigType
         /// <summary>
         /// <para>
-        /// <para> The export configuration type. Valid values are: </para><ul><li><para><code>S3</code>: The report results are exported to an S3 bucket. </para></li><li><para><code>NO_EXPORT</code>: The report results are not exported. </para></li></ul>
+        /// <para> The export configuration type. Valid values are: </para><ul><li><para><c>S3</c>: The report results are exported to an S3 bucket. </para></li><li><para><c>NO_EXPORT</c>: The report results are not exported. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter S3Destination_Packaging
         /// <summary>
         /// <para>
-        /// <para> The type of build output artifact to create. Valid values include: </para><ul><li><para><code>NONE</code>: CodeBuild creates the raw data in the output bucket. This is the
-        /// default if packaging is not specified. </para></li><li><para><code>ZIP</code>: CodeBuild creates a ZIP file with the raw data in the output bucket.
+        /// <para> The type of build output artifact to create. Valid values include: </para><ul><li><para><c>NONE</c>: CodeBuild creates the raw data in the output bucket. This is the default
+        /// if packaging is not specified. </para></li><li><para><c>ZIP</c>: CodeBuild creates a ZIP file with the raw data in the output bucket.
         /// </para></li></ul>
         /// </para>
         /// </summary>

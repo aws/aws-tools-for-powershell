@@ -28,7 +28,7 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Deletes the certificate that's specified in the <code>CertificateId</code> parameter.
+    /// Deletes the certificate that's specified in the <c>CertificateId</c> parameter.
     /// </summary>
     [Cmdlet("Remove", "TFRCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions for the <code>elasticfilesystem:DescribeMountTargets</code>
-    /// action, on either the file system ID that you specify in <code>FileSystemId</code>,
-    /// or on the file system of the mount target that you specify in <code>MountTargetId</code>.
+    /// This operation requires permissions for the <c>elasticfilesystem:DescribeMountTargets</c>
+    /// action, on either the file system ID that you specify in <c>FileSystemId</c>, or on
+    /// the file system of the mount target that you specify in <c>MountTargetId</c>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EFSMountTarget")]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>(Optional) The ID of the access point whose mount targets that you want to list. It
-        /// must be included in your request if a <code>FileSystemId</code> or <code>MountTargetId</code>
+        /// must be included in your request if a <c>FileSystemId</c> or <c>MountTargetId</c>
         /// is not included in your request. Accepts either an access point ID or ARN as input.</para>
         /// </para>
         /// </summary>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>(Optional) ID of the file system whose mount targets you want to list (String). It
-        /// must be included in your request if an <code>AccessPointId</code> or <code>MountTargetId</code>
+        /// must be included in your request if an <c>AccessPointId</c> or <c>MountTargetId</c>
         /// is not included. Accepts either a file system ID or ARN as input.</para>
         /// </para>
         /// </summary>
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>(Optional) ID of the mount target that you want to have described (String). It must
-        /// be included in your request if <code>FileSystemId</code> is not included. Accepts
-        /// either a mount target ID or ARN as input.</para>
+        /// be included in your request if <c>FileSystemId</c> is not included. Accepts either
+        /// a mount target ID or ARN as input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>(Optional) Opaque pagination token returned from a previous <code>DescribeMountTargets</code>
+        /// <para>(Optional) Opaque pagination token returned from a previous <c>DescribeMountTargets</c>
         /// operation (String). If present, it specifies to continue the list from where the previous
         /// returning call left off.</para>
         /// </para>

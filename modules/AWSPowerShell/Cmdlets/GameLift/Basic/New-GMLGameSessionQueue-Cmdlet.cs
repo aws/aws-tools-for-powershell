@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// (SNS) topic to receive notifications of game session placement activity. Notifications
     /// using SNS or CloudWatch events is the preferred way to track placement activity.
     /// </para><para>
-    /// If successful, a new <code>GameSessionQueue</code> object is returned with an assigned
-    /// queue ARN. New game session requests, which are submitted to queue with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a>
+    /// If successful, a new <c>GameSessionQueue</c> object is returned with an assigned queue
+    /// ARN. New game session requests, which are submitted to queue with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a>
     /// or <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartMatchmaking.html">StartMatchmaking</a>,
     /// reference a queue's name or ARN. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-design.html">
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para> A list of locations to allow game session placement in, in the form of Amazon Web
-        /// Services Region codes such as <code>us-west-2</code>. </para>
+        /// Services Region codes such as <c>us-west-2</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,10 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PriorityConfiguration_LocationOrder
         /// <summary>
         /// <para>
-        /// <para>The prioritization order to use for fleet locations, when the <code>PriorityOrder</code>
-        /// property includes <code>LOCATION</code>. Locations are identified by Amazon Web Services
-        /// Region codes such as <code>us-west-2</code>. Each location can only be listed once.
-        /// </para>
+        /// <para>The prioritization order to use for fleet locations, when the <c>PriorityOrder</c>
+        /// property includes <c>LOCATION</c>. Locations are identified by Amazon Web Services
+        /// Region codes such as <c>us-west-2</c>. Each location can only be listed once. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,12 +175,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The recommended sequence to use when prioritizing where to place new game sessions.
-        /// Each type can only be listed once.</para><ul><li><para><code>LATENCY</code> -- FleetIQ prioritizes locations where the average player latency
-        /// (provided in each game session request) is lowest. </para></li><li><para><code>COST</code> -- FleetIQ prioritizes destinations with the lowest current hosting
-        /// costs. Cost is evaluated based on the location, instance type, and fleet type (Spot
-        /// or On-Demand) for each destination in the queue.</para></li><li><para><code>DESTINATION</code> -- FleetIQ prioritizes based on the order that destinations
-        /// are listed in the queue configuration.</para></li><li><para><code>LOCATION</code> -- FleetIQ prioritizes based on the provided order of locations,
-        /// as defined in <code>LocationOrder</code>. </para></li></ul>
+        /// Each type can only be listed once.</para><ul><li><para><c>LATENCY</c> -- FleetIQ prioritizes locations where the average player latency
+        /// (provided in each game session request) is lowest. </para></li><li><para><c>COST</c> -- FleetIQ prioritizes destinations with the lowest current hosting costs.
+        /// Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand)
+        /// for each destination in the queue.</para></li><li><para><c>DESTINATION</c> -- FleetIQ prioritizes based on the order that destinations are
+        /// listed in the queue configuration.</para></li><li><para><c>LOCATION</c> -- FleetIQ prioritizes based on the provided order of locations,
+        /// as defined in <c>LocationOrder</c>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>The maximum time, in seconds, that a new game session placement request remains in
         /// the queue. When a request exceeds this time, the game session placement changes to
-        /// a <code>TIMED_OUT</code> status. By default, this property is set to <code>600</code>.</para>
+        /// a <c>TIMED_OUT</c> status. By default, this property is set to <c>600</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

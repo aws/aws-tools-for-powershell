@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// Deletes a certificate revocation list (CRL).
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:DeleteCrl</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:DeleteCrl</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IAMRACrl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

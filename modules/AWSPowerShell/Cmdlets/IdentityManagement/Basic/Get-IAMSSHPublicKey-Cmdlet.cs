@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>Specifies the public key encoding format to use in the response. To retrieve the public
-        /// key in ssh-rsa format, use <code>SSH</code>. To retrieve the public key in PEM format,
-        /// use <code>PEM</code>.</para>
+        /// key in ssh-rsa format, use <c>SSH</c>. To retrieve the public key in PEM format, use
+        /// <c>PEM</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

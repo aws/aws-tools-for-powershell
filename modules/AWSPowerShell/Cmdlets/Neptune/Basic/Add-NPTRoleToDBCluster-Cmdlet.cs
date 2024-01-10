@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role to associate with the Neptune DB cluster,
-        /// for example <code>arn:aws:iam::123456789012:role/NeptuneAccessRole</code>.</para>
+        /// for example <c>arn:aws:iam::123456789012:role/NeptuneAccessRole</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

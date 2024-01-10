@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     ///  
     /// <para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para><code>resource-groups:GetGroupConfiguration</code></para></li></ul>
+    /// </para><ul><li><para><c>resource-groups:GetGroupConfiguration</c></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "RGGroupConfiguration")]
     [OutputType("Amazon.ResourceGroups.Model.GetGroupConfigurationResponse")]

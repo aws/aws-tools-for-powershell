@@ -28,7 +28,7 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Deprecated. Use <code>StartExportTask</code> instead.
+    /// Deprecated. Use <c>StartExportTask</c> instead.
     /// 
     ///  
     /// <para>

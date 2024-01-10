@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter AutoSnapshotAddOnRequest_SnapshotTimeOfDay
         /// <summary>
         /// <para>
-        /// <para>The daily time when an automatic snapshot will be created.</para><para>Constraints:</para><ul><li><para>Must be in <code>HH:00</code> format, and in an hourly increment.</para></li><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>The snapshot will be automatically created between the time specified and up to 45
+        /// <para>The daily time when an automatic snapshot will be created.</para><para>Constraints:</para><ul><li><para>Must be in <c>HH:00</c> format, and in an hourly increment.</para></li><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>The snapshot will be automatically created between the time specified and up to 45
         /// minutes after.</para></li></ul>
         /// </para>
         /// </summary>

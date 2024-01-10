@@ -33,8 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     ///  <note><para>
     /// When using this API, you cannot reuse <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html">Amazon
     /// AppIntegrations</a> DataIntegrations with external knowledge bases such as Salesforce
-    /// and ServiceNow. If you do, you'll get an <code>InvalidRequestException</code> error.
-    /// 
+    /// and ServiceNow. If you do, you'll get an <c>InvalidRequestException</c> error. 
     /// </para><para>
     /// For example, you're programmatically managing your external knowledge base, and you
     /// want to add or remove one of the fields that is being ingested from Salesforce. Do
@@ -68,24 +67,22 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <para>The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting
         /// content.</para><ul><li><para> For <a href="https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm">
         /// Salesforce</a>, your AppIntegrations DataIntegration must have an ObjectConfiguration
-        /// if objectFields is not provided, including at least <code>Id</code>, <code>ArticleNumber</code>,
-        /// <code>VersionNumber</code>, <code>Title</code>, <code>PublishStatus</code>, and <code>IsDeleted</code>
-        /// as source fields. </para></li><li><para> For <a href="https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api">
+        /// if objectFields is not provided, including at least <c>Id</c>, <c>ArticleNumber</c>,
+        /// <c>VersionNumber</c>, <c>Title</c>, <c>PublishStatus</c>, and <c>IsDeleted</c> as
+        /// source fields. </para></li><li><para> For <a href="https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api">
         /// ServiceNow</a>, your AppIntegrations DataIntegration must have an ObjectConfiguration
-        /// if objectFields is not provided, including at least <code>number</code>, <code>short_description</code>,
-        /// <code>sys_mod_count</code>, <code>workflow_state</code>, and <code>active</code> as
-        /// source fields. </para></li><li><para> For <a href="https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/">
+        /// if objectFields is not provided, including at least <c>number</c>, <c>short_description</c>,
+        /// <c>sys_mod_count</c>, <c>workflow_state</c>, and <c>active</c> as source fields. </para></li><li><para> For <a href="https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/">
         /// Zendesk</a>, your AppIntegrations DataIntegration must have an ObjectConfiguration
-        /// if <code>objectFields</code> is not provided, including at least <code>id</code>,
-        /// <code>title</code>, <code>updated_at</code>, and <code>draft</code> as source fields.
-        /// </para></li><li><para> For <a href="https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index">SharePoint</a>,
+        /// if <c>objectFields</c> is not provided, including at least <c>id</c>, <c>title</c>,
+        /// <c>updated_at</c>, and <c>draft</c> as source fields. </para></li><li><para> For <a href="https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index">SharePoint</a>,
         /// your AppIntegrations DataIntegration must have a FileConfiguration, including only
-        /// file extensions that are among <code>docx</code>, <code>pdf</code>, <code>html</code>,
-        /// <code>htm</code>, and <code>txt</code>. </para></li><li><para> For <a href="https://aws.amazon.com/s3/">Amazon S3</a>, the ObjectConfiguration and
-        /// FileConfiguration of your AppIntegrations DataIntegration must be null. The <code>SourceURI</code>
-        /// of your DataIntegration must use the following format: <code>s3://your_s3_bucket_name</code>.</para><important><para>The bucket policy of the corresponding S3 bucket must allow the Amazon Web Services
-        /// principal <code>app-integrations.amazonaws.com</code> to perform <code>s3:ListBucket</code>,
-        /// <code>s3:GetObject</code>, and <code>s3:GetBucketLocation</code> against the bucket.</para></important></li></ul>
+        /// file extensions that are among <c>docx</c>, <c>pdf</c>, <c>html</c>, <c>htm</c>, and
+        /// <c>txt</c>. </para></li><li><para> For <a href="https://aws.amazon.com/s3/">Amazon S3</a>, the ObjectConfiguration and
+        /// FileConfiguration of your AppIntegrations DataIntegration must be null. The <c>SourceURI</c>
+        /// of your DataIntegration must use the following format: <c>s3://your_s3_bucket_name</c>.</para><important><para>The bucket policy of the corresponding S3 bucket must allow the Amazon Web Services
+        /// principal <c>app-integrations.amazonaws.com</c> to perform <c>s3:ListBucket</c>, <c>s3:GetObject</c>,
+        /// and <c>s3:GetBucketLocation</c> against the bucket.</para></important></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,14 +155,12 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <para>
         /// <para>The fields from the source that are made available to your agents in Amazon Q. Optional
         /// if ObjectConfiguration is included in the provided DataIntegration. </para><ul><li><para> For <a href="https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm">
-        /// Salesforce</a>, you must include at least <code>Id</code>, <code>ArticleNumber</code>,
-        /// <code>VersionNumber</code>, <code>Title</code>, <code>PublishStatus</code>, and <code>IsDeleted</code>.
-        /// </para></li><li><para>For <a href="https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api">
-        /// ServiceNow</a>, you must include at least <code>number</code>, <code>short_description</code>,
-        /// <code>sys_mod_count</code>, <code>workflow_state</code>, and <code>active</code>.
-        /// </para></li><li><para>For <a href="https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/">
-        /// Zendesk</a>, you must include at least <code>id</code>, <code>title</code>, <code>updated_at</code>,
-        /// and <code>draft</code>. </para></li></ul><para>Make sure to include additional fields. These fields are indexed and used to source
+        /// Salesforce</a>, you must include at least <c>Id</c>, <c>ArticleNumber</c>, <c>VersionNumber</c>,
+        /// <c>Title</c>, <c>PublishStatus</c>, and <c>IsDeleted</c>. </para></li><li><para>For <a href="https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api">
+        /// ServiceNow</a>, you must include at least <c>number</c>, <c>short_description</c>,
+        /// <c>sys_mod_count</c>, <c>workflow_state</c>, and <c>active</c>. </para></li><li><para>For <a href="https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/">
+        /// Zendesk</a>, you must include at least <c>id</c>, <c>title</c>, <c>updated_at</c>,
+        /// and <c>draft</c>. </para></li></ul><para>Make sure to include additional fields. These fields are indexed and used to source
         /// recommendations. </para>
         /// </para>
         /// </summary>
@@ -188,11 +183,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter RenderingConfiguration_TemplateUri
         /// <summary>
         /// <para>
-        /// <para>A URI template containing exactly one variable in <code>${variableName} </code>format.
-        /// This can only be set for <code>EXTERNAL</code> knowledge bases. For Salesforce, ServiceNow,
-        /// and Zendesk, the variable must be one of the following:</para><ul><li><para>Salesforce: <code>Id</code>, <code>ArticleNumber</code>, <code>VersionNumber</code>,
-        /// <code>Title</code>, <code>PublishStatus</code>, or <code>IsDeleted</code></para></li><li><para>ServiceNow: <code>number</code>, <code>short_description</code>, <code>sys_mod_count</code>,
-        /// <code>workflow_state</code>, or <code>active</code></para></li><li><para>Zendesk: <code>id</code>, <code>title</code>, <code>updated_at</code>, or <code>draft</code></para></li></ul><para>The variable is replaced with the actual value for a piece of content when calling
+        /// <para>A URI template containing exactly one variable in <c>${variableName} </c>format. This
+        /// can only be set for <c>EXTERNAL</c> knowledge bases. For Salesforce, ServiceNow, and
+        /// Zendesk, the variable must be one of the following:</para><ul><li><para>Salesforce: <c>Id</c>, <c>ArticleNumber</c>, <c>VersionNumber</c>, <c>Title</c>, <c>PublishStatus</c>,
+        /// or <c>IsDeleted</c></para></li><li><para>ServiceNow: <c>number</c>, <c>short_description</c>, <c>sys_mod_count</c>, <c>workflow_state</c>,
+        /// or <c>active</c></para></li><li><para>Zendesk: <c>id</c>, <c>title</c>, <c>updated_at</c>, or <c>draft</c></para></li></ul><para>The variable is replaced with the actual value for a piece of content when calling
         /// <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetContent.html">GetContent</a>.
         /// </para>
         /// </para>

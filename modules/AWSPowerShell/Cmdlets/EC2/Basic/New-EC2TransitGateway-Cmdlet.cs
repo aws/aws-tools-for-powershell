@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// You can use a transit gateway to interconnect your virtual private clouds (VPC) and
-    /// on-premises networks. After the transit gateway enters the <code>available</code>
-    /// state, you can attach your VPCs and VPN connections to the transit gateway.
+    /// on-premises networks. After the transit gateway enters the <c>available</c> state,
+    /// you can attach your VPCs and VPN connections to the transit gateway.
     /// </para><para>
     /// To attach your VPCs, use <a>CreateTransitGatewayVpcAttachment</a>.
     /// </para><para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The
         /// range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.
-        /// The default is <code>64512</code>.</para>
+        /// The default is <c>64512</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

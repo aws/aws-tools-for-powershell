@@ -28,7 +28,7 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Delete the agreement that's specified in the provided <code>AgreementId</code>.
+    /// Delete the agreement that's specified in the provided <c>AgreementId</c>.
     /// </summary>
     [Cmdlet("Remove", "TFRAgreement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <summary>
         /// <para>
         /// <para>The path of the source attribute in the JWT from the trusted token issuer. The attribute
-        /// mapped by this JMESPath expression is compared against the attribute mapped by <code>IdentityStoreAttributePath</code>
+        /// mapped by this JMESPath expression is compared against the attribute mapped by <c>IdentityStoreAttributePath</c>
         /// when a trusted token issuer token is exchanged for an IAM Identity Center token.</para>
         /// </para>
         /// </summary>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <summary>
         /// <para>
         /// <para>The path of the destination attribute in a JWT from IAM Identity Center. The attribute
-        /// mapped by this JMESPath expression is compared against the attribute mapped by <code>ClaimAttributePath</code>
+        /// mapped by this JMESPath expression is compared against the attribute mapped by <c>ClaimAttributePath</c>
         /// when a trusted token issuer token is exchanged for an IAM Identity Center token. </para>
         /// </para>
         /// </summary>
@@ -174,8 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// requires that you also pass the same value for all other parameters. We recommend
         /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
         /// type of value.</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
-        /// you.</para><para>If you retry the operation with the same <code>ClientToken</code>, but with different
-        /// parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</para>
+        /// you.</para><para>If you retry the operation with the same <c>ClientToken</c>, but with different parameters,
+        /// the retry fails with an <c>IdempotentParameterMismatch</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

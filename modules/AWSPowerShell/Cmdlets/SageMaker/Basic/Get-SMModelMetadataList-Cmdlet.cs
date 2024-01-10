@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the response to a previous <code>ListModelMetadataResponse</code> request was truncated,
+        /// <para>If the response to a previous <c>ListModelMetadataResponse</c> request was truncated,
         /// the response includes a NextToken. To retrieve the next set of model metadata, use
         /// the token in the next request.</para>
         /// </para>

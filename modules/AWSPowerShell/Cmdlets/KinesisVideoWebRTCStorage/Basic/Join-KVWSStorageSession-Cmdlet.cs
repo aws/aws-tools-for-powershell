@@ -35,17 +35,17 @@ namespace Amazon.PowerShell.Cmdlets.KVWS
     /// 
     ///  
     /// <para>
-    /// Currently for the <code>SINGLE_MASTER</code> type, a video producing device is able
-    /// to ingest both audio and video media into a stream, while viewers can only ingest
-    /// audio. Both a video producing device and viewers can join the session first, and wait
-    /// for other participants.
+    /// Currently for the <c>SINGLE_MASTER</c> type, a video producing device is able to ingest
+    /// both audio and video media into a stream, while viewers can only ingest audio. Both
+    /// a video producing device and viewers can join the session first, and wait for other
+    /// participants.
     /// </para><para>
     /// While participants are having peer to peer conversations through webRTC, the ingested
     /// media session will be stored into the Kinesis Video Stream. Multiple viewers are able
     /// to playback real-time media.
     /// </para><para>
-    /// Customers can also use existing Kinesis Video Streams features like <code>HLS</code>
-    /// or <code>DASH</code> playback, Image generation, and more with ingested WebRTC media.
+    /// Customers can also use existing Kinesis Video Streams features like <c>HLS</c> or
+    /// <c>DASH</c> playback, Image generation, and more with ingested WebRTC media.
     /// </para><note><para>
     /// Assume that only one video producing device client can be associated with a session
     /// for the channel. If more than one client joins the session of a specific channel as

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         /// blocked dates is: YYYY-MM-DD. Keep in mind, when you specify dates, that dates and
         /// times for practice runs are in UTC. Separate multiple blocked dates with spaces.</para><para>For example, if you have an application update scheduled to launch on May 1, 2024,
         /// and you don't want practice runs to shift traffic away at that time, you could set
-        /// a blocked date for <code>2024-05-01</code>.</para>
+        /// a blocked date for <c>2024-05-01</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         /// time adjustments that might be required for daylight saving time differences. Separate
         /// multiple blocked windows with spaces.</para><para>For example, say you run business report summaries three days a week. For this scenario,
         /// you might set the following recurring days and times as blocked windows, for example:
-        /// <code>MON-20:30-21:30 WED-20:30-21:30 FRI-20:30-21:30</code>.</para>
+        /// <c>MON-20:30-21:30 WED-20:30-21:30 FRI-20:30-21:30</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

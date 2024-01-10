@@ -94,9 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EC2SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>Id of the EC2 security group to authorize. For VPC DB security groups, <code>EC2SecurityGroupId</code>
-        /// must be provided. Otherwise, <code>EC2SecurityGroupOwnerId</code> and either <code>EC2SecurityGroupName</code>
-        /// or <code>EC2SecurityGroupId</code> must be provided.</para>
+        /// <para>Id of the EC2 security group to authorize. For VPC DB security groups, <c>EC2SecurityGroupId</c>
+        /// must be provided. Otherwise, <c>EC2SecurityGroupOwnerId</c> and either <c>EC2SecurityGroupName</c>
+        /// or <c>EC2SecurityGroupId</c> must be provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,9 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EC2SecurityGroupName
         /// <summary>
         /// <para>
-        /// <para>Name of the EC2 security group to authorize. For VPC DB security groups, <code>EC2SecurityGroupId</code>
-        /// must be provided. Otherwise, <code>EC2SecurityGroupOwnerId</code> and either <code>EC2SecurityGroupName</code>
-        /// or <code>EC2SecurityGroupId</code> must be provided.</para>
+        /// <para>Name of the EC2 security group to authorize. For VPC DB security groups, <c>EC2SecurityGroupId</c>
+        /// must be provided. Otherwise, <c>EC2SecurityGroupOwnerId</c> and either <c>EC2SecurityGroupName</c>
+        /// or <c>EC2SecurityGroupId</c> must be provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,10 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Amazon Web Services account number of the owner of the EC2 security group specified
-        /// in the <code>EC2SecurityGroupName</code> parameter. The Amazon Web Services access
-        /// key ID isn't an acceptable value. For VPC DB security groups, <code>EC2SecurityGroupId</code>
-        /// must be provided. Otherwise, <code>EC2SecurityGroupOwnerId</code> and either <code>EC2SecurityGroupName</code>
-        /// or <code>EC2SecurityGroupId</code> must be provided.</para>
+        /// in the <c>EC2SecurityGroupName</c> parameter. The Amazon Web Services access key ID
+        /// isn't an acceptable value. For VPC DB security groups, <c>EC2SecurityGroupId</c> must
+        /// be provided. Otherwise, <c>EC2SecurityGroupOwnerId</c> and either <c>EC2SecurityGroupName</c>
+        /// or <c>EC2SecurityGroupId</c> must be provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

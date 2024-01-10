@@ -35,13 +35,13 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     /// 
     ///  
     /// <para>
-    /// Do not use <code>CreateCanary</code> to modify an existing canary. Use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_UpdateCanary.html">UpdateCanary</a>
+    /// Do not use <c>CreateCanary</c> to modify an existing canary. Use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_UpdateCanary.html">UpdateCanary</a>
     /// instead.
     /// </para><para>
-    /// To create canaries, you must have the <code>CloudWatchSyntheticsFullAccess</code>
-    /// policy. If you are creating a new IAM role for the canary, you also need the <code>iam:CreateRole</code>,
-    /// <code>iam:CreatePolicy</code> and <code>iam:AttachRolePolicy</code> permissions. For
-    /// more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Roles">Necessary
+    /// To create canaries, you must have the <c>CloudWatchSyntheticsFullAccess</c> policy.
+    /// If you are creating a new IAM role for the canary, you also need the <c>iam:CreateRole</c>,
+    /// <c>iam:CreatePolicy</c> and <c>iam:AttachRolePolicy</c> permissions. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Roles">Necessary
     /// Roles and Permissions</a>.
     /// </para><para>
     /// Do not include secrets or proprietary information in your canary names. The canary
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// tracing enables this canary run to be displayed in the ServiceLens and X-Ray service
         /// maps even if the canary does not hit an endpoint that has X-Ray tracing enabled. Using
         /// X-Ray tracing incurs charges. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_tracing.html">
-        /// Canaries and X-Ray tracing</a>.</para><para>You can enable active tracing only for canaries that use version <code>syn-nodejs-2.0</code>
+        /// Canaries and X-Ray tracing</a>.</para><para>You can enable active tracing only for canaries that use version <c>syn-nodejs-2.0</c>
         /// or later for their canary runtime.</para>
         /// </para>
         /// </summary>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>How long, in seconds, for the canary to continue making regular runs according to
-        /// the schedule in the <code>Expression</code> value. If you specify 0, the canary continues
+        /// the schedule in the <c>Expression</c> value. If you specify 0, the canary continues
         /// making runs until you stop it. If you omit this field, the default of 0 is used.</para>
         /// </para>
         /// </summary>
@@ -112,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter S3Encryption_EncryptionMode
         /// <summary>
         /// <para>
-        /// <para> The encryption method to use for artifacts created by this canary. Specify <code>SSE_S3</code>
-        /// to use server-side encryption (SSE) with an Amazon S3-managed key. Specify <code>SSE-KMS</code>
+        /// <para> The encryption method to use for artifacts created by this canary. Specify <c>SSE_S3</c>
+        /// to use server-side encryption (SSE) with an Amazon S3-managed key. Specify <c>SSE-KMS</c>
         /// to use server-side encryption with a customer-managed KMS key.</para><para>If you omit this parameter, an Amazon Web Services-managed KMS key is used. </para>
         /// </para>
         /// </summary>
@@ -144,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM role to be used to run the canary. This role must already exist,
-        /// and must include <code>lambda.amazonaws.com</code> as a principal in the trust policy.
-        /// The role must also have the following permissions:</para><ul><li><para><code>s3:PutObject</code></para></li><li><para><code>s3:GetBucketLocation</code></para></li><li><para><code>s3:ListAllMyBuckets</code></para></li><li><para><code>cloudwatch:PutMetricData</code></para></li><li><para><code>logs:CreateLogGroup</code></para></li><li><para><code>logs:CreateLogStream</code></para></li><li><para><code>logs:PutLogEvents</code></para></li></ul>
+        /// and must include <c>lambda.amazonaws.com</c> as a principal in the trust policy. The
+        /// role must also have the following permissions:</para><ul><li><para><c>s3:PutObject</c></para></li><li><para><c>s3:GetBucketLocation</c></para></li><li><para><c>s3:ListAllMyBuckets</c></para></li><li><para><c>cloudwatch:PutMetricData</c></para></li><li><para><c>logs:CreateLogGroup</c></para></li><li><para><c>logs:CreateLogStream</c></para></li><li><para><c>logs:PutLogEvents</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -162,13 +162,12 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter Schedule_Expression
         /// <summary>
         /// <para>
-        /// <para>A <code>rate</code> expression or a <code>cron</code> expression that defines how
-        /// often the canary is to run.</para><para>For a rate expression, The syntax is <code>rate(<i>number unit</i>)</code>. <i>unit</i>
-        /// can be <code>minute</code>, <code>minutes</code>, or <code>hour</code>. </para><para>For example, <code>rate(1 minute)</code> runs the canary once a minute, <code>rate(10
-        /// minutes)</code> runs it once every 10 minutes, and <code>rate(1 hour)</code> runs
-        /// it once every hour. You can specify a frequency between <code>rate(1 minute)</code>
-        /// and <code>rate(1 hour)</code>.</para><para>Specifying <code>rate(0 minute)</code> or <code>rate(0 hour)</code> is a special value
-        /// that causes the canary to run only once when it is started.</para><para>Use <code>cron(<i>expression</i>)</code> to specify a cron expression. You can't schedule
+        /// <para>A <c>rate</c> expression or a <c>cron</c> expression that defines how often the canary
+        /// is to run.</para><para>For a rate expression, The syntax is <c>rate(<i>number unit</i>)</c>. <i>unit</i>
+        /// can be <c>minute</c>, <c>minutes</c>, or <c>hour</c>. </para><para>For example, <c>rate(1 minute)</c> runs the canary once a minute, <c>rate(10 minutes)</c>
+        /// runs it once every 10 minutes, and <c>rate(1 hour)</c> runs it once every hour. You
+        /// can specify a frequency between <c>rate(1 minute)</c> and <c>rate(1 hour)</c>.</para><para>Specifying <c>rate(0 minute)</c> or <c>rate(0 hour)</c> is a special value that causes
+        /// the canary to run only once when it is started.</para><para>Use <c>cron(<i>expression</i>)</c> to specify a cron expression. You can't schedule
         /// a canary to wait for more than a year before running. For information about the syntax
         /// for cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html">
         /// Scheduling canary runs using cron</a>.</para>
@@ -201,12 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>The entry point to use for the source code when running the canary. For canaries that
-        /// use the <code>syn-python-selenium-1.0</code> runtime or a <code>syn-nodejs.puppeteer</code>
-        /// runtime earlier than <code>syn-nodejs.puppeteer-3.4</code>, the handler must be specified
-        /// as <code><i>fileName</i>.handler</code>. For <code>syn-python-selenium-1.1</code>,
-        /// <code>syn-nodejs.puppeteer-3.4</code>, and later runtimes, the handler can be specified
-        /// as <code><i>fileName</i>.<i>functionName</i></code>, or you can specify a folder
-        /// where canary scripts reside as <code><i>folder</i>/<i>fileName</i>.<i>functionName</i></code>.</para>
+        /// use the <c>syn-python-selenium-1.0</c> runtime or a <c>syn-nodejs.puppeteer</c> runtime
+        /// earlier than <c>syn-nodejs.puppeteer-3.4</c>, the handler must be specified as <c><i>fileName</i>.handler</c>. For <c>syn-python-selenium-1.1</c>, <c>syn-nodejs.puppeteer-3.4</c>,
+        /// and later runtimes, the handler can be specified as <c><i>fileName</i>.<i>functionName</i></c>, or you can specify a folder where canary scripts reside as <c><i>folder</i>/<i>fileName</i>.<i>functionName</i></c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -223,8 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter S3Encryption_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the customer-managed KMS key to use, if you specify <code>SSE-KMS</code>
-        /// for <code>EncryptionMode</code></para>
+        /// <para>The ARN of the customer-managed KMS key to use, if you specify <c>SSE-KMS</c> for
+        /// <c>EncryptionMode</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>If your canary script is located in S3, specify the bucket name here. Do not include
-        /// <code>s3://</code> as the start of the bucket name.</para>
+        /// <c>s3://</c> as the start of the bucket name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

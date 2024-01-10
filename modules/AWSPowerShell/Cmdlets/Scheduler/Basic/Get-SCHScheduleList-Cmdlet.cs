@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         /// <summary>
         /// <para>
         /// <para>If specified, limits the number of results returned by this operation. The operation
-        /// also returns a <code>NextToken</code> which you can use in a subsequent operation
-        /// to retrieve the next set of results.</para>
+        /// also returns a <c>NextToken</c> which you can use in a subsequent operation to retrieve
+        /// the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

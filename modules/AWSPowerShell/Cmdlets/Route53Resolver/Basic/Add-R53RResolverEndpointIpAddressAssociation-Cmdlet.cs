@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
     /// Adds IP addresses to an inbound or an outbound Resolver endpoint. If you want to add
-    /// more than one IP address, submit one <code>AssociateResolverEndpointIpAddress</code>
-    /// request for each IP address.
+    /// more than one IP address, submit one <c>AssociateResolverEndpointIpAddress</c> request
+    /// for each IP address.
     /// 
     ///  
     /// <para>

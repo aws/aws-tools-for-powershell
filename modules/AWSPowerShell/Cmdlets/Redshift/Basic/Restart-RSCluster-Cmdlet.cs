@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
     /// Reboots a cluster. This action is taken as soon as possible. It results in a momentary
-    /// outage to the cluster, during which the cluster status is set to <code>rebooting</code>.
+    /// outage to the cluster, during which the cluster status is set to <c>rebooting</c>.
     /// A cluster event is created when the reboot is completed. Any pending cluster modifications
     /// (see <a>ModifyCluster</a>) are applied at this reboot. For more information about
     /// managing clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon

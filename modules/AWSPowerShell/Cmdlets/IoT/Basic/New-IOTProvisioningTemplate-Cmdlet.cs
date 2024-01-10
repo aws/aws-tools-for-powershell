@@ -155,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>The type you define in a provisioning template. You can create a template with only
         /// one type. You can't change the template type after its creation. The default value
-        /// is <code>FLEET_PROVISIONING</code>. For more information about provisioning template,
-        /// see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning
+        /// is <c>FLEET_PROVISIONING</c>. For more information about provisioning template, see:
+        /// <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning
         /// template</a>. </para>
         /// </para>
         /// </summary>

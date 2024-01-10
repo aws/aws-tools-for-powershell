@@ -98,9 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         /// <summary>
         /// <para>
         /// <para>The type of resource to attach to your resource policy. Specify a value for the policy
-        /// validation resource type only if the policy type is <code>RESOURCE_POLICY</code>.
-        /// For example, to validate a resource policy to attach to an Amazon S3 bucket, you can
-        /// choose <code>AWS::S3::Bucket</code> for the policy validation resource type.</para><para>For resource types not supported as valid values, IAM Access Analyzer runs policy
+        /// validation resource type only if the policy type is <c>RESOURCE_POLICY</c>. For example,
+        /// to validate a resource policy to attach to an Amazon S3 bucket, you can choose <c>AWS::S3::Bucket</c>
+        /// for the policy validation resource type.</para><para>For resource types not supported as valid values, IAM Access Analyzer runs policy
         /// checks that apply to all resource policies. For example, to validate a resource policy
         /// to attach to a KMS key, do not specify a value for the policy validation resource
         /// type and IAM Access Analyzer will run policy checks that apply to all resource policies.</para>

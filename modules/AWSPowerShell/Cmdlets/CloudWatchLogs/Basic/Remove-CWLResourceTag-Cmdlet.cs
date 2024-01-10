@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the CloudWatch Logs resource that you're removing tags from.</para><para>The ARN format of a log group is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i></code></para><para>The ARN format of a destination is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i></code></para><para>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch
+        /// <para>The ARN of the CloudWatch Logs resource that you're removing tags from.</para><para>The ARN format of a log group is <c>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i></c></para><para>The ARN format of a destination is <c>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i></c></para><para>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch
         /// Logs resources and operations</a>.</para>
         /// </para>
         /// </summary>

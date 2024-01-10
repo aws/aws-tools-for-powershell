@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
     /// Generates sample findings of types specified by the list of finding types. If 'NULL'
-    /// is specified for <code>findingTypes</code>, the API generates sample findings of all
-    /// supported finding types.
+    /// is specified for <c>findingTypes</c>, the API generates sample findings of all supported
+    /// finding types.
     /// </summary>
     [Cmdlet("New", "GDSampleFinding", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

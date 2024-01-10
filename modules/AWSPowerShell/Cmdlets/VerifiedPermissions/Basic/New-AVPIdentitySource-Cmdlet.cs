@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     /// To reference a user from this identity source in your Cedar policies, use the following
     /// syntax.
     /// </para><para><i>IdentityType::"&lt;CognitoUserPoolIdentifier&gt;|&lt;CognitoClientId&gt;</i></para><para>
-    /// Where <code>IdentityType</code> is the string that you provide to the <code>PrincipalEntityType</code>
-    /// parameter for this operation. The <code>CognitoUserPoolId</code> and <code>CognitoClientId</code>
+    /// Where <c>IdentityType</c> is the string that you provide to the <c>PrincipalEntityType</c>
+    /// parameter for this operation. The <c>CognitoUserPoolId</c> and <c>CognitoClientId</c>
     /// are defined by the Amazon Cognito user pool.
     /// </para></note><note><para>
     /// Verified Permissions is <i><a href="https://wikipedia.org/wiki/Eventual_consistency">eventually
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <summary>
         /// <para>
         /// <para>The unique application client IDs that are associated with the specified Amazon Cognito
-        /// user pool.</para><para>Example: <code>"ClientIds": ["&amp;ExampleCogClientId;"]</code></para>
+        /// user pool.</para><para>Example: <c>"ClientIds": ["&amp;ExampleCogClientId;"]</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Name (ARN)</a> of the Amazon Cognito user pool that contains the identities
-        /// to be authorized.</para><para>Example: <code>"UserPoolArn": "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"</code></para>
+        /// to be authorized.</para><para>Example: <c>"UserPoolArn": "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// requires that you also pass the same value for all other parameters. We recommend
         /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
         /// type of value.</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
-        /// you.</para><para>If you retry the operation with the same <code>ClientToken</code>, but with different
-        /// parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</para>
+        /// you.</para><para>If you retry the operation with the same <c>ClientToken</c>, but with different parameters,
+        /// the retry fails with an <c>IdempotentParameterMismatch</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

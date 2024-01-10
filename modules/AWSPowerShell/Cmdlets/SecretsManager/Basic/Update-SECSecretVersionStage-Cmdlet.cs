@@ -38,15 +38,14 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// 
     ///  
     /// <para>
-    /// The staging labels that you specify in the <code>VersionStage</code> parameter are
-    /// added to the existing list of staging labels for the version. 
+    /// The staging labels that you specify in the <c>VersionStage</c> parameter are added
+    /// to the existing list of staging labels for the version. 
     /// </para><para>
-    /// You can move the <code>AWSCURRENT</code> staging label to this version by including
-    /// it in this call.
+    /// You can move the <c>AWSCURRENT</c> staging label to this version by including it in
+    /// this call.
     /// </para><note><para>
-    /// Whenever you move <code>AWSCURRENT</code>, Secrets Manager automatically moves the
-    /// label <code>AWSPREVIOUS</code> to the version that <code>AWSCURRENT</code> was removed
-    /// from.
+    /// Whenever you move <c>AWSCURRENT</c>, Secrets Manager automatically moves the label
+    /// <c>AWSPREVIOUS</c> to the version that <c>AWSCURRENT</c> was removed from.
     /// </para></note><para>
     /// If this action results in the last label being removed from a version, then the version
     /// is considered to be 'deprecated' and can be deleted by Secrets Manager.
@@ -55,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// include sensitive information in request parameters because it might be logged. For
     /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
     /// Secrets Manager events with CloudTrail</a>.
-    /// </para><para><b>Required permissions: </b><code>secretsmanager:UpdateSecretVersionStage</code>.
-    /// For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+    /// </para><para><b>Required permissions: </b><c>secretsmanager:UpdateSecretVersionStage</c>. For
+    /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
     /// and access control in Secrets Manager</a>. 
     /// </para>
@@ -77,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>
         /// <para>The ID of the version to add the staging label to. To remove a label from a version,
         /// then do not specify this parameter.</para><para>If the staging label is already attached to a different version of the secret, then
-        /// you must also specify the <code>RemoveFromVersionId</code> parameter. </para>
+        /// you must also specify the <c>RemoveFromVersionId</c> parameter. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

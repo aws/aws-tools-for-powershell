@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
     /// <summary>
     /// Start a query to return data for a specific query type for the Amazon CloudWatch Internet
     /// Monitor query interface. Specify a time period for the data that you want returned
-    /// by using <code>StartTime</code> and <code>EndTime</code>. You filter the query results
-    /// to return by providing parameters that you specify with <code>FilterParameters</code>.
+    /// by using <c>StartTime</c> and <c>EndTime</c>. You filter the query results to return
+    /// by providing parameters that you specify with <c>FilterParameters</c>.
     /// 
     ///  
     /// <para>
@@ -72,10 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         #region Parameter FilterParameter
         /// <summary>
         /// <para>
-        /// <para>The <code>FilterParameters</code> field that you use with Amazon CloudWatch Internet
-        /// Monitor queries is a string the defines how you want a query to be filtered. The filter
-        /// parameters that you can specify depend on the query type, since each query type returns
-        /// a different set of Internet Monitor data.</para><para>For more information about specifying filter parameters, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html">Using
+        /// <para>The <c>FilterParameters</c> field that you use with Amazon CloudWatch Internet Monitor
+        /// queries is a string the defines how you want a query to be filtered. The filter parameters
+        /// that you can specify depend on the query type, since each query type returns a different
+        /// set of Internet Monitor data.</para><para>For more information about specifying filter parameters, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html">Using
         /// the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch
         /// Internet Monitor User Guide.</para>
         /// </para>
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         /// <summary>
         /// <para>
         /// <para>The type of query to run. The following are the three types of queries that you can
-        /// run using the Internet Monitor query interface:</para><ul><li><para><code>MEASUREMENTS</code>: TBD definition</para></li><li><para><code>TOP_LOCATIONS</code>: TBD definition</para></li><li><para><code>TOP_LOCATION_DETAILS</code>: TBD definition</para></li></ul><para>For lists of the fields returned with each query type and more information about how
+        /// run using the Internet Monitor query interface:</para><ul><li><para><c>MEASUREMENTS</c>: TBD definition</para></li><li><para><c>TOP_LOCATIONS</c>: TBD definition</para></li><li><para><c>TOP_LOCATION_DETAILS</c>: TBD definition</para></li></ul><para>For lists of the fields returned with each query type and more information about how
         /// each type of query is performed, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html">
         /// Using the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch
         /// Internet Monitor User Guide.</para>

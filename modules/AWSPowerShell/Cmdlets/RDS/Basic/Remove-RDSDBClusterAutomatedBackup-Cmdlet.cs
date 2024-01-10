@@ -28,8 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Deletes automated backups using the <code>DbClusterResourceId</code> value of the
-    /// source DB cluster or the Amazon Resource Name (ARN) of the automated backups.
+    /// Deletes automated backups using the <c>DbClusterResourceId</c> value of the source
+    /// DB cluster or the Amazon Resource Name (ARN) of the automated backups.
     /// </summary>
     [Cmdlet("Remove", "RDSDBClusterAutomatedBackup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RDS.Model.DBClusterAutomatedBackup")]

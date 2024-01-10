@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter IncludeReturnPath
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to analyze the return path. The default is <code>false</code>.</para>
+        /// <para>Indicates whether to analyze the return path. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         /// <summary>
         /// <para>
         /// <para>Indicates whether to include the location of middlebox appliances in the route analysis.
-        /// The default is <code>false</code>.</para>
+        /// The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

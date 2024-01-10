@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The IKE version to be used in the sample configuration file for your customer gateway
-        /// device. You can specify one of the following versions: <code>ikev1</code> or <code>ikev2</code>.</para>
+        /// device. You can specify one of the following versions: <c>ikev1</c> or <c>ikev2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpnConnectionDeviceTypeId
         /// <summary>
         /// <para>
-        /// <para>Device identifier provided by the <code>GetVpnConnectionDeviceTypes</code> API.</para>
+        /// <para>Device identifier provided by the <c>GetVpnConnectionDeviceTypes</c> API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpnConnectionId
         /// <summary>
         /// <para>
-        /// <para>The <code>VpnConnectionId</code> specifies the Site-to-Site VPN connection used for
-        /// the sample configuration.</para>
+        /// <para>The <c>VpnConnectionId</c> specifies the Site-to-Site VPN connection used for the
+        /// sample configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

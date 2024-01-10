@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Creates a VPN connection between an existing virtual private gateway or transit gateway
-    /// and a customer gateway. The supported connection type is <code>ipsec.1</code>.
+    /// and a customer gateway. The supported connection type is <c>ipsec.1</c>.
     /// 
     ///  
     /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_EnableAcceleration
         /// <summary>
         /// <para>
-        /// <para>Indicate whether to enable acceleration for the VPN connection.</para><para>Default: <code>false</code></para>
+        /// <para>Indicate whether to enable acceleration for the VPN connection.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_LocalIpv4NetworkCidr
         /// <summary>
         /// <para>
-        /// <para>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</para><para>Default: <code>0.0.0.0/0</code></para>
+        /// <para>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</para><para>Default: <c>0.0.0.0/0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_LocalIpv6NetworkCidr
         /// <summary>
         /// <para>
-        /// <para>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</para><para>Default: <code>::/0</code></para>
+        /// <para>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</para><para>Default: <c>::/0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The type of IPv4 address assigned to the outside interface of the customer gateway
-        /// device.</para><para>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code></para><para>Default: <code>PublicIpv4</code></para>
+        /// device.</para><para>Valid values: <c>PrivateIpv4</c> | <c>PublicIpv4</c></para><para>Default: <c>PublicIpv4</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_RemoteIpv4NetworkCidr
         /// <summary>
         /// <para>
-        /// <para>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</para><para>Default: <code>0.0.0.0/0</code></para>
+        /// <para>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</para><para>Default: <c>0.0.0.0/0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_RemoteIpv6NetworkCidr
         /// <summary>
         /// <para>
-        /// <para>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</para><para>Default: <code>::/0</code></para>
+        /// <para>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</para><para>Default: <c>::/0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicate whether the VPN connection uses static routes only. If you are creating a
-        /// VPN connection for a device that does not support BGP, you must specify <code>true</code>.
-        /// Use <a>CreateVpnConnectionRoute</a> to create a static route.</para><para>Default: <code>false</code></para>
+        /// VPN connection for a device that does not support BGP, you must specify <c>true</c>.
+        /// Use <a>CreateVpnConnectionRoute</a> to create a static route.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_TransportTransitGatewayAttachmentId
         /// <summary>
         /// <para>
-        /// <para>The transit gateway attachment ID to use for the VPN tunnel.</para><para>Required if <code>OutsideIpAddressType</code> is set to <code>PrivateIpv4</code>.</para>
+        /// <para>The transit gateway attachment ID to use for the VPN tunnel.</para><para>Required if <c>OutsideIpAddressType</c> is set to <c>PrivateIpv4</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_TunnelInsideIpVersion
         /// <summary>
         /// <para>
-        /// <para>Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.</para><para>Default: <code>ipv4</code></para>
+        /// <para>Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.</para><para>Default: <c>ipv4</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of VPN connection (<code>ipsec.1</code>).</para>
+        /// <para>The type of VPN connection (<c>ipsec.1</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

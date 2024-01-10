@@ -47,9 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The name of an CodeDeploy application associated with the user or Amazon Web Services
-        /// account.</para><note><para>If <code>applicationName</code> is specified, then <code>deploymentGroupName</code>
-        /// must be specified. If it is not specified, then <code>deploymentGroupName</code> must
-        /// not be specified. </para></note>
+        /// account.</para><note><para>If <c>applicationName</c> is specified, then <c>deploymentGroupName</c> must be specified.
+        /// If it is not specified, then <c>deploymentGroupName</c> must not be specified. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -59,9 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of a deployment group for the specified application.</para><note><para>If <code>deploymentGroupName</code> is specified, then <code>applicationName</code>
-        /// must be specified. If it is not specified, then <code>applicationName</code> must
-        /// not be specified. </para></note>
+        /// <para>The name of a deployment group for the specified application.</para><note><para>If <c>deploymentGroupName</c> is specified, then <c>applicationName</c> must be specified.
+        /// If it is not specified, then <c>applicationName</c> must not be specified. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter IncludeOnlyStatus
         /// <summary>
         /// <para>
-        /// <para>A subset of deployments to list by status:</para><ul><li><para><code>Created</code>: Include created deployments in the resulting list.</para></li><li><para><code>Queued</code>: Include queued deployments in the resulting list.</para></li><li><para><code>In Progress</code>: Include in-progress deployments in the resulting list.</para></li><li><para><code>Succeeded</code>: Include successful deployments in the resulting list.</para></li><li><para><code>Failed</code>: Include failed deployments in the resulting list.</para></li><li><para><code>Stopped</code>: Include stopped deployments in the resulting list.</para></li></ul>
+        /// <para>A subset of deployments to list by status:</para><ul><li><para><c>Created</c>: Include created deployments in the resulting list.</para></li><li><para><c>Queued</c>: Include queued deployments in the resulting list.</para></li><li><para><c>In Progress</c>: Include in-progress deployments in the resulting list.</para></li><li><para><c>Succeeded</c>: Include successful deployments in the resulting list.</para></li><li><para><c>Failed</c>: Include failed deployments in the resulting list.</para></li><li><para><c>Stopped</c>: Include stopped deployments in the resulting list.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

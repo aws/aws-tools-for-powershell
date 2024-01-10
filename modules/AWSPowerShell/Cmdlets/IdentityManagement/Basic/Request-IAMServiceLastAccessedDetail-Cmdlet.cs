@@ -48,24 +48,23 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// access. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">Logging
     /// IAM events with CloudTrail</a> in the <i>IAM User Guide</i>.
     /// </para></important><para>
-    /// The <code>GenerateServiceLastAccessedDetails</code> operation returns a <code>JobId</code>.
-    /// Use this parameter in the following operations to retrieve the following details from
+    /// The <c>GenerateServiceLastAccessedDetails</c> operation returns a <c>JobId</c>. Use
+    /// this parameter in the following operations to retrieve the following details from
     /// your report: 
     /// </para><ul><li><para><a>GetServiceLastAccessedDetails</a> – Use this operation for users, groups, roles,
     /// or policies to list every Amazon Web Services service that the resource could access
     /// using permissions policies. For each service, the response includes information about
     /// the most recent access attempt.
     /// </para><para>
-    /// The <code>JobId</code> returned by <code>GenerateServiceLastAccessedDetail</code>
-    /// must be used by the same role within a session, or by the same user when used to call
-    /// <code>GetServiceLastAccessedDetail</code>.
+    /// The <c>JobId</c> returned by <c>GenerateServiceLastAccessedDetail</c> must be used
+    /// by the same role within a session, or by the same user when used to call <c>GetServiceLastAccessedDetail</c>.
     /// </para></li><li><para><a>GetServiceLastAccessedDetailsWithEntities</a> – Use this operation for groups
     /// and policies to list information about the associated entities (users or roles) that
     /// attempted to access a specific Amazon Web Services service. 
     /// </para></li></ul><para>
-    /// To check the status of the <code>GenerateServiceLastAccessedDetails</code> request,
-    /// use the <code>JobId</code> parameter in the same operations and test the <code>JobStatus</code>
-    /// response parameter.
+    /// To check the status of the <c>GenerateServiceLastAccessedDetails</c> request, use
+    /// the <c>JobId</c> parameter in the same operations and test the <c>JobStatus</c> response
+    /// parameter.
     /// </para><para>
     /// For additional information about the permissions policies that allow an identity (user,
     /// group, or role) to access specific services, use the <a>ListPoliciesGrantingServiceAccess</a>

@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// Enables enhanced Kinesis data stream monitoring for shard-level metrics.
     /// 
     ///  <note><para>
-    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
-    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
-    /// parameter when you invoke this API.
+    /// When invoking this API, you must use either the <c>StreamARN</c> or the <c>StreamName</c>
+    /// parameter, or both. It is recommended that you use the <c>StreamARN</c> input parameter
+    /// when you invoke this API.
     /// </para></note>
     /// </summary>
     [Cmdlet("Enable", "KINEnhancedMonitoring", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter ShardLevelMetric
         /// <summary>
         /// <para>
-        /// <para>List of shard-level metrics to enable.</para><para>The following are the valid shard-level metrics. The value "<code>ALL</code>" enables
-        /// every metric.</para><ul><li><para><code>IncomingBytes</code></para></li><li><para><code>IncomingRecords</code></para></li><li><para><code>OutgoingBytes</code></para></li><li><para><code>OutgoingRecords</code></para></li><li><para><code>WriteProvisionedThroughputExceeded</code></para></li><li><para><code>ReadProvisionedThroughputExceeded</code></para></li><li><para><code>IteratorAgeMilliseconds</code></para></li><li><para><code>ALL</code></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring
+        /// <para>List of shard-level metrics to enable.</para><para>The following are the valid shard-level metrics. The value "<c>ALL</c>" enables every
+        /// metric.</para><ul><li><para><c>IncomingBytes</c></para></li><li><para><c>IncomingRecords</c></para></li><li><para><c>OutgoingBytes</c></para></li><li><para><c>OutgoingRecords</c></para></li><li><para><c>WriteProvisionedThroughputExceeded</c></para></li><li><para><c>ReadProvisionedThroughputExceeded</c></para></li><li><para><c>IteratorAgeMilliseconds</c></para></li><li><para><c>ALL</c></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring
         /// the Amazon Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
         /// Kinesis Data Streams Developer Guide</i>.</para>
         /// </para>

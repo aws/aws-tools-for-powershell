@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     /// <para>
     /// Each tag consists of a key and value, both of which you define. A key is a general
     /// category for more specific values. For example, if you have two versions of an identity
-    /// pool, one for testing and another for production, you might assign an <code>Environment</code>
-    /// tag key to both identity pools. The value of this key might be <code>Test</code> for
-    /// one identity pool and <code>Production</code> for the other.
+    /// pool, one for testing and another for production, you might assign an <c>Environment</c>
+    /// tag key to both identity pools. The value of this key might be <c>Test</c> for one
+    /// identity pool and <c>Production</c> for the other.
     /// </para><para>
     /// Tags are useful for cost tracking and access control. You can activate your tags so
     /// that they appear on the Billing and Cost Management console, where you can track the

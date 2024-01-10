@@ -28,7 +28,7 @@ using Amazon.Keyspaces.Model;
 namespace Amazon.PowerShell.Cmdlets.KS
 {
     /// <summary>
-    /// Restores the specified table to the specified point in time within the <code>earliest_restorable_timestamp</code>
+    /// Restores the specified table to the specified point in time within the <c>earliest_restorable_timestamp</c>
     /// and the current time. For more information about restore points, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery_HowItWorks.html#howitworks_backup_window">
     /// Time window for PITR continuous backups</a> in the <i>Amazon Keyspaces Developer Guide</i>.
     /// 
@@ -38,15 +38,15 @@ namespace Amazon.PowerShell.Cmdlets.KS
     /// in a given account.
     /// </para><para>
     /// When you restore using point in time recovery, Amazon Keyspaces restores your source
-    /// table's schema and data to the state based on the selected timestamp <code>(day:hour:minute:second)</code>
+    /// table's schema and data to the state based on the selected timestamp <c>(day:hour:minute:second)</c>
     /// to a new table. The Time to Live (TTL) settings are also restored to the state based
     /// on the selected timestamp.
     /// </para><para>
-    /// In addition to the table's schema, data, and TTL settings, <code>RestoreTable</code>
-    /// restores the capacity mode, encryption, and point-in-time recovery settings from the
-    /// source table. Unlike the table's schema data and TTL settings, which are restored
-    /// based on the selected timestamp, these settings are always restored based on the table's
-    /// settings as of the current time or when the table was deleted.
+    /// In addition to the table's schema, data, and TTL settings, <c>RestoreTable</c> restores
+    /// the capacity mode, encryption, and point-in-time recovery settings from the source
+    /// table. Unlike the table's schema data and TTL settings, which are restored based on
+    /// the selected timestamp, these settings are always restored based on the table's settings
+    /// as of the current time or when the table was deleted.
     /// </para><para>
     /// You can also overwrite these settings during restore:
     /// </para><ul><li><para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter EncryptionSpecificationOverride_KmsKeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the customer managed KMS key, for example <code>kms_key_identifier:ARN</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the customer managed KMS key, for example <c>kms_key_identifier:ARN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter CapacitySpecificationOverride_ReadCapacityUnit
         /// <summary>
         /// <para>
-        /// <para>The throughput capacity specified for <code>read</code> operations defined in <code>read
-        /// capacity units</code><code>(RCUs)</code>.</para>
+        /// <para>The throughput capacity specified for <c>read</c> operations defined in <c>read capacity
+        /// units</c><c>(RCUs)</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter PointInTimeRecoveryOverride_Status
         /// <summary>
         /// <para>
-        /// <para>The options are:</para><ul><li><para><code>status=ENABLED</code></para></li><li><para><code>status=DISABLED</code></para></li></ul>
+        /// <para>The options are:</para><ul><li><para><c>status=ENABLED</c></para></li><li><para><c>status=DISABLED</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,8 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter CapacitySpecificationOverride_ThroughputMode
         /// <summary>
         /// <para>
-        /// <para>The read/write throughput capacity mode for a table. The options are:</para><ul><li><para><code>throughputMode:PAY_PER_REQUEST</code> and </para></li><li><para><code>throughputMode:PROVISIONED</code> - Provisioned capacity mode requires <code>readCapacityUnits</code>
-        /// and <code>writeCapacityUnits</code> as input.</para></li></ul><para>The default is <code>throughput_mode:PAY_PER_REQUEST</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write
+        /// <para>The read/write throughput capacity mode for a table. The options are:</para><ul><li><para><c>throughputMode:PAY_PER_REQUEST</c> and </para></li><li><para><c>throughputMode:PROVISIONED</c> - Provisioned capacity mode requires <c>readCapacityUnits</c>
+        /// and <c>writeCapacityUnits</c> as input.</para></li></ul><para>The default is <c>throughput_mode:PAY_PER_REQUEST</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write
         /// capacity modes</a> in the <i>Amazon Keyspaces Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -223,9 +223,9 @@ namespace Amazon.PowerShell.Cmdlets.KS
         /// <summary>
         /// <para>
         /// <para>The encryption option specified for the table. You can choose one of the following
-        /// KMS keys (KMS keys):</para><ul><li><para><code>type:AWS_OWNED_KMS_KEY</code> - This key is owned by Amazon Keyspaces. </para></li><li><para><code>type:CUSTOMER_MANAGED_KMS_KEY</code> - This key is stored in your account and
-        /// is created, owned, and managed by you. This option requires the <code>kms_key_identifier</code>
-        /// of the KMS key in Amazon Resource Name (ARN) format as input. </para></li></ul><para>The default is <code>type:AWS_OWNED_KMS_KEY</code>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">Encryption
+        /// KMS keys (KMS keys):</para><ul><li><para><c>type:AWS_OWNED_KMS_KEY</c> - This key is owned by Amazon Keyspaces. </para></li><li><para><c>type:CUSTOMER_MANAGED_KMS_KEY</c> - This key is stored in your account and is
+        /// created, owned, and managed by you. This option requires the <c>kms_key_identifier</c>
+        /// of the KMS key in Amazon Resource Name (ARN) format as input. </para></li></ul><para>The default is <c>type:AWS_OWNED_KMS_KEY</c>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">Encryption
         /// at rest</a> in the <i>Amazon Keyspaces Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -237,8 +237,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter CapacitySpecificationOverride_WriteCapacityUnit
         /// <summary>
         /// <para>
-        /// <para>The throughput capacity specified for <code>write</code> operations defined in <code>write
-        /// capacity units</code><code>(WCUs)</code>.</para>
+        /// <para>The throughput capacity specified for <c>write</c> operations defined in <c>write
+        /// capacity units</c><c>(WCUs)</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

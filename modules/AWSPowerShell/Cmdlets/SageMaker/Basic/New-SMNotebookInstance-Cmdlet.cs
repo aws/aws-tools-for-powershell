@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  
     /// <para>
-    /// In a <code>CreateNotebookInstance</code> request, specify the type of ML compute instance
+    /// In a <c>CreateNotebookInstance</c> request, specify the type of ML compute instance
     /// that you want to run. SageMaker launches the instance, installs common libraries that
     /// you can use to explore datasets for model training, and attaches an ML storage volume
     /// to the notebook instance. 
@@ -45,15 +45,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// </para><ol><li><para>
     /// Creates a network interface in the SageMaker VPC.
     /// </para></li><li><para>
-    /// (Option) If you specified <code>SubnetId</code>, SageMaker creates a network interface
-    /// in your own VPC, which is inferred from the subnet ID that you provide in the input.
+    /// (Option) If you specified <c>SubnetId</c>, SageMaker creates a network interface in
+    /// your own VPC, which is inferred from the subnet ID that you provide in the input.
     /// When creating this network interface, SageMaker attaches the security group that you
     /// specified in the request to the network interface that it creates in your VPC.
     /// </para></li><li><para>
     /// Launches an EC2 instance of the type specified in the request in the SageMaker VPC.
-    /// If you specified <code>SubnetId</code> of your VPC, SageMaker specifies both network
-    /// interfaces when launching this instance. This enables inbound traffic from your own
-    /// VPC to the notebook instance, assuming that the security groups allow it.
+    /// If you specified <c>SubnetId</c> of your VPC, SageMaker specifies both network interfaces
+    /// when launching this instance. This enables inbound traffic from your own VPC to the
+    /// notebook instance, assuming that the security groups allow it.
     /// </para></li></ol><para>
     /// After creating the notebook instance, SageMaker returns its Amazon Resource Name (ARN).
     /// You can't change the name of a notebook instance after you create it.
@@ -130,11 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Sets whether SageMaker provides internet access to the notebook instance. If you set
-        /// this to <code>Disabled</code> this notebook instance is able to access resources only
-        /// in your VPC, and is not be able to connect to SageMaker training and endpoint services
+        /// this to <c>Disabled</c> this notebook instance is able to access resources only in
+        /// your VPC, and is not be able to connect to SageMaker training and endpoint services
         /// unless you configure a NAT Gateway in your VPC.</para><para>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook
         /// Instances Are Internet-Enabled by Default</a>. You can set the value of this parameter
-        /// to <code>Disabled</code> only if you set a value for the <code>SubnetId</code> parameter.</para>
+        /// to <c>Disabled</c> only if you set a value for the <c>SubnetId</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,9 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Indicates the minimum IMDS version that the notebook instance supports. When passed
-        /// as part of <code>CreateNotebookInstance</code>, if no value is selected, then it defaults
+        /// as part of <c>CreateNotebookInstance</c>, if no value is selected, then it defaults
         /// to IMDSv1. This means that both IMDSv1 and IMDSv2 are supported. If passed as part
-        /// of <code>UpdateNotebookInstance</code>, there is no default.</para>
+        /// of <c>UpdateNotebookInstance</c>, there is no default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// necessary permissions so SageMaker can perform these tasks. The policy must allow
         /// the SageMaker service principal (sagemaker.amazonaws.com) permissions to assume this
         /// role. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
-        /// Roles</a>. </para><note><para>To be able to pass this role to SageMaker, the caller of this API must have the <code>iam:PassRole</code>
+        /// Roles</a>. </para><note><para>To be able to pass this role to SageMaker, the caller of this API must have the <c>iam:PassRole</c>
         /// permission.</para></note>
         /// </para>
         /// </summary>
@@ -252,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Whether root access is enabled or disabled for users of the notebook instance. The
-        /// default value is <code>Enabled</code>.</para><note><para>Lifecycle configurations need root access to be able to set up a notebook instance.
+        /// default value is <c>Enabled</c>.</para><note><para>Lifecycle configurations need root access to be able to set up a notebook instance.
         /// Because of this, lifecycle configurations associated with a notebook instance always
         /// run with root access even if you disable root access for users.</para></note>
         /// </para>

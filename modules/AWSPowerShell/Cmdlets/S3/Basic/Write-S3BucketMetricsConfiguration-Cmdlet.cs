@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// metrics configuration. If you don't include the elements you want to keep, they are
     /// erased.
     /// </para><para>
-    /// To use this operation, you must have permissions to perform the <code>s3:PutMetricsConfiguration</code>
+    /// To use this operation, you must have permissions to perform the <c>s3:PutMetricsConfiguration</c>
     /// action. The bucket owner has this permission by default. The bucket owner can grant
     /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
@@ -46,10 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For information about CloudWatch request metrics for Amazon S3, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html">Monitoring
     /// Metrics with Amazon CloudWatch</a>.
     /// </para><para>
-    /// The following operations are related to <code>PutBucketMetricsConfiguration</code>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetricsConfiguration.html">DeleteBucketMetricsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetricsConfiguration.html">GetBucketMetricsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html">ListBucketMetricsConfigurations</a></para></li></ul><para><code>PutBucketMetricsConfiguration</code> has the following special error:
+    /// The following operations are related to <c>PutBucketMetricsConfiguration</c>:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetricsConfiguration.html">DeleteBucketMetricsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetricsConfiguration.html">GetBucketMetricsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html">ListBucketMetricsConfigurations</a></para></li></ul><para><c>PutBucketMetricsConfiguration</c> has the following special error:
     /// </para><ul><li><para>
-    /// Error code: <code>TooManyConfigurations</code></para><ul><li><para>
+    /// Error code: <c>TooManyConfigurations</c></para><ul><li><para>
     /// Description: You are attempting to create a new configuration but have already reached
     /// the 1,000-configuration limit.
     /// </para></li><li><para>

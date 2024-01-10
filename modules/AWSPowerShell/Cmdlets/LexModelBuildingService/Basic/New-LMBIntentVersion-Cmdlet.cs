@@ -28,19 +28,18 @@ using Amazon.LexModelBuildingService.Model;
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Creates a new version of an intent based on the <code>$LATEST</code> version of the
-    /// intent. If the <code>$LATEST</code> version of this intent hasn't changed since you
-    /// last updated it, Amazon Lex doesn't create a new version. It returns the last version
-    /// you created.
+    /// Creates a new version of an intent based on the <c>$LATEST</c> version of the intent.
+    /// If the <c>$LATEST</c> version of this intent hasn't changed since you last updated
+    /// it, Amazon Lex doesn't create a new version. It returns the last version you created.
     /// 
     ///  <note><para>
-    /// You can update only the <code>$LATEST</code> version of the intent. You can't update
-    /// the numbered versions that you create with the <code>CreateIntentVersion</code> operation.
+    /// You can update only the <c>$LATEST</c> version of the intent. You can't update the
+    /// numbered versions that you create with the <c>CreateIntentVersion</c> operation.
     /// </para></note><para>
     ///  When you create a version of an intent, Amazon Lex sets the version to 1. Subsequent
     /// versions increment by 1. For more information, see <a>versioning-intro</a>. 
     /// </para><para>
-    /// This operation requires permissions to perform the <code>lex:CreateIntentVersion</code>
+    /// This operation requires permissions to perform the <c>lex:CreateIntentVersion</c>
     /// action. 
     /// </para>
     /// </summary>
@@ -58,11 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter Checksum
         /// <summary>
         /// <para>
-        /// <para>Checksum of the <code>$LATEST</code> version of the intent that should be used to
-        /// create the new version. If you specify a checksum and the <code>$LATEST</code> version
-        /// of the intent has a different checksum, Amazon Lex returns a <code>PreconditionFailedException</code>
+        /// <para>Checksum of the <c>$LATEST</c> version of the intent that should be used to create
+        /// the new version. If you specify a checksum and the <c>$LATEST</c> version of the intent
+        /// has a different checksum, Amazon Lex returns a <c>PreconditionFailedException</c>
         /// exception and doesn't publish a new version. If you don't specify a checksum, Amazon
-        /// Lex publishes the <code>$LATEST</code> version.</para>
+        /// Lex publishes the <c>$LATEST</c> version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

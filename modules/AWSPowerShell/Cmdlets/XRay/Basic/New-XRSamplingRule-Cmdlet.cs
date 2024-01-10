@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #region Parameter SamplingRule_ServiceName
         /// <summary>
         /// <para>
-        /// <para>Matches the <code>name</code> that the service uses to identify itself in segments.</para>
+        /// <para>Matches the <c>name</c> that the service uses to identify itself in segments.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -200,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #region Parameter SamplingRule_ServiceType
         /// <summary>
         /// <para>
-        /// <para>Matches the <code>origin</code> that the service uses to identify its type in segments.</para>
+        /// <para>Matches the <c>origin</c> that the service uses to identify its type in segments.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         /// <para>A map that contains one or more tag keys and tag values to attach to an X-Ray sampling
         /// rule. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
         /// Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</para><para>The following restrictions apply to tags:</para><ul><li><para>Maximum number of user-applied tags per resource: 50</para></li><li><para>Maximum tag key length: 128 Unicode characters</para></li><li><para>Maximum tag value length: 256 Unicode characters</para></li><li><para>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters:
-        /// _ . : / = + - and @</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Don't use <code>aws:</code> as a prefix for keys; it's reserved for Amazon Web Services
+        /// _ . : / = + - and @</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Don't use <c>aws:</c> as a prefix for keys; it's reserved for Amazon Web Services
         /// use.</para></li></ul>
         /// </para>
         /// </summary>
@@ -249,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #region Parameter SamplingRule_Version
         /// <summary>
         /// <para>
-        /// <para>The version of the sampling rule format (<code>1</code>).</para>
+        /// <para>The version of the sampling rule format (<c>1</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

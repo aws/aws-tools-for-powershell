@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// 
     ///  
     /// <para>
-    /// For deleted stacks, <code>GetTemplate</code> returns the template for up to 90 days
-    /// after the stack has been deleted.
+    /// For deleted stacks, <c>GetTemplate</c> returns the template for up to 90 days after
+    /// the stack has been deleted.
     /// </para><note><para>
-    /// If the template doesn't exist, a <code>ValidationError</code> is returned.
+    /// If the template doesn't exist, a <c>ValidationError</c> is returned.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CFNTemplate")]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The name or Amazon Resource Name (ARN) of a change set for which CloudFormation returns
-        /// the associated template. If you specify a name, you must also specify the <code>StackName</code>.</para>
+        /// the associated template. If you specify a name, you must also specify the <c>StackName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>For templates that include transforms, the stage of the template that CloudFormation
-        /// returns. To get the user-submitted template, specify <code>Original</code>. To get
-        /// the template after CloudFormation has processed all transforms, specify <code>Processed</code>.</para><para>If the template doesn't include transforms, <code>Original</code> and <code>Processed</code>
-        /// return the same template. By default, CloudFormation specifies <code>Processed</code>.</para>
+        /// returns. To get the user-submitted template, specify <c>Original</c>. To get the template
+        /// after CloudFormation has processed all transforms, specify <c>Processed</c>.</para><para>If the template doesn't include transforms, <c>Original</c> and <c>Processed</c> return
+        /// the same template. By default, CloudFormation specifies <c>Processed</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  
     /// <para>
-    /// The <code>OpenInstancePublicPorts</code> action supports tag-based access control
-    /// via resource tags applied to the resource identified by <code>instanceName</code>.
-    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// The <c>OpenInstancePublicPorts</c> action supports tag-based access control via resource
+    /// tags applied to the resource identified by <c>instanceName</c>. For more information,
+    /// see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -54,9 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PortInfo_CidrListAlias
         /// <summary>
         /// <para>
-        /// <para>An alias that defines access for a preconfigured range of IP addresses.</para><para>The only alias currently supported is <code>lightsail-connect</code>, which allows
-        /// IP addresses of the browser-based RDP/SSH client in the Lightsail console to connect
-        /// to your instance.</para>
+        /// <para>An alias that defines access for a preconfigured range of IP addresses.</para><para>The only alias currently supported is <c>lightsail-connect</c>, which allows IP addresses
+        /// of the browser-based RDP/SSH client in the Lightsail console to connect to your instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,10 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to
-        /// connect to an instance through the ports, and the protocol.</para><note><para>The <code>ipv6Cidrs</code> parameter lists the IPv6 addresses that are allowed to
-        /// connect to an instance.</para></note><para>Examples:</para><ul><li><para>To allow the IP address <code>192.0.2.44</code>, specify <code>192.0.2.44</code> or
-        /// <code>192.0.2.44/32</code>. </para></li><li><para>To allow the IP addresses <code>192.0.2.0</code> to <code>192.0.2.255</code>, specify
-        /// <code>192.0.2.0/24</code>.</para></li></ul><para>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
+        /// connect to an instance through the ports, and the protocol.</para><note><para>The <c>ipv6Cidrs</c> parameter lists the IPv6 addresses that are allowed to connect
+        /// to an instance.</para></note><para>Examples:</para><ul><li><para>To allow the IP address <c>192.0.2.44</c>, specify <c>192.0.2.44</c> or <c>192.0.2.44/32</c>.
+        /// </para></li><li><para>To allow the IP addresses <c>192.0.2.0</c> to <c>192.0.2.255</c>, specify <c>192.0.2.0/24</c>.</para></li></ul><para>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
         /// Inter-Domain Routing</a> on <i>Wikipedia</i>.</para>
         /// </para>
         /// </summary>
@@ -83,12 +81,12 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PortInfo_FromPort
         /// <summary>
         /// <para>
-        /// <para>The first port in a range of open ports on an instance.</para><para>Allowed ports:</para><ul><li><para>TCP and UDP - <code>0</code> to <code>65535</code></para></li><li><para>ICMP - The ICMP type for IPv4 addresses. For example, specify <code>8</code> as the
-        /// <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code>
-        /// (ICMP code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control
-        /// Messages</a> on <i>Wikipedia</i>.</para></li><li><para>ICMPv6 - The ICMP type for IPv6 addresses. For example, specify <code>128</code> as
-        /// the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code>
-        /// (ICMPv6 code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
+        /// <para>The first port in a range of open ports on an instance.</para><para>Allowed ports:</para><ul><li><para>TCP and UDP - <c>0</c> to <c>65535</c></para></li><li><para>ICMP - The ICMP type for IPv4 addresses. For example, specify <c>8</c> as the <c>fromPort</c>
+        /// (ICMP type), and <c>-1</c> as the <c>toPort</c> (ICMP code), to enable ICMP Ping.
+        /// For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control
+        /// Messages</a> on <i>Wikipedia</i>.</para></li><li><para>ICMPv6 - The ICMP type for IPv6 addresses. For example, specify <c>128</c> as the
+        /// <c>fromPort</c> (ICMPv6 type), and <c>0</c> as <c>toPort</c> (ICMPv6 code). For more
+        /// information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
         /// Control Message Protocol for IPv6</a>.</para></li></ul>
         /// </para>
         /// </summary>
@@ -118,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>
         /// <para>The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to
         /// connect to an instance through the ports, and the protocol. Only devices with an IPv6
-        /// address can connect to an instance through IPv6; otherwise, IPv4 should be used.</para><note><para>The <code>cidrs</code> parameter lists the IPv4 addresses that are allowed to connect
-        /// to an instance.</para></note><para>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
+        /// address can connect to an instance through IPv6; otherwise, IPv4 should be used.</para><note><para>The <c>cidrs</c> parameter lists the IPv4 addresses that are allowed to connect to
+        /// an instance.</para></note><para>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
         /// Inter-Domain Routing</a> on <i>Wikipedia</i>.</para>
         /// </para>
         /// </summary>
@@ -131,22 +129,20 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PortInfo_Protocol
         /// <summary>
         /// <para>
-        /// <para>The IP protocol name.</para><para>The name can be one of the following:</para><ul><li><para><code>tcp</code> - Transmission Control Protocol (TCP) provides reliable, ordered,
-        /// and error-checked delivery of streamed data between applications running on hosts
-        /// communicating by an IP network. If you have an application that doesn't require reliable
-        /// data stream service, use UDP instead.</para></li><li><para><code>all</code> - All transport layer protocol types. For more general information,
-        /// see <a href="https://en.wikipedia.org/wiki/Transport_layer">Transport layer</a> on
-        /// <i>Wikipedia</i>.</para></li><li><para><code>udp</code> - With User Datagram Protocol (UDP), computer applications can send
-        /// messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior
-        /// communications are not required to set up transmission channels or data paths. Applications
-        /// that don't require reliable data stream service can use UDP, which provides a connectionless
+        /// <para>The IP protocol name.</para><para>The name can be one of the following:</para><ul><li><para><c>tcp</c> - Transmission Control Protocol (TCP) provides reliable, ordered, and
+        /// error-checked delivery of streamed data between applications running on hosts communicating
+        /// by an IP network. If you have an application that doesn't require reliable data stream
+        /// service, use UDP instead.</para></li><li><para><c>all</c> - All transport layer protocol types. For more general information, see
+        /// <a href="https://en.wikipedia.org/wiki/Transport_layer">Transport layer</a> on <i>Wikipedia</i>.</para></li><li><para><c>udp</c> - With User Datagram Protocol (UDP), computer applications can send messages
+        /// (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications
+        /// are not required to set up transmission channels or data paths. Applications that
+        /// don't require reliable data stream service can use UDP, which provides a connectionless
         /// datagram service that emphasizes reduced latency over reliability. If you do require
-        /// reliable data stream service, use TCP instead.</para></li><li><para><code>icmp</code> - Internet Control Message Protocol (ICMP) is used to send error
-        /// messages and operational information indicating success or failure when communicating
-        /// with an instance. For example, an error is indicated when an instance could not be
-        /// reached. When you specify <code>icmp</code> as the <code>protocol</code>, you must
-        /// specify the ICMP type using the <code>fromPort</code> parameter, and ICMP code using
-        /// the <code>toPort</code> parameter.</para></li></ul>
+        /// reliable data stream service, use TCP instead.</para></li><li><para><c>icmp</c> - Internet Control Message Protocol (ICMP) is used to send error messages
+        /// and operational information indicating success or failure when communicating with
+        /// an instance. For example, an error is indicated when an instance could not be reached.
+        /// When you specify <c>icmp</c> as the <c>protocol</c>, you must specify the ICMP type
+        /// using the <c>fromPort</c> parameter, and ICMP code using the <c>toPort</c> parameter.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,12 +153,12 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PortInfo_ToPort
         /// <summary>
         /// <para>
-        /// <para>The last port in a range of open ports on an instance.</para><para>Allowed ports:</para><ul><li><para>TCP and UDP - <code>0</code> to <code>65535</code></para></li><li><para>ICMP - The ICMP code for IPv4 addresses. For example, specify <code>8</code> as the
-        /// <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code>
-        /// (ICMP code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control
-        /// Messages</a> on <i>Wikipedia</i>.</para></li><li><para>ICMPv6 - The ICMP code for IPv6 addresses. For example, specify <code>128</code> as
-        /// the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code>
-        /// (ICMPv6 code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
+        /// <para>The last port in a range of open ports on an instance.</para><para>Allowed ports:</para><ul><li><para>TCP and UDP - <c>0</c> to <c>65535</c></para></li><li><para>ICMP - The ICMP code for IPv4 addresses. For example, specify <c>8</c> as the <c>fromPort</c>
+        /// (ICMP type), and <c>-1</c> as the <c>toPort</c> (ICMP code), to enable ICMP Ping.
+        /// For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control
+        /// Messages</a> on <i>Wikipedia</i>.</para></li><li><para>ICMPv6 - The ICMP code for IPv6 addresses. For example, specify <c>128</c> as the
+        /// <c>fromPort</c> (ICMPv6 type), and <c>0</c> as <c>toPort</c> (ICMPv6 code). For more
+        /// information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
         /// Control Message Protocol for IPv6</a>.</para></li></ul>
         /// </para>
         /// </summary>

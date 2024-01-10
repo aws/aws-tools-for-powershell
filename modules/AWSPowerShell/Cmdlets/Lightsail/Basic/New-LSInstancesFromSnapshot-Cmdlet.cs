@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  
     /// <para>
-    /// The <code>create instances from snapshot</code> operation supports tag-based access
-    /// control via request tags and resource tags applied to the resource identified by <code>instance
-    /// snapshot name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// The <c>create instances from snapshot</c> operation supports tag-based access control
+    /// via request tags and resource tags applied to the resource identified by <c>instance
+    /// snapshot name</c>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -75,10 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The Availability Zone where you want to create your instances. Use the following formatting:
-        /// <code>us-east-2a</code> (case sensitive). You can get a list of Availability Zones
-        /// by using the <a href="http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html">get
-        /// regions</a> operation. Be sure to add the <code>include Availability Zones</code>
-        /// parameter to your request.</para>
+        /// <c>us-east-2a</c> (case sensitive). You can get a list of Availability Zones by using
+        /// the <a href="http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html">get
+        /// regions</a> operation. Be sure to add the <c>include Availability Zones</c> parameter
+        /// to your request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The bundle of specification information for your virtual private server (or <i>instance</i>),
-        /// including the pricing plan (<code>micro_1_0</code>).</para>
+        /// including the pricing plan (<c>micro_1_0</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,9 +132,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The name of the instance snapshot on which you are basing your new instances. Use
-        /// the get instance snapshots operation to return information about your existing snapshots.</para><para>Constraint:</para><ul><li><para>This parameter cannot be defined together with the <code>source instance name</code>
-        /// parameter. The <code>instance snapshot name</code> and <code>source instance name</code>
-        /// parameters are mutually exclusive.</para></li></ul>
+        /// the get instance snapshots operation to return information about your existing snapshots.</para><para>Constraint:</para><ul><li><para>This parameter cannot be defined together with the <c>source instance name</c> parameter.
+        /// The <c>instance snapshot name</c> and <c>source instance name</c> parameters are mutually
+        /// exclusive.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The IP address type for the instance.</para><para>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code>
-        /// for IPv4 and IPv6.</para><para>The default value is <code>dualstack</code>.</para>
+        /// <para>The IP address type for the instance.</para><para>The possible values are <c>ipv4</c> for IPv4 only, and <c>dualstack</c> for IPv4 and
+        /// IPv6.</para><para>The default value is <c>dualstack</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,10 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter RestoreDate
         /// <summary>
         /// <para>
-        /// <para>The date of the automatic snapshot to use for the new instance. Use the <code>get
-        /// auto snapshots</code> operation to identify the dates of the available automatic snapshots.</para><para>Constraints:</para><ul><li><para>Must be specified in <code>YYYY-MM-DD</code> format.</para></li><li><para>This parameter cannot be defined together with the <code>use latest restorable auto
-        /// snapshot</code> parameter. The <code>restore date</code> and <code>use latest restorable
-        /// auto snapshot</code> parameters are mutually exclusive.</para></li><li><para>Define this parameter only when creating a new instance from an automatic snapshot.
+        /// <para>The date of the automatic snapshot to use for the new instance. Use the <c>get auto
+        /// snapshots</c> operation to identify the dates of the available automatic snapshots.</para><para>Constraints:</para><ul><li><para>Must be specified in <c>YYYY-MM-DD</c> format.</para></li><li><para>This parameter cannot be defined together with the <c>use latest restorable auto snapshot</c>
+        /// parameter. The <c>restore date</c> and <c>use latest restorable auto snapshot</c>
+        /// parameters are mutually exclusive.</para></li><li><para>Define this parameter only when creating a new instance from an automatic snapshot.
         /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon
         /// Lightsail Developer Guide</a>.</para></li></ul>
         /// </para>
@@ -181,9 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter SourceInstanceName
         /// <summary>
         /// <para>
-        /// <para>The name of the source instance from which the source automatic snapshot was created.</para><para>Constraints:</para><ul><li><para>This parameter cannot be defined together with the <code>instance snapshot name</code>
-        /// parameter. The <code>source instance name</code> and <code>instance snapshot name</code>
-        /// parameters are mutually exclusive.</para></li><li><para>Define this parameter only when creating a new instance from an automatic snapshot.
+        /// <para>The name of the source instance from which the source automatic snapshot was created.</para><para>Constraints:</para><ul><li><para>This parameter cannot be defined together with the <c>instance snapshot name</c> parameter.
+        /// The <c>source instance name</c> and <c>instance snapshot name</c> parameters are mutually
+        /// exclusive.</para></li><li><para>Define this parameter only when creating a new instance from an automatic snapshot.
         /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon
         /// Lightsail Developer Guide</a>.</para></li></ul>
         /// </para>
@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <code>TagResource</code> action to tag a resource after it's created.</para>
+        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <c>TagResource</c> action to tag a resource after it's created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,9 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter UseLatestRestorableAutoSnapshot
         /// <summary>
         /// <para>
-        /// <para>A Boolean value to indicate whether to use the latest available automatic snapshot.</para><para>Constraints:</para><ul><li><para>This parameter cannot be defined together with the <code>restore date</code> parameter.
-        /// The <code>use latest restorable auto snapshot</code> and <code>restore date</code>
-        /// parameters are mutually exclusive.</para></li><li><para>Define this parameter only when creating a new instance from an automatic snapshot.
+        /// <para>A Boolean value to indicate whether to use the latest available automatic snapshot.</para><para>Constraints:</para><ul><li><para>This parameter cannot be defined together with the <c>restore date</c> parameter.
+        /// The <c>use latest restorable auto snapshot</c> and <c>restore date</c> parameters
+        /// are mutually exclusive.</para></li><li><para>Define this parameter only when creating a new instance from an automatic snapshot.
         /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon
         /// Lightsail Developer Guide</a>.</para></li></ul>
         /// </para>
@@ -221,9 +221,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>You can create a launch script that configures a server with additional user data.
-        /// For example, <code>apt-get -y update</code>.</para><note><para>Depending on the machine image you choose, the command to get software on your instance
-        /// varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use <code>apt-get</code>,
-        /// and FreeBSD uses <code>pkg</code>. For a complete list, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/compare-options-choose-lightsail-instance-image">Amazon
+        /// For example, <c>apt-get -y update</c>.</para><note><para>Depending on the machine image you choose, the command to get software on your instance
+        /// varies. Amazon Linux and CentOS use <c>yum</c>, Debian and Ubuntu use <c>apt-get</c>,
+        /// and FreeBSD uses <c>pkg</c>. For a complete list, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/compare-options-choose-lightsail-instance-image">Amazon
         /// Lightsail Developer Guide</a>.</para></note>
         /// </para>
         /// </summary>

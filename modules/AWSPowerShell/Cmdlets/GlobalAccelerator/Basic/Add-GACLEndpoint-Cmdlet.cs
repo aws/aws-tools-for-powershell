@@ -28,16 +28,15 @@ using Amazon.GlobalAccelerator.Model;
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// Add endpoints to an endpoint group. The <code>AddEndpoints</code> API operation is
-    /// the recommended option for adding endpoints. The alternative options are to add endpoints
-    /// when you create an endpoint group (with the <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html">CreateEndpointGroup</a>
+    /// Add endpoints to an endpoint group. The <c>AddEndpoints</c> API operation is the recommended
+    /// option for adding endpoints. The alternative options are to add endpoints when you
+    /// create an endpoint group (with the <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html">CreateEndpointGroup</a>
     /// API) or when you update an endpoint group (with the <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateEndpointGroup.html">UpdateEndpointGroup</a>
     /// API). 
     /// 
     ///  
     /// <para>
-    /// There are two advantages to using <code>AddEndpoints</code> to add endpoints in Global
-    /// Accelerator:
+    /// There are two advantages to using <c>AddEndpoints</c> to add endpoints in Global Accelerator:
     /// </para><ul><li><para>
     /// It's faster, because Global Accelerator only has to resolve the new endpoints that
     /// you're adding, rather than resolving new and existing endpoints.

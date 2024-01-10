@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     ///  <note><para>
     /// Before performing this operation, call <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html">
     /// DescribeConnectionAliases</a> to make sure that the current state of the connection
-    /// alias is <code>CREATED</code>.
+    /// alias is <c>CREATED</c>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Unregister", "WKSConnectionAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

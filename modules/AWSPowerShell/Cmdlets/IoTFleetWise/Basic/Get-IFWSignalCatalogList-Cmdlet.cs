@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     /// <para>
     /// You can use to list information about each signal (node) specified in a signal catalog.
     /// </para><note><para>
-    /// This API operation uses pagination. Specify the <code>nextToken</code> parameter in
-    /// the request to return more results.
+    /// This API operation uses pagination. Specify the <c>nextToken</c> parameter in the
+    /// request to return more results.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "IFWSignalCatalogList")]
@@ -65,10 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <summary>
         /// <para>
         /// <para>A pagination token for the next set of results.</para><para>If the results of a search are large, only a portion of the results are returned,
-        /// and a <code>nextToken</code> pagination token is returned in the response. To retrieve
-        /// the next set of results, reissue the search request and include the returned token.
-        /// When all results have been returned, the response does not contain a pagination token
-        /// value. </para>
+        /// and a <c>nextToken</c> pagination token is returned in the response. To retrieve the
+        /// next set of results, reissue the search request and include the returned token. When
+        /// all results have been returned, the response does not contain a pagination token value.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

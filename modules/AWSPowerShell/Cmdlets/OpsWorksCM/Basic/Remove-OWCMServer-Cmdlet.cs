@@ -29,19 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
 {
     /// <summary>
     /// Deletes the server and the underlying AWS CloudFormation stacks (including the server's
-    /// EC2 instance). When you run this command, the server state is updated to <code>DELETING</code>.
-    /// After the server is deleted, it is no longer returned by <code>DescribeServer</code>
-    /// requests. If the AWS CloudFormation stack cannot be deleted, the server cannot be
-    /// deleted. 
+    /// EC2 instance). When you run this command, the server state is updated to <c>DELETING</c>.
+    /// After the server is deleted, it is no longer returned by <c>DescribeServer</c> requests.
+    /// If the AWS CloudFormation stack cannot be deleted, the server cannot be deleted. 
     /// 
     ///  
     /// <para>
     ///  This operation is asynchronous. 
     /// </para><para>
-    ///  An <code>InvalidStateException</code> is thrown when a server deletion is already
-    /// in progress. A <code>ResourceNotFoundException</code> is thrown when the server does
-    /// not exist. A <code>ValidationException</code> is raised when parameters of the request
-    /// are not valid. 
+    ///  An <c>InvalidStateException</c> is thrown when a server deletion is already in progress.
+    /// A <c>ResourceNotFoundException</c> is thrown when the server does not exist. A <c>ValidationException</c>
+    /// is raised when parameters of the request are not valid. 
     /// </para><para></para>
     /// </summary>
     [Cmdlet("Remove", "OWCMServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -65,10 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The data sent with the signal. The data schema depends on the type of signal used
-        /// in the request.</para><para>For <code>Approve</code> and <code>Reject</code> signal types, the payload is an optional
-        /// comment that you can send with the signal type. For example:</para><para><code>Comment="Looks good"</code></para><para>For <code>StartStep</code> and <code>Resume</code> signal types, you must send the
-        /// name of the Automation step to start or resume as the payload. For example:</para><para><code>StepName="step1"</code></para><para>For the <code>StopStep</code> signal type, you must send the step execution ID as
-        /// the payload. For example:</para><para><code>StepExecutionId="97fff367-fc5a-4299-aed8-0123456789ab"</code></para>
+        /// in the request.</para><para>For <c>Approve</c> and <c>Reject</c> signal types, the payload is an optional comment
+        /// that you can send with the signal type. For example:</para><para><c>Comment="Looks good"</c></para><para>For <c>StartStep</c> and <c>Resume</c> signal types, you must send the name of the
+        /// Automation step to start or resume as the payload. For example:</para><para><c>StepName="step1"</c></para><para>For the <c>StopStep</c> signal type, you must send the step execution ID as the payload.
+        /// For example:</para><para><c>StepExecutionId="97fff367-fc5a-4299-aed8-0123456789ab"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DistributionName
         /// <summary>
         /// <para>
-        /// <para>The name of the distribution for which to get metric data.</para><para>Use the <code>GetDistributions</code> action to get a list of distribution names that
-        /// you can specify.</para>
+        /// <para>The name of the distribution for which to get metric data.</para><para>Use the <c>GetDistributions</c> action to get a list of distribution names that you
+        /// can specify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The end of the time interval for which to get metric data.</para><para>Constraints:</para><ul><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Specified in the Unix time format.</para><para>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify
-        /// <code>1538427600</code> as the end time.</para></li></ul><para>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</para>
+        /// <c>1538427600</c> as the end time.</para></li></ul><para>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,18 +87,18 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// <para>The metric for which you want to return information.</para><para>Valid distribution metric names are listed below, along with the most useful <code>statistics</code>
-        /// to include in your request, and the published <code>unit</code> value.</para><ul><li><para><b><code>Requests</code></b> - The total number of viewer requests received by
-        /// your Lightsail distribution, for all HTTP methods, and for both HTTP and HTTPS requests.</para><para><code>Statistics</code>: The most useful statistic is <code>Sum</code>.</para><para><code>Unit</code>: The published unit is <code>None</code>.</para></li><li><para><b><code>BytesDownloaded</code></b> - The number of bytes downloaded by viewers
-        /// for GET, HEAD, and OPTIONS requests.</para><para><code>Statistics</code>: The most useful statistic is <code>Sum</code>.</para><para><code>Unit</code>: The published unit is <code>None</code>.</para></li><li><para><b><code>BytesUploaded </code></b> - The number of bytes uploaded to your origin
-        /// by your Lightsail distribution, using POST and PUT requests.</para><para><code>Statistics</code>: The most useful statistic is <code>Sum</code>.</para><para><code>Unit</code>: The published unit is <code>None</code>.</para></li><li><para><b><code>TotalErrorRate</code></b> - The percentage of all viewer requests for
-        /// which the response's HTTP status code was 4xx or 5xx.</para><para><code>Statistics</code>: The most useful statistic is <code>Average</code>.</para><para><code>Unit</code>: The published unit is <code>Percent</code>.</para></li><li><para><b><code>4xxErrorRate</code></b> - The percentage of all viewer requests for which
-        /// the response's HTTP status cod was 4xx. In these cases, the client or client viewer
-        /// may have made an error. For example, a status code of 404 (Not Found) means that the
-        /// client requested an object that could not be found.</para><para><code>Statistics</code>: The most useful statistic is <code>Average</code>.</para><para><code>Unit</code>: The published unit is <code>Percent</code>.</para></li><li><para><b><code>5xxErrorRate</code></b> - The percentage of all viewer requests for which
-        /// the response's HTTP status code was 5xx. In these cases, the origin server did not
-        /// satisfy the requests. For example, a status code of 503 (Service Unavailable) means
-        /// that the origin server is currently unavailable.</para><para><code>Statistics</code>: The most useful statistic is <code>Average</code>.</para><para><code>Unit</code>: The published unit is <code>Percent</code>.</para></li></ul>
+        /// <para>The metric for which you want to return information.</para><para>Valid distribution metric names are listed below, along with the most useful <c>statistics</c>
+        /// to include in your request, and the published <c>unit</c> value.</para><ul><li><para><b><c>Requests</c></b> - The total number of viewer requests received by your Lightsail
+        /// distribution, for all HTTP methods, and for both HTTP and HTTPS requests.</para><para><c>Statistics</c>: The most useful statistic is <c>Sum</c>.</para><para><c>Unit</c>: The published unit is <c>None</c>.</para></li><li><para><b><c>BytesDownloaded</c></b> - The number of bytes downloaded by viewers for GET,
+        /// HEAD, and OPTIONS requests.</para><para><c>Statistics</c>: The most useful statistic is <c>Sum</c>.</para><para><c>Unit</c>: The published unit is <c>None</c>.</para></li><li><para><b><c>BytesUploaded </c></b> - The number of bytes uploaded to your origin by your
+        /// Lightsail distribution, using POST and PUT requests.</para><para><c>Statistics</c>: The most useful statistic is <c>Sum</c>.</para><para><c>Unit</c>: The published unit is <c>None</c>.</para></li><li><para><b><c>TotalErrorRate</c></b> - The percentage of all viewer requests for which
+        /// the response's HTTP status code was 4xx or 5xx.</para><para><c>Statistics</c>: The most useful statistic is <c>Average</c>.</para><para><c>Unit</c>: The published unit is <c>Percent</c>.</para></li><li><para><b><c>4xxErrorRate</c></b> - The percentage of all viewer requests for which the
+        /// response's HTTP status cod was 4xx. In these cases, the client or client viewer may
+        /// have made an error. For example, a status code of 404 (Not Found) means that the client
+        /// requested an object that could not be found.</para><para><c>Statistics</c>: The most useful statistic is <c>Average</c>.</para><para><c>Unit</c>: The published unit is <c>Percent</c>.</para></li><li><para><b><c>5xxErrorRate</c></b> - The percentage of all viewer requests for which the
+        /// response's HTTP status code was 5xx. In these cases, the origin server did not satisfy
+        /// the requests. For example, a status code of 503 (Service Unavailable) means that the
+        /// origin server is currently unavailable.</para><para><c>Statistics</c>: The most useful statistic is <c>Average</c>.</para><para><c>Unit</c>: The published unit is <c>Percent</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The start of the time interval for which to get metric data.</para><para>Constraints:</para><ul><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Specified in the Unix time format.</para><para>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify
-        /// <code>1538424000</code> as the start time.</para></li></ul><para>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</para>
+        /// <c>1538424000</c> as the start time.</para></li></ul><para>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -148,13 +148,13 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Statistic
         /// <summary>
         /// <para>
-        /// <para>The statistic for the metric.</para><para>The following statistics are available:</para><ul><li><para><code>Minimum</code> - The lowest value observed during the specified period. Use
-        /// this value to determine low volumes of activity for your application.</para></li><li><para><code>Maximum</code> - The highest value observed during the specified period. Use
-        /// this value to determine high volumes of activity for your application.</para></li><li><para><code>Sum</code> - All values submitted for the matching metric added together. You
-        /// can use this statistic to determine the total volume of a metric.</para></li><li><para><code>Average</code> - The value of Sum / SampleCount during the specified period.
-        /// By comparing this statistic with the Minimum and Maximum values, you can determine
-        /// the full scope of a metric and how close the average use is to the Minimum and Maximum
-        /// values. This comparison helps you to know when to increase or decrease your resources.</para></li><li><para><code>SampleCount</code> - The count, or number, of data points used for the statistical
+        /// <para>The statistic for the metric.</para><para>The following statistics are available:</para><ul><li><para><c>Minimum</c> - The lowest value observed during the specified period. Use this
+        /// value to determine low volumes of activity for your application.</para></li><li><para><c>Maximum</c> - The highest value observed during the specified period. Use this
+        /// value to determine high volumes of activity for your application.</para></li><li><para><c>Sum</c> - All values submitted for the matching metric added together. You can
+        /// use this statistic to determine the total volume of a metric.</para></li><li><para><c>Average</c> - The value of Sum / SampleCount during the specified period. By comparing
+        /// this statistic with the Minimum and Maximum values, you can determine the full scope
+        /// of a metric and how close the average use is to the Minimum and Maximum values. This
+        /// comparison helps you to know when to increase or decrease your resources.</para></li><li><para><c>SampleCount</c> - The count, or number, of data points used for the statistical
         /// calculation.</para></li></ul>
         /// </para>
         /// </summary>
@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The unit for the metric data request.</para><para>Valid units depend on the metric data being requested. For the valid units with each
-        /// available metric, see the <code>metricName</code> parameter.</para>
+        /// available metric, see the <c>metricName</c> parameter.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

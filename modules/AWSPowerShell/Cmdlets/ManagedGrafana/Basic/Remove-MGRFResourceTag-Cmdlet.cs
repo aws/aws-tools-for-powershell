@@ -28,8 +28,8 @@ using Amazon.ManagedGrafana.Model;
 namespace Amazon.PowerShell.Cmdlets.MGRF
 {
     /// <summary>
-    /// The <code>UntagResource</code> operation removes the association of the tag with the
-    /// Amazon Managed Grafana resource.
+    /// The <c>UntagResource</c> operation removes the association of the tag with the Amazon
+    /// Managed Grafana resource.
     /// </summary>
     [Cmdlet("Remove", "MGRFResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

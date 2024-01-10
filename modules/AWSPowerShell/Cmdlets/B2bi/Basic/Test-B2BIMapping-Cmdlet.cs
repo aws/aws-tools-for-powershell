@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
     /// <summary>
     /// Maps the input file according to the provided template file. The API call downloads
     /// the file contents from the Amazon S3 location, and passes the contents in as a string,
-    /// to the <code>inputFileContent</code> parameter.
+    /// to the <c>inputFileContent</c> parameter.
     /// </summary>
     [Cmdlet("Test", "B2BIMapping")]
     [OutputType("System.String")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         #region Parameter FileFormat
         /// <summary>
         /// <para>
-        /// <para>Specifies that the currently supported file formats for EDI transformations are <code>JSON</code>
-        /// and <code>XML</code>.</para>
+        /// <para>Specifies that the currently supported file formats for EDI transformations are <c>JSON</c>
+        /// and <c>XML</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

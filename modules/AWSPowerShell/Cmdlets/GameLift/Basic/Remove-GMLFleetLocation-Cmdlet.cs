@@ -37,9 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To delete fleet locations, identify the fleet ID and provide a list of the locations
     /// to be deleted. 
     /// </para><para>
-    /// If successful, GameLift sets the location status to <code>DELETING</code>, and begins
-    /// to shut down existing server processes and terminate instances in each location being
-    /// deleted. When completed, the location status changes to <code>TERMINATED</code>.
+    /// If successful, GameLift sets the location status to <c>DELETING</c>, and begins to
+    /// shut down existing server processes and terminate instances in each location being
+    /// deleted. When completed, the location status changes to <c>TERMINATED</c>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up Amazon GameLift fleets</a></para>
     /// </summary>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The list of fleet locations to delete. Specify locations in the form of an Amazon
-        /// Web Services Region code, such as <code>us-west-2</code>.</para>
+        /// Web Services Region code, such as <c>us-west-2</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

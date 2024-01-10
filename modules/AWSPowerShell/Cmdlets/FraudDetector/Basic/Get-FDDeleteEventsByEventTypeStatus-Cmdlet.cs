@@ -28,7 +28,7 @@ using Amazon.FraudDetector.Model;
 namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Retrieves the status of a <code>DeleteEventsByEventType</code> action.
+    /// Retrieves the status of a <c>DeleteEventsByEventType</c> action.
     /// </summary>
     [Cmdlet("Get", "FDDeleteEventsByEventTypeStatus")]
     [OutputType("Amazon.FraudDetector.Model.GetDeleteEventsByEventTypeStatusResponse")]

@@ -82,9 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>The name of the partner or external event source. You cannot change this name after
-        /// you create the channel. A maximum of one channel is allowed per source.</para><para> A source can be either <code>Custom</code> for all valid non-Amazon Web Services
-        /// events, or the name of a partner event source. For information about the source names
-        /// for available partners, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store-integration.html#cloudtrail-lake-partner-information">Additional
+        /// you create the channel. A maximum of one channel is allowed per source.</para><para> A source can be either <c>Custom</c> for all valid non-Amazon Web Services events,
+        /// or the name of a partner event source. For information about the source names for
+        /// available partners, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store-integration.html#cloudtrail-lake-partner-information">Additional
         /// information about integration partners</a> in the CloudTrail User Guide. </para>
         /// </para>
         /// </summary>

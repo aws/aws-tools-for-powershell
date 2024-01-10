@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         /// <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
         /// features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-trusted-access.html">trusted
         /// access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-delegated-admin.html">delegated
-        /// admin</a> account assigned.</para><note><para>The management account can't specify its own <code>AccountId</code>. It must call
-        /// the operation in standalone context by not including the <code>AccountId</code> parameter.</para></note><para>To call this operation on an account that is not a member of an organization, don't
+        /// admin</a> account assigned.</para><note><para>The management account can't specify its own <c>AccountId</c>. It must call the operation
+        /// in standalone context by not including the <c>AccountId</c> parameter.</para></note><para>To call this operation on an account that is not a member of an organization, don't
         /// specify this parameter. Instead, call the operation using an identity belonging to
         /// the account whose contacts you wish to retrieve or modify.</para>
         /// </para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         #region Parameter RegionName
         /// <summary>
         /// <para>
-        /// <para>Specifies the Region-code for a given Region name (for example, <code>af-south-1</code>).
+        /// <para>Specifies the Region-code for a given Region name (for example, <c>af-south-1</c>).
         /// When you enable a Region, Amazon Web Services performs actions to prepare your account
         /// in that Region, such as distributing your IAM resources to the Region. This process
         /// takes a few minutes for most accounts, but it can take several hours. You cannot use

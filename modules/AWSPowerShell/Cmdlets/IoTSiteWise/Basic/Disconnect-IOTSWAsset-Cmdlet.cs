@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The ID of the parent asset from which to disassociate the child asset. This can be
-        /// either the actual ID in UUID format, or else <code>externalId:</code> followed by
-        /// the external ID, if it has one. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing
+        /// either the actual ID in UUID format, or else <c>externalId:</c> followed by the external
+        /// ID, if it has one. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing
         /// objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The ID of the child asset to disassociate. This can be either the actual ID in UUID
-        /// format, or else <code>externalId:</code> followed by the external ID, if it has one.
-        /// For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing
+        /// format, or else <c>externalId:</c> followed by the external ID, if it has one. For
+        /// more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing
         /// objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The ID of a hierarchy in the parent asset's model. (This can be either the actual
-        /// ID in UUID format, or else <code>externalId:</code> followed by the external ID, if
-        /// it has one. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing
+        /// ID in UUID format, or else <c>externalId:</c> followed by the external ID, if it has
+        /// one. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing
         /// objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.) Hierarchies
         /// allow different groupings of assets to be formed that all come from the same asset
         /// model. You can use the hierarchy ID to identify the correct asset to disassociate.

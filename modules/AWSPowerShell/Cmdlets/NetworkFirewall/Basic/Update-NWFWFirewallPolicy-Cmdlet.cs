@@ -55,13 +55,13 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>Indicates whether you want Network Firewall to just check the validity of the request,
-        /// rather than run the request. </para><para>If set to <code>TRUE</code>, Network Firewall checks whether the request can run successfully,
+        /// rather than run the request. </para><para>If set to <c>TRUE</c>, Network Firewall checks whether the request can run successfully,
         /// but doesn't actually make the requested changes. The call returns the value that the
-        /// request would return if you ran it with dry run set to <code>FALSE</code>, but doesn't
-        /// make additions or changes to your resources. This option allows you to make sure that
-        /// you have the required permissions to run the request and that your request parameters
-        /// are valid. </para><para>If set to <code>FALSE</code>, Network Firewall makes the requested changes to your
-        /// resources. </para>
+        /// request would return if you ran it with dry run set to <c>FALSE</c>, but doesn't make
+        /// additions or changes to your resources. This option allows you to make sure that you
+        /// have the required permissions to run the request and that your request parameters
+        /// are valid. </para><para>If set to <c>FALSE</c>, Network Firewall makes the requested changes to your resources.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,15 +106,15 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter StatefulEngineOptions_RuleOrder
         /// <summary>
         /// <para>
-        /// <para>Indicates how to manage the order of stateful rule evaluation for the policy. <code>STRICT_ORDER</code>
-        /// is the default and recommended option. With <code>STRICT_ORDER</code>, provide your
-        /// rules in the order that you want them to be evaluated. You can then choose one or
-        /// more default actions for packets that don't match any rules. Choose <code>STRICT_ORDER</code>
-        /// to have the stateful rules engine determine the evaluation order of your rules. The
-        /// default action for this rule order is <code>PASS</code>, followed by <code>DROP</code>,
-        /// <code>REJECT</code>, and <code>ALERT</code> actions. Stateful rules are provided to
-        /// the rule engine as Suricata compatible strings, and Suricata evaluates them based
-        /// on your settings. For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation
+        /// <para>Indicates how to manage the order of stateful rule evaluation for the policy. <c>STRICT_ORDER</c>
+        /// is the default and recommended option. With <c>STRICT_ORDER</c>, provide your rules
+        /// in the order that you want them to be evaluated. You can then choose one or more default
+        /// actions for packets that don't match any rules. Choose <c>STRICT_ORDER</c> to have
+        /// the stateful rules engine determine the evaluation order of your rules. The default
+        /// action for this rule order is <c>PASS</c>, followed by <c>DROP</c>, <c>REJECT</c>,
+        /// and <c>ALERT</c> actions. Stateful rules are provided to the rule engine as Suricata
+        /// compatible strings, and Suricata evaluates them based on your settings. For more information,
+        /// see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation
         /// order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>. </para>
         /// </para>
         /// </summary>
@@ -127,11 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter PolicyVariables_RuleVariable
         /// <summary>
         /// <para>
-        /// <para>The IPv4 or IPv6 addresses in CIDR notation to use for the Suricata <code>HOME_NET</code>
+        /// <para>The IPv4 or IPv6 addresses in CIDR notation to use for the Suricata <c>HOME_NET</c>
         /// variable. If your firewall uses an inspection VPC, you might want to override the
-        /// <code>HOME_NET</code> variable with the CIDRs of your home networks. If you don't
-        /// override <code>HOME_NET</code> with your own CIDRs, Network Firewall by default uses
-        /// the CIDR of your inspection VPC.</para>
+        /// <c>HOME_NET</c> variable with the CIDRs of your home networks. If you don't override
+        /// <c>HOME_NET</c> with your own CIDRs, Network Firewall by default uses the CIDR of
+        /// your inspection VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>The custom action definitions that are available for use in the firewall policy's
-        /// <code>StatelessDefaultActions</code> setting. You name each custom action that you
-        /// define, and then you can use it by name in your default actions specifications.</para>
+        /// <c>StatelessDefaultActions</c> setting. You name each custom action that you define,
+        /// and then you can use it by name in your default actions specifications.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,10 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>
         /// <para>The actions to take on a packet if it doesn't match any of the stateless rules in
         /// the policy. If you want non-matching packets to be forwarded for stateful inspection,
-        /// specify <code>aws:forward_to_sfe</code>. </para><para>You must specify one of the standard actions: <code>aws:pass</code>, <code>aws:drop</code>,
-        /// or <code>aws:forward_to_sfe</code>. In addition, you can specify custom actions that
-        /// are compatible with your standard section choice.</para><para>For example, you could specify <code>["aws:pass"]</code> or you could specify <code>["aws:pass",
-        /// “customActionName”]</code>. For information about compatibility, see the custom action
+        /// specify <c>aws:forward_to_sfe</c>. </para><para>You must specify one of the standard actions: <c>aws:pass</c>, <c>aws:drop</c>, or
+        /// <c>aws:forward_to_sfe</c>. In addition, you can specify custom actions that are compatible
+        /// with your standard section choice.</para><para>For example, you could specify <c>["aws:pass"]</c> or you could specify <c>["aws:pass",
+        /// “customActionName”]</c>. For information about compatibility, see the custom action
         /// descriptions under <a>CustomAction</a>.</para>
         /// </para>
         /// </summary>
@@ -208,11 +208,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>The actions to take on a fragmented UDP packet if it doesn't match any of the stateless
         /// rules in the policy. Network Firewall only manages UDP packet fragments and silently
         /// drops packet fragments for other protocols. If you want non-matching fragmented UDP
-        /// packets to be forwarded for stateful inspection, specify <code>aws:forward_to_sfe</code>.
-        /// </para><para>You must specify one of the standard actions: <code>aws:pass</code>, <code>aws:drop</code>,
-        /// or <code>aws:forward_to_sfe</code>. In addition, you can specify custom actions that
-        /// are compatible with your standard section choice.</para><para>For example, you could specify <code>["aws:pass"]</code> or you could specify <code>["aws:pass",
-        /// “customActionName”]</code>. For information about compatibility, see the custom action
+        /// packets to be forwarded for stateful inspection, specify <c>aws:forward_to_sfe</c>.
+        /// </para><para>You must specify one of the standard actions: <c>aws:pass</c>, <c>aws:drop</c>, or
+        /// <c>aws:forward_to_sfe</c>. In addition, you can specify custom actions that are compatible
+        /// with your standard section choice.</para><para>For example, you could specify <c>["aws:pass"]</c> or you could specify <c>["aws:pass",
+        /// “customActionName”]</c>. For information about compatibility, see the custom action
         /// descriptions under <a>CustomAction</a>.</para>
         /// </para>
         /// </summary>
@@ -245,18 +245,18 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>
         /// <para>Configures how Network Firewall processes traffic when a network connection breaks
         /// midstream. Network connections can break due to disruptions in external networks or
-        /// within the firewall itself.</para><ul><li><para><code>DROP</code> - Network Firewall fails closed and drops all subsequent traffic
-        /// going to the firewall. This is the default behavior.</para></li><li><para><code>CONTINUE</code> - Network Firewall continues to apply rules to the subsequent
-        /// traffic without context from traffic before the break. This impacts the behavior of
-        /// rules that depend on this context. For example, if you have a stateful rule to <code>drop
-        /// http</code> traffic, Network Firewall won't match the traffic for this rule because
-        /// the service won't have the context from session initialization defining the application
-        /// layer protocol as HTTP. However, this behavior is rule dependent—a TCP-layer rule
-        /// using a <code>flow:stateless</code> rule would still match, as would the <code>aws:drop_strict</code>
-        /// default action.</para></li><li><para><code>REJECT</code> - Network Firewall fails closed and drops all subsequent traffic
-        /// going to the firewall. Network Firewall also sends a TCP reject packet back to your
-        /// client so that the client can immediately establish a new session. Network Firewall
-        /// will have context about the new session and will apply rules to the subsequent traffic.</para></li></ul>
+        /// within the firewall itself.</para><ul><li><para><c>DROP</c> - Network Firewall fails closed and drops all subsequent traffic going
+        /// to the firewall. This is the default behavior.</para></li><li><para><c>CONTINUE</c> - Network Firewall continues to apply rules to the subsequent traffic
+        /// without context from traffic before the break. This impacts the behavior of rules
+        /// that depend on this context. For example, if you have a stateful rule to <c>drop http</c>
+        /// traffic, Network Firewall won't match the traffic for this rule because the service
+        /// won't have the context from session initialization defining the application layer
+        /// protocol as HTTP. However, this behavior is rule dependent—a TCP-layer rule using
+        /// a <c>flow:stateless</c> rule would still match, as would the <c>aws:drop_strict</c>
+        /// default action.</para></li><li><para><c>REJECT</c> - Network Firewall fails closed and drops all subsequent traffic going
+        /// to the firewall. Network Firewall also sends a TCP reject packet back to your client
+        /// so that the client can immediately establish a new session. Network Firewall will
+        /// have context about the new session and will apply rules to the subsequent traffic.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -294,10 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// that access the firewall policy. The token marks the state of the policy resource
         /// at the time of the request. </para><para>To make changes to the policy, you provide the token in your request. Network Firewall
         /// uses the token to ensure that the policy hasn't changed since you last retrieved it.
-        /// If it has changed, the operation fails with an <code>InvalidTokenException</code>.
-        /// If this happens, retrieve the firewall policy again to get a current copy of it with
-        /// current token. Reapply your changes as needed, then try the operation again using
-        /// the new token. </para>
+        /// If it has changed, the operation fails with an <c>InvalidTokenException</c>. If this
+        /// happens, retrieve the firewall policy again to get a current copy of it with current
+        /// token. Reapply your changes as needed, then try the operation again using the new
+        /// token. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

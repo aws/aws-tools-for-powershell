@@ -28,7 +28,7 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Retrieves the results for a given media analysis job. Takes a <code>JobId</code> returned
+    /// Retrieves the results for a given media analysis job. Takes a <c>JobId</c> returned
     /// by StartMediaAnalysisJob.
     /// </summary>
     [Cmdlet("Get", "REKMediaAnalysisJob")]

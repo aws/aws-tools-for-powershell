@@ -28,7 +28,7 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Retrieves the <code>Table</code> definition in a Data Catalog for a specified table.
+    /// Retrieves the <c>Table</c> definition in a Data Catalog for a specified table.
     /// </summary>
     [Cmdlet("Get", "GLUETable")]
     [OutputType("Amazon.Glue.Model.Table")]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The time as of when to read the table contents. If not set, the most recent transaction
-        /// commit time will be used. Cannot be specified along with <code>TransactionId</code>.</para>
+        /// commit time will be used. Cannot be specified along with <c>TransactionId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

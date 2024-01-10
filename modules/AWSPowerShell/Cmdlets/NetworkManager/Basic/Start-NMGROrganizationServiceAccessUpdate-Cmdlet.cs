@@ -46,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>The action to take for the update request. This can be either <code>ENABLE</code>
-        /// or <code>DISABLE</code>.</para>
+        /// <para>The action to take for the update request. This can be either <c>ENABLE</c> or <c>DISABLE</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

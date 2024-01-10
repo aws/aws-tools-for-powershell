@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results, or <code>null</code> if there are no more results.</para>
+        /// <para>The token for the next set of results, or <c>null</c> if there are no more results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

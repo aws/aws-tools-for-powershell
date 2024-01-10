@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
 {
     /// <summary>
     /// Submits profiling data to an aggregated profile of a profiling group. To get an aggregated
-    /// profile that is created with this profiling data, use <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_GetProfile.html"><code>GetProfile</code></a>.
+    /// profile that is created with this profiling data, use <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_GetProfile.html"><c>GetProfile</c></a>.
     /// </summary>
     [Cmdlet("Send", "CGPAgentProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -64,12 +64,12 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// <para> The format of the submitted profiling data. The format maps to the <code>Accept</code>
-        /// and <code>Content-Type</code> headers of the HTTP request. You can specify one of
-        /// the following: or the default . </para><pre><code> &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;application/json&lt;/code&gt;
+        /// <para> The format of the submitted profiling data. The format maps to the <c>Accept</c>
+        /// and <c>Content-Type</c> headers of the HTTP request. You can specify one of the following:
+        /// or the default . </para><pre><c> &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;application/json&lt;/code&gt;
         /// — standard JSON format &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;application/x-amzn-ion&lt;/code&gt;
         /// — the Amazon Ion data format. For more information, see &lt;a href="http://amzn.github.io/ion-docs/"&gt;Amazon
-        /// Ion&lt;/a&gt;. &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; </code></pre>
+        /// Ion&lt;/a&gt;. &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; </c></pre>
         /// </para>
         /// </summary>
         #if !MODULAR

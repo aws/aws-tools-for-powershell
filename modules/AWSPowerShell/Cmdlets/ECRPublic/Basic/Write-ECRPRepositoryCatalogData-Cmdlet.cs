@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         /// the Amazon ECR Public Gallery, the following supported architectures appear as badges
         /// on the repository and are used as search filters.</para><note><para>If an unsupported tag is added to your repository catalog data, it's associated with
         /// the repository and can be retrieved using the API but isn't discoverable in the Amazon
-        /// ECR Public Gallery.</para></note><ul><li><para><code>ARM</code></para></li><li><para><code>ARM 64</code></para></li><li><para><code>x86</code></para></li><li><para><code>x86-64</code></para></li></ul>
+        /// ECR Public Gallery.</para></note><ul><li><para><c>ARM</c></para></li><li><para><c>ARM 64</c></para></li><li><para><c>x86</c></para></li><li><para><c>x86-64</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         /// Amazon ECR Public Gallery, the following supported operating systems appear as badges
         /// on the repository and are used as search filters.</para><note><para>If an unsupported tag is added to your repository catalog data, it's associated with
         /// the repository and can be retrieved using the API but isn't discoverable in the Amazon
-        /// ECR Public Gallery.</para></note><ul><li><para><code>Linux</code></para></li><li><para><code>Windows</code></para></li></ul>
+        /// ECR Public Gallery.</para></note><ul><li><para><c>Linux</c></para></li><li><para><c>Windows</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

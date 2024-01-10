@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ContainerConfig_Domain
         /// <summary>
         /// <para>
-        /// <para>The machine learning domain of the model and its components.</para><para>Valid Values: <code>COMPUTER_VISION | NATURAL_LANGUAGE_PROCESSING | MACHINE_LEARNING</code></para>
+        /// <para>The machine learning domain of the model and its components.</para><para>Valid Values: <c>COMPUTER_VISION | NATURAL_LANGUAGE_PROCESSING | MACHINE_LEARNING</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,9 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Stops a load test when the number of invocations (TPS) peaks and flattens, which means
-        /// that the instance has reached capacity. The default value is <code>Stop</code>. If
-        /// you want the load test to continue after invocations have flattened, set the value
-        /// to <code>Continue</code>.</para>
+        /// that the instance has reached capacity. The default value is <c>Stop</c>. If you want
+        /// the load test to continue after invocations have flattened, set the value to <c>Continue</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ContainerConfig_Framework
         /// <summary>
         /// <para>
-        /// <para>The machine learning framework of the container image.</para><para>Valid Values: <code>TENSORFLOW | PYTORCH | XGBOOST | SAGEMAKER-SCIKIT-LEARN</code></para>
+        /// <para>The machine learning framework of the container image.</para><para>Valid Values: <c>TENSORFLOW | PYTORCH | XGBOOST | SAGEMAKER-SCIKIT-LEARN</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,10 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter JobType
         /// <summary>
         /// <para>
-        /// <para>Defines the type of recommendation job. Specify <code>Default</code> to initiate an
-        /// instance recommendation and <code>Advanced</code> to initiate a load test. If left
-        /// unspecified, Amazon SageMaker Inference Recommender will run an instance recommendation
-        /// (<code>DEFAULT</code>) job.</para>
+        /// <para>Defines the type of recommendation job. Specify <c>Default</c> to initiate an instance
+        /// recommendation and <c>Advanced</c> to initiate a load test. If left unspecified, Amazon
+        /// SageMaker Inference Recommender will run an instance recommendation (<c>DEFAULT</c>)
+        /// job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -205,8 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon
         /// Web Services KMS) key that Amazon SageMaker uses to encrypt your output artifacts
-        /// with Amazon S3 server-side encryption. The SageMaker execution role must have <code>kms:GenerateDataKey</code>
-        /// permission.</para><para>The <code>KmsKeyId</code> can be any of the following formats:</para><ul><li><para>// KMS Key ID</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key</para><para><code>"arn:aws:kms:&lt;region&gt;:&lt;account&gt;:key/&lt;key-id-12ab-34cd-56ef-1234567890ab&gt;"</code></para></li><li><para>// KMS Key Alias</para><para><code>"alias/ExampleAlias"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key Alias</para><para><code>"arn:aws:kms:&lt;region&gt;:&lt;account&gt;:alias/&lt;ExampleAlias&gt;"</code></para></li></ul><para>For more information about key identifiers, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">Key
+        /// with Amazon S3 server-side encryption. The SageMaker execution role must have <c>kms:GenerateDataKey</c>
+        /// permission.</para><para>The <c>KmsKeyId</c> can be any of the following formats:</para><ul><li><para>// KMS Key ID</para><para><c>"1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key</para><para><c>"arn:aws:kms:&lt;region&gt;:&lt;account&gt;:key/&lt;key-id-12ab-34cd-56ef-1234567890ab&gt;"</c></para></li><li><para>// KMS Key Alias</para><para><c>"alias/ExampleAlias"</c></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key Alias</para><para><c>"arn:aws:kms:&lt;region&gt;:&lt;account&gt;:alias/&lt;ExampleAlias&gt;"</c></para></li></ul><para>For more information about key identifiers, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">Key
         /// identifiers (KeyID)</a> in the Amazon Web Services Key Management Service (Amazon
         /// Web Services KMS) documentation.</para>
         /// </para>
@@ -286,10 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of a pre-trained machine learning model benchmarked by Amazon SageMaker Inference
-        /// Recommender that matches your model.</para><para>Valid Values: <code>efficientnetb7 | unet | xgboost | faster-rcnn-resnet101 | nasnetlarge
+        /// Recommender that matches your model.</para><para>Valid Values: <c>efficientnetb7 | unet | xgboost | faster-rcnn-resnet101 | nasnetlarge
         /// | vgg16 | inception-v3 | mask-rcnn | sagemaker-scikit-learn | densenet201-gluon |
         /// resnet18v2-gluon | xception | densenet201 | yolov4 | resnet152 | bert-base-cased |
-        /// xceptionV1-keras | resnet50 | retinanet</code></para>
+        /// xceptionV1-keras | resnet50 | retinanet</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -364,8 +363,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The VPC security group IDs. IDs have the form of <code>sg-xxxxxxxx</code>. Specify
-        /// the security groups for the VPC that is specified in the <code>Subnets</code> field.</para>
+        /// <para>The VPC security group IDs. IDs have the form of <c>sg-xxxxxxxx</c>. Specify the security
+        /// groups for the VPC that is specified in the <c>Subnets</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -449,8 +448,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ContainerConfig_Task
         /// <summary>
         /// <para>
-        /// <para>The machine learning task that the model accomplishes.</para><para>Valid Values: <code>IMAGE_CLASSIFICATION | OBJECT_DETECTION | TEXT_GENERATION | IMAGE_SEGMENTATION
-        /// | FILL_MASK | CLASSIFICATION | REGRESSION | OTHER</code></para>
+        /// <para>The machine learning task that the model accomplishes.</para><para>Valid Values: <c>IMAGE_CLASSIFICATION | OBJECT_DETECTION | TEXT_GENERATION | IMAGE_SEGMENTATION
+        /// | FILL_MASK | CLASSIFICATION | REGRESSION | OTHER</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -461,7 +460,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TrafficPattern_TrafficType
         /// <summary>
         /// <para>
-        /// <para>Defines the traffic patterns. Choose either <code>PHASES</code> or <code>STAIRS</code>.</para>
+        /// <para>Defines the traffic patterns. Choose either <c>PHASES</c> or <c>STAIRS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -487,11 +486,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon
         /// Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume
         /// attached to the ML compute instance that hosts the endpoint. This key will be passed
-        /// to SageMaker Hosting for endpoint creation. </para><para>The SageMaker execution role must have <code>kms:CreateGrant</code> permission in
-        /// order to encrypt data on the storage volume of the endpoints created for inference
-        /// recommendation. The inference recommendation job will fail asynchronously during endpoint
-        /// configuration creation if the role passed does not have <code>kms:CreateGrant</code>
-        /// permission.</para><para>The <code>KmsKeyId</code> can be any of the following formats:</para><ul><li><para>// KMS Key ID</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key</para><para><code>"arn:aws:kms:&lt;region&gt;:&lt;account&gt;:key/&lt;key-id-12ab-34cd-56ef-1234567890ab&gt;"</code></para></li><li><para>// KMS Key Alias</para><para><code>"alias/ExampleAlias"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key Alias</para><para><code>"arn:aws:kms:&lt;region&gt;:&lt;account&gt;:alias/&lt;ExampleAlias&gt;"</code></para></li></ul><para>For more information about key identifiers, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">Key
+        /// to SageMaker Hosting for endpoint creation. </para><para>The SageMaker execution role must have <c>kms:CreateGrant</c> permission in order
+        /// to encrypt data on the storage volume of the endpoints created for inference recommendation.
+        /// The inference recommendation job will fail asynchronously during endpoint configuration
+        /// creation if the role passed does not have <c>kms:CreateGrant</c> permission.</para><para>The <c>KmsKeyId</c> can be any of the following formats:</para><ul><li><para>// KMS Key ID</para><para><c>"1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key</para><para><c>"arn:aws:kms:&lt;region&gt;:&lt;account&gt;:key/&lt;key-id-12ab-34cd-56ef-1234567890ab&gt;"</c></para></li><li><para>// KMS Key Alias</para><para><c>"alias/ExampleAlias"</c></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key Alias</para><para><c>"arn:aws:kms:&lt;region&gt;:&lt;account&gt;:alias/&lt;ExampleAlias&gt;"</c></para></li></ul><para>For more information about key identifiers, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">Key
         /// identifiers (KeyID)</a> in the Amazon Web Services Key Management Service (Amazon
         /// Web Services KMS) documentation.</para>
         /// </para>

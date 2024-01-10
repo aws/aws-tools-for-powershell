@@ -28,7 +28,7 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// Simulates a provisioned device by sending an uplink data payload of <code>Hello</code>.
+    /// Simulates a provisioned device by sending an uplink data payload of <c>Hello</c>.
     /// </summary>
     [Cmdlet("Test", "IOTWWirelessDevice")]
     [OutputType("System.String")]

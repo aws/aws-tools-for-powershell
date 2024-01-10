@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter ActiveDirectoryConfiguration_NetBiosName
         /// <summary>
         /// <para>
-        /// <para>Specifies an updated NetBIOS name of the AD computer object <code>NetBiosName</code>
-        /// to which an SVM is joined.</para>
+        /// <para>Specifies an updated NetBIOS name of the AD computer object <c>NetBiosName</c> to
+        /// which an SVM is joined.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter StorageVirtualMachineId
         /// <summary>
         /// <para>
-        /// <para>The ID of the SVM that you want to update, in the format <code>svm-0123456789abcdef0</code>.</para>
+        /// <para>The ID of the SVM that you want to update, in the format <c>svm-0123456789abcdef0</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Specifies the updated user name for the service account on your self-managed AD domain.
         /// Amazon FSx uses this account to join to your self-managed AD domain.</para><para>This account must have the permissions required to join computers to the domain in
-        /// the organizational unit provided in <code>OrganizationalUnitDistinguishedName</code>.</para>
+        /// the organizational unit provided in <c>OrganizationalUnitDistinguishedName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

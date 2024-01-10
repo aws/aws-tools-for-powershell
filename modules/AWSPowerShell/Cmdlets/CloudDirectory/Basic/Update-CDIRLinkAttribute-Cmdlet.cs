@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
     /// Updates a given typed link’s attributes. Attributes to be updated must not contribute
-    /// to the typed link’s identity, as defined by its <code>IdentityAttributeOrder</code>.
+    /// to the typed link’s identity, as defined by its <c>IdentityAttributeOrder</c>.
     /// </summary>
     [Cmdlet("Update", "CDIRLinkAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

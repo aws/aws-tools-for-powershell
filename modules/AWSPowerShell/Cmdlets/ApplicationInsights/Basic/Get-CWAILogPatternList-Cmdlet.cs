@@ -28,7 +28,7 @@ using Amazon.ApplicationInsights.Model;
 namespace Amazon.PowerShell.Cmdlets.CWAI
 {
     /// <summary>
-    /// Lists the log patterns in the specific log <code>LogPatternSet</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the log patterns in the specific log <c>LogPatternSet</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWAILogPatternList")]
     [OutputType("Amazon.ApplicationInsights.Model.LogPattern")]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return in a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>NextToken</code> value.</para>
+        /// results, make another call with the returned <c>NextToken</c> value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

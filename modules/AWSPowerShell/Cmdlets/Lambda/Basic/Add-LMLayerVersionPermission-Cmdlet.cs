@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>The API action that grants access to the layer. For example, <code>lambda:GetLayerVersion</code>.</para>
+        /// <para>The API action that grants access to the layer. For example, <c>lambda:GetLayerVersion</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>With the principal set to <code>*</code>, grant permission to all accounts in the
-        /// specified organization.</para>
+        /// <para>With the principal set to <c>*</c>, grant permission to all accounts in the specified
+        /// organization.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,10 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>An account ID, or <code>*</code> to grant layer usage permission to all accounts in
-        /// an organization, or all Amazon Web Services accounts (if <code>organizationId</code>
-        /// is not specified). For the last case, make sure that you really do want all Amazon
-        /// Web Services accounts to have usage permission to this layer. </para>
+        /// <para>An account ID, or <c>*</c> to grant layer usage permission to all accounts in an organization,
+        /// or all Amazon Web Services accounts (if <c>organizationId</c> is not specified). For
+        /// the last case, make sure that you really do want all Amazon Web Services accounts
+        /// to have usage permission to this layer. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -73,8 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter PartitionInputList
         /// <summary>
         /// <para>
-        /// <para>A list of <code>PartitionInput</code> structures that define the partitions to be
-        /// created.</para>
+        /// <para>A list of <c>PartitionInput</c> structures that define the partitions to be created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

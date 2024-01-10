@@ -48,9 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>
         /// <para>The Amazon EMR release label determines the <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-app-versions-6.x.html">versions
         /// of open-source application packages</a> that Amazon EMR has installed on the cluster.
-        /// Release labels are in the format <code>emr-x.x.x</code>, where x.x.x is an Amazon
-        /// EMR release number such as <code>emr-6.10.0</code>. For more information about Amazon
-        /// EMR releases and their included application versions and features, see the <i><a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html">Amazon
+        /// Release labels are in the format <c>emr-x.x.x</c>, where x.x.x is an Amazon EMR release
+        /// number such as <c>emr-6.10.0</c>. For more information about Amazon EMR releases and
+        /// their included application versions and features, see the <i><a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html">Amazon
         /// EMR Release Guide</a></i>.</para>
         /// </para>
         /// </summary>

@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.RSS
 {
     /// <summary>
     /// Updates a namespace with the specified settings. Unless required, you can't update
-    /// multiple parameters in one request. For example, you must specify both <code>adminUsername</code>
-    /// and <code>adminUserPassword</code> to update either field, but you can't update both
-    /// <code>kmsKeyId</code> and <code>logExports</code> in a single request.
+    /// multiple parameters in one request. For example, you must specify both <c>adminUsername</c>
+    /// and <c>adminUserPassword</c> to update either field, but you can't update both <c>kmsKeyId</c>
+    /// and <c>logExports</c> in a single request.
     /// </summary>
     [Cmdlet("Update", "RSSNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RedshiftServerless.Model.Namespace")]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's
-        /// admin credentials secret. You can only use this parameter if <code>manageAdminPassword</code>
+        /// admin credentials secret. You can only use this parameter if <c>manageAdminPassword</c>
         /// is true.</para>
         /// </para>
         /// </summary>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>The username of the administrator for the first database created in the namespace.
-        /// This parameter must be updated together with <code>adminUserPassword</code>.</para>
+        /// This parameter must be updated together with <c>adminUserPassword</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,8 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>The password of the administrator for the first database created in the namespace.
-        /// This parameter must be updated together with <code>adminUsername</code>.</para><para>You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is
-        /// true. </para>
+        /// This parameter must be updated together with <c>adminUsername</c>.</para><para>You can't use <c>adminUserPassword</c> if <c>manageAdminPassword</c> is true. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
-        /// This parameter must be updated together with <code>iamRoles</code>.</para>
+        /// This parameter must be updated together with <c>iamRoles</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>A list of IAM roles to associate with the namespace. This parameter must be updated
-        /// together with <code>defaultIamRoleArn</code>.</para>
+        /// together with <c>defaultIamRoleArn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter LogExport
         /// <summary>
         /// <para>
-        /// <para>The types of logs the namespace can export. The export types are <code>userlog</code>,
-        /// <code>connectionlog</code>, and <code>useractivitylog</code>.</para>
+        /// <para>The types of logs the namespace can export. The export types are <c>userlog</c>, <c>connectionlog</c>,
+        /// and <c>useractivitylog</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,10 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter ManageAdminPassword
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the namespace's
-        /// admin credentials. You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code>
-        /// is true. If <code>manageAdminPassword</code> is false or not set, Amazon Redshift
-        /// uses <code>adminUserPassword</code> for the admin user account's password. </para>
+        /// <para>If <c>true</c>, Amazon Redshift uses Secrets Manager to manage the namespace's admin
+        /// credentials. You can't use <c>adminUserPassword</c> if <c>manageAdminPassword</c>
+        /// is true. If <c>manageAdminPassword</c> is false or not set, Amazon Redshift uses <c>adminUserPassword</c>
+        /// for the admin user account's password. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

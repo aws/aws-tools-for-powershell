@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         /// <summary>
         /// <para>
         /// <para> One or more list elements to add or replace. If you are providing the elements, make
-        /// sure to specify the <code>updateMode</code> to use. </para><para>If you are deleting all elements from the list, use <code>REPLACE</code> for the <code>updateMode</code>
+        /// sure to specify the <c>updateMode</c> to use. </para><para>If you are deleting all elements from the list, use <c>REPLACE</c> for the <c>updateMode</c>
         /// and provide an empty list (0 elements).</para>
         /// </para>
         /// </summary>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter UpdateMode
         /// <summary>
         /// <para>
-        /// <para> The update mode (type). </para><ul><li><para>Use <code>APPEND</code> if you are adding elements to the list.</para></li><li><para>Use <code>REPLACE</code> if you replacing existing elements in the list.</para></li><li><para>Use <code>REMOVE</code> if you are removing elements from the list.</para></li></ul>
+        /// <para> The update mode (type). </para><ul><li><para>Use <c>APPEND</c> if you are adding elements to the list.</para></li><li><para>Use <c>REPLACE</c> if you replacing existing elements in the list.</para></li><li><para>Use <c>REMOVE</c> if you are removing elements from the list.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

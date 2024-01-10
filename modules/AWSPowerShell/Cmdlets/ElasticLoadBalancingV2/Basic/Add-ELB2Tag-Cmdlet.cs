@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     ///  
     /// <para>
     /// Each tag consists of a key and an optional value. If a resource already has a tag
-    /// with the same key, <code>AddTags</code> updates its value.
+    /// with the same key, <c>AddTags</c> updates its value.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "ELB2Tag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

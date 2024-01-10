@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
         #region Parameter CacheControl
         /// <summary>
         /// <para>
-        /// <para>An optional <code>CacheControl</code> header that allows the caller to control the
-        /// object's cache behavior. Headers can be passed in as specified in the HTTP at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</para><para>Headers with a custom user-defined value are also accepted.</para>
+        /// <para>An optional <c>CacheControl</c> header that allows the caller to control the object's
+        /// cache behavior. Headers can be passed in as specified in the HTTP at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</para><para>Headers with a custom user-defined value are also accepted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,12 +84,12 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
         /// <summary>
         /// <para>
         /// <para>The path (including the file name) where the object is stored in the container. Format:
-        /// &lt;folder name&gt;/&lt;folder name&gt;/&lt;file name&gt;</para><para>For example, to upload the file <code>mlaw.avi</code> to the folder path <code>premium\canada</code>
-        /// in the container <code>movies</code>, enter the path <code>premium/canada/mlaw.avi</code>.</para><para>Do not include the container name in this path.</para><para>If the path includes any folders that don't exist yet, the service creates them. For
-        /// example, suppose you have an existing <code>premium/usa</code> subfolder. If you specify
-        /// <code>premium/canada</code>, the service creates a <code>canada</code> subfolder in
-        /// the <code>premium</code> folder. You then have two subfolders, <code>usa</code> and
-        /// <code>canada</code>, in the <code>premium</code> folder. </para><para>There is no correlation between the path to the source and the path (folders) in the
+        /// &lt;folder name&gt;/&lt;folder name&gt;/&lt;file name&gt;</para><para>For example, to upload the file <c>mlaw.avi</c> to the folder path <c>premium\canada</c>
+        /// in the container <c>movies</c>, enter the path <c>premium/canada/mlaw.avi</c>.</para><para>Do not include the container name in this path.</para><para>If the path includes any folders that don't exist yet, the service creates them. For
+        /// example, suppose you have an existing <c>premium/usa</c> subfolder. If you specify
+        /// <c>premium/canada</c>, the service creates a <c>canada</c> subfolder in the <c>premium</c>
+        /// folder. You then have two subfolders, <c>usa</c> and <c>canada</c>, in the <c>premium</c>
+        /// folder. </para><para>There is no correlation between the path to the source and the path (folders) in the
         /// container in AWS Elemental MediaStore.</para><para>For more information about folders and how they exist in a container, see the <a href="http://docs.aws.amazon.com/mediastore/latest/ug/">AWS
         /// Elemental MediaStore User Guide</a>.</para><para>The file name is the name that is assigned to the file that you upload. The file can
         /// have the same name inside and outside of AWS Elemental MediaStore, or it can have
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
         #region Parameter StorageClass
         /// <summary>
         /// <para>
-        /// <para>Indicates the storage class of a <code>Put</code> request. Defaults to high-performance
+        /// <para>Indicates the storage class of a <c>Put</c> request. Defaults to high-performance
         /// temporal storage class, and objects are persisted into durable storage shortly after
         /// being received.</para>
         /// </para>
@@ -124,11 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
         /// <summary>
         /// <para>
         /// <para>Indicates the availability of an object while it is still uploading. If the value
-        /// is set to <code>streaming</code>, the object is available for downloading after some
-        /// initial buffering but before the object is uploaded completely. If the value is set
-        /// to <code>standard</code>, the object is available for downloading only when it is
-        /// uploaded completely. The default value for this header is <code>standard</code>.</para><para>To use this header, you must also set the HTTP <code>Transfer-Encoding</code> header
-        /// to <code>chunked</code>.</para>
+        /// is set to <c>streaming</c>, the object is available for downloading after some initial
+        /// buffering but before the object is uploaded completely. If the value is set to <c>standard</c>,
+        /// the object is available for downloading only when it is uploaded completely. The default
+        /// value for this header is <c>standard</c>.</para><para>To use this header, you must also set the HTTP <c>Transfer-Encoding</c> header to
+        /// <c>chunked</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

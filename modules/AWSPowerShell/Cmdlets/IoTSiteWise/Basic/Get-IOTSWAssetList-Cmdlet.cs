@@ -60,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The ID of the asset model by which to filter the list of assets. This parameter is
-        /// required if you choose <code>ALL</code> for <code>filter</code>. This can be either
-        /// the actual ID in UUID format, or else <code>externalId:</code> followed by the external
-        /// ID, if it has one. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing
+        /// required if you choose <c>ALL</c> for <c>filter</c>. This can be either the actual
+        /// ID in UUID format, or else <c>externalId:</c> followed by the external ID, if it has
+        /// one. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing
         /// objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filter for the requested list of assets. Choose one of the following options:</para><ul><li><para><code>ALL</code> – The list includes all assets for a given asset model ID. The <code>assetModelId</code>
-        /// parameter is required if you filter by <code>ALL</code>.</para></li><li><para><code>TOP_LEVEL</code> – The list includes only top-level assets in the asset hierarchy
-        /// tree.</para></li></ul><para>Default: <code>ALL</code></para>
+        /// <para>The filter for the requested list of assets. Choose one of the following options:</para><ul><li><para><c>ALL</c> – The list includes all assets for a given asset model ID. The <c>assetModelId</c>
+        /// parameter is required if you filter by <c>ALL</c>.</para></li><li><para><c>TOP_LEVEL</c> – The list includes only top-level assets in the asset hierarchy
+        /// tree.</para></li></ul><para>Default: <c>ALL</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

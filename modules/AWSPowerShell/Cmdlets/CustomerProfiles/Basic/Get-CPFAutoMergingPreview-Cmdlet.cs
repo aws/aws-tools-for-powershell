@@ -41,9 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     /// </para><important><para>
     /// We strongly recommend you use this API to do a dry run of the automerging process
     /// before running the Identity Resolution Job. Include <b>at least</b> two matching attributes.
-    /// If your matching list includes too few attributes (such as only <code>FirstName</code>
-    /// or only <code>LastName</code>), there may be a large number of matches. This increases
-    /// the chances of erroneous merges.
+    /// If your matching list includes too few attributes (such as only <c>FirstName</c> or
+    /// only <c>LastName</c>), there may be a large number of matches. This increases the
+    /// chances of erroneous merges.
     /// </para></important>
     /// </summary>
     [Cmdlet("Get", "CPFAutoMergingPreview")]
@@ -60,10 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter ConflictResolution_ConflictResolvingModel
         /// <summary>
         /// <para>
-        /// <para>How the auto-merging process should resolve conflicts between different profiles.</para><ul><li><para><code>RECENCY</code>: Uses the data that was most recently updated.</para></li><li><para><code>SOURCE</code>: Uses the data from a specific source. For example, if a company
-        /// has been aquired or two departments have merged, data from the specified source is
-        /// used. If two duplicate profiles are from the same source, then <code>RECENCY</code>
-        /// is used again.</para></li></ul>
+        /// <para>How the auto-merging process should resolve conflicts between different profiles.</para><ul><li><para><c>RECENCY</c>: Uses the data that was most recently updated.</para></li><li><para><c>SOURCE</c>: Uses the data from a specific source. For example, if a company has
+        /// been aquired or two departments have merged, data from the specified source is used.
+        /// If two duplicate profiles are from the same source, then <c>RECENCY</c> is used again.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter ConflictResolution_SourceName
         /// <summary>
         /// <para>
-        /// <para>The <code>ObjectType</code> name that is used to resolve profile merging conflicts
-        /// when choosing <code>SOURCE</code> as the <code>ConflictResolvingModel</code>.</para>
+        /// <para>The <c>ObjectType</c> name that is used to resolve profile merging conflicts when
+        /// choosing <c>SOURCE</c> as the <c>ConflictResolvingModel</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// an Anywhere fleet. The game servers that are running on the compute use this token
     /// to authenticate with the Amazon GameLift service. Each server process must provide
     /// a valid authentication token in its call to the Amazon GameLift server SDK action
-    /// <code>InitSDK()</code>.
+    /// <c>InitSDK()</c>.
     /// 
     ///  
     /// <para>

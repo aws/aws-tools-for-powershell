@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobDefinition
         /// <summary>
         /// <para>
-        /// <para>The name and revision (<code>name:revision</code>) or full Amazon Resource Name (ARN)
-        /// of the job definition to deregister.</para>
+        /// <para>The name and revision (<c>name:revision</c>) or full Amazon Resource Name (ARN) of
+        /// the job definition to deregister.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

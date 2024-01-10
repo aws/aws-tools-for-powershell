@@ -455,7 +455,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter GenderString
         /// <summary>
         /// <para>
-        /// <para>An alternative to <code>Gender</code> which accepts any string as input.</para>
+        /// <para>An alternative to <c>Gender</c> which accepts any string as input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -516,7 +516,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter PartyTypeString
         /// <summary>
         /// <para>
-        /// <para>An alternative to <code>PartyType</code> which accepts any string as input.</para>
+        /// <para>An alternative to <c>PartyType</c> which accepts any string as input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

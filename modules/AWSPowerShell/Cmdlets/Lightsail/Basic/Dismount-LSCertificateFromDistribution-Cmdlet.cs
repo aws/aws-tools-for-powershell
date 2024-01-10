@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DistributionName
         /// <summary>
         /// <para>
-        /// <para>The name of the distribution from which to detach the certificate.</para><para>Use the <code>GetDistributions</code> action to get a list of distribution names that
-        /// you can specify.</para>
+        /// <para>The name of the distribution from which to detach the certificate.</para><para>Use the <c>GetDistributions</c> action to get a list of distribution names that you
+        /// can specify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

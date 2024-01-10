@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Term_Unit
         /// <summary>
         /// <para>
-        /// <para>The term unit of the subscription. Valid value is <code>MONTHS</code>.</para>
+        /// <para>The term unit of the subscription. Valid value is <c>MONTHS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

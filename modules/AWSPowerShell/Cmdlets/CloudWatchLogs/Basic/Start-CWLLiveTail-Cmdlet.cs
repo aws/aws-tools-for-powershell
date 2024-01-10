@@ -46,17 +46,17 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// Every second, a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_LiveTailSessionUpdate.html">LiveTailSessionUpdate</a>
     /// object is sent. Each of these objects contains an array of the actual log events.
     /// </para><para>
-    /// If no new log events were ingested in the past second, the <code>LiveTailSessionUpdate</code>
+    /// If no new log events were ingested in the past second, the <c>LiveTailSessionUpdate</c>
     /// object will contain an empty array.
     /// </para><para>
-    /// The array of log events contained in a <code>LiveTailSessionUpdate</code> can include
-    /// as many as 500 log events. If the number of log events matching the request exceeds
-    /// 500 per second, the log events are sampled down to 500 log events to be included in
-    /// each <code>LiveTailSessionUpdate</code> object.
+    /// The array of log events contained in a <c>LiveTailSessionUpdate</c> can include as
+    /// many as 500 log events. If the number of log events matching the request exceeds 500
+    /// per second, the log events are sampled down to 500 log events to be included in each
+    /// <c>LiveTailSessionUpdate</c> object.
     /// </para><para>
     /// If your client consumes the log events slower than the server produces them, CloudWatch
-    /// Logs buffers up to 10 <code>LiveTailSessionUpdate</code> events or 5000 log events,
-    /// after which it starts dropping the oldest events.
+    /// Logs buffers up to 10 <c>LiveTailSessionUpdate</c> events or 5000 log events, after
+    /// which it starts dropping the oldest events.
     /// </para></li><li><para>
     /// A <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_SessionStreamingException.html">SessionStreamingException</a>
     /// object is returned if an unknown error occurs on the server side.
@@ -68,7 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// You can end a session before it times out by closing the session stream or by closing
     /// the client that is receiving the stream. The session also ends if the established
     /// connection between the client and the server breaks.
-    /// </para></important>
+    /// </para></important><para>
+    /// For examples of using an SDK to start a Live Tail session, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/example_cloudwatch-logs_StartLiveTail_section.html">
+    /// Start a Live Tail session using an Amazon Web Services SDK</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "CWLLiveTail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchLogs.Model.StartLiveTailResponseStream")]
@@ -86,9 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>An optional pattern to use to filter the results to include only log events that match
-        /// the pattern. For example, a filter pattern of <code>error 404</code> causes only log
-        /// events that include both <code>error</code> and <code>404</code> to be included in
-        /// the Live Tail stream.</para><para>Regular expression filter patterns are supported.</para><para>For more information about filter pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter
+        /// the pattern. For example, a filter pattern of <c>error 404</c> causes only log events
+        /// that include both <c>error</c> and <c>404</c> to be included in the Live Tail stream.</para><para>Regular expression filter patterns are supported.</para><para>For more information about filter pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter
         /// and Pattern Syntax</a>.</para>
         /// </para>
         /// </summary>
@@ -118,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>If you specify this parameter, then only log events in the log streams that have names
-        /// that start with the prefixes that you specify here are included in the Live Tail session.</para><note><para>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</para></note>
+        /// that start with the prefixes that you specify here are included in the Live Tail session.</para><para>If you specify this field, you can't also specify the <c>logStreamNames</c> field.</para><note><para>You can specify this parameter only if you specify only one log group in <c>logGroupIdentifiers</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,7 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>If you specify this parameter, then only log events in the log streams that you specify
-        /// here are included in the Live Tail session.</para><note><para>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</para></note>
+        /// here are included in the Live Tail session.</para><para>If you specify this field, you can't also specify the <c>logStreamNamePrefixes</c>
+        /// field.</para><note><para>You can specify this parameter only if you specify only one log group in <c>logGroupIdentifiers</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,25 +28,24 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Deploys the new <code>EndpointConfig</code> specified in the request, switches to
-    /// using newly created endpoint, and then deletes resources provisioned for the endpoint
-    /// using the previous <code>EndpointConfig</code> (there is no availability loss). 
+    /// Deploys the new <c>EndpointConfig</c> specified in the request, switches to using
+    /// newly created endpoint, and then deletes resources provisioned for the endpoint using
+    /// the previous <c>EndpointConfig</c> (there is no availability loss). 
     /// 
     ///  
     /// <para>
-    /// When SageMaker receives the request, it sets the endpoint status to <code>Updating</code>.
-    /// After updating the endpoint, it sets the status to <code>InService</code>. To check
-    /// the status of an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a>
+    /// When SageMaker receives the request, it sets the endpoint status to <c>Updating</c>.
+    /// After updating the endpoint, it sets the status to <c>InService</c>. To check the
+    /// status of an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a>
     /// API. 
     /// </para><note><para>
-    /// You must not delete an <code>EndpointConfig</code> in use by an endpoint that is live
-    /// or while the <code>UpdateEndpoint</code> or <code>CreateEndpoint</code> operations
-    /// are being performed on the endpoint. To update an endpoint, you must create a new
-    /// <code>EndpointConfig</code>.
+    /// You must not delete an <c>EndpointConfig</c> in use by an endpoint that is live or
+    /// while the <c>UpdateEndpoint</c> or <c>CreateEndpoint</c> operations are being performed
+    /// on the endpoint. To update an endpoint, you must create a new <c>EndpointConfig</c>.
     /// </para><para>
-    /// If you delete the <code>EndpointConfig</code> of an endpoint that is active or being
-    /// created or updated you may lose visibility into the instance type the endpoint is
-    /// using. The endpoint must be deleted in order to stop incurring charges.
+    /// If you delete the <c>EndpointConfig</c> of an endpoint that is active or being created
+    /// or updated you may lose visibility into the instance type the endpoint is using. The
+    /// endpoint must be deleted in order to stop incurring charges.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "SMEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -111,12 +110,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ExcludeRetainedVariantProperty
         /// <summary>
         /// <para>
-        /// <para>When you are updating endpoint resources with <code>RetainAllVariantProperties</code>,
-        /// whose value is set to <code>true</code>, <code>ExcludeRetainedVariantProperties</code>
-        /// specifies the list of type <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">VariantProperty</a>
-        /// to override with the values provided by <code>EndpointConfig</code>. If you don't
-        /// specify a value for <code>ExcludeRetainedVariantProperties</code>, no variant properties
-        /// are overridden. </para>
+        /// <para>When you are updating endpoint resources with <c>RetainAllVariantProperties</c>, whose
+        /// value is set to <c>true</c>, <c>ExcludeRetainedVariantProperties</c> specifies the
+        /// list of type <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">VariantProperty</a>
+        /// to override with the values provided by <c>EndpointConfig</c>. If you don't specify
+        /// a value for <c>ExcludeRetainedVariantProperties</c>, no variant properties are overridden.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Maximum execution timeout for the deployment. Note that the timeout value should be
-        /// larger than the total waiting time specified in <code>TerminationWaitInSeconds</code>
-        /// and <code>WaitIntervalInSeconds</code>.</para>
+        /// larger than the total waiting time specified in <c>TerminationWaitInSeconds</c> and
+        /// <c>WaitIntervalInSeconds</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,10 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>When updating endpoint resources, enables or disables the retention of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">variant
         /// properties</a>, such as the instance count or the variant weight. To retain the variant
-        /// properties of an endpoint when updating it, set <code>RetainAllVariantProperties</code>
-        /// to <code>true</code>. To use the variant properties specified in a new <code>EndpointConfig</code>
-        /// call when updating an endpoint, set <code>RetainAllVariantProperties</code> to <code>false</code>.
-        /// The default is <code>false</code>.</para>
+        /// properties of an endpoint when updating it, set <c>RetainAllVariantProperties</c>
+        /// to <c>true</c>. To use the variant properties specified in a new <c>EndpointConfig</c>
+        /// call when updating an endpoint, set <c>RetainAllVariantProperties</c> to <c>false</c>.
+        /// The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CanarySize_Type
         /// <summary>
         /// <para>
-        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><code>INSTANCE_COUNT</code>: The endpoint activates based on the number of instances.</para></li><li><para><code>CAPACITY_PERCENT</code>: The endpoint activates based on the specified percentage
+        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><c>INSTANCE_COUNT</c>: The endpoint activates based on the number of instances.</para></li><li><para><c>CAPACITY_PERCENT</c>: The endpoint activates based on the specified percentage
         /// of capacity.</para></li></ul>
         /// </para>
         /// </summary>
@@ -203,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter LinearStepSize_Type
         /// <summary>
         /// <para>
-        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><code>INSTANCE_COUNT</code>: The endpoint activates based on the number of instances.</para></li><li><para><code>CAPACITY_PERCENT</code>: The endpoint activates based on the specified percentage
+        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><c>INSTANCE_COUNT</c>: The endpoint activates based on the number of instances.</para></li><li><para><c>CAPACITY_PERCENT</c>: The endpoint activates based on the specified percentage
         /// of capacity.</para></li></ul>
         /// </para>
         /// </summary>
@@ -216,10 +215,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TrafficRoutingConfiguration_Type
         /// <summary>
         /// <para>
-        /// <para>Traffic routing strategy type.</para><ul><li><para><code>ALL_AT_ONCE</code>: Endpoint traffic shifts to the new fleet in a single step.
-        /// </para></li><li><para><code>CANARY</code>: Endpoint traffic shifts to the new fleet in two steps. The first
-        /// step is the canary, which is a small portion of the traffic. The second step is the
-        /// remainder of the traffic. </para></li><li><para><code>LINEAR</code>: Endpoint traffic shifts to the new fleet in n steps of a configurable
+        /// <para>Traffic routing strategy type.</para><ul><li><para><c>ALL_AT_ONCE</c>: Endpoint traffic shifts to the new fleet in a single step. </para></li><li><para><c>CANARY</c>: Endpoint traffic shifts to the new fleet in two steps. The first step
+        /// is the canary, which is a small portion of the traffic. The second step is the remainder
+        /// of the traffic. </para></li><li><para><c>LINEAR</c>: Endpoint traffic shifts to the new fleet in n steps of a configurable
         /// size. </para></li></ul>
         /// </para>
         /// </summary>
@@ -232,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MaximumBatchSize_Type
         /// <summary>
         /// <para>
-        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><code>INSTANCE_COUNT</code>: The endpoint activates based on the number of instances.</para></li><li><para><code>CAPACITY_PERCENT</code>: The endpoint activates based on the specified percentage
+        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><c>INSTANCE_COUNT</c>: The endpoint activates based on the number of instances.</para></li><li><para><c>CAPACITY_PERCENT</c>: The endpoint activates based on the specified percentage
         /// of capacity.</para></li></ul>
         /// </para>
         /// </summary>
@@ -245,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RollbackMaximumBatchSize_Type
         /// <summary>
         /// <para>
-        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><code>INSTANCE_COUNT</code>: The endpoint activates based on the number of instances.</para></li><li><para><code>CAPACITY_PERCENT</code>: The endpoint activates based on the specified percentage
+        /// <para>Specifies the endpoint capacity type.</para><ul><li><para><c>INSTANCE_COUNT</c>: The endpoint activates based on the number of instances.</para></li><li><para><c>CAPACITY_PERCENT</c>: The endpoint activates based on the specified percentage
         /// of capacity.</para></li></ul>
         /// </para>
         /// </summary>

@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The personas that define the specific permissions of users or groups in your IAM Identity
-        /// Center identity source. The available personas or access roles are <code>Owner</code>
-        /// and <code>Viewer</code>. For more information on these personas, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html#access-search-experience">Providing
+        /// Center identity source. The available personas or access roles are <c>Owner</c> and
+        /// <c>Viewer</c>. For more information on these personas, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html#access-search-experience">Providing
         /// access to your search page</a>.</para>
         /// </para>
         /// </summary>

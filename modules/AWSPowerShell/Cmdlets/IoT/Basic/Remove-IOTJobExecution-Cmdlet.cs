@@ -51,9 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter ExecutionNumber
         /// <summary>
         /// <para>
-        /// <para>The ID of the job execution to be deleted. The <code>executionNumber</code> refers
-        /// to the execution of a particular job on a particular device.</para><para>Note that once a job execution is deleted, the <code>executionNumber</code> may be
-        /// reused by IoT, so be sure you get and use the correct value here.</para>
+        /// <para>The ID of the job execution to be deleted. The <c>executionNumber</c> refers to the
+        /// execution of a particular job on a particular device.</para><para>Note that once a job execution is deleted, the <c>executionNumber</c> may be reused
+        /// by IoT, so be sure you get and use the correct value here.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The namespace used to indicate that a job is a customer-managed job.</para><para>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs
-        /// notifications to MQTT topics that contain the value in the following format.</para><para><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></para><note><para>The <code>namespaceId</code> feature is in public preview.</para></note>
+        /// notifications to MQTT topics that contain the value in the following format.</para><para><c>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</c></para><note><para>The <c>namespaceId</c> feature is in public preview.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

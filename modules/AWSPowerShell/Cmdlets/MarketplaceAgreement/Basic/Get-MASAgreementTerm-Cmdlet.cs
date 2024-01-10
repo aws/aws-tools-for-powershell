@@ -34,15 +34,15 @@ namespace Amazon.PowerShell.Cmdlets.MAS
     ///  
     /// <para>
     /// The details include:
-    /// </para><ul><li><para><code>TermType</code> – The type of term, such as <code>LegalTerm</code>, <code>RenewalTerm</code>,
-    /// or <code>ConfigurableUpfrontPricingTerm</code>.
-    /// </para></li><li><para><code>TermID</code> – The ID of the particular term, which is common between offer
-    /// and agreement.
-    /// </para></li><li><para><code>TermPayload</code> – The key information contained in the term, such as the
-    /// EULA for <code>LegalTerm</code> or pricing and dimensions for various pricing terms,
-    /// such as <code>ConfigurableUpfrontPricingTerm</code> or <code>UsageBasedPricingTerm</code>.
-    /// </para></li></ul><ul><li><para><code>Configuration</code> – The buyer/acceptor's selection at the time of agreement
-    /// creation, such as the number of units purchased for a dimension or setting the <code>EnableAutoRenew</code>
+    /// </para><ul><li><para><c>TermType</c> – The type of term, such as <c>LegalTerm</c>, <c>RenewalTerm</c>,
+    /// or <c>ConfigurableUpfrontPricingTerm</c>.
+    /// </para></li><li><para><c>TermID</c> – The ID of the particular term, which is common between offer and
+    /// agreement.
+    /// </para></li><li><para><c>TermPayload</c> – The key information contained in the term, such as the EULA
+    /// for <c>LegalTerm</c> or pricing and dimensions for various pricing terms, such as
+    /// <c>ConfigurableUpfrontPricingTerm</c> or <c>UsageBasedPricingTerm</c>.
+    /// </para></li></ul><ul><li><para><c>Configuration</c> – The buyer/acceptor's selection at the time of agreement creation,
+    /// such as the number of units purchased for a dimension or setting the <c>EnableAutoRenew</c>
     /// flag.
     /// </para></li></ul>
     /// </summary>

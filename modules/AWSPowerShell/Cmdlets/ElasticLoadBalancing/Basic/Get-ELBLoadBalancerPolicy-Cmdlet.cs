@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// balancer, the action returns the description of that policy. If you don't specify
     /// a load balancer name, the action returns descriptions of the specified sample policies,
     /// or descriptions of all sample policies. The names of the sample policies have the
-    /// <code>ELBSample-</code> prefix.
+    /// <c>ELBSample-</c> prefix.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "ELBLoadBalancerPolicy")]

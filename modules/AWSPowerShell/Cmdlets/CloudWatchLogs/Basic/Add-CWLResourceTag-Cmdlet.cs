@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly
     /// as strings of characters.
     /// </para><para>
-    /// You can use the <code>TagResource</code> action with a resource that already has tags.
-    /// If you specify a new tag key for the alarm, this tag is appended to the list of tags
+    /// You can use the <c>TagResource</c> action with a resource that already has tags. If
+    /// you specify a new tag key for the alarm, this tag is appended to the list of tags
     /// associated with the alarm. If you specify a tag key that is already associated with
     /// the alarm, the new tag value that you specify replaces the previous value for that
     /// tag.
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource that you're adding tags to.</para><para>The ARN format of a log group is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i></code></para><para>The ARN format of a destination is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i></code></para><para>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch
+        /// <para>The ARN of the resource that you're adding tags to.</para><para>The ARN format of a log group is <c>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i></c></para><para>The ARN format of a destination is <c>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i></c></para><para>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch
         /// Logs resources and operations</a>.</para>
         /// </para>
         /// </summary>

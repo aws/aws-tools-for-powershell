@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Lists Amazon SageMaker Catalogs based on given filters and orders. The maximum number
-    /// of <code>ResourceCatalog</code>s viewable is 1000.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// of <c>ResourceCatalog</c>s viewable is 1000.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMResourceCatalogList")]
     [OutputType("Amazon.SageMaker.Model.ResourceCatalog")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CreationTimeAfter
         /// <summary>
         /// <para>
-        /// <para> Use this parameter to search for <code>ResourceCatalog</code>s created after a specific
+        /// <para> Use this parameter to search for <c>ResourceCatalog</c>s created after a specific
         /// date and time. </para>
         /// </para>
         /// </summary>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CreationTimeBefore
         /// <summary>
         /// <para>
-        /// <para> Use this parameter to search for <code>ResourceCatalog</code>s created before a specific
+        /// <para> Use this parameter to search for <c>ResourceCatalog</c>s created before a specific
         /// date and time. </para>
         /// </para>
         /// </summary>
@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NameContain
         /// <summary>
         /// <para>
-        /// <para> A string that partially matches one or more <code>ResourceCatalog</code>s names.
-        /// Filters <code>ResourceCatalog</code> by name. </para>
+        /// <para> A string that partially matches one or more <c>ResourceCatalog</c>s names. Filters
+        /// <c>ResourceCatalog</c> by name. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of results returned by <code>ListResourceCatalogs</code>. </para>
+        /// <para> The maximum number of results returned by <c>ListResourceCatalogs</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A token to resume pagination of <code>ListResourceCatalogs</code> results. </para>
+        /// <para> A token to resume pagination of <c>ListResourceCatalogs</c> results. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
     /// Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
-    /// layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code>
-    /// with the same layer name, a new version is created.
+    /// layer</a> from a ZIP archive. Each time you call <c>PublishLayerVersion</c> with the
+    /// same layer name, a new version is created.
     /// 
     ///  
     /// <para>
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The layer's software license. It can be any of the following:</para><ul><li><para>An <a href="https://spdx.org/licenses/">SPDX license identifier</a>. For example,
-        /// <code>MIT</code>.</para></li><li><para>The URL of a license hosted on the internet. For example, <code>https://opensource.org/licenses/MIT</code>.</para></li><li><para>The full text of the license.</para></li></ul>
+        /// <c>MIT</c>.</para></li><li><para>The URL of a license hosted on the internet. For example, <c>https://opensource.org/licenses/MIT</c>.</para></li><li><para>The full text of the license.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

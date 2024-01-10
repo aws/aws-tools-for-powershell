@@ -87,10 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <summary>
         /// <para>
         /// <para>List of repository association states to use as a filter.</para><para>The valid repository association states are:</para><ul><li><para><b>Associated</b>: The repository association is complete.</para></li><li><para><b>Associating</b>: CodeGuru Reviewer is:</para><ul><li><para>Setting up pull request notifications. This is required for pull requests to trigger
-        /// a CodeGuru Reviewer review.</para><note><para>If your repository <code>ProviderType</code> is <code>GitHub</code>, <code>GitHub
-        /// Enterprise Server</code>, or <code>Bitbucket</code>, CodeGuru Reviewer creates webhooks
-        /// in your repository to trigger CodeGuru Reviewer reviews. If you delete these webhooks,
-        /// reviews of code in your repository cannot be triggered.</para></note></li><li><para>Setting up source code access. This is required for CodeGuru Reviewer to securely
+        /// a CodeGuru Reviewer review.</para><note><para>If your repository <c>ProviderType</c> is <c>GitHub</c>, <c>GitHub Enterprise Server</c>,
+        /// or <c>Bitbucket</c>, CodeGuru Reviewer creates webhooks in your repository to trigger
+        /// CodeGuru Reviewer reviews. If you delete these webhooks, reviews of code in your repository
+        /// cannot be triggered.</para></note></li><li><para>Setting up source code access. This is required for CodeGuru Reviewer to securely
         /// clone code in your repository.</para></li></ul></li><li><para><b>Failed</b>: The repository failed to associate or disassociate.</para></li><li><para><b>Disassociating</b>: CodeGuru Reviewer is removing the repository's pull request
         /// notifications and source code access.</para></li><li><para><b>Disassociated</b>: CodeGuru Reviewer successfully disassociated the repository.
         /// You can create a new association with this repository if you want to review source
@@ -108,13 +108,13 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of repository association results returned by <code>ListRepositoryAssociations</code>
-        /// in paginated output. When this parameter is used, <code>ListRepositoryAssociations</code>
-        /// only returns <code>maxResults</code> results in a single page with a <code>nextToken</code>
-        /// response element. The remaining results of the initial request can be seen by sending
-        /// another <code>ListRepositoryAssociations</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 100. If this parameter is not used, <code>ListRepositoryAssociations</code>
-        /// returns up to 100 results and a <code>nextToken</code> value if applicable. </para>
+        /// <para>The maximum number of repository association results returned by <c>ListRepositoryAssociations</c>
+        /// in paginated output. When this parameter is used, <c>ListRepositoryAssociations</c>
+        /// only returns <c>maxResults</c> results in a single page with a <c>nextToken</c> response
+        /// element. The remaining results of the initial request can be seen by sending another
+        /// <c>ListRepositoryAssociations</c> request with the returned <c>nextToken</c> value.
+        /// This value can be between 1 and 100. If this parameter is not used, <c>ListRepositoryAssociations</c>
+        /// returns up to 100 results and a <c>nextToken</c> value if applicable. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,10 +125,10 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListRepositoryAssociations</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. </para><note><para>Treat this token as an opaque identifier that is only used to retrieve the next items
+        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>ListRepositoryAssociations</c>
+        /// request where <c>maxResults</c> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <c>nextToken</c> value. </para><note><para>Treat this token as an opaque identifier that is only used to retrieve the next items
         /// in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

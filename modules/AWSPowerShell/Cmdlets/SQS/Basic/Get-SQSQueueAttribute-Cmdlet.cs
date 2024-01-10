@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// 
     ///  <note><para>
     /// To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>,
-    /// you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.
+    /// you can check whether <c>QueueName</c> ends with the <c>.fifo</c> suffix.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "SQSQueueAttribute")]
@@ -49,70 +49,66 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter AttributeName
         /// <summary>
         /// <para>
-        /// <para>A list of attributes for which to retrieve information.</para><para>The <code>AttributeNames</code> parameter is optional, but if you don't specify values
-        /// for this parameter, the request returns empty results.</para><note><para>In the future, new attributes might be added. If you write code that calls this action,
-        /// we recommend that you structure your code so that it can handle new attributes gracefully.</para></note><para>The following attributes are supported:</para><important><para>The <code>ApproximateNumberOfMessagesDelayed</code>, <code>ApproximateNumberOfMessagesNotVisible</code>,
-        /// and <code>ApproximateNumberOfMessages</code> metrics may not achieve consistency until
-        /// at least 1 minute after the producers stop sending messages. This period is required
-        /// for the queue metadata to reach eventual consistency. </para></important><ul><li><para><code>All</code> – Returns all values. </para></li><li><para><code>ApproximateNumberOfMessages</code> – Returns the approximate number of messages
-        /// available for retrieval from the queue.</para></li><li><para><code>ApproximateNumberOfMessagesDelayed</code> – Returns the approximate number
-        /// of messages in the queue that are delayed and not available for reading immediately.
-        /// This can happen when the queue is configured as a delay queue or when a message has
-        /// been sent with a delay parameter.</para></li><li><para><code>ApproximateNumberOfMessagesNotVisible</code> – Returns the approximate number
-        /// of messages that are in flight. Messages are considered to be <i>in flight</i> if
-        /// they have been sent to a client but have not yet been deleted or have not yet reached
-        /// the end of their visibility window. </para></li><li><para><code>CreatedTimestamp</code> – Returns the time when the queue was created in seconds
-        /// (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a>).</para></li><li><para><code>DelaySeconds</code> – Returns the default delay on the queue in seconds.</para></li><li><para><code>LastModifiedTimestamp</code> – Returns the time when the queue was last changed
-        /// in seconds (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a>).</para></li><li><para><code>MaximumMessageSize</code> – Returns the limit of how many bytes a message can
-        /// contain before Amazon SQS rejects it.</para></li><li><para><code>MessageRetentionPeriod</code> – Returns the length of time, in seconds, for
-        /// which Amazon SQS retains a message. When you change a queue's attributes, the change
-        /// can take up to 60 seconds for most of the attributes to propagate throughout the Amazon
-        /// SQS system. Changes made to the <code>MessageRetentionPeriod</code> attribute can
-        /// take up to 15 minutes and will impact existing messages in the queue potentially causing
-        /// them to be expired and deleted if the <code>MessageRetentionPeriod</code> is reduced
-        /// below the age of existing messages.</para></li><li><para><code>Policy</code> – Returns the policy of the queue.</para></li><li><para><code>QueueArn</code> – Returns the Amazon resource name (ARN) of the queue.</para></li><li><para><code>ReceiveMessageWaitTimeSeconds</code> – Returns the length of time, in seconds,
-        /// for which the <code>ReceiveMessage</code> action waits for a message to arrive. </para></li><li><para><code>VisibilityTimeout</code> – Returns the visibility timeout for the queue. For
-        /// more information about the visibility timeout, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
+        /// <para>A list of attributes for which to retrieve information.</para><para>The <c>AttributeNames</c> parameter is optional, but if you don't specify values for
+        /// this parameter, the request returns empty results.</para><note><para>In the future, new attributes might be added. If you write code that calls this action,
+        /// we recommend that you structure your code so that it can handle new attributes gracefully.</para></note><para>The following attributes are supported:</para><important><para>The <c>ApproximateNumberOfMessagesDelayed</c>, <c>ApproximateNumberOfMessagesNotVisible</c>,
+        /// and <c>ApproximateNumberOfMessages</c> metrics may not achieve consistency until at
+        /// least 1 minute after the producers stop sending messages. This period is required
+        /// for the queue metadata to reach eventual consistency. </para></important><ul><li><para><c>All</c> – Returns all values. </para></li><li><para><c>ApproximateNumberOfMessages</c> – Returns the approximate number of messages available
+        /// for retrieval from the queue.</para></li><li><para><c>ApproximateNumberOfMessagesDelayed</c> – Returns the approximate number of messages
+        /// in the queue that are delayed and not available for reading immediately. This can
+        /// happen when the queue is configured as a delay queue or when a message has been sent
+        /// with a delay parameter.</para></li><li><para><c>ApproximateNumberOfMessagesNotVisible</c> – Returns the approximate number of
+        /// messages that are in flight. Messages are considered to be <i>in flight</i> if they
+        /// have been sent to a client but have not yet been deleted or have not yet reached the
+        /// end of their visibility window. </para></li><li><para><c>CreatedTimestamp</c> – Returns the time when the queue was created in seconds
+        /// (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a>).</para></li><li><para><c>DelaySeconds</c> – Returns the default delay on the queue in seconds.</para></li><li><para><c>LastModifiedTimestamp</c> – Returns the time when the queue was last changed in
+        /// seconds (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a>).</para></li><li><para><c>MaximumMessageSize</c> – Returns the limit of how many bytes a message can contain
+        /// before Amazon SQS rejects it.</para></li><li><para><c>MessageRetentionPeriod</c> – Returns the length of time, in seconds, for which
+        /// Amazon SQS retains a message. When you change a queue's attributes, the change can
+        /// take up to 60 seconds for most of the attributes to propagate throughout the Amazon
+        /// SQS system. Changes made to the <c>MessageRetentionPeriod</c> attribute can take up
+        /// to 15 minutes and will impact existing messages in the queue potentially causing them
+        /// to be expired and deleted if the <c>MessageRetentionPeriod</c> is reduced below the
+        /// age of existing messages.</para></li><li><para><c>Policy</c> – Returns the policy of the queue.</para></li><li><para><c>QueueArn</c> – Returns the Amazon resource name (ARN) of the queue.</para></li><li><para><c>ReceiveMessageWaitTimeSeconds</c> – Returns the length of time, in seconds, for
+        /// which the <c>ReceiveMessage</c> action waits for a message to arrive. </para></li><li><para><c>VisibilityTimeout</c> – Returns the visibility timeout for the queue. For more
+        /// information about the visibility timeout, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
         /// Timeout</a> in the <i>Amazon SQS Developer Guide</i>. </para></li></ul><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter
-        /// queues:</a></para><ul><li><para><code>RedrivePolicy</code> – The string that includes the parameters for the dead-letter
-        /// queue functionality of the source queue as a JSON object. The parameters are as follows:</para><ul><li><para><code>deadLetterTargetArn</code> – The Amazon Resource Name (ARN) of the dead-letter
-        /// queue to which Amazon SQS moves messages after the value of <code>maxReceiveCount</code>
-        /// is exceeded.</para></li><li><para><code>maxReceiveCount</code> – The number of times a message is delivered to the
-        /// source queue before being moved to the dead-letter queue. Default: 10. When the <code>ReceiveCount</code>
-        /// for a message exceeds the <code>maxReceiveCount</code> for a queue, Amazon SQS moves
-        /// the message to the dead-letter-queue.</para></li></ul></li><li><para><code>RedriveAllowPolicy</code> – The string that includes the parameters for the
-        /// permissions for the dead-letter queue redrive permission and which source queues can
-        /// specify dead-letter queues as a JSON object. The parameters are as follows:</para><ul><li><para><code>redrivePermission</code> – The permission type that defines which source queues
-        /// can specify the current queue as the dead-letter queue. Valid values are:</para><ul><li><para><code>allowAll</code> – (Default) Any source queues in this Amazon Web Services account
-        /// in the same Region can specify this queue as the dead-letter queue.</para></li><li><para><code>denyAll</code> – No source queues can specify this queue as the dead-letter
-        /// queue.</para></li><li><para><code>byQueue</code> – Only queues specified by the <code>sourceQueueArns</code>
-        /// parameter can specify this queue as the dead-letter queue.</para></li></ul></li><li><para><code>sourceQueueArns</code> – The Amazon Resource Names (ARN)s of the source queues
-        /// that can specify this queue as the dead-letter queue and redrive messages. You can
-        /// specify this parameter only when the <code>redrivePermission</code> parameter is set
-        /// to <code>byQueue</code>. You can specify up to 10 source queue ARNs. To allow more
-        /// than 10 source queues to specify dead-letter queues, set the <code>redrivePermission</code>
-        /// parameter to <code>allowAll</code>.</para></li></ul></li></ul><note><para>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter
-        /// queue of a standard queue must also be a standard queue.</para></note><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</para><ul><li><para><code>KmsMasterKeyId</code> – Returns the ID of an Amazon Web Services managed customer
+        /// queues:</a></para><ul><li><para><c>RedrivePolicy</c> – The string that includes the parameters for the dead-letter
+        /// queue functionality of the source queue as a JSON object. The parameters are as follows:</para><ul><li><para><c>deadLetterTargetArn</c> – The Amazon Resource Name (ARN) of the dead-letter queue
+        /// to which Amazon SQS moves messages after the value of <c>maxReceiveCount</c> is exceeded.</para></li><li><para><c>maxReceiveCount</c> – The number of times a message is delivered to the source
+        /// queue before being moved to the dead-letter queue. Default: 10. When the <c>ReceiveCount</c>
+        /// for a message exceeds the <c>maxReceiveCount</c> for a queue, Amazon SQS moves the
+        /// message to the dead-letter-queue.</para></li></ul></li><li><para><c>RedriveAllowPolicy</c> – The string that includes the parameters for the permissions
+        /// for the dead-letter queue redrive permission and which source queues can specify dead-letter
+        /// queues as a JSON object. The parameters are as follows:</para><ul><li><para><c>redrivePermission</c> – The permission type that defines which source queues can
+        /// specify the current queue as the dead-letter queue. Valid values are:</para><ul><li><para><c>allowAll</c> – (Default) Any source queues in this Amazon Web Services account
+        /// in the same Region can specify this queue as the dead-letter queue.</para></li><li><para><c>denyAll</c> – No source queues can specify this queue as the dead-letter queue.</para></li><li><para><c>byQueue</c> – Only queues specified by the <c>sourceQueueArns</c> parameter can
+        /// specify this queue as the dead-letter queue.</para></li></ul></li><li><para><c>sourceQueueArns</c> – The Amazon Resource Names (ARN)s of the source queues that
+        /// can specify this queue as the dead-letter queue and redrive messages. You can specify
+        /// this parameter only when the <c>redrivePermission</c> parameter is set to <c>byQueue</c>.
+        /// You can specify up to 10 source queue ARNs. To allow more than 10 source queues to
+        /// specify dead-letter queues, set the <c>redrivePermission</c> parameter to <c>allowAll</c>.</para></li></ul></li></ul><note><para>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter
+        /// queue of a standard queue must also be a standard queue.</para></note><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</para><ul><li><para><c>KmsMasterKeyId</c> – Returns the ID of an Amazon Web Services managed customer
         /// master key (CMK) for Amazon SQS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key
-        /// Terms</a>. </para></li><li><para><code>KmsDataKeyReusePeriodSeconds</code> – Returns the length of time, in seconds,
-        /// for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling
+        /// Terms</a>. </para></li><li><para><c>KmsDataKeyReusePeriodSeconds</c> – Returns the length of time, in seconds, for
+        /// which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling
         /// KMS again. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How
-        /// Does the Data Key Reuse Period Work?</a>. </para></li><li><para><code>SqsManagedSseEnabled</code> – Returns information about whether the queue is
-        /// using SSE-SQS encryption using SQS owned encryption keys. Only one server-side encryption
+        /// Does the Data Key Reuse Period Work?</a>. </para></li><li><para><c>SqsManagedSseEnabled</c> – Returns information about whether the queue is using
+        /// SSE-SQS encryption using SQS owned encryption keys. Only one server-side encryption
         /// option is supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a>
         /// or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</para></li></ul><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO
-        /// (first-in-first-out) queues</a>:</para><ul><li><para><code>FifoQueue</code> – Returns information about whether the queue is FIFO. For
-        /// more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html">FIFO
+        /// (first-in-first-out) queues</a>:</para><ul><li><para><c>FifoQueue</c> – Returns information about whether the queue is FIFO. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html">FIFO
         /// queue logic</a> in the <i>Amazon SQS Developer Guide</i>.</para><note><para>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>,
-        /// you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.</para></note></li><li><para><code>ContentBasedDeduplication</code> – Returns whether content-based deduplication
-        /// is enabled for the queue. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once
+        /// you can check whether <c>QueueName</c> ends with the <c>.fifo</c> suffix.</para></note></li><li><para><c>ContentBasedDeduplication</c> – Returns whether content-based deduplication is
+        /// enabled for the queue. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once
         /// processing</a> in the <i>Amazon SQS Developer Guide</i>. </para></li></ul><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high
-        /// throughput for FIFO queues</a>:</para><ul><li><para><code>DeduplicationScope</code> – Specifies whether message deduplication occurs
-        /// at the message group or queue level. Valid values are <code>messageGroup</code> and
-        /// <code>queue</code>.</para></li><li><para><code>FifoThroughputLimit</code> – Specifies whether the FIFO queue throughput quota
-        /// applies to the entire queue or per message group. Valid values are <code>perQueue</code>
-        /// and <code>perMessageGroupId</code>. The <code>perMessageGroupId</code> value is allowed
-        /// only when the value for <code>DeduplicationScope</code> is <code>messageGroup</code>.</para></li></ul><para>To enable high throughput for FIFO queues, do the following:</para><ul><li><para>Set <code>DeduplicationScope</code> to <code>messageGroup</code>.</para></li><li><para>Set <code>FifoThroughputLimit</code> to <code>perMessageGroupId</code>.</para></li></ul><para>If you set these attributes to anything other than the values shown for enabling high
+        /// throughput for FIFO queues</a>:</para><ul><li><para><c>DeduplicationScope</c> – Specifies whether message deduplication occurs at the
+        /// message group or queue level. Valid values are <c>messageGroup</c> and <c>queue</c>.</para></li><li><para><c>FifoThroughputLimit</c> – Specifies whether the FIFO queue throughput quota applies
+        /// to the entire queue or per message group. Valid values are <c>perQueue</c> and <c>perMessageGroupId</c>.
+        /// The <c>perMessageGroupId</c> value is allowed only when the value for <c>DeduplicationScope</c>
+        /// is <c>messageGroup</c>.</para></li></ul><para>To enable high throughput for FIFO queues, do the following:</para><ul><li><para>Set <c>DeduplicationScope</c> to <c>messageGroup</c>.</para></li><li><para>Set <c>FifoThroughputLimit</c> to <c>perMessageGroupId</c>.</para></li></ul><para>If you set these attributes to anything other than the values shown for enabling high
         /// throughput, normal throughput is in effect and deduplication occurs as specified.</para><para>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas
         /// related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</para>
         /// </para>

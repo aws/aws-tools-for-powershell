@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
         #region Parameter CpiUserPassword
         /// <summary>
         /// <para>
-        /// <para>The CPI password associated with the CPI certificate in <code>cpiSecretKey</code>.</para>
+        /// <para>The CPI password associated with the CPI certificate in <c>cpiSecretKey</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

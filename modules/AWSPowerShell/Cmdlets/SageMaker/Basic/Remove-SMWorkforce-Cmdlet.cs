@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// </para><important><para>
     /// If a private workforce contains one or more work teams, you must use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkteam.html">DeleteWorkteam</a>
     /// operation to delete all work teams before you delete the workforce. If you try to
-    /// delete a workforce that contains one or more work teams, you will recieve a <code>ResourceInUse</code>
+    /// delete a workforce that contains one or more work teams, you will recieve a <c>ResourceInUse</c>
     /// error.
     /// </para></important>
     /// </summary>

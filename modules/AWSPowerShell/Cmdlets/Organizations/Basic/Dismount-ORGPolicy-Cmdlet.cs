@@ -36,13 +36,13 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// immediate.
     /// </para></important><para>
     /// Every root, OU, and account must have at least one SCP attached. If you want to replace
-    /// the default <code>FullAWSAccess</code> policy with an SCP that limits the permissions
-    /// that can be delegated, you must attach the replacement SCP before you can remove the
-    /// default SCP. This is the authorization strategy of an "<a href="https://docs.aws.amazon.com/organizations/latest/userguide/SCP_strategies.html#orgs_policies_allowlist">allow
-    /// list</a>". If you instead attach a second SCP and leave the <code>FullAWSAccess</code>
-    /// SCP still attached, and specify <code>"Effect": "Deny"</code> in the second SCP to
-    /// override the <code>"Effect": "Allow"</code> in the <code>FullAWSAccess</code> policy
-    /// (or any other attached SCP), you're using the authorization strategy of a "<a href="https://docs.aws.amazon.com/organizations/latest/userguide/SCP_strategies.html#orgs_policies_denylist">deny
+    /// the default <c>FullAWSAccess</c> policy with an SCP that limits the permissions that
+    /// can be delegated, you must attach the replacement SCP before you can remove the default
+    /// SCP. This is the authorization strategy of an "<a href="https://docs.aws.amazon.com/organizations/latest/userguide/SCP_strategies.html#orgs_policies_allowlist">allow
+    /// list</a>". If you instead attach a second SCP and leave the <c>FullAWSAccess</c> SCP
+    /// still attached, and specify <c>"Effect": "Deny"</c> in the second SCP to override
+    /// the <c>"Effect": "Allow"</c> in the <c>FullAWSAccess</c> policy (or any other attached
+    /// SCP), you're using the authorization strategy of a "<a href="https://docs.aws.amazon.com/organizations/latest/userguide/SCP_strategies.html#orgs_policies_denylist">deny
     /// list</a>".
     /// </para><para>
     /// This operation can be called only from the organization's management account or by

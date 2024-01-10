@@ -72,14 +72,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A set of name-value pairs that define which endpoints to include in the output. The
-        /// filters are specified as name-value pairs, in the format <code>Name=<i>endpoint_type</i>,Values=<i>endpoint_type1</i>,<i>endpoint_type2</i>,...</code>.
-        /// <code>Name</code> can be one of: <code>db-cluster-endpoint-type</code>, <code>db-cluster-endpoint-custom-type</code>,
-        /// <code>db-cluster-endpoint-id</code>, <code>db-cluster-endpoint-status</code>. <code>Values</code>
-        /// for the <code> db-cluster-endpoint-type</code> filter can be one or more of: <code>reader</code>,
-        /// <code>writer</code>, <code>custom</code>. <code>Values</code> for the <code>db-cluster-endpoint-custom-type</code>
-        /// filter can be one or more of: <code>reader</code>, <code>any</code>. <code>Values</code>
-        /// for the <code>db-cluster-endpoint-status</code> filter can be one or more of: <code>available</code>,
-        /// <code>creating</code>, <code>deleting</code>, <code>inactive</code>, <code>modifying</code>.</para>
+        /// filters are specified as name-value pairs, in the format <c>Name=<i>endpoint_type</i>,Values=<i>endpoint_type1</i>,<i>endpoint_type2</i>,...</c>.
+        /// <c>Name</c> can be one of: <c>db-cluster-endpoint-type</c>, <c>db-cluster-endpoint-custom-type</c>,
+        /// <c>db-cluster-endpoint-id</c>, <c>db-cluster-endpoint-status</c>. <c>Values</c> for
+        /// the <c> db-cluster-endpoint-type</c> filter can be one or more of: <c>reader</c>,
+        /// <c>writer</c>, <c>custom</c>. <c>Values</c> for the <c>db-cluster-endpoint-custom-type</c>
+        /// filter can be one or more of: <c>reader</c>, <c>any</c>. <c>Values</c> for the <c>db-cluster-endpoint-status</c>
+        /// filter can be one or more of: <c>available</c>, <c>creating</c>, <c>deleting</c>,
+        /// <c>inactive</c>, <c>modifying</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,9 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>An optional pagination token provided by a previous <code>DescribeDBClusterEndpoints</code>
+        /// <para>An optional pagination token provided by a previous <c>DescribeDBClusterEndpoints</c>
         /// request. If this parameter is specified, the response includes only records beyond
-        /// the marker, up to the value specified by <code>MaxRecords</code>.</para>
+        /// the marker, up to the value specified by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -108,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// the specified <c>MaxRecords</c> value, a pagination token called a marker is included
+        /// in the response so you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

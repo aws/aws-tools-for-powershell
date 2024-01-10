@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     ///  <note><para>
     /// We do not recommend using this action to register instances. The complete registration
     /// operation includes two tasks: installing the AWS OpsWorks Stacks agent on the instance,
-    /// and registering the instance with the stack. <code>RegisterInstance</code> handles
-    /// only the second step. You should instead use the AWS CLI <code>register</code> command,
-    /// which performs the entire registration operation. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html">
+    /// and registering the instance with the stack. <c>RegisterInstance</c> handles only
+    /// the second step. You should instead use the AWS CLI <c>register</c> command, which
+    /// performs the entire registration operation. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html">
     /// Registering an Instance with an AWS OpsWorks Stacks Stack</a>.
     /// </para></note><para>
     /// Registered instances have the same requirements as instances that are created by using

@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         #region Parameter HsmArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the HSM. Either the <code>HsmArn</code> or the <code>SerialNumber</code>
-        /// parameter must be specified.</para>
+        /// <para>The ARN of the HSM. Either the <c>HsmArn</c> or the <c>SerialNumber</c> parameter
+        /// must be specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         #region Parameter HsmSerialNumber
         /// <summary>
         /// <para>
-        /// <para>The serial number of the HSM. Either the <code>HsmArn</code> or the <code>HsmSerialNumber</code>
+        /// <para>The serial number of the HSM. Either the <c>HsmArn</c> or the <c>HsmSerialNumber</c>
         /// parameter must be specified.</para>
         /// </para>
         /// </summary>

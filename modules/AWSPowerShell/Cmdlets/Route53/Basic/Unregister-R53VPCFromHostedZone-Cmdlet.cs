@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </para></li><li><para>
     /// You can't convert a private hosted zone into a public hosted zone.
     /// </para></li><li><para>
-    /// You can submit a <code>DisassociateVPCFromHostedZone</code> request using either the
-    /// account that created the hosted zone or the account that created the Amazon VPC.
+    /// You can submit a <c>DisassociateVPCFromHostedZone</c> request using either the account
+    /// that created the hosted zone or the account that created the Amazon VPC.
     /// </para></li><li><para>
     /// Some services, such as Cloud Map and Amazon Elastic File System (Amazon EFS) automatically
     /// create hosted zones and associate VPCs with the hosted zones. A service can create
@@ -45,17 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// VPC from a hosted zone only if the service created the hosted zone using your account.
     /// </para><para>
     /// When you run <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByVPC.html">DisassociateVPCFromHostedZone</a>,
-    /// if the hosted zone has a value for <code>OwningAccount</code>, you can use <code>DisassociateVPCFromHostedZone</code>.
-    /// If the hosted zone has a value for <code>OwningService</code>, you can't use <code>DisassociateVPCFromHostedZone</code>.
+    /// if the hosted zone has a value for <c>OwningAccount</c>, you can use <c>DisassociateVPCFromHostedZone</c>.
+    /// If the hosted zone has a value for <c>OwningService</c>, you can't use <c>DisassociateVPCFromHostedZone</c>.
     /// </para></li></ul><note><para>
     /// When revoking access, the hosted zone and the Amazon VPC must belong to the same partition.
     /// A partition is a group of Amazon Web Services Regions. Each Amazon Web Services account
     /// is scoped to one partition.
     /// </para><para>
     /// The following are the supported partitions:
-    /// </para><ul><li><para><code>aws</code> - Amazon Web Services Regions
-    /// </para></li><li><para><code>aws-cn</code> - China Regions
-    /// </para></li><li><para><code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region
+    /// </para><ul><li><para><c>aws</c> - Amazon Web Services Regions
+    /// </para></li><li><para><c>aws-cn</c> - China Regions
+    /// </para></li><li><para><c>aws-us-gov</c> - Amazon Web Services GovCloud (US) Region
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access
     /// Management</a> in the <i>Amazon Web Services General Reference</i>.

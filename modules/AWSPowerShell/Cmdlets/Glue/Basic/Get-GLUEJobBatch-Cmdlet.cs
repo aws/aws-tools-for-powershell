@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Returns a list of resource metadata for a given list of job names. After calling the
-    /// <code>ListJobs</code> operation, you can call this operation to access the data to
-    /// which you have been granted permissions. This operation supports all IAM permissions,
-    /// including permission conditions that uses tags.
+    /// <c>ListJobs</c> operation, you can call this operation to access the data to which
+    /// you have been granted permissions. This operation supports all IAM permissions, including
+    /// permission conditions that uses tags.
     /// </summary>
     [Cmdlet("Get", "GLUEJobBatch")]
     [OutputType("Amazon.Glue.Model.BatchGetJobsResponse")]
@@ -49,8 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para>A list of job names, which might be the names returned from the <code>ListJobs</code>
-        /// operation.</para>
+        /// <para>A list of job names, which might be the names returned from the <c>ListJobs</c> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

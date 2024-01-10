@@ -36,10 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     /// Each domain specification in your domain list must satisfy the following requirements:
     /// 
     /// </para><ul><li><para>
-    /// It can optionally start with <code>*</code> (asterisk).
+    /// It can optionally start with <c>*</c> (asterisk).
     /// </para></li><li><para>
     /// With the exception of the optional starting asterisk, it must only contain the following
-    /// characters: <code>A-Z</code>, <code>a-z</code>, <code>0-9</code>, <code>-</code> (hyphen).
+    /// characters: <c>A-Z</c>, <c>a-z</c>, <c>0-9</c>, <c>-</c> (hyphen).
     /// </para></li><li><para>
     /// It must be from 1-255 characters in length. 
     /// </para></li></ul>
@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>What you want DNS Firewall to do with the domains that are listed in the file. This
-        /// must be set to <code>REPLACE</code>, which updates the domain list to exactly match
-        /// the list in the file. </para>
+        /// must be set to <c>REPLACE</c>, which updates the domain list to exactly match the
+        /// list in the file. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

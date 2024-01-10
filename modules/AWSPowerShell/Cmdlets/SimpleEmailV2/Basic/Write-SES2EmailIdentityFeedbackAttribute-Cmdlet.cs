@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// 
     ///  
     /// <para>
-    /// If the value is <code>true</code>, you receive email notifications when bounce or
-    /// complaint events occur. These notifications are sent to the address that you specified
-    /// in the <code>Return-Path</code> header of the original email.
+    /// If the value is <c>true</c>, you receive email notifications when bounce or complaint
+    /// events occur. These notifications are sent to the address that you specified in the
+    /// <c>Return-Path</c> header of the original email.
     /// </para><para>
     /// You're required to have a method of tracking bounces and complaints. If you haven't
     /// set up another mechanism for receiving bounce or complaint notifications (for example,
@@ -59,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter EmailForwardingEnabled
         /// <summary>
         /// <para>
-        /// <para>Sets the feedback forwarding configuration for the identity.</para><para>If the value is <code>true</code>, you receive email notifications when bounce or
-        /// complaint events occur. These notifications are sent to the address that you specified
-        /// in the <code>Return-Path</code> header of the original email.</para><para>You're required to have a method of tracking bounces and complaints. If you haven't
+        /// <para>Sets the feedback forwarding configuration for the identity.</para><para>If the value is <c>true</c>, you receive email notifications when bounce or complaint
+        /// events occur. These notifications are sent to the address that you specified in the
+        /// <c>Return-Path</c> header of the original email.</para><para>You're required to have a method of tracking bounces and complaints. If you haven't
         /// set up another mechanism for receiving bounce or complaint notifications (for example,
         /// by setting up an event destination), you receive an email notification when these
         /// events occur (even if this setting is disabled).</para>

@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> A list of event categories for a source type that you want to subscribe to. Use the
-        /// <code>DescribeEventCategories</code> action to see a list of event categories. </para>
+        /// <c>DescribeEventCategories</c> action to see a list of event categories. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

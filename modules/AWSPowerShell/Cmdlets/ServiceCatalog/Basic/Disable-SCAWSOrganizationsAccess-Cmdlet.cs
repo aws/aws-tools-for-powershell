@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// <para>
     /// You cannot call this API if there are active delegated administrators in the organization.
     /// </para><para>
-    /// Note that a delegated administrator is not authorized to invoke <code>DisableAWSOrganizationsAccess</code>.
+    /// Note that a delegated administrator is not authorized to invoke <c>DisableAWSOrganizationsAccess</c>.
     /// </para><important><para>
     /// If you share an Service Catalog portfolio in an organization within Organizations,
     /// and then disable Organizations access for Service Catalog, the portfolio access permissions

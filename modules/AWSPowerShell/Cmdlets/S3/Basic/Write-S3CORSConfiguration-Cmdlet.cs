@@ -31,41 +31,40 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <note><para>
     /// This operation is not supported by directory buckets.
     /// </para></note><para>
-    /// Sets the <code>cors</code> configuration for your bucket. If the configuration exists,
-    /// Amazon S3 replaces it.
+    /// Sets the <c>cors</c> configuration for your bucket. If the configuration exists, Amazon
+    /// S3 replaces it.
     /// </para><para>
-    /// To use this operation, you must be allowed to perform the <code>s3:PutBucketCORS</code>
+    /// To use this operation, you must be allowed to perform the <c>s3:PutBucketCORS</c>
     /// action. By default, the bucket owner has this permission and can grant it to others.
     /// </para><para>
     /// You set this configuration on a bucket so that the bucket can service cross-origin
-    /// requests. For example, you might want to enable a request whose origin is <code>http://www.example.com</code>
-    /// to access your Amazon S3 bucket at <code>my.example.bucket.com</code> by using the
-    /// browser's <code>XMLHttpRequest</code> capability.
+    /// requests. For example, you might want to enable a request whose origin is <c>http://www.example.com</c>
+    /// to access your Amazon S3 bucket at <c>my.example.bucket.com</c> by using the browser's
+    /// <c>XMLHttpRequest</c> capability.
     /// </para><para>
-    /// To enable cross-origin resource sharing (CORS) on a bucket, you add the <code>cors</code>
-    /// subresource to the bucket. The <code>cors</code> subresource is an XML document in
-    /// which you configure rules that identify origins and the HTTP methods that can be executed
+    /// To enable cross-origin resource sharing (CORS) on a bucket, you add the <c>cors</c>
+    /// subresource to the bucket. The <c>cors</c> subresource is an XML document in which
+    /// you configure rules that identify origins and the HTTP methods that can be executed
     /// on your bucket. The document is limited to 64 KB in size. 
     /// </para><para>
     /// When Amazon S3 receives a cross-origin request (or a pre-flight OPTIONS request) against
-    /// a bucket, it evaluates the <code>cors</code> configuration on the bucket and uses
-    /// the first <code>CORSRule</code> rule that matches the incoming browser request to
-    /// enable a cross-origin request. For a rule to match, the following conditions must
-    /// be met:
+    /// a bucket, it evaluates the <c>cors</c> configuration on the bucket and uses the first
+    /// <c>CORSRule</c> rule that matches the incoming browser request to enable a cross-origin
+    /// request. For a rule to match, the following conditions must be met:
     /// </para><ul><li><para>
-    /// The request's <code>Origin</code> header must match <code>AllowedOrigin</code> elements.
+    /// The request's <c>Origin</c> header must match <c>AllowedOrigin</c> elements.
     /// </para></li><li><para>
-    /// The request method (for example, GET, PUT, HEAD, and so on) or the <code>Access-Control-Request-Method</code>
-    /// header in case of a pre-flight <code>OPTIONS</code> request must be one of the <code>AllowedMethod</code>
+    /// The request method (for example, GET, PUT, HEAD, and so on) or the <c>Access-Control-Request-Method</c>
+    /// header in case of a pre-flight <c>OPTIONS</c> request must be one of the <c>AllowedMethod</c>
     /// elements. 
     /// </para></li><li><para>
-    /// Every header specified in the <code>Access-Control-Request-Headers</code> request
-    /// header of a pre-flight request must match an <code>AllowedHeader</code> element. 
+    /// Every header specified in the <c>Access-Control-Request-Headers</c> request header
+    /// of a pre-flight request must match an <c>AllowedHeader</c> element. 
     /// </para></li></ul><para>
     ///  For more information about CORS, go to <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling
     /// Cross-Origin Resource Sharing</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
-    /// The following operations are related to <code>PutBucketCors</code>:
+    /// The following operations are related to <c>PutBucketCors</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketCors.html">GetBucketCors</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html">DeleteBucketCors</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html">RESTOPTIONSobject</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3CORSConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

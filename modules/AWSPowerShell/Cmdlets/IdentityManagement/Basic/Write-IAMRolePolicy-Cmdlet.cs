@@ -34,11 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <para>
     /// When you embed an inline policy in a role, the inline policy is used as part of the
     /// role's access (permissions) policy. The role's trust policy is created at the same
-    /// time as the role, using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html"><code>CreateRole</code></a>. You can update a role's trust policy using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html"><code>UpdateAssumeRolePolicy</code></a>. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">IAM roles</a>
-    /// in the <i>IAM User Guide</i>.
+    /// time as the role, using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html"><c>CreateRole</c></a>. You can update a role's trust policy using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html"><c>UpdateAssumeRolePolicy</c></a>. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">IAM
+    /// roles</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// A role can also have a managed policy attached to it. To attach a managed policy to
-    /// a role, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html"><code>AttachRolePolicy</code></a>. To create a new managed policy, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html"><code>CreatePolicy</code></a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+    /// a role, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html"><c>AttachRolePolicy</c></a>. To create a new managed policy, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html"><c>CreatePolicy</c></a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
     /// policies and inline policies</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// For information about the maximum number of inline policies that you can embed with
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// and STS quotas</a> in the <i>IAM User Guide</i>.
     /// </para><note><para>
     /// Because policy documents can be large, you should use POST rather than GET when calling
-    /// <code>PutRolePolicy</code>. For general information about using the Query API with
-    /// IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making
+    /// <c>PutRolePolicy</c>. For general information about using the Query API with IAM,
+    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making
     /// query requests</a> in the <i>IAM User Guide</i>.
     /// </para></note>
     /// </summary>
@@ -69,10 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>The policy document.</para><para>You must provide policies in JSON format in IAM. However, for CloudFormation templates
         /// formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation
         /// always converts a YAML policy to JSON format before submitting it to IAM.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
-        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<code>\u0020</code>)
-        /// through the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
-        /// <code>\u00FF</code>)</para></li><li><para>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>),
-        /// and carriage return (<code>\u000D</code>)</para></li></ul>
+        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<c>\u0020</c>) through
+        /// the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// <c>\u00FF</c>)</para></li><li><para>The special characters tab (<c>\u0009</c>), line feed (<c>\u000A</c>), and carriage
+        /// return (<c>\u000D</c>)</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

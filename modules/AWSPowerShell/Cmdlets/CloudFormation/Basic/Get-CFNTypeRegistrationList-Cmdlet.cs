@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter RegistrationStatusFilter
         /// <summary>
         /// <para>
-        /// <para>The current status of the extension registration request.</para><para>The default is <code>IN_PROGRESS</code>.</para>
+        /// <para>The current status of the extension registration request.</para><para>The default is <c>IN_PROGRESS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,8 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The kind of extension.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
-        /// or <code>Arn</code>.</para>
+        /// <para>The kind of extension.</para><para>Conditional: You must specify either <c>TypeName</c> and <c>Type</c>, or <c>Arn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,8 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TypeArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the extension.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
-        /// or <code>Arn</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the extension.</para><para>Conditional: You must specify either <c>TypeName</c> and <c>Type</c>, or <c>Arn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,8 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TypeName
         /// <summary>
         /// <para>
-        /// <para>The name of the extension.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
-        /// or <code>Arn</code>.</para>
+        /// <para>The name of the extension.</para><para>Conditional: You must specify either <c>TypeName</c> and <c>Type</c>, or <c>Arn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -91,9 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to be returned with a single call. If the number of
-        /// available results exceeds this maximum, the response includes a <code>NextToken</code>
-        /// value that you can assign to the <code>NextToken</code> request parameter to get the
-        /// next set of results.</para>
+        /// available results exceeds this maximum, the response includes a <c>NextToken</c> value
+        /// that you can assign to the <c>NextToken</c> request parameter to get the next set
+        /// of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,10 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>If the previous paginated request didn't return all the remaining results, the response
-        /// object's <code>NextToken</code> parameter value is set to a token. To retrieve the
-        /// next set of results, call this action again and assign that token to the request object's
-        /// <code>NextToken</code> parameter. If there are no remaining results, the previous
-        /// response object's <code>NextToken</code> parameter is set to <code>null</code>.</para>
+        /// object's <c>NextToken</c> parameter value is set to a token. To retrieve the next
+        /// set of results, call this action again and assign that token to the request object's
+        /// <c>NextToken</c> parameter. If there are no remaining results, the previous response
+        /// object's <c>NextToken</c> parameter is set to <c>null</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

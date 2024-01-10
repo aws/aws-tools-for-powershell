@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <summary>
         /// <para>
         /// <para>The path to the IAM policy that you have configured in each account where you want
-        /// to deploy your permission set. The default is <code>/</code>. For more information,
-        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
+        /// to deploy your permission set. The default is <c>/</c>. For more information, see
+        /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
         /// names and paths</a> in the <i>IAM User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         #region Parameter PermissionSetArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>PermissionSet</code>.</para>
+        /// <para>The ARN of the <c>PermissionSet</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

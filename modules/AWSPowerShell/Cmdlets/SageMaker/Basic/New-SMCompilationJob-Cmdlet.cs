@@ -50,9 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker assumes to perform
     /// the model compilation job. 
     /// </para></li></ul><para>
-    /// You can also provide a <code>Tag</code> to track the model compilation job's resource
-    /// use and costs. The response body contains the <code>CompilationJobArn</code> for the
-    /// compiled job.
+    /// You can also provide a <c>Tag</c> to track the model compilation job's resource use
+    /// and costs. The response body contains the <c>CompilationJobArn</c> for the compiled
+    /// job.
     /// </para><para>
     /// To stop a model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopCompilationJob.html">StopCompilationJob</a>.
     /// To get information about a particular model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCompilationJob.html">DescribeCompilationJob</a>.
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TargetPlatform_Accelerator
         /// <summary>
         /// <para>
-        /// <para>Specifies a target platform accelerator (optional).</para><ul><li><para><code>NVIDIA</code>: Nvidia graphics processing unit. It also requires <code>gpu-code</code>,
-        /// <code>trt-ver</code>, <code>cuda-ver</code> compiler options</para></li><li><para><code>MALI</code>: ARM Mali graphics processor</para></li><li><para><code>INTEL_GRAPHICS</code>: Integrated Intel graphics</para></li></ul>
+        /// <para>Specifies a target platform accelerator (optional).</para><ul><li><para><c>NVIDIA</c>: Nvidia graphics processing unit. It also requires <c>gpu-code</c>,
+        /// <c>trt-ver</c>, <c>cuda-ver</c> compiler options</para></li><li><para><c>MALI</c>: ARM Mali graphics processor</para></li><li><para><c>INTEL_GRAPHICS</c>: Integrated Intel graphics</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TargetPlatform_Arch
         /// <summary>
         /// <para>
-        /// <para>Specifies a target platform architecture.</para><ul><li><para><code>X86_64</code>: 64-bit version of the x86 instruction set.</para></li><li><para><code>X86</code>: 32-bit version of the x86 instruction set.</para></li><li><para><code>ARM64</code>: ARMv8 64-bit CPU.</para></li><li><para><code>ARM_EABIHF</code>: ARMv7 32-bit, Hard Float.</para></li><li><para><code>ARM_EABI</code>: ARMv7 32-bit, Soft Float. Used by Android 32-bit ARM platform.</para></li></ul>
+        /// <para>Specifies a target platform architecture.</para><ul><li><para><c>X86_64</c>: 64-bit version of the x86 instruction set.</para></li><li><para><c>X86</c>: 32-bit version of the x86 instruction set.</para></li><li><para><c>ARM64</c>: ARMv8 64-bit CPU.</para></li><li><para><c>ARM_EABIHF</c>: ARMv7 32-bit, Hard Float.</para></li><li><para><c>ARM_EABI</c>: ARMv7 32-bit, Soft Float. Used by Android 32-bit ARM platform.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,27 +118,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Specifies additional parameters for compiler options in JSON format. The compiler
-        /// options are <code>TargetPlatform</code> specific. It is required for NVIDIA accelerators
+        /// options are <c>TargetPlatform</c> specific. It is required for NVIDIA accelerators
         /// and highly recommended for CPU compilations. For any other cases, it is optional to
-        /// specify <code>CompilerOptions.</code></para><ul><li><para><code>DTYPE</code>: Specifies the data type for the input. When compiling for <code>ml_*</code>
-        /// (except for <code>ml_inf</code>) instances using PyTorch framework, provide the data
-        /// type (dtype) of the model's input. <code>"float32"</code> is used if <code>"DTYPE"</code>
-        /// is not specified. Options for data type are:</para><ul><li><para>float32: Use either <code>"float"</code> or <code>"float32"</code>.</para></li><li><para>int64: Use either <code>"int64"</code> or <code>"long"</code>.</para></li></ul><para> For example, <code>{"dtype" : "float32"}</code>.</para></li><li><para><code>CPU</code>: Compilation for CPU supports the following compiler options.</para><ul><li><para><code>mcpu</code>: CPU micro-architecture. For example, <code>{'mcpu': 'skylake-avx512'}</code></para></li><li><para><code>mattr</code>: CPU flags. For example, <code>{'mattr': ['+neon', '+vfpv4']}</code></para></li></ul></li><li><para><code>ARM</code>: Details of ARM CPU compilations.</para><ul><li><para><code>NEON</code>: NEON is an implementation of the Advanced SIMD extension used
-        /// in ARMv7 processors.</para><para>For example, add <code>{'mattr': ['+neon']}</code> to the compiler options if compiling
-        /// for ARM 32-bit platform with the NEON support.</para></li></ul></li><li><para><code>NVIDIA</code>: Compilation for NVIDIA GPU supports the following compiler options.</para><ul><li><para><code>gpu_code</code>: Specifies the targeted architecture.</para></li><li><para><code>trt-ver</code>: Specifies the TensorRT versions in x.y.z. format.</para></li><li><para><code>cuda-ver</code>: Specifies the CUDA version in x.y format.</para></li></ul><para>For example, <code>{'gpu-code': 'sm_72', 'trt-ver': '6.0.1', 'cuda-ver': '10.1'}</code></para></li><li><para><code>ANDROID</code>: Compilation for the Android OS supports the following compiler
-        /// options:</para><ul><li><para><code>ANDROID_PLATFORM</code>: Specifies the Android API levels. Available levels
-        /// range from 21 to 29. For example, <code>{'ANDROID_PLATFORM': 28}</code>.</para></li><li><para><code>mattr</code>: Add <code>{'mattr': ['+neon']}</code> to compiler options if
-        /// compiling for ARM 32-bit platform with NEON support.</para></li></ul></li><li><para><code>INFERENTIA</code>: Compilation for target ml_inf1 uses compiler options passed
-        /// in as a JSON string. For example, <code>"CompilerOptions": "\"--verbose 1 --num-neuroncores
-        /// 2 -O2\""</code>. </para><para>For information about supported compiler options, see <a href="https://awsdocs-neuron.readthedocs-hosted.com/en/latest/compiler/neuronx-cc/api-reference-guide/neuron-compiler-cli-reference-guide.html">
-        /// Neuron Compiler CLI Reference Guide</a>. </para></li><li><para><code>CoreML</code>: Compilation for the CoreML <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html">OutputConfig</a><code>TargetDevice</code> supports the following compiler options:</para><ul><li><para><code>class_labels</code>: Specifies the classification labels file name inside input
-        /// tar.gz file. For example, <code>{"class_labels": "imagenet_labels_1000.txt"}</code>.
-        /// Labels inside the txt file should be separated by newlines.</para></li></ul></li><li><para><code>EIA</code>: Compilation for the Elastic Inference Accelerator supports the
-        /// following compiler options:</para><ul><li><para><code>precision_mode</code>: Specifies the precision of compiled artifacts. Supported
-        /// values are <code>"FP16"</code> and <code>"FP32"</code>. Default is <code>"FP32"</code>.</para></li><li><para><code>signature_def_key</code>: Specifies the signature to use for models in SavedModel
-        /// format. Defaults is TensorFlow's default signature def key.</para></li><li><para><code>output_names</code>: Specifies a list of output tensor names for models in
-        /// FrozenGraph format. Set at most one API field, either: <code>signature_def_key</code>
-        /// or <code>output_names</code>.</para></li></ul><para>For example: <code>{"precision_mode": "FP32", "output_names": ["output:0"]}</code></para></li></ul>
+        /// specify <c>CompilerOptions.</c></para><ul><li><para><c>DTYPE</c>: Specifies the data type for the input. When compiling for <c>ml_*</c>
+        /// (except for <c>ml_inf</c>) instances using PyTorch framework, provide the data type
+        /// (dtype) of the model's input. <c>"float32"</c> is used if <c>"DTYPE"</c> is not specified.
+        /// Options for data type are:</para><ul><li><para>float32: Use either <c>"float"</c> or <c>"float32"</c>.</para></li><li><para>int64: Use either <c>"int64"</c> or <c>"long"</c>.</para></li></ul><para> For example, <c>{"dtype" : "float32"}</c>.</para></li><li><para><c>CPU</c>: Compilation for CPU supports the following compiler options.</para><ul><li><para><c>mcpu</c>: CPU micro-architecture. For example, <c>{'mcpu': 'skylake-avx512'}</c></para></li><li><para><c>mattr</c>: CPU flags. For example, <c>{'mattr': ['+neon', '+vfpv4']}</c></para></li></ul></li><li><para><c>ARM</c>: Details of ARM CPU compilations.</para><ul><li><para><c>NEON</c>: NEON is an implementation of the Advanced SIMD extension used in ARMv7
+        /// processors.</para><para>For example, add <c>{'mattr': ['+neon']}</c> to the compiler options if compiling
+        /// for ARM 32-bit platform with the NEON support.</para></li></ul></li><li><para><c>NVIDIA</c>: Compilation for NVIDIA GPU supports the following compiler options.</para><ul><li><para><c>gpu_code</c>: Specifies the targeted architecture.</para></li><li><para><c>trt-ver</c>: Specifies the TensorRT versions in x.y.z. format.</para></li><li><para><c>cuda-ver</c>: Specifies the CUDA version in x.y format.</para></li></ul><para>For example, <c>{'gpu-code': 'sm_72', 'trt-ver': '6.0.1', 'cuda-ver': '10.1'}</c></para></li><li><para><c>ANDROID</c>: Compilation for the Android OS supports the following compiler options:</para><ul><li><para><c>ANDROID_PLATFORM</c>: Specifies the Android API levels. Available levels range
+        /// from 21 to 29. For example, <c>{'ANDROID_PLATFORM': 28}</c>.</para></li><li><para><c>mattr</c>: Add <c>{'mattr': ['+neon']}</c> to compiler options if compiling for
+        /// ARM 32-bit platform with NEON support.</para></li></ul></li><li><para><c>INFERENTIA</c>: Compilation for target ml_inf1 uses compiler options passed in
+        /// as a JSON string. For example, <c>"CompilerOptions": "\"--verbose 1 --num-neuroncores
+        /// 2 -O2\""</c>. </para><para>For information about supported compiler options, see <a href="https://awsdocs-neuron.readthedocs-hosted.com/en/latest/compiler/neuronx-cc/api-reference-guide/neuron-compiler-cli-reference-guide.html">
+        /// Neuron Compiler CLI Reference Guide</a>. </para></li><li><para><c>CoreML</c>: Compilation for the CoreML <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html">OutputConfig</a><c>TargetDevice</c> supports the following compiler options:</para><ul><li><para><c>class_labels</c>: Specifies the classification labels file name inside input tar.gz
+        /// file. For example, <c>{"class_labels": "imagenet_labels_1000.txt"}</c>. Labels inside
+        /// the txt file should be separated by newlines.</para></li></ul></li><li><para><c>EIA</c>: Compilation for the Elastic Inference Accelerator supports the following
+        /// compiler options:</para><ul><li><para><c>precision_mode</c>: Specifies the precision of compiled artifacts. Supported values
+        /// are <c>"FP16"</c> and <c>"FP32"</c>. Default is <c>"FP32"</c>.</para></li><li><para><c>signature_def_key</c>: Specifies the signature to use for models in SavedModel
+        /// format. Defaults is TensorFlow's default signature def key.</para></li><li><para><c>output_names</c>: Specifies a list of output tensor names for models in FrozenGraph
+        /// format. Set at most one API field, either: <c>signature_def_key</c> or <c>output_names</c>.</para></li></ul><para>For example: <c>{"precision_mode": "FP32", "output_names": ["output:0"]}</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,40 +148,40 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Specifies the name and shape of the expected data inputs for your trained model with
-        /// a JSON dictionary form. The data inputs are <code>Framework</code> specific. </para><ul><li><para><code>TensorFlow</code>: You must specify the name and shape (NHWC format) of the
-        /// expected data inputs using a dictionary format for your trained model. The dictionary
-        /// formats required for the console and CLI are different.</para><ul><li><para>Examples for one input:</para><ul><li><para>If using the console, <code>{"input":[1,1024,1024,3]}</code></para></li><li><para>If using the CLI, <code>{\"input\":[1,1024,1024,3]}</code></para></li></ul></li><li><para>Examples for two inputs:</para><ul><li><para>If using the console, <code>{"data1": [1,28,28,1], "data2":[1,28,28,1]}</code></para></li><li><para>If using the CLI, <code>{\"data1\": [1,28,28,1], \"data2\":[1,28,28,1]}</code></para></li></ul></li></ul></li><li><para><code>KERAS</code>: You must specify the name and shape (NCHW format) of expected
-        /// data inputs using a dictionary format for your trained model. Note that while Keras
-        /// model artifacts should be uploaded in NHWC (channel-last) format, <code>DataInputConfig</code>
+        /// a JSON dictionary form. The data inputs are <c>Framework</c> specific. </para><ul><li><para><c>TensorFlow</c>: You must specify the name and shape (NHWC format) of the expected
+        /// data inputs using a dictionary format for your trained model. The dictionary formats
+        /// required for the console and CLI are different.</para><ul><li><para>Examples for one input:</para><ul><li><para>If using the console, <c>{"input":[1,1024,1024,3]}</c></para></li><li><para>If using the CLI, <c>{\"input\":[1,1024,1024,3]}</c></para></li></ul></li><li><para>Examples for two inputs:</para><ul><li><para>If using the console, <c>{"data1": [1,28,28,1], "data2":[1,28,28,1]}</c></para></li><li><para>If using the CLI, <c>{\"data1\": [1,28,28,1], \"data2\":[1,28,28,1]}</c></para></li></ul></li></ul></li><li><para><c>KERAS</c>: You must specify the name and shape (NCHW format) of expected data
+        /// inputs using a dictionary format for your trained model. Note that while Keras model
+        /// artifacts should be uploaded in NHWC (channel-last) format, <c>DataInputConfig</c>
         /// should be specified in NCHW (channel-first) format. The dictionary formats required
-        /// for the console and CLI are different.</para><ul><li><para>Examples for one input:</para><ul><li><para>If using the console, <code>{"input_1":[1,3,224,224]}</code></para></li><li><para>If using the CLI, <code>{\"input_1\":[1,3,224,224]}</code></para></li></ul></li><li><para>Examples for two inputs:</para><ul><li><para>If using the console, <code>{"input_1": [1,3,224,224], "input_2":[1,3,224,224]} </code></para></li><li><para>If using the CLI, <code>{\"input_1\": [1,3,224,224], \"input_2\":[1,3,224,224]}</code></para></li></ul></li></ul></li><li><para><code>MXNET/ONNX/DARKNET</code>: You must specify the name and shape (NCHW format)
-        /// of the expected data inputs in order using a dictionary format for your trained model.
-        /// The dictionary formats required for the console and CLI are different.</para><ul><li><para>Examples for one input:</para><ul><li><para>If using the console, <code>{"data":[1,3,1024,1024]}</code></para></li><li><para>If using the CLI, <code>{\"data\":[1,3,1024,1024]}</code></para></li></ul></li><li><para>Examples for two inputs:</para><ul><li><para>If using the console, <code>{"var1": [1,1,28,28], "var2":[1,1,28,28]} </code></para></li><li><para>If using the CLI, <code>{\"var1\": [1,1,28,28], \"var2\":[1,1,28,28]}</code></para></li></ul></li></ul></li><li><para><code>PyTorch</code>: You can either specify the name and shape (NCHW format) of
-        /// expected data inputs in order using a dictionary format for your trained model or
-        /// you can specify the shape only using a list format. The dictionary formats required
-        /// for the console and CLI are different. The list formats for the console and CLI are
-        /// the same.</para><ul><li><para>Examples for one input in dictionary format:</para><ul><li><para>If using the console, <code>{"input0":[1,3,224,224]}</code></para></li><li><para>If using the CLI, <code>{\"input0\":[1,3,224,224]}</code></para></li></ul></li><li><para>Example for one input in list format: <code>[[1,3,224,224]]</code></para></li><li><para>Examples for two inputs in dictionary format:</para><ul><li><para>If using the console, <code>{"input0":[1,3,224,224], "input1":[1,3,224,224]}</code></para></li><li><para>If using the CLI, <code>{\"input0\":[1,3,224,224], \"input1\":[1,3,224,224]} </code></para></li></ul></li><li><para>Example for two inputs in list format: <code>[[1,3,224,224], [1,3,224,224]]</code></para></li></ul></li><li><para><code>XGBOOST</code>: input data name and shape are not needed.</para></li></ul><para><code>DataInputConfig</code> supports the following parameters for <code>CoreML</code><code>TargetDevice</code> (ML Model format):</para><ul><li><para><code>shape</code>: Input shape, for example <code>{"input_1": {"shape": [1,224,224,3]}}</code>.
+        /// for the console and CLI are different.</para><ul><li><para>Examples for one input:</para><ul><li><para>If using the console, <c>{"input_1":[1,3,224,224]}</c></para></li><li><para>If using the CLI, <c>{\"input_1\":[1,3,224,224]}</c></para></li></ul></li><li><para>Examples for two inputs:</para><ul><li><para>If using the console, <c>{"input_1": [1,3,224,224], "input_2":[1,3,224,224]} </c></para></li><li><para>If using the CLI, <c>{\"input_1\": [1,3,224,224], \"input_2\":[1,3,224,224]}</c></para></li></ul></li></ul></li><li><para><c>MXNET/ONNX/DARKNET</c>: You must specify the name and shape (NCHW format) of the
+        /// expected data inputs in order using a dictionary format for your trained model. The
+        /// dictionary formats required for the console and CLI are different.</para><ul><li><para>Examples for one input:</para><ul><li><para>If using the console, <c>{"data":[1,3,1024,1024]}</c></para></li><li><para>If using the CLI, <c>{\"data\":[1,3,1024,1024]}</c></para></li></ul></li><li><para>Examples for two inputs:</para><ul><li><para>If using the console, <c>{"var1": [1,1,28,28], "var2":[1,1,28,28]} </c></para></li><li><para>If using the CLI, <c>{\"var1\": [1,1,28,28], \"var2\":[1,1,28,28]}</c></para></li></ul></li></ul></li><li><para><c>PyTorch</c>: You can either specify the name and shape (NCHW format) of expected
+        /// data inputs in order using a dictionary format for your trained model or you can specify
+        /// the shape only using a list format. The dictionary formats required for the console
+        /// and CLI are different. The list formats for the console and CLI are the same.</para><ul><li><para>Examples for one input in dictionary format:</para><ul><li><para>If using the console, <c>{"input0":[1,3,224,224]}</c></para></li><li><para>If using the CLI, <c>{\"input0\":[1,3,224,224]}</c></para></li></ul></li><li><para>Example for one input in list format: <c>[[1,3,224,224]]</c></para></li><li><para>Examples for two inputs in dictionary format:</para><ul><li><para>If using the console, <c>{"input0":[1,3,224,224], "input1":[1,3,224,224]}</c></para></li><li><para>If using the CLI, <c>{\"input0\":[1,3,224,224], \"input1\":[1,3,224,224]} </c></para></li></ul></li><li><para>Example for two inputs in list format: <c>[[1,3,224,224], [1,3,224,224]]</c></para></li></ul></li><li><para><c>XGBOOST</c>: input data name and shape are not needed.</para></li></ul><para><c>DataInputConfig</c> supports the following parameters for <c>CoreML</c><c>TargetDevice</c>
+        /// (ML Model format):</para><ul><li><para><c>shape</c>: Input shape, for example <c>{"input_1": {"shape": [1,224,224,3]}}</c>.
         /// In addition to static input shapes, CoreML converter supports Flexible input shapes:</para><ul><li><para>Range Dimension. You can use the Range Dimension feature if you know the input shape
-        /// will be within some specific interval in that dimension, for example: <code>{"input_1":
-        /// {"shape": ["1..10", 224, 224, 3]}}</code></para></li><li><para>Enumerated shapes. Sometimes, the models are trained to work only on a select set
-        /// of inputs. You can enumerate all supported input shapes, for example: <code>{"input_1":
-        /// {"shape": [[1, 224, 224, 3], [1, 160, 160, 3]]}}</code></para></li></ul></li><li><para><code>default_shape</code>: Default input shape. You can set a default shape during
-        /// conversion for both Range Dimension and Enumerated Shapes. For example <code>{"input_1":
-        /// {"shape": ["1..10", 224, 224, 3], "default_shape": [1, 224, 224, 3]}}</code></para></li><li><para><code>type</code>: Input type. Allowed values: <code>Image</code> and <code>Tensor</code>.
-        /// By default, the converter generates an ML Model with inputs of type Tensor (MultiArray).
-        /// User can set input type to be Image. Image input type requires additional input parameters
-        /// such as <code>bias</code> and <code>scale</code>.</para></li><li><para><code>bias</code>: If the input type is an Image, you need to provide the bias vector.</para></li><li><para><code>scale</code>: If the input type is an Image, you need to provide a scale factor.</para></li></ul><para>CoreML <code>ClassifierConfig</code> parameters can be specified using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html">OutputConfig</a><code>CompilerOptions</code>. CoreML converter supports Tensorflow and PyTorch models.
-        /// CoreML conversion examples:</para><ul><li><para>Tensor type input:</para><ul><li><para><code>"DataInputConfig": {"input_1": {"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
-        /// [1,224,224,3]}}</code></para></li></ul></li><li><para>Tensor type input without input name (PyTorch):</para><ul><li><para><code>"DataInputConfig": [{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
-        /// [1,3,224,224]}]</code></para></li></ul></li><li><para>Image type input:</para><ul><li><para><code>"DataInputConfig": {"input_1": {"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
-        /// [1,224,224,3], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255}}</code></para></li><li><para><code>"CompilerOptions": {"class_labels": "imagenet_labels_1000.txt"}</code></para></li></ul></li><li><para>Image type input without input name (PyTorch):</para><ul><li><para><code>"DataInputConfig": [{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
-        /// [1,3,224,224], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255}]</code></para></li><li><para><code>"CompilerOptions": {"class_labels": "imagenet_labels_1000.txt"}</code></para></li></ul></li></ul><para>Depending on the model format, <code>DataInputConfig</code> requires the following
-        /// parameters for <code>ml_eia2</code><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-TargetDevice">OutputConfig:TargetDevice</a>.</para><ul><li><para>For TensorFlow models saved in the SavedModel format, specify the input names from
-        /// <code>signature_def_key</code> and the input model shapes for <code>DataInputConfig</code>.
-        /// Specify the <code>signature_def_key</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions"><code>OutputConfig:CompilerOptions</code></a> if the model does not use TensorFlow's
-        /// default signature def key. For example:</para><ul><li><para><code>"DataInputConfig": {"inputs": [1, 224, 224, 3]}</code></para></li><li><para><code>"CompilerOptions": {"signature_def_key": "serving_custom"}</code></para></li></ul></li><li><para>For TensorFlow models saved as a frozen graph, specify the input tensor names and
-        /// shapes in <code>DataInputConfig</code> and the output tensor names for <code>output_names</code>
-        /// in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions"><code>OutputConfig:CompilerOptions</code></a>. For example:</para><ul><li><para><code>"DataInputConfig": {"input_tensor:0": [1, 224, 224, 3]}</code></para></li><li><para><code>"CompilerOptions": {"output_names": ["output_tensor:0"]}</code></para></li></ul></li></ul>
+        /// will be within some specific interval in that dimension, for example: <c>{"input_1":
+        /// {"shape": ["1..10", 224, 224, 3]}}</c></para></li><li><para>Enumerated shapes. Sometimes, the models are trained to work only on a select set
+        /// of inputs. You can enumerate all supported input shapes, for example: <c>{"input_1":
+        /// {"shape": [[1, 224, 224, 3], [1, 160, 160, 3]]}}</c></para></li></ul></li><li><para><c>default_shape</c>: Default input shape. You can set a default shape during conversion
+        /// for both Range Dimension and Enumerated Shapes. For example <c>{"input_1": {"shape":
+        /// ["1..10", 224, 224, 3], "default_shape": [1, 224, 224, 3]}}</c></para></li><li><para><c>type</c>: Input type. Allowed values: <c>Image</c> and <c>Tensor</c>. By default,
+        /// the converter generates an ML Model with inputs of type Tensor (MultiArray). User
+        /// can set input type to be Image. Image input type requires additional input parameters
+        /// such as <c>bias</c> and <c>scale</c>.</para></li><li><para><c>bias</c>: If the input type is an Image, you need to provide the bias vector.</para></li><li><para><c>scale</c>: If the input type is an Image, you need to provide a scale factor.</para></li></ul><para>CoreML <c>ClassifierConfig</c> parameters can be specified using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html">OutputConfig</a><c>CompilerOptions</c>. CoreML converter supports Tensorflow and PyTorch models. CoreML
+        /// conversion examples:</para><ul><li><para>Tensor type input:</para><ul><li><para><c>"DataInputConfig": {"input_1": {"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
+        /// [1,224,224,3]}}</c></para></li></ul></li><li><para>Tensor type input without input name (PyTorch):</para><ul><li><para><c>"DataInputConfig": [{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
+        /// [1,3,224,224]}]</c></para></li></ul></li><li><para>Image type input:</para><ul><li><para><c>"DataInputConfig": {"input_1": {"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
+        /// [1,224,224,3], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255}}</c></para></li><li><para><c>"CompilerOptions": {"class_labels": "imagenet_labels_1000.txt"}</c></para></li></ul></li><li><para>Image type input without input name (PyTorch):</para><ul><li><para><c>"DataInputConfig": [{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
+        /// [1,3,224,224], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255}]</c></para></li><li><para><c>"CompilerOptions": {"class_labels": "imagenet_labels_1000.txt"}</c></para></li></ul></li></ul><para>Depending on the model format, <c>DataInputConfig</c> requires the following parameters
+        /// for <c>ml_eia2</c><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-TargetDevice">OutputConfig:TargetDevice</a>.</para><ul><li><para>For TensorFlow models saved in the SavedModel format, specify the input names from
+        /// <c>signature_def_key</c> and the input model shapes for <c>DataInputConfig</c>. Specify
+        /// the <c>signature_def_key</c> in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions"><c>OutputConfig:CompilerOptions</c></a> if the model does not use TensorFlow's default
+        /// signature def key. For example:</para><ul><li><para><c>"DataInputConfig": {"inputs": [1, 224, 224, 3]}</c></para></li><li><para><c>"CompilerOptions": {"signature_def_key": "serving_custom"}</c></para></li></ul></li><li><para>For TensorFlow models saved as a frozen graph, specify the input tensor names and
+        /// shapes in <c>DataInputConfig</c> and the output tensor names for <c>output_names</c>
+        /// in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions"><c>OutputConfig:CompilerOptions</c></a>. For example:</para><ul><li><para><c>"DataInputConfig": {"input_tensor:0": [1, 224, 224, 3]}</c></para></li><li><para><c>"CompilerOptions": {"output_names": ["output_tensor:0"]}</c></para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// Amazon SageMaker uses to encrypt your output models with Amazon S3 server-side encryption
         /// after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the
         /// default KMS key for Amazon S3 for your role's account. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed
-        /// Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i></para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
+        /// Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i></para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Alias name: <c>alias/ExampleAlias</c></para></li><li><para>Alias name ARN: <c>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,14 +243,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The maximum length of time, in seconds, that a training or compilation job can run
-        /// before it is stopped.</para><para>For compilation jobs, if the job does not complete during this time, a <code>TimeOut</code>
+        /// before it is stopped.</para><para>For compilation jobs, if the job does not complete during this time, a <c>TimeOut</c>
         /// error is generated. We recommend starting with 900 seconds and increasing as necessary
         /// based on your model.</para><para>For all other jobs, if the job does not complete during this time, SageMaker ends
-        /// the job. When <code>RetryStrategy</code> is specified in the job request, <code>MaxRuntimeInSeconds</code>
+        /// the job. When <c>RetryStrategy</c> is specified in the job request, <c>MaxRuntimeInSeconds</c>
         /// specifies the maximum time for all of the attempts in total, not each individual attempt.
-        /// The default value is 1 day. The maximum value is 28 days.</para><para>The maximum time that a <code>TrainingJob</code> can run in total, including any time
-        /// spent publishing metrics or archiving and uploading models after it has been stopped,
-        /// is 30 days.</para>
+        /// The default value is 1 day. The maximum value is 28 days.</para><para>The maximum time that a <c>TrainingJob</c> can run in total, including any time spent
+        /// publishing metrics or archiving and uploading models after it has been stopped, is
+        /// 30 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -265,8 +263,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The maximum length of time, in seconds, that a managed Spot training job has to complete.
         /// It is the amount of time spent waiting for Spot capacity plus the amount of time the
-        /// job can run. It must be equal to or greater than <code>MaxRuntimeInSeconds</code>.
-        /// If the job does not complete during this time, SageMaker ends the job.</para><para>When <code>RetryStrategy</code> is specified in the job request, <code>MaxWaitTimeInSeconds</code>
+        /// job can run. It must be equal to or greater than <c>MaxRuntimeInSeconds</c>. If the
+        /// job does not complete during this time, SageMaker ends the job.</para><para>When <c>RetryStrategy</c> is specified in the job request, <c>MaxWaitTimeInSeconds</c>
         /// specifies the maximum time for all of the attempts in total, not each individual attempt.</para>
         /// </para>
         /// </summary>
@@ -278,9 +276,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelPackageVersionArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a versioned model package. Provide either a <code>ModelPackageVersionArn</code>
-        /// or an <code>InputConfig</code> object in the request syntax. The presence of both
-        /// objects in the <code>CreateCompilationJob</code> request will return an exception.</para>
+        /// <para>The Amazon Resource Name (ARN) of a versioned model package. Provide either a <c>ModelPackageVersionArn</c>
+        /// or an <c>InputConfig</c> object in the request syntax. The presence of both objects
+        /// in the <c>CreateCompilationJob</c> request will return an exception.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -290,9 +288,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TargetPlatform_Os
         /// <summary>
         /// <para>
-        /// <para>Specifies a target platform OS.</para><ul><li><para><code>LINUX</code>: Linux-based operating systems.</para></li><li><para><code>ANDROID</code>: Android operating systems. Android API level can be specified
-        /// using the <code>ANDROID_PLATFORM</code> compiler option. For example, <code>"CompilerOptions":
-        /// {'ANDROID_PLATFORM': 28}</code></para></li></ul>
+        /// <para>Specifies a target platform OS.</para><ul><li><para><c>LINUX</c>: Linux-based operating systems.</para></li><li><para><c>ANDROID</c>: Android operating systems. Android API level can be specified using
+        /// the <c>ANDROID_PLATFORM</c> compiler option. For example, <c>"CompilerOptions": {'ANDROID_PLATFORM':
+        /// 28}</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -306,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform
         /// tasks on your behalf. </para><para>During model compilation, Amazon SageMaker needs your permission to:</para><ul><li><para>Read input data from an S3 bucket</para></li><li><para>Write model artifacts to an S3 bucket</para></li><li><para>Write logs to Amazon CloudWatch Logs</para></li><li><para>Publish metrics to Amazon CloudWatch</para></li></ul><para>You grant permissions for all of these tasks to an IAM role. To pass this role to
-        /// Amazon SageMaker, the caller of this API must have the <code>iam:PassRole</code> permission.
+        /// Amazon SageMaker, the caller of this API must have the <c>iam:PassRole</c> permission.
         /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
         /// SageMaker Roles.</a></para>
         /// </para>
@@ -326,7 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Identifies the S3 bucket where you want Amazon SageMaker to store the model artifacts.
-        /// For example, <code>s3://bucket-name/key-name-prefix</code>.</para>
+        /// For example, <c>s3://bucket-name/key-name-prefix</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -354,8 +352,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The VPC security group IDs. IDs have the form of <code>sg-xxxxxxxx</code>. Specify
-        /// the security groups for the VPC that is specified in the <code>Subnets</code> field.</para>
+        /// <para>The VPC security group IDs. IDs have the form of <c>sg-xxxxxxxx</c>. Specify the security
+        /// groups for the VPC that is specified in the <c>Subnets</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -395,8 +393,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>Identifies the target device or the machine learning instance that you want to run
         /// your model on after the compilation has completed. Alternatively, you can specify
         /// OS, architecture, and accelerator using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TargetPlatform.html">TargetPlatform</a>
-        /// fields. It can be used instead of <code>TargetPlatform</code>.</para><note><para>Currently <code>ml_trn1</code> is available only in US East (N. Virginia) Region,
-        /// and <code>ml_inf2</code> is available only in US East (Ohio) Region.</para></note>
+        /// fields. It can be used instead of <c>TargetPlatform</c>.</para><note><para>Currently <c>ml_trn1</c> is available only in US East (N. Virginia) Region, and <c>ml_inf2</c>
+        /// is available only in US East (Ohio) Region.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

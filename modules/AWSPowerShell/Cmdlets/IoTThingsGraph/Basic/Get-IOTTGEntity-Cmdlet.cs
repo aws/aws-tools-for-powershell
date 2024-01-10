@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>An array of entity IDs.</para><para>The IDs should be in the following format.</para><para><code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code></para>
+        /// <para>An array of entity IDs.</para><para>The IDs should be in the following format.</para><para><c>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

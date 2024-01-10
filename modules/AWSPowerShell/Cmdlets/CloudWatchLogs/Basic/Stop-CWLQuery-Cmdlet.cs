@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter QueryId
         /// <summary>
         /// <para>
-        /// <para>The ID number of the query to stop. To find this ID number, use <code>DescribeQueries</code>.</para>
+        /// <para>The ID number of the query to stop. To find this ID number, use <c>DescribeQueries</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

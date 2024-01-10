@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CertificateIdentifier
         /// <summary>
         /// <para>
-        /// <para>The new default certificate identifier to override the current one with.</para><para>To determine the valid values, use the <code>describe-certificates</code> CLI command
-        /// or the <code>DescribeCertificates</code> API operation.</para>
+        /// <para>The new default certificate identifier to override the current one with.</para><para>To determine the valid values, use the <c>describe-certificates</c> CLI command or
+        /// the <c>DescribeCertificates</c> API operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

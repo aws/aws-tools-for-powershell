@@ -31,12 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Updates an existing maintenance window. Only specified parameters are modified.
     /// 
     ///  <note><para>
-    /// The value you specify for <code>Duration</code> determines the specific end time for
-    /// the maintenance window based on the time it begins. No maintenance window tasks are
-    /// permitted to start after the resulting endtime minus the number of hours you specify
-    /// for <code>Cutoff</code>. For example, if the maintenance window starts at 3 PM, the
-    /// duration is three hours, and the value you specify for <code>Cutoff</code> is one
-    /// hour, no maintenance window tasks can start after 5 PM.
+    /// The value you specify for <c>Duration</c> determines the specific end time for the
+    /// maintenance window based on the time it begins. No maintenance window tasks are permitted
+    /// to start after the resulting endtime minus the number of hours you specify for <c>Cutoff</c>.
+    /// For example, if the maintenance window starts at 3 PM, the duration is three hours,
+    /// and the value you specify for <c>Cutoff</c> is one hour, no maintenance window tasks
+    /// can start after 5 PM.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "SSMMaintenanceWindow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -111,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The date and time, in ISO-8601 Extended format, for when you want the maintenance
-        /// window to become inactive. <code>EndDate</code> allows you to set a date and time
-        /// in the future when the maintenance window will no longer run.</para>
+        /// window to become inactive. <c>EndDate</c> allows you to set a date and time in the
+        /// future when the maintenance window will no longer run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Replace
         /// <summary>
         /// <para>
-        /// <para>If <code>True</code>, then all fields that are required by the <a>CreateMaintenanceWindow</a>
+        /// <para>If <c>True</c>, then all fields that are required by the <a>CreateMaintenanceWindow</a>
         /// operation are also required for this API request. Optional fields that aren't specified
         /// are set to null. </para>
         /// </para>
@@ -156,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The number of days to wait after the date and time specified by a cron expression
         /// before running the maintenance window.</para><para>For example, the following cron expression schedules a maintenance window to run the
-        /// third Tuesday of every month at 11:30 PM.</para><para><code>cron(30 23 ? * TUE#3 *)</code></para><para>If the schedule offset is <code>2</code>, the maintenance window won't run until two
-        /// days later.</para>
+        /// third Tuesday of every month at 11:30 PM.</para><para><c>cron(30 23 ? * TUE#3 *)</c></para><para>If the schedule offset is <c>2</c>, the maintenance window won't run until two days
+        /// later.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,8 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The date and time, in ISO-8601 Extended format, for when you want the maintenance
-        /// window to become active. <code>StartDate</code> allows you to delay activation of
-        /// the maintenance window until the specified future date.</para>
+        /// window to become active. <c>StartDate</c> allows you to delay activation of the maintenance
+        /// window until the specified future date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

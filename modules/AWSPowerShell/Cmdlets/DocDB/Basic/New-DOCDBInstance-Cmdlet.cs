@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform
-        /// minor version upgrades regardless of the value set.</para><para>Default: <code>false</code></para>
+        /// minor version upgrades regardless of the value set.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The Amazon EC2 Availability Zone that the instance is created in. </para><para>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services
-        /// Region.</para><para>Example: <code>us-east-1d</code></para>
+        /// Region.</para><para>Example: <c>us-east-1d</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para>The compute and memory capacity of the instance; for example, <code>db.r5.large</code>.
+        /// <para>The compute and memory capacity of the instance; for example, <c>db.r5.large</c>.
         /// </para>
         /// </para>
         /// </summary>
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
+        /// <para>The instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <c>mydbinstance</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this instance.</para><para>Valid value: <code>docdb</code></para>
+        /// <para>The name of the database engine to be used for this instance.</para><para>Valid value: <c>docdb</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The time range each week during which system maintenance can occur, in Universal Coordinated
-        /// Time (UTC).</para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// Time (UTC).</para><para> Format: <c>ddd:hh24:mi-ddd:hh24:mi</c></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Web Services Region, occurring on a random day of the week. </para><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>

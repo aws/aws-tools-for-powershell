@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// Creates the configuration for training a model. A trained model is known as a solution
     /// version. After the configuration is created, you train the model (create a solution
     /// version) by calling the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html">CreateSolutionVersion</a>
-    /// operation. Every time you call <code>CreateSolutionVersion</code>, a new version of
-    /// the solution is created.
+    /// operation. Every time you call <c>CreateSolutionVersion</c>, a new version of the
+    /// solution is created.
     /// 
     ///  
     /// <para>
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// the training algorithm and a feature transformation. You can specify one of the predefined
     /// recipes provided by Amazon Personalize. 
     /// </para><note><para>
-    /// Amazon Personalize doesn't support configuring the <code>hpoObjective</code> for solution
+    /// Amazon Personalize doesn't support configuring the <c>hpoObjective</c> for solution
     /// hyperparameter optimization at this time.
     /// </para></note><para><b>Status</b></para><para>
     /// A solution can be in one of the following states:
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// DELETE PENDING &gt; DELETE IN_PROGRESS
     /// </para></li></ul><para>
     /// To get the status of the solution, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a>.
-    /// Wait until the status shows as ACTIVE before calling <code>CreateSolutionVersion</code>.
+    /// Wait until the status shows as ACTIVE before calling <c>CreateSolutionVersion</c>.
     /// </para><para><b>Related APIs</b></para><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html">ListSolutions</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html">CreateSolutionVersion</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html">DeleteSolution</a></para></li></ul><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html">ListSolutionVersions</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "PERSSolution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -124,9 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter EventType
         /// <summary>
         /// <para>
-        /// <para>When your have multiple event types (using an <code>EVENT_TYPE</code> schema field),
-        /// this parameter specifies which event type (for example, 'click' or 'like') is used
-        /// for training the model.</para><para>If you do not provide an <code>eventType</code>, Amazon Personalize will use all interactions
+        /// <para>When your have multiple event types (using an <c>EVENT_TYPE</c> schema field), this
+        /// parameter specifies which event type (for example, 'click' or 'like') is used for
+        /// training the model.</para><para>If you do not provide an <c>eventType</c>, Amazon Personalize will use all interactions
         /// for training with equal weight regardless of type.</para>
         /// </para>
         /// </summary>
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>The maximum number of training jobs when you create a solution version. The maximum
-        /// value for <code>maxNumberOfTrainingJobs</code> is <code>40</code>.</para>
+        /// value for <c>maxNumberOfTrainingJobs</c> is <c>40</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>The maximum number of parallel training jobs when you create a solution version. The
-        /// maximum value for <code>maxParallelTrainingJobs</code> is <code>10</code>.</para>
+        /// maximum value for <c>maxParallelTrainingJobs</c> is <c>10</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -286,12 +286,12 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <para>
         /// <important><para>We don't recommend enabling automated machine learning. Instead, match your use case
         /// to the available Amazon Personalize recipes. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html">Determining
-        /// your use case.</a></para></important><para>Whether to perform automated machine learning (AutoML). The default is <code>false</code>.
-        /// For this case, you must specify <code>recipeArn</code>.</para><para>When set to <code>true</code>, Amazon Personalize analyzes your training data and
-        /// selects the optimal USER_PERSONALIZATION recipe and hyperparameters. In this case,
-        /// you must omit <code>recipeArn</code>. Amazon Personalize determines the optimal recipe
-        /// by running tests with different values for the hyperparameters. AutoML lengthens the
-        /// training process as compared to selecting a specific recipe.</para>
+        /// your use case.</a></para></important><para>Whether to perform automated machine learning (AutoML). The default is <c>false</c>.
+        /// For this case, you must specify <c>recipeArn</c>.</para><para>When set to <c>true</c>, Amazon Personalize analyzes your training data and selects
+        /// the optimal USER_PERSONALIZATION recipe and hyperparameters. In this case, you must
+        /// omit <c>recipeArn</c>. Amazon Personalize determines the optimal recipe by running
+        /// tests with different values for the hyperparameters. AutoML lengthens the training
+        /// process as compared to selecting a specific recipe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -302,8 +302,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>Whether to perform hyperparameter optimization (HPO) on the specified or selected
-        /// recipe. The default is <code>false</code>.</para><para>When performing AutoML, this parameter is always <code>true</code> and you should
-        /// not set it to <code>false</code>.</para>
+        /// recipe. The default is <c>false</c>.</para><para>When performing AutoML, this parameter is always <c>true</c> and you should not set
+        /// it to <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -313,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter RecipeArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the recipe to use for model training. This is required when <code>performAutoML</code>
+        /// <para>The ARN of the recipe to use for model training. This is required when <c>performAutoML</c>
         /// is false.</para>
         /// </para>
         /// </summary>
@@ -347,7 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter HpoObjective_Type
         /// <summary>
         /// <para>
-        /// <para>The type of the metric. Valid values are <code>Maximize</code> and <code>Minimize</code>.</para>
+        /// <para>The type of the metric. Valid values are <c>Maximize</c> and <c>Minimize</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

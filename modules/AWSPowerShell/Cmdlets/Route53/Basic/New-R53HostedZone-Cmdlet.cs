@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 53 Developer Guide</i>.
     /// </para><para>
     /// If you want to use the same name servers for multiple public hosted zones, you can
-    /// optionally associate a reusable delegation set with the hosted zone. See the <code>DelegationSetId</code>
+    /// optionally associate a reusable delegation set with the hosted zone. See the <c>DelegationSetId</c>
     /// element.
     /// </para></li><li><para>
     /// If your domain is registered with a registrar other than Route 53, you must update
@@ -61,12 +61,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// DNS Service for an Existing Domain to Amazon Route 53</a> in the <i>Amazon Route 53
     /// Developer Guide</i>. 
     /// </para></li></ul><para>
-    /// When you submit a <code>CreateHostedZone</code> request, the initial status of the
-    /// hosted zone is <code>PENDING</code>. For public hosted zones, this means that the
-    /// NS and SOA records are not yet available on all Route 53 DNS servers. When the NS
-    /// and SOA records are available, the status of the zone changes to <code>INSYNC</code>.
+    /// When you submit a <c>CreateHostedZone</c> request, the initial status of the hosted
+    /// zone is <c>PENDING</c>. For public hosted zones, this means that the NS and SOA records
+    /// are not yet available on all Route 53 DNS servers. When the NS and SOA records are
+    /// available, the status of the zone changes to <c>INSYNC</c>.
     /// </para><para>
-    /// The <code>CreateHostedZone</code> request requires the caller to have an <code>ec2:DescribeVpcs</code>
+    /// The <c>CreateHostedZone</c> request requires the caller to have an <c>ec2:DescribeVpcs</c>
     /// permission.
     /// </para><note><para>
     /// When creating private hosted zones, the Amazon VPC must belong to the same partition
@@ -74,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// Each Amazon Web Services account is scoped to one partition.
     /// </para><para>
     /// The following are the supported partitions:
-    /// </para><ul><li><para><code>aws</code> - Amazon Web Services Regions
-    /// </para></li><li><para><code>aws-cn</code> - China Regions
-    /// </para></li><li><para><code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region
+    /// </para><ul><li><para><c>aws</c> - Amazon Web Services Regions
+    /// </para></li><li><para><c>aws-cn</c> - China Regions
+    /// </para></li><li><para><c>aws-us-gov</c> - Amazon Web Services GovCloud (US) Region
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access
     /// Management</a> in the <i>Amazon Web Services General Reference</i>.
@@ -96,10 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter CallerReference
         /// <summary>
         /// <para>
-        /// <para>A unique string that identifies the request and that allows failed <code>CreateHostedZone</code>
+        /// <para>A unique string that identifies the request and that allows failed <c>CreateHostedZone</c>
         /// requests to be retried without the risk of executing the operation twice. You must
-        /// use a unique <code>CallerReference</code> string every time you submit a <code>CreateHostedZone</code>
-        /// request. <code>CallerReference</code> can be any unique string, for example, a date/time
+        /// use a unique <c>CallerReference</c> string every time you submit a <c>CreateHostedZone</c>
+        /// request. <c>CallerReference</c> can be any unique string, for example, a date/time
         /// stamp.</para>
         /// </para>
         /// </summary>
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// Amazon Route 53 assigned to the reusable delegation set when you created it. For more
         /// information about reusable delegation sets, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html">CreateReusableDelegationSet</a>.</para><para>If you are using a reusable delegation set to create a public hosted zone for a subdomain,
         /// make sure that the parent hosted zone doesn't use one or more of the same name servers.
-        /// If you have overlapping nameservers, the operation will cause a <code>ConflictingDomainsExist</code>
+        /// If you have overlapping nameservers, the operation will cause a <c>ConflictingDomainsExist</c>
         /// error.</para>
         /// </para>
         /// </summary>
@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// qualified. This means that Route 53 treats <i>www.example.com</i> (without a trailing
         /// dot) and <i>www.example.com.</i> (with a trailing dot) as identical.</para><para>If you're creating a public hosted zone, this is the name you have registered with
         /// your DNS registrar. If your domain name is registered with a registrar other than
-        /// Route 53, change the name servers for your domain to the set of <code>NameServers</code>
-        /// that <code>CreateHostedZone</code> returns in <code>DelegationSet</code>.</para>
+        /// Route 53, change the name servers for your domain to the set of <c>NameServers</c>
+        /// that <c>CreateHostedZone</c> returns in <c>DelegationSet</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

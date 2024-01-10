@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ReportArn
         /// <summary>
         /// <para>
-        /// <para> An array of ARNs that identify the <code>Report</code> objects to return. </para>
+        /// <para> An array of ARNs that identify the <c>Report</c> objects to return. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

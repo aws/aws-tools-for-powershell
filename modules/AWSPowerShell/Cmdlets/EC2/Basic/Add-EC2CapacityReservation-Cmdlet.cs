@@ -104,12 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The date and time at which the Capacity Reservation expires. When a Capacity Reservation
         /// expires, the reserved capacity is released and you can no longer launch instances
-        /// into it. The Capacity Reservation's state changes to <code>expired</code> when it
-        /// reaches its end date and time.</para><para>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is <code>limited</code>.
-        /// Omit <code>EndDate</code> if <code>EndDateType</code> is <code>unlimited</code>.</para><para>If the <code>EndDateType</code> is <code>limited</code>, the Capacity Reservation
-        /// is cancelled within an hour from the specified time. For example, if you specify 5/31/2019,
-        /// 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55
-        /// on 5/31/2019.</para>
+        /// into it. The Capacity Reservation's state changes to <c>expired</c> when it reaches
+        /// its end date and time.</para><para>You must provide an <c>EndDate</c> value if <c>EndDateType</c> is <c>limited</c>.
+        /// Omit <c>EndDate</c> if <c>EndDateType</c> is <c>unlimited</c>.</para><para>If the <c>EndDateType</c> is <c>limited</c>, the Capacity Reservation is cancelled
+        /// within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55,
+        /// the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,11 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can
-        /// have one of the following end types:</para><ul><li><para><code>unlimited</code> - The Capacity Reservation remains active until you explicitly
-        /// cancel it. Do not provide an <code>EndDate</code> if the <code>EndDateType</code>
-        /// is <code>unlimited</code>.</para></li><li><para><code>limited</code> - The Capacity Reservation expires automatically at a specified
-        /// date and time. You must provide an <code>EndDate</code> value if the <code>EndDateType</code>
-        /// value is <code>limited</code>.</para></li></ul>
+        /// have one of the following end types:</para><ul><li><para><c>unlimited</c> - The Capacity Reservation remains active until you explicitly cancel
+        /// it. Do not provide an <c>EndDate</c> if the <c>EndDateType</c> is <c>unlimited</c>.</para></li><li><para><c>limited</c> - The Capacity Reservation expires automatically at a specified date
+        /// and time. You must provide an <c>EndDate</c> value if the <c>EndDateType</c> value
+        /// is <c>limited</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,13 +160,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates the type of instance launches that the Capacity Reservation accepts. The
-        /// options include:</para><ul><li><para><code>open</code> - The Capacity Reservation automatically matches all instances
-        /// that have matching attributes (instance type, platform, and Availability Zone). Instances
-        /// that have matching attributes run in the Capacity Reservation automatically without
-        /// specifying any additional parameters.</para></li><li><para><code>targeted</code> - The Capacity Reservation only accepts instances that have
-        /// matching attributes (instance type, platform, and Availability Zone), and explicitly
-        /// target the Capacity Reservation. This ensures that only permitted instances can use
-        /// the reserved capacity. </para></li></ul><para>Default: <code>open</code></para>
+        /// options include:</para><ul><li><para><c>open</c> - The Capacity Reservation automatically matches all instances that have
+        /// matching attributes (instance type, platform, and Availability Zone). Instances that
+        /// have matching attributes run in the Capacity Reservation automatically without specifying
+        /// any additional parameters.</para></li><li><para><c>targeted</c> - The Capacity Reservation only accepts instances that have matching
+        /// attributes (instance type, platform, and Availability Zone), and explicitly target
+        /// the Capacity Reservation. This ensures that only permitted instances can use the reserved
+        /// capacity. </para></li></ul><para>Default: <c>open</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -249,8 +247,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have
-        /// one of the following tenancy settings:</para><ul><li><para><code>default</code> - The Capacity Reservation is created on hardware that is shared
-        /// with other Amazon Web Services accounts.</para></li><li><para><code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware
+        /// one of the following tenancy settings:</para><ul><li><para><c>default</c> - The Capacity Reservation is created on hardware that is shared with
+        /// other Amazon Web Services accounts.</para></li><li><para><c>dedicated</c> - The Capacity Reservation is created on single-tenant hardware
         /// that is dedicated to a single Amazon Web Services account.</para></li></ul>
         /// </para>
         /// </summary>

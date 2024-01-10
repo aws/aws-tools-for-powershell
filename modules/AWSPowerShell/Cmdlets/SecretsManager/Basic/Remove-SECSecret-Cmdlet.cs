@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// <summary>
     /// Deletes a secret and all of its versions. You can specify a recovery window during
     /// which you can restore the secret. The minimum recovery window is 7 days. The default
-    /// recovery window is 30 days. Secrets Manager attaches a <code>DeletionDate</code> stamp
-    /// to the secret that specifies the end of the recovery window. At the end of the recovery
+    /// recovery window is 30 days. Secrets Manager attaches a <c>DeletionDate</c> stamp to
+    /// the secret that specifies the end of the recovery window. At the end of the recovery
     /// window, Secrets Manager deletes the secret permanently.
     /// 
     ///  
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// the recovery window for the permanent delete to occur.
     /// </para><para>
     /// At any time before recovery window ends, you can use <a>RestoreSecret</a> to remove
-    /// the <code>DeletionDate</code> and cancel the deletion of the secret.
+    /// the <c>DeletionDate</c> and cancel the deletion of the secret.
     /// </para><para>
     /// When a secret is scheduled for deletion, you cannot retrieve the secret value. You
     /// must first cancel the deletion with <a>RestoreSecret</a> and then you can retrieve
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// include sensitive information in request parameters because it might be logged. For
     /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
     /// Secrets Manager events with CloudTrail</a>.
-    /// </para><para><b>Required permissions: </b><code>secretsmanager:DeleteSecret</code>. For more
-    /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+    /// </para><para><b>Required permissions: </b><c>secretsmanager:DeleteSecret</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
     /// and access control in Secrets Manager</a>. 
     /// </para>
@@ -85,16 +85,16 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>Specifies whether to delete the secret without any recovery window. You can't use
-        /// both this parameter and <code>RecoveryWindowInDays</code> in the same call. If you
-        /// don't use either, then by default Secrets Manager uses a 30 day recovery window.</para><para>Secrets Manager performs the actual deletion with an asynchronous background process,
+        /// both this parameter and <c>RecoveryWindowInDays</c> in the same call. If you don't
+        /// use either, then by default Secrets Manager uses a 30 day recovery window.</para><para>Secrets Manager performs the actual deletion with an asynchronous background process,
         /// so there might be a short delay before the secret is permanently deleted. If you delete
         /// a secret and then immediately create a secret with the same name, use appropriate
         /// back off and retry logic.</para><para>If you forcibly delete an already deleted or nonexistent secret, the operation does
-        /// not return <code>ResourceNotFoundException</code>.</para><important><para>Use this parameter with caution. This parameter causes the operation to skip the normal
+        /// not return <c>ResourceNotFoundException</c>.</para><important><para>Use this parameter with caution. This parameter causes the operation to skip the normal
         /// recovery window before the permanent deletion that Secrets Manager would normally
-        /// impose with the <code>RecoveryWindowInDays</code> parameter. If you delete a secret
-        /// with the <code>ForceDeleteWithoutRecovery</code> parameter, then you have no opportunity
-        /// to recover the secret. You lose the secret permanently.</para></important>
+        /// impose with the <c>RecoveryWindowInDays</c> parameter. If you delete a secret with
+        /// the <c>ForceDeleteWithoutRecovery</c> parameter, then you have no opportunity to recover
+        /// the secret. You lose the secret permanently.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>The number of days from 7 to 30 that Secrets Manager waits before permanently deleting
-        /// the secret. You can't use both this parameter and <code>ForceDeleteWithoutRecovery</code>
+        /// the secret. You can't use both this parameter and <c>ForceDeleteWithoutRecovery</c>
         /// in the same call. If you don't use either, then by default Secrets Manager uses a
         /// 30 day recovery window.</para>
         /// </para>

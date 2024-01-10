@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your initial <code>ListVpcEndpointAccess</code> operation returns a <code>nextToken</code>,
-        /// you can include the returned <code>nextToken</code> in subsequent <code>ListVpcEndpointAccess</code>
+        /// <para>If your initial <c>ListVpcEndpointAccess</c> operation returns a <c>nextToken</c>,
+        /// you can include the returned <c>nextToken</c> in subsequent <c>ListVpcEndpointAccess</c>
         /// operations, which returns results in the next page.</para>
         /// </para>
         /// <para>

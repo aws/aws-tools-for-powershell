@@ -35,14 +35,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// object tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">
     /// Object Tagging</a>.
     /// </para><para>
-    /// To use this operation, you must have permission to perform the <code>s3:DeleteObjectTagging</code>
+    /// To use this operation, you must have permission to perform the <c>s3:DeleteObjectTagging</c>
     /// action.
     /// </para><para>
-    /// To delete tags of a specific object version, add the <code>versionId</code> query
-    /// parameter in the request. You will need permission for the <code>s3:DeleteObjectVersionTagging</code>
+    /// To delete tags of a specific object version, add the <c>versionId</c> query parameter
+    /// in the request. You will need permission for the <c>s3:DeleteObjectVersionTagging</c>
     /// action.
     /// </para><para>
-    /// The following operations are related to <code>DeleteObjectTagging</code>:
+    /// The following operations are related to <c>DeleteObjectTagging</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html">PutObjectTagging</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3ObjectTagSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

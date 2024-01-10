@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         /// <summary>
         /// <para>
         /// <para>The version of the security configuration to be updated. You can find the most recent
-        /// version of a security configuration using the <code>GetSecurityPolicy</code> command.</para>
+        /// version of a security configuration using the <c>GetSecurityPolicy</c> command.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The security configuration identifier. For SAML the ID will be <code>saml/&lt;accountId&gt;/&lt;idpProviderName&gt;</code>.
-        /// For example, <code>saml/123456789123/OKTADev</code>.</para>
+        /// <para>The security configuration identifier. For SAML the ID will be <c>saml/&lt;accountId&gt;/&lt;idpProviderName&gt;</c>.
+        /// For example, <c>saml/123456789123/OKTADev</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

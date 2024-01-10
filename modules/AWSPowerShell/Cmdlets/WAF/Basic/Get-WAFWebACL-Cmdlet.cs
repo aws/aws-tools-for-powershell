@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Returns the <a>WebACL</a> that is specified by <code>WebACLId</code>.
+    /// Returns the <a>WebACL</a> that is specified by <c>WebACLId</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "WAFWebACL")]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter WebACLId
         /// <summary>
         /// <para>
-        /// <para>The <code>WebACLId</code> of the <a>WebACL</a> that you want to get. <code>WebACLId</code>
-        /// is returned by <a>CreateWebACL</a> and by <a>ListWebACLs</a>.</para>
+        /// <para>The <c>WebACLId</c> of the <a>WebACL</a> that you want to get. <c>WebACLId</c> is
+        /// returned by <a>CreateWebACL</a> and by <a>ListWebACLs</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

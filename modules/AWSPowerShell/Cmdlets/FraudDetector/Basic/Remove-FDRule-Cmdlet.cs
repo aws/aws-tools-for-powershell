@@ -28,8 +28,8 @@ using Amazon.FraudDetector.Model;
 namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Deletes the rule. You cannot delete a rule if it is used by an <code>ACTIVE</code>
-    /// or <code>INACTIVE</code> detector version.
+    /// Deletes the rule. You cannot delete a rule if it is used by an <c>ACTIVE</c> or <c>INACTIVE</c>
+    /// detector version.
     /// 
     ///  
     /// <para>

@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// original database, or to change it to a different plan, such as a high availability
     /// or standard plan.
     /// </para><para>
-    /// The <code>create relational database from snapshot</code> operation supports tag-based
-    /// access control via request tags and resource tags applied to the resource identified
-    /// by relationalDatabaseSnapshotName. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// The <c>create relational database from snapshot</c> operation supports tag-based access
+    /// control via request tags and resource tags applied to the resource identified by relationalDatabaseSnapshotName.
+    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone in which to create your new database. Use the <code>us-east-2a</code>
-        /// case-sensitive format.</para><para>You can get a list of Availability Zones by using the <code>get regions</code> operation.
-        /// Be sure to add the <code>include relational database Availability Zones</code> parameter
+        /// <para>The Availability Zone in which to create your new database. Use the <c>us-east-2a</c>
+        /// case-sensitive format.</para><para>You can get a list of Availability Zones by using the <c>get regions</c> operation.
+        /// Be sure to add the <c>include relational database Availability Zones</c> parameter
         /// to your request.</para>
         /// </para>
         /// </summary>
@@ -70,10 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>Specifies the accessibility options for your new database. A value of <code>true</code>
+        /// <para>Specifies the accessibility options for your new database. A value of <c>true</c>
         /// specifies a database that is available to resources outside of your Lightsail account.
-        /// A value of <code>false</code> specifies a database that is available only to your
-        /// Lightsail resources in the same region as your database.</para>
+        /// A value of <c>false</c> specifies a database that is available only to your Lightsail
+        /// resources in the same region as your database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The bundle ID for your new database. A bundle describes the performance specifications
-        /// for your database.</para><para>You can get a list of database bundle IDs by using the <code>get relational database
-        /// bundles</code> operation.</para><para>When creating a new database from a snapshot, you cannot choose a bundle that is smaller
+        /// for your database.</para><para>You can get a list of database bundle IDs by using the <c>get relational database
+        /// bundles</c> operation.</para><para>When creating a new database from a snapshot, you cannot choose a bundle that is smaller
         /// than the bundle of the source database.</para>
         /// </para>
         /// </summary>
@@ -123,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter RestoreTime
         /// <summary>
         /// <para>
-        /// <para>The date and time to restore your database from.</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the database.</para></li><li><para>Cannot be specified if the <code>use latest restorable time</code> parameter is <code>true</code>.</para></li><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Specified in the Unix time format.</para><para>For example, if you wish to use a restore time of October 1, 2018, at 8 PM UTC, then
-        /// you input <code>1538424000</code> as the restore time.</para></li></ul>
+        /// <para>The date and time to restore your database from.</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the database.</para></li><li><para>Cannot be specified if the <c>use latest restorable time</c> parameter is <c>true</c>.</para></li><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Specified in the Unix time format.</para><para>For example, if you wish to use a restore time of October 1, 2018, at 8 PM UTC, then
+        /// you input <c>1538424000</c> as the restore time.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <code>TagResource</code> action to tag a resource after it's created.</para>
+        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <c>TagResource</c> action to tag a resource after it's created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>Specifies whether your database is restored from the latest backup time. A value of
-        /// <code>true</code> restores from the latest backup time. </para><para>Default: <code>false</code></para><para>Constraints: Cannot be specified if the <code>restore time</code> parameter is provided.</para>
+        /// <c>true</c> restores from the latest backup time. </para><para>Default: <c>false</c></para><para>Constraints: Cannot be specified if the <c>restore time</c> parameter is provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -67,8 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>The name of the Proton environment that you want to associate this component with.
-        /// You must specify this when you don't specify <code>serviceInstanceName</code> and
-        /// <code>serviceName</code>.</para>
+        /// You must specify this when you don't specify <c>serviceInstanceName</c> and <c>serviceName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>
         /// <para>The name of the service instance that you want to attach this component to. If you
         /// don't specify this, the component isn't attached to any service instance. Specify
-        /// both <code>serviceInstanceName</code> and <code>serviceName</code> or neither of them.</para>
+        /// both <c>serviceInstanceName</c> and <c>serviceName</c> or neither of them.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,9 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter ServiceName
         /// <summary>
         /// <para>
-        /// <para>The name of the service that <code>serviceInstanceName</code> is associated with.
-        /// If you don't specify this, the component isn't attached to any service instance. Specify
-        /// both <code>serviceInstanceName</code> and <code>serviceName</code> or neither of them.</para>
+        /// <para>The name of the service that <c>serviceInstanceName</c> is associated with. If you
+        /// don't specify this, the component isn't attached to any service instance. Specify
+        /// both <c>serviceInstanceName</c> and <c>serviceName</c> or neither of them.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// <summary>
         /// <para>
         /// <para>Whether to retrieve the latest configuration (which might be in a Processing state)
-        /// or the current, active configuration. Defaults to <code>false</code>.</para>
+        /// or the current, active configuration. Defaults to <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

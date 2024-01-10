@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskSnapshotName
         /// <summary>
         /// <para>
-        /// <para>The name of the disk snapshot (<code>my-disk-snapshot</code>).</para>
+        /// <para>The name of the disk snapshot (<c>my-disk-snapshot</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

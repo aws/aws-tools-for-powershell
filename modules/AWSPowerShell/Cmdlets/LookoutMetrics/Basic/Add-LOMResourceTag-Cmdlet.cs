@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         /// <summary>
         /// <para>
         /// <para>Tags to apply to the resource. Tag keys and values can contain letters, numbers, spaces,
-        /// and the following symbols: <code>_.:/=+@-</code></para>
+        /// and the following symbols: <c>_.:/=+@-</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

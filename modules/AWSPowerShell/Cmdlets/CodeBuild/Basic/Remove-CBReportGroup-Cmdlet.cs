@@ -62,11 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter DeleteReport
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, deletes any reports that belong to a report group before deleting
-        /// the report group. </para><para>If <code>false</code>, you must delete any reports in the report group. Use <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListReportsForReportGroup.html">ListReportsForReportGroup</a>
+        /// <para>If <c>true</c>, deletes any reports that belong to a report group before deleting
+        /// the report group. </para><para>If <c>false</c>, you must delete any reports in the report group. Use <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListReportsForReportGroup.html">ListReportsForReportGroup</a>
         /// to get the reports in a report group. Use <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_DeleteReport.html">DeleteReport</a>
-        /// to delete the reports. If you call <code>DeleteReportGroup</code> for a report group
-        /// that contains one or more reports, an exception is thrown. </para>
+        /// to delete the reports. If you call <c>DeleteReportGroup</c> for a report group that
+        /// contains one or more reports, an exception is thrown. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -45,15 +45,15 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters to scope the results. The following filters and logical operators are supported:</para><ul><li><para><code>account_id</code> - The ID of the Amazon Web Services account that owns the
-        /// resource. Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li><li><para><code>application_name</code> - The name of the application. Logical operators are
-        /// <code>EQUALS</code> | <code>BEGINS_WITH</code>.</para></li><li><para><code>license_included</code> - The type of license included. Logical operators are
-        /// <code>EQUALS</code> | <code>NOT_EQUALS</code>. Possible values are <code>sql-server-enterprise</code>
-        /// | <code>sql-server-standard</code> | <code>sql-server-web</code> | <code>windows-server-datacenter</code>.</para></li><li><para><code>platform</code> - The platform of the resource. Logical operators are <code>EQUALS</code>
-        /// | <code>BEGINS_WITH</code>.</para></li><li><para><code>resource_id</code> - The ID of the resource. Logical operators are <code>EQUALS</code>
-        /// | <code>NOT_EQUALS</code>.</para></li><li><para><code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the
-        /// resource. Logical operators are <code>EQUALS</code> (single account) or <code>EQUALS</code>
-        /// | <code>NOT_EQUALS</code> (cross account).</para></li></ul>
+        /// <para>Filters to scope the results. The following filters and logical operators are supported:</para><ul><li><para><c>account_id</c> - The ID of the Amazon Web Services account that owns the resource.
+        /// Logical operators are <c>EQUALS</c> | <c>NOT_EQUALS</c>.</para></li><li><para><c>application_name</c> - The name of the application. Logical operators are <c>EQUALS</c>
+        /// | <c>BEGINS_WITH</c>.</para></li><li><para><c>license_included</c> - The type of license included. Logical operators are <c>EQUALS</c>
+        /// | <c>NOT_EQUALS</c>. Possible values are <c>sql-server-enterprise</c> | <c>sql-server-standard</c>
+        /// | <c>sql-server-web</c> | <c>windows-server-datacenter</c>.</para></li><li><para><c>platform</c> - The platform of the resource. Logical operators are <c>EQUALS</c>
+        /// | <c>BEGINS_WITH</c>.</para></li><li><para><c>resource_id</c> - The ID of the resource. Logical operators are <c>EQUALS</c>
+        /// | <c>NOT_EQUALS</c>.</para></li><li><para><c>tag:&lt;key&gt;</c> - The key/value combination of a tag assigned to the resource.
+        /// Logical operators are <c>EQUALS</c> (single account) or <c>EQUALS</c> | <c>NOT_EQUALS</c>
+        /// (cross account).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

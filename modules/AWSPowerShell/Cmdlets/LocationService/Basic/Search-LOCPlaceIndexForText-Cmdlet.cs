@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// Optional parameters let you narrow your search results by bounding box or country,
     /// or bias your search toward a specific position on the globe.
     /// </para><note><para>
-    /// You can search for places near a given position using <code>BiasPosition</code>, or
-    /// filter results within a bounding box using <code>FilterBBox</code>. Providing both
-    /// parameters simultaneously returns an error.
+    /// You can search for places near a given position using <c>BiasPosition</c>, or filter
+    /// results within a bounding box using <c>FilterBBox</c>. Providing both parameters simultaneously
+    /// returns an error.
     /// </para></note><para>
     /// Search results are returned in order of highest to lowest relevance.
     /// </para>
@@ -64,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>An optional parameter that indicates a preference for places that are closer to a
         /// specified position.</para><para> If provided, this parameter must contain a pair of numbers. The first number represents
         /// the X coordinate, or longitude; the second number represents the Y coordinate, or
-        /// latitude.</para><para>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude
-        /// <code>-123.1174</code> and latitude <code>49.2847</code>.</para><note><para><code>BiasPosition</code> and <code>FilterBBox</code> are mutually exclusive. Specifying
-        /// both options results in an error. </para></note>
+        /// latitude.</para><para>For example, <c>[-123.1174, 49.2847]</c> represents the position with longitude <c>-123.1174</c>
+        /// and latitude <c>49.2847</c>.</para><note><para><c>BiasPosition</c> and <c>FilterBBox</c> are mutually exclusive. Specifying both
+        /// options results in an error. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,10 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// pairs. The first pair of numbers represents the X and Y coordinates (longitude and
         /// latitude, respectively) of the southwest corner of the bounding box; the second pair
         /// of numbers represents the X and Y coordinates (longitude and latitude, respectively)
-        /// of the northeast corner of the bounding box.</para><para>For example, <code>[-12.7935, -37.4835, -12.0684, -36.9542]</code> represents a bounding
-        /// box where the southwest corner has longitude <code>-12.7935</code> and latitude <code>-37.4835</code>,
-        /// and the northeast corner has longitude <code>-12.0684</code> and latitude <code>-36.9542</code>.</para><note><para><code>FilterBBox</code> and <code>BiasPosition</code> are mutually exclusive. Specifying
-        /// both options results in an error. </para></note>
+        /// of the northeast corner of the bounding box.</para><para>For example, <c>[-12.7935, -37.4835, -12.0684, -36.9542]</c> represents a bounding
+        /// box where the southwest corner has longitude <c>-12.7935</c> and latitude <c>-37.4835</c>,
+        /// and the northeast corner has longitude <c>-12.0684</c> and latitude <c>-36.9542</c>.</para><note><para><c>FilterBBox</c> and <c>BiasPosition</c> are mutually exclusive. Specifying both
+        /// options results in an error. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>An optional parameter that limits the search results by returning only places that
         /// are in a specified list of countries.</para><ul><li><para>Valid values include <a href="https://www.iso.org/iso-3166-country-codes.html">ISO
         /// 3166</a> 3-digit country codes. For example, Australia uses three upper-case characters:
-        /// <code>AUS</code>.</para></li></ul>
+        /// <c>AUS</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,12 +152,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP
-        /// 47</a> language tag, for example, <code>en</code> for English.</para><para>This setting affects the languages used in the results, but not the results themselves.
+        /// 47</a> language tag, for example, <c>en</c> for English.</para><para>This setting affects the languages used in the results, but not the results themselves.
         /// If no language is specified, or not supported for a particular result, the partner
-        /// automatically chooses a language for the result.</para><para>For an example, we'll use the Greek language. You search for <code>Athens, Greece</code>,
-        /// with the <code>language</code> parameter set to <code>en</code>. The result found
-        /// will most likely be returned as <code>Athens</code>.</para><para>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then
-        /// the result found will more likely be returned as <code>Αθήνα</code>.</para><para>If the data provider does not have a value for Greek, the result will be in a language
+        /// automatically chooses a language for the result.</para><para>For an example, we'll use the Greek language. You search for <c>Athens, Greece</c>,
+        /// with the <c>language</c> parameter set to <c>en</c>. The result found will most likely
+        /// be returned as <c>Athens</c>.</para><para>If you set the <c>language</c> parameter to <c>el</c>, for Greek, then the result
+        /// found will more likely be returned as <c>Αθήνα</c>.</para><para>If the data provider does not have a value for Greek, the result will be in a language
         /// that the provider does support.</para>
         /// </para>
         /// </summary>
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>The address, name, city, or region to be used in the search in free-form text format.
-        /// For example, <code>123 Any Street</code>.</para>
+        /// For example, <c>123 Any Street</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An optional parameter. The maximum number of results returned per request. </para><para>The default: <code>50</code></para>
+        /// <para>An optional parameter. The maximum number of results returned per request. </para><para>The default: <c>50</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

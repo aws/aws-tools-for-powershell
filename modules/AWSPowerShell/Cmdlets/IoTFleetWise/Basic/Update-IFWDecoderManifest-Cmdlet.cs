@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     /// 
     ///  
     /// <para>
-    /// A decoder manifest can only be updated when the status is <code>DRAFT</code>. Only
-    /// <code>ACTIVE</code> decoder manifests can be associated with vehicles.
+    /// A decoder manifest can only be updated when the status is <c>DRAFT</c>. Only <c>ACTIVE</c>
+    /// decoder manifests can be associated with vehicles.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "IFWDecoderManifest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -141,9 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para> The state of the decoder manifest. If the status is <code>ACTIVE</code>, the decoder
-        /// manifest can't be edited. If the status is <code>DRAFT</code>, you can edit the decoder
-        /// manifest. </para>
+        /// <para> The state of the decoder manifest. If the status is <c>ACTIVE</c>, the decoder manifest
+        /// can't be edited. If the status is <c>DRAFT</c>, you can edit the decoder manifest.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

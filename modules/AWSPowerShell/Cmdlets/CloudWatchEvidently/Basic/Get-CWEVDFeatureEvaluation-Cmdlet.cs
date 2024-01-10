@@ -29,17 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
 {
     /// <summary>
     /// This operation assigns a feature variation to one given user session. You pass in
-    /// an <code>entityID</code> that represents the user. Evidently then checks the evaluation
+    /// an <c>entityID</c> that represents the user. Evidently then checks the evaluation
     /// rules and assigns the variation.
     /// 
     ///  
     /// <para>
-    /// The first rules that are evaluated are the override rules. If the user's <code>entityID</code>
+    /// The first rules that are evaluated are the override rules. If the user's <c>entityID</c>
     /// matches an override rule, the user is served the variation specified by that rule.
     /// </para><para>
     /// If there is a current launch with this feature that uses segment overrides, and if
-    /// the user session's <code>evaluationContext</code> matches a segment rule defined in
-    /// a segment override, the configuration in the segment overrides is used. For more information
+    /// the user session's <c>evaluationContext</c> matches a segment rule defined in a segment
+    /// override, the configuration in the segment overrides is used. For more information
     /// about segments, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">CreateSegment</a>
     /// and <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html">Use
     /// segments to focus your audience</a>.
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     /// feature, the user might be assigned to a variation in the experiment. The chance of
     /// this depends on the percentage of users that are allocated to that experiment.
     /// </para><para>
-    /// If the experiment uses a segment, then only user sessions with <code>evaluationContext</code>
+    /// If the experiment uses a segment, then only user sessions with <c>evaluationContext</c>
     /// values that match the segment rule are used in the experiment.
     /// </para><para>
     /// If the user is enrolled in the experiment, the variation they are served depends on
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         #region Parameter EntityId
         /// <summary>
         /// <para>
-        /// <para>An internal ID that represents a unique user of the application. This <code>entityID</code>
+        /// <para>An internal ID that represents a unique user of the application. This <c>entityID</c>
         /// is checked against any override rules assigned for this feature.</para>
         /// </para>
         /// </summary>

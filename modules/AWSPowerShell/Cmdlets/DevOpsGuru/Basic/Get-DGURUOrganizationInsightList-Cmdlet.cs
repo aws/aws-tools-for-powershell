@@ -110,8 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         #region Parameter Any_Type
         /// <summary>
         /// <para>
-        /// <para> Use to filter for either <code>REACTIVE</code> or <code>PROACTIVE</code> insights.
-        /// </para>
+        /// <para> Use to filter for either <c>REACTIVE</c> or <c>PROACTIVE</c> insights. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,8 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         #region Parameter Closed_Type
         /// <summary>
         /// <para>
-        /// <para> Use to filter for either <code>REACTIVE</code> or <code>PROACTIVE</code> insights.
-        /// </para>
+        /// <para> Use to filter for either <c>REACTIVE</c> or <c>PROACTIVE</c> insights. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,8 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         #region Parameter Ongoing_Type
         /// <summary>
         /// <para>
-        /// <para> Use to filter for either <code>REACTIVE</code> or <code>PROACTIVE</code> insights.
-        /// </para>
+        /// <para> Use to filter for either <c>REACTIVE</c> or <c>PROACTIVE</c> insights. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

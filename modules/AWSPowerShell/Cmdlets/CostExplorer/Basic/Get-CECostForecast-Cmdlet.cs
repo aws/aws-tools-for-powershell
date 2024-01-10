@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters that you want to use to filter your forecast. The <code>GetCostForecast</code>
-        /// API supports filtering by the following dimensions:</para><ul><li><para><code>AZ</code></para></li><li><para><code>INSTANCE_TYPE</code></para></li><li><para><code>LINKED_ACCOUNT</code></para></li><li><para><code>LINKED_ACCOUNT_NAME</code></para></li><li><para><code>OPERATION</code></para></li><li><para><code>PURCHASE_TYPE</code></para></li><li><para><code>REGION</code></para></li><li><para><code>SERVICE</code></para></li><li><para><code>USAGE_TYPE</code></para></li><li><para><code>USAGE_TYPE_GROUP</code></para></li><li><para><code>RECORD_TYPE</code></para></li><li><para><code>OPERATING_SYSTEM</code></para></li><li><para><code>TENANCY</code></para></li><li><para><code>SCOPE</code></para></li><li><para><code>PLATFORM</code></para></li><li><para><code>SUBSCRIPTION_ID</code></para></li><li><para><code>LEGAL_ENTITY_NAME</code></para></li><li><para><code>DEPLOYMENT_OPTION</code></para></li><li><para><code>DATABASE_ENGINE</code></para></li><li><para><code>INSTANCE_TYPE_FAMILY</code></para></li><li><para><code>BILLING_ENTITY</code></para></li><li><para><code>RESERVATION_ID</code></para></li><li><para><code>SAVINGS_PLAN_ARN</code></para></li></ul>
+        /// <para>The filters that you want to use to filter your forecast. The <c>GetCostForecast</c>
+        /// API supports filtering by the following dimensions:</para><ul><li><para><c>AZ</c></para></li><li><para><c>INSTANCE_TYPE</c></para></li><li><para><c>LINKED_ACCOUNT</c></para></li><li><para><c>LINKED_ACCOUNT_NAME</c></para></li><li><para><c>OPERATION</c></para></li><li><para><c>PURCHASE_TYPE</c></para></li><li><para><c>REGION</c></para></li><li><para><c>SERVICE</c></para></li><li><para><c>USAGE_TYPE</c></para></li><li><para><c>USAGE_TYPE_GROUP</c></para></li><li><para><c>RECORD_TYPE</c></para></li><li><para><c>OPERATING_SYSTEM</c></para></li><li><para><c>TENANCY</c></para></li><li><para><c>SCOPE</c></para></li><li><para><c>PLATFORM</c></para></li><li><para><c>SUBSCRIPTION_ID</c></para></li><li><para><c>LEGAL_ENTITY_NAME</c></para></li><li><para><c>DEPLOYMENT_OPTION</c></para></li><li><para><c>DATABASE_ENGINE</c></para></li><li><para><c>INSTANCE_TYPE_FAMILY</c></para></li><li><para><c>BILLING_ENTITY</c></para></li><li><para><c>RESERVATION_ID</c></para></li><li><para><c>SAVINGS_PLAN_ARN</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Granularity
         /// <summary>
         /// <para>
-        /// <para>How granular you want the forecast to be. You can get 3 months of <code>DAILY</code>
-        /// forecasts or 12 months of <code>MONTHLY</code> forecasts.</para><para>The <code>GetCostForecast</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code>
+        /// <para>How granular you want the forecast to be. You can get 3 months of <c>DAILY</c> forecasts
+        /// or 12 months of <c>MONTHLY</c> forecasts.</para><para>The <c>GetCostForecast</c> operation supports only <c>DAILY</c> and <c>MONTHLY</c>
         /// granularities.</para>
         /// </para>
         /// </summary>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>
         /// <para>Which metric Cost Explorer uses to create your forecast. For more information about
         /// blended and unblended rates, see <a href="http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why
-        /// does the "blended" annotation appear on some line items in my bill?</a>. </para><para>Valid values for a <code>GetCostForecast</code> call are the following:</para><ul><li><para>AMORTIZED_COST</para></li><li><para>BLENDED_COST</para></li><li><para>NET_AMORTIZED_COST</para></li><li><para>NET_UNBLENDED_COST</para></li><li><para>UNBLENDED_COST</para></li></ul>
+        /// does the "blended" annotation appear on some line items in my bill?</a>. </para><para>Valid values for a <c>GetCostForecast</c> call are the following:</para><ul><li><para>AMORTIZED_COST</para></li><li><para>BLENDED_COST</para></li><li><para>NET_AMORTIZED_COST</para></li><li><para>NET_UNBLENDED_COST</para></li><li><para>UNBLENDED_COST</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

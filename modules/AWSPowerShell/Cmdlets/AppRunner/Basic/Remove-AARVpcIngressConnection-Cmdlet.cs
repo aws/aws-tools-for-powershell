@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     /// Runner service. The VPC Ingress Connection must be in one of the following states
     /// to be deleted: 
     /// 
-    ///  <ul><li><para><code>AVAILABLE</code></para></li><li><para><code>FAILED_CREATION</code></para></li><li><para><code>FAILED_UPDATE</code></para></li><li><para><code>FAILED_DELETION</code></para></li></ul>
+    ///  <ul><li><para><c>AVAILABLE</c></para></li><li><para><c>FAILED_CREATION</c></para></li><li><para><c>FAILED_UPDATE</c></para></li><li><para><c>FAILED_DELETION</c></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "AARVpcIngressConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.AppRunner.Model.VpcIngressConnection")]

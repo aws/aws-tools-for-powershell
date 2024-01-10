@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// 
     ///  
     /// <para>
-    /// You can use the <code>TagResource</code> operation with a resource that already has
-    /// tags. If you specify a new tag key for the resource, this tag is appended to the list
-    /// of tags associated with the resource. If you specify a tag key that is already associated
+    /// You can use the <c>TagResource</c> operation with a resource that already has tags.
+    /// If you specify a new tag key for the resource, this tag is appended to the list of
+    /// tags associated with the resource. If you specify a tag key that is already associated
     /// with the resource, the new tag value you specify replaces the previous value for that
     /// tag.
     /// </para><para>
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para> A list of tag key-value pairs to be added to the resource.</para><para>Each tag consists of a key and a value, and each key must be unique for the resource.
         /// The following restrictions apply to resource tags:</para><ul><li><para>Although the maximum number of array members is 200, you can assign a maximum of 50
         /// user-tags to one resource. The remaining are reserved for Amazon Web Services use</para></li><li><para>The maximum length of a key is 128 characters</para></li><li><para>The maximum length of a value is 256 characters</para></li><li><para>Keys and values can only contain alphanumeric characters, spaces, and any of the following:
-        /// <code>_.:/=+@-</code></para></li><li><para>Keys and values are case sensitive</para></li><li><para>Keys and values are trimmed for any leading or trailing whitespaces</para></li><li><para>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for
-        /// Amazon Web Services use</para></li></ul>
+        /// <c>_.:/=+@-</c></para></li><li><para>Keys and values are case sensitive</para></li><li><para>Keys and values are trimmed for any leading or trailing whitespaces</para></li><li><para>Don’t use <c>aws:</c> as a prefix for your keys. This prefix is reserved for Amazon
+        /// Web Services use</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

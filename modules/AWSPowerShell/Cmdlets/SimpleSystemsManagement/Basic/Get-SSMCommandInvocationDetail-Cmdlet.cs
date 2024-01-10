@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Returns detailed information about command execution for an invocation or plugin.
     /// 
     ///  
-    /// <para><code>GetCommandInvocation</code> only gives the execution status of a plugin in
-    /// a document. To get the command execution status on a specific managed node, use <a>ListCommandInvocations</a>.
+    /// <para><c>GetCommandInvocation</c> only gives the execution status of a plugin in a document.
+    /// To get the command execution status on a specific managed node, use <a>ListCommandInvocations</a>.
     /// To get the command execution status across managed nodes, use <a>ListCommands</a>.
     /// </para>
     /// </summary>
@@ -90,11 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The name of the step for which you want detailed results. If the document contains
         /// only one step, you can omit the name and details for that step. If the document contains
         /// more than one step, you must specify the name of the step for which you want to view
-        /// details. Be sure to specify the name of the step, not the name of a plugin like <code>aws:RunShellScript</code>.</para><para>To find the <code>PluginName</code>, check the document content and find the name
-        /// of the step you want details for. Alternatively, use <a>ListCommandInvocations</a>
-        /// with the <code>CommandId</code> and <code>Details</code> parameters. The <code>PluginName</code>
-        /// is the <code>Name</code> attribute of the <code>CommandPlugin</code> object in the
-        /// <code>CommandPlugins</code> list.</para>
+        /// details. Be sure to specify the name of the step, not the name of a plugin like <c>aws:RunShellScript</c>.</para><para>To find the <c>PluginName</c>, check the document content and find the name of the
+        /// step you want details for. Alternatively, use <a>ListCommandInvocations</a> with the
+        /// <c>CommandId</c> and <c>Details</c> parameters. The <c>PluginName</c> is the <c>Name</c>
+        /// attribute of the <c>CommandPlugin</c> object in the <c>CommandPlugins</c> list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

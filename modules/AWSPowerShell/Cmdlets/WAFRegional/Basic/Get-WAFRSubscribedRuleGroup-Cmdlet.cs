@@ -54,9 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// <summary>
         /// <para>
         /// <para>Specifies the number of subscribed rule groups that you want AWS WAF to return for
-        /// this request. If you have more objects than the number you specify for <code>Limit</code>,
-        /// the response includes a <code>NextMarker</code> value that you can use to get another
-        /// batch of objects.</para>
+        /// this request. If you have more objects than the number you specify for <c>Limit</c>,
+        /// the response includes a <c>NextMarker</c> value that you can use to get another batch
+        /// of objects.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -73,12 +73,12 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter NextMarker
         /// <summary>
         /// <para>
-        /// <para>If you specify a value for <code>Limit</code> and you have more <code>ByteMatchSets</code>subscribed
-        /// rule groups than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code>
-        /// value in the response that allows you to list another group of subscribed rule groups.
-        /// For the second and subsequent <code>ListSubscribedRuleGroupsRequest</code> requests,
-        /// specify the value of <code>NextMarker</code> from the previous response to get information
-        /// about another batch of subscribed rule groups.</para>
+        /// <para>If you specify a value for <c>Limit</c> and you have more <c>ByteMatchSets</c>subscribed
+        /// rule groups than the value of <c>Limit</c>, AWS WAF returns a <c>NextMarker</c> value
+        /// in the response that allows you to list another group of subscribed rule groups. For
+        /// the second and subsequent <c>ListSubscribedRuleGroupsRequest</c> requests, specify
+        /// the value of <c>NextMarker</c> from the previous response to get information about
+        /// another batch of subscribed rule groups.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

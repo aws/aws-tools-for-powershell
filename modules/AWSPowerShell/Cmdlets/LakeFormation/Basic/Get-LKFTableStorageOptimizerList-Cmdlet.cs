@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter StorageOptimizerType
         /// <summary>
         /// <para>
-        /// <para>The specific type of storage optimizers to list. The supported value is <code>compaction</code>.</para>
+        /// <para>The specific type of storage optimizers to list. The supported value is <c>compaction</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

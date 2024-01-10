@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter FailOnWarning
         /// <summary>
         /// <para>
-        /// <para>A query parameter to indicate whether to rollback the API creation (<code>true</code>)
-        /// or not (<code>false</code>) when a warning is encountered. The default value is <code>false</code>.</para>
+        /// <para>A query parameter to indicate whether to rollback the API creation (<c>true</c>) or
+        /// not (<c>false</c>) when a warning is encountered. The default value is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,10 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>A key-value map of context-specific query string parameters specifying the behavior
         /// of different API importing operations. The following shows operation-specific parameters
-        /// and their supported values.</para><para> To exclude DocumentationParts from the import, set <code>parameters</code> as <code>ignore=documentation</code>.</para><para> To configure the endpoint type, set <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>,
-        /// <code>endpointConfigurationTypes=REGIONAL</code>, or <code>endpointConfigurationTypes=PRIVATE</code>.
-        /// The default endpoint type is <code>EDGE</code>.</para><para> To handle imported <code>basepath</code>, set <code>parameters</code> as <code>basepath=ignore</code>,
-        /// <code>basepath=prepend</code> or <code>basepath=split</code>.</para>
+        /// and their supported values.</para><para> To exclude DocumentationParts from the import, set <c>parameters</c> as <c>ignore=documentation</c>.</para><para> To configure the endpoint type, set <c>parameters</c> as <c>endpointConfigurationTypes=EDGE</c>,
+        /// <c>endpointConfigurationTypes=REGIONAL</c>, or <c>endpointConfigurationTypes=PRIVATE</c>.
+        /// The default endpoint type is <c>EDGE</c>.</para><para> To handle imported <c>basepath</c>, set <c>parameters</c> as <c>basepath=ignore</c>,
+        /// <c>basepath=prepend</c> or <c>basepath=split</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

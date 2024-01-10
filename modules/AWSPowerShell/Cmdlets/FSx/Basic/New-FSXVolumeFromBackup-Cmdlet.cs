@@ -60,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The
-        /// default value is <code>false</code>. If you set <code>AuditLogVolume</code> to <code>true</code>,
-        /// the SnapLock volume is created as an audit log volume. The minimum retention period
-        /// for an audit log volume is six months. </para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-audit-log-volume">
+        /// default value is <c>false</c>. If you set <c>AuditLogVolume</c> to <c>true</c>, the
+        /// SnapLock volume is created as an audit log volume. The minimum retention period for
+        /// an audit log volume is six months. </para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-audit-log-volume">
         /// SnapLock audit log volumes</a>. </para>
         /// </para>
         /// </summary>
@@ -116,9 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the number of days that user data in a volume must remain inactive before
-        /// it is considered "cold" and moved to the capacity pool. Used with the <code>AUTO</code>
-        /// and <code>SNAPSHOT_ONLY</code> tiering policies. Enter a whole number between 2 and
-        /// 183. Default values are 31 days for <code>AUTO</code> and 2 days for <code>SNAPSHOT_ONLY</code>.</para>
+        /// it is considered "cold" and moved to the capacity pool. Used with the <c>AUTO</c>
+        /// and <c>SNAPSHOT_ONLY</c> tiering policies. Enter a whole number between 2 and 183.
+        /// Default values are 31 days for <c>AUTO</c> and 2 days for <c>SNAPSHOT_ONLY</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,8 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the location in the SVM's namespace where the volume is mounted. This parameter
-        /// is required. The <code>JunctionPath</code> must have a leading forward slash, such
-        /// as <code>/vol3</code>.</para>
+        /// is required. The <c>JunctionPath</c> must have a leading forward slash, such as <c>/vol3</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,10 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter TieringPolicy_Name
         /// <summary>
         /// <para>
-        /// <para>Specifies the tiering policy used to transition data. Default value is <code>SNAPSHOT_ONLY</code>.</para><ul><li><para><code>SNAPSHOT_ONLY</code> - moves cold snapshots to the capacity pool storage tier.</para></li><li><para><code>AUTO</code> - moves cold user data and snapshots to the capacity pool storage
-        /// tier based on your access patterns.</para></li><li><para><code>ALL</code> - moves all user data blocks in both the active file system and
-        /// Snapshot copies to the storage pool tier.</para></li><li><para><code>NONE</code> - keeps a volume's data in the primary storage tier, preventing
-        /// it from being moved to the capacity pool tier.</para></li></ul>
+        /// <para>Specifies the tiering policy used to transition data. Default value is <c>SNAPSHOT_ONLY</c>.</para><ul><li><para><c>SNAPSHOT_ONLY</c> - moves cold snapshots to the capacity pool storage tier.</para></li><li><para><c>AUTO</c> - moves cold user data and snapshots to the capacity pool storage tier
+        /// based on your access patterns.</para></li><li><para><c>ALL</c> - moves all user data blocks in both the active file system and Snapshot
+        /// copies to the storage pool tier.</para></li><li><para><c>NONE</c> - keeps a volume's data in the primary storage tier, preventing it from
+        /// being moved to the capacity pool tier.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_OntapVolumeType
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of volume you are creating. Valid values are the following:</para><ul><li><para><code>RW</code> specifies a read/write volume. <code>RW</code> is the default.</para></li><li><para><code>DP</code> specifies a data-protection volume. A <code>DP</code> volume is read-only
-        /// and can be used as the destination of a NetApp SnapMirror relationship.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-types">Volume
+        /// <para>Specifies the type of volume you are creating. Valid values are the following:</para><ul><li><para><c>RW</c> specifies a read/write volume. <c>RW</c> is the default.</para></li><li><para><c>DP</c> specifies a data-protection volume. A <c>DP</c> volume is read-only and
+        /// can be used as the destination of a NetApp SnapMirror relationship.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-types">Volume
         /// types</a> in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -204,9 +203,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock
         /// Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete
-        /// WORM files even if they have active retention periods. <code>PERMANENTLY_DISABLED</code>
+        /// WORM files even if they have active retention periods. <c>PERMANENTLY_DISABLED</c>
         /// is a terminal state. If privileged delete is permanently disabled on a SnapLock volume,
-        /// you can't re-enable it. The default value is <code>DISABLED</code>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete">Privileged
+        /// you can't re-enable it. The default value is <c>DISABLED</c>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete">Privileged
         /// delete</a>. </para>
         /// </para>
         /// </summary>
@@ -224,11 +223,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// the type of permissions that FSx for ONTAP uses to control data access. For more information,
         /// see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-security-style">Volume
         /// security style</a> in the <i>Amazon FSx for NetApp ONTAP User Guide</i>. Specify one
-        /// of the following values:</para><ul><li><para><code>UNIX</code> if the file system is managed by a UNIX administrator, the majority
-        /// of users are NFS clients, and an application accessing the data uses a UNIX user as
-        /// the service account. </para></li><li><para><code>NTFS</code> if the file system is managed by a Windows administrator, the majority
+        /// of the following values:</para><ul><li><para><c>UNIX</c> if the file system is managed by a UNIX administrator, the majority of
+        /// users are NFS clients, and an application accessing the data uses a UNIX user as the
+        /// service account. </para></li><li><para><c>NTFS</c> if the file system is managed by a Windows administrator, the majority
         /// of users are SMB clients, and an application accessing the data uses a Windows user
-        /// as the service account.</para></li><li><para><code>MIXED</code> if the file system is managed by both UNIX and Windows administrators
+        /// as the service account.</para></li><li><para><c>MIXED</c> if the file system is managed by both UNIX and Windows administrators
         /// and users consist of both NFS and SMB clients.</para></li></ul>
         /// </para>
         /// </summary>
@@ -252,15 +251,15 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set,
-        /// it can't be changed. You can choose one of the following retention modes: </para><ul><li><para><code>COMPLIANCE</code>: Files transitioned to write once, read many (WORM) on a
-        /// Compliance volume can't be deleted until their retention periods expire. This retention
-        /// mode is used to address government or industry-specific mandates or to protect against
+        /// it can't be changed. You can choose one of the following retention modes: </para><ul><li><para><c>COMPLIANCE</c>: Files transitioned to write once, read many (WORM) on a Compliance
+        /// volume can't be deleted until their retention periods expire. This retention mode
+        /// is used to address government or industry-specific mandates or to protect against
         /// ransomware attacks. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-compliance.html">SnapLock
-        /// Compliance</a>. </para></li><li><para><code>ENTERPRISE</code>: Files transitioned to WORM on an Enterprise volume can be
-        /// deleted by authorized users before their retention periods expire using privileged
-        /// delete. This retention mode is used to advance an organization's data integrity and
-        /// internal compliance or to test retention settings before using SnapLock Compliance.
-        /// For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html">SnapLock
+        /// Compliance</a>. </para></li><li><para><c>ENTERPRISE</c>: Files transitioned to WORM on an Enterprise volume can be deleted
+        /// by authorized users before their retention periods expire using privileged delete.
+        /// This retention mode is used to advance an organization's data integrity and internal
+        /// compliance or to test retention settings before using SnapLock Compliance. For more
+        /// information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html">SnapLock
         /// Enterprise</a>. </para></li></ul>
         /// </para>
         /// </summary>
@@ -273,11 +272,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_SnapshotPolicy
         /// <summary>
         /// <para>
-        /// <para>Specifies the snapshot policy for the volume. There are three built-in snapshot policies:</para><ul><li><para><code>default</code>: This is the default policy. A maximum of six hourly snapshots
-        /// taken five minutes past the hour. A maximum of two daily snapshots taken Monday through
+        /// <para>Specifies the snapshot policy for the volume. There are three built-in snapshot policies:</para><ul><li><para><c>default</c>: This is the default policy. A maximum of six hourly snapshots taken
+        /// five minutes past the hour. A maximum of two daily snapshots taken Monday through
         /// Saturday at 10 minutes after midnight. A maximum of two weekly snapshots taken every
-        /// Sunday at 15 minutes after midnight.</para></li><li><para><code>default-1weekly</code>: This policy is the same as the <code>default</code>
-        /// policy except that it only retains one snapshot from the weekly schedule.</para></li><li><para><code>none</code>: This policy does not take any snapshots. This policy can be assigned
+        /// Sunday at 15 minutes after midnight.</para></li><li><para><c>default-1weekly</c>: This policy is the same as the <c>default</c> policy except
+        /// that it only retains one snapshot from the weekly schedule.</para></li><li><para><c>none</c>: This policy does not take any snapshots. This policy can be assigned
         /// to volumes to prevent automatic snapshots from being taken.</para></li></ul><para>You can also provide the name of a custom policy that you created with the ONTAP CLI
         /// or REST API.</para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies">Snapshot
         /// policies</a> in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</para>
@@ -323,8 +322,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock
-        /// volume. Setting this value to <code>NONE</code> disables autocommit. The default value
-        /// is <code>NONE</code>. </para>
+        /// volume. Setting this value to <c>NONE</c> disables autocommit. The default value is
+        /// <c>NONE</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -337,9 +336,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume.
-        /// Set it to one of the valid types. If you set it to <code>INFINITE</code>, the files
-        /// are retained forever. If you set it to <code>UNSPECIFIED</code>, the files are retained
-        /// until you set an explicit retention period. </para>
+        /// Set it to one of the valid types. If you set it to <c>INFINITE</c>, the files are
+        /// retained forever. If you set it to <c>UNSPECIFIED</c>, the files are retained until
+        /// you set an explicit retention period. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -352,9 +351,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume.
-        /// Set it to one of the valid types. If you set it to <code>INFINITE</code>, the files
-        /// are retained forever. If you set it to <code>UNSPECIFIED</code>, the files are retained
-        /// until you set an explicit retention period. </para>
+        /// Set it to one of the valid types. If you set it to <c>INFINITE</c>, the files are
+        /// retained forever. If you set it to <c>UNSPECIFIED</c>, the files are retained until
+        /// you set an explicit retention period. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -367,9 +366,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume.
-        /// Set it to one of the valid types. If you set it to <code>INFINITE</code>, the files
-        /// are retained forever. If you set it to <code>UNSPECIFIED</code>, the files are retained
-        /// until you set an explicit retention period. </para>
+        /// Set it to one of the valid types. If you set it to <c>INFINITE</c>, the files are
+        /// retained forever. If you set it to <c>UNSPECIFIED</c>, the files are retained until
+        /// you set an explicit retention period. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -382,7 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Defines the amount of time for the autocommit period of a file in an FSx for ONTAP
-        /// SnapLock volume. The following ranges are valid: </para><ul><li><para><code>Minutes</code>: 5 - 65,535</para></li><li><para><code>Hours</code>: 1 - 65,535</para></li><li><para><code>Days</code>: 1 - 3,650</para></li><li><para><code>Months</code>: 1 - 120</para></li><li><para><code>Years</code>: 1 - 10</para></li></ul>
+        /// SnapLock volume. The following ranges are valid: </para><ul><li><para><c>Minutes</c>: 5 - 65,535</para></li><li><para><c>Hours</c>: 1 - 65,535</para></li><li><para><c>Days</c>: 1 - 3,650</para></li><li><para><c>Months</c>: 1 - 120</para></li><li><para><c>Years</c>: 1 - 10</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -394,8 +393,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume.
-        /// You can't set a value for <code>INFINITE</code> or <code>UNSPECIFIED</code>. For all
-        /// other options, the following ranges are valid: </para><ul><li><para><code>Seconds</code>: 0 - 65,535</para></li><li><para><code>Minutes</code>: 0 - 65,535</para></li><li><para><code>Hours</code>: 0 - 24</para></li><li><para><code>Days</code>: 0 - 365</para></li><li><para><code>Months</code>: 0 - 12</para></li><li><para><code>Years</code>: 0 - 100</para></li></ul>
+        /// You can't set a value for <c>INFINITE</c> or <c>UNSPECIFIED</c>. For all other options,
+        /// the following ranges are valid: </para><ul><li><para><c>Seconds</c>: 0 - 65,535</para></li><li><para><c>Minutes</c>: 0 - 65,535</para></li><li><para><c>Hours</c>: 0 - 24</para></li><li><para><c>Days</c>: 0 - 365</para></li><li><para><c>Months</c>: 0 - 12</para></li><li><para><c>Years</c>: 0 - 100</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -407,8 +406,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume.
-        /// You can't set a value for <code>INFINITE</code> or <code>UNSPECIFIED</code>. For all
-        /// other options, the following ranges are valid: </para><ul><li><para><code>Seconds</code>: 0 - 65,535</para></li><li><para><code>Minutes</code>: 0 - 65,535</para></li><li><para><code>Hours</code>: 0 - 24</para></li><li><para><code>Days</code>: 0 - 365</para></li><li><para><code>Months</code>: 0 - 12</para></li><li><para><code>Years</code>: 0 - 100</para></li></ul>
+        /// You can't set a value for <c>INFINITE</c> or <c>UNSPECIFIED</c>. For all other options,
+        /// the following ranges are valid: </para><ul><li><para><c>Seconds</c>: 0 - 65,535</para></li><li><para><c>Minutes</c>: 0 - 65,535</para></li><li><para><c>Hours</c>: 0 - 24</para></li><li><para><c>Days</c>: 0 - 365</para></li><li><para><c>Months</c>: 0 - 12</para></li><li><para><c>Years</c>: 0 - 100</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -420,8 +419,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume.
-        /// You can't set a value for <code>INFINITE</code> or <code>UNSPECIFIED</code>. For all
-        /// other options, the following ranges are valid: </para><ul><li><para><code>Seconds</code>: 0 - 65,535</para></li><li><para><code>Minutes</code>: 0 - 65,535</para></li><li><para><code>Hours</code>: 0 - 24</para></li><li><para><code>Days</code>: 0 - 365</para></li><li><para><code>Months</code>: 0 - 12</para></li><li><para><code>Years</code>: 0 - 100</para></li></ul>
+        /// You can't set a value for <c>INFINITE</c> or <c>UNSPECIFIED</c>. For all other options,
+        /// the following ranges are valid: </para><ul><li><para><c>Seconds</c>: 0 - 65,535</para></li><li><para><c>Minutes</c>: 0 - 65,535</para></li><li><para><c>Hours</c>: 0 - 24</para></li><li><para><c>Days</c>: 0 - 365</para></li><li><para><c>Months</c>: 0 - 12</para></li><li><para><c>Years</c>: 0 - 100</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -434,7 +433,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append
         /// mode allows you to create WORM-appendable files and write data to them incrementally.
-        /// The default value is <code>false</code>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/worm-state.html#worm-state-append">Volume-append
+        /// The default value is <c>false</c>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/worm-state.html#worm-state-append">Volume-append
         /// mode</a>. </para>
         /// </para>
         /// </summary>

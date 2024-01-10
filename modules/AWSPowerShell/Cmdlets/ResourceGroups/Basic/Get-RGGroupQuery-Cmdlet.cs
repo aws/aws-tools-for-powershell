@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     ///  
     /// <para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para><code>resource-groups:GetGroupQuery</code></para></li></ul>
+    /// </para><ul><li><para><c>resource-groups:GetGroupQuery</c></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "RGGroupQuery")]
     [OutputType("Amazon.ResourceGroups.Model.GroupQuery")]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>Don't use this parameter. Use <code>Group</code> instead.</para>
+        /// <para>Don't use this parameter. Use <c>Group</c> instead.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

@@ -29,10 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
     /// Updates the template URI of a knowledge base. This is only supported for knowledge
-    /// bases of type EXTERNAL. Include a single variable in <code>${variable}</code> format;
-    /// this interpolated by Amazon Q using ingested content. For example, if you ingest a
-    /// Salesforce article, it has an <code>Id</code> value, and you can set the template
-    /// URI to <code>https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*${Id}*/view</code>.
+    /// bases of type EXTERNAL. Include a single variable in <c>${variable}</c> format; this
+    /// interpolated by Amazon Q using ingested content. For example, if you ingest a Salesforce
+    /// article, it has an <c>Id</c> value, and you can set the template URI to <c>https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*${Id}*/view</c>.
     /// </summary>
     [Cmdlet("Update", "QCKnowledgeBaseTemplateUri", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QConnect.Model.KnowledgeBaseData")]

@@ -29,20 +29,20 @@ namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
     /// Splits a shard into two new shards in the Kinesis data stream, to increase the stream's
-    /// capacity to ingest and transport data. <code>SplitShard</code> is called when there
-    /// is a need to increase the overall capacity of a stream because of an expected increase
+    /// capacity to ingest and transport data. <c>SplitShard</c> is called when there is a
+    /// need to increase the overall capacity of a stream because of an expected increase
     /// in the volume of data records being ingested. This API is only supported for the data
     /// streams with the provisioned capacity mode.
     /// 
     ///  <note><para>
-    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
-    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
-    /// parameter when you invoke this API.
+    /// When invoking this API, you must use either the <c>StreamARN</c> or the <c>StreamName</c>
+    /// parameter, or both. It is recommended that you use the <c>StreamARN</c> input parameter
+    /// when you invoke this API.
     /// </para></note><para>
-    /// You can also use <code>SplitShard</code> when a shard appears to be approaching its
-    /// maximum utilization; for example, the producers sending data into the specific shard
-    /// are suddenly sending more than previously anticipated. You can also call <code>SplitShard</code>
-    /// to increase stream capacity, so that more Kinesis Data Streams applications can simultaneously
+    /// You can also use <c>SplitShard</c> when a shard appears to be approaching its maximum
+    /// utilization; for example, the producers sending data into the specific shard are suddenly
+    /// sending more than previously anticipated. You can also call <c>SplitShard</c> to increase
+    /// stream capacity, so that more Kinesis Data Streams applications can simultaneously
     /// read data from the stream for real-time processing. 
     /// </para><para>
     /// You must specify the shard to be split and the new hash key, which is the position
@@ -52,21 +52,21 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// a Shard</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.
     /// </para><para>
     /// You can use <a>DescribeStreamSummary</a> and the <a>ListShards</a> APIs to determine
-    /// the shard ID and hash key values for the <code>ShardToSplit</code> and <code>NewStartingHashKey</code>
-    /// parameters that are specified in the <code>SplitShard</code> request.
-    /// </para><para><code>SplitShard</code> is an asynchronous operation. Upon receiving a <code>SplitShard</code>
+    /// the shard ID and hash key values for the <c>ShardToSplit</c> and <c>NewStartingHashKey</c>
+    /// parameters that are specified in the <c>SplitShard</c> request.
+    /// </para><para><c>SplitShard</c> is an asynchronous operation. Upon receiving a <c>SplitShard</c>
     /// request, Kinesis Data Streams immediately returns a response and sets the stream status
-    /// to <code>UPDATING</code>. After the operation is completed, Kinesis Data Streams sets
-    /// the stream status to <code>ACTIVE</code>. Read and write operations continue to work
-    /// while the stream is in the <code>UPDATING</code> state. 
+    /// to <c>UPDATING</c>. After the operation is completed, Kinesis Data Streams sets the
+    /// stream status to <c>ACTIVE</c>. Read and write operations continue to work while the
+    /// stream is in the <c>UPDATING</c> state. 
     /// </para><para>
     /// You can use <a>DescribeStreamSummary</a> to check the status of the stream, which
-    /// is returned in <code>StreamStatus</code>. If the stream is in the <code>ACTIVE</code>
-    /// state, you can call <code>SplitShard</code>. 
+    /// is returned in <c>StreamStatus</c>. If the stream is in the <c>ACTIVE</c> state, you
+    /// can call <c>SplitShard</c>. 
     /// </para><para>
-    /// If the specified stream does not exist, <a>DescribeStreamSummary</a> returns a <code>ResourceNotFoundException</code>.
+    /// If the specified stream does not exist, <a>DescribeStreamSummary</a> returns a <c>ResourceNotFoundException</c>.
     /// If you try to create more shards than are authorized for your account, you receive
-    /// a <code>LimitExceededException</code>. 
+    /// a <c>LimitExceededException</c>. 
     /// </para><para>
     /// For the default shard limit for an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Kinesis
     /// Data Streams Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.
@@ -74,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// Amazon Web Services Support</a>.
     /// </para><para>
     /// If you try to operate on too many streams simultaneously using <a>CreateStream</a>,
-    /// <a>DeleteStream</a>, <a>MergeShards</a>, and/or <a>SplitShard</a>, you receive a <code>LimitExceededException</code>.
+    /// <a>DeleteStream</a>, <a>MergeShards</a>, and/or <a>SplitShard</a>, you receive a <c>LimitExceededException</c>.
     /// 
-    /// </para><para><code>SplitShard</code> has a limit of five transactions per second per account.
+    /// </para><para><c>SplitShard</c> has a limit of five transactions per second per account.
     /// </para>
     /// </summary>
     [Cmdlet("Split", "KINShard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -96,11 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <para>
         /// <para>A hash key value for the starting hash key of one of the child shards created by the
         /// split. The hash key range for a given shard constitutes a set of ordered contiguous
-        /// positive integers. The value for <code>NewStartingHashKey</code> must be in the range
-        /// of hash keys being mapped into the shard. The <code>NewStartingHashKey</code> hash
-        /// key value and all higher hash key values in hash key range are distributed to one
-        /// of the child shards. All the lower hash key values in the range are distributed to
-        /// the other child shard.</para>
+        /// positive integers. The value for <c>NewStartingHashKey</c> must be in the range of
+        /// hash keys being mapped into the shard. The <c>NewStartingHashKey</c> hash key value
+        /// and all higher hash key values in hash key range are distributed to one of the child
+        /// shards. All the lower hash key values in the range are distributed to the other child
+        /// shard.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

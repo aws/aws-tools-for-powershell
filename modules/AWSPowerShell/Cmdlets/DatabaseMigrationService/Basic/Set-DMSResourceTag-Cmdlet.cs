@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// Adds metadata tags to an DMS resource, including replication instance, endpoint, subnet
     /// group, and migration task. These tags can also be used with cost allocation reporting
     /// to track cost associated with DMS resources, or used in a Condition statement in an
-    /// IAM policy for DMS. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html"><code>Tag</code></a> data type description.
+    /// IAM policy for DMS. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html"><c>Tag</c></a> data type description.
     /// </summary>
     [Cmdlet("Set", "DMSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -57,21 +57,21 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// </para></li><li><para>
     /// The certificate, private key, and certificate chain must be PEM-encoded.
     /// </para></li><li><para>
-    /// The current time must be between the <code>Not Before</code> and <code>Not After</code>
-    /// certificate fields.
+    /// The current time must be between the <c>Not Before</c> and <c>Not After</c> certificate
+    /// fields.
     /// </para></li><li><para>
-    /// The <code>Issuer</code> field must not be empty.
+    /// The <c>Issuer</c> field must not be empty.
     /// </para></li><li><para>
     /// The OCSP authority URL, if present, must not exceed 1000 characters.
     /// </para></li><li><para>
-    /// To import a new certificate, omit the <code>CertificateArn</code> argument. Include
-    /// this argument only when you want to replace a previously imported certificate.
+    /// To import a new certificate, omit the <c>CertificateArn</c> argument. Include this
+    /// argument only when you want to replace a previously imported certificate.
     /// </para></li><li><para>
     /// When you import a certificate by using the CLI, you must specify the certificate,
-    /// the certificate chain, and the private key by their file names preceded by <code>fileb://</code>.
-    /// For example, you can specify a certificate saved in the <code>C:\temp</code> folder
-    /// as <code>fileb://C:\temp\certificate_to_import.pem</code>. If you are making an HTTP
-    /// or HTTPS Query request, include these arguments as BLOBs. 
+    /// the certificate chain, and the private key by their file names preceded by <c>fileb://</c>.
+    /// For example, you can specify a certificate saved in the <c>C:\temp</c> folder as <c>fileb://C:\temp\certificate_to_import.pem</c>.
+    /// If you are making an HTTP or HTTPS Query request, include these arguments as BLOBs.
+    /// 
     /// </para></li><li><para>
     /// When you import a certificate by using an SDK, you must specify the certificate, the
     /// certificate chain, and the private key files in the manner required by the programming

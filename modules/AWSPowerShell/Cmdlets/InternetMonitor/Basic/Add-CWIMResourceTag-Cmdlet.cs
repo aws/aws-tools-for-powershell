@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
     ///  
     /// <para>
     /// A minimum of one tag is required for this call. It returns an error if you use the
-    /// <code>TagResource</code> request with 0 tags.
+    /// <c>TagResource</c> request with 0 tags.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "CWIMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

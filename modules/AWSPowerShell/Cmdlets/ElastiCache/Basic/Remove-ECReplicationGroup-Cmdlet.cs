@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// Deletes an existing replication group. By default, this operation deletes the entire
     /// replication group, including the primary/primaries and all of the read replicas. If
     /// the replication group has only one primary, you can optionally delete only the read
-    /// replicas, while retaining the primary by setting <code>RetainPrimaryCluster=true</code>.
+    /// replicas, while retaining the primary by setting <c>RetainPrimaryCluster=true</c>.
     /// 
     ///  
     /// <para>
@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter RetainPrimaryCluster
         /// <summary>
         /// <para>
-        /// <para>If set to <code>true</code>, all of the read replicas are deleted, but the primary
-        /// node is retained.</para>
+        /// <para>If set to <c>true</c>, all of the read replicas are deleted, but the primary node
+        /// is retained.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

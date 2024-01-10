@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     /// Kinesis Analytics stops reading data from the input, the application stops processing
     /// data, and there is no output written to the destination. 
     /// </para><para>
-    /// This operation requires permissions to perform the <code>kinesisanalytics:StopApplication</code>
+    /// This operation requires permissions to perform the <c>kinesisanalytics:StopApplication</c>
     /// action.
     /// </para>
     /// </summary>

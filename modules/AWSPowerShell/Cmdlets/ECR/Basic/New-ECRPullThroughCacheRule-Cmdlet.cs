@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <para>
         /// <para>The registry URL of the upstream public registry to use as the source for the pull
         /// through cache rule. The following is the syntax to use for each supported upstream
-        /// registry.</para><ul><li><para>Amazon ECR Public (<code>ecr-public</code>) - <code>public.ecr.aws</code></para></li><li><para>Docker Hub (<code>docker-hub</code>) - <code>registry-1.docker.io</code></para></li><li><para>Quay (<code>quay</code>) - <code>quay.io</code></para></li><li><para>Kubernetes (<code>k8s</code>) - <code>registry.k8s.io</code></para></li><li><para>GitHub Container Registry (<code>github-container-registry</code>) - <code>ghcr.io</code></para></li><li><para>Microsoft Azure Container Registry (<code>azure-container-registry</code>) - <code>&lt;custom&gt;.azurecr.io</code></para></li></ul>
+        /// registry.</para><ul><li><para>Amazon ECR Public (<c>ecr-public</c>) - <c>public.ecr.aws</c></para></li><li><para>Docker Hub (<c>docker-hub</c>) - <c>registry-1.docker.io</c></para></li><li><para>Quay (<c>quay</c>) - <c>quay.io</c></para></li><li><para>Kubernetes (<c>k8s</c>) - <c>registry.k8s.io</c></para></li><li><para>GitHub Container Registry (<c>github-container-registry</c>) - <c>ghcr.io</c></para></li><li><para>Microsoft Azure Container Registry (<c>azure-container-registry</c>) - <c>&lt;custom&gt;.azurecr.io</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     /// CodeGuru Profiler collects posted agent profiles for a profiling group into aggregated
     /// profiles. 
     /// 
-    ///  <pre><code> &lt;note&gt; &lt;p&gt; Because aggregated profiles expire over time &lt;code&gt;GetProfile&lt;/code&gt;
+    ///  <pre><c> &lt;note&gt; &lt;p&gt; Because aggregated profiles expire over time &lt;code&gt;GetProfile&lt;/code&gt;
     /// is not idempotent. &lt;/p&gt; &lt;/note&gt; &lt;p&gt; Specify the time range for the
     /// requested aggregated profile using 1 or 2 of the following parameters: &lt;code&gt;startTime&lt;/code&gt;,
     /// &lt;code&gt;endTime&lt;/code&gt;, &lt;code&gt;period&lt;/code&gt;. The maximum time
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     /// for the full time range requested, then aggregated profiles for a smaller time range
     /// are returned. For example, if the requested time range is from 00:00 to 00:20, and
     /// the existing aggregated profiles are from 00:15 and 00:25, then the aggregated profiles
-    /// from 00:15 to 00:20 are returned. &lt;/p&gt; &lt;/li&gt; &lt;/ol&gt; </code></pre>
+    /// from 00:15 to 00:20 are returned. &lt;/p&gt; &lt;/li&gt; &lt;/ol&gt; </c></pre>
     /// </summary>
     [Cmdlet("Get", "CGPProfile")]
     [OutputType("Amazon.CodeGuruProfiler.Model.GetProfileResponse")]
@@ -78,12 +78,12 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter Accept
         /// <summary>
         /// <para>
-        /// <para> The format of the returned profiling data. The format maps to the <code>Accept</code>
-        /// and <code>Content-Type</code> headers of the HTTP request. You can specify one of
-        /// the following: or the default . </para><pre><code> &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;application/json&lt;/code&gt;
+        /// <para> The format of the returned profiling data. The format maps to the <c>Accept</c> and
+        /// <c>Content-Type</c> headers of the HTTP request. You can specify one of the following:
+        /// or the default . </para><pre><c> &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;application/json&lt;/code&gt;
         /// — standard JSON format &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;application/x-amzn-ion&lt;/code&gt;
         /// — the Amazon Ion data format. For more information, see &lt;a href="http://amzn.github.io/ion-docs/"&gt;Amazon
-        /// Ion&lt;/a&gt;. &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; </code></pre>
+        /// Ion&lt;/a&gt;. &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; </c></pre>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         /// <para>
         /// <para> The end time of the requested profile. Specify using the ISO 8601 format. For example,
         /// 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
-        /// </para><para> If you specify <code>endTime</code>, then you must also specify <code>period</code>
-        /// or <code>startTime</code>, but not both. </para>
+        /// </para><para> If you specify <c>endTime</c>, then you must also specify <c>period</c> or <c>startTime</c>,
+        /// but not both. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,10 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         /// <summary>
         /// <para>
         /// <para> The maximum depth of the stacks in the code that is represented in the aggregated
-        /// profile. For example, if CodeGuru Profiler finds a method <code>A</code>, which calls
-        /// method <code>B</code>, which calls method <code>C</code>, which calls method <code>D</code>,
-        /// then the depth is 4. If the <code>maxDepth</code> is set to 2, then the aggregated
-        /// profile contains representations of methods <code>A</code> and <code>B</code>. </para>
+        /// profile. For example, if CodeGuru Profiler finds a method <c>A</c>, which calls method
+        /// <c>B</c>, which calls method <c>C</c>, which calls method <c>D</c>, then the depth
+        /// is 4. If the <c>maxDepth</c> is set to 2, then the aggregated profile contains representations
+        /// of methods <c>A</c> and <c>B</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,10 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para> Used with <code>startTime</code> or <code>endTime</code> to specify the time range
-        /// for the returned aggregated profile. Specify using the ISO 8601 format. For example,
-        /// <code>P1DT1H1M1S</code>. </para><pre><code> &lt;p&gt; To get the latest aggregated profile, specify only &lt;code&gt;period&lt;/code&gt;.
-        /// &lt;/p&gt; </code></pre>
+        /// <para> Used with <c>startTime</c> or <c>endTime</c> to specify the time range for the returned
+        /// aggregated profile. Specify using the ISO 8601 format. For example, <c>P1DT1H1M1S</c>.
+        /// </para><pre><c> &lt;p&gt; To get the latest aggregated profile, specify only &lt;code&gt;period&lt;/code&gt;.
+        /// &lt;/p&gt; </c></pre>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,9 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         /// <summary>
         /// <para>
         /// <para>The start time of the profile to get. Specify using the ISO 8601 format. For example,
-        /// 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.</para><pre><code> &lt;p&gt; If you specify &lt;code&gt;startTime&lt;/code&gt;, then you
-        /// must also specify &lt;code&gt;period&lt;/code&gt; or &lt;code&gt;endTime&lt;/code&gt;,
-        /// but not both. &lt;/p&gt; </code></pre>
+        /// 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.</para><pre><c> &lt;p&gt; If you specify &lt;code&gt;startTime&lt;/code&gt;, then you must
+        /// also specify &lt;code&gt;period&lt;/code&gt; or &lt;code&gt;endTime&lt;/code&gt;,
+        /// but not both. &lt;/p&gt; </c></pre>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

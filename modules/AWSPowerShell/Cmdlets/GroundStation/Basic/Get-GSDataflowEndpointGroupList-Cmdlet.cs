@@ -28,7 +28,7 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Returns a list of <code>DataflowEndpoint</code> groups.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of <c>DataflowEndpoint</c> groups.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GSDataflowEndpointGroupList")]
     [OutputType("Amazon.GroundStation.Model.DataflowEndpointListItem")]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Next token returned in the request of a previous <code>ListDataflowEndpointGroups</code>
+        /// <para>Next token returned in the request of a previous <c>ListDataflowEndpointGroups</c>
         /// call. Used to get the next page of results.</para>
         /// </para>
         /// <para>

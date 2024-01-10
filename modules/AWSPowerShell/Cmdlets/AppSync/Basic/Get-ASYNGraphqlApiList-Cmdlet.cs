@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter ApiType
         /// <summary>
         /// <para>
-        /// <para>The value that indicates whether the GraphQL API is a standard API (<code>GRAPHQL</code>)
-        /// or merged API (<code>MERGED</code>).</para>
+        /// <para>The value that indicates whether the GraphQL API is a standard API (<c>GRAPHQL</c>)
+        /// or merged API (<c>MERGED</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

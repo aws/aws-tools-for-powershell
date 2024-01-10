@@ -39,21 +39,21 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     /// You can use IAM policies to control this action's access to Amazon SWF resources as
     /// follows:
     /// </para><ul><li><para>
-    /// Use a <code>Resource</code> element with the domain name to limit the action to only
-    /// specified domains.
+    /// Use a <c>Resource</c> element with the domain name to limit the action to only specified
+    /// domains.
     /// </para></li><li><para>
-    /// Use an <code>Action</code> element to allow or deny permission to call this action.
+    /// Use an <c>Action</c> element to allow or deny permission to call this action.
     /// </para></li><li><para>
-    /// Constrain the following parameters by using a <code>Condition</code> element with
-    /// the appropriate keys.
-    /// </para><ul><li><para><code>tagFilter.tag</code>: String constraint. The key is <code>swf:tagFilter.tag</code>.
-    /// </para></li><li><para><code>typeFilter.name</code>: String constraint. The key is <code>swf:typeFilter.name</code>.
-    /// </para></li><li><para><code>typeFilter.version</code>: String constraint. The key is <code>swf:typeFilter.version</code>.
+    /// Constrain the following parameters by using a <c>Condition</c> element with the appropriate
+    /// keys.
+    /// </para><ul><li><para><c>tagFilter.tag</c>: String constraint. The key is <c>swf:tagFilter.tag</c>.
+    /// </para></li><li><para><c>typeFilter.name</c>: String constraint. The key is <c>swf:typeFilter.name</c>.
+    /// </para></li><li><para><c>typeFilter.version</c>: String constraint. The key is <c>swf:typeFilter.version</c>.
     /// </para></li></ul></li></ul><para>
     /// If the caller doesn't have sufficient permissions to invoke the action, or the parameter
     /// values fall outside the specified constraints, the action fails. The associated event
-    /// attribute's <code>cause</code> parameter is set to <code>OPERATION_NOT_PERMITTED</code>.
-    /// For details and example IAM policies, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
+    /// attribute's <c>cause</c> parameter is set to <c>OPERATION_NOT_PERMITTED</c>. For details
+    /// and example IAM policies, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
     /// IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         #region Parameter ReverseOrder
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, returns the results in reverse order. By default the
-        /// results are returned in descending order of the start or the close time of the executions.</para>
+        /// <para>When set to <c>true</c>, returns the results in reverse order. By default the results
+        /// are returned in descending order of the start or the close time of the executions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         /// <summary>
         /// <para>
         /// <para> Specifies the tag that must be associated with the execution for it to meet the filter
-        /// criteria.</para><para>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_
-        /// . : / = + - @</code>.</para>
+        /// criteria.</para><para>Tags may only contain unicode letters, digits, whitespace, or these symbols: <c>_
+        /// . : / = + - @</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         #region Parameter MaximumPageSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results that are returned per call. Use <code>nextPageToken</code>
+        /// <para>The maximum number of results that are returned per call. Use <c>nextPageToken</c>
         /// to obtain further pages of results. </para>
         /// </para>
         /// <para>
@@ -211,12 +211,12 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         #region Parameter NextPageToken
         /// <summary>
         /// <para>
-        /// <para>If <code>NextPageToken</code> is returned there are more results available. The value
-        /// of <code>NextPageToken</code> is a unique pagination token for each page. Make the
-        /// call again using the returned token to retrieve the next page. Keep all other arguments
-        /// unchanged. Each pagination token expires after 24 hours. Using an expired pagination
-        /// token will return a <code>400</code> error: "<code>Specified token has exceeded its
-        /// maximum lifetime</code>". </para><para>The configured <code>maximumPageSize</code> determines how many results can be returned
+        /// <para>If <c>NextPageToken</c> is returned there are more results available. The value of
+        /// <c>NextPageToken</c> is a unique pagination token for each page. Make the call again
+        /// using the returned token to retrieve the next page. Keep all other arguments unchanged.
+        /// Each pagination token expires after 24 hours. Using an expired pagination token will
+        /// return a <c>400</c> error: "<c>Specified token has exceeded its maximum lifetime</c>".
+        /// </para><para>The configured <c>maximumPageSize</c> determines how many results can be returned
         /// in a single call. </para>
         /// </para>
         /// <para>

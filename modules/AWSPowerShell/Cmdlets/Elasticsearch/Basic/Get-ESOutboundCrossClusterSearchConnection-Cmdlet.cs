@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// <summary>
         /// <para>
         /// <para> A list of filters used to match properties for outbound cross-cluster search connection.
-        /// Available <code><a>Filter</a></code> names for this operation are: <ul><li>cross-cluster-search-connection-id</li><li>destination-domain-info.domain-name</li><li>destination-domain-info.owner-id</li><li>destination-domain-info.region</li><li>source-domain-info.domain-name</li></ul></para>
+        /// Available <c><a>Filter</a></c> names for this operation are: <ul><li>cross-cluster-search-connection-id</li><li>destination-domain-info.domain-name</li><li>destination-domain-info.owner-id</li><li>destination-domain-info.region</li><li>source-domain-info.domain-name</li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

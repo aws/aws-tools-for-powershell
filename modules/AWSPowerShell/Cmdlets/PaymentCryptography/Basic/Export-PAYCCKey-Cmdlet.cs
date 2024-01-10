@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     ///  
     /// <para>
     /// Amazon Web Services Payment Cryptography simplifies key exchange by replacing the
-    /// existing paper-based approach with a modern electronic approach. With <code>ExportKey</code>
+    /// existing paper-based approach with a modern electronic approach. With <c>ExportKey</c>
     /// you can export symmetric keys using either symmetric and asymmetric key exchange mechanisms.
     /// Using this operation, you can share your Amazon Web Services Payment Cryptography
     /// generated keys with other service partners to perform cryptographic operations outside
@@ -51,12 +51,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// a WrappedKeyBlock format. Key attributes (such as KeyUsage, KeyAlgorithm, KeyModesOfUse,
     /// Exportability) are contained within the key block.
     /// </para><para>
-    /// You can also use <code>ExportKey</code> functionality to generate and export an IPEK
-    /// (Initial Pin Encryption Key) from Amazon Web Services Payment Cryptography using either
-    /// TR-31 or TR-34 export key exchange. IPEK is generated from BDK (Base Derivation Key)
-    /// and <code>ExportDukptInitialKey</code> attribute KSN (<code>KeySerialNumber</code>).
-    /// The generated IPEK does not persist within Amazon Web Services Payment Cryptography
-    /// and has to be re-generated each time during export.
+    /// You can also use <c>ExportKey</c> functionality to generate and export an IPEK (Initial
+    /// Pin Encryption Key) from Amazon Web Services Payment Cryptography using either TR-31
+    /// or TR-34 export key exchange. IPEK is generated from BDK (Base Derivation Key) and
+    /// <c>ExportDukptInitialKey</c> attribute KSN (<c>KeySerialNumber</c>). The generated
+    /// IPEK does not persist within Amazon Web Services Payment Cryptography and has to be
+    /// re-generated each time during export.
     /// </para><para><b>To export KEK or IPEK using TR-34</b></para><para>
     /// Using this operation, you can export initial key using TR-34 asymmetric key exchange.
     /// You can only export KEK generated within Amazon Web Services Payment Cryptography.
@@ -77,27 +77,27 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// Next the KRD generates a key pair for the the purpose of encrypting the KDH key and
     /// provides the public key cerificate (also known as KRD wrapping certificate) back to
     /// KDH. The KRD will also import the root cerificate chain into Amazon Web Services Payment
-    /// Cryptography by calling <a>ImportKey</a> for <code>RootCertificatePublicKey</code>.
-    /// The KDH, Amazon Web Services Payment Cryptography, will use the KRD wrapping cerificate
+    /// Cryptography by calling <a>ImportKey</a> for <c>RootCertificatePublicKey</c>. The
+    /// KDH, Amazon Web Services Payment Cryptography, will use the KRD wrapping cerificate
     /// to encrypt (wrap) the key under export and signs it with signing private key to generate
     /// a TR-34 WrappedKeyBlock. For more information on TR-34 key export, see section <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-export.html">Exporting
     /// symmetric keys</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.
     /// 
     /// </para><para>
     /// Set the following parameters:
-    /// </para><ul><li><para><code>ExportAttributes</code>: Specify export attributes in case of IPEK export.
-    /// This parameter is optional for KEK export.
-    /// </para></li><li><para><code>ExportKeyIdentifier</code>: The <code>KeyARN</code> of the KEK or BDK (in case
-    /// of IPEK) under export.
-    /// </para></li><li><para><code>KeyMaterial</code>: Use <code>Tr34KeyBlock</code> parameters.
-    /// </para></li><li><para><code>CertificateAuthorityPublicKeyIdentifier</code>: The <code>KeyARN</code> of
-    /// the certificate chain that signed the KRD wrapping key certificate.
-    /// </para></li><li><para><code>ExportToken</code>: Obtained from KDH by calling <a>GetParametersForImport</a>.
-    /// </para></li><li><para><code>WrappingKeyCertificate</code>: The public key certificate in PEM format (base64
-    /// encoded) of the KRD wrapping key Amazon Web Services Payment Cryptography uses for
-    /// encryption of the TR-34 export payload. This certificate must be signed by the root
-    /// certificate (CertificateAuthorityPublicKeyIdentifier) imported into Amazon Web Services
-    /// Payment Cryptography.
+    /// </para><ul><li><para><c>ExportAttributes</c>: Specify export attributes in case of IPEK export. This parameter
+    /// is optional for KEK export.
+    /// </para></li><li><para><c>ExportKeyIdentifier</c>: The <c>KeyARN</c> of the KEK or BDK (in case of IPEK)
+    /// under export.
+    /// </para></li><li><para><c>KeyMaterial</c>: Use <c>Tr34KeyBlock</c> parameters.
+    /// </para></li><li><para><c>CertificateAuthorityPublicKeyIdentifier</c>: The <c>KeyARN</c> of the certificate
+    /// chain that signed the KRD wrapping key certificate.
+    /// </para></li><li><para><c>ExportToken</c>: Obtained from KDH by calling <a>GetParametersForImport</a>.
+    /// </para></li><li><para><c>WrappingKeyCertificate</c>: The public key certificate in PEM format (base64 encoded)
+    /// of the KRD wrapping key Amazon Web Services Payment Cryptography uses for encryption
+    /// of the TR-34 export payload. This certificate must be signed by the root certificate
+    /// (CertificateAuthorityPublicKeyIdentifier) imported into Amazon Web Services Payment
+    /// Cryptography.
     /// </para></li></ul><para>
     /// When this operation is successful, Amazon Web Services Payment Cryptography returns
     /// the KEK or IPEK as a TR-34 WrappedKeyBlock. 
@@ -108,11 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// 
     /// </para><para>
     /// Set the following parameters:
-    /// </para><ul><li><para><code>ExportAttributes</code>: Specify export attributes in case of IPEK export.
-    /// This parameter is optional for KEK export.
-    /// </para></li><li><para><code>ExportKeyIdentifier</code>: The <code>KeyARN</code> of the KEK or BDK (in case
-    /// of IPEK) under export.
-    /// </para></li><li><para><code>KeyMaterial</code>: Use <code>Tr31KeyBlock</code> parameters.
+    /// </para><ul><li><para><c>ExportAttributes</c>: Specify export attributes in case of IPEK export. This parameter
+    /// is optional for KEK export.
+    /// </para></li><li><para><c>ExportKeyIdentifier</c>: The <c>KeyARN</c> of the KEK or BDK (in case of IPEK)
+    /// under export.
+    /// </para></li><li><para><c>KeyMaterial</c>: Use <c>Tr31KeyBlock</c> parameters.
     /// </para></li></ul><para>
     /// When this operation is successful, Amazon Web Services Payment Cryptography returns
     /// the WK or IPEK as a TR-31 WrappedKeyBlock.
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>KeyARN</code> of the certificate chain that signs the wrapping key certificate
+        /// <para>The <c>KeyARN</c> of the certificate chain that signs the wrapping key certificate
         /// during TR-34 key export.</para>
         /// </para>
         /// </summary>
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter ExportKeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>KeyARN</code> of the key under export from Amazon Web Services Payment Cryptography.</para>
+        /// <para>The <c>KeyARN</c> of the key under export from Amazon Web Services Payment Cryptography.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -237,8 +237,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter Tr34KeyBlock_WrappingKeyCertificate
         /// <summary>
         /// <para>
-        /// <para>The <code>KeyARN</code> of the wrapping key certificate. Amazon Web Services Payment
-        /// Cryptography uses this certificate to wrap the key under export.</para>
+        /// <para>The <c>KeyARN</c> of the wrapping key certificate. Amazon Web Services Payment Cryptography
+        /// uses this certificate to wrap the key under export.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -249,8 +249,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter Tr31KeyBlock_WrappingKeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>KeyARN</code> of the the wrapping key. This key encrypts or wraps the key
-        /// under export for TR-31 key block generation.</para>
+        /// <para>The <c>KeyARN</c> of the the wrapping key. This key encrypts or wraps the key under
+        /// export for TR-31 key block generation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

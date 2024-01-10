@@ -60,10 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentWaitType
         /// <summary>
         /// <para>
-        /// <para> The status of the deployment's waiting period. <code>READY_WAIT</code> indicates
-        /// that the deployment is ready to start shifting traffic. <code>TERMINATION_WAIT</code>
-        /// indicates that the traffic is shifted, but the original target is not terminated.
-        /// </para>
+        /// <para> The status of the deployment's waiting period. <c>READY_WAIT</c> indicates that the
+        /// deployment is ready to start shifting traffic. <c>TERMINATION_WAIT</c> indicates that
+        /// the traffic is shifted, but the original target is not terminated. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

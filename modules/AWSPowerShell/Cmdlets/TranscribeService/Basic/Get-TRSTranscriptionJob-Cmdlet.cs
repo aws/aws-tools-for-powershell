@@ -32,14 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// 
     ///  
     /// <para>
-    /// To view the status of the specified transcription job, check the <code>TranscriptionJobStatus</code>
-    /// field. If the status is <code>COMPLETED</code>, the job is finished. You can find
-    /// the results at the location specified in <code>TranscriptFileUri</code>. If the status
-    /// is <code>FAILED</code>, <code>FailureReason</code> provides details on why your transcription
-    /// job failed.
+    /// To view the status of the specified transcription job, check the <c>TranscriptionJobStatus</c>
+    /// field. If the status is <c>COMPLETED</c>, the job is finished. You can find the results
+    /// at the location specified in <c>TranscriptFileUri</c>. If the status is <c>FAILED</c>,
+    /// <c>FailureReason</c> provides details on why your transcription job failed.
     /// </para><para>
     /// If you enabled content redaction, the redacted transcript can be found at the location
-    /// specified in <code>RedactedTranscriptFileUri</code>.
+    /// specified in <c>RedactedTranscriptFileUri</c>.
     /// </para><para>
     /// To get a list of your transcription jobs, use the operation.
     /// </para>

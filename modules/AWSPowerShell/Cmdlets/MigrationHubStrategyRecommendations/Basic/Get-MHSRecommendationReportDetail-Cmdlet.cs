@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para> The recommendation report generation task <code>id</code> returned by <a>StartRecommendationReportGeneration</a>.
+        /// <para> The recommendation report generation task <c>id</c> returned by <a>StartRecommendationReportGeneration</a>.
         /// </para>
         /// </para>
         /// </summary>

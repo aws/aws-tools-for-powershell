@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CCA
         #region Parameter ResourceRequestStatusFilter_OperationStatus
         /// <summary>
         /// <para>
-        /// <para>The operation statuses to include in the filter.</para><ul><li><para><code>PENDING</code>: The operation has been requested, but not yet initiated.</para></li><li><para><code>IN_PROGRESS</code>: The operation is in progress.</para></li><li><para><code>SUCCESS</code>: The operation completed.</para></li><li><para><code>FAILED</code>: The operation failed.</para></li><li><para><code>CANCEL_IN_PROGRESS</code>: The operation is in the process of being canceled.</para></li><li><para><code>CANCEL_COMPLETE</code>: The operation has been canceled.</para></li></ul>
+        /// <para>The operation statuses to include in the filter.</para><ul><li><para><c>PENDING</c>: The operation has been requested, but not yet initiated.</para></li><li><para><c>IN_PROGRESS</c>: The operation is in progress.</para></li><li><para><c>SUCCESS</c>: The operation completed.</para></li><li><para><c>FAILED</c>: The operation failed.</para></li><li><para><c>CANCEL_IN_PROGRESS</c>: The operation is in the process of being canceled.</para></li><li><para><c>CANCEL_COMPLETE</c>: The operation has been canceled.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.CCA
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to be returned with a single call. If the number of
-        /// available results exceeds this maximum, the response includes a <code>NextToken</code>
-        /// value that you can assign to the <code>NextToken</code> request parameter to get the
-        /// next set of results.</para><para>The default is <code>20</code>.</para>
+        /// available results exceeds this maximum, the response includes a <c>NextToken</c> value
+        /// that you can assign to the <c>NextToken</c> request parameter to get the next set
+        /// of results.</para><para>The default is <c>20</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,10 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.CCA
         /// <summary>
         /// <para>
         /// <para>If the previous paginated request didn't return all of the remaining results, the
-        /// response object's <code>NextToken</code> parameter value is set to a token. To retrieve
+        /// response object's <c>NextToken</c> parameter value is set to a token. To retrieve
         /// the next set of results, call this action again and assign that token to the request
-        /// object's <code>NextToken</code> parameter. If there are no remaining results, the
-        /// previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</para>
+        /// object's <c>NextToken</c> parameter. If there are no remaining results, the previous
+        /// response object's <c>NextToken</c> parameter is set to <c>null</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -42,33 +42,33 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// </para><para>
     /// Although you can increase these quotas by filing a case at <a href="https://console.aws.amazon.com/support/home#/">Amazon
     /// Web Services Support Center</a>, obtaining the increase is not instantaneous. The
-    /// <code>DescribeLimits</code> action lets you write code to compare the capacity you
-    /// are currently using to those quotas imposed by your account so that you have enough
-    /// time to apply for an increase before you hit a quota.
+    /// <c>DescribeLimits</c> action lets you write code to compare the capacity you are currently
+    /// using to those quotas imposed by your account so that you have enough time to apply
+    /// for an increase before you hit a quota.
     /// </para><para>
     /// For example, you could use one of the Amazon Web Services SDKs to do the following:
     /// </para><ol><li><para>
-    /// Call <code>DescribeLimits</code> for a particular Region to obtain your current account
+    /// Call <c>DescribeLimits</c> for a particular Region to obtain your current account
     /// quotas on provisioned capacity there.
     /// </para></li><li><para>
     /// Create a variable to hold the aggregate read capacity units provisioned for all your
     /// tables in that Region, and one to hold the aggregate write capacity units. Zero them
     /// both.
     /// </para></li><li><para>
-    /// Call <code>ListTables</code> to obtain a list of all your DynamoDB tables.
+    /// Call <c>ListTables</c> to obtain a list of all your DynamoDB tables.
     /// </para></li><li><para>
-    /// For each table name listed by <code>ListTables</code>, do the following:
+    /// For each table name listed by <c>ListTables</c>, do the following:
     /// </para><ul><li><para>
-    /// Call <code>DescribeTable</code> with the table name.
+    /// Call <c>DescribeTable</c> with the table name.
     /// </para></li><li><para>
-    /// Use the data returned by <code>DescribeTable</code> to add the read capacity units
-    /// and write capacity units provisioned for the table itself to your variables.
+    /// Use the data returned by <c>DescribeTable</c> to add the read capacity units and write
+    /// capacity units provisioned for the table itself to your variables.
     /// </para></li><li><para>
     /// If the table has one or more global secondary indexes (GSIs), loop over these GSIs
     /// and add their provisioned capacity values to your variables as well.
     /// </para></li></ul></li><li><para>
-    /// Report the account quotas for that Region returned by <code>DescribeLimits</code>,
-    /// along with the total current provisioned capacity levels you have calculated.
+    /// Report the account quotas for that Region returned by <c>DescribeLimits</c>, along
+    /// with the total current provisioned capacity levels you have calculated.
     /// </para></li></ol><para>
     /// This will let you see whether you are getting close to your account-level quotas.
     /// </para><para>
@@ -80,10 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// capacity extremely rapidly, but the only quota that applies is that the aggregate
     /// provisioned capacity over all your tables and GSIs cannot exceed either of the per-account
     /// quotas.
-    /// </para><note><para><code>DescribeLimits</code> should only be called periodically. You can expect throttling
+    /// </para><note><para><c>DescribeLimits</c> should only be called periodically. You can expect throttling
     /// errors if you call it more than once in a minute.
     /// </para></note><para>
-    /// The <code>DescribeLimits</code> Request element has no content.
+    /// The <c>DescribeLimits</c> Request element has no content.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "DDBProvisionLimit")]

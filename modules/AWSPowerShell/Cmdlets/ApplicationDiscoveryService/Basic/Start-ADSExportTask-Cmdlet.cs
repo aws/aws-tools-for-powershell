@@ -37,21 +37,21 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// fees and savings depend on a variety of factors, including your actual usage of Amazon
     /// Web Services services, which might vary from the estimates provided in this report.
     /// </para></note><para>
-    /// If you do not specify <code>preferences</code> or <code>agentIds</code> in the filter,
-    /// a summary of all servers, applications, tags, and performance is generated. This data
-    /// is an aggregation of all server data collected through on-premises tooling, file import,
+    /// If you do not specify <c>preferences</c> or <c>agentIds</c> in the filter, a summary
+    /// of all servers, applications, tags, and performance is generated. This data is an
+    /// aggregation of all server data collected through on-premises tooling, file import,
     /// application grouping and applying tags.
     /// </para><para>
-    /// If you specify <code>agentIds</code> in a filter, the task exports up to 72 hours
-    /// of detailed data collected by the identified Application Discovery Agent, including
-    /// network, process, and performance details. A time range for exported agent data may
-    /// be set by using <code>startTime</code> and <code>endTime</code>. Export of detailed
-    /// agent data is limited to five concurrently running exports. Export of detailed agent
-    /// data is limited to two exports per day.
+    /// If you specify <c>agentIds</c> in a filter, the task exports up to 72 hours of detailed
+    /// data collected by the identified Application Discovery Agent, including network, process,
+    /// and performance details. A time range for exported agent data may be set by using
+    /// <c>startTime</c> and <c>endTime</c>. Export of detailed agent data is limited to five
+    /// concurrently running exports. Export of detailed agent data is limited to two exports
+    /// per day.
     /// </para><para>
-    /// If you enable <code>ec2RecommendationsPreferences</code> in <code>preferences</code>
-    /// , an Amazon EC2 instance matching the characteristics of each server in Application
-    /// Discovery Service is generated. Changing the attributes of the <code>ec2RecommendationsPreferences</code>
+    /// If you enable <c>ec2RecommendationsPreferences</c> in <c>preferences</c> , an Amazon
+    /// EC2 instance matching the characteristics of each server in Application Discovery
+    /// Service is generated. Changing the attributes of the <c>ec2RecommendationsPreferences</c>
     /// changes the criteria of the recommendation.
     /// </para>
     /// </summary>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para> If set to true, the export <a href="https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestSyntax">preferences</a>
-        /// is set to <code>Ec2RecommendationsExportPreferences</code>. </para>
+        /// is set to <c>Ec2RecommendationsExportPreferences</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter ExportDataFormat
         /// <summary>
         /// <para>
-        /// <para>The file format for the returned export data. Default value is <code>CSV</code>. <b>Note:</b><i>The</i><code>GRAPHML</code><i>option has been deprecated.</i></para>
+        /// <para>The file format for the returned export data. Default value is <c>CSV</c>. <b>Note:</b><i>The</i><c>GRAPHML</c><i>option has been deprecated.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -115,12 +115,12 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>If a filter is present, it selects the single <code>agentId</code> of the Application
-        /// Discovery Agent for which data is exported. The <code>agentId</code> can be found
-        /// in the results of the <code>DescribeAgents</code> API or CLI. If no filter is present,
-        /// <code>startTime</code> and <code>endTime</code> are ignored and exported data includes
-        /// both Amazon Web Services Application Discovery Service Agentless Collector collectors
-        /// data and summary data from Application Discovery Agent agents. </para>
+        /// <para>If a filter is present, it selects the single <c>agentId</c> of the Application Discovery
+        /// Agent for which data is exported. The <c>agentId</c> can be found in the results of
+        /// the <c>DescribeAgents</c> API or CLI. If no filter is present, <c>startTime</c> and
+        /// <c>endTime</c> are ignored and exported data includes both Amazon Web Services Application
+        /// Discovery Service Agentless Collector collectors data and summary data from Application
+        /// Discovery Agent agents. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

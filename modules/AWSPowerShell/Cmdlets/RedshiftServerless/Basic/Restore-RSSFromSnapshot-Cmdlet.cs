@@ -57,10 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter ManageAdminPassword
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the restored
-        /// snapshot's admin credentials. If <code>MmanageAdminPassword</code> is false or not
-        /// set, Amazon Redshift uses the admin credentials that the namespace or cluster had
-        /// at the time the snapshot was taken.</para>
+        /// <para>If <c>true</c>, Amazon Redshift uses Secrets Manager to manage the restored snapshot's
+        /// admin credentials. If <c>MmanageAdminPassword</c> is false or not set, Amazon Redshift
+        /// uses the admin credentials that the namespace or cluster had at the time the snapshot
+        /// was taken.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the snapshot to restore from. Required if restoring
         /// from Amazon Redshift Serverless to a provisioned cluster. Must not be specified at
-        /// the same time as <code>snapshotName</code>.</para><para>The format of the ARN is arn:aws:redshift:&lt;region&gt;:&lt;account_id&gt;:snapshot:&lt;cluster_identifier&gt;/&lt;snapshot_identifier&gt;.</para>
+        /// the same time as <c>snapshotName</c>.</para><para>The format of the ARN is arn:aws:redshift:&lt;region&gt;:&lt;account_id&gt;:snapshot:&lt;cluster_identifier&gt;/&lt;snapshot_identifier&gt;.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>The name of the snapshot to restore from. Must not be specified at the same time as
-        /// <code>snapshotArn</code>.</para>
+        /// <c>snapshotArn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

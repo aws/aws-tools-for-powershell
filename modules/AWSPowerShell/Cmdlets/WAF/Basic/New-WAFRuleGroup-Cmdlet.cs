@@ -35,9 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Creates a <code>RuleGroup</code>. A rule group is a collection of predefined rules
-    /// that you add to a web ACL. You use <a>UpdateRuleGroup</a> to add rules to the rule
-    /// group.
+    /// Creates a <c>RuleGroup</c>. A rule group is a collection of predefined rules that
+    /// you add to a web ACL. You use <a>UpdateRuleGroup</a> to add rules to the rule group.
     /// </para><para>
     /// Rule groups are subject to the following limits:
     /// </para><ul><li><para>
@@ -84,11 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// <para>A friendly name or description for the metrics for this <code>RuleGroup</code>. The
-        /// name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length
-        /// 128 and minimum length one. It can't contain whitespace or metric names reserved for
-        /// AWS WAF, including "All" and "Default_Action." You can't change the name of the metric
-        /// after you create the <code>RuleGroup</code>.</para>
+        /// <para>A friendly name or description for the metrics for this <c>RuleGroup</c>. The name
+        /// can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128
+        /// and minimum length one. It can't contain whitespace or metric names reserved for AWS
+        /// WAF, including "All" and "Default_Action." You can't change the name of the metric
+        /// after you create the <c>RuleGroup</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A friendly name or description of the <a>RuleGroup</a>. You can't change <code>Name</code>
-        /// after you create a <code>RuleGroup</code>.</para>
+        /// <para>A friendly name or description of the <a>RuleGroup</a>. You can't change <c>Name</c>
+        /// after you create a <c>RuleGroup</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -34,11 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// Use this action to modify subnets on Amazon Web Services Outposts.
     /// </para><ul><li><para>
-    /// To modify a subnet on an Outpost rack, set both <code>MapCustomerOwnedIpOnLaunch</code>
-    /// and <code>CustomerOwnedIpv4Pool</code>. These two parameters act as a single attribute.
+    /// To modify a subnet on an Outpost rack, set both <c>MapCustomerOwnedIpOnLaunch</c>
+    /// and <c>CustomerOwnedIpv4Pool</c>. These two parameters act as a single attribute.
     /// </para></li><li><para>
-    /// To modify a subnet on an Outpost server, set either <code>EnableLniAtDeviceIndex</code>
-    /// or <code>DisableLniAtDeviceIndex</code>.
+    /// To modify a subnet on an Outpost server, set either <c>EnableLniAtDeviceIndex</c>
+    /// or <c>DisableLniAtDeviceIndex</c>.
     /// </para></li></ul><para>
     /// For more information about Amazon Web Services Outposts, see the following:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-servers-work.html">Outpost
@@ -60,11 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AssignIpv6AddressOnCreation
         /// <summary>
         /// <para>
-        /// <para>Specify <code>true</code> to indicate that network interfaces created in the specified
-        /// subnet should be assigned an IPv6 address. This includes a network interface that's
-        /// created when launching an instance into the subnet (the instance therefore receives
-        /// an IPv6 address). </para><para>If you enable the IPv6 addressing feature for your subnet, your network interface
-        /// or instance only receives an IPv6 address if it's created using version <code>2016-11-15</code>
+        /// <para>Specify <c>true</c> to indicate that network interfaces created in the specified subnet
+        /// should be assigned an IPv6 address. This includes a network interface that's created
+        /// when launching an instance into the subnet (the instance therefore receives an IPv6
+        /// address). </para><para>If you enable the IPv6 addressing feature for your subnet, your network interface
+        /// or instance only receives an IPv6 address if it's created using version <c>2016-11-15</c>
         /// or later of the Amazon EC2 API.</para>
         /// </para>
         /// </summary>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CustomerOwnedIpv4Pool
         /// <summary>
         /// <para>
-        /// <para>The customer-owned IPv4 address pool associated with the subnet.</para><para>You must set this value when you specify <code>true</code> for <code>MapCustomerOwnedIpOnLaunch</code>.</para>
+        /// <para>The customer-owned IPv4 address pool associated with the subnet.</para><para>You must set this value when you specify <c>true</c> for <c>MapCustomerOwnedIpOnLaunch</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DisableLniAtDeviceIndex
         /// <summary>
         /// <para>
-        /// <para> Specify <code>true</code> to indicate that local network interfaces at the current
-        /// position should be disabled. </para>
+        /// <para> Specify <c>true</c> to indicate that local network interfaces at the current position
+        /// should be disabled. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para> Indicates the device position for local network interfaces in this subnet. For example,
-        /// <code>1</code> indicates local network interfaces in this subnet are the secondary
-        /// network interface (eth1). A local network interface cannot be the primary network
-        /// interface (eth0). </para>
+        /// <c>1</c> indicates local network interfaces in this subnet are the secondary network
+        /// interface (eth1). A local network interface cannot be the primary network interface
+        /// (eth0). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,9 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MapCustomerOwnedIpOnLaunch
         /// <summary>
         /// <para>
-        /// <para>Specify <code>true</code> to indicate that network interfaces attached to instances
-        /// created in the specified subnet should be assigned a customer-owned IPv4 address.</para><para>When this value is <code>true</code>, you must specify the customer-owned IP pool
-        /// using <code>CustomerOwnedIpv4Pool</code>.</para>
+        /// <para>Specify <c>true</c> to indicate that network interfaces attached to instances created
+        /// in the specified subnet should be assigned a customer-owned IPv4 address.</para><para>When this value is <c>true</c>, you must specify the customer-owned IP pool using
+        /// <c>CustomerOwnedIpv4Pool</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MapPublicIpOnLaunch
         /// <summary>
         /// <para>
-        /// <para>Specify <code>true</code> to indicate that network interfaces attached to instances
-        /// created in the specified subnet should be assigned a public IPv4 address.</para>
+        /// <para>Specify <c>true</c> to indicate that network interfaces attached to instances created
+        /// in the specified subnet should be assigned a public IPv4 address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

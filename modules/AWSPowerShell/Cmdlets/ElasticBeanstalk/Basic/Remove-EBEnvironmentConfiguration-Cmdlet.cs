@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// <para>
     /// Updating a running environment with any configuration changes creates a draft configuration
     /// set. You can get the draft configuration using <a>DescribeConfigurationSettings</a>
-    /// while the update is in progress or if the update fails. The <code>DeploymentStatus</code>
+    /// while the update is in progress or if the update fails. The <c>DeploymentStatus</c>
     /// for the draft configuration indicates whether the deployment is in process or has
     /// failed. The draft configuration remains in existence until it is deleted with this
     /// action.

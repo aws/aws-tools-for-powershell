@@ -31,14 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// Sends a message to a particular channel that the member is a part of.
     /// 
     ///  <note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
-    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
-    /// as the value in the header.
+    /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the ARN of the <c>AppInstanceUser</c>
+    /// or <c>AppInstanceBot</c> that makes the API call as the value in the header.
     /// </para><para>
-    /// Also, <code>STANDARD</code> messages can be up to 4KB in size and contain metadata.
-    /// Metadata is arbitrary, and you can use it in a variety of ways, such as containing
-    /// a link to an attachment.
-    /// </para><para><code>CONTROL</code> messages are limited to 30 bytes and do not contain metadata.
+    /// Also, <c>STANDARD</c> messages can be up to 4KB in size and contain metadata. Metadata
+    /// is arbitrary, and you can use it in a variety of ways, such as containing a link to
+    /// an attachment.
+    /// </para><para><c>CONTROL</c> messages are limited to 30 bytes and do not contain metadata.
     /// </para></note>
     /// </summary>
     [Cmdlet("Send", "CHMMGChannelMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -84,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        /// the API call.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c> or <c>AppInstanceBot</c> that makes the API
+        /// call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>The <code>Idempotency</code> token for each client request.</para>
+        /// <para>The <c>Idempotency</c> token for each client request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter MessageAttribute
         /// <summary>
         /// <para>
-        /// <para>The attributes for the message, used for message filtering along with a <code>FilterRule</code>
-        /// defined in the <code>PushNotificationPreferences</code>.</para>
+        /// <para>The attributes for the message, used for message filtering along with a <c>FilterRule</c>
+        /// defined in the <c>PushNotificationPreferences</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,8 +210,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter PushNotification_Type
         /// <summary>
         /// <para>
-        /// <para>Enum value that indicates the type of the push notification for a message. <code>DEFAULT</code>:
-        /// Normal mobile push notification. <code>VOIP</code>: VOIP mobile push notification.</para>
+        /// <para>Enum value that indicates the type of the push notification for a message. <c>DEFAULT</c>:
+        /// Normal mobile push notification. <c>VOIP</c>: VOIP mobile push notification.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,9 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of message, <code>STANDARD</code> or <code>CONTROL</code>.</para><para><code>STANDARD</code> messages can be up to 4KB in size and contain metadata. Metadata
+        /// <para>The type of message, <c>STANDARD</c> or <c>CONTROL</c>.</para><para><c>STANDARD</c> messages can be up to 4KB in size and contain metadata. Metadata
         /// is arbitrary, and you can use it in a variety of ways, such as containing a link to
-        /// an attachment.</para><para><code>CONTROL</code> messages are limited to 30 bytes and do not contain metadata.</para>
+        /// an attachment.</para><para><c>CONTROL</c> messages are limited to 30 bytes and do not contain metadata.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

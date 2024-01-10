@@ -52,15 +52,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>deliver-log-status</code> - The status of the logs delivery (<code>SUCCESS</code>
-        /// | <code>FAILED</code>).</para></li><li><para><code>log-destination-type</code> - The type of destination for the flow log data
-        /// (<code>cloud-watch-logs</code> | <code>s3</code> | <code>kinesis-data-firehose</code>).</para></li><li><para><code>flow-log-id</code> - The ID of the flow log.</para></li><li><para><code>log-group-name</code> - The name of the log group.</para></li><li><para><code>resource-id</code> - The ID of the VPC, subnet, or network interface.</para></li><li><para><code>traffic-type</code> - The type of traffic (<code>ACCEPT</code> | <code>REJECT</code>
-        /// | <code>ALL</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
-        /// resource. Use the tag key in the filter name and the tag value as the filter value.
-        /// For example, to find all resources that have a tag with the key <code>Owner</code>
-        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><c>deliver-log-status</c> - The status of the logs delivery (<c>SUCCESS</c> | <c>FAILED</c>).</para></li><li><para><c>log-destination-type</c> - The type of destination for the flow log data (<c>cloud-watch-logs</c>
+        /// | <c>s3</c> | <c>kinesis-data-firehose</c>).</para></li><li><para><c>flow-log-id</c> - The ID of the flow log.</para></li><li><para><c>log-group-name</c> - The name of the log group.</para></li><li><para><c>resource-id</c> - The ID of the VPC, subnet, or network interface.</para></li><li><para><c>traffic-type</c> - The type of traffic (<c>ACCEPT</c> | <c>REJECT</c> | <c>ALL</c>).</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
+        /// Use the tag key in the filter name and the tag value as the filter value. For example,
+        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

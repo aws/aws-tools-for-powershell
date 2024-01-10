@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone (for example, <code>us-west-2a</code>).</para></li><li><para><code>instance-type</code> - The instance type (for example, <code>c4.large</code>).</para></li><li><para><code>platform</code> - The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>availability-zone</c> - The Availability Zone (for example, <c>us-west-2a</c>).</para></li><li><para><c>instance-type</c> - The instance type (for example, <c>c4.large</c>).</para></li><li><para><c>platform</c> - The platform (<c>Linux/UNIX</c> or <c>Windows</c>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The maximum number of results to return in a single call. This value can be between
         /// 5 and 300. The default value is 100. To retrieve the remaining results, make another
-        /// call with the returned <code>NextToken</code> value.</para>
+        /// call with the returned <c>NextToken</c> value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

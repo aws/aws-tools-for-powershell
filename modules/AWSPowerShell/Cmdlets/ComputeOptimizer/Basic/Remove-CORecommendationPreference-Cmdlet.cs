@@ -51,10 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter Scope_Name
         /// <summary>
         /// <para>
-        /// <para>The name of the scope.</para><para>The following scopes are possible:</para><ul><li><para><code>Organization</code> - Specifies that the recommendation preference applies
-        /// at the organization level, for all member accounts of an organization.</para></li><li><para><code>AccountId</code> - Specifies that the recommendation preference applies at
-        /// the account level, for all resources of a given resource type in an account.</para></li><li><para><code>ResourceArn</code> - Specifies that the recommendation preference applies at
-        /// the individual resource level.</para></li></ul>
+        /// <para>The name of the scope.</para><para>The following scopes are possible:</para><ul><li><para><c>Organization</c> - Specifies that the recommendation preference applies at the
+        /// organization level, for all member accounts of an organization.</para></li><li><para><c>AccountId</c> - Specifies that the recommendation preference applies at the account
+        /// level, for all resources of a given resource type in an account.</para></li><li><para><c>ResourceArn</c> - Specifies that the recommendation preference applies at the
+        /// individual resource level.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,9 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The target resource type of the recommendation preference to delete.</para><para>The <code>Ec2Instance</code> option encompasses standalone instances and instances
-        /// that are part of Auto Scaling groups. The <code>AutoScalingGroup</code> option encompasses
-        /// only instances that are part of an Auto Scaling group.</para><note><para>The valid values for this parameter are <code>Ec2Instance</code> and <code>AutoScalingGroup</code>.</para></note>
+        /// <para>The target resource type of the recommendation preference to delete.</para><para>The <c>Ec2Instance</c> option encompasses standalone instances and instances that
+        /// are part of Auto Scaling groups. The <c>AutoScalingGroup</c> option encompasses only
+        /// instances that are part of an Auto Scaling group.</para><note><para>The valid values for this parameter are <c>Ec2Instance</c> and <c>AutoScalingGroup</c>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,9 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter Scope_Value
         /// <summary>
         /// <para>
-        /// <para>The value of the scope.</para><para>If you specified the <code>name</code> of the scope as:</para><ul><li><para><code>Organization</code> - The <code>value</code> must be <code>ALL_ACCOUNTS</code>.</para></li><li><para><code>AccountId</code> - The <code>value</code> must be a 12-digit Amazon Web Services
-        /// account ID.</para></li><li><para><code>ResourceArn</code> - The <code>value</code> must be the Amazon Resource Name
-        /// (ARN) of an EC2 instance or an Auto Scaling group.</para></li></ul><para>Only EC2 instance and Auto Scaling group ARNs are currently supported.</para>
+        /// <para>The value of the scope.</para><para>If you specified the <c>name</c> of the scope as:</para><ul><li><para><c>Organization</c> - The <c>value</c> must be <c>ALL_ACCOUNTS</c>.</para></li><li><para><c>AccountId</c> - The <c>value</c> must be a 12-digit Amazon Web Services account
+        /// ID.</para></li><li><para><c>ResourceArn</c> - The <c>value</c> must be the Amazon Resource Name (ARN) of an
+        /// EC2 instance or an Auto Scaling group.</para></li></ul><para>Only EC2 instance and Auto Scaling group ARNs are currently supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

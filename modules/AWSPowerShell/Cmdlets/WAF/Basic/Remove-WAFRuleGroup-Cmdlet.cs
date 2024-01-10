@@ -35,23 +35,19 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Permanently deletes a <a>RuleGroup</a>. You can't delete a <code>RuleGroup</code>
-    /// if it's still used in any <code>WebACL</code> objects or if it still includes any
-    /// rules.
+    /// Permanently deletes a <a>RuleGroup</a>. You can't delete a <c>RuleGroup</c> if it's
+    /// still used in any <c>WebACL</c> objects or if it still includes any rules.
     /// </para><para>
-    /// If you just want to remove a <code>RuleGroup</code> from a <code>WebACL</code>, use
-    /// <a>UpdateWebACL</a>.
+    /// If you just want to remove a <c>RuleGroup</c> from a <c>WebACL</c>, use <a>UpdateWebACL</a>.
     /// </para><para>
-    /// To permanently delete a <code>RuleGroup</code> from AWS WAF, perform the following
-    /// steps:
+    /// To permanently delete a <c>RuleGroup</c> from AWS WAF, perform the following steps:
     /// </para><ol><li><para>
-    /// Update the <code>RuleGroup</code> to remove rules, if any. For more information, see
-    /// <a>UpdateRuleGroup</a>.
+    /// Update the <c>RuleGroup</c> to remove rules, if any. For more information, see <a>UpdateRuleGroup</a>.
     /// </para></li><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>DeleteRuleGroup</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of a <c>DeleteRuleGroup</c> request.
     /// </para></li><li><para>
-    /// Submit a <code>DeleteRuleGroup</code> request.
+    /// Submit a <c>DeleteRuleGroup</c> request.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Remove", "WAFRuleGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -86,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter RuleGroupId
         /// <summary>
         /// <para>
-        /// <para>The <code>RuleGroupId</code> of the <a>RuleGroup</a> that you want to delete. <code>RuleGroupId</code>
+        /// <para>The <c>RuleGroupId</c> of the <a>RuleGroup</a> that you want to delete. <c>RuleGroupId</c>
         /// is returned by <a>CreateRuleGroup</a> and by <a>ListRuleGroups</a>.</para>
         /// </para>
         /// </summary>

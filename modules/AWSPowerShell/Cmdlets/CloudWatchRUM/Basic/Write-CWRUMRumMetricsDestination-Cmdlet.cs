@@ -68,10 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter Destination
         /// <summary>
         /// <para>
-        /// <para>Defines the destination to send the metrics to. Valid values are <code>CloudWatch</code>
-        /// and <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify
-        /// the ARN of the CloudWatchEvidently experiment that is to be the destination and an
-        /// IAM role that has permission to write to the experiment.</para>
+        /// <para>Defines the destination to send the metrics to. Valid values are <c>CloudWatch</c>
+        /// and <c>Evidently</c>. If you specify <c>Evidently</c>, you must also specify the ARN
+        /// of the CloudWatchEvidently experiment that is to be the destination and an IAM role
+        /// that has permission to write to the experiment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,9 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter DestinationArn
         /// <summary>
         /// <para>
-        /// <para>Use this parameter only if <code>Destination</code> is <code>Evidently</code>. This
-        /// parameter specifies the ARN of the Evidently experiment that will receive the extended
-        /// metrics.</para>
+        /// <para>Use this parameter only if <c>Destination</c> is <c>Evidently</c>. This parameter
+        /// specifies the ARN of the Evidently experiment that will receive the extended metrics.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter IamRoleArn
         /// <summary>
         /// <para>
-        /// <para>This parameter is required if <code>Destination</code> is <code>Evidently</code>.
-        /// If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter.</para><para>This parameter specifies the ARN of an IAM role that RUM will assume to write to the
+        /// <para>This parameter is required if <c>Destination</c> is <c>Evidently</c>. If <c>Destination</c>
+        /// is <c>CloudWatch</c>, do not use this parameter.</para><para>This parameter specifies the ARN of an IAM role that RUM will assume to write to the
         /// Evidently experiment that you are sending metrics to. This role must have permission
         /// to write to that experiment.</para>
         /// </para>

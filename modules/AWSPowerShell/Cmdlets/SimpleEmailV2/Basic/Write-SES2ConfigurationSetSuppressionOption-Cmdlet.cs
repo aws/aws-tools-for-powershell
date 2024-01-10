@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>A list that contains the reasons that email addresses are automatically added to the
-        /// suppression list for your account. This list can contain any or all of the following:</para><ul><li><para><code>COMPLAINT</code> – Amazon SES adds an email address to the suppression list
-        /// for your account when a message sent to that address results in a complaint.</para></li><li><para><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for
-        /// your account when a message sent to that address results in a hard bounce.</para></li></ul>
+        /// suppression list for your account. This list can contain any or all of the following:</para><ul><li><para><c>COMPLAINT</c> – Amazon SES adds an email address to the suppression list for your
+        /// account when a message sent to that address results in a complaint.</para></li><li><para><c>BOUNCE</c> – Amazon SES adds an email address to the suppression list for your
+        /// account when a message sent to that address results in a hard bounce.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

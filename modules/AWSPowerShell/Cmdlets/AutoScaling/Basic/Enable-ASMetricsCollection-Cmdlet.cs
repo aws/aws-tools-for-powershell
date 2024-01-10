@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The frequency at which Amazon EC2 Auto Scaling sends aggregated data to CloudWatch.
-        /// The only valid value is <code>1Minute</code>.</para>
+        /// The only valid value is <c>1Minute</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,8 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Metric
         /// <summary>
         /// <para>
-        /// <para>Identifies the metrics to enable.</para><para>You can specify one or more of the following metrics:</para><ul><li><para><code>GroupMinSize</code></para></li><li><para><code>GroupMaxSize</code></para></li><li><para><code>GroupDesiredCapacity</code></para></li><li><para><code>GroupInServiceInstances</code></para></li><li><para><code>GroupPendingInstances</code></para></li><li><para><code>GroupStandbyInstances</code></para></li><li><para><code>GroupTerminatingInstances</code></para></li><li><para><code>GroupTotalInstances</code></para></li><li><para><code>GroupInServiceCapacity</code></para></li><li><para><code>GroupPendingCapacity</code></para></li><li><para><code>GroupStandbyCapacity</code></para></li><li><para><code>GroupTerminatingCapacity</code></para></li><li><para><code>GroupTotalCapacity</code></para></li><li><para><code>WarmPoolDesiredCapacity</code></para></li><li><para><code>WarmPoolWarmedCapacity</code></para></li><li><para><code>WarmPoolPendingCapacity</code></para></li><li><para><code>WarmPoolTerminatingCapacity</code></para></li><li><para><code>WarmPoolTotalCapacity</code></para></li><li><para><code>GroupAndWarmPoolDesiredCapacity</code></para></li><li><para><code>GroupAndWarmPoolTotalCapacity</code></para></li></ul><para>If you specify <code>Granularity</code> and don't specify any metrics, all metrics
-        /// are enabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics">Auto
+        /// <para>Identifies the metrics to enable.</para><para>You can specify one or more of the following metrics:</para><ul><li><para><c>GroupMinSize</c></para></li><li><para><c>GroupMaxSize</c></para></li><li><para><c>GroupDesiredCapacity</c></para></li><li><para><c>GroupInServiceInstances</c></para></li><li><para><c>GroupPendingInstances</c></para></li><li><para><c>GroupStandbyInstances</c></para></li><li><para><c>GroupTerminatingInstances</c></para></li><li><para><c>GroupTotalInstances</c></para></li><li><para><c>GroupInServiceCapacity</c></para></li><li><para><c>GroupPendingCapacity</c></para></li><li><para><c>GroupStandbyCapacity</c></para></li><li><para><c>GroupTerminatingCapacity</c></para></li><li><para><c>GroupTotalCapacity</c></para></li><li><para><c>WarmPoolDesiredCapacity</c></para></li><li><para><c>WarmPoolWarmedCapacity</c></para></li><li><para><c>WarmPoolPendingCapacity</c></para></li><li><para><c>WarmPoolTerminatingCapacity</c></para></li><li><para><c>WarmPoolTotalCapacity</c></para></li><li><para><c>GroupAndWarmPoolDesiredCapacity</c></para></li><li><para><c>GroupAndWarmPoolTotalCapacity</c></para></li></ul><para>If you specify <c>Granularity</c> and don't specify any metrics, all metrics are enabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics">Auto
         /// Scaling group metrics</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>

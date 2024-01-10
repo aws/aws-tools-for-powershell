@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     /// <summary>
     /// Retrieves a paginated list of the components that a Greengrass core device runs. By
     /// default, this list doesn't include components that are deployed as dependencies of
-    /// other components. To include dependencies in the response, set the <code>topologyFilter</code>
-    /// parameter to <code>ALL</code>.
+    /// other components. To include dependencies in the response, set the <c>topologyFilter</c>
+    /// parameter to <c>ALL</c>.
     /// 
     ///  <note><para>
     /// IoT Greengrass relies on individual devices to send status updates to the Amazon Web
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     /// </para></li><li><para>
     /// When the core device receives a deployment from the Amazon Web Services Cloud
     /// </para></li><li><para>
-    /// When the status of any component on the core device becomes <code>BROKEN</code></para></li><li><para>
+    /// When the status of any component on the core device becomes <c>BROKEN</c></para></li><li><para>
     /// At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular
     /// interval that you can configure</a>, which defaults to 24 hours
     /// </para></li><li><para>
@@ -86,9 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter TopologyFilter
         /// <summary>
         /// <para>
-        /// <para>The filter for the list of components. Choose from the following options:</para><ul><li><para><code>ALL</code> – The list includes all components installed on the core device.</para></li><li><para><code>ROOT</code> – The list includes only <i>root</i> components, which are components
+        /// <para>The filter for the list of components. Choose from the following options:</para><ul><li><para><c>ALL</c> – The list includes all components installed on the core device.</para></li><li><para><c>ROOT</c> – The list includes only <i>root</i> components, which are components
         /// that you specify in a deployment. When you choose this option, the list doesn't include
-        /// components that the core device installs as dependencies of other components.</para></li></ul><para>Default: <code>ROOT</code></para>
+        /// components that the core device installs as dependencies of other components.</para></li></ul><para>Default: <c>ROOT</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

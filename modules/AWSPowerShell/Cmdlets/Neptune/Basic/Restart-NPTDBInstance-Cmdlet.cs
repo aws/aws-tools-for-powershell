@@ -70,8 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter ForceFailover
         /// <summary>
         /// <para>
-        /// <para> When <code>true</code>, the reboot is conducted through a MultiAZ failover.</para><para>Constraint: You can't specify <code>true</code> if the instance is not configured
-        /// for MultiAZ.</para>
+        /// <para> When <c>true</c>, the reboot is conducted through a MultiAZ failover.</para><para>Constraint: You can't specify <c>true</c> if the instance is not configured for MultiAZ.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

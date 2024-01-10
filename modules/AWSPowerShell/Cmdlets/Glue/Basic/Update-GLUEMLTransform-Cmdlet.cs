@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// 
     ///  
     /// <para>
-    /// After calling this operation, you can call the <code>StartMLEvaluationTaskRun</code>
-    /// operation to assess how well your new parameters achieved your goals (such as improving
-    /// the quality of your machine learning transform, or making it more cost-effective).
+    /// After calling this operation, you can call the <c>StartMLEvaluationTaskRun</c> operation
+    /// to assess how well your new parameters achieved your goals (such as improving the
+    /// quality of your machine learning transform, or making it more cost-effective).
     /// </para>
     /// </summary>
     [Cmdlet("Update", "GLUEMLTransform", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// and cost. A value of 0.5 means that the system balances accuracy and cost concerns.
         /// A value of 1.0 means a bias purely for accuracy, which typically results in a higher
         /// cost, sometimes substantially higher. A value of 0.0 means a bias purely for cost,
-        /// which results in a less accurate <code>FindMatches</code> transform, sometimes with
-        /// unacceptable accuracy.</para><para>Accuracy measures how well the transform finds true positives and true negatives.
+        /// which results in a less accurate <c>FindMatches</c> transform, sometimes with unacceptable
+        /// accuracy.</para><para>Accuracy measures how well the transform finds true positives and true negatives.
         /// Increasing accuracy requires more machine resources and cost. But it also results
         /// in increased recall. </para><para>Cost measures how many compute resources, and thus money, are consumed to run the
         /// transform.</para>
@@ -83,11 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The value to switch on or off to force the output to match the provided labels from
-        /// users. If the value is <code>True</code>, the <code>find matches</code> transform
-        /// forces the output to match the provided labels. The results override the normal conflation
-        /// results. If the value is <code>False</code>, the <code>find matches</code> transform
-        /// does not ensure all the labels provided are respected, and the results rely on the
-        /// trained model.</para><para>Note that setting this value to true may increase the conflation execution time.</para>
+        /// users. If the value is <c>True</c>, the <c>find matches</c> transform forces the output
+        /// to match the provided labels. The results override the normal conflation results.
+        /// If the value is <c>False</c>, the <c>find matches</c> transform does not ensure all
+        /// the labels provided are respected, and the results rely on the trained model.</para><para>Note that setting this value to true may increase the conflation execution time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a
         /// relative measure of processing power that consists of 4 vCPUs of compute capacity
         /// and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
-        /// pricing page</a>. </para><para>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>,
-        /// the <code>MaxCapacity</code> field is set automatically and becomes read-only.</para>
+        /// pricing page</a>. </para><para>When the <c>WorkerType</c> field is set to a value other than <c>Standard</c>, the
+        /// <c>MaxCapacity</c> field is set automatically and becomes read-only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter NumberOfWorker
         /// <summary>
         /// <para>
-        /// <para>The number of workers of a defined <code>workerType</code> that are allocated when
-        /// this task runs.</para>
+        /// <para>The number of workers of a defined <c>workerType</c> that are allocated when this
+        /// task runs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -200,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para>
         /// <para>The timeout for a task run for this transform in minutes. This is the maximum time
         /// that a task run for this transform can consume resources before it is terminated and
-        /// enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</para>
+        /// enters <c>TIMEOUT</c> status. The default is 2,880 minutes (48 hours).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -240,10 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The type of predefined worker that is allocated when this task runs. Accepts a value
-        /// of Standard, G.1X, or G.2X.</para><ul><li><para>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory
-        /// and a 50GB disk, and 2 executors per worker.</para></li><li><para>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory
-        /// and a 64GB disk, and 1 executor per worker.</para></li><li><para>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory
-        /// and a 128GB disk, and 1 executor per worker.</para></li></ul>
+        /// of Standard, G.1X, or G.2X.</para><ul><li><para>For the <c>Standard</c> worker type, each worker provides 4 vCPU, 16 GB of memory
+        /// and a 50GB disk, and 2 executors per worker.</para></li><li><para>For the <c>G.1X</c> worker type, each worker provides 4 vCPU, 16 GB of memory and
+        /// a 64GB disk, and 1 executor per worker.</para></li><li><para>For the <c>G.2X</c> worker type, each worker provides 8 vCPU, 32 GB of memory and
+        /// a 128GB disk, and 1 executor per worker.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

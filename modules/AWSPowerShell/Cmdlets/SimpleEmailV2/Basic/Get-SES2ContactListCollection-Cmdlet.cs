@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>Maximum number of contact lists to return at once. Use this parameter to paginate
-        /// results. If additional contact lists exist beyond the specified limit, the <code>NextToken</code>
-        /// element is sent in the response. Use the <code>NextToken</code> value in subsequent
-        /// requests to retrieve additional lists.</para>
+        /// results. If additional contact lists exist beyond the specified limit, the <c>NextToken</c>
+        /// element is sent in the response. Use the <c>NextToken</c> value in subsequent requests
+        /// to retrieve additional lists.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

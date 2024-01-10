@@ -46,31 +46,31 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     ///  To see the evaluation metrics, use the <a>GetAccuracyMetrics</a> operation. 
     /// </para><para>
     /// You can specify a featurization configuration to fill and aggregate the data fields
-    /// in the <code>TARGET_TIME_SERIES</code> dataset to improve model training. For more
-    /// information, see <a>FeaturizationConfig</a>.
+    /// in the <c>TARGET_TIME_SERIES</c> dataset to improve model training. For more information,
+    /// see <a>FeaturizationConfig</a>.
     /// </para><para>
-    /// For RELATED_TIME_SERIES datasets, <code>CreatePredictor</code> verifies that the <code>DataFrequency</code>
-    /// specified when the dataset was created matches the <code>ForecastFrequency</code>.
-    /// TARGET_TIME_SERIES datasets don't have this restriction. Amazon Forecast also verifies
-    /// the delimiter and timestamp format. For more information, see <a>howitworks-datasets-groups</a>.
+    /// For RELATED_TIME_SERIES datasets, <c>CreatePredictor</c> verifies that the <c>DataFrequency</c>
+    /// specified when the dataset was created matches the <c>ForecastFrequency</c>. TARGET_TIME_SERIES
+    /// datasets don't have this restriction. Amazon Forecast also verifies the delimiter
+    /// and timestamp format. For more information, see <a>howitworks-datasets-groups</a>.
     /// </para><para>
     /// By default, predictors are trained and evaluated at the 0.1 (P10), 0.5 (P50), and
     /// 0.9 (P90) quantiles. You can choose custom forecast types to train and evaluate your
-    /// predictor by setting the <code>ForecastTypes</code>. 
+    /// predictor by setting the <c>ForecastTypes</c>. 
     /// </para><para><b>AutoML</b></para><para>
     /// If you want Amazon Forecast to evaluate each algorithm and choose the one that minimizes
-    /// the <code>objective function</code>, set <code>PerformAutoML</code> to <code>true</code>.
-    /// The <code>objective function</code> is defined as the mean of the weighted losses
-    /// over the forecast types. By default, these are the p10, p50, and p90 quantile losses.
-    /// For more information, see <a>EvaluationResult</a>.
+    /// the <c>objective function</c>, set <c>PerformAutoML</c> to <c>true</c>. The <c>objective
+    /// function</c> is defined as the mean of the weighted losses over the forecast types.
+    /// By default, these are the p10, p50, and p90 quantile losses. For more information,
+    /// see <a>EvaluationResult</a>.
     /// </para><para>
     /// When AutoML is enabled, the following properties are disallowed:
-    /// </para><ul><li><para><code>AlgorithmArn</code></para></li><li><para><code>HPOConfig</code></para></li><li><para><code>PerformHPO</code></para></li><li><para><code>TrainingParameters</code></para></li></ul><para>
+    /// </para><ul><li><para><c>AlgorithmArn</c></para></li><li><para><c>HPOConfig</c></para></li><li><para><c>PerformHPO</c></para></li><li><para><c>TrainingParameters</c></para></li></ul><para>
     /// To get a list of all of your predictors, use the <a>ListPredictors</a> operation.
     /// </para><note><para>
-    /// Before you can use the predictor to create a forecast, the <code>Status</code> of
-    /// the predictor must be <code>ACTIVE</code>, signifying that training has completed.
-    /// To get the status, use the <a>DescribePredictor</a> operation.
+    /// Before you can use the predictor to create a forecast, the <c>Status</c> of the predictor
+    /// must be <c>ACTIVE</c>, signifying that training has completed. To get the status,
+    /// use the <a>DescribePredictor</a> operation.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "FRCPredictor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the algorithm to use for model training. Required
-        /// if <code>PerformAutoML</code> is not set to <code>true</code>.</para><para><b>Supported algorithms:</b></para><ul><li><para><code>arn:aws:forecast:::algorithm/ARIMA</code></para></li><li><para><code>arn:aws:forecast:::algorithm/CNN-QR</code></para></li><li><para><code>arn:aws:forecast:::algorithm/Deep_AR_Plus</code></para></li><li><para><code>arn:aws:forecast:::algorithm/ETS</code></para></li><li><para><code>arn:aws:forecast:::algorithm/NPTS</code></para></li><li><para><code>arn:aws:forecast:::algorithm/Prophet</code></para></li></ul>
+        /// if <c>PerformAutoML</c> is not set to <c>true</c>.</para><para><b>Supported algorithms:</b></para><ul><li><para><c>arn:aws:forecast:::algorithm/ARIMA</c></para></li><li><para><c>arn:aws:forecast:::algorithm/CNN-QR</c></para></li><li><para><c>arn:aws:forecast:::algorithm/Deep_AR_Plus</c></para></li><li><para><c>arn:aws:forecast:::algorithm/ETS</c></para></li><li><para><c>arn:aws:forecast:::algorithm/NPTS</c></para></li><li><para><c>arn:aws:forecast:::algorithm/Prophet</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,10 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter AutoMLOverrideStrategy
         /// <summary>
         /// <para>
-        /// <note><para> The <code>LatencyOptimized</code> AutoML override strategy is only available in private
+        /// <note><para> The <c>LatencyOptimized</c> AutoML override strategy is only available in private
         /// beta. Contact Amazon Web Services Support or your account manager to learn more about
         /// access privileges. </para></note><para>Used to overide the default AutoML strategy, which is to optimize predictor accuracy.
-        /// To apply an AutoML strategy that minimizes training time, use <code>LatencyOptimized</code>.</para><para>This parameter is only valid for predictors trained using AutoML.</para>
+        /// To apply an AutoML strategy that minimizes training time, use <c>LatencyOptimized</c>.</para><para>This parameter is only valid for predictors trained using AutoML.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,9 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <para>
         /// <para>The point from the end of the dataset where you want to split the data for model training
         /// and testing (evaluation). Specify the value as the number of data points. The default
-        /// is the value of the forecast horizon. <code>BackTestWindowOffset</code> can be used
-        /// to mimic a past virtual forecast start date. This value must be greater than or equal
-        /// to the forecast horizon and less than half of the TARGET_TIME_SERIES dataset length.</para><para><code>ForecastHorizon</code> &lt;= <code>BackTestWindowOffset</code> &lt; 1/2 * TARGET_TIME_SERIES
+        /// is the value of the forecast horizon. <c>BackTestWindowOffset</c> can be used to mimic
+        /// a past virtual forecast start date. This value must be greater than or equal to the
+        /// forecast horizon and less than half of the TARGET_TIME_SERIES dataset length.</para><para><c>ForecastHorizon</c> &lt;= <c>BackTestWindowOffset</c> &lt; 1/2 * TARGET_TIME_SERIES
         /// dataset length</para>
         /// </para>
         /// </summary>
@@ -181,12 +181,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>An array of dimension (field) names that specify how to group the generated forecast.</para><para>For example, suppose that you are generating a forecast for item sales across all
-        /// of your stores, and your dataset contains a <code>store_id</code> field. If you want
-        /// the sales forecast for each item by store, you would specify <code>store_id</code>
-        /// as the dimension.</para><para>All forecast dimensions specified in the <code>TARGET_TIME_SERIES</code> dataset don't
-        /// need to be specified in the <code>CreatePredictor</code> request. All forecast dimensions
-        /// specified in the <code>RELATED_TIME_SERIES</code> dataset must be specified in the
-        /// <code>CreatePredictor</code> request.</para>
+        /// of your stores, and your dataset contains a <c>store_id</c> field. If you want the
+        /// sales forecast for each item by store, you would specify <c>store_id</c> as the dimension.</para><para>All forecast dimensions specified in the <c>TARGET_TIME_SERIES</c> dataset don't need
+        /// to be specified in the <c>CreatePredictor</c> request. All forecast dimensions specified
+        /// in the <c>RELATED_TIME_SERIES</c> dataset must be specified in the <c>CreatePredictor</c>
+        /// request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>Specifies the number of time-steps that the model is trained to predict. The forecast
-        /// horizon is also called the prediction length.</para><para>For example, if you configure a dataset for daily data collection (using the <code>DataFrequency</code>
+        /// horizon is also called the prediction length.</para><para>For example, if you configure a dataset for daily data collection (using the <c>DataFrequency</c>
         /// parameter of the <a>CreateDataset</a> operation) and set the forecast horizon to 10,
         /// the model returns predictions for 10 days.</para><para>The maximum forecast horizon is the lesser of 500 time-steps or 1/3 of the TARGET_TIME_SERIES
         /// dataset length.</para>
@@ -243,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <para>
         /// <para>Specifies the forecast types used to train a predictor. You can specify up to five
         /// forecast types. Forecast types can be quantiles from 0.01 to 0.99, by increments of
-        /// 0.01 or higher. You can also specify the mean forecast with <code>mean</code>. </para><para>The default value is <code>["0.10", "0.50", "0.9"]</code>.</para>
+        /// 0.01 or higher. You can also specify the mean forecast with <c>mean</c>. </para><para>The default value is <c>["0.10", "0.50", "0.9"]</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -300,10 +299,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <para>
         /// <para>Whether to perform AutoML. When Amazon Forecast performs AutoML, it evaluates the
         /// algorithms it provides and chooses the best algorithm and configuration for your training
-        /// dataset.</para><para>The default value is <code>false</code>. In this case, you are required to specify
-        /// an algorithm.</para><para>Set <code>PerformAutoML</code> to <code>true</code> to have Amazon Forecast perform
-        /// AutoML. This is a good option if you aren't sure which algorithm is suitable for your
-        /// training data. In this case, <code>PerformHPO</code> must be false.</para>
+        /// dataset.</para><para>The default value is <c>false</c>. In this case, you are required to specify an algorithm.</para><para>Set <c>PerformAutoML</c> to <c>true</c> to have Amazon Forecast perform AutoML. This
+        /// is a good option if you aren't sure which algorithm is suitable for your training
+        /// data. In this case, <c>PerformHPO</c> must be false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -315,12 +313,12 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <para>
         /// <para>Whether to perform hyperparameter optimization (HPO). HPO finds optimal hyperparameter
         /// values for your training data. The process of performing HPO is known as running a
-        /// hyperparameter tuning job.</para><para>The default value is <code>false</code>. In this case, Amazon Forecast uses default
-        /// hyperparameter values from the chosen algorithm.</para><para>To override the default values, set <code>PerformHPO</code> to <code>true</code> and,
-        /// optionally, supply the <a>HyperParameterTuningJobConfig</a> object. The tuning job
-        /// specifies a metric to optimize, which hyperparameters participate in tuning, and the
-        /// valid range for each tunable hyperparameter. In this case, you are required to specify
-        /// an algorithm and <code>PerformAutoML</code> must be false.</para><para>The following algorithms support HPO:</para><ul><li><para>DeepAR+</para></li><li><para>CNN-QR</para></li></ul>
+        /// hyperparameter tuning job.</para><para>The default value is <c>false</c>. In this case, Amazon Forecast uses default hyperparameter
+        /// values from the chosen algorithm.</para><para>To override the default values, set <c>PerformHPO</c> to <c>true</c> and, optionally,
+        /// supply the <a>HyperParameterTuningJobConfig</a> object. The tuning job specifies a
+        /// metric to optimize, which hyperparameters participate in tuning, and the valid range
+        /// for each tunable hyperparameter. In this case, you are required to specify an algorithm
+        /// and <c>PerformAutoML</c> must be false.</para><para>The following algorithms support HPO:</para><ul><li><para>DeepAR+</para></li><li><para>CNN-QR</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -348,7 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM role that Amazon Forecast can assume to access the KMS key.</para><para>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role
-        /// that isn't in your account, you get an <code>InvalidInputException</code> error.</para>
+        /// that isn't in your account, you get an <c>InvalidInputException</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -374,12 +372,12 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// value.</para></li><li><para>Maximum key length - 128 Unicode characters in UTF-8.</para></li><li><para>Maximum value length - 256 Unicode characters in UTF-8.</para></li><li><para>If your tagging schema is used across multiple services and resources, remember that
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
-        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot
-        /// edit or delete tag keys with this prefix. Values can have this prefix. If a tag value
-        /// has <code>aws</code> as its prefix but the key does not, then Forecast considers it
-        /// to be a user tag and will count against the limit of 50 tags. Tags with only the key
-        /// prefix of <code>aws</code> do not count against your tags per resource limit.</para></li></ul>
+        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use <c>aws:</c>, <c>AWS:</c>, or any upper or lowercase combination of such
+        /// as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit
+        /// or delete tag keys with this prefix. Values can have this prefix. If a tag value has
+        /// <c>aws</c> as its prefix but the key does not, then Forecast considers it to be a
+        /// user tag and will count against the limit of 50 tags. Tags with only the key prefix
+        /// of <c>aws</c> do not count against your tags per resource limit.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

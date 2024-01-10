@@ -149,9 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the response to a previous <code>ListModelCardExportJobs</code> request was truncated,
-        /// the response includes a <code>NextToken</code>. To retrieve the next set of model
-        /// card export jobs, use the token in the next request.</para>
+        /// <para>If the response to a previous <c>ListModelCardExportJobs</c> request was truncated,
+        /// the response includes a <c>NextToken</c>. To retrieve the next set of model card export
+        /// jobs, use the token in the next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

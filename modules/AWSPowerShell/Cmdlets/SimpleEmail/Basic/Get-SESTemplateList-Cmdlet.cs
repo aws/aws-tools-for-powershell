@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token returned from a previous call to <code>ListTemplates</code> to indicate the
-        /// position in the list of email templates.</para>
+        /// <para>A token returned from a previous call to <c>ListTemplates</c> to indicate the position
+        /// in the list of email templates.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

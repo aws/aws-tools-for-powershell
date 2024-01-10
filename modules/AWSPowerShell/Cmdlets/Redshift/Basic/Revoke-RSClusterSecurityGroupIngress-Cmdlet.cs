@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The IP range for which to revoke access. This range must be a valid Classless Inter-Domain
-        /// Routing (CIDR) block of IP addresses. If <code>CIDRIP</code> is specified, <code>EC2SecurityGroupName</code>
-        /// and <code>EC2SecurityGroupOwnerId</code> cannot be provided. </para>
+        /// Routing (CIDR) block of IP addresses. If <c>CIDRIP</c> is specified, <c>EC2SecurityGroupName</c>
+        /// and <c>EC2SecurityGroupOwnerId</c> cannot be provided. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter EC2SecurityGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the EC2 Security Group whose access is to be revoked. If <code>EC2SecurityGroupName</code>
-        /// is specified, <code>EC2SecurityGroupOwnerId</code> must also be provided and <code>CIDRIP</code>
+        /// <para>The name of the EC2 Security Group whose access is to be revoked. If <c>EC2SecurityGroupName</c>
+        /// is specified, <c>EC2SecurityGroupOwnerId</c> must also be provided and <c>CIDRIP</c>
         /// cannot be provided. </para>
         /// </para>
         /// </summary>
@@ -91,10 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services account number of the owner of the security group specified
-        /// in the <code>EC2SecurityGroupName</code> parameter. The Amazon Web Services access
-        /// key ID is not an acceptable value. If <code>EC2SecurityGroupOwnerId</code> is specified,
-        /// <code>EC2SecurityGroupName</code> must also be provided. and <code>CIDRIP</code> cannot
-        /// be provided. </para><para>Example: <code>111122223333</code></para>
+        /// in the <c>EC2SecurityGroupName</c> parameter. The Amazon Web Services access key ID
+        /// is not an acceptable value. If <c>EC2SecurityGroupOwnerId</c> is specified, <c>EC2SecurityGroupName</c>
+        /// must also be provided. and <c>CIDRIP</c> cannot be provided. </para><para>Example: <c>111122223333</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

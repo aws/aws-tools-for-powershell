@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter WakeUp
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, acts as keystroke input and wakes up an instance that's
-        /// in standby or "sleep" mode.</para>
+        /// <para>When set to <c>true</c>, acts as keystroke input and wakes up an instance that's in
+        /// standby or "sleep" mode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

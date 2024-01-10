@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>endpoint</code> - The endpoint of the Region (for example, <code>ec2.us-east-1.amazonaws.com</code>).</para></li><li><para><code>opt-in-status</code> - The opt-in status of the Region (<code>opt-in-not-required</code>
-        /// | <code>opted-in</code> | <code>not-opted-in</code>).</para></li><li><para><code>region-name</code> - The name of the Region (for example, <code>us-east-1</code>).</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>endpoint</c> - The endpoint of the Region (for example, <c>ec2.us-east-1.amazonaws.com</c>).</para></li><li><para><c>opt-in-status</c> - The opt-in status of the Region (<c>opt-in-not-required</c>
+        /// | <c>opted-in</c> | <c>not-opted-in</c>).</para></li><li><para><c>region-name</c> - The name of the Region (for example, <c>us-east-1</c>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// the status of policy types in a root, use <a>ListRoots</a>.
     /// </para><para>
     /// After all invited member accounts accept the handshake, you finalize the feature set
-    /// change by accepting the handshake that contains <code>"Action": "ENABLE_ALL_FEATURES"</code>.
+    /// change by accepting the handshake that contains <c>"Action": "ENABLE_ALL_FEATURES"</c>.
     /// This completes the change.
     /// </para><para>
     /// After you enable all features in your organization, the management account in the

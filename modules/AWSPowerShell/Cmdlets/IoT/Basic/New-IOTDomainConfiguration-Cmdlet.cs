@@ -122,8 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter ServiceType
         /// <summary>
         /// <para>
-        /// <para>The type of service delivered by the endpoint.</para><note><para>Amazon Web Services IoT Core currently supports only the <code>DATA</code> service
-        /// type.</para></note>
+        /// <para>The type of service delivered by the endpoint.</para><note><para>Amazon Web Services IoT Core currently supports only the <c>DATA</c> service type.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

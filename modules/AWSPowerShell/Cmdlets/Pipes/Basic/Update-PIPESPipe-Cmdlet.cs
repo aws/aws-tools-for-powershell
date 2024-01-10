@@ -28,15 +28,14 @@ using Amazon.Pipes.Model;
 namespace Amazon.PowerShell.Cmdlets.PIPES
 {
     /// <summary>
-    /// Update an existing pipe. When you call <code>UpdatePipe</code>, EventBridge only the
-    /// updates fields you have specified in the request; the rest remain unchanged. The exception
-    /// to this is if you modify any Amazon Web Services-service specific fields in the <code>SourceParameters</code>,
-    /// <code>EnrichmentParameters</code>, or <code>TargetParameters</code> objects. For example,
-    /// <code>DynamoDBStreamParameters</code> or <code>EventBridgeEventBusParameters</code>.
-    /// EventBridge updates the fields in these objects atomically as one and overrides existing
-    /// values. This is by design, and means that if you don't specify an optional field in
-    /// one of these <code>Parameters</code> objects, EventBridge sets that field to its system-default
-    /// value during the update.
+    /// Update an existing pipe. When you call <c>UpdatePipe</c>, EventBridge only the updates
+    /// fields you have specified in the request; the rest remain unchanged. The exception
+    /// to this is if you modify any Amazon Web Services-service specific fields in the <c>SourceParameters</c>,
+    /// <c>EnrichmentParameters</c>, or <c>TargetParameters</c> objects. For example, <c>DynamoDBStreamParameters</c>
+    /// or <c>EventBridgeEventBusParameters</c>. EventBridge updates the fields in these objects
+    /// atomically as one and overrides existing values. This is by design, and means that
+    /// if you don't specify an optional field in one of these <c>Parameters</c> objects,
+    /// EventBridge sets that field to its system-default value during the update.
     /// 
     ///  
     /// <para>
@@ -85,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <summary>
         /// <para>
         /// <para>Specifies whether the task's elastic network interface receives a public IP address.
-        /// You can specify <code>ENABLED</code> only when <code>LaunchType</code> in <code>EcsParameters</code>
-        /// is set to <code>FARGATE</code>.</para>
+        /// You can specify <c>ENABLED</c> only when <c>LaunchType</c> in <c>EcsParameters</c>
+        /// is set to <c>FARGATE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,9 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter RetryStrategy_Attempt
         /// <summary>
         /// <para>
-        /// <para>The number of times to move a job to the <code>RUNNABLE</code> status. If the value
-        /// of <code>attempts</code> is greater than one, the job is retried on failure the same
-        /// number of attempts as the value.</para>
+        /// <para>The number of times to move a job to the <c>RUNNABLE</c> status. If the value of <c>attempts</c>
+        /// is greater than one, the job is retried on failure the same number of attempts as
+        /// the value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,10 +244,9 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter EcsTaskParameters_CapacityProviderStrategy
         /// <summary>
         /// <para>
-        /// <para>The capacity provider strategy to use for the task.</para><para>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
-        /// parameter must be omitted. If no <code>capacityProviderStrategy</code> or launchType
-        /// is specified, the <code>defaultCapacityProviderStrategy</code> for the cluster is
-        /// used. </para>
+        /// <para>The capacity provider strategy to use for the task.</para><para>If a <c>capacityProviderStrategy</c> is specified, the <c>launchType</c> parameter
+        /// must be omitted. If no <c>capacityProviderStrategy</c> or launchType is specified,
+        /// the <c>defaultCapacityProviderStrategy</c> for the cluster is used. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,11 +348,11 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <summary>
         /// <para>
         /// <para>A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You
-        /// can specify a <code>SEQUENTIAL</code> type dependency without specifying a job ID
-        /// for array jobs so that each child array job completes sequentially, starting at index
-        /// 0. You can also specify an <code>N_TO_N</code> type dependency with a job ID for array
-        /// jobs. In that case, each index child of this job must wait for the corresponding index
-        /// child of each dependency to complete before it can begin.</para>
+        /// can specify a <c>SEQUENTIAL</c> type dependency without specifying a job ID for array
+        /// jobs so that each child array job completes sequentially, starting at index 0. You
+        /// can also specify an <c>N_TO_N</c> type dependency with a job ID for array jobs. In
+        /// that case, each index child of this job must wait for the corresponding index child
+        /// of each dependency to complete before it can begin.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -426,7 +424,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <summary>
         /// <para>
         /// <para>The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com,
-        /// then the EndpointId is <code>abcde.veo</code>.</para>
+        /// then the EndpointId is <c>abcde.veo</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -449,8 +447,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>The environment variables to send to the container. You can add new environment variables,
         /// which are added to the container at launch, or you can override the existing environment
-        /// variables from the Docker image or the task definition.</para><note><para>Environment variables cannot start with "<code>Batch</code>". This naming convention
-        /// is reserved for variables that Batch sets.</para></note>
+        /// variables from the Docker image or the task definition.</para><note><para>Environment variables cannot start with "<c>Batch</c>". This naming convention is
+        /// reserved for variables that Batch sets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -521,9 +519,9 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter LogConfiguration_IncludeExecutionData
         /// <summary>
         /// <para>
-        /// <para>Specify <code>ON</code> to include the execution data (specifically, the <code>payload</code>
-        /// and <code>awsRequest</code> fields) in the log messages for this pipe.</para><para>This applies to all log destinations for the pipe.</para><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-logs.html#eb-pipes-logs-execution-data">Including
-        /// execution data in logs</a> in the <i>Amazon EventBridge User Guide</i>.</para><para>The default is <code>OFF</code>.</para>
+        /// <para>Specify <c>ON</c> to include the execution data (specifically, the <c>payload</c>
+        /// and <c>awsRequest</c> fields) in the log messages for this pipe.</para><para>This applies to all log destinations for the pipe.</para><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-logs.html#eb-pipes-logs-execution-data">Including
+        /// execution data in logs</a> in the <i>Amazon EventBridge User Guide</i>.</para><para>The default is <c>OFF</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -580,11 +578,11 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter LambdaFunctionParameters_InvocationType
         /// <summary>
         /// <para>
-        /// <para>Specify whether to invoke the function synchronously or asynchronously.</para><ul><li><para><code>REQUEST_RESPONSE</code> (default) - Invoke synchronously. This corresponds
-        /// to the <code>RequestResponse</code> option in the <code>InvocationType</code> parameter
-        /// for the Lambda <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax">Invoke</a>
-        /// API.</para></li><li><para><code>FIRE_AND_FORGET</code> - Invoke asynchronously. This corresponds to the <code>Event</code>
-        /// option in the <code>InvocationType</code> parameter for the Lambda <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax">Invoke</a>
+        /// <para>Specify whether to invoke the function synchronously or asynchronously.</para><ul><li><para><c>REQUEST_RESPONSE</c> (default) - Invoke synchronously. This corresponds to the
+        /// <c>RequestResponse</c> option in the <c>InvocationType</c> parameter for the Lambda
+        /// <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax">Invoke</a>
+        /// API.</para></li><li><para><c>FIRE_AND_FORGET</c> - Invoke asynchronously. This corresponds to the <c>Event</c>
+        /// option in the <c>InvocationType</c> parameter for the Lambda <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax">Invoke</a>
         /// API.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-invocation">Invocation
         /// types</a> in the <i>Amazon EventBridge User Guide</i>.</para>
         /// </para>
@@ -598,10 +596,9 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter StepFunctionStateMachineParameters_InvocationType
         /// <summary>
         /// <para>
-        /// <para>Specify whether to invoke the Step Functions state machine synchronously or asynchronously.</para><ul><li><para><code>REQUEST_RESPONSE</code> (default) - Invoke synchronously. For more information,
-        /// see <a href="https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartSyncExecution.html">StartSyncExecution</a>
-        /// in the <i>Step Functions API Reference</i>.</para><note><para><code>REQUEST_RESPONSE</code> is not supported for <code>STANDARD</code> state machine
-        /// workflows.</para></note></li><li><para><code>FIRE_AND_FORGET</code> - Invoke asynchronously. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html">StartExecution</a>
+        /// <para>Specify whether to invoke the Step Functions state machine synchronously or asynchronously.</para><ul><li><para><c>REQUEST_RESPONSE</c> (default) - Invoke synchronously. For more information, see
+        /// <a href="https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartSyncExecution.html">StartSyncExecution</a>
+        /// in the <i>Step Functions API Reference</i>.</para><note><para><c>REQUEST_RESPONSE</c> is not supported for <c>STANDARD</c> state machine workflows.</para></note></li><li><para><c>FIRE_AND_FORGET</c> - Invoke asynchronously. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html">StartExecution</a>
         /// in the <i>Step Functions API Reference</i>.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-invocation">Invocation
         /// types</a> in the <i>Amazon EventBridge User Guide</i>.</para>
         /// </para>
@@ -615,7 +612,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter BatchJobParameters_JobDefinition
         /// <summary>
         /// <para>
-        /// <para>The job definition used by this job. This value can be one of <code>name</code>, <code>name:revision</code>,
+        /// <para>The job definition used by this job. This value can be one of <c>name</c>, <c>name:revision</c>,
         /// or the Amazon Resource Name (ARN) for the job definition. If name is specified without
         /// a revision then the latest active revision is used.</para>
         /// </para>
@@ -643,8 +640,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>Specifies the launch type on which your task is running. The launch type that you
         /// specify here must match one of the launch type (compatibilities) of the target task.
-        /// The <code>FARGATE</code> value is supported only in the Regions where Fargate with
-        /// Amazon ECS is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html">Fargate
+        /// The <c>FARGATE</c> value is supported only in the Regions where Fargate with Amazon
+        /// ECS is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html">Fargate
         /// on Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -874,7 +871,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter DynamoDBStreamParameters_OnPartialBatchItemFailure
         /// <summary>
         /// <para>
-        /// <para>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code>
+        /// <para>(Streams only) Define how to handle item process failures. <c>AUTOMATIC_BISECT</c>
         /// halves each batch and retry each half until all the records are processed or there
         /// is one failed message left in the batch.</para>
         /// </para>
@@ -888,7 +885,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter KinesisStreamParameters_OnPartialBatchItemFailure
         /// <summary>
         /// <para>
-        /// <para>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code>
+        /// <para>(Streams only) Define how to handle item process failures. <c>AUTOMATIC_BISECT</c>
         /// halves each batch and retry each half until all the records are processed or there
         /// is one failed message left in the batch.</para>
         /// </para>
@@ -902,8 +899,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter S3LogDestination_OutputFormat
         /// <summary>
         /// <para>
-        /// <para>How EventBridge should format the log records.</para><ul><li><para><code>json</code>: JSON </para></li><li><para><code>plain</code>: Plain text</para></li><li><para><code>w3c</code>: <a href="https://www.w3.org/TR/WD-logfile">W3C extended logging
-        /// file format</a></para></li></ul>
+        /// <para>How EventBridge should format the log records.</para><ul><li><para><c>json</c>: JSON </para></li><li><para><c>plain</c>: Plain text</para></li><li><para><c>w3c</c>: <a href="https://www.w3.org/TR/WD-logfile">W3C extended logging file
+        /// format</a></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1031,8 +1028,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <summary>
         /// <para>
         /// <para>Specifies the platform version for the task. Specify only the numeric portion of the
-        /// platform version, such as <code>1.1.0</code>.</para><para>This structure is used only if <code>LaunchType</code> is <code>FARGATE</code>. For
-        /// more information about valid platform versions, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate
+        /// platform version, such as <c>1.1.0</c>.</para><para>This structure is used only if <c>LaunchType</c> is <c>FARGATE</c>. For more information
+        /// about valid platform versions, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate
         /// Platform Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -1061,7 +1058,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>Specifies whether to propagate the tags from the task definition to the task. If no
         /// value is specified, the tags are not propagated. Tags can only be propagated to the
-        /// task during task creation. To add tags to a task after task creation, use the <code>TagResource</code>
+        /// task during task creation. To add tags to a task after task creation, use the <c>TagResource</c>
         /// API action. </para>
         /// </para>
         /// </summary>
@@ -1110,8 +1107,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <summary>
         /// <para>
         /// <para>The type and amount of resources to assign to a container. This overrides the settings
-        /// in the job definition. The supported resources include <code>GPU</code>, <code>MEMORY</code>,
-        /// and <code>VCPU</code>.</para>
+        /// in the job definition. The supported resources include <c>GPU</c>, <c>MEMORY</c>,
+        /// and <c>VCPU</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1245,7 +1242,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <summary>
         /// <para>
         /// <para>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported
-        /// value is <code>21</code> GiB and the maximum supported value is <code>200</code> GiB.</para>
+        /// value is <c>21</c> GiB and the maximum supported value is <c>200</c> GiB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1338,8 +1335,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter EcsTaskParameters_TaskCount
         /// <summary>
         /// <para>
-        /// <para>The number of tasks to create based on <code>TaskDefinition</code>. The default is
-        /// 1.</para>
+        /// <para>The number of tasks to create based on <c>TaskDefinition</c>. The default is 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

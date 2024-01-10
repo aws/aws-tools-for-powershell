@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <para>The ECR automated re-scan duration defines how long an ECR image will be actively
         /// scanned by Amazon Inspector. When the number of days since an image was last pushed
         /// exceeds the automated re-scan duration the monitoring state of that image becomes
-        /// <code>inactive</code> and all associated findings are scheduled for closure.</para>
+        /// <c>inactive</c> and all associated findings are scheduled for closure.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -112,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>
         /// <para>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with
         /// server-side encryption using Amazon Web Services KMS (SSE-KMS). Setting this header
-        /// to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption
-        /// with SSE-KMS.</para><para>Specifying this header with an <i>object</i> action doesn’t affect <i>bucket-level</i>
+        /// to <c>true</c> causes Amazon S3 to use an S3 Bucket Key for object encryption with
+        /// SSE-KMS.</para><para>Specifying this header with an <i>object</i> action doesn’t affect <i>bucket-level</i>
         /// settings for S3 Bucket Key.</para><note><para>This functionality is not supported by directory buckets.</para></note>
         /// </para>
         /// </summary>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Indicates if the action should be applied to objects in the Batch Operations job even
-        /// if they have Object Lock <code> GOVERNANCE</code> type in place.</para>
+        /// if they have Object Lock <c> GOVERNANCE</c> type in place.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -396,12 +396,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>
         /// <para>This argument specifies how long the S3 Glacier or S3 Glacier Deep Archive object
         /// remains available in Amazon S3. S3 Initiate Restore Object jobs that target S3 Glacier
-        /// and S3 Glacier Deep Archive objects require <code>ExpirationInDays</code> set to 1
-        /// or greater.</para><para>Conversely, do <i>not</i> set <code>ExpirationInDays</code> when creating S3 Initiate
-        /// Restore Object jobs that target S3 Intelligent-Tiering Archive Access and Deep Archive
-        /// Access tier objects. Objects in S3 Intelligent-Tiering archive access tiers are not
-        /// subject to restore expiry, so specifying <code>ExpirationInDays</code> results in
-        /// restore request failure.</para><para>S3 Batch Operations jobs can operate either on S3 Glacier and S3 Glacier Deep Archive
+        /// and S3 Glacier Deep Archive objects require <c>ExpirationInDays</c> set to 1 or greater.</para><para>Conversely, do <i>not</i> set <c>ExpirationInDays</c> when creating S3 Initiate Restore
+        /// Object jobs that target S3 Intelligent-Tiering Archive Access and Deep Archive Access
+        /// tier objects. Objects in S3 Intelligent-Tiering archive access tiers are not subject
+        /// to restore expiry, so specifying <c>ExpirationInDays</c> results in restore request
+        /// failure.</para><para>S3 Batch Operations jobs can operate either on S3 Glacier and S3 Glacier Deep Archive
         /// storage class objects or on S3 Intelligent-Tiering Archive Access and Deep Archive
         /// Access storage tier objects, but not both types in the same job. If you need to restore
         /// objects of both types you <i>must</i> create separate Batch Operations jobs. </para>
@@ -415,8 +414,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Spec_Field
         /// <summary>
         /// <para>
-        /// <para>If the specified manifest object is in the <code>S3BatchOperations_CSV_20180820</code>
-        /// format, this element describes which columns contain the required data.</para>
+        /// <para>If the specified manifest object is in the <c>S3BatchOperations_CSV_20180820</c> format,
+        /// this element describes which columns contain the required data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -462,8 +461,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3InitiateRestoreObject_GlacierJobTier
         /// <summary>
         /// <para>
-        /// <para>S3 Batch Operations supports <code>STANDARD</code> and <code>BULK</code> retrieval
-        /// tiers, but not the <code>EXPEDITED</code> retrieval tier.</para>
+        /// <para>S3 Batch Operations supports <c>STANDARD</c> and <c>BULK</c> retrieval tiers, but
+        /// not the <c>EXPEDITED</c> retrieval tier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -509,15 +508,15 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Specifies the schema version for the payload that Batch Operations sends when invoking
-        /// an Lambda function. Version <code>1.0</code> is the default. Version <code>2.0</code>
-        /// is required when you use Batch Operations to invoke Lambda functions that act on directory
-        /// buckets, or if you need to specify <code>UserArguments</code>. For more information,
-        /// see <a href="https://aws.amazon.com/blogs/storage/using-lambda-with-s3-batch-operations-and-s3-express-one-zone/">Using
+        /// an Lambda function. Version <c>1.0</c> is the default. Version <c>2.0</c> is required
+        /// when you use Batch Operations to invoke Lambda functions that act on directory buckets,
+        /// or if you need to specify <c>UserArguments</c>. For more information, see <a href="https://aws.amazon.com/blogs/storage/using-lambda-with-s3-batch-operations-and-s3-express-one-zone/">Using
         /// Lambda with Amazon S3 Batch Operations and Amazon S3 Express One Zone</a> in the <i>Amazon
-        /// Web Services Storage Blog</i>.</para><important><para>Ensure that your Lambda function code expects <code>InvocationSchemaVersion</code><b>2.0</b> and uses bucket name rather than bucket ARN. If the <code>InvocationSchemaVersion</code>
+        /// Web Services Storage Blog</i>.</para><important><para>Ensure that your Lambda function code expects <c>InvocationSchemaVersion</c><b>2.0</b>
+        /// and uses bucket name rather than bucket ARN. If the <c>InvocationSchemaVersion</c>
         /// does not match what your Lambda function expects, your function might not work as
         /// expected.</para></important><note><para><b>Directory buckets</b> - To initiate Amazon Web Services Lambda function to perform
-        /// custom actions on objects in directory buckets, you must specify <code>2.0</code>.</para></note>
+        /// custom actions on objects in directory buckets, you must specify <c>2.0</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -649,10 +648,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Specifies a list of tags to add to the destination objects after they are copied.
-        /// If <code>NewObjectTagging</code> is not specified, the tags of the source objects
-        /// are copied to destination objects by default.</para><note><para><b>Directory buckets</b> - Tags aren't supported by directory buckets. If your source
+        /// If <c>NewObjectTagging</c> is not specified, the tags of the source objects are copied
+        /// to destination objects by default.</para><note><para><b>Directory buckets</b> - Tags aren't supported by directory buckets. If your source
         /// objects have tags and your destination bucket is a directory bucket, specify an empty
-        /// tag set in the <code>NewObjectTagging</code> field to prevent copying the source object
+        /// tag set in the <c>NewObjectTagging</c> field to prevent copying the source object
         /// tags to the directory bucket.</para></note>
         /// </para>
         /// </summary>
@@ -762,7 +761,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>An optional prefix to describe where in the specified bucket the job-completion report
-        /// will be stored. Amazon S3 stores the job-completion report at <code>&lt;prefix&gt;/job-&lt;job-id&gt;/report.json</code>.</para>
+        /// will be stored. Amazon S3 stores the job-completion report at <c>&lt;prefix&gt;/job-&lt;job-id&gt;/report.json</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -789,8 +788,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>If the destination bucket is configured as a website, specifies an optional metadata
-        /// property for website redirects, <code>x-amz-website-redirect-location</code>. Allows
-        /// webpage redirects if the object copy is accessed through a website endpoint.</para><note><para>This functionality is not supported by directory buckets.</para></note>
+        /// property for website redirects, <c>x-amz-website-redirect-location</c>. Allows webpage
+        /// redirects if the object copy is accessed through a website endpoint.</para><note><para>This functionality is not supported by directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -876,8 +875,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Operation_S3ReplicateObject
         /// <summary>
         /// <para>
-        /// <para>Directs the specified job to invoke <code>ReplicateObject</code> on every object in
-        /// the job's manifest.</para><note><para>This functionality is not supported by directory buckets.</para></note>
+        /// <para>Directs the specified job to invoke <c>ReplicateObject</c> on every object in the
+        /// job's manifest.</para><note><para>This functionality is not supported by directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -888,7 +887,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The source bucket used by the ManifestGenerator.</para><note><para><b>Directory buckets</b> - Directory buckets aren't supported as the source buckets
-        /// used by <code>S3JobManifestGenerator</code> to generate the job manifest.</para></note>
+        /// used by <c>S3JobManifestGenerator</c> to generate the job manifest.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -900,7 +899,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <note><para>For directory buckets, only the server-side encryption with Amazon S3 managed keys
-        /// (SSE-S3) (<code>AES256</code>) is supported.</para></note>
+        /// (SSE-S3) (<c>AES256</c>) is supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -947,7 +946,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_StorageClass
         /// <summary>
         /// <para>
-        /// <para>Specify the storage class for the destination objects in a <code>Copy</code> operation.</para><note><para><b>Directory buckets </b> - This functionality is not supported by directory buckets.
+        /// <para>Specify the storage class for the destination objects in a <c>Copy</c> operation.</para><note><para><b>Directory buckets </b> - This functionality is not supported by directory buckets.
         /// </para></note>
         /// </para>
         /// </summary>
@@ -984,8 +983,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Specifies the folder prefix that you want the objects to be copied into. For example,
-        /// to copy objects into a folder named <code>Folder1</code> in the destination bucket,
-        /// set the <code>TargetKeyPrefix</code> property to <code>Folder1</code>.</para>
+        /// to copy objects into a folder named <c>Folder1</c> in the destination bucket, set
+        /// the <c>TargetKeyPrefix</c> property to <c>Folder1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -997,10 +996,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Specifies the destination bucket Amazon Resource Name (ARN) for the batch copy operation.</para><ul><li><para><b>General purpose buckets</b> - For example, to copy objects to a general purpose
-        /// bucket named <code>destinationBucket</code>, set the <code>TargetResource</code> property
-        /// to <code>arn:aws:s3:::destinationBucket</code>.</para></li><li><para><b>Directory buckets</b> - For example, to copy objects to a directory bucket named
-        /// <code>destinationBucket</code> in the Availability Zone; identified by the AZ ID <code>usw2-az2</code>,
-        /// set the <code>TargetResource</code> property to <code>arn:aws:s3express:<i>region</i>:<i>account_id</i>:/bucket/<i>destination_bucket_base_name</i>--<i>usw2-az2</i>--x-s3</code>.</para></li></ul>
+        /// bucket named <c>destinationBucket</c>, set the <c>TargetResource</c> property to <c>arn:aws:s3:::destinationBucket</c>.</para></li><li><para><b>Directory buckets</b> - For example, to copy objects to a directory bucket named
+        /// <c>destinationBucket</c> in the Availability Zone; identified by the AZ ID <c>usw2-az2</c>,
+        /// set the <c>TargetResource</c> property to <c>arn:aws:s3express:<i>region</i>:<i>account_id</i>:/bucket/<i>destination_bucket_base_name</i>--<i>usw2-az2</i>--x-s3</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1023,9 +1021,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Key-value pairs that are passed in the payload that Batch Operations sends when invoking
-        /// an Lambda function. You must specify <code>InvocationSchemaVersion</code><b>2.0</b>
-        /// for <code>LambdaInvoke</code> operations that include <code>UserArguments</code>.
-        /// For more information, see <a href="https://aws.amazon.com/blogs/storage/using-lambda-with-s3-batch-operations-and-s3-express-one-zone/">Using
+        /// an Lambda function. You must specify <c>InvocationSchemaVersion</c><b>2.0</b> for
+        /// <c>LambdaInvoke</c> operations that include <c>UserArguments</c>. For more information,
+        /// see <a href="https://aws.amazon.com/blogs/storage/using-lambda-with-s3-batch-operations-and-s3-express-one-zone/">Using
         /// Lambda with Amazon S3 Batch Operations and Amazon S3 Express One Zone</a> in the <i>Amazon
         /// Web Services Storage Blog</i>.</para>
         /// </para>

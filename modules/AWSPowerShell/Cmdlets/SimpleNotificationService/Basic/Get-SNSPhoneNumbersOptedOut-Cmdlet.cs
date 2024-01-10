@@ -33,12 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// 
     ///  
     /// <para>
-    /// The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page
-    /// returns up to 100 phone numbers. If additional phone numbers are available after the
-    /// first page of results, then a <code>NextToken</code> string will be returned. To receive
-    /// the next page, you call <code>ListPhoneNumbersOptedOut</code> again using the <code>NextToken</code>
-    /// string received from the previous call. When there are no more records to return,
-    /// <code>NextToken</code> will be null.
+    /// The results for <c>ListPhoneNumbersOptedOut</c> are paginated, and each page returns
+    /// up to 100 phone numbers. If additional phone numbers are available after the first
+    /// page of results, then a <c>NextToken</c> string will be returned. To receive the next
+    /// page, you call <c>ListPhoneNumbersOptedOut</c> again using the <c>NextToken</c> string
+    /// received from the previous call. When there are no more records to return, <c>NextToken</c>
+    /// will be null.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SNSPhoneNumbersOptedOut")]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A <code>NextToken</code> string is used when you call the <code>ListPhoneNumbersOptedOut</code>
+        /// <para>A <c>NextToken</c> string is used when you call the <c>ListPhoneNumbersOptedOut</c>
         /// action to retrieve additional records that are available after the first page of results.</para>
         /// </para>
         /// <para>

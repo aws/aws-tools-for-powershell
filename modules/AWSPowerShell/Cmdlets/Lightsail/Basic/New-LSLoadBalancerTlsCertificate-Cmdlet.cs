@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <para>
     /// TLS is just an updated, more secure version of Secure Socket Layer (SSL).
     /// </para><para>
-    /// The <code>CreateLoadBalancerTlsCertificate</code> operation supports tag-based access
-    /// control via resource tags applied to the resource identified by <code>load balancer
-    /// name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// The <c>CreateLoadBalancerTlsCertificate</c> operation supports tag-based access control
+    /// via resource tags applied to the resource identified by <c>load balancer name</c>.
+    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>
         /// <para>An array of strings listing alternative domains and subdomains for your SSL/TLS certificate.
         /// Lightsail will de-dupe the names for you. You can have a maximum of 9 alternative
-        /// names (in addition to the 1 primary domain). We do not support wildcards (<code>*.example.com</code>).</para>
+        /// names (in addition to the 1 primary domain). We do not support wildcards (<c>*.example.com</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CertificateDomainName
         /// <summary>
         /// <para>
-        /// <para>The domain name (<code>example.com</code>) for your SSL/TLS certificate.</para>
+        /// <para>The domain name (<c>example.com</c>) for your SSL/TLS certificate.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <code>TagResource</code> action to tag a resource after it's created.</para>
+        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <c>TagResource</c> action to tag a resource after it's created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,9 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// <summary>
     /// Gets the user interface (UI) Customization information for a particular app client's
     /// app UI, if any such information exists for the client. If nothing is set for the particular
-    /// client, but there is an existing pool level customization (the app <code>clientId</code>
-    /// is <code>ALL</code>), then that information is returned. If nothing is present, then
-    /// an empty shape is returned.
+    /// client, but there is an existing pool level customization (the app <c>clientId</c>
+    /// is <c>ALL</c>), then that information is returned. If nothing is present, then an
+    /// empty shape is returned.
     /// </summary>
     [Cmdlet("Get", "CGIPUICustomization")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.UICustomizationType")]

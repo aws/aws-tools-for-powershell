@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  
     /// <para>
-    /// The <code>reboot relational database</code> operation supports tag-based access control
+    /// The <c>reboot relational database</c> operation supports tag-based access control
     /// via resource tags applied to the resource identified by relationalDatabaseName. For
     /// more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.

@@ -28,9 +28,9 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Creates an Amazon Chime SDK messaging <code>AppInstance</code> under an AWS account.
-    /// Only SDK messaging customers use this API. <code>CreateAppInstance</code> supports
-    /// idempotency behavior as described in the AWS API Standard.
+    /// Creates an Amazon Chime SDK messaging <c>AppInstance</c> under an AWS account. Only
+    /// SDK messaging customers use this API. <c>CreateAppInstance</c> supports idempotency
+    /// behavior as described in the AWS API Standard.
     /// 
     ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
     /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstance.html">CreateAppInstance</a>,
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>The <code>ClientRequestToken</code> of the <code>AppInstance</code>.</para>
+        /// <para>The <c>ClientRequestToken</c> of the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Metadata
         /// <summary>
         /// <para>
-        /// <para>The metadata of the <code>AppInstance</code>. Limited to a 1KB string in UTF-8.</para>
+        /// <para>The metadata of the <c>AppInstance</c>. Limited to a 1KB string in UTF-8.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the <code>AppInstance</code>.</para>
+        /// <para>The name of the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags assigned to the <code>AppInstance</code>.</para>
+        /// <para>Tags assigned to the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

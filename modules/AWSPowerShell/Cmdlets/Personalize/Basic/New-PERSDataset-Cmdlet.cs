@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// </para></li><li><para>
     /// Actions
     /// </para></li></ul><para>
-    /// Each dataset type has an associated schema with required field types. Only the <code>Item
-    /// interactions</code> dataset is required in order to train a model (also referred to
-    /// as creating a solution).
+    /// Each dataset type has an associated schema with required field types. Only the <c>Item
+    /// interactions</c> dataset is required in order to train a model (also referred to as
+    /// creating a solution).
     /// </para><para>
     /// A dataset can be in one of the following states:
     /// </para><ul><li><para>

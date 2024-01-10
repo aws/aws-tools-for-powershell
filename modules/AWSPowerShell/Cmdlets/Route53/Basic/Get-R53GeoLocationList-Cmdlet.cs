@@ -60,11 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>The code for the continent with which you want to start listing locations that Amazon
         /// Route 53 supports for geolocation. If Route 53 has already returned a page or more
-        /// of results, if <code>IsTruncated</code> is true, and if <code>NextContinentCode</code>
-        /// from the previous response has a value, enter that value in <code>startcontinentcode</code>
-        /// to return the next page of results.</para><para>Include <code>startcontinentcode</code> only if you want to list continents. Don't
-        /// include <code>startcontinentcode</code> when you're listing countries or countries
-        /// with their subdivisions.</para>
+        /// of results, if <c>IsTruncated</c> is true, and if <c>NextContinentCode</c> from the
+        /// previous response has a value, enter that value in <c>startcontinentcode</c> to return
+        /// the next page of results.</para><para>Include <c>startcontinentcode</c> only if you want to list continents. Don't include
+        /// <c>startcontinentcode</c> when you're listing countries or countries with their subdivisions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,9 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>The code for the country with which you want to start listing locations that Amazon
         /// Route 53 supports for geolocation. If Route 53 has already returned a page or more
-        /// of results, if <code>IsTruncated</code> is <code>true</code>, and if <code>NextCountryCode</code>
-        /// from the previous response has a value, enter that value in <code>startcountrycode</code>
-        /// to return the next page of results.</para>
+        /// of results, if <c>IsTruncated</c> is <c>true</c>, and if <c>NextCountryCode</c> from
+        /// the previous response has a value, enter that value in <c>startcountrycode</c> to
+        /// return the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,10 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>The code for the state of the United States with which you want to start listing locations
         /// that Amazon Route 53 supports for geolocation. If Route 53 has already returned a
-        /// page or more of results, if <code>IsTruncated</code> is <code>true</code>, and if
-        /// <code>NextSubdivisionCode</code> from the previous response has a value, enter that
-        /// value in <code>startsubdivisioncode</code> to return the next page of results.</para><para>To list subdivisions (U.S. states), you must include both <code>startcountrycode</code>
-        /// and <code>startsubdivisioncode</code>.</para>
+        /// page or more of results, if <c>IsTruncated</c> is <c>true</c>, and if <c>NextSubdivisionCode</c>
+        /// from the previous response has a value, enter that value in <c>startsubdivisioncode</c>
+        /// to return the next page of results.</para><para>To list subdivisions (U.S. states), you must include both <c>startcountrycode</c>
+        /// and <c>startsubdivisioncode</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>(Optional) The maximum number of geolocations to be included in the response body
-        /// for this request. If more than <code>maxitems</code> geolocations remain to be listed,
-        /// then the value of the <code>IsTruncated</code> element in the response is <code>true</code>.</para>
+        /// for this request. If more than <c>maxitems</c> geolocations remain to be listed, then
+        /// the value of the <c>IsTruncated</c> element in the response is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

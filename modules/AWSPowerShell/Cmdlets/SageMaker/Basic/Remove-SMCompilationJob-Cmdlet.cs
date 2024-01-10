@@ -35,10 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  
     /// <para>
-    /// You can delete a compilation job only if its current status is <code>COMPLETED</code>,
-    /// <code>FAILED</code>, or <code>STOPPED</code>. If the job status is <code>STARTING</code>
-    /// or <code>INPROGRESS</code>, stop the job, and then delete it after its status becomes
-    /// <code>STOPPED</code>.
+    /// You can delete a compilation job only if its current status is <c>COMPLETED</c>, <c>FAILED</c>,
+    /// or <c>STOPPED</c>. If the job status is <c>STARTING</c> or <c>INPROGRESS</c>, stop
+    /// the job, and then delete it after its status becomes <c>STOPPED</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SMCompilationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

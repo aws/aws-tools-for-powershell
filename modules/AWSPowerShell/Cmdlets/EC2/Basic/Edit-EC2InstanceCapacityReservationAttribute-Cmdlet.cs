@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Modifies the Capacity Reservation settings for a stopped instance. Use this action
-    /// to configure an instance to target a specific Capacity Reservation, run in any <code>open</code>
+    /// to configure an instance to target a specific Capacity Reservation, run in any <c>open</c>
     /// Capacity Reservation with matching attributes, or run On-Demand Instance capacity.
     /// </summary>
     [Cmdlet("Edit", "EC2InstanceCapacityReservationAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,9 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CapacityReservationSpecification_CapacityReservationPreference
         /// <summary>
         /// <para>
-        /// <para>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</para><ul><li><para><code>open</code> - The instance can run in any <code>open</code> Capacity Reservation
-        /// that has matching attributes (instance type, platform, Availability Zone).</para></li><li><para><code>none</code> - The instance avoids running in a Capacity Reservation even if
-        /// one is available. The instance runs as an On-Demand Instance.</para></li></ul>
+        /// <para>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</para><ul><li><para><c>open</c> - The instance can run in any <c>open</c> Capacity Reservation that has
+        /// matching attributes (instance type, platform, Availability Zone).</para></li><li><para><c>none</c> - The instance avoids running in a Capacity Reservation even if one is
+        /// available. The instance runs as an On-Demand Instance.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

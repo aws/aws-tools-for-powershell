@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
 {
     /// <summary>
     /// Describe Elasticsearch Limits for a given InstanceType and ElasticsearchVersion.
-    /// When modifying existing Domain, specify the <code><a>DomainName</a></code> to know
-    /// what Limits are supported for modifying.
+    /// When modifying existing Domain, specify the <c><a>DomainName</a></c> to know what
+    /// Limits are supported for modifying.
     /// </summary>
     [Cmdlet("Get", "ESInstanceTypeLimit")]
     [OutputType("System.String")]
@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// <summary>
         /// <para>
         /// <para> DomainName represents the name of the Domain that we are trying to modify. This should
-        /// be present only if we are querying for Elasticsearch <code><a>Limits</a></code>
-        /// for existing domain. </para>
+        /// be present only if we are querying for Elasticsearch <c><a>Limits</a></c> for existing
+        /// domain. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter ElasticsearchVersion
         /// <summary>
         /// <para>
-        /// <para> Version of Elasticsearch for which <code><a>Limits</a></code> are needed. </para>
+        /// <para> Version of Elasticsearch for which <c><a>Limits</a></c> are needed. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para> The instance type for an Elasticsearch cluster for which Elasticsearch <code><a>Limits</a></code> are needed. </para>
+        /// <para> The instance type for an Elasticsearch cluster for which Elasticsearch <c><a>Limits</a></c> are needed. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

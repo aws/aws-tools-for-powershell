@@ -35,22 +35,21 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Permanently deletes a <a>RegexMatchSet</a>. You can't delete a <code>RegexMatchSet</code>
-    /// if it's still used in any <code>Rules</code> or if it still includes any <code>RegexMatchTuples</code>
+    /// Permanently deletes a <a>RegexMatchSet</a>. You can't delete a <c>RegexMatchSet</c>
+    /// if it's still used in any <c>Rules</c> or if it still includes any <c>RegexMatchTuples</c>
     /// objects (any filters).
     /// </para><para>
-    /// If you just want to remove a <code>RegexMatchSet</code> from a <code>Rule</code>,
-    /// use <a>UpdateRule</a>.
+    /// If you just want to remove a <c>RegexMatchSet</c> from a <c>Rule</c>, use <a>UpdateRule</a>.
     /// </para><para>
-    /// To permanently delete a <code>RegexMatchSet</code>, perform the following steps:
+    /// To permanently delete a <c>RegexMatchSet</c>, perform the following steps:
     /// </para><ol><li><para>
-    /// Update the <code>RegexMatchSet</code> to remove filters, if any. For more information,
-    /// see <a>UpdateRegexMatchSet</a>.
+    /// Update the <c>RegexMatchSet</c> to remove filters, if any. For more information, see
+    /// <a>UpdateRegexMatchSet</a>.
     /// </para></li><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>DeleteRegexMatchSet</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of a <c>DeleteRegexMatchSet</c> request.
     /// </para></li><li><para>
-    /// Submit a <code>DeleteRegexMatchSet</code> request.
+    /// Submit a <c>DeleteRegexMatchSet</c> request.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Remove", "WAFRegexMatchSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -85,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter RegexMatchSetId
         /// <summary>
         /// <para>
-        /// <para>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to delete.
-        /// <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</para>
+        /// <para>The <c>RegexMatchSetId</c> of the <a>RegexMatchSet</a> that you want to delete. <c>RegexMatchSetId</c>
+        /// is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

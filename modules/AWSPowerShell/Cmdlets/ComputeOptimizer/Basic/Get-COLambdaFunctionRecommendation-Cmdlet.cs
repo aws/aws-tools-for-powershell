@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the functions for which to return recommendations.</para><para>You can specify a qualified or unqualified ARN. If you specify an unqualified ARN
         /// without a function version suffix, Compute Optimizer will return recommendations for
-        /// the latest (<code>$LATEST</code>) version of the function. If you specify a qualified
-        /// ARN with a version suffix, Compute Optimizer will return recommendations for the specified
+        /// the latest (<c>$LATEST</c>) version of the function. If you specify a qualified ARN
+        /// with a version suffix, Compute Optimizer will return recommendations for the specified
         /// function version. For more information about using function versions, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using">Using
         /// versions</a> in the <i>Lambda Developer Guide</i>.</para>
         /// </para>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of function recommendations to return with a single request.</para><para>To retrieve the remaining results, make another request with the returned <code>nextToken</code>
+        /// <para>The maximum number of function recommendations to return with a single request.</para><para>To retrieve the remaining results, make another request with the returned <c>nextToken</c>
         /// value.</para>
         /// </para>
         /// </summary>

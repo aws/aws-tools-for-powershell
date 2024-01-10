@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Updates the IAM role of a registered location in your S3 Access Grants instance.
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// You must have the <code>s3:UpdateAccessGrantsLocation</code> permission to use this
-    /// operation. 
+    /// You must have the <c>s3:UpdateAccessGrantsLocation</c> permission to use this operation.
+    /// 
     /// </para></dd><dt>Additional Permissions</dt><dd><para>
-    /// You must also have the following permission: <code>iam:PassRole</code></para></dd></dl>
+    /// You must also have the following permission: <c>iam:PassRole</c></para></dd></dl>
     /// </summary>
     [Cmdlet("Update", "S3CAccessGrantsLocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3Control.Model.UpdateAccessGrantsLocationResponse")]
@@ -51,14 +51,14 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The ID of the registered location that you are updating. S3 Access Grants assigns
-        /// this ID when you register the location. S3 Access Grants assigns the ID <code>default</code>
-        /// to the default location <code>s3://</code> and assigns an auto-generated ID to other
-        /// locations that you register. </para><para>The ID of the registered location to which you are granting access. S3 Access Grants
+        /// this ID when you register the location. S3 Access Grants assigns the ID <c>default</c>
+        /// to the default location <c>s3://</c> and assigns an auto-generated ID to other locations
+        /// that you register. </para><para>The ID of the registered location to which you are granting access. S3 Access Grants
         /// assigned this ID when you registered the location. S3 Access Grants assigns the ID
-        /// <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated
-        /// ID to other locations that you register. </para><para>If you are passing the <code>default</code> location, you cannot create an access
-        /// grant for the entire default location. You must also specify a bucket or a bucket
-        /// and prefix in the <code>Subprefix</code> field. </para>
+        /// <c>default</c> to the default location <c>s3://</c> and assigns an auto-generated
+        /// ID to other locations that you register. </para><para>If you are passing the <c>default</c> location, you cannot create an access grant
+        /// for the entire default location. You must also specify a bucket or a bucket and prefix
+        /// in the <c>Subprefix</c> field. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

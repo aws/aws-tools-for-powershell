@@ -30,11 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// <summary>
     /// Retrieves the Savings Plans utilization for your account across date ranges with daily
     /// or monthly granularity. Management account in an organization have access to member
-    /// accounts. You can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code>
-    /// to determine the possible dimension values.
+    /// accounts. You can use <c>GetDimensionValues</c> in <c>SAVINGS_PLANS</c> to determine
+    /// the possible dimension values.
     /// 
     ///  <note><para>
-    /// You can't group by any dimension values for <code>GetSavingsPlansUtilization</code>.
+    /// You can't group by any dimension values for <c>GetSavingsPlansUtilization</c>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CESavingsPlansUtilization")]
@@ -52,9 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>Filters Savings Plans utilization coverage data for active Savings Plans dimensions.
-        /// You can filter data with the following dimensions:</para><ul><li><para><code>LINKED_ACCOUNT</code></para></li><li><para><code>SAVINGS_PLAN_ARN</code></para></li><li><para><code>SAVINGS_PLANS_TYPE</code></para></li><li><para><code>REGION</code></para></li><li><para><code>PAYMENT_OPTION</code></para></li><li><para><code>INSTANCE_TYPE_FAMILY</code></para></li></ul><para><code>GetSavingsPlansUtilization</code> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
-        /// object as the other operations, but only <code>AND</code> is supported among each
-        /// dimension.</para>
+        /// You can filter data with the following dimensions:</para><ul><li><para><c>LINKED_ACCOUNT</c></para></li><li><para><c>SAVINGS_PLAN_ARN</c></para></li><li><para><c>SAVINGS_PLANS_TYPE</c></para></li><li><para><c>REGION</c></para></li><li><para><c>PAYMENT_OPTION</c></para></li><li><para><c>INSTANCE_TYPE_FAMILY</c></para></li></ul><para><c>GetSavingsPlansUtilization</c> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
+        /// object as the other operations, but only <c>AND</c> is supported among each dimension.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Granularity
         /// <summary>
         /// <para>
-        /// <para>The granularity of the Amazon Web Services utillization data for your Savings Plans.</para><para>The <code>GetSavingsPlansUtilization</code> operation supports only <code>DAILY</code>
-        /// and <code>MONTHLY</code> granularities.</para>
+        /// <para>The granularity of the Amazon Web Services utillization data for your Savings Plans.</para><para>The <c>GetSavingsPlansUtilization</c> operation supports only <c>DAILY</c> and <c>MONTHLY</c>
+        /// granularities.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,10 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter TimePeriod
         /// <summary>
         /// <para>
-        /// <para>The time period that you want the usage and costs for. The <code>Start</code> date
-        /// must be within 13 months. The <code>End</code> date must be after the <code>Start</code>
-        /// date, and before the current date. Future dates can't be used as an <code>End</code>
-        /// date.</para>
+        /// <para>The time period that you want the usage and costs for. The <c>Start</c> date must
+        /// be within 13 months. The <c>End</c> date must be after the <c>Start</c> date, and
+        /// before the current date. Future dates can't be used as an <c>End</c> date.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

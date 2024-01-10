@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// to create or update a new or existing asset in your Amazon QuickSight account. Each
     /// Amazon QuickSight account can run up to 5 import jobs concurrently.
     /// </para><para>
-    /// The API caller must have the necessary <code>"create"</code>, <code>"describe"</code>,
-    /// and <code>"update"</code> permissions in their IAM role to access each resource type
-    /// that is contained in the bundle file before the resources can be imported.
+    /// The API caller must have the necessary <c>"create"</c>, <c>"describe"</c>, and <c>"update"</c>
+    /// permissions in their IAM role to access each resource type that is contained in the
+    /// bundle file before the resources can be imported.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "QSAssetBundleImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverrideParameters_Analyses
         /// <summary>
         /// <para>
-        /// <para>A list of overrides for any <code>Analysis</code> resources that are present in the
-        /// asset bundle that is imported.</para>
+        /// <para>A list of overrides for any <c>Analysis</c> resources that are present in the asset
+        /// bundle that is imported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverridePermissions_Analyses
         /// <summary>
         /// <para>
-        /// <para>A list of permissions overrides for any <code>Analysis</code> resources that are present
+        /// <para>A list of permissions overrides for any <c>Analysis</c> resources that are present
         /// in the asset bundle that is imported.</para>
         /// </para>
         /// </summary>
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverrideTags_Analyses
         /// <summary>
         /// <para>
-        /// <para>A list of tag overrides for any <code>Analysis</code> resources that are present in
-        /// the asset bundle that is imported.</para>
+        /// <para>A list of tag overrides for any <c>Analysis</c> resources that are present in the
+        /// asset bundle that is imported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverrideParameters_Dashboard
         /// <summary>
         /// <para>
-        /// <para>A list of overrides for any <code>Dashboard</code> resources that are present in the
-        /// asset bundle that is imported.</para>
+        /// <para>A list of overrides for any <c>Dashboard</c> resources that are present in the asset
+        /// bundle that is imported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverridePermissions_Dashboard
         /// <summary>
         /// <para>
-        /// <para>A list of permissions overrides for any <code>Dashboard</code> resources that are
-        /// present in the asset bundle that is imported.</para>
+        /// <para>A list of permissions overrides for any <c>Dashboard</c> resources that are present
+        /// in the asset bundle that is imported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,8 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverrideTags_Dashboard
         /// <summary>
         /// <para>
-        /// <para>A list of tag overrides for any <code>Dashboard</code> resources that are present
-        /// in the asset bundle that is imported.</para>
+        /// <para>A list of tag overrides for any <c>Dashboard</c> resources that are present in the
+        /// asset bundle that is imported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverrideParameters_DataSet
         /// <summary>
         /// <para>
-        /// <para>A list of overrides for any <code>DataSet</code> resources that are present in the
-        /// asset bundle that is imported.</para>
+        /// <para>A list of overrides for any <c>DataSet</c> resources that are present in the asset
+        /// bundle that is imported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverridePermissions_DataSet
         /// <summary>
         /// <para>
-        /// <para>A list of permissions overrides for any <code>DataSet</code> resources that are present
+        /// <para>A list of permissions overrides for any <c>DataSet</c> resources that are present
         /// in the asset bundle that is imported.</para>
         /// </para>
         /// </summary>
@@ -203,8 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverrideTags_DataSet
         /// <summary>
         /// <para>
-        /// <para>A list of tag overrides for any <code>DataSet</code> resources that are present in
-        /// the asset bundle that is imported.</para>
+        /// <para>A list of tag overrides for any <c>DataSet</c> resources that are present in the asset
+        /// bundle that is imported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,8 +215,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverrideParameters_DataSource
         /// <summary>
         /// <para>
-        /// <para> A list of overrides for any <code>DataSource</code> resources that are present in
-        /// the asset bundle that is imported.</para>
+        /// <para> A list of overrides for any <c>DataSource</c> resources that are present in the asset
+        /// bundle that is imported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,8 +227,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverridePermissions_DataSource
         /// <summary>
         /// <para>
-        /// <para>A list of permissions overrides for any <code>DataSource</code> resources that are
-        /// present in the asset bundle that is imported.</para>
+        /// <para>A list of permissions overrides for any <c>DataSource</c> resources that are present
+        /// in the asset bundle that is imported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,8 +239,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverrideTags_DataSource
         /// <summary>
         /// <para>
-        /// <para>A list of tag overrides for any <code>DataSource</code> resources that are present
-        /// in the asset bundle that is imported.</para>
+        /// <para>A list of tag overrides for any <c>DataSource</c> resources that are present in the
+        /// asset bundle that is imported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -251,9 +251,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter FailureAction
         /// <summary>
         /// <para>
-        /// <para>The failure action for the import job.</para><para>If you choose <code>ROLLBACK</code>, failed import jobs will attempt to undo any asset
-        /// changes caused by the failed job.</para><para>If you choose <code>DO_NOTHING</code>, failed import jobs will not attempt to roll
-        /// back any asset changes caused by the failed job, possibly keeping the Amazon QuickSight
+        /// <para>The failure action for the import job.</para><para>If you choose <c>ROLLBACK</c>, failed import jobs will attempt to undo any asset changes
+        /// caused by the failed job.</para><para>If you choose <c>DO_NOTHING</c>, failed import jobs will not attempt to roll back
+        /// any asset changes caused by the failed job, possibly keeping the Amazon QuickSight
         /// account in an inconsistent state.</para>
         /// </para>
         /// </summary>
@@ -278,8 +278,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverrideParameters_RefreshSchedule
         /// <summary>
         /// <para>
-        /// <para>A list of overrides for any <code>RefreshSchedule</code> resources that are present
-        /// in the asset bundle that is imported.</para>
+        /// <para>A list of overrides for any <c>RefreshSchedule</c> resources that are present in the
+        /// asset bundle that is imported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -314,8 +314,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverrideParameters_Theme
         /// <summary>
         /// <para>
-        /// <para>A list of overrides for any <code>Theme</code> resources that are present in the asset
-        /// bundle that is imported.</para>
+        /// <para>A list of overrides for any <c>Theme</c> resources that are present in the asset bundle
+        /// that is imported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -326,8 +326,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverridePermissions_Theme
         /// <summary>
         /// <para>
-        /// <para>A list of permissions overrides for any <code>Theme</code> resources that are present
-        /// in the asset bundle that is imported.</para>
+        /// <para>A list of permissions overrides for any <c>Theme</c> resources that are present in
+        /// the asset bundle that is imported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -338,8 +338,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverrideTags_Theme
         /// <summary>
         /// <para>
-        /// <para>A list of tag overrides for any <code>Theme</code> resources that are present in the
-        /// asset bundle that is imported.</para>
+        /// <para>A list of tag overrides for any <c>Theme</c> resources that are present in the asset
+        /// bundle that is imported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,8 +350,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverrideParameters_VPCConnection
         /// <summary>
         /// <para>
-        /// <para>A list of overrides for any <code>VPCConnection</code> resources that are present
-        /// in the asset bundle that is imported.</para>
+        /// <para>A list of overrides for any <c>VPCConnection</c> resources that are present in the
+        /// asset bundle that is imported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -362,8 +362,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OverrideTags_VPCConnection
         /// <summary>
         /// <para>
-        /// <para>A list of tag overrides for any <code>VPCConnection</code> resources that are present
-        /// in the asset bundle that is imported.</para>
+        /// <para>A list of tag overrides for any <c>VPCConnection</c> resources that are present in
+        /// the asset bundle that is imported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

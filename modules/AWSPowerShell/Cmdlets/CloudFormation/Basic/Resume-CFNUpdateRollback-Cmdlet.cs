@@ -28,21 +28,21 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// For a specified stack that's in the <code>UPDATE_ROLLBACK_FAILED</code> state, continues
-    /// rolling it back to the <code>UPDATE_ROLLBACK_COMPLETE</code> state. Depending on the
-    /// cause of the failure, you can manually <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">
+    /// For a specified stack that's in the <c>UPDATE_ROLLBACK_FAILED</c> state, continues
+    /// rolling it back to the <c>UPDATE_ROLLBACK_COMPLETE</c> state. Depending on the cause
+    /// of the failure, you can manually <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">
     /// fix the error</a> and continue the rollback. By continuing the rollback, you can return
-    /// your stack to a working state (the <code>UPDATE_ROLLBACK_COMPLETE</code> state), and
-    /// then try to update the stack again.
+    /// your stack to a working state (the <c>UPDATE_ROLLBACK_COMPLETE</c> state), and then
+    /// try to update the stack again.
     /// 
     ///  
     /// <para>
-    /// A stack goes into the <code>UPDATE_ROLLBACK_FAILED</code> state when CloudFormation
-    /// can't roll back all changes after a failed stack update. For example, you might have
-    /// a stack that's rolling back to an old database instance that was deleted outside of
-    /// CloudFormation. Because CloudFormation doesn't know the database was deleted, it assumes
-    /// that the database instance still exists and attempts to roll back to it, causing the
-    /// update rollback to fail.
+    /// A stack goes into the <c>UPDATE_ROLLBACK_FAILED</c> state when CloudFormation can't
+    /// roll back all changes after a failed stack update. For example, you might have a stack
+    /// that's rolling back to an old database instance that was deleted outside of CloudFormation.
+    /// Because CloudFormation doesn't know the database was deleted, it assumes that the
+    /// database instance still exists and attempts to roll back to it, causing the update
+    /// rollback to fail.
     /// </para>
     /// </summary>
     [Cmdlet("Resume", "CFNUpdateRollback", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,11 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for this <code>ContinueUpdateRollback</code> request. Specify
-        /// this token if you plan to retry requests so that CloudFormation knows that you're
-        /// not attempting to continue the rollback to a stack with the same name. You might retry
-        /// <code>ContinueUpdateRollback</code> requests to ensure that CloudFormation successfully
-        /// received them.</para>
+        /// <para>A unique identifier for this <c>ContinueUpdateRollback</c> request. Specify this token
+        /// if you plan to retry requests so that CloudFormation knows that you're not attempting
+        /// to continue the rollback to a stack with the same name. You might retry <c>ContinueUpdateRollback</c>
+        /// requests to ensure that CloudFormation successfully received them.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,25 +74,24 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>A list of the logical IDs of the resources that CloudFormation skips during the continue
-        /// update rollback operation. You can specify only resources that are in the <code>UPDATE_FAILED</code>
-        /// state because a rollback failed. You can't specify resources that are in the <code>UPDATE_FAILED</code>
+        /// update rollback operation. You can specify only resources that are in the <c>UPDATE_FAILED</c>
+        /// state because a rollback failed. You can't specify resources that are in the <c>UPDATE_FAILED</c>
         /// state for other reasons, for example, because an update was canceled. To check why
         /// a resource update failed, use the <a>DescribeStackResources</a> action, and view the
         /// resource status reason.</para><important><para>Specify this property to skip rolling back resources that CloudFormation can't successfully
         /// roll back. We recommend that you <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">
         /// troubleshoot</a> resources before skipping them. CloudFormation sets the status of
-        /// the specified resources to <code>UPDATE_COMPLETE</code> and continues to roll back
-        /// the stack. After the rollback is complete, the state of the skipped resources will
-        /// be inconsistent with the state of the resources in the stack template. Before performing
-        /// another stack update, you must update the stack or resources to be consistent with
-        /// each other. If you don't, subsequent stack updates might fail, and the stack will
-        /// become unrecoverable.</para></important><para>Specify the minimum number of resources required to successfully roll back your stack.
+        /// the specified resources to <c>UPDATE_COMPLETE</c> and continues to roll back the stack.
+        /// After the rollback is complete, the state of the skipped resources will be inconsistent
+        /// with the state of the resources in the stack template. Before performing another stack
+        /// update, you must update the stack or resources to be consistent with each other. If
+        /// you don't, subsequent stack updates might fail, and the stack will become unrecoverable.</para></important><para>Specify the minimum number of resources required to successfully roll back your stack.
         /// For example, a failed resource update might cause dependent resources to fail. In
-        /// this case, it might not be necessary to skip the dependent resources.</para><para>To skip resources that are part of nested stacks, use the following format: <code>NestedStackName.ResourceLogicalID</code>.
-        /// If you want to specify the logical ID of a stack resource (<code>Type: AWS::CloudFormation::Stack</code>)
-        /// in the <code>ResourcesToSkip</code> list, then its corresponding embedded stack must
-        /// be in one of the following states: <code>DELETE_IN_PROGRESS</code>, <code>DELETE_COMPLETE</code>,
-        /// or <code>DELETE_FAILED</code>.</para><note><para>Don't confuse a child stack's name with its corresponding logical ID defined in the
+        /// this case, it might not be necessary to skip the dependent resources.</para><para>To skip resources that are part of nested stacks, use the following format: <c>NestedStackName.ResourceLogicalID</c>.
+        /// If you want to specify the logical ID of a stack resource (<c>Type: AWS::CloudFormation::Stack</c>)
+        /// in the <c>ResourcesToSkip</c> list, then its corresponding embedded stack must be
+        /// in one of the following states: <c>DELETE_IN_PROGRESS</c>, <c>DELETE_COMPLETE</c>,
+        /// or <c>DELETE_FAILED</c>.</para><note><para>Don't confuse a child stack's name with its corresponding logical ID defined in the
         /// parent stack. For an example of a continue update rollback operation with nested stacks,
         /// see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks">Using
         /// ResourcesToSkip to recover a nested stacks hierarchy</a>.</para></note>
@@ -123,9 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>The name or the unique ID of the stack that you want to continue rolling back.</para><note><para>Don't specify the name of a nested stack (a stack that was created by using the <code>AWS::CloudFormation::Stack</code>
+        /// <para>The name or the unique ID of the stack that you want to continue rolling back.</para><note><para>Don't specify the name of a nested stack (a stack that was created by using the <c>AWS::CloudFormation::Stack</c>
         /// resource). Instead, use this operation on the parent stack (the stack that contains
-        /// the <code>AWS::CloudFormation::Stack</code> resource).</para></note>
+        /// the <c>AWS::CloudFormation::Stack</c> resource).</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

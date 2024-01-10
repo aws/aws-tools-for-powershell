@@ -29,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
 {
     /// <summary>
     /// Used to cancel an open change request. Must be sent before the status of the request
-    /// changes to <code>APPLYING</code>, the final stage of completing your change request.
-    /// You can describe a change during the 60-day request history retention period for API
-    /// calls.
+    /// changes to <c>APPLYING</c>, the final stage of completing your change request. You
+    /// can describe a change during the 60-day request history retention period for API calls.
     /// </summary>
     [Cmdlet("Stop", "MCATChangeSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MarketplaceCatalog.Model.CancelChangeSetResponse")]
@@ -47,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para>Required. The catalog related to the request. Fixed value: <code>AWSMarketplace</code>.</para>
+        /// <para>Required. The catalog related to the request. Fixed value: <c>AWSMarketplace</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ChangeSetId
         /// <summary>
         /// <para>
-        /// <para>Required. The unique identifier of the <code>StartChangeSet</code> request that you
-        /// want to cancel.</para>
+        /// <para>Required. The unique identifier of the <c>StartChangeSet</c> request that you want
+        /// to cancel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

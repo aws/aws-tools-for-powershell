@@ -63,10 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter Destination
         /// <summary>
         /// <para>
-        /// <para>The destination to send the metrics to. Valid values are <code>CloudWatch</code> and
-        /// <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify
-        /// the ARN of the CloudWatchEvidently experiment that will receive the metrics and an
-        /// IAM role that has permission to write to the experiment.</para>
+        /// <para>The destination to send the metrics to. Valid values are <c>CloudWatch</c> and <c>Evidently</c>.
+        /// If you specify <c>Evidently</c>, you must also specify the ARN of the CloudWatchEvidently
+        /// experiment that will receive the metrics and an IAM role that has permission to write
+        /// to the experiment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter DestinationArn
         /// <summary>
         /// <para>
-        /// <para>This parameter is required if <code>Destination</code> is <code>Evidently</code>.
-        /// If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter.</para><para>This parameter specifies the ARN of the Evidently experiment that is to receive the
+        /// <para>This parameter is required if <c>Destination</c> is <c>Evidently</c>. If <c>Destination</c>
+        /// is <c>CloudWatch</c>, do not use this parameter.</para><para>This parameter specifies the ARN of the Evidently experiment that is to receive the
         /// metrics. You must have already defined this experiment as a valid destination. For
         /// more information, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html">PutRumMetricsDestination</a>.</para>
         /// </para>
@@ -98,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <para>
         /// <para>Use this field only if you are sending the metric to CloudWatch.</para><para>This field is a map of field paths to dimension names. It defines the dimensions to
         /// associate with this metric in CloudWatch. For extended metrics, valid values for the
-        /// entries in this field are the following:</para><ul><li><para><code>"metadata.pageId": "PageId"</code></para></li><li><para><code>"metadata.browserName": "BrowserName"</code></para></li><li><para><code>"metadata.deviceType": "DeviceType"</code></para></li><li><para><code>"metadata.osName": "OSName"</code></para></li><li><para><code>"metadata.countryCode": "CountryCode"</code></para></li><li><para><code>"event_details.fileType": "FileType"</code></para></li></ul><para> For both extended metrics and custom metrics, all dimensions listed in this field
-        /// must also be included in <code>EventPattern</code>.</para>
+        /// entries in this field are the following:</para><ul><li><para><c>"metadata.pageId": "PageId"</c></para></li><li><para><c>"metadata.browserName": "BrowserName"</c></para></li><li><para><c>"metadata.deviceType": "DeviceType"</c></para></li><li><para><c>"metadata.osName": "OSName"</c></para></li><li><para><c>"metadata.countryCode": "CountryCode"</c></para></li><li><para><c>"event_details.fileType": "FileType"</c></para></li></ul><para> For both extended metrics and custom metrics, all dimensions listed in this field
+        /// must also be included in <c>EventPattern</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,15 +112,15 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <para>
         /// <para>The pattern that defines the metric, specified as a JSON object. RUM checks events
         /// that happen in a user's session against the pattern, and events that match the pattern
-        /// are sent to the metric destination.</para><para>When you define extended metrics, the metric definition is not valid if <code>EventPattern</code>
-        /// is omitted.</para><para>Example event patterns:</para><ul><li><para><code>'{ "event_type": ["com.amazon.rum.js_error_event"], "metadata": { "browserName":
-        /// [ "Chrome", "Safari" ], } }'</code></para></li><li><para><code>'{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata":
+        /// are sent to the metric destination.</para><para>When you define extended metrics, the metric definition is not valid if <c>EventPattern</c>
+        /// is omitted.</para><para>Example event patterns:</para><ul><li><para><c>'{ "event_type": ["com.amazon.rum.js_error_event"], "metadata": { "browserName":
+        /// [ "Chrome", "Safari" ], } }'</c></para></li><li><para><c>'{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata":
         /// { "browserName": [ "Chrome", "Firefox" ] }, "event_details": { "duration": [{ "numeric":
-        /// [ "&lt;", 2000 ] }] } }'</code></para></li><li><para><code>'{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata":
+        /// [ "&lt;", 2000 ] }] } }'</c></para></li><li><para><c>'{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata":
         /// { "browserName": [ "Chrome", "Safari" ], "countryCode": [ "US" ] }, "event_details":
-        /// { "duration": [{ "numeric": [ "&gt;=", 2000, "&lt;", 8000 ] }] } }'</code></para></li></ul><para>If the metrics destination' is <code>CloudWatch</code> and the event also matches
-        /// a value in <code>DimensionKeys</code>, then the metric is published with the specified
-        /// dimensions. </para>
+        /// { "duration": [{ "numeric": [ "&gt;=", 2000, "&lt;", 8000 ] }] } }'</c></para></li></ul><para>If the metrics destination' is <c>CloudWatch</c> and the event also matches a value
+        /// in <c>DimensionKeys</c>, then the metric is published with the specified dimensions.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <summary>
         /// <para>
         /// <para>The name for the metric that is defined in this structure. For custom metrics, you
-        /// can specify any name that you like. For extended metrics, valid values are the following:</para><ul><li><para><code>PerformanceNavigationDuration</code></para></li><li><para><code>PerformanceResourceDuration </code></para></li><li><para><code>NavigationSatisfiedTransaction</code></para></li><li><para><code>NavigationToleratedTransaction</code></para></li><li><para><code>NavigationFrustratedTransaction</code></para></li><li><para><code>WebVitalsCumulativeLayoutShift</code></para></li><li><para><code>WebVitalsFirstInputDelay</code></para></li><li><para><code>WebVitalsLargestContentfulPaint</code></para></li><li><para><code>JsErrorCount</code></para></li><li><para><code>HttpErrorCount</code></para></li><li><para><code>SessionCount</code></para></li></ul>
+        /// can specify any name that you like. For extended metrics, valid values are the following:</para><ul><li><para><c>PerformanceNavigationDuration</c></para></li><li><para><c>PerformanceResourceDuration </c></para></li><li><para><c>NavigationSatisfiedTransaction</c></para></li><li><para><c>NavigationToleratedTransaction</c></para></li><li><para><c>NavigationFrustratedTransaction</c></para></li><li><para><c>WebVitalsCumulativeLayoutShift</c></para></li><li><para><c>WebVitalsFirstInputDelay</c></para></li><li><para><c>WebVitalsLargestContentfulPaint</c></para></li><li><para><c>JsErrorCount</c></para></li><li><para><c>HttpErrorCount</c></para></li><li><para><c>SessionCount</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <para>
         /// <para>If this structure is for a custom metric instead of an extended metrics, use this
         /// parameter to define the metric namespace for that custom metric. Do not specify this
-        /// parameter if this structure is for an extended metric.</para><para>You cannot use any string that starts with <code>AWS/</code> for your namespace.</para>
+        /// parameter if this structure is for an extended metric.</para><para>You cannot use any string that starts with <c>AWS/</c> for your namespace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

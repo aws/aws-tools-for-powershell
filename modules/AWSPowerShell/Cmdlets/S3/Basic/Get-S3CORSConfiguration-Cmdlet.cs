@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Returns the Cross-Origin Resource Sharing (CORS) configuration information set for
     /// the bucket.
     /// </para><para>
-    ///  To use this operation, you must have permission to perform the <code>s3:GetBucketCORS</code>
+    ///  To use this operation, you must have permission to perform the <c>s3:GetBucketCORS</c>
     /// action. By default, the bucket owner has this permission and can grant it to others.
     /// </para><para>
     /// When you use this API operation with an access point, provide the alias of the access
@@ -42,15 +42,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><para>
     /// When you use this API operation with an Object Lambda access point, provide the alias
     /// of the Object Lambda access point in place of the bucket name. If the Object Lambda
-    /// access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code>
-    /// is returned. For more information about <code>InvalidAccessPointAliasError</code>,
-    /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List
+    /// access point alias in a request is not valid, the error code <c>InvalidAccessPointAliasError</c>
+    /// is returned. For more information about <c>InvalidAccessPointAliasError</c>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List
     /// of Error Codes</a>.
     /// </para><para>
     ///  For more information about CORS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">
     /// Enabling Cross-Origin Resource Sharing</a>.
     /// </para><para>
-    /// The following operations are related to <code>GetBucketCors</code>:
+    /// The following operations are related to <c>GetBucketCors</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html">PutBucketCors</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html">DeleteBucketCors</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3CORSConfiguration")]

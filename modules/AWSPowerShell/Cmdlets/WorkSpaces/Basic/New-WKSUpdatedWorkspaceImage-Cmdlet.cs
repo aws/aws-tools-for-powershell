@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The tags that you want to add to the new updated WorkSpace image.</para><note><para>To add tags at the same time when you're creating the updated image, you must create
-        /// an IAM policy that grants your IAM user permissions to use <code>workspaces:CreateTags</code>.
+        /// an IAM policy that grants your IAM user permissions to use <c>workspaces:CreateTags</c>.
         /// </para></note>
         /// </para>
         /// </summary>

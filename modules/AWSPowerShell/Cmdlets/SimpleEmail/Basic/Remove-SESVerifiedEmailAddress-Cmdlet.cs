@@ -28,8 +28,8 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Deprecated. Use the <code>DeleteIdentity</code> operation to delete email addresses
-    /// and domains.
+    /// Deprecated. Use the <c>DeleteIdentity</c> operation to delete email addresses and
+    /// domains.
     /// </summary>
     [Cmdlet("Remove", "SESVerifiedEmailAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

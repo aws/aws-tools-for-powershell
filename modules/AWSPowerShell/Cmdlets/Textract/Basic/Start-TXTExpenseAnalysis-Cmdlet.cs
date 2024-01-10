@@ -32,19 +32,18 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// items purchased, and vendor names.
     /// 
     ///  
-    /// <para><code>StartExpenseAnalysis</code> can analyze text in documents that are in JPEG,
-    /// PNG, and PDF format. The documents must be stored in an Amazon S3 bucket. Use the
-    /// <a>DocumentLocation</a> parameter to specify the name of your S3 bucket and the name
-    /// of the document in that bucket. 
-    /// </para><para><code>StartExpenseAnalysis</code> returns a job identifier (<code>JobId</code>) that
-    /// you will provide to <code>GetExpenseAnalysis</code> to retrieve the results of the
-    /// operation. When the analysis of the input invoices/receipts is finished, Amazon Textract
-    /// publishes a completion status to the Amazon Simple Notification Service (Amazon SNS)
-    /// topic that you provide to the <code>NotificationChannel</code>. To obtain the results
-    /// of the invoice and receipt analysis operation, ensure that the status value published
-    /// to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetExpenseAnalysis</a>,
-    /// and pass the job identifier (<code>JobId</code>) that was returned by your call to
-    /// <code>StartExpenseAnalysis</code>.
+    /// <para><c>StartExpenseAnalysis</c> can analyze text in documents that are in JPEG, PNG,
+    /// and PDF format. The documents must be stored in an Amazon S3 bucket. Use the <a>DocumentLocation</a>
+    /// parameter to specify the name of your S3 bucket and the name of the document in that
+    /// bucket. 
+    /// </para><para><c>StartExpenseAnalysis</c> returns a job identifier (<c>JobId</c>) that you will
+    /// provide to <c>GetExpenseAnalysis</c> to retrieve the results of the operation. When
+    /// the analysis of the input invoices/receipts is finished, Amazon Textract publishes
+    /// a completion status to the Amazon Simple Notification Service (Amazon SNS) topic that
+    /// you provide to the <c>NotificationChannel</c>. To obtain the results of the invoice
+    /// and receipt analysis operation, ensure that the status value published to the Amazon
+    /// SNS topic is <c>SUCCEEDED</c>. If so, call <a>GetExpenseAnalysis</a>, and pass the
+    /// job identifier (<c>JobId</c>) that was returned by your call to <c>StartExpenseAnalysis</c>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/invoice-receipts.html">Analyzing
     /// Invoices and Receipts</a>.
@@ -77,9 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// <summary>
         /// <para>
         /// <para>The idempotent token that's used to identify the start request. If you use the same
-        /// token with multiple <code>StartDocumentTextDetection</code> requests, the same <code>JobId</code>
-        /// is returned. Use <code>ClientRequestToken</code> to prevent the same job from being
-        /// accidentally started more than once. For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-async.html">Calling
+        /// token with multiple <c>StartDocumentTextDetection</c> requests, the same <c>JobId</c>
+        /// is returned. Use <c>ClientRequestToken</c> to prevent the same job from being accidentally
+        /// started more than once. For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-async.html">Calling
         /// Amazon Textract Asynchronous Operations</a></para>
         /// </para>
         /// </summary>
@@ -91,9 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// <summary>
         /// <para>
         /// <para>An identifier you specify that's included in the completion notification published
-        /// to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify
-        /// the type of document that the completion notification corresponds to (such as a tax
-        /// form or a receipt).</para>
+        /// to the Amazon SNS topic. For example, you can use <c>JobTag</c> to identify the type
+        /// of document that the completion notification corresponds to (such as a tax form or
+        /// a receipt).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

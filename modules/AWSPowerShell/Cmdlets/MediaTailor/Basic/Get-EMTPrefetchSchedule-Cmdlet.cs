@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>Returns information about the prefetch schedule for a specific playback configuration.
-        /// If you call <code>GetPrefetchSchedule</code> on an expired prefetch schedule, MediaTailor
+        /// If you call <c>GetPrefetchSchedule</c> on an expired prefetch schedule, MediaTailor
         /// returns an HTTP 404 status code.</para>
         /// </para>
         /// </summary>

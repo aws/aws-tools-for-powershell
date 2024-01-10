@@ -122,12 +122,12 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The current status of the set of featured results. When the value is <code>ACTIVE</code>,
+        /// <para>The current status of the set of featured results. When the value is <c>ACTIVE</c>,
         /// featured results are ready for use. You can still configure your settings before setting
-        /// the status to <code>ACTIVE</code>. You can set the status to <code>ACTIVE</code> or
-        /// <code>INACTIVE</code> using the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateFeaturedResultsSet.html">UpdateFeaturedResultsSet</a>
+        /// the status to <c>ACTIVE</c>. You can set the status to <c>ACTIVE</c> or <c>INACTIVE</c>
+        /// using the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateFeaturedResultsSet.html">UpdateFeaturedResultsSet</a>
         /// API. The queries you specify for featured results must be unique per featured results
-        /// set for each index, whether the status is <code>ACTIVE</code> or <code>INACTIVE</code>.</para>
+        /// set for each index, whether the status is <c>ACTIVE</c> or <c>INACTIVE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>A token that you provide to identify the request to create a set of featured results.
-        /// Multiple calls to the <code>CreateFeaturedResultsSet</code> API with the same client
-        /// token will create only one featured results set.</para>
+        /// Multiple calls to the <c>CreateFeaturedResultsSet</c> API with the same client token
+        /// will create only one featured results set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

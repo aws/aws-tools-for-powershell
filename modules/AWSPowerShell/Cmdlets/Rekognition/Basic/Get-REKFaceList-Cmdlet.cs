@@ -35,8 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions to perform the <code>rekognition:ListFaces</code>
-    /// action.
+    /// This operation requires permissions to perform the <c>rekognition:ListFaces</c> action.
     /// </para><br/><br/>In the AWS.Tools.Rekognition module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "REKFaceList")]

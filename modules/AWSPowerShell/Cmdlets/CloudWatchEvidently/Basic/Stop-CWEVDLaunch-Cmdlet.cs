@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         #region Parameter DesiredState
         /// <summary>
         /// <para>
-        /// <para>Specify whether to consider the launch as <code>COMPLETED</code> or <code>CANCELLED</code>
-        /// after it stops.</para>
+        /// <para>Specify whether to consider the launch as <c>COMPLETED</c> or <c>CANCELLED</c> after
+        /// it stops.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

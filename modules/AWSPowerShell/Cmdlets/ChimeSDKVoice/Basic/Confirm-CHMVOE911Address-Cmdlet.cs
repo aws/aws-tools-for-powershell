@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter City
         /// <summary>
         /// <para>
-        /// <para>The address city, such as <code>Portland</code>.</para>
+        /// <para>The address city, such as <c>Portland</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter PostalCode
         /// <summary>
         /// <para>
-        /// <para>The dress postal code, such <code>04352</code>.</para>
+        /// <para>The dress postal code, such <c>04352</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>The address state, such as <code>ME</code>.</para>
+        /// <para>The address state, such as <c>ME</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter StreetInfo
         /// <summary>
         /// <para>
-        /// <para>The address street information, such as <code>8th Avenue</code>.</para>
+        /// <para>The address street information, such as <c>8th Avenue</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter StreetNumber
         /// <summary>
         /// <para>
-        /// <para>The address street number, such as <code>200</code> or <code>2121</code>.</para>
+        /// <para>The address street number, such as <c>200</c> or <c>2121</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

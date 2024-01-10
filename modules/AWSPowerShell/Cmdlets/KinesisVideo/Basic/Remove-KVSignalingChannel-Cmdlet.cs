@@ -28,7 +28,7 @@ using Amazon.KinesisVideo.Model;
 namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
-    /// Deletes a specified signaling channel. <code>DeleteSignalingChannel</code> is an asynchronous
+    /// Deletes a specified signaling channel. <c>DeleteSignalingChannel</c> is an asynchronous
     /// operation. If you don't specify the channel's current version, the most recent version
     /// is deleted.
     /// </summary>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The current version of the signaling channel that you want to delete. You can obtain
-        /// the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code>
+        /// the current version by invoking the <c>DescribeSignalingChannel</c> or <c>ListSignalingChannels</c>
         /// API operations.</para>
         /// </para>
         /// </summary>

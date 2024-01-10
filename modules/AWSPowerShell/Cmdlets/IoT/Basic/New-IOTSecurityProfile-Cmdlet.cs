@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>A list of metrics whose data is retained (stored). By default, data is retained for
-        /// any metric used in the profile's <code>behaviors</code>, but it is also retained for
-        /// any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</para>
+        /// any metric used in the profile's <c>behaviors</c>, but it is also retained for any
+        /// metric specified here. Can be used with custom metrics; cannot be used with dimensions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para><i>Please use <a>CreateSecurityProfileRequest$additionalMetricsToRetainV2</a> instead.</i></para><para>A list of metrics whose data is retained (stored). By default, data is retained for
-        /// any metric used in the profile's <code>behaviors</code>, but it is also retained for
-        /// any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</para>
+        /// any metric used in the profile's <c>behaviors</c>, but it is also retained for any
+        /// metric specified here. Can be used with custom metrics; cannot be used with dimensions.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

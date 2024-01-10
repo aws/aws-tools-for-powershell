@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// 
     ///  
     /// <para>
-    /// The <code>DeleteFileCache</code> operation returns while the cache has the <code>DELETING</code>
+    /// The <c>DeleteFileCache</c> operation returns while the cache has the <c>DELETING</c>
     /// status. You can check the cache deletion status by calling the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileCaches.html">DescribeFileCaches</a>
     /// operation, which returns a list of caches in your account. If you pass the cache ID
-    /// for a deleted cache, the <code>DescribeFileCaches</code> operation returns a <code>FileCacheNotFound</code>
+    /// for a deleted cache, the <c>DescribeFileCaches</c> operation returns a <c>FileCacheNotFound</c>
     /// error.
     /// </para><important><para>
     /// The data in a deleted cache is also deleted and can't be recovered by any means.

@@ -37,23 +37,23 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// 
     ///  
     /// <para>
-    /// When rotation is successful, the <code>AWSPENDING</code> staging label might be attached
-    /// to the same version as the <code>AWSCURRENT</code> version, or it might not be attached
-    /// to any version. If the <code>AWSPENDING</code> staging label is present but not attached
-    /// to the same version as <code>AWSCURRENT</code>, then any later invocation of <code>RotateSecret</code>
+    /// When rotation is successful, the <c>AWSPENDING</c> staging label might be attached
+    /// to the same version as the <c>AWSCURRENT</c> version, or it might not be attached
+    /// to any version. If the <c>AWSPENDING</c> staging label is present but not attached
+    /// to the same version as <c>AWSCURRENT</c>, then any later invocation of <c>RotateSecret</c>
     /// assumes that a previous rotation request is still in progress and returns an error.
-    /// When rotation is unsuccessful, the <code>AWSPENDING</code> staging label might be
-    /// attached to an empty secret version. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot_rotation.html">Troubleshoot
+    /// When rotation is unsuccessful, the <c>AWSPENDING</c> staging label might be attached
+    /// to an empty secret version. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot_rotation.html">Troubleshoot
     /// rotation</a> in the <i>Secrets Manager User Guide</i>.
     /// </para><para>
     /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
     /// include sensitive information in request parameters because it might be logged. For
     /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
     /// Secrets Manager events with CloudTrail</a>.
-    /// </para><para><b>Required permissions: </b><code>secretsmanager:RotateSecret</code>. For more
-    /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+    /// </para><para><b>Required permissions: </b><c>secretsmanager:RotateSecret</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
-    /// and access control in Secrets Manager</a>. You also need <code>lambda:InvokeFunction</code>
+    /// and access control in Secrets Manager</a>. You also need <c>lambda:InvokeFunction</c>
     /// permissions on the rotation function. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets-required-permissions-function.html">
     /// Permissions for rotation</a>.
     /// </para>
@@ -76,12 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// that your secret meets your compliance guidelines for how often secrets must be rotated.
         /// If you use this field to set the rotation schedule, Secrets Manager calculates the
         /// next rotation date based on the previous rotation. Manually updating the secret value
-        /// by calling <code>PutSecretValue</code> or <code>UpdateSecret</code> is considered
-        /// a valid rotation.</para><para>In <code>DescribeSecret</code> and <code>ListSecrets</code>, this value is calculated
-        /// from the rotation schedule after every successful rotation. In <code>RotateSecret</code>,
-        /// you can set the rotation schedule in <code>RotationRules</code> with <code>AutomaticallyAfterDays</code>
-        /// or <code>ScheduleExpression</code>, but not both. To set a rotation schedule in hours,
-        /// use <code>ScheduleExpression</code>.</para>
+        /// by calling <c>PutSecretValue</c> or <c>UpdateSecret</c> is considered a valid rotation.</para><para>In <c>DescribeSecret</c> and <c>ListSecrets</c>, this value is calculated from the
+        /// rotation schedule after every successful rotation. In <c>RotateSecret</c>, you can
+        /// set the rotation schedule in <c>RotationRules</c> with <c>AutomaticallyAfterDays</c>
+        /// or <c>ScheduleExpression</c>, but not both. To set a rotation schedule in hours, use
+        /// <c>ScheduleExpression</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// this operation, then you can leave this parameter empty. The CLI or SDK generates
         /// a random UUID for you and includes it as the value for this parameter in the request.
         /// </para></note><para>If you generate a raw HTTP request to the Secrets Manager service endpoint, then you
-        /// must generate a <code>ClientRequestToken</code> and include it in the request.</para><para>This value helps ensure idempotency. Secrets Manager uses this value to prevent the
+        /// must generate a <c>ClientRequestToken</c> and include it in the request.</para><para>This value helps ensure idempotency. Secrets Manager uses this value to prevent the
         /// accidental creation of duplicate versions if there are failures and retries during
         /// a rotation. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a>
         /// value to ensure uniqueness of your versions within the specified secret. </para>
@@ -111,13 +110,13 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter RotationRules_Duration
         /// <summary>
         /// <para>
-        /// <para>The length of the rotation window in hours, for example <code>3h</code> for a three
-        /// hour window. Secrets Manager rotates your secret at any time during this window. The
-        /// window must not extend into the next rotation window or the next UTC day. The window
-        /// starts according to the <code>ScheduleExpression</code>. If you don't specify a <code>Duration</code>,
-        /// for a <code>ScheduleExpression</code> in hours, the window automatically closes after
-        /// one hour. For a <code>ScheduleExpression</code> in days, the window automatically
-        /// closes at the end of the UTC day. For more information, including examples, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_schedule.html">Schedule
+        /// <para>The length of the rotation window in hours, for example <c>3h</c> for a three hour
+        /// window. Secrets Manager rotates your secret at any time during this window. The window
+        /// must not extend into the next rotation window or the next UTC day. The window starts
+        /// according to the <c>ScheduleExpression</c>. If you don't specify a <c>Duration</c>,
+        /// for a <c>ScheduleExpression</c> in hours, the window automatically closes after one
+        /// hour. For a <c>ScheduleExpression</c> in days, the window automatically closes at
+        /// the end of the UTC day. For more information, including examples, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_schedule.html">Schedule
         /// expressions in Secrets Manager rotation</a> in the <i>Secrets Manager Users Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -131,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>Specifies whether to rotate the secret immediately or wait until the next scheduled
         /// rotation window. The rotation schedule is defined in <a>RotateSecretRequest$RotationRules</a>.</para><para>For secrets that use a Lambda rotation function to rotate, if you don't immediately
         /// rotate the secret, Secrets Manager tests the rotation configuration by running the
-        /// <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html"><code>testSecret</code> step</a> of the Lambda rotation function. The test creates
-        /// an <code>AWSPENDING</code> version of the secret and then removes it.</para><para>By default, Secrets Manager rotates the secret immediately.</para>
+        /// <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html"><c>testSecret</c> step</a> of the Lambda rotation function. The test creates an <c>AWSPENDING</c>
+        /// version of the secret and then removes it.</para><para>By default, Secrets Manager rotates the secret immediately.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,22 +154,21 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter RotationRules_ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para>A <code>cron()</code> or <code>rate()</code> expression that defines the schedule
-        /// for rotating your secret. Secrets Manager rotation schedules use UTC time zone. Secrets
-        /// Manager rotates your secret any time during a rotation window.</para><para>Secrets Manager <code>rate()</code> expressions represent the interval in hours or
-        /// days that you want to rotate your secret, for example <code>rate(12 hours)</code>
-        /// or <code>rate(10 days)</code>. You can rotate a secret as often as every four hours.
-        /// If you use a <code>rate()</code> expression, the rotation window starts at midnight.
-        /// For a rate in hours, the default rotation window closes after one hour. For a rate
-        /// in days, the default rotation window closes at the end of the day. You can set the
-        /// <code>Duration</code> to change the rotation window. The rotation window must not
-        /// extend into the next UTC day or into the next rotation window.</para><para>You can use a <code>cron()</code> expression to create a rotation schedule that is
-        /// more detailed than a rotation interval. For more information, including examples,
-        /// see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_schedule.html">Schedule
+        /// <para>A <c>cron()</c> or <c>rate()</c> expression that defines the schedule for rotating
+        /// your secret. Secrets Manager rotation schedules use UTC time zone. Secrets Manager
+        /// rotates your secret any time during a rotation window.</para><para>Secrets Manager <c>rate()</c> expressions represent the interval in hours or days
+        /// that you want to rotate your secret, for example <c>rate(12 hours)</c> or <c>rate(10
+        /// days)</c>. You can rotate a secret as often as every four hours. If you use a <c>rate()</c>
+        /// expression, the rotation window starts at midnight. For a rate in hours, the default
+        /// rotation window closes after one hour. For a rate in days, the default rotation window
+        /// closes at the end of the day. You can set the <c>Duration</c> to change the rotation
+        /// window. The rotation window must not extend into the next UTC day or into the next
+        /// rotation window.</para><para>You can use a <c>cron()</c> expression to create a rotation schedule that is more
+        /// detailed than a rotation interval. For more information, including examples, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_schedule.html">Schedule
         /// expressions in Secrets Manager rotation</a> in the <i>Secrets Manager Users Guide</i>.
         /// For a cron expression that represents a schedule in hours, the default rotation window
         /// closes after one hour. For a cron expression that represents a schedule in days, the
-        /// default rotation window closes at the end of the day. You can set the <code>Duration</code>
+        /// default rotation window closes at the end of the day. You can set the <c>Duration</c>
         /// to change the rotation window. The rotation window must not extend into the next UTC
         /// day or into the next rotation window.</para>
         /// </para>

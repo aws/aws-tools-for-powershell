@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Returns a list of resource metadata for a given list of development endpoint names.
-    /// After calling the <code>ListDevEndpoints</code> operation, you can call this operation
-    /// to access the data to which you have been granted permissions. This operation supports
+    /// After calling the <c>ListDevEndpoints</c> operation, you can call this operation to
+    /// access the data to which you have been granted permissions. This operation supports
     /// all IAM permissions, including permission conditions that uses tags.
     /// </summary>
     [Cmdlet("Get", "GLUEDevEndpointBatch")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter DevEndpointName
         /// <summary>
         /// <para>
-        /// <para>The list of <code>DevEndpoint</code> names, which might be the names returned from
-        /// the <code>ListDevEndpoint</code> operation.</para>
+        /// <para>The list of <c>DevEndpoint</c> names, which might be the names returned from the <c>ListDevEndpoint</c>
+        /// operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

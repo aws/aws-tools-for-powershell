@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <para>
         /// <para>Use this parameter when paginating results to specify the maximum number of items
         /// to return in the response on each page. If additional items exist beyond the number
-        /// you specify, the <code>NextToken</code> element is sent in the response. Use this
-        /// <code>NextToken</code> value in a subsequent request to retrieve additional items.</para>
+        /// you specify, the <c>NextToken</c> element is sent in the response. Use this <c>NextToken</c>
+        /// value in a subsequent request to retrieve additional items.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>Use this parameter when paginating results in a subsequent request after you receive
-        /// a response with truncated results. Set it to the value of the <code>NextToken</code>
-        /// parameter from the response you just received.</para>
+        /// a response with truncated results. Set it to the value of the <c>NextToken</c> parameter
+        /// from the response you just received.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

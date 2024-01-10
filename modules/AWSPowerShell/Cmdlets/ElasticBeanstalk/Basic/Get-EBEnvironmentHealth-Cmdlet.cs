@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter AttributeName
         /// <summary>
         /// <para>
-        /// <para>Specify the response elements to return. To retrieve all attributes, set to <code>All</code>.
+        /// <para>Specify the response elements to return. To retrieve all attributes, set to <c>All</c>.
         /// If no attribute names are specified, returns the name of the environment.</para>
         /// </para>
         /// </summary>

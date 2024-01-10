@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
     /// Creates a relationship between a member and a group. The following identifiers must
-    /// be specified: <code>GroupId</code>, <code>IdentityStoreId</code>, and <code>MemberId</code>.
+    /// be specified: <c>GroupId</c>, <c>IdentityStoreId</c>, and <c>MemberId</c>.
     /// </summary>
     [Cmdlet("New", "IDSGroupMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

@@ -34,24 +34,23 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// days.
     /// 
     ///  <note><para>
-    /// Position updates are handled based on the <code>PositionFiltering</code> property
-    /// of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>,
-    /// updates are evaluated against linked geofence collections, and location data is stored
-    /// at a maximum of one position per 30 second interval. If your update frequency is more
-    /// often than every 30 seconds, only one update per 30 seconds is stored for each unique
-    /// device ID.
+    /// Position updates are handled based on the <c>PositionFiltering</c> property of the
+    /// tracker. When <c>PositionFiltering</c> is set to <c>TimeBased</c>, updates are evaluated
+    /// against linked geofence collections, and location data is stored at a maximum of one
+    /// position per 30 second interval. If your update frequency is more often than every
+    /// 30 seconds, only one update per 30 seconds is stored for each unique device ID.
     /// </para><para>
-    /// When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering,
-    /// location data is stored and evaluated against linked geofence collections only if
-    /// the device has moved more than 30 m (98.4 ft).
+    /// When <c>PositionFiltering</c> is set to <c>DistanceBased</c> filtering, location data
+    /// is stored and evaluated against linked geofence collections only if the device has
+    /// moved more than 30 m (98.4 ft).
     /// </para><para>
-    /// When <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering,
-    /// location data is stored and evaluated against linked geofence collections only if
-    /// the device has moved more than the measured accuracy. For example, if two consecutive
-    /// updates from a device have a horizontal accuracy of 5 m and 10 m, the second update
-    /// is neither stored or evaluated if the device has moved less than 15 m. If <code>PositionFiltering</code>
-    /// is set to <code>AccuracyBased</code> filtering, Amazon Location uses the default value
-    /// <code>{ "Horizontal": 0}</code> when accuracy is not provided on a <code>DevicePositionUpdate</code>.
+    /// When <c>PositionFiltering</c> is set to <c>AccuracyBased</c> filtering, location data
+    /// is stored and evaluated against linked geofence collections only if the device has
+    /// moved more than the measured accuracy. For example, if two consecutive updates from
+    /// a device have a horizontal accuracy of 5 m and 10 m, the second update is neither
+    /// stored or evaluated if the device has moved less than 15 m. If <c>PositionFiltering</c>
+    /// is set to <c>AccuracyBased</c> filtering, Amazon Location uses the default value <c>{
+    /// "Horizontal": 0}</c> when accuracy is not provided on a <c>DevicePositionUpdate</c>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Set", "LOCDevicePositionBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

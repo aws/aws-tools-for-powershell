@@ -52,9 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter WorkforceName
         /// <summary>
         /// <para>
-        /// <para>The name of the private workforce whose access you want to restrict. <code>WorkforceName</code>
-        /// is automatically set to <code>default</code> when a workforce is created and cannot
-        /// be modified. </para>
+        /// <para>The name of the private workforce whose access you want to restrict. <c>WorkforceName</c>
+        /// is automatically set to <c>default</c> when a workforce is created and cannot be modified.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

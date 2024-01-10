@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         /// <para>
         /// <para>Enables or disables the automatic warm-up feature for dedicated IP addresses that
         /// are associated with your Amazon Pinpoint account in the current AWS Region. Set to
-        /// <code>true</code> to enable the automatic warm-up feature, or set to <code>false</code>
-        /// to disable it.</para>
+        /// <c>true</c> to enable the automatic warm-up feature, or set to <c>false</c> to disable
+        /// it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

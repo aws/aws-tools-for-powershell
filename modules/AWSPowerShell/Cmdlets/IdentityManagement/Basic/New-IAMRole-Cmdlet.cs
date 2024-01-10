@@ -58,10 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// for CloudFormation templates formatted in YAML, you can provide the policy in JSON
         /// or YAML format. CloudFormation always converts a YAML policy to JSON format before
         /// submitting it to IAM.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
-        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<code>\u0020</code>)
-        /// through the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
-        /// <code>\u00FF</code>)</para></li><li><para>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>),
-        /// and carriage return (<code>\u000D</code>)</para></li></ul><para> Upon success, the response includes the same trust policy in JSON format.</para>
+        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<c>\u0020</c>) through
+        /// the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// <c>\u00FF</c>)</para></li><li><para>The special characters tab (<c>\u0009</c>), line feed (<c>\u000A</c>), and carriage
+        /// return (<c>\u000D</c>)</para></li></ul><para> Upon success, the response includes the same trust policy in JSON format.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,15 +90,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The maximum session duration (in seconds) that you want to set for the specified role.
         /// If you do not specify a value for this setting, the default value of one hour is applied.
-        /// This setting can have a value from 1 hour to 12 hours.</para><para>Anyone who assumes the role from the CLI or API can use the <code>DurationSeconds</code>
-        /// API parameter or the <code>duration-seconds</code> CLI parameter to request a longer
-        /// session. The <code>MaxSessionDuration</code> setting determines the maximum duration
-        /// that can be requested using the <code>DurationSeconds</code> parameter. If users don't
-        /// specify a value for the <code>DurationSeconds</code> parameter, their security credentials
-        /// are valid for one hour by default. This applies when you use the <code>AssumeRole*</code>
-        /// API operations or the <code>assume-role*</code> CLI operations but does not apply
-        /// when you use those operations to create a console URL. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM
-        /// roles</a> in the <i>IAM User Guide</i>.</para>
+        /// This setting can have a value from 1 hour to 12 hours.</para><para>Anyone who assumes the role from the CLI or API can use the <c>DurationSeconds</c>
+        /// API parameter or the <c>duration-seconds</c> CLI parameter to request a longer session.
+        /// The <c>MaxSessionDuration</c> setting determines the maximum duration that can be
+        /// requested using the <c>DurationSeconds</c> parameter. If users don't specify a value
+        /// for the <c>DurationSeconds</c> parameter, their security credentials are valid for
+        /// one hour by default. This applies when you use the <c>AssumeRole*</c> API operations
+        /// or the <c>assume-role*</c> CLI operations but does not apply when you use those operations
+        /// to create a console URL. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using
+        /// IAM roles</a> in the <i>IAM User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// Identifiers</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/).</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
         /// pattern</a>) a string of characters consisting of either a forward slash (/) by itself
         /// or a string that must begin and end with forward slashes. In addition, it can contain
-        /// any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>),
+        /// any ASCII character from the ! (<c>\u0021</c>) through the DEL character (<c>\u007F</c>),
         /// including most punctuation characters, digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>

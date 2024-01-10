@@ -28,11 +28,11 @@ using Amazon.Glacier.Model;
 namespace Amazon.PowerShell.Cmdlets.GLC
 {
     /// <summary>
-    /// This operation retrieves the <code>access-policy</code> subresource set on the vault;
-    /// for more information on setting this subresource, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html">Set
+    /// This operation retrieves the <c>access-policy</c> subresource set on the vault; for
+    /// more information on setting this subresource, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html">Set
     /// Vault Access Policy (PUT access-policy)</a>. If there is no access policy set on the
-    /// vault, the operation returns a <code>404 Not found</code> error. For more information
-    /// about vault access policies, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html">Amazon
+    /// vault, the operation returns a <c>404 Not found</c> error. For more information about
+    /// vault access policies, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html">Amazon
     /// Glacier Access Control with Vault Access Policies</a>.
     /// </summary>
     [Cmdlet("Get", "GLCVaultAccessPolicy")]
@@ -50,11 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The <code>AccountId</code> value is the AWS account ID of the account that owns the
-        /// vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-        /// (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with
-        /// the credentials used to sign the request. If you use an account ID, do not include
-        /// any hyphens ('-') in the ID.</para>
+        /// <para>The <c>AccountId</c> value is the AWS account ID of the account that owns the vault.
+        /// You can either specify an AWS account ID or optionally a single '<c>-</c>' (hyphen),
+        /// in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials
+        /// used to sign the request. If you use an account ID, do not include any hyphens ('-')
+        /// in the ID.</para>
         /// </para>
         /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>-</b>'.</para>
         /// </summary>

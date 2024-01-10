@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// 
     ///  
     /// <para>
-    /// For Amazon CloudFront, don't use this call. Instead, use the CloudFront call <code>ListDistributionsByWebACLId</code>.
+    /// For Amazon CloudFront, don't use this call. Instead, use the CloudFront call <c>ListDistributionsByWebACLId</c>.
     /// For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html">ListDistributionsByWebACLId</a>
     /// in the <i>Amazon CloudFront API Reference</i>. 
     /// </para><para><b>Required permissions for customer-managed IAM policies</b></para><para>
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>Used for web ACLs that are scoped for regional applications. A regional application
         /// can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync
         /// GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web
-        /// Services Verified Access instance. </para><note><para>If you don't provide a resource type, the call uses the resource type <code>APPLICATION_LOAD_BALANCER</code>.
-        /// </para></note><para>Default: <code>APPLICATION_LOAD_BALANCER</code></para>
+        /// Services Verified Access instance. </para><note><para>If you don't provide a resource type, the call uses the resource type <c>APPLICATION_LOAD_BALANCER</c>.
+        /// </para></note><para>Default: <c>APPLICATION_LOAD_BALANCER</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

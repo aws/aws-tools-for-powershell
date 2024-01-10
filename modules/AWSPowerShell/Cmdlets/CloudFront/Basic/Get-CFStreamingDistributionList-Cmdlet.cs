@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>The value that you provided for the <code>Marker</code> request parameter.</para>
+        /// <para>The value that you provided for the <c>Marker</c> request parameter.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>The value that you provided for the <code>MaxItems</code> request parameter.</para>
+        /// <para>The value that you provided for the <c>MaxItems</c> request parameter.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

@@ -28,12 +28,12 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// This request will send changes to your specified restore testing plan. <code>RestoreTestingPlanName</code>
+    /// This request will send changes to your specified restore testing plan. <c>RestoreTestingPlanName</c>
     /// cannot be updated after it is created.
     /// 
     ///  
-    /// <para><code>RecoveryPointSelection</code> can contain:
-    /// </para><ul><li><para><code>Algorithm</code></para></li><li><para><code>ExcludeVaults</code></para></li><li><para><code>IncludeVaults</code></para></li><li><para><code>RecoveryPointTypes</code></para></li><li><para><code>SelectionWindowDays</code></para></li></ul>
+    /// <para><c>RecoveryPointSelection</c> can contain:
+    /// </para><ul><li><para><c>Algorithm</c></para></li><li><para><c>ExcludeVaults</c></para></li><li><para><c>IncludeVaults</c></para></li><li><para><c>RecoveryPointTypes</c></para></li><li><para><c>SelectionWindowDays</c></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "BAKRestoreTestingPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Backup.Model.UpdateRestoreTestingPlanResponse")]

@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code>
-        /// or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</para>
+        /// <para>The function that the registered certificate performs. Valid values include <c>ClientLDAPS</c>
+        /// or <c>ClientCertAuth</c>. The default value is <c>ClientLDAPS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

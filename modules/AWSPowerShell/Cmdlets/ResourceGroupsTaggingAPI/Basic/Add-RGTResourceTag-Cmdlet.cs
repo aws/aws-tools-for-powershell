@@ -50,11 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     /// information in tags. We use tags to provide you with billing and administration services.
     /// Tags are not intended to be used for private or sensitive data.
     /// </para></important><para><b>Minimum permissions</b></para><para>
-    /// In addition to the <code>tag:TagResources</code> permission required by this operation,
+    /// In addition to the <c>tag:TagResources</c> permission required by this operation,
     /// you must also have the tagging permission defined by the service that created the
-    /// resource. For example, to tag an Amazon EC2 instance using the <code>TagResources</code>
+    /// resource. For example, to tag an Amazon EC2 instance using the <c>TagResources</c>
     /// operation, you must have both of the following permissions:
-    /// </para><ul><li><para><code>tag:TagResource</code></para></li><li><para><code>ec2:CreateTags</code></para></li></ul>
+    /// </para><ul><li><para><c>tag:TagResource</c></para></li><li><para><c>ec2:CreateTags</c></para></li></ul>
     /// </summary>
     [Cmdlet("Add", "RGTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
     /// <summary>
     /// Gets information about the access policies that control access to the domain's document
     /// and search endpoints. By default, shows the configuration with any pending changes.
-    /// Set the <code>Deployed</code> option to <code>true</code> to show the active configuration
-    /// and exclude pending changes. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html" target="_blank">Configuring Access for a Search Domain</a> in the <i>Amazon CloudSearch
+    /// Set the <c>Deployed</c> option to <c>true</c> to show the active configuration and
+    /// exclude pending changes. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html" target="_blank">Configuring Access for a Search Domain</a> in the <i>Amazon CloudSearch
     /// Developer Guide</i>.
     /// </summary>
     [Cmdlet("Get", "CSServiceAccessPolicy")]
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
         #region Parameter Deployed
         /// <summary>
         /// <para>
-        /// <para>Whether to display the deployed configuration (<code>true</code>) or include any pending
-        /// changes (<code>false</code>). Defaults to <code>false</code>.</para>
+        /// <para>Whether to display the deployed configuration (<c>true</c>) or include any pending
+        /// changes (<c>false</c>). Defaults to <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

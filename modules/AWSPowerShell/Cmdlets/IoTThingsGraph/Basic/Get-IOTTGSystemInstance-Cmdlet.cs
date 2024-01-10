@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the system deployment instance. This value is returned by <code>CreateSystemInstance</code>.</para><para>The ID should be in the following format.</para><para><code>urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME</code></para>
+        /// <para>The ID of the system deployment instance. This value is returned by <c>CreateSystemInstance</c>.</para><para>The ID should be in the following format.</para><para><c>urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -30,12 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
     /// <summary>
     /// Sends telemetry events about your application performance and user behavior to CloudWatch
     /// RUM. The code snippet that RUM generates for you to add to your application includes
-    /// <code>PutRumEvents</code> operations to send this data to RUM.
+    /// <c>PutRumEvents</c> operations to send this data to RUM.
     /// 
     ///  
     /// <para>
-    /// Each <code>PutRumEvents</code> operation can send a batch of events from one user
-    /// session.
+    /// Each <c>PutRumEvents</c> operation can send a batch of events from one user session.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWRUMRumEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

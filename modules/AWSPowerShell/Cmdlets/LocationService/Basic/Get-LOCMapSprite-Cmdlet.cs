@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter FileName
         /// <summary>
         /// <para>
-        /// <para>The name of the sprite ﬁle. Use the following ﬁle names for the sprite sheet:</para><ul><li><para><code>sprites.png</code></para></li><li><para><code>sprites@2x.png</code> for high pixel density displays</para></li></ul><para>For the JSON document containing image offsets. Use the following ﬁle names:</para><ul><li><para><code>sprites.json</code></para></li><li><para><code>sprites@2x.json</code> for high pixel density displays</para></li></ul>
+        /// <para>The name of the sprite ﬁle. Use the following ﬁle names for the sprite sheet:</para><ul><li><para><c>sprites.png</c></para></li><li><para><c>sprites@2x.png</c> for high pixel density displays</para></li></ul><para>For the JSON document containing image offsets. Use the following ﬁle names:</para><ul><li><para><c>sprites.json</c></para></li><li><para><c>sprites@2x.json</c> for high pixel density displays</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

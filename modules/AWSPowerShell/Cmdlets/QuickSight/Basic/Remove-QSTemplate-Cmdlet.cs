@@ -79,8 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>Specifies the version of the template that you want to delete. If you don't provide
-        /// a version number, <code>DeleteTemplate</code> deletes all versions of the template.
-        /// </para>
+        /// a version number, <c>DeleteTemplate</c> deletes all versions of the template. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

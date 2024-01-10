@@ -30,9 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// <summary>
     /// Retrieves a sortable, filterable list of existing Glue machine learning transforms
     /// in this Amazon Web Services account, or the resources with the specified tag. This
-    /// operation takes the optional <code>Tags</code> field, which you can use as a filter
-    /// of the responses so that tagged resources can be retrieved as a group. If you choose
-    /// to use tag filtering, only resources with the tags are retrieved.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// operation takes the optional <c>Tags</c> field, which you can use as a filter of the
+    /// responses so that tagged resources can be retrieved as a group. If you choose to use
+    /// tag filtering, only resources with the tags are retrieved.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GLUEMLTransformIdentifier")]
     [OutputType("System.String")]
@@ -124,10 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Filter_Schema
         /// <summary>
         /// <para>
-        /// <para>Filters on datasets with a specific schema. The <code>Map&lt;Column, Type&gt;</code>
-        /// object is an array of key-value pairs representing the schema this transform accepts,
-        /// where <code>Column</code> is the name of a column, and <code>Type</code> is the type
-        /// of the data such as an integer or string. Has an upper bound of 100 columns.</para>
+        /// <para>Filters on datasets with a specific schema. The <c>Map&lt;Column, Type&gt;</c> object
+        /// is an array of key-value pairs representing the schema this transform accepts, where
+        /// <c>Column</c> is the name of a column, and <c>Type</c> is the type of the data such
+        /// as an integer or string. Has an upper bound of 100 columns.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

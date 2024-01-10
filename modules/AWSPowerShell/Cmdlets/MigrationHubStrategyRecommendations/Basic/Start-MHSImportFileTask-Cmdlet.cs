@@ -59,8 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         /// <summary>
         /// <para>
         /// <para>Groups the resources in the import file together with a unique name. This ID can be
-        /// as filter in <code>ListApplicationComponents</code> and <code>ListServers</code>.
-        /// </para>
+        /// as filter in <c>ListApplicationComponents</c> and <c>ListServers</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         /// <summary>
         /// <para>
         /// <para> The S3 bucket where the import file is located. The bucket name is required to begin
-        /// with <code>migrationhub-strategy-</code>.</para>
+        /// with <c>migrationhub-strategy-</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

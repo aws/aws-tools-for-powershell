@@ -61,10 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter that specifies one or more DB clusters to describe.</para><para>Supported filters:</para><ul><li><para><code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon
-        /// Resource Names (ARNs). The results list will only include information about the DB
-        /// clusters identified by these ARNs.</para></li><li><para><code>engine</code> - Accepts an engine name (such as <code>neptune</code>), and
-        /// restricts the results list to DB clusters created by that engine.</para></li></ul><para>For example, to invoke this API from the Amazon CLI and filter so that only Neptune
+        /// <para>A filter that specifies one or more DB clusters to describe.</para><para>Supported filters:</para><ul><li><para><c>db-cluster-id</c> - Accepts DB cluster identifiers and DB cluster Amazon Resource
+        /// Names (ARNs). The results list will only include information about the DB clusters
+        /// identified by these ARNs.</para></li><li><para><c>engine</c> - Accepts an engine name (such as <c>neptune</c>), and restricts the
+        /// results list to DB clusters created by that engine.</para></li></ul><para>For example, to invoke this API from the Amazon CLI and filter so that only Neptune
         /// DB clusters are returned, you could use the following command:</para>
         /// </para>
         /// </summary>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>An optional pagination token provided by a previous <a>DescribeDBClusters</a> request.
         /// If this parameter is specified, the response includes only records beyond the marker,
-        /// up to the value specified by <code>MaxRecords</code>.</para>
+        /// up to the value specified by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -94,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// the specified <c>MaxRecords</c> value, a pagination token called a marker is included
+        /// in the response so that the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

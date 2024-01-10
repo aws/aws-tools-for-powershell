@@ -32,9 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// 
     ///  
     /// <para>
-    /// If you don't supply a <code>PublisherId</code>, and you have registered as an extension
-    /// publisher, <code>DescribePublisher</code> returns information about your own publisher
-    /// account.
+    /// If you don't supply a <c>PublisherId</c>, and you have registered as an extension
+    /// publisher, <c>DescribePublisher</c> returns information about your own publisher account.
     /// </para><para>
     /// For more information about registering as a publisher, see:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html">RegisterPublisher</a></para></li><li><para><a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing
@@ -55,9 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter PublisherId
         /// <summary>
         /// <para>
-        /// <para>The ID of the extension publisher.</para><para>If you don't supply a <code>PublisherId</code>, and you have registered as an extension
-        /// publisher, <code>DescribePublisher</code> returns information about your own publisher
-        /// account.</para>
+        /// <para>The ID of the extension publisher.</para><para>If you don't supply a <c>PublisherId</c>, and you have registered as an extension
+        /// publisher, <c>DescribePublisher</c> returns information about your own publisher account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

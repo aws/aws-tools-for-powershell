@@ -28,8 +28,8 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Returns a list of <code>DescribeEvaluations</code> that match the search criteria
-    /// in the request.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of <c>DescribeEvaluations</c> that match the search criteria in the
+    /// request.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MLEvaluationList")]
     [OutputType("Amazon.MachineLearning.Model.Evaluation")]
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter EQ
         /// <summary>
         /// <para>
-        /// <para>The equal to operator. The <code>Evaluation</code> results will have <code>FilterVariable</code>
-        /// values that exactly match the value specified with <code>EQ</code>.</para>
+        /// <para>The equal to operator. The <c>Evaluation</c> results will have <c>FilterVariable</c>
+        /// values that exactly match the value specified with <c>EQ</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,11 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter FilterVariable
         /// <summary>
         /// <para>
-        /// <para>Use one of the following variable to filter a list of <code>Evaluation</code> objects:</para><ul><li><para><code>CreatedAt</code> - Sets the search criteria to the <code>Evaluation</code>
-        /// creation date.</para></li><li><para><code>Status</code> - Sets the search criteria to the <code>Evaluation</code> status.</para></li><li><para><code>Name</code> - Sets the search criteria to the contents of <code>Evaluation</code><b></b><code>Name</code>.</para></li><li><para><code>IAMUser</code> - Sets the search criteria to the user account that invoked
-        /// an <code>Evaluation</code>.</para></li><li><para><code>MLModelId</code> - Sets the search criteria to the <code>MLModel</code> that
-        /// was evaluated.</para></li><li><para><code>DataSourceId</code> - Sets the search criteria to the <code>DataSource</code>
-        /// used in <code>Evaluation</code>.</para></li><li><para><code>DataUri</code> - Sets the search criteria to the data file(s) used in <code>Evaluation</code>.
+        /// <para>Use one of the following variable to filter a list of <c>Evaluation</c> objects:</para><ul><li><para><c>CreatedAt</c> - Sets the search criteria to the <c>Evaluation</c> creation date.</para></li><li><para><c>Status</c> - Sets the search criteria to the <c>Evaluation</c> status.</para></li><li><para><c>Name</c> - Sets the search criteria to the contents of <c>Evaluation</c><b></b><c>Name</c>.</para></li><li><para><c>IAMUser</c> - Sets the search criteria to the user account that invoked an <c>Evaluation</c>.</para></li><li><para><c>MLModelId</c> - Sets the search criteria to the <c>MLModel</c> that was evaluated.</para></li><li><para><c>DataSourceId</c> - Sets the search criteria to the <c>DataSource</c> used in <c>Evaluation</c>.</para></li><li><para><c>DataUri</c> - Sets the search criteria to the data file(s) used in <c>Evaluation</c>.
         /// The URL can identify either a file or an Amazon Simple Storage Solution (Amazon S3)
         /// bucket or directory.</para></li></ul>
         /// </para>
@@ -74,9 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter GE
         /// <summary>
         /// <para>
-        /// <para>The greater than or equal to operator. The <code>Evaluation</code> results will have
-        /// <code>FilterVariable</code> values that are greater than or equal to the value specified
-        /// with <code>GE</code>. </para>
+        /// <para>The greater than or equal to operator. The <c>Evaluation</c> results will have <c>FilterVariable</c>
+        /// values that are greater than or equal to the value specified with <c>GE</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter GT
         /// <summary>
         /// <para>
-        /// <para>The greater than operator. The <code>Evaluation</code> results will have <code>FilterVariable</code>
-        /// values that are greater than the value specified with <code>GT</code>.</para>
+        /// <para>The greater than operator. The <c>Evaluation</c> results will have <c>FilterVariable</c>
+        /// values that are greater than the value specified with <c>GT</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,9 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter LE
         /// <summary>
         /// <para>
-        /// <para>The less than or equal to operator. The <code>Evaluation</code> results will have
-        /// <code>FilterVariable</code> values that are less than or equal to the value specified
-        /// with <code>LE</code>.</para>
+        /// <para>The less than or equal to operator. The <c>Evaluation</c> results will have <c>FilterVariable</c>
+        /// values that are less than or equal to the value specified with <c>LE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter LT
         /// <summary>
         /// <para>
-        /// <para>The less than operator. The <code>Evaluation</code> results will have <code>FilterVariable</code>
-        /// values that are less than the value specified with <code>LT</code>.</para>
+        /// <para>The less than operator. The <c>Evaluation</c> results will have <c>FilterVariable</c>
+        /// values that are less than the value specified with <c>LT</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter NE
         /// <summary>
         /// <para>
-        /// <para>The not equal to operator. The <code>Evaluation</code> results will have <code>FilterVariable</code>
-        /// values not equal to the value specified with <code>NE</code>.</para>
+        /// <para>The not equal to operator. The <c>Evaluation</c> results will have <c>FilterVariable</c>
+        /// values not equal to the value specified with <c>NE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,10 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter Prefix
         /// <summary>
         /// <para>
-        /// <para>A string that is found at the beginning of a variable, such as <code>Name</code> or
-        /// <code>Id</code>.</para><para>For example, an <code>Evaluation</code> could have the <code>Name</code><code>2014-09-09-HolidayGiftMailer</code>.
-        /// To search for this <code>Evaluation</code>, select <code>Name</code> for the <code>FilterVariable</code>
-        /// and any of the following strings for the <code>Prefix</code>: </para><ul><li><para>2014-09</para></li><li><para>2014-09-09</para></li><li><para>2014-09-09-Holiday</para></li></ul>
+        /// <para>A string that is found at the beginning of a variable, such as <c>Name</c> or <c>Id</c>.</para><para>For example, an <c>Evaluation</c> could have the <c>Name</c><c>2014-09-09-HolidayGiftMailer</c>.
+        /// To search for this <c>Evaluation</c>, select <c>Name</c> for the <c>FilterVariable</c>
+        /// and any of the following strings for the <c>Prefix</c>: </para><ul><li><para>2014-09</para></li><li><para>2014-09-09</para></li><li><para>2014-09-09-Holiday</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>A two-value parameter that determines the sequence of the resulting list of <code>Evaluation</code>.</para><ul><li><para><code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</para></li><li><para><code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</para></li></ul><para>Results are sorted by <code>FilterVariable</code>.</para>
+        /// <para>A two-value parameter that determines the sequence of the resulting list of <c>Evaluation</c>.</para><ul><li><para><c>asc</c> - Arranges the list in ascending order (A-Z, 0-9).</para></li><li><para><c>dsc</c> - Arranges the list in descending order (Z-A, 9-0).</para></li></ul><para>Results are sorted by <c>FilterVariable</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para> The maximum number of <code>Evaluation</code> to include in the result.</para>
+        /// <para> The maximum number of <c>Evaluation</c> to include in the result.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

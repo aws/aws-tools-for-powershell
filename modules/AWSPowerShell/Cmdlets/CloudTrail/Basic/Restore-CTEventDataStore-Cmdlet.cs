@@ -28,9 +28,9 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Restores a deleted event data store specified by <code>EventDataStore</code>, which
-    /// accepts an event data store ARN. You can only restore a deleted event data store within
-    /// the seven-day wait period after deletion. Restoring an event data store can take several
+    /// Restores a deleted event data store specified by <c>EventDataStore</c>, which accepts
+    /// an event data store ARN. You can only restore a deleted event data store within the
+    /// seven-day wait period after deletion. Restoring an event data store can take several
     /// minutes, depending on the size of the event data store.
     /// </summary>
     [Cmdlet("Restore", "CTEventDataStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

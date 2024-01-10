@@ -93,8 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID of the theme that a custom theme will inherit from. All themes inherit from
         /// one of the starting themes defined by Amazon QuickSight. For a list of the starting
-        /// themes, use <code>ListThemes</code> or choose <b>Themes</b> from within an analysis.
-        /// </para>
+        /// themes, use <c>ListThemes</c> or choose <b>Themes</b> from within an analysis. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -386,9 +385,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter VersionDescription
         /// <summary>
         /// <para>
-        /// <para>A description of the first version of the theme that you're creating. Every time <code>UpdateTheme</code>
+        /// <para>A description of the first version of the theme that you're creating. Every time <c>UpdateTheme</c>
         /// is called, a new version is created. Each version of the theme has a description of
-        /// the version in the <code>VersionDescription</code> field.</para>
+        /// the version in the <c>VersionDescription</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -117,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         #region Parameter Intent_ConfirmationState
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the intent has been <code>Confirmed</code>, <code>Denied</code>,
-        /// or <code>None</code> if the confirmation stage has not yet been reached.</para>
+        /// <para>Indicates whether the intent has been <c>Confirmed</c>, <c>Denied</c>, or <c>None</c>
+        /// if the confirmation stage has not yet been reached.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         /// <summary>
         /// <para>
         /// <para>Request-specific information passed between the client application and Amazon Lex
-        /// V2 </para><para>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create
-        /// any request attributes with the prefix <code>x-amz-lex:</code>.</para>
+        /// V2 </para><para>The namespace <c>x-amz-lex:</c> is reserved for special attributes. Don't create any
+        /// request attributes with the prefix <c>x-amz-lex:</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         /// <summary>
         /// <para>
         /// <para>A list of the slots in the intent that should have runtime hints added, and the phrases
-        /// that should be added for each slot.</para><para>The first level of the <code>slotHints</code> map is the name of the intent. The second
+        /// that should be added for each slot.</para><para>The first level of the <c>slotHints</c> map is the name of the intent. The second
         /// level is the name of the slot within the intent. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-hints.html">Using
         /// hints to improve accuracy</a>.</para><para>The intent name and slot name must exist.</para>
         /// </para>
@@ -262,10 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         /// <summary>
         /// <para>
         /// <para>Indicates the fulfillment state for the intent. The meanings of each value are as
-        /// follows:</para><ul><li><para><code>Failed</code> – The bot failed to fulfill the intent.</para></li><li><para><code>Fulfilled</code> – The bot has completed fulfillment of the intent.</para></li><li><para><code>FulfillmentInProgress</code> – The bot is in the middle of fulfilling the intent.</para></li><li><para><code>InProgress</code> – The bot is in the middle of eliciting the slot values that
-        /// are necessary to fulfill the intent.</para></li><li><para><code>ReadyForFulfillment</code> – The bot has elicited all the slot values for the
-        /// intent and is ready to fulfill the intent.</para></li><li><para><code>Waiting</code> – The bot is waiting for a response from the user (limited to
-        /// streaming conversations).</para></li></ul>
+        /// follows:</para><ul><li><para><c>Failed</c> – The bot failed to fulfill the intent.</para></li><li><para><c>Fulfilled</c> – The bot has completed fulfillment of the intent.</para></li><li><para><c>FulfillmentInProgress</c> – The bot is in the middle of fulfilling the intent.</para></li><li><para><c>InProgress</c> – The bot is in the middle of eliciting the slot values that are
+        /// necessary to fulfill the intent.</para></li><li><para><c>ReadyForFulfillment</c> – The bot has elicited all the slot values for the intent
+        /// and is ready to fulfill the intent.</para></li><li><para><c>Waiting</c> – The bot is waiting for a response from the user (limited to streaming
+        /// conversations).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -307,9 +307,9 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         /// <summary>
         /// <para>
         /// <para>The next action that the bot should take in its interaction with the user. The following
-        /// values are possible:</para><ul><li><para><code>Close</code> – Indicates that there will not be a response from the user. For
-        /// example, the statement "Your order has been placed" does not require a response.</para></li><li><para><code>ConfirmIntent</code> – The next action is asking the user if the intent is
-        /// complete and ready to be fulfilled. This is a yes/no question such as "Place the order?"</para></li><li><para><code>Delegate</code> – The next action is determined by Amazon Lex V2.</para></li><li><para><code>ElicitIntent</code> – The next action is to elicit an intent from the user.</para></li><li><para><code>ElicitSlot</code> – The next action is to elicit a slot value from the user.</para></li></ul>
+        /// values are possible:</para><ul><li><para><c>Close</c> – Indicates that there will not be a response from the user. For example,
+        /// the statement "Your order has been placed" does not require a response.</para></li><li><para><c>ConfirmIntent</c> – The next action is asking the user if the intent is complete
+        /// and ready to be fulfilled. This is a yes/no question such as "Place the order?"</para></li><li><para><c>Delegate</c> – The next action is determined by Amazon Lex V2.</para></li><li><para><c>ElicitIntent</c> – The next action is to elicit an intent from the user.</para></li><li><para><c>ElicitSlot</c> – The next action is to elicit a slot value from the user.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

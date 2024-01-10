@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>The format of the FAQ input file. You can choose between a basic CSV format, a CSV
         /// format that includes customs attributes in a header, and a JSON format that includes
         /// custom attributes.</para><para>The default format is CSV.</para><para>The format must match the format of the file stored in the S3 bucket identified in
-        /// the <code>S3Path</code> parameter.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html">Adding
+        /// the <c>S3Path</c> parameter.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html">Adding
         /// questions and answers</a>.</para>
         /// </para>
         /// </summary>
@@ -192,8 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>A token that you provide to identify the request to create a FAQ. Multiple calls to
-        /// the <code>CreateFaqRequest</code> API with the same client token will create only
-        /// one FAQ. </para>
+        /// the <c>CreateFaqRequest</c> API with the same client token will create only one FAQ.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

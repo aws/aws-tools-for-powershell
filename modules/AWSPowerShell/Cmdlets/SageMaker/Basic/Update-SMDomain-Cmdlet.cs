@@ -45,11 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AppNetworkAccessType
         /// <summary>
         /// <para>
-        /// <para>Specifies the VPC used for non-EFS traffic.</para><ul><li><para><code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon
-        /// SageMaker, which allows direct internet access.</para></li><li><para><code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets.</para></li></ul><para>This configuration can only be modified if there are no apps in the <code>InService</code>,
-        /// <code>Pending</code>, or <code>Deleting</code> state. The configuration cannot be
-        /// updated if <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code>
-        /// is already set or <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code>
+        /// <para>Specifies the VPC used for non-EFS traffic.</para><ul><li><para><c>PublicInternetOnly</c> - Non-EFS traffic is through a VPC managed by Amazon SageMaker,
+        /// which allows direct internet access.</para></li><li><para><c>VpcOnly</c> - All Studio traffic is through the specified VPC and subnets.</para></li></ul><para>This configuration can only be modified if there are no apps in the <c>InService</c>,
+        /// <c>Pending</c>, or <c>Deleting</c> state. The configuration cannot be updated if <c>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</c>
+        /// is already set or <c>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</c>
         /// is provided as part of the same request.</para>
         /// </para>
         /// </summary>
@@ -62,10 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The entity that creates and manages the required security groups for inter-app communication
-        /// in <code>VPCOnly</code> mode. Required when <code>CreateDomain.AppNetworkAccessType</code>
-        /// is <code>VPCOnly</code> and <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code>
+        /// in <c>VPCOnly</c> mode. Required when <c>CreateDomain.AppNetworkAccessType</c> is
+        /// <c>VPCOnly</c> and <c>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</c>
         /// is provided. If setting up the domain for use with RStudio, this value must be set
-        /// to <code>Service</code>.</para>
+        /// to <c>Service</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>The execution role for the <code>RStudioServerPro</code> Domain-level app.</para>
+        /// <para>The execution role for the <c>RStudioServerPro</c> Domain-level app.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The configuration for attaching a SageMaker user profile name to the execution role
         /// as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity
-        /// key</a>. This configuration can only be modified if there are no apps in the <code>InService</code>
-        /// or <code>Pending</code> state.</para>
+        /// key</a>. This configuration can only be modified if there are no apps in the <c>InService</c>
+        /// or <c>Pending</c> state.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <code>system</code> value.</para><para>For <b>KernelGateway apps</b>, the <code>system</code> value is translated to <code>ml.t3.medium</code>.
+        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <c>system</c> value.</para><para>For <b>KernelGateway apps</b>, the <c>system</c> value is translated to <c>ml.t3.medium</c>.
         /// KernelGateway apps also support all other values for available instance types.</para></note>
         /// </para>
         /// </summary>
@@ -186,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <code>system</code> value.</para><para>For <b>KernelGateway apps</b>, the <code>system</code> value is translated to <code>ml.t3.medium</code>.
+        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <c>system</c> value.</para><para>For <b>KernelGateway apps</b>, the <c>system</c> value is translated to <c>ml.t3.medium</c>.
         /// KernelGateway apps also support all other values for available instance types.</para></note>
         /// </para>
         /// </summary>
@@ -198,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultResourceSpec_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <code>system</code> value.</para><para>For <b>KernelGateway apps</b>, the <code>system</code> value is translated to <code>ml.t3.medium</code>.
+        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <c>system</c> value.</para><para>For <b>KernelGateway apps</b>, the <c>system</c> value is translated to <c>ml.t3.medium</c>.
         /// KernelGateway apps also support all other values for available instance types.</para></note>
         /// </para>
         /// </summary>
@@ -243,9 +242,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the JupyterServerApp.
-        /// If you use this parameter, the <code>DefaultResourceSpec</code> parameter is also
-        /// required.</para><note><para>To remove a Lifecycle Config, you must set <code>LifecycleConfigArns</code> to an
-        /// empty list.</para></note>
+        /// If you use this parameter, the <c>DefaultResourceSpec</c> parameter is also required.</para><note><para>To remove a Lifecycle Config, you must set <c>LifecycleConfigArns</c> to an empty
+        /// list.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -257,8 +255,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the the
-        /// user profile or domain.</para><note><para>To remove a Lifecycle Config, you must set <code>LifecycleConfigArns</code> to an
-        /// empty list.</para></note>
+        /// user profile or domain.</para><note><para>To remove a Lifecycle Config, you must set <c>LifecycleConfigArns</c> to an empty
+        /// list.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -386,8 +384,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DomainSettingsForUpdate_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code>
-        /// uses for communication between Domain-level apps and user apps.</para>
+        /// <para>The security groups for the Amazon Virtual Private Cloud that the <c>Domain</c> uses
+        /// for communication between Domain-level apps and user apps.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -410,8 +408,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The VPC subnets that Studio uses for communication.</para><para>If removing subnets, ensure there are no apps in the <code>InService</code>, <code>Pending</code>,
-        /// or <code>Deleting</code> state.</para>
+        /// <para>The VPC subnets that Studio uses for communication.</para><para>If removing subnets, ensure there are no apps in the <c>InService</c>, <c>Pending</c>,
+        /// or <c>Deleting</c> state.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

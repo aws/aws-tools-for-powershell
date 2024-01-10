@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     /// <summary>
     /// Retrieve all the deliverability data for a specific campaign. This data is available
     /// for a campaign only if the campaign sent email by using a domain that the Deliverability
-    /// dashboard is enabled for (<code>PutDeliverabilityDashboardOption</code> operation).
+    /// dashboard is enabled for (<c>PutDeliverabilityDashboardOption</c> operation).
     /// </summary>
     [Cmdlet("Get", "PINEDomainDeliverabilityCampaign")]
     [OutputType("Amazon.PinpointEmail.Model.DomainDeliverabilityCampaign")]

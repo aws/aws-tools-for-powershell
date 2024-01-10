@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Entry
         /// <summary>
         /// <para>
-        /// <para>A list of up to 100 <code>BatchUpdatePartitionRequestEntry</code> objects to update.</para>
+        /// <para>A list of up to 100 <c>BatchUpdatePartitionRequestEntry</c> objects to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

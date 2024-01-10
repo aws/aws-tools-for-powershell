@@ -31,15 +31,15 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses
     /// allowed to connect to the instance through the ports, and the protocol. This action
     /// also closes all currently open ports that are not included in the request. Include
-    /// all of the ports and the protocols you want to open in your <code>PutInstancePublicPorts</code>request.
-    /// Or use the <code>OpenInstancePublicPorts</code> action to open ports without closing
-    /// currently open ports.
+    /// all of the ports and the protocols you want to open in your <c>PutInstancePublicPorts</c>request.
+    /// Or use the <c>OpenInstancePublicPorts</c> action to open ports without closing currently
+    /// open ports.
     /// 
     ///  
     /// <para>
-    /// The <code>PutInstancePublicPorts</code> action supports tag-based access control via
-    /// resource tags applied to the resource identified by <code>instanceName</code>. For
-    /// more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// The <c>PutInstancePublicPorts</c> action supports tag-based access control via resource
+    /// tags applied to the resource identified by <c>instanceName</c>. For more information,
+    /// see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>

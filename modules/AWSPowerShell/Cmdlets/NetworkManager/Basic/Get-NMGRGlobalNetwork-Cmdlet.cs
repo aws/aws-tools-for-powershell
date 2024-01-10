@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
 {
     /// <summary>
     /// Describes one or more global networks. By default, all global networks are described.
-    /// To describe the objects in your global network, you must use the appropriate <code>Get*</code>
+    /// To describe the objects in your global network, you must use the appropriate <c>Get*</c>
     /// action. For example, to list the transit gateways in your global network, use <a>GetTransitGatewayRegistrations</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "NMGRGlobalNetwork")]

@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.KNRK
 {
     /// <summary>
     /// Updates a rescore execution plan. A rescore execution plan is an Amazon Kendra Intelligent
-    /// Ranking resource used for provisioning the <code>Rescore</code> API. You can update
-    /// the number of capacity units you require for Amazon Kendra Intelligent Ranking to
-    /// rescore or re-rank a search service's results.
+    /// Ranking resource used for provisioning the <c>Rescore</c> API. You can update the
+    /// number of capacity units you require for Amazon Kendra Intelligent Ranking to rescore
+    /// or re-rank a search service's results.
     /// </summary>
     [Cmdlet("Update", "KNRKRescoreExecutionPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

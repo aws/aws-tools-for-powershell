@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     /// with your Amazon Pinpoint account. 
     /// </para><para>
     /// The dedicated IP pool you specify must already exist. You can create a new pool by
-    /// using the <code>CreateDedicatedIpPool</code> operation.
+    /// using the <c>CreateDedicatedIpPool</c> operation.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "PINEDedicatedIpInPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

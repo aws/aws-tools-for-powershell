@@ -29,19 +29,19 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
 {
     /// <summary>
     /// Returns a block object at a specified address in a journal. Also returns a proof of
-    /// the specified block for verification if <code>DigestTipAddress</code> is provided.
+    /// the specified block for verification if <c>DigestTipAddress</c> is provided.
     /// 
     ///  
     /// <para>
     /// For information about the data contents in a block, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/journal-contents.html">Journal
     /// contents</a> in the <i>Amazon QLDB Developer Guide</i>.
     /// </para><para>
-    /// If the specified ledger doesn't exist or is in <code>DELETING</code> status, then
-    /// throws <code>ResourceNotFoundException</code>.
+    /// If the specified ledger doesn't exist or is in <c>DELETING</c> status, then throws
+    /// <c>ResourceNotFoundException</c>.
     /// </para><para>
-    /// If the specified ledger is in <code>CREATING</code> status, then throws <code>ResourcePreconditionNotMetException</code>.
+    /// If the specified ledger is in <c>CREATING</c> status, then throws <c>ResourcePreconditionNotMetException</c>.
     /// </para><para>
-    /// If no block exists with the specified address, then throws <code>InvalidParameterException</code>.
+    /// If no block exists with the specified address, then throws <c>InvalidParameterException</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "QLDBBlock")]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter BlockAddress_IonText
         /// <summary>
         /// <para>
-        /// <para>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</para>
+        /// <para>An Amazon Ion plaintext value contained in a <c>ValueHolder</c> structure.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter DigestTipAddress_IonText
         /// <summary>
         /// <para>
-        /// <para>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</para>
+        /// <para>An Amazon Ion plaintext value contained in a <c>ValueHolder</c> structure.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

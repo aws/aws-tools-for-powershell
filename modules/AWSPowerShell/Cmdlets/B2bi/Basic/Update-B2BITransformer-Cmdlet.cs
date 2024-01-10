@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         #region Parameter FileFormat
         /// <summary>
         /// <para>
-        /// <para>Specifies that the currently supported file formats for EDI transformations are <code>JSON</code>
-        /// and <code>XML</code>.</para>
+        /// <para>Specifies that the currently supported file formats for EDI transformations are <c>JSON</c>
+        /// and <c>XML</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         /// <summary>
         /// <para>
         /// <para>Specifies the transformer's status. You can update the state of the transformer, from
-        /// <code>active</code> to <code>inactive</code>, or <code>inactive</code> to <code>active</code>.</para>
+        /// <c>active</c> to <c>inactive</c>, or <c>inactive</c> to <c>active</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         /// <summary>
         /// <para>
         /// <para>Returns the version to use for the specified X12 transaction set. Supported versions
-        /// are <code>4010</code>, <code>4030</code>, and <code>5010</code>.</para>
+        /// are <c>4010</c>, <c>4030</c>, and <c>5010</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

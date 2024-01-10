@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Returns a list of resource metadata for a given list of crawler names. After calling
-    /// the <code>ListCrawlers</code> operation, you can call this operation to access the
-    /// data to which you have been granted permissions. This operation supports all IAM permissions,
+    /// the <c>ListCrawlers</c> operation, you can call this operation to access the data
+    /// to which you have been granted permissions. This operation supports all IAM permissions,
     /// including permission conditions that uses tags.
     /// </summary>
     [Cmdlet("Get", "GLUECrawlerBatch")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter CrawlerName
         /// <summary>
         /// <para>
-        /// <para>A list of crawler names, which might be the names returned from the <code>ListCrawlers</code>
+        /// <para>A list of crawler names, which might be the names returned from the <c>ListCrawlers</c>
         /// operation.</para>
         /// </para>
         /// </summary>

@@ -32,11 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// by a migration tool that was previously associated. This API has the following traits:
     /// 
     ///  <ul><li><para>
-    /// A migration user can call the <code>DisassociateCreatedArtifacts</code> operation
-    /// to disassociate a created AWS Artifact from a migration task.
+    /// A migration user can call the <c>DisassociateCreatedArtifacts</c> operation to disassociate
+    /// a created AWS Artifact from a migration task.
     /// </para></li><li><para>
     /// The created artifact name must be provided in ARN (Amazon Resource Name) format which
-    /// will contain information about type and region; for example: <code>arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b</code>.
+    /// will contain information about type and region; for example: <c>arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b</c>.
     /// </para></li><li><para>
     /// Examples of the AWS resource behind the created artifact are, AMI's, EC2 instance,
     /// or RDS instance, etc.

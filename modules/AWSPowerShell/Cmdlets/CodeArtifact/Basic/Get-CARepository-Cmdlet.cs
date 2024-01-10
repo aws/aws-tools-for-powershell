@@ -28,7 +28,7 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Returns a <code>RepositoryDescription</code> object that contains detailed information
+    /// Returns a <c>RepositoryDescription</c> object that contains detailed information
     /// about the requested repository.
     /// </summary>
     [Cmdlet("Get", "CARepository")]

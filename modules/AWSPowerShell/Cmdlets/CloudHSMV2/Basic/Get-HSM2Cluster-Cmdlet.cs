@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     /// <para>
     /// This is a paginated operation, which means that each response might contain only a
     /// subset of all the clusters. When the response contains only a subset of clusters,
-    /// it includes a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeClusters</code>
-    /// request to get more clusters. When you receive a response with no <code>NextToken</code>
+    /// it includes a <c>NextToken</c> value. Use this value in a subsequent <c>DescribeClusters</c>
+    /// request to get more clusters. When you receive a response with no <c>NextToken</c>
     /// (or an empty or null value), that means there are no more clusters to get.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -54,10 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters to limit the items returned in the response.</para><para>Use the <code>clusterIds</code> filter to return only the specified clusters. Specify
-        /// clusters by their cluster identifier (ID).</para><para>Use the <code>vpcIds</code> filter to return only the clusters in the specified virtual
-        /// private clouds (VPCs). Specify VPCs by their VPC identifier (ID).</para><para>Use the <code>states</code> filter to return only clusters that match the specified
-        /// state.</para>
+        /// <para>One or more filters to limit the items returned in the response.</para><para>Use the <c>clusterIds</c> filter to return only the specified clusters. Specify clusters
+        /// by their cluster identifier (ID).</para><para>Use the <c>vpcIds</c> filter to return only the clusters in the specified virtual
+        /// private clouds (VPCs). Specify VPCs by their VPC identifier (ID).</para><para>Use the <c>states</c> filter to return only clusters that match the specified state.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         /// <summary>
         /// <para>
         /// <para>The maximum number of clusters to return in the response. When there are more clusters
-        /// than the number you specify, the response contains a <code>NextToken</code> value.</para>
+        /// than the number you specify, the response contains a <c>NextToken</c> value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -85,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>NextToken</code> value that you received in the previous response. Use this
-        /// value to get more clusters.</para>
+        /// <para>The <c>NextToken</c> value that you received in the previous response. Use this value
+        /// to get more clusters.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

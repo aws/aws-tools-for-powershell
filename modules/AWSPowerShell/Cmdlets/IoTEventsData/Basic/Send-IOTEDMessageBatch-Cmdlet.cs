@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTED
 {
     /// <summary>
     /// Sends a set of messages to the IoT Events system. Each message payload is transformed
-    /// into the input you specify (<code>"inputName"</code>) and ingested into any detectors
-    /// that monitor that input. If multiple messages are sent, the order in which the messages
+    /// into the input you specify (<c>"inputName"</c>) and ingested into any detectors that
+    /// monitor that input. If multiple messages are sent, the order in which the messages
     /// are processed isn't guaranteed. To guarantee ordering, you must send messages one
     /// at a time and wait for a successful response.
     /// </summary>
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTED
         #region Parameter Message
         /// <summary>
         /// <para>
-        /// <para>The list of messages to send. Each message has the following format: <code>'{ "messageId":
-        /// "string", "inputName": "string", "payload": "string"}'</code></para>
+        /// <para>The list of messages to send. Each message has the following format: <c>'{ "messageId":
+        /// "string", "inputName": "string", "payload": "string"}'</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

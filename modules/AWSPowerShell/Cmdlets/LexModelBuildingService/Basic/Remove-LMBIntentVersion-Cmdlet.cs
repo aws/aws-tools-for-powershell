@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions for the <code>lex:DeleteIntentVersion</code> action.
+    /// This operation requires permissions for the <c>lex:DeleteIntentVersion</c> action.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LMBIntentVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -68,9 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>The version of the intent to delete. You cannot delete the <code>$LATEST</code> version
-        /// of the intent. To delete the <code>$LATEST</code> version, use the <a>DeleteIntent</a>
-        /// operation.</para>
+        /// <para>The version of the intent to delete. You cannot delete the <c>$LATEST</c> version
+        /// of the intent. To delete the <c>$LATEST</c> version, use the <a>DeleteIntent</a> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

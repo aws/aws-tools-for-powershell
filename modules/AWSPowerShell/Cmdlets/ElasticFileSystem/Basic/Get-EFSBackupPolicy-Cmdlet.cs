@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>Specifies which EFS file system for which to retrieve the <code>BackupPolicy</code>.</para>
+        /// <para>Specifies which EFS file system for which to retrieve the <c>BackupPolicy</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

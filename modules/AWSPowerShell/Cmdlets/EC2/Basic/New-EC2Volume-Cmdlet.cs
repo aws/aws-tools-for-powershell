@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The ID of the Availability Zone in which to create the volume. For example, <code>us-east-1a</code>.</para>
+        /// <para>The ID of the Availability Zone in which to create the volume. For example, <c>us-east-1a</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,9 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates whether the volume should be encrypted. The effect of setting the encryption
-        /// state to <code>true</code> depends on the volume origin (new or from a snapshot),
-        /// starting encryption state, ownership, and whether encryption by default is enabled.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default">Encryption
+        /// state to <c>true</c> depends on the volume origin (new or from a snapshot), starting
+        /// encryption state, ownership, and whether encryption by default is enabled. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default">Encryption
         /// by default</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS
         /// encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
         /// instance types</a>.</para>
@@ -96,15 +96,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Iops
         /// <summary>
         /// <para>
-        /// <para>The number of I/O operations per second (IOPS). For <code>gp3</code>, <code>io1</code>,
-        /// and <code>io2</code> volumes, this represents the number of IOPS that are provisioned
-        /// for the volume. For <code>gp2</code> volumes, this represents the baseline performance
-        /// of the volume and the rate at which the volume accumulates I/O credits for bursting.</para><para>The following are the supported values for each volume type:</para><ul><li><para><code>gp3</code>: 3,000 - 16,000 IOPS</para></li><li><para><code>io1</code>: 100 - 64,000 IOPS</para></li><li><para><code>io2</code>: 100 - 256,000 IOPS</para></li></ul><para>For <code>io2</code> volumes, you can achieve up to 256,000 IOPS on <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">instances
+        /// <para>The number of I/O operations per second (IOPS). For <c>gp3</c>, <c>io1</c>, and <c>io2</c>
+        /// volumes, this represents the number of IOPS that are provisioned for the volume. For
+        /// <c>gp2</c> volumes, this represents the baseline performance of the volume and the
+        /// rate at which the volume accumulates I/O credits for bursting.</para><para>The following are the supported values for each volume type:</para><ul><li><para><c>gp3</c>: 3,000 - 16,000 IOPS</para></li><li><para><c>io1</c>: 100 - 64,000 IOPS</para></li><li><para><c>io2</c>: 100 - 256,000 IOPS</para></li></ul><para>For <c>io2</c> volumes, you can achieve up to 256,000 IOPS on <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">instances
         /// built on the Nitro System</a>. On other instances, you can achieve performance up
-        /// to 32,000 IOPS.</para><para>This parameter is required for <code>io1</code> and <code>io2</code> volumes. The
-        /// default for <code>gp3</code> volumes is 3,000 IOPS. This parameter is not supported
-        /// for <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code>
-        /// volumes.</para>
+        /// to 32,000 IOPS.</para><para>This parameter is required for <c>io1</c> and <c>io2</c> volumes. The default for
+        /// <c>gp3</c> volumes is 3,000 IOPS. This parameter is not supported for <c>gp2</c>,
+        /// <c>st1</c>, <c>sc1</c>, or <c>standard</c> volumes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The identifier of the Key Management Service (KMS) KMS key to use for Amazon EBS encryption.
-        /// If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code>
-        /// is specified, the encrypted state must be <code>true</code>.</para><para>You can specify the KMS key using any of the following:</para><ul><li><para>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Key alias. For example, alias/ExampleAlias.</para></li><li><para>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</para></li></ul><para>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify
+        /// If this parameter is not specified, your KMS key for Amazon EBS is used. If <c>KmsKeyId</c>
+        /// is specified, the encrypted state must be <c>true</c>.</para><para>You can specify the KMS key using any of the following:</para><ul><li><para>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Key alias. For example, alias/ExampleAlias.</para></li><li><para>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</para></li></ul><para>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify
         /// an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually
         /// fails.</para>
         /// </para>
@@ -131,8 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Indicates whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you
         /// can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances
         /// built on the Nitro System</a> in the same Availability Zone. This parameter is supported
-        /// with <code>io1</code> and <code>io2</code> volumes only. For more information, see
-        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">
+        /// with <c>io1</c> and <c>io2</c> volumes only. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">
         /// Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -155,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume
         /// size. If you specify a snapshot, the default is the snapshot size. You can specify
-        /// a volume size that is equal to or larger than the snapshot size.</para><para>The following are the supported volumes sizes for each volume type:</para><ul><li><para><code>gp2</code> and <code>gp3</code>: 1 - 16,384 GiB</para></li><li><para><code>io1</code>: 4 - 16,384 GiB</para></li><li><para><code>io2</code>: 4 - 65,536 GiB</para></li><li><para><code>st1</code> and <code>sc1</code>: 125 - 16,384 GiB</para></li><li><para><code>standard</code>: 1 - 1024 GiB</para></li></ul>
+        /// a volume size that is equal to or larger than the snapshot size.</para><para>The following are the supported volumes sizes for each volume type:</para><ul><li><para><c>gp2</c> and <c>gp3</c>: 1 - 16,384 GiB</para></li><li><para><c>io1</c>: 4 - 16,384 GiB</para></li><li><para><c>io2</c>: 4 - 65,536 GiB</para></li><li><para><c>st1</c> and <c>sc1</c>: 125 - 16,384 GiB</para></li><li><para><c>standard</c>: 1 - 1024 GiB</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -187,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Throughput
         /// <summary>
         /// <para>
-        /// <para>The throughput to provision for a volume, with a maximum of 1,000 MiB/s.</para><para>This parameter is valid only for <code>gp3</code> volumes.</para><para>Valid Range: Minimum value of 125. Maximum value of 1000.</para>
+        /// <para>The throughput to provision for a volume, with a maximum of 1,000 MiB/s.</para><para>This parameter is valid only for <c>gp3</c> volumes.</para><para>Valid Range: Minimum value of 125. Maximum value of 1000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,9 +195,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VolumeType
         /// <summary>
         /// <para>
-        /// <para>The volume type. This parameter can be one of the following values:</para><ul><li><para>General Purpose SSD: <code>gp2</code> | <code>gp3</code></para></li><li><para>Provisioned IOPS SSD: <code>io1</code> | <code>io2</code></para></li><li><para>Throughput Optimized HDD: <code>st1</code></para></li><li><para>Cold HDD: <code>sc1</code></para></li><li><para>Magnetic: <code>standard</code></para></li></ul><important><para>Throughput Optimized HDD (<code>st1</code>) and Cold HDD (<code>sc1</code>) volumes
-        /// can't be used as boot volumes.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
-        /// EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>Default: <code>gp2</code></para>
+        /// <para>The volume type. This parameter can be one of the following values:</para><ul><li><para>General Purpose SSD: <c>gp2</c> | <c>gp3</c></para></li><li><para>Provisioned IOPS SSD: <c>io1</c> | <c>io2</c></para></li><li><para>Throughput Optimized HDD: <c>st1</c></para></li><li><para>Cold HDD: <c>sc1</c></para></li><li><para>Magnetic: <c>standard</c></para></li></ul><important><para>Throughput Optimized HDD (<c>st1</c>) and Cold HDD (<c>sc1</c>) volumes can't be used
+        /// as boot volumes.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+        /// EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>Default: <c>gp2</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

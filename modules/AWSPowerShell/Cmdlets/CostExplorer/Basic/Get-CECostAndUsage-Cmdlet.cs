@@ -30,9 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// <summary>
     /// Retrieves cost and usage metrics for your account. You can specify which cost and
     /// usage-related metric that you want the request to return. For example, you can specify
-    /// <code>BlendedCosts</code> or <code>UsageQuantity</code>. You can also filter and group
-    /// your data by various dimensions, such as <code>SERVICE</code> or <code>AZ</code>,
-    /// in a specific time range. For a complete list of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a>
+    /// <c>BlendedCosts</c> or <c>UsageQuantity</c>. You can also filter and group your data
+    /// by various dimensions, such as <c>SERVICE</c> or <c>AZ</c>, in a specific time range.
+    /// For a complete list of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a>
     /// operation. Management account in an organization in Organizations have access to all
     /// member accounts.
     /// 
@@ -57,13 +57,12 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>Filters Amazon Web Services costs by different dimensions. For example, you can specify
-        /// <code>SERVICE</code> and <code>LINKED_ACCOUNT</code> and get the costs that are associated
-        /// with that account's usage of that service. You can nest <code>Expression</code> objects
-        /// to define any combination of dimension filters. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>.
-        /// </para><para>Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are <code>EQUALS</code>
-        /// and <code>CASE_SENSITIVE</code>.</para><para>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and <code>Tags</code>
-        /// are <code>EQUALS</code>, <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>. Default
-        /// values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</para>
+        /// <c>SERVICE</c> and <c>LINKED_ACCOUNT</c> and get the costs that are associated with
+        /// that account's usage of that service. You can nest <c>Expression</c> objects to define
+        /// any combination of dimension filters. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>.
+        /// </para><para>Valid values for <c>MatchOptions</c> for <c>Dimensions</c> are <c>EQUALS</c> and <c>CASE_SENSITIVE</c>.</para><para>Valid values for <c>MatchOptions</c> for <c>CostCategories</c> and <c>Tags</c> are
+        /// <c>EQUALS</c>, <c>ABSENT</c>, and <c>CASE_SENSITIVE</c>. Default values are <c>EQUALS</c>
+        /// and <c>CASE_SENSITIVE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,10 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Granularity
         /// <summary>
         /// <para>
-        /// <para>Sets the Amazon Web Services cost granularity to <code>MONTHLY</code> or <code>DAILY</code>,
-        /// or <code>HOURLY</code>. If <code>Granularity</code> isn't set, the response object
-        /// doesn't include the <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>,
-        /// or <code>HOURLY</code>. </para>
+        /// <para>Sets the Amazon Web Services cost granularity to <c>MONTHLY</c> or <c>DAILY</c>, or
+        /// <c>HOURLY</c>. If <c>Granularity</c> isn't set, the response object doesn't include
+        /// the <c>Granularity</c>, either <c>MONTHLY</c> or <c>DAILY</c>, or <c>HOURLY</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,11 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>You can group Amazon Web Services costs using up to two different groups, either dimensions,
-        /// tag keys, cost categories, or any two group by types.</para><para>Valid values for the <code>DIMENSION</code> type are <code>AZ</code>, <code>INSTANCE_TYPE</code>,
-        /// <code>LEGAL_ENTITY_NAME</code>, <code>INVOICING_ENTITY</code>, <code>LINKED_ACCOUNT</code>,
-        /// <code>OPERATION</code>, <code>PLATFORM</code>, <code>PURCHASE_TYPE</code>, <code>SERVICE</code>,
-        /// <code>TENANCY</code>, <code>RECORD_TYPE</code>, and <code>USAGE_TYPE</code>.</para><para>When you group by the <code>TAG</code> type and include a valid tag key, you get all
-        /// tag values, including empty strings.</para>
+        /// tag keys, cost categories, or any two group by types.</para><para>Valid values for the <c>DIMENSION</c> type are <c>AZ</c>, <c>INSTANCE_TYPE</c>, <c>LEGAL_ENTITY_NAME</c>,
+        /// <c>INVOICING_ENTITY</c>, <c>LINKED_ACCOUNT</c>, <c>OPERATION</c>, <c>PLATFORM</c>,
+        /// <c>PURCHASE_TYPE</c>, <c>SERVICE</c>, <c>TENANCY</c>, <c>RECORD_TYPE</c>, and <c>USAGE_TYPE</c>.</para><para>When you group by the <c>TAG</c> type and include a valid tag key, you get all tag
+        /// values, including empty strings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,14 +107,14 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>
         /// <para>Which metrics are returned in the query. For more information about blended and unblended
         /// rates, see <a href="http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why
-        /// does the "blended" annotation appear on some line items in my bill?</a>. </para><para>Valid values are <code>AmortizedCost</code>, <code>BlendedCost</code>, <code>NetAmortizedCost</code>,
-        /// <code>NetUnblendedCost</code>, <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>,
-        /// and <code>UsageQuantity</code>. </para><note><para>If you return the <code>UsageQuantity</code> metric, the service aggregates all usage
-        /// numbers without taking into account the units. For example, if you aggregate <code>usageQuantity</code>
+        /// does the "blended" annotation appear on some line items in my bill?</a>. </para><para>Valid values are <c>AmortizedCost</c>, <c>BlendedCost</c>, <c>NetAmortizedCost</c>,
+        /// <c>NetUnblendedCost</c>, <c>NormalizedUsageAmount</c>, <c>UnblendedCost</c>, and <c>UsageQuantity</c>.
+        /// </para><note><para>If you return the <c>UsageQuantity</c> metric, the service aggregates all usage numbers
+        /// without taking into account the units. For example, if you aggregate <c>usageQuantity</c>
         /// across all of Amazon EC2, the results aren't meaningful because Amazon EC2 compute
         /// hours and data transfer are measured in different units (for example, hours and GB).
-        /// To get more meaningful <code>UsageQuantity</code> metrics, filter by <code>UsageType</code>
-        /// or <code>UsageTypeGroups</code>. </para></note><para><code>Metrics</code> is required for <code>GetCostAndUsage</code> requests.</para>
+        /// To get more meaningful <c>UsageQuantity</c> metrics, filter by <c>UsageType</c> or
+        /// <c>UsageTypeGroups</c>. </para></note><para><c>Metrics</c> is required for <c>GetCostAndUsage</c> requests.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -136,10 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>Sets the start date and end date for retrieving Amazon Web Services costs. The start
-        /// date is inclusive, but the end date is exclusive. For example, if <code>start</code>
-        /// is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the
-        /// cost and usage data is retrieved from <code>2017-01-01</code> up to and including
-        /// <code>2017-04-30</code> but not including <code>2017-05-01</code>.</para>
+        /// date is inclusive, but the end date is exclusive. For example, if <c>start</c> is
+        /// <c>2017-01-01</c> and <c>end</c> is <c>2017-05-01</c>, then the cost and usage data
+        /// is retrieved from <c>2017-01-01</c> up to and including <c>2017-04-30</c> but not
+        /// including <c>2017-05-01</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

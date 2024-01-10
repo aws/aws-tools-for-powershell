@@ -48,10 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The content of the custom vocabulary in plain-text format with a table of values.
-        /// Each row in the table represents a word or a phrase, described with <code>Phrase</code>,
-        /// <code>IPA</code>, <code>SoundsLike</code>, and <code>DisplayAs</code> fields. Separate
-        /// the fields with TAB characters. The size limit is 50KB. For more information, see
-        /// <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table">Create
+        /// Each row in the table represents a word or a phrase, described with <c>Phrase</c>,
+        /// <c>IPA</c>, <c>SoundsLike</c>, and <c>DisplayAs</c> fields. Separate the fields with
+        /// TAB characters. The size limit is 50KB. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table">Create
         /// a custom vocabulary using a table</a>.</para>
         /// </para>
         /// </summary>

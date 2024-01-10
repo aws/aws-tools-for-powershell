@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The default namespace for this Amazon Web Services account. Currently, the default
-        /// is <code>default</code>. IAM users that register for the first time with Amazon QuickSight
+        /// is <c>default</c>. IAM users that register for the first time with Amazon QuickSight
         /// provide an email address that becomes associated with the default namespace. </para>
         /// </para>
         /// </summary>
@@ -93,9 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A boolean value that determines whether or not an Amazon QuickSight account can be
-        /// deleted. A <code>True</code> value doesn't allow the account to be deleted and results
-        /// in an error message if a user tries to make a <code>DeleteAccountSubscription</code>
-        /// request. A <code>False</code> value will allow the account to be deleted.</para>
+        /// deleted. A <c>True</c> value doesn't allow the account to be deleted and results in
+        /// an error message if a user tries to make a <c>DeleteAccountSubscription</c> request.
+        /// A <c>False</c> value will allow the account to be deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

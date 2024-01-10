@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of IP addresses that you want to return in the response to a <code>ListResolverEndpointIpAddresses</code>
-        /// request. If you don't specify a value for <code>MaxResults</code>, Resolver returns
-        /// up to 100 IP addresses. </para>
+        /// <para>The maximum number of IP addresses that you want to return in the response to a <c>ListResolverEndpointIpAddresses</c>
+        /// request. If you don't specify a value for <c>MaxResults</c>, Resolver returns up to
+        /// 100 IP addresses. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -81,9 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>For the first <code>ListResolverEndpointIpAddresses</code> request, omit this value.</para><para>If the specified Resolver endpoint has more than <code>MaxResults</code> IP addresses,
-        /// you can submit another <code>ListResolverEndpointIpAddresses</code> request to get
-        /// the next group of IP addresses. In the next request, specify the value of <code>NextToken</code>
+        /// <para>For the first <c>ListResolverEndpointIpAddresses</c> request, omit this value.</para><para>If the specified Resolver endpoint has more than <c>MaxResults</c> IP addresses, you
+        /// can submit another <c>ListResolverEndpointIpAddresses</c> request to get the next
+        /// group of IP addresses. In the next request, specify the value of <c>NextToken</c>
         /// from the previous response. </para>
         /// </para>
         /// <para>

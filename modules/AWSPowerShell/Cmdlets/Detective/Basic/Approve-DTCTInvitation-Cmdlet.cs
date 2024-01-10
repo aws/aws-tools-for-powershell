@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     /// <para>
     /// The request provides the ARN of behavior graph.
     /// </para><para>
-    /// The member account status in the graph must be <code>INVITED</code>.
+    /// The member account status in the graph must be <c>INVITED</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Approve", "DTCTInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         /// <summary>
         /// <para>
         /// <para>The ARN of the behavior graph that the member account is accepting the invitation
-        /// for.</para><para>The member account status in the behavior graph must be <code>INVITED</code>.</para>
+        /// for.</para><para>The member account status in the behavior graph must be <c>INVITED</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

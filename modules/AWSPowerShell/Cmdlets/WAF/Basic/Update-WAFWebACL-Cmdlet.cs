@@ -35,52 +35,50 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Inserts or deletes <a>ActivatedRule</a> objects in a <code>WebACL</code>. Each <code>Rule</code>
+    /// Inserts or deletes <a>ActivatedRule</a> objects in a <c>WebACL</c>. Each <c>Rule</c>
     /// identifies web requests that you want to allow, block, or count. When you update a
-    /// <code>WebACL</code>, you specify the following values:
+    /// <c>WebACL</c>, you specify the following values:
     /// </para><ul><li><para>
-    /// A default action for the <code>WebACL</code>, either <code>ALLOW</code> or <code>BLOCK</code>.
-    /// AWS WAF performs the default action if a request doesn't match the criteria in any
-    /// of the <code>Rules</code> in a <code>WebACL</code>.
+    /// A default action for the <c>WebACL</c>, either <c>ALLOW</c> or <c>BLOCK</c>. AWS WAF
+    /// performs the default action if a request doesn't match the criteria in any of the
+    /// <c>Rules</c> in a <c>WebACL</c>.
     /// </para></li><li><para>
-    /// The <code>Rules</code> that you want to add or delete. If you want to replace one
-    /// <code>Rule</code> with another, you delete the existing <code>Rule</code> and add
-    /// the new one.
+    /// The <c>Rules</c> that you want to add or delete. If you want to replace one <c>Rule</c>
+    /// with another, you delete the existing <c>Rule</c> and add the new one.
     /// </para></li><li><para>
-    /// For each <code>Rule</code>, whether you want AWS WAF to allow requests, block requests,
-    /// or count requests that match the conditions in the <code>Rule</code>.
+    /// For each <c>Rule</c>, whether you want AWS WAF to allow requests, block requests,
+    /// or count requests that match the conditions in the <c>Rule</c>.
     /// </para></li><li><para>
-    /// The order in which you want AWS WAF to evaluate the <code>Rules</code> in a <code>WebACL</code>.
-    /// If you add more than one <code>Rule</code> to a <code>WebACL</code>, AWS WAF evaluates
-    /// each request against the <code>Rules</code> in order based on the value of <code>Priority</code>.
-    /// (The <code>Rule</code> that has the lowest value for <code>Priority</code> is evaluated
-    /// first.) When a web request matches all the predicates (such as <code>ByteMatchSets</code>
-    /// and <code>IPSets</code>) in a <code>Rule</code>, AWS WAF immediately takes the corresponding
-    /// action, allow or block, and doesn't evaluate the request against the remaining <code>Rules</code>
-    /// in the <code>WebACL</code>, if any. 
+    /// The order in which you want AWS WAF to evaluate the <c>Rules</c> in a <c>WebACL</c>.
+    /// If you add more than one <c>Rule</c> to a <c>WebACL</c>, AWS WAF evaluates each request
+    /// against the <c>Rules</c> in order based on the value of <c>Priority</c>. (The <c>Rule</c>
+    /// that has the lowest value for <c>Priority</c> is evaluated first.) When a web request
+    /// matches all the predicates (such as <c>ByteMatchSets</c> and <c>IPSets</c>) in a <c>Rule</c>,
+    /// AWS WAF immediately takes the corresponding action, allow or block, and doesn't evaluate
+    /// the request against the remaining <c>Rules</c> in the <c>WebACL</c>, if any. 
     /// </para></li></ul><para>
-    /// To create and configure a <code>WebACL</code>, perform the following steps:
+    /// To create and configure a <c>WebACL</c>, perform the following steps:
     /// </para><ol><li><para>
-    /// Create and update the predicates that you want to include in <code>Rules</code>. For
-    /// more information, see <a>CreateByteMatchSet</a>, <a>UpdateByteMatchSet</a>, <a>CreateIPSet</a>,
+    /// Create and update the predicates that you want to include in <c>Rules</c>. For more
+    /// information, see <a>CreateByteMatchSet</a>, <a>UpdateByteMatchSet</a>, <a>CreateIPSet</a>,
     /// <a>UpdateIPSet</a>, <a>CreateSqlInjectionMatchSet</a>, and <a>UpdateSqlInjectionMatchSet</a>.
     /// </para></li><li><para>
-    /// Create and update the <code>Rules</code> that you want to include in the <code>WebACL</code>.
+    /// Create and update the <c>Rules</c> that you want to include in the <c>WebACL</c>.
     /// For more information, see <a>CreateRule</a> and <a>UpdateRule</a>.
     /// </para></li><li><para>
-    /// Create a <code>WebACL</code>. See <a>CreateWebACL</a>.
+    /// Create a <c>WebACL</c>. See <a>CreateWebACL</a>.
     /// </para></li><li><para>
-    /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
+    /// Use <c>GetChangeToken</c> to get the change token that you provide in the <c>ChangeToken</c>
     /// parameter of an <a>UpdateWebACL</a> request.
     /// </para></li><li><para>
-    /// Submit an <code>UpdateWebACL</code> request to specify the <code>Rules</code> that
-    /// you want to include in the <code>WebACL</code>, to specify the default action, and
-    /// to associate the <code>WebACL</code> with a CloudFront distribution. 
+    /// Submit an <c>UpdateWebACL</c> request to specify the <c>Rules</c> that you want to
+    /// include in the <c>WebACL</c>, to specify the default action, and to associate the
+    /// <c>WebACL</c> with a CloudFront distribution. 
     /// </para><para>
-    /// The <code>ActivatedRule</code> can be a rule group. If you specify a rule group as
-    /// your <code>ActivatedRule</code> , you can exclude specific rules from that rule group.
+    /// The <c>ActivatedRule</c> can be a rule group. If you specify a rule group as your
+    /// <c>ActivatedRule</c> , you can exclude specific rules from that rule group.
     /// </para><para>
-    /// If you already have a rule group associated with a web ACL and want to submit an <code>UpdateWebACL</code>
+    /// If you already have a rule group associated with a web ACL and want to submit an <c>UpdateWebACL</c>
     /// request to exclude certain rules from that rule group, you must first remove the rule
     /// group from the web ACL, the re-insert it again, specifying the excluded rules. For
     /// details, see <a>ActivatedRule$ExcludedRules</a> . 
@@ -128,10 +126,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <summary>
         /// <para>
         /// <para>Specifies how you want AWS WAF to respond to requests that match the settings in a
-        /// <code>Rule</code>. Valid settings include the following:</para><ul><li><para><code>ALLOW</code>: AWS WAF allows requests</para></li><li><para><code>BLOCK</code>: AWS WAF blocks requests</para></li><li><para><code>COUNT</code>: AWS WAF increments a counter of the requests that match all of
-        /// the conditions in the rule. AWS WAF then continues to inspect the web request based
-        /// on the remaining rules in the web ACL. You can't specify <code>COUNT</code> for the
-        /// default action for a <code>WebACL</code>.</para></li></ul>
+        /// <c>Rule</c>. Valid settings include the following:</para><ul><li><para><c>ALLOW</c>: AWS WAF allows requests</para></li><li><para><c>BLOCK</c>: AWS WAF blocks requests</para></li><li><para><c>COUNT</c>: AWS WAF increments a counter of the requests that match all of the
+        /// conditions in the rule. AWS WAF then continues to inspect the web request based on
+        /// the remaining rules in the web ACL. You can't specify <c>COUNT</c> for the default
+        /// action for a <c>WebACL</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,13 +140,12 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter Update
         /// <summary>
         /// <para>
-        /// <para>An array of updates to make to the <a>WebACL</a>.</para><para>An array of <code>WebACLUpdate</code> objects that you want to insert into or delete
-        /// from a <a>WebACL</a>. For more information, see the applicable data types:</para><ul><li><para><a>WebACLUpdate</a>: Contains <code>Action</code> and <code>ActivatedRule</code></para></li><li><para><a>ActivatedRule</a>: Contains <code>Action</code>, <code>OverrideAction</code>,
-        /// <code>Priority</code>, <code>RuleId</code>, and <code>Type</code>. <code>ActivatedRule|OverrideAction</code>
-        /// applies only when updating or adding a <code>RuleGroup</code> to a <code>WebACL</code>.
-        /// In this case, you do not use <code>ActivatedRule|Action</code>. For all other update
-        /// requests, <code>ActivatedRule|Action</code> is used instead of <code>ActivatedRule|OverrideAction</code>.
-        /// </para></li><li><para><a>WafAction</a>: Contains <code>Type</code></para></li></ul>
+        /// <para>An array of updates to make to the <a>WebACL</a>.</para><para>An array of <c>WebACLUpdate</c> objects that you want to insert into or delete from
+        /// a <a>WebACL</a>. For more information, see the applicable data types:</para><ul><li><para><a>WebACLUpdate</a>: Contains <c>Action</c> and <c>ActivatedRule</c></para></li><li><para><a>ActivatedRule</a>: Contains <c>Action</c>, <c>OverrideAction</c>, <c>Priority</c>,
+        /// <c>RuleId</c>, and <c>Type</c>. <c>ActivatedRule|OverrideAction</c> applies only when
+        /// updating or adding a <c>RuleGroup</c> to a <c>WebACL</c>. In this case, you do not
+        /// use <c>ActivatedRule|Action</c>. For all other update requests, <c>ActivatedRule|Action</c>
+        /// is used instead of <c>ActivatedRule|OverrideAction</c>. </para></li><li><para><a>WafAction</a>: Contains <c>Type</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter WebACLId
         /// <summary>
         /// <para>
-        /// <para>The <code>WebACLId</code> of the <a>WebACL</a> that you want to update. <code>WebACLId</code>
+        /// <para>The <c>WebACLId</c> of the <a>WebACL</a> that you want to update. <c>WebACLId</c>
         /// is returned by <a>CreateWebACL</a> and by <a>ListWebACLs</a>.</para>
         /// </para>
         /// </summary>

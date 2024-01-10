@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.CA
     /// upstream source. For more information about package origin controls and configuration,
     /// see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/package-origin-controls.html">Editing
     /// package origin controls</a> in the <i>CodeArtifact User Guide</i>.
-    /// </para><para><code>PutPackageOriginConfiguration</code> can be called on a package that doesn't
-    /// yet exist in the repository. When called on a package that does not exist, a package
-    /// is created in the repository with no versions and the requested restrictions are set
+    /// </para><para><c>PutPackageOriginConfiguration</c> can be called on a package that doesn't yet
+    /// exist in the repository. When called on a package that does not exist, a package is
+    /// created in the repository with no versions and the requested restrictions are set
     /// on the package. This can be used to preemptively block ingesting or retaining any
     /// versions from external connections or upstream repositories, or to block publishing
     /// any versions of the package into the repository before connecting any package managers
@@ -108,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para>The namespace of the package to be updated. The package component that specifies its
-        /// namespace depends on its type. For example:</para><ul><li><para> The namespace of a Maven package is its <code>groupId</code>. </para></li><li><para> The namespace of an npm package is its <code>scope</code>. </para></li><li><para> Python and NuGet packages do not contain a corresponding component, packages of those
-        /// formats do not have a namespace. </para></li><li><para> The namespace of a generic package is its <code>namespace</code>. </para></li></ul>
+        /// namespace depends on its type. For example:</para><ul><li><para> The namespace of a Maven package is its <c>groupId</c>. </para></li><li><para> The namespace of an npm package is its <c>scope</c>. </para></li><li><para> Python and NuGet packages do not contain a corresponding component, packages of those
+        /// formats do not have a namespace. </para></li><li><para> The namespace of a generic package is its <c>namespace</c>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

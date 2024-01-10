@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval,
         /// which is equivalent to setting it to 300. If you don't enter an interval, content
         /// keys aren't rotated.</para><para>The following example setting causes the service to rotate keys every thirty minutes:
-        /// <code>1800</code></para>
+        /// <c>1800</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// identify the current endpoint. How unique you make this depends on how fine-grained
         /// you want access controls to be. The service does not permit you to use the same ID
         /// for two simultaneous encryption processes. The resource ID is also known as the content
-        /// ID.</para><para>The following example shows a resource ID: <code>MovieNight20171126093045</code></para>
+        /// ID.</para><para>The following example shows a resource ID: <c>MovieNight20171126093045</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -283,8 +283,8 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// <para>The ARN for the IAM role granted by the key provider that provides access to the key
         /// provider API. This role must have a trust policy that allows MediaPackage to assume
         /// the role, and it must have a sufficient permissions policy to allow access to the
-        /// specific key retrieval URL. Get this from your DRM solution provider.</para><para>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example
-        /// shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code></para>
+        /// specific key retrieval URL. Get this from your DRM solution provider.</para><para>Valid format: <c>arn:aws:iam::{accountID}:role/{name}</c>. The following example shows
+        /// a role ARN: <c>arn:aws:iam::444455556666:role/SpekeAccess</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -381,7 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// <para>
         /// <para>The URL of the API Gateway proxy that you set up to talk to your key server. The API
         /// Gateway proxy must reside in the same AWS Region as MediaPackage and must start with
-        /// https://.</para><para>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code></para>
+        /// https://.</para><para>The following example shows a URL: <c>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

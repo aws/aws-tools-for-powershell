@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter AddonName
         /// <summary>
         /// <para>
-        /// <para>The name of the add-on. The name must match one of the names returned by <code>DescribeAddonVersions</code>.</para>
+        /// <para>The name of the add-on. The name must match one of the names returned by <c>DescribeAddonVersions</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The version of the add-on. The version must match one of the versions returned by
-        /// <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html"><code>DescribeAddonVersions</code></a>.</para>
+        /// <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html"><c>DescribeAddonVersions</c></a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
     /// Updates the detector version’s status. You can perform the following promotions or
-    /// demotions using <code>UpdateDetectorVersionStatus</code>: <code>DRAFT</code> to <code>ACTIVE</code>,
-    /// <code>ACTIVE</code> to <code>INACTIVE</code>, and <code>INACTIVE</code> to <code>ACTIVE</code>.
+    /// demotions using <c>UpdateDetectorVersionStatus</c>: <c>DRAFT</c> to <c>ACTIVE</c>,
+    /// <c>ACTIVE</c> to <c>INACTIVE</c>, and <c>INACTIVE</c> to <c>ACTIVE</c>.
     /// </summary>
     [Cmdlet("Update", "FDDetectorVersionStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The new status.</para><para>The only supported values are <code>ACTIVE</code> and <code>INACTIVE</code></para>
+        /// <para>The new status.</para><para>The only supported values are <c>ACTIVE</c> and <c>INACTIVE</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

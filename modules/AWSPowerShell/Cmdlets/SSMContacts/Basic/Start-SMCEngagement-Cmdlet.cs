@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         /// <summary>
         /// <para>
         /// <para>The secure content of the message that was sent to the contact. Use this field for
-        /// engagements to <code>VOICE</code> or <code>EMAIL</code>.</para>
+        /// engagements to <c>VOICE</c> or <c>EMAIL</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         /// <summary>
         /// <para>
         /// <para>The insecure content of the message that was sent to the contact. Use this field for
-        /// engagements to <code>SMS</code>.</para>
+        /// engagements to <c>SMS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         /// <summary>
         /// <para>
         /// <para>The insecure subject of the message that was sent to the contact. Use this field for
-        /// engagements to <code>SMS</code>.</para>
+        /// engagements to <c>SMS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         /// <summary>
         /// <para>
         /// <para>The secure subject of the message that was sent to the contact. Use this field for
-        /// engagements to <code>VOICE</code> or <code>EMAIL</code>.</para>
+        /// engagements to <c>VOICE</c> or <c>EMAIL</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

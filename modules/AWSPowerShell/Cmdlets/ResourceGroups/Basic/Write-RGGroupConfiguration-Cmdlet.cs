@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     ///  
     /// <para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para><code>resource-groups:PutGroupConfiguration</code></para></li></ul>
+    /// </para><ul><li><para><c>resource-groups:PutGroupConfiguration</c></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "RGGroupConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// the resource group with an Amazon Web Services service and specifies how the service
         /// can interact with the resources in the group. A configuration is an array of <a>GroupConfigurationItem</a>
         /// elements.</para><para>For information about the syntax of a service configuration, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service
-        /// configurations for Resource Groups</a>.</para><note><para>A resource group can contain either a <code>Configuration</code> or a <code>ResourceQuery</code>,
+        /// configurations for Resource Groups</a>.</para><note><para>A resource group can contain either a <c>Configuration</c> or a <c>ResourceQuery</c>,
         /// but not both.</para></note>
         /// </para>
         /// </summary>

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// <summary>
     /// Creates an adapter, which can be fine-tuned for enhanced performance on user provided
     /// documents. Takes an AdapterName and FeatureType. Currently the only supported feature
-    /// type is <code>QUERIES</code>. You can also provide a Description, Tags, and a ClientRequestToken.
+    /// type is <c>QUERIES</c>. You can also provide a Description, Tags, and a ClientRequestToken.
     /// You can choose whether or not the adapter should be AutoUpdated with the AutoUpdate
     /// argument. By default, AutoUpdate is set to DISABLED.
     /// </summary>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// <summary>
         /// <para>
         /// <para>The type of feature that the adapter is being trained on. Currrenly, supported feature
-        /// types are: <code>QUERIES</code></para>
+        /// types are: <c>QUERIES</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

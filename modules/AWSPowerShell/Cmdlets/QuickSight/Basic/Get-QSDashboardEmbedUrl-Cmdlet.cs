@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// 
     ///  
     /// <para>
-    /// Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not
-    /// from the user's browser. The following rules apply to the generated URL:
+    /// Currently, you can use <c>GetDashboardEmbedURL</c> only from the server, not from
+    /// the user's browser. The following rules apply to the generated URL:
     /// </para><ul><li><para>
     /// They must be used together.
     /// </para></li><li><para>
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// You are charged only when the URL is used or there is interaction with Amazon QuickSight.
     /// </para></li><li><para>
     /// The resulting user session is valid for 15 minutes (default) up to 10 hours (maximum).
-    /// You can use the optional <code>SessionLifetimeInMinutes</code> parameter to customize
-    /// session duration.
+    /// You can use the optional <c>SessionLifetimeInMinutes</c> parameter to customize session
+    /// duration.
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html">Embedding
     /// Analytics Using GetDashboardEmbedUrl</a> in the <i>Amazon QuickSight User Guide</i>.
@@ -76,10 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A list of one or more dashboard IDs that you want anonymous users to have tempporary
-        /// access to. Currently, the <code>IdentityType</code> parameter must be set to <code>ANONYMOUS</code>
+        /// access to. Currently, the <c>IdentityType</c> parameter must be set to <c>ANONYMOUS</c>
         /// because other identity types authenticate as Amazon QuickSight or IAM users. For example,
-        /// if you set "<code>--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type
-        /// ANONYMOUS</code>", the session can access all three dashboards.</para>
+        /// if you set "<c>--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type
+        /// ANONYMOUS</c>", the session can access all three dashboards.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The Amazon QuickSight namespace that contains the dashboard IDs in this request. If
-        /// you're not using a custom namespace, set <code>Namespace = default</code>.</para>
+        /// you're not using a custom namespace, set <c>Namespace = default</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,10 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>Adds persistence of state for the user session in an embedded dashboard. Persistence
         /// applies to the sheet and the parameter settings. These are control settings that the
         /// dashboard subscriber (Amazon QuickSight reader) chooses while viewing the dashboard.
-        /// If this is set to <code>TRUE</code>, the settings are the same when the subscriber
-        /// reopens the same dashboard URL. The state is stored in Amazon QuickSight, not in a
-        /// browser cookie. If this is set to FALSE, the state of the user session is not persisted.
-        /// The default is <code>FALSE</code>.</para>
+        /// If this is set to <c>TRUE</c>, the settings are the same when the subscriber reopens
+        /// the same dashboard URL. The state is stored in Amazon QuickSight, not in a browser
+        /// cookie. If this is set to FALSE, the state of the user session is not persisted. The
+        /// default is <c>FALSE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter UserArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code>
+        /// <para>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <c>QUICKSIGHT</c>
         /// identity type. You can use this for any Amazon QuickSight users in your account (readers,
         /// authors, or admins) authenticated as one of the following:</para><ul><li><para>Active Directory (AD) users or group members</para></li><li><para>Invited nonfederated users</para></li><li><para>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On
         /// using SAML, OpenID Connect, or IAM federation.</para></li></ul><para>Omit this parameter for users in the third group – IAM users and IAM role-based sessions.</para>

@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// <para>
         /// <para>You expand an existing search domain to a second Availability Zone by setting the
         /// Multi-AZ option to true. Similarly, you can turn off the Multi-AZ option to downgrade
-        /// the domain to a single Availability Zone by setting the Multi-AZ option to <code>false</code>.
+        /// the domain to a single Availability Zone by setting the Multi-AZ option to <c>false</c>.
         /// </para>
         /// </para>
         /// </summary>

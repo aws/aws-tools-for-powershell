@@ -28,8 +28,8 @@ using Amazon.LexModelsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.LMBV2
 {
     /// <summary>
-    /// Deletes all versions of a bot, including the <code>Draft</code> version. To delete
-    /// a specific version, use the <code>DeleteBotVersion</code> operation.
+    /// Deletes all versions of a bot, including the <c>Draft</c> version. To delete a specific
+    /// version, use the <c>DeleteBotVersion</c> operation.
     /// 
     ///  
     /// <para>
@@ -37,9 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     /// Deleting a bot removes all locales, intents, slot, and slot types defined for the
     /// bot.
     /// </para><para>
-    /// If a bot has an alias, the <code>DeleteBot</code> operation returns a <code>ResourceInUseException</code>
-    /// exception. If you want to delete the bot and the alias, set the <code>skipResourceInUseCheck</code>
-    /// parameter to <code>true</code>.
+    /// If a bot has an alias, the <c>DeleteBot</c> operation returns a <c>ResourceInUseException</c>
+    /// exception. If you want to delete the bot and the alias, set the <c>skipResourceInUseCheck</c>
+    /// parameter to <c>true</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LMBV2Bot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>By default, Amazon Lex checks if any other resource, such as an alias or bot network,
-        /// is using the bot version before it is deleted and throws a <code>ResourceInUseException</code>
-        /// exception if the bot is being used by another resource. Set this parameter to <code>true</code>
+        /// is using the bot version before it is deleted and throws a <c>ResourceInUseException</c>
+        /// exception if the bot is being used by another resource. Set this parameter to <c>true</c>
         /// to skip this check and remove the bot even if it is being used by another resource.</para>
         /// </para>
         /// </summary>

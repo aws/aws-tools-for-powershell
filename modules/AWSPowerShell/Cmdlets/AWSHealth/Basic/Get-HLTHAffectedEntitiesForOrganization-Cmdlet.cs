@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a>
     /// operation from your organization's management account.
     /// </para><note><ul><li><para>
-    /// This API operation uses pagination. Specify the <code>nextToken</code> parameter in
-    /// the next request to return more results.
+    /// This API operation uses pagination. Specify the <c>nextToken</c> parameter in the
+    /// next request to return more results.
     /// </para></li><li><para>
     /// This operation doesn't support resource-level permissions. You can't use this operation
     /// to allow or deny access to specific Health events. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions">Resource-
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter OrganizationEntityAccountFilter
         /// <summary>
         /// <para>
-        /// <para>A JSON set of elements including the <code>awsAccountId</code>, <code>eventArn</code>
-        /// and a set of <code>statusCodes</code>.</para>
+        /// <para>A JSON set of elements including the <c>awsAccountId</c>, <c>eventArn</c> and a set
+        /// of <c>statusCodes</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         /// <summary>
         /// <para>
         /// <para>If the results of a search are large, only a portion of the results are returned,
-        /// and a <code>nextToken</code> pagination token is returned in the response. To retrieve
-        /// the next batch of results, reissue the search request and include the returned token.
+        /// and a <c>nextToken</c> pagination token is returned in the response. To retrieve the
+        /// next batch of results, reissue the search request and include the returned token.
         /// When all results have been returned, the response does not contain a pagination token
         /// value.</para>
         /// </para>
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter OrganizationEntityFilter
         /// <summary>
         /// <para>
-        /// <para>A JSON set of elements including the <code>awsAccountId</code> and the <code>eventArn</code>.</para>
+        /// <para>A JSON set of elements including the <c>awsAccountId</c> and the <c>eventArn</c>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

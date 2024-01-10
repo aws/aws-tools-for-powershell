@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter ResourceShareType
         /// <summary>
         /// <para>
-        /// <para>If resource share type is <code>ALL</code>, returns both in-account LF-tags and shared
-        /// LF-tags that the requester has permission to view. If resource share type is <code>FOREIGN</code>,
+        /// <para>If resource share type is <c>ALL</c>, returns both in-account LF-tags and shared LF-tags
+        /// that the requester has permission to view. If resource share type is <c>FOREIGN</c>,
         /// returns all share LF-tags that the requester can view. If no resource share type is
         /// passed, lists LF-tags in the given catalog ID that the requester has permission to
         /// view.</para>

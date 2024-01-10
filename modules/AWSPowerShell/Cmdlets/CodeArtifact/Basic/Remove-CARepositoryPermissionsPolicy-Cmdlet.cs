@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.CA
     /// The effect of deleting a resource policy might not be immediate. 
     /// 
     ///  <important><para>
-    ///  Use <code>DeleteRepositoryPermissionsPolicy</code> with caution. After a policy is
-    /// deleted, Amazon Web Services users, roles, and accounts lose permissions to perform
-    /// the repository actions granted by the deleted policy. 
+    ///  Use <c>DeleteRepositoryPermissionsPolicy</c> with caution. After a policy is deleted,
+    /// Amazon Web Services users, roles, and accounts lose permissions to perform the repository
+    /// actions granted by the deleted policy. 
     /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "CARepositoryPermissionsPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

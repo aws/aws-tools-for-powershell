@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) from which you want to remove the tag or tags. For
-        /// example, <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>. </para>
+        /// example, <c>arn:aws:redshift:us-east-2:123456789:cluster:t1</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

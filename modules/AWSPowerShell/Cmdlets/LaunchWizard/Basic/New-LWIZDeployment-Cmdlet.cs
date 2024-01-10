@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
 {
     /// <summary>
     /// Creates a deployment for the given workload. Deployments created by this operation
-    /// are not available in the Launch Wizard console to use the <code>Clone deployment</code>
+    /// are not available in the Launch Wizard console to use the <c>Clone deployment</c>
     /// action on.
     /// </summary>
     [Cmdlet("New", "LWIZDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
         /// <summary>
         /// <para>
         /// <para>The name of the deployment pattern supported by a given workload. You can use the
-        /// <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html"><code>ListWorkloadDeploymentPatterns</code></a> operation to discover supported values
+        /// <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html"><c>ListWorkloadDeploymentPatterns</c></a> operation to discover supported values
         /// for this parameter. </para>
         /// </para>
         /// </summary>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
         /// <para>
         /// <para>Checks whether you have the required permissions for the action, without actually
         /// making the request, and provides an error response. If you have the required permissions,
-        /// the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</para>
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
         #region Parameter WorkloadName
         /// <summary>
         /// <para>
-        /// <para>The name of the workload. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html"><code>ListWorkloadDeploymentPatterns</code></a> operation to discover supported values
+        /// <para>The name of the workload. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html"><c>ListWorkloadDeploymentPatterns</c></a> operation to discover supported values
         /// for this parameter.</para>
         /// </para>
         /// </summary>

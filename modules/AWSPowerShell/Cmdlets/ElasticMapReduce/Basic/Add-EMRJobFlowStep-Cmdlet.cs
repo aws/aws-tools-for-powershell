@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// You can only add steps to a cluster that is in one of the following states: STARTING,
     /// BOOTSTRAPPING, RUNNING, or WAITING.
     /// </para><note><para>
-    /// The string values passed into <code>HadoopJarStep</code> object cannot exceed a total
-    /// of 10240 characters.
+    /// The string values passed into <c>HadoopJarStep</c> object cannot exceed a total of
+    /// 10240 characters.
     /// </para></note>
     /// </summary>
     [Cmdlet("Add", "EMRJobFlowStep", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the runtime role for a step on the cluster. The
         /// runtime role can be a cross-account IAM role. The runtime role ARN is a combination
-        /// of account ID, role name, and role type using the following format: <code>arn:partition:service:region:account:resource</code>.
-        /// </para><para>For example, <code>arn:aws:IAM::1234567890:role/ReadOnly</code> is a correctly formatted
+        /// of account ID, role name, and role type using the following format: <c>arn:partition:service:region:account:resource</c>.
+        /// </para><para>For example, <c>arn:aws:IAM::1234567890:role/ReadOnly</c> is a correctly formatted
         /// runtime role ARN.</para>
         /// </para>
         /// </summary>

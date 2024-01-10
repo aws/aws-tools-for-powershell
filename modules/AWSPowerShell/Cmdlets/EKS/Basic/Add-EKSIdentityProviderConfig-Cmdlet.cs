@@ -34,11 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// <para>
     /// If you want to authenticate identities using an identity provider, you can create
     /// an identity provider configuration and associate it to your cluster. After configuring
-    /// authentication to your cluster you can create Kubernetes <code>Role</code> and <code>ClusterRole</code>
+    /// authentication to your cluster you can create Kubernetes <c>Role</c> and <c>ClusterRole</c>
     /// objects, assign permissions to them, and then bind them to the identities using Kubernetes
-    /// <code>RoleBinding</code> and <code>ClusterRoleBinding</code> objects. For more information
-    /// see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Using
-    /// RBAC Authorization</a> in the Kubernetes documentation.
+    /// <c>RoleBinding</c> and <c>ClusterRoleBinding</c> objects. For more information see
+    /// <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Using RBAC
+    /// Authorization</a> in the Kubernetes documentation.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "EKSIdentityProviderConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -112,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The prefix that is prepended to group claims to prevent clashes with existing names
-        /// (such as <code>system:</code> groups). For example, the value<code> oidc:</code> will
-        /// create group names like <code>oidc:engineering</code> and <code>oidc:infra</code>.</para>
+        /// (such as <c>system:</c> groups). For example, the value<c> oidc:</c> will create group
+        /// names like <c>oidc:engineering</c> and <c>oidc:infra</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,12 +141,12 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The URL of the OIDC identity provider that allows the API server to discover public
-        /// signing keys for verifying tokens. The URL must begin with <code>https://</code> and
-        /// should correspond to the <code>iss</code> claim in the provider's OIDC ID tokens.
-        /// Based on the OIDC standard, path components are allowed but query parameters are not.
-        /// Typically the URL consists of only a hostname, like <code>https://server.example.org</code>
-        /// or <code>https://example.com</code>. This URL should point to the level below <code>.well-known/openid-configuration</code>
-        /// and must be publicly accessible over the internet.</para>
+        /// signing keys for verifying tokens. The URL must begin with <c>https://</c> and should
+        /// correspond to the <c>iss</c> claim in the provider's OIDC ID tokens. Based on the
+        /// OIDC standard, path components are allowed but query parameters are not. Typically
+        /// the URL consists of only a hostname, like <c>https://server.example.org</c> or <c>https://example.com</c>.
+        /// This URL should point to the level below <c>.well-known/openid-configuration</c> and
+        /// must be publicly accessible over the internet.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -190,11 +190,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Oidc_UsernameClaim
         /// <summary>
         /// <para>
-        /// <para>The JSON Web Token (JWT) claim to use as the username. The default is <code>sub</code>,
+        /// <para>The JSON Web Token (JWT) claim to use as the username. The default is <c>sub</c>,
         /// which is expected to be a unique identifier of the end user. You can choose other
-        /// claims, such as <code>email</code> or <code>name</code>, depending on the OIDC identity
-        /// provider. Claims other than <code>email</code> are prefixed with the issuer URL to
-        /// prevent naming clashes with other plug-ins.</para>
+        /// claims, such as <c>email</c> or <c>name</c>, depending on the OIDC identity provider.
+        /// Claims other than <c>email</c> are prefixed with the issuer URL to prevent naming
+        /// clashes with other plug-ins.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,9 +205,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The prefix that is prepended to username claims to prevent clashes with existing names.
-        /// If you do not provide this field, and <code>username</code> is a value other than
-        /// <code>email</code>, the prefix defaults to <code>issuerurl#</code>. You can use the
-        /// value <code>-</code> to disable all prefixing.</para>
+        /// If you do not provide this field, and <c>username</c> is a value other than <c>email</c>,
+        /// the prefix defaults to <c>issuerurl#</c>. You can use the value <c>-</c> to disable
+        /// all prefixing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

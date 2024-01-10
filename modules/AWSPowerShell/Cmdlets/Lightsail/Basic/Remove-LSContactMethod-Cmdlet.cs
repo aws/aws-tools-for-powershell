@@ -55,10 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Protocol
         /// <summary>
         /// <para>
-        /// <para>The protocol that will be deleted, such as <code>Email</code> or <code>SMS</code>
-        /// (text messaging).</para><note><para>To delete an <code>Email</code> and an <code>SMS</code> contact method if you added
-        /// both, you must run separate <code>DeleteContactMethod</code> actions to delete each
-        /// protocol.</para></note>
+        /// <para>The protocol that will be deleted, such as <c>Email</c> or <c>SMS</c> (text messaging).</para><note><para>To delete an <c>Email</c> and an <c>SMS</c> contact method if you added both, you
+        /// must run separate <c>DeleteContactMethod</c> actions to delete each protocol.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

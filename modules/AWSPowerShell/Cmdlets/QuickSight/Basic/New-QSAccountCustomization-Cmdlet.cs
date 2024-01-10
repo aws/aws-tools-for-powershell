@@ -29,22 +29,20 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Creates Amazon QuickSight customizations for the current Amazon Web Services Region.
-    /// Currently, you can add a custom default theme by using the <code>CreateAccountCustomization</code>
-    /// or <code>UpdateAccountCustomization</code> API operation. To further customize Amazon
-    /// QuickSight by removing Amazon QuickSight sample assets and videos for all new users,
-    /// see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html">Customizing
+    /// Currently, you can add a custom default theme by using the <c>CreateAccountCustomization</c>
+    /// or <c>UpdateAccountCustomization</c> API operation. To further customize Amazon QuickSight
+    /// by removing Amazon QuickSight sample assets and videos for all new users, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html">Customizing
     /// Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide.</i><para>
     /// You can create customizations for your Amazon Web Services account or, if you specify
     /// a namespace, for a QuickSight namespace instead. Customizations that apply to a namespace
     /// always override customizations that apply to an Amazon Web Services account. To find
-    /// out which customizations apply, use the <code>DescribeAccountCustomization</code>
-    /// API operation.
+    /// out which customizations apply, use the <c>DescribeAccountCustomization</c> API operation.
     /// </para><para>
-    /// Before you use the <code>CreateAccountCustomization</code> API operation to add a
-    /// theme as the namespace default, make sure that you first share the theme with the
-    /// namespace. If you don't share it with the namespace, the theme isn't visible to your
-    /// users even if you make it the default theme. To check if the theme is shared, view
-    /// the current permissions by using the <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeThemePermissions.html">DescribeThemePermissions</a></code> API operation. To share the theme, grant permissions by using the <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateThemePermissions.html">UpdateThemePermissions</a></code> API operation. 
+    /// Before you use the <c>CreateAccountCustomization</c> API operation to add a theme
+    /// as the namespace default, make sure that you first share the theme with the namespace.
+    /// If you don't share it with the namespace, the theme isn't visible to your users even
+    /// if you make it the default theme. To check if the theme is shared, view the current
+    /// permissions by using the <c><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeThemePermissions.html">DescribeThemePermissions</a></c> API operation. To share the theme, grant permissions by using the <c><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateThemePermissions.html">UpdateThemePermissions</a></c> API operation. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "QSAccountCustomization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>(Optional) When retrieving account preferences, you can optionally specify the <code>MaxItems</code>
+        /// <para>(Optional) When retrieving account preferences, you can optionally specify the <c>MaxItems</c>
         /// parameter to limit the number of objects returned in a response. The default value
         /// is 100. </para>
         /// </para>
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) You can use <code>NextToken</code> in a subsequent request to fetch the
-        /// next page of Amazon Web Services account preferences if the response payload was paginated.</para>
+        /// <para>(Optional) You can use <c>NextToken</c> in a subsequent request to fetch the next
+        /// page of Amazon Web Services account preferences if the response payload was paginated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

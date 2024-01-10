@@ -28,9 +28,9 @@ using Amazon.ChimeSDKIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMID
 {
     /// <summary>
-    /// Registers an endpoint under an Amazon Chime <code>AppInstanceUser</code>. The endpoint
-    /// receives messages for a user. For push notifications, the endpoint is a mobile device
-    /// used to receive mobile push notifications for a user.
+    /// Registers an endpoint under an Amazon Chime <c>AppInstanceUser</c>. The endpoint receives
+    /// messages for a user. For push notifications, the endpoint is a mobile device used
+    /// to receive mobile push notifications for a user.
     /// </summary>
     [Cmdlet("Register", "CHMIDAppInstanceUserEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKIdentity.Model.RegisterAppInstanceUserEndpointResponse")]
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         /// <summary>
         /// <para>
         /// <para>Boolean that controls whether the AppInstanceUserEndpoint is opted in to receive messages.
-        /// <code>ALL</code> indicates the endpoint receives all messages. <code>NONE</code> indicates
-        /// the endpoint receives no messages.</para>
+        /// <c>ALL</c> indicates the endpoint receives all messages. <c>NONE</c> indicates the
+        /// endpoint receives no messages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter AppInstanceUserArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code>.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the <code>AppInstanceUserEndpoint</code>.</para>
+        /// <para>The name of the <c>AppInstanceUserEndpoint</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the <code>AppInstanceUserEndpoint</code>. Supported types:</para><ul><li><para><code>APNS</code>: The mobile notification service for an Apple device.</para></li><li><para><code>APNS_SANDBOX</code>: The sandbox environment of the mobile notification service
-        /// for an Apple device.</para></li><li><para><code>GCM</code>: The mobile notification service for an Android device.</para></li></ul><para>Populate the <code>ResourceArn</code> value of each type as <code>PinpointAppArn</code>.</para>
+        /// <para>The type of the <c>AppInstanceUserEndpoint</c>. Supported types:</para><ul><li><para><c>APNS</c>: The mobile notification service for an Apple device.</para></li><li><para><c>APNS_SANDBOX</c>: The sandbox environment of the mobile notification service for
+        /// an Apple device.</para></li><li><para><c>GCM</c>: The mobile notification service for an Android device.</para></li></ul><para>Populate the <c>ResourceArn</c> value of each type as <c>PinpointAppArn</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

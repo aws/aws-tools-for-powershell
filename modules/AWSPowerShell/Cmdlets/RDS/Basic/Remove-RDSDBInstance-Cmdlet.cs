@@ -34,14 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  
     /// <para>
-    /// If you request a final DB snapshot, the status of the Amazon RDS DB instance is <code>deleting</code>
+    /// If you request a final DB snapshot, the status of the Amazon RDS DB instance is <c>deleting</c>
     /// until the DB snapshot is created. This operation can't be canceled or reverted after
-    /// it begins. To monitor the status of this operation, use <code>DescribeDBInstance</code>.
+    /// it begins. To monitor the status of this operation, use <c>DescribeDBInstance</c>.
     /// </para><para>
-    /// When a DB instance is in a failure state and has a status of <code>failed</code>,
-    /// <code>incompatible-restore</code>, or <code>incompatible-network</code>, you can only
-    /// delete it when you skip creation of the final snapshot with the <code>SkipFinalSnapshot</code>
-    /// parameter.
+    /// When a DB instance is in a failure state and has a status of <c>failed</c>, <c>incompatible-restore</c>,
+    /// or <c>incompatible-network</c>, you can only delete it when you skip creation of the
+    /// final snapshot with the <c>SkipFinalSnapshot</c> parameter.
     /// </para><para>
     /// If the specified DB instance is part of an Amazon Aurora DB cluster, you can't delete
     /// the DB instance if both of the following conditions are true:
@@ -50,10 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </para></li><li><para>
     /// The DB instance is the only instance in the DB cluster.
     /// </para></li></ul><para>
-    /// To delete a DB instance in this case, first use the <code>PromoteReadReplicaDBCluster</code>
+    /// To delete a DB instance in this case, first use the <c>PromoteReadReplicaDBCluster</c>
     /// operation to promote the DB cluster so that it's no longer a read replica. After the
-    /// promotion completes, use the <code>DeleteDBInstance</code> operation to delete the
-    /// final instance in the DB cluster.
+    /// promotion completes, use the <c>DeleteDBInstance</c> operation to delete the final
+    /// instance in the DB cluster.
     /// </para><important><para>
     /// For RDS Custom DB instances, deleting the DB instance permanently deletes the EC2
     /// instance and the associated EBS volumes. Make sure that you don't terminate or delete
@@ -107,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter FinalDBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>DBSnapshotIdentifier</code> of the new <code>DBSnapshot</code> created when
-        /// the <code>SkipFinalSnapshot</code> parameter is disabled.</para><note><para>If you enable this parameter and also enable SkipFinalShapshot, the command results
+        /// <para>The <c>DBSnapshotIdentifier</c> of the new <c>DBSnapshot</c> created when the <c>SkipFinalSnapshot</c>
+        /// parameter is disabled.</para><note><para>If you enable this parameter and also enable SkipFinalShapshot, the command results
         /// in an error.</para></note><para>This setting doesn't apply to RDS Custom.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Can't be specified when deleting a read replica.</para></li></ul>
         /// </para>
         /// </summary>
@@ -122,10 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>Specifies whether to skip the creation of a final DB snapshot before deleting the
         /// instance. If you enable this parameter, RDS doesn't create a DB snapshot. If you don't
         /// enable this parameter, RDS creates a DB snapshot before the DB instance is deleted.
-        /// By default, skip isn't enabled, and the DB snapshot is created.</para><note><para>If you don't enable this parameter, you must specify the <code>FinalDBSnapshotIdentifier</code>
-        /// parameter.</para></note><para>When a DB instance is in a failure state and has a status of <code>failed</code>,
-        /// <code>incompatible-restore</code>, or <code>incompatible-network</code>, RDS can delete
-        /// the instance only if you enable this parameter.</para><para>If you delete a read replica or an RDS Custom instance, you must enable this setting.</para><para>This setting is required for RDS Custom.</para>
+        /// By default, skip isn't enabled, and the DB snapshot is created.</para><note><para>If you don't enable this parameter, you must specify the <c>FinalDBSnapshotIdentifier</c>
+        /// parameter.</para></note><para>When a DB instance is in a failure state and has a status of <c>failed</c>, <c>incompatible-restore</c>,
+        /// or <c>incompatible-network</c>, RDS can delete the instance only if you enable this
+        /// parameter.</para><para>If you delete a read replica or an RDS Custom instance, you must enable this setting.</para><para>This setting is required for RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

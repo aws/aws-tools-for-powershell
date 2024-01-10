@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you
         /// want to delete.</para><para>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with
-        /// either <code>.../<i>name</i></code> or <code>.../<i>name</i>/<i>revision</i></code>.
-        /// If a revision isn't specified, the latest active revision is deleted.</para>
+        /// either <c>.../<i>name</i></c> or <c>.../<i>name</i>/<i>revision</i></c>. If a revision
+        /// isn't specified, the latest active revision is deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter DeleteAllRevision
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to delete all of the revisions associated with the <code>AutoScalingConfigurationArn</code>
-        /// parameter value.</para><para>When <code>DeleteAllRevisions</code> is set to <code>true</code>, the only valid value
-        /// for the Amazon Resource Name (ARN) is a partial ARN ending with: <code>.../name</code>.</para>
+        /// <para>Set to <c>true</c> to delete all of the revisions associated with the <c>AutoScalingConfigurationArn</c>
+        /// parameter value.</para><para>When <c>DeleteAllRevisions</c> is set to <c>true</c>, the only valid value for the
+        /// Amazon Resource Name (ARN) is a partial ARN ending with: <c>.../name</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

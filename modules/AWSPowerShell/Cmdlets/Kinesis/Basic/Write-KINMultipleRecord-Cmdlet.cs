@@ -29,23 +29,23 @@ namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
     /// Writes multiple data records into a Kinesis data stream in a single call (also referred
-    /// to as a <code>PutRecords</code> request). Use this operation to send data into the
-    /// stream for data ingestion and processing. 
+    /// to as a <c>PutRecords</c> request). Use this operation to send data into the stream
+    /// for data ingestion and processing. 
     /// 
     ///  <note><para>
-    /// When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code>
-    /// parameter, or both. It is recommended that you use the <code>StreamARN</code> input
-    /// parameter when you invoke this API.
+    /// When invoking this API, you must use either the <c>StreamARN</c> or the <c>StreamName</c>
+    /// parameter, or both. It is recommended that you use the <c>StreamARN</c> input parameter
+    /// when you invoke this API.
     /// </para></note><para>
-    /// Each <code>PutRecords</code> request can support up to 500 records. Each record in
-    /// the request can be as large as 1 MiB, up to a limit of 5 MiB for the entire request,
-    /// including partition keys. Each shard can support writes up to 1,000 records per second,
-    /// up to a maximum data write total of 1 MiB per second.
+    /// Each <c>PutRecords</c> request can support up to 500 records. Each record in the request
+    /// can be as large as 1 MiB, up to a limit of 5 MiB for the entire request, including
+    /// partition keys. Each shard can support writes up to 1,000 records per second, up to
+    /// a maximum data write total of 1 MiB per second.
     /// </para><para>
     /// You must specify the name of the stream that captures, stores, and transports the
-    /// data; and an array of request <code>Records</code>, with each record in the array
-    /// requiring a partition key and data blob. The record size limit applies to the total
-    /// size of the partition key and data blob.
+    /// data; and an array of request <c>Records</c>, with each record in the array requiring
+    /// a partition key and data blob. The record size limit applies to the total size of
+    /// the partition key and data blob.
     /// </para><para>
     /// The data blob can be any type of data; for example, a segment from a log file, geographic/location
     /// data, website clickstream data, and so on.
@@ -58,35 +58,35 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream">Adding
     /// Data to a Stream</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.
     /// </para><para>
-    /// Each record in the <code>Records</code> array may include an optional parameter, <code>ExplicitHashKey</code>,
+    /// Each record in the <c>Records</c> array may include an optional parameter, <c>ExplicitHashKey</c>,
     /// which overrides the partition key to shard mapping. This parameter allows a data producer
     /// to determine explicitly the shard where the record is stored. For more information,
     /// see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-putrecords">Adding
     /// Multiple Records with PutRecords</a> in the <i>Amazon Kinesis Data Streams Developer
     /// Guide</i>.
     /// </para><para>
-    /// The <code>PutRecords</code> response includes an array of response <code>Records</code>.
-    /// Each record in the response array directly correlates with a record in the request
-    /// array using natural ordering, from the top to the bottom of the request and response.
-    /// The response <code>Records</code> array always includes the same number of records
-    /// as the request array.
+    /// The <c>PutRecords</c> response includes an array of response <c>Records</c>. Each
+    /// record in the response array directly correlates with a record in the request array
+    /// using natural ordering, from the top to the bottom of the request and response. The
+    /// response <c>Records</c> array always includes the same number of records as the request
+    /// array.
     /// </para><para>
-    /// The response <code>Records</code> array includes both successfully and unsuccessfully
-    /// processed records. Kinesis Data Streams attempts to process all records in each <code>PutRecords</code>
+    /// The response <c>Records</c> array includes both successfully and unsuccessfully processed
+    /// records. Kinesis Data Streams attempts to process all records in each <c>PutRecords</c>
     /// request. A single record failure does not stop the processing of subsequent records.
     /// As a result, PutRecords doesn't guarantee the ordering of records. If you need to
     /// read records in the same order they are written to the stream, use <a>PutRecord</a>
-    /// instead of <code>PutRecords</code>, and write to the same shard.
+    /// instead of <c>PutRecords</c>, and write to the same shard.
     /// </para><para>
-    /// A successfully processed record includes <code>ShardId</code> and <code>SequenceNumber</code>
-    /// values. The <code>ShardId</code> parameter identifies the shard in the stream where
-    /// the record is stored. The <code>SequenceNumber</code> parameter is an identifier assigned
-    /// to the put record, unique to all records in the stream.
+    /// A successfully processed record includes <c>ShardId</c> and <c>SequenceNumber</c>
+    /// values. The <c>ShardId</c> parameter identifies the shard in the stream where the
+    /// record is stored. The <c>SequenceNumber</c> parameter is an identifier assigned to
+    /// the put record, unique to all records in the stream.
     /// </para><para>
-    /// An unsuccessfully processed record includes <code>ErrorCode</code> and <code>ErrorMessage</code>
-    /// values. <code>ErrorCode</code> reflects the type of error and can be one of the following
-    /// values: <code>ProvisionedThroughputExceededException</code> or <code>InternalFailure</code>.
-    /// <code>ErrorMessage</code> provides more detailed information about the <code>ProvisionedThroughputExceededException</code>
+    /// An unsuccessfully processed record includes <c>ErrorCode</c> and <c>ErrorMessage</c>
+    /// values. <c>ErrorCode</c> reflects the type of error and can be one of the following
+    /// values: <c>ProvisionedThroughputExceededException</c> or <c>InternalFailure</c>. <c>ErrorMessage</c>
+    /// provides more detailed information about the <c>ProvisionedThroughputExceededException</c>
     /// exception including the account ID, stream name, and shard ID of the record that was
     /// throttled. For more information about partially successful responses, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html#kinesis-using-sdk-java-putrecords">Adding
     /// Multiple Records with PutRecords</a> in the <i>Amazon Kinesis Data Streams Developer

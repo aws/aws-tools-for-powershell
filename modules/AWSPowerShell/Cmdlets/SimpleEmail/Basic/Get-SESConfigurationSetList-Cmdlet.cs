@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer Guide.</i><para>
     /// You can execute this operation no more than once per second. This operation returns
     /// up to 1,000 configuration sets each time it is run. If your Amazon SES account has
-    /// more than 1,000 configuration sets, this operation also returns <code>NextToken</code>.
-    /// You can then execute the <code>ListConfigurationSets</code> operation again, passing
-    /// the <code>NextToken</code> parameter and the value of the NextToken element to retrieve
-    /// additional results.
+    /// more than 1,000 configuration sets, this operation also returns <c>NextToken</c>.
+    /// You can then execute the <c>ListConfigurationSets</c> operation again, passing the
+    /// <c>NextToken</c> parameter and the value of the NextToken element to retrieve additional
+    /// results.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SESConfigurationSetList")]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token returned from a previous call to <code>ListConfigurationSets</code> to indicate
+        /// <para>A token returned from a previous call to <c>ListConfigurationSets</c> to indicate
         /// the position of the configuration set in the configuration set list.</para>
         /// </para>
         /// <para>

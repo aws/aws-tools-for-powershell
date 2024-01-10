@@ -33,19 +33,19 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// bot is directed toward children under age 13. You can use this to add intents later,
     /// or to remove intents from an existing bot. When you create a bot with the minimum
     /// information, the bot is created or updated but Amazon Lex returns the <code /> response
-    /// <code>FAILED</code>. You can build the bot after you add one or more intents. For
-    /// more information about Amazon Lex bots, see <a>how-it-works</a>. 
+    /// <c>FAILED</c>. You can build the bot after you add one or more intents. For more information
+    /// about Amazon Lex bots, see <a>how-it-works</a>. 
     /// 
     ///  
     /// <para>
     /// If you specify the name of an existing bot, the fields in the request replace the
-    /// existing values in the <code>$LATEST</code> version of the bot. Amazon Lex removes
-    /// any fields that you don't provide values for in the request, except for the <code>idleTTLInSeconds</code>
-    /// and <code>privacySettings</code> fields, which are set to their default values. If
-    /// you don't specify values for required fields, Amazon Lex throws an exception.
+    /// existing values in the <c>$LATEST</c> version of the bot. Amazon Lex removes any fields
+    /// that you don't provide values for in the request, except for the <c>idleTTLInSeconds</c>
+    /// and <c>privacySettings</c> fields, which are set to their default values. If you don't
+    /// specify values for required fields, Amazon Lex throws an exception.
     /// </para><para>
-    /// This operation requires permissions for the <code>lex:PutBot</code> action. For more
-    /// information, see <a>security-iam</a>.
+    /// This operation requires permissions for the <c>lex:PutBot</c> action. For more information,
+    /// see <a>security-iam</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "LMBBot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -63,15 +63,14 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <summary>
         /// <para>
         /// <para>When Amazon Lex can't understand the user's input in context, it tries to elicit the
-        /// information a few times. After that, Amazon Lex sends the message defined in <code>abortStatement</code>
+        /// information a few times. After that, Amazon Lex sends the message defined in <c>abortStatement</c>
         /// to the user, and then cancels the conversation. To set the number of retries, use
-        /// the <code>valueElicitationPrompt</code> field for the slot type. </para><para>For example, in a pizza ordering bot, Amazon Lex might ask a user "What type of crust
+        /// the <c>valueElicitationPrompt</c> field for the slot type. </para><para>For example, in a pizza ordering bot, Amazon Lex might ask a user "What type of crust
         /// would you like?" If the user's response is not one of the expected responses (for
         /// example, "thin crust, "deep dish," etc.), Amazon Lex tries to elicit a correct response
-        /// a few more times. </para><para>For example, in a pizza ordering application, <code>OrderPizza</code> might be one
-        /// of the intents. This intent might require the <code>CrustType</code> slot. You specify
-        /// the <code>valueElicitationPrompt</code> field when you create the <code>CrustType</code>
-        /// slot.</para><para>If you have defined a fallback intent the cancel statement will not be sent to the
+        /// a few more times. </para><para>For example, in a pizza ordering application, <c>OrderPizza</c> might be one of the
+        /// intents. This intent might require the <c>CrustType</c> slot. You specify the <c>valueElicitationPrompt</c>
+        /// field when you create the <c>CrustType</c> slot.</para><para>If you have defined a fallback intent the cancel statement will not be sent to the
         /// user, the fallback intent is used instead. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/built-in-intent-fallback.html">
         /// AMAZON.FallbackIntent</a>.</para>
         /// </para>
@@ -83,11 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter Checksum
         /// <summary>
         /// <para>
-        /// <para>Identifies a specific revision of the <code>$LATEST</code> version.</para><para>When you create a new bot, leave the <code>checksum</code> field blank. If you specify
-        /// a checksum you get a <code>BadRequestException</code> exception.</para><para>When you want to update a bot, set the <code>checksum</code> field to the checksum
-        /// of the most recent revision of the <code>$LATEST</code> version. If you don't specify
-        /// the <code> checksum</code> field, or if the checksum does not match the <code>$LATEST</code>
-        /// version, you get a <code>PreconditionFailedException</code> exception.</para>
+        /// <para>Identifies a specific revision of the <c>$LATEST</c> version.</para><para>When you create a new bot, leave the <c>checksum</c> field blank. If you specify a
+        /// checksum you get a <c>BadRequestException</c> exception.</para><para>When you want to update a bot, set the <c>checksum</c> field to the checksum of the
+        /// most recent revision of the <c>$LATEST</c> version. If you don't specify the <c> checksum</c>
+        /// field, or if the checksum does not match the <c>$LATEST</c> version, you get a <c>PreconditionFailedException</c>
+        /// exception.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,17 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// specify whether your use of Amazon Lex is related to a website, program, or other
         /// application that is directed or targeted, in whole or in part, to children under age
         /// 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying
-        /// <code>true</code> or <code>false</code> in the <code>childDirected</code> field. By
-        /// specifying <code>true</code> in the <code>childDirected</code> field, you confirm
-        /// that your use of Amazon Lex <b>is</b> related to a website, program, or other application
-        /// that is directed or targeted, in whole or in part, to children under age 13 and subject
-        /// to COPPA. By specifying <code>false</code> in the <code>childDirected</code> field,
-        /// you confirm that your use of Amazon Lex <b>is not</b> related to a website, program,
-        /// or other application that is directed or targeted, in whole or in part, to children
-        /// under age 13 and subject to COPPA. You may not specify a default value for the <code>childDirected</code>
-        /// field that does not accurately reflect whether your use of Amazon Lex is related to
-        /// a website, program, or other application that is directed or targeted, in whole or
-        /// in part, to children under age 13 and subject to COPPA.</para><para>If your use of Amazon Lex relates to a website, program, or other application that
+        /// <c>true</c> or <c>false</c> in the <c>childDirected</c> field. By specifying <c>true</c>
+        /// in the <c>childDirected</c> field, you confirm that your use of Amazon Lex <b>is</b>
+        /// related to a website, program, or other application that is directed or targeted,
+        /// in whole or in part, to children under age 13 and subject to COPPA. By specifying
+        /// <c>false</c> in the <c>childDirected</c> field, you confirm that your use of Amazon
+        /// Lex <b>is not</b> related to a website, program, or other application that is directed
+        /// or targeted, in whole or in part, to children under age 13 and subject to COPPA. You
+        /// may not specify a default value for the <c>childDirected</c> field that does not accurately
+        /// reflect whether your use of Amazon Lex is related to a website, program, or other
+        /// application that is directed or targeted, in whole or in part, to children under age
+        /// 13 and subject to COPPA.</para><para>If your use of Amazon Lex relates to a website, program, or other application that
         /// is directed in whole or in part, to children under age 13, you must obtain any required
         /// verifiable parental consent under COPPA. For information regarding the use of Amazon
         /// Lex in connection with websites, programs, or other applications that are directed
@@ -132,9 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter CreateVersion
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code> a new numbered version of the bot is created. This is
-        /// the same as calling the <code>CreateBotVersion</code> operation. If you don't specify
-        /// <code>createVersion</code>, the default is <code>false</code>.</para>
+        /// <para>When set to <c>true</c> a new numbered version of the bot is created. This is the
+        /// same as calling the <c>CreateBotVersion</c> operation. If you don't specify <c>createVersion</c>,
+        /// the default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter DetectSentiment
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code> user utterances are sent to Amazon Comprehend for sentiment
-        /// analysis. If you don't specify <code>detectSentiment</code>, the default is <code>false</code>.</para>
+        /// <para>When set to <c>true</c> user utterances are sent to Amazon Comprehend for sentiment
+        /// analysis. If you don't specify <c>detectSentiment</c>, the default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter EnableModelImprovement
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to enable access to natural language understanding improvements.
-        /// </para><para>When you set the <code>enableModelImprovements</code> parameter to <code>true</code>
-        /// you can use the <code>nluIntentConfidenceThreshold</code> parameter to configure confidence
-        /// scores. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html">Confidence
-        /// Scores</a>.</para><para>You can only set the <code>enableModelImprovements</code> parameter in certain Regions.
-        /// If you set the parameter to <code>true</code>, your bot has access to accuracy improvements.</para><para>The Regions where you can set the <code>enableModelImprovements</code> parameter to
-        /// <code>true</code> are:</para><ul><li><para>US East (N. Virginia) (us-east-1)</para></li><li><para>US West (Oregon) (us-west-2)</para></li><li><para>Asia Pacific (Sydney) (ap-southeast-2)</para></li><li><para>EU (Ireland) (eu-west-1)</para></li></ul><para>In other Regions, the <code>enableModelImprovements</code> parameter is set to <code>true</code>
-        /// by default. In these Regions setting the parameter to <code>false</code> throws a
-        /// <code>ValidationException</code> exception.</para>
+        /// <para>Set to <c>true</c> to enable access to natural language understanding improvements.
+        /// </para><para>When you set the <c>enableModelImprovements</c> parameter to <c>true</c> you can use
+        /// the <c>nluIntentConfidenceThreshold</c> parameter to configure confidence scores.
+        /// For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html">Confidence
+        /// Scores</a>.</para><para>You can only set the <c>enableModelImprovements</c> parameter in certain Regions.
+        /// If you set the parameter to <c>true</c>, your bot has access to accuracy improvements.</para><para>The Regions where you can set the <c>enableModelImprovements</c> parameter to <c>true</c>
+        /// are:</para><ul><li><para>US East (N. Virginia) (us-east-1)</para></li><li><para>US West (Oregon) (us-west-2)</para></li><li><para>Asia Pacific (Sydney) (ap-southeast-2)</para></li><li><para>EU (Ireland) (eu-west-1)</para></li></ul><para>In other Regions, the <c>enableModelImprovements</c> parameter is set to <c>true</c>
+        /// by default. In these Regions setting the parameter to <c>false</c> throws a <c>ValidationException</c>
+        /// exception.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// data provided before the timeout.</para><para>For example, suppose that a user chooses the OrderPizza intent, but gets sidetracked
         /// halfway through placing an order. If the user doesn't complete the order within the
         /// specified time, Amazon Lex discards the slot information that it gathered, and the
-        /// user must start over.</para><para>If you don't include the <code>idleSessionTTLInSeconds</code> element in a <code>PutBot</code>
+        /// user must start over.</para><para>If you don't include the <c>idleSessionTTLInSeconds</c> element in a <c>PutBot</c>
         /// operation request, Amazon Lex uses the default value. This is also true if the request
         /// replaces an existing bot.</para><para>The default is 300 seconds (5 minutes).</para>
         /// </para>
@@ -202,9 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter Intent
         /// <summary>
         /// <para>
-        /// <para>An array of <code>Intent</code> objects. Each intent represents a command that a user
-        /// can express. For example, a pizza ordering bot might support an OrderPizza intent.
-        /// For more information, see <a>how-it-works</a>.</para>
+        /// <para>An array of <c>Intent</c> objects. Each intent represents a command that a user can
+        /// express. For example, a pizza ordering bot might support an OrderPizza intent. For
+        /// more information, see <a>how-it-works</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <summary>
         /// <para>
         /// <para> Specifies the target locale for the bot. Any intent used in the bot must be compatible
-        /// with the locale of the bot. </para><para>The default is <code>en-US</code>.</para>
+        /// with the locale of the bot. </para><para>The default is <c>en-US</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -273,17 +272,17 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter NluIntentConfidenceThreshold
         /// <summary>
         /// <para>
-        /// <para>Determines the threshold where Amazon Lex will insert the <code>AMAZON.FallbackIntent</code>,
-        /// <code>AMAZON.KendraSearchIntent</code>, or both when returning alternative intents
-        /// in a <a href="https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html">PostContent</a>
+        /// <para>Determines the threshold where Amazon Lex will insert the <c>AMAZON.FallbackIntent</c>,
+        /// <c>AMAZON.KendraSearchIntent</c>, or both when returning alternative intents in a
+        /// <a href="https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html">PostContent</a>
         /// or <a href="https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html">PostText</a>
-        /// response. <code>AMAZON.FallbackIntent</code> and <code>AMAZON.KendraSearchIntent</code>
-        /// are only inserted if they are configured for the bot.</para><para>You must set the <code>enableModelImprovements</code> parameter to <code>true</code>
-        /// to use confidence scores in the following regions.</para><ul><li><para>US East (N. Virginia) (us-east-1)</para></li><li><para>US West (Oregon) (us-west-2)</para></li><li><para>Asia Pacific (Sydney) (ap-southeast-2)</para></li><li><para>EU (Ireland) (eu-west-1)</para></li></ul><para>In other Regions, the <code>enableModelImprovements</code> parameter is set to <code>true</code>
+        /// response. <c>AMAZON.FallbackIntent</c> and <c>AMAZON.KendraSearchIntent</c> are only
+        /// inserted if they are configured for the bot.</para><para>You must set the <c>enableModelImprovements</c> parameter to <c>true</c> to use confidence
+        /// scores in the following regions.</para><ul><li><para>US East (N. Virginia) (us-east-1)</para></li><li><para>US West (Oregon) (us-west-2)</para></li><li><para>Asia Pacific (Sydney) (ap-southeast-2)</para></li><li><para>EU (Ireland) (eu-west-1)</para></li></ul><para>In other Regions, the <c>enableModelImprovements</c> parameter is set to <c>true</c>
         /// by default.</para><para>For example, suppose a bot is configured with the confidence threshold of 0.80 and
-        /// the <code>AMAZON.FallbackIntent</code>. Amazon Lex returns three alternative intents
-        /// with the following confidence scores: IntentA (0.70), IntentB (0.60), IntentC (0.50).
-        /// The response from the <code>PostText</code> operation would be:</para><ul><li><para>AMAZON.FallbackIntent</para></li><li><para>IntentA</para></li><li><para>IntentB</para></li><li><para>IntentC</para></li></ul>
+        /// the <c>AMAZON.FallbackIntent</c>. Amazon Lex returns three alternative intents with
+        /// the following confidence scores: IntentA (0.70), IntentB (0.60), IntentC (0.50). The
+        /// response from the <c>PostText</c> operation would be:</para><ul><li><para>AMAZON.FallbackIntent</para></li><li><para>IntentA</para></li><li><para>IntentB</para></li><li><para>IntentC</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -293,9 +292,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter ProcessBehavior
         /// <summary>
         /// <para>
-        /// <para>If you set the <code>processBehavior</code> element to <code>BUILD</code>, Amazon
-        /// Lex builds the bot so that it can be run. If you set the element to <code>SAVE</code>
-        /// Amazon Lex saves the bot, but doesn't build it. </para><para>If you don't specify this value, the default value is <code>BUILD</code>.</para>
+        /// <para>If you set the <c>processBehavior</c> element to <c>BUILD</c>, Amazon Lex builds the
+        /// bot so that it can be run. If you set the element to <c>SAVE</c> Amazon Lex saves
+        /// the bot, but doesn't build it. </para><para>If you don't specify this value, the default value is <c>BUILD</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -306,9 +305,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter ClarificationPrompt_ResponseCard
         /// <summary>
         /// <para>
-        /// <para>A response card. Amazon Lex uses this prompt at runtime, in the <code>PostText</code>
-        /// API response. It substitutes session attributes and slot values for placeholders in
-        /// the response card. For more information, see <a>ex-resp-card</a>. </para>
+        /// <para>A response card. Amazon Lex uses this prompt at runtime, in the <c>PostText</c> API
+        /// response. It substitutes session attributes and slot values for placeholders in the
+        /// response card. For more information, see <a>ex-resp-card</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -319,8 +318,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <summary>
         /// <para>
         /// <para>A list of tags to add to the bot. You can only add tags when you create a bot, you
-        /// can't use the <code>PutBot</code> operation to update the tags on a bot. To update
-        /// tags, use the <code>TagResource</code> operation.</para>
+        /// can't use the <c>PutBot</c> operation to update the tags on a bot. To update tags,
+        /// use the <c>TagResource</c> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

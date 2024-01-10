@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <code>DBInstance</code>.</para></li></ul>
+        /// <para>The instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <c>DBInstance</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,8 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter ForceFailover
         /// <summary>
         /// <para>
-        /// <para> When <code>true</code>, the reboot is conducted through a Multi-AZ failover. </para><para>Constraint: You can't specify <code>true</code> if the instance is not configured
-        /// for Multi-AZ.</para>
+        /// <para> When <c>true</c>, the reboot is conducted through a Multi-AZ failover. </para><para>Constraint: You can't specify <c>true</c> if the instance is not configured for Multi-AZ.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

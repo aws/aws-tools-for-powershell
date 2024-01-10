@@ -29,18 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
     /// Deletes the specified message from the specified queue. To select the message to delete,
-    /// use the <code>ReceiptHandle</code> of the message (<i>not</i> the <code>MessageId</code>
-    /// which you receive when you send the message). Amazon SQS can delete a message from
-    /// a queue even if a visibility timeout setting causes the message to be locked by another
-    /// consumer. Amazon SQS automatically deletes messages left in a queue longer than the
-    /// retention period configured for the queue. 
+    /// use the <c>ReceiptHandle</c> of the message (<i>not</i> the <c>MessageId</c> which
+    /// you receive when you send the message). Amazon SQS can delete a message from a queue
+    /// even if a visibility timeout setting causes the message to be locked by another consumer.
+    /// Amazon SQS automatically deletes messages left in a queue longer than the retention
+    /// period configured for the queue. 
     /// 
     ///  <note><para>
-    /// The <code>ReceiptHandle</code> is associated with a <i>specific instance</i> of receiving
-    /// a message. If you receive a message more than once, the <code>ReceiptHandle</code>
-    /// is different each time you receive a message. When you use the <code>DeleteMessage</code>
-    /// action, you must provide the most recently received <code>ReceiptHandle</code> for
-    /// the message (otherwise, the request succeeds, but the message will not be deleted).
+    /// The <c>ReceiptHandle</c> is associated with a <i>specific instance</i> of receiving
+    /// a message. If you receive a message more than once, the <c>ReceiptHandle</c> is different
+    /// each time you receive a message. When you use the <c>DeleteMessage</c> action, you
+    /// must provide the most recently received <c>ReceiptHandle</c> for the message (otherwise,
+    /// the request succeeds, but the message will not be deleted).
     /// </para><para>
     /// For standard queues, it is possible to receive a message even after you delete it.
     /// This might happen on rare occasions if one of the servers which stores a copy of the

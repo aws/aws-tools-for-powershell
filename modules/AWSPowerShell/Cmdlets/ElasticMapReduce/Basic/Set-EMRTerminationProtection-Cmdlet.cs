@@ -31,18 +31,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// SetTerminationProtection locks a cluster (job flow) so the Amazon EC2 instances in
     /// the cluster cannot be terminated by user intervention, an API call, or in the event
     /// of a job-flow error. The cluster still terminates upon successful completion of the
-    /// job flow. Calling <code>SetTerminationProtection</code> on a cluster is similar to
-    /// calling the Amazon EC2 <code>DisableAPITermination</code> API on all Amazon EC2 instances
-    /// in a cluster.
+    /// job flow. Calling <c>SetTerminationProtection</c> on a cluster is similar to calling
+    /// the Amazon EC2 <c>DisableAPITermination</c> API on all Amazon EC2 instances in a cluster.
     /// 
     ///  
-    /// <para><code>SetTerminationProtection</code> is used to prevent accidental termination of
-    /// a cluster and to ensure that in the event of an error, the instances persist so that
-    /// you can recover any data stored in their ephemeral instance storage.
+    /// <para><c>SetTerminationProtection</c> is used to prevent accidental termination of a cluster
+    /// and to ensure that in the event of an error, the instances persist so that you can
+    /// recover any data stored in their ephemeral instance storage.
     /// </para><para>
-    ///  To terminate a cluster that has been locked by setting <code>SetTerminationProtection</code>
-    /// to <code>true</code>, you must first unlock the job flow by a subsequent call to <code>SetTerminationProtection</code>
-    /// in which you set the value to <code>false</code>. 
+    ///  To terminate a cluster that has been locked by setting <c>SetTerminationProtection</c>
+    /// to <c>true</c>, you must first unlock the job flow by a subsequent call to <c>SetTerminationProtection</c>
+    /// in which you set the value to <c>false</c>. 
     /// </para><para>
     ///  For more information, see<a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html">Managing
     /// Cluster Termination</a> in the <i>Amazon EMR Management Guide</i>. 

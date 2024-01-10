@@ -38,14 +38,14 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     /// You cannot use an IAM policy to control domain access for this action. The name of
     /// the domain being registered is available as the resource of this action.
     /// </para></li><li><para>
-    /// Use an <code>Action</code> element to allow or deny permission to call this action.
+    /// Use an <c>Action</c> element to allow or deny permission to call this action.
     /// </para></li><li><para>
     /// You cannot use an IAM policy to constrain this action's parameters.
     /// </para></li></ul><para>
     /// If the caller doesn't have sufficient permissions to invoke the action, or the parameter
     /// values fall outside the specified constraints, the action fails. The associated event
-    /// attribute's <code>cause</code> parameter is set to <code>OPERATION_NOT_PERMITTED</code>.
-    /// For details and example IAM policies, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
+    /// attribute's <c>cause</c> parameter is set to <c>OPERATION_NOT_PERMITTED</c>. For details
+    /// and example IAM policies, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
     /// IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer Guide</i>.
     /// </para>
     /// </summary>
@@ -76,9 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         /// <para>
         /// <para>Name of the domain to register. The name must be unique in the region that the domain
         /// is registered in.</para><para>The specified string must not start or end with whitespace. It must not contain a
-        /// <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or
-        /// any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>).
-        /// Also, it must <i>not</i> be the literal string <code>arn</code>.</para>
+        /// <c>:</c> (colon), <c>/</c> (slash), <c>|</c> (vertical bar), or any control characters
+        /// (<c>\u0000-\u001f</c> | <c>\u007f-\u009f</c>). Also, it must <i>not</i> be the literal
+        /// string <c>arn</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to be added when registering a domain.</para><para>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_
-        /// . : / = + - @</code>.</para>
+        /// <para>Tags to be added when registering a domain.</para><para>Tags may only contain unicode letters, digits, whitespace, or these symbols: <c>_
+        /// . : / = + - @</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,9 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         /// <para>
         /// <para>The duration (in days) that records and histories of workflow executions on the domain
         /// should be kept by the service. After the retention period, the workflow execution
-        /// isn't available in the results of visibility calls.</para><para>If you pass the value <code>NONE</code> or <code>0</code> (zero), then the workflow
-        /// execution history isn't retained. As soon as the workflow execution completes, the
-        /// execution record and its history are deleted.</para><para>The maximum workflow execution retention period is 90 days. For more information about
+        /// isn't available in the results of visibility calls.</para><para>If you pass the value <c>NONE</c> or <c>0</c> (zero), then the workflow execution
+        /// history isn't retained. As soon as the workflow execution completes, the execution
+        /// record and its history are deleted.</para><para>The maximum workflow execution retention period is 90 days. For more information about
         /// Amazon SWF service limits, see: <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-limits.html">Amazon
         /// SWF Service Limits</a> in the <i>Amazon SWF Developer Guide</i>.</para>
         /// </para>

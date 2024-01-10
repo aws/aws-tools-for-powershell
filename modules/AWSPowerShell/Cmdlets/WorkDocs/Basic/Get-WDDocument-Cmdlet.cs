@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter IncludeCustomMetadata
         /// <summary>
         /// <para>
-        /// <para>Set this to <code>TRUE</code> to include custom metadata in the response.</para>
+        /// <para>Set this to <c>TRUE</c> to include custom metadata in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

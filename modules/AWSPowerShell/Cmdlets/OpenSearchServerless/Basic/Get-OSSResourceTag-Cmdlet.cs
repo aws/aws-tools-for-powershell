@@ -48,8 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource. The resource must be active (not in
-        /// the <code>DELETING</code> state), and must be owned by the account ID included in
-        /// the request.</para>
+        /// the <c>DELETING</c> state), and must be owned by the account ID included in the request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

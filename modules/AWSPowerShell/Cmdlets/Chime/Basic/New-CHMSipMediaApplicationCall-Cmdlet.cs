@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Creates an outbound call to a phone number from the phone number specified in the
-    /// request, and it invokes the endpoint of the specified <code>sipMediaApplicationId</code>.
+    /// request, and it invokes the endpoint of the specified <c>sipMediaApplicationId</c>.
     /// 
     ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
     /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateSipMediaApplicationCall.html">CreateSipMediaApplicationCall</a>,

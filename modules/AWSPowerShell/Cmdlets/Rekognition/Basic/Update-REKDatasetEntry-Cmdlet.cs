@@ -37,26 +37,25 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// labels in manifest files and Object localization in manifest files in the <i>Amazon
     /// Rekognition Custom Labels Developer Guide</i>. 
     /// </para><para>
-    /// If the <code>source-ref</code> field in the JSON line references an existing image,
-    /// the existing image in the dataset is updated. If <code>source-ref</code> field doesn't
-    /// reference an existing image, the image is added as a new image to the dataset. 
+    /// If the <c>source-ref</c> field in the JSON line references an existing image, the
+    /// existing image in the dataset is updated. If <c>source-ref</c> field doesn't reference
+    /// an existing image, the image is added as a new image to the dataset. 
     /// </para><para>
-    /// You specify the changes that you want to make in the <code>Changes</code> input parameter.
+    /// You specify the changes that you want to make in the <c>Changes</c> input parameter.
     /// There isn't a limit to the number JSON Lines that you can change, but the size of
-    /// <code>Changes</code> must be less than 5MB.
-    /// </para><para><code>UpdateDatasetEntries</code> returns immediatly, but the dataset update might
-    /// take a while to complete. Use <a>DescribeDataset</a> to check the current status.
-    /// The dataset updated successfully if the value of <code>Status</code> is <code>UPDATE_COMPLETE</code>.
-    /// 
+    /// <c>Changes</c> must be less than 5MB.
+    /// </para><para><c>UpdateDatasetEntries</c> returns immediatly, but the dataset update might take
+    /// a while to complete. Use <a>DescribeDataset</a> to check the current status. The dataset
+    /// updated successfully if the value of <c>Status</c> is <c>UPDATE_COMPLETE</c>. 
     /// </para><para>
     /// To check if any non-terminal errors occured, call <a>ListDatasetEntries</a> and check
-    /// for the presence of <code>errors</code> lists in the JSON Lines.
+    /// for the presence of <c>errors</c> lists in the JSON Lines.
     /// </para><para>
-    /// Dataset update fails if a terminal error occurs (<code>Status</code> = <code>UPDATE_FAILED</code>).
+    /// Dataset update fails if a terminal error occurs (<c>Status</c> = <c>UPDATE_FAILED</c>).
     /// Currently, you can't access the terminal error information from the Amazon Rekognition
     /// Custom Labels SDK. 
     /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:UpdateDatasetEntries</code>
+    /// This operation requires permissions to perform the <c>rekognition:UpdateDatasetEntries</c>
     /// action.
     /// </para>
     /// </summary>
@@ -94,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>
         /// <para>A Base64-encoded binary data object containing one or JSON lines that either update
         /// the dataset or are additions to the dataset. You change a dataset by calling <a>UpdateDatasetEntries</a>.
-        /// If you are using an AWS SDK to call <code>UpdateDatasetEntries</code>, you don't need
-        /// to encode <code>Changes</code> as the SDK encodes the data for you. </para><para>For example JSON lines, see Image-Level labels in manifest files and and Object localization
+        /// If you are using an AWS SDK to call <c>UpdateDatasetEntries</c>, you don't need to
+        /// encode <c>Changes</c> as the SDK encodes the data for you. </para><para>For example JSON lines, see Image-Level labels in manifest files and and Object localization
         /// in manifest files in the <i>Amazon Rekognition Custom Labels Developer Guide</i>.
         /// </para>
         /// </para>

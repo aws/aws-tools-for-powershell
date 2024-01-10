@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <summary>
     /// Searches users in an Amazon Connect instance, with optional filtering. 
     /// 
-    ///  <note><para><code>AfterContactWorkTimeLimit</code> is returned in milliseconds. 
+    ///  <note><para><c>AfterContactWorkTimeLimit</c> is returned in milliseconds. 
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "CONNUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_AndCondition
         /// <summary>
         /// <para>
-        /// <para>A list of conditions which would be applied together with an <code>AND</code> condition.
+        /// <para>A list of conditions which would be applied together with an <c>AND</c> condition.
         /// </para>
         /// </para>
         /// </summary>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TagFilter_AndCondition
         /// <summary>
         /// <para>
-        /// <para>A list of conditions which would be applied together with an <code>AND</code> condition.</para>
+        /// <para>A list of conditions which would be applied together with an <c>AND</c> condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_OrCondition
         /// <summary>
         /// <para>
-        /// <para>A list of conditions which would be applied together with an <code>OR</code> condition.</para>
+        /// <para>A list of conditions which would be applied together with an <c>OR</c> condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TagFilter_OrCondition
         /// <summary>
         /// <para>
-        /// <para>A list of conditions which would be applied together with an <code>OR</code> condition.
+        /// <para>A list of conditions which would be applied together with an <c>OR</c> condition.
         /// </para>
         /// </para>
         /// </summary>

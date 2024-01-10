@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// <summary>
     /// Specifies the Key Value Store resource to add to your account. In your account, the
     /// Key Value Store names must be unique. You can also import Key Value Store data in
-    /// JSON format from an S3 bucket by providing a valid <code>ImportSource</code> that
-    /// you own.
+    /// JSON format from an S3 bucket by providing a valid <c>ImportSource</c> that you own.
     /// </summary>
     [Cmdlet("New", "CFKeyValueStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudFront.Model.CreateKeyValueStoreResponse")]

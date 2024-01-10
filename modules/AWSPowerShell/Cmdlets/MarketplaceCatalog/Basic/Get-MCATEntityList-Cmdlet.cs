@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_AfterValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>AvailabilityEndDate</code> of an offer after a date.</para>
+        /// <para>Allows filtering on the <c>AvailabilityEndDate</c> of an offer after a date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_OfferFilters_LastModifiedDate_DateRange_AfterValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>LastModifiedDate</code> of an offer after a date.</para>
+        /// <para>Allows filtering on the <c>LastModifiedDate</c> of an offer after a date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_OfferFilters_ReleaseDate_DateRange_AfterValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>ReleaseDate</code> of offers after a date.</para>
+        /// <para>Allows filtering on the <c>ReleaseDate</c> of offers after a date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,8 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ResaleAuthorizationFilters_AvailabilityEndDate_DateRange_AfterValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization after
-        /// a date.</para>
+        /// <para>Allows filtering on <c>AvailabilityEndDate</c> of a ResaleAuthorization after a date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ResaleAuthorizationFilters_CreatedDate_DateRange_AfterValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization after a date.</para>
+        /// <para>Allows filtering on <c>CreatedDate</c> of a ResaleAuthorization after a date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,8 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ResaleAuthorizationFilters_LastModifiedDate_DateRange_AfterValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization after
-        /// a date.</para>
+        /// <para>Allows filtering on the <c>LastModifiedDate</c> of a ResaleAuthorization after a date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_BeforeValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>AvailabilityEndDate</code> of an offer before a date.</para>
+        /// <para>Allows filtering on the <c>AvailabilityEndDate</c> of an offer before a date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_OfferFilters_LastModifiedDate_DateRange_BeforeValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>LastModifiedDate</code> of an offer before a date.</para>
+        /// <para>Allows filtering on the <c>LastModifiedDate</c> of an offer before a date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_OfferFilters_ReleaseDate_DateRange_BeforeValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>ReleaseDate</code> of offers before a date.</para>
+        /// <para>Allows filtering on the <c>ReleaseDate</c> of offers before a date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,8 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ResaleAuthorizationFilters_AvailabilityEndDate_DateRange_BeforeValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization before
-        /// a date.</para>
+        /// <para>Allows filtering on <c>AvailabilityEndDate</c> of a ResaleAuthorization before a date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -218,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ResaleAuthorizationFilters_CreatedDate_DateRange_BeforeValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization before a date.</para>
+        /// <para>Allows filtering on <c>CreatedDate</c> of a ResaleAuthorization before a date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -228,8 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ResaleAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization before
-        /// a date.</para>
+        /// <para>Allows filtering on the <c>LastModifiedDate</c> of a ResaleAuthorization before a
+        /// date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -249,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para>The catalog related to the request. Fixed value: <code>AWSMarketplace</code></para>
+        /// <para>The catalog related to the request. Fixed value: <c>AWSMarketplace</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -266,10 +263,9 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityType
         /// <summary>
         /// <para>
-        /// <para>The type of entities to retrieve. Valid values are: <code>AmiProduct</code>, <code>ContainerProduct</code>,
-        /// <code>DataProduct</code>, <code>SaaSProduct</code>, <code>ProcurementPolicy</code>,
-        /// <code>Experience</code>, <code>Audience</code>, <code>BrandingSettings</code>, <code>Offer</code>,
-        /// <code>Seller</code>, <code>ResaleAuthorization</code>.</para>
+        /// <para>The type of entities to retrieve. Valid values are: <c>AmiProduct</c>, <c>ContainerProduct</c>,
+        /// <c>DataProduct</c>, <c>SaaSProduct</c>, <c>ProcurementPolicy</c>, <c>Experience</c>,
+        /// <c>Audience</c>, <c>BrandingSettings</c>, <c>Offer</c>, <c>Seller</c>, <c>ResaleAuthorization</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -286,8 +282,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter FilterList
         /// <summary>
         /// <para>
-        /// <para>An array of filter objects. Each filter object contains two attributes, <code>filterName</code>
-        /// and <code>filterValues</code>.</para>
+        /// <para>An array of filter objects. Each filter object contains two attributes, <c>filterName</c>
+        /// and <c>filterValues</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -297,10 +293,10 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter OwnershipType
         /// <summary>
         /// <para>
-        /// <para>Filters the returned set of entities based on their owner. The default is <code>SELF</code>.
+        /// <para>Filters the returned set of entities based on their owner. The default is <c>SELF</c>.
         /// To list entities shared with you through AWS Resource Access Manager (AWS RAM), set
-        /// to <code>SHARED</code>. Entities shared through the AWS Marketplace Catalog API <code>PutResourcePolicy</code>
-        /// operation can't be discovered through the <code>SHARED</code> parameter.</para>
+        /// to <c>SHARED</c>. Entities shared through the AWS Marketplace Catalog API <c>PutResourcePolicy</c>
+        /// operation can't be discovered through the <c>SHARED</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -383,10 +379,9 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter Sort_SortBy
         /// <summary>
         /// <para>
-        /// <para>For <code>ListEntities</code>, supported attributes include <code>LastModifiedDate</code>
-        /// (default) and <code>EntityId</code>. In addition to <code>LastModifiedDate</code>
-        /// and <code>EntityId</code>, each <code>EntityType</code> might support additional fields.</para><para>For <code>ListChangeSets</code>, supported attributes include <code>StartTime</code>
-        /// and <code>EndTime</code>.</para>
+        /// <para>For <c>ListEntities</c>, supported attributes include <c>LastModifiedDate</c> (default)
+        /// and <c>EntityId</c>. In addition to <c>LastModifiedDate</c> and <c>EntityId</c>, each
+        /// <c>EntityType</c> might support additional fields.</para><para>For <c>ListChangeSets</c>, supported attributes include <c>StartTime</c> and <c>EndTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -396,8 +391,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter AmiProductSort_SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default
-        /// value is <code>DESCENDING</code>.</para>
+        /// <para>The sorting order. Can be <c>ASCENDING</c> or <c>DESCENDING</c>. The default value
+        /// is <c>DESCENDING</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -409,8 +404,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ContainerProductSort_SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default
-        /// value is <code>DESCENDING</code>.</para>
+        /// <para>The sorting order. Can be <c>ASCENDING</c> or <c>DESCENDING</c>. The default value
+        /// is <c>DESCENDING</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -422,8 +417,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter DataProductSort_SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default
-        /// value is <code>DESCENDING</code>.</para>
+        /// <para>The sorting order. Can be <c>ASCENDING</c> or <c>DESCENDING</c>. The default value
+        /// is <c>DESCENDING</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -459,8 +454,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter SaaSProductSort_SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default
-        /// value is <code>DESCENDING</code>.</para>
+        /// <para>The sorting order. Can be <c>ASCENDING</c> or <c>DESCENDING</c>. The default value
+        /// is <c>DESCENDING</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -472,8 +467,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter Sort_SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default
-        /// value is <code>DESCENDING</code>.</para>
+        /// <para>The sorting order. Can be <c>ASCENDING</c> or <c>DESCENDING</c>. The default value
+        /// is <c>DESCENDING</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -584,7 +579,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_OfferFilters_Name_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>Name</code> of an offer with list input.</para>
+        /// <para>Allows filtering on the <c>Name</c> of an offer with list input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -594,7 +589,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_OfferFilters_ProductId_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>ProductId</code> of an offer with list input.</para>
+        /// <para>Allows filtering on the <c>ProductId</c> of an offer with list input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -604,7 +599,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter State_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>State</code> of an offer with list input.</para>
+        /// <para>Allows filtering on the <c>State</c> of an offer with list input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -615,7 +610,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter Targeting_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>Targeting</code> of an offer with list input.</para>
+        /// <para>Allows filtering on the <c>Targeting</c> of an offer with list input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -626,8 +621,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ResaleAuthorizationFilters_AvailabilityEndDate_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization with
-        /// date value as input.</para>
+        /// <para>Allows filtering on <c>AvailabilityEndDate</c> of a ResaleAuthorization with date
+        /// value as input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -637,8 +632,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter CreatedDate_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization with date value
-        /// as input.</para>
+        /// <para>Allows filtering on <c>CreatedDate</c> of a ResaleAuthorization with date value as
+        /// input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -649,7 +644,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ResaleAuthorizationFilters_EntityId_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on <code>EntityId</code> of a ResaleAuthorization with list input.</para>
+        /// <para>Allows filtering on <c>EntityId</c> of a ResaleAuthorization with list input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -659,8 +654,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ManufacturerAccountId_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>ManufacturerAccountId</code> of a ResaleAuthorization
-        /// with list input.</para>
+        /// <para>Allows filtering on the <c>ManufacturerAccountId</c> of a ResaleAuthorization with
+        /// list input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -671,8 +666,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ManufacturerLegalName_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>ManufacturerLegalName</code> of a ResaleAuthorization
-        /// with list input.</para>
+        /// <para>Allows filtering on the <c>ManufacturerLegalName</c> of a ResaleAuthorization with
+        /// list input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -683,7 +678,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ResaleAuthorizationFilters_Name_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>Name</code> of a ResaleAuthorization with list input.</para>
+        /// <para>Allows filtering on the <c>Name</c> of a ResaleAuthorization with list input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -693,8 +688,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter OfferExtendedStatus_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>OfferExtendedStatus</code> of a ResaleAuthorization
-        /// with list input.</para>
+        /// <para>Allows filtering on the <c>OfferExtendedStatus</c> of a ResaleAuthorization with list
+        /// input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -705,8 +700,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ResaleAuthorizationFilters_ProductId_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>ProductId</code> of a ResaleAuthorization with list
-        /// input.</para>
+        /// <para>Allows filtering on the <c>ProductId</c> of a ResaleAuthorization with list input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -716,8 +710,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ProductName_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>ProductName</code> of a ResaleAuthorization with list
-        /// input.</para>
+        /// <para>Allows filtering on the <c>ProductName</c> of a ResaleAuthorization with list input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -728,8 +721,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ResellerAccountID_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>ResellerAccountID</code> of a ResaleAuthorization with
-        /// list input.</para>
+        /// <para>Allows filtering on the <c>ResellerAccountID</c> of a ResaleAuthorization with list
+        /// input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -752,7 +745,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter Status_ValueList
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>Status</code> of a ResaleAuthorization with list input.</para>
+        /// <para>Allows filtering on the <c>Status</c> of a ResaleAuthorization with list input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -793,8 +786,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_AmiProductFilters_ProductTitle_WildCardValue
         /// <summary>
         /// <para>
-        /// <para>A string that will be the <code>wildCard</code> input for product tile filter. It
-        /// matches the provided value as a substring in the actual value.</para>
+        /// <para>A string that will be the <c>wildCard</c> input for product tile filter. It matches
+        /// the provided value as a substring in the actual value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -804,8 +797,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ContainerProductFilters_ProductTitle_WildCardValue
         /// <summary>
         /// <para>
-        /// <para>A string that will be the <code>wildCard</code> input for product tile filter. It
-        /// matches the provided value as a substring in the actual value.</para>
+        /// <para>A string that will be the <c>wildCard</c> input for product tile filter. It matches
+        /// the provided value as a substring in the actual value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -815,8 +808,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_DataProductFilters_ProductTitle_WildCardValue
         /// <summary>
         /// <para>
-        /// <para>A string that will be the <code>wildCard</code> input for product tile filter. It
-        /// matches the provided value as a substring in the actual value.</para>
+        /// <para>A string that will be the <c>wildCard</c> input for product tile filter. It matches
+        /// the provided value as a substring in the actual value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -826,7 +819,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter BuyerAccounts_WildCardValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>BuyerAccounts</code> of an offer with wild card input.</para>
+        /// <para>Allows filtering on the <c>BuyerAccounts</c> of an offer with wild card input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -837,7 +830,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_OfferFilters_Name_WildCardValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>Name</code> of an offer with wild card input.</para>
+        /// <para>Allows filtering on the <c>Name</c> of an offer with wild card input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -847,8 +840,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ManufacturerAccountId_WildCardValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>ManufacturerAccountId</code> of a ResaleAuthorization
-        /// with wild card input.</para>
+        /// <para>Allows filtering on the <c>ManufacturerAccountId</c> of a ResaleAuthorization with
+        /// wild card input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -859,8 +852,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ManufacturerLegalName_WildCardValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>ManufacturerLegalName</code> of a ResaleAuthorization
-        /// with wild card input.</para>
+        /// <para>Allows filtering on the <c>ManufacturerLegalName</c> of a ResaleAuthorization with
+        /// wild card input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -871,8 +864,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_ResaleAuthorizationFilters_Name_WildCardValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>Name</code> of a ResaleAuthorization with wild card
-        /// input.</para>
+        /// <para>Allows filtering on the <c>Name</c> of a ResaleAuthorization with wild card input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -882,8 +874,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ProductId_WildCardValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>ProductId</code> of a ResaleAuthorization with wild
-        /// card input.</para>
+        /// <para>Allows filtering on the <c>ProductId</c> of a ResaleAuthorization with wild card input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -894,8 +885,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ProductName_WildCardValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>ProductName</code> of a ResaleAuthorization with wild
-        /// card input.</para>
+        /// <para>Allows filtering on the <c>ProductName</c> of a ResaleAuthorization with wild card
+        /// input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -906,8 +897,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ResellerAccountID_WildCardValue
         /// <summary>
         /// <para>
-        /// <para>Allows filtering on the <code>ResellerAccountID</code> of a ResaleAuthorization with
-        /// wild card input.</para>
+        /// <para>Allows filtering on the <c>ResellerAccountID</c> of a ResaleAuthorization with wild
+        /// card input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -930,8 +921,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityTypeFilters_SaaSProductFilters_ProductTitle_WildCardValue
         /// <summary>
         /// <para>
-        /// <para>A string that will be the <code>wildCard</code> input for product tile filter. It
-        /// matches the provided value as a substring in the actual value.</para>
+        /// <para>A string that will be the <c>wildCard</c> input for product tile filter. It matches
+        /// the provided value as a substring in the actual value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

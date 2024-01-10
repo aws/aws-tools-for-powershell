@@ -29,28 +29,27 @@ namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
     /// Returns the description of specific Amazon FSx for Lustre or Amazon File Cache data
-    /// repository associations, if one or more <code>AssociationIds</code> values are provided
+    /// repository associations, if one or more <c>AssociationIds</c> values are provided
     /// in the request, or if filters are used in the request. Data repository associations
     /// are supported on Amazon File Cache resources and all FSx for Lustre 2.12 and 2,15
-    /// file systems, excluding <code>scratch_1</code> deployment type.
+    /// file systems, excluding <c>scratch_1</c> deployment type.
     /// 
     ///  
     /// <para>
     /// You can use filters to narrow the response to include just data repository associations
-    /// for specific file systems (use the <code>file-system-id</code> filter with the ID
-    /// of the file system) or caches (use the <code>file-cache-id</code> filter with the
-    /// ID of the cache), or data repository associations for a specific repository type (use
-    /// the <code>data-repository-type</code> filter with a value of <code>S3</code> or <code>NFS</code>).
-    /// If you don't use filters, the response returns all data repository associations owned
-    /// by your Amazon Web Services account in the Amazon Web Services Region of the endpoint
-    /// that you're calling.
+    /// for specific file systems (use the <c>file-system-id</c> filter with the ID of the
+    /// file system) or caches (use the <c>file-cache-id</c> filter with the ID of the cache),
+    /// or data repository associations for a specific repository type (use the <c>data-repository-type</c>
+    /// filter with a value of <c>S3</c> or <c>NFS</c>). If you don't use filters, the response
+    /// returns all data repository associations owned by your Amazon Web Services account
+    /// in the Amazon Web Services Region of the endpoint that you're calling.
     /// </para><para>
     /// When retrieving all data repository associations, you can paginate the response by
-    /// using the optional <code>MaxResults</code> parameter to limit the number of data repository
+    /// using the optional <c>MaxResults</c> parameter to limit the number of data repository
     /// associations returned in a response. If more data repository associations remain,
-    /// a <code>NextToken</code> value is returned in the response. In this case, send a later
-    /// request with the <code>NextToken</code> request parameter set to the value of <code>NextToken</code>
-    /// from the last response.
+    /// a <c>NextToken</c> value is returned in the response. In this case, send a later request
+    /// with the <c>NextToken</c> request parameter set to the value of <c>NextToken</c> from
+    /// the last response.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "FSXDataRepositoryAssociation")]

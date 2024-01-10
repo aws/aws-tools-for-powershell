@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// Updates details about a contact evaluation in the specified Amazon Connect instance.
     /// A contact evaluation must be in draft state. Answers included in the request are merged
     /// with existing answers for the given evaluation. An answer or note can be deleted by
-    /// passing an empty object (<code>{}</code>) to the question identifier.
+    /// passing an empty object (<c>{}</c>) to the question identifier.
     /// </summary>
     [Cmdlet("Update", "CONNContactEvaluation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.UpdateContactEvaluationResponse")]

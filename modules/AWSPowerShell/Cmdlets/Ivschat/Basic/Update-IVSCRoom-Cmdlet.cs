@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
         /// the timeout period, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/service-quotas.html">
         /// Service Quotas</a>.) If allowed, the message is delivered with returned content to
         /// all users connected to the room. If denied, the message is not delivered to any user.
-        /// Default: <code>ALLOW</code>.</para>
+        /// Default: <c>ALLOW</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

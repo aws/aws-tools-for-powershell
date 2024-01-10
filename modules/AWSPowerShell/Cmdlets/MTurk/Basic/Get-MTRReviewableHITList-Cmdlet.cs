@@ -28,9 +28,8 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>ListReviewableHITs</code> operation retrieves the HITs with Status equal
-    /// to Reviewable or Status equal to Reviewing that belong to the Requester calling the
-    /// operation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// The <c>ListReviewableHITs</c> operation retrieves the HITs with Status equal to Reviewable
+    /// or Status equal to Reviewing that belong to the Requester calling the operation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MTRReviewableHITList")]
     [OutputType("Amazon.MTurk.Model.HIT")]
@@ -58,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para> Can be either <code>Reviewable</code> or <code>Reviewing</code>. Reviewable is the
-        /// default value. </para>
+        /// <para> Can be either <c>Reviewable</c> or <c>Reviewing</c>. Reviewable is the default value.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

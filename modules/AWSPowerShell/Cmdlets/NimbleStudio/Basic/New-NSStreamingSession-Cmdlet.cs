@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
     ///  
     /// <para>
     /// After invoking this operation, you must poll GetStreamingSession until the streaming
-    /// session is in the <code>READY</code> state.
+    /// session is in the <c>READY</c> state.
     /// </para>
     /// </summary>
     [Cmdlet("New", "NSStreamingSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

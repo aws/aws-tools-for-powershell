@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>An optional specification to return a subset of Resolver endpoints, such as all inbound
-        /// Resolver endpoints.</para><note><para>If you submit a second or subsequent <code>ListResolverEndpoints</code> request and
-        /// specify the <code>NextToken</code> parameter, you must use the same values for <code>Filters</code>,
-        /// if any, as in the previous request.</para></note>
+        /// Resolver endpoints.</para><note><para>If you submit a second or subsequent <c>ListResolverEndpoints</c> request and specify
+        /// the <c>NextToken</c> parameter, you must use the same values for <c>Filters</c>, if
+        /// any, as in the previous request.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The maximum number of Resolver endpoints that you want to return in the response to
-        /// a <code>ListResolverEndpoints</code> request. If you don't specify a value for <code>MaxResults</code>,
+        /// a <c>ListResolverEndpoints</c> request. If you don't specify a value for <c>MaxResults</c>,
         /// Resolver returns up to 100 Resolver endpoints. </para>
         /// </para>
         /// <para>
@@ -79,10 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>For the first <code>ListResolverEndpoints</code> request, omit this value.</para><para>If you have more than <code>MaxResults</code> Resolver endpoints, you can submit another
-        /// <code>ListResolverEndpoints</code> request to get the next group of Resolver endpoints.
-        /// In the next request, specify the value of <code>NextToken</code> from the previous
-        /// response. </para>
+        /// <para>For the first <c>ListResolverEndpoints</c> request, omit this value.</para><para>If you have more than <c>MaxResults</c> Resolver endpoints, you can submit another
+        /// <c>ListResolverEndpoints</c> request to get the next group of Resolver endpoints.
+        /// In the next request, specify the value of <c>NextToken</c> from the previous response.
+        /// </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

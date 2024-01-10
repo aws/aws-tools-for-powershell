@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter KeyRole
         /// <summary>
         /// <para>
-        /// <para>Specifies the permission level of the key.</para><para> Valid values: <code>VIEWER</code>|<code>EDITOR</code>|<code>ADMIN</code></para>
+        /// <para>Specifies the permission level of the key.</para><para> Valid values: <c>VIEWER</c>|<c>EDITOR</c>|<c>ADMIN</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To get the runtime configuration that is currently in forces for a fleet, provide
     /// the fleet ID. 
     /// </para><para>
-    /// If successful, a <code>RuntimeConfiguration</code> object is returned for the requested
+    /// If successful, a <c>RuntimeConfiguration</c> object is returned for the requested
     /// fleet. If the requested fleet has been deleted, the result set is empty.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up Amazon GameLift fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html">Running

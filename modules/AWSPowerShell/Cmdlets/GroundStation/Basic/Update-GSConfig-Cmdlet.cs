@@ -28,12 +28,12 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Updates the <code>Config</code> used when scheduling contacts.
+    /// Updates the <c>Config</c> used when scheduling contacts.
     /// 
     ///  
     /// <para>
-    /// Updating a <code>Config</code> will not update the execution parameters for existing
-    /// future contacts scheduled with this <code>Config</code>.
+    /// Updating a <c>Config</c> will not update the execution parameters for existing future
+    /// contacts scheduled with this <c>Config</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "GSConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter ConfigId
         /// <summary>
         /// <para>
-        /// <para>UUID of a <code>Config</code>.</para>
+        /// <para>UUID of a <c>Config</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter ConfigType
         /// <summary>
         /// <para>
-        /// <para>Type of a <code>Config</code>.</para>
+        /// <para>Type of a <c>Config</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter ConfigData_DataflowEndpointConfig
         /// <summary>
         /// <para>
-        /// <para>Information about the dataflow endpoint <code>Config</code>.</para>
+        /// <para>Information about the dataflow endpoint <c>Config</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Name of a <code>Config</code>.</para>
+        /// <para>Name of a <c>Config</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         /// <summary>
         /// <para>
         /// <para>Object that determines whether tracking should be used during a contact executed with
-        /// this <code>Config</code> in the mission profile. </para>
+        /// this <c>Config</c> in the mission profile. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,9 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter ConfigData_UplinkEchoConfig
         /// <summary>
         /// <para>
-        /// <para>Information about an uplink echo <code>Config</code>.</para><para>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the specified
-        /// <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code>
-        /// is used in a contact.</para>
+        /// <para>Information about an uplink echo <c>Config</c>.</para><para>Parameters from the <c>AntennaUplinkConfig</c>, corresponding to the specified <c>AntennaUplinkConfigArn</c>,
+        /// are used when this <c>UplinkEchoConfig</c> is used in a contact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

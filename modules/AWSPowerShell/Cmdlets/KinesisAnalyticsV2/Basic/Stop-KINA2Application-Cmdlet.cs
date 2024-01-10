@@ -29,15 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
     /// Stops the application from processing data. You can stop an application only if it
-    /// is in the running status, unless you set the <code>Force</code> parameter to <code>true</code>.
+    /// is in the running status, unless you set the <c>Force</c> parameter to <c>true</c>.
     /// 
     ///  
     /// <para>
     /// You can use the <a>DescribeApplication</a> operation to find the application status.
     /// 
     /// </para><para>
-    /// Kinesis Data Analytics takes a snapshot when the application is stopped, unless <code>Force</code>
-    /// is set to <code>true</code>.
+    /// Kinesis Data Analytics takes a snapshot when the application is stopped, unless <c>Force</c>
+    /// is set to <c>true</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "KINA2Application", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -72,13 +72,12 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         #region Parameter ForceStop
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to force the application to stop. If you set <code>Force</code>
-        /// to <code>true</code>, Kinesis Data Analytics stops the application without taking
-        /// a snapshot. </para><note><para>Force-stopping your application may lead to data loss or duplication. To prevent data
+        /// <para>Set to <c>true</c> to force the application to stop. If you set <c>Force</c> to <c>true</c>,
+        /// Kinesis Data Analytics stops the application without taking a snapshot. </para><note><para>Force-stopping your application may lead to data loss or duplication. To prevent data
         /// loss or duplicate processing of data during application restarts, we recommend you
         /// to take frequent snapshots of your application.</para></note><para>You can only force stop a Flink-based Kinesis Data Analytics application. You can't
-        /// force stop a SQL-based Kinesis Data Analytics application.</para><para>The application must be in the <code>STARTING</code>, <code>UPDATING</code>, <code>STOPPING</code>,
-        /// <code>AUTOSCALING</code>, or <code>RUNNING</code> status. </para>
+        /// force stop a SQL-based Kinesis Data Analytics application.</para><para>The application must be in the <c>STARTING</c>, <c>UPDATING</c>, <c>STOPPING</c>,
+        /// <c>AUTOSCALING</c>, or <c>RUNNING</c> status. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

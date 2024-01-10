@@ -28,7 +28,7 @@ using Amazon.CodeGuruProfiler.Model;
 namespace Amazon.PowerShell.Cmdlets.CGP
 {
     /// <summary>
-    /// Returns a list of profiling groups. The profiling groups are returned as <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html"><code>ProfilingGroupDescription</code></a> objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of profiling groups. The profiling groups are returned as <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html"><c>ProfilingGroupDescription</c></a> objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CGPProfilingGroupList")]
     [OutputType("Amazon.CodeGuruProfiler.Model.ListProfilingGroupsResponse")]
@@ -44,10 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter IncludeDescription
         /// <summary>
         /// <para>
-        /// <para>A <code>Boolean</code> value indicating whether to include a description. If <code>true</code>,
-        /// then a list of <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html"><code>ProfilingGroupDescription</code></a> objects that contain detailed information
-        /// about profiling groups is returned. If <code>false</code>, then a list of profiling
-        /// group names is returned.</para>
+        /// <para>A <c>Boolean</c> value indicating whether to include a description. If <c>true</c>,
+        /// then a list of <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html"><c>ProfilingGroupDescription</c></a> objects that contain detailed information about
+        /// profiling groups is returned. If <c>false</c>, then a list of profiling group names
+        /// is returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -57,12 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of profiling groups results returned by <code>ListProfilingGroups</code>
-        /// in paginated output. When this parameter is used, <code>ListProfilingGroups</code>
-        /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-        /// response element. The remaining results of the initial request can be seen by sending
-        /// another <code>ListProfilingGroups</code> request with the returned <code>nextToken</code>
-        /// value. </para>
+        /// <para>The maximum number of profiling groups results returned by <c>ListProfilingGroups</c>
+        /// in paginated output. When this parameter is used, <c>ListProfilingGroups</c> only
+        /// returns <c>maxResults</c> results in a single page along with a <c>nextToken</c> response
+        /// element. The remaining results of the initial request can be seen by sending another
+        /// <c>ListProfilingGroups</c> request with the returned <c>nextToken</c> value. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,10 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListProfilingGroups</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. </para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>ListProfilingGroups</c>
+        /// request where <c>maxResults</c> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <c>nextToken</c> value. </para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

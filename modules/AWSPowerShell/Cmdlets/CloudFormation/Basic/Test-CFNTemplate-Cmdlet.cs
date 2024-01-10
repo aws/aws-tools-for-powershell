@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
         /// length of 51,200 bytes. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the <i>CloudFormation User Guide</i>.</para><para>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>.
-        /// If both are passed, only <code>TemplateBody</code> is used.</para>
+        /// Anatomy</a> in the <i>CloudFormation User Guide</i>.</para><para>Conditional: You must pass <c>TemplateURL</c> or <c>TemplateBody</c>. If both are
+        /// passed, only <c>TemplateBody</c> is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>Location of file containing the template body. The URL must point to a template (max
         /// size: 460,800 bytes) that is located in an Amazon S3 bucket or a Systems Manager document.
         /// For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the <i>CloudFormation User Guide</i>.</para><para>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>.
-        /// If both are passed, only <code>TemplateBody</code> is used.</para>
+        /// Anatomy</a> in the <i>CloudFormation User Guide</i>.</para><para>Conditional: You must pass <c>TemplateURL</c> or <c>TemplateBody</c>. If both are
+        /// passed, only <c>TemplateBody</c> is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

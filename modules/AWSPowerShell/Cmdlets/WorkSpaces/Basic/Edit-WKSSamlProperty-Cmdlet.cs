@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter PropertiesToDelete
         /// <summary>
         /// <para>
-        /// <para>The SAML properties to delete as part of your request.</para><para>Specify one of the following options:</para><ul><li><para><code>SAML_PROPERTIES_USER_ACCESS_URL</code> to delete the user access URL.</para></li><li><para><code>SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME</code> to delete the relay state
-        /// parameter name.</para></li></ul>
+        /// <para>The SAML properties to delete as part of your request.</para><para>Specify one of the following options:</para><ul><li><para><c>SAML_PROPERTIES_USER_ACCESS_URL</c> to delete the user access URL.</para></li><li><para><c>SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME</c> to delete the relay state parameter
+        /// name.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,13 +90,13 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter SamlProperties_Status
         /// <summary>
         /// <para>
-        /// <para>Indicates the status of SAML 2.0 authentication. These statuses include the following.</para><ul><li><para>If the setting is <code>DISABLED</code>, end users will be directed to login with
-        /// their directory credentials.</para></li><li><para>If the setting is <code>ENABLED</code>, end users will be directed to login via the
-        /// user access URL. Users attempting to connect to WorkSpaces from a client application
-        /// that does not support SAML 2.0 authentication will not be able to connect.</para></li><li><para>If the setting is <code>ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK</code>, end users will
-        /// be directed to login via the user access URL on supported client applications, but
-        /// will not prevent clients that do not support SAML 2.0 authentication from connecting
-        /// as if SAML 2.0 authentication was disabled.</para></li></ul>
+        /// <para>Indicates the status of SAML 2.0 authentication. These statuses include the following.</para><ul><li><para>If the setting is <c>DISABLED</c>, end users will be directed to login with their
+        /// directory credentials.</para></li><li><para>If the setting is <c>ENABLED</c>, end users will be directed to login via the user
+        /// access URL. Users attempting to connect to WorkSpaces from a client application that
+        /// does not support SAML 2.0 authentication will not be able to connect.</para></li><li><para>If the setting is <c>ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK</c>, end users will be
+        /// directed to login via the user access URL on supported client applications, but will
+        /// not prevent clients that do not support SAML 2.0 authentication from connecting as
+        /// if SAML 2.0 authentication was disabled.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

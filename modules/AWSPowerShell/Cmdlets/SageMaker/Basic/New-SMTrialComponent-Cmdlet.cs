@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The name of the component as displayed. The name doesn't need to be unique. If <code>DisplayName</code>
-        /// isn't specified, <code>TrialComponentName</code> is displayed.</para>
+        /// <para>The name of the component as displayed. The name doesn't need to be unique. If <c>DisplayName</c>
+        /// isn't specified, <c>TrialComponentName</c> is displayed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

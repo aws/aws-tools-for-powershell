@@ -32,25 +32,25 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     /// 
     ///  
     /// <para>
-    /// If you specify <code>DeleteLambda</code> to <code>true</code>, CloudWatch Synthetics
-    /// also deletes the Lambda functions and layers that are used by the canary.
+    /// If you specify <c>DeleteLambda</c> to <c>true</c>, CloudWatch Synthetics also deletes
+    /// the Lambda functions and layers that are used by the canary.
     /// </para><para>
     /// Other resources used and created by the canary are not automatically deleted. After
     /// you delete a canary that you do not intend to use again, you should also delete the
     /// following:
     /// </para><ul><li><para>
-    /// The CloudWatch alarms created for this canary. These alarms have a name of <code>Synthetics-SharpDrop-Alarm-<i>MyCanaryName</i></code>.
+    /// The CloudWatch alarms created for this canary. These alarms have a name of <c>Synthetics-SharpDrop-Alarm-<i>MyCanaryName</i></c>.
     /// </para></li><li><para>
     /// Amazon S3 objects and buckets, such as the canary's artifact location.
     /// </para></li><li><para>
     /// IAM roles created for the canary. If they were created in the console, these roles
-    /// have the name <code> role/service-role/CloudWatchSyntheticsRole-<i>MyCanaryName</i></code>.
+    /// have the name <c> role/service-role/CloudWatchSyntheticsRole-<i>MyCanaryName</i></c>.
     /// </para></li><li><para>
     /// CloudWatch Logs log groups created for the canary. These logs groups have the name
-    /// <code>/aws/lambda/cwsyn-<i>MyCanaryName</i></code>. 
+    /// <c>/aws/lambda/cwsyn-<i>MyCanaryName</i></c>. 
     /// </para></li></ul><para>
-    /// Before you delete a canary, you might want to use <code>GetCanary</code> to display
-    /// the information about this canary. Make note of the information returned by this operation
+    /// Before you delete a canary, you might want to use <c>GetCanary</c> to display the
+    /// information about this canary. Make note of the information returned by this operation
     /// so that you can delete these resources after you delete the canary.
     /// </para>
     /// </summary>

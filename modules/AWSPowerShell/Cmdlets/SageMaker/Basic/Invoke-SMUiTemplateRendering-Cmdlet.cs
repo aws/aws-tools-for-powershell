@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HumanTaskUiArn
         /// <summary>
         /// <para>
-        /// <para>The <code>HumanTaskUiArn</code> of the worker UI that you want to render. Do not provide
-        /// a <code>HumanTaskUiArn</code> if you use the <code>UiTemplate</code> parameter.</para><para>See a list of available Human Ui Amazon Resource Names (ARNs) in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UiConfig.html">UiConfig</a>.</para>
+        /// <para>The <c>HumanTaskUiArn</c> of the worker UI that you want to render. Do not provide
+        /// a <c>HumanTaskUiArn</c> if you use the <c>UiTemplate</c> parameter.</para><para>See a list of available Human Ui Amazon Resource Names (ARNs) in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UiConfig.html">UiConfig</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A JSON object that contains values for the variables defined in the template. It is
-        /// made available to the template under the substitution variable <code>task.input</code>.
-        /// For example, if you define a variable <code>task.input.text</code> in your template,
-        /// you can supply the variable in the JSON object as <code>"text": "sample text"</code>.</para>
+        /// made available to the template under the substitution variable <c>task.input</c>.
+        /// For example, if you define a variable <c>task.input.text</c> in your template, you
+        /// can supply the variable in the JSON object as <c>"text": "sample text"</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

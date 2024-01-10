@@ -35,16 +35,15 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     ///  
     /// <para>
     /// Use the <a>DescribeModelPackagingJob</a> API to determine the current status of the
-    /// job. The model packaging job is complete if the value of <code>Status</code> is <code>SUCCEEDED</code>.
+    /// job. The model packaging job is complete if the value of <c>Status</c> is <c>SUCCEEDED</c>.
     /// </para><para>
     /// To deploy the component to the target device, use the component name and component
     /// version with the AWS IoT Greengrass <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_CreateDeployment.html">CreateDeployment</a>
     /// API.
     /// </para><para>
     /// This operation requires the following permissions:
-    /// </para><ul><li><para><code>lookoutvision:StartModelPackagingJob</code></para></li><li><para><code>s3:PutObject</code></para></li><li><para><code>s3:GetBucketLocation</code></para></li><li><para><code>kms:GenerateDataKey</code></para></li><li><para><code>greengrass:CreateComponentVersion</code></para></li><li><para><code>greengrass:DescribeComponent</code></para></li><li><para>
-    /// (Optional) <code>greengrass:TagResource</code>. Only required if you want to tag the
-    /// component.
+    /// </para><ul><li><para><c>lookoutvision:StartModelPackagingJob</c></para></li><li><para><c>s3:PutObject</c></para></li><li><para><c>s3:GetBucketLocation</c></para></li><li><para><c>kms:GenerateDataKey</c></para></li><li><para><c>greengrass:CreateComponentVersion</c></para></li><li><para><c>greengrass:DescribeComponent</c></para></li><li><para>
+    /// (Optional) <c>greengrass:TagResource</c>. Only required if you want to tag the component.
     /// </para></li></ul><para>
     /// For more information, see <i>Using your Amazon Lookout for Vision model on an edge
     /// device</i> in the Amazon Lookout for Vision Developer Guide. 
@@ -67,10 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         /// <para>
         /// <para>The target accelerator for the model. Currently, Amazon Lookout for Vision only supports
         /// NVIDIA (Nvidia graphics processing unit) and CPU accelerators. If you specify NVIDIA
-        /// as an accelerator, you must also specify the <code>gpu-code</code>, <code>trt-ver</code>,
-        /// and <code>cuda-ver</code> compiler options. If you don't specify an accelerator, Lookout
-        /// for Vision uses the CPU for compilation and we highly recommend that you use the <a>GreengrassConfiguration$CompilerOptions</a>
-        /// field. For example, you can use the following compiler options for CPU: </para><ul><li><para><code>mcpu</code>: CPU micro-architecture. For example, <code>{'mcpu': 'skylake-avx512'}</code></para></li><li><para><code>mattr</code>: CPU flags. For example, <code>{'mattr': ['+neon', '+vfpv4']}</code></para></li></ul>
+        /// as an accelerator, you must also specify the <c>gpu-code</c>, <c>trt-ver</c>, and
+        /// <c>cuda-ver</c> compiler options. If you don't specify an accelerator, Lookout for
+        /// Vision uses the CPU for compilation and we highly recommend that you use the <a>GreengrassConfiguration$CompilerOptions</a>
+        /// field. For example, you can use the following compiler options for CPU: </para><ul><li><para><c>mcpu</c>: CPU micro-architecture. For example, <c>{'mcpu': 'skylake-avx512'}</c></para></li><li><para><c>mattr</c>: CPU flags. For example, <c>{'mattr': ['+neon', '+vfpv4']}</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         /// <summary>
         /// <para>
         /// <para>Additional compiler options for the Greengrass component. Currently, only NVIDIA Graphics
-        /// Processing Units (GPU) and CPU accelerators are supported. If you specify <code>TargetDevice</code>,
-        /// don't specify <code>CompilerOptions</code>.</para><para>For more information, see <i>Compiler options</i> in the Amazon Lookout for Vision
+        /// Processing Units (GPU) and CPU accelerators are supported. If you specify <c>TargetDevice</c>,
+        /// don't specify <c>CompilerOptions</c>.</para><para>For more information, see <i>Compiler options</i> in the Amazon Lookout for Vision
         /// Developer Guide. </para>
         /// </para>
         /// </summary>
@@ -160,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         /// <summary>
         /// <para>
         /// <para>A Version for the AWS IoT Greengrass component. If you don't provide a value, a default
-        /// value of <code><i>Model Version</i>.0.0</code> is used. </para>
+        /// value of <c><i>Model Version</i>.0.0</c> is used. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -263,9 +262,8 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         #region Parameter Greengrass_TargetDevice
         /// <summary>
         /// <para>
-        /// <para>The target device for the model. Currently the only supported value is <code>jetson_xavier</code>.
-        /// If you specify <code>TargetDevice</code>, you can't specify <code>TargetPlatform</code>.
-        /// </para>
+        /// <para>The target device for the model. Currently the only supported value is <c>jetson_xavier</c>.
+        /// If you specify <c>TargetDevice</c>, you can't specify <c>TargetPlatform</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,15 +275,15 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>ClientToken is an idempotency token that ensures a call to <code>StartModelPackagingJob</code>
+        /// <para>ClientToken is an idempotency token that ensures a call to <c>StartModelPackagingJob</c>
         /// completes only once. You choose the value to pass. For example, An issue might prevent
-        /// you from getting a response from <code>StartModelPackagingJob</code>. In this case,
-        /// safely retry your call to <code>StartModelPackagingJob</code> by using the same <code>ClientToken</code>
-        /// parameter value.</para><para>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using
-        /// inserts a value for you. This prevents retries after a network error from making multiple
+        /// you from getting a response from <c>StartModelPackagingJob</c>. In this case, safely
+        /// retry your call to <c>StartModelPackagingJob</c> by using the same <c>ClientToken</c>
+        /// parameter value.</para><para>If you don't supply a value for <c>ClientToken</c>, the AWS SDK you are using inserts
+        /// a value for you. This prevents retries after a network error from making multiple
         /// dataset creation requests. You'll need to provide your own value for other use cases.
         /// </para><para>An error occurs if the other input parameters are not the same as in the first request.
-        /// Using a different value for <code>ClientToken</code> is considered a new call to <code>StartModelPackagingJob</code>.
+        /// Using a different value for <c>ClientToken</c> is considered a new call to <c>StartModelPackagingJob</c>.
         /// An idempotency token is active for 8 hours. </para>
         /// </para>
         /// </summary>

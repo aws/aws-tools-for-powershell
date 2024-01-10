@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter IdentifierType
         /// <summary>
         /// <para>
-        /// <para>The type of identifier used in <code>identifier</code>.</para>
+        /// <para>The type of identifier used in <c>identifier</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

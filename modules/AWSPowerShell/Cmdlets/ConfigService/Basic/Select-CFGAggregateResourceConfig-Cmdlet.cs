@@ -37,16 +37,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// <para>
     /// For more information about query components, see the <a href="https://docs.aws.amazon.com/config/latest/developerguide/query-components.html"><b>Query Components</b></a> section in the <i>Config Developer Guide</i>.
     /// </para><note><para>
-    /// If you run an aggregation query (i.e., using <code>GROUP BY</code> or using aggregate
-    /// functions such as <code>COUNT</code>; e.g., <code>SELECT resourceId, COUNT(*) WHERE
-    /// resourceType = 'AWS::IAM::Role' GROUP BY resourceId</code>) and do not specify the
-    /// <code>MaxResults</code> or the <code>Limit</code> query parameters, the default page
-    /// size is set to 500.
+    /// If you run an aggregation query (i.e., using <c>GROUP BY</c> or using aggregate functions
+    /// such as <c>COUNT</c>; e.g., <c>SELECT resourceId, COUNT(*) WHERE resourceType = 'AWS::IAM::Role'
+    /// GROUP BY resourceId</c>) and do not specify the <c>MaxResults</c> or the <c>Limit</c>
+    /// query parameters, the default page size is set to 500.
     /// </para><para>
-    /// If you run a non-aggregation query (i.e., not using <code>GROUP BY</code> or aggregate
-    /// function; e.g., <code>SELECT * WHERE resourceType = 'AWS::IAM::Role'</code>) and do
-    /// not specify the <code>MaxResults</code> or the <code>Limit</code> query parameters,
-    /// the default page size is set to 25.
+    /// If you run a non-aggregation query (i.e., not using <c>GROUP BY</c> or aggregate function;
+    /// e.g., <c>SELECT * WHERE resourceType = 'AWS::IAM::Role'</c>) and do not specify the
+    /// <c>MaxResults</c> or the <c>Limit</c> query parameters, the default page size is set
+    /// to 25.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Select", "CFGAggregateResourceConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -46,14 +46,14 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// You can also use this operation to create a snapshot of an instance's system volume.
     /// You might want to do this, for example, to recover data from the system volume of
     /// a botched instance or to create a backup of the system volume like you would for a
-    /// block storage disk. To create a snapshot of a system volume, just define the <code>instance
-    /// name</code> parameter when issuing the snapshot command, and a snapshot of the defined
+    /// block storage disk. To create a snapshot of a system volume, just define the <c>instance
+    /// name</c> parameter when issuing the snapshot command, and a snapshot of the defined
     /// instance's system volume will be created. After the snapshot is available, you can
     /// create a block storage disk from the snapshot and attach it to a running instance
     /// to access the data on the disk.
     /// </para><para>
-    /// The <code>create disk snapshot</code> operation supports tag-based access control
-    /// via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// The <c>create disk snapshot</c> operation supports tag-based access control via request
+    /// tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -72,9 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskName
         /// <summary>
         /// <para>
-        /// <para>The unique name of the source disk (<code>Disk-Virginia-1</code>).</para><note><para>This parameter cannot be defined together with the <code>instance name</code> parameter.
-        /// The <code>disk name</code> and <code>instance name</code> parameters are mutually
-        /// exclusive.</para></note>
+        /// <para>The unique name of the source disk (<c>Disk-Virginia-1</c>).</para><note><para>This parameter cannot be defined together with the <c>instance name</c> parameter.
+        /// The <c>disk name</c> and <c>instance name</c> parameters are mutually exclusive.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskSnapshotName
         /// <summary>
         /// <para>
-        /// <para>The name of the destination disk snapshot (<code>my-disk-snapshot</code>) based on
-        /// the source disk.</para>
+        /// <para>The name of the destination disk snapshot (<c>my-disk-snapshot</c>) based on the source
+        /// disk.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,10 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter InstanceName
         /// <summary>
         /// <para>
-        /// <para>The unique name of the source instance (<code>Amazon_Linux-512MB-Virginia-1</code>).
-        /// When this is defined, a snapshot of the instance's system volume is created.</para><note><para>This parameter cannot be defined together with the <code>disk name</code> parameter.
-        /// The <code>instance name</code> and <code>disk name</code> parameters are mutually
-        /// exclusive.</para></note>
+        /// <para>The unique name of the source instance (<c>Amazon_Linux-512MB-Virginia-1</c>). When
+        /// this is defined, a snapshot of the instance's system volume is created.</para><note><para>This parameter cannot be defined together with the <c>disk name</c> parameter. The
+        /// <c>instance name</c> and <c>disk name</c> parameters are mutually exclusive.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <code>TagResource</code> action to tag a resource after it's created.</para>
+        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <c>TagResource</c> action to tag a resource after it's created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

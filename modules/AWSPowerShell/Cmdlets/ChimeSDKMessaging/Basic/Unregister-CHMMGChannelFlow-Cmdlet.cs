@@ -34,9 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     ///  <note><para>
     /// Only administrators or channel moderators can disassociate a channel flow.
     /// </para><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
-    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
-    /// as the value in the header.
+    /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the ARN of the <c>AppInstanceUser</c>
+    /// or <c>AppInstanceBot</c> that makes the API call as the value in the header.
     /// </para></note>
     /// </summary>
     [Cmdlet("Unregister", "CHMMGChannelFlow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -88,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user making the API call.</para>
+        /// <para>The <c>AppInstanceUserArn</c> of the user making the API call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

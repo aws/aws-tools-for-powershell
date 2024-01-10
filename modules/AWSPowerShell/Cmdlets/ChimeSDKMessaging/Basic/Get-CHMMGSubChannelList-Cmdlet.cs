@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user making the API call.</para>
+        /// <para>The <c>AppInstanceUserArn</c> of the user making the API call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

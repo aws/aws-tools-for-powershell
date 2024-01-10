@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  
     /// <para>
-    /// The <code>untag resource</code> operation supports tag-based access control via request
-    /// tags and resource tags applied to the resource identified by <code>resource name</code>.
+    /// The <c>untag resource</c> operation supports tag-based access control via request
+    /// tags and resource tags applied to the resource identified by <c>resource name</c>.
     /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>

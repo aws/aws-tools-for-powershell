@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Deletes an SageMaker notebook instance. Before you can delete a notebook instance,
-    /// you must call the <code>StopNotebookInstance</code> API. 
+    /// you must call the <c>StopNotebookInstance</c> API. 
     /// 
     ///  <important><para>
     /// When you delete a notebook instance, you lose all of your data. SageMaker removes

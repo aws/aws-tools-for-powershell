@@ -90,10 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// Do not specify this parameter when you want to mirror the entire packet. To mirror
         /// a subset of the packet, set this to the length (in bytes) that you want to mirror.
         /// For example, if you set this value to 100, then the first 100 bytes that meet the
-        /// filter criteria are copied to the target.</para><para>If you do not want to mirror the entire packet, use the <code>PacketLength</code>
-        /// parameter to specify the number of bytes in each packet to mirror.</para><para>For sessions with Network Load Balancer (NLB) Traffic Mirror targets the default <code>PacketLength</code>
-        /// will be set to 8500. Valid values are 1-8500. Setting a <code>PacketLength</code>
-        /// greater than 8500 will result in an error response.</para>
+        /// filter criteria are copied to the target.</para><para>If you do not want to mirror the entire packet, use the <c>PacketLength</c> parameter
+        /// to specify the number of bytes in each packet to mirror.</para><para>For sessions with Network Load Balancer (NLB) Traffic Mirror targets the default <c>PacketLength</c>
+        /// will be set to 8500. Valid values are 1-8500. Setting a <c>PacketLength</c> greater
+        /// than 8500 will result in an error response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,8 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN
         /// protocol, see <a href="https://tools.ietf.org/html/rfc7348">RFC 7348</a>. If you do
-        /// not specify a <code>VirtualNetworkId</code>, an account-wide unique id is chosen at
-        /// random.</para>
+        /// not specify a <c>VirtualNetworkId</c>, an account-wide unique id is chosen at random.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

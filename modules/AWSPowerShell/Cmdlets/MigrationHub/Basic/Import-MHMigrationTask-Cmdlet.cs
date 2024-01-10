@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// 
     ///  
     /// <para>
-    /// This API is a prerequisite to calling the <code>NotifyMigrationTaskState</code> API
-    /// as the migration tool must first register the migration task with Migration Hub.
+    /// This API is a prerequisite to calling the <c>NotifyMigrationTaskState</c> API as the
+    /// migration tool must first register the migration task with Migration Hub.
     /// </para>
     /// </summary>
     [Cmdlet("Import", "MHMigrationTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

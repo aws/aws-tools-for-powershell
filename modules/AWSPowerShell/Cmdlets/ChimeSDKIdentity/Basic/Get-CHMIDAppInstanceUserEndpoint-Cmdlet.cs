@@ -28,7 +28,7 @@ using Amazon.ChimeSDKIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMID
 {
     /// <summary>
-    /// Returns the full details of an <code>AppInstanceUserEndpoint</code>.
+    /// Returns the full details of an <c>AppInstanceUserEndpoint</c>.
     /// </summary>
     [Cmdlet("Get", "CHMIDAppInstanceUserEndpoint")]
     [OutputType("Amazon.ChimeSDKIdentity.Model.AppInstanceUserEndpoint")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter AppInstanceUserArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code>.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter EndpointId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</para>
+        /// <para>The unique identifier of the <c>AppInstanceUserEndpoint</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of volume recommendations to return with a single request.</para><para>To retrieve the remaining results, make another request with the returned <code>nextToken</code>
+        /// <para>The maximum number of volume recommendations to return with a single request.</para><para>To retrieve the remaining results, make another request with the returned <c>nextToken</c>
         /// value.</para>
         /// </para>
         /// </summary>

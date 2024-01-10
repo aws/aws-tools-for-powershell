@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// When requesting attributes for multiple fleets, use the pagination parameters to retrieve
     /// results as a set of sequential pages. 
     /// </para><para>
-    /// If successful, a <code>FleetAttributes</code> object is returned for each fleet requested,
+    /// If successful, a <c>FleetAttributes</c> object is returned for each fleet requested,
     /// unless the fleet identifier is not found. 
     /// </para><note><para>
     /// Some API operations limit the number of fleet IDs that allowed in one request. If
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
+        /// <para>The maximum number of results to return. Use this parameter with <c>NextToken</c>
         /// to get results as a set of sequential pages. This parameter is ignored when the request
         /// specifies one or a list of fleet IDs.</para>
         /// </para>

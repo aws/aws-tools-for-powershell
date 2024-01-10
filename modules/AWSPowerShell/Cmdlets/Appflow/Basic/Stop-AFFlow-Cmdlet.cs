@@ -28,7 +28,7 @@ using Amazon.Appflow.Model;
 namespace Amazon.PowerShell.Cmdlets.AF
 {
     /// <summary>
-    /// Deactivates the existing flow. For on-demand flows, this operation returns an <code>unsupportedOperationException</code>
+    /// Deactivates the existing flow. For on-demand flows, this operation returns an <c>unsupportedOperationException</c>
     /// error message. For schedule and event-triggered flows, this operation deactivates
     /// the flow.
     /// </summary>

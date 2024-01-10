@@ -229,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         /// <summary>
         /// <para>
         /// <para>A string value representing Predefined Output Resolution for a stacking operation.
-        /// Allowed values are <code>HIGHEST</code>, <code>LOWEST</code>, and <code>AVERAGE</code>.</para>
+        /// Allowed values are <c>HIGHEST</c>, <c>LOWEST</c>, and <c>AVERAGE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -241,9 +241,8 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter BandMathConfig_PredefinedIndex
         /// <summary>
         /// <para>
-        /// <para>One or many of the supported predefined indices to compute. Allowed values: <code>NDVI</code>,
-        /// <code>EVI2</code>, <code>MSAVI</code>, <code>NDWI</code>, <code>NDMI</code>, <code>NDSI</code>,
-        /// and <code>WDRVI</code>.</para>
+        /// <para>One or many of the supported predefined indices to compute. Allowed values: <c>NDVI</c>,
+        /// <c>EVI2</c>, <c>MSAVI</c>, <c>NDWI</c>, <c>NDMI</c>, <c>NDSI</c>, and <c>WDRVI</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -455,8 +454,8 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         /// <para>
         /// <para>The Amazon Resource Name (ARN) or an ID of a Amazon Web Services Key Management Service
         /// (Amazon Web Services KMS) key that Amazon SageMaker uses to decrypt your output artifacts
-        /// with Amazon S3 server-side encryption. The SageMaker execution role must have <code>kms:GenerateDataKey</code>
-        /// permission.</para><para>The <code>KmsKeyId</code> can be any of the following formats:</para><ul><li><para>// KMS Key ID</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key</para><para><code>"arn:aws:kms:&lt;region&gt;:&lt;account&gt;:key/&lt;key-id-12ab-34cd-56ef-1234567890ab&gt;"</code></para></li></ul><para>For more information about key identifiers, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">Key
+        /// with Amazon S3 server-side encryption. The SageMaker execution role must have <c>kms:GenerateDataKey</c>
+        /// permission.</para><para>The <c>KmsKeyId</c> can be any of the following formats:</para><ul><li><para>// KMS Key ID</para><para><c>"1234abcd-12ab-34cd-56ef-1234567890ab"</c></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key</para><para><c>"arn:aws:kms:&lt;region&gt;:&lt;account&gt;:key/&lt;key-id-12ab-34cd-56ef-1234567890ab&gt;"</c></para></li></ul><para>For more information about key identifiers, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">Key
         /// identifiers (KeyID)</a> in the Amazon Web Services Key Management Service (Amazon
         /// Web Services KMS) documentation.</para>
         /// </para>

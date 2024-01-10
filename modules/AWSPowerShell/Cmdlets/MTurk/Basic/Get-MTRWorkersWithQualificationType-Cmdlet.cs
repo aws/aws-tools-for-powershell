@@ -28,7 +28,7 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>ListWorkersWithQualificationType</code> operation returns all of the Workers
+    /// The <c>ListWorkersWithQualificationType</c> operation returns all of the Workers
     /// that have been associated with a given Qualification type.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MTRWorkersWithQualificationType")]
@@ -63,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para> The status of the Qualifications to return. Can be <code>Granted | Revoked</code>.
-        /// </para>
+        /// <para> The status of the Qualifications to return. Can be <c>Granted | Revoked</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// to pull container images), the private subnet requires a NAT gateway be attached to
         /// route requests to the internet. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Amazon
         /// ECS task networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
-        /// The default value is "<code>DISABLED</code>".</para>
+        /// The default value is "<c>DISABLED</c>".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter RetryStrategy_Attempt
         /// <summary>
         /// <para>
-        /// <para>The number of times to move a job to the <code>RUNNABLE</code> status. You can specify
-        /// between 1 and 10 attempts. If the value of <code>attempts</code> is greater than one,
-        /// the job is retried on failure the same number of attempts as the value.</para>
+        /// <para>The number of times to move a job to the <c>RUNNABLE</c> status. You can specify between
+        /// 1 and 10 attempts. If the value of <c>attempts</c> is greater than one, the job is
+        /// retried on failure the same number of attempts as the value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,10 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_Command
         /// <summary>
         /// <para>
-        /// <para>The command that's passed to the container. This parameter maps to <code>Cmd</code>
-        /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
-        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
-        /// Remote API</a> and the <code>COMMAND</code> parameter to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// <para>The command that's passed to the container. This parameter maps to <c>Cmd</c> in the
+        /// <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a>
+        /// section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a>
+        /// and the <c>COMMAND</c> parameter to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>. For more information, see <a href="https://docs.docker.com/engine/reference/builder/#cmd">https://docs.docker.com/engine/reference/builder/#cmd</a>.</para>
         /// </para>
         /// </summary>
@@ -99,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter RuntimePlatform_CpuArchitecture
         /// <summary>
         /// <para>
-        /// <para>The vCPU architecture. The default value is <code>X86_64</code>. Valid values are
-        /// <code>X86_64</code> and <code>ARM64</code>.</para><note><para>This parameter must be set to <code>X86_64</code> for Windows containers.</para></note>
+        /// <para>The vCPU architecture. The default value is <c>X86_64</c>. Valid values are <c>X86_64</c>
+        /// and <c>ARM64</c>.</para><note><para>This parameter must be set to <c>X86_64</c> for Windows containers.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,10 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter LinuxParameters_Device
         /// <summary>
         /// <para>
-        /// <para>Any of the host devices to expose to the container. This parameter maps to <code>Devices</code>
+        /// <para>Any of the host devices to expose to the container. This parameter maps to <c>Devices</c>
         /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
-        /// Remote API</a> and the <code>--device</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// Remote API</a> and the <c>--device</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// provide it for these jobs.</para></note>
         /// </para>
@@ -127,12 +127,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter PodProperties_DnsPolicy
         /// <summary>
         /// <para>
-        /// <para>The DNS policy for the pod. The default value is <code>ClusterFirst</code>. If the
-        /// <code>hostNetwork</code> parameter is not specified, the default is <code>ClusterFirstWithHostNet</code>.
-        /// <code>ClusterFirst</code> indicates that any DNS query that does not match the configured
-        /// cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
-        /// For more information, see <a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy">Pod's
-        /// DNS policy</a> in the <i>Kubernetes documentation</i>.</para><para>Valid values: <code>Default</code> | <code>ClusterFirst</code> | <code>ClusterFirstWithHostNet</code></para>
+        /// <para>The DNS policy for the pod. The default value is <c>ClusterFirst</c>. If the <c>hostNetwork</c>
+        /// parameter is not specified, the default is <c>ClusterFirstWithHostNet</c>. <c>ClusterFirst</c>
+        /// indicates that any DNS query that does not match the configured cluster domain suffix
+        /// is forwarded to the upstream nameserver inherited from the node. For more information,
+        /// see <a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy">Pod's
+        /// DNS policy</a> in the <i>Kubernetes documentation</i>.</para><para>Valid values: <c>Default</c> | <c>ClusterFirst</c> | <c>ClusterFirstWithHostNet</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,12 +143,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_Environment
         /// <summary>
         /// <para>
-        /// <para>The environment variables to pass to a container. This parameter maps to <code>Env</code>
+        /// <para>The environment variables to pass to a container. This parameter maps to <c>Env</c>
         /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
-        /// Remote API</a> and the <code>--env</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// Remote API</a> and the <c>--env</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para><important><para>We don't recommend using plaintext environment variables for sensitive information,
-        /// such as credential data.</para></important><note><para>Environment variables cannot start with "<code>AWS_BATCH</code>". This naming convention
+        /// such as credential data.</para></important><note><para>Environment variables cannot start with "<c>AWS_BATCH</c>". This naming convention
         /// is reserved for variables that Batch sets.</para></note>
         /// </para>
         /// </summary>
@@ -160,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>Array of up to 5 objects that specify the conditions where jobs are retried or failed.
-        /// If this parameter is specified, then the <code>attempts</code> parameter must also
-        /// be specified. If none of the listed conditions match, then the job is retried.</para>
+        /// If this parameter is specified, then the <c>attempts</c> parameter must also be specified.
+        /// If none of the listed conditions match, then the job is retried.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,10 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter PodProperties_HostNetwork
         /// <summary>
         /// <para>
-        /// <para>Indicates if the pod uses the hosts' network IP address. The default value is <code>true</code>.
-        /// Setting this to <code>false</code> enables the Kubernetes pod networking model. Most
-        /// Batch workloads are egress-only and don't require the overhead of IP allocation for
-        /// each pod for incoming connections. For more information, see <a href="https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces">Host
+        /// <para>Indicates if the pod uses the hosts' network IP address. The default value is <c>true</c>.
+        /// Setting this to <c>false</c> enables the Kubernetes pod networking model. Most Batch
+        /// workloads are egress-only and don't require the overhead of IP allocation for each
+        /// pod for incoming connections. For more information, see <a href="https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces">Host
         /// namespaces</a> and <a href="https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking">Pod
         /// networking</a> in the <i>Kubernetes documentation</i>.</para>
         /// </para>
@@ -202,20 +202,20 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The image used to start a container. This string is passed directly to the Docker
         /// daemon. Images in the Docker Hub registry are available by default. Other repositories
-        /// are specified with <code><i>repository-url</i>/<i>image</i>:<i>tag</i></code>. It
-        /// can be 255 characters long. It can contain uppercase and lowercase letters, numbers,
-        /// hyphens (-), underscores (_), colons (:), periods (.), forward slashes (/), and number
-        /// signs (#). This parameter maps to <code>Image</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
+        /// are specified with <c><i>repository-url</i>/<i>image</i>:<i>tag</i></c>. It can
+        /// be 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens
+        /// (-), underscores (_), colons (:), periods (.), forward slashes (/), and number signs
+        /// (#). This parameter maps to <c>Image</c> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
-        /// Remote API</a> and the <code>IMAGE</code> parameter of <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// Remote API</a> and the <c>IMAGE</c> parameter of <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para><note><para>Docker image architecture must match the processor architecture of the compute resources
         /// that they're scheduled on. For example, ARM-based Docker images can only run on ARM-based
-        /// compute resources.</para></note><ul><li><para>Images in Amazon ECR Public repositories use the full <code>registry/repository[:tag]</code>
-        /// or <code>registry/repository[@digest]</code> naming conventions. For example, <code>public.ecr.aws/<i>registry_alias</i>/<i>my-web-app</i>:<i>latest</i></code>.</para></li><li><para>Images in Amazon ECR repositories use the full registry and repository URI (for example,
-        /// <code>123456789012.dkr.ecr.&lt;region-name&gt;.amazonaws.com/&lt;repository-name&gt;</code>).</para></li><li><para>Images in official repositories on Docker Hub use a single name (for example, <code>ubuntu</code>
-        /// or <code>mongo</code>).</para></li><li><para>Images in other repositories on Docker Hub are qualified with an organization name
-        /// (for example, <code>amazon/amazon-ecs-agent</code>).</para></li><li><para>Images in other online repositories are qualified further by a domain name (for example,
-        /// <code>quay.io/assemblyline/ubuntu</code>).</para></li></ul>
+        /// compute resources.</para></note><ul><li><para>Images in Amazon ECR Public repositories use the full <c>registry/repository[:tag]</c>
+        /// or <c>registry/repository[@digest]</c> naming conventions. For example, <c>public.ecr.aws/<i>registry_alias</i>/<i>my-web-app</i>:<i>latest</i></c>.</para></li><li><para>Images in Amazon ECR repositories use the full registry and repository URI (for example,
+        /// <c>123456789012.dkr.ecr.&lt;region-name&gt;.amazonaws.com/&lt;repository-name&gt;</c>).</para></li><li><para>Images in official repositories on Docker Hub use a single name (for example, <c>ubuntu</c>
+        /// or <c>mongo</c>).</para></li><li><para>Images in other repositories on Docker Hub are qualified with an organization name
+        /// (for example, <c>amazon/amazon-ecs-agent</c>).</para></li><li><para>Images in other online repositories are qualified further by a domain name (for example,
+        /// <c>quay.io/assemblyline/ubuntu</c>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,12 +225,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter LinuxParameters_InitProcessEnabled
         /// <summary>
         /// <para>
-        /// <para>If true, run an <code>init</code> process inside the container that forwards signals
-        /// and reaps processes. This parameter maps to the <code>--init</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// <para>If true, run an <c>init</c> process inside the container that forwards signals and
+        /// reaps processes. This parameter maps to the <c>--init</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>. This parameter requires version 1.25 of the Docker Remote API or greater
         /// on your container instance. To check the Docker Remote API version on your container
-        /// instance, log in to your container instance and run the following command: <code>sudo
-        /// docker version | grep "Server API version"</code></para>
+        /// instance, log in to your container instance and run the following command: <c>sudo
+        /// docker version | grep "Server API version"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -299,10 +299,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The log driver to use for the container. The valid values that are listed for this
         /// parameter are log drivers that the Amazon ECS container agent can communicate with
-        /// by default.</para><para>The supported log drivers are <code>awslogs</code>, <code>fluentd</code>, <code>gelf</code>,
-        /// <code>json-file</code>, <code>journald</code>, <code>logentries</code>, <code>syslog</code>,
-        /// and <code>splunk</code>.</para><note><para>Jobs that are running on Fargate resources are restricted to the <code>awslogs</code>
-        /// and <code>splunk</code> log drivers.</para></note><dl><dt>awslogs</dt><dd><para>Specifies the Amazon CloudWatch Logs logging driver. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html">Using
+        /// by default.</para><para>The supported log drivers are <c>awslogs</c>, <c>fluentd</c>, <c>gelf</c>, <c>json-file</c>,
+        /// <c>journald</c>, <c>logentries</c>, <c>syslog</c>, and <c>splunk</c>.</para><note><para>Jobs that are running on Fargate resources are restricted to the <c>awslogs</c> and
+        /// <c>splunk</c> log drivers.</para></note><dl><dt>awslogs</dt><dd><para>Specifies the Amazon CloudWatch Logs logging driver. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html">Using
         /// the awslogs log driver</a> in the <i>Batch User Guide</i> and <a href="https://docs.docker.com/config/containers/logging/awslogs/">Amazon
         /// CloudWatch Logs logging driver</a> in the Docker documentation.</para></dd><dt>fluentd</dt><dd><para>Specifies the Fluentd logging driver. For more information including usage and options,
         /// see <a href="https://docs.docker.com/config/containers/logging/fluentd/">Fluentd logging
@@ -323,8 +322,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// that you want to have included. However, Amazon Web Services doesn't currently support
         /// running modified copies of this software.</para></note><para>This parameter requires version 1.18 of the Docker Remote API or greater on your container
         /// instance. To check the Docker Remote API version on your container instance, log in
-        /// to your container instance and run the following command: <code>sudo docker version
-        /// | grep "Server API version"</code></para>
+        /// to your container instance and run the following command: <c>sudo docker version |
+        /// grep "Server API version"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -348,12 +347,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The total amount of swap memory (in MiB) a container can use. This parameter is translated
-        /// to the <code>--memory-swap</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a> where the value is the sum of the container memory plus the <code>maxSwap</code>
-        /// value. For more information, see <a href="https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details"><code>--memory-swap</code> details</a> in the Docker documentation.</para><para>If a <code>maxSwap</code> value of <code>0</code> is specified, the container doesn't
-        /// use swap. Accepted values are <code>0</code> or any positive integer. If the <code>maxSwap</code>
-        /// parameter is omitted, the container doesn't use the swap configuration for the container
-        /// instance that it's running on. A <code>maxSwap</code> value must be set for the <code>swappiness</code>
+        /// to the <c>--memory-swap</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// run</a> where the value is the sum of the container memory plus the <c>maxSwap</c>
+        /// value. For more information, see <a href="https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details"><c>--memory-swap</c> details</a> in the Docker documentation.</para><para>If a <c>maxSwap</c> value of <c>0</c> is specified, the container doesn't use swap.
+        /// Accepted values are <c>0</c> or any positive integer. If the <c>maxSwap</c> parameter
+        /// is omitted, the container doesn't use the swap configuration for the container instance
+        /// that it's running on. A <c>maxSwap</c> value must be set for the <c>swappiness</c>
         /// parameter to be used.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// provide it for these jobs.</para></note>
         /// </para>
@@ -366,10 +365,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_MountPoint
         /// <summary>
         /// <para>
-        /// <para>The mount points for data volumes in your container. This parameter maps to <code>Volumes</code>
+        /// <para>The mount points for data volumes in your container. This parameter maps to <c>Volumes</c>
         /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
-        /// Remote API</a> and the <code>--volume</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// Remote API</a> and the <c>--volume</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para>
         /// </para>
         /// </summary>
@@ -404,16 +403,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter RuntimePlatform_OperatingSystemFamily
         /// <summary>
         /// <para>
-        /// <para>The operating system for the compute environment. Valid values are: <code>LINUX</code>
-        /// (default), <code>WINDOWS_SERVER_2019_CORE</code>, <code>WINDOWS_SERVER_2019_FULL</code>,
-        /// <code>WINDOWS_SERVER_2022_CORE</code>, and <code>WINDOWS_SERVER_2022_FULL</code>.</para><note><para>The following parameters can’t be set for Windows containers: <code>linuxParameters</code>,
-        /// <code>privileged</code>, <code>user</code>, <code>ulimits</code>, <code>readonlyRootFilesystem</code>,
-        /// and <code>efsVolumeConfiguration</code>.</para></note><note><para>The Batch Scheduler checks before registering a task definition with Fargate. If the
-        /// job requires a Windows container and the first compute environment is <code>LINUX</code>,
+        /// <para>The operating system for the compute environment. Valid values are: <c>LINUX</c> (default),
+        /// <c>WINDOWS_SERVER_2019_CORE</c>, <c>WINDOWS_SERVER_2019_FULL</c>, <c>WINDOWS_SERVER_2022_CORE</c>,
+        /// and <c>WINDOWS_SERVER_2022_FULL</c>.</para><note><para>The following parameters can’t be set for Windows containers: <c>linuxParameters</c>,
+        /// <c>privileged</c>, <c>user</c>, <c>ulimits</c>, <c>readonlyRootFilesystem</c>, and
+        /// <c>efsVolumeConfiguration</c>.</para></note><note><para>The Batch Scheduler checks before registering a task definition with Fargate. If the
+        /// job requires a Windows container and the first compute environment is <c>LINUX</c>,
         /// the compute environment is skipped and the next is checked until a Windows-based compute
         /// environment is found.</para></note><note><para>Fargate Spot is not supported for Windows-based containers on Fargate. A job queue
         /// will be blocked if a Fargate Windows job is submitted to a job queue with only Fargate
-        /// Spot compute environments. However, you can attach both <code>FARGATE</code> and <code>FARGATE_SPOT</code>
+        /// Spot compute environments. However, you can attach both <c>FARGATE</c> and <c>FARGATE_SPOT</c>
         /// compute environments to the same job queue.</para></note>
         /// </para>
         /// </summary>
@@ -428,7 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The configuration options to send to the log driver. This parameter requires version
         /// 1.19 of the Docker Remote API or greater on your container instance. To check the
         /// Docker Remote API version on your container instance, log in to your container instance
-        /// and run the following command: <code>sudo docker version | grep "Server API version"</code></para>
+        /// and run the following command: <c>sudo docker version | grep "Server API version"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -440,8 +439,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>Default parameter substitution placeholders to set in the job definition. Parameters
-        /// are specified as a key-value pair mapping. Parameters in a <code>SubmitJob</code>
-        /// request override any corresponding parameter defaults from the job definition.</para>
+        /// are specified as a key-value pair mapping. Parameters in a <c>SubmitJob</c> request
+        /// override any corresponding parameter defaults from the job definition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -453,7 +452,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The platform capabilities required by the job definition. If no value is specified,
-        /// it defaults to <code>EC2</code>. To run the job on Fargate resources, specify <code>FARGATE</code>.</para><note><para>If the job runs on Amazon EKS resources, then you must not specify <code>platformCapabilities</code>.</para></note>
+        /// it defaults to <c>EC2</c>. To run the job on Fargate resources, specify <c>FARGATE</c>.</para><note><para>If the job runs on Amazon EKS resources, then you must not specify <c>platformCapabilities</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -465,7 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The Fargate platform version where the jobs are running. A platform version is specified
-        /// only for jobs that are running on Fargate resources. If one isn't specified, the <code>LATEST</code>
+        /// only for jobs that are running on Fargate resources. If one isn't specified, the <c>LATEST</c>
         /// platform version is used by default. This uses a recent, approved version of the Fargate
         /// platform for compute resources. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate
         /// platform versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
@@ -480,10 +479,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>When this parameter is true, the container is given elevated permissions on the host
-        /// container instance (similar to the <code>root</code> user). This parameter maps to
-        /// <code>Privileged</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
+        /// container instance (similar to the <c>root</c> user). This parameter maps to <c>Privileged</c>
+        /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
-        /// Remote API</a> and the <code>--privileged</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// Remote API</a> and the <c>--privileged</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>. The default value is false.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources and
         /// shouldn't be provided, or specified as false.</para></note>
         /// </para>
@@ -499,8 +498,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// Amazon ECS task. If no value is specified, the tags are not propagated. Tags can only
         /// be propagated to the tasks during task creation. For tags with the same name, job
         /// tags are given priority over job definitions tags. If the total number of combined
-        /// tags from the job and job definition is over 50, the job is moved to the <code>FAILED</code>
-        /// state.</para><note><para>If the job runs on Amazon EKS resources, then you must not specify <code>propagateTags</code>.</para></note>
+        /// tags from the job and job definition is over 50, the job is moved to the <c>FAILED</c>
+        /// state.</para><note><para>If the job runs on Amazon EKS resources, then you must not specify <c>propagateTags</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -512,9 +511,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>When this parameter is true, the container is given read-only access to its root file
-        /// system. This parameter maps to <code>ReadonlyRootfs</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
+        /// system. This parameter maps to <c>ReadonlyRootfs</c> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
-        /// Remote API</a> and the <code>--read-only</code> option to <code>docker run</code>.</para>
+        /// Remote API</a> and the <c>--read-only</c> option to <c>docker run</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -525,7 +524,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The type and amount of resources to assign to a container. The supported resources
-        /// include <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</para>
+        /// include <c>GPU</c>, <c>MEMORY</c>, and <c>VCPU</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -588,8 +587,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter LinuxParameters_SharedMemorySize
         /// <summary>
         /// <para>
-        /// <para>The value for the size (in MiB) of the <code>/dev/shm</code> volume. This parameter
-        /// maps to the <code>--shm-size</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// <para>The value for the size (in MiB) of the <c>/dev/shm</c> volume. This parameter maps
+        /// to the <c>--shm-size</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// provide it for these jobs.</para></note>
         /// </para>
@@ -603,7 +602,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported
-        /// value is <code>21</code> GiB and the maximum supported value is <code>200</code> GiB.</para>
+        /// value is <c>21</c> GiB and the maximum supported value is <c>200</c> GiB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -614,24 +613,22 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter LinuxParameters_Swappiness
         /// <summary>
         /// <para>
-        /// <para>You can use this parameter to tune a container's memory swappiness behavior. A <code>swappiness</code>
-        /// value of <code>0</code> causes swapping to not occur unless absolutely necessary.
-        /// A <code>swappiness</code> value of <code>100</code> causes pages to be swapped aggressively.
-        /// Valid values are whole numbers between <code>0</code> and <code>100</code>. If the
-        /// <code>swappiness</code> parameter isn't specified, a default value of <code>60</code>
-        /// is used. If a value isn't specified for <code>maxSwap</code>, then this parameter
-        /// is ignored. If <code>maxSwap</code> is set to 0, the container doesn't use swap. This
-        /// parameter maps to the <code>--memory-swappiness</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// <para>You can use this parameter to tune a container's memory swappiness behavior. A <c>swappiness</c>
+        /// value of <c>0</c> causes swapping to not occur unless absolutely necessary. A <c>swappiness</c>
+        /// value of <c>100</c> causes pages to be swapped aggressively. Valid values are whole
+        /// numbers between <c>0</c> and <c>100</c>. If the <c>swappiness</c> parameter isn't
+        /// specified, a default value of <c>60</c> is used. If a value isn't specified for <c>maxSwap</c>,
+        /// then this parameter is ignored. If <c>maxSwap</c> is set to 0, the container doesn't
+        /// use swap. This parameter maps to the <c>--memory-swappiness</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para><para>Consider the following when you use a per-container swap configuration.</para><ul><li><para>Swap space must be enabled and allocated on the container instance for the containers
         /// to use.</para><note><para>By default, the Amazon ECS optimized AMIs don't have swap enabled. You must enable
         /// swap on the instance to use this feature. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-swap-volumes.html">Instance
         /// store swap volumes</a> in the <i>Amazon EC2 User Guide for Linux Instances</i> or
         /// <a href="http://aws.amazon.com/premiumsupport/knowledge-center/ec2-memory-swap-file/">How
         /// do I allocate memory to work as swap space in an Amazon EC2 instance by using a swap
-        /// file?</a></para></note></li><li><para>The swap space parameters are only supported for job definitions using EC2 resources.</para></li><li><para>If the <code>maxSwap</code> and <code>swappiness</code> parameters are omitted from
-        /// a job definition, each container has a default <code>swappiness</code> value of 60.
-        /// Moreover, the total swap usage is limited to two times the memory reservation of the
-        /// container.</para></li></ul><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// file?</a></para></note></li><li><para>The swap space parameters are only supported for job definitions using EC2 resources.</para></li><li><para>If the <c>maxSwap</c> and <c>swappiness</c> parameters are omitted from a job definition,
+        /// each container has a default <c>swappiness</c> value of 60. Moreover, the total swap
+        /// usage is limited to two times the memory reservation of the container.</para></li></ul><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// provide it for these jobs.</para></note>
         /// </para>
         /// </summary>
@@ -672,8 +669,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter LinuxParameters_Tmpf
         /// <summary>
         /// <para>
-        /// <para>The container path, mount options, and size (in MiB) of the <code>tmpfs</code> mount.
-        /// This parameter maps to the <code>--tmpfs</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// <para>The container path, mount options, and size (in MiB) of the <c>tmpfs</c> mount. This
+        /// parameter maps to the <c>--tmpfs</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// provide this parameter for this resource type.</para></note>
         /// </para>
@@ -688,7 +685,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The type of job definition. For more information about multi-node parallel jobs, see
         /// <a href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html">Creating
-        /// a multi-node parallel job definition</a> in the <i>Batch User Guide</i>.</para><note><para>If the job is run on Fargate resources, then <code>multinode</code> isn't supported.</para></note>
+        /// a multi-node parallel job definition</a> in the <i>Batch User Guide</i>.</para><note><para>If the job is run on Fargate resources, then <c>multinode</c> isn't supported.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -705,10 +702,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_Ulimit
         /// <summary>
         /// <para>
-        /// <para>A list of <code>ulimits</code> to set in the container. This parameter maps to <code>Ulimits</code>
+        /// <para>A list of <c>ulimits</c> to set in the container. This parameter maps to <c>Ulimits</c>
         /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
-        /// Remote API</a> and the <code>--ulimit</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// Remote API</a> and the <c>--ulimit</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources and
         /// shouldn't be provided.</para></note>
         /// </para>
@@ -721,10 +718,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_User
         /// <summary>
         /// <para>
-        /// <para>The user name to use inside the container. This parameter maps to <code>User</code>
-        /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
-        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
-        /// Remote API</a> and the <code>--user</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// <para>The user name to use inside the container. This parameter maps to <c>User</c> in the
+        /// <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a>
+        /// section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a>
+        /// and the <c>--user</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para>
         /// </para>
         /// </summary>
@@ -757,13 +754,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_Memory
         /// <summary>
         /// <para>
-        /// <para>This parameter is deprecated, use <code>resourceRequirements</code> to specify the
-        /// memory requirements for the job definition. It's not supported for jobs running on
-        /// Fargate resources. For jobs that run on EC2 resources, it specifies the memory hard
-        /// limit (in MiB) for a container. If your container attempts to exceed the specified
-        /// number, it's terminated. You must specify at least 4 MiB of memory for a job using
-        /// this parameter. The memory hard limit can be specified in several places. It must
-        /// be specified for each node at least once.</para>
+        /// <para>This parameter is deprecated, use <c>resourceRequirements</c> to specify the memory
+        /// requirements for the job definition. It's not supported for jobs running on Fargate
+        /// resources. For jobs that run on EC2 resources, it specifies the memory hard limit
+        /// (in MiB) for a container. If your container attempts to exceed the specified number,
+        /// it's terminated. You must specify at least 4 MiB of memory for a job using this parameter.
+        /// The memory hard limit can be specified in several places. It must be specified for
+        /// each node at least once.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -775,13 +772,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_Vcpus
         /// <summary>
         /// <para>
-        /// <para>This parameter is deprecated, use <code>resourceRequirements</code> to specify the
-        /// vCPU requirements for the job definition. It's not supported for jobs running on Fargate
+        /// <para>This parameter is deprecated, use <c>resourceRequirements</c> to specify the vCPU
+        /// requirements for the job definition. It's not supported for jobs running on Fargate
         /// resources. For jobs running on EC2 resources, it specifies the number of vCPUs reserved
-        /// for the job.</para><para>Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to <code>CpuShares</code>
+        /// for the job.</para><para>Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to <c>CpuShares</c>
         /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
-        /// Remote API</a> and the <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// Remote API</a> and the <c>--cpu-shares</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>. The number of vCPUs must be specified but can be specified in several places.
         /// You must specify it at least once for each node.</para>
         /// </para>

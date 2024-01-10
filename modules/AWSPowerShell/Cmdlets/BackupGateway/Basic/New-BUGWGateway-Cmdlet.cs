@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
 {
     /// <summary>
     /// Creates a backup gateway. After you create a gateway, you can associate it with a
-    /// server using the <code>AssociateGatewayToServer</code> operation.
+    /// server using the <c>AssociateGatewayToServer</c> operation.
     /// </summary>
     [Cmdlet("New", "BUGWGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The end of the time interval for which to get log data.</para><para>Constraints:</para><ul><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Specified in the Unix time format.</para><para>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify
-        /// <code>1538427600</code> as the end time.</para></li></ul><para>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</para>
+        /// <c>1538427600</c> as the end time.</para></li></ul><para>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,11 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter FilterPattern
         /// <summary>
         /// <para>
-        /// <para>The pattern to use to filter the returned log events to a specific term.</para><para>The following are a few examples of filter patterns that you can specify:</para><ul><li><para>To return all log events, specify a filter pattern of <code>""</code>.</para></li><li><para>To exclude log events that contain the <code>ERROR</code> term, and return all other
-        /// log events, specify a filter pattern of <code>"-ERROR"</code>.</para></li><li><para>To return log events that contain the <code>ERROR</code> term, specify a filter pattern
-        /// of <code>"ERROR"</code>.</para></li><li><para>To return log events that contain both the <code>ERROR</code> and <code>Exception</code>
-        /// terms, specify a filter pattern of <code>"ERROR Exception"</code>.</para></li><li><para>To return log events that contain the <code>ERROR</code><i>or</i> the <code>Exception</code>
-        /// term, specify a filter pattern of <code>"?ERROR ?Exception"</code>.</para></li></ul>
+        /// <para>The pattern to use to filter the returned log events to a specific term.</para><para>The following are a few examples of filter patterns that you can specify:</para><ul><li><para>To return all log events, specify a filter pattern of <c>""</c>.</para></li><li><para>To exclude log events that contain the <c>ERROR</c> term, and return all other log
+        /// events, specify a filter pattern of <c>"-ERROR"</c>.</para></li><li><para>To return log events that contain the <c>ERROR</c> term, specify a filter pattern
+        /// of <c>"ERROR"</c>.</para></li><li><para>To return log events that contain both the <c>ERROR</c> and <c>Exception</c> terms,
+        /// specify a filter pattern of <c>"ERROR Exception"</c>.</para></li><li><para>To return log events that contain the <c>ERROR</c><i>or</i> the <c>Exception</c>
+        /// term, specify a filter pattern of <c>"?ERROR ?Exception"</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The start of the time interval for which to get log data.</para><para>Constraints:</para><ul><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Specified in the Unix time format.</para><para>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify
-        /// <code>1538424000</code> as the start time.</para></li></ul><para>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</para>
+        /// <c>1538424000</c> as the start time.</para></li></ul><para>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,9 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>The token to advance to the next page of results from your request.</para><para>To get a page token, perform an initial <code>GetContainerLog</code> request. If your
-        /// results are paginated, the response will return a next page token that you can specify
-        /// as the page token in a subsequent request.</para>
+        /// <para>The token to advance to the next page of results from your request.</para><para>To get a page token, perform an initial <c>GetContainerLog</c> request. If your results
+        /// are paginated, the response will return a next page token that you can specify as
+        /// the page token in a subsequent request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

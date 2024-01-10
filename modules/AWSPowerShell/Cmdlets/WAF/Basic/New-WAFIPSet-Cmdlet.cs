@@ -39,21 +39,21 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// to allow or block based on the IP addresses that the requests originate from. For
     /// example, if you're receiving a lot of requests from one or more individual IP addresses
     /// or one or more ranges of IP addresses and you want to block the requests, you can
-    /// create an <code>IPSet</code> that contains those IP addresses and then configure AWS
-    /// WAF to block the requests. 
+    /// create an <c>IPSet</c> that contains those IP addresses and then configure AWS WAF
+    /// to block the requests. 
     /// </para><para>
-    /// To create and configure an <code>IPSet</code>, perform the following steps:
+    /// To create and configure an <c>IPSet</c>, perform the following steps:
     /// </para><ol><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>CreateIPSet</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of a <c>CreateIPSet</c> request.
     /// </para></li><li><para>
-    /// Submit a <code>CreateIPSet</code> request.
+    /// Submit a <c>CreateIPSet</c> request.
     /// </para></li><li><para>
-    /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
+    /// Use <c>GetChangeToken</c> to get the change token that you provide in the <c>ChangeToken</c>
     /// parameter of an <a>UpdateIPSet</a> request.
     /// </para></li><li><para>
-    /// Submit an <code>UpdateIPSet</code> request to specify the IP addresses that you want
-    /// AWS WAF to watch for.
+    /// Submit an <c>UpdateIPSet</c> request to specify the IP addresses that you want AWS
+    /// WAF to watch for.
     /// </para></li></ol><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
     /// see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A friendly name or description of the <a>IPSet</a>. You can't change <code>Name</code>
-        /// after you create the <code>IPSet</code>.</para>
+        /// <para>A friendly name or description of the <a>IPSet</a>. You can't change <c>Name</c> after
+        /// you create the <c>IPSet</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

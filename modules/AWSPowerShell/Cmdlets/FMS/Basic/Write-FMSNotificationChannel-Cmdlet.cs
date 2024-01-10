@@ -34,11 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     ///  
     /// <para>
     /// To perform this action outside of the console, you must first configure the SNS topic's
-    /// access policy to allow the <code>SnsRoleName</code> to publish SNS logs. If the <code>SnsRoleName</code>
-    /// provided is a role other than the <code>AWSServiceRoleForFMS</code> service-linked
-    /// role, this role must have a trust relationship configured to allow the Firewall Manager
-    /// service principal <code>fms.amazonaws.com</code> to assume this role. For information
-    /// about configuring an SNS access policy, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service">Service
+    /// access policy to allow the <c>SnsRoleName</c> to publish SNS logs. If the <c>SnsRoleName</c>
+    /// provided is a role other than the <c>AWSServiceRoleForFMS</c> service-linked role,
+    /// this role must have a trust relationship configured to allow the Firewall Manager
+    /// service principal <c>fms.amazonaws.com</c> to assume this role. For information about
+    /// configuring an SNS access policy, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service">Service
     /// roles for Firewall Manager</a> in the <i>Firewall Manager Developer Guide</i>.
     /// </para>
     /// </summary>

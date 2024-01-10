@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions for the <code>elasticfilesystem:DescribeAccessPoints</code>
+    /// This operation requires permissions for the <c>elasticfilesystem:DescribeAccessPoints</c>
     /// action.
     /// </para>
     /// </summary>
@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) You can use <code>NextToken</code> in a subsequent request to fetch the
-        /// next page of access point descriptions if the response payload was paginated.</para>
+        /// <para>(Optional) You can use <c>NextToken</c> in a subsequent request to fetch the next
+        /// page of access point descriptions if the response payload was paginated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.MTurk.Model;
 namespace Amazon.PowerShell.Cmdlets.MTR
 {
     /// <summary>
-    /// The <code>ListWorkersBlocks</code> operation retrieves a list of Workers who are blocked
+    /// The <c>ListWorkersBlocks</c> operation retrieves a list of Workers who are blocked
     /// from working on your HITs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MTRWorkerBlockList")]

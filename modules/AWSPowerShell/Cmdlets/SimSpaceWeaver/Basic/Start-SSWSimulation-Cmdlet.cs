@@ -86,9 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.SSW
         /// <para>
         /// <para>The maximum running time of the simulation, specified as a number of minutes (m or
         /// M), hours (h or H), or days (d or D). The simulation stops when it reaches this limit.
-        /// The maximum value is <code>14D</code>, or its equivalent in the other units. The default
-        /// value is <code>14D</code>. A value equivalent to <code>0</code> makes the simulation
-        /// immediately transition to <code>Stopping</code> as soon as it reaches <code>Started</code>.</para>
+        /// The maximum value is <c>14D</c>, or its equivalent in the other units. The default
+        /// value is <c>14D</c>. A value equivalent to <c>0</c> makes the simulation immediately
+        /// transition to <c>Stopping</c> as soon as it reaches <c>Started</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,8 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.SSW
         /// <summary>
         /// <para>
         /// <para>A value that you provide to ensure that repeated calls to this API operation using
-        /// the same parameters complete only once. A <code>ClientToken</code> is also known as
-        /// an <i>idempotency token</i>. A <code>ClientToken</code> expires after 24 hours.</para>
+        /// the same parameters complete only once. A <c>ClientToken</c> is also known as an <i>idempotency
+        /// token</i>. A <c>ClientToken</c> expires after 24 hours.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

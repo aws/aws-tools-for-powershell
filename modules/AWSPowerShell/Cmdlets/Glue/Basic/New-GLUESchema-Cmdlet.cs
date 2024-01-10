@@ -37,10 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// Compatibility mode "DISABLED" restricts any additional schema versions from being
     /// added after the first schema version. For all other compatibility modes, validation
     /// of compatibility settings will be applied only from the second version onwards when
-    /// the <code>RegisterSchemaVersion</code> API is used.
+    /// the <c>RegisterSchemaVersion</c> API is used.
     /// </para><para>
-    /// When this API is called without a <code>RegistryId</code>, this will create an entry
-    /// for a "default-registry" in the registry database tables, if it is not already present.
+    /// When this API is called without a <c>RegistryId</c>, this will create an entry for
+    /// a "default-registry" in the registry database tables, if it is not already present.
     /// </para>
     /// </summary>
     [Cmdlet("New", "GLUESchema", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter DataFormat
         /// <summary>
         /// <para>
-        /// <para>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code>
-        /// and <code>PROTOBUF</code> are supported.</para>
+        /// <para>The data format of the schema definition. Currently <c>AVRO</c>, <c>JSON</c> and <c>PROTOBUF</c>
+        /// are supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter RegistryId_RegistryArn
         /// <summary>
         /// <para>
-        /// <para>Arn of the registry to be updated. One of <code>RegistryArn</code> or <code>RegistryName</code>
+        /// <para>Arn of the registry to be updated. One of <c>RegistryArn</c> or <c>RegistryName</c>
         /// has to be provided.</para>
         /// </para>
         /// </summary>
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter RegistryId_RegistryName
         /// <summary>
         /// <para>
-        /// <para>Name of the registry. Used only for lookup. One of <code>RegistryArn</code> or <code>RegistryName</code>
+        /// <para>Name of the registry. Used only for lookup. One of <c>RegistryArn</c> or <c>RegistryName</c>
         /// has to be provided. </para>
         /// </para>
         /// </summary>
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SchemaDefinition
         /// <summary>
         /// <para>
-        /// <para>The schema definition using the <code>DataFormat</code> setting for <code>SchemaName</code>.</para>
+        /// <para>The schema definition using the <c>DataFormat</c> setting for <c>SchemaName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

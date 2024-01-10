@@ -35,8 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
     /// <para>
     /// If you only want to transform EDI (electronic data interchange) documents, you don't
     /// need to create profiles, partnerships or capabilities. Just create and configure a
-    /// transformer, and then run the <code>StartTransformerJob</code> API to process your
-    /// files.
+    /// transformer, and then run the <c>StartTransformerJob</c> API to process your files.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "B2BITransformerJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

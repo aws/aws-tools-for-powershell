@@ -28,8 +28,8 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Updates user details for a specified user ID. Currently, only <code>LicenseType</code>
-    /// updates are supported for this action.
+    /// Updates user details for a specified user ID. Currently, only <c>LicenseType</c> updates
+    /// are supported for this action.
     /// </summary>
     [Cmdlet("Update", "CHMUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.User")]

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// <para>
     /// Poll job descriptions after a job starts to know the status of the job. When a job
     /// succeeds, a URL is provided to download the exported assets' data from. Download URLs
-    /// are valid for five minutes after they are generated. You can call the <code>DescribeAssetBundleExportJob</code>
+    /// are valid for five minutes after they are generated. You can call the <c>DescribeAssetBundleExportJob</c>
     /// API for a new download URL as needed.
     /// </para><para>
     /// Job descriptions are available for 14 days after the job starts.
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The ID of the job that you want described. The job ID is set when you start a new
-        /// job with a <code>StartAssetBundleExportJob</code> API call.</para>
+        /// job with a <c>StartAssetBundleExportJob</c> API call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

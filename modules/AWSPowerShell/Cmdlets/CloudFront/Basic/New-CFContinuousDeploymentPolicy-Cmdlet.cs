@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// 
     ///  
     /// <para>
-    /// To use a continuous deployment policy, first use <code>CopyDistribution</code> to
-    /// create a staging distribution, then use <code>UpdateDistribution</code> to modify
-    /// the staging distribution's configuration.
+    /// To use a continuous deployment policy, first use <c>CopyDistribution</c> to create
+    /// a staging distribution, then use <c>UpdateDistribution</c> to modify the staging distribution's
+    /// configuration.
     /// </para><para>
     /// After you create and update a staging distribution, you can use a continuous deployment
     /// policy to incrementally move traffic to the staging distribution. This workflow enables
@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A Boolean that indicates whether this continuous deployment policy is enabled (in
-        /// effect). When this value is <code>true</code>, this policy is enabled and in effect.
-        /// When this value is <code>false</code>, this policy is not enabled and has no effect.</para>
+        /// effect). When this value is <c>true</c>, this policy is enabled and in effect. When
+        /// this value is <c>false</c>, this policy is not enabled and has no effect.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The request header name that you want CloudFront to send to your staging distribution.
-        /// The header must contain the prefix <code>aws-cf-cd-</code>.</para>
+        /// The header must contain the prefix <c>aws-cf-cd-</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The amount of time after which you want sessions to cease if no requests are received.
-        /// Allowed values are 300–3600 seconds (5–60 minutes).</para><para>The value must be less than or equal to <code>MaximumTTL</code>.</para>
+        /// Allowed values are 300–3600 seconds (5–60 minutes).</para><para>The value must be less than or equal to <c>MaximumTTL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The maximum amount of time to consider requests from the viewer as being part of the
-        /// same session. Allowed values are 300–3600 seconds (5–60 minutes).</para><para>The value must be less than or equal to <code>IdleTTL</code>.</para>
+        /// same session. Allowed values are 300–3600 seconds (5–60 minutes).</para><para>The value must be less than or equal to <c>IdleTTL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

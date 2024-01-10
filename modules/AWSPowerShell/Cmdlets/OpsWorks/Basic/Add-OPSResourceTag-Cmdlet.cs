@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>A map that contains tag keys and tag values that are attached to a stack or layer.</para><ul><li><para>The key cannot be empty.</para></li><li><para>The key can be a maximum of 127 characters, and can contain only Unicode letters,
-        /// numbers, or separators, or the following special characters: <code>+ - = . _ : /</code></para></li><li><para>The value can be a maximum 255 characters, and contain only Unicode letters, numbers,
-        /// or separators, or the following special characters: <code>+ - = . _ : /</code></para></li><li><para>Leading and trailing white spaces are trimmed from both the key and value.</para></li><li><para>A maximum of 40 tags is allowed for any resource.</para></li></ul>
+        /// numbers, or separators, or the following special characters: <c>+ - = . _ : /</c></para></li><li><para>The value can be a maximum 255 characters, and contain only Unicode letters, numbers,
+        /// or separators, or the following special characters: <c>+ - = . _ : /</c></para></li><li><para>Leading and trailing white spaces are trimmed from both the key and value.</para></li><li><para>A maximum of 40 tags is allowed for any resource.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,8 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// You can call <code>DescribeValidDBInstanceModifications</code> to learn what modifications
-    /// you can make to your DB instance. You can use this information when you call <code>ModifyDBInstance</code>.
+    /// You can call <c>DescribeValidDBInstanceModifications</c> to learn what modifications
+    /// you can make to your DB instance. You can use this information when you call <c>ModifyDBInstance</c>.
     /// 
     ///  
     /// <para>

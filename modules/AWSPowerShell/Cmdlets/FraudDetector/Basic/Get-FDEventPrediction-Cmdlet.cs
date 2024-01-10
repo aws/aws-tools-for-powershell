@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
     /// Evaluates an event against a detector version. If a version ID is not provided, the
-    /// detector’s (<code>ACTIVE</code>) version is used.
+    /// detector’s (<c>ACTIVE</c>) version is used.
     /// </summary>
     [Cmdlet("Get", "FDEventPrediction")]
     [OutputType("Amazon.FraudDetector.Model.GetEventPredictionResponse")]

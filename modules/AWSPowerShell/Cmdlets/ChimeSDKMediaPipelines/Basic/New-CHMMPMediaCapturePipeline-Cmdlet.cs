@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter ActiveSpeakerOnlyConfiguration_ActiveSpeakerPosition
         /// <summary>
         /// <para>
-        /// <para>The position of the <code>ActiveSpeakerOnly</code> video tile.</para>
+        /// <para>The position of the <c>ActiveSpeakerOnly</c> video tile.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter CompositedVideo_Layout
         /// <summary>
         /// <para>
-        /// <para>The layout setting, such as <code>GridView</code> in the configuration object.</para>
+        /// <para>The layout setting, such as <c>GridView</c> in the configuration object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter PresenterOnlyConfiguration_PresenterPosition
         /// <summary>
         /// <para>
-        /// <para>Defines the position of the presenter video tile. Default: <code>TopRight</code>.</para>
+        /// <para>Defines the position of the presenter video tile. Default: <c>TopRight</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

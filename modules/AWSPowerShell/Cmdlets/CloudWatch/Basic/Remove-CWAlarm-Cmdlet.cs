@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     ///  If you specify an incorrect alarm name or make any other error in the operation,
     /// no alarms are deleted. To confirm that alarms were deleted successfully, you can use
     /// the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a>
-    /// operation after using <code>DeleteAlarms</code>.
+    /// operation after using <c>DeleteAlarms</c>.
     /// </para><note><para>
     /// It is possible to create a loop or cycle of composite alarms, where composite alarm
     /// A depends on composite alarm B, and composite alarm B also depends on composite alarm
@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// </para><para>
     /// To get out of such a situation, you must break the cycle by changing the rule of one
     /// of the composite alarms in the cycle to remove a dependency that creates the cycle.
-    /// The simplest change to make to break a cycle is to change the <code>AlarmRule</code>
-    /// of one of the alarms to <code>false</code>. 
+    /// The simplest change to make to break a cycle is to change the <c>AlarmRule</c> of
+    /// one of the alarms to <c>false</c>. 
     /// </para><para>
     /// Additionally, the evaluation of composite alarms stops if CloudWatch detects a cycle
     /// in the evaluation path. 

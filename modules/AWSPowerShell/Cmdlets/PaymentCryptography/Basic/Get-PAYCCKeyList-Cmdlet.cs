@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// <para>
     /// This is a paginated operation, which means that each response might contain only a
     /// subset of all the keys. When the response contains only a subset of keys, it includes
-    /// a <code>NextToken</code> value. Use this value in a subsequent <code>ListKeys</code>
-    /// request to get more keys. When you receive a response with no NextToken (or an empty
-    /// or null value), that means there are no more keys to get.
+    /// a <c>NextToken</c> value. Use this value in a subsequent <c>ListKeys</c> request to
+    /// get more keys. When you receive a response with no NextToken (or an empty or null
+    /// value), that means there are no more keys to get.
     /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateKey</a></para></li><li><para><a>DeleteKey</a></para></li><li><para><a>GetKey</a></para></li></ul>
@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <summary>
         /// <para>
         /// <para>Use this parameter in a subsequent request after you receive a response with truncated
-        /// results. Set it to the value of <code>NextToken</code> from the truncated response
-        /// you just received.</para>
+        /// results. Set it to the value of <c>NextToken</c> from the truncated response you just
+        /// received.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

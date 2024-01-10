@@ -34,14 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.REK
     ///  
     /// <para>
     /// The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket
-    /// name and the filename of the video. <code>StartFaceSearch</code> returns a job identifier
-    /// (<code>JobId</code>) which you use to get the search results once the search has completed.
+    /// name and the filename of the video. <c>StartFaceSearch</c> returns a job identifier
+    /// (<c>JobId</c>) which you use to get the search results once the search has completed.
     /// When searching is finished, Amazon Rekognition Video publishes a completion status
-    /// to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.
+    /// to the Amazon Simple Notification Service topic that you specify in <c>NotificationChannel</c>.
     /// To get the search results, first check that the status value published to the Amazon
-    /// SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetFaceSearch</a> and pass the
-    /// job identifier (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>.
-    /// For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/procedure-person-search-videos.html">Searching
+    /// SNS topic is <c>SUCCEEDED</c>. If so, call <a>GetFaceSearch</a> and pass the job identifier
+    /// (<c>JobId</c>) from the initial call to <c>StartFaceSearch</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/procedure-person-search-videos.html">Searching
     /// stored videos for faces</a>. 
     /// </para>
     /// </summary>
@@ -61,9 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Idempotent token used to identify the start request. If you use the same token with
-        /// multiple <code>StartFaceSearch</code> requests, the same <code>JobId</code> is returned.
-        /// Use <code>ClientRequestToken</code> to prevent the same job from being accidently
-        /// started more than once. </para>
+        /// multiple <c>StartFaceSearch</c> requests, the same <c>JobId</c> is returned. Use <c>ClientRequestToken</c>
+        /// to prevent the same job from being accidently started more than once. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>An identifier you specify that's returned in the completion notification that's published
-        /// to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code>
+        /// to your Amazon Simple Notification Service topic. For example, you can use <c>JobTag</c>
         /// to group related jobs and identify them in the completion notification.</para>
         /// </para>
         /// </summary>

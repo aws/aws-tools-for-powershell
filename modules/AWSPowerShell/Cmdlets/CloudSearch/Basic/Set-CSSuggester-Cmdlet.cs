@@ -66,11 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.CS
         #region Parameter DocumentSuggesterOptions_FuzzyMatching
         /// <summary>
         /// <para>
-        /// <para>The level of fuzziness allowed when suggesting matches for a string: <code>none</code>,
-        /// <code>low</code>, or <code>high</code>. With none, the specified string is treated
-        /// as an exact prefix. With low, suggestions must differ from the specified string by
-        /// no more than one character. With high, suggestions can differ by up to two characters.
-        /// The default is none. </para>
+        /// <para>The level of fuzziness allowed when suggesting matches for a string: <c>none</c>,
+        /// <c>low</c>, or <c>high</c>. With none, the specified string is treated as an exact
+        /// prefix. With low, suggestions must differ from the specified string by no more than
+        /// one character. With high, suggestions can differ by up to two characters. The default
+        /// is none. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,10 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// <para>An expression that computes a score for each suggestion to control how they are sorted.
         /// The scores are rounded to the nearest integer, with a floor of 0 and a ceiling of
         /// 2^31-1. A document's relevance score is not computed for suggestions, so sort expressions
-        /// cannot reference the <code>_score</code> value. To sort suggestions using a numeric
-        /// field or existing expression, simply specify the name of the field or expression.
-        /// If no expression is configured for the suggester, the suggestions are sorted with
-        /// the closest matches listed first.</para>
+        /// cannot reference the <c>_score</c> value. To sort suggestions using a numeric field
+        /// or existing expression, simply specify the name of the field or expression. If no
+        /// expression is configured for the suggester, the suggestions are sorted with the closest
+        /// matches listed first.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

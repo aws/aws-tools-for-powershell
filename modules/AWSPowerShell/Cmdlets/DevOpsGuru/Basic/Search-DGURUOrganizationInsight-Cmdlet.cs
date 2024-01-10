@@ -29,16 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
 {
     /// <summary>
     /// Returns a list of insights in your organization. You can specify which insights are
-    /// returned by their start time, one or more statuses (<code>ONGOING</code>, <code>CLOSED</code>,
-    /// and <code>CLOSED</code>), one or more severities (<code>LOW</code>, <code>MEDIUM</code>,
-    /// and <code>HIGH</code>), and type (<code>REACTIVE</code> or <code>PROACTIVE</code>).
-    /// 
+    /// returned by their start time, one or more statuses (<c>ONGOING</c>, <c>CLOSED</c>,
+    /// and <c>CLOSED</c>), one or more severities (<c>LOW</c>, <c>MEDIUM</c>, and <c>HIGH</c>),
+    /// and type (<c>REACTIVE</c> or <c>PROACTIVE</c>). 
     /// 
     ///  
     /// <para>
-    ///  Use the <code>Filters</code> parameter to specify status and severity search parameters.
-    /// Use the <code>Type</code> parameter to specify <code>REACTIVE</code> or <code>PROACTIVE</code>
-    /// in your search. 
+    ///  Use the <c>Filters</c> parameter to specify status and severity search parameters.
+    /// Use the <c>Type</c> parameter to specify <c>REACTIVE</c> or <c>PROACTIVE</c> in your
+    /// search. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "DGURUOrganizationInsight", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -132,18 +131,17 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         /// from different services to indicate that the resources are related. For example, you
         /// can assign the same tag to an Amazon DynamoDB table resource that you assign to an
         /// Lambda function. For more information about using tags, see the <a href="https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html">Tagging
-        /// best practices</a> whitepaper. </para><para>Each Amazon Web Services tag has two parts. </para><ul><li><para>A tag <i>key</i> (for example, <code>CostCenter</code>, <code>Environment</code>,
-        /// <code>Project</code>, or <code>Secret</code>). Tag <i>keys</i> are case-sensitive.</para></li><li><para>An optional field known as a tag <i>value</i> (for example, <code>111122223333</code>,
-        /// <code>Production</code>, or a team name). Omitting the tag <i>value</i> is the same
-        /// as using an empty string. Like tag <i>keys</i>, tag <i>values</i> are case-sensitive.</para></li></ul><para>Together these are known as <i>key</i>-<i>value</i> pairs.</para><important><para>The string used for a <i>key</i> in a tag that you use to define your resource coverage
-        /// must begin with the prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
-        /// <code>DevOps-Guru-deployment-application</code> or <code>devops-guru-rds-application</code>.
-        /// When you create a <i>key</i>, the case of characters in the <i>key</i> can be whatever
-        /// you choose. After you create a <i>key</i>, it is case-sensitive. For example, DevOps
-        /// Guru works with a <i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
-        /// <code>DevOps-Guru-RDS</code>, and these act as two different <i>keys</i>. Possible
-        /// <i>key</i>/<i>value</i> pairs in your application might be <code>Devops-Guru-production-application/RDS</code>
-        /// or <code>Devops-Guru-production-application/containers</code>.</para></important>
+        /// best practices</a> whitepaper. </para><para>Each Amazon Web Services tag has two parts. </para><ul><li><para>A tag <i>key</i> (for example, <c>CostCenter</c>, <c>Environment</c>, <c>Project</c>,
+        /// or <c>Secret</c>). Tag <i>keys</i> are case-sensitive.</para></li><li><para>An optional field known as a tag <i>value</i> (for example, <c>111122223333</c>, <c>Production</c>,
+        /// or a team name). Omitting the tag <i>value</i> is the same as using an empty string.
+        /// Like tag <i>keys</i>, tag <i>values</i> are case-sensitive.</para></li></ul><para>Together these are known as <i>key</i>-<i>value</i> pairs.</para><important><para>The string used for a <i>key</i> in a tag that you use to define your resource coverage
+        /// must begin with the prefix <c>Devops-guru-</c>. The tag <i>key</i> might be <c>DevOps-Guru-deployment-application</c>
+        /// or <c>devops-guru-rds-application</c>. When you create a <i>key</i>, the case of characters
+        /// in the <i>key</i> can be whatever you choose. After you create a <i>key</i>, it is
+        /// case-sensitive. For example, DevOps Guru works with a <i>key</i> named <c>devops-guru-rds</c>
+        /// and a <i>key</i> named <c>DevOps-Guru-RDS</c>, and these act as two different <i>keys</i>.
+        /// Possible <i>key</i>/<i>value</i> pairs in your application might be <c>Devops-Guru-production-application/RDS</c>
+        /// or <c>Devops-Guru-production-application/containers</c>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para> The type of insights you are searching for (<code>REACTIVE</code> or <code>PROACTIVE</code>).
+        /// <para> The type of insights you are searching for (<c>REACTIVE</c> or <c>PROACTIVE</c>).
         /// </para>
         /// </para>
         /// </summary>
@@ -183,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>nextToken</code> value.</para>
+        /// results, make another call with the returned <c>nextToken</c> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

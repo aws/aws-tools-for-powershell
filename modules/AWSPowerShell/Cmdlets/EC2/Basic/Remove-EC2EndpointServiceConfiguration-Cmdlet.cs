@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Deletes the specified VPC endpoint service configurations. Before you can delete an
-    /// endpoint service configuration, you must reject any <code>Available</code> or <code>PendingAcceptance</code>
+    /// endpoint service configuration, you must reject any <c>Available</c> or <c>PendingAcceptance</c>
     /// interface endpoint connections that are attached to the service.
     /// </summary>
     [Cmdlet("Remove", "EC2EndpointServiceConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

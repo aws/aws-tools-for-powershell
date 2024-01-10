@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     /// 
     ///  
     /// <para>
-    /// To update a rack at a site with an order of <code>IN_PROGRESS</code>, you must wait
-    /// for the order to complete or cancel the order.
+    /// To update a rack at a site with an order of <c>IN_PROGRESS</c>, you must wait for
+    /// the order to complete or cancel the order.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "OUTPSiteRackPhysicalProperty", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter MaximumSupportedWeightLb
         /// <summary>
         /// <para>
-        /// <para>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over
-        /// 2000lbs. </para>
+        /// <para>The maximum rack weight that this site can support. <c>NO_LIMIT</c> is over 2000lbs.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         /// <para>The type of optical standard that you will use to attach the Outpost to your network.
         /// This field is dependent on uplink speed, fiber type, and distance to the upstream
         /// device. For more information about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a>
-        /// in the Amazon Web Services Outposts User Guide. </para><ul><li><para><code>OPTIC_10GBASE_SR</code>: 10GBASE-SR</para></li><li><para><code>OPTIC_10GBASE_IR</code>: 10GBASE-IR</para></li><li><para><code>OPTIC_10GBASE_LR</code>: 10GBASE-LR</para></li><li><para><code>OPTIC_40GBASE_SR</code>: 40GBASE-SR</para></li><li><para><code>OPTIC_40GBASE_ESR</code>: 40GBASE-ESR</para></li><li><para><code>OPTIC_40GBASE_IR4_LR4L</code>: 40GBASE-IR (LR4L)</para></li><li><para><code>OPTIC_40GBASE_LR4</code>: 40GBASE-LR4</para></li><li><para><code>OPTIC_100GBASE_SR4</code>: 100GBASE-SR4</para></li><li><para><code>OPTIC_100GBASE_CWDM4</code>: 100GBASE-CWDM4</para></li><li><para><code>OPTIC_100GBASE_LR4</code>: 100GBASE-LR4</para></li><li><para><code>OPTIC_100G_PSM4_MSA</code>: 100G PSM4 MSA</para></li><li><para><code>OPTIC_1000BASE_LX</code>: 1000Base-LX</para></li><li><para><code>OPTIC_1000BASE_SX</code> : 1000Base-SX</para></li></ul>
+        /// in the Amazon Web Services Outposts User Guide. </para><ul><li><para><c>OPTIC_10GBASE_SR</c>: 10GBASE-SR</para></li><li><para><c>OPTIC_10GBASE_IR</c>: 10GBASE-IR</para></li><li><para><c>OPTIC_10GBASE_LR</c>: 10GBASE-LR</para></li><li><para><c>OPTIC_40GBASE_SR</c>: 40GBASE-SR</para></li><li><para><c>OPTIC_40GBASE_ESR</c>: 40GBASE-ESR</para></li><li><para><c>OPTIC_40GBASE_IR4_LR4L</c>: 40GBASE-IR (LR4L)</para></li><li><para><c>OPTIC_40GBASE_LR4</c>: 40GBASE-LR4</para></li><li><para><c>OPTIC_100GBASE_SR4</c>: 100GBASE-SR4</para></li><li><para><c>OPTIC_100GBASE_CWDM4</c>: 100GBASE-CWDM4</para></li><li><para><c>OPTIC_100GBASE_LR4</c>: 100GBASE-LR4</para></li><li><para><c>OPTIC_100G_PSM4_MSA</c>: 100G PSM4 MSA</para></li><li><para><c>OPTIC_1000BASE_LX</c>: 1000Base-LX</para></li><li><para><c>OPTIC_1000BASE_SX</c> : 1000Base-SX</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         /// <summary>
         /// <para>
         /// <para>The power connector that Amazon Web Services should plan to provide for connections
-        /// to the hardware. Note the correlation between <code>PowerPhase</code> and <code>PowerConnector</code>.
+        /// to the hardware. Note the correlation between <c>PowerPhase</c> and <c>PowerConnector</c>.
         /// </para><ul><li><para>Single-phase AC feed</para><ul><li><para><b>L6-30P</b> – (common in US); 30A; single phase</para></li><li><para><b>IEC309 (blue)</b> – P+N+E, 6hr; 32 A; single phase</para></li></ul></li><li><para>Three-phase AC feed</para><ul><li><para><b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three phase</para></li><li><para><b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three phase</para></li></ul></li></ul>
         /// </para>
         /// </summary>
@@ -157,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         /// <para>Racks come with two Outpost network devices. Depending on the supported uplink speed
         /// at the site, the Outpost network devices provide a variable number of uplinks. Specify
         /// the number of uplinks for each Outpost network device that you intend to use to connect
-        /// the rack to your network. Note the correlation between <code>UplinkGbps</code> and
-        /// <code>UplinkCount</code>. </para><ul><li><para>1Gbps - Uplinks available: 1, 2, 4, 6, 8</para></li><li><para>10Gbps - Uplinks available: 1, 2, 4, 8, 12, 16</para></li><li><para>40 and 100 Gbps- Uplinks available: 1, 2, 4</para></li></ul>
+        /// the rack to your network. Note the correlation between <c>UplinkGbps</c> and <c>UplinkCount</c>.
+        /// </para><ul><li><para>1Gbps - Uplinks available: 1, 2, 4, 6, 8</para></li><li><para>10Gbps - Uplinks available: 1, 2, 4, 8, 12, 16</para></li><li><para>40 and 100 Gbps- Uplinks available: 1, 2, 4</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

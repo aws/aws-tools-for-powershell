@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the new event bus. </para><para>Event bus names cannot contain the / character. You can't use the name <code>default</code>
+        /// <para>The name of the new event bus. </para><para>Event bus names cannot contain the / character. You can't use the name <c>default</c>
         /// for a custom event bus, as this name is already used for your account's default event
         /// bus.</para><para>If this is a partner event bus, the name must exactly match the name of the partner
         /// event source that this event bus is matched to.</para>

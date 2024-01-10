@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceRequirements_AcceleratorManufacturer
         /// <summary>
         /// <para>
-        /// <para>Indicates whether instance types must have accelerators by specific manufacturers.</para><ul><li><para>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</para></li><li><para>For instance types with AMD devices, specify <code>amd</code>.</para></li><li><para>For instance types with Habana devices, specify <code>habana</code>.</para></li><li><para>For instance types with NVIDIA devices, specify <code>nvidia</code>.</para></li><li><para>For instance types with Xilinx devices, specify <code>xilinx</code>.</para></li></ul><para>Default: Any manufacturer</para>
+        /// <para>Indicates whether instance types must have accelerators by specific manufacturers.</para><ul><li><para>For instance types with Amazon Web Services devices, specify <c>amazon-web-services</c>.</para></li><li><para>For instance types with AMD devices, specify <c>amd</c>.</para></li><li><para>For instance types with Habana devices, specify <c>habana</c>.</para></li><li><para>For instance types with NVIDIA devices, specify <c>nvidia</c>.</para></li><li><para>For instance types with Xilinx devices, specify <c>xilinx</c>.</para></li></ul><para>Default: Any manufacturer</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceRequirements_AcceleratorName
         /// <summary>
         /// <para>
-        /// <para>The accelerators that must be on the instance type.</para><ul><li><para>For instance types with NVIDIA A10G GPUs, specify <code>a10g</code>.</para></li><li><para>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</para></li><li><para>For instance types with NVIDIA H100 GPUs, specify <code>h100</code>.</para></li><li><para>For instance types with Amazon Web Services Inferentia chips, specify <code>inferentia</code>.</para></li><li><para>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</para></li><li><para>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</para></li><li><para>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</para></li><li><para>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</para></li><li><para>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</para></li><li><para>For instance types with NVIDIA T4G GPUs, specify <code>t4g</code>.</para></li><li><para>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</para></li><li><para>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</para></li></ul><para>Default: Any accelerator</para>
+        /// <para>The accelerators that must be on the instance type.</para><ul><li><para>For instance types with NVIDIA A10G GPUs, specify <c>a10g</c>.</para></li><li><para>For instance types with NVIDIA A100 GPUs, specify <c>a100</c>.</para></li><li><para>For instance types with NVIDIA H100 GPUs, specify <c>h100</c>.</para></li><li><para>For instance types with Amazon Web Services Inferentia chips, specify <c>inferentia</c>.</para></li><li><para>For instance types with NVIDIA GRID K520 GPUs, specify <c>k520</c>.</para></li><li><para>For instance types with NVIDIA K80 GPUs, specify <c>k80</c>.</para></li><li><para>For instance types with NVIDIA M60 GPUs, specify <c>m60</c>.</para></li><li><para>For instance types with AMD Radeon Pro V520 GPUs, specify <c>radeon-pro-v520</c>.</para></li><li><para>For instance types with NVIDIA T4 GPUs, specify <c>t4</c>.</para></li><li><para>For instance types with NVIDIA T4G GPUs, specify <c>t4g</c>.</para></li><li><para>For instance types with Xilinx VU9P FPGAs, specify <c>vu9p</c>.</para></li><li><para>For instance types with NVIDIA V100 GPUs, specify <c>v100</c>.</para></li></ul><para>Default: Any accelerator</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceRequirements_AcceleratorType
         /// <summary>
         /// <para>
-        /// <para>The accelerator types that must be on the instance type.</para><ul><li><para>To include instance types with GPU hardware, specify <code>gpu</code>.</para></li><li><para>To include instance types with FPGA hardware, specify <code>fpga</code>.</para></li><li><para>To include instance types with inference hardware, specify <code>inference</code>.</para></li></ul><para>Default: Any accelerator type</para>
+        /// <para>The accelerator types that must be on the instance type.</para><ul><li><para>To include instance types with GPU hardware, specify <c>gpu</c>.</para></li><li><para>To include instance types with FPGA hardware, specify <c>fpga</c>.</para></li><li><para>To include instance types with inference hardware, specify <c>inference</c>.</para></li></ul><para>Default: Any accelerator type</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,11 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The instance types to apply your specified attributes against. All other instance
-        /// types are ignored, even if they match your specified attributes.</para><para>You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>),
-        /// to allow an instance type, size, or generation. The following are examples: <code>m5.8xlarge</code>,
-        /// <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</para><para>For example, if you specify <code>c5*</code>,Amazon EC2 will allow the entire C5 instance
-        /// family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>,
-        /// Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.</para><note><para>If you specify <code>AllowedInstanceTypes</code>, you can't specify <code>ExcludedInstanceTypes</code>.</para></note><para>Default: All instance types</para>
+        /// types are ignored, even if they match your specified attributes.</para><para>You can use strings with one or more wild cards, represented by an asterisk (<c>*</c>),
+        /// to allow an instance type, size, or generation. The following are examples: <c>m5.8xlarge</c>,
+        /// <c>c5*.*</c>, <c>m5a.*</c>, <c>r*</c>, <c>*3*</c>.</para><para>For example, if you specify <c>c5*</c>,Amazon EC2 will allow the entire C5 instance
+        /// family, which includes all C5a and C5n instance types. If you specify <c>m5a.*</c>,
+        /// Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.</para><note><para>If you specify <c>AllowedInstanceTypes</c>, you can't specify <c>ExcludedInstanceTypes</c>.</para></note><para>Default: All instance types</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceRequirements_BareMetal
         /// <summary>
         /// <para>
-        /// <para>Indicates whether bare metal instance types must be included, excluded, or required.</para><ul><li><para>To include bare metal instance types, specify <code>included</code>.</para></li><li><para>To require only bare metal instance types, specify <code>required</code>.</para></li><li><para>To exclude bare metal instance types, specify <code>excluded</code>.</para></li></ul><para>Default: <code>excluded</code></para>
+        /// <para>Indicates whether bare metal instance types must be included, excluded, or required.</para><ul><li><para>To include bare metal instance types, specify <c>included</c>.</para></li><li><para>To require only bare metal instance types, specify <c>required</c>.</para></li><li><para>To exclude bare metal instance types, specify <c>excluded</c>.</para></li></ul><para>Default: <c>excluded</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Indicates whether burstable performance T instance types are included, excluded, or
         /// required. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
-        /// performance instances</a>.</para><ul><li><para>To include burstable performance instance types, specify <code>included</code>.</para></li><li><para>To require only burstable performance instance types, specify <code>required</code>.</para></li><li><para>To exclude burstable performance instance types, specify <code>excluded</code>.</para></li></ul><para>Default: <code>excluded</code></para>
+        /// performance instances</a>.</para><ul><li><para>To include burstable performance instance types, specify <c>included</c>.</para></li><li><para>To require only burstable performance instance types, specify <c>required</c>.</para></li><li><para>To exclude burstable performance instance types, specify <c>excluded</c>.</para></li></ul><para>Default: <c>excluded</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceRequirements_CpuManufacturer
         /// <summary>
         /// <para>
-        /// <para>The CPU manufacturers to include.</para><ul><li><para>For instance types with Intel CPUs, specify <code>intel</code>.</para></li><li><para>For instance types with AMD CPUs, specify <code>amd</code>.</para></li><li><para>For instance types with Amazon Web Services CPUs, specify <code>amazon-web-services</code>.</para></li></ul><note><para>Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched
+        /// <para>The CPU manufacturers to include.</para><ul><li><para>For instance types with Intel CPUs, specify <c>intel</c>.</para></li><li><para>For instance types with AMD CPUs, specify <c>amd</c>.</para></li><li><para>For instance types with Amazon Web Services CPUs, specify <c>amazon-web-services</c>.</para></li></ul><note><para>Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched
         /// with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you
         /// specify in your launch template.</para></note><para>Default: Any manufacturer</para>
         /// </para>
@@ -166,12 +166,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceRequirements_ExcludedInstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance types to exclude.</para><para>You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>),
+        /// <para>The instance types to exclude.</para><para>You can use strings with one or more wild cards, represented by an asterisk (<c>*</c>),
         /// to exclude an instance family, type, size, or generation. The following are examples:
-        /// <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>,
-        /// <code>*3*</code>.</para><para>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5
-        /// instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>,
-        /// Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.</para><note><para>If you specify <code>ExcludedInstanceTypes</code>, you can't specify <code>AllowedInstanceTypes</code>.</para></note><para>Default: No excluded instance types</para>
+        /// <c>m5.8xlarge</c>, <c>c5*.*</c>, <c>m5a.*</c>, <c>r*</c>, <c>*3*</c>.</para><para>For example, if you specify <c>c5*</c>,Amazon EC2 will exclude the entire C5 instance
+        /// family, which includes all C5a and C5n instance types. If you specify <c>m5a.*</c>,
+        /// Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.</para><note><para>If you specify <c>ExcludedInstanceTypes</c>, you can't specify <c>AllowedInstanceTypes</c>.</para></note><para>Default: No excluded instance types</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// current generation instance types are recommended for use. Current generation instance
         /// types are typically the latest two to three generations in each instance family. For
         /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
-        /// types</a> in the <i>Amazon EC2 User Guide</i>.</para><para>For current generation instance types, specify <code>current</code>.</para><para>For previous generation instance types, specify <code>previous</code>.</para><para>Default: Current and previous generation instance types</para>
+        /// types</a> in the <i>Amazon EC2 User Guide</i>.</para><para>For current generation instance types, specify <c>current</c>.</para><para>For previous generation instance types, specify <c>previous</c>.</para><para>Default: Current and previous generation instance types</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Indicates whether instance types with instance store volumes are included, excluded,
         /// or required. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon
-        /// EC2 instance store</a> in the <i>Amazon EC2 User Guide</i>.</para><ul><li><para>To include instance types with instance store volumes, specify <code>included</code>.</para></li><li><para>To require only instance types with instance store volumes, specify <code>required</code>.</para></li><li><para>To exclude instance types with instance store volumes, specify <code>excluded</code>.</para></li></ul><para>Default: <code>included</code></para>
+        /// EC2 instance store</a> in the <i>Amazon EC2 User Guide</i>.</para><ul><li><para>To include instance types with instance store volumes, specify <c>included</c>.</para></li><li><para>To require only instance types with instance store volumes, specify <c>required</c>.</para></li><li><para>To exclude instance types with instance store volumes, specify <c>excluded</c>.</para></li></ul><para>Default: <c>included</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceRequirements_LocalStorageType
         /// <summary>
         /// <para>
-        /// <para>The type of local storage that is required.</para><ul><li><para>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</para></li><li><para>For instance types with solid state drive (SSD) storage, specify <code>ssd</code>.</para></li></ul><para>Default: <code>hdd</code> and <code>ssd</code></para>
+        /// <para>The type of local storage that is required.</para><ul><li><para>For instance types with hard disk drive (HDD) storage, specify <c>hdd</c>.</para></li><li><para>For instance types with solid state drive (SSD) storage, specify <c>ssd</c>.</para></li></ul><para>Default: <c>hdd</c> and <c>ssd</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of accelerators. To specify no maximum limit, omit this parameter.
-        /// To exclude accelerator-enabled instance types, set <code>Max</code> to <code>0</code>.</para>
+        /// To exclude accelerator-enabled instance types, set <c>Max</c> to <c>0</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -371,7 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MemoryMiB_Min
         /// <summary>
         /// <para>
-        /// <para>The minimum amount of memory, in MiB. To specify no minimum limit, specify <code>0</code>.</para>
+        /// <para>The minimum amount of memory, in MiB. To specify no minimum limit, specify <c>0</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -423,7 +422,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VCpuCount_Min
         /// <summary>
         /// <para>
-        /// <para>The minimum number of vCPUs. To specify no minimum limit, specify <code>0</code>.</para>
+        /// <para>The minimum number of vCPUs. To specify no minimum limit, specify <c>0</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -444,10 +443,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// pay for an On-Demand Instance, expressed as a percentage above the least expensive
         /// current generation M, C, or R instance type with your specified attributes. When Amazon
         /// EC2 selects instance types with your attributes, it excludes instance types priced
-        /// above your threshold.</para><para>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</para><para>To turn off price protection, specify a high value, such as <code>999999</code>.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>
-        /// and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</para><note><para>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>,
-        /// the price protection threshold is applied based on the per-vCPU or per-memory price
-        /// instead of the per-instance price.</para></note><para>Default: <code>20</code></para>
+        /// above your threshold.</para><para>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</para><para>To turn off price protection, specify a high value, such as <c>999999</c>.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>
+        /// and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</para><note><para>If you set <c>TargetCapacityUnitType</c> to <c>vcpu</c> or <c>memory-mib</c>, the
+        /// price protection threshold is applied based on the per-vCPU or per-memory price instead
+        /// of the per-instance price.</para></note><para>Default: <c>20</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -457,7 +456,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceRequirements_RequireHibernateSupport
         /// <summary>
         /// <para>
-        /// <para>Indicates whether instance types must support hibernation for On-Demand Instances.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>.</para><para>Default: <code>false</code></para>
+        /// <para>Indicates whether instance types must support hibernation for On-Demand Instances.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -470,10 +469,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The price protection threshold for Spot Instance. This is the maximum you’ll pay for
         /// an Spot Instance, expressed as a percentage above the least expensive current generation
         /// M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance
-        /// types with your attributes, it excludes instance types priced above your threshold.</para><para>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</para><para>To turn off price protection, specify a high value, such as <code>999999</code>.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>
-        /// and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</para><note><para>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>,
-        /// the price protection threshold is applied based on the per-vCPU or per-memory price
-        /// instead of the per-instance price.</para></note><para>Default: <code>100</code></para>
+        /// types with your attributes, it excludes instance types priced above your threshold.</para><para>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</para><para>To turn off price protection, specify a high value, such as <c>999999</c>.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>
+        /// and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</para><note><para>If you set <c>TargetCapacityUnitType</c> to <c>vcpu</c> or <c>memory-mib</c>, the
+        /// price protection threshold is applied based on the per-vCPU or per-memory price instead
+        /// of the per-instance price.</para></note><para>Default: <c>100</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

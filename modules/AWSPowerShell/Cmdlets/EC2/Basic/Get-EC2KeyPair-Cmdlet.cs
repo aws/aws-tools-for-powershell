@@ -51,12 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>key-pair-id</code> - The ID of the key pair.</para></li><li><para><code>fingerprint</code> - The fingerprint of the key pair.</para></li><li><para><code>key-name</code> - The name of the key pair.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
-        /// resource. Use the tag key in the filter name and the tag value as the filter value.
-        /// For example, to find all resources that have a tag with the key <code>Owner</code>
-        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-        /// and <code>TeamA</code> for the filter value.</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>key-pair-id</c> - The ID of the key pair.</para></li><li><para><c>fingerprint</c> - The fingerprint of the key pair.</para></li><li><para><c>key-name</c> - The name of the key pair.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
+        /// Use the tag key in the filter name and the tag value as the filter value. For example,
+        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -67,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter IncludePublicKey
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, the public key material is included in the response.</para><para>Default: <code>false</code></para>
+        /// <para>If <c>true</c>, the public key material is included in the response.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

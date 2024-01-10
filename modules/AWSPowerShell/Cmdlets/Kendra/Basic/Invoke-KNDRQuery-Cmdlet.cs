@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// If you are working with large language models (LLMs) or implementing retrieval augmented
     /// generation (RAG) systems, you can use Amazon Kendra's <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_Retrieve.html">Retrieve</a>
     /// API, which can return longer semantically relevant passages. We recommend using the
-    /// <code>Retrieve</code> API instead of filing a service limit increase to increase the
-    /// <code>Query</code> API document excerpt length.
+    /// <c>Retrieve</c> API instead of filing a service limit increase to increase the <c>Query</c>
+    /// API document excerpt length.
     /// </para></note><para>
     /// You can configure boosting or relevance tuning at the query level to override boosting
     /// at the index level, filter based on document fields/attributes and faceted search,
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// Relevant documents. This result type includes an excerpt of the document with the
     /// document title. The searched terms can be highlighted in the excerpt.
     /// </para></li></ul><para>
-    /// You can specify that the query return only one type of result using the <code>QueryResultTypeFilter</code>
+    /// You can specify that the query return only one type of result using the <c>QueryResultTypeFilter</c>
     /// parameter. Each query returns the 100 most relevant results. If you filter result
     /// type to only question-answers, a maximum of four results are returned. If you filter
     /// result type to only answers, a maximum of three results are returned.
@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>Filters search results by document fields/attributes. You can only provide one attribute
-        /// filter; however, the <code>AndAllFilters</code>, <code>NotFilter</code>, and <code>OrAllFilters</code>
-        /// parameters contain a list of other filters.</para><para>The <code>AttributeFilter</code> parameter means you can create a set of filtering
-        /// rules that a document must satisfy to be included in the query results.</para>
+        /// filter; however, the <c>AndAllFilters</c>, <c>NotFilter</c>, and <c>OrAllFilters</c>
+        /// parameters contain a list of other filters.</para><para>The <c>AttributeFilter</c> parameter means you can create a set of filtering rules
+        /// that a document must satisfy to be included in the query results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The document attribute used to group search results. You can use any attribute that
-        /// has the <code>Sortable</code> flag set to true. You can also sort by any of the following
+        /// has the <c>Sortable</c> flag set to true. You can also sort by any of the following
         /// built-in attributes:"_category","_created_at", "_last_updated_at", "_version", "_view_count".</para>
         /// </para>
         /// </summary>
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The name of the document attribute used to sort the response. You can use any field
-        /// that has the <code>Sortable</code> flag set to true.</para><para>You can also sort by any of the following built-in attributes:</para><ul><li><para>_category</para></li><li><para>_created_at</para></li><li><para>_last_updated_at</para></li><li><para>_version</para></li><li><para>_view_count</para></li></ul>
+        /// that has the <c>Sortable</c> flag set to true.</para><para>You can also sort by any of the following built-in attributes:</para><ul><li><para>_category</para></li><li><para>_created_at</para></li><li><para>_last_updated_at</para></li><li><para>_version</para></li><li><para>_view_count</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter SpellCorrectionConfiguration_IncludeQuerySpellCheckSuggestion
         /// <summary>
         /// <para>
-        /// <para><code>TRUE</code> to suggest spell corrections for queries.</para>
+        /// <para><c>TRUE</c> to suggest spell corrections for queries.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,10 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter CollapseConfiguration_MissingAttributeKeyStrategy
         /// <summary>
         /// <para>
-        /// <para>Specifies the behavior for documents without a value for the collapse attribute.</para><para>Amazon Kendra offers three customization options:</para><ul><li><para>Choose to <code>COLLAPSE</code> all documents with null or missing values in one group.
-        /// This is the default configuration.</para></li><li><para>Choose to <code>IGNORE</code> documents with null or missing values. Ignored documents
-        /// will not appear in query results.</para></li><li><para>Choose to <code>EXPAND</code> each document with a null or missing value into a group
-        /// of its own.</para></li></ul>
+        /// <para>Specifies the behavior for documents without a value for the collapse attribute.</para><para>Amazon Kendra offers three customization options:</para><ul><li><para>Choose to <c>COLLAPSE</c> all documents with null or missing values in one group.
+        /// This is the default configuration.</para></li><li><para>Choose to <c>IGNORE</c> documents with null or missing values. Ignored documents will
+        /// not appear in query results.</para></li><li><para>Choose to <c>EXPAND</c> each document with a null or missing value into a group of
+        /// its own.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,9 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter PageNumber
         /// <summary>
         /// <para>
-        /// <para>Query results are returned in pages the size of the <code>PageSize</code> parameter.
-        /// By default, Amazon Kendra returns the first page of results. Use this parameter to
-        /// get result pages after the first one.</para>
+        /// <para>Query results are returned in pages the size of the <c>PageSize</c> parameter. By
+        /// default, Amazon Kendra returns the first page of results. Use this parameter to get
+        /// result pages after the first one.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -346,9 +346,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter VisitorId
         /// <summary>
         /// <para>
-        /// <para>Provides an identifier for a specific user. The <code>VisitorId</code> should be a
-        /// unique identifier, such as a GUID. Don't use personally identifiable information,
-        /// such as the user's email address, as the <code>VisitorId</code>.</para>
+        /// <para>Provides an identifier for a specific user. The <c>VisitorId</c> should be a unique
+        /// identifier, such as a GUID. Don't use personally identifiable information, such as
+        /// the user's email address, as the <c>VisitorId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

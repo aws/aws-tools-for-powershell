@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para><para>If you decrease the retention period for automated snapshots that are copied to a
         /// destination Amazon Web Services Region, Amazon Redshift deletes any existing automated
         /// snapshots that were copied to the destination Amazon Web Services Region and that
-        /// fall outside of the new retention period.</para><para>Constraints: Must be at least 1 and no more than 35 for automated snapshots. </para><para>If you specify the <code>manual</code> option, only newly copied manual snapshots
-        /// will have the new retention period. </para><para>If you specify the value of -1 newly copied manual snapshots are retained indefinitely.</para><para>Constraints: The number of days must be either -1 or an integer between 1 and 3,653
+        /// fall outside of the new retention period.</para><para>Constraints: Must be at least 1 and no more than 35 for automated snapshots. </para><para>If you specify the <c>manual</c> option, only newly copied manual snapshots will have
+        /// the new retention period. </para><para>If you specify the value of -1 newly copied manual snapshots are retained indefinitely.</para><para>Constraints: The number of days must be either -1 or an integer between 1 and 3,653
         /// for manual snapshots.</para>
         /// </para>
         /// </summary>

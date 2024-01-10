@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// <summary>
     /// Lists the receipt rule sets that exist under your Amazon Web Services account in the
     /// current Amazon Web Services Region. If there are additional receipt rule sets to be
-    /// retrieved, you receive a <code>NextToken</code> that you can provide to the next call
-    /// to <code>ListReceiptRuleSets</code> to retrieve the additional entries.
+    /// retrieved, you receive a <c>NextToken</c> that you can provide to the next call to
+    /// <c>ListReceiptRuleSets</c> to retrieve the additional entries.
     /// 
     ///  
     /// <para>
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token returned from a previous call to <code>ListReceiptRuleSets</code> to indicate
-        /// the position in the receipt rule set list.</para>
+        /// <para>A token returned from a previous call to <c>ListReceiptRuleSets</c> to indicate the
+        /// position in the receipt rule set list.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

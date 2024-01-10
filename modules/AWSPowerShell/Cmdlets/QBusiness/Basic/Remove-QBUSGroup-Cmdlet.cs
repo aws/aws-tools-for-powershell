@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     ///  
     /// <para>
     /// If you want to delete, update, or replace users or sub groups of a group, you need
-    /// to use the <code>PutGroup</code> operation. For example, if a user in the group "Engineering"
+    /// to use the <c>PutGroup</c> operation. For example, if a user in the group "Engineering"
     /// leaves the engineering team and another user takes their place, you provide an updated
-    /// list of users or sub groups that belong to the "Engineering" group when calling <code>PutGroup</code>.
+    /// list of users or sub groups that belong to the "Engineering" group when calling <c>PutGroup</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "QBUSGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

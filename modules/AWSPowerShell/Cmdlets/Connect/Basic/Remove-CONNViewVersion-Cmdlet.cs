@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Deletes the particular version specified in <code>ViewVersion</code> identifier.
+    /// Deletes the particular version specified in <c>ViewVersion</c> identifier.
     /// </summary>
     [Cmdlet("Remove", "CONNViewVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -63,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ViewId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can
-        /// be used.</para>
+        /// <para>The identifier of the view. Both <c>ViewArn</c> and <c>ViewId</c> can be used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

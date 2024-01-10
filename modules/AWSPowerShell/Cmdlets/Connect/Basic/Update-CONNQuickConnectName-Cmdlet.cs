@@ -29,8 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// Updates the name and description of a quick connect. The request accepts the following
-    /// data in JSON format. At least <code>Name</code> or <code>Description</code> must be
-    /// provided.
+    /// data in JSON format. At least <c>Name</c> or <c>Description</c> must be provided.
     /// </summary>
     [Cmdlet("Update", "CONNQuickConnectName", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
     /// Applies a scheduled managed action immediately. A managed action can be applied only
-    /// if its status is <code>Scheduled</code>. Get the status and action ID of a managed
-    /// action with <a>DescribeEnvironmentManagedActions</a>.
+    /// if its status is <c>Scheduled</c>. Get the status and action ID of a managed action
+    /// with <a>DescribeEnvironmentManagedActions</a>.
     /// </summary>
     [Cmdlet("Submit", "EBEnvironmentManagedAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticBeanstalk.Model.ApplyEnvironmentManagedActionResponse")]

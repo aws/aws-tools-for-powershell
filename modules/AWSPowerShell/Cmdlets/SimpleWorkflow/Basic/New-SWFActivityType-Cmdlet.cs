@@ -32,28 +32,28 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     /// specified domain.
     /// 
     ///  <important><para>
-    /// A <code>TypeAlreadyExists</code> fault is returned if the type already exists in the
-    /// domain. You cannot change any configuration settings of the type after its registration,
-    /// and it must be registered as a new version.
+    /// A <c>TypeAlreadyExists</c> fault is returned if the type already exists in the domain.
+    /// You cannot change any configuration settings of the type after its registration, and
+    /// it must be registered as a new version.
     /// </para></important><para><b>Access Control</b></para><para>
     /// You can use IAM policies to control this action's access to Amazon SWF resources as
     /// follows:
     /// </para><ul><li><para>
-    /// Use a <code>Resource</code> element with the domain name to limit the action to only
-    /// specified domains.
+    /// Use a <c>Resource</c> element with the domain name to limit the action to only specified
+    /// domains.
     /// </para></li><li><para>
-    /// Use an <code>Action</code> element to allow or deny permission to call this action.
+    /// Use an <c>Action</c> element to allow or deny permission to call this action.
     /// </para></li><li><para>
-    /// Constrain the following parameters by using a <code>Condition</code> element with
-    /// the appropriate keys.
-    /// </para><ul><li><para><code>defaultTaskList.name</code>: String constraint. The key is <code>swf:defaultTaskList.name</code>.
-    /// </para></li><li><para><code>name</code>: String constraint. The key is <code>swf:name</code>.
-    /// </para></li><li><para><code>version</code>: String constraint. The key is <code>swf:version</code>.
+    /// Constrain the following parameters by using a <c>Condition</c> element with the appropriate
+    /// keys.
+    /// </para><ul><li><para><c>defaultTaskList.name</c>: String constraint. The key is <c>swf:defaultTaskList.name</c>.
+    /// </para></li><li><para><c>name</c>: String constraint. The key is <c>swf:name</c>.
+    /// </para></li><li><para><c>version</c>: String constraint. The key is <c>swf:version</c>.
     /// </para></li></ul></li></ul><para>
     /// If the caller doesn't have sufficient permissions to invoke the action, or the parameter
     /// values fall outside the specified constraints, the action fails. The associated event
-    /// attribute's <code>cause</code> parameter is set to <code>OPERATION_NOT_PERMITTED</code>.
-    /// For details and example IAM policies, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
+    /// attribute's <c>cause</c> parameter is set to <c>OPERATION_NOT_PERMITTED</c>. For details
+    /// and example IAM policies, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
     /// IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer Guide</i>.
     /// </para>
     /// </summary>
@@ -75,11 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         /// <para>If set, specifies the default maximum time before which a worker processing a task
         /// of this type must report progress by calling <a>RecordActivityTaskHeartbeat</a>. If
         /// the timeout is exceeded, the activity task is automatically timed out. This default
-        /// can be overridden when scheduling an activity task using the <code>ScheduleActivityTask</code><a>Decision</a>. If the activity worker subsequently attempts to record a heartbeat
-        /// or returns a result, the activity worker receives an <code>UnknownResource</code>
-        /// fault. In this case, Amazon SWF no longer considers the activity task to be valid;
-        /// the activity worker should clean up the activity task.</para><para>The duration is specified in seconds, an integer greater than or equal to <code>0</code>.
-        /// You can use <code>NONE</code> to specify unlimited duration.</para>
+        /// can be overridden when scheduling an activity task using the <c>ScheduleActivityTask</c><a>Decision</a>. If the activity worker subsequently attempts to record a heartbeat
+        /// or returns a result, the activity worker receives an <c>UnknownResource</c> fault.
+        /// In this case, Amazon SWF no longer considers the activity task to be valid; the activity
+        /// worker should clean up the activity task.</para><para>The duration is specified in seconds, an integer greater than or equal to <c>0</c>.
+        /// You can use <c>NONE</c> to specify unlimited duration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,10 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         #region Parameter DefaultTaskPriority
         /// <summary>
         /// <para>
-        /// <para>The default task priority to assign to the activity type. If not assigned, then <code>0</code>
-        /// is used. Valid values are integers that range from Java's <code>Integer.MIN_VALUE</code>
-        /// (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate
-        /// higher priority.</para><para>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
+        /// <para>The default task priority to assign to the activity type. If not assigned, then <c>0</c>
+        /// is used. Valid values are integers that range from Java's <c>Integer.MIN_VALUE</c>
+        /// (-2147483648) to <c>Integer.MAX_VALUE</c> (2147483647). Higher numbers indicate higher
+        /// priority.</para><para>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
         /// Task Priority</a> in the <i>in the <i>Amazon SWF Developer Guide</i>.</i>.</para>
         /// </para>
         /// </summary>
@@ -104,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         /// <summary>
         /// <para>
         /// <para>If set, specifies the default maximum duration for a task of this activity type. This
-        /// default can be overridden when scheduling an activity task using the <code>ScheduleActivityTask</code><a>Decision</a>.</para><para>The duration is specified in seconds, an integer greater than or equal to <code>0</code>.
-        /// You can use <code>NONE</code> to specify unlimited duration.</para>
+        /// default can be overridden when scheduling an activity task using the <c>ScheduleActivityTask</c><a>Decision</a>.</para><para>The duration is specified in seconds, an integer greater than or equal to <c>0</c>.
+        /// You can use <c>NONE</c> to specify unlimited duration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         /// <para>
         /// <para>If set, specifies the default maximum duration that a task of this activity type can
         /// wait before being assigned to a worker. This default can be overridden when scheduling
-        /// an activity task using the <code>ScheduleActivityTask</code><a>Decision</a>.</para><para>The duration is specified in seconds, an integer greater than or equal to <code>0</code>.
-        /// You can use <code>NONE</code> to specify unlimited duration.</para>
+        /// an activity task using the <c>ScheduleActivityTask</c><a>Decision</a>.</para><para>The duration is specified in seconds, an integer greater than or equal to <c>0</c>.
+        /// You can use <c>NONE</c> to specify unlimited duration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         /// <para>
         /// <para>If set, specifies the default maximum duration that a worker can take to process tasks
         /// of this activity type. This default can be overridden when scheduling an activity
-        /// task using the <code>ScheduleActivityTask</code><a>Decision</a>.</para><para>The duration is specified in seconds, an integer greater than or equal to <code>0</code>.
-        /// You can use <code>NONE</code> to specify unlimited duration.</para>
+        /// task using the <c>ScheduleActivityTask</c><a>Decision</a>.</para><para>The duration is specified in seconds, an integer greater than or equal to <c>0</c>.
+        /// You can use <c>NONE</c> to specify unlimited duration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,9 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the activity type within the domain.</para><para>The specified string must not contain a <code>:</code> (colon), <code>/</code> (slash),
-        /// <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code>
-        /// | <code>\u007f-\u009f</code>). Also, it must <i>not</i> be the literal string <code>arn</code>.</para>
+        /// <para>The name of the activity type within the domain.</para><para>The specified string must not contain a <c>:</c> (colon), <c>/</c> (slash), <c>|</c>
+        /// (vertical bar), or any control characters (<c>\u0000-\u001f</c> | <c>\u007f-\u009f</c>).
+        /// Also, it must <i>not</i> be the literal string <c>arn</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -198,9 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         /// <summary>
         /// <para>
         /// <para>The version of the activity type.</para><note><para>The activity type consists of the name and version, the combination of which must
-        /// be unique within the domain.</para></note><para>The specified string must not contain a <code>:</code> (colon), <code>/</code> (slash),
-        /// <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code>
-        /// | <code>\u007f-\u009f</code>). Also, it must <i>not</i> be the literal string <code>arn</code>.</para>
+        /// be unique within the domain.</para></note><para>The specified string must not contain a <c>:</c> (colon), <c>/</c> (slash), <c>|</c>
+        /// (vertical bar), or any control characters (<c>\u0000-\u001f</c> | <c>\u007f-\u009f</c>).
+        /// Also, it must <i>not</i> be the literal string <c>arn</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

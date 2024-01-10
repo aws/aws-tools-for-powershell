@@ -28,13 +28,13 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Assigns the <code>DELETED</code> status to an <code>MLModel</code>, rendering it unusable.
+    /// Assigns the <c>DELETED</c> status to an <c>MLModel</c>, rendering it unusable.
     /// 
     ///  
     /// <para>
-    /// After using the <code>DeleteMLModel</code> operation, you can use the <code>GetMLModel</code>
-    /// operation to verify that the status of the <code>MLModel</code> changed to DELETED.
-    /// </para><para><b>Caution:</b> The result of the <code>DeleteMLModel</code> operation is irreversible.
+    /// After using the <c>DeleteMLModel</c> operation, you can use the <c>GetMLModel</c>
+    /// operation to verify that the status of the <c>MLModel</c> changed to DELETED.
+    /// </para><para><b>Caution:</b> The result of the <c>DeleteMLModel</c> operation is irreversible.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "MLModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter MLModelId
         /// <summary>
         /// <para>
-        /// <para>A user-supplied ID that uniquely identifies the <code>MLModel</code>.</para>
+        /// <para>A user-supplied ID that uniquely identifies the <c>MLModel</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

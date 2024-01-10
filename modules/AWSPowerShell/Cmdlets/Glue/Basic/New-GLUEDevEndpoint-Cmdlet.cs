@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Argument
         /// <summary>
         /// <para>
-        /// <para>A map of arguments used to configure the <code>DevEndpoint</code>.</para>
+        /// <para>A map of arguments used to configure the <c>DevEndpoint</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter EndpointName
         /// <summary>
         /// <para>
-        /// <para>The name to be assigned to the new <code>DevEndpoint</code>.</para>
+        /// <para>The name to be assigned to the new <c>DevEndpoint</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter ExtraJarsS3Path
         /// <summary>
         /// <para>
-        /// <para>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be
-        /// loaded in your <code>DevEndpoint</code>.</para>
+        /// <para>The path to one or more Java <c>.jar</c> files in an S3 bucket that should be loaded
+        /// in your <c>DevEndpoint</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,10 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded
-        /// in your <code>DevEndpoint</code>. Multiple values must be complete paths separated
-        /// by a comma.</para><note><para>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries
-        /// that rely on C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a>
-        /// Python data analysis library, are not yet supported.</para></note>
+        /// in your <c>DevEndpoint</c>. Multiple values must be complete paths separated by a
+        /// comma.</para><note><para>You can only use pure Python libraries with a <c>DevEndpoint</c>. Libraries that rely
+        /// on C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a> Python
+        /// data analysis library, are not yet supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue
         /// version</a> in the developer guide.</para><para>Development endpoints that are created without specifying a Glue version default to
         /// Glue 0.9.</para><para>You can specify a version of Python support for development endpoints by using the
-        /// <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code>
+        /// <c>Arguments</c> parameter in the <c>CreateDevEndpoint</c> or <c>UpdateDevEndpoint</c>
         /// APIs. If no arguments are provided, the version defaults to Python 2.</para>
         /// </para>
         /// </summary>
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter NumberOfNode
         /// <summary>
         /// <para>
-        /// <para>The number of Glue Data Processing Units (DPUs) to allocate to this <code>DevEndpoint</code>.</para>
+        /// <para>The number of Glue Data Processing Units (DPUs) to allocate to this <c>DevEndpoint</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,9 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter NumberOfWorker
         /// <summary>
         /// <para>
-        /// <para>The number of workers of a defined <code>workerType</code> that are allocated to the
-        /// development endpoint.</para><para>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149
-        /// for <code>G.2X</code>. </para>
+        /// <para>The number of workers of a defined <c>workerType</c> that are allocated to the development
+        /// endpoint.</para><para>The maximum number of workers you can define are 299 for <c>G.1X</c>, and 149 for
+        /// <c>G.2X</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,9 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter PublicKey
         /// <summary>
         /// <para>
-        /// <para>The public key to be used by this <code>DevEndpoint</code> for authentication. This
-        /// attribute is provided for backward compatibility because the recommended attribute
-        /// to use is public keys.</para>
+        /// <para>The public key to be used by this <c>DevEndpoint</c> for authentication. This attribute
+        /// is provided for backward compatibility because the recommended attribute to use is
+        /// public keys.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -153,9 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para>A list of public keys to be used by the development endpoints for authentication.
         /// The use of this attribute is preferred over a single public key because the public
         /// keys allow you to have a different private key per client.</para><note><para>If you previously created an endpoint with a public key, you must remove that key
-        /// to be able to set a list of public keys. Call the <code>UpdateDevEndpoint</code> API
-        /// with the public key content in the <code>deletePublicKeys</code> attribute, and the
-        /// list of new keys in the <code>addPublicKeys</code> attribute.</para></note>
+        /// to be able to set a list of public keys. Call the <c>UpdateDevEndpoint</c> API with
+        /// the public key content in the <c>deletePublicKeys</c> attribute, and the list of new
+        /// keys in the <c>addPublicKeys</c> attribute.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The IAM role for the <code>DevEndpoint</code>.</para>
+        /// <para>The IAM role for the <c>DevEndpoint</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -182,8 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SecurityConfiguration
         /// <summary>
         /// <para>
-        /// <para>The name of the <code>SecurityConfiguration</code> structure to be used with this
-        /// <code>DevEndpoint</code>.</para>
+        /// <para>The name of the <c>SecurityConfiguration</c> structure to be used with this <c>DevEndpoint</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>Security group IDs for the security groups to be used by the new <code>DevEndpoint</code>.</para>
+        /// <para>Security group IDs for the security groups to be used by the new <c>DevEndpoint</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The subnet ID for the new <code>DevEndpoint</code> to use.</para>
+        /// <para>The subnet ID for the new <c>DevEndpoint</c> to use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -228,12 +227,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The type of predefined worker that is allocated to the development endpoint. Accepts
-        /// a value of Standard, G.1X, or G.2X.</para><ul><li><para>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory
-        /// and a 50GB disk, and 2 executors per worker.</para></li><li><para>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of
-        /// memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker
-        /// type for memory-intensive jobs.</para></li><li><para>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of
-        /// memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker
-        /// type for memory-intensive jobs.</para></li></ul><para>Known issue: when a development endpoint is created with the <code>G.2X</code><code>WorkerType</code>
+        /// a value of Standard, G.1X, or G.2X.</para><ul><li><para>For the <c>Standard</c> worker type, each worker provides 4 vCPU, 16 GB of memory
+        /// and a 50GB disk, and 2 executors per worker.</para></li><li><para>For the <c>G.1X</c> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory,
+        /// 64 GB disk), and provides 1 executor per worker. We recommend this worker type for
+        /// memory-intensive jobs.</para></li><li><para>For the <c>G.2X</c> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory,
+        /// 128 GB disk), and provides 1 executor per worker. We recommend this worker type for
+        /// memory-intensive jobs.</para></li></ul><para>Known issue: when a development endpoint is created with the <c>G.2X</c><c>WorkerType</c>
         /// configuration, the Spark drivers for the development endpoint will run on 4 vCPU,
         /// 16 GB of memory, and a 64 GB disk. </para>
         /// </para>

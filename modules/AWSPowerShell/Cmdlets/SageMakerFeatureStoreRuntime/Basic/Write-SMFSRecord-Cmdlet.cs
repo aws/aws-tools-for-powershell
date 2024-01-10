@@ -28,25 +28,25 @@ using Amazon.SageMakerFeatureStoreRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.SMFS
 {
     /// <summary>
-    /// The <code>PutRecord</code> API is used to ingest a list of <code>Records</code> into
-    /// your feature group. 
+    /// The <c>PutRecord</c> API is used to ingest a list of <c>Records</c> into your feature
+    /// group. 
     /// 
     ///  
     /// <para>
-    /// If a new record’s <code>EventTime</code> is greater, the new record is written to
-    /// both the <code>OnlineStore</code> and <code>OfflineStore</code>. Otherwise, the record
-    /// is a historic record and it is written only to the <code>OfflineStore</code>. 
+    /// If a new record’s <c>EventTime</c> is greater, the new record is written to both the
+    /// <c>OnlineStore</c> and <c>OfflineStore</c>. Otherwise, the record is a historic record
+    /// and it is written only to the <c>OfflineStore</c>. 
     /// </para><para>
-    /// You can specify the ingestion to be applied to the <code>OnlineStore</code>, <code>OfflineStore</code>,
-    /// or both by using the <code>TargetStores</code> request parameter. 
+    /// You can specify the ingestion to be applied to the <c>OnlineStore</c>, <c>OfflineStore</c>,
+    /// or both by using the <c>TargetStores</c> request parameter. 
     /// </para><para>
     /// You can set the ingested record to expire at a given time to live (TTL) duration after
-    /// the record’s event time, <code>ExpiresAt</code> = <code>EventTime</code> + <code>TtlDuration</code>,
-    /// by specifying the <code>TtlDuration</code> parameter. A record level <code>TtlDuration</code>
-    /// is set when specifying the <code>TtlDuration</code> parameter using the <code>PutRecord</code>
-    /// API call. If the input <code>TtlDuration</code> is <code>null</code> or unspecified,
-    /// <code>TtlDuration</code> is set to the default feature group level <code>TtlDuration</code>.
-    /// A record level <code>TtlDuration</code> supersedes the group level <code>TtlDuration</code>.
+    /// the record’s event time, <c>ExpiresAt</c> = <c>EventTime</c> + <c>TtlDuration</c>,
+    /// by specifying the <c>TtlDuration</c> parameter. A record level <c>TtlDuration</c>
+    /// is set when specifying the <c>TtlDuration</c> parameter using the <c>PutRecord</c>
+    /// API call. If the input <c>TtlDuration</c> is <c>null</c> or unspecified, <c>TtlDuration</c>
+    /// is set to the default feature group level <c>TtlDuration</c>. A record level <c>TtlDuration</c>
+    /// supersedes the group level <c>TtlDuration</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "SMFSRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         /// <summary>
         /// <para>
         /// <para>List of FeatureValues to be inserted. This will be a full over-write. If you only
-        /// want to update few of the feature values, do the following:</para><ul><li><para>Use <code>GetRecord</code> to retrieve the latest record.</para></li><li><para>Update the record returned from <code>GetRecord</code>. </para></li><li><para>Use <code>PutRecord</code> to update feature values.</para></li></ul>
+        /// want to update few of the feature values, do the following:</para><ul><li><para>Use <c>GetRecord</c> to retrieve the latest record.</para></li><li><para>Update the record returned from <c>GetRecord</c>. </para></li><li><para>Use <c>PutRecord</c> to update feature values.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         /// <summary>
         /// <para>
         /// <para>A list of stores to which you're adding the record. By default, Feature Store adds
-        /// the record to all of the stores that you're using for the <code>FeatureGroup</code>.</para>
+        /// the record to all of the stores that you're using for the <c>FeatureGroup</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         #region Parameter TtlDuration_Unit
         /// <summary>
         /// <para>
-        /// <para><code>TtlDuration</code> time unit.</para>
+        /// <para><c>TtlDuration</c> time unit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         #region Parameter TtlDuration_Value
         /// <summary>
         /// <para>
-        /// <para><code>TtlDuration</code> time value.</para>
+        /// <para><c>TtlDuration</c> time value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

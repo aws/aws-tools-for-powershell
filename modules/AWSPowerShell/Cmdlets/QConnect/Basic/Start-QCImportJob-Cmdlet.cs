@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter ImportJobType
         /// <summary>
         /// <para>
-        /// <para>The type of the import job.</para><ul><li><para>For importing quick response resource, set the value to <code>QUICK_RESPONSES</code>.</para></li></ul>
+        /// <para>The type of the import job.</para><ul><li><para>For importing quick response resource, set the value to <c>QUICK_RESPONSES</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <para>
         /// <para>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
         /// base if you're storing Amazon Q Content resource to it. Can be either the ID or the
-        /// ARN. URLs cannot contain the ARN.</para><ul><li><para>For importing Amazon Q quick responses, this should be a <code>QUICK_RESPONSES</code>
-        /// type knowledge base.</para></li></ul>
+        /// ARN. URLs cannot contain the ARN.</para><ul><li><para>For importing Amazon Q quick responses, this should be a <c>QUICK_RESPONSES</c> type
+        /// knowledge base.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

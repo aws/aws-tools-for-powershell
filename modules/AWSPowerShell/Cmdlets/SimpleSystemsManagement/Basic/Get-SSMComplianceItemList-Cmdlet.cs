@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The type of resource from which to get compliance information. Currently, the only
-        /// supported resource type is <code>ManagedInstance</code>.</para>
+        /// supported resource type is <c>ManagedInstance</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

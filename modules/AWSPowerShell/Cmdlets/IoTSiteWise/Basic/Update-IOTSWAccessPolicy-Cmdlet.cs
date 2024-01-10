@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter AccessPolicyPermission
         /// <summary>
         /// <para>
-        /// <para>The permission level for this access policy. Note that a project <code>ADMINISTRATOR</code>
+        /// <para>The permission level for this access policy. Note that a project <c>ADMINISTRATOR</c>
         /// is also known as a project owner.</para>
         /// </para>
         /// </summary>
@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <para>
         /// <para>The ARN of the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
         /// ARNs</a> in the <i>IAM User Guide</i>.</para><note><para>If you delete the IAM user, access policies that contain this identity include an
-        /// empty <code>arn</code>. You can delete the access policy for the IAM user that no
-        /// longer exists.</para></note>
+        /// empty <c>arn</c>. You can delete the access policy for the IAM user that no longer
+        /// exists.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

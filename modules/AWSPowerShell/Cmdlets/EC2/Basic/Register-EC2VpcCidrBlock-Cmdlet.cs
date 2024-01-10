@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Ipv6CidrBlock
         /// <summary>
         /// <para>
-        /// <para>An IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code>
+        /// <para>An IPv6 CIDR block from the IPv6 address pool. You must also specify <c>Ipv6Pool</c>
         /// in the request.</para><para>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</para>
         /// </para>
         /// </summary>
@@ -114,8 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter
-        /// to limit the CIDR block to this location.</para><para> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use
-        /// this parameter.</para><para> You can have one IPv6 CIDR block association per network border group.</para>
+        /// to limit the CIDR block to this location.</para><para> You must set <c>AmazonProvidedIpv6CidrBlock</c> to <c>true</c> to use this parameter.</para><para> You can have one IPv6 CIDR block association per network border group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

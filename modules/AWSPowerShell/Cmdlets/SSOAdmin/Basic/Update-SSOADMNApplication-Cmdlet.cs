@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <summary>
         /// <para>
         /// <para>The URL that accepts authentication requests for an application. This is a required
-        /// parameter if the <code>Origin</code> parameter is <code>APPLICATION</code>.</para>
+        /// parameter if the <c>Origin</c> parameter is <c>APPLICATION</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         /// <summary>
         /// <para>
         /// <para>This determines how IAM Identity Center navigates the user to the target application.
-        /// It can be one of the following values:</para><ul><li><para><code>APPLICATION</code>: IAM Identity Center redirects the customer to the configured
-        /// <code>ApplicationUrl</code>.</para></li><li><para><code>IDENTITY_CENTER</code>: IAM Identity Center uses SAML identity-provider initiated
+        /// It can be one of the following values:</para><ul><li><para><c>APPLICATION</c>: IAM Identity Center redirects the customer to the configured
+        /// <c>ApplicationUrl</c>.</para></li><li><para><c>IDENTITY_CENTER</c>: IAM Identity Center uses SAML identity-provider initiated
         /// authentication to sign the customer directly into a SAML-based application.</para></li></ul>
         /// </para>
         /// </summary>

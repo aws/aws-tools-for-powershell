@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>Multicast group resources to add to the network analyzer configuration. Provide the
-        /// <code>MulticastGroupId</code> of the resource to add in the input array.</para>
+        /// <c>MulticastGroupId</c> of the resource to add in the input array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>Multicast group resources to remove from the network analyzer configuration. Provide
-        /// the <code>MulticastGroupId</code> of the resources to remove in the input array.</para>
+        /// the <c>MulticastGroupId</c> of the resources to remove in the input array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>Wireless device resources to add to the network analyzer configuration. Provide the
-        /// <code>WirelessDeviceId</code> of the resource to add in the input array.</para>
+        /// <c>WirelessDeviceId</c> of the resource to add in the input array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>Wireless device resources to remove from the network analyzer configuration. Provide
-        /// the <code>WirelessDeviceId</code> of the resources to remove in the input array.</para>
+        /// the <c>WirelessDeviceId</c> of the resources to remove in the input array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>Wireless gateway resources to add to the network analyzer configuration. Provide the
-        /// <code>WirelessGatewayId</code> of the resource to add in the input array.</para>
+        /// <c>WirelessGatewayId</c> of the resource to add in the input array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>Wireless gateway resources to remove from the network analyzer configuration. Provide
-        /// the <code>WirelessGatewayId</code> of the resources to remove in the input array.</para>
+        /// the <c>WirelessGatewayId</c> of the resources to remove in the input array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

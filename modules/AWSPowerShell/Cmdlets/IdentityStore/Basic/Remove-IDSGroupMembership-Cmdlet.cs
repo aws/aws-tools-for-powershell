@@ -28,7 +28,7 @@ using Amazon.IdentityStore.Model;
 namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// Delete a membership within a group given <code>MembershipId</code>.
+    /// Delete a membership within a group given <c>MembershipId</c>.
     /// </summary>
     [Cmdlet("Remove", "IDSGroupMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter MembershipId
         /// <summary>
         /// <para>
-        /// <para>The identifier for a <code>GroupMembership</code> in an identity store.</para>
+        /// <para>The identifier for a <c>GroupMembership</c> in an identity store.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

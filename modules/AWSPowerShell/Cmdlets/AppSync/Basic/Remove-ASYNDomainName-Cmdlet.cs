@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Deletes a custom <code>DomainName</code> object.
+    /// Deletes a custom <c>DomainName</c> object.
     /// </summary>
     [Cmdlet("Remove", "ASYNDomainName", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

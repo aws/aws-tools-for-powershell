@@ -32,20 +32,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
-    /// Only the fields requested in the query are returned, along with a <code>@ptr</code>
-    /// field, which is the identifier for the log record. You can use the value of <code>@ptr</code>
-    /// in a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.html">GetLogRecord</a>
+    /// Only the fields requested in the query are returned, along with a <c>@ptr</c> field,
+    /// which is the identifier for the log record. You can use the value of <c>@ptr</c> in
+    /// a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.html">GetLogRecord</a>
     /// operation to get the full log record.
-    /// </para><para><code>GetQueryResults</code> does not start running a query. To run a query, use
-    /// <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>.
+    /// </para><para><c>GetQueryResults</c> does not start running a query. To run a query, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>.
     /// For more information about how long results of previous queries are available, see
     /// <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.html">CloudWatch
     /// Logs quotas</a>.
     /// </para><para>
-    /// If the value of the <code>Status</code> field in the output is <code>Running</code>,
-    /// this operation returns only partial results. If you see a value of <code>Scheduled</code>
-    /// or <code>Running</code> for the status, you can retry the operation later to see the
-    /// final results. 
+    /// If the value of the <c>Status</c> field in the output is <c>Running</c>, this operation
+    /// returns only partial results. If you see a value of <c>Scheduled</c> or <c>Running</c>
+    /// for the status, you can retry the operation later to see the final results. 
     /// </para><para>
     /// If you are using CloudWatch cross-account observability, you can use this operation
     /// in a monitoring account to start queries in linked source accounts. For more information,

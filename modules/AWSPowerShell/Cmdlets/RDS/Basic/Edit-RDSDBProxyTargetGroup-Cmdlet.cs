@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Modifies the properties of a <code>DBProxyTargetGroup</code>.
+    /// Modifies the properties of a <c>DBProxyTargetGroup</c>.
     /// </summary>
     [Cmdlet("Edit", "RDSDBProxyTargetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBProxyTargetGroup")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The number of seconds for a proxy to wait for a connection to become available in
         /// the connection pool. This setting only applies when the proxy has opened its maximum
         /// number of connections and all connections are busy with client sessions. For an unlimited
-        /// wait time, specify <code>0</code>.</para><para>Default: <code>120</code></para><para>Constraints:</para><ul><li><para>Must be between 0 and 3600.</para></li></ul>
+        /// wait time, specify <c>0</c>.</para><para>Default: <c>120</c></para><para>Constraints:</para><ul><li><para>Must be between 0 and 3600.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,10 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>One or more SQL statements for the proxy to run when opening each new database connection.
-        /// Typically used with <code>SET</code> statements to make sure that each connection
-        /// has identical settings such as time zone and character set. For multiple statements,
-        /// use semicolons as the separator. You can also include multiple variables in a single
-        /// <code>SET</code> statement, such as <code>SET x=1, y=2</code>.</para><para>Default: no initialization query</para>
+        /// Typically used with <c>SET</c> statements to make sure that each connection has identical
+        /// settings such as time zone and character set. For multiple statements, use semicolons
+        /// as the separator. You can also include multiple variables in a single <c>SET</c> statement,
+        /// such as <c>SET x=1, y=2</c>.</para><para>Default: no initialization query</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,10 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The maximum size of the connection pool for each target in a target group. The value
-        /// is expressed as a percentage of the <code>max_connections</code> setting for the RDS
-        /// DB instance or Aurora DB cluster used by the target group.</para><para>If you specify <code>MaxIdleConnectionsPercent</code>, then you must also include
-        /// a value for this parameter.</para><para>Default: <code>10</code> for RDS for Microsoft SQL Server, and <code>100</code> for
-        /// all other engines</para><para>Constraints:</para><ul><li><para>Must be between 1 and 100.</para></li></ul>
+        /// is expressed as a percentage of the <c>max_connections</c> setting for the RDS DB
+        /// instance or Aurora DB cluster used by the target group.</para><para>If you specify <c>MaxIdleConnectionsPercent</c>, then you must also include a value
+        /// for this parameter.</para><para>Default: <c>10</c> for RDS for Microsoft SQL Server, and <c>100</c> for all other
+        /// engines</para><para>Constraints:</para><ul><li><para>Must be between 1 and 100.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,15 +104,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that controls how actively the proxy closes idle database connections in the
-        /// connection pool. The value is expressed as a percentage of the <code>max_connections</code>
+        /// connection pool. The value is expressed as a percentage of the <c>max_connections</c>
         /// setting for the RDS DB instance or Aurora DB cluster used by the target group. With
         /// a high value, the proxy leaves a high percentage of idle database connections open.
         /// A low value causes the proxy to close more idle connections and return them to the
-        /// database.</para><para>If you specify this parameter, then you must also include a value for <code>MaxConnectionsPercent</code>.</para><para>Default: The default value is half of the value of <code>MaxConnectionsPercent</code>.
-        /// For example, if <code>MaxConnectionsPercent</code> is 80, then the default value of
-        /// <code>MaxIdleConnectionsPercent</code> is 40. If the value of <code>MaxConnectionsPercent</code>
-        /// isn't specified, then for SQL Server, <code>MaxIdleConnectionsPercent</code> is <code>5</code>,
-        /// and for all other engines, the default is <code>50</code>.</para><para>Constraints:</para><ul><li><para>Must be between 0 and the value of <code>MaxConnectionsPercent</code>.</para></li></ul>
+        /// database.</para><para>If you specify this parameter, then you must also include a value for <c>MaxConnectionsPercent</c>.</para><para>Default: The default value is half of the value of <c>MaxConnectionsPercent</c>. For
+        /// example, if <c>MaxConnectionsPercent</c> is 80, then the default value of <c>MaxIdleConnectionsPercent</c>
+        /// is 40. If the value of <c>MaxConnectionsPercent</c> isn't specified, then for SQL
+        /// Server, <c>MaxIdleConnectionsPercent</c> is <c>5</c>, and for all other engines, the
+        /// default is <c>50</c>.</para><para>Constraints:</para><ul><li><para>Must be between 0 and the value of <c>MaxConnectionsPercent</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,9 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NewName
         /// <summary>
         /// <para>
-        /// <para>The new name for the modified <code>DBProxyTarget</code>. An identifier must begin
-        /// with a letter and must contain only ASCII letters, digits, and hyphens; it can't end
-        /// with a hyphen or contain two consecutive hyphens.</para>
+        /// <para>The new name for the modified <c>DBProxyTarget</c>. An identifier must begin with
+        /// a letter and must contain only ASCII letters, digits, and hyphens; it can't end with
+        /// a hyphen or contain two consecutive hyphens.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

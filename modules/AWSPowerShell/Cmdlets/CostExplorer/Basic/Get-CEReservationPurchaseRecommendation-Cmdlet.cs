@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// Services recommends the smallest size instance in an instance family. This makes it
     /// easier to purchase a size-flexible Reserved Instance (RI). Amazon Web Services also
     /// shows the equal number of normalized units. This way, you can purchase any instance
-    /// size that you want. For this example, your RI recommendation is for <code>c4.large</code>
+    /// size that you want. For this example, your RI recommendation is for <c>c4.large</c>
     /// because that is the smallest size instance in the c4 instance family.
     /// </para><br/><br/>In the AWS.Tools.CostExplorer module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>
         /// <para>The account scope that you want your recommendations for. Amazon Web Services calculates
         /// recommendations including the management account and member accounts if the value
-        /// is set to <code>PAYER</code>. If the value is <code>LINKED</code>, recommendations
-        /// are calculated for individual member accounts only.</para>
+        /// is set to <c>PAYER</c>. If the value is <c>LINKED</c>, recommendations are calculated
+        /// for individual member accounts only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

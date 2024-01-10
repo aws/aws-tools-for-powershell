@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     /// Describes the status of importing resources to an application version.
     /// 
     ///  <note><para>
-    /// If you get a 404 error with <code>ResourceImportStatusNotFoundAppMetadataException</code>,
-    /// you must call <code>importResourcesToDraftAppVersion</code> after creating the application
-    /// and before calling <code>describeDraftAppVersionResourcesImportStatus</code> to obtain
-    /// the status.
+    /// If you get a 404 error with <c>ResourceImportStatusNotFoundAppMetadataException</c>,
+    /// you must call <c>importResourcesToDraftAppVersion</c> after creating the application
+    /// and before calling <c>describeDraftAppVersionResourcesImportStatus</c> to obtain the
+    /// status.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "RESHDraftAppVersionResourcesImportStatus")]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <summary>
         /// <para>
         /// <para>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
-        /// ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
+        /// ARN is: arn:<c>partition</c>:resiliencehub:<c>region</c>:<c>account</c>:app/<c>app-id</c>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>
         /// guide.</para>

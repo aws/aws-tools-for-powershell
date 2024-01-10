@@ -85,8 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Rule
         /// <summary>
         /// <para>
-        /// <para>The <code>Expression</code> object used to categorize costs. For more information,
-        /// see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html">CostCategoryRule
+        /// <para>The <c>Expression</c> object used to categorize costs. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html">CostCategoryRule
         /// </a>. </para>
         /// </para>
         /// </summary>

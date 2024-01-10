@@ -33,14 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     ///  
     /// <para>
     /// This API is similar to the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html">Query</a>
-    /// API. However, by default, the <code>Query</code> API only returns excerpt passages
-    /// of up to 100 token words. With the <code>Retrieve</code> API, you can retrieve longer
-    /// passages of up to 200 token words and up to 100 semantically relevant passages. This
-    /// doesn't include question-answer or FAQ type responses from your index. The passages
-    /// are text excerpts that can be semantically extracted from multiple documents and multiple
-    /// parts of the same document. If in extreme cases your documents produce zero passages
-    /// using the <code>Retrieve</code> API, you can alternatively use the <code>Query</code>
-    /// API and its types of responses.
+    /// API. However, by default, the <c>Query</c> API only returns excerpt passages of up
+    /// to 100 token words. With the <c>Retrieve</c> API, you can retrieve longer passages
+    /// of up to 200 token words and up to 100 semantically relevant passages. This doesn't
+    /// include question-answer or FAQ type responses from your index. The passages are text
+    /// excerpts that can be semantically extracted from multiple documents and multiple parts
+    /// of the same document. If in extreme cases your documents produce zero passages using
+    /// the <c>Retrieve</c> API, you can alternatively use the <c>Query</c> API and its types
+    /// of responses.
     /// </para><para>
     /// You can also do the following:
     /// </para><ul><li><para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// You can also include certain fields in the response that might provide useful additional
     /// information.
     /// </para><para>
-    /// The <code>Retrieve</code> API shares the number of <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html">query
+    /// The <c>Retrieve</c> API shares the number of <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html">query
     /// capacity units</a> that you set for your index. For more information on what's included
     /// in a single capacity unit and the default base capacity for an index, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html">Adjusting
     /// capacity</a>.
@@ -80,9 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>Filters search results by document fields/attributes. You can only provide one attribute
-        /// filter; however, the <code>AndAllFilters</code>, <code>NotFilter</code>, and <code>OrAllFilters</code>
-        /// parameters contain a list of other filters.</para><para>The <code>AttributeFilter</code> parameter means you can create a set of filtering
-        /// rules that a document must satisfy to be included in the query results.</para>
+        /// filter; however, the <c>AndAllFilters</c>, <c>NotFilter</c>, and <c>OrAllFilters</c>
+        /// parameters contain a list of other filters.</para><para>The <c>AttributeFilter</c> parameter means you can create a set of filtering rules
+        /// that a document must satisfy to be included in the query results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter PageNumber
         /// <summary>
         /// <para>
-        /// <para>Retrieved relevant passages are returned in pages the size of the <code>PageSize</code>
+        /// <para>Retrieved relevant passages are returned in pages the size of the <c>PageSize</c>
         /// parameter. By default, Amazon Kendra returns the first page of results. Use this parameter
         /// to get result pages after the first one.</para>
         /// </para>

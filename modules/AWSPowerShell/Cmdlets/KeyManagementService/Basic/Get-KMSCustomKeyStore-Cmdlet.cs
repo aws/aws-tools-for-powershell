@@ -39,25 +39,24 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// By default, this operation returns information about all custom key stores in the
     /// account and Region. To get only information about a particular custom key store, use
-    /// either the <code>CustomKeyStoreName</code> or <code>CustomKeyStoreId</code> parameter
-    /// (but not both).
+    /// either the <c>CustomKeyStoreName</c> or <c>CustomKeyStoreId</c> parameter (but not
+    /// both).
     /// </para><para>
     /// To determine whether the custom key store is connected to its CloudHSM cluster or
-    /// external key store proxy, use the <code>ConnectionState</code> element in the response.
-    /// If an attempt to connect the custom key store failed, the <code>ConnectionState</code>
-    /// value is <code>FAILED</code> and the <code>ConnectionErrorCode</code> element in the
-    /// response indicates the cause of the failure. For help interpreting the <code>ConnectionErrorCode</code>,
-    /// see <a>CustomKeyStoresListEntry</a>.
+    /// external key store proxy, use the <c>ConnectionState</c> element in the response.
+    /// If an attempt to connect the custom key store failed, the <c>ConnectionState</c> value
+    /// is <c>FAILED</c> and the <c>ConnectionErrorCode</c> element in the response indicates
+    /// the cause of the failure. For help interpreting the <c>ConnectionErrorCode</c>, see
+    /// <a>CustomKeyStoresListEntry</a>.
     /// </para><para>
-    /// Custom key stores have a <code>DISCONNECTED</code> connection state if the key store
-    /// has never been connected or you used the <a>DisconnectCustomKeyStore</a> operation
-    /// to disconnect it. Otherwise, the connection state is CONNECTED. If your custom key
-    /// store connection state is <code>CONNECTED</code> but you are having trouble using
-    /// it, verify that the backing store is active and available. For an CloudHSM key store,
-    /// verify that the associated CloudHSM cluster is active and contains the minimum number
-    /// of HSMs required for the operation, if any. For an external key store, verify that
-    /// the external key store proxy and its associated external key manager are reachable
-    /// and enabled.
+    /// Custom key stores have a <c>DISCONNECTED</c> connection state if the key store has
+    /// never been connected or you used the <a>DisconnectCustomKeyStore</a> operation to
+    /// disconnect it. Otherwise, the connection state is CONNECTED. If your custom key store
+    /// connection state is <c>CONNECTED</c> but you are having trouble using it, verify that
+    /// the backing store is active and available. For an CloudHSM key store, verify that
+    /// the associated CloudHSM cluster is active and contains the minimum number of HSMs
+    /// required for the operation, if any. For an external key store, verify that the external
+    /// key store proxy and its associated external key manager are reachable and enabled.
     /// </para><para>
     ///  For help repairing your CloudHSM key store, see the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting
     /// CloudHSM key stores</a>. For help repairing your external key store, see the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/xks-troubleshooting.html">Troubleshooting
@@ -91,8 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Gets only information about the specified custom key store. Enter the key store ID.</para><para>By default, this operation gets information about all custom key stores in the account
         /// and Region. To limit the output to a particular custom key store, provide either the
-        /// <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not
-        /// both.</para>
+        /// <c>CustomKeyStoreId</c> or <c>CustomKeyStoreName</c> parameter, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -105,8 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>Gets only information about the specified custom key store. Enter the friendly name
         /// of the custom key store.</para><para>By default, this operation gets information about all custom key stores in the account
         /// and Region. To limit the output to a particular custom key store, provide either the
-        /// <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not
-        /// both.</para>
+        /// <c>CustomKeyStoreId</c> or <c>CustomKeyStoreName</c> parameter, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Use this parameter in a subsequent request after you receive a response with truncated
-        /// results. Set it to the value of <code>NextMarker</code> from the truncated response
-        /// you just received.</para>
+        /// results. Set it to the value of <c>NextMarker</c> from the truncated response you
+        /// just received.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

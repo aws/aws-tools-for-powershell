@@ -59,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter AppMonitorConfiguration_AllowCookie
         /// <summary>
         /// <para>
-        /// <para>If you set this to <code>true</code>, the RUM web client sets two cookies, a session
-        /// cookie and a user cookie. The cookies allow the RUM web client to collect data relating
-        /// to the number of users an application has and the behavior of the application across
+        /// <para>If you set this to <c>true</c>, the RUM web client sets two cookies, a session cookie
+        /// and a user cookie. The cookies allow the RUM web client to collect data relating to
+        /// the number of users an application has and the behavior of the application across
         /// a sequence of events. Cookies are stored in the top-level domain of the current page.</para>
         /// </para>
         /// </summary>
@@ -96,11 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter AppMonitorConfiguration_EnableXRay
         /// <summary>
         /// <para>
-        /// <para>If you set this to <code>true</code>, RUM enables X-Ray tracing for the user sessions
-        /// that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also
-        /// records an X-Ray segment for allowed HTTP requests. You can see traces and segments
-        /// from these user sessions in the X-Ray console and the CloudWatch ServiceLens console.
-        /// For more information, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html">What
+        /// <para>If you set this to <c>true</c>, RUM enables X-Ray tracing for the user sessions that
+        /// RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records
+        /// an X-Ray segment for allowed HTTP requests. You can see traces and segments from these
+        /// user sessions in the X-Ray console and the CloudWatch ServiceLens console. For more
+        /// information, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html">What
         /// is X-Ray?</a></para>
         /// </para>
         /// </summary>
@@ -111,8 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter AppMonitorConfiguration_ExcludedPage
         /// <summary>
         /// <para>
-        /// <para>A list of URLs in your website or application to exclude from RUM data collection.</para><para>You can't include both <code>ExcludedPages</code> and <code>IncludedPages</code> in
-        /// the same operation.</para>
+        /// <para>A list of URLs in your website or application to exclude from RUM data collection.</para><para>You can't include both <c>ExcludedPages</c> and <c>IncludedPages</c> in the same operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,8 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <summary>
         /// <para>
         /// <para>If this app monitor is to collect data from only certain pages in your application,
-        /// this structure lists those pages. </para><para>You can't include both <code>ExcludedPages</code> and <code>IncludedPages</code> in
-        /// the same operation.</para>
+        /// this structure lists those pages. </para><para>You can't include both <c>ExcludedPages</c> and <c>IncludedPages</c> in the same operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <summary>
         /// <para>
         /// <para>Specifies whether this app monitor allows the web client to define and send custom
-        /// events. The default is for custom events to be <code>DISABLED</code>.</para>
+        /// events. The default is for custom events to be <c>DISABLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,10 +211,9 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter AppMonitorConfiguration_Telemetry
         /// <summary>
         /// <para>
-        /// <para>An array that lists the types of telemetry data that this app monitor is to collect.</para><ul><li><para><code>errors</code> indicates that RUM collects data about unhandled JavaScript errors
-        /// raised by your application.</para></li><li><para><code>performance</code> indicates that RUM collects performance data about how your
-        /// application and its resources are loaded and rendered. This includes Core Web Vitals.</para></li><li><para><code>http</code> indicates that RUM collects data about HTTP errors thrown by your
-        /// application.</para></li></ul>
+        /// <para>An array that lists the types of telemetry data that this app monitor is to collect.</para><ul><li><para><c>errors</c> indicates that RUM collects data about unhandled JavaScript errors
+        /// raised by your application.</para></li><li><para><c>performance</c> indicates that RUM collects performance data about how your application
+        /// and its resources are loaded and rendered. This includes Core Web Vitals.</para></li><li><para><c>http</c> indicates that RUM collects data about HTTP errors thrown by your application.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

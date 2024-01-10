@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter HomeRegion
         /// <summary>
         /// <para>
-        /// <para>The primary Region of the endpoints associated with this account. For example <code>"HomeRegion":
-        /// "us-east-1"</code>.</para>
+        /// <para>The primary Region of the endpoints associated with this account. For example <c>"HomeRegion":
+        /// "us-east-1"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// <summary>
         /// <para>
         /// <para>A value that will return a subset of the endpoints associated with this account. For
-        /// example, <code>"NamePrefix": "ABC"</code> will return all endpoints with "ABC" in
-        /// the name.</para>
+        /// example, <c>"NamePrefix": "ABC"</c> will return all endpoints with "ABC" in the name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,11 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If <code>nextToken</code> is returned, there are more results available. The value
-        /// of <code>nextToken</code> is a unique pagination token for each page. Make the call
-        /// again using the returned token to retrieve the next page. Keep all other arguments
-        /// unchanged. Each pagination token expires after 24 hours. Using an expired pagination
-        /// token will return an HTTP 400 InvalidToken error.</para>
+        /// <para>If <c>nextToken</c> is returned, there are more results available. The value of <c>nextToken</c>
+        /// is a unique pagination token for each page. Make the call again using the returned
+        /// token to retrieve the next page. Keep all other arguments unchanged. Each pagination
+        /// token expires after 24 hours. Using an expired pagination token will return an HTTP
+        /// 400 InvalidToken error.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>Specifies the tag keys for the <code>UntagResource</code> action.</para>
+        /// <para>Specifies the tag keys for the <c>UntagResource</c> action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

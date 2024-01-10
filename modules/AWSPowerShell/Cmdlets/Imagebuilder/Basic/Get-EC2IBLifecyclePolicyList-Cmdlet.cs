@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Streamline results based on one of the following values: <code>Name</code>, <code>Status</code>.</para>
+        /// <para>Streamline results based on one of the following values: <c>Name</c>, <c>Status</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

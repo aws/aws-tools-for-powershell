@@ -131,14 +131,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The configuration used to create deployment artifacts. Specify configuration options
-        /// with a JSON string. The available configuration options for each type are:</para><ul><li><para><code>ComponentName</code> (optional) - Name of the GreenGrass V2 component. If not
-        /// specified, the default name generated consists of "SagemakerEdgeManager" and the name
-        /// of your SageMaker Edge Manager packaging job.</para></li><li><para><code>ComponentDescription</code> (optional) - Description of the component.</para></li><li><para><code>ComponentVersion</code> (optional) - The version of the component.</para><note><para>Amazon Web Services IoT Greengrass uses semantic versions for components. Semantic
+        /// with a JSON string. The available configuration options for each type are:</para><ul><li><para><c>ComponentName</c> (optional) - Name of the GreenGrass V2 component. If not specified,
+        /// the default name generated consists of "SagemakerEdgeManager" and the name of your
+        /// SageMaker Edge Manager packaging job.</para></li><li><para><c>ComponentDescription</c> (optional) - Description of the component.</para></li><li><para><c>ComponentVersion</c> (optional) - The version of the component.</para><note><para>Amazon Web Services IoT Greengrass uses semantic versions for components. Semantic
         /// versions follow a<i> major.minor.patch</i> number system. For example, version 1.0.0
         /// represents the first major release for a component. For more information, see the
-        /// <a href="https://semver.org/">semantic version specification</a>.</para></note></li><li><para><code>PlatformOS</code> (optional) - The name of the operating system for the platform.
-        /// Supported platforms include Windows and Linux.</para></li><li><para><code>PlatformArchitecture</code> (optional) - The processor architecture for the
-        /// platform. </para><para>Supported architectures Windows include: Windows32_x86, Windows64_x64.</para><para>Supported architectures for Linux include: Linux x86_64, Linux ARMV8.</para></li></ul>
+        /// <a href="https://semver.org/">semantic version specification</a>.</para></note></li><li><para><c>PlatformOS</c> (optional) - The name of the operating system for the platform.
+        /// Supported platforms include Windows and Linux.</para></li><li><para><c>PlatformArchitecture</c> (optional) - The processor architecture for the platform.
+        /// </para><para>Supported architectures Windows include: Windows32_x86, Windows64_x64.</para><para>Supported architectures for Linux include: Linux x86_64, Linux ARMV8.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

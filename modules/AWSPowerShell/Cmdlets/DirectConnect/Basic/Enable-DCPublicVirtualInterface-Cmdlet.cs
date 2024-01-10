@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </para><para>
     /// Virtual interfaces created using this function must be confirmed by the owner using
     /// <a>ConfirmPublicVirtualInterface</a>. Until this step has been completed, the virtual
-    /// interface is in the <code>confirming</code> state and is not available to handle traffic.
+    /// interface is in the <c>confirming</c> state and is not available to handle traffic.
     /// </para><para>
     /// When creating an IPv6 public virtual interface, omit the Amazon address and customer
     /// address. IPv6 addresses are automatically assigned from the Amazon pool of IPv6 addresses;

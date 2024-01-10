@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// index.
     /// 
     ///  
-    /// <para><code>SubmitFeedback</code> is currently not supported in the Amazon Web Services
-    /// GovCloud (US-West) region.
+    /// <para><c>SubmitFeedback</c> is currently not supported in the Amazon Web Services GovCloud
+    /// (US-West) region.
     /// </para>
     /// </summary>
     [Cmdlet("Send", "KNDRFeedback", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The identifier of the specific query for which you are submitting feedback. The query
-        /// ID is returned in the response to the <code>Query</code> API.</para>
+        /// ID is returned in the response to the <c>Query</c> API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

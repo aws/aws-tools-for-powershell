@@ -30,11 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     /// <summary>
     /// Starts an asynchronous batch translation job. Use batch translation jobs to translate
     /// large volumes of text across multiple documents at once. For batch translation, you
-    /// can input documents with different source languages (specify <code>auto</code> as
-    /// the source language). You can specify one or more target languages. Batch translation
-    /// translates each input document into each of the target languages. For more information,
-    /// see <a href="https://docs.aws.amazon.com/translate/latest/dg/async.html">Asynchronous
-    /// batch processing</a>.
+    /// can input documents with different source languages (specify <c>auto</c> as the source
+    /// language). You can specify one or more target languages. Batch translation translates
+    /// each input document into each of the target languages. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/async.html">Asynchronous batch
+    /// processing</a>.
     /// 
     ///  
     /// <para>
@@ -73,18 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// <summary>
         /// <para>
         /// <para>Describes the format of the data that you submit to Amazon Translate as input. You
-        /// can specify one of the following multipurpose internet mail extension (MIME) types:</para><ul><li><para><code>text/html</code>: The input data consists of one or more HTML files. Amazon
-        /// Translate translates only the text that resides in the <code>html</code> element in
-        /// each file.</para></li><li><para><code>text/plain</code>: The input data consists of one or more unformatted text
-        /// files. Amazon Translate translates every character in this type of input.</para></li><li><para><code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code>:
-        /// The input data consists of one or more Word documents (.docx).</para></li><li><para><code>application/vnd.openxmlformats-officedocument.presentationml.presentation</code>:
-        /// The input data consists of one or more PowerPoint Presentation files (.pptx).</para></li><li><para><code>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code>: The
-        /// input data consists of one or more Excel Workbook files (.xlsx).</para></li><li><para><code>application/x-xliff+xml</code>: The input data consists of one or more XML
-        /// Localization Interchange File Format (XLIFF) files (.xlf). Amazon Translate supports
-        /// only XLIFF version 1.2.</para></li></ul><important><para>If you structure your input data as HTML, ensure that you set this parameter to <code>text/html</code>.
-        /// By doing so, you cut costs by limiting the translation to the contents of the <code>html</code>
-        /// element in each file. Otherwise, if you set this parameter to <code>text/plain</code>,
-        /// your costs will cover the translation of every character.</para></important>
+        /// can specify one of the following multipurpose internet mail extension (MIME) types:</para><ul><li><para><c>text/html</c>: The input data consists of one or more HTML files. Amazon Translate
+        /// translates only the text that resides in the <c>html</c> element in each file.</para></li><li><para><c>text/plain</c>: The input data consists of one or more unformatted text files.
+        /// Amazon Translate translates every character in this type of input.</para></li><li><para><c>application/vnd.openxmlformats-officedocument.wordprocessingml.document</c>: The
+        /// input data consists of one or more Word documents (.docx).</para></li><li><para><c>application/vnd.openxmlformats-officedocument.presentationml.presentation</c>:
+        /// The input data consists of one or more PowerPoint Presentation files (.pptx).</para></li><li><para><c>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</c>: The input
+        /// data consists of one or more Excel Workbook files (.xlsx).</para></li><li><para><c>application/x-xliff+xml</c>: The input data consists of one or more XML Localization
+        /// Interchange File Format (XLIFF) files (.xlf). Amazon Translate supports only XLIFF
+        /// version 1.2.</para></li></ul><important><para>If you structure your input data as HTML, ensure that you set this parameter to <c>text/html</c>.
+        /// By doing so, you cut costs by limiting the translation to the contents of the <c>html</c>
+        /// element in each file. Otherwise, if you set this parameter to <c>text/plain</c>, your
+        /// costs will cover the translation of every character.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -235,9 +233,9 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// <para>
         /// <para>The language code of the input language. Specify the language if all input documents
         /// share the same language. If you don't know the language of the source files, or your
-        /// input documents contains different source languages, select <code>auto</code>. Amazon
-        /// Translate auto detects the source language for each input document. For a list of
-        /// supported language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported
+        /// input documents contains different source languages, select <c>auto</c>. Amazon Translate
+        /// auto detects the source language for each input document. For a list of supported
+        /// language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported
         /// languages</a>.</para>
         /// </para>
         /// </summary>

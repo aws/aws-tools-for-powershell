@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The end of the time interval from which to get log events.</para><para>Constraints:</para><ul><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Specified in the Unix time format.</para><para>For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then
-        /// you input <code>1538424000</code> as the end time.</para></li></ul>
+        /// you input <c>1538424000</c> as the end time.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter LogStreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the log stream.</para><para>Use the <code>get relational database log streams</code> operation to get a list of
-        /// available log streams.</para>
+        /// <para>The name of the log stream.</para><para>Use the <c>get relational database log streams</c> operation to get a list of available
+        /// log streams.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,9 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter StartFromHead
         /// <summary>
         /// <para>
-        /// <para>Parameter to specify if the log should start from head or tail. If <code>true</code>
-        /// is specified, the log event starts from the head of the log. If <code>false</code>
-        /// is specified, the log event starts from the tail of the log.</para><note><para>For PostgreSQL, the default value of <code>false</code> is the only option available.</para></note>
+        /// <para>Parameter to specify if the log should start from head or tail. If <c>true</c> is
+        /// specified, the log event starts from the head of the log. If <c>false</c> is specified,
+        /// the log event starts from the tail of the log.</para><note><para>For PostgreSQL, the default value of <c>false</c> is the only option available.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The start of the time interval from which to get log events.</para><para>Constraints:</para><ul><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Specified in the Unix time format.</para><para>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then
-        /// you input <code>1538424000</code> as the start time.</para></li></ul>
+        /// you input <c>1538424000</c> as the start time.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,10 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>The token to advance to the next or previous page of results from your request.</para><para>To get a page token, perform an initial <code>GetRelationalDatabaseLogEvents</code>
-        /// request. If your results are paginated, the response will return a next forward token
-        /// and/or next backward token that you can specify as the page token in a subsequent
-        /// request.</para>
+        /// <para>The token to advance to the next or previous page of results from your request.</para><para>To get a page token, perform an initial <c>GetRelationalDatabaseLogEvents</c> request.
+        /// If your results are paginated, the response will return a next forward token and/or
+        /// next backward token that you can specify as the page token in a subsequent request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

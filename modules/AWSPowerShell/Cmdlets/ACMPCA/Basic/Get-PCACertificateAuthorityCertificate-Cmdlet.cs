@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter CertificateAuthorityArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of your private CA. This is of the form:</para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code>. </para>
+        /// <para>The Amazon Resource Name (ARN) of your private CA. This is of the form:</para><para><c>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

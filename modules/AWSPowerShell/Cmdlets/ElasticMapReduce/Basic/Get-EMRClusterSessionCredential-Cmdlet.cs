@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>The Amazon Resource Name (ARN) of the runtime role for interactive workload submission
         /// on the cluster. The runtime role can be a cross-account IAM role. The runtime role
         /// ARN is a combination of account ID, role name, and role type using the following format:
-        /// <code>arn:partition:service:region:account:resource</code>.</para>
+        /// <c>arn:partition:service:region:account:resource</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

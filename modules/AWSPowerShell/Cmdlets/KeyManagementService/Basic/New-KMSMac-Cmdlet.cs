@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different
     /// Amazon Web Services account, specify the key ARN or alias ARN in the value of the
-    /// <code>KeyId</code> parameter. 
+    /// <c>KeyId</c> parameter. 
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateMac</a>
     /// (key policy)
     /// </para><para><b>Related operations</b>: <a>VerifyMac</a></para><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
@@ -78,8 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.
-        /// </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
+        /// <para>Checks if your request will succeed. <c>DryRun</c> is an optional parameter. </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
         /// your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -106,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>The HMAC KMS key to use in the operation. The MAC algorithm computes the HMAC for
         /// the message and the key as described in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC
-        /// 2104</a>.</para><para>To identify an HMAC KMS key, use the <a>DescribeKey</a> operation and see the <code>KeySpec</code>
+        /// 2104</a>.</para><para>To identify an HMAC KMS key, use the <a>DescribeKey</a> operation and see the <c>KeySpec</c>
         /// field in the response.</para>
         /// </para>
         /// </summary>
@@ -126,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>The MAC algorithm used in the operation.</para><para> The algorithm must be compatible with the HMAC KMS key that you specify. To find
         /// the MAC algorithms that your HMAC KMS key supports, use the <a>DescribeKey</a> operation
-        /// and see the <code>MacAlgorithms</code> field in the <code>DescribeKey</code> response.</para>
+        /// and see the <c>MacAlgorithms</c> field in the <c>DescribeKey</c> response.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,9 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Message
         /// <summary>
         /// <para>
-        /// <para>The message to be hashed. Specify a message of up to 4,096 bytes. </para><para><code>GenerateMac</code> and <a>VerifyMac</a> do not provide special handling for
-        /// message digests. If you generate an HMAC for a hash digest of a message, you must
-        /// verify the HMAC of the same hash digest.</para>
+        /// <para>The message to be hashed. Specify a message of up to 4,096 bytes. </para><para><c>GenerateMac</c> and <a>VerifyMac</a> do not provide special handling for message
+        /// digests. If you generate an HMAC for a hash digest of a message, you must verify the
+        /// HMAC of the same hash digest.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

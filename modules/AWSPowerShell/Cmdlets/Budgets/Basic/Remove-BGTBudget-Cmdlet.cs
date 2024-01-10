@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The <code>accountId</code> that is associated with the budget that you want to delete.</para>
+        /// <para>The <c>accountId</c> that is associated with the budget that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

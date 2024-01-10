@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceTagAttribute_IncludeAllTagsOfInstance
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to deregister all tag keys in the current Region. Specify <code>false</code>
+        /// <para>Indicates whether to deregister all tag keys in the current Region. Specify <c>false</c>
         /// to deregister all tag keys.</para>
         /// </para>
         /// </summary>

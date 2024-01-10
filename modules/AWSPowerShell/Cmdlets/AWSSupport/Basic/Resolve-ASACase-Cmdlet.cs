@@ -28,15 +28,15 @@ using Amazon.AWSSupport.Model;
 namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
-    /// Resolves a support case. This operation takes a <code>caseId</code> and returns the
-    /// initial and final state of the case.
+    /// Resolves a support case. This operation takes a <c>caseId</c> and returns the initial
+    /// and final state of the case.
     /// 
     ///  <note><ul><li><para>
     /// You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the
     /// Amazon Web Services Support API. 
     /// </para></li><li><para>
     /// If you call the Amazon Web Services Support API from an account that doesn't have
-    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <code>SubscriptionRequiredException</code>
+    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <c>SubscriptionRequiredException</c>
     /// error message appears. For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon
     /// Web Services Support</a>.
     /// </para></li></ul></note>

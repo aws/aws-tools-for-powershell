@@ -41,11 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     /// </para><para>
     /// The operation also enables Detective for the calling account in the currently selected
     /// Region. It returns the ARN of the new behavior graph.
-    /// </para><para><code>CreateGraph</code> triggers a process to create the corresponding data tables
-    /// for the new behavior graph.
+    /// </para><para><c>CreateGraph</c> triggers a process to create the corresponding data tables for
+    /// the new behavior graph.
     /// </para><para>
     /// An account can only be the administrator account for one behavior graph within a Region.
-    /// If the same account calls <code>CreateGraph</code> with the same administrator account,
+    /// If the same account calls <c>CreateGraph</c> with the same administrator account,
     /// it always returns the same behavior graph ARN. It does not create a new behavior graph.
     /// </para>
     /// </summary>

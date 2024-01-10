@@ -28,12 +28,12 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Updates the <code>MLModelName</code> and the <code>ScoreThreshold</code> of an <code>MLModel</code>.
+    /// Updates the <c>MLModelName</c> and the <c>ScoreThreshold</c> of an <c>MLModel</c>.
     /// 
     ///  
     /// <para>
-    /// You can use the <code>GetMLModel</code> operation to view the contents of the updated
-    /// data element.
+    /// You can use the <c>GetMLModel</c> operation to view the contents of the updated data
+    /// element.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "MLMLModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter MLModelId
         /// <summary>
         /// <para>
-        /// <para>The ID assigned to the <code>MLModel</code> during creation.</para>
+        /// <para>The ID assigned to the <c>MLModel</c> during creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter MLModelName
         /// <summary>
         /// <para>
-        /// <para>A user-supplied name or description of the <code>MLModel</code>.</para>
+        /// <para>A user-supplied name or description of the <c>MLModel</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,11 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter ScoreThreshold
         /// <summary>
         /// <para>
-        /// <para>The <code>ScoreThreshold</code> used in binary classification <code>MLModel</code>
-        /// that marks the boundary between a positive prediction and a negative prediction.</para><para>Output values greater than or equal to the <code>ScoreThreshold</code> receive a positive
-        /// result from the <code>MLModel</code>, such as <code>true</code>. Output values less
-        /// than the <code>ScoreThreshold</code> receive a negative response from the <code>MLModel</code>,
-        /// such as <code>false</code>.</para>
+        /// <para>The <c>ScoreThreshold</c> used in binary classification <c>MLModel</c> that marks
+        /// the boundary between a positive prediction and a negative prediction.</para><para>Output values greater than or equal to the <c>ScoreThreshold</c> receive a positive
+        /// result from the <c>MLModel</c>, such as <c>true</c>. Output values less than the <c>ScoreThreshold</c>
+        /// receive a negative response from the <c>MLModel</c>, such as <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

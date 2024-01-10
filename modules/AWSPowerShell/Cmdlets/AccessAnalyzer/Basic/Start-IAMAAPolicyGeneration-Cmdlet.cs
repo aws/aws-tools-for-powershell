@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         #region Parameter CloudTrailDetails_Trail
         /// <summary>
         /// <para>
-        /// <para>A <code>Trail</code> object that contains settings for a trail.</para>
+        /// <para>A <c>Trail</c> object that contains settings for a trail.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

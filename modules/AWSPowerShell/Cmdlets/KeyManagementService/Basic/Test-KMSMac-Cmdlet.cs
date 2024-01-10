@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Verifies the hash-based message authentication code (HMAC) for a specified message,
-    /// HMAC KMS key, and MAC algorithm. To verify the HMAC, <code>VerifyMac</code> computes
-    /// an HMAC using the message, HMAC KMS key, and MAC algorithm that you specify, and compares
+    /// HMAC KMS key, and MAC algorithm. To verify the HMAC, <c>VerifyMac</c> computes an
+    /// HMAC using the message, HMAC KMS key, and MAC algorithm that you specify, and compares
     /// the computed HMAC to the HMAC that you specify. If the HMACs are identical, the verification
     /// succeeds; otherwise, it fails. Verification indicates that the message hasn't changed
     /// since the HMAC was calculated, and the specified key was used to generate and verify
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different
     /// Amazon Web Services account, specify the key ARN or alias ARN in the value of the
-    /// <code>KeyId</code> parameter. 
+    /// <c>KeyId</c> parameter. 
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:VerifyMac</a>
     /// (key policy)
     /// </para><para><b>Related operations</b>: <a>GenerateMac</a></para><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
@@ -73,8 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.
-        /// </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
+        /// <para>Checks if your request will succeed. <c>DryRun</c> is an optional parameter. </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
         /// your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -100,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>The KMS key that will be used in the verification.</para><para>Enter a key ID of the KMS key that was used to generate the HMAC. If you identify
-        /// a different KMS key, the <code>VerifyMac</code> operation fails.</para>
+        /// a different KMS key, the <c>VerifyMac</c> operation fails.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -139,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>The MAC algorithm that will be used in the verification. Enter the same MAC algorithm
         /// that was used to compute the HMAC. This algorithm must be supported by the HMAC KMS
-        /// key identified by the <code>KeyId</code> parameter.</para>
+        /// key identified by the <c>KeyId</c> parameter.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -157,9 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>The message that will be used in the verification. Enter the same message that was
-        /// used to generate the HMAC.</para><para><a>GenerateMac</a> and <code>VerifyMac</code> do not provide special handling for
-        /// message digests. If you generated an HMAC for a hash digest of a message, you must
-        /// verify the HMAC for the same hash digest.</para>
+        /// used to generate the HMAC.</para><para><a>GenerateMac</a> and <c>VerifyMac</c> do not provide special handling for message
+        /// digests. If you generated an HMAC for a hash digest of a message, you must verify
+        /// the HMAC for the same hash digest.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

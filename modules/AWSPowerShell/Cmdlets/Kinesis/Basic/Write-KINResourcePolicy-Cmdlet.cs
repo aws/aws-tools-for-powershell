@@ -30,19 +30,19 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// <summary>
     /// Attaches a resource-based policy to a data stream or registered consumer. If you are
     /// using an identity other than the root user of the Amazon Web Services account that
-    /// owns the resource, the calling identity must have the <code>PutResourcePolicy</code>
-    /// permissions on the specified Kinesis Data Streams resource and belong to the owner's
-    /// account in order to use this operation. If you don't have <code>PutResourcePolicy</code>
-    /// permissions, Amazon Kinesis Data Streams returns a <code>403 Access Denied error</code>.
-    /// If you receive a <code>ResourceNotFoundException</code>, check to see if you passed
-    /// a valid stream or consumer resource. 
+    /// owns the resource, the calling identity must have the <c>PutResourcePolicy</c> permissions
+    /// on the specified Kinesis Data Streams resource and belong to the owner's account in
+    /// order to use this operation. If you don't have <c>PutResourcePolicy</c> permissions,
+    /// Amazon Kinesis Data Streams returns a <c>403 Access Denied error</c>. If you receive
+    /// a <c>ResourceNotFoundException</c>, check to see if you passed a valid stream or consumer
+    /// resource. 
     /// 
     ///  
     /// <para>
     ///  Request patterns can be one of the following:
     /// </para><ul><li><para>
-    /// Data stream pattern: <code>arn:aws.*:kinesis:.*:\d{12}:.*stream/\S+</code></para></li><li><para>
-    /// Consumer pattern: <code>^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+</code></para></li></ul><para>
+    /// Data stream pattern: <c>arn:aws.*:kinesis:.*:\d{12}:.*stream/\S+</c></para></li><li><para>
+    /// Consumer pattern: <c>^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+</c></para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/streams/latest/dev/controlling-access.html">Controlling
     /// Access to Amazon Kinesis Data Streams Resources Using IAM</a>.
     /// </para>

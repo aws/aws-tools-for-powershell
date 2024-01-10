@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Deletes the publishing definition with the specified <code>destinationId</code>.
+    /// Deletes the publishing definition with the specified <c>destinationId</c>.
     /// </summary>
     [Cmdlet("Remove", "GDPublishingDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

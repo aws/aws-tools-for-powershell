@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// <summary>
     /// Once you have a ruleset definition (either recommended or your own), you call this
     /// operation to evaluate the ruleset against a data source (Glue table). The evaluation
-    /// computes results which you can retrieve with the <code>GetDataQualityResult</code>
-    /// API.
+    /// computes results which you can retrieve with the <c>GetDataQualityResult</c> API.
     /// </summary>
     [Cmdlet("Start", "GLUEDataQualityRulesetEvaluationRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -60,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter GlueTable_AdditionalOption
         /// <summary>
         /// <para>
-        /// <para>Additional options for the table. Currently there are two keys supported:</para><ul><li><para><code>pushDownPredicate</code>: to filter on partitions without having to list and
-        /// read all the files in your dataset.</para></li><li><para><code>catalogPartitionPredicate</code>: to use server-side partition pruning using
-        /// partition indexes in the Glue Data Catalog.</para></li></ul>
+        /// <para>Additional options for the table. Currently there are two keys supported:</para><ul><li><para><c>pushDownPredicate</c>: to filter on partitions without having to list and read
+        /// all the files in your dataset.</para></li><li><para><c>catalogPartitionPredicate</c>: to use server-side partition pruning using partition
+        /// indexes in the Glue Data Catalog.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter NumberOfWorker
         /// <summary>
         /// <para>
-        /// <para>The number of <code>G.1X</code> workers to be used in the run. The default is 5.</para>
+        /// <para>The number of <c>G.1X</c> workers to be used in the run. The default is 5.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,8 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The timeout for a run in minutes. This is the maximum time that a run can consume
-        /// resources before it is terminated and enters <code>TIMEOUT</code> status. The default
-        /// is 2,880 minutes (48 hours).</para>
+        /// resources before it is terminated and enters <c>TIMEOUT</c> status. The default is
+        /// 2,880 minutes (48 hours).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

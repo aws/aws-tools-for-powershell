@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ActualEndTime
         /// <summary>
         /// <para>
-        /// <para>The time a runbook workflow ended. Currently reported only for the OpsItem type <code>/aws/changerequest</code>.</para>
+        /// <para>The time a runbook workflow ended. Currently reported only for the OpsItem type <c>/aws/changerequest</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The time a runbook workflow started. Currently reported only for the OpsItem type
-        /// <code>/aws/changerequest</code>.</para>
+        /// <c>/aws/changerequest</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,15 +134,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>Operational data is custom data that provides useful reference details about the OpsItem.
         /// For example, you can specify log files, error strings, license keys, troubleshooting
         /// tips, or other relevant data. You enter operational data as key-value pairs. The key
-        /// has a maximum length of 128 characters. The value has a maximum size of 20 KB.</para><important><para>Operational data keys <i>can't</i> begin with the following: <code>amazon</code>,
-        /// <code>aws</code>, <code>amzn</code>, <code>ssm</code>, <code>/amazon</code>, <code>/aws</code>,
-        /// <code>/amzn</code>, <code>/ssm</code>.</para></important><para>You can choose to make the data searchable by other users in the account or you can
+        /// has a maximum length of 128 characters. The value has a maximum size of 20 KB.</para><important><para>Operational data keys <i>can't</i> begin with the following: <c>amazon</c>, <c>aws</c>,
+        /// <c>amzn</c>, <c>ssm</c>, <c>/amazon</c>, <c>/aws</c>, <c>/amzn</c>, <c>/ssm</c>.</para></important><para>You can choose to make the data searchable by other users in the account or you can
         /// restrict search access. Searchable data means that all users with access to the OpsItem
         /// Overview page (as provided by the <a>DescribeOpsItems</a> API operation) can view
         /// and search on the specified data. Operational data that isn't searchable is only viewable
         /// by users who have access to the OpsItem (as provided by the <a>GetOpsItem</a> API
-        /// operation).</para><para>Use the <code>/aws/resources</code> key in OperationalData to specify a related resource
-        /// in the request. Use the <code>/aws/automations</code> key in OperationalData to associate
+        /// operation).</para><para>Use the <c>/aws/resources</c> key in OperationalData to specify a related resource
+        /// in the request. Use the <c>/aws/automations</c> key in OperationalData to associate
         /// an Automation runbook with the OpsItem. To view Amazon Web Services CLI example commands
         /// that use these keys, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-manually-create-OpsItems.html">Creating
         /// OpsItems manually</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
@@ -155,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter OpsItemType
         /// <summary>
         /// <para>
-        /// <para>The type of OpsItem to create. Systems Manager supports the following types of OpsItems:</para><ul><li><para><code>/aws/issue</code></para><para>This type of OpsItem is used for default OpsItems created by OpsCenter. </para></li><li><para><code>/aws/changerequest</code></para><para>This type of OpsItem is used by Change Manager for reviewing and approving or rejecting
-        /// change requests. </para></li><li><para><code>/aws/insight</code></para><para>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
+        /// <para>The type of OpsItem to create. Systems Manager supports the following types of OpsItems:</para><ul><li><para><c>/aws/issue</c></para><para>This type of OpsItem is used for default OpsItems created by OpsCenter. </para></li><li><para><c>/aws/changerequest</c></para><para>This type of OpsItem is used by Change Manager for reviewing and approving or rejecting
+        /// change requests. </para></li><li><para><c>/aws/insight</c></para><para>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
         /// OpsItems. </para></li></ul>
         /// </para>
         /// </summary>
@@ -168,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The time specified in a change request for a runbook workflow to end. Currently supported
-        /// only for the OpsItem type <code>/aws/changerequest</code>.</para>
+        /// only for the OpsItem type <c>/aws/changerequest</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The time specified in a change request for a runbook workflow to start. Currently
-        /// supported only for the OpsItem type <code>/aws/changerequest</code>.</para>
+        /// supported only for the OpsItem type <c>/aws/changerequest</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,8 +221,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>The origin of the OpsItem, such as Amazon EC2 or Systems Manager.</para><note><para>The source name can't contain the following strings: <code>aws</code>, <code>amazon</code>,
-        /// and <code>amzn</code>. </para></note>
+        /// <para>The origin of the OpsItem, such as Amazon EC2 or Systems Manager.</para><note><para>The source name can't contain the following strings: <c>aws</c>, <c>amazon</c>, and
+        /// <c>amzn</c>. </para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -240,9 +239,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Optional metadata that you assign to a resource.</para><para>Tags use a key-value pair. For example:</para><para><code>Key=Department,Value=Finance</code></para><important><para>To add tags to a new OpsItem, a user must have IAM permissions for both the <code>ssm:CreateOpsItems</code>
-        /// operation and the <code>ssm:AddTagsToResource</code> operation. To add tags to an
-        /// existing OpsItem, use the <a>AddTagsToResource</a> operation.</para></important>
+        /// <para>Optional metadata that you assign to a resource.</para><para>Tags use a key-value pair. For example:</para><para><c>Key=Department,Value=Finance</c></para><important><para>To add tags to a new OpsItem, a user must have IAM permissions for both the <c>ssm:CreateOpsItems</c>
+        /// operation and the <c>ssm:AddTagsToResource</c> operation. To add tags to an existing
+        /// OpsItem, use the <a>AddTagsToResource</a> operation.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

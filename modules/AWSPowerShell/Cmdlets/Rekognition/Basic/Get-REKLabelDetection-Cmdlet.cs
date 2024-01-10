@@ -34,23 +34,21 @@ namespace Amazon.PowerShell.Cmdlets.REK
     ///  
     /// <para>
     /// The label detection operation is started by a call to <a>StartLabelDetection</a> which
-    /// returns a job identifier (<code>JobId</code>). When the label detection operation
-    /// finishes, Amazon Rekognition publishes a completion status to the Amazon Simple Notification
-    /// Service topic registered in the initial call to <code>StartlabelDetection</code>.
-    /// 
+    /// returns a job identifier (<c>JobId</c>). When the label detection operation finishes,
+    /// Amazon Rekognition publishes a completion status to the Amazon Simple Notification
+    /// Service topic registered in the initial call to <c>StartlabelDetection</c>. 
     /// </para><para>
     /// To get the results of the label detection operation, first check that the status value
-    /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetLabelDetection</a>
-    /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartLabelDetection</code>.
-    /// </para><para><code>GetLabelDetection</code> returns an array of detected labels (<code>Labels</code>)
-    /// sorted by the time the labels were detected. You can also sort by the label name by
-    /// specifying <code>NAME</code> for the <code>SortBy</code> input parameter. If there
-    /// is no <code>NAME</code> specified, the default sort is by timestamp.
+    /// published to the Amazon SNS topic is <c>SUCCEEDED</c>. If so, call <a>GetLabelDetection</a>
+    /// and pass the job identifier (<c>JobId</c>) from the initial call to <c>StartLabelDetection</c>.
+    /// </para><para><c>GetLabelDetection</c> returns an array of detected labels (<c>Labels</c>) sorted
+    /// by the time the labels were detected. You can also sort by the label name by specifying
+    /// <c>NAME</c> for the <c>SortBy</c> input parameter. If there is no <c>NAME</c> specified,
+    /// the default sort is by timestamp.
     /// </para><para>
-    /// You can select how results are aggregated by using the <code>AggregateBy</code> input
-    /// parameter. The default aggregation method is <code>TIMESTAMPS</code>. You can also
-    /// aggregate by <code>SEGMENTS</code>, which aggregates all instances of labels detected
-    /// in a given segment. 
+    /// You can select how results are aggregated by using the <c>AggregateBy</c> input parameter.
+    /// The default aggregation method is <c>TIMESTAMPS</c>. You can also aggregate by <c>SEGMENTS</c>,
+    /// which aggregates all instances of labels detected in a given segment. 
     /// </para><para>
     /// The returned Labels array may include the following attributes:
     /// </para><ul><li><para>
@@ -75,24 +73,22 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// the confidence for the accuracy of the detected bounding box.
     /// </para></li><li><para>
     /// Timestamp - Time, in milliseconds from the start of the video, that the label was
-    /// detected. For aggregation by <code>SEGMENTS</code>, the <code>StartTimestampMillis</code>,
-    /// <code>EndTimestampMillis</code>, and <code>DurationMillis</code> structures are what
-    /// define a segment. Although the “Timestamp” structure is still returned with each label,
-    /// its value is set to be the same as <code>StartTimestampMillis</code>.
+    /// detected. For aggregation by <c>SEGMENTS</c>, the <c>StartTimestampMillis</c>, <c>EndTimestampMillis</c>,
+    /// and <c>DurationMillis</c> structures are what define a segment. Although the “Timestamp”
+    /// structure is still returned with each label, its value is set to be the same as <c>StartTimestampMillis</c>.
     /// </para></li></ul><para>
     /// Timestamp and Bounding box information are returned for detected Instances, only if
-    /// aggregation is done by <code>TIMESTAMPS</code>. If aggregating by <code>SEGMENTS</code>,
-    /// information about detected instances isn’t returned. 
+    /// aggregation is done by <c>TIMESTAMPS</c>. If aggregating by <c>SEGMENTS</c>, information
+    /// about detected instances isn’t returned. 
     /// </para><para>
     /// The version of the label model used for the detection is also returned.
-    /// </para><para><b>Note <code>DominantColors</code> isn't returned for <code>Instances</code>, although
-    /// it is shown as part of the response in the sample seen below.</b></para><para>
-    /// Use <code>MaxResults</code> parameter to limit the number of labels returned. If there
-    /// are more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code>
-    /// in the operation response contains a pagination token for getting the next set of
-    /// results. To get the next page of results, call <code>GetlabelDetection</code> and
-    /// populate the <code>NextToken</code> request parameter with the token value returned
-    /// from the previous call to <code>GetLabelDetection</code>.
+    /// </para><para><b>Note <c>DominantColors</c> isn't returned for <c>Instances</c>, although it is
+    /// shown as part of the response in the sample seen below.</b></para><para>
+    /// Use <c>MaxResults</c> parameter to limit the number of labels returned. If there are
+    /// more results than specified in <c>MaxResults</c>, the value of <c>NextToken</c> in
+    /// the operation response contains a pagination token for getting the next set of results.
+    /// To get the next page of results, call <c>GetlabelDetection</c> and populate the <c>NextToken</c>
+    /// request parameter with the token value returned from the previous call to <c>GetLabelDetection</c>.
     /// </para><br/><br/>In the AWS.Tools.Rekognition module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "REKLabelDetection")]
@@ -122,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Job identifier for the label detection operation for which you want results returned.
-        /// You get the job identifer from an initial call to <code>StartlabelDetection</code>.</para>
+        /// You get the job identifer from an initial call to <c>StartlabelDetection</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -139,10 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>Sort to use for elements in the <code>Labels</code> array. Use <code>TIMESTAMP</code>
-        /// to sort array elements by the time labels are detected. Use <code>NAME</code> to alphabetically
+        /// <para>Sort to use for elements in the <c>Labels</c> array. Use <c>TIMESTAMP</c> to sort
+        /// array elements by the time labels are detected. Use <c>NAME</c> to alphabetically
         /// group elements for a label together. Within each label group, the array element are
-        /// sorted by detection confidence. The default sort is by <code>TIMESTAMP</code>.</para>
+        /// sorted by detection confidence. The default sort is by <c>TIMESTAMP</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

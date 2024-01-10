@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// them using Amazon Web Services Events rules and targets.
     /// </para><para>
     /// Partner event source names follow this format:
-    /// </para><para><code><i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i></code></para><ul><li><para><i>partner_name</i> is determined during partner registration, and identifies the
+    /// </para><para><c><i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i></c></para><ul><li><para><i>partner_name</i> is determined during partner registration, and identifies the
     /// partner to Amazon Web Services customers. 
     /// </para></li><li><para><i>event_namespace</i> is determined by the partner, and is a way for the partner
     /// to categorize their events.
@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// <summary>
         /// <para>
         /// <para>The name of the partner event source. This name must be unique and must be in the
-        /// format <code><i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i></code>.
-        /// The Amazon Web Services account that wants to use this partner event source must create
+        /// format <c><i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i></c>. The
+        /// Amazon Web Services account that wants to use this partner event source must create
         /// a partner event bus with a name that matches the name of the partner event source.</para>
         /// </para>
         /// </summary>

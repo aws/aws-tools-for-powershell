@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter DeleteHistory
         /// <summary>
         /// <para>
-        /// <para> Set to <code>true</code> to remove the deleted import task from <a>DescribeImportTasks</a>.
+        /// <para> Set to <c>true</c> to remove the deleted import task from <a>DescribeImportTasks</a>.
         /// </para>
         /// </para>
         /// </summary>

@@ -28,8 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Query inventory information. This includes managed node status, such as <code>Stopped</code>
-    /// or <code>Terminated</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Query inventory information. This includes managed node status, such as <c>Stopped</c>
+    /// or <c>Terminated</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMInventory")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.InventoryResultEntity")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Returns counts of inventory types based on one or more expressions. For example, if
-        /// you aggregate by using an expression that uses the <code>AWS:InstanceInformation.PlatformType</code>
+        /// you aggregate by using an expression that uses the <c>AWS:InstanceInformation.PlatformType</c>
         /// type, you can see a count of how many Windows and Linux managed nodes exist in your
         /// inventoried fleet.</para>
         /// </para>

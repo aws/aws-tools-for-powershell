@@ -46,9 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The ARN of a CodeDeploy resource. <code>ListTagsForResource</code> returns all the
-        /// tags associated with the resource that is identified by the <code>ResourceArn</code>.
-        /// </para>
+        /// <para> The ARN of a CodeDeploy resource. <c>ListTagsForResource</c> returns all the tags
+        /// associated with the resource that is identified by the <c>ResourceArn</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An identifier returned from the previous <code>ListTagsForResource</code> call. It
-        /// can be used to return the next set of applications in the list.</para>
+        /// <para>An identifier returned from the previous <c>ListTagsForResource</c> call. It can be
+        /// used to return the next set of applications in the list.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

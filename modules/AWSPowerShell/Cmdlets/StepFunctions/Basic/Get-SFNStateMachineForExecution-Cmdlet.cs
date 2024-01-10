@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// This operation is eventually consistent. The results are best effort and may not reflect
     /// very recent updates and changes.
     /// </para></note><para>
-    /// This API action is not supported by <code>EXPRESS</code> state machines.
+    /// This API action is not supported by <c>EXPRESS</c> state machines.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SFNStateMachineForExecution")]

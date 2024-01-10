@@ -38,12 +38,12 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     ///  
     /// <para>
     /// If you specify a version or alias ARN when you call the <a>StartExecution</a> API
-    /// action, <code>DescribeExecution</code> returns that ARN.
+    /// action, <c>DescribeExecution</c> returns that ARN.
     /// </para><note><para>
     /// This operation is eventually consistent. The results are best effort and may not reflect
     /// very recent updates and changes.
     /// </para></note><para>
-    /// Executions of an <code>EXPRESS</code> state machine aren't supported by <code>DescribeExecution</code>
+    /// Executions of an <c>EXPRESS</c> state machine aren't supported by <c>DescribeExecution</c>
     /// unless a Map Run dispatched them.
     /// </para>
     /// </summary>

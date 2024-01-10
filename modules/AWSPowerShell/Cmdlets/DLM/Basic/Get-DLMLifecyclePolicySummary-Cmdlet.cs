@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// <summary>
         /// <para>
         /// <para><b>[Default policies only]</b> Specifies the type of default policy to get. Specify
-        /// one of the following:</para><ul><li><para><code>VOLUME</code> - To get only the default policy for EBS snapshots</para></li><li><para><code>INSTANCE</code> - To get only the default policy for EBS-backed AMIs</para></li><li><para><code>ALL</code> - To get all default policies</para></li></ul>
+        /// one of the following:</para><ul><li><para><c>VOLUME</c> - To get only the default policy for EBS snapshots</para></li><li><para><c>INSTANCE</c> - To get only the default policy for EBS-backed AMIs</para></li><li><para><c>ALL</c> - To get all default policies</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter TagsToAdd
         /// <summary>
         /// <para>
-        /// <para>The tags to add to objects created by the policy.</para><para>Tags are strings in the format <code>key=value</code>.</para><para>These user-defined tags are added in addition to the Amazon Web Services-added lifecycle
+        /// <para>The tags to add to objects created by the policy.</para><para>Tags are strings in the format <c>key=value</c>.</para><para>These user-defined tags are added in addition to the Amazon Web Services-added lifecycle
         /// tags.</para>
         /// </para>
         /// </summary>
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter TargetTag
         /// <summary>
         /// <para>
-        /// <para>The target tag for a policy.</para><para>Tags are strings in the format <code>key=value</code>.</para>
+        /// <para>The target tag for a policy.</para><para>Tags are strings in the format <c>key=value</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

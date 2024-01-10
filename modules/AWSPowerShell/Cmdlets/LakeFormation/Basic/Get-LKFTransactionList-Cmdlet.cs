@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <summary>
         /// <para>
         /// <para> A filter indicating the status of transactions to return. Options are ALL | COMPLETED
-        /// | COMMITTED | ABORTED | ACTIVE. The default is <code>ALL</code>.</para>
+        /// | COMMITTED | ABORTED | ACTIVE. The default is <c>ALL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

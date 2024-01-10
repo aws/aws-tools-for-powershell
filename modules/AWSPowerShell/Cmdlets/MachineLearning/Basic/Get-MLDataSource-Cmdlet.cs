@@ -28,13 +28,13 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Returns a <code>DataSource</code> that includes metadata and data file information,
-    /// as well as the current status of the <code>DataSource</code>.
+    /// Returns a <c>DataSource</c> that includes metadata and data file information, as well
+    /// as the current status of the <c>DataSource</c>.
     /// 
     ///  
-    /// <para><code>GetDataSource</code> provides results in normal or verbose format. The verbose
-    /// format adds the schema description and the list of files pointed to by the DataSource
-    /// to the normal format.
+    /// <para><c>GetDataSource</c> provides results in normal or verbose format. The verbose format
+    /// adds the schema description and the list of files pointed to by the DataSource to
+    /// the normal format.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "MLDataSource")]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// <para>The ID assigned to the <code>DataSource</code> at creation.</para>
+        /// <para>The ID assigned to the <c>DataSource</c> at creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter VerboseResponse
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the <code>GetDataSource</code> operation should return <code>DataSourceSchema</code>.</para><para>If true, <code>DataSourceSchema</code> is returned.</para><para>If false, <code>DataSourceSchema</code> is not returned.</para>
+        /// <para>Specifies whether the <c>GetDataSource</c> operation should return <c>DataSourceSchema</c>.</para><para>If true, <c>DataSourceSchema</c> is returned.</para><para>If false, <c>DataSourceSchema</c> is not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

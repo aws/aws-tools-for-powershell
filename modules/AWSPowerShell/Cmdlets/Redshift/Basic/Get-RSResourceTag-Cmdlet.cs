@@ -34,21 +34,21 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// 
     ///  
     /// <para>
-    /// The following are limitations for <code>DescribeTags</code>: 
+    /// The following are limitations for <c>DescribeTags</c>: 
     /// </para><ul><li><para>
     /// You cannot specify an ARN and a resource-type value together in the same request.
     /// </para></li><li><para>
-    /// You cannot use the <code>MaxRecords</code> and <code>Marker</code> parameters together
-    /// with the ARN parameter.
+    /// You cannot use the <c>MaxRecords</c> and <c>Marker</c> parameters together with the
+    /// ARN parameter.
     /// </para></li><li><para>
-    /// The <code>MaxRecords</code> parameter can be a range from 10 to 50 results to return
-    /// in a request.
+    /// The <c>MaxRecords</c> parameter can be a range from 10 to 50 results to return in
+    /// a request.
     /// </para></li></ul><para>
     /// If you specify both tag keys and tag values in the same request, Amazon Redshift returns
     /// all resources that match any combination of the specified keys and values. For example,
-    /// if you have <code>owner</code> and <code>environment</code> for tag keys, and <code>admin</code>
-    /// and <code>test</code> for tag values, all resources that have any combination of those
-    /// values are returned.
+    /// if you have <c>owner</c> and <c>environment</c> for tag keys, and <c>admin</c> and
+    /// <c>test</c> for tag values, all resources that have any combination of those values
+    /// are returned.
     /// </para><para>
     /// If both tag keys and values are omitted from the request, resources are returned regardless
     /// of whether they have tag keys or values associated with them.
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for which you want to describe the tag or tags. For
-        /// example, <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>. </para>
+        /// example, <c>arn:aws:redshift:us-east-2:123456789:cluster:t1</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,9 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>A tag key or keys for which you want to return all matching resources that are associated
         /// with the specified key or keys. For example, suppose that you have resources tagged
-        /// with keys called <code>owner</code> and <code>environment</code>. If you specify both
-        /// of these tag keys in the request, Amazon Redshift returns a response with all resources
-        /// that have either or both of these tag keys associated with them.</para>
+        /// with keys called <c>owner</c> and <c>environment</c>. If you specify both of these
+        /// tag keys in the request, Amazon Redshift returns a response with all resources that
+        /// have either or both of these tag keys associated with them.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,9 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>A tag value or values for which you want to return all matching resources that are
         /// associated with the specified value or values. For example, suppose that you have
-        /// resources tagged with values called <code>admin</code> and <code>test</code>. If you
-        /// specify both of these tag values in the request, Amazon Redshift returns a response
-        /// with all resources that have either or both of these tag values associated with them.</para>
+        /// resources tagged with values called <c>admin</c> and <c>test</c>. If you specify both
+        /// of these tag values in the request, Amazon Redshift returns a response with all resources
+        /// that have either or both of these tag values associated with them.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,9 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>A value that indicates the starting point for the next set of response records in
         /// a subsequent request. If a value is returned in a response, you can retrieve the next
-        /// set of records by providing this returned marker value in the <code>marker</code>
-        /// parameter and retrying the command. If the <code>marker</code> field is empty, all
-        /// response records have been retrieved for the request. </para>
+        /// set of records by providing this returned marker value in the <c>marker</c> parameter
+        /// and retrying the command. If the <c>marker</c> field is empty, all response records
+        /// have been retrieved for the request. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -143,9 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The maximum number or response records to return in each call. If the number of remaining
-        /// response records exceeds the specified <code>MaxRecords</code> value, a value is returned
-        /// in a <code>marker</code> field of the response. You can retrieve the next set of records
-        /// by retrying the command with the returned <code>marker</code> value. </para>
+        /// response records exceeds the specified <c>MaxRecords</c> value, a value is returned
+        /// in a <c>marker</c> field of the response. You can retrieve the next set of records
+        /// by retrying the command with the returned <c>marker</c> value. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

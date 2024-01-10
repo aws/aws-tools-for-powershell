@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter Rule_Enabled
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, the receipt rule is active. The default value is <code>false</code>.</para>
+        /// <para>If <c>true</c>, the receipt rule is active. The default value is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter Rule_ScanEnabled
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, then messages that this receipt rule applies to are scanned
-        /// for spam and viruses. The default value is <code>false</code>.</para>
+        /// <para>If <c>true</c>, then messages that this receipt rule applies to are scanned for spam
+        /// and viruses. The default value is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>
         /// <para>Specifies whether Amazon SES should require that incoming email is delivered over
         /// a connection encrypted with Transport Layer Security (TLS). If this parameter is set
-        /// to <code>Require</code>, Amazon SES bounces emails that are not received over TLS.
-        /// The default is <code>Optional</code>.</para>
+        /// to <c>Require</c>, Amazon SES bounces emails that are not received over TLS. The default
+        /// is <c>Optional</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
     /// SageMaker might add additional headers. You should not rely on the behavior of headers
     /// outside those enumerated in the request syntax. 
     /// </para><para>
-    /// Calls to <code>InvokeEndpointAsync</code> are authenticated by using Amazon Web Services
+    /// Calls to <c>InvokeEndpointAsync</c> are authenticated by using Amazon Web Services
     /// Signature Version 4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
     /// Requests (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>.
     /// </para>
@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         /// 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). </para><para>The code in your model is responsible for setting or updating any custom attributes
         /// in the response. If your code does not set this value in the response, an empty value
         /// is returned. For example, if a custom attribute represents the trace ID, your model
-        /// can prepend the custom attribute with <code>Trace ID:</code> in your post-processing
-        /// function. </para><para>This feature is currently supported in the Amazon Web Services SDKs but not in the
+        /// can prepend the custom attribute with <c>Trace ID:</c> in your post-processing function.
+        /// </para><para>This feature is currently supported in the Amazon Web Services SDKs but not in the
         /// Amazon SageMaker Python SDK. </para>
         /// </para>
         /// </summary>

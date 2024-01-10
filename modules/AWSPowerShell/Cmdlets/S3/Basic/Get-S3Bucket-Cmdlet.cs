@@ -32,8 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// This operation is not supported by directory buckets.
     /// </para></note><para>
     /// Returns a list of all buckets owned by the authenticated sender of the request. To
-    /// use this operation, you must have the <code>s3:ListAllMyBuckets</code> permission.
-    /// 
+    /// use this operation, you must have the <c>s3:ListAllMyBuckets</c> permission. 
     /// </para><para>
     /// For information about Amazon S3 buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating,
     /// configuring, and working with Amazon S3 buckets</a>.

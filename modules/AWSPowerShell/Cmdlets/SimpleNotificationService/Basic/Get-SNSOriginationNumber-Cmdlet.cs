@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token that the previous <code>ListOriginationNumbers</code> request returns.</para>
+        /// <para>Token that the previous <c>ListOriginationNumbers</c> request returns.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

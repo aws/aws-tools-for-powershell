@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Retrieves all of the fields and values of a single log event. All fields are retrieved,
-    /// even if the original query that produced the <code>logRecordPointer</code> retrieved
-    /// only a subset of fields. Fields are returned as field name/field value pairs.
+    /// even if the original query that produced the <c>logRecordPointer</c> retrieved only
+    /// a subset of fields. Fields are returned as field name/field value pairs.
     /// 
     ///  
     /// <para>
-    /// The full unparsed log event is returned within <code>@message</code>.
+    /// The full unparsed log event is returned within <c>@message</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWLLogRecord")]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The pointer corresponding to the log event record you want to retrieve. You get this
-        /// from the response of a <code>GetQueryResults</code> operation. In that response, the
-        /// value of the <code>@ptr</code> field for a log event is the value to use as <code>logRecordPointer</code>
+        /// from the response of a <c>GetQueryResults</c> operation. In that response, the value
+        /// of the <c>@ptr</c> field for a log event is the value to use as <c>logRecordPointer</c>
         /// to retrieve that complete log event record.</para>
         /// </para>
         /// </summary>
@@ -72,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Unmask
         /// <summary>
         /// <para>
-        /// <para>Specify <code>true</code> to display the log event fields with all sensitive data
-        /// unmasked and visible. The default is <code>false</code>.</para><para>To use this operation with this parameter, you must be signed into an account with
-        /// the <code>logs:Unmask</code> permission.</para>
+        /// <para>Specify <c>true</c> to display the log event fields with all sensitive data unmasked
+        /// and visible. The default is <c>false</c>.</para><para>To use this operation with this parameter, you must be signed into an account with
+        /// the <c>logs:Unmask</c> permission.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

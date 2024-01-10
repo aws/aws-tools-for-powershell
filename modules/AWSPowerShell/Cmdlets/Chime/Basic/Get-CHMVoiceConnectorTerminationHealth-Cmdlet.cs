@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
     /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
     /// </para></important><para>
-    /// Retrieves information about the last time a SIP <code>OPTIONS</code> ping was received
-    /// from your SIP infrastructure for the specified Amazon Chime Voice Connector.
+    /// Retrieves information about the last time a SIP <c>OPTIONS</c> ping was received from
+    /// your SIP infrastructure for the specified Amazon Chime Voice Connector.
     /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CHMVoiceConnectorTerminationHealth")]

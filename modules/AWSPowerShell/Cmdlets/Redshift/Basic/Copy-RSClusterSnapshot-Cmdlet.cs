@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SourceSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the source snapshot.</para><para>Constraints:</para><ul><li><para>Must be the identifier for a valid automated snapshot whose state is <code>available</code>.</para></li></ul>
+        /// <para>The identifier for the source snapshot.</para><para>Constraints:</para><ul><li><para>Must be the identifier for a valid automated snapshot whose state is <c>available</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of VPN connection that this customer gateway supports (<code>ipsec.1</code>).</para>
+        /// <para>The type of VPN connection that this customer gateway supports (<c>ipsec.1</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

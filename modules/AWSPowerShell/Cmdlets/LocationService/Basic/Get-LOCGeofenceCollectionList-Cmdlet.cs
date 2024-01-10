@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An optional limit for the number of resources returned in a single call. </para><para>Default value: <code>100</code></para>
+        /// <para>An optional limit for the number of resources returned in a single call. </para><para>Default value: <c>100</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>The pagination token specifying which page of results to return in the response. If
-        /// no token is provided, the default page is the first page. </para><para>Default value: <code>null</code></para>
+        /// no token is provided, the default page is the first page. </para><para>Default value: <c>null</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -44,9 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Flatten
         /// <summary>
         /// <para>
-        /// <para>A query parameter of a Boolean value to resolve (<code>true</code>) all external model
-        /// references and returns a flattened model schema or not (<code>false</code>) The default
-        /// is <code>false</code>.</para>
+        /// <para>A query parameter of a Boolean value to resolve (<c>true</c>) all external model references
+        /// and returns a flattened model schema or not (<c>false</c>) The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,11 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
     /// Returns a list of queries and query statuses for the past seven days. You must specify
-    /// an ARN value for <code>EventDataStore</code>. Optionally, to shorten the list of results,
-    /// you can specify a time range, formatted as timestamps, by adding <code>StartTime</code>
-    /// and <code>EndTime</code> parameters, and a <code>QueryStatus</code> value. Valid values
-    /// for <code>QueryStatus</code> include <code>QUEUED</code>, <code>RUNNING</code>, <code>FINISHED</code>,
-    /// <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>CANCELLED</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// an ARN value for <c>EventDataStore</c>. Optionally, to shorten the list of results,
+    /// you can specify a time range, formatted as timestamps, by adding <c>StartTime</c>
+    /// and <c>EndTime</c> parameters, and a <c>QueryStatus</c> value. Valid values for <c>QueryStatus</c>
+    /// include <c>QUEUED</c>, <c>RUNNING</c>, <c>FINISHED</c>, <c>FAILED</c>, <c>TIMED_OUT</c>,
+    /// or <c>CANCELLED</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CTQuerySummary")]
     [OutputType("Amazon.CloudTrail.Model.Query")]
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>Use with <code>StartTime</code> to bound a <code>ListQueries</code> request, and limit
-        /// its results to only those queries run within a specified time period.</para>
+        /// <para>Use with <c>StartTime</c> to bound a <c>ListQueries</c> request, and limit its results
+        /// to only those queries run within a specified time period.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter QueryStatus
         /// <summary>
         /// <para>
-        /// <para>The status of queries that you want to return in results. Valid values for <code>QueryStatus</code>
-        /// include <code>QUEUED</code>, <code>RUNNING</code>, <code>FINISHED</code>, <code>FAILED</code>,
-        /// <code>TIMED_OUT</code>, or <code>CANCELLED</code>.</para>
+        /// <para>The status of queries that you want to return in results. Valid values for <c>QueryStatus</c>
+        /// include <c>QUEUED</c>, <c>RUNNING</c>, <c>FINISHED</c>, <c>FAILED</c>, <c>TIMED_OUT</c>,
+        /// or <c>CANCELLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>Use with <code>EndTime</code> to bound a <code>ListQueries</code> request, and limit
-        /// its results to only those queries run within a specified time period.</para>
+        /// <para>Use with <c>EndTime</c> to bound a <c>ListQueries</c> request, and limit its results
+        /// to only those queries run within a specified time period.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

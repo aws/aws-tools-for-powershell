@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CRML
 {
     /// <summary>
     /// Defines the information necessary to create a training dataset, or seed audience.
-    /// In Clean Rooms ML, the <code>TrainingDataset</code> is metadata that points to a Glue
-    /// table, which is read only during <code>AudienceModel</code> creation.
+    /// In Clean Rooms ML, the <c>TrainingDataset</c> is metadata that points to a Glue table,
+    /// which is read only during <c>AudienceModel</c> creation.
     /// </summary>
     [Cmdlet("New", "CRMLTrainingDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to
-        /// in the <code>dataSource</code> field of each dataset.</para><para>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in
-        /// your account, you get an <code>AccessDeniedException</code> error.</para>
+        /// in the <c>dataSource</c> field of each dataset.</para><para>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in
+        /// your account, you get an <c>AccessDeniedException</c> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

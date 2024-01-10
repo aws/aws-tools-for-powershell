@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter TriggerType
         /// <summary>
         /// <para>
-        /// <para>The type of trigger assigned to the SIP rule in <code>TriggerValue</code>, currently
-        /// <code>RequestUriHostname</code> or <code>ToPhoneNumber</code>.</para>
+        /// <para>The type of trigger assigned to the SIP rule in <c>TriggerValue</c>, currently <c>RequestUriHostname</c>
+        /// or <c>ToPhoneNumber</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,13 +120,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter TriggerValue
         /// <summary>
         /// <para>
-        /// <para>If <code>TriggerType</code> is <code>RequestUriHostname</code>, the value can be the
-        /// outbound host name of an Amazon Chime Voice Connector. If <code>TriggerType</code>
-        /// is <code>ToPhoneNumber</code>, the value can be a customer-owned phone number in the
-        /// E164 format. The <code>SipMediaApplication</code> specified in the <code>SipRule</code>
-        /// is triggered if the request URI in an incoming SIP request matches the <code>RequestUriHostname</code>,
-        /// or if the <code>To</code> header in the incoming SIP request matches the <code>ToPhoneNumber</code>
-        /// value.</para>
+        /// <para>If <c>TriggerType</c> is <c>RequestUriHostname</c>, the value can be the outbound
+        /// host name of an Amazon Chime Voice Connector. If <c>TriggerType</c> is <c>ToPhoneNumber</c>,
+        /// the value can be a customer-owned phone number in the E164 format. The <c>SipMediaApplication</c>
+        /// specified in the <c>SipRule</c> is triggered if the request URI in an incoming SIP
+        /// request matches the <c>RequestUriHostname</c>, or if the <c>To</c> header in the incoming
+        /// SIP request matches the <c>ToPhoneNumber</c> value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

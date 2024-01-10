@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Returns the <a>XssMatchSet</a> that is specified by <code>XssMatchSetId</code>.
+    /// Returns the <a>XssMatchSet</a> that is specified by <c>XssMatchSetId</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "WAFRXssMatchSet")]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter XssMatchSetId
         /// <summary>
         /// <para>
-        /// <para>The <code>XssMatchSetId</code> of the <a>XssMatchSet</a> that you want to get. <code>XssMatchSetId</code>
+        /// <para>The <c>XssMatchSetId</c> of the <a>XssMatchSet</a> that you want to get. <c>XssMatchSetId</c>
         /// is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</para>
         /// </para>
         /// </summary>

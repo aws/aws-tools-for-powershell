@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.KV
     /// 
     ///  
     /// <para>
-    /// If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced),
-    /// it only applies to new messages sent via this channel after it's been updated. Existing
-    /// messages are still expired as per the previous <code>MessageTtlSeconds</code> value.
+    /// If the <c>MessageTtlSeconds</c> value is updated (either increased or reduced), it
+    /// only applies to new messages sent via this channel after it's been updated. Existing
+    /// messages are still expired as per the previous <c>MessageTtlSeconds</c> value.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "KVSignalingChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

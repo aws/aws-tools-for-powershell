@@ -38,9 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// 
     ///  
     /// <para>
-    /// Use <code>DetectStackResourceDrift</code> to detect drift on individual resources,
-    /// or <a>DetectStackDrift</a> to detect drift on all resources in a given stack that
-    /// support drift detection.
+    /// Use <c>DetectStackResourceDrift</c> to detect drift on individual resources, or <a>DetectStackDrift</a>
+    /// to detect drift on all resources in a given stack that support drift detection.
     /// </para><para>
     /// Resources that don't currently support drift detection can't be checked. For a list
     /// of resources that support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources

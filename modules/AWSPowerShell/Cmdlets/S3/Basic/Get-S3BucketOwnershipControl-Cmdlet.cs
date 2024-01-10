@@ -31,15 +31,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <note><para>
     /// This operation is not supported by directory buckets.
     /// </para></note><para>
-    /// Retrieves <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation,
-    /// you must have the <code>s3:GetBucketOwnershipControls</code> permission. For more
-    /// information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html">Specifying
+    /// Retrieves <c>OwnershipControls</c> for an Amazon S3 bucket. To use this operation,
+    /// you must have the <c>s3:GetBucketOwnershipControls</c> permission. For more information
+    /// about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html">Specifying
     /// permissions in a policy</a>. 
     /// </para><para>
     /// For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Using
     /// Object Ownership</a>. 
     /// </para><para>
-    /// The following operations are related to <code>GetBucketOwnershipControls</code>:
+    /// The following operations are related to <c>GetBucketOwnershipControls</c>:
     /// </para><ul><li><para><a>PutBucketOwnershipControls</a></para></li><li><para><a>DeleteBucketOwnershipControls</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketOwnershipControl")]

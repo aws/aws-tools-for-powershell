@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionVersion
         /// <summary>
         /// <para>
-        /// <para>Must be passed along with <code>suiteDefinitionId</code>. Lists the test suite runs
-        /// of the specified test suite based on suite definition version.</para>
+        /// <para>Must be passed along with <c>suiteDefinitionId</c>. Lists the test suite runs of the
+        /// specified test suite based on suite definition version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         /// <summary>
         /// <para>
         /// <para>The ID of the batch import job. The ID cannot be of a past job, unless the job exists
-        /// in <code>CREATE_FAILED</code> state.</para>
+        /// in <c>CREATE_FAILED</c> state.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

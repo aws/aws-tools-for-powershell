@@ -81,8 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter NodesToRemove
         /// <summary>
         /// <para>
-        /// <para> A list of <code>fullyQualifiedName</code> of nodes to remove from the signal catalog.
-        /// </para>
+        /// <para> A list of <c>fullyQualifiedName</c> of nodes to remove from the signal catalog. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

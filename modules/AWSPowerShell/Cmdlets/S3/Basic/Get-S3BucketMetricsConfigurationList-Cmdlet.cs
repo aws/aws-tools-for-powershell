@@ -36,14 +36,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// metrics. You can have up to 1,000 configurations per bucket.
     /// </para><para>
     /// This action supports list pagination and does not return more than 100 configurations
-    /// at a time. Always check the <code>IsTruncated</code> element in the response. If there
-    /// are no more configurations to list, <code>IsTruncated</code> is set to false. If there
-    /// are more configurations to list, <code>IsTruncated</code> is set to true, and there
-    /// is a value in <code>NextContinuationToken</code>. You use the <code>NextContinuationToken</code>
-    /// value to continue the pagination of the list by passing the value in <code>continuation-token</code>
-    /// in the request to <code>GET</code> the next page.
+    /// at a time. Always check the <c>IsTruncated</c> element in the response. If there are
+    /// no more configurations to list, <c>IsTruncated</c> is set to false. If there are more
+    /// configurations to list, <c>IsTruncated</c> is set to true, and there is a value in
+    /// <c>NextContinuationToken</c>. You use the <c>NextContinuationToken</c> value to continue
+    /// the pagination of the list by passing the value in <c>continuation-token</c> in the
+    /// request to <c>GET</c> the next page.
     /// </para><para>
-    /// To use this operation, you must have permissions to perform the <code>s3:GetMetricsConfiguration</code>
+    /// To use this operation, you must have permissions to perform the <c>s3:GetMetricsConfiguration</c>
     /// action. The bucket owner has this permission by default. The bucket owner can grant
     /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html">Monitoring
     /// Metrics with Amazon CloudWatch</a>.
     /// </para><para>
-    /// The following operations are related to <code>ListBucketMetricsConfigurations</code>:
+    /// The following operations are related to <c>ListBucketMetricsConfigurations</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketMetricsConfiguration.html">PutBucketMetricsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetricsConfiguration.html">GetBucketMetricsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetricsConfiguration.html">DeleteBucketMetricsConfiguration</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketMetricsConfigurationList")]

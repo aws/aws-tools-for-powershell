@@ -28,14 +28,14 @@ using Amazon.ChimeSDKIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMID
 {
     /// <summary>
-    /// Sets the number of days before the <code>AppInstanceUser</code> is automatically deleted.
+    /// Sets the number of days before the <c>AppInstanceUser</c> is automatically deleted.
     /// 
     ///  <note><para>
-    /// A background process deletes expired <code>AppInstanceUsers</code> within 6 hours
-    /// of expiration. Actual deletion times may vary.
+    /// A background process deletes expired <c>AppInstanceUsers</c> within 6 hours of expiration.
+    /// Actual deletion times may vary.
     /// </para><para>
-    /// Expired <code>AppInstanceUsers</code> that have not yet been deleted appear as active,
-    /// and you can update their expiration settings. The system honors the new settings.
+    /// Expired <c>AppInstanceUsers</c> that have not yet been deleted appear as active, and
+    /// you can update their expiration settings. The system honors the new settings.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CHMIDAppInstanceUserExpirationSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter AppInstanceUserArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code>.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter ExpirationSettings_ExpirationCriterion
         /// <summary>
         /// <para>
-        /// <para>Specifies the conditions under which an <code>AppInstanceUser</code> will expire.</para>
+        /// <para>Specifies the conditions under which an <c>AppInstanceUser</c> will expire.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter ExpirationSettings_ExpirationDay
         /// <summary>
         /// <para>
-        /// <para>The period in days after which an <code>AppInstanceUser</code> will be automatically
-        /// deleted.</para>
+        /// <para>The period in days after which an <c>AppInstanceUser</c> will be automatically deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

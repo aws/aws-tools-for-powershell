@@ -28,7 +28,7 @@ using Amazon.AppRegistry.Model;
 namespace Amazon.PowerShell.Cmdlets.SCAR
 {
     /// <summary>
-    /// Associates a <code>TagKey</code> configuration to an account.
+    /// Associates a <c>TagKey</c> configuration to an account.
     /// </summary>
     [Cmdlet("Write", "SCARConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

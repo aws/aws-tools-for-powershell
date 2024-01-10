@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <summary>
         /// <para>
         /// <para>Optional parameter to describe the feedback for a given user. If this is not supplied,
-        /// it defaults to the user making the request.</para><para> The <code>UserId</code> is an IAM principal that can be specified as an Amazon Web
-        /// Services account ID or an Amazon Resource Name (ARN). For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying">
+        /// it defaults to the user making the request.</para><para> The <c>UserId</c> is an IAM principal that can be specified as an Amazon Web Services
+        /// account ID or an Amazon Resource Name (ARN). For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying">
         /// Specifying a Principal</a> in the <i>Amazon Web Services Identity and Access Management
         /// User Guide</i>.</para>
         /// </para>

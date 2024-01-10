@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <summary>
     /// An invocation is copy of a command sent to a specific managed node. A command can
     /// apply to one or more managed nodes. A command invocation applies to one managed node.
-    /// For example, if a user runs <code>SendCommand</code> against three managed nodes,
-    /// then a command invocation is created for each requested managed node ID. <code>ListCommandInvocations</code>
+    /// For example, if a user runs <c>SendCommand</c> against three managed nodes, then a
+    /// command invocation is created for each requested managed node ID. <c>ListCommandInvocations</c>
     /// provide status about command execution.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMCommandInvocation")]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>(Optional) If set this returns the response of the command executions and any command
-        /// output. The default value is <code>false</code>. </para>
+        /// output. The default value is <c>false</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

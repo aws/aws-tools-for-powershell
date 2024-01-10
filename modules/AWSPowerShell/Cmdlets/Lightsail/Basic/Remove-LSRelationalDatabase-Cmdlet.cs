@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  
     /// <para>
-    /// The <code>delete relational database</code> operation supports tag-based access control
+    /// The <c>delete relational database</c> operation supports tag-based access control
     /// via resource tags applied to the resource identified by relationalDatabaseName. For
     /// more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
@@ -53,9 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter FinalRelationalDatabaseSnapshotName
         /// <summary>
         /// <para>
-        /// <para>The name of the database snapshot created if <code>skip final snapshot</code> is <code>false</code>,
-        /// which is the default value for that parameter.</para><note><para>Specifying this parameter and also specifying the <code>skip final snapshot</code>
-        /// parameter to <code>true</code> results in an error.</para></note><para>Constraints:</para><ul><li><para>Must contain from 2 to 255 alphanumeric characters, or hyphens.</para></li><li><para>The first and last character must be a letter or number.</para></li></ul>
+        /// <para>The name of the database snapshot created if <c>skip final snapshot</c> is <c>false</c>,
+        /// which is the default value for that parameter.</para><note><para>Specifying this parameter and also specifying the <c>skip final snapshot</c> parameter
+        /// to <c>true</c> results in an error.</para></note><para>Constraints:</para><ul><li><para>Must contain from 2 to 255 alphanumeric characters, or hyphens.</para></li><li><para>The first and last character must be a letter or number.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,9 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>Determines whether a final database snapshot is created before your database is deleted.
-        /// If <code>true</code> is specified, no database snapshot is created. If <code>false</code>
-        /// is specified, a database snapshot is created before your database is deleted.</para><para>You must specify the <code>final relational database snapshot name</code> parameter
-        /// if the <code>skip final snapshot</code> parameter is <code>false</code>.</para><para>Default: <code>false</code></para>
+        /// If <c>true</c> is specified, no database snapshot is created. If <c>false</c> is specified,
+        /// a database snapshot is created before your database is deleted.</para><para>You must specify the <c>final relational database snapshot name</c> parameter if the
+        /// <c>skip final snapshot</c> parameter is <c>false</c>.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

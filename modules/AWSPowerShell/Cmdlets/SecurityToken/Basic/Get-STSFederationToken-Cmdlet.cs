@@ -35,25 +35,25 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// 
     ///  
     /// <para>
-    /// You must call the <code>GetFederationToken</code> operation using the long-term security
+    /// You must call the <c>GetFederationToken</c> operation using the long-term security
     /// credentials of an IAM user. As a result, this call is appropriate in contexts where
     /// those credentials can be safeguarded, usually in a server-based application. For a
-    /// comparison of <code>GetFederationToken</code> with the other API operations that produce
+    /// comparison of <c>GetFederationToken</c> with the other API operations that produce
     /// temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
     /// Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing
     /// the Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.
     /// </para><para>
-    /// Although it is possible to call <code>GetFederationToken</code> using the security
-    /// credentials of an Amazon Web Services account root user rather than an IAM user that
-    /// you create for the purpose of a proxy application, we do not recommend it. For more
-    /// information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials">Safeguard
+    /// Although it is possible to call <c>GetFederationToken</c> using the security credentials
+    /// of an Amazon Web Services account root user rather than an IAM user that you create
+    /// for the purpose of a proxy application, we do not recommend it. For more information,
+    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials">Safeguard
     /// your root user credentials and don't use them for everyday tasks</a> in the <i>IAM
     /// User Guide</i>. 
     /// </para><note><para>
     /// You can create a mobile-based or browser-based app that can authenticate users using
     /// a web identity provider like Login with Amazon, Facebook, Google, or an OpenID Connect-compatible
     /// identity provider. In this case, we recommend that you use <a href="http://aws.amazon.com/cognito/">Amazon
-    /// Cognito</a> or <code>AssumeRoleWithWebIdentity</code>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_assumerolewithwebidentity">Federation
+    /// Cognito</a> or <c>AssumeRoleWithWebIdentity</c>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_assumerolewithwebidentity">Federation
     /// Through a Web-based Identity Provider</a> in the <i>IAM User Guide</i>.
     /// </para></note><para><b>Session duration</b></para><para>
     /// The temporary credentials are valid for the specified duration, from 900 seconds (15
@@ -61,13 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// is 43,200 seconds (12 hours). Temporary credentials obtained by using the root user
     /// credentials have a maximum duration of 3,600 seconds (1 hour).
     /// </para><para><b>Permissions</b></para><para>
-    /// You can use the temporary credentials created by <code>GetFederationToken</code> in
-    /// any Amazon Web Services service with the following exceptions:
+    /// You can use the temporary credentials created by <c>GetFederationToken</c> in any
+    /// Amazon Web Services service with the following exceptions:
     /// </para><ul><li><para>
     /// You cannot call any IAM operations using the CLI or the Amazon Web Services API. This
     /// limitation does not apply to console sessions.
     /// </para></li><li><para>
-    /// You cannot call any STS operations except <code>GetCallerIdentity</code>.
+    /// You cannot call any STS operations except <c>GetCallerIdentity</c>.
     /// </para></li></ul><para>
     /// You can use temporary credentials for single sign-on (SSO) to the console.
     /// </para><para>
@@ -84,12 +84,12 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// a federated user. You cannot use session policies to grant more permissions than those
     /// that are defined in the permissions policy of the IAM user. For more information,
     /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
-    /// Policies</a> in the <i>IAM User Guide</i>. For information about using <code>GetFederationToken</code>
+    /// Policies</a> in the <i>IAM User Guide</i>. For information about using <c>GetFederationToken</c>
     /// to create temporary security credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getfederationtoken">GetFederationToken—Federation
     /// Through a Custom Identity Broker</a>. 
     /// </para><para>
     /// You can use the credentials to access a resource that has a resource-based policy.
-    /// If that policy specifically references the federated user session in the <code>Principal</code>
+    /// If that policy specifically references the federated user session in the <c>Principal</c>
     /// element of the policy, the session has the permissions allowed by the policy. These
     /// permissions are granted in addition to the permissions granted by the session policies.
     /// </para><para><b>Tags</b></para><para>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// You can create a mobile-based or browser-based app that can authenticate users using
     /// a web identity provider like Login with Amazon, Facebook, Google, or an OpenID Connect-compatible
     /// identity provider. In this case, we recommend that you use <a href="http://aws.amazon.com/cognito/">Amazon
-    /// Cognito</a> or <code>AssumeRoleWithWebIdentity</code>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_assumerolewithwebidentity">Federation
+    /// Cognito</a> or <c>AssumeRoleWithWebIdentity</c>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_assumerolewithwebidentity">Federation
     /// Through a Web-based Identity Provider</a> in the <i>IAM User Guide</i>.
     /// </para></note><para>
     /// An administrator must grant you the permissions necessary to pass session tags. The
@@ -109,11 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// Using Tags for Attribute-Based Access Control</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// Tag key–value pairs are not case sensitive, but case is preserved. This means that
-    /// you cannot have separate <code>Department</code> and <code>department</code> tag keys.
-    /// Assume that the user that you are federating has the <code>Department</code>=<code>Marketing</code>
-    /// tag and you pass the <code>department</code>=<code>engineering</code> session tag.
-    /// <code>Department</code> and <code>department</code> are not saved as separate tags,
-    /// and the session tag passed in the request takes precedence over the user tag.
+    /// you cannot have separate <c>Department</c> and <c>department</c> tag keys. Assume
+    /// that the user that you are federating has the <c>Department</c>=<c>Marketing</c> tag
+    /// and you pass the <c>department</c>=<c>engineering</c> session tag. <c>Department</c>
+    /// and <c>department</c> are not saved as separate tags, and the session tag passed in
+    /// the request takes precedence over the user tag.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "STSFederationToken")]
@@ -149,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// <summary>
         /// <para>
         /// <para>The name of the federated user. The name is used as an identifier for the temporary
-        /// security credentials (such as <code>Bob</code>). For example, you can reference the
-        /// federated user name in a resource-based policy, such as in an Amazon S3 bucket policy.</para><para>The regex used to validate this parameter is a string of characters consisting of
+        /// security credentials (such as <c>Bob</c>). For example, you can reference the federated
+        /// user name in a resource-based policy, such as in an Amazon S3 bucket policy.</para><para>The regex used to validate this parameter is a string of characters consisting of
         /// upper- and lower-case alphanumeric characters with no spaces. You can also include
         /// underscores or any of the following characters: =,.@-</para>
         /// </para>
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// to grant more permissions than those that are defined in the permissions policy of
         /// the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
         /// Policies</a> in the <i>IAM User Guide</i>.</para><para>The resulting credentials can be used to access a resource that has a resource-based
-        /// policy. If that policy specifically references the federated user session in the <code>Principal</code>
+        /// policy. If that policy specifically references the federated user session in the <c>Principal</c>
         /// element of the policy, the session has the permissions allowed by the policy. These
         /// permissions are granted in addition to the permissions that are granted by the session
         /// policies.</para><para>The plaintext that you use for both inline and managed session policies can't exceed
@@ -188,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D) characters.</para><note><para>An Amazon Web Services conversion compresses the passed inline session policy, managed
         /// policy ARNs, and session tags into a packed binary format that has a separate limit.
         /// Your request can fail for this limit even if your plaintext meets the other requirements.
-        /// The <code>PackedPolicySize</code> response element indicates by percentage how close
-        /// the policies and tags for your request are to the upper size limit.</para></note>
+        /// The <c>PackedPolicySize</c> response element indicates by percentage how close the
+        /// policies and tags for your request are to the upper size limit.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -215,14 +215,14 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// to grant more permissions than those that are defined in the permissions policy of
         /// the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
         /// Policies</a> in the <i>IAM User Guide</i>.</para><para>The resulting credentials can be used to access a resource that has a resource-based
-        /// policy. If that policy specifically references the federated user session in the <code>Principal</code>
+        /// policy. If that policy specifically references the federated user session in the <c>Principal</c>
         /// element of the policy, the session has the permissions allowed by the policy. These
         /// permissions are granted in addition to the permissions that are granted by the session
         /// policies.</para><note><para>An Amazon Web Services conversion compresses the passed inline session policy, managed
         /// policy ARNs, and session tags into a packed binary format that has a separate limit.
         /// Your request can fail for this limit even if your plaintext meets the other requirements.
-        /// The <code>PackedPolicySize</code> response element indicates by percentage how close
-        /// the policies and tags for your request are to the upper size limit.</para></note>
+        /// The <c>PackedPolicySize</c> response element indicates by percentage how close the
+        /// policies and tags for your request are to the upper size limit.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -241,15 +241,14 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// and STS Character Limits</a> in the <i>IAM User Guide</i>.</para><note><para>An Amazon Web Services conversion compresses the passed inline session policy, managed
         /// policy ARNs, and session tags into a packed binary format that has a separate limit.
         /// Your request can fail for this limit even if your plaintext meets the other requirements.
-        /// The <code>PackedPolicySize</code> response element indicates by percentage how close
-        /// the policies and tags for your request are to the upper size limit.</para></note><para>You can pass a session tag with the same key as a tag that is already attached to
+        /// The <c>PackedPolicySize</c> response element indicates by percentage how close the
+        /// policies and tags for your request are to the upper size limit.</para></note><para>You can pass a session tag with the same key as a tag that is already attached to
         /// the user you are federating. When you do, session tags override a user tag with the
         /// same key. </para><para>Tag key–value pairs are not case sensitive, but case is preserved. This means that
-        /// you cannot have separate <code>Department</code> and <code>department</code> tag keys.
-        /// Assume that the role has the <code>Department</code>=<code>Marketing</code> tag and
-        /// you pass the <code>department</code>=<code>engineering</code> session tag. <code>Department</code>
-        /// and <code>department</code> are not saved as separate tags, and the session tag passed
-        /// in the request takes precedence over the role tag.</para>
+        /// you cannot have separate <c>Department</c> and <c>department</c> tag keys. Assume
+        /// that the role has the <c>Department</c>=<c>Marketing</c> tag and you pass the <c>department</c>=<c>engineering</c>
+        /// session tag. <c>Department</c> and <c>department</c> are not saved as separate tags,
+        /// and the session tag passed in the request takes precedence over the role tag.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

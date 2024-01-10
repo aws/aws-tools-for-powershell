@@ -28,7 +28,7 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Modifies a task set. This is used when a service uses the <code>EXTERNAL</code> deployment
+    /// Modifies a task set. This is used when a service uses the <c>EXTERNAL</c> deployment
     /// controller type. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon
     /// ECS Deployment Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </summary>
@@ -111,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Scale_Value
         /// <summary>
         /// <para>
-        /// <para>The value, specified as a percent total of a service's <code>desiredCount</code>,
-        /// to scale the task set. Accepted values are numbers between 0 and 100.</para>
+        /// <para>The value, specified as a percent total of a service's <c>desiredCount</c>, to scale
+        /// the task set. Accepted values are numbers between 0 and 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

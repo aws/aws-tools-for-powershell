@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// you cannot tag a scaling policy or scheduled action.
     /// </para><para>
     /// You can also add tags to an Application Auto Scaling scalable target while creating
-    /// it (<code>RegisterScalableTarget</code>).
+    /// it (<c>RegisterScalableTarget</c>).
     /// </para><para>
     /// For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
     /// Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>Identifies the Application Auto Scaling scalable target that you want to apply tags
-        /// to.</para><para>For example: <code>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</code></para><para>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</para>
+        /// to.</para><para>For example: <c>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</c></para><para>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

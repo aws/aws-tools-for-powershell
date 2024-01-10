@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     /// Creates a data source connector for an Amazon Q application.
     /// 
     ///  
-    /// <para><code>CreateDataSource</code> is a synchronous operation. The operation returns 200
-    /// if the data source was successfully created. Otherwise, an exception is raised.
+    /// <para><c>CreateDataSource</c> is a synchronous operation. The operation returns 200 if
+    /// the data source was successfully created. Otherwise, an exception is raised.
     /// </para>
     /// </summary>
     [Cmdlet("New", "QBUSDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -167,8 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>The identifier of the document attribute used for the condition.</para><para>For example, 'Source_URI' could be an identifier for the attribute or metadata field
-        /// that contains source URIs associated with the documents.</para><para>Amazon Q currently doesn't support <code>_document_body</code> as an attribute key
-        /// used for the condition.</para>
+        /// that contains source URIs associated with the documents.</para><para>Amazon Q currently doesn't support <c>_document_body</c> as an attribute key used
+        /// for the condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,8 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>The identifier of the document attribute used for the condition.</para><para>For example, 'Source_URI' could be an identifier for the attribute or metadata field
-        /// that contains source URIs associated with the documents.</para><para>Amazon Q currently doesn't support <code>_document_body</code> as an attribute key
-        /// used for the condition.</para>
+        /// that contains source URIs associated with the documents.</para><para>Amazon Q currently doesn't support <c>_document_body</c> as an attribute key used
+        /// for the condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -241,8 +241,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>The identifier of the document attribute used for the condition.</para><para>For example, 'Source_URI' could be an identifier for the attribute or metadata field
-        /// that contains source URIs associated with the documents.</para><para>Amazon Kendra currently does not support <code>_document_body</code> as an attribute
-        /// key used for the condition.</para>
+        /// that contains source URIs associated with the documents.</para><para>Amazon Kendra currently does not support <c>_document_body</c> as an attribute key
+        /// used for the condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -255,8 +255,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>The identifier of the document attribute used for the condition.</para><para>For example, 'Source_URI' could be an identifier for the attribute or metadata field
-        /// that contains source URIs associated with the documents.</para><para>Amazon Kendra currently does not support <code>_document_body</code> as an attribute
-        /// key used for the condition.</para>
+        /// that contains source URIs associated with the documents.</para><para>Amazon Kendra currently does not support <c>_document_body</c> as an attribute key
+        /// used for the condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -268,9 +268,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter PostExtractionHookConfiguration_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a role with permission to run <code>PreExtractionHookConfiguration</code>
-        /// and <code>PostExtractionHookConfiguration</code> for altering document metadata and
-        /// content during the document ingestion process.</para>
+        /// <para>The Amazon Resource Name (ARN) of a role with permission to run <c>PreExtractionHookConfiguration</c>
+        /// and <c>PostExtractionHookConfiguration</c> for altering document metadata and content
+        /// during the document ingestion process.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -281,9 +281,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter PreExtractionHookConfiguration_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a role with permission to run <code>PreExtractionHookConfiguration</code>
-        /// and <code>PostExtractionHookConfiguration</code> for altering document metadata and
-        /// content during the document ingestion process.</para>
+        /// <para>The Amazon Resource Name (ARN) of a role with permission to run <c>PreExtractionHookConfiguration</c>
+        /// and <c>PostExtractionHookConfiguration</c> for altering document metadata and content
+        /// during the document ingestion process.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -402,10 +402,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <para>
         /// <para>Sets the frequency for Amazon Q to check the documents in your data source repository
         /// and update your index. If you don't set a schedule, Amazon Q won't periodically update
-        /// the index.</para><para>Specify a <code>cron-</code> format schedule string or an empty string to indicate
-        /// that the index is updated on demand. You can't specify the <code>Schedule</code> parameter
-        /// when the <code>Type</code> parameter is set to <code>CUSTOM</code>. If you do, you
-        /// receive a <code>ValidationException</code> exception. </para>
+        /// the index.</para><para>Specify a <c>cron-</c> format schedule string or an empty string to indicate that
+        /// the index is updated on demand. You can't specify the <c>Schedule</c> parameter when
+        /// the <c>Type</c> parameter is set to <c>CUSTOM</c>. If you do, you receive a <c>ValidationException</c>
+        /// exception. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -430,8 +430,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>A token you provide to identify a request to create a data source connector. Multiple
-        /// calls to the <code>CreateDataSource</code> API with the same client token will create
-        /// only one data source connector. </para>
+        /// calls to the <c>CreateDataSource</c> API with the same client token will create only
+        /// one data source connector. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

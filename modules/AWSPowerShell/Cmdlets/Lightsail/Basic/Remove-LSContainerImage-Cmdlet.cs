@@ -45,11 +45,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Image
         /// <summary>
         /// <para>
-        /// <para>The name of the container image to delete from the container service.</para><para>Use the <code>GetContainerImages</code> action to get the name of the container images
-        /// that are registered to a container service.</para><note><para>Container images sourced from your Lightsail container service, that are registered
-        /// and stored on your service, start with a colon (<code>:</code>). For example, <code>:container-service-1.mystaticwebsite.1</code>.
+        /// <para>The name of the container image to delete from the container service.</para><para>Use the <c>GetContainerImages</c> action to get the name of the container images that
+        /// are registered to a container service.</para><note><para>Container images sourced from your Lightsail container service, that are registered
+        /// and stored on your service, start with a colon (<c>:</c>). For example, <c>:container-service-1.mystaticwebsite.1</c>.
         /// Container images sourced from a public registry like Docker Hub don't start with a
-        /// colon. For example, <code>nginx:latest</code> or <code>nginx</code>.</para></note>
+        /// colon. For example, <c>nginx:latest</c> or <c>nginx</c>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter CommandLineArgument
         /// <summary>
         /// <para>
-        /// <para>Specifies the key-value pairs to make them available inside the cluster.</para><para>You cannot update this parameter for a <code>NO_RESTART</code> deployment.</para>
+        /// <para>Specifies the key-value pairs to make them available inside the cluster.</para><para>You cannot update this parameter for a <c>NO_RESTART</c> deployment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// <para>
         /// <para> The type of deployment that you want on a cluster. </para><ul><li><para>ROLLING – This options updates the cluster by stopping the exiting q process and starting
         /// a new q process with updated configuration.</para></li><li><para>NO_RESTART – This option updates the cluster without stopping the running q process.
-        /// It is only available for <code>GP</code> type cluster. This option is quicker as it
-        /// reduces the turn around time to update configuration on a cluster. </para><para>With this deployment mode, you cannot update the <code>initializationScript</code>
-        /// and <code>commandLineArguments</code> parameters.</para></li><li><para>FORCE – This option updates the cluster by immediately stopping all the running processes
+        /// It is only available for <c>GP</c> type cluster. This option is quicker as it reduces
+        /// the turn around time to update configuration on a cluster. </para><para>With this deployment mode, you cannot update the <c>initializationScript</c> and <c>commandLineArguments</c>
+        /// parameters.</para></li><li><para>FORCE – This option updates the cluster by immediately stopping all the running processes
         /// before starting up new ones with the updated configuration. </para></li></ul>
         /// </para>
         /// </summary>
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// <para>
         /// <para>Specifies a Q program that will be run at launch of a cluster. It is a relative path
         /// within <i>.zip</i> file that contains the custom code, which will be loaded on the
-        /// cluster. It must include the file name itself. For example, <code>somedir/init.q</code>.</para><para>You cannot update this parameter for a <code>NO_RESTART</code> deployment.</para>
+        /// cluster. It must include the file name itself. For example, <c>somedir/init.q</c>.</para><para>You cannot update this parameter for a <c>NO_RESTART</c> deployment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

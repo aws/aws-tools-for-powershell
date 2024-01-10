@@ -45,13 +45,13 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of repository results that's returned by <code>DescribeRegistries</code>
-        /// in paginated output. When this parameter is used, <code>DescribeRegistries</code>
-        /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-        /// response element. The remaining results of the initial request can be seen by sending
-        /// another <code>DescribeRegistries</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 1000. If this parameter isn't used, then <code>DescribeRegistries</code>
-        /// returns up to 100 results and a <code>nextToken</code> value, if applicable.</para>
+        /// <para>The maximum number of repository results that's returned by <c>DescribeRegistries</c>
+        /// in paginated output. When this parameter is used, <c>DescribeRegistries</c> only returns
+        /// <c>maxResults</c> results in a single page along with a <c>nextToken</c> response
+        /// element. The remaining results of the initial request can be seen by sending another
+        /// <c>DescribeRegistries</c> request with the returned <c>nextToken</c> value. This value
+        /// can be between 1 and 1000. If this parameter isn't used, then <c>DescribeRegistries</c>
+        /// returns up to 100 results and a <c>nextToken</c> value, if applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,11 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value that's returned from a previous paginated <code>DescribeRegistries</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. If there are no more results to return,
-        /// this value is <code>null</code>.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// <para>The <c>nextToken</c> value that's returned from a previous paginated <c>DescribeRegistries</c>
+        /// request where <c>maxResults</c> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <c>nextToken</c> value. If there are no more results to return, this value is
+        /// <c>null</c>.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// </summary>

@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// This operation applies only to Amazon Rekognition Custom Labels.
     /// </para></note><para>
     /// Distributes the entries (images) in a training dataset across the training dataset
-    /// and the test dataset for a project. <code>DistributeDatasetEntries</code> moves 20%
-    /// of the training dataset images to the test dataset. An entry is a JSON Line that describes
+    /// and the test dataset for a project. <c>DistributeDatasetEntries</c> moves 20% of the
+    /// training dataset images to the test dataset. An entry is a JSON Line that describes
     /// an image. 
     /// </para><para>
     /// You supply the Amazon Resource Names (ARN) of a project's training dataset and test
@@ -41,12 +41,12 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// test dataset must be empty. The datasets must belong to the same project. To create
     /// training and test datasets for a project, call <a>CreateDataset</a>.
     /// </para><para>
-    /// Distributing a dataset takes a while to complete. To check the status call <code>DescribeDataset</code>.
-    /// The operation is complete when the <code>Status</code> field for the training dataset
-    /// and the test dataset is <code>UPDATE_COMPLETE</code>. If the dataset split fails,
-    /// the value of <code>Status</code> is <code>UPDATE_FAILED</code>.
+    /// Distributing a dataset takes a while to complete. To check the status call <c>DescribeDataset</c>.
+    /// The operation is complete when the <c>Status</c> field for the training dataset and
+    /// the test dataset is <c>UPDATE_COMPLETE</c>. If the dataset split fails, the value
+    /// of <c>Status</c> is <c>UPDATE_FAILED</c>.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:DistributeDatasetEntries</code>
+    /// This operation requires permissions to perform the <c>rekognition:DistributeDatasetEntries</c>
     /// action.
     /// </para>
     /// </summary>

@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         #region Parameter ActivationState
         /// <summary>
         /// <para>
-        /// <para> If set to <code>ACTIVE</code>, traffic is forwarded to this route’s service after
-        /// the route is updated. </para>
+        /// <para> If set to <c>ACTIVE</c>, traffic is forwarded to this route’s service after the route
+        /// is updated. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

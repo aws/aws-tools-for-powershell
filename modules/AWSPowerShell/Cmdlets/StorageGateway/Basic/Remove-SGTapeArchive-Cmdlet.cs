@@ -46,10 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter BypassGovernanceRetention
         /// <summary>
         /// <para>
-        /// <para>Set to <code>TRUE</code> to delete an archived tape that belongs to a custom pool
-        /// with tape retention lock. Only archived tapes with tape retention lock set to <code>governance</code>
-        /// can be deleted. Archived tapes with tape retention lock set to <code>compliance</code>
-        /// can't be deleted.</para>
+        /// <para>Set to <c>TRUE</c> to delete an archived tape that belongs to a custom pool with tape
+        /// retention lock. Only archived tapes with tape retention lock set to <c>governance</c>
+        /// can be deleted. Archived tapes with tape retention lock set to <c>compliance</c> can't
+        /// be deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Deletes a pipeline if there are no running instances of the pipeline. To delete a
-    /// pipeline, you must stop all running instances of the pipeline using the <code>StopPipelineExecution</code>
+    /// pipeline, you must stop all running instances of the pipeline using the <c>StopPipelineExecution</c>
     /// API. When you delete a pipeline, all instances of the pipeline are deleted.
     /// </summary>
     [Cmdlet("Remove", "SMPipeline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

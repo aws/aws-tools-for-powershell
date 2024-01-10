@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// You can use customizations for your Amazon Web Services account or, if you specify
     /// a namespace, for a Amazon QuickSight namespace instead. Customizations that apply
     /// to a namespace override customizations that apply to an Amazon Web Services account.
-    /// To find out which customizations apply, use the <code>DescribeAccountCustomization</code>
+    /// To find out which customizations apply, use the <c>DescribeAccountCustomization</c>
     /// API operation. 
     /// </para>
     /// </summary>

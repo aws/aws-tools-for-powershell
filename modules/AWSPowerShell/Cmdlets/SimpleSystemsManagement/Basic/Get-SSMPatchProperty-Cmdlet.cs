@@ -38,17 +38,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// The following section lists the properties that can be used in filters for each major
     /// operating system type:
     /// </para><dl><dt>AMAZON_LINUX</dt><dd><para>
-    /// Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> | <code>SEVERITY</code></para></dd><dt>AMAZON_LINUX_2</dt><dd><para>
-    /// Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> | <code>SEVERITY</code></para></dd><dt>CENTOS</dt><dd><para>
-    /// Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> | <code>SEVERITY</code></para></dd><dt>DEBIAN</dt><dd><para>
-    /// Valid properties: <code>PRODUCT</code> | <code>PRIORITY</code></para></dd><dt>MACOS</dt><dd><para>
-    /// Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code></para></dd><dt>ORACLE_LINUX</dt><dd><para>
-    /// Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> | <code>SEVERITY</code></para></dd><dt>REDHAT_ENTERPRISE_LINUX</dt><dd><para>
-    /// Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> | <code>SEVERITY</code></para></dd><dt>SUSE</dt><dd><para>
-    /// Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> | <code>SEVERITY</code></para></dd><dt>UBUNTU</dt><dd><para>
-    /// Valid properties: <code>PRODUCT</code> | <code>PRIORITY</code></para></dd><dt>WINDOWS</dt><dd><para>
-    /// Valid properties: <code>PRODUCT</code> | <code>PRODUCT_FAMILY</code> | <code>CLASSIFICATION</code>
-    /// | <code>MSRC_SEVERITY</code></para></dd></dl><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Valid properties: <c>PRODUCT</c> | <c>CLASSIFICATION</c> | <c>SEVERITY</c></para></dd><dt>AMAZON_LINUX_2</dt><dd><para>
+    /// Valid properties: <c>PRODUCT</c> | <c>CLASSIFICATION</c> | <c>SEVERITY</c></para></dd><dt>CENTOS</dt><dd><para>
+    /// Valid properties: <c>PRODUCT</c> | <c>CLASSIFICATION</c> | <c>SEVERITY</c></para></dd><dt>DEBIAN</dt><dd><para>
+    /// Valid properties: <c>PRODUCT</c> | <c>PRIORITY</c></para></dd><dt>MACOS</dt><dd><para>
+    /// Valid properties: <c>PRODUCT</c> | <c>CLASSIFICATION</c></para></dd><dt>ORACLE_LINUX</dt><dd><para>
+    /// Valid properties: <c>PRODUCT</c> | <c>CLASSIFICATION</c> | <c>SEVERITY</c></para></dd><dt>REDHAT_ENTERPRISE_LINUX</dt><dd><para>
+    /// Valid properties: <c>PRODUCT</c> | <c>CLASSIFICATION</c> | <c>SEVERITY</c></para></dd><dt>SUSE</dt><dd><para>
+    /// Valid properties: <c>PRODUCT</c> | <c>CLASSIFICATION</c> | <c>SEVERITY</c></para></dd><dt>UBUNTU</dt><dd><para>
+    /// Valid properties: <c>PRODUCT</c> | <c>PRIORITY</c></para></dd><dt>WINDOWS</dt><dd><para>
+    /// Valid properties: <c>PRODUCT</c> | <c>PRODUCT_FAMILY</c> | <c>CLASSIFICATION</c> |
+    /// <c>MSRC_SEVERITY</c></para></dd></dl><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMPatchProperty")]
     [OutputType("System.Collections.Generic.Dictionary<System.String, System.String>")]

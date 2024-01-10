@@ -77,12 +77,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>An array of metric data query structures that enables you to create an anomaly detector
-        /// based on the result of a metric math expression. Each item in <code>MetricDataQueries</code>
-        /// gets a metric or performs a math expression. One item in <code>MetricDataQueries</code>
+        /// based on the result of a metric math expression. Each item in <c>MetricDataQueries</c>
+        /// gets a metric or performs a math expression. One item in <c>MetricDataQueries</c>
         /// is the expression that provides the time series that the anomaly detector uses as
-        /// input. Designate the expression by setting <code>ReturnData</code> to <code>true</code>
-        /// for this object in the array. For all other expressions and metrics, set <code>ReturnData</code>
-        /// to <code>false</code>. The designated expression must return a single time series.</para>
+        /// input. Designate the expression by setting <c>ReturnData</c> to <c>true</c> for this
+        /// object in the array. For all other expressions and metrics, set <c>ReturnData</c>
+        /// to <c>false</c>. The designated expression must return a single time series.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

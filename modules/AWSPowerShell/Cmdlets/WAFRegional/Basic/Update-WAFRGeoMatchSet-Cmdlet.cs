@@ -35,31 +35,30 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
     /// for regional and global use. 
     /// </para></note><para>
-    /// Inserts or deletes <a>GeoMatchConstraint</a> objects in an <code>GeoMatchSet</code>.
-    /// For each <code>GeoMatchConstraint</code> object, you specify the following values:
-    /// 
+    /// Inserts or deletes <a>GeoMatchConstraint</a> objects in an <c>GeoMatchSet</c>. For
+    /// each <c>GeoMatchConstraint</c> object, you specify the following values: 
     /// </para><ul><li><para>
-    /// Whether to insert or delete the object from the array. If you want to change an <code>GeoMatchConstraint</code>
+    /// Whether to insert or delete the object from the array. If you want to change an <c>GeoMatchConstraint</c>
     /// object, you delete the existing object and add a new one.
     /// </para></li><li><para>
-    /// The <code>Type</code>. The only valid value for <code>Type</code> is <code>Country</code>.
+    /// The <c>Type</c>. The only valid value for <c>Type</c> is <c>Country</c>.
     /// </para></li><li><para>
-    /// The <code>Value</code>, which is a two character code for the country to add to the
-    /// <code>GeoMatchConstraint</code> object. Valid codes are listed in <a>GeoMatchConstraint$Value</a>.
+    /// The <c>Value</c>, which is a two character code for the country to add to the <c>GeoMatchConstraint</c>
+    /// object. Valid codes are listed in <a>GeoMatchConstraint$Value</a>.
     /// </para></li></ul><para>
-    /// To create and configure an <code>GeoMatchSet</code>, perform the following steps:
+    /// To create and configure an <c>GeoMatchSet</c>, perform the following steps:
     /// </para><ol><li><para>
     /// Submit a <a>CreateGeoMatchSet</a> request.
     /// </para></li><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
     /// parameter of an <a>UpdateGeoMatchSet</a> request.
     /// </para></li><li><para>
-    /// Submit an <code>UpdateGeoMatchSet</code> request to specify the country that you want
-    /// AWS WAF to watch for.
+    /// Submit an <c>UpdateGeoMatchSet</c> request to specify the country that you want AWS
+    /// WAF to watch for.
     /// </para></li></ol><para>
-    /// When you update an <code>GeoMatchSet</code>, you specify the country that you want
-    /// to add and/or the country that you want to delete. If you want to change a country,
-    /// you delete the existing country and add the new one.
+    /// When you update an <c>GeoMatchSet</c>, you specify the country that you want to add
+    /// and/or the country that you want to delete. If you want to change a country, you delete
+    /// the existing country and add the new one.
     /// </para><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
     /// see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
@@ -98,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter GeoMatchSetId
         /// <summary>
         /// <para>
-        /// <para>The <code>GeoMatchSetId</code> of the <a>GeoMatchSet</a> that you want to update.
-        /// <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by <a>ListGeoMatchSets</a>.</para>
+        /// <para>The <c>GeoMatchSetId</c> of the <a>GeoMatchSet</a> that you want to update. <c>GeoMatchSetId</c>
+        /// is returned by <a>CreateGeoMatchSet</a> and by <a>ListGeoMatchSets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -116,10 +115,10 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter Update
         /// <summary>
         /// <para>
-        /// <para>An array of <code>GeoMatchSetUpdate</code> objects that you want to insert into or
-        /// delete from an <a>GeoMatchSet</a>. For more information, see the applicable data types:</para><ul><li><para><a>GeoMatchSetUpdate</a>: Contains <code>Action</code> and <code>GeoMatchConstraint</code></para></li><li><para><a>GeoMatchConstraint</a>: Contains <code>Type</code> and <code>Value</code></para><para>You can have only one <code>Type</code> and <code>Value</code> per <code>GeoMatchConstraint</code>.
-        /// To add multiple countries, include multiple <code>GeoMatchSetUpdate</code> objects
-        /// in your request.</para></li></ul>
+        /// <para>An array of <c>GeoMatchSetUpdate</c> objects that you want to insert into or delete
+        /// from an <a>GeoMatchSet</a>. For more information, see the applicable data types:</para><ul><li><para><a>GeoMatchSetUpdate</a>: Contains <c>Action</c> and <c>GeoMatchConstraint</c></para></li><li><para><a>GeoMatchConstraint</a>: Contains <c>Type</c> and <c>Value</c></para><para>You can have only one <c>Type</c> and <c>Value</c> per <c>GeoMatchConstraint</c>.
+        /// To add multiple countries, include multiple <c>GeoMatchSetUpdate</c> objects in your
+        /// request.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

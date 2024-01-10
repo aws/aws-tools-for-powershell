@@ -52,9 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The date and time to deprecate the AMI, in UTC, in the following format: <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
-        /// If you specify a value for seconds, Amazon EC2 rounds the seconds to the nearest minute.</para><para>You can’t specify a date in the past. The upper limit for <code>DeprecateAt</code>
-        /// is 10 years from now, except for public AMIs, where the upper limit is 2 years from
-        /// the creation date.</para>
+        /// If you specify a value for seconds, Amazon EC2 rounds the seconds to the nearest minute.</para><para>You can’t specify a date in the past. The upper limit for <c>DeprecateAt</c> is 10
+        /// years from now, except for public AMIs, where the upper limit is 2 years from the
+        /// creation date.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

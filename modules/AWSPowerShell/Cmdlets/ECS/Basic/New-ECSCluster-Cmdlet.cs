@@ -28,9 +28,9 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Creates a new Amazon ECS cluster. By default, your account receives a <code>default</code>
+    /// Creates a new Amazon ECS cluster. By default, your account receives a <c>default</c>
     /// cluster when you launch your first container instance. However, you can create your
-    /// own cluster with a unique name with the <code>CreateCluster</code> action.
+    /// own cluster with a unique name with the <c>CreateCluster</c> action.
     /// 
     ///  <note><para>
     /// When you call the <a>CreateCluster</a> API operation, Amazon ECS attempts to create
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// actions.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
         /// must be created but not associated with another cluster. New Auto Scaling group capacity
         /// providers can be created with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html">CreateCapacityProvider</a>
-        /// API operation.</para><para>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or <code>FARGATE_SPOT</code>
+        /// API operation.</para><para>To use a Fargate capacity provider, specify either the <c>FARGATE</c> or <c>FARGATE_SPOT</c>
         /// capacity providers. The Fargate capacity providers are available to all accounts and
         /// only need to be associated with a cluster to be used.</para><para>The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html">PutCapacityProvider</a>
         /// API operation is used to update the list of available capacity providers for a cluster
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The name of your cluster. If you don't specify a name for your cluster, you create
-        /// a cluster that's named <code>default</code>. Up to 255 letters (uppercase and lowercase),
+        /// a cluster that's named <c>default</c>. Up to 255 letters (uppercase and lowercase),
         /// numbers, underscores, and hyphens are allowed. </para>
         /// </para>
         /// </summary>
@@ -143,11 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The log setting to use for redirecting logs for your execute command results. The
-        /// following log settings are available.</para><ul><li><para><code>NONE</code>: The execute command session is not logged.</para></li><li><para><code>DEFAULT</code>: The <code>awslogs</code> configuration in the task definition
-        /// is used. If no logging parameter is specified, it defaults to this value. If no <code>awslogs</code>
-        /// log driver is configured in the task definition, the output won't be logged.</para></li><li><para><code>OVERRIDE</code>: Specify the logging details as a part of <code>logConfiguration</code>.
-        /// If the <code>OVERRIDE</code> logging option is specified, the <code>logConfiguration</code>
-        /// is required.</para></li></ul>
+        /// following log settings are available.</para><ul><li><para><c>NONE</c>: The execute command session is not logged.</para></li><li><para><c>DEFAULT</c>: The <c>awslogs</c> configuration in the task definition is used.
+        /// If no logging parameter is specified, it defaults to this value. If no <c>awslogs</c>
+        /// log driver is configured in the task definition, the output won't be logged.</para></li><li><para><c>OVERRIDE</c>: Specify the logging details as a part of <c>logConfiguration</c>.
+        /// If the <c>OVERRIDE</c> logging option is specified, the <c>logConfiguration</c> is
+        /// required.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,9 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// Web Services Region.</para><para>If you enter a new name, a Cloud Map namespace will be created. Amazon ECS creates
         /// a Cloud Map namespace with the "API calls" method of instance discovery only. This
         /// instance discovery method is the "HTTP" namespace type in the Command Line Interface.
-        /// Other types of instance discovery aren't used by Service Connect.</para><para>If you update the cluster with an empty string <code>""</code> for the namespace name,
-        /// the cluster configuration for Service Connect is removed. Note that the namespace
-        /// will remain in Cloud Map and must be deleted separately.</para><para>For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html">Working
+        /// Other types of instance discovery aren't used by Service Connect.</para><para>If you update the cluster with an empty string <c>""</c> for the namespace name, the
+        /// cluster configuration for Service Connect is removed. Note that the namespace will
+        /// remain in Cloud Map and must be deleted separately.</para><para>For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html">Working
         /// with Services</a> in the <i>Cloud Map Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The setting to use when creating a cluster. This parameter is used to turn on CloudWatch
-        /// Container Insights for a cluster. If this value is specified, it overrides the <code>containerInsights</code>
+        /// Container Insights for a cluster. If this value is specified, it overrides the <c>containerInsights</c>
         /// value set with <a>PutAccountSetting</a> or <a>PutAccountSettingDefault</a>.</para>
         /// </para>
         /// </summary>
@@ -233,10 +233,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// value.</para></li><li><para>Maximum key length - 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length - 256 Unicode characters in UTF-8</para></li><li><para>If your tagging schema is used across multiple services and resources, remember that
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
-        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case-sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for either keys or values as it is reserved for Amazon Web Services
-        /// use. You cannot edit or delete tag keys or values with this prefix. Tags with this
-        /// prefix do not count against your tags per resource limit.</para></li></ul>
+        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case-sensitive.</para></li><li><para>Do not use <c>aws:</c>, <c>AWS:</c>, or any upper or lowercase combination of such
+        /// as a prefix for either keys or values as it is reserved for Amazon Web Services use.
+        /// You cannot edit or delete tag keys or values with this prefix. Tags with this prefix
+        /// do not count against your tags per resource limit.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

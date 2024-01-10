@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     ///  
     /// <para>
     /// For example, if two different devices, camera1 and camera2, implement the camera device
-    /// model, the user can associate thing1 to camera1 and thing2 to camera2. <code>SearchThings(camera2)</code>
-    /// will return only thing2, but <code>SearchThings(camera)</code> will return both thing1
-    /// and thing2.
+    /// model, the user can associate thing1 to camera1 and thing2 to camera2. <c>SearchThings(camera2)</c>
+    /// will return only thing2, but <c>SearchThings(camera)</c> will return both thing1 and
+    /// thing2.
     /// </para><para>
     /// This action searches for exact matches and doesn't perform partial text matching.
     /// </para><br/><br/>This operation is deprecated.
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter EntityId
         /// <summary>
         /// <para>
-        /// <para>The ID of the entity to which the things are associated.</para><para>The IDs should be in the following format.</para><para><code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code></para>
+        /// <para>The ID of the entity to which the things are associated.</para><para>The IDs should be in the following format.</para><para><c>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

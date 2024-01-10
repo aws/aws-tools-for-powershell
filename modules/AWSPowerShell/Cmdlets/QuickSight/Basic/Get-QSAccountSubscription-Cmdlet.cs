@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Use the DescribeAccountSubscription operation to receive a description of an Amazon
-    /// QuickSight account's subscription. A successful API call returns an <code>AccountInfo</code>
+    /// QuickSight account's subscription. A successful API call returns an <c>AccountInfo</c>
     /// object that includes an account's name, subscription status, authentication type,
     /// edition, and notification email address.
     /// </summary>

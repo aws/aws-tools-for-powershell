@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// You can add tags to experiments, trials, trial components and then use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a>
     /// API to search for the tags.
     /// </para><para>
-    /// To add a description to an experiment, specify the optional <code>Description</code>
-    /// parameter. To add a description later, or to change the description, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateExperiment.html">UpdateExperiment</a>
+    /// To add a description to an experiment, specify the optional <c>Description</c> parameter.
+    /// To add a description later, or to change the description, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateExperiment.html">UpdateExperiment</a>
     /// API.
     /// </para><para>
     /// To get a list of all your experiments, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListExperiments.html">ListExperiments</a>
@@ -85,8 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of the experiment as displayed. The name doesn't need to be unique. If you
-        /// don't specify <code>DisplayName</code>, the value in <code>ExperimentName</code> is
-        /// displayed.</para>
+        /// don't specify <c>DisplayName</c>, the value in <c>ExperimentName</c> is displayed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

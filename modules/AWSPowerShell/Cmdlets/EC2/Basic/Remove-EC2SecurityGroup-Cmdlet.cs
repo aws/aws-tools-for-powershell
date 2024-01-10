@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// If you attempt to delete a security group that is associated with an instance or network
-    /// interface or is referenced by another security group, the operation fails with <code>DependencyViolation</code>.
+    /// interface or is referenced by another security group, the operation fails with <c>DependencyViolation</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "EC2SecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>An array of instance IDs to be described. If you use this parameter, <code>DescribeInstances</code>
+        /// <para>An array of instance IDs to be described. If you use this parameter, <c>DescribeInstances</c>
         /// returns a description of the specified instances. Otherwise, it returns a description
         /// of every instance.</para>
         /// </para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter LayerId
         /// <summary>
         /// <para>
-        /// <para>A layer ID. If you use this parameter, <code>DescribeInstances</code> returns descriptions
+        /// <para>A layer ID. If you use this parameter, <c>DescribeInstances</c> returns descriptions
         /// of the instances associated with the specified layer.</para>
         /// </para>
         /// </summary>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter StackId
         /// <summary>
         /// <para>
-        /// <para>A stack ID. If you use this parameter, <code>DescribeInstances</code> returns descriptions
+        /// <para>A stack ID. If you use this parameter, <c>DescribeInstances</c> returns descriptions
         /// of the instances associated with the specified stack.</para>
         /// </para>
         /// </summary>

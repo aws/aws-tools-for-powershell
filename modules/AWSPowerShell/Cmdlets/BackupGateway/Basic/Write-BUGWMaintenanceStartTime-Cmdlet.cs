@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
         #region Parameter DayOfMonth
         /// <summary>
         /// <para>
-        /// <para>The day of the month start maintenance on a gateway.</para><para>Valid values range from <code>Sunday</code> to <code>Saturday</code>.</para>
+        /// <para>The day of the month start maintenance on a gateway.</para><para>Valid values range from <c>Sunday</c> to <c>Saturday</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

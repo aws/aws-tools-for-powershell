@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para>
         /// <para>The Amazon Resource Number (ARN) of an AWS OpsWorks for Chef Automate or AWS OpsWorks
         /// for Puppet Enterprise server for which you want to show applied tags. For example,
-        /// <code>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</code>.</para>
+        /// <c>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para>
         /// <para>To receive a paginated response, use this parameter to specify the maximum number
         /// of results to be returned with a single call. If the number of available results exceeds
-        /// this maximum, the response includes a <code>NextToken</code> value that you can assign
-        /// to the <code>NextToken</code> request parameter to get the next set of results.</para>
+        /// this maximum, the response includes a <c>NextToken</c> value that you can assign to
+        /// the <c>NextToken</c> request parameter to get the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -86,12 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para>
         /// <para>NextToken is a string that is returned in some command responses. It indicates that
         /// not all entries have been returned, and that you must run at least one more request
-        /// to get remaining items. To get remaining results, call <code>ListTagsForResource</code>
-        /// again, and assign the token from the previous results as the value of the <code>nextToken</code>
-        /// parameter. If there are no more results, the response object's <code>nextToken</code>
-        /// parameter value is <code>null</code>. Setting a <code>nextToken</code> value that
-        /// was not returned in your previous results causes an <code>InvalidNextTokenException</code>
-        /// to occur.</para>
+        /// to get remaining items. To get remaining results, call <c>ListTagsForResource</c>
+        /// again, and assign the token from the previous results as the value of the <c>nextToken</c>
+        /// parameter. If there are no more results, the response object's <c>nextToken</c> parameter
+        /// value is <c>null</c>. Setting a <c>nextToken</c> value that was not returned in your
+        /// previous results causes an <c>InvalidNextTokenException</c> to occur.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

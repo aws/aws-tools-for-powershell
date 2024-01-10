@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     /// trust anchor are unauthorized.
     /// 
     ///  
-    /// <para><b>Required permissions: </b><code>rolesanywhere:DisableTrustAnchor</code>. 
+    /// <para><b>Required permissions: </b><c>rolesanywhere:DisableTrustAnchor</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Disable", "IAMRATrustAnchor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -53,9 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CommandId
         /// <summary>
         /// <para>
-        /// <para>An array of command IDs. If you include this parameter, <code>DescribeCommands</code>
-        /// returns a description of the specified commands. Otherwise, it returns a description
-        /// of every command.</para>
+        /// <para>An array of command IDs. If you include this parameter, <c>DescribeCommands</c> returns
+        /// a description of the specified commands. Otherwise, it returns a description of every
+        /// command.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// <para>The deployment ID. If you include this parameter, <code>DescribeCommands</code> returns
+        /// <para>The deployment ID. If you include this parameter, <c>DescribeCommands</c> returns
         /// a description of the commands associated with the specified deployment.</para>
         /// </para>
         /// </summary>
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance ID. If you include this parameter, <code>DescribeCommands</code> returns
-        /// a description of the commands associated with the specified instance.</para>
+        /// <para>The instance ID. If you include this parameter, <c>DescribeCommands</c> returns a
+        /// description of the commands associated with the specified instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Optional filter to apply to the search. Valid filters are <code>NAME</code><code>NAMESPACE</code>,
-        /// <code>SEMANTIC_TYPE_PATH</code> and <code>REFERENCED_ENTITY_ID</code>. <code>REFERENCED_ENTITY_ID</code>
+        /// <para>Optional filter to apply to the search. Valid filters are <c>NAME</c><c>NAMESPACE</c>,
+        /// <c>SEMANTIC_TYPE_PATH</c> and <c>REFERENCED_ENTITY_ID</c>. <c>REFERENCED_ENTITY_ID</c>
         /// filters on entities that are used by the entity in the result set. For example, you
         /// can filter on the ID of a property that is used in a state.</para><para>Multiple filters function as OR criteria in the query. Multiple values passed inside
         /// the filter function as AND criteria.</para>

@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Creates a <code>DataSource</code> object.
+    /// Creates a <c>DataSource</c> object.
     /// </summary>
     [Cmdlet("New", "ASYNDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppSync.Model.DataSource")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter ApiId
         /// <summary>
         /// <para>
-        /// <para>The API ID for the GraphQL API for the <code>DataSource</code>.</para>
+        /// <para>The API ID for the GraphQL API for the <c>DataSource</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the <code>DataSource</code>.</para>
+        /// <para>A description of the <c>DataSource</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A user-supplied name for the <code>DataSource</code>.</para>
+        /// <para>A user-supplied name for the <c>DataSource</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the <code>DataSource</code>.</para>
+        /// <para>The type of the <c>DataSource</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

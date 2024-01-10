@@ -107,9 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         /// <summary>
         /// <para>
         /// <para> Operation is the specific Amazon Web Services action covered by this line item. This
-        /// describes the specific usage of the line item.</para><para> If the <code>Scope</code> attribute is set to <code>SKU</code>, this attribute indicates
-        /// which operation the <code>PricingRule</code> is modifying. For example, a value of
-        /// <code>RunInstances:0202</code> indicates the operation of running an Amazon EC2 instance.</para>
+        /// describes the specific usage of the line item.</para><para> If the <c>Scope</c> attribute is set to <c>SKU</c>, this attribute indicates which
+        /// operation the <c>PricingRule</c> is modifying. For example, a value of <c>RunInstances:0202</c>
+        /// indicates the operation of running an Amazon EC2 instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,9 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Service
         /// <summary>
         /// <para>
-        /// <para> If the <code>Scope</code> attribute is set to <code>SERVICE</code> or <code>SKU</code>,
-        /// the attribute indicates which service the <code>PricingRule</code> is applicable for.
-        /// </para>
+        /// <para> If the <c>Scope</c> attribute is set to <c>SERVICE</c> or <c>SKU</c>, the attribute
+        /// indicates which service the <c>PricingRule</c> is applicable for. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter EndpointName
         /// <summary>
         /// <para>
-        /// <para>The name of the <code>DevEndpoint</code>.</para>
+        /// <para>The name of the <c>DevEndpoint</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

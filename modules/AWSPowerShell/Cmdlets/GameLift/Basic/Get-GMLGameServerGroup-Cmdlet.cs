@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// group size, access the Auto Scaling group directly.
     /// </para><para>
     /// To get attributes for a game server group, provide a group name or ARN value. If successful,
-    /// a <code>GameServerGroup</code> object is returned.
+    /// a <c>GameServerGroup</c> object is returned.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon
     /// GameLift FleetIQ Guide</a></para>
     /// </summary>

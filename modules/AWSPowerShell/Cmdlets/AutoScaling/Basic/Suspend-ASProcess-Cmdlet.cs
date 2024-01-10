@@ -33,9 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// If you suspend either the <code>Launch</code> or <code>Terminate</code> process types,
-    /// it can prevent other process types from functioning properly. For more information,
-    /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending
+    /// If you suspend either the <c>Launch</c> or <c>Terminate</c> process types, it can
+    /// prevent other process types from functioning properly. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending
     /// and resuming scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para><para>
     /// To resume processes that have been suspended, call the <a>ResumeProcesses</a> API.
@@ -73,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ScalingProcess
         /// <summary>
         /// <para>
-        /// <para>One or more of the following processes:</para><ul><li><para><code>Launch</code></para></li><li><para><code>Terminate</code></para></li><li><para><code>AddToLoadBalancer</code></para></li><li><para><code>AlarmNotification</code></para></li><li><para><code>AZRebalance</code></para></li><li><para><code>HealthCheck</code></para></li><li><para><code>InstanceRefresh</code></para></li><li><para><code>ReplaceUnhealthy</code></para></li><li><para><code>ScheduledActions</code></para></li></ul><para>If you omit this property, all processes are specified.</para>
+        /// <para>One or more of the following processes:</para><ul><li><para><c>Launch</c></para></li><li><para><c>Terminate</c></para></li><li><para><c>AddToLoadBalancer</c></para></li><li><para><c>AlarmNotification</c></para></li><li><para><c>AZRebalance</c></para></li><li><para><c>HealthCheck</c></para></li><li><para><c>InstanceRefresh</c></para></li><li><para><c>ReplaceUnhealthy</c></para></li><li><para><c>ScheduledActions</c></para></li></ul><para>If you omit this property, all processes are specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// your own IP addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// Provisioning an address range is an asynchronous operation, so the call returns immediately,
-    /// but the address range is not ready to use until its status changes from <code>pending-provision</code>
-    /// to <code>provisioned</code>. To monitor the status of an address range, use <a>DescribeByoipCidrs</a>.
+    /// but the address range is not ready to use until its status changes from <c>pending-provision</c>
+    /// to <c>provisioned</c>. To monitor the status of an address range, use <a>DescribeByoipCidrs</a>.
     /// To allocate an Elastic IP address from your IPv4 address pool, use <a>AllocateAddress</a>
     /// with either the specific address from the address pool or the ID of the address pool.
     /// </para>

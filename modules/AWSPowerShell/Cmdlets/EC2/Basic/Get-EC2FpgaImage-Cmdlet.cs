@@ -47,14 +47,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>create-time</code> - The creation time of the AFI.</para></li><li><para><code>fpga-image-id</code> - The FPGA image identifier (AFI ID).</para></li><li><para><code>fpga-image-global-id</code> - The global FPGA image identifier (AGFI ID).</para></li><li><para><code>name</code> - The name of the AFI.</para></li><li><para><code>owner-id</code> - The Amazon Web Services account ID of the AFI owner.</para></li><li><para><code>product-code</code> - The product code.</para></li><li><para><code>shell-version</code> - The version of the Amazon Web Services Shell that was
-        /// used to create the bitstream.</para></li><li><para><code>state</code> - The state of the AFI (<code>pending</code> | <code>failed</code>
-        /// | <code>available</code> | <code>unavailable</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
-        /// resource. Use the tag key in the filter name and the tag value as the filter value.
-        /// For example, to find all resources that have a tag with the key <code>Owner</code>
-        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>update-time</code> - The time of the most recent update.</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>create-time</c> - The creation time of the AFI.</para></li><li><para><c>fpga-image-id</c> - The FPGA image identifier (AFI ID).</para></li><li><para><c>fpga-image-global-id</c> - The global FPGA image identifier (AGFI ID).</para></li><li><para><c>name</c> - The name of the AFI.</para></li><li><para><c>owner-id</c> - The Amazon Web Services account ID of the AFI owner.</para></li><li><para><c>product-code</c> - The product code.</para></li><li><para><c>shell-version</c> - The version of the Amazon Web Services Shell that was used
+        /// to create the bitstream.</para></li><li><para><c>state</c> - The state of the AFI (<c>pending</c> | <c>failed</c> | <c>available</c>
+        /// | <c>unavailable</c>).</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
+        /// Use the tag key in the filter name and the tag value as the filter value. For example,
+        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>update-time</c> - The time of the most recent update.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,9 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Owner
         /// <summary>
         /// <para>
-        /// <para>Filters the AFI by owner. Specify an Amazon Web Services account ID, <code>self</code>
-        /// (owner is the sender of the request), or an Amazon Web Services owner alias (valid
-        /// values are <code>amazon</code> | <code>aws-marketplace</code>).</para>
+        /// <para>Filters the AFI by owner. Specify an Amazon Web Services account ID, <c>self</c> (owner
+        /// is the sender of the request), or an Amazon Web Services owner alias (valid values
+        /// are <c>amazon</c> | <c>aws-marketplace</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

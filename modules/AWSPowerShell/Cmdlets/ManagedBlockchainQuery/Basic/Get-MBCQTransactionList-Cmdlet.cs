@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         #region Parameter Sort_SortBy
         /// <summary>
         /// <para>
-        /// <para>Defaults to the value <code>TRANSACTION_TIMESTAMP</code>.</para>
+        /// <para>Defaults to the value <c>TRANSACTION_TIMESTAMP</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,9 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         #region Parameter Sort_SortOrder
         /// <summary>
         /// <para>
-        /// <para>The container for the <i>sort order</i> for <code>ListTransactions</code>. The <code>SortOrder</code>
-        /// field only accepts the values <code>ASCENDING</code> and <code>DESCENDING</code>.
-        /// Not providing <code>SortOrder</code> will default to <code>ASCENDING</code>.</para>
+        /// <para>The container for the <i>sort order</i> for <c>ListTransactions</c>. The <c>SortOrder</c>
+        /// field only accepts the values <c>ASCENDING</c> and <c>DESCENDING</c>. Not providing
+        /// <c>SortOrder</c> will default to <c>ASCENDING</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         #region Parameter FromBlockchainInstant_Time
         /// <summary>
         /// <para>
-        /// <para>The container of the <code>Timestamp</code> of the blockchain instant.</para><note><para>This <code>timestamp</code> will only be recorded up to the second.</para></note>
+        /// <para>The container of the <c>Timestamp</c> of the blockchain instant.</para><note><para>This <c>timestamp</c> will only be recorded up to the second.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         #region Parameter ToBlockchainInstant_Time
         /// <summary>
         /// <para>
-        /// <para>The container of the <code>Timestamp</code> of the blockchain instant.</para><note><para>This <code>timestamp</code> will only be recorded up to the second.</para></note>
+        /// <para>The container of the <c>Timestamp</c> of the blockchain instant.</para><note><para>This <c>timestamp</c> will only be recorded up to the second.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,9 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         /// <summary>
         /// <para>
         /// <para>The maximum number of transactions to list.</para><note><para>Even if additional results can be retrieved, the request can return less results than
-        /// <code>maxResults</code> or an empty array of results.</para><para>To retrieve the next set of results, make another request with the returned <code>nextToken</code>
-        /// value. The value of <code>nextToken</code> is <code>null</code> when there are no
-        /// more results to return</para></note>
+        /// <c>maxResults</c> or an empty array of results.</para><para>To retrieve the next set of results, make another request with the returned <c>nextToken</c>
+        /// value. The value of <c>nextToken</c> is <c>null</c> when there are no more results
+        /// to return</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

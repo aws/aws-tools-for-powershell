@@ -30,19 +30,18 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// <summary>
     /// Creates an activity. An activity is a task that you write in any programming language
     /// and host on any machine that has access to Step Functions. Activities must poll Step
-    /// Functions using the <code>GetActivityTask</code> API action and respond using <code>SendTask*</code>
+    /// Functions using the <c>GetActivityTask</c> API action and respond using <c>SendTask*</c>
     /// API actions. This function lets Step Functions know the existence of your activity
     /// and returns an identifier for use in a state machine and when polling from the activity.
     /// 
     ///  <note><para>
     /// This operation is eventually consistent. The results are best effort and may not reflect
     /// very recent updates and changes.
-    /// </para></note><note><para><code>CreateActivity</code> is an idempotent API. Subsequent requests won’t create
-    /// a duplicate resource if it was already created. <code>CreateActivity</code>'s idempotency
-    /// check is based on the activity <code>name</code>. If a following request has different
-    /// <code>tags</code> values, Step Functions will ignore these differences and treat it
-    /// as an idempotent request of the previous. In this case, <code>tags</code> will not
-    /// be updated, even if they are different.
+    /// </para></note><note><para><c>CreateActivity</c> is an idempotent API. Subsequent requests won’t create a duplicate
+    /// resource if it was already created. <c>CreateActivity</c>'s idempotency check is based
+    /// on the activity <c>name</c>. If a following request has different <c>tags</c> values,
+    /// Step Functions will ignore these differences and treat it as an idempotent request
+    /// of the previous. In this case, <c>tags</c> will not be updated, even if they are different.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "SFNActivity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -62,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <para>The name of the activity to create. This name must be unique for your Amazon Web Services
         /// account and region for 90 days. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
         /// Limits Related to State Machine Executions</a> in the <i>Step Functions Developer
-        /// Guide</i>.</para><para>A name must <i>not</i> contain:</para><ul><li><para>white space</para></li><li><para>brackets <code>&lt; &gt; { } [ ]</code></para></li><li><para>wildcard characters <code>? *</code></para></li><li><para>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code></para></li><li><para>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</para></li></ul><para>To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z,
+        /// Guide</i>.</para><para>A name must <i>not</i> contain:</para><ul><li><para>white space</para></li><li><para>brackets <c>&lt; &gt; { } [ ]</c></para></li><li><para>wildcard characters <c>? *</c></para></li><li><para>special characters <c>" # % \ ^ | ~ ` $ &amp; , ; : /</c></para></li><li><para>control characters (<c>U+0000-001F</c>, <c>U+007F-009F</c>)</para></li></ul><para>To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z,
         /// - and _.</para>
         /// </para>
         /// </summary>
@@ -83,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <para>The list of tags to add to a resource.</para><para>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
         /// Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
         /// User Guide</i>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling
-        /// Access Using IAM Tags</a>.</para><para>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_
-        /// . : / = + - @</code>.</para>
+        /// Access Using IAM Tags</a>.</para><para>Tags may only contain Unicode letters, digits, white space, or these symbols: <c>_
+        /// . : / = + - @</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

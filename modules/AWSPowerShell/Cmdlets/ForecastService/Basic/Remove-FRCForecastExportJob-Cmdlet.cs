@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
     /// Deletes a forecast export job created using the <a>CreateForecastExportJob</a> operation.
-    /// You can delete only export jobs that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
+    /// You can delete only export jobs that have a status of <c>ACTIVE</c> or <c>CREATE_FAILED</c>.
     /// To get the status, use the <a>DescribeForecastExportJob</a> operation.
     /// </summary>
     [Cmdlet("Remove", "FRCForecastExportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

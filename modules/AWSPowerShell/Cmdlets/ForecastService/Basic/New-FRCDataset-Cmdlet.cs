@@ -32,14 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// helps Forecast understand how to consume the data for model training. This includes
     /// the following:
     /// 
-    ///  <ul><li><para><i><code>DataFrequency</code></i> - How frequently your historical time-series
-    /// data is collected.
-    /// </para></li><li><para><i><code>Domain</code></i> and <i><code>DatasetType</code></i> - Each dataset
-    /// has an associated dataset domain and a type within the domain. Amazon Forecast provides
-    /// a list of predefined domains and types within each domain. For each unique dataset
-    /// domain and type within the domain, Amazon Forecast requires your data to include a
-    /// minimum set of predefined fields.
-    /// </para></li><li><para><i><code>Schema</code></i> - A schema specifies the fields in the dataset, including
+    ///  <ul><li><para><i><c>DataFrequency</c></i> - How frequently your historical time-series data is
+    /// collected.
+    /// </para></li><li><para><i><c>Domain</c></i> and <i><c>DatasetType</c></i> - Each dataset has an associated
+    /// dataset domain and a type within the domain. Amazon Forecast provides a list of predefined
+    /// domains and types within each domain. For each unique dataset domain and type within
+    /// the domain, Amazon Forecast requires your data to include a minimum set of predefined
+    /// fields.
+    /// </para></li><li><para><i><c>Schema</c></i> - A schema specifies the fields in the dataset, including
     /// the field name and data type.
     /// </para></li></ul><para>
     /// After creating a dataset, you import your training data into it and add the dataset
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// For example Forecast datasets, see the <a href="https://github.com/aws-samples/amazon-forecast-samples">Amazon
     /// Forecast Sample GitHub repository</a>.
     /// </para><note><para>
-    /// The <code>Status</code> of a dataset must be <code>ACTIVE</code> before you can import
-    /// training data. Use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html">DescribeDataset</a>
+    /// The <c>Status</c> of a dataset must be <c>ACTIVE</c> before you can import training
+    /// data. Use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html">DescribeDataset</a>
     /// operation to get the status.
     /// </para></note>
     /// </summary>
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter DatasetType
         /// <summary>
         /// <para>
-        /// <para>The dataset type. Valid values depend on the chosen <code>Domain</code>.</para>
+        /// <para>The dataset type. Valid values depend on the chosen <c>Domain</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -138,13 +138,12 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The domain associated with the dataset. When you add a dataset to a dataset group,
-        /// this value and the value specified for the <code>Domain</code> parameter of the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>
-        /// operation must match.</para><para>The <code>Domain</code> and <code>DatasetType</code> that you choose determine the
-        /// fields that must be present in the training data that you import to the dataset. For
-        /// example, if you choose the <code>RETAIL</code> domain and <code>TARGET_TIME_SERIES</code>
-        /// as the <code>DatasetType</code>, Amazon Forecast requires <code>item_id</code>, <code>timestamp</code>,
-        /// and <code>demand</code> fields to be present in your data. For more information, see
-        /// <a href="https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html">Importing
+        /// this value and the value specified for the <c>Domain</c> parameter of the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>
+        /// operation must match.</para><para>The <c>Domain</c> and <c>DatasetType</c> that you choose determine the fields that
+        /// must be present in the training data that you import to the dataset. For example,
+        /// if you choose the <c>RETAIL</c> domain and <c>TARGET_TIME_SERIES</c> as the <c>DatasetType</c>,
+        /// Amazon Forecast requires <c>item_id</c>, <c>timestamp</c>, and <c>demand</c> fields
+        /// to be present in your data. For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html">Importing
         /// datasets</a>.</para>
         /// </para>
         /// </summary>
@@ -173,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM role that Amazon Forecast can assume to access the KMS key.</para><para>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role
-        /// that isn't in your account, you get an <code>InvalidInputException</code> error.</para>
+        /// that isn't in your account, you get an <c>InvalidInputException</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,12 +187,12 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// value.</para></li><li><para>Maximum key length - 128 Unicode characters in UTF-8.</para></li><li><para>Maximum value length - 256 Unicode characters in UTF-8.</para></li><li><para>If your tagging schema is used across multiple services and resources, remember that
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
-        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot
-        /// edit or delete tag keys with this prefix. Values can have this prefix. If a tag value
-        /// has <code>aws</code> as its prefix but the key does not, then Forecast considers it
-        /// to be a user tag and will count against the limit of 50 tags. Tags with only the key
-        /// prefix of <code>aws</code> do not count against your tags per resource limit.</para></li></ul>
+        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use <c>aws:</c>, <c>AWS:</c>, or any upper or lowercase combination of such
+        /// as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit
+        /// or delete tag keys with this prefix. Values can have this prefix. If a tag value has
+        /// <c>aws</c> as its prefix but the key does not, then Forecast considers it to be a
+        /// user tag and will count against the limit of 50 tags. Tags with only the key prefix
+        /// of <c>aws</c> do not count against your tags per resource limit.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

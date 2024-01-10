@@ -46,9 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter ImageTagMutability
         /// <summary>
         /// <para>
-        /// <para>The tag mutability setting for the repository. If <code>MUTABLE</code> is specified,
-        /// image tags can be overwritten. If <code>IMMUTABLE</code> is specified, all image tags
-        /// within the repository will be immutable which will prevent them from being overwritten.</para>
+        /// <para>The tag mutability setting for the repository. If <c>MUTABLE</c> is specified, image
+        /// tags can be overwritten. If <c>IMMUTABLE</c> is specified, all image tags within the
+        /// repository will be immutable which will prevent them from being overwritten.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

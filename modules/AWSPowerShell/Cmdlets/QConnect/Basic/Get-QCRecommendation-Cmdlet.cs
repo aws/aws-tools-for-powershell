@@ -30,9 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.QC
     /// <summary>
     /// Retrieves recommendations for the specified session. To avoid retrieving the same
     /// recommendations in subsequent calls, use <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_NotifyRecommendationsReceived.html">NotifyRecommendationsReceived</a>.
-    /// This API supports long-polling behavior with the <code>waitTimeSeconds</code> parameter.
+    /// This API supports long-polling behavior with the <c>waitTimeSeconds</c> parameter.
     /// Short poll is the default behavior and only returns recommendations already available.
-    /// To perform a manual query against an assistant, use <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_QueryAssistant.html">QueryAssistant</a>.
+    /// To perform a manual query against an assistant, use <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_QueryAssistant.html">QueryAssistant</a>.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "QCRecommendation")]
     [OutputType("Amazon.QConnect.Model.GetRecommendationsResponse")]
@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [AWSCmdletOutput("Amazon.QConnect.Model.GetRecommendationsResponse",
         "This cmdlet returns an Amazon.QConnect.Model.GetRecommendationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("GetRecommendations API will be discontinued starting June 1, 2024. To receive generative responses after March 1, 2024 you will need to create a new Assistant in the Connect console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs) into your applications.")]
     public partial class GetQCRecommendationCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {
         
@@ -88,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <para>
         /// <para>The duration (in seconds) for which the call waits for a recommendation to be made
         /// available before returning. If a recommendation is available, the call returns sooner
-        /// than <code>WaitTimeSeconds</code>. If no messages are available and the wait time
-        /// expires, the call returns successfully with an empty list.</para>
+        /// than <c>WaitTimeSeconds</c>. If no messages are available and the wait time expires,
+        /// the call returns successfully with an empty list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

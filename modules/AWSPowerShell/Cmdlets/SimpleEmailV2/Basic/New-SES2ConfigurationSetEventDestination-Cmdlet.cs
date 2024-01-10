@@ -107,9 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter EventDestination_Enabled
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, the event destination is enabled. When the event destination
-        /// is enabled, the specified event types are sent to the destinations in this <code>EventDestinationDefinition</code>.</para><para>If <code>false</code>, the event destination is disabled. When the event destination
-        /// is disabled, events aren't sent to the specified destinations.</para>
+        /// <para>If <c>true</c>, the event destination is enabled. When the event destination is enabled,
+        /// the specified event types are sent to the destinations in this <c>EventDestinationDefinition</c>.</para><para>If <c>false</c>, the event destination is disabled. When the event destination is
+        /// disabled, events aren't sent to the specified destinations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>An array that specifies which events the Amazon SES API v2 should send to the destinations
-        /// in this <code>EventDestinationDefinition</code>.</para>
+        /// in this <c>EventDestinationDefinition</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

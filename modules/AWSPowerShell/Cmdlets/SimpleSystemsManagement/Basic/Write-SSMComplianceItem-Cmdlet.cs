@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// ExecutionId: The execution ID when the patch, association, or custom compliance item
     /// was applied.
     /// </para></li><li><para>
-    /// ExecutionType: Specify patch, association, or Custom:<code>string</code>.
+    /// ExecutionType: Specify patch, association, or Custom:<c>string</c>.
     /// </para></li><li><para>
     /// ExecutionTime. The time the patch, association, or custom compliance item was applied
     /// to the managed node.
@@ -49,22 +49,22 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </para></li><li><para>
     /// Title: A title.
     /// </para></li><li><para>
-    /// Status: The status of the compliance item. For example, <code>approved</code> for
-    /// patches, or <code>Failed</code> for associations.
+    /// Status: The status of the compliance item. For example, <c>approved</c> for patches,
+    /// or <c>Failed</c> for associations.
     /// </para></li><li><para>
-    /// Severity: A patch severity. For example, <code>Critical</code>.
+    /// Severity: A patch severity. For example, <c>Critical</c>.
     /// </para></li><li><para>
-    /// DocumentName: An SSM document name. For example, <code>AWS-RunPatchBaseline</code>.
+    /// DocumentName: An SSM document name. For example, <c>AWS-RunPatchBaseline</c>.
     /// </para></li><li><para>
     /// DocumentVersion: An SSM document version number. For example, 4.
     /// </para></li><li><para>
-    /// Classification: A patch classification. For example, <code>security updates</code>.
+    /// Classification: A patch classification. For example, <c>security updates</c>.
     /// </para></li><li><para>
     /// PatchBaselineId: A patch baseline ID.
     /// </para></li><li><para>
-    /// PatchSeverity: A patch severity. For example, <code>Critical</code>.
+    /// PatchSeverity: A patch severity. For example, <c>Critical</c>.
     /// </para></li><li><para>
-    /// PatchState: A patch state. For example, <code>InstancesWithFailedPatches</code>.
+    /// PatchState: A patch state. For example, <c>InstancesWithFailedPatches</c>.
     /// </para></li><li><para>
     /// PatchGroup: The name of a patch group.
     /// </para></li><li><para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Specify the compliance type. For example, specify Association (for a State Manager
-        /// association), Patch, or Custom:<code>string</code>.</para>
+        /// association), Patch, or Custom:<c>string</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,9 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ExecutionSummary_ExecutionId
         /// <summary>
         /// <para>
-        /// <para>An ID created by the system when <code>PutComplianceItems</code> was called. For example,
-        /// <code>CommandID</code> is a valid execution ID. You can use this ID in subsequent
-        /// calls.</para>
+        /// <para>An ID created by the system when <c>PutComplianceItems</c> was called. For example,
+        /// <c>CommandID</c> is a valid execution ID. You can use this ID in subsequent calls.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ExecutionSummary_ExecutionType
         /// <summary>
         /// <para>
-        /// <para>The type of execution. For example, <code>Command</code> is a valid execution type.</para>
+        /// <para>The type of execution. For example, <c>Command</c> is a valid execution type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Information about the compliance as defined by the resource type. For example, for
-        /// a patch compliance type, <code>Items</code> includes information about the PatchSeverity,
+        /// a patch compliance type, <c>Items</c> includes information about the PatchSeverity,
         /// Classification, and so on.</para>
         /// </para>
         /// </summary>
@@ -193,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>Specify the type of resource. <code>ManagedInstance</code> is currently the only supported
+        /// <para>Specify the type of resource. <c>ManagedInstance</c> is currently the only supported
         /// resource type.</para>
         /// </para>
         /// </summary>
@@ -211,12 +210,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter UploadType
         /// <summary>
         /// <para>
-        /// <para>The mode for uploading compliance items. You can specify <code>COMPLETE</code> or
-        /// <code>PARTIAL</code>. In <code>COMPLETE</code> mode, the system overwrites all existing
-        /// compliance information for the resource. You must provide a full list of compliance
-        /// items each time you send the request.</para><para>In <code>PARTIAL</code> mode, the system overwrites compliance information for a specific
-        /// association. The association must be configured with <code>SyncCompliance</code> set
-        /// to <code>MANUAL</code>. By default, all requests use <code>COMPLETE</code> mode.</para><note><para>This attribute is only valid for association compliance.</para></note>
+        /// <para>The mode for uploading compliance items. You can specify <c>COMPLETE</c> or <c>PARTIAL</c>.
+        /// In <c>COMPLETE</c> mode, the system overwrites all existing compliance information
+        /// for the resource. You must provide a full list of compliance items each time you send
+        /// the request.</para><para>In <c>PARTIAL</c> mode, the system overwrites compliance information for a specific
+        /// association. The association must be configured with <c>SyncCompliance</c> set to
+        /// <c>MANUAL</c>. By default, all requests use <c>COMPLETE</c> mode.</para><note><para>This attribute is only valid for association compliance.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     ///  
     /// <para>
     /// This is used to check the current settings that are applied to a block list.
-    /// </para><para><code>DescribeQuerySuggestionsBlockList</code> is currently not supported in the
-    /// Amazon Web Services GovCloud (US-West) region.
+    /// </para><para><c>DescribeQuerySuggestionsBlockList</c> is currently not supported in the Amazon
+    /// Web Services GovCloud (US-West) region.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "KNDRQuerySuggestionsBlockList")]

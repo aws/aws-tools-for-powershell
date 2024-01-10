@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <code>system</code> value.</para><para>For <b>KernelGateway apps</b>, the <code>system</code> value is translated to <code>ml.t3.medium</code>.
+        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <c>system</c> value.</para><para>For <b>KernelGateway apps</b>, the <c>system</c> value is translated to <c>ml.t3.medium</c>.
         /// KernelGateway apps also support all other values for available instance types.</para></note>
         /// </para>
         /// </summary>
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <code>system</code> value.</para><para>For <b>KernelGateway apps</b>, the <code>system</code> value is translated to <code>ml.t3.medium</code>.
+        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <c>system</c> value.</para><para>For <b>KernelGateway apps</b>, the <c>system</c> value is translated to <c>ml.t3.medium</c>.
         /// KernelGateway apps also support all other values for available instance types.</para></note>
         /// </para>
         /// </summary>
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <code>system</code> value.</para><para>For <b>KernelGateway apps</b>, the <code>system</code> value is translated to <code>ml.t3.medium</code>.
+        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <c>system</c> value.</para><para>For <b>KernelGateway apps</b>, the <c>system</c> value is translated to <c>ml.t3.medium</c>.
         /// KernelGateway apps also support all other values for available instance types.</para></note>
         /// </para>
         /// </summary>
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <code>system</code> value.</para><para>For <b>KernelGateway apps</b>, the <code>system</code> value is translated to <code>ml.t3.medium</code>.
+        /// <para>The instance type that the image version runs on.</para><note><para><b>JupyterServer apps</b> only support the <c>system</c> value.</para><para>For <b>KernelGateway apps</b>, the <c>system</c> value is translated to <c>ml.t3.medium</c>.
         /// KernelGateway apps also support all other values for available instance types.</para></note>
         /// </para>
         /// </summary>
@@ -228,9 +228,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the JupyterServerApp.
-        /// If you use this parameter, the <code>DefaultResourceSpec</code> parameter is also
-        /// required.</para><note><para>To remove a Lifecycle Config, you must set <code>LifecycleConfigArns</code> to an
-        /// empty list.</para></note>
+        /// If you use this parameter, the <c>DefaultResourceSpec</c> parameter is also required.</para><note><para>To remove a Lifecycle Config, you must set <c>LifecycleConfigArns</c> to an empty
+        /// list.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,8 +241,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the the
-        /// user profile or domain.</para><note><para>To remove a Lifecycle Config, you must set <code>LifecycleConfigArns</code> to an
-        /// empty list.</para></note>
+        /// user profile or domain.</para><note><para>To remove a Lifecycle Config, you must set <c>LifecycleConfigArns</c> to an empty
+        /// list.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

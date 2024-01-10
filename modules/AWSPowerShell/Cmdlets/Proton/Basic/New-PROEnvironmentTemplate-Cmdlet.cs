@@ -41,9 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// Register and publish a <i>customer managed</i> environment template that connects
     /// Proton to your existing provisioned infrastructure that you manage. Proton <i>doesn't</i>
     /// manage your existing provisioned infrastructure. To create an environment template
-    /// for customer provisioned and managed infrastructure, include the <code>provisioning</code>
-    /// parameter and set the value to <code>CUSTOMER_MANAGED</code>. For more information,
-    /// see <a href="https://docs.aws.amazon.com/proton/latest/userguide/template-create.html">Register
+    /// for customer provisioned and managed infrastructure, include the <c>provisioning</c>
+    /// parameter and set the value to <c>CUSTOMER_MANAGED</c>. For more information, see
+    /// <a href="https://docs.aws.amazon.com/proton/latest/userguide/template-create.html">Register
     /// and publish an environment template</a> in the <i>Proton User Guide</i>.
     /// </para></li></ul>
     /// </summary>

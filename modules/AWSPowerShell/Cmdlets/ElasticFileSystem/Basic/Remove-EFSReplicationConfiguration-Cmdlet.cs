@@ -30,13 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// <summary>
     /// Deletes a replication configuration. Deleting a replication configuration ends the
     /// replication process. After a replication configuration is deleted, the destination
-    /// file system becomes <code>Writeable</code> and its replication overwrite protection
-    /// is re-enabled. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/delete-replications.html">Delete
+    /// file system becomes <c>Writeable</c> and its replication overwrite protection is re-enabled.
+    /// For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/delete-replications.html">Delete
     /// a replication configuration</a>.
     /// 
     ///  
     /// <para>
-    /// This operation requires permissions for the <code>elasticfilesystem:DeleteReplicationConfiguration</code>
+    /// This operation requires permissions for the <c>elasticfilesystem:DeleteReplicationConfiguration</c>
     /// action. 
     /// </para>
     /// </summary>

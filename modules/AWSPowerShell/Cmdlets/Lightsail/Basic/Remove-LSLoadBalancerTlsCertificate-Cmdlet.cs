@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  
     /// <para>
-    /// The <code>DeleteLoadBalancerTlsCertificate</code> operation supports tag-based access
-    /// control via resource tags applied to the resource identified by <code>load balancer
-    /// name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// The <c>DeleteLoadBalancerTlsCertificate</c> operation supports tag-based access control
+    /// via resource tags applied to the resource identified by <c>load balancer name</c>.
+    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -70,9 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DeleteWithForce
         /// <summary>
         /// <para>
-        /// <para>When <code>true</code>, forces the deletion of an SSL/TLS certificate.</para><para>There can be two certificates associated with a Lightsail load balancer: the primary
-        /// and the backup. The <code>force</code> parameter is required when the primary SSL/TLS
-        /// certificate is in use by an instance attached to the load balancer.</para>
+        /// <para>When <c>true</c>, forces the deletion of an SSL/TLS certificate.</para><para>There can be two certificates associated with a Lightsail load balancer: the primary
+        /// and the backup. The <c>force</c> parameter is required when the primary SSL/TLS certificate
+        /// is in use by an instance attached to the load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

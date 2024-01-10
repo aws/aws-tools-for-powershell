@@ -39,35 +39,34 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// the secret in that service. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets
     /// Manager secrets managed by other Amazon Web Services services</a>.
     /// </para><para>
-    /// We recommend you avoid calling <code>UpdateSecret</code> at a sustained rate of more
-    /// than once every 10 minutes. When you call <code>UpdateSecret</code> to update the
-    /// secret value, Secrets Manager creates a new version of the secret. Secrets Manager
-    /// removes outdated versions when there are more than 100, but it does not remove versions
-    /// created less than 24 hours ago. If you update the secret value more than once every
-    /// 10 minutes, you create more versions than Secrets Manager removes, and you will reach
-    /// the quota for secret versions.
+    /// We recommend you avoid calling <c>UpdateSecret</c> at a sustained rate of more than
+    /// once every 10 minutes. When you call <c>UpdateSecret</c> to update the secret value,
+    /// Secrets Manager creates a new version of the secret. Secrets Manager removes outdated
+    /// versions when there are more than 100, but it does not remove versions created less
+    /// than 24 hours ago. If you update the secret value more than once every 10 minutes,
+    /// you create more versions than Secrets Manager removes, and you will reach the quota
+    /// for secret versions.
     /// </para><para>
-    /// If you include <code>SecretString</code> or <code>SecretBinary</code> to create a
-    /// new secret version, Secrets Manager automatically moves the staging label <code>AWSCURRENT</code>
-    /// to the new version. Then it attaches the label <code>AWSPREVIOUS</code> to the version
-    /// that <code>AWSCURRENT</code> was removed from.
+    /// If you include <c>SecretString</c> or <c>SecretBinary</c> to create a new secret version,
+    /// Secrets Manager automatically moves the staging label <c>AWSCURRENT</c> to the new
+    /// version. Then it attaches the label <c>AWSPREVIOUS</c> to the version that <c>AWSCURRENT</c>
+    /// was removed from.
     /// </para><para>
-    /// If you call this operation with a <code>ClientRequestToken</code> that matches an
-    /// existing version's <code>VersionId</code>, the operation results in an error. You
-    /// can't modify an existing version, you can only create a new version. To remove a version,
-    /// remove all staging labels from it. See <a>UpdateSecretVersionStage</a>.
+    /// If you call this operation with a <c>ClientRequestToken</c> that matches an existing
+    /// version's <c>VersionId</c>, the operation results in an error. You can't modify an
+    /// existing version, you can only create a new version. To remove a version, remove all
+    /// staging labels from it. See <a>UpdateSecretVersionStage</a>.
     /// </para><para>
     /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
-    /// include sensitive information in request parameters except <code>SecretBinary</code>
-    /// or <code>SecretString</code> because it might be logged. For more information, see
-    /// <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+    /// include sensitive information in request parameters except <c>SecretBinary</c> or
+    /// <c>SecretString</c> because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
     /// Secrets Manager events with CloudTrail</a>.
-    /// </para><para><b>Required permissions: </b><code>secretsmanager:UpdateSecret</code>. For more
-    /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+    /// </para><para><b>Required permissions: </b><c>secretsmanager:UpdateSecret</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
     /// and access control in Secrets Manager</a>. If you use a customer managed key, you
-    /// must also have <code>kms:GenerateDataKey</code>, <code>kms:Encrypt</code>, and <code>kms:Decrypt</code>
-    /// permissions on the key. If you change the KMS key and you don't have <code>kms:Encrypt</code>
+    /// must also have <c>kms:GenerateDataKey</c>, <c>kms:Encrypt</c>, and <c>kms:Decrypt</c>
+    /// permissions on the key. If you change the KMS key and you don't have <c>kms:Encrypt</c>
     /// permission to the new key, Secrets Manager does not re-ecrypt existing secret versions
     /// with the new key. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/security-encryption.html">
     /// Secret encryption and decryption</a>.
@@ -89,13 +88,13 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>If you include <code>SecretString</code> or <code>SecretBinary</code>, then Secrets
-        /// Manager creates a new version for the secret, and this parameter specifies the unique
-        /// identifier for the new version.</para><note><para>If you use the Amazon Web Services CLI or one of the Amazon Web Services SDKs to call
+        /// <para>If you include <c>SecretString</c> or <c>SecretBinary</c>, then Secrets Manager creates
+        /// a new version for the secret, and this parameter specifies the unique identifier for
+        /// the new version.</para><note><para>If you use the Amazon Web Services CLI or one of the Amazon Web Services SDKs to call
         /// this operation, then you can leave this parameter empty. The CLI or SDK generates
         /// a random UUID for you and includes it as the value for this parameter in the request.
         /// </para></note><para>If you generate a raw HTTP request to the Secrets Manager service endpoint, then you
-        /// must generate a <code>ClientRequestToken</code> and include it in the request.</para><para>This value helps ensure idempotency. Secrets Manager uses this value to prevent the
+        /// must generate a <c>ClientRequestToken</c> and include it in the request.</para><para>This value helps ensure idempotency. Secrets Manager uses this value to prevent the
         /// accidental creation of duplicate versions if there are failures and retries during
         /// a rotation. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a>
         /// value to ensure uniqueness of your versions within the specified secret. </para>
@@ -119,19 +118,19 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>The ARN, key ID, or alias of the KMS key that Secrets Manager uses to encrypt new
-        /// secret versions as well as any existing versions with the staging labels <code>AWSCURRENT</code>,
-        /// <code>AWSPENDING</code>, or <code>AWSPREVIOUS</code>. If you don't have <code>kms:Encrypt</code>
-        /// permission to the new key, Secrets Manager does not re-ecrypt existing secret versions
-        /// with the new key. For more information about versions and staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">Concepts:
-        /// Version</a>.</para><para>A key alias is always prefixed by <code>alias/</code>, for example <code>alias/aws/secretsmanager</code>.
+        /// secret versions as well as any existing versions with the staging labels <c>AWSCURRENT</c>,
+        /// <c>AWSPENDING</c>, or <c>AWSPREVIOUS</c>. If you don't have <c>kms:Encrypt</c> permission
+        /// to the new key, Secrets Manager does not re-ecrypt existing secret versions with the
+        /// new key. For more information about versions and staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">Concepts:
+        /// Version</a>.</para><para>A key alias is always prefixed by <c>alias/</c>, for example <c>alias/aws/secretsmanager</c>.
         /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html">About
         /// aliases</a>.</para><para>If you set this to an empty string, Secrets Manager uses the Amazon Web Services managed
-        /// key <code>aws/secretsmanager</code>. If this key doesn't already exist in your account,
+        /// key <c>aws/secretsmanager</c>. If this key doesn't already exist in your account,
         /// then Secrets Manager creates it for you automatically. All users and roles in the
-        /// Amazon Web Services account automatically have access to use <code>aws/secretsmanager</code>.
-        /// Creating <code>aws/secretsmanager</code> can result in a one-time significant delay
-        /// in returning the result. </para><important><para>You can only use the Amazon Web Services managed key <code>aws/secretsmanager</code>
-        /// if you call this operation using credentials from the same Amazon Web Services account
+        /// Amazon Web Services account automatically have access to use <c>aws/secretsmanager</c>.
+        /// Creating <c>aws/secretsmanager</c> can result in a one-time significant delay in returning
+        /// the result. </para><important><para>You can only use the Amazon Web Services managed key <c>aws/secretsmanager</c> if
+        /// you call this operation using credentials from the same Amazon Web Services account
         /// that owns the secret. If the secret is in a different account, then you must use a
         /// customer managed key and provide the ARN of that KMS key in this field. The user making
         /// the call must have permissions to both the secret and the KMS key in their respective
@@ -147,8 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>
         /// <para>The binary data to encrypt and store in the new version of the secret. We recommend
         /// that you store your binary data in a file and then pass the contents of the file as
-        /// a parameter. </para><para>Either <code>SecretBinary</code> or <code>SecretString</code> must have a value, but
-        /// not both.</para><para>You can't access this parameter in the Secrets Manager console.</para>
+        /// a parameter. </para><para>Either <c>SecretBinary</c> or <c>SecretString</c> must have a value, but not both.</para><para>You can't access this parameter in the Secrets Manager console.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -180,8 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>The text data to encrypt and store in the new version of the secret. We recommend
-        /// you use a JSON structure of key/value pairs for your secret value. </para><para>Either <code>SecretBinary</code> or <code>SecretString</code> must have a value, but
-        /// not both. </para>
+        /// you use a JSON structure of key/value pairs for your secret value. </para><para>Either <c>SecretBinary</c> or <c>SecretString</c> must have a value, but not both.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

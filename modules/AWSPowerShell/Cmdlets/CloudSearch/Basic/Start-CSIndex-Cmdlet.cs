@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     /// <summary>
     /// Tells the search domain to start indexing its documents using the latest indexing
     /// options. This operation must be invoked to activate options whose <a>OptionStatus</a>
-    /// is <code>RequiresIndexDocuments</code>.
+    /// is <c>RequiresIndexDocuments</c>.
     /// </summary>
     [Cmdlet("Start", "CSIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

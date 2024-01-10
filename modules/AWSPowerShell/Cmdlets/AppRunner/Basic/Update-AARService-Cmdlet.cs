@@ -40,8 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     /// and <a>UntagResource</a>.
     /// </para><para>
     /// This is an asynchronous operation. On a successful call, you can use the returned
-    /// <code>OperationId</code> and the <a>ListOperations</a> call to track the operation's
-    /// progress.
+    /// <c>OperationId</c> and the <a>ListOperations</a> call to track the operation's progress.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "AARService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -75,13 +74,13 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter SourceConfiguration_AutoDeploymentsEnabled
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, continuous integration from the source repository is enabled
-        /// for the App Runner service. Each repository change (including any source code commit
-        /// or new image version) starts a deployment.</para><para>Default: App Runner sets to <code>false</code> for a source image that uses an ECR
-        /// Public repository or an ECR repository that's in an Amazon Web Services account other
-        /// than the one that the service is in. App Runner sets to <code>true</code> in all other
-        /// cases (which currently include a source code repository or a source image using a
-        /// same-account ECR repository).</para>
+        /// <para>If <c>true</c>, continuous integration from the source repository is enabled for the
+        /// App Runner service. Each repository change (including any source code commit or new
+        /// image version) starts a deployment.</para><para>Default: App Runner sets to <c>false</c> for a source image that uses an ECR Public
+        /// repository or an ECR repository that's in an Amazon Web Services account other than
+        /// the one that the service is in. App Runner sets to <c>true</c> in all other cases
+        /// (which currently include a source code repository or a source image using a same-account
+        /// ECR repository).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,9 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter CodeConfiguration_ConfigurationSource
         /// <summary>
         /// <para>
-        /// <para>The source of the App Runner configuration. Values are interpreted as follows:</para><ul><li><para><code>REPOSITORY</code> – App Runner reads configuration values from the <code>apprunner.yaml</code>
-        /// file in the source code repository and ignores <code>CodeConfigurationValues</code>.</para></li><li><para><code>API</code> – App Runner uses configuration values provided in <code>CodeConfigurationValues</code>
-        /// and ignores the <code>apprunner.yaml</code> file in the source code repository.</para></li></ul>
+        /// <para>The source of the App Runner configuration. Values are interpreted as follows:</para><ul><li><para><c>REPOSITORY</c> – App Runner reads configuration values from the <c>apprunner.yaml</c>
+        /// file in the source code repository and ignores <c>CodeConfigurationValues</c>.</para></li><li><para><c>API</c> – App Runner uses configuration values provided in <c>CodeConfigurationValues</c>
+        /// and ignores the <c>apprunner.yaml</c> file in the source code repository.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter InstanceConfiguration_Cpu
         /// <summary>
         /// <para>
-        /// <para>The number of CPU units reserved for each instance of your App Runner service.</para><para>Default: <code>1 vCPU</code></para>
+        /// <para>The number of CPU units reserved for each instance of your App Runner service.</para><para>Default: <c>1 vCPU</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter EgressConfiguration_EgressType
         /// <summary>
         /// <para>
-        /// <para>The type of egress configuration.</para><para>Set to <code>DEFAULT</code> for access to resources hosted on public networks.</para><para>Set to <code>VPC</code> to associate your service to a custom VPC specified by <code>VpcConnectorArn</code>.</para>
+        /// <para>The type of egress configuration.</para><para>Set to <c>DEFAULT</c> for access to resources hosted on public networks.</para><para>Set to <c>VPC</c> to associate your service to a custom VPC specified by <c>VpcConnectorArn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>The number of consecutive checks that must succeed before App Runner decides that
-        /// the service is healthy.</para><para>Default: <code>1</code></para>
+        /// the service is healthy.</para><para>Default: <c>1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter HealthCheckConfiguration_Interval
         /// <summary>
         /// <para>
-        /// <para>The time interval, in seconds, between health checks.</para><para>Default: <code>5</code></para>
+        /// <para>The time interval, in seconds, between health checks.</para><para>Default: <c>5</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <para>
         /// <para>App Runner provides you with the option to choose between <i>Internet Protocol version
         /// 4 (IPv4)</i> and <i>dual stack</i> (IPv4 and IPv6) for your incoming public network
-        /// configuration. This is an optional parameter. If you do not specify an <code>IpAddressType</code>,
+        /// configuration. This is an optional parameter. If you do not specify an <c>IpAddressType</c>,
         /// it defaults to select IPv4.</para><note><para> Currently, App Runner supports dual stack for only Public endpoint. Only IPv4 is
         /// supported for Private endpoint. If you update a service that's using dual-stack Public
         /// endpoint to a Private endpoint, your App Runner service will default to support only
@@ -239,8 +238,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>Specifies whether your App Runner service is publicly accessible. To make the service
-        /// publicly accessible set it to <code>True</code>. To make the service privately accessible,
-        /// from only within an Amazon VPC set it to <code>False</code>. </para>
+        /// publicly accessible set it to <c>True</c>. To make the service privately accessible,
+        /// from only within an Amazon VPC set it to <c>False</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -251,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter InstanceConfiguration_Memory
         /// <summary>
         /// <para>
-        /// <para>The amount of memory, in MB or GB, reserved for each instance of your App Runner service.</para><para>Default: <code>2 GB</code></para>
+        /// <para>The amount of memory, in MB or GB, reserved for each instance of your App Runner service.</para><para>Default: <c>2 GB</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -262,8 +261,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the observability configuration that is associated
-        /// with the service. Specified only when <code>ObservabilityEnabled</code> is <code>true</code>.</para><para>Specify an ARN with a name and a revision number to associate that revision. For example:
-        /// <code>arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing/3</code></para><para>Specify just the name to associate the latest revision. For example: <code>arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing</code></para>
+        /// with the service. Specified only when <c>ObservabilityEnabled</c> is <c>true</c>.</para><para>Specify an ARN with a name and a revision number to associate that revision. For example:
+        /// <c>arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing/3</c></para><para>Specify just the name to associate the latest revision. For example: <c>arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -273,8 +272,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter ObservabilityConfiguration_ObservabilityEnabled
         /// <summary>
         /// <para>
-        /// <para>When <code>true</code>, an observability configuration resource is associated with
-        /// the service, and an <code>ObservabilityConfigurationArn</code> is specified.</para>
+        /// <para>When <c>true</c>, an observability configuration resource is associated with the service,
+        /// and an <c>ObservabilityConfigurationArn</c> is specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -284,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter HealthCheckConfiguration_Path
         /// <summary>
         /// <para>
-        /// <para>The URL that health check requests are sent to.</para><para><code>Path</code> is only applicable when you set <code>Protocol</code> to <code>HTTP</code>.</para><para>Default: <code>"/"</code></para>
+        /// <para>The URL that health check requests are sent to.</para><para><c>Path</c> is only applicable when you set <c>Protocol</c> to <c>HTTP</c>.</para><para>Default: <c>"/"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -294,7 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter CodeConfigurationValues_Port
         /// <summary>
         /// <para>
-        /// <para>The port that your application listens to in the container.</para><para>Default: <code>8080</code></para>
+        /// <para>The port that your application listens to in the container.</para><para>Default: <c>8080</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -305,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter ImageConfiguration_Port
         /// <summary>
         /// <para>
-        /// <para>The port that your application listens to in the container.</para><para>Default: <code>8080</code></para>
+        /// <para>The port that your application listens to in the container.</para><para>Default: <c>8080</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -316,8 +315,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter HealthCheckConfiguration_Protocol
         /// <summary>
         /// <para>
-        /// <para>The IP protocol that App Runner uses to perform health checks for your service.</para><para>If you set <code>Protocol</code> to <code>HTTP</code>, App Runner sends health check
-        /// requests to the HTTP path specified by <code>Path</code>.</para><para>Default: <code>TCP</code></para>
+        /// <para>The IP protocol that App Runner uses to perform health checks for your service.</para><para>If you set <c>Protocol</c> to <c>HTTP</c>, App Runner sends health check requests
+        /// to the HTTP path specified by <c>Path</c>.</para><para>Default: <c>TCP</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -465,7 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         #region Parameter HealthCheckConfiguration_Timeout
         /// <summary>
         /// <para>
-        /// <para>The time, in seconds, to wait for a health check response before deciding it failed.</para><para>Default: <code>2</code></para>
+        /// <para>The time, in seconds, to wait for a health check response before deciding it failed.</para><para>Default: <c>2</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -488,7 +487,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>The number of consecutive checks that must fail before App Runner decides that the
-        /// service is unhealthy.</para><para>Default: <code>5</code></para>
+        /// service is unhealthy.</para><para>Default: <c>5</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -511,7 +510,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate
-        /// with your App Runner service. Only valid when <code>EgressType = VPC</code>.</para>
+        /// with your App Runner service. Only valid when <c>EgressType = VPC</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

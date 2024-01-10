@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter DataSourceConfiguration_IntendedUse
         /// <summary>
         /// <para>
-        /// <para>Specifies how the results of an operation will be stored by the caller. </para><para>Valid values include:</para><ul><li><para><code>SingleUse</code> specifies that the results won't be stored. </para></li><li><para><code>Storage</code> specifies that the result can be cached or stored in a database.</para></li></ul><para>Default value: <code>SingleUse</code></para>
+        /// <para>Specifies how the results of an operation will be stored by the caller. </para><para>Valid values include:</para><ul><li><para><c>SingleUse</c> specifies that the results won't be stored. </para></li><li><para><c>Storage</c> specifies that the result can be cached or stored in a database.</para></li></ul><para>Default value: <c>SingleUse</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</para>
+        /// <para>No longer used. If included, the only allowed value is <c>RequestBasedUsage</c>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

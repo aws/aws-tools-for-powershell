@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
     /// Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want
-    /// to remove more than one IP address, submit one <code>DisassociateResolverEndpointIpAddress</code>
+    /// to remove more than one IP address, submit one <c>DisassociateResolverEndpointIpAddress</c>
     /// request for each IP address.
     /// 
     ///  

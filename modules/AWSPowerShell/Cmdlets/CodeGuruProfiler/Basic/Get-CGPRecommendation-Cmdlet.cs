@@ -28,9 +28,9 @@ using Amazon.CodeGuruProfiler.Model;
 namespace Amazon.PowerShell.Cmdlets.CGP
 {
     /// <summary>
-    /// Returns a list of <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_Recommendation.html"><code>Recommendation</code></a> objects that contain recommendations for a profiling
-    /// group for a given time period. A list of <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_Anomaly.html"><code>Anomaly</code></a> objects that contains details about anomalies detected in
-    /// the profiling group for the same time period is also returned.
+    /// Returns a list of <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_Recommendation.html"><c>Recommendation</c></a> objects that contain recommendations for a profiling group
+    /// for a given time period. A list of <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_Anomaly.html"><c>Anomaly</c></a> objects that contains details about anomalies detected in the
+    /// profiling group for the same time period is also returned.
     /// </summary>
     [Cmdlet("Get", "CGPRecommendation")]
     [OutputType("Amazon.CodeGuruProfiler.Model.GetRecommendationsResponse")]
@@ -46,10 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para> The start time of the profile to get analysis data about. You must specify <code>startTime</code>
-        /// and <code>endTime</code>. This is specified using the ISO 8601 format. For example,
-        /// 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
-        /// </para>
+        /// <para> The start time of the profile to get analysis data about. You must specify <c>startTime</c>
+        /// and <c>endTime</c>. This is specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
+        /// represents 1 millisecond past June 1, 2020 1:15:02 PM UTC. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         /// <summary>
         /// <para>
         /// <para> The language used to provide analysis. Specify using a string that is one of the
-        /// following <code>BCP 47</code> language codes. </para><ul><li><para><code>de-DE</code> - German, Germany </para></li><li><para><code>en-GB</code> - English, United Kingdom </para></li><li><para><code>en-US</code> - English, United States </para></li><li><para><code>es-ES</code> - Spanish, Spain </para></li><li><para><code>fr-FR</code> - French, France </para></li><li><para><code>it-IT</code> - Italian, Italy </para></li><li><para><code>ja-JP</code> - Japanese, Japan </para></li><li><para><code>ko-KR</code> - Korean, Republic of Korea </para></li><li><para><code>pt-BR</code> - Portugese, Brazil </para></li><li><para><code>zh-CN</code> - Chinese, China </para></li><li><para><code>zh-TW</code> - Chinese, Taiwan </para></li></ul>
+        /// following <c>BCP 47</c> language codes. </para><ul><li><para><c>de-DE</c> - German, Germany </para></li><li><para><c>en-GB</c> - English, United Kingdom </para></li><li><para><c>en-US</c> - English, United States </para></li><li><para><c>es-ES</c> - Spanish, Spain </para></li><li><para><c>fr-FR</c> - French, France </para></li><li><para><c>it-IT</c> - Italian, Italy </para></li><li><para><c>ja-JP</c> - Japanese, Japan </para></li><li><para><c>ko-KR</c> - Korean, Republic of Korea </para></li><li><para><c>pt-BR</c> - Portugese, Brazil </para></li><li><para><c>zh-CN</c> - Chinese, China </para></li><li><para><c>zh-TW</c> - Chinese, Taiwan </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,10 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para> The end time of the profile to get analysis data about. You must specify <code>startTime</code>
-        /// and <code>endTime</code>. This is specified using the ISO 8601 format. For example,
-        /// 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
-        /// </para>
+        /// <para> The end time of the profile to get analysis data about. You must specify <c>startTime</c>
+        /// and <c>endTime</c>. This is specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
+        /// represents 1 millisecond past June 1, 2020 1:15:02 PM UTC. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -106,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         /// shift to be active initially for up to three days (72 hours).</para><para>If you want to still keep traffic away from an Availability Zone, you can update the
         /// zonal shift and set a new expiration. You can also cancel a zonal shift, before it
         /// expires, for example, if you're ready to restore traffic to the Availability Zone.</para><para>To set a length of time for a zonal shift to be active, specify a whole number, and
-        /// then one of the following, with no space:</para><ul><li><para><b>A lowercase letter m:</b> To specify that the value is in minutes.</para></li><li><para><b>A lowercase letter h:</b> To specify that the value is in hours.</para></li></ul><para>For example: <code>20h</code> means the zonal shift expires in 20 hours. <code>120m</code>
-        /// means the zonal shift expires in 120 minutes (2 hours).</para>
+        /// then one of the following, with no space:</para><ul><li><para><b>A lowercase letter m:</b> To specify that the value is in minutes.</para></li><li><para><b>A lowercase letter h:</b> To specify that the value is in hours.</para></li></ul><para>For example: <c>20h</c> means the zonal shift expires in 20 hours. <c>120m</c> means
+        /// the zonal shift expires in 120 minutes (2 hours).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

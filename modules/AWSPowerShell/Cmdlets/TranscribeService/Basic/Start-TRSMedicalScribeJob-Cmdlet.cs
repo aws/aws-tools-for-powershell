@@ -37,31 +37,27 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// preliminary clinical notes. To learn more about these features, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/health-scribe.html">Amazon
     /// Web Services HealthScribe</a>.
     /// </para><para>
-    /// To make a <code>StartMedicalScribeJob</code> request, you must first upload your media
-    /// file into an Amazon S3 bucket; you can then specify the Amazon S3 location of the
-    /// file using the <code>Media</code> parameter.
+    /// To make a <c>StartMedicalScribeJob</c> request, you must first upload your media file
+    /// into an Amazon S3 bucket; you can then specify the Amazon S3 location of the file
+    /// using the <c>Media</c> parameter.
     /// </para><para>
-    /// You must include the following parameters in your <code>StartMedicalTranscriptionJob</code>
+    /// You must include the following parameters in your <c>StartMedicalTranscriptionJob</c>
     /// request:
-    /// </para><ul><li><para><code>DataAccessRoleArn</code>: The ARN of an IAM role with the these minimum permissions:
-    /// read permission on input file Amazon S3 bucket specified in <code>Media</code>, write
-    /// permission on the Amazon S3 bucket specified in <code>OutputBucketName</code>, and
-    /// full permissions on the KMS key specified in <code>OutputEncryptionKMSKeyId</code>
-    /// (if set). The role should also allow <code>transcribe.amazonaws.com</code> to assume
-    /// it. 
-    /// </para></li><li><para><code>Media</code> (<code>MediaFileUri</code>): The Amazon S3 location of your media
-    /// file.
-    /// </para></li><li><para><code>MedicalScribeJobName</code>: A custom name you create for your MedicalScribe
-    /// job that is unique within your Amazon Web Services account.
-    /// </para></li><li><para><code>OutputBucketName</code>: The Amazon S3 bucket where you want your output files
-    /// stored.
-    /// </para></li><li><para><code>Settings</code>: A <code>MedicalScribeSettings</code> obect that must set exactly
-    /// one of <code>ShowSpeakerLabels</code> or <code>ChannelIdentification</code> to true.
-    /// If <code>ShowSpeakerLabels</code> is true, <code>MaxSpeakerLabels</code> must also
-    /// be set. 
-    /// </para></li><li><para><code>ChannelDefinitions</code>: A <code>MedicalScribeChannelDefinitions</code> array
-    /// should be set if and only if the <code>ChannelIdentification</code> value of <code>Settings</code>
-    /// is set to true. 
+    /// </para><ul><li><para><c>DataAccessRoleArn</c>: The ARN of an IAM role with the these minimum permissions:
+    /// read permission on input file Amazon S3 bucket specified in <c>Media</c>, write permission
+    /// on the Amazon S3 bucket specified in <c>OutputBucketName</c>, and full permissions
+    /// on the KMS key specified in <c>OutputEncryptionKMSKeyId</c> (if set). The role should
+    /// also allow <c>transcribe.amazonaws.com</c> to assume it. 
+    /// </para></li><li><para><c>Media</c> (<c>MediaFileUri</c>): The Amazon S3 location of your media file.
+    /// </para></li><li><para><c>MedicalScribeJobName</c>: A custom name you create for your MedicalScribe job
+    /// that is unique within your Amazon Web Services account.
+    /// </para></li><li><para><c>OutputBucketName</c>: The Amazon S3 bucket where you want your output files stored.
+    /// </para></li><li><para><c>Settings</c>: A <c>MedicalScribeSettings</c> obect that must set exactly one of
+    /// <c>ShowSpeakerLabels</c> or <c>ChannelIdentification</c> to true. If <c>ShowSpeakerLabels</c>
+    /// is true, <c>MaxSpeakerLabels</c> must also be set. 
+    /// </para></li><li><para><c>ChannelDefinitions</c>: A <c>MedicalScribeChannelDefinitions</c> array should
+    /// be set if and only if the <c>ChannelIdentification</c> value of <c>Settings</c> is
+    /// set to true. 
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Start", "TRSMedicalScribeJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -80,13 +76,12 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>Makes it possible to specify which speaker is on which channel. For example, if the
-        /// clinician is the first participant to speak, you would set <code>ChannelId</code>
-        /// of the first <code>ChannelDefinition</code> in the list to <code>0</code> (to indicate
-        /// the first channel) and <code>ParticipantRole</code> to <code>CLINICIAN</code> (to
-        /// indicate that it's the clinician speaking). Then you would set the <code>ChannelId</code>
-        /// of the second <code>ChannelDefinition</code> in the list to <code>1</code> (to indicate
-        /// the second channel) and <code>ParticipantRole</code> to <code>PATIENT</code> (to indicate
-        /// that it's the patient speaking). </para>
+        /// clinician is the first participant to speak, you would set <c>ChannelId</c> of the
+        /// first <c>ChannelDefinition</c> in the list to <c>0</c> (to indicate the first channel)
+        /// and <c>ParticipantRole</c> to <c>CLINICIAN</c> (to indicate that it's the clinician
+        /// speaking). Then you would set the <c>ChannelId</c> of the second <c>ChannelDefinition</c>
+        /// in the list to <c>1</c> (to indicate the second channel) and <c>ParticipantRole</c>
+        /// to <c>PATIENT</c> (to indicate that it's the patient speaking). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon
         /// S3 bucket that contains your input files, write to the output bucket, and use your
         /// KMS key if supplied. If the role that you specify doesn’t have the appropriate permissions
-        /// your request fails.</para><para>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>.
-        /// For example: <code>arn:aws:iam::111122223333:role/Admin</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
+        /// your request fails.</para><para>IAM role ARNs have the format <c>arn:partition:iam::account:role/role-name-with-path</c>.
+        /// For example: <c>arn:aws:iam::111122223333:role/Admin</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
         /// ARNs</a>.</para>
         /// </para>
         /// </summary>
@@ -145,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>Specify the maximum number of speakers you want to partition in your media.</para><para>Note that if your media contains more speakers than the specified number, multiple
-        /// speakers are treated as a single speaker.</para><para>If you specify the <code>MaxSpeakerLabels</code> field, you must set the <code>ShowSpeakerLabels</code>
+        /// speakers are treated as a single speaker.</para><para>If you specify the <c>MaxSpeakerLabels</c> field, you must set the <c>ShowSpeakerLabels</c>
         /// field to true.</para>
         /// </para>
         /// </summary>
@@ -157,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Media_MediaFileUri
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 location of the media file you want to transcribe. For example:</para><ul><li><para><code>s3://DOC-EXAMPLE-BUCKET/my-media-file.flac</code></para></li><li><para><code>s3://DOC-EXAMPLE-BUCKET/media-files/my-media-file.flac</code></para></li></ul><para>Note that the Amazon S3 bucket that contains your input media must be located in the
+        /// <para>The Amazon S3 location of the media file you want to transcribe. For example:</para><ul><li><para><c>s3://DOC-EXAMPLE-BUCKET/my-media-file.flac</c></para></li><li><para><c>s3://DOC-EXAMPLE-BUCKET/media-files/my-media-file.flac</c></para></li></ul><para>Note that the Amazon S3 bucket that contains your input media must be located in the
         /// same Amazon Web Services Region where you're making your transcription request.</para>
         /// </para>
         /// </summary>
@@ -170,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>A unique name, chosen by you, for your Medical Scribe job.</para><para>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
         /// Web Services account. If you try to create a new job with the same name as an existing
-        /// job, you get a <code>ConflictException</code> error.</para>
+        /// job, you get a <c>ConflictException</c> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -188,8 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The name of the Amazon S3 bucket where you want your Medical Scribe output stored.
-        /// Do not include the <code>S3://</code> prefix of the specified bucket.</para><para>Note that the role specified in the <code>DataAccessRoleArn</code> request parameter
-        /// must have permission to use the specified location. You can change Amazon S3 permissions
+        /// Do not include the <c>S3://</c> prefix of the specified bucket.</para><para>Note that the role specified in the <c>DataAccessRoleArn</c> request parameter must
+        /// have permission to use the specified location. You can change Amazon S3 permissions
         /// using the <a href="https://console.aws.amazon.com/s3">Amazon Web Services Management
         /// Console</a>. See also <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions
         /// Required for IAM User Roles</a>.</para>
@@ -210,10 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The KMS key you want to use to encrypt your Medical Scribe output.</para><para>If using a key located in the <b>current</b> Amazon Web Services account, you can
-        /// specify your KMS key in one of four ways:</para><ol><li><para>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</para></li><li><para>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If using a key located in a <b>different</b> Amazon Web Services account than the
-        /// current Amazon Web Services account, you can specify your KMS key in one of two ways:</para><ol><li><para>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If you do not specify an encryption key, your output is encrypted with the default
-        /// Amazon S3 key (SSE-S3).</para><para>Note that the role specified in the <code>DataAccessRoleArn</code> request parameter
-        /// must have permission to use the specified KMS key.</para>
+        /// specify your KMS key in one of four ways:</para><ol><li><para>Use the KMS key ID itself. For example, <c>1234abcd-12ab-34cd-56ef-1234567890ab</c>.</para></li><li><para>Use an alias for the KMS key ID. For example, <c>alias/ExampleAlias</c>.</para></li><li><para>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <c>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</c>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <c>arn:aws:kms:region:account-ID:alias/ExampleAlias</c>.</para></li></ol><para>If using a key located in a <b>different</b> Amazon Web Services account than the
+        /// current Amazon Web Services account, you can specify your KMS key in one of two ways:</para><ol><li><para>Use the ARN for the KMS key ID. For example, <c>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</c>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <c>arn:aws:kms:region:account-ID:alias/ExampleAlias</c>.</para></li></ol><para>If you do not specify an encryption key, your output is encrypted with the default
+        /// Amazon S3 key (SSE-S3).</para><para>Note that the role specified in the <c>DataAccessRoleArn</c> request parameter must
+        /// have permission to use the specified KMS key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,9 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Media_RedactedMediaFileUri
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 location of the media file you want to redact. For example:</para><ul><li><para><code>s3://DOC-EXAMPLE-BUCKET/my-media-file.flac</code></para></li><li><para><code>s3://DOC-EXAMPLE-BUCKET/media-files/my-media-file.flac</code></para></li></ul><para>Note that the Amazon S3 bucket that contains your input media must be located in the
-        /// same Amazon Web Services Region where you're making your transcription request.</para><important><para><code>RedactedMediaFileUri</code> produces a redacted audio file in addition to a
-        /// redacted transcript. It is only supported for Call Analytics (<code>StartCallAnalyticsJob</code>)
+        /// <para>The Amazon S3 location of the media file you want to redact. For example:</para><ul><li><para><c>s3://DOC-EXAMPLE-BUCKET/my-media-file.flac</c></para></li><li><para><c>s3://DOC-EXAMPLE-BUCKET/media-files/my-media-file.flac</c></para></li></ul><para>Note that the Amazon S3 bucket that contains your input media must be located in the
+        /// same Amazon Web Services Region where you're making your transcription request.</para><important><para><c>RedactedMediaFileUri</c> produces a redacted audio file in addition to a redacted
+        /// transcript. It is only supported for Call Analytics (<c>StartCallAnalyticsJob</c>)
         /// transcription requests.</para></important>
         /// </para>
         /// </summary>
@@ -237,8 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>Enables speaker partitioning (diarization) in your Medical Scribe output. Speaker
-        /// partitioning labels the speech from individual speakers in your media file.</para><para>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include
-        /// <code>MaxSpeakerLabels</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning
+        /// partitioning labels the speech from individual speakers in your media file.</para><para>If you enable <c>ShowSpeakerLabels</c> in your request, you must also include <c>MaxSpeakerLabels</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning
         /// speakers (diarization)</a>.</para>
         /// </para>
         /// </summary>
@@ -263,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_VocabularyFilterMethod
         /// <summary>
         /// <para>
-        /// <para>Specify how you want your custom vocabulary filter applied to your transcript.</para><para>To replace words with <code>***</code>, choose <code>mask</code>.</para><para>To delete words, choose <code>remove</code>.</para><para>To flag words without changing them, choose <code>tag</code>.</para>
+        /// <para>Specify how you want your custom vocabulary filter applied to your transcript.</para><para>To replace words with <c>***</c>, choose <c>mask</c>.</para><para>To delete words, choose <c>remove</c>.</para><para>To flag words without changing them, choose <c>tag</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,8 +269,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The name of the custom vocabulary filter you want to include in your Medical Scribe
-        /// request. Custom vocabulary filter names are case sensitive.</para><para>Note that if you include <code>VocabularyFilterName</code> in your request, you must
-        /// also include <code>VocabularyFilterMethod</code>.</para>
+        /// request. Custom vocabulary filter names are case sensitive.</para><para>Note that if you include <c>VocabularyFilterName</c> in your request, you must also
+        /// include <c>VocabularyFilterMethod</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

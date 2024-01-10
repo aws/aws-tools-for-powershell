@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter FailOnWarning
         /// <summary>
         /// <para>
-        /// <para>A query parameter to indicate whether to rollback ApiKey importation (<code>true</code>)
-        /// or not (<code>false</code>) when error is encountered.</para>
+        /// <para>A query parameter to indicate whether to rollback ApiKey importation (<c>true</c>)
+        /// or not (<c>false</c>) when error is encountered.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A query parameter to specify the input format to imported API keys. Currently, only
-        /// the <code>csv</code> format is supported.</para>
+        /// the <c>csv</c> format is supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

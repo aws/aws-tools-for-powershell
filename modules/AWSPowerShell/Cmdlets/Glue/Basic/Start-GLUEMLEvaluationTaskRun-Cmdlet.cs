@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// of those examples to learn from them. The rest of the labels are used as a test to
     /// estimate quality.
     /// </para><para>
-    /// Returns a unique identifier for the run. You can call <code>GetMLTaskRun</code> to
-    /// get more information about the stats of the <code>EvaluationTaskRun</code>.
+    /// Returns a unique identifier for the run. You can call <c>GetMLTaskRun</c> to get more
+    /// information about the stats of the <c>EvaluationTaskRun</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "GLUEMLEvaluationTaskRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

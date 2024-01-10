@@ -39,13 +39,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// This API enables you to take an ad hoc snapshot. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot">Editing
     /// a snapshot schedule</a>.
     /// </para><para>
-    /// In the <code>CreateSnapshot</code> request, you identify the volume by providing its
-    /// Amazon Resource Name (ARN). You must also provide description for the snapshot. When
-    /// Storage Gateway takes the snapshot of specified volume, the snapshot and description
-    /// appears in the Storage Gateway console. In response, Storage Gateway returns you a
-    /// snapshot ID. You can use this snapshot ID to check the snapshot progress or later
-    /// use it when you want to create a volume from a snapshot. This operation is only supported
-    /// in stored and cached volume gateway type.
+    /// In the <c>CreateSnapshot</c> request, you identify the volume by providing its Amazon
+    /// Resource Name (ARN). You must also provide description for the snapshot. When Storage
+    /// Gateway takes the snapshot of specified volume, the snapshot and description appears
+    /// in the Storage Gateway console. In response, Storage Gateway returns you a snapshot
+    /// ID. You can use this snapshot ID to check the snapshot progress or later use it when
+    /// you want to create a volume from a snapshot. This operation is only supported in stored
+    /// and cached volume gateway type.
     /// </para><note><para>
     /// To list or delete a snapshot, you must use the Amazon EC2 API. For more information,
     /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html">DescribeSnapshots</a>

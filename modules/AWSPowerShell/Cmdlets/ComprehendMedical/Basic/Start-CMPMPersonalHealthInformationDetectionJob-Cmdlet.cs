@@ -28,7 +28,7 @@ using Amazon.ComprehendMedical.Model;
 namespace Amazon.PowerShell.Cmdlets.CMPM
 {
     /// <summary>
-    /// Starts an asynchronous job to detect protected health information (PHI). Use the <code>DescribePHIDetectionJob</code>
+    /// Starts an asynchronous job to detect protected health information (PHI). Use the <c>DescribePHIDetectionJob</c>
     /// operation to track the status of a job.
     /// </summary>
     [Cmdlet("Start", "CMPMPersonalHealthInformationDetectionJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -133,10 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
         #region Parameter OutputDataConfig_S3Bucket
         /// <summary>
         /// <para>
-        /// <para>When you use the <code>OutputDataConfig</code> object with asynchronous operations,
-        /// you specify the Amazon S3 location where you want to write the output data. The URI
-        /// must be in the same region as the API endpoint that you are calling. The location
-        /// is used as the prefix for the actual location of the output.</para>
+        /// <para>When you use the <c>OutputDataConfig</c> object with asynchronous operations, you
+        /// specify the Amazon S3 location where you want to write the output data. The URI must
+        /// be in the same region as the API endpoint that you are calling. The location is used
+        /// as the prefix for the actual location of the output.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

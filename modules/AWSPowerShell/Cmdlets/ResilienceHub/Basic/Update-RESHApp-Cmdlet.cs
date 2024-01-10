@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <summary>
         /// <para>
         /// <para>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
-        /// ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
+        /// ARN is: arn:<c>partition</c>:resiliencehub:<c>region</c>:<c>account</c>:app/<c>app-id</c>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>
         /// guide.</para>
@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// These ARNs are used for querying purposes while importing resources and assessing
         /// your application.</para><note><ul><li><para>These ARNs are required only when your resources are in other accounts and you have
         /// different role name in these accounts. Else, the invoker role name will be used in
-        /// the other accounts.</para></li><li><para>These roles must have a trust policy with <code>iam:AssumeRole</code> permission to
-        /// the invoker role in the primary account.</para></li></ul></note>
+        /// the other accounts.</para></li><li><para>These roles must have a trust policy with <c>iam:AssumeRole</c> permission to the
+        /// invoker role in the primary account.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,9 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <para>
         /// <para>Existing Amazon Web Services IAM role name in the primary Amazon Web Services account
         /// that will be assumed by Resilience Hub Service Principle to obtain a read-only access
-        /// to your application resources while running an assessment.</para><note><ul><li><para>You must have <code>iam:passRole</code> permission for this role while creating or
-        /// updating the application.</para></li><li><para>Currently, <code>invokerRoleName</code> accepts only <code>[A-Za-z0-9_+=,.@-]</code>
-        /// characters.</para></li></ul></note>
+        /// to your application resources while running an assessment.</para><note><ul><li><para>You must have <c>iam:passRole</c> permission for this role while creating or updating
+        /// the application.</para></li><li><para>Currently, <c>invokerRoleName</c> accepts only <c>[A-Za-z0-9_+=,.@-]</c> characters.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>.
+        /// <para>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: arn:<c>partition</c>:resiliencehub:<c>region</c>:<c>account</c>:resiliency-policy/<c>policy-id</c>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>
         /// guide.</para>

@@ -31,20 +31,20 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// Used by activity workers and Task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
     /// pattern, and optionally Task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync">job
     /// run</a> pattern to report to Step Functions that the task represented by the specified
-    /// <code>taskToken</code> is still making progress. This action resets the <code>Heartbeat</code>
-    /// clock. The <code>Heartbeat</code> threshold is specified in the state machine's Amazon
-    /// States Language definition (<code>HeartbeatSeconds</code>). This action does not in
-    /// itself create an event in the execution history. However, if the task times out, the
-    /// execution history contains an <code>ActivityTimedOut</code> entry for activities,
-    /// or a <code>TaskTimedOut</code> entry for tasks using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync">job
+    /// <c>taskToken</c> is still making progress. This action resets the <c>Heartbeat</c>
+    /// clock. The <c>Heartbeat</c> threshold is specified in the state machine's Amazon States
+    /// Language definition (<c>HeartbeatSeconds</c>). This action does not in itself create
+    /// an event in the execution history. However, if the task times out, the execution history
+    /// contains an <c>ActivityTimedOut</c> entry for activities, or a <c>TaskTimedOut</c>
+    /// entry for tasks using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync">job
     /// run</a> or <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
     /// pattern.
     /// 
     ///  <note><para>
-    /// The <code>Timeout</code> of a task, defined in the state machine's Amazon States Language
+    /// The <c>Timeout</c> of a task, defined in the state machine's Amazon States Language
     /// definition, is its maximum allowed duration, regardless of the number of <a>SendTaskHeartbeat</a>
-    /// requests received. Use <code>HeartbeatSeconds</code> to configure the timeout interval
-    /// for heartbeats.
+    /// requests received. Use <c>HeartbeatSeconds</c> to configure the timeout interval for
+    /// heartbeats.
     /// </para></note>
     /// </summary>
     [Cmdlet("Send", "SFNTaskHeartbeat", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -28,8 +28,8 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Updates an existing backup plan identified by its <code>backupPlanId</code> with the
-    /// input document in JSON format. The new version is uniquely identified by a <code>VersionId</code>.
+    /// Updates an existing backup plan identified by its <c>backupPlanId</c> with the input
+    /// document in JSON format. The new version is uniquely identified by a <c>VersionId</c>.
     /// </summary>
     [Cmdlet("Update", "BAKBackupPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Backup.Model.UpdateBackupPlanResponse")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupPlan_AdvancedBackupSetting
         /// <summary>
         /// <para>
-        /// <para>Specifies a list of <code>BackupOptions</code> for each resource type. These settings
-        /// are only available for Windows Volume Shadow Copy Service (VSS) backup jobs.</para>
+        /// <para>Specifies a list of <c>BackupOptions</c> for each resource type. These settings are
+        /// only available for Windows Volume Shadow Copy Service (VSS) backup jobs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupPlan_Rule
         /// <summary>
         /// <para>
-        /// <para>An array of <code>BackupRule</code> objects, each of which specifies a scheduled task
-        /// that is used to back up a selection of resources.</para>
+        /// <para>An array of <c>BackupRule</c> objects, each of which specifies a scheduled task that
+        /// is used to back up a selection of resources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

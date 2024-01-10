@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token that was returned from the previous <code>ListPipelineExecutions</code>
-        /// call, which can be used to return the next set of pipeline executions in the list.</para>
+        /// <para>The token that was returned from the previous <c>ListPipelineExecutions</c> call,
+        /// which can be used to return the next set of pipeline executions in the list.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

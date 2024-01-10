@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter Comment_Body
         /// <summary>
         /// <para>
-        /// <para>Text in the body of a <code>Comment</code> on a case.</para>
+        /// <para>Text in the body of a <c>Comment</c> on a case.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter Comment_ContentType
         /// <summary>
         /// <para>
-        /// <para>Type of the text in the box of a <code>Comment</code> on a case.</para>
+        /// <para>Type of the text in the box of a <c>Comment</c> on a case.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
     /// Creates an outbound call to a phone number from the phone number specified in the
-    /// request, and it invokes the endpoint of the specified <code>sipMediaApplicationId</code>.
+    /// request, and it invokes the endpoint of the specified <c>sipMediaApplicationId</c>.
     /// </summary>
     [Cmdlet("New", "CHMVOSipMediaApplicationCall", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.SipMediaApplicationCall")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         /// <summary>
         /// <para>
         /// <para>Context passed to a CreateSipMediaApplication API call. For example, you could pass
-        /// key-value pairs such as: <code>"FirstName": "John", "LastName": "Doe"</code></para>
+        /// key-value pairs such as: <c>"FirstName": "John", "LastName": "Doe"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

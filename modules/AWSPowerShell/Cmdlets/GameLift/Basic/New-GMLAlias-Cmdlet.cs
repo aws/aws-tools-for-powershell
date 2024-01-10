@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To create a fleet alias, specify an alias name, routing strategy, and optional description.
     /// Each simple alias can point to only one fleet, but a fleet can have multiple aliases.
     /// If successful, a new alias record is returned, including an alias ID and an ARN. You
-    /// can reassign an alias to another fleet by calling <code>UpdateAlias</code>.
+    /// can reassign an alias to another fleet by calling <c>UpdateAlias</c>.
     /// </para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>

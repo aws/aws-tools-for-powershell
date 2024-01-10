@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>Specify the <code>resourceArn</code> for the resource from which to remove the tags.</para>
+        /// <para>Specify the <c>resourceArn</c> for the resource from which to remove the tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

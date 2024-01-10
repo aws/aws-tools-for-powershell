@@ -34,29 +34,26 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     ///  
     /// <para>
     /// You start asynchronous text analysis by calling <a>StartDocumentAnalysis</a>, which
-    /// returns a job identifier (<code>JobId</code>). When the text analysis operation finishes,
+    /// returns a job identifier (<c>JobId</c>). When the text analysis operation finishes,
     /// Amazon Textract publishes a completion status to the Amazon Simple Notification Service
-    /// (Amazon SNS) topic that's registered in the initial call to <code>StartDocumentAnalysis</code>.
+    /// (Amazon SNS) topic that's registered in the initial call to <c>StartDocumentAnalysis</c>.
     /// To get the results of the text-detection operation, first check that the status value
-    /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetDocumentAnalysis</code>,
-    /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartDocumentAnalysis</code>.
-    /// </para><para><code>GetDocumentAnalysis</code> returns an array of <a>Block</a> objects. The following
+    /// published to the Amazon SNS topic is <c>SUCCEEDED</c>. If so, call <c>GetDocumentAnalysis</c>,
+    /// and pass the job identifier (<c>JobId</c>) from the initial call to <c>StartDocumentAnalysis</c>.
+    /// </para><para><c>GetDocumentAnalysis</c> returns an array of <a>Block</a> objects. The following
     /// types of information are returned: 
     /// </para><ul><li><para>
     /// Form data (key-value pairs). The related information is returned in two <a>Block</a>
-    /// objects, each of type <code>KEY_VALUE_SET</code>: a KEY <code>Block</code> object
-    /// and a VALUE <code>Block</code> object. For example, <i>Name: Ana Silva Carolina</i>
-    /// contains a key and value. <i>Name:</i> is the key. <i>Ana Silva Carolina</i> is the
-    /// value.
+    /// objects, each of type <c>KEY_VALUE_SET</c>: a KEY <c>Block</c> object and a VALUE
+    /// <c>Block</c> object. For example, <i>Name: Ana Silva Carolina</i> contains a key and
+    /// value. <i>Name:</i> is the key. <i>Ana Silva Carolina</i> is the value.
     /// </para></li><li><para>
-    /// Table and table cell data. A TABLE <code>Block</code> object contains information
-    /// about a detected table. A CELL <code>Block</code> object is returned for each cell
-    /// in a table.
+    /// Table and table cell data. A TABLE <c>Block</c> object contains information about
+    /// a detected table. A CELL <c>Block</c> object is returned for each cell in a table.
     /// </para></li><li><para>
-    /// Lines and words of text. A LINE <code>Block</code> object contains one or more WORD
-    /// <code>Block</code> objects. All lines and words that are detected in the document
-    /// are returned (including text that doesn't have a relationship with the value of the
-    /// <code>StartDocumentAnalysis</code><code>FeatureTypes</code> input parameter). 
+    /// Lines and words of text. A LINE <c>Block</c> object contains one or more WORD <c>Block</c>
+    /// objects. All lines and words that are detected in the document are returned (including
+    /// text that doesn't have a relationship with the value of the <c>StartDocumentAnalysis</c><c>FeatureTypes</c> input parameter). 
     /// </para></li><li><para>
     /// Query. A QUERY Block object contains the query text, alias and link to the associated
     /// Query results block object.
@@ -64,20 +61,20 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// Query Results. A QUERY_RESULT Block object contains the answer to the query and an
     /// ID that connects it to the query asked. This Block also contains a confidence score.
     /// </para></li></ul><note><para>
-    /// While processing a document with queries, look out for <code>INVALID_REQUEST_PARAMETERS</code>
+    /// While processing a document with queries, look out for <c>INVALID_REQUEST_PARAMETERS</c>
     /// output. This indicates that either the per page query limit has been exceeded or that
     /// the operation is trying to query a page in the document which doesn’t exist. 
     /// </para></note><para>
     /// Selection elements such as check boxes and option buttons (radio buttons) can be detected
-    /// in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains
-    /// information about a selection element, including the selection status.
+    /// in form data and in tables. A SELECTION_ELEMENT <c>Block</c> object contains information
+    /// about a selection element, including the selection status.
     /// </para><para>
-    /// Use the <code>MaxResults</code> parameter to limit the number of blocks that are returned.
-    /// If there are more results than specified in <code>MaxResults</code>, the value of
-    /// <code>NextToken</code> in the operation response contains a pagination token for getting
-    /// the next set of results. To get the next page of results, call <code>GetDocumentAnalysis</code>,
-    /// and populate the <code>NextToken</code> request parameter with the token value that's
-    /// returned from the previous call to <code>GetDocumentAnalysis</code>.
+    /// Use the <c>MaxResults</c> parameter to limit the number of blocks that are returned.
+    /// If there are more results than specified in <c>MaxResults</c>, the value of <c>NextToken</c>
+    /// in the operation response contains a pagination token for getting the next set of
+    /// results. To get the next page of results, call <c>GetDocumentAnalysis</c>, and populate
+    /// the <c>NextToken</c> request parameter with the token value that's returned from the
+    /// previous call to <c>GetDocumentAnalysis</c>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document
     /// Text Analysis</a>.
@@ -97,9 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the text-detection job. The <code>JobId</code> is returned
-        /// from <code>StartDocumentAnalysis</code>. A <code>JobId</code> value is only valid
-        /// for 7 days.</para>
+        /// <para>A unique identifier for the text-detection job. The <c>JobId</c> is returned from
+        /// <c>StartDocumentAnalysis</c>. A <c>JobId</c> value is only valid for 7 days.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

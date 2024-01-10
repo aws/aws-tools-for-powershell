@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter AllowVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, major version upgrades can be applied during the maintenance
-        /// window to the Amazon Redshift engine that is running on the cluster. </para><para>Default: <code>true</code></para>
+        /// <para>If <c>true</c>, major version upgrades can be applied during the maintenance window
+        /// to the Amazon Redshift engine that is running on the cluster. </para><para>Default: <c>true</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Amazon EC2 Availability Zone in which to restore the cluster.</para><para>Default: A random, system-chosen Availability Zone.</para><para>Example: <code>us-east-2a</code></para>
+        /// <para>The Amazon EC2 Availability Zone in which to restore the cluster.</para><para>Default: A random, system-chosen Availability Zone.</para><para>Example: <c>us-east-2a</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>An option that specifies whether to create the cluster with enhanced VPC routing enabled.
         /// To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC.
         /// For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
-        /// VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</para><para>If this option is <code>true</code>, enhanced VPC routing is enabled. </para><para>Default: false</para>
+        /// VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</para><para>If this option is <c>true</c>, enhanced VPC routing is enabled. </para><para>Default: false</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -263,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The IP address type for the cluster. Possible values are <code>ipv4</code> and <code>dualstack</code>.</para>
+        /// <para>The IP address type for the cluster. Possible values are <c>ipv4</c> and <c>dualstack</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -289,11 +289,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The name of the maintenance track for the restored cluster. When you take a snapshot,
-        /// the snapshot inherits the <code>MaintenanceTrack</code> value from the cluster. The
-        /// snapshot might be on a different track than the cluster that was the source for the
-        /// snapshot. For example, suppose that you take a snapshot of a cluster that is on the
-        /// current track and then change the cluster to be on the trailing track. In this case,
-        /// the snapshot and the source cluster are on different tracks.</para>
+        /// the snapshot inherits the <c>MaintenanceTrack</c> value from the cluster. The snapshot
+        /// might be on a different track than the cluster that was the source for the snapshot.
+        /// For example, suppose that you take a snapshot of a cluster that is on the current
+        /// track and then change the cluster to be on the trailing track. In this case, the snapshot
+        /// and the source cluster are on different tracks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -303,10 +303,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ManageMasterPassword
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the restored
-        /// cluster's admin credentials. If <code>ManageMasterPassword</code> is false or not
-        /// set, Amazon Redshift uses the admin credentials the cluster had at the time the snapshot
-        /// was taken.</para>
+        /// <para>If <c>true</c>, Amazon Redshift uses Secrets Manager to manage the restored cluster's
+        /// admin credentials. If <c>ManageMasterPassword</c> is false or not set, Amazon Redshift
+        /// uses the admin credentials the cluster had at the time the snapshot was taken.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -329,7 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's
-        /// admin credentials secret. You can only use this parameter if <code>ManageMasterPassword</code>
+        /// admin credentials secret. You can only use this parameter if <c>ManageMasterPassword</c>
         /// is true.</para>
         /// </para>
         /// </summary>
@@ -392,7 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the cluster accepts connections.</para><para>Default: The same port as the original cluster.</para><para>Constraints: Must be between <code>1115</code> and <code>65535</code>.</para>
+        /// <para>The port number on which the cluster accepts connections.</para><para>Default: The same port as the original cluster.</para><para>Constraints: Must be between <c>1115</c> and <c>65535</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -402,7 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
-        /// <para>The weekly time range (in UTC) during which automated cluster maintenance can occur.</para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para> Default: The value selected for the cluster from which the snapshot was taken. For
+        /// <para>The weekly time range (in UTC) during which automated cluster maintenance can occur.</para><para> Format: <c>ddd:hh24:mi-ddd:hh24:mi</c></para><para> Default: The value selected for the cluster from which the snapshot was taken. For
         /// more information about the time blocks for each region, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
         /// Windows</a> in Amazon Redshift Cluster Management Guide. </para><para>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
@@ -414,7 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, the cluster can be accessed from a public network. </para>
+        /// <para>If <c>true</c>, the cluster can be accessed from a public network. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -435,8 +434,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the snapshot associated with the message to restore
-        /// from a cluster. You must specify this parameter or <code>snapshotIdentifier</code>,
-        /// but not both.</para>
+        /// from a cluster. You must specify this parameter or <c>snapshotIdentifier</c>, but
+        /// not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -459,8 +458,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The name of the snapshot from which to create the new cluster. This parameter isn't
-        /// case sensitive. You must specify this parameter or <code>snapshotArn</code>, but not
-        /// both.</para><para>Example: <code>my-snapshot-id</code></para>
+        /// case sensitive. You must specify this parameter or <c>snapshotArn</c>, but not both.</para><para>Example: <c>my-snapshot-id</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         /// <summary>
         /// <para>
         /// <para>Specifies whether the task's elastic network interface receives a public IP address.
-        /// You can specify <code>ENABLED</code> only when <code>LaunchType</code> in <code>EcsParameters</code>
-        /// is set to <code>FARGATE</code>.</para>
+        /// You can specify <c>ENABLED</c> only when <c>LaunchType</c> in <c>EcsParameters</c>
+        /// is set to <c>FARGATE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         /// <summary>
         /// <para>
         /// <para>The date, in UTC, before which the schedule can invoke its target. Depending on the
-        /// schedule's recurrence expression, invocations might stop on, or before, the <code>EndDate</code>
-        /// you specify. EventBridge Scheduler ignores <code>EndDate</code> for one-time schedules.</para>
+        /// schedule's recurrence expression, invocations might stop on, or before, the <c>EndDate</c>
+        /// you specify. EventBridge Scheduler ignores <c>EndDate</c> for one-time schedules.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -219,8 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         /// <para>
         /// <para>Specifies the launch type on which your task is running. The launch type that you
         /// specify here must match one of the launch type (compatibilities) of the target task.
-        /// The <code>FARGATE</code> value is supported only in the Regions where Fargate with
-        /// Amazon ECS is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html">AWS
+        /// The <c>FARGATE</c> value is supported only in the Regions where Fargate with Amazon
+        /// ECS is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html">AWS
         /// Fargate on Amazon ECS</a> in the <i>Amazon ECS Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         /// <para>
         /// <para>The maximum number of retry attempts to make before the request fails. Retry attempts
         /// with exponential backoff continue until either the maximum number of attempts is made
-        /// or until the duration of the <code>MaximumEventAgeInSeconds</code> is reached.</para>
+        /// or until the duration of the <c>MaximumEventAgeInSeconds</c> is reached.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -364,7 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         /// <summary>
         /// <para>
         /// <para>Specifies the platform version for the task. Specify only the numeric portion of the
-        /// platform version, such as <code>1.1.0</code>.</para>
+        /// platform version, such as <c>1.1.0</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -378,7 +378,7 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         /// <para>Specifies whether to propagate the tags from the task definition to the task. If no
         /// value is specified, the tags are not propagated. Tags can only be propagated to the
         /// task during task creation. To add tags to a task after task creation, use Amazon ECS's
-        /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html"><code>TagResource</code></a> API action. </para>
+        /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html"><c>TagResource</c></a> API action. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -420,16 +420,16 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         /// <summary>
         /// <para>
         /// <para> The expression that defines when the schedule runs. The following formats are supported.
-        /// </para><ul><li><para><code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code></para></li><li><para><code>rate</code> expression - <code>rate(value unit)</code></para></li><li><para><code>cron</code> expression - <code>cron(fields)</code></para></li></ul><para> You can use <code>at</code> expressions to create one-time schedules that invoke
-        /// a target once, at the time and in the time zone, that you specify. You can use <code>rate</code>
-        /// and <code>cron</code> expressions to create recurring schedules. Rate-based schedules
-        /// are useful when you want to invoke a target at regular intervals, such as every 15
-        /// minutes or every five days. Cron-based schedules are useful when you want to invoke
-        /// a target periodically at a specific time, such as at 8:00 am (UTC+0) every 1st day
-        /// of the month. </para><para> A <code>cron</code> expression consists of six fields separated by white spaces:
-        /// <code>(minutes hours day_of_month month day_of_week year)</code>. </para><para> A <code>rate</code> expression consists of a <i>value</i> as a positive integer,
-        /// and a <i>unit</i> with the following options: <code>minute</code> | <code>minutes</code>
-        /// | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code></para><para> For more information and examples, see <a href="https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html">Schedule
+        /// </para><ul><li><para><c>at</c> expression - <c>at(yyyy-mm-ddThh:mm:ss)</c></para></li><li><para><c>rate</c> expression - <c>rate(value unit)</c></para></li><li><para><c>cron</c> expression - <c>cron(fields)</c></para></li></ul><para> You can use <c>at</c> expressions to create one-time schedules that invoke a target
+        /// once, at the time and in the time zone, that you specify. You can use <c>rate</c>
+        /// and <c>cron</c> expressions to create recurring schedules. Rate-based schedules are
+        /// useful when you want to invoke a target at regular intervals, such as every 15 minutes
+        /// or every five days. Cron-based schedules are useful when you want to invoke a target
+        /// periodically at a specific time, such as at 8:00 am (UTC+0) every 1st day of the month.
+        /// </para><para> A <c>cron</c> expression consists of six fields separated by white spaces: <c>(minutes
+        /// hours day_of_month month day_of_week year)</c>. </para><para> A <c>rate</c> expression consists of a <i>value</i> as a positive integer, and a
+        /// <i>unit</i> with the following options: <c>minute</c> | <c>minutes</c> | <c>hour</c>
+        /// | <c>hours</c> | <c>day</c> | <c>days</c></para><para> For more information and examples, see <a href="https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html">Schedule
         /// types on EventBridge Scheduler</a> in the <i>EventBridge Scheduler User Guide</i>.
         /// </para>
         /// </para>
@@ -484,8 +484,8 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         /// <para>
         /// <para>The date, in UTC, after which the schedule can begin invoking its target. Depending
         /// on the schedule's recurrence expression, invocations might occur on, or after, the
-        /// <code>StartDate</code> you specify. EventBridge Scheduler ignores <code>StartDate</code>
-        /// for one-time schedules.</para>
+        /// <c>StartDate</c> you specify. EventBridge Scheduler ignores <c>StartDate</c> for one-time
+        /// schedules.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -520,7 +520,7 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         /// <para>
         /// <para>The metadata that you apply to the task to help you categorize and organize them.
         /// Each tag consists of a key and an optional value, both of which you define. For more
-        /// information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html"><code>RunTask</code></a> in the <i>Amazon ECS API Reference</i>.</para>
+        /// information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html"><c>RunTask</c></a> in the <i>Amazon ECS API Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -531,8 +531,7 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         #region Parameter EcsParameters_TaskCount
         /// <summary>
         /// <para>
-        /// <para>The number of tasks to create based on <code>TaskDefinition</code>. The default is
-        /// <code>1</code>.</para>
+        /// <para>The number of tasks to create based on <c>TaskDefinition</c>. The default is <c>1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

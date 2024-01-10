@@ -28,23 +28,22 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services
-    /// service. This setting defines how a user interacts with or uses a service or a feature
-    /// of a service. For example, if an Amazon Web Services service charges money to the
-    /// account based on feature or service usage, then the Amazon Web Services service team
-    /// might create a default setting of <code>false</code>. This means the user can't use
-    /// this feature unless they change the setting to <code>true</code> and intentionally
-    /// opt in for a paid feature.
+    /// <c>ServiceSetting</c> is an account-level setting for an Amazon Web Services service.
+    /// This setting defines how a user interacts with or uses a service or a feature of a
+    /// service. For example, if an Amazon Web Services service charges money to the account
+    /// based on feature or service usage, then the Amazon Web Services service team might
+    /// create a default setting of <c>false</c>. This means the user can't use this feature
+    /// unless they change the setting to <c>true</c> and intentionally opt in for a paid
+    /// feature.
     /// 
     ///  
     /// <para>
-    /// Services map a <code>SettingId</code> object to a setting value. Amazon Web Services
-    /// services teams define the default value for a <code>SettingId</code>. You can't create
-    /// a new <code>SettingId</code>, but you can overwrite the default value if you have
-    /// the <code>ssm:UpdateServiceSetting</code> permission for the setting. Use the <a>UpdateServiceSetting</a>
-    /// API operation to change the default setting. Or use the <a>ResetServiceSetting</a>
-    /// to change the value back to the original value defined by the Amazon Web Services
-    /// service team.
+    /// Services map a <c>SettingId</c> object to a setting value. Amazon Web Services services
+    /// teams define the default value for a <c>SettingId</c>. You can't create a new <c>SettingId</c>,
+    /// but you can overwrite the default value if you have the <c>ssm:UpdateServiceSetting</c>
+    /// permission for the setting. Use the <a>UpdateServiceSetting</a> API operation to change
+    /// the default setting. Or use the <a>ResetServiceSetting</a> to change the value back
+    /// to the original value defined by the Amazon Web Services service team.
     /// </para><para>
     /// Query the current service setting for the Amazon Web Services account. 
     /// </para>
@@ -64,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SettingId
         /// <summary>
         /// <para>
-        /// <para>The ID of the service setting to get. The setting ID can be one of the following.</para><ul><li><para><code>/ssm/managed-instance/default-ec2-instance-management-role</code></para></li><li><para><code>/ssm/automation/customer-script-log-destination</code></para></li><li><para><code>/ssm/automation/customer-script-log-group-name</code></para></li><li><para><code>/ssm/documents/console/public-sharing-permission</code></para></li><li><para><code>/ssm/managed-instance/activation-tier</code></para></li><li><para><code>/ssm/opsinsights/opscenter</code></para></li><li><para><code>/ssm/parameter-store/default-parameter-tier</code></para></li><li><para><code>/ssm/parameter-store/high-throughput-enabled</code></para></li></ul>
+        /// <para>The ID of the service setting to get. The setting ID can be one of the following.</para><ul><li><para><c>/ssm/managed-instance/default-ec2-instance-management-role</c></para></li><li><para><c>/ssm/automation/customer-script-log-destination</c></para></li><li><para><c>/ssm/automation/customer-script-log-group-name</c></para></li><li><para><c>/ssm/documents/console/public-sharing-permission</c></para></li><li><para><c>/ssm/managed-instance/activation-tier</c></para></li><li><para><c>/ssm/opsinsights/opscenter</c></para></li><li><para><c>/ssm/parameter-store/default-parameter-tier</c></para></li><li><para><c>/ssm/parameter-store/high-throughput-enabled</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

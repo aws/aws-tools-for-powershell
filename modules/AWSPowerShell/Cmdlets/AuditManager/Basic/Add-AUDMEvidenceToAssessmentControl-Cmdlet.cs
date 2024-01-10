@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     /// to a risk assessment question. 
     /// </para><para>
     /// The following restrictions apply to this action:
-    /// </para><ul><li><para><code>manualEvidence</code> can be only one of the following: <code>evidenceFileName</code>,
-    /// <code>s3ResourcePath</code>, or <code>textResponse</code></para></li><li><para>
+    /// </para><ul><li><para><c>manualEvidence</c> can be only one of the following: <c>evidenceFileName</c>,
+    /// <c>s3ResourcePath</c>, or <c>textResponse</c></para></li><li><para>
     /// Maximum size of an individual evidence file: 100 MB
     /// </para></li><li><para>
     /// Number of daily manual evidence uploads per control: 100

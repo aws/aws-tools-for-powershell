@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter TargetType
         /// <summary>
         /// <para>
-        /// <para>The type of resource for which you are configuring logging. Must be <code>THING_Group</code>.</para>
+        /// <para>The type of resource for which you are configuring logging. Must be <c>THING_Group</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

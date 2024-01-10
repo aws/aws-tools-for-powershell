@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The property used to sort results. The default value is <code>CreationTime</code>.</para>
+        /// <para>The property used to sort results. The default value is <c>CreationTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order. The default value is <code>Descending</code>.</para>
+        /// <para>The sort order. The default value is <c>Descending</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,9 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The total number of items to return in the response. If the total number of items
-        /// available is more than the value specified, a <code>NextToken</code> is provided in
-        /// the response. To resume pagination, provide the <code>NextToken</code> value in the
-        /// as part of a subsequent call. The default value is 10.</para>
+        /// available is more than the value specified, a <c>NextToken</c> is provided in the
+        /// response. To resume pagination, provide the <c>NextToken</c> value in the as part
+        /// of a subsequent call. The default value is 10.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the previous call to <code>ListImages</code> didn't return the full set of AppImageConfigs,
+        /// <para>If the previous call to <c>ListImages</c> didn't return the full set of AppImageConfigs,
         /// the call returns a token for getting the next set of AppImageConfigs.</para>
         /// </para>
         /// <para>

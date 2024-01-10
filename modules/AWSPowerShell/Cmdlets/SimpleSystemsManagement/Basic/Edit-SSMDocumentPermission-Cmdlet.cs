@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>(Optional) The version of the document to share. If it isn't specified, the system
-        /// choose the <code>Default</code> version to share.</para>
+        /// choose the <c>Default</c> version to share.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,18 +28,17 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Updates an existing state machine by modifying its <code>definition</code>, <code>roleArn</code>,
-    /// or <code>loggingConfiguration</code>. Running executions will continue to use the
-    /// previous <code>definition</code> and <code>roleArn</code>. You must include at least
-    /// one of <code>definition</code> or <code>roleArn</code> or you will receive a <code>MissingRequiredParameter</code>
-    /// error.
+    /// Updates an existing state machine by modifying its <c>definition</c>, <c>roleArn</c>,
+    /// or <c>loggingConfiguration</c>. Running executions will continue to use the previous
+    /// <c>definition</c> and <c>roleArn</c>. You must include at least one of <c>definition</c>
+    /// or <c>roleArn</c> or you will receive a <c>MissingRequiredParameter</c> error.
     /// 
     ///  
     /// <para>
     /// A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within
-    /// a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code>
-    /// refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in
-    /// the state machine named <code>stateMachineName</code>.
+    /// a state machine. For example, the qualified state machine ARN <c>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</c>
+    /// refers to a <i>Distributed Map state</i> with a label <c>mapStateLabel</c> in the
+    /// state machine named <c>stateMachineName</c>.
     /// </para><para>
     /// A qualified state machine ARN can either refer to a <i>Distributed Map state</i> defined
     /// within a state machine, a version ARN, or an alias ARN.
@@ -47,29 +46,28 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// The following are some examples of qualified and unqualified state machine ARNs:
     /// </para><ul><li><para>
     /// The following qualified state machine ARN refers to a <i>Distributed Map state</i>
-    /// with a label <code>mapStateLabel</code> in a state machine named <code>myStateMachine</code>.
-    /// </para><para><code>arn:partition:states:region:account-id:stateMachine:myStateMachine/mapStateLabel</code></para><note><para>
+    /// with a label <c>mapStateLabel</c> in a state machine named <c>myStateMachine</c>.
+    /// </para><para><c>arn:partition:states:region:account-id:stateMachine:myStateMachine/mapStateLabel</c></para><note><para>
     /// If you provide a qualified state machine ARN that refers to a <i>Distributed Map state</i>,
-    /// the request fails with <code>ValidationException</code>.
+    /// the request fails with <c>ValidationException</c>.
     /// </para></note></li><li><para>
-    /// The following qualified state machine ARN refers to an alias named <code>PROD</code>.
-    /// </para><para><code>arn:&lt;partition&gt;:states:&lt;region&gt;:&lt;account-id&gt;:stateMachine:&lt;myStateMachine:PROD&gt;</code></para><note><para>
+    /// The following qualified state machine ARN refers to an alias named <c>PROD</c>.
+    /// </para><para><c>arn:&lt;partition&gt;:states:&lt;region&gt;:&lt;account-id&gt;:stateMachine:&lt;myStateMachine:PROD&gt;</c></para><note><para>
     /// If you provide a qualified state machine ARN that refers to a version ARN or an alias
     /// ARN, the request starts execution for that version or alias.
     /// </para></note></li><li><para>
-    /// The following unqualified state machine ARN refers to a state machine named <code>myStateMachine</code>.
-    /// </para><para><code>arn:&lt;partition&gt;:states:&lt;region&gt;:&lt;account-id&gt;:stateMachine:&lt;myStateMachine&gt;</code></para></li></ul><para>
-    /// After you update your state machine, you can set the <code>publish</code> parameter
-    /// to <code>true</code> in the same action to publish a new <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a>.
+    /// The following unqualified state machine ARN refers to a state machine named <c>myStateMachine</c>.
+    /// </para><para><c>arn:&lt;partition&gt;:states:&lt;region&gt;:&lt;account-id&gt;:stateMachine:&lt;myStateMachine&gt;</c></para></li></ul><para>
+    /// After you update your state machine, you can set the <c>publish</c> parameter to <c>true</c>
+    /// in the same action to publish a new <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a>.
     /// This way, you can opt-in to strict versioning of your state machine.
     /// </para><note><para>
     /// Step Functions assigns monotonically increasing integers for state machine versions,
     /// starting at version number 1.
     /// </para></note><note><para>
-    /// All <code>StartExecution</code> calls within a few seconds use the updated <code>definition</code>
-    /// and <code>roleArn</code>. Executions started immediately after you call <code>UpdateStateMachine</code>
-    /// may use the previous state machine <code>definition</code> and <code>roleArn</code>.
-    /// 
+    /// All <c>StartExecution</c> calls within a few seconds use the updated <c>definition</c>
+    /// and <c>roleArn</c>. Executions started immediately after you call <c>UpdateStateMachine</c>
+    /// may use the previous state machine <c>definition</c> and <c>roleArn</c>. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "SFNStateMachine", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -101,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <summary>
         /// <para>
         /// <para>An array of objects that describes where your execution history events will be logged.
-        /// Limited to size 1. Required, if your log level is not set to <code>OFF</code>.</para>
+        /// Limited to size 1. Required, if your log level is not set to <c>OFF</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter TracingConfiguration_Enabled
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, X-Ray tracing is enabled.</para>
+        /// <para>When set to <c>true</c>, X-Ray tracing is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter LoggingConfiguration_IncludeExecutionData
         /// <summary>
         /// <para>
-        /// <para>Determines whether execution data is included in your log. When set to <code>false</code>,
+        /// <para>Determines whether execution data is included in your log. When set to <c>false</c>,
         /// data is excluded.</para>
         /// </para>
         /// </summary>
@@ -144,9 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Publish
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the state machine version is published. The default is <code>false</code>.
-        /// To publish a version after updating the state machine, set <code>publish</code> to
-        /// <code>true</code>.</para>
+        /// <para>Specifies whether the state machine version is published. The default is <c>false</c>.
+        /// To publish a version after updating the state machine, set <c>publish</c> to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,8 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter VersionDescription
         /// <summary>
         /// <para>
-        /// <para>An optional description of the state machine version to publish.</para><para>You can only specify the <code>versionDescription</code> parameter if you've set <code>publish</code>
-        /// to <code>true</code>.</para>
+        /// <para>An optional description of the state machine version to publish.</para><para>You can only specify the <c>versionDescription</c> parameter if you've set <c>publish</c>
+        /// to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

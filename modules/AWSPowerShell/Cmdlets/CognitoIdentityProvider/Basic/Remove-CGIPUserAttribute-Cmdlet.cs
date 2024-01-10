@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserAttributeName
         /// <summary>
         /// <para>
-        /// <para>An array of strings representing the user attribute names you want to delete.</para><para>For custom attributes, you must prependattach the <code>custom:</code> prefix to the
-        /// front of the attribute name.</para>
+        /// <para>An array of strings representing the user attribute names you want to delete.</para><para>For custom attributes, you must prependattach the <c>custom:</c> prefix to the front
+        /// of the attribute name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

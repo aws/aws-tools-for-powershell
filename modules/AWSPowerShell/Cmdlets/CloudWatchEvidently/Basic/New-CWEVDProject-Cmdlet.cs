@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// <summary>
         /// <para>
         /// <para>The ID of the AppConfig environment to use for client-side evaluation. This must be
-        /// an environment that is within the application that you specify for <code>applicationId</code>.</para>
+        /// an environment that is within the application that you specify for <c>applicationId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

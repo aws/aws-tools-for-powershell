@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Gets a metrics configuration (specified by the metrics configuration ID) from the
     /// bucket. Note that this doesn't include the daily storage metrics.
     /// </para><para>
-    ///  To use this operation, you must have permissions to perform the <code>s3:GetMetricsConfiguration</code>
+    ///  To use this operation, you must have permissions to perform the <c>s3:GetMetricsConfiguration</c>
     /// action. The bucket owner has this permission by default. The bucket owner can grant
     /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     ///  For information about CloudWatch request metrics for Amazon S3, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html">Monitoring
     /// Metrics with Amazon CloudWatch</a>.
     /// </para><para>
-    /// The following operations are related to <code>GetBucketMetricsConfiguration</code>:
+    /// The following operations are related to <c>GetBucketMetricsConfiguration</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketMetricsConfiguration.html">PutBucketMetricsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetricsConfiguration.html">DeleteBucketMetricsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html">ListBucketMetricsConfigurations</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html">Monitoring
     /// Metrics with Amazon CloudWatch</a></para></li></ul>
     /// </summary>

@@ -29,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
     /// Deletes a what-if forecast created using the <a>CreateWhatIfForecast</a> operation.
-    /// You can delete only what-if forecasts that have a status of <code>ACTIVE</code> or
-    /// <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeWhatIfForecast</a>
-    /// operation. 
+    /// You can delete only what-if forecasts that have a status of <c>ACTIVE</c> or <c>CREATE_FAILED</c>.
+    /// To get the status, use the <a>DescribeWhatIfForecast</a> operation. 
     /// 
     ///  
     /// <para>

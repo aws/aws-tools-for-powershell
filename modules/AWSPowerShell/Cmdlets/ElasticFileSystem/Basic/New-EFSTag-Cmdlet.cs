@@ -29,17 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
     /// <note><para>
-    /// DEPRECATED - <code>CreateTags</code> is deprecated and not maintained. To create tags
-    /// for EFS resources, use the API action.
+    /// DEPRECATED - <c>CreateTags</c> is deprecated and not maintained. To create tags for
+    /// EFS resources, use the API action.
     /// </para></note><para>
     /// Creates or overwrites tags associated with a file system. Each tag is a key-value
     /// pair. If a tag key specified in the request already exists on the file system, this
     /// operation overwrites its value with the value provided in the request. If you add
-    /// the <code>Name</code> tag to your file system, Amazon EFS returns it in the response
-    /// to the <a>DescribeFileSystems</a> operation. 
+    /// the <c>Name</c> tag to your file system, Amazon EFS returns it in the response to
+    /// the <a>DescribeFileSystems</a> operation. 
     /// </para><para>
-    /// This operation requires permission for the <code>elasticfilesystem:CreateTags</code>
-    /// action.
+    /// This operation requires permission for the <c>elasticfilesystem:CreateTags</c> action.
     /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "EFSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -76,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of <code>Tag</code> objects to add. Each <code>Tag</code> object is a key-value
-        /// pair. </para>
+        /// <para>An array of <c>Tag</c> objects to add. Each <c>Tag</c> object is a key-value pair.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

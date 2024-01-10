@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// <summary>
         /// <para>
         /// <para>A list of Amazon SNS topic names for which to obtain the information. If this member
-        /// is null, all associations for the specified Directory ID are returned.</para><para>An empty list results in an <code>InvalidParameterException</code> being thrown.</para>
+        /// is null, all associations for the specified Directory ID are returned.</para><para>An empty list results in an <c>InvalidParameterException</c> being thrown.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

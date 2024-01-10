@@ -32,21 +32,20 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// 
     ///  
     /// <para>
-    /// The response from <code>DetectAnomalies</code> includes a boolean prediction that
-    /// the image contains one or more anomalies and a confidence value for the prediction.
-    /// If the model is an image segmentation model, the response also includes segmentation
-    /// information for each type of anomaly found in the image.
+    /// The response from <c>DetectAnomalies</c> includes a boolean prediction that the image
+    /// contains one or more anomalies and a confidence value for the prediction. If the model
+    /// is an image segmentation model, the response also includes segmentation information
+    /// for each type of anomaly found in the image.
     /// </para><note><para>
-    /// Before calling <code>DetectAnomalies</code>, you must first start your model with
-    /// the <a>StartModel</a> operation. You are charged for the amount of time, in minutes,
-    /// that a model runs and for the number of anomaly detection units that your model uses.
-    /// If you are not using a model, use the <a>StopModel</a> operation to stop your model.
-    /// 
+    /// Before calling <c>DetectAnomalies</c>, you must first start your model with the <a>StartModel</a>
+    /// operation. You are charged for the amount of time, in minutes, that a model runs and
+    /// for the number of anomaly detection units that your model uses. If you are not using
+    /// a model, use the <a>StopModel</a> operation to stop your model. 
     /// </para></note><para>
     /// For more information, see <i>Detecting anomalies in an image</i> in the Amazon Lookout
     /// for Vision developer guide.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>lookoutvision:DetectAnomalies</code>
+    /// This operation requires permissions to perform the <c>lookoutvision:DetectAnomalies</c>
     /// operation.
     /// </para>
     /// </summary>
@@ -82,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// <para>The type of the image passed in <code>Body</code>. Valid values are <code>image/png</code>
-        /// (PNG format images) and <code>image/jpeg</code> (JPG format images). </para>
+        /// <para>The type of the image passed in <c>Body</c>. Valid values are <c>image/png</c> (PNG
+        /// format images) and <c>image/jpeg</c> (JPG format images). </para>
         /// </para>
         /// </summary>
         #if !MODULAR

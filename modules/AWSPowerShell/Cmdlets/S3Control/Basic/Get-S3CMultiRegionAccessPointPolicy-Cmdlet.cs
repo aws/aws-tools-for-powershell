@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
     /// Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
-    /// The following actions are related to <code>GetMultiRegionAccessPointPolicy</code>:
+    /// The following actions are related to <c>GetMultiRegionAccessPointPolicy</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPointPolicyStatus.html">GetMultiRegionAccessPointPolicyStatus</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutMultiRegionAccessPointPolicy.html">PutMultiRegionAccessPointPolicy</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3CMultiRegionAccessPointPolicy")]

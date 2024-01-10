@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of tags to return as a response to the <code>ListTagsForResource</code>
+        /// <para>Specifies the number of tags to return as a response to the <c>ListTagsForResource</c>
         /// request.</para>
         /// </para>
         /// <para>
@@ -83,10 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When you request additional results from the <code>ListTagsForResource</code> operation,
-        /// a <code>NextToken</code> parameter is returned in the input. You can then pass in
-        /// a subsequent command to the <code>NextToken</code> parameter to continue listing additional
-        /// tags.</para>
+        /// <para>When you request additional results from the <c>ListTagsForResource</c> operation,
+        /// a <c>NextToken</c> parameter is returned in the input. You can then pass in a subsequent
+        /// command to the <c>NextToken</c> parameter to continue listing additional tags.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

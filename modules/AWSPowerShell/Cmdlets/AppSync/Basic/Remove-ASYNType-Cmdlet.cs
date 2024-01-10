@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Deletes a <code>Type</code> object.
+    /// Deletes a <c>Type</c> object.
     /// </summary>
     [Cmdlet("Remove", "ASYNType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -28,41 +28,40 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// <code>TransactWriteItems</code> is a synchronous write operation that groups up to
-    /// 100 action requests. These actions can target items in different tables, but not in
-    /// different Amazon Web Services accounts or Regions, and no two actions can target the
-    /// same item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code>
-    /// the same item. The aggregate size of the items in the transaction cannot exceed 4
-    /// MB.
+    /// <c>TransactWriteItems</c> is a synchronous write operation that groups up to 100
+    /// action requests. These actions can target items in different tables, but not in different
+    /// Amazon Web Services accounts or Regions, and no two actions can target the same item.
+    /// For example, you cannot both <c>ConditionCheck</c> and <c>Update</c> the same item.
+    /// The aggregate size of the items in the transaction cannot exceed 4 MB.
     /// 
     ///  
     /// <para>
     /// The actions are completed atomically so that either all of them succeed, or all of
     /// them fail. They are defined by the following objects:
-    /// </para><ul><li><para><code>Put</code>  —   Initiates a <code>PutItem</code> operation to write a new item.
-    /// This structure specifies the primary key of the item to be written, the name of the
-    /// table to write it in, an optional condition expression that must be satisfied for
-    /// the write to succeed, a list of the item's attributes, and a field indicating whether
-    /// to retrieve the item's attributes if the condition is not met.
-    /// </para></li><li><para><code>Update</code>  —   Initiates an <code>UpdateItem</code> operation to update
-    /// an existing item. This structure specifies the primary key of the item to be updated,
-    /// the name of the table where it resides, an optional condition expression that must
-    /// be satisfied for the update to succeed, an expression that defines one or more attributes
-    /// to be updated, and a field indicating whether to retrieve the item's attributes if
-    /// the condition is not met.
-    /// </para></li><li><para><code>Delete</code>  —   Initiates a <code>DeleteItem</code> operation to delete
-    /// an existing item. This structure specifies the primary key of the item to be deleted,
-    /// the name of the table where it resides, an optional condition expression that must
-    /// be satisfied for the deletion to succeed, and a field indicating whether to retrieve
-    /// the item's attributes if the condition is not met.
-    /// </para></li><li><para><code>ConditionCheck</code>  —   Applies a condition to an item that is not being
-    /// modified by the transaction. This structure specifies the primary key of the item
-    /// to be checked, the name of the table where it resides, a condition expression that
-    /// must be satisfied for the transaction to succeed, and a field indicating whether to
-    /// retrieve the item's attributes if the condition is not met.
+    /// </para><ul><li><para><c>Put</c>  —   Initiates a <c>PutItem</c> operation to write a new item. This structure
+    /// specifies the primary key of the item to be written, the name of the table to write
+    /// it in, an optional condition expression that must be satisfied for the write to succeed,
+    /// a list of the item's attributes, and a field indicating whether to retrieve the item's
+    /// attributes if the condition is not met.
+    /// </para></li><li><para><c>Update</c>  —   Initiates an <c>UpdateItem</c> operation to update an existing
+    /// item. This structure specifies the primary key of the item to be updated, the name
+    /// of the table where it resides, an optional condition expression that must be satisfied
+    /// for the update to succeed, an expression that defines one or more attributes to be
+    /// updated, and a field indicating whether to retrieve the item's attributes if the condition
+    /// is not met.
+    /// </para></li><li><para><c>Delete</c>  —   Initiates a <c>DeleteItem</c> operation to delete an existing
+    /// item. This structure specifies the primary key of the item to be deleted, the name
+    /// of the table where it resides, an optional condition expression that must be satisfied
+    /// for the deletion to succeed, and a field indicating whether to retrieve the item's
+    /// attributes if the condition is not met.
+    /// </para></li><li><para><c>ConditionCheck</c>  —   Applies a condition to an item that is not being modified
+    /// by the transaction. This structure specifies the primary key of the item to be checked,
+    /// the name of the table where it resides, a condition expression that must be satisfied
+    /// for the transaction to succeed, and a field indicating whether to retrieve the item's
+    /// attributes if the condition is not met.
     /// </para></li></ul><para>
-    /// DynamoDB rejects the entire <code>TransactWriteItems</code> request if any of the
-    /// following is true:
+    /// DynamoDB rejects the entire <c>TransactWriteItems</c> request if any of the following
+    /// is true:
     /// </para><ul><li><para>
     /// A condition in one of the condition expressions is not met.
     /// </para></li><li><para>
@@ -93,19 +92,18 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>Providing a <code>ClientRequestToken</code> makes the call to <code>TransactWriteItems</code>
+        /// <para>Providing a <c>ClientRequestToken</c> makes the call to <c>TransactWriteItems</c>
         /// idempotent, meaning that multiple identical calls have the same effect as one single
         /// call.</para><para>Although multiple identical calls using the same client request token produce the
         /// same result on the server (no side effects), the responses to the calls might not
-        /// be the same. If the <code>ReturnConsumedCapacity</code> parameter is set, then the
-        /// initial <code>TransactWriteItems</code> call returns the amount of write capacity
-        /// units consumed in making the changes. Subsequent <code>TransactWriteItems</code> calls
-        /// with the same client token return the number of read capacity units consumed in reading
-        /// the item.</para><para>A client request token is valid for 10 minutes after the first request that uses it
+        /// be the same. If the <c>ReturnConsumedCapacity</c> parameter is set, then the initial
+        /// <c>TransactWriteItems</c> call returns the amount of write capacity units consumed
+        /// in making the changes. Subsequent <c>TransactWriteItems</c> calls with the same client
+        /// token return the number of read capacity units consumed in reading the item.</para><para>A client request token is valid for 10 minutes after the first request that uses it
         /// is completed. After 10 minutes, any request with the same client token is treated
         /// as a new request. Do not resubmit the same request with the same client token for
         /// more than 10 minutes, or the result might not be idempotent.</para><para>If you submit a request with the same client token but a change in other parameters
-        /// within the 10-minute idempotency window, DynamoDB returns an <code>IdempotentParameterMismatch</code>
+        /// within the 10-minute idempotency window, DynamoDB returns an <c>IdempotentParameterMismatch</c>
         /// exception.</para>
         /// </para>
         /// </summary>
@@ -127,10 +125,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter ReturnItemCollectionMetric
         /// <summary>
         /// <para>
-        /// <para>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
-        /// the response includes statistics about item collections (if any), that were modified
-        /// during the operation and are returned in the response. If set to <code>NONE</code>
-        /// (the default), no statistics are returned. </para>
+        /// <para>Determines whether item collection metrics are returned. If set to <c>SIZE</c>, the
+        /// response includes statistics about item collections (if any), that were modified during
+        /// the operation and are returned in the response. If set to <c>NONE</c> (the default),
+        /// no statistics are returned. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,11 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TransactItem
         /// <summary>
         /// <para>
-        /// <para>An ordered array of up to 100 <code>TransactWriteItem</code> objects, each of which
-        /// contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or
-        /// <code>Delete</code> object. These can operate on items in different tables, but the
-        /// tables must reside in the same Amazon Web Services account and Region, and no two
-        /// of them can operate on the same item. </para>
+        /// <para>An ordered array of up to 100 <c>TransactWriteItem</c> objects, each of which contains
+        /// a <c>ConditionCheck</c>, <c>Put</c>, <c>Update</c>, or <c>Delete</c> object. These
+        /// can operate on items in different tables, but the tables must reside in the same Amazon
+        /// Web Services account and Region, and no two of them can operate on the same item.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

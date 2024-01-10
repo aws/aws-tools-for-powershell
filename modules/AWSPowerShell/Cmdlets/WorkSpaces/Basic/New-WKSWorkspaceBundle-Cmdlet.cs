@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The tags associated with the bundle.</para><note><para>To add tags at the same time when you're creating the bundle, you must create an IAM
-        /// policy that grants your IAM user permissions to use <code>workspaces:CreateTags</code>.
+        /// policy that grants your IAM user permissions to use <c>workspaces:CreateTags</c>.
         /// </para></note>
         /// </para>
         /// </summary>

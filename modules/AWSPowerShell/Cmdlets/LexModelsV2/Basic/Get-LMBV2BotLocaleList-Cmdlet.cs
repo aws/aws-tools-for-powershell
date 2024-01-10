@@ -125,10 +125,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the response from the <code>ListBotLocales</code> operation contains more results
-        /// than specified in the <code>maxResults</code> parameter, a token is returned in the
-        /// response. Use that token as the <code>nextToken</code> parameter to return the next
-        /// page of results. </para>
+        /// <para>If the response from the <c>ListBotLocales</c> operation contains more results than
+        /// specified in the <c>maxResults</c> parameter, a token is returned in the response.
+        /// Use that token as the <c>nextToken</c> parameter to return the next page of results.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

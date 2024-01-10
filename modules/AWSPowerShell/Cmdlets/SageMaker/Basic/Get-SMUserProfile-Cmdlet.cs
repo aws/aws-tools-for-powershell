@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Describes a user profile. For more information, see <code>CreateUserProfile</code>.
+    /// Describes a user profile. For more information, see <c>CreateUserProfile</c>.
     /// </summary>
     [Cmdlet("Get", "SMUserProfile")]
     [OutputType("Amazon.SageMaker.Model.DescribeUserProfileResponse")]

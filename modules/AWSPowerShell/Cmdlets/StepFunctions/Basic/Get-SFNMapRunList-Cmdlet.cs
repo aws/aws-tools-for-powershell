@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
     /// Lists all Map Runs that were started by a given state machine execution. Use this
-    /// API action to obtain Map Run ARNs, and then call <code>DescribeMapRun</code> to obtain
-    /// more information, if needed.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// API action to obtain Map Run ARNs, and then call <c>DescribeMapRun</c> to obtain more
+    /// information, if needed.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SFNMapRunList")]
     [OutputType("Amazon.StepFunctions.Model.MapRunListItem")]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results that are returned per call. You can use <code>nextToken</code>
+        /// <para>The maximum number of results that are returned per call. You can use <c>nextToken</c>
         /// to obtain further pages of results. The default is 100 and the maximum allowed page
         /// size is 1000. A value of 0 uses the default.</para><para>This is only an upper limit. The actual number of results returned per call might
         /// be fewer than the specified maximum.</para>
@@ -78,11 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If <code>nextToken</code> is returned, there are more results available. The value
-        /// of <code>nextToken</code> is a unique pagination token for each page. Make the call
-        /// again using the returned token to retrieve the next page. Keep all other arguments
-        /// unchanged. Each pagination token expires after 24 hours. Using an expired pagination
-        /// token will return an <i>HTTP 400 InvalidToken</i> error.</para>
+        /// <para>If <c>nextToken</c> is returned, there are more results available. The value of <c>nextToken</c>
+        /// is a unique pagination token for each page. Make the call again using the returned
+        /// token to retrieve the next page. Keep all other arguments unchanged. Each pagination
+        /// token expires after 24 hours. Using an expired pagination token will return an <i>HTTP
+        /// 400 InvalidToken</i> error.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

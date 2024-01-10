@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Retrieves a custom <code>DomainName</code> object.
+    /// Retrieves a custom <c>DomainName</c> object.
     /// </summary>
     [Cmdlet("Get", "ASYNDomainName")]
     [OutputType("Amazon.AppSync.Model.DomainNameConfig")]

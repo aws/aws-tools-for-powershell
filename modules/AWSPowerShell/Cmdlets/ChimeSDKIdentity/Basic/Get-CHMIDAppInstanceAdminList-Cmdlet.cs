@@ -28,7 +28,7 @@ using Amazon.ChimeSDKIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMID
 {
     /// <summary>
-    /// Returns a list of the administrators in the <code>AppInstance</code>.
+    /// Returns a list of the administrators in the <c>AppInstance</c>.
     /// </summary>
     [Cmdlet("Get", "CHMIDAppInstanceAdminList")]
     [OutputType("Amazon.ChimeSDKIdentity.Model.ListAppInstanceAdminsResponse")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstance</code>.</para>
+        /// <para>The ARN of the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance ID. If you use this parameter, <code>DescribeVolumes</code> returns descriptions
+        /// <para>The instance ID. If you use this parameter, <c>DescribeVolumes</c> returns descriptions
         /// of the volumes associated with the specified instance.</para>
         /// </para>
         /// </summary>
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter RaidArrayId
         /// <summary>
         /// <para>
-        /// <para>The RAID array ID. If you use this parameter, <code>DescribeVolumes</code> returns
-        /// descriptions of the volumes associated with the specified RAID array.</para>
+        /// <para>The RAID array ID. If you use this parameter, <c>DescribeVolumes</c> returns descriptions
+        /// of the volumes associated with the specified RAID array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter VolumeId
         /// <summary>
         /// <para>
-        /// <para>Am array of volume IDs. If you use this parameter, <code>DescribeVolumes</code> returns
+        /// <para>Am array of volume IDs. If you use this parameter, <c>DescribeVolumes</c> returns
         /// descriptions of the specified volumes. Otherwise, it returns a description of every
         /// volume.</para>
         /// </para>

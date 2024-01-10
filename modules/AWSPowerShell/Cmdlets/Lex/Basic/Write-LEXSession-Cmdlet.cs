@@ -56,12 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         /// <summary>
         /// <para>
         /// <para>The message that Amazon Lex returns in the response can be either text or speech based
-        /// depending on the value of this field.</para><ul><li><para>If the value is <code>text/plain; charset=utf-8</code>, Amazon Lex returns text in
-        /// the response.</para></li><li><para>If the value begins with <code>audio/</code>, Amazon Lex returns speech in the response.
+        /// depending on the value of this field.</para><ul><li><para>If the value is <c>text/plain; charset=utf-8</c>, Amazon Lex returns text in the response.</para></li><li><para>If the value begins with <c>audio/</c>, Amazon Lex returns speech in the response.
         /// Amazon Lex uses Amazon Polly to generate the speech in the configuration that you
-        /// specify. For example, if you specify <code>audio/mpeg</code> as the value, Amazon
-        /// Lex returns speech in the MPEG format.</para></li><li><para>If the value is <code>audio/pcm</code>, the speech is returned as <code>audio/pcm</code>
-        /// in 16-bit, little endian format.</para></li><li><para>The following are the accepted values:</para><ul><li><para><code>audio/mpeg</code></para></li><li><para><code>audio/ogg</code></para></li><li><para><code>audio/pcm</code></para></li><li><para><code>audio/*</code> (defaults to mpeg)</para></li><li><para><code>text/plain; charset=utf-8</code></para></li></ul></li></ul>
+        /// specify. For example, if you specify <c>audio/mpeg</c> as the value, Amazon Lex returns
+        /// speech in the MPEG format.</para></li><li><para>If the value is <c>audio/pcm</c>, the speech is returned as <c>audio/pcm</c> in 16-bit,
+        /// little endian format.</para></li><li><para>The following are the accepted values:</para><ul><li><para><c>audio/mpeg</c></para></li><li><para><c>audio/ogg</c></para></li><li><para><c>audio/pcm</c></para></li><li><para><c>audio/*</c> (defaults to mpeg)</para></li><li><para><c>text/plain; charset=utf-8</c></para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,10 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         #region Parameter DialogAction_FulfillmentState
         /// <summary>
         /// <para>
-        /// <para>The fulfillment state of the intent. The possible values are:</para><ul><li><para><code>Failed</code> - The Lambda function associated with the intent failed to fulfill
-        /// the intent.</para></li><li><para><code>Fulfilled</code> - The intent has fulfilled by the Lambda function associated
-        /// with the intent. </para></li><li><para><code>ReadyForFulfillment</code> - All of the information necessary for the intent
-        /// is present and the intent ready to be fulfilled by the client application.</para></li></ul>
+        /// <para>The fulfillment state of the intent. The possible values are:</para><ul><li><para><c>Failed</c> - The Lambda function associated with the intent failed to fulfill
+        /// the intent.</para></li><li><para><c>Fulfilled</c> - The intent has fulfilled by the Lambda function associated with
+        /// the intent. </para></li><li><para><c>ReadyForFulfillment</c> - All of the information necessary for the intent is present
+        /// and the intent ready to be fulfilled by the client application.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         #region Parameter DialogAction_MessageFormat
         /// <summary>
         /// <para>
-        /// <ul><li><para><code>PlainText</code> - The message contains plain UTF-8 text.</para></li><li><para><code>CustomPayload</code> - The message is a custom format for the client.</para></li><li><para><code>SSML</code> - The message contains text formatted for voice output.</para></li><li><para><code>Composite</code> - The message contains an escaped JSON object containing one
-        /// or more messages. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/howitworks-manage-prompts.html">Message
+        /// <ul><li><para><c>PlainText</c> - The message contains plain UTF-8 text.</para></li><li><para><c>CustomPayload</c> - The message is a custom format for the client.</para></li><li><para><c>SSML</c> - The message contains text formatted for voice output.</para></li><li><para><c>Composite</c> - The message contains an escaped JSON object containing one or
+        /// more messages. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/howitworks-manage-prompts.html">Message
         /// Groups</a>. </para></li></ul>
         /// </para>
         /// </summary>
@@ -169,11 +168,11 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         /// <para>A summary of the recent intents for the bot. You can use the intent summary view to
         /// set a checkpoint label on an intent and modify attributes of intents. You can also
         /// use it to remove or add intent summary objects to the list.</para><para>An intent that you modify or add to the list must make sense for the bot. For example,
-        /// the intent name must be valid for the bot. You must provide valid values for:</para><ul><li><para><code>intentName</code></para></li><li><para>slot names</para></li><li><para><code>slotToElict</code></para></li></ul><para>If you send the <code>recentIntentSummaryView</code> parameter in a <code>PutSession</code>
-        /// request, the contents of the new summary view replaces the old summary view. For example,
-        /// if a <code>GetSession</code> request returns three intents in the summary view and
-        /// you call <code>PutSession</code> with one intent in the summary view, the next call
-        /// to <code>GetSession</code> will only return one intent.</para>
+        /// the intent name must be valid for the bot. You must provide valid values for:</para><ul><li><para><c>intentName</c></para></li><li><para>slot names</para></li><li><para><c>slotToElict</c></para></li></ul><para>If you send the <c>recentIntentSummaryView</c> parameter in a <c>PutSession</c> request,
+        /// the contents of the new summary view replaces the old summary view. For example, if
+        /// a <c>GetSession</c> request returns three intents in the summary view and you call
+        /// <c>PutSession</c> with one intent in the summary view, the next call to <c>GetSession</c>
+        /// will only return one intent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -217,10 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         /// <summary>
         /// <para>
         /// <para>The next action that the bot should take in its interaction with the user. The possible
-        /// values are:</para><ul><li><para><code>ConfirmIntent</code> - The next action is asking the user if the intent is
-        /// complete and ready to be fulfilled. This is a yes/no question such as "Place the order?"</para></li><li><para><code>Close</code> - Indicates that the there will not be a response from the user.
-        /// For example, the statement "Your order has been placed" does not require a response.</para></li><li><para><code>Delegate</code> - The next action is determined by Amazon Lex.</para></li><li><para><code>ElicitIntent</code> - The next action is to determine the intent that the user
-        /// wants to fulfill.</para></li><li><para><code>ElicitSlot</code> - The next action is to elicit a slot value from the user.</para></li></ul>
+        /// values are:</para><ul><li><para><c>ConfirmIntent</c> - The next action is asking the user if the intent is complete
+        /// and ready to be fulfilled. This is a yes/no question such as "Place the order?"</para></li><li><para><c>Close</c> - Indicates that the there will not be a response from the user. For
+        /// example, the statement "Your order has been placed" does not require a response.</para></li><li><para><c>Delegate</c> - The next action is determined by Amazon Lex.</para></li><li><para><c>ElicitIntent</c> - The next action is to determine the intent that the user wants
+        /// to fulfill.</para></li><li><para><c>ElicitSlot</c> - The next action is to elicit a slot value from the user.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

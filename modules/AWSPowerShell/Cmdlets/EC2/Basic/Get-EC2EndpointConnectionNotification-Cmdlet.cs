@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>connection-notification-arn</code> - The ARN of the SNS topic for the notification.</para></li><li><para><code>connection-notification-id</code> - The ID of the notification.</para></li><li><para><code>connection-notification-state</code> - The state of the notification (<code>Enabled</code>
-        /// | <code>Disabled</code>).</para></li><li><para><code>connection-notification-type</code> - The type of notification (<code>Topic</code>).</para></li><li><para><code>service-id</code> - The ID of the endpoint service.</para></li><li><para><code>vpc-endpoint-id</code> - The ID of the VPC endpoint.</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>connection-notification-arn</c> - The ARN of the SNS topic for the notification.</para></li><li><para><c>connection-notification-id</c> - The ID of the notification.</para></li><li><para><c>connection-notification-state</c> - The state of the notification (<c>Enabled</c>
+        /// | <c>Disabled</c>).</para></li><li><para><c>connection-notification-type</c> - The type of notification (<c>Topic</c>).</para></li><li><para><c>service-id</c> - The ID of the endpoint service.</para></li><li><para><c>vpc-endpoint-id</c> - The ID of the VPC endpoint.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return in a single call. To retrieve the remaining
-        /// results, make another request with the returned <code>NextToken</code> value.</para>
+        /// results, make another request with the returned <c>NextToken</c> value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

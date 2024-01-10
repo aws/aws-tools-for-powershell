@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <para>String that contains the ARN of the requested certificate. The certificate ARN is
         /// generated and returned by the <a>RequestCertificate</a> action as soon as the request
         /// is made. By default, using this parameter causes email to be sent to all top-level
-        /// domains you specified in the certificate request. The ARN must be of the form: </para><para><code>arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para>
+        /// domains you specified in the certificate request. The ARN must be of the form: </para><para><c>arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,11 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <summary>
         /// <para>
         /// <para>The base validation domain that will act as the suffix of the email addresses that
-        /// are used to send the emails. This must be the same as the <code>Domain</code> value
-        /// or a superdomain of the <code>Domain</code> value. For example, if you requested a
-        /// certificate for <code>site.subdomain.example.com</code> and specify a <b>ValidationDomain</b>
-        /// of <code>subdomain.example.com</code>, ACM sends email to the domain registrant, technical
-        /// contact, and administrative contact in WHOIS and the following five addresses:</para><ul><li><para>admin@subdomain.example.com</para></li><li><para>administrator@subdomain.example.com</para></li><li><para>hostmaster@subdomain.example.com</para></li><li><para>postmaster@subdomain.example.com</para></li><li><para>webmaster@subdomain.example.com</para></li></ul>
+        /// are used to send the emails. This must be the same as the <c>Domain</c> value or a
+        /// superdomain of the <c>Domain</c> value. For example, if you requested a certificate
+        /// for <c>site.subdomain.example.com</c> and specify a <b>ValidationDomain</b> of <c>subdomain.example.com</c>,
+        /// ACM sends email to the domain registrant, technical contact, and administrative contact
+        /// in WHOIS and the following five addresses:</para><ul><li><para>admin@subdomain.example.com</para></li><li><para>administrator@subdomain.example.com</para></li><li><para>hostmaster@subdomain.example.com</para></li><li><para>postmaster@subdomain.example.com</para></li><li><para>webmaster@subdomain.example.com</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

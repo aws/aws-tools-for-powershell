@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</para>
+        /// <para>The name of the Amazon MWAA environment. For example, <c>MyMWAAEnvironment</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

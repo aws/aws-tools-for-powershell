@@ -71,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CronExpression
         /// <summary>
         /// <para>
-        /// <para>The cron expression for the event window, for example, <code>* 0-4,20-23 * * 1,5</code>.
-        /// If you specify a cron expression, you can't specify a time range.</para><para>Constraints:</para><ul><li><para>Only hour and day of the week values are supported.</para></li><li><para>For day of the week values, you can specify either integers <code>0</code> through
-        /// <code>6</code>, or alternative single values <code>SUN</code> through <code>SAT</code>.</para></li><li><para>The minute, month, and year must be specified by <code>*</code>.</para></li><li><para>The hour value must be one or a multiple range, for example, <code>0-4</code> or <code>0-4,20-23</code>.</para></li><li><para>Each hour range must be &gt;= 2 hours, for example, <code>0-2</code> or <code>20-23</code>.</para></li><li><para>The event window must be &gt;= 4 hours. The combined total time ranges in the event
+        /// <para>The cron expression for the event window, for example, <c>* 0-4,20-23 * * 1,5</c>.
+        /// If you specify a cron expression, you can't specify a time range.</para><para>Constraints:</para><ul><li><para>Only hour and day of the week values are supported.</para></li><li><para>For day of the week values, you can specify either integers <c>0</c> through <c>6</c>,
+        /// or alternative single values <c>SUN</c> through <c>SAT</c>.</para></li><li><para>The minute, month, and year must be specified by <c>*</c>.</para></li><li><para>The hour value must be one or a multiple range, for example, <c>0-4</c> or <c>0-4,20-23</c>.</para></li><li><para>Each hour range must be &gt;= 2 hours, for example, <c>0-2</c> or <c>20-23</c>.</para></li><li><para>The event window must be &gt;= 4 hours. The combined total time ranges in the event
         /// window must be &gt;= 4 hours.</para></li></ul><para>For more information about cron expressions, see <a href="https://en.wikipedia.org/wiki/Cron">cron</a>
         /// on the <i>Wikipedia website</i>.</para>
         /// </para>

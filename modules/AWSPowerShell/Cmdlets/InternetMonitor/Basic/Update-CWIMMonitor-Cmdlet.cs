@@ -213,8 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         /// <summary>
         /// <para>
         /// <para>The status of whether Internet Monitor creates a health event based on a threshold
-        /// percentage set for a local health score. The status can be <code>ENABLED</code> or
-        /// <code>DISABLED</code>.</para>
+        /// percentage set for a local health score. The status can be <c>ENABLED</c> or <c>DISABLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,8 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         /// <summary>
         /// <para>
         /// <para>The status of whether Internet Monitor creates a health event based on a threshold
-        /// percentage set for a local health score. The status can be <code>ENABLED</code> or
-        /// <code>DISABLED</code>.</para>
+        /// percentage set for a local health score. The status can be <c>ENABLED</c> or <c>DISABLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -240,9 +238,9 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The status for a monitor. The accepted values for <code>Status</code> with the <code>UpdateMonitor</code>
-        /// API call are the following: <code>ACTIVE</code> and <code>INACTIVE</code>. The following
-        /// values are <i>not</i> accepted: <code>PENDING</code>, and <code>ERROR</code>.</para>
+        /// <para>The status for a monitor. The accepted values for <c>Status</c> with the <c>UpdateMonitor</c>
+        /// API call are the following: <c>ACTIVE</c> and <c>INACTIVE</c>. The following values
+        /// are <i>not</i> accepted: <c>PENDING</c>, and <c>ERROR</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

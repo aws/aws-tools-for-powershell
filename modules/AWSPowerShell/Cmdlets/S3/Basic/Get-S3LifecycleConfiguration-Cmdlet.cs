@@ -42,21 +42,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object
     /// Lifecycle Management</a>.
     /// </para><para>
-    /// To use this operation, you must have permission to perform the <code>s3:GetLifecycleConfiguration</code>
+    /// To use this operation, you must have permission to perform the <c>s3:GetLifecycleConfiguration</c>
     /// action. The bucket owner has this permission, by default. The bucket owner can grant
     /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// Access Permissions to Your Amazon S3 Resources</a>.
-    /// </para><para><code>GetBucketLifecycleConfiguration</code> has the following special error:
+    /// </para><para><c>GetBucketLifecycleConfiguration</c> has the following special error:
     /// </para><ul><li><para>
-    /// Error code: <code>NoSuchLifecycleConfiguration</code></para><ul><li><para>
+    /// Error code: <c>NoSuchLifecycleConfiguration</c></para><ul><li><para>
     /// Description: The lifecycle configuration does not exist.
     /// </para></li><li><para>
     /// HTTP Status Code: 404 Not Found
     /// </para></li><li><para>
     /// SOAP Fault Code Prefix: Client
     /// </para></li></ul></li></ul><para>
-    /// The following operations are related to <code>GetBucketLifecycleConfiguration</code>:
+    /// The following operations are related to <c>GetBucketLifecycleConfiguration</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html">GetBucketLifecycle</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html">DeleteBucketLifecycle</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3LifecycleConfiguration")]

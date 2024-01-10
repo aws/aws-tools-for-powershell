@@ -28,8 +28,7 @@ using Amazon.NetworkMonitor.Model;
 namespace Amazon.PowerShell.Cmdlets.CWNM
 {
     /// <summary>
-    /// Returns the details about a probe. You'll need both the <code>monitorName</code> and
-    /// <code>probeId</code>.
+    /// Returns the details about a probe. You'll need both the <c>monitorName</c> and <c>probeId</c>.
     /// </summary>
     [Cmdlet("Get", "CWNMProbe")]
     [OutputType("Amazon.NetworkMonitor.Model.GetProbeResponse")]
@@ -45,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         #region Parameter MonitorName
         /// <summary>
         /// <para>
-        /// <para>The name of the monitor associated with the probe. Run <code>ListMonitors</code> to
-        /// get a list of monitor names.</para>
+        /// <para>The name of the monitor associated with the probe. Run <c>ListMonitors</c> to get
+        /// a list of monitor names.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         #region Parameter ProbeId
         /// <summary>
         /// <para>
-        /// <para>The ID of the probe to get information about. Run <code>GetMonitor</code> action to
-        /// get a list of probes and probe IDs for the monitor.</para>
+        /// <para>The ID of the probe to get information about. Run <c>GetMonitor</c> action to get
+        /// a list of probes and probe IDs for the monitor.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

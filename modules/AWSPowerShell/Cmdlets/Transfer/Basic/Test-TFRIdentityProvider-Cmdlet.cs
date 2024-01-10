@@ -28,42 +28,40 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// If the <code>IdentityProviderType</code> of a file transfer protocol-enabled server
-    /// is <code>AWS_DIRECTORY_SERVICE</code> or <code>API_Gateway</code>, tests whether your
-    /// identity provider is set up successfully. We highly recommend that you call this operation
-    /// to test your authentication method as soon as you create your server. By doing so,
-    /// you can troubleshoot issues with the identity provider integration to ensure that
-    /// your users can successfully use the service.
+    /// If the <c>IdentityProviderType</c> of a file transfer protocol-enabled server is <c>AWS_DIRECTORY_SERVICE</c>
+    /// or <c>API_Gateway</c>, tests whether your identity provider is set up successfully.
+    /// We highly recommend that you call this operation to test your authentication method
+    /// as soon as you create your server. By doing so, you can troubleshoot issues with the
+    /// identity provider integration to ensure that your users can successfully use the service.
     /// 
     ///  
     /// <para>
-    ///  The <code>ServerId</code> and <code>UserName</code> parameters are required. The
-    /// <code>ServerProtocol</code>, <code>SourceIp</code>, and <code>UserPassword</code>
-    /// are all optional. 
+    ///  The <c>ServerId</c> and <c>UserName</c> parameters are required. The <c>ServerProtocol</c>,
+    /// <c>SourceIp</c>, and <c>UserPassword</c> are all optional. 
     /// </para><para>
     /// Note the following:
     /// </para><ul><li><para>
-    ///  You cannot use <code>TestIdentityProvider</code> if the <code>IdentityProviderType</code>
-    /// of your server is <code>SERVICE_MANAGED</code>.
-    /// </para></li><li><para><code>TestIdentityProvider</code> does not work with keys: it only accepts passwords.
-    /// </para></li><li><para><code>TestIdentityProvider</code> can test the password operation for a custom Identity
+    ///  You cannot use <c>TestIdentityProvider</c> if the <c>IdentityProviderType</c> of
+    /// your server is <c>SERVICE_MANAGED</c>.
+    /// </para></li><li><para><c>TestIdentityProvider</c> does not work with keys: it only accepts passwords.
+    /// </para></li><li><para><c>TestIdentityProvider</c> can test the password operation for a custom Identity
     /// Provider that handles keys and passwords.
     /// </para></li><li><para>
-    ///  If you provide any incorrect values for any parameters, the <code>Response</code>
-    /// field is empty. 
+    ///  If you provide any incorrect values for any parameters, the <c>Response</c> field
+    /// is empty. 
     /// </para></li><li><para>
     ///  If you provide a server ID for a server that uses service-managed users, you get
     /// an error: 
-    /// </para><para><code> An error occurred (InvalidRequestException) when calling the TestIdentityProvider
-    /// operation: s-<i>server-ID</i> not configured for external auth </code></para></li><li><para>
-    ///  If you enter a Server ID for the <code>--server-id</code> parameter that does not
-    /// identify an actual Transfer server, you receive the following error: 
-    /// </para><para><code>An error occurred (ResourceNotFoundException) when calling the TestIdentityProvider
-    /// operation: Unknown server</code>. 
+    /// </para><para><c> An error occurred (InvalidRequestException) when calling the TestIdentityProvider
+    /// operation: s-<i>server-ID</i> not configured for external auth </c></para></li><li><para>
+    ///  If you enter a Server ID for the <c>--server-id</c> parameter that does not identify
+    /// an actual Transfer server, you receive the following error: 
+    /// </para><para><c>An error occurred (ResourceNotFoundException) when calling the TestIdentityProvider
+    /// operation: Unknown server</c>. 
     /// </para><para>
     /// It is possible your sever is in a different region. You can specify a region by adding
-    /// the following: <code>--region region-code</code>, such as <code>--region us-east-2</code>
-    /// to specify a server in <b>US East (Ohio)</b>.
+    /// the following: <c>--region region-code</c>, such as <c>--region us-east-2</c> to specify
+    /// a server in <b>US East (Ohio)</b>.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Test", "TFRIdentityProvider")]

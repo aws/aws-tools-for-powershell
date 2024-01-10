@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// <summary>
     /// Retrieves a list of certificate ARNs and domain names. You can request that only certificates
     /// that match a specific status be listed. You can also filter by specific attributes
-    /// of the certificate. Default filtering returns only <code>RSA_2048</code> certificates.
-    /// For more information, see <a>Filters</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// of the certificate. Default filtering returns only <c>RSA_2048</c> certificates. For
+    /// more information, see <a>Filters</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ACMCertificateList")]
     [OutputType("Amazon.CertificateManager.Model.CertificateSummary")]
@@ -69,10 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter Includes_KeyType
         /// <summary>
         /// <para>
-        /// <para>Specify one or more algorithms that can be used to generate key pairs.</para><para>Default filtering returns only <code>RSA_1024</code> and <code>RSA_2048</code> certificates
-        /// that have at least one domain. To return other certificate types, provide the desired
-        /// type signatures in a comma-separated list. For example, <code>"keyTypes": ["RSA_2048","RSA_4096"]</code>
-        /// returns both <code>RSA_2048</code> and <code>RSA_4096</code> certificates.</para>
+        /// <para>Specify one or more algorithms that can be used to generate key pairs.</para><para>Default filtering returns only <c>RSA_1024</c> and <c>RSA_2048</c> certificates that
+        /// have at least one domain. To return other certificate types, provide the desired type
+        /// signatures in a comma-separated list. For example, <c>"keyTypes": ["RSA_2048","RSA_4096"]</c>
+        /// returns both <c>RSA_2048</c> and <c>RSA_4096</c> certificates.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>Specifies the field to sort results by. If you specify <code>SortBy</code>, you must
-        /// also specify <code>SortOrder</code>.</para>
+        /// <para>Specifies the field to sort results by. If you specify <c>SortBy</c>, you must also
+        /// specify <c>SortOrder</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>Specifies the order of sorted results. If you specify <code>SortOrder</code>, you
-        /// must also specify <code>SortBy</code>.</para>
+        /// <para>Specifies the order of sorted results. If you specify <c>SortOrder</c>, you must also
+        /// specify <c>SortBy</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <para>
         /// <para>Use this parameter when paginating results to specify the maximum number of items
         /// to return in the response. If additional items exist beyond the number you specify,
-        /// the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code>
-        /// value in a subsequent request to retrieve additional items.</para>
+        /// the <c>NextToken</c> element is sent in the response. Use this <c>NextToken</c> value
+        /// in a subsequent request to retrieve additional items.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only in a subsequent request after
-        /// you receive a response with truncated results. Set it to the value of <code>NextToken</code>
+        /// you receive a response with truncated results. Set it to the value of <c>NextToken</c>
         /// from the response you just received.</para>
         /// </para>
         /// <para>

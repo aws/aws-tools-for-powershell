@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     /// For more information about segment pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html">
     /// Segment rule pattern syntax</a>.
     /// </para><para>
-    /// The pattern that you define for a segment is matched against the value of <code>evaluationContext</code>,
+    /// The pattern that you define for a segment is matched against the value of <c>evaluationContext</c>,
     /// which is passed into Evidently in the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a>
     /// operation, when Evidently assigns a feature variation to a user.
     /// </para>

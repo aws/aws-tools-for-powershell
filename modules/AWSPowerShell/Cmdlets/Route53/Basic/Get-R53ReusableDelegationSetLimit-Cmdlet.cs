@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>Specify <code>MAX_ZONES_BY_REUSABLE_DELEGATION_SET</code> to get the maximum number
-        /// of hosted zones that you can associate with the specified reusable delegation set.</para>
+        /// <para>Specify <c>MAX_ZONES_BY_REUSABLE_DELEGATION_SET</c> to get the maximum number of hosted
+        /// zones that you can associate with the specified reusable delegation set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

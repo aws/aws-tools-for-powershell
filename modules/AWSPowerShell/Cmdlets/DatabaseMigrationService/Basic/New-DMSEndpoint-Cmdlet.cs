@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// 
     ///  <note><para>
     /// For a MySQL source or target endpoint, don't explicitly specify the database using
-    /// the <code>DatabaseName</code> request parameter on the <code>CreateEndpoint</code>
-    /// API call. Specifying <code>DatabaseName</code> when you create a MySQL endpoint replicates
-    /// all the task tables to this single database. For MySQL endpoints, you specify the
-    /// database only when you specify the schema in the table-mapping rules of the DMS task.
+    /// the <c>DatabaseName</c> request parameter on the <c>CreateEndpoint</c> API call. Specifying
+    /// <c>DatabaseName</c> when you create a MySQL endpoint replicates all the task tables
+    /// to this single database. For MySQL endpoints, you specify the database only when you
+    /// specify the schema in the table-mapping rules of the DMS task.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "DMSEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>A value that indicates to allow any date format, including invalid formats such as
-        /// 00/00/00 00:00:00, to be loaded without generating an error. You can choose <code>true</code>
-        /// or <code>false</code> (the default).</para><para>This parameter applies only to TIMESTAMP and DATE columns. Always use ACCEPTANYDATE
+        /// 00/00/00 00:00:00, to be loaded without generating an error. You can choose <c>true</c>
+        /// or <c>false</c> (the default).</para><para>This parameter applies only to TIMESTAMP and DATE columns. Always use ACCEPTANYDATE
         /// with the DATEFORMAT parameter. If the date format for the data doesn't match the DATEFORMAT
         /// specification, Amazon Redshift inserts a NULL value into that field. </para>
         /// </para>
@@ -71,10 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_AccessAlternateDirectly
         /// <summary>
         /// <para>
-        /// <para>Set this attribute to <code>false</code> in order to use the Binary Reader to capture
-        /// change data for an Amazon RDS for Oracle as the source. This tells the DMS instance
-        /// to not access redo logs through any specified path prefix replacement using direct
-        /// file access.</para>
+        /// <para>Set this attribute to <c>false</c> in order to use the Binary Reader to capture change
+        /// data for an Amazon RDS for Oracle as the source. This tells the DMS instance to not
+        /// access redo logs through any specified path prefix replacement using direct file access.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,9 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_AddColumnName
         /// <summary>
         /// <para>
-        /// <para>An optional parameter that, when set to <code>true</code> or <code>y</code>, you can
-        /// use to add column name information to the .csv output file.</para><para>The default value is <code>false</code>. Valid values are <code>true</code>, <code>false</code>,
-        /// <code>y</code>, and <code>n</code>.</para>
+        /// <para>An optional parameter that, when set to <c>true</c> or <c>y</c>, you can use to add
+        /// column name information to the .csv output file.</para><para>The default value is <c>false</c>. Valid values are <c>true</c>, <c>false</c>, <c>y</c>,
+        /// and <c>n</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,12 +95,12 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_AdditionalArchivedLogDestId
         /// <summary>
         /// <para>
-        /// <para>Set this attribute with <code>ArchivedLogDestId</code> in a primary/ standby setup.
-        /// This attribute is useful in the case of a switchover. In this case, DMS needs to know
-        /// which destination to get archive redo logs from to read changes. This need arises
-        /// because the previous primary instance is now a standby instance after switchover.</para><para>Although DMS supports the use of the Oracle <code>RESETLOGS</code> option to open
-        /// the database, never use <code>RESETLOGS</code> unless necessary. For additional information
-        /// about <code>RESETLOGS</code>, see <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/rman-data-repair-concepts.html#GUID-1805CCF7-4AF2-482D-B65A-998192F89C2B">RMAN
+        /// <para>Set this attribute with <c>ArchivedLogDestId</c> in a primary/ standby setup. This
+        /// attribute is useful in the case of a switchover. In this case, DMS needs to know which
+        /// destination to get archive redo logs from to read changes. This need arises because
+        /// the previous primary instance is now a standby instance after switchover.</para><para>Although DMS supports the use of the Oracle <c>RESETLOGS</c> option to open the database,
+        /// never use <c>RESETLOGS</c> unless necessary. For additional information about <c>RESETLOGS</c>,
+        /// see <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/rman-data-repair-concepts.html#GUID-1805CCF7-4AF2-482D-B65A-998192F89C2B">RMAN
         /// Data Repair Concepts</a> in the <i>Oracle Database Backup and Recovery User's Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -124,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_AddTrailingPaddingCharacter
         /// <summary>
         /// <para>
-        /// <para>Use the S3 target endpoint setting <code>AddTrailingPaddingCharacter</code> to add
-        /// padding on string data. The default value is <code>false</code>.</para>
+        /// <para>Use the S3 target endpoint setting <c>AddTrailingPaddingCharacter</c> to add padding
+        /// on string data. The default value is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>For use with change data capture (CDC) only, this attribute has DMS bypass foreign
-        /// keys and user triggers to reduce the time it takes to bulk load data.</para><para>Example: <code>afterConnectScript=SET session_replication_role='replica'</code></para>
+        /// keys and user triggers to reduce the time it takes to bulk load data.</para><para>Example: <c>afterConnectScript=SET session_replication_role='replica'</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_AllowSelectNestedTable
         /// <summary>
         /// <para>
-        /// <para>Set this attribute to <code>true</code> to enable replication of Oracle tables containing
+        /// <para>Set this attribute to <c>true</c> to enable replication of Oracle tables containing
         /// columns that are nested tables or defined types.</para>
         /// </para>
         /// </summary>
@@ -195,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Specifies the ID of the destination for the archived redo logs. This value should
         /// be the same as a number in the dest_id column of the v$archived_log view. If you work
-        /// with an additional redo log destination, use the <code>AdditionalArchivedLogDestId</code>
+        /// with an additional redo log destination, use the <c>AdditionalArchivedLogDestId</c>
         /// option to specify the additional destination ID. Doing this improves performance by
         /// ensuring that the correct logs are accessed from the outset.</para>
         /// </para>
@@ -207,9 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_ArchivedLogsOnly
         /// <summary>
         /// <para>
-        /// <para>When this field is set to <code>Y</code>, DMS only accesses the archived redo logs.
-        /// If the archived redo logs are stored on Automatic Storage Management (ASM) only, the
-        /// DMS user account needs to be granted ASM privileges.</para>
+        /// <para>When this field is set to <c>Y</c>, DMS only accesses the archived redo logs. If the
+        /// archived redo logs are stored on Automatic Storage Management (ASM) only, the DMS
+        /// user account needs to be granted ASM privileges.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -220,10 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
-        /// You can set this value from the <code><i>asm_user_password</i></code> value. You
-        /// set this value as part of the comma-separated value that you set to the <code>Password</code>
-        /// request parameter when you create the endpoint to access transaction logs using Binary
-        /// Reader. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration">Configuration
+        /// You can set this value from the <c><i>asm_user_password</i></c> value. You set this
+        /// value as part of the comma-separated value that you set to the <c>Password</c> request
+        /// parameter when you create the endpoint to access transaction logs using Binary Reader.
+        /// For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration">Configuration
         /// for change data capture (CDC) on an Oracle source database</a>.</para>
         /// </para>
         /// </summary>
@@ -235,9 +234,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>For an Oracle source endpoint, your ASM server address. You can set this value from
-        /// the <code>asm_server</code> value. You set <code>asm_server</code> as part of the
-        /// extra connection attribute string to access an Oracle server with Binary Reader that
-        /// uses ASM. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration">Configuration
+        /// the <c>asm_server</c> value. You set <c>asm_server</c> as part of the extra connection
+        /// attribute string to access an Oracle server with Binary Reader that uses ASM. For
+        /// more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration">Configuration
         /// for change data capture (CDC) on an Oracle source database</a>.</para>
         /// </para>
         /// </summary>
@@ -249,9 +248,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>For an Oracle source endpoint, your ASM user name. You can set this value from the
-        /// <code>asm_user</code> value. You set <code>asm_user</code> as part of the extra connection
-        /// attribute string to access an Oracle server with Binary Reader that uses ASM. For
-        /// more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration">Configuration
+        /// <c>asm_user</c> value. You set <c>asm_user</c> as part of the extra connection attribute
+        /// string to access an Oracle server with Binary Reader that uses ASM. For more information,
+        /// see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration">Configuration
         /// for change data capture (CDC) on an Oracle source database</a>.</para>
         /// </para>
         /// </summary>
@@ -262,9 +261,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MongoDbSettings_AuthMechanism
         /// <summary>
         /// <para>
-        /// <para> The authentication mechanism you use to access the MongoDB source endpoint.</para><para>For the default value, in MongoDB version 2.x, <code>"default"</code> is <code>"mongodb_cr"</code>.
-        /// For MongoDB version 3.x or later, <code>"default"</code> is <code>"scram_sha_1"</code>.
-        /// This setting isn't used when <code>AuthType</code> is set to <code>"no"</code>.</para>
+        /// <para> The authentication mechanism you use to access the MongoDB source endpoint.</para><para>For the default value, in MongoDB version 2.x, <c>"default"</c> is <c>"mongodb_cr"</c>.
+        /// For MongoDB version 3.x or later, <c>"default"</c> is <c>"scram_sha_1"</c>. This setting
+        /// isn't used when <c>AuthType</c> is set to <c>"no"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,8 +274,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter RedisSettings_AuthPassword
         /// <summary>
         /// <para>
-        /// <para>The password provided with the <code>auth-role</code> and <code>auth-token</code>
-        /// options of the <code>AuthType</code> setting for a Redis target endpoint.</para>
+        /// <para>The password provided with the <c>auth-role</c> and <c>auth-token</c> options of the
+        /// <c>AuthType</c> setting for a Redis target endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -286,8 +285,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MongoDbSettings_AuthSource
         /// <summary>
         /// <para>
-        /// <para> The MongoDB database name. This setting isn't used when <code>AuthType</code> is
-        /// set to <code>"no"</code>. </para><para>The default is <code>"admin"</code>.</para>
+        /// <para> The MongoDB database name. This setting isn't used when <c>AuthType</c> is set to
+        /// <c>"no"</c>. </para><para>The default is <c>"admin"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -297,8 +296,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MongoDbSettings_AuthType
         /// <summary>
         /// <para>
-        /// <para> The authentication type you use to access the MongoDB source endpoint.</para><para>When when set to <code>"no"</code>, user name and password parameters are not used
-        /// and can be empty. </para>
+        /// <para> The authentication type you use to access the MongoDB source endpoint.</para><para>When when set to <c>"no"</c>, user name and password parameters are not used and can
+        /// be empty. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -310,10 +309,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The type of authentication to perform when connecting to a Redis target. Options include
-        /// <code>none</code>, <code>auth-token</code>, and <code>auth-role</code>. The <code>auth-token</code>
-        /// option requires an <code>AuthPassword</code> value to be provided. The <code>auth-role</code>
-        /// option requires <code>AuthUserName</code> and <code>AuthPassword</code> values to
-        /// be provided.</para>
+        /// <c>none</c>, <c>auth-token</c>, and <c>auth-role</c>. The <c>auth-token</c> option
+        /// requires an <c>AuthPassword</c> value to be provided. The <c>auth-role</c> option
+        /// requires <c>AuthUserName</c> and <c>AuthPassword</c> values to be provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -324,8 +322,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter RedisSettings_AuthUserName
         /// <summary>
         /// <para>
-        /// <para>The user name provided with the <code>auth-role</code> option of the <code>AuthType</code>
-        /// setting for a Redis target endpoint.</para>
+        /// <para>The user name provided with the <c>auth-role</c> option of the <c>AuthType</c> setting
+        /// for a Redis target endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -356,8 +354,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>A comma-separated list of one or more broker locations in your Kafka cluster that
-        /// host your Kafka instance. Specify each broker location in the form <code><i>broker-hostname-or-ip</i>:<i>port</i></code>. For example, <code>"ec2-12-345-678-901.compute-1.amazonaws.com:2345"</code>.
-        /// For more information and examples of specifying a list of broker locations, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html">Using
+        /// host your Kafka instance. Specify each broker location in the form <c><i>broker-hostname-or-ip</i>:<i>port</i></c>. For example, <c>"ec2-12-345-678-901.compute-1.amazonaws.com:2345"</c>. For more
+        /// information and examples of specifying a list of broker locations, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html">Using
         /// Apache Kafka as a target for Database Migration Service</a> in the <i>Database Migration
         /// Service User Guide</i>. </para>
         /// </para>
@@ -371,8 +369,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>An S3 folder where the comma-separated-value (.csv) files are stored before being
         /// uploaded to the target Redshift cluster. </para><para>For full load mode, DMS converts source records into .csv files and loads them to
-        /// the <i>BucketFolder/TableID</i> path. DMS uses the Redshift <code>COPY</code> command
-        /// to upload the .csv files to the target table. The files are deleted once the <code>COPY</code>
+        /// the <i>BucketFolder/TableID</i> path. DMS uses the Redshift <c>COPY</c> command to
+        /// upload the .csv files to the target table. The files are deleted once the <c>COPY</c>
         /// operation has finished. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html">COPY</a>
         /// in the <i>Amazon Redshift Database Developer Guide</i>.</para><para>For change-data-capture (CDC) mode, DMS creates a <i>NetChanges</i> table, and loads
         /// the .csv files to this <i>BucketFolder/NetChangesTableID</i> path.</para>
@@ -386,8 +384,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> An optional parameter to set a folder name in the S3 bucket. If provided, tables
-        /// are created in the path <code><i>bucketFolder</i>/<i>schema_name</i>/<i>table_name</i>/</code>.
-        /// If this parameter isn't specified, then the path used is <code><i>schema_name</i>/<i>table_name</i>/</code>.
+        /// are created in the path <c><i>bucketFolder</i>/<i>schema_name</i>/<i>table_name</i>/</c>.
+        /// If this parameter isn't specified, then the path used is <c><i>schema_name</i>/<i>table_name</i>/</c>.
         /// </para>
         /// </para>
         /// </summary>
@@ -446,8 +444,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>To capture DDL events, DMS creates various artifacts in the PostgreSQL database when
-        /// the task starts. You can later remove these artifacts.</para><para>If this value is set to <code>N</code>, you don't have to create tables or triggers
-        /// on the source database.</para>
+        /// the task starts. You can later remove these artifacts.</para><para>If this value is set to <c>N</c>, you don't have to create tables or triggers on the
+        /// source database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -458,8 +456,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter RedshiftSettings_CaseSensitiveName
         /// <summary>
         /// <para>
-        /// <para>If Amazon Redshift is configured to support case sensitive schema names, set <code>CaseSensitiveNames</code>
-        /// to <code>true</code>. The default is <code>false</code>.</para>
+        /// <para>If Amazon Redshift is configured to support case sensitive schema names, set <c>CaseSensitiveNames</c>
+        /// to <c>true</c>. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -471,22 +469,19 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>A value that enables a change data capture (CDC) load to write INSERT and UPDATE operations
-        /// to .csv or .parquet (columnar storage) output files. The default setting is <code>false</code>,
-        /// but when <code>CdcInsertsAndUpdates</code> is set to <code>true</code> or <code>y</code>,
-        /// only INSERTs and UPDATEs from the source database are migrated to the .csv or .parquet
-        /// file.</para><important><para>DMS supports the use of the .parquet files in versions 3.4.7 and later.</para></important><para>How these INSERTs and UPDATEs are recorded depends on the value of the <code>IncludeOpForFullLoad</code>
-        /// parameter. If <code>IncludeOpForFullLoad</code> is set to <code>true</code>, the first
-        /// field of every CDC record is set to either <code>I</code> or <code>U</code> to indicate
-        /// INSERT and UPDATE operations at the source. But if <code>IncludeOpForFullLoad</code>
-        /// is set to <code>false</code>, CDC records are written without an indication of INSERT
-        /// or UPDATE operations at the source. For more information about how these settings
-        /// work together, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
+        /// to .csv or .parquet (columnar storage) output files. The default setting is <c>false</c>,
+        /// but when <c>CdcInsertsAndUpdates</c> is set to <c>true</c> or <c>y</c>, only INSERTs
+        /// and UPDATEs from the source database are migrated to the .csv or .parquet file.</para><important><para>DMS supports the use of the .parquet files in versions 3.4.7 and later.</para></important><para>How these INSERTs and UPDATEs are recorded depends on the value of the <c>IncludeOpForFullLoad</c>
+        /// parameter. If <c>IncludeOpForFullLoad</c> is set to <c>true</c>, the first field of
+        /// every CDC record is set to either <c>I</c> or <c>U</c> to indicate INSERT and UPDATE
+        /// operations at the source. But if <c>IncludeOpForFullLoad</c> is set to <c>false</c>,
+        /// CDC records are written without an indication of INSERT or UPDATE operations at the
+        /// source. For more information about how these settings work together, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
         /// Source DB Operations in Migrated S3 Data</a> in the <i>Database Migration Service
-        /// User Guide.</i>.</para><note><para>DMS supports the use of the <code>CdcInsertsAndUpdates</code> parameter in versions
-        /// 3.3.1 and later.</para><para><code>CdcInsertsOnly</code> and <code>CdcInsertsAndUpdates</code> can't both be set
-        /// to <code>true</code> for the same endpoint. Set either <code>CdcInsertsOnly</code>
-        /// or <code>CdcInsertsAndUpdates</code> to <code>true</code> for the same endpoint, but
-        /// not both.</para></note>
+        /// User Guide.</i>.</para><note><para>DMS supports the use of the <c>CdcInsertsAndUpdates</c> parameter in versions 3.3.1
+        /// and later.</para><para><c>CdcInsertsOnly</c> and <c>CdcInsertsAndUpdates</c> can't both be set to <c>true</c>
+        /// for the same endpoint. Set either <c>CdcInsertsOnly</c> or <c>CdcInsertsAndUpdates</c>
+        /// to <c>true</c> for the same endpoint, but not both.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -497,10 +492,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter TimestreamSettings_CdcInsertsAndUpdate
         /// <summary>
         /// <para>
-        /// <para>Set this attribute to <code>true</code> to specify that DMS only applies inserts and
-        /// updates, and not deletes. Amazon Timestream does not allow deleting records, so if
-        /// this value is <code>false</code>, DMS nulls out the corresponding record in the Timestream
-        /// database rather than deleting it.</para>
+        /// <para>Set this attribute to <c>true</c> to specify that DMS only applies inserts and updates,
+        /// and not deletes. Amazon Timestream does not allow deleting records, so if this value
+        /// is <c>false</c>, DMS nulls out the corresponding record in the Timestream database
+        /// rather than deleting it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -512,23 +507,22 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>A value that enables a change data capture (CDC) load to write only INSERT operations
-        /// to .csv or columnar storage (.parquet) output files. By default (the <code>false</code>
+        /// to .csv or columnar storage (.parquet) output files. By default (the <c>false</c>
         /// setting), the first field in a .csv or .parquet record contains the letter I (INSERT),
         /// U (UPDATE), or D (DELETE). These values indicate whether the row was inserted, updated,
-        /// or deleted at the source database for a CDC load to the target.</para><para>If <code>CdcInsertsOnly</code> is set to <code>true</code> or <code>y</code>, only
-        /// INSERTs from the source database are migrated to the .csv or .parquet file. For .csv
-        /// format only, how these INSERTs are recorded depends on the value of <code>IncludeOpForFullLoad</code>.
-        /// If <code>IncludeOpForFullLoad</code> is set to <code>true</code>, the first field
-        /// of every CDC record is set to I to indicate the INSERT operation at the source. If
-        /// <code>IncludeOpForFullLoad</code> is set to <code>false</code>, every CDC record is
-        /// written without a first field to indicate the INSERT operation at the source. For
-        /// more information about how these settings work together, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
+        /// or deleted at the source database for a CDC load to the target.</para><para>If <c>CdcInsertsOnly</c> is set to <c>true</c> or <c>y</c>, only INSERTs from the
+        /// source database are migrated to the .csv or .parquet file. For .csv format only, how
+        /// these INSERTs are recorded depends on the value of <c>IncludeOpForFullLoad</c>. If
+        /// <c>IncludeOpForFullLoad</c> is set to <c>true</c>, the first field of every CDC record
+        /// is set to I to indicate the INSERT operation at the source. If <c>IncludeOpForFullLoad</c>
+        /// is set to <c>false</c>, every CDC record is written without a first field to indicate
+        /// the INSERT operation at the source. For more information about how these settings
+        /// work together, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
         /// Source DB Operations in Migrated S3 Data</a> in the <i>Database Migration Service
-        /// User Guide.</i>.</para><note><para>DMS supports the interaction described preceding between the <code>CdcInsertsOnly</code>
-        /// and <code>IncludeOpForFullLoad</code> parameters in versions 3.1.4 and later. </para><para><code>CdcInsertsOnly</code> and <code>CdcInsertsAndUpdates</code> can't both be set
-        /// to <code>true</code> for the same endpoint. Set either <code>CdcInsertsOnly</code>
-        /// or <code>CdcInsertsAndUpdates</code> to <code>true</code> for the same endpoint, but
-        /// not both.</para></note>
+        /// User Guide.</i>.</para><note><para>DMS supports the interaction described preceding between the <c>CdcInsertsOnly</c>
+        /// and <c>IncludeOpForFullLoad</c> parameters in versions 3.1.4 and later. </para><para><c>CdcInsertsOnly</c> and <c>CdcInsertsAndUpdates</c> can't both be set to <c>true</c>
+        /// for the same endpoint. Set either <c>CdcInsertsOnly</c> or <c>CdcInsertsAndUpdates</c>
+        /// to <c>true</c> for the same endpoint, but not both.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -539,9 +533,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Maximum length of the interval, defined in seconds, after which to output a file to
-        /// Amazon S3.</para><para>When <code>CdcMaxBatchInterval</code> and <code>CdcMinFileSize</code> are both specified,
-        /// the file write is triggered by whichever parameter condition is met first within an
-        /// DMS CloudFormation template.</para><para>The default value is 60 seconds.</para>
+        /// Amazon S3.</para><para>When <c>CdcMaxBatchInterval</c> and <c>CdcMinFileSize</c> are both specified, the
+        /// file write is triggered by whichever parameter condition is met first within an DMS
+        /// CloudFormation template.</para><para>The default value is 60 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -551,9 +545,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_CdcMinFileSize
         /// <summary>
         /// <para>
-        /// <para>Minimum file size, defined in kilobytes, to reach for a file output to Amazon S3.</para><para>When <code>CdcMinFileSize</code> and <code>CdcMaxBatchInterval</code> are both specified,
-        /// the file write is triggered by whichever parameter condition is met first within an
-        /// DMS CloudFormation template.</para><para>The default value is 32 MB.</para>
+        /// <para>Minimum file size, defined in kilobytes, to reach for a file output to Amazon S3.</para><para>When <c>CdcMinFileSize</c> and <c>CdcMaxBatchInterval</c> are both specified, the
+        /// file write is triggered by whichever parameter condition is met first within an DMS
+        /// CloudFormation template.</para><para>The default value is 32 MB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -564,16 +558,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Specifies the folder path of CDC files. For an S3 source, this setting is required
-        /// if a task captures change data; otherwise, it's optional. If <code>CdcPath</code>
-        /// is set, DMS reads CDC files from this path and replicates the data changes to the
-        /// target endpoint. For an S3 target if you set <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-PreserveTransactions"><code>PreserveTransactions</code></a> to <code>true</code>, DMS verifies that you
-        /// have set this parameter to a folder path on your S3 target where DMS can save the
-        /// transaction order for the CDC load. DMS creates this CDC folder path in either your
-        /// S3 target working directory or the S3 target location specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketFolder"><code>BucketFolder</code></a> and <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketName"><code>BucketName</code></a>.</para><para>For example, if you specify <code>CdcPath</code> as <code>MyChangedData</code>, and
-        /// you specify <code>BucketName</code> as <code>MyTargetBucket</code> but do not specify
-        /// <code>BucketFolder</code>, DMS creates the CDC folder path following: <code>MyTargetBucket/MyChangedData</code>.</para><para>If you specify the same <code>CdcPath</code>, and you specify <code>BucketName</code>
-        /// as <code>MyTargetBucket</code> and <code>BucketFolder</code> as <code>MyTargetData</code>,
-        /// DMS creates the CDC folder path following: <code>MyTargetBucket/MyTargetData/MyChangedData</code>.</para><para>For more information on CDC including transaction order on an S3 target, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.EndpointSettings.CdcPath">Capturing
+        /// if a task captures change data; otherwise, it's optional. If <c>CdcPath</c> is set,
+        /// DMS reads CDC files from this path and replicates the data changes to the target endpoint.
+        /// For an S3 target if you set <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-PreserveTransactions"><c>PreserveTransactions</c></a> to <c>true</c>, DMS verifies that you have set this
+        /// parameter to a folder path on your S3 target where DMS can save the transaction order
+        /// for the CDC load. DMS creates this CDC folder path in either your S3 target working
+        /// directory or the S3 target location specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketFolder"><c>BucketFolder</c></a> and <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketName"><c>BucketName</c></a>.</para><para>For example, if you specify <c>CdcPath</c> as <c>MyChangedData</c>, and you specify
+        /// <c>BucketName</c> as <c>MyTargetBucket</c> but do not specify <c>BucketFolder</c>,
+        /// DMS creates the CDC folder path following: <c>MyTargetBucket/MyChangedData</c>.</para><para>If you specify the same <c>CdcPath</c>, and you specify <c>BucketName</c> as <c>MyTargetBucket</c>
+        /// and <c>BucketFolder</c> as <c>MyTargetData</c>, DMS creates the CDC folder path following:
+        /// <c>MyTargetBucket/MyTargetData/MyChangedData</c>.</para><para>For more information on CDC including transaction order on an S3 target, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.EndpointSettings.CdcPath">Capturing
         /// data changes (CDC) including transaction order on the S3 target</a>.</para><note><para>This setting is supported in DMS versions 3.4.2 and later.</para></note>
         /// </para>
         /// </summary>
@@ -596,7 +590,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Specifies whether the length of a character column is in bytes or in characters. To
         /// indicate that the character column length is in characters, set this attribute to
-        /// <code>CHAR</code>. Otherwise, the character column length is in bytes.</para><para>Example: <code>charLengthSemantics=CHAR;</code></para>
+        /// <c>CHAR</c>. Otherwise, the character column length is in bytes.</para><para>Example: <c>charLengthSemantics=CHAR;</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -648,11 +642,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter RedshiftSettings_CompUpdate
         /// <summary>
         /// <para>
-        /// <para>If you set <code>CompUpdate</code> to <code>true</code> Amazon Redshift applies automatic
-        /// compression if the table is empty. This applies even if the table columns already
-        /// have encodings other than <code>RAW</code>. If you set <code>CompUpdate</code> to
-        /// <code>false</code>, automatic compression is disabled and existing column encodings
-        /// aren't changed. The default is <code>true</code>.</para>
+        /// <para>If you set <c>CompUpdate</c> to <c>true</c> Amazon Redshift applies automatic compression
+        /// if the table is empty. This applies even if the table columns already have encodings
+        /// other than <c>RAW</c>. If you set <c>CompUpdate</c> to <c>false</c>, automatic compression
+        /// is disabled and existing column encodings aren't changed. The default is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -685,8 +678,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_ConvertTimestampWithZoneToUTC
         /// <summary>
         /// <para>
-        /// <para>When true, converts timestamps with the <code>timezone</code> datatype to their UTC
-        /// value.</para>
+        /// <para>When true, converts timestamps with the <c>timezone</c> datatype to their UTC value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -708,10 +700,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>This setting only applies if your Amazon S3 output files during a change data capture
-        /// (CDC) load are written in .csv format. If <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-UseCsvNoSupValue"><code>UseCsvNoSupValue</code></a> is set to true, specify a string value that you
-        /// want DMS to use for all columns not included in the supplemental log. If you do not
-        /// specify a string value, DMS uses the null value for these columns regardless of the
-        /// <code>UseCsvNoSupValue</code> setting.</para><note><para>This setting is supported in DMS versions 3.4.1 and later.</para></note>
+        /// (CDC) load are written in .csv format. If <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-UseCsvNoSupValue"><c>UseCsvNoSupValue</c></a> is set to true, specify a string value that you want
+        /// DMS to use for all columns not included in the supplemental log. If you do not specify
+        /// a string value, DMS uses the null value for these columns regardless of the <c>UseCsvNoSupValue</c>
+        /// setting.</para><note><para>This setting is supported in DMS versions 3.4.1 and later.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -726,7 +718,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// writing to the target. For example, when target columns are nullable, you can use
         /// this option to differentiate between the empty string value and the null value. So,
         /// if you set this parameter value to the empty string ("" or ''), DMS treats the empty
-        /// string as the null value instead of <code>NULL</code>.</para><para>The default value is <code>NULL</code>. Valid values include any valid string.</para>
+        /// string as the null value instead of <c>NULL</c>.</para><para>The default value is <c>NULL</c>. Valid values include any valid string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -737,7 +729,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> The delimiter used to separate rows in the .csv file for both source and target.
-        /// The default is a carriage return (<code>\n</code>). </para>
+        /// The default is a carriage return (<c>\n</c>). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -771,7 +763,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The name of the endpoint database. For a MySQL source or target endpoint, do not specify
-        /// DatabaseName. To migrate to a specific database, use this setting and <code>targetDbType</code>.</para>
+        /// DatabaseName. To migrate to a specific database, use this setting and <c>targetDbType</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -792,11 +784,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Database name for the endpoint. For a MySQL source or target endpoint, don't explicitly
-        /// specify the database using the <code>DatabaseName</code> request parameter on either
-        /// the <code>CreateEndpoint</code> or <code>ModifyEndpoint</code> API call. Specifying
-        /// <code>DatabaseName</code> when you create or modify a MySQL endpoint replicates all
-        /// the task tables to this single database. For MySQL endpoints, you specify the database
-        /// only when you specify the schema in the table-mapping rules of the DMS task. </para>
+        /// specify the database using the <c>DatabaseName</c> request parameter on either the
+        /// <c>CreateEndpoint</c> or <c>ModifyEndpoint</c> API call. Specifying <c>DatabaseName</c>
+        /// when you create or modify a MySQL endpoint replicates all the task tables to this
+        /// single database. For MySQL endpoints, you specify the database only when you specify
+        /// the schema in the table-mapping rules of the DMS task. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -837,11 +829,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Database name for the endpoint. For a MySQL source or target endpoint, don't explicitly
-        /// specify the database using the <code>DatabaseName</code> request parameter on either
-        /// the <code>CreateEndpoint</code> or <code>ModifyEndpoint</code> API call. Specifying
-        /// <code>DatabaseName</code> when you create or modify a MySQL endpoint replicates all
-        /// the task tables to this single database. For MySQL endpoints, you specify the database
-        /// only when you specify the schema in the table-mapping rules of the DMS task.</para>
+        /// specify the database using the <c>DatabaseName</c> request parameter on either the
+        /// <c>CreateEndpoint</c> or <c>ModifyEndpoint</c> API call. Specifying <c>DatabaseName</c>
+        /// when you create or modify a MySQL endpoint replicates all the task tables to this
+        /// single database. For MySQL endpoints, you specify the database only when you specify
+        /// the schema in the table-mapping rules of the DMS task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -902,9 +894,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The format of the data that you want to use for output. You can choose one of the
-        /// following: </para><ul><li><para><code>csv</code> : This is a row-based file format with comma-separated values (.csv).
-        /// </para></li><li><para><code>parquet</code> : Apache Parquet (.parquet) is a columnar storage file format
-        /// that features efficient compression and provides faster query response. </para></li></ul>
+        /// following: </para><ul><li><para><c>csv</c> : This is a row-based file format with comma-separated values (.csv).
+        /// </para></li><li><para><c>parquet</c> : Apache Parquet (.parquet) is a columnar storage file format that
+        /// features efficient compression and provides faster query response. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -926,10 +918,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter RedshiftSettings_DateFormat
         /// <summary>
         /// <para>
-        /// <para>The date format that you are using. Valid values are <code>auto</code> (case-sensitive),
+        /// <para>The date format that you are using. Valid values are <c>auto</c> (case-sensitive),
         /// your date format string enclosed in quotes, or NULL. If this parameter is left unset
-        /// (NULL), it defaults to a format of 'YYYY-MM-DD'. Using <code>auto</code> recognizes
-        /// most strings, even some that aren't supported when you use a date format string. </para><para>If your date and time values use formats different from each other, set this to <code>auto</code>.
+        /// (NULL), it defaults to a format of 'YYYY-MM-DD'. Using <c>auto</c> recognizes most
+        /// strings, even some that aren't supported when you use a date format string. </para><para>If your date and time values use formats different from each other, set this to <c>auto</c>.
         /// </para>
         /// </para>
         /// </summary>
@@ -941,8 +933,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Specifies a date separating delimiter to use during folder partitioning. The default
-        /// value is <code>SLASH</code>. Use this parameter when <code>DatePartitionedEnabled</code>
-        /// is set to <code>true</code>.</para>
+        /// value is <c>SLASH</c>. Use this parameter when <c>DatePartitionedEnabled</c> is set
+        /// to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -953,9 +945,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_DatePartitionEnabled
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, this parameter partitions S3 bucket folders based on
-        /// transaction commit dates. The default value is <code>false</code>. For more information
-        /// about date-based folder partitioning, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning">Using
+        /// <para>When set to <c>true</c>, this parameter partitions S3 bucket folders based on transaction
+        /// commit dates. The default value is <c>false</c>. For more information about date-based
+        /// folder partitioning, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning">Using
         /// date-based folder partitioning</a>.</para>
         /// </para>
         /// </summary>
@@ -967,8 +959,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Identifies the sequence of the date format to use during folder partitioning. The
-        /// default value is <code>YYYYMMDD</code>. Use this parameter when <code>DatePartitionedEnabled</code>
-        /// is set to <code>true</code>.</para>
+        /// default value is <c>YYYYMMDD</c>. Use this parameter when <c>DatePartitionedEnabled</c>
+        /// is set to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -979,13 +971,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_DatePartitionTimezone
         /// <summary>
         /// <para>
-        /// <para>When creating an S3 target endpoint, set <code>DatePartitionTimezone</code> to convert
-        /// the current UTC time into a specified time zone. The conversion occurs when a date
-        /// partition folder is created and a CDC filename is generated. The time zone format
-        /// is Area/Location. Use this parameter when <code>DatePartitionedEnabled</code> is set
-        /// to <code>true</code>, as shown in the following example.</para><para><code>s3-settings='{"DatePartitionEnabled": true, "DatePartitionSequence": "YYYYMMDDHH",
+        /// <para>When creating an S3 target endpoint, set <c>DatePartitionTimezone</c> to convert the
+        /// current UTC time into a specified time zone. The conversion occurs when a date partition
+        /// folder is created and a CDC filename is generated. The time zone format is Area/Location.
+        /// Use this parameter when <c>DatePartitionedEnabled</c> is set to <c>true</c>, as shown
+        /// in the following example.</para><para><c>s3-settings='{"DatePartitionEnabled": true, "DatePartitionSequence": "YYYYMMDDHH",
         /// "DatePartitionDelimiter": "SLASH", "DatePartitionTimezone":"<i>Asia/Seoul</i>", "BucketName":
-        /// "dms-nattarat-test"}'</code></para>
+        /// "dms-nattarat-test"}'</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -995,7 +987,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PostgreSQLSettings_DdlArtifactsSchema
         /// <summary>
         /// <para>
-        /// <para>The schema in which the operational DDL database artifacts are created.</para><para>Example: <code>ddlArtifactsSchema=xyzddlschema;</code></para>
+        /// <para>The schema in which the operational DDL database artifacts are created.</para><para>Example: <c>ddlArtifactsSchema=xyzddlschema;</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1006,10 +998,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The maximum size of an encoded dictionary page of a column. If the dictionary page
-        /// exceeds this, this column is stored using an encoding type of <code>PLAIN</code>.
-        /// This parameter defaults to 1024 * 1024 bytes (1 MiB), the maximum size of a dictionary
-        /// page before it reverts to <code>PLAIN</code> encoding. This size is used for .parquet
-        /// file format only. </para>
+        /// exceeds this, this column is stored using an encoding type of <c>PLAIN</c>. This parameter
+        /// defaults to 1024 * 1024 bytes (1 MiB), the maximum size of a dictionary page before
+        /// it reverts to <c>PLAIN</c> encoding. This size is used for .parquet file format only.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1019,9 +1011,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_DirectPathNoLog
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, this attribute helps to increase the commit rate on
-        /// the Oracle target database by writing directly to tables and not writing a trail to
-        /// database logs.</para>
+        /// <para>When set to <c>true</c>, this attribute helps to increase the commit rate on the Oracle
+        /// target database by writing directly to tables and not writing a trail to database
+        /// logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1031,8 +1023,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_DirectPathParallelLoad
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, this attribute specifies a parallel load when <code>useDirectPathFullLoad</code>
-        /// is set to <code>Y</code>. This attribute also only applies when you use the DMS parallel
+        /// <para>When set to <c>true</c>, this attribute specifies a parallel load when <c>useDirectPathFullLoad</c>
+        /// is set to <c>Y</c>. This attribute also only applies when you use the DMS parallel
         /// load feature. Note that the target table cannot have any constraints or indexes.</para>
         /// </para>
         /// </summary>
@@ -1044,7 +1036,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> Indicates the number of documents to preview to determine the document organization.
-        /// Use this setting when <code>NestingLevel</code> is set to <code>"one"</code>. </para><para>Must be a positive value greater than <code>0</code>. Default value is <code>1000</code>.</para>
+        /// Use this setting when <c>NestingLevel</c> is set to <c>"one"</c>. </para><para>Must be a positive value greater than <c>0</c>. Default value is <c>1000</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1055,7 +1047,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> Indicates the number of documents to preview to determine the document organization.
-        /// Use this setting when <code>NestingLevel</code> is set to <code>"one"</code>. </para><para>Must be a positive value greater than <code>0</code>. Default value is <code>1000</code>.</para>
+        /// Use this setting when <c>NestingLevel</c> is set to <c>"one"</c>. </para><para>Must be a positive value greater than <c>0</c>. Default value is <c>1000</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1066,8 +1058,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>A value that specifies whether DMS should migrate empty CHAR and VARCHAR fields as
-        /// NULL. A value of <code>true</code> sets empty CHAR and VARCHAR fields to null. The
-        /// default is <code>false</code>.</para>
+        /// NULL. A value of <c>true</c> sets empty CHAR and VARCHAR fields to null. The default
+        /// is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1088,10 +1080,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter TimestreamSettings_EnableMagneticStoreWrite
         /// <summary>
         /// <para>
-        /// <para>Set this attribute to <code>true</code> to enable memory store writes. When this value
-        /// is <code>false</code>, DMS does not write records that are older in days than the
-        /// value specified in <code>MagneticDuration</code>, because Amazon Timestream does not
-        /// allow memory writes by default. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/storage.html">Storage</a>
+        /// <para>Set this attribute to <c>true</c> to enable memory store writes. When this value is
+        /// <c>false</c>, DMS does not write records that are older in days than the value specified
+        /// in <c>MagneticDuration</c>, because Amazon Timestream does not allow memory writes
+        /// by default. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/storage.html">Storage</a>
         /// in the <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/">Amazon
         /// Timestream Developer Guide</a>.</para>
         /// </para>
@@ -1104,10 +1096,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_EnableStatistic
         /// <summary>
         /// <para>
-        /// <para>A value that enables statistics for Parquet pages and row groups. Choose <code>true</code>
-        /// to enable statistics, <code>false</code> to disable. Statistics include <code>NULL</code>,
-        /// <code>DISTINCT</code>, <code>MAX</code>, and <code>MIN</code> values. This parameter
-        /// defaults to <code>true</code>. This value is used for .parquet file format only.</para>
+        /// <para>A value that enables statistics for Parquet pages and row groups. Choose <c>true</c>
+        /// to enable statistics, <c>false</c> to disable. Statistics include <c>NULL</c>, <c>DISTINCT</c>,
+        /// <c>MAX</c>, and <c>MIN</c> values. This parameter defaults to <c>true</c>. This value
+        /// is used for .parquet file format only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1118,9 +1110,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_EncodingType
         /// <summary>
         /// <para>
-        /// <para>The type of encoding you are using: </para><ul><li><para><code>RLE_DICTIONARY</code> uses a combination of bit-packing and run-length encoding
-        /// to store repeated values more efficiently. This is the default.</para></li><li><para><code>PLAIN</code> doesn't use encoding at all. Values are stored as they are.</para></li><li><para><code>PLAIN_DICTIONARY</code> builds a dictionary of the values encountered in a
-        /// given column. The dictionary is stored in a dictionary page for each column chunk.</para></li></ul>
+        /// <para>The type of encoding you are using: </para><ul><li><para><c>RLE_DICTIONARY</c> uses a combination of bit-packing and run-length encoding to
+        /// store repeated values more efficiently. This is the default.</para></li><li><para><c>PLAIN</c> doesn't use encoding at all. Values are stored as they are.</para></li><li><para><c>PLAIN_DICTIONARY</c> builds a dictionary of the values encountered in a given
+        /// column. The dictionary is stored in a dictionary page for each column chunk.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1133,12 +1125,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>The type of server-side encryption that you want to use for your data. This encryption
         /// type is part of the endpoint settings or the extra connections attributes for Amazon
-        /// S3. You can choose either <code>SSE_S3</code> (the default) or <code>SSE_KMS</code>.
-        /// </para><note><para>For the <code>ModifyEndpoint</code> operation, you can change the existing value of
-        /// the <code>EncryptionMode</code> parameter from <code>SSE_KMS</code> to <code>SSE_S3</code>.
-        /// But you can’t change the existing value from <code>SSE_S3</code> to <code>SSE_KMS</code>.</para></note><para>To use <code>SSE_S3</code>, create an Identity and Access Management (IAM) role with
-        /// a policy that allows <code>"arn:aws:s3:::*"</code> to use the following actions: <code>"s3:PutObject",
-        /// "s3:ListBucket"</code></para>
+        /// S3. You can choose either <c>SSE_S3</c> (the default) or <c>SSE_KMS</c>. </para><note><para>For the <c>ModifyEndpoint</c> operation, you can change the existing value of the
+        /// <c>EncryptionMode</c> parameter from <c>SSE_KMS</c> to <c>SSE_S3</c>. But you can’t
+        /// change the existing value from <c>SSE_S3</c> to <c>SSE_KMS</c>.</para></note><para>To use <c>SSE_S3</c>, create an Identity and Access Management (IAM) role with a policy
+        /// that allows <c>"arn:aws:s3:::*"</c> to use the following actions: <c>"s3:PutObject",
+        /// "s3:ListBucket"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1151,11 +1142,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>The type of server-side encryption that you want to use for your data. This encryption
         /// type is part of the endpoint settings or the extra connections attributes for Amazon
-        /// S3. You can choose either <code>SSE_S3</code> (the default) or <code>SSE_KMS</code>.
-        /// </para><note><para>For the <code>ModifyEndpoint</code> operation, you can change the existing value of
-        /// the <code>EncryptionMode</code> parameter from <code>SSE_KMS</code> to <code>SSE_S3</code>.
-        /// But you can’t change the existing value from <code>SSE_S3</code> to <code>SSE_KMS</code>.</para></note><para>To use <code>SSE_S3</code>, you need an Identity and Access Management (IAM) role
-        /// with permission to allow <code>"arn:aws:s3:::dms-*"</code> to use the following actions:</para><ul><li><para><code>s3:CreateBucket</code></para></li><li><para><code>s3:ListBucket</code></para></li><li><para><code>s3:DeleteBucket</code></para></li><li><para><code>s3:GetBucketLocation</code></para></li><li><para><code>s3:GetObject</code></para></li><li><para><code>s3:PutObject</code></para></li><li><para><code>s3:DeleteObject</code></para></li><li><para><code>s3:GetObjectVersion</code></para></li><li><para><code>s3:GetBucketPolicy</code></para></li><li><para><code>s3:PutBucketPolicy</code></para></li><li><para><code>s3:DeleteBucketPolicy</code></para></li></ul>
+        /// S3. You can choose either <c>SSE_S3</c> (the default) or <c>SSE_KMS</c>. </para><note><para>For the <c>ModifyEndpoint</c> operation, you can change the existing value of the
+        /// <c>EncryptionMode</c> parameter from <c>SSE_KMS</c> to <c>SSE_S3</c>. But you can’t
+        /// change the existing value from <c>SSE_S3</c> to <c>SSE_KMS</c>.</para></note><para>To use <c>SSE_S3</c>, you need an Identity and Access Management (IAM) role with permission
+        /// to allow <c>"arn:aws:s3:::dms-*"</c> to use the following actions:</para><ul><li><para><c>s3:CreateBucket</c></para></li><li><para><c>s3:ListBucket</c></para></li><li><para><c>s3:DeleteBucket</c></para></li><li><para><c>s3:GetBucketLocation</c></para></li><li><para><c>s3:GetObject</c></para></li><li><para><c>s3:PutObject</c></para></li><li><para><c>s3:DeleteObject</c></para></li><li><para><c>s3:GetObjectVersion</c></para></li><li><para><c>s3:GetBucketPolicy</c></para></li><li><para><c>s3:PutBucketPolicy</c></para></li><li><para><c>s3:DeleteBucketPolicy</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1185,7 +1175,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter EndpointType
         /// <summary>
         /// <para>
-        /// <para>The type of endpoint. Valid values are <code>source</code> and <code>target</code>.</para>
+        /// <para>The type of endpoint. Valid values are <c>source</c> and <c>target</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -1213,13 +1203,12 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter EngineName
         /// <summary>
         /// <para>
-        /// <para>The type of engine for the endpoint. Valid values, depending on the <code>EndpointType</code>
-        /// value, include <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-        /// <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>, <code>"opensearch"</code>,
-        /// <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"db2-zos"</code>,
-        /// <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>, <code>"mongodb"</code>,
-        /// <code>"kinesis"</code>, <code>"kafka"</code>, <code>"elasticsearch"</code>, <code>"docdb"</code>,
-        /// <code>"sqlserver"</code>, <code>"neptune"</code>, and <code>"babelfish"</code>.</para>
+        /// <para>The type of engine for the endpoint. Valid values, depending on the <c>EndpointType</c>
+        /// value, include <c>"mysql"</c>, <c>"oracle"</c>, <c>"postgres"</c>, <c>"mariadb"</c>,
+        /// <c>"aurora"</c>, <c>"aurora-postgresql"</c>, <c>"opensearch"</c>, <c>"redshift"</c>,
+        /// <c>"s3"</c>, <c>"db2"</c>, <c>"db2-zos"</c>, <c>"azuredb"</c>, <c>"sybase"</c>, <c>"dynamodb"</c>,
+        /// <c>"mongodb"</c>, <c>"kinesis"</c>, <c>"kafka"</c>, <c>"elasticsearch"</c>, <c>"docdb"</c>,
+        /// <c>"sqlserver"</c>, <c>"neptune"</c>, and <c>"babelfish"</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -1259,7 +1248,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Specifies how often to check the binary log for new changes/events when the database
-        /// is idle. The default is five seconds.</para><para>Example: <code>eventsPollInterval=5;</code></para><para>In the example, DMS checks for changes in the binary logs every five seconds. </para>
+        /// is idle. The default is five seconds.</para><para>Example: <c>eventsPollInterval=5;</c></para><para>In the example, DMS checks for changes in the binary logs every five seconds. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1270,7 +1259,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Specifies how often to check the binary log for new changes/events when the database
-        /// is idle. The default is five seconds.</para><para>Example: <code>eventsPollInterval=5;</code></para><para>In the example, DMS checks for changes in the binary logs every five seconds.</para>
+        /// is idle. The default is five seconds.</para><para>Example: <c>eventsPollInterval=5;</c></para><para>In the example, DMS checks for changes in the binary logs every five seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1291,7 +1280,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Sets the client statement timeout for the PostgreSQL instance, in seconds. The default
-        /// value is 60 seconds.</para><para>Example: <code>executeTimeout=100;</code></para>
+        /// value is 60 seconds.</para><para>Example: <c>executeTimeout=100;</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1301,8 +1290,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// <para>To specify a bucket owner and prevent sniping, you can use the <code>ExpectedBucketOwner</code>
-        /// endpoint setting. </para><para>Example: <code>--s3-settings='{"ExpectedBucketOwner": "<i>AWS_Account_ID</i>"}'</code></para><para>When you make a request to test a connection or perform a migration, S3 checks the
+        /// <para>To specify a bucket owner and prevent sniping, you can use the <c>ExpectedBucketOwner</c>
+        /// endpoint setting. </para><para>Example: <c>--s3-settings='{"ExpectedBucketOwner": "<i>AWS_Account_ID</i>"}'</c></para><para>When you make a request to test a connection or perform a migration, S3 checks the
         /// account ID of the bucket owner against the specified parameter.</para>
         /// </para>
         /// </summary>
@@ -1313,10 +1302,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter RedshiftSettings_ExplicitId
         /// <summary>
         /// <para>
-        /// <para>This setting is only valid for a full-load migration task. Set <code>ExplicitIds</code>
-        /// to <code>true</code> to have tables with <code>IDENTITY</code> columns override their
-        /// auto-generated values with explicit values loaded from the source data files used
-        /// to populate the tables. The default is <code>false</code>.</para>
+        /// <para>This setting is only valid for a full-load migration task. Set <c>ExplicitIds</c>
+        /// to <c>true</c> to have tables with <c>IDENTITY</c> columns override their auto-generated
+        /// values with explicit values loaded from the source data files used to populate the
+        /// tables. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1348,15 +1337,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Specifies the IDs of one more destinations for one or more archived redo logs. These
-        /// IDs are the values of the <code>dest_id</code> column in the <code>v$archived_log</code>
-        /// view. Use this setting with the <code>archivedLogDestId</code> extra connection attribute
-        /// in a primary-to-single setup or a primary-to-multiple-standby setup. </para><para>This setting is useful in a switchover when you use an Oracle Data Guard database
+        /// IDs are the values of the <c>dest_id</c> column in the <c>v$archived_log</c> view.
+        /// Use this setting with the <c>archivedLogDestId</c> extra connection attribute in a
+        /// primary-to-single setup or a primary-to-multiple-standby setup. </para><para>This setting is useful in a switchover when you use an Oracle Data Guard database
         /// as a source. In this case, DMS needs information about what destination to get archive
         /// redo logs from to read changes. DMS needs this because after the switchover the previous
         /// primary is a standby instance. For example, in a primary-to-single standby setup you
-        /// might apply the following settings. </para><para><code>archivedLogDestId=1; ExtraArchivedLogDestIds=[2]</code></para><para>In a primary-to-multiple-standby setup, you might apply the following settings.</para><para><code>archivedLogDestId=1; ExtraArchivedLogDestIds=[2,3,4]</code></para><para>Although DMS supports the use of the Oracle <code>RESETLOGS</code> option to open
-        /// the database, never use <code>RESETLOGS</code> unless it's necessary. For more information
-        /// about <code>RESETLOGS</code>, see <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/rman-data-repair-concepts.html#GUID-1805CCF7-4AF2-482D-B65A-998192F89C2B">
+        /// might apply the following settings. </para><para><c>archivedLogDestId=1; ExtraArchivedLogDestIds=[2]</c></para><para>In a primary-to-multiple-standby setup, you might apply the following settings.</para><para><c>archivedLogDestId=1; ExtraArchivedLogDestIds=[2,3,4]</c></para><para>Although DMS supports the use of the Oracle <c>RESETLOGS</c> option to open the database,
+        /// never use <c>RESETLOGS</c> unless it's necessary. For more information about <c>RESETLOGS</c>,
+        /// see <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/rman-data-repair-concepts.html#GUID-1805CCF7-4AF2-482D-B65A-998192F89C2B">
         /// RMAN Data Repair Concepts</a> in the <i>Oracle Database Backup and Recovery User's
         /// Guide</i>.</para>
         /// </para>
@@ -1384,8 +1373,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter DocDbSettings_ExtractDocId
         /// <summary>
         /// <para>
-        /// <para> Specifies the document ID. Use this setting when <code>NestingLevel</code> is set
-        /// to <code>"none"</code>. </para><para>Default value is <code>"false"</code>. </para>
+        /// <para> Specifies the document ID. Use this setting when <c>NestingLevel</c> is set to <c>"none"</c>.
+        /// </para><para>Default value is <c>"false"</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1395,8 +1384,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MongoDbSettings_ExtractDocId
         /// <summary>
         /// <para>
-        /// <para> Specifies the document ID. Use this setting when <code>NestingLevel</code> is set
-        /// to <code>"none"</code>. </para><para>Default value is <code>"false"</code>. </para>
+        /// <para> Specifies the document ID. Use this setting when <c>NestingLevel</c> is set to <c>"none"</c>.
+        /// </para><para>Default value is <c>"false"</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1406,9 +1395,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_FailTasksOnLobTruncation
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, this attribute causes a task to fail if the actual
-        /// size of an LOB column is greater than the specified <code>LobMaxSize</code>.</para><para>If a task is set to limited LOB mode and this option is set to <code>true</code>,
-        /// the task fails instead of truncating the LOB data.</para>
+        /// <para>When set to <c>true</c>, this attribute causes a task to fail if the actual size of
+        /// an LOB column is greater than the specified <c>LobMaxSize</c>.</para><para>If a task is set to limited LOB mode and this option is set to <c>true</c>, the task
+        /// fails instead of truncating the LOB data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1418,8 +1407,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PostgreSQLSettings_FailTasksOnLobTruncation
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, this value causes a task to fail if the actual size
-        /// of a LOB column is greater than the specified <code>LobMaxSize</code>.</para><para>If task is set to Limited LOB mode and this option is set to true, the task fails
+        /// <para>When set to <c>true</c>, this value causes a task to fail if the actual size of a
+        /// LOB column is greater than the specified <c>LobMaxSize</c>.</para><para>If task is set to Limited LOB mode and this option is set to true, the task fails
         /// instead of truncating the LOB data.</para>
         /// </para>
         /// </summary>
@@ -1433,8 +1422,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>The number of threads used to upload a single file. This parameter accepts a value
         /// from 1 through 64. It defaults to 10.</para><para>The number of parallel streams used to upload a single .csv file to an S3 bucket using
         /// S3 Multipart Upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html">Multipart
-        /// upload overview</a>. </para><para><code>FileTransferUploadStreams</code> accepts a value from 1 through 64. It defaults
-        /// to 10.</para>
+        /// upload overview</a>. </para><para><c>FileTransferUploadStreams</c> accepts a value from 1 through 64. It defaults to
+        /// 10.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1482,7 +1471,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this,
         /// it prevents idle logical replication slots from holding onto old WAL logs, which can
-        /// result in storage full situations on the source. This heartbeat keeps <code>restart_lsn</code>
+        /// result in storage full situations on the source. This heartbeat keeps <c>restart_lsn</c>
         /// moving and prevents storage full scenarios.</para>
         /// </para>
         /// </summary>
@@ -1514,9 +1503,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>If you want Identity and Access Management (IAM) authorization enabled for this endpoint,
-        /// set this parameter to <code>true</code>. Then attach the appropriate IAM policy document
-        /// to your service role specified by <code>ServiceAccessRoleArn</code>. The default is
-        /// <code>false</code>.</para>
+        /// set this parameter to <c>true</c>. Then attach the appropriate IAM policy document
+        /// to your service role specified by <c>ServiceAccessRoleArn</c>. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1539,7 +1527,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Shows detailed control information for table definition, column definition, and table
-        /// and column changes in the Kafka message output. The default is <code>false</code>.</para>
+        /// and column changes in the Kafka message output. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1551,7 +1539,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Shows detailed control information for table definition, column definition, and table
-        /// and column changes in the Kinesis message output. The default is <code>false</code>.</para>
+        /// and column changes in the Kinesis message output. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1563,7 +1551,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Include NULL and empty columns for records migrated to the endpoint. The default is
-        /// <code>false</code>.</para>
+        /// <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1574,7 +1562,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Include NULL and empty columns for records migrated to the endpoint. The default is
-        /// <code>false</code>.</para>
+        /// <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1586,14 +1574,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>A value that enables a full load to write INSERT operations to the comma-separated
         /// value (.csv) or .parquet output files only to indicate how the rows were added to
-        /// the source database.</para><note><para>DMS supports the <code>IncludeOpForFullLoad</code> parameter in versions 3.1.4 and
-        /// later.</para><para>DMS supports the use of the .parquet files with the <code>IncludeOpForFullLoad</code>
-        /// parameter in versions 3.4.7 and later.</para></note><para>For full load, records can only be inserted. By default (the <code>false</code> setting),
+        /// the source database.</para><note><para>DMS supports the <c>IncludeOpForFullLoad</c> parameter in versions 3.1.4 and later.</para><para>DMS supports the use of the .parquet files with the <c>IncludeOpForFullLoad</c> parameter
+        /// in versions 3.4.7 and later.</para></note><para>For full load, records can only be inserted. By default (the <c>false</c> setting),
         /// no information is recorded in these output files for a full load to indicate that
-        /// the rows were inserted at the source database. If <code>IncludeOpForFullLoad</code>
-        /// is set to <code>true</code> or <code>y</code>, the INSERT is recorded as an I annotation
-        /// in the first field of the .csv file. This allows the format of your target records
-        /// from a full load to be consistent with the target records from a CDC load.</para><note><para>This setting works together with the <code>CdcInsertsOnly</code> and the <code>CdcInsertsAndUpdates</code>
+        /// the rows were inserted at the source database. If <c>IncludeOpForFullLoad</c> is set
+        /// to <c>true</c> or <c>y</c>, the INSERT is recorded as an I annotation in the first
+        /// field of the .csv file. This allows the format of your target records from a full
+        /// load to be consistent with the target records from a CDC load.</para><note><para>This setting works together with the <c>CdcInsertsOnly</c> and the <c>CdcInsertsAndUpdates</c>
         /// parameters for output to .csv files only. For more information about how these settings
         /// work together, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
         /// Source DB Operations in Migrated S3 Data</a> in the <i>Database Migration Service
@@ -1608,7 +1595,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Shows the partition value within the Kafka message output unless the partition type
-        /// is <code>schema-table-type</code>. The default is <code>false</code>.</para>
+        /// is <c>schema-table-type</c>. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1619,7 +1606,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Shows the partition value within the Kinesis message output, unless the partition
-        /// type is <code>schema-table-type</code>. The default is <code>false</code>.</para>
+        /// type is <c>schema-table-type</c>. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1630,8 +1617,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Includes any data definition language (DDL) operations that change the table in the
-        /// control data, such as <code>rename-table</code>, <code>drop-table</code>, <code>add-column</code>,
-        /// <code>drop-column</code>, and <code>rename-column</code>. The default is <code>false</code>.</para>
+        /// control data, such as <c>rename-table</c>, <c>drop-table</c>, <c>add-column</c>, <c>drop-column</c>,
+        /// and <c>rename-column</c>. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1643,8 +1630,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Includes any data definition language (DDL) operations that change the table in the
-        /// control data, such as <code>rename-table</code>, <code>drop-table</code>, <code>add-column</code>,
-        /// <code>drop-column</code>, and <code>rename-column</code>. The default is <code>false</code>.</para>
+        /// control data, such as <c>rename-table</c>, <c>drop-table</c>, <c>add-column</c>, <c>drop-column</c>,
+        /// and <c>rename-column</c>. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1656,9 +1643,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Provides detailed transaction information from the source database. This information
-        /// includes a commit timestamp, a log position, and values for <code>transaction_id</code>,
-        /// previous <code>transaction_id</code>, and <code>transaction_record_id</code> (the
-        /// record offset within a transaction). The default is <code>false</code>.</para>
+        /// includes a commit timestamp, a log position, and values for <c>transaction_id</c>,
+        /// previous <c>transaction_id</c>, and <c>transaction_record_id</c> (the record offset
+        /// within a transaction). The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1670,9 +1657,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Provides detailed transaction information from the source database. This information
-        /// includes a commit timestamp, a log position, and values for <code>transaction_id</code>,
-        /// previous <code>transaction_id</code>, and <code>transaction_record_id</code> (the
-        /// record offset within a transaction). The default is <code>false</code>.</para>
+        /// includes a commit timestamp, a log position, and values for <c>transaction_id</c>,
+        /// previous <c>transaction_id</c>, and <c>transaction_record_id</c> (the record offset
+        /// within a transaction). The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1696,9 +1683,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The KMS key identifier that is used to encrypt the content on the replication instance.
-        /// If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses
-        /// your default encryption key. KMS creates the default encryption key for your Amazon
-        /// Web Services account. Your Amazon Web Services account has a different default encryption
+        /// If you don't specify a value for the <c>KmsKeyId</c> parameter, then DMS uses your
+        /// default encryption key. KMS creates the default encryption key for your Amazon Web
+        /// Services account. Your Amazon Web Services account has a different default encryption
         /// key for each Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
@@ -1709,8 +1696,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>An KMS key identifier that is used to encrypt the connection parameters for the endpoint.</para><para>If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses
-        /// your default encryption key.</para><para>KMS creates the default encryption key for your Amazon Web Services account. Your
+        /// <para>An KMS key identifier that is used to encrypt the connection parameters for the endpoint.</para><para>If you don't specify a value for the <c>KmsKeyId</c> parameter, then DMS uses your
+        /// default encryption key.</para><para>KMS creates the default encryption key for your Amazon Web Services account. Your
         /// Amazon Web Services account has a different default encryption key for each Amazon
         /// Web Services Region.</para>
         /// </para>
@@ -1723,9 +1710,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The KMS key identifier that is used to encrypt the content on the replication instance.
-        /// If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses
-        /// your default encryption key. KMS creates the default encryption key for your Amazon
-        /// Web Services account. Your Amazon Web Services account has a different default encryption
+        /// If you don't specify a value for the <c>KmsKeyId</c> parameter, then DMS uses your
+        /// default encryption key. KMS creates the default encryption key for your Amazon Web
+        /// Services account. Your Amazon Web Services account has a different default encryption
         /// key for each Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
@@ -1773,8 +1760,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>When true, lets PostgreSQL migrate the boolean type as boolean. By default, PostgreSQL
-        /// migrates booleans as <code>varchar(5)</code>. You must set this setting on both the
-        /// source and target endpoints for it to take effect.</para>
+        /// migrates booleans as <c>varchar(5)</c>. You must set this setting on both the source
+        /// and target endpoints for it to take effect.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1785,8 +1772,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>When true, lets Redshift migrate the boolean type as boolean. By default, Redshift
-        /// migrates booleans as <code>varchar(1)</code>. You must set this setting on both the
-        /// source and target endpoints for it to take effect.</para>
+        /// migrates booleans as <c>varchar(1)</c>. You must set this setting on both the source
+        /// and target endpoints for it to take effect.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1818,7 +1805,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible
-        /// database.</para><para>Example: <code>maxFileSize=512</code></para>
+        /// database.</para><para>Example: <c>maxFileSize=512</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1839,7 +1826,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible
-        /// database.</para><para>Example: <code>maxFileSize=512</code></para>
+        /// database.</para><para>Example: <c>maxFileSize=512</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1862,7 +1849,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PostgreSQLSettings_MaxFileSize
         /// <summary>
         /// <para>
-        /// <para>Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL.</para><para>Example: <code>maxFileSize=512</code></para>
+        /// <para>Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL.</para><para>Example: <c>maxFileSize=512</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1928,8 +1915,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KafkaSettings_MessageFormat
         /// <summary>
         /// <para>
-        /// <para>The output format for the records created on the endpoint. The message format is <code>JSON</code>
-        /// (default) or <code>JSON_UNFORMATTED</code> (a single line with no tab).</para>
+        /// <para>The output format for the records created on the endpoint. The message format is <c>JSON</c>
+        /// (default) or <c>JSON_UNFORMATTED</c> (a single line with no tab).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1940,8 +1927,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KinesisSettings_MessageFormat
         /// <summary>
         /// <para>
-        /// <para>The output format for the records created on the endpoint. The message format is <code>JSON</code>
-        /// (default) or <code>JSON_UNFORMATTED</code> (a single line with no tab).</para>
+        /// <para>The output format for the records created on the endpoint. The message format is <c>JSON</c>
+        /// (default) or <c>JSON_UNFORMATTED</c> (a single line with no tab).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1963,8 +1950,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter DocDbSettings_NestingLevel
         /// <summary>
         /// <para>
-        /// <para> Specifies either document or table mode. </para><para>Default value is <code>"none"</code>. Specify <code>"none"</code> to use document
-        /// mode. Specify <code>"one"</code> to use table mode.</para>
+        /// <para> Specifies either document or table mode. </para><para>Default value is <c>"none"</c>. Specify <c>"none"</c> to use document mode. Specify
+        /// <c>"one"</c> to use table mode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1975,8 +1962,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MongoDbSettings_NestingLevel
         /// <summary>
         /// <para>
-        /// <para> Specifies either document or table mode. </para><para>Default value is <code>"none"</code>. Specify <code>"none"</code> to use document
-        /// mode. Specify <code>"one"</code> to use table mode.</para>
+        /// <para> Specifies either document or table mode. </para><para>Default value is <c>"none"</c>. Specify <c>"none"</c> to use document mode. Specify
+        /// <c>"one"</c> to use table mode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1987,11 +1974,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KafkaSettings_NoHexPrefix
         /// <summary>
         /// <para>
-        /// <para>Set this optional parameter to <code>true</code> to avoid adding a '0x' prefix to
-        /// raw data in hexadecimal format. For example, by default, DMS adds a '0x' prefix to
-        /// the LOB column type in hexadecimal format moving from an Oracle source to a Kafka
-        /// target. Use the <code>NoHexPrefix</code> endpoint setting to enable migration of RAW
-        /// data type columns without adding the '0x' prefix.</para>
+        /// <para>Set this optional parameter to <c>true</c> to avoid adding a '0x' prefix to raw data
+        /// in hexadecimal format. For example, by default, DMS adds a '0x' prefix to the LOB
+        /// column type in hexadecimal format moving from an Oracle source to a Kafka target.
+        /// Use the <c>NoHexPrefix</c> endpoint setting to enable migration of RAW data type columns
+        /// without adding the '0x' prefix.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2001,11 +1988,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KinesisSettings_NoHexPrefix
         /// <summary>
         /// <para>
-        /// <para>Set this optional parameter to <code>true</code> to avoid adding a '0x' prefix to
-        /// raw data in hexadecimal format. For example, by default, DMS adds a '0x' prefix to
-        /// the LOB column type in hexadecimal format moving from an Oracle source to an Amazon
-        /// Kinesis target. Use the <code>NoHexPrefix</code> endpoint setting to enable migration
-        /// of RAW data type columns without adding the '0x' prefix.</para>
+        /// <para>Set this optional parameter to <c>true</c> to avoid adding a '0x' prefix to raw data
+        /// in hexadecimal format. For example, by default, DMS adds a '0x' prefix to the LOB
+        /// column type in hexadecimal format moving from an Oracle source to an Amazon Kinesis
+        /// target. Use the <c>NoHexPrefix</c> endpoint setting to enable migration of RAW data
+        /// type columns without adding the '0x' prefix.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2016,7 +2003,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Specifies the number scale. You can select a scale up to 38, or you can select FLOAT.
-        /// By default, the NUMBER data type is converted to precision 38, scale 10.</para><para>Example: <code>numberDataTypeScale=12</code></para>
+        /// By default, the NUMBER data type is converted to precision 38, scale 10.</para><para>Example: <c>numberDataTypeScale=12</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2027,7 +2014,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The timeframe in minutes to check for open transactions for a CDC-only task.</para><para>You can specify an integer value between 0 (the default) and 240 (the maximum). </para><note><para>This parameter is only valid in DMS version 3.5.0 and later. DMS supports a window
-        /// of up to 9.5 hours including the value for <code>OpenTransactionWindow</code>.</para></note>
+        /// of up to 9.5 hours including the value for <c>OpenTransactionWindow</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2052,7 +2039,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>Set this attribute to change the number of threads that DMS configures to perform
         /// a change data capture (CDC) load using Oracle Automatic Storage Management (ASM).
         /// You can specify an integer value between 2 (the default) and 8 (the maximum). Use
-        /// this attribute together with the <code>readAheadBlocks</code> attribute.</para>
+        /// this attribute together with the <c>readAheadBlocks</c> attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2067,7 +2054,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// Specifies how many threads to use to load the data into the MySQL-compatible target
         /// database. Setting a large number of threads can have an adverse effect on database
         /// performance, because a separate connection is required for each thread. The default
-        /// is one.</para><para>Example: <code>parallelLoadThreads=1</code></para>
+        /// is one.</para><para>Example: <c>parallelLoadThreads=1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2082,7 +2069,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// Specifies how many threads to use to load the data into the MySQL-compatible target
         /// database. Setting a large number of threads can have an adverse effect on database
         /// performance, because a separate connection is required for each thread. The default
-        /// is one.</para><para>Example: <code>parallelLoadThreads=1</code></para>
+        /// is one.</para><para>Example: <c>parallelLoadThreads=1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2093,16 +2080,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_ParquetTimestampInMillisecond
         /// <summary>
         /// <para>
-        /// <para>A value that specifies the precision of any <code>TIMESTAMP</code> column values that
-        /// are written to an Amazon S3 object file in .parquet format.</para><note><para>DMS supports the <code>ParquetTimestampInMillisecond</code> parameter in versions
-        /// 3.1.4 and later.</para></note><para>When <code>ParquetTimestampInMillisecond</code> is set to <code>true</code> or <code>y</code>,
-        /// DMS writes all <code>TIMESTAMP</code> columns in a .parquet formatted file with millisecond
-        /// precision. Otherwise, DMS writes them with microsecond precision.</para><para>Currently, Amazon Athena and Glue can handle only millisecond precision for <code>TIMESTAMP</code>
-        /// values. Set this parameter to <code>true</code> for S3 endpoint object files that
-        /// are .parquet formatted only if you plan to query or process the data with Athena or
-        /// Glue.</para><note><para>DMS writes any <code>TIMESTAMP</code> column values written to an S3 file in .csv
-        /// format with microsecond precision.</para><para>Setting <code>ParquetTimestampInMillisecond</code> has no effect on the string format
-        /// of the timestamp column value that is inserted by setting the <code>TimestampColumnName</code>
+        /// <para>A value that specifies the precision of any <c>TIMESTAMP</c> column values that are
+        /// written to an Amazon S3 object file in .parquet format.</para><note><para>DMS supports the <c>ParquetTimestampInMillisecond</c> parameter in versions 3.1.4
+        /// and later.</para></note><para>When <c>ParquetTimestampInMillisecond</c> is set to <c>true</c> or <c>y</c>, DMS writes
+        /// all <c>TIMESTAMP</c> columns in a .parquet formatted file with millisecond precision.
+        /// Otherwise, DMS writes them with microsecond precision.</para><para>Currently, Amazon Athena and Glue can handle only millisecond precision for <c>TIMESTAMP</c>
+        /// values. Set this parameter to <c>true</c> for S3 endpoint object files that are .parquet
+        /// formatted only if you plan to query or process the data with Athena or Glue.</para><note><para>DMS writes any <c>TIMESTAMP</c> column values written to an S3 file in .csv format
+        /// with microsecond precision.</para><para>Setting <c>ParquetTimestampInMillisecond</c> has no effect on the string format of
+        /// the timestamp column value that is inserted by setting the <c>TimestampColumnName</c>
         /// parameter.</para></note>
         /// </para>
         /// </summary>
@@ -2113,8 +2099,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_ParquetVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the Apache Parquet format that you want to use: <code>parquet_1_0</code>
-        /// (the default) or <code>parquet_2_0</code>.</para>
+        /// <para>The version of the Apache Parquet format that you want to use: <c>parquet_1_0</c>
+        /// (the default) or <c>parquet_2_0</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2125,11 +2111,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KafkaSettings_PartitionIncludeSchemaTable
         /// <summary>
         /// <para>
-        /// <para>Prefixes schema and table names to partition values, when the partition type is <code>primary-key-type</code>.
+        /// <para>Prefixes schema and table names to partition values, when the partition type is <c>primary-key-type</c>.
         /// Doing this increases data distribution among Kafka partitions. For example, suppose
         /// that a SysBench schema has thousands of tables and each table has only limited range
         /// for a primary key. In this case, the same primary key is sent from thousands of tables
-        /// to the same partition, which causes throttling. The default is <code>false</code>.</para>
+        /// to the same partition, which causes throttling. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2139,11 +2125,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KinesisSettings_PartitionIncludeSchemaTable
         /// <summary>
         /// <para>
-        /// <para>Prefixes schema and table names to partition values, when the partition type is <code>primary-key-type</code>.
+        /// <para>Prefixes schema and table names to partition values, when the partition type is <c>primary-key-type</c>.
         /// Doing this increases data distribution among Kinesis shards. For example, suppose
         /// that a SysBench schema has thousands of tables and each table has only limited range
         /// for a primary key. In this case, the same primary key is sent from thousands of tables
-        /// to the same shard, which causes throttling. The default is <code>false</code>.</para>
+        /// to the same shard, which causes throttling. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2245,7 +2231,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter RedshiftSettings_Password
         /// <summary>
         /// <para>
-        /// <para>The password for the user named in the <code>username</code> property.</para>
+        /// <para>The password for the user named in the <c>username</c> property.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2396,8 +2382,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_PreserveTransaction
         /// <summary>
         /// <para>
-        /// <para>If set to <code>true</code>, DMS saves the transaction order for a change data capture
-        /// (CDC) load on the Amazon S3 target specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CdcPath"><code>CdcPath</code></a>. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.EndpointSettings.CdcPath">Capturing
+        /// <para>If set to <c>true</c>, DMS saves the transaction order for a change data capture (CDC)
+        /// load on the Amazon S3 target specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CdcPath"><c>CdcPath</c></a>. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.EndpointSettings.CdcPath">Capturing
         /// data changes (CDC) including transaction order on the S3 target</a>.</para><note><para>This setting is supported in DMS versions 3.4.2 and later.</para></note>
         /// </para>
         /// </summary>
@@ -2436,11 +2422,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MicrosoftSQLServerSettings_ReadBackupOnly
         /// <summary>
         /// <para>
-        /// <para>When this attribute is set to <code>Y</code>, DMS only reads changes from transaction
-        /// log backups and doesn't read from the active transaction log file during ongoing replication.
-        /// Setting this parameter to <code>Y</code> enables you to control active transaction
-        /// log file growth during full load and ongoing replication tasks. However, it can add
-        /// some source latency to ongoing replication.</para>
+        /// <para>When this attribute is set to <c>Y</c>, DMS only reads changes from transaction log
+        /// backups and doesn't read from the active transaction log file during ongoing replication.
+        /// Setting this parameter to <c>Y</c> enables you to control active transaction log file
+        /// growth during full load and ongoing replication tasks. However, it can add some source
+        /// latency to ongoing replication.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2450,7 +2436,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_ReadTableSpaceName
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, this attribute supports tablespace replication.</para>
+        /// <para>When set to <c>true</c>, this attribute supports tablespace replication.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2462,7 +2448,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>A value that specifies to remove surrounding quotation marks from strings in the incoming
         /// data. All characters within the quotation marks, including delimiters, are retained.
-        /// Choose <code>true</code> to remove quotation marks. The default is <code>false</code>.</para>
+        /// Choose <c>true</c> to remove quotation marks. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2473,8 +2459,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter RedshiftSettings_ReplaceChar
         /// <summary>
         /// <para>
-        /// <para>A value that specifies to replaces the invalid characters specified in <code>ReplaceInvalidChars</code>,
-        /// substituting the specified characters instead. The default is <code>"?"</code>.</para>
+        /// <para>A value that specifies to replaces the invalid characters specified in <c>ReplaceInvalidChars</c>,
+        /// substituting the specified characters instead. The default is <c>"?"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2485,7 +2471,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter RedshiftSettings_ReplaceInvalidChar
         /// <summary>
         /// <para>
-        /// <para>A list of characters that you want to replace. Use with <code>ReplaceChars</code>.</para>
+        /// <para>A list of characters that you want to replace. Use with <c>ReplaceChars</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2498,7 +2484,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Set this attribute to true in order to use the Binary Reader to capture change data
         /// for an Amazon RDS for Oracle as the source. This setting tells DMS instance to replace
-        /// the default Oracle root with the specified <code>usePathPrefix</code> setting to access
+        /// the default Oracle root with the specified <c>usePathPrefix</c> setting to access
         /// the redo logs.</para>
         /// </para>
         /// </summary>
@@ -2509,8 +2495,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter DocDbSettings_ReplicateShardCollection
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, DMS replicates data to shard collections. DMS only uses this
-        /// setting if the target endpoint is a DocumentDB elastic cluster.</para><para>When this setting is <code>true</code>, note the following:</para><ul><li><para>You must set <code>TargetTablePrepMode</code> to <code>nothing</code>.</para></li><li><para>DMS automatically sets <code>useUpdateLookup</code> to <code>false</code>.</para></li></ul>
+        /// <para>If <c>true</c>, DMS replicates data to shard collections. DMS only uses this setting
+        /// if the target endpoint is a DocumentDB elastic cluster.</para><para>When this setting is <c>true</c>, note the following:</para><ul><li><para>You must set <c>TargetTablePrepMode</c> to <c>nothing</c>.</para></li><li><para>DMS automatically sets <c>useUpdateLookup</c> to <c>false</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2521,8 +2507,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MongoDbSettings_ReplicateShardCollection
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, DMS replicates data to shard collections. DMS only uses this
-        /// setting if the target endpoint is a DocumentDB elastic cluster.</para><para>When this setting is <code>true</code>, note the following:</para><ul><li><para>You must set <code>TargetTablePrepMode</code> to <code>nothing</code>.</para></li><li><para>DMS automatically sets <code>useUpdateLookup</code> to <code>false</code>.</para></li></ul>
+        /// <para>If <c>true</c>, DMS replicates data to shard collections. DMS only uses this setting
+        /// if the target endpoint is a DocumentDB elastic cluster.</para><para>When this setting is <c>true</c>, note the following:</para><ul><li><para>You must set <c>TargetTablePrepMode</c> to <c>nothing</c>.</para></li><li><para>DMS automatically sets <c>useUpdateLookup</c> to <c>false</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2533,14 +2519,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>A friendly name for the resource identifier at the end of the <code>EndpointArn</code>
-        /// response parameter that is returned in the created <code>Endpoint</code> object. The
-        /// value for this parameter can have up to 31 characters. It can contain only ASCII letters,
-        /// digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive
-        /// hyphens, and can only begin with a letter, such as <code>Example-App-ARN1</code>.
-        /// For example, this value might result in the <code>EndpointArn</code> value <code>arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1</code>.
-        /// If you don't specify a <code>ResourceIdentifier</code> value, DMS generates a default
-        /// identifier value for the end of <code>EndpointArn</code>.</para>
+        /// <para>A friendly name for the resource identifier at the end of the <c>EndpointArn</c> response
+        /// parameter that is returned in the created <c>Endpoint</c> object. The value for this
+        /// parameter can have up to 31 characters. It can contain only ASCII letters, digits,
+        /// and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens,
+        /// and can only begin with a letter, such as <c>Example-App-ARN1</c>. For example, this
+        /// value might result in the <c>EndpointArn</c> value <c>arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1</c>.
+        /// If you don't specify a <c>ResourceIdentifier</c> value, DMS generates a default identifier
+        /// value for the end of <c>EndpointArn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2550,7 +2536,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_RetryInterval
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of seconds that the system waits before resending a query.</para><para>Example: <code>retryInterval=6;</code></para>
+        /// <para>Specifies the number of seconds that the system waits before resending a query.</para><para>Example: <c>retryInterval=6;</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2560,18 +2546,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_Rfc4180
         /// <summary>
         /// <para>
-        /// <para>For an S3 source, when this value is set to <code>true</code> or <code>y</code>, each
-        /// leading double quotation mark has to be followed by an ending double quotation mark.
-        /// This formatting complies with RFC 4180. When this value is set to <code>false</code>
-        /// or <code>n</code>, string literals are copied to the target as is. In this case, a
-        /// delimiter (row or column) signals the end of the field. Thus, you can't use a delimiter
-        /// as part of the string, because it signals the end of the value.</para><para>For an S3 target, an optional parameter used to set behavior to comply with RFC 4180
+        /// <para>For an S3 source, when this value is set to <c>true</c> or <c>y</c>, each leading
+        /// double quotation mark has to be followed by an ending double quotation mark. This
+        /// formatting complies with RFC 4180. When this value is set to <c>false</c> or <c>n</c>,
+        /// string literals are copied to the target as is. In this case, a delimiter (row or
+        /// column) signals the end of the field. Thus, you can't use a delimiter as part of the
+        /// string, because it signals the end of the value.</para><para>For an S3 target, an optional parameter used to set behavior to comply with RFC 4180
         /// for data migrated to Amazon S3 using .csv file format only. When this value is set
-        /// to <code>true</code> or <code>y</code> using Amazon S3 as a target, if the data has
-        /// quotation marks or newline characters in it, DMS encloses the entire column with an
-        /// additional pair of double quotation marks ("). Every quotation mark within the data
-        /// is repeated twice.</para><para>The default value is <code>true</code>. Valid values include <code>true</code>, <code>false</code>,
-        /// <code>y</code>, and <code>n</code>.</para>
+        /// to <c>true</c> or <c>y</c> using Amazon S3 as a target, if the data has quotation
+        /// marks or newline characters in it, DMS encloses the entire column with an additional
+        /// pair of double quotation marks ("). Every quotation mark within the data is repeated
+        /// twice.</para><para>The default value is <c>true</c>. Valid values include <c>true</c>, <c>false</c>,
+        /// <c>y</c>, and <c>n</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2583,8 +2569,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>The number of rows in a row group. A smaller row group size provides faster reads.
         /// But as the number of row groups grows, the slower writes become. This parameter defaults
-        /// to 10,000 rows. This number is used for .parquet file format only. </para><para>If you choose a value larger than the maximum, <code>RowGroupLength</code> is set
-        /// to the max row group length in bytes (64 * 1024 * 1024). </para>
+        /// to 10,000 rows. This number is used for .parquet file format only. </para><para>If you choose a value larger than the maximum, <c>RowGroupLength</c> is set to the
+        /// max row group length in bytes (64 * 1024 * 1024). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2595,7 +2581,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>A folder path where you want DMS to store migrated graph data in the S3 bucket specified
-        /// by <code>S3BucketName</code></para>
+        /// by <c>S3BucketName</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2638,9 +2624,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KafkaSettings_SaslMechanism
         /// <summary>
         /// <para>
-        /// <para>For SASL/SSL authentication, DMS supports the <code>SCRAM-SHA-512</code> mechanism
-        /// by default. DMS versions 3.5.0 and later also support the <code>PLAIN</code> mechanism.
-        /// To use the <code>PLAIN</code> mechanism, set this parameter to <code>PLAIN.</code></para>
+        /// <para>For SASL/SSL authentication, DMS supports the <c>SCRAM-SHA-512</c> mechanism by default.
+        /// DMS versions 3.5.0 and later also support the <c>PLAIN</c> mechanism. To use the <c>PLAIN</c>
+        /// mechanism, set this parameter to <c>PLAIN.</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2676,15 +2662,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the trusted
-        /// entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
-        /// The role must allow the <code>iam:PassRole</code> action. <code>SecretsManagerSecret</code>
-        /// has the value of the Amazon Web Services Secrets Manager secret that allows access
-        /// to the DocumentDB endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
-        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
-        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
-        /// and <code>Port</code>. You can't specify both. For more information on creating this
-        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
-        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// entity and grants the required permissions to access the value in <c>SecretsManagerSecret</c>.
+        /// The role must allow the <c>iam:PassRole</c> action. <c>SecretsManagerSecret</c> has
+        /// the value of the Amazon Web Services Secrets Manager secret that allows access to
+        /// the DocumentDB endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <c>SecretsManagerSecretId</c>. Or you can specify clear-text
+        /// values for <c>UserName</c>, <c>Password</c>, <c>ServerName</c>, and <c>Port</c>. You
+        /// can't specify both. For more information on creating this <c>SecretsManagerSecret</c>
+        /// and the <c>SecretsManagerAccessRoleArn</c> and <c>SecretsManagerSecretId</c> required
+        /// to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
         /// secrets to access Database Migration Service resources</a> in the <i>Database Migration
         /// Service User Guide</i>.</para></note>
         /// </para>
@@ -2697,15 +2683,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the trusted
-        /// entity and grants the required permissions to access the value in <code>SecretsManagerSecret.</code>
-        /// The role must allow the <code>iam:PassRole</code> action. <code>SecretsManagerSecret</code>
-        /// has the value of the Amazon Web Services Secrets Manager secret that allows access
-        /// to the MySQL endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
-        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
-        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
-        /// and <code>Port</code>. You can't specify both. For more information on creating this
-        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
-        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// entity and grants the required permissions to access the value in <c>SecretsManagerSecret.</c>
+        /// The role must allow the <c>iam:PassRole</c> action. <c>SecretsManagerSecret</c> has
+        /// the value of the Amazon Web Services Secrets Manager secret that allows access to
+        /// the MySQL endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <c>SecretsManagerSecretId</c>. Or you can specify clear-text
+        /// values for <c>UserName</c>, <c>Password</c>, <c>ServerName</c>, and <c>Port</c>. You
+        /// can't specify both. For more information on creating this <c>SecretsManagerSecret</c>
+        /// and the <c>SecretsManagerAccessRoleArn</c> and <c>SecretsManagerSecretId</c> required
+        /// to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
         /// secrets to access Database Migration Service resources</a> in the Database Migration
         /// Service User Guide. </para></note>
         /// </para>
@@ -2718,15 +2704,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the trusted
-        /// entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
-        /// The role must allow the <code>iam:PassRole</code> action. <code>SecretsManagerSecret</code>
-        /// has the value of the Amazon Web Services Secrets Manager secret that allows access
-        /// to the Db2 LUW endpoint. </para><note><para>You can specify one of two sets of values for these permissions. You can specify the
-        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
-        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
-        /// and <code>Port</code>. You can't specify both. For more information on creating this
-        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
-        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// entity and grants the required permissions to access the value in <c>SecretsManagerSecret</c>.
+        /// The role must allow the <c>iam:PassRole</c> action. <c>SecretsManagerSecret</c> has
+        /// the value of the Amazon Web Services Secrets Manager secret that allows access to
+        /// the Db2 LUW endpoint. </para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <c>SecretsManagerSecretId</c>. Or you can specify clear-text
+        /// values for <c>UserName</c>, <c>Password</c>, <c>ServerName</c>, and <c>Port</c>. You
+        /// can't specify both. For more information on creating this <c>SecretsManagerSecret</c>
+        /// and the <c>SecretsManagerAccessRoleArn</c> and <c>SecretsManagerSecretId</c> required
+        /// to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
         /// secrets to access Database Migration Service resources</a> in the <i>Database Migration
         /// Service User Guide</i>.</para></note>
         /// </para>
@@ -2739,15 +2725,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the trusted
-        /// entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
-        /// The role must allow the <code>iam:PassRole</code> action. <code>SecretsManagerSecret</code>
-        /// has the value of the Amazon Web Services Secrets Manager secret that allows access
-        /// to the SQL Server endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
-        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
-        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
-        /// and <code>Port</code>. You can't specify both. For more information on creating this
-        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
-        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// entity and grants the required permissions to access the value in <c>SecretsManagerSecret</c>.
+        /// The role must allow the <c>iam:PassRole</c> action. <c>SecretsManagerSecret</c> has
+        /// the value of the Amazon Web Services Secrets Manager secret that allows access to
+        /// the SQL Server endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <c>SecretsManagerSecretId</c>. Or you can specify clear-text
+        /// values for <c>UserName</c>, <c>Password</c>, <c>ServerName</c>, and <c>Port</c>. You
+        /// can't specify both. For more information on creating this <c>SecretsManagerSecret</c>
+        /// and the <c>SecretsManagerAccessRoleArn</c> and <c>SecretsManagerSecretId</c> required
+        /// to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
         /// secrets to access Database Migration Service resources</a> in the <i>Database Migration
         /// Service User Guide</i>.</para></note>
         /// </para>
@@ -2760,15 +2746,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the trusted
-        /// entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
-        /// The role must allow the <code>iam:PassRole</code> action. <code>SecretsManagerSecret</code>
-        /// has the value of the Amazon Web Services Secrets Manager secret that allows access
-        /// to the MongoDB endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
-        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
-        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
-        /// and <code>Port</code>. You can't specify both. For more information on creating this
-        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
-        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// entity and grants the required permissions to access the value in <c>SecretsManagerSecret</c>.
+        /// The role must allow the <c>iam:PassRole</c> action. <c>SecretsManagerSecret</c> has
+        /// the value of the Amazon Web Services Secrets Manager secret that allows access to
+        /// the MongoDB endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <c>SecretsManagerSecretId</c>. Or you can specify clear-text
+        /// values for <c>UserName</c>, <c>Password</c>, <c>ServerName</c>, and <c>Port</c>. You
+        /// can't specify both. For more information on creating this <c>SecretsManagerSecret</c>
+        /// and the <c>SecretsManagerAccessRoleArn</c> and <c>SecretsManagerSecretId</c> required
+        /// to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
         /// secrets to access Database Migration Service resources</a> in the <i>Database Migration
         /// Service User Guide</i>.</para></note>
         /// </para>
@@ -2781,15 +2767,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the trusted
-        /// entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
-        /// The role must allow the <code>iam:PassRole</code> action. <code>SecretsManagerSecret</code>
-        /// has the value of the Amazon Web Services Secrets Manager secret that allows access
-        /// to the MySQL endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
-        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
-        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
-        /// and <code>Port</code>. You can't specify both. For more information on creating this
-        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
-        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// entity and grants the required permissions to access the value in <c>SecretsManagerSecret</c>.
+        /// The role must allow the <c>iam:PassRole</c> action. <c>SecretsManagerSecret</c> has
+        /// the value of the Amazon Web Services Secrets Manager secret that allows access to
+        /// the MySQL endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <c>SecretsManagerSecretId</c>. Or you can specify clear-text
+        /// values for <c>UserName</c>, <c>Password</c>, <c>ServerName</c>, and <c>Port</c>. You
+        /// can't specify both. For more information on creating this <c>SecretsManagerSecret</c>
+        /// and the <c>SecretsManagerAccessRoleArn</c> and <c>SecretsManagerSecretId</c> required
+        /// to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
         /// secrets to access Database Migration Service resources</a> in the <i>Database Migration
         /// Service User Guide</i>.</para></note>
         /// </para>
@@ -2802,15 +2788,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the trusted
-        /// entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
-        /// The role must allow the <code>iam:PassRole</code> action. <code>SecretsManagerSecret</code>
-        /// has the value of the Amazon Web Services Secrets Manager secret that allows access
-        /// to the Oracle endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
-        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
-        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
-        /// and <code>Port</code>. You can't specify both. For more information on creating this
-        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
-        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// entity and grants the required permissions to access the value in <c>SecretsManagerSecret</c>.
+        /// The role must allow the <c>iam:PassRole</c> action. <c>SecretsManagerSecret</c> has
+        /// the value of the Amazon Web Services Secrets Manager secret that allows access to
+        /// the Oracle endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <c>SecretsManagerSecretId</c>. Or you can specify clear-text
+        /// values for <c>UserName</c>, <c>Password</c>, <c>ServerName</c>, and <c>Port</c>. You
+        /// can't specify both. For more information on creating this <c>SecretsManagerSecret</c>
+        /// and the <c>SecretsManagerAccessRoleArn</c> and <c>SecretsManagerSecretId</c> required
+        /// to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
         /// secrets to access Database Migration Service resources</a> in the <i>Database Migration
         /// Service User Guide</i>.</para></note>
         /// </para>
@@ -2823,15 +2809,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the trusted
-        /// entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
-        /// The role must allow the <code>iam:PassRole</code> action. <code>SecretsManagerSecret</code>
-        /// has the value of the Amazon Web Services Secrets Manager secret that allows access
-        /// to the PostgreSQL endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
-        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
-        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
-        /// and <code>Port</code>. You can't specify both. For more information on creating this
-        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
-        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// entity and grants the required permissions to access the value in <c>SecretsManagerSecret</c>.
+        /// The role must allow the <c>iam:PassRole</c> action. <c>SecretsManagerSecret</c> has
+        /// the value of the Amazon Web Services Secrets Manager secret that allows access to
+        /// the PostgreSQL endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <c>SecretsManagerSecretId</c>. Or you can specify clear-text
+        /// values for <c>UserName</c>, <c>Password</c>, <c>ServerName</c>, and <c>Port</c>. You
+        /// can't specify both. For more information on creating this <c>SecretsManagerSecret</c>
+        /// and the <c>SecretsManagerAccessRoleArn</c> and <c>SecretsManagerSecretId</c> required
+        /// to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
         /// secrets to access Database Migration Service resources</a> in the <i>Database Migration
         /// Service User Guide</i>.</para></note>
         /// </para>
@@ -2844,15 +2830,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the trusted
-        /// entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
-        /// The role must allow the <code>iam:PassRole</code> action. <code>SecretsManagerSecret</code>
-        /// has the value of the Amazon Web Services Secrets Manager secret that allows access
-        /// to the Amazon Redshift endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
-        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
-        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
-        /// and <code>Port</code>. You can't specify both. For more information on creating this
-        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
-        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// entity and grants the required permissions to access the value in <c>SecretsManagerSecret</c>.
+        /// The role must allow the <c>iam:PassRole</c> action. <c>SecretsManagerSecret</c> has
+        /// the value of the Amazon Web Services Secrets Manager secret that allows access to
+        /// the Amazon Redshift endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <c>SecretsManagerSecretId</c>. Or you can specify clear-text
+        /// values for <c>UserName</c>, <c>Password</c>, <c>ServerName</c>, and <c>Port</c>. You
+        /// can't specify both. For more information on creating this <c>SecretsManagerSecret</c>
+        /// and the <c>SecretsManagerAccessRoleArn</c> and <c>SecretsManagerSecretId</c> required
+        /// to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
         /// secrets to access Database Migration Service resources</a> in the <i>Database Migration
         /// Service User Guide</i>.</para></note>
         /// </para>
@@ -2865,15 +2851,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the trusted
-        /// entity and grants the required permissions to access the value in <code>SecretsManagerSecret</code>.
-        /// The role must allow the <code>iam:PassRole</code> action. <code>SecretsManagerSecret</code>
-        /// has the value of the Amazon Web Services Secrets Manager secret that allows access
-        /// to the SAP ASE endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
-        /// values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
-        /// clear-text values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>,
-        /// and <code>Port</code>. You can't specify both. For more information on creating this
-        /// <code>SecretsManagerSecret</code> and the <code>SecretsManagerAccessRoleArn</code>
-        /// and <code>SecretsManagerSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// entity and grants the required permissions to access the value in <c>SecretsManagerSecret</c>.
+        /// The role must allow the <c>iam:PassRole</c> action. <c>SecretsManagerSecret</c> has
+        /// the value of the Amazon Web Services Secrets Manager secret that allows access to
+        /// the SAP ASE endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
+        /// values for this setting and <c>SecretsManagerSecretId</c>. Or you can specify clear-text
+        /// values for <c>UserName</c>, <c>Password</c>, <c>ServerName</c>, and <c>Port</c>. You
+        /// can't specify both. For more information on creating this <c>SecretsManagerSecret</c>
+        /// and the <c>SecretsManagerAccessRoleArn</c> and <c>SecretsManagerSecretId</c> required
+        /// to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
         /// secrets to access Database Migration Service resources</a> in the <i>Database Migration
         /// Service User Guide</i>.</para></note>
         /// </para>
@@ -2887,13 +2873,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The
         /// full ARN of the IAM role that specifies DMS as the trusted entity and grants the required
-        /// permissions to access the <code>SecretsManagerOracleAsmSecret</code>. This <code>SecretsManagerOracleAsmSecret</code>
+        /// permissions to access the <c>SecretsManagerOracleAsmSecret</c>. This <c>SecretsManagerOracleAsmSecret</c>
         /// has the secret value that allows access to the Oracle ASM of the endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
-        /// values for this setting and <code>SecretsManagerOracleAsmSecretId</code>. Or you can
-        /// specify clear-text values for <code>AsmUser</code>, <code>AsmPassword</code>, and
-        /// <code>AsmServerName</code>. You can't specify both. For more information on creating
-        /// this <code>SecretsManagerOracleAsmSecret</code> and the <code>SecretsManagerOracleAsmAccessRoleArn</code>
-        /// and <code>SecretsManagerOracleAsmSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
+        /// values for this setting and <c>SecretsManagerOracleAsmSecretId</c>. Or you can specify
+        /// clear-text values for <c>AsmUser</c>, <c>AsmPassword</c>, and <c>AsmServerName</c>.
+        /// You can't specify both. For more information on creating this <c>SecretsManagerOracleAsmSecret</c>
+        /// and the <c>SecretsManagerOracleAsmAccessRoleArn</c> and <c>SecretsManagerOracleAsmSecretId</c>
+        /// required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using
         /// secrets to access Database Migration Service resources</a> in the <i>Database Migration
         /// Service User Guide</i>.</para></note>
         /// </para>
@@ -2906,7 +2892,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The
-        /// full ARN, partial ARN, or friendly name of the <code>SecretsManagerOracleAsmSecret</code>
+        /// full ARN, partial ARN, or friendly name of the <c>SecretsManagerOracleAsmSecret</c>
         /// that contains the Oracle ASM connection details for the Oracle endpoint.</para>
         /// </para>
         /// </summary>
@@ -2917,8 +2903,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter DocDbSettings_SecretsManagerSecretId
         /// <summary>
         /// <para>
-        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
-        /// that contains the DocumentDB endpoint connection details.</para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <c>SecretsManagerSecret</c> that
+        /// contains the DocumentDB endpoint connection details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2928,8 +2914,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter GcpMySQLSettings_SecretsManagerSecretId
         /// <summary>
         /// <para>
-        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
-        /// that contains the MySQL endpoint connection details. </para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <c>SecretsManagerSecret</c> that
+        /// contains the MySQL endpoint connection details. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2939,8 +2925,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter IBMDb2Settings_SecretsManagerSecretId
         /// <summary>
         /// <para>
-        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
-        /// that contains the Db2 LUW endpoint connection details.</para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <c>SecretsManagerSecret</c> that
+        /// contains the Db2 LUW endpoint connection details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2950,8 +2936,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MicrosoftSQLServerSettings_SecretsManagerSecretId
         /// <summary>
         /// <para>
-        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
-        /// that contains the SQL Server endpoint connection details.</para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <c>SecretsManagerSecret</c> that
+        /// contains the SQL Server endpoint connection details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2961,8 +2947,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MongoDbSettings_SecretsManagerSecretId
         /// <summary>
         /// <para>
-        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
-        /// that contains the MongoDB endpoint connection details.</para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <c>SecretsManagerSecret</c> that
+        /// contains the MongoDB endpoint connection details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2972,8 +2958,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MySQLSettings_SecretsManagerSecretId
         /// <summary>
         /// <para>
-        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
-        /// that contains the MySQL endpoint connection details.</para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <c>SecretsManagerSecret</c> that
+        /// contains the MySQL endpoint connection details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2983,8 +2969,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_SecretsManagerSecretId
         /// <summary>
         /// <para>
-        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
-        /// that contains the Oracle endpoint connection details.</para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <c>SecretsManagerSecret</c> that
+        /// contains the Oracle endpoint connection details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2994,8 +2980,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PostgreSQLSettings_SecretsManagerSecretId
         /// <summary>
         /// <para>
-        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
-        /// that contains the PostgreSQL endpoint connection details.</para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <c>SecretsManagerSecret</c> that
+        /// contains the PostgreSQL endpoint connection details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3005,8 +2991,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter RedshiftSettings_SecretsManagerSecretId
         /// <summary>
         /// <para>
-        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
-        /// that contains the Amazon Redshift endpoint connection details.</para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <c>SecretsManagerSecret</c> that
+        /// contains the Amazon Redshift endpoint connection details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3016,8 +3002,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter SybaseSettings_SecretsManagerSecretId
         /// <summary>
         /// <para>
-        /// <para>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
-        /// that contains the SAP SAE endpoint connection details.</para>
+        /// <para>The full ARN, partial ARN, or friendly name of the <c>SecretsManagerSecret</c> that
+        /// contains the SAP SAE endpoint connection details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3029,10 +3015,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>For an Oracle source endpoint, the transparent data encryption (TDE) password required
         /// by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader. It is
-        /// also the <code><i>TDE_Password</i></code> part of the comma-separated value you
-        /// set to the <code>Password</code> request parameter when you create the endpoint. The
-        /// <code>SecurityDbEncryptian</code> setting is related to this <code>SecurityDbEncryptionName</code>
-        /// setting. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption">
+        /// also the <c><i>TDE_Password</i></c> part of the comma-separated value you set to
+        /// the <c>Password</c> request parameter when you create the endpoint. The <c>SecurityDbEncryptian</c>
+        /// setting is related to this <c>SecurityDbEncryptionName</c> setting. For more information,
+        /// see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption">
         /// Supported encryption methods for using Oracle as a source for DMS </a> in the <i>Database
         /// Migration Service User Guide</i>. </para>
         /// </para>
@@ -3046,10 +3032,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>For an Oracle source endpoint, the name of a key used for the transparent data encryption
         /// (TDE) of the columns and tablespaces in an Oracle source database that is encrypted
-        /// using TDE. The key value is the value of the <code>SecurityDbEncryption</code> setting.
-        /// For more information on setting the key name value of <code>SecurityDbEncryptionName</code>,
-        /// see the information and example for setting the <code>securityDbEncryptionName</code>
-        /// extra connection attribute in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption">
+        /// using TDE. The key value is the value of the <c>SecurityDbEncryption</c> setting.
+        /// For more information on setting the key name value of <c>SecurityDbEncryptionName</c>,
+        /// see the information and example for setting the <c>securityDbEncryptionName</c> extra
+        /// connection attribute in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption">
         /// Supported encryption methods for using Oracle as a source for DMS </a> in the <i>Database
         /// Migration Service User Guide</i>.</para>
         /// </para>
@@ -3062,9 +3048,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS).
-        /// Options include <code>ssl-encryption</code>, <code>ssl-authentication</code>, and
-        /// <code>sasl-ssl</code>. <code>sasl-ssl</code> requires <code>SaslUsername</code> and
-        /// <code>SaslPassword</code>.</para>
+        /// Options include <c>ssl-encryption</c>, <c>ssl-authentication</c>, and <c>sasl-ssl</c>.
+        /// <c>sasl-ssl</c> requires <c>SaslUsername</c> and <c>SaslPassword</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3107,7 +3092,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Fully qualified domain name of the endpoint. For an Amazon RDS SQL Server instance,
         /// this is the output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html">DescribeDBInstances</a>,
-        /// in the <code><a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</code>
+        /// in the <c><a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</c>
         /// field.</para>
         /// </para>
         /// </summary>
@@ -3130,9 +3115,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The host name of the endpoint database. </para><para>For an Amazon RDS MySQL instance, this is the output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html">DescribeDBInstances</a>,
-        /// in the <code><a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</code>
+        /// in the <c><a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</c>
         /// field.</para><para>For an Aurora MySQL instance, this is the output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html">DescribeDBClusters</a>,
-        /// in the <code>Endpoint</code> field.</para>
+        /// in the <c>Endpoint</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3143,7 +3128,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Fully qualified domain name of the endpoint.</para><para>For an Amazon RDS Oracle instance, this is the output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html">DescribeDBInstances</a>,
-        /// in the <code><a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</code>
+        /// in the <c><a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</c>
         /// field.</para>
         /// </para>
         /// </summary>
@@ -3155,9 +3140,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The host name of the endpoint database. </para><para>For an Amazon RDS PostgreSQL instance, this is the output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html">DescribeDBInstances</a>,
-        /// in the <code><a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</code>
+        /// in the <c><a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</c>
         /// field.</para><para>For an Aurora PostgreSQL instance, this is the output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html">DescribeDBClusters</a>,
-        /// in the <code>Endpoint</code> field.</para>
+        /// in the <c>Endpoint</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3207,9 +3192,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter RedshiftSettings_ServerSideEncryptionKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The KMS key ID. If you are using <code>SSE_KMS</code> for the <code>EncryptionMode</code>,
-        /// provide this key ID. The key that you use needs an attached policy that enables IAM
-        /// user permissions and allows use of the key.</para>
+        /// <para>The KMS key ID. If you are using <c>SSE_KMS</c> for the <c>EncryptionMode</c>, provide
+        /// this key ID. The key that you use needs an attached policy that enables IAM user permissions
+        /// and allows use of the key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3219,10 +3204,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_ServerSideEncryptionKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>If you are using <code>SSE_KMS</code> for the <code>EncryptionMode</code>, provide
-        /// the KMS key ID. The key that you use needs an attached policy that enables Identity
-        /// and Access Management (IAM) user permissions and allows use of the key.</para><para>Here is a CLI example: <code>aws dms create-endpoint --endpoint-identifier <i>value</i>
-        /// --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=<i>value</i>,BucketFolder=<i>value</i>,BucketName=<i>value</i>,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=<i>value</i></code></para>
+        /// <para>If you are using <c>SSE_KMS</c> for the <c>EncryptionMode</c>, provide the KMS key
+        /// ID. The key that you use needs an attached policy that enables Identity and Access
+        /// Management (IAM) user permissions and allows use of the key.</para><para>Here is a CLI example: <c>aws dms create-endpoint --endpoint-identifier <i>value</i>
+        /// --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=<i>value</i>,BucketFolder=<i>value</i>,BucketName=<i>value</i>,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=<i>value</i></c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3232,7 +3217,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter GcpMySQLSettings_ServerTimezone
         /// <summary>
         /// <para>
-        /// <para>Specifies the time zone for the source MySQL database.</para><para>Example: <code>serverTimezone=US/Pacific;</code></para><para>Note: Do not enclose time zones in single quotes.</para>
+        /// <para>Specifies the time zone for the source MySQL database.</para><para>Example: <c>serverTimezone=US/Pacific;</c></para><para>Note: Do not enclose time zones in single quotes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3242,7 +3227,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MySQLSettings_ServerTimezone
         /// <summary>
         /// <para>
-        /// <para>Specifies the time zone for the source MySQL database.</para><para>Example: <code>serverTimezone=US/Pacific;</code></para><para>Note: Do not enclose time zones in single quotes.</para>
+        /// <para>Specifies the time zone for the source MySQL database.</para><para>Example: <c>serverTimezone=US/Pacific;</c></para><para>Note: Do not enclose time zones in single quotes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3253,7 +3238,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) used by the service access IAM role. The role must
-        /// allow the <code>iam:PassRole</code> action.</para>
+        /// allow the <c>iam:PassRole</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3264,7 +3249,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) used by the service to access the IAM role. The role
-        /// must allow the <code>iam:PassRole</code> action.</para>
+        /// must allow the <c>iam:PassRole</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3275,7 +3260,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) used by the service to access the IAM role. The role
-        /// must allow the <code>iam:PassRole</code> action.</para>
+        /// must allow the <c>iam:PassRole</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3286,7 +3271,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for the IAM role that DMS uses to write to the Kinesis
-        /// data stream. The role must allow the <code>iam:PassRole</code> action.</para>
+        /// data stream. The role must allow the <c>iam:PassRole</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3297,8 +3282,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the service role that you created for the Neptune
-        /// target endpoint. The role must allow the <code>iam:PassRole</code> action. For more
-        /// information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole">Creating
+        /// target endpoint. The role must allow the <c>iam:PassRole</c> action. For more information,
+        /// see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole">Creating
         /// an IAM Service Role for Accessing Amazon Neptune as a Target</a> in the <i>Database
         /// Migration Service User Guide. </i></para>
         /// </para>
@@ -3311,7 +3296,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that has access to the Amazon Redshift
-        /// service. The role must allow the <code>iam:PassRole</code> action.</para>
+        /// service. The role must allow the <c>iam:PassRole</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3322,7 +3307,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) used by the service to access the IAM role. The role
-        /// must allow the <code>iam:PassRole</code> action. It is a required parameter that enables
+        /// must allow the <c>iam:PassRole</c> action. It is a required parameter that enables
         /// DMS to write and read objects from an S3 bucket.</para>
         /// </para>
         /// </summary>
@@ -3334,7 +3319,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) for the service access role that you want to use to
-        /// create the endpoint. The role must allow the <code>iam:PassRole</code> action.</para>
+        /// create the endpoint. The role must allow the <c>iam:PassRole</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3356,15 +3341,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Sets the name of a previously created logical replication slot for a change data capture
-        /// (CDC) load of the PostgreSQL source instance. </para><para>When used with the <code>CdcStartPosition</code> request parameter for the DMS API
-        /// , this attribute also makes it possible to use native CDC start points. DMS verifies
-        /// that the specified logical replication slot exists before starting the CDC load task.
-        /// It also verifies that the task was created with a valid setting of <code>CdcStartPosition</code>.
-        /// If the specified slot doesn't exist or the task doesn't have a valid <code>CdcStartPosition</code>
-        /// setting, DMS raises an error.</para><para>For more information about setting the <code>CdcStartPosition</code> request parameter,
+        /// (CDC) load of the PostgreSQL source instance. </para><para>When used with the <c>CdcStartPosition</c> request parameter for the DMS API , this
+        /// attribute also makes it possible to use native CDC start points. DMS verifies that
+        /// the specified logical replication slot exists before starting the CDC load task. It
+        /// also verifies that the task was created with a valid setting of <c>CdcStartPosition</c>.
+        /// If the specified slot doesn't exist or the task doesn't have a valid <c>CdcStartPosition</c>
+        /// setting, DMS raises an error.</para><para>For more information about setting the <c>CdcStartPosition</c> request parameter,
         /// see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native">Determining
         /// a CDC native start point</a> in the <i>Database Migration Service User Guide</i>.
-        /// For more information about using <code>CdcStartPosition</code>, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationTask.html">CreateReplicationTask</a>,
+        /// For more information about using <c>CdcStartPosition</c>, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationTask.html">CreateReplicationTask</a>,
         /// <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html">StartReplicationTask</a>,
         /// and <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyReplicationTask.html">ModifyReplicationTask</a>.</para>
         /// </para>
@@ -3376,11 +3361,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_SpatialDataOptionToGeoJsonFunctionName
         /// <summary>
         /// <para>
-        /// <para>Use this attribute to convert <code>SDO_GEOMETRY</code> to <code>GEOJSON</code> format.
-        /// By default, DMS calls the <code>SDO2GEOJSON</code> custom function if present and
-        /// accessible. Or you can create your own custom function that mimics the operation of
-        /// <code>SDOGEOJSON</code> and set <code>SpatialDataOptionToGeoJsonFunctionName</code>
-        /// to call it instead. </para>
+        /// <para>Use this attribute to convert <c>SDO_GEOMETRY</c> to <c>GEOJSON</c> format. By default,
+        /// DMS calls the <c>SDO2GEOJSON</c> custom function if present and accessible. Or you
+        /// can create your own custom function that mimics the operation of <c>SDOGEOJSON</c>
+        /// and set <c>SpatialDataOptionToGeoJsonFunctionName</c> to call it instead. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3458,7 +3442,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The Secure Sockets Layer (SSL) mode to use for the SSL connection. The default is
-        /// <code>none</code></para>
+        /// <c>none</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3470,11 +3454,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The connection to a Redis target endpoint using Transport Layer Security (TLS). Valid
-        /// values include <code>plaintext</code> and <code>ssl-encryption</code>. The default
-        /// is <code>ssl-encryption</code>. The <code>ssl-encryption</code> option makes an encrypted
-        /// connection. Optionally, you can identify an Amazon Resource Name (ARN) for an SSL
-        /// certificate authority (CA) using the <code>SslCaCertificateArn </code>setting. If
-        /// an ARN isn't given for a CA, DMS uses the Amazon root CA.</para><para>The <code>plaintext</code> option doesn't provide Transport Layer Security (TLS) encryption
+        /// values include <c>plaintext</c> and <c>ssl-encryption</c>. The default is <c>ssl-encryption</c>.
+        /// The <c>ssl-encryption</c> option makes an encrypted connection. Optionally, you can
+        /// identify an Amazon Resource Name (ARN) for an SSL certificate authority (CA) using
+        /// the <c>SslCaCertificateArn </c>setting. If an ARN isn't given for a CA, DMS uses the
+        /// Amazon root CA.</para><para>The <c>plaintext</c> option doesn't provide Transport Layer Security (TLS) encryption
         /// for traffic between endpoint and database.</para>
         /// </para>
         /// </summary>
@@ -3522,7 +3506,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Specifies where to migrate source tables on the target, either to a single database
-        /// or multiple databases.</para><para>Example: <code>targetDbType=MULTIPLE_DATABASES</code></para>
+        /// or multiple databases.</para><para>Example: <c>targetDbType=MULTIPLE_DATABASES</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3534,9 +3518,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Specifies where to migrate source tables on the target, either to a single database
-        /// or multiple databases. If you specify <code>SPECIFIC_DATABASE</code>, specify the
-        /// database name using the <code>DatabaseName</code> parameter of the <code>Endpoint</code>
-        /// object.</para><para>Example: <code>targetDbType=MULTIPLE_DATABASES</code></para>
+        /// or multiple databases. If you specify <c>SPECIFIC_DATABASE</c>, specify the database
+        /// name using the <c>DatabaseName</c> parameter of the <c>Endpoint</c> object.</para><para>Example: <c>targetDbType=MULTIPLE_DATABASES</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3547,11 +3530,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter RedshiftSettings_TimeFormat
         /// <summary>
         /// <para>
-        /// <para>The time format that you want to use. Valid values are <code>auto</code> (case-sensitive),
-        /// <code>'timeformat_string'</code>, <code>'epochsecs'</code>, or <code>'epochmillisecs'</code>.
-        /// It defaults to 10. Using <code>auto</code> recognizes most strings, even some that
-        /// aren't supported when you use a time format string. </para><para>If your date and time values use formats different from each other, set this parameter
-        /// to <code>auto</code>. </para>
+        /// <para>The time format that you want to use. Valid values are <c>auto</c> (case-sensitive),
+        /// <c>'timeformat_string'</c>, <c>'epochsecs'</c>, or <c>'epochmillisecs'</c>. It defaults
+        /// to 10. Using <c>auto</c> recognizes most strings, even some that aren't supported
+        /// when you use a time format string. </para><para>If your date and time values use formats different from each other, set this parameter
+        /// to <c>auto</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3562,15 +3545,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>A value that when nonblank causes DMS to add a column with timestamp information to
-        /// the endpoint data for an Amazon S3 target.</para><note><para>DMS supports the <code>TimestampColumnName</code> parameter in versions 3.1.4 and
-        /// later.</para></note><para>DMS includes an additional <code>STRING</code> column in the .csv or .parquet object
-        /// files of your migrated data when you set <code>TimestampColumnName</code> to a nonblank
-        /// value.</para><para>For a full load, each row of this timestamp column contains a timestamp for when the
+        /// the endpoint data for an Amazon S3 target.</para><note><para>DMS supports the <c>TimestampColumnName</c> parameter in versions 3.1.4 and later.</para></note><para>DMS includes an additional <c>STRING</c> column in the .csv or .parquet object files
+        /// of your migrated data when you set <c>TimestampColumnName</c> to a nonblank value.</para><para>For a full load, each row of this timestamp column contains a timestamp for when the
         /// data was transferred from the source to the target by DMS. </para><para>For a change data capture (CDC) load, each row of the timestamp column contains the
-        /// timestamp for the commit of that row in the source database.</para><para>The string format for this timestamp column value is <code>yyyy-MM-dd HH:mm:ss.SSSSSS</code>.
+        /// timestamp for the commit of that row in the source database.</para><para>The string format for this timestamp column value is <c>yyyy-MM-dd HH:mm:ss.SSSSSS</c>.
         /// By default, the precision of this value is in microseconds. For a CDC load, the rounding
-        /// of the precision depends on the commit timestamp supported by DMS for the source database.</para><para>When the <code>AddColumnName</code> parameter is set to <code>true</code>, DMS also
-        /// includes a name for the timestamp column that you set with <code>TimestampColumnName</code>.</para>
+        /// of the precision depends on the commit timestamp supported by DMS for the source database.</para><para>When the <c>AddColumnName</c> parameter is set to <c>true</c>, DMS also includes a
+        /// name for the timestamp column that you set with <c>TimestampColumnName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3592,7 +3573,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The topic to which you migrate the data. If you don't specify a topic, DMS specifies
-        /// <code>"kafka-default-topic"</code> as the migration topic.</para>
+        /// <c>"kafka-default-topic"</c> as the migration topic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3603,8 +3584,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>A value that specifies to remove the trailing white space characters from a VARCHAR
-        /// string. This parameter applies only to columns with a VARCHAR data type. Choose <code>true</code>
-        /// to remove unneeded white space. The default is <code>false</code>.</para>
+        /// string. This parameter applies only to columns with a VARCHAR data type. Choose <c>true</c>
+        /// to remove unneeded white space. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3615,9 +3596,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MicrosoftSQLServerSettings_TrimSpaceInChar
         /// <summary>
         /// <para>
-        /// <para>Use the <code>TrimSpaceInChar</code> source endpoint setting to right-trim data on
-        /// CHAR and NCHAR data types during migration. Setting <code>TrimSpaceInChar</code> does
-        /// not left-trim data. The default value is <code>true</code>.</para>
+        /// <para>Use the <c>TrimSpaceInChar</c> source endpoint setting to right-trim data on CHAR
+        /// and NCHAR data types during migration. Setting <c>TrimSpaceInChar</c> does not left-trim
+        /// data. The default value is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3627,8 +3608,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_TrimSpaceInChar
         /// <summary>
         /// <para>
-        /// <para>Use the <code>TrimSpaceInChar</code> source endpoint setting to trim data on CHAR
-        /// and NCHAR data types during migration. The default value is <code>true</code>.</para>
+        /// <para>Use the <c>TrimSpaceInChar</c> source endpoint setting to trim data on CHAR and NCHAR
+        /// data types during migration. The default value is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3638,8 +3619,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PostgreSQLSettings_TrimSpaceInChar
         /// <summary>
         /// <para>
-        /// <para>Use the <code>TrimSpaceInChar</code> source endpoint setting to trim data on CHAR
-        /// and NCHAR data types during migration. The default value is <code>true</code>.</para>
+        /// <para>Use the <c>TrimSpaceInChar</c> source endpoint setting to trim data on CHAR and NCHAR
+        /// data types during migration. The default value is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3651,8 +3632,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>A value that specifies to truncate data in columns to the appropriate number of characters,
         /// so that the data fits in the column. This parameter applies only to columns with a
-        /// VARCHAR or CHAR data type, and rows with a size of 4 MB or less. Choose <code>true</code>
-        /// to truncate data. The default is <code>false</code>.</para>
+        /// VARCHAR or CHAR data type, and rows with a size of 4 MB or less. Choose <c>true</c>
+        /// to truncate data. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3663,9 +3644,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_UseAlternateFolderForOnline
         /// <summary>
         /// <para>
-        /// <para>Set this attribute to <code>true</code> in order to use the Binary Reader to capture
-        /// change data for an Amazon RDS for Oracle as the source. This tells the DMS instance
-        /// to use any specified prefix replacement to access all online redo logs.</para>
+        /// <para>Set this attribute to <c>true</c> in order to use the Binary Reader to capture change
+        /// data for an Amazon RDS for Oracle as the source. This tells the DMS instance to use
+        /// any specified prefix replacement to access all online redo logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3688,10 +3669,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Set this attribute to Y to capture change data using the Binary Reader utility. Set
-        /// <code>UseLogminerReader</code> to N to set this attribute to Y. To use Binary Reader
-        /// with Amazon RDS for Oracle as the source, you set additional attributes. For more
-        /// information about using this setting with Oracle Automatic Storage Management (ASM),
-        /// see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC">
+        /// <c>UseLogminerReader</c> to N to set this attribute to Y. To use Binary Reader with
+        /// Amazon RDS for Oracle as the source, you set additional attributes. For more information
+        /// about using this setting with Oracle Automatic Storage Management (ASM), see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC">
         /// Using Oracle LogMiner or DMS Binary Reader for CDC</a>.</para>
         /// </para>
         /// </summary>
@@ -3703,9 +3683,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>This setting applies if the S3 output files during a change data capture (CDC) load
-        /// are written in .csv format. If set to <code>true</code> for columns not included in
-        /// the supplemental log, DMS uses the value specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CsvNoSupValue"><code>CsvNoSupValue</code></a>. If not set or set to <code>false</code>, DMS uses
-        /// the null value for these columns.</para><note><para>This setting is supported in DMS versions 3.4.1 and later.</para></note>
+        /// are written in .csv format. If set to <c>true</c> for columns not included in the
+        /// supplemental log, DMS uses the value specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CsvNoSupValue"><c>CsvNoSupValue</c></a>. If not set or set to <c>false</c>, DMS uses the null value
+        /// for these columns.</para><note><para>This setting is supported in DMS versions 3.4.1 and later.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3729,8 +3709,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Set this attribute to Y to capture change data using the Oracle LogMiner utility (the
         /// default). Set this attribute to N if you want to access the redo logs as a binary
-        /// file. When you set <code>UseLogminerReader</code> to N, also set <code>UseBfile</code>
-        /// to Y. For more information on this setting and using Oracle ASM, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC">
+        /// file. When you set <c>UseLogminerReader</c> to N, also set <c>UseBfile</c> to Y. For
+        /// more information on this setting and using Oracle ASM, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC">
         /// Using Oracle LogMiner or DMS Binary Reader for CDC</a> in the <i>DMS User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -3741,9 +3721,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ElasticsearchSettings_UseNewMappingType
         /// <summary>
         /// <para>
-        /// <para>Set this option to <code>true</code> for DMS to migrate documentation using the documentation
-        /// type <code>_doc</code>. OpenSearch and an Elasticsearch cluster only support the _doc
-        /// documentation type in versions 7. x and later. The default value is <code>false</code>.</para>
+        /// <para>Set this option to <c>true</c> for DMS to migrate documentation using the documentation
+        /// type <c>_doc</c>. OpenSearch and an Elasticsearch cluster only support the _doc documentation
+        /// type in versions 7. x and later. The default value is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3876,12 +3856,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>When set to true, this parameter uses the task start time as the timestamp column
-        /// value instead of the time data is written to target. For full load, when <code>useTaskStartTimeForFullLoadTimestamp</code>
-        /// is set to <code>true</code>, each row of the timestamp column contains the task start
-        /// time. For CDC loads, each row of the timestamp column contains the transaction commit
-        /// time.</para><para>When <code>useTaskStartTimeForFullLoadTimestamp</code> is set to <code>false</code>,
-        /// the full load timestamp in the timestamp column increments with the time data arrives
-        /// at the target. </para>
+        /// value instead of the time data is written to target. For full load, when <c>useTaskStartTimeForFullLoadTimestamp</c>
+        /// is set to <c>true</c>, each row of the timestamp column contains the task start time.
+        /// For CDC loads, each row of the timestamp column contains the transaction commit time.</para><para>When <c>useTaskStartTimeForFullLoadTimestamp</c> is set to <c>false</c>, the full
+        /// load timestamp in the timestamp column increments with the time data arrives at the
+        /// target. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3891,8 +3870,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MicrosoftSQLServerSettings_UseThirdPartyBackupDevice
         /// <summary>
         /// <para>
-        /// <para>When this attribute is set to <code>Y</code>, DMS processes third-party transaction
-        /// log backups if they are created in native format.</para>
+        /// <para>When this attribute is set to <c>Y</c>, DMS processes third-party transaction log
+        /// backups if they are created in native format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3902,10 +3881,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter DocDbSettings_UseUpdateLookUp
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, DMS retrieves the entire document from the DocumentDB source
-        /// during migration. This may cause a migration failure if the server response exceeds
-        /// bandwidth limits. To fetch only updates and deletes during migration, set this parameter
-        /// to <code>false</code>.</para>
+        /// <para>If <c>true</c>, DMS retrieves the entire document from the DocumentDB source during
+        /// migration. This may cause a migration failure if the server response exceeds bandwidth
+        /// limits. To fetch only updates and deletes during migration, set this parameter to
+        /// <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3915,10 +3894,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MongoDbSettings_UseUpdateLookUp
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, DMS retrieves the entire document from the MongoDB source during
-        /// migration. This may cause a migration failure if the server response exceeds bandwidth
-        /// limits. To fetch only updates and deletes during migration, set this parameter to
-        /// <code>false</code>.</para>
+        /// <para>If <c>true</c>, DMS retrieves the entire document from the MongoDB source during migration.
+        /// This may cause a migration failure if the server response exceeds bandwidth limits.
+        /// To fetch only updates and deletes during migration, set this parameter to <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

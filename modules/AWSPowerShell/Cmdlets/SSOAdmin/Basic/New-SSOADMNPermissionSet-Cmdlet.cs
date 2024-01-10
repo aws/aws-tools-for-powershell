@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     /// Creates a permission set within a specified IAM Identity Center instance.
     /// 
     ///  <note><para>
-    /// To grant users and groups access to Amazon Web Services account resources, use <code><a>CreateAccountAssignment</a></code>.
+    /// To grant users and groups access to Amazon Web Services account resources, use <c><a>CreateAccountAssignment</a></c>.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "SSOADMNPermissionSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

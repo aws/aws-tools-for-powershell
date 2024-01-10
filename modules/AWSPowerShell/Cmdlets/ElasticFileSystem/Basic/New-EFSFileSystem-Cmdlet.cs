@@ -36,37 +36,37 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// 
     ///  <ul><li><para>
     /// Creates a new, empty file system. The file system will have an Amazon EFS assigned
-    /// ID, and an initial lifecycle state <code>creating</code>.
+    /// ID, and an initial lifecycle state <c>creating</c>.
     /// </para></li><li><para>
     /// Returns with the description of the created file system.
     /// </para></li></ul><para>
-    /// Otherwise, this operation returns a <code>FileSystemAlreadyExists</code> error with
-    /// the ID of the existing file system.
+    /// Otherwise, this operation returns a <c>FileSystemAlreadyExists</c> error with the
+    /// ID of the existing file system.
     /// </para><note><para>
     /// For basic use cases, you can use a randomly generated UUID for the creation token.
     /// </para></note><para>
-    /// The idempotent operation allows you to retry a <code>CreateFileSystem</code> call
-    /// without risk of creating an extra file system. This can happen when an initial call
-    /// fails in a way that leaves it uncertain whether or not a file system was actually
-    /// created. An example might be that a transport level timeout occurred or your connection
-    /// was reset. As long as you use the same creation token, if the initial call had succeeded
-    /// in creating a file system, the client can learn of its existence from the <code>FileSystemAlreadyExists</code>
+    /// The idempotent operation allows you to retry a <c>CreateFileSystem</c> call without
+    /// risk of creating an extra file system. This can happen when an initial call fails
+    /// in a way that leaves it uncertain whether or not a file system was actually created.
+    /// An example might be that a transport level timeout occurred or your connection was
+    /// reset. As long as you use the same creation token, if the initial call had succeeded
+    /// in creating a file system, the client can learn of its existence from the <c>FileSystemAlreadyExists</c>
     /// error.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/creating-using-create-fs.html#creating-using-create-fs-part1">Creating
     /// a file system</a> in the <i>Amazon EFS User Guide</i>.
     /// </para><note><para>
-    /// The <code>CreateFileSystem</code> call returns while the file system's lifecycle state
-    /// is still <code>creating</code>. You can check the file system creation status by calling
-    /// the <a>DescribeFileSystems</a> operation, which among other things returns the file
-    /// system state.
+    /// The <c>CreateFileSystem</c> call returns while the file system's lifecycle state is
+    /// still <c>creating</c>. You can check the file system creation status by calling the
+    /// <a>DescribeFileSystems</a> operation, which among other things returns the file system
+    /// state.
     /// </para></note><para>
-    /// This operation accepts an optional <code>PerformanceMode</code> parameter that you
-    /// choose for your file system. We recommend <code>generalPurpose</code> performance
-    /// mode for all file systems. File systems using the <code>maxIO</code> mode is a previous
-    /// generation performance type that is designed for highly parallelized workloads that
-    /// can tolerate higher latencies than the General Purpose mode. Max I/O mode is not supported
-    /// for One Zone file systems or file systems that use Elastic throughput.
+    /// This operation accepts an optional <c>PerformanceMode</c> parameter that you choose
+    /// for your file system. We recommend <c>generalPurpose</c> performance mode for all
+    /// file systems. File systems using the <c>maxIO</c> mode is a previous generation performance
+    /// type that is designed for highly parallelized workloads that can tolerate higher latencies
+    /// than the General Purpose mode. Max I/O mode is not supported for One Zone file systems
+    /// or file systems that use Elastic throughput.
     /// </para><important><para>
     /// Due to the higher per-operation latencies with Max I/O, we recommend using General
     /// Purpose performance mode for all file systems.
@@ -75,24 +75,24 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon
     /// EFS performance modes</a>.
     /// </para><para>
-    /// You can set the throughput mode for the file system using the <code>ThroughputMode</code>
+    /// You can set the throughput mode for the file system using the <c>ThroughputMode</c>
     /// parameter.
     /// </para><para>
-    /// After the file system is fully created, Amazon EFS sets its lifecycle state to <code>available</code>,
+    /// After the file system is fully created, Amazon EFS sets its lifecycle state to <c>available</c>,
     /// at which point you can create one or more mount targets for the file system in your
     /// VPC. For more information, see <a>CreateMountTarget</a>. You mount your Amazon EFS
     /// file system on an EC2 instances in your VPC by using the mount target. For more information,
     /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS:
     /// How it Works</a>. 
     /// </para><para>
-    /// This operation requires permissions for the <code>elasticfilesystem:CreateFileSystem</code>
+    /// This operation requires permissions for the <c>elasticfilesystem:CreateFileSystem</c>
     /// action. 
     /// </para><para>
     /// File systems can be tagged on creation. If tags are specified in the creation action,
-    /// IAM performs additional authorization on the <code>elasticfilesystem:TagResource</code>
+    /// IAM performs additional authorization on the <c>elasticfilesystem:TagResource</c>
     /// action to verify if users have permissions to create tags. Therefore, you must grant
-    /// explicit permissions to use the <code>elasticfilesystem:TagResource</code> action.
-    /// For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/using-tags-efs.html#supported-iam-actions-tagging.html">Granting
+    /// explicit permissions to use the <c>elasticfilesystem:TagResource</c> action. For more
+    /// information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/using-tags-efs.html#supported-iam-actions-tagging.html">Granting
     /// permissions to tag resources during creation</a>.
     /// </para>
     /// </summary>
@@ -111,10 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>Used to create a One Zone file system. It specifies the Amazon Web Services Availability
-        /// Zone in which to create the file system. Use the format <code>us-east-1a</code> to
-        /// specify the Availability Zone. For more information about One Zone file systems, see
-        /// <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">Using EFS
-        /// storage classes</a> in the <i>Amazon EFS User Guide</i>.</para><note><para>One Zone file systems are not available in all Availability Zones in Amazon Web Services
+        /// Zone in which to create the file system. Use the format <c>us-east-1a</c> to specify
+        /// the Availability Zone. For more information about One Zone file systems, see <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">Using
+        /// EFS storage classes</a> in the <i>Amazon EFS User Guide</i>.</para><note><para>One Zone file systems are not available in all Availability Zones in Amazon Web Services
         /// Regions where Amazon EFS is available.</para></note>
         /// </para>
         /// </summary>
@@ -126,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>Specifies whether automatic backups are enabled on the file system that you are creating.
-        /// Set the value to <code>true</code> to enable automatic backups. If you are creating
-        /// a One Zone file system, automatic backups are enabled by default. For more information,
+        /// Set the value to <c>true</c> to enable automatic backups. If you are creating a One
+        /// Zone file system, automatic backups are enabled by default. For more information,
         /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#automatic-backups">Automatic
-        /// backups</a> in the <i>Amazon EFS User Guide</i>.</para><para>Default is <code>false</code>. However, if you specify an <code>AvailabilityZoneName</code>,
-        /// the default is <code>true</code>.</para><note><para>Backup is not available in all Amazon Web Services Regions where Amazon EFS is available.</para></note>
+        /// backups</a> in the <i>Amazon EFS User Guide</i>.</para><para>Default is <c>false</c>. However, if you specify an <c>AvailabilityZoneName</c>, the
+        /// default is <c>true</c>.</para><note><para>Backup is not available in all Amazon Web Services Regions where Amazon EFS is available.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <para>A Boolean value that, if true, creates an encrypted file system. When creating an
         /// encrypted file system, you have the option of specifying an existing Key Management
         /// Service key (KMS key). If you don't specify a KMS key, then the default KMS key for
-        /// Amazon EFS, <code>/aws/elasticfilesystem</code>, is used to protect the encrypted
-        /// file system. </para>
+        /// Amazon EFS, <c>/aws/elasticfilesystem</c>, is used to protect the encrypted file system.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <para>The ID of the KMS key that you want to use to protect the encrypted file system. This
         /// parameter is required only if you want to use a non-default KMS key. If this parameter
         /// is not specified, the default KMS key for Amazon EFS is used. You can specify a KMS
-        /// key ID using the following formats:</para><ul><li><para>Key ID - A unique identifier of the key, for example <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>ARN - An Amazon Resource Name (ARN) for the key, for example <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Key alias - A previously created display name for a key, for example <code>alias/projectKey1</code>.</para></li><li><para>Key alias ARN - An ARN for a key alias, for example <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.</para></li></ul><para>If you use <code>KmsKeyId</code>, you must set the <a>CreateFileSystemRequest$Encrypted</a>
+        /// key ID using the following formats:</para><ul><li><para>Key ID - A unique identifier of the key, for example <c>1234abcd-12ab-34cd-56ef-1234567890ab</c>.</para></li><li><para>ARN - An Amazon Resource Name (ARN) for the key, for example <c>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c>.</para></li><li><para>Key alias - A previously created display name for a key, for example <c>alias/projectKey1</c>.</para></li><li><para>Key alias ARN - An ARN for a key alias, for example <c>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</c>.</para></li></ul><para>If you use <c>KmsKeyId</c>, you must set the <a>CreateFileSystemRequest$Encrypted</a>
         /// parameter to true.</para><important><para>EFS accepts only symmetric KMS keys. You cannot use asymmetric KMS keys with Amazon
         /// EFS file systems.</para></important>
         /// </para>
@@ -179,13 +178,13 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter PerformanceMode
         /// <summary>
         /// <para>
-        /// <para>The Performance mode of the file system. We recommend <code>generalPurpose</code>
-        /// performance mode for all file systems. File systems using the <code>maxIO</code> performance
-        /// mode can scale to higher levels of aggregate throughput and operations per second
-        /// with a tradeoff of slightly higher latencies for most file operations. The performance
-        /// mode can't be changed after the file system has been created. The <code>maxIO</code>
-        /// mode is not supported on One Zone file systems.</para><important><para>Due to the higher per-operation latencies with Max I/O, we recommend using General
-        /// Purpose performance mode for all file systems.</para></important><para>Default is <code>generalPurpose</code>.</para>
+        /// <para>The Performance mode of the file system. We recommend <c>generalPurpose</c> performance
+        /// mode for all file systems. File systems using the <c>maxIO</c> performance mode can
+        /// scale to higher levels of aggregate throughput and operations per second with a tradeoff
+        /// of slightly higher latencies for most file operations. The performance mode can't
+        /// be changed after the file system has been created. The <c>maxIO</c> mode is not supported
+        /// on One Zone file systems.</para><important><para>Due to the higher per-operation latencies with Max I/O, we recommend using General
+        /// Purpose performance mode for all file systems.</para></important><para>Default is <c>generalPurpose</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,10 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>The throughput, measured in mebibytes per second (MiBps), that you want to provision
-        /// for a file system that you're creating. Required if <code>ThroughputMode</code> is
-        /// set to <code>provisioned</code>. Valid values are 1-3414 MiBps, with the upper limit
-        /// depending on Region. To increase this limit, contact Amazon Web Services Support.
-        /// For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon
+        /// for a file system that you're creating. Required if <c>ThroughputMode</c> is set to
+        /// <c>provisioned</c>. Valid values are 1-3414 MiBps, with the upper limit depending
+        /// on Region. To increase this limit, contact Amazon Web Services Support. For more information,
+        /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon
         /// EFS quotas that you can increase</a> in the <i>Amazon EFS User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -213,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>Use to create one or more tags associated with the file system. Each tag is a user-defined
-        /// key-value pair. Name your file system on creation by including a <code>"Key":"Name","Value":"{value}"</code>
+        /// key-value pair. Name your file system on creation by including a <c>"Key":"Name","Value":"{value}"</c>
         /// key-value pair. Each key must be unique. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
         /// Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference
         /// Guide</i>.</para>
@@ -227,13 +226,13 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter ThroughputMode
         /// <summary>
         /// <para>
-        /// <para>Specifies the throughput mode for the file system. The mode can be <code>bursting</code>,
-        /// <code>provisioned</code>, or <code>elastic</code>. If you set <code>ThroughputMode</code>
-        /// to <code>provisioned</code>, you must also set a value for <code>ProvisionedThroughputInMibps</code>.
-        /// After you create the file system, you can decrease your file system's Provisioned
-        /// throughput or change between the throughput modes, with certain time restrictions.
-        /// For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput">Specifying
-        /// throughput with provisioned mode</a> in the <i>Amazon EFS User Guide</i>. </para><para>Default is <code>bursting</code>.</para>
+        /// <para>Specifies the throughput mode for the file system. The mode can be <c>bursting</c>,
+        /// <c>provisioned</c>, or <c>elastic</c>. If you set <c>ThroughputMode</c> to <c>provisioned</c>,
+        /// you must also set a value for <c>ProvisionedThroughputInMibps</c>. After you create
+        /// the file system, you can decrease your file system's Provisioned throughput or change
+        /// between the throughput modes, with certain time restrictions. For more information,
+        /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput">Specifying
+        /// throughput with provisioned mode</a> in the <i>Amazon EFS User Guide</i>. </para><para>Default is <c>bursting</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

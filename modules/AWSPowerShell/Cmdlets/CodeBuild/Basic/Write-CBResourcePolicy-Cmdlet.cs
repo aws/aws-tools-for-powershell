@@ -28,8 +28,7 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Stores a resource policy for the ARN of a <code>Project</code> or <code>ReportGroup</code>
-    /// object.
+    /// Stores a resource policy for the ARN of a <c>Project</c> or <c>ReportGroup</c> object.
     /// </summary>
     [Cmdlet("Write", "CBResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -65,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The ARN of the <code>Project</code> or <code>ReportGroup</code> resource you want
-        /// to associate with a resource policy. </para>
+        /// <para> The ARN of the <c>Project</c> or <c>ReportGroup</c> resource you want to associate
+        /// with a resource policy. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

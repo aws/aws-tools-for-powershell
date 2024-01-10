@@ -28,7 +28,7 @@ using Amazon.RedshiftServerless.Model;
 namespace Amazon.PowerShell.Cmdlets.RSS
 {
     /// <summary>
-    /// Returns information about an array of <code>TableRestoreStatus</code> objects.
+    /// Returns information about an array of <c>TableRestoreStatus</c> objects.
     /// </summary>
     [Cmdlet("Get", "RSSTableRestoreStatusList")]
     [OutputType("Amazon.RedshiftServerless.Model.TableRestoreStatus")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter NamespaceName
         /// <summary>
         /// <para>
-        /// <para>The namespace from which to list all of the statuses of <code>RestoreTableFromSnapshot</code>
+        /// <para>The namespace from which to list all of the statuses of <c>RestoreTableFromSnapshot</c>
         /// operations .</para>
         /// </para>
         /// </summary>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter WorkgroupName
         /// <summary>
         /// <para>
-        /// <para>The workgroup from which to list all of the statuses of <code>RestoreTableFromSnapshot</code>
+        /// <para>The workgroup from which to list all of the statuses of <c>RestoreTableFromSnapshot</c>
         /// operations.</para>
         /// </para>
         /// </summary>
@@ -79,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your initial <code>ListTableRestoreStatus</code> operation returns a nextToken,
-        /// you can include the returned <code>nextToken</code> in following <code>ListTableRestoreStatus</code>
-        /// operations. This will return results on the next page.</para>
+        /// <para>If your initial <c>ListTableRestoreStatus</c> operation returns a nextToken, you can
+        /// include the returned <c>nextToken</c> in following <c>ListTableRestoreStatus</c> operations.
+        /// This will return results on the next page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of tags that you want to return in the response to a <code>ListTagsForResource</code>
-        /// request. If you don't specify a value for <code>MaxResults</code>, Resolver returns
-        /// up to 100 tags.</para>
+        /// <para>The maximum number of tags that you want to return in the response to a <c>ListTagsForResource</c>
+        /// request. If you don't specify a value for <c>MaxResults</c>, Resolver returns up to
+        /// 100 tags.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -81,9 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>For the first <code>ListTagsForResource</code> request, omit this value.</para><para>If you have more than <code>MaxResults</code> tags, you can submit another <code>ListTagsForResource</code>
+        /// <para>For the first <c>ListTagsForResource</c> request, omit this value.</para><para>If you have more than <c>MaxResults</c> tags, you can submit another <c>ListTagsForResource</c>
         /// request to get the next group of tags for the resource. In the next request, specify
-        /// the value of <code>NextToken</code> from the previous response. </para>
+        /// the value of <c>NextToken</c> from the previous response. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// <summary>
         /// <para>
         /// <para>Update whether flow logs are enabled. The default value is false. If the value is
-        /// true, <code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow
+        /// true, <c>FlowLogsS3Bucket</c> and <c>FlowLogsS3Prefix</c> must be specified.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow
         /// logs</a> in the <i>Global Accelerator Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter FlowLogsS3Bucket
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code>
-        /// is <code>true</code>. The bucket must exist and have a bucket policy that grants Global
+        /// <para>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <c>FlowLogsEnabled</c>
+        /// is <c>true</c>. The bucket must exist and have a bucket policy that grants Global
         /// Accelerator permission to write to the bucket.</para>
         /// </para>
         /// </summary>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// <summary>
         /// <para>
         /// <para>Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute
-        /// is required if <code>FlowLogsEnabled</code> is <code>true</code>. </para><para>If you don’t specify a prefix, the flow logs are stored in the root of the bucket.
+        /// is required if <c>FlowLogsEnabled</c> is <c>true</c>. </para><para>If you don’t specify a prefix, the flow logs are stored in the root of the bucket.
         /// If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure
         /// will include a double slash (//), like the following:</para><para>DOC-EXAMPLE-BUCKET//AWSLogs/aws_account_id</para>
         /// </para>

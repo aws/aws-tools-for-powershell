@@ -28,9 +28,9 @@ using Amazon.NimbleStudio.Model;
 namespace Amazon.PowerShell.Cmdlets.NS
 {
     /// <summary>
-    /// Transitions sessions from the <code>READY</code> state into the <code>STOPPED</code>
-    /// state. The <code>STOP_IN_PROGRESS</code> state is the intermediate state between the
-    /// <code>READY</code> and <code>STOPPED</code> states.
+    /// Transitions sessions from the <c>READY</c> state into the <c>STOPPED</c> state. The
+    /// <c>STOP_IN_PROGRESS</c> state is the intermediate state between the <c>READY</c> and
+    /// <c>STOPPED</c> states.
     /// </summary>
     [Cmdlet("Stop", "NSStreamingSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NimbleStudio.Model.StreamingSession")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The streaming session ID for the <code>StopStreamingSessionRequest</code>.</para>
+        /// <para>The streaming session ID for the <c>StopStreamingSessionRequest</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

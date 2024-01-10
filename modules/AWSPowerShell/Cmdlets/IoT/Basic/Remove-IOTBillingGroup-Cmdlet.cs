@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The expected version of the billing group. If the version of the billing group does
-        /// not match the expected version specified in the request, the <code>DeleteBillingGroup</code>
-        /// request is rejected with a <code>VersionConflictException</code>.</para>
+        /// not match the expected version specified in the request, the <c>DeleteBillingGroup</c>
+        /// request is rejected with a <c>VersionConflictException</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

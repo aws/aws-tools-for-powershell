@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Lists your things. Use the <b>attributeName</b> and <b>attributeValue</b> parameters
-    /// to filter your things. For example, calling <code>ListThings</code> with attributeName=Color
+    /// to filter your things. For example, calling <c>ListThings</c> with attributeName=Color
     /// and attributeValue=Red retrieves all things in the registry that contain an attribute
     /// <b>Color</b> with the value <b>Red</b>. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html#list-things">List
     /// Things</a> from the <i>Amazon Web Services IoT Core Developer Guide</i>.
@@ -39,9 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThings</a>
     /// action.
     /// </para><note><para>
-    /// You will not be charged for calling this API if an <code>Access denied</code> error
-    /// is returned. You will also not be charged if no attributes or pagination token was
-    /// provided in request and no pagination token and no results were returned.
+    /// You will not be charged for calling this API if an <c>Access denied</c> error is returned.
+    /// You will also not be charged if no attributes or pagination token was provided in
+    /// request and no pagination token and no results were returned.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTThingList")]
@@ -89,10 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter UsePrefixAttributeValue
         /// <summary>
         /// <para>
-        /// <para>When <code>true</code>, the action returns the thing resources with attribute values
-        /// that start with the <code>attributeValue</code> provided.</para><para>When <code>false</code>, or not present, the action returns only the thing resources
-        /// with attribute values that match the entire <code>attributeValue</code> provided.
-        /// </para>
+        /// <para>When <c>true</c>, the action returns the thing resources with attribute values that
+        /// start with the <c>attributeValue</c> provided.</para><para>When <c>false</c>, or not present, the action returns only the thing resources with
+        /// attribute values that match the entire <c>attributeValue</c> provided. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>To retrieve the next set of results, the <code>nextToken</code> value from a previous
-        /// response; otherwise <b>null</b> to receive the first set of results.</para>
+        /// <para>To retrieve the next set of results, the <c>nextToken</c> value from a previous response;
+        /// otherwise <b>null</b> to receive the first set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

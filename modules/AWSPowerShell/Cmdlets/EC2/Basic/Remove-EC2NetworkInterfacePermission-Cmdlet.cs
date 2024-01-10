@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter IgnoreAttachedStatus
         /// <summary>
         /// <para>
-        /// <para>Specify <code>true</code> to remove the permission even if the network interface is
-        /// attached to an instance.</para>
+        /// <para>Specify <c>true</c> to remove the permission even if the network interface is attached
+        /// to an instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

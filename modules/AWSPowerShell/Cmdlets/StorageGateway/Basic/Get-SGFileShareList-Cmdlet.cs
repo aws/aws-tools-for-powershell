@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>Opaque pagination token returned from a previous ListFileShares operation. If present,
-        /// <code>Marker</code> specifies where to continue the list from after a previous call
-        /// to ListFileShares. Optional.</para>
+        /// <c>Marker</c> specifies where to continue the list from after a previous call to ListFileShares.
+        /// Optional.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

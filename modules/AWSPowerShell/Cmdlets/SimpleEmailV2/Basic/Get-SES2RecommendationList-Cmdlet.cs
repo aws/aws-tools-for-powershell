@@ -52,8 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>Filters applied when retrieving recommendations. Can eiter be an individual filter,
-        /// or combinations of <code>STATUS</code> and <code>IMPACT</code> or <code>STATUS</code>
-        /// and <code>TYPE</code></para>
+        /// or combinations of <c>STATUS</c> and <c>IMPACT</c> or <c>STATUS</c> and <c>TYPE</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token returned from a previous call to <code>ListRecommendations</code> to indicate
-        /// the position in the list of recommendations.</para>
+        /// <para>A token returned from a previous call to <c>ListRecommendations</c> to indicate the
+        /// position in the list of recommendations.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -78,10 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>The number of results to show in a single call to <code>ListRecommendations</code>.
-        /// If the number of results is larger than the number you specified in this parameter,
-        /// then the response includes a <code>NextToken</code> element, which you can use to
-        /// obtain additional results.</para><para>The value you specify has to be at least 1, and can be no more than 100.</para>
+        /// <para>The number of results to show in a single call to <c>ListRecommendations</c>. If the
+        /// number of results is larger than the number you specified in this parameter, then
+        /// the response includes a <c>NextToken</c> element, which you can use to obtain additional
+        /// results.</para><para>The value you specify has to be at least 1, and can be no more than 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

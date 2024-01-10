@@ -28,8 +28,8 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// You can use <code>UpdateOutpostResolver</code> to update the instance count, type,
-    /// or name of a Resolver on an Outpost.
+    /// You can use <c>UpdateOutpostResolver</c> to update the instance count, type, or name
+    /// of a Resolver on an Outpost.
     /// </summary>
     [Cmdlet("Update", "R53ROutpostResolver", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53Resolver.Model.OutpostResolver")]

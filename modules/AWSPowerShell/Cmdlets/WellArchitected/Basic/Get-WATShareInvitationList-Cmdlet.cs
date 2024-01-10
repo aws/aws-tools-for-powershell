@@ -31,9 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     /// List the share invitations.
     /// 
     ///  
-    /// <para><code>WorkloadNamePrefix</code>, <code>LensNamePrefix</code>, <code>ProfileNamePrefix</code>,
-    /// and <code>TemplateNamePrefix</code> are mutually exclusive. Use the parameter that
-    /// matches your <code>ShareResourceType</code>.
+    /// <para><c>WorkloadNamePrefix</c>, <c>LensNamePrefix</c>, <c>ProfileNamePrefix</c>, and <c>TemplateNamePrefix</c>
+    /// are mutually exclusive. Use the parameter that matches your <c>ShareResourceType</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "WATShareInvitationList")]

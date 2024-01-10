@@ -33,12 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// 
     ///  
     /// <para><b>Functionality &amp; restrictions</b></para><ul><li><para>
-    /// Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account.
+    /// Use privacy = <c>PUBLIC</c> to retrieve all public channels in the account.
     /// </para></li><li><para>
-    /// Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to list
-    /// the private channels in an account.
+    /// Only an <c>AppInstanceAdmin</c> can set privacy = <c>PRIVATE</c> to list the private
+    /// channels in an account.
     /// </para></li></ul><note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
+    /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the <c>AppInstanceUserArn</c>
     /// of the user that makes the API call as the value in the header.
     /// </para></note><important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
     /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannels.html">ListChannels</a>,
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstance</code>.</para>
+        /// <para>The ARN of the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// <para>The <c>AppInstanceUserArn</c> of the user that makes the API call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Privacy
         /// <summary>
         /// <para>
-        /// <para>The privacy setting. <code>PUBLIC</code> retrieves all the public channels. <code>PRIVATE</code>
-        /// retrieves private channels. Only an <code>AppInstanceAdmin</code> can retrieve private
-        /// channels. </para>
+        /// <para>The privacy setting. <c>PUBLIC</c> retrieves all the public channels. <c>PRIVATE</c>
+        /// retrieves private channels. Only an <c>AppInstanceAdmin</c> can retrieve private channels.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
 {
     /// <summary>
     /// Retrieves information about a specific blueprint for OpenSearch Ingestion. Blueprints
-    /// are templates for the configuration needed for a <code>CreatePipeline</code> request.
-    /// For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint">Using
+    /// are templates for the configuration needed for a <c>CreatePipeline</c> request. For
+    /// more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint">Using
     /// blueprints to create a pipeline</a>.
     /// </summary>
     [Cmdlet("Get", "OSISPipelineBlueprint")]

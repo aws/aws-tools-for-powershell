@@ -28,7 +28,7 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Returns backup job details for the specified <code>BackupJobId</code>.
+    /// Returns backup job details for the specified <c>BackupJobId</c>.
     /// </summary>
     [Cmdlet("Get", "BAKBackupJob")]
     [OutputType("Amazon.Backup.Model.DescribeBackupJobResponse")]

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute
         /// to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default
-        /// value of <code>300</code> seconds is used.</para>
+        /// value of <c>300</c> seconds is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The managed draining option for the Auto Scaling group capacity provider. When you
         /// enable this, Amazon ECS manages and gracefully drains the EC2 container instances
-        /// that are in the Auto Scaling group capacity provider.</para><para>The default is <code>ENABLED</code>.</para>
+        /// that are in the Auto Scaling group capacity provider.</para><para>The default is <c>ENABLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time.
         /// The scale in process is not affected by this parameter. If this parameter is omitted,
-        /// the default value of <code>10000</code> is used.</para>
+        /// the default value of <c>10000</c> is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time.
         /// The scale in process is not affected by this parameter If this parameter is omitted,
-        /// the default value of <code>1</code> is used.</para><para>When additional capacity is required, Amazon ECS will scale up the minimum scaling
+        /// the default value of <c>1</c> is used.</para><para>When additional capacity is required, Amazon ECS will scale up the minimum scaling
         /// step size even if the actual demand is less than the minimum scaling step size.</para><para>If you use a capacity provider with an Auto Scaling group configured with more than
         /// one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the
         /// exact minimum scaling step size value and will ignore both the maximum scaling step
@@ -149,11 +149,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The target capacity utilization as a percentage for the capacity provider. The specified
-        /// value must be greater than <code>0</code> and less than or equal to <code>100</code>.
-        /// For example, if you want the capacity provider to maintain 10% spare capacity, then
-        /// that means the utilization is 90%, so use a <code>targetCapacity</code> of <code>90</code>.
-        /// The default value of <code>100</code> percent results in the Amazon EC2 instances
-        /// in your Auto Scaling group being completely used.</para>
+        /// value must be greater than <c>0</c> and less than or equal to <c>100</c>. For example,
+        /// if you want the capacity provider to maintain 10% spare capacity, then that means
+        /// the utilization is 90%, so use a <c>targetCapacity</c> of <c>90</c>. The default value
+        /// of <c>100</c> percent results in the Amazon EC2 instances in your Auto Scaling group
+        /// being completely used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

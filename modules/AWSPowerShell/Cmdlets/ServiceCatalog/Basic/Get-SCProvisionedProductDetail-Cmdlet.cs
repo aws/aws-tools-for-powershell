@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><c>jp</c> - Japanese</para></li><li><para><c>zh</c> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The provisioned product identifier. You must provide the name or ID, but not both.</para><para>If you do not provide a name or ID, or you provide both name and ID, an <code>InvalidParametersException</code>
+        /// <para>The provisioned product identifier. You must provide the name or ID, but not both.</para><para>If you do not provide a name or ID, or you provide both name and ID, an <c>InvalidParametersException</c>
         /// will occur.</para>
         /// </para>
         /// </summary>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the provisioned product. You must provide the name or ID, but not both.</para><para>If you do not provide a name or ID, or you provide both name and ID, an <code>InvalidParametersException</code>
+        /// <para>The name of the provisioned product. You must provide the name or ID, but not both.</para><para>If you do not provide a name or ID, or you provide both name and ID, an <c>InvalidParametersException</c>
         /// will occur.</para>
         /// </para>
         /// </summary>

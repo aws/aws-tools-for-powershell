@@ -38,21 +38,21 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// Creates an <a>GeoMatchSet</a>, which you use to specify which web requests you want
     /// to allow or block based on the country that the requests originate from. For example,
     /// if you're receiving a lot of requests from one or more countries and you want to block
-    /// the requests, you can create an <code>GeoMatchSet</code> that contains those countries
-    /// and then configure AWS WAF to block the requests. 
+    /// the requests, you can create an <c>GeoMatchSet</c> that contains those countries and
+    /// then configure AWS WAF to block the requests. 
     /// </para><para>
-    /// To create and configure a <code>GeoMatchSet</code>, perform the following steps:
+    /// To create and configure a <c>GeoMatchSet</c>, perform the following steps:
     /// </para><ol><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>CreateGeoMatchSet</code> request.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
+    /// parameter of a <c>CreateGeoMatchSet</c> request.
     /// </para></li><li><para>
-    /// Submit a <code>CreateGeoMatchSet</code> request.
+    /// Submit a <c>CreateGeoMatchSet</c> request.
     /// </para></li><li><para>
-    /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
+    /// Use <c>GetChangeToken</c> to get the change token that you provide in the <c>ChangeToken</c>
     /// parameter of an <a>UpdateGeoMatchSet</a> request.
     /// </para></li><li><para>
-    /// Submit an <code>UpdateGeoMatchSetSet</code> request to specify the countries that
-    /// you want AWS WAF to watch for.
+    /// Submit an <c>UpdateGeoMatchSetSet</c> request to specify the countries that you want
+    /// AWS WAF to watch for.
     /// </para></li></ol><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
     /// see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A friendly name or description of the <a>GeoMatchSet</a>. You can't change <code>Name</code>
-        /// after you create the <code>GeoMatchSet</code>.</para>
+        /// <para>A friendly name or description of the <a>GeoMatchSet</a>. You can't change <c>Name</c>
+        /// after you create the <c>GeoMatchSet</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

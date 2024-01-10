@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter NodeCount
         /// <summary>
         /// <para>
-        /// <para>The number of reserved nodes that you want to purchase.</para><para>Default: <code>1</code></para>
+        /// <para>The number of reserved nodes that you want to purchase.</para><para>Default: <c>1</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

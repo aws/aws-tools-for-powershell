@@ -68,10 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter AllowVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, major version upgrades can be applied during the maintenance
-        /// window to the Amazon Redshift engine that is running on the cluster.</para><para>When a new major version of the Amazon Redshift engine is released, you can request
+        /// <para>If <c>true</c>, major version upgrades can be applied during the maintenance window
+        /// to the Amazon Redshift engine that is running on the cluster.</para><para>When a new major version of the Amazon Redshift engine is released, you can request
         /// that the service automatically apply upgrades during the maintenance window to the
-        /// Amazon Redshift engine that is running on your cluster.</para><para>Default: <code>true</code></para>
+        /// Amazon Redshift engine that is running on your cluster.</para><para>Default: <c>true</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The number of days that automated snapshots are retained. If the value is 0, automated
         /// snapshots are disabled. Even if automated snapshots are disabled, you can still create
         /// manual snapshots when you want with <a>CreateClusterSnapshot</a>. </para><para>You can't disable automated snapshots for RA3 node types. Set the automated retention
-        /// period from 1-35 days.</para><para>Default: <code>1</code></para><para>Constraints: Must be a value from 0 to 35.</para>
+        /// period from 1-35 days.</para><para>Default: <c>1</c></para><para>Constraints: Must be a value from 0 to 35.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// cluster. For example, if you have several EC2 instances running in a specific Availability
         /// Zone, then you might want the cluster to be provisioned in the same zone in order
         /// to decrease network latency.</para><para>Default: A random, system-chosen Availability Zone in the region that is specified
-        /// by the endpoint.</para><para>Example: <code>us-east-2d</code></para><para>Constraint: The specified Availability Zone must be in the same region as the current
+        /// by the endpoint.</para><para>Example: <c>us-east-2d</c></para><para>Constraint: The specified Availability Zone must be in the same region as the current
         /// endpoint.</para>
         /// </para>
         /// </summary>
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>A unique identifier for the cluster. You use this identifier to refer to the cluster
         /// for any subsequent cluster operations such as deleting or modifying. The identifier
-        /// also appears in the Amazon Redshift console.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>Alphabetic characters must be lowercase.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Must be unique for all clusters within an Amazon Web Services account.</para></li></ul><para>Example: <code>myexamplecluster</code></para>
+        /// also appears in the Amazon Redshift console.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>Alphabetic characters must be lowercase.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Must be unique for all clusters within an Amazon Web Services account.</para></li></ul><para>Example: <c>myexamplecluster</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterType
         /// <summary>
         /// <para>
-        /// <para>The type of the cluster. When cluster type is specified as</para><ul><li><para><code>single-node</code>, the <b>NumberOfNodes</b> parameter is not required.</para></li><li><para><code>multi-node</code>, the <b>NumberOfNodes</b> parameter is required.</para></li></ul><para>Valid Values: <code>multi-node</code> | <code>single-node</code></para><para>Default: <code>multi-node</code></para>
+        /// <para>The type of the cluster. When cluster type is specified as</para><ul><li><para><c>single-node</c>, the <b>NumberOfNodes</b> parameter is not required.</para></li><li><para><c>multi-node</c>, the <b>NumberOfNodes</b> parameter is required.</para></li></ul><para>Valid Values: <c>multi-node</c> | <c>single-node</c></para><para>Default: <c>multi-node</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The version of the Amazon Redshift engine software that you want to deploy on the
-        /// cluster.</para><para>The version selected runs on all the nodes in the cluster.</para><para>Constraints: Only version 1.0 is currently available.</para><para>Example: <code>1.0</code></para>
+        /// cluster.</para><para>The version selected runs on all the nodes in the cluster.</para><para>Constraints: Only version 1.0 is currently available.</para><para>Example: <c>1.0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The name of the first database to be created when the cluster is created.</para><para>To create additional databases after the cluster is created, connect to the cluster
         /// with a SQL client and use SQL commands to create a database. For more information,
         /// go to <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html">Create
-        /// a Database</a> in the Amazon Redshift Database Developer Guide. </para><para>Default: <code>dev</code></para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 alphanumeric characters.</para></li><li><para>Must contain only lowercase letters.</para></li><li><para>Cannot be a word that is reserved by the service. A list of reserved words can be
+        /// a Database</a> in the Amazon Redshift Database Developer Guide. </para><para>Default: <c>dev</c></para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 alphanumeric characters.</para></li><li><para>Must contain only lowercase letters.</para></li><li><para>Cannot be a word that is reserved by the service. A list of reserved words can be
         /// found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
         /// Words</a> in the Amazon Redshift Database Developer Guide. </para></li></ul>
         /// </para>
@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Encrypted
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, the data in the cluster is encrypted at rest. </para><para>Default: false</para>
+        /// <para>If <c>true</c>, the data in the cluster is encrypted at rest. </para><para>Default: false</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>An option that specifies whether to create the cluster with enhanced VPC routing enabled.
         /// To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC.
         /// For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
-        /// VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</para><para>If this option is <code>true</code>, enhanced VPC routing is enabled. </para><para>Default: false</para>
+        /// VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</para><para>If this option is <c>true</c>, enhanced VPC routing is enabled. </para><para>Default: false</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -306,8 +306,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The IP address types that the cluster supports. Possible values are <code>ipv4</code>
-        /// and <code>dualstack</code>.</para>
+        /// <para>The IP address types that the cluster supports. Possible values are <c>ipv4</c> and
+        /// <c>dualstack</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -339,7 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>An optional parameter for the name of the maintenance track for the cluster. If you
-        /// don't provide a maintenance track name, the cluster is assigned to the <code>current</code>
+        /// don't provide a maintenance track name, the cluster is assigned to the <c>current</c>
         /// track.</para>
         /// </para>
         /// </summary>
@@ -350,10 +350,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ManageMasterPassword
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage this cluster's
-        /// admin credentials. You can't use <code>MasterUserPassword</code> if <code>ManageMasterPassword</code>
-        /// is true. If <code>ManageMasterPassword</code> is false or not set, Amazon Redshift
-        /// uses <code>MasterUserPassword</code> for the admin user account's password. </para>
+        /// <para>If <c>true</c>, Amazon Redshift uses Secrets Manager to manage this cluster's admin
+        /// credentials. You can't use <c>MasterUserPassword</c> if <c>ManageMasterPassword</c>
+        /// is true. If <c>ManageMasterPassword</c> is false or not set, Amazon Redshift uses
+        /// <c>MasterUserPassword</c> for the admin user account's password. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -376,7 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's
-        /// admin credentials secret. You can only use this parameter if <code>ManageMasterPassword</code>
+        /// admin credentials secret. You can only use this parameter if <c>ManageMasterPassword</c>
         /// is true.</para>
         /// </para>
         /// </summary>
@@ -388,7 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The user name associated with the admin user account for the cluster that is being
-        /// created.</para><para>Constraints:</para><ul><li><para>Must be 1 - 128 alphanumeric characters or hyphens. The user name can't be <code>PUBLIC</code>.</para></li><li><para>Must contain only lowercase letters, numbers, underscore, plus sign, period (dot),
+        /// created.</para><para>Constraints:</para><ul><li><para>Must be 1 - 128 alphanumeric characters or hyphens. The user name can't be <c>PUBLIC</c>.</para></li><li><para>Must contain only lowercase letters, numbers, underscore, plus sign, period (dot),
         /// at symbol (@), or hyphen.</para></li><li><para>The first character must be a letter.</para></li><li><para>Must not contain a colon (:) or a slash (/).</para></li><li><para>Cannot be a reserved word. A list of reserved words can be found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
         /// Words</a> in the Amazon Redshift Database Developer Guide. </para></li></ul>
         /// </para>
@@ -408,9 +408,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The password associated with the admin user account for the cluster that is being
-        /// created.</para><para>You can't use <code>MasterUserPassword</code> if <code>ManageMasterPassword</code>
-        /// is <code>true</code>.</para><para>Constraints:</para><ul><li><para>Must be between 8 and 64 characters in length.</para></li><li><para>Must contain at least one uppercase letter.</para></li><li><para>Must contain at least one lowercase letter.</para></li><li><para>Must contain one number.</para></li><li><para>Can be any printable ASCII character (ASCII code 33-126) except <code>'</code> (single
-        /// quote), <code>"</code> (double quote), <code>\</code>, <code>/</code>, or <code>@</code>.</para></li></ul>
+        /// created.</para><para>You can't use <c>MasterUserPassword</c> if <c>ManageMasterPassword</c> is <c>true</c>.</para><para>Constraints:</para><ul><li><para>Must be between 8 and 64 characters in length.</para></li><li><para>Must contain at least one uppercase letter.</para></li><li><para>Must contain at least one lowercase letter.</para></li><li><para>Must contain one number.</para></li><li><para>Can be any printable ASCII character (ASCII code 33-126) except <c>'</c> (single quote),
+        /// <c>"</c> (double quote), <c>\</c>, <c>/</c>, or <c>@</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -433,9 +432,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The node type to be provisioned for the cluster. For information about node types,
         /// go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">
         /// Working with Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
-        /// </para><para>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> | <code>dc1.large</code>
-        /// | <code>dc1.8xlarge</code> | <code>dc2.large</code> | <code>dc2.8xlarge</code> | <code>ra3.xlplus</code>
-        /// | <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code></para>
+        /// </para><para>Valid Values: <c>ds2.xlarge</c> | <c>ds2.8xlarge</c> | <c>dc1.large</c> | <c>dc1.8xlarge</c>
+        /// | <c>dc2.large</c> | <c>dc2.8xlarge</c> | <c>ra3.xlplus</c> | <c>ra3.4xlarge</c> |
+        /// <c>ra3.16xlarge</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -453,10 +452,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The number of compute nodes in the cluster. This parameter is required when the <b>ClusterType</b>
-        /// parameter is specified as <code>multi-node</code>. </para><para>For information about determining how many nodes you need, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">
+        /// parameter is specified as <c>multi-node</c>. </para><para>For information about determining how many nodes you need, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">
         /// Working with Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
         /// </para><para>If you don't specify this parameter, you get a single-node cluster. When requesting
-        /// a multi-node cluster, you must specify the number of nodes that you want in the cluster.</para><para>Default: <code>1</code></para><para>Constraints: Value must be at least 1 and no more than 100.</para>
+        /// a multi-node cluster, you must specify the number of nodes that you want in the cluster.</para><para>Default: <c>1</c></para><para>Constraints: Value must be at least 1 and no more than 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -468,7 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>The port number on which the cluster accepts incoming connections.</para><para>The cluster is accessible only via the JDBC and ODBC connection strings. Part of the
         /// connection string requires the port on which the cluster will listen for incoming
-        /// connections.</para><para>Default: <code>5439</code></para><para>Valid Values: <code>1150-65535</code></para>
+        /// connections.</para><para>Default: <c>5439</c></para><para>Valid Values: <c>1150-65535</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -478,7 +477,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
-        /// <para>The weekly time range (in UTC) during which automated cluster maintenance can occur.</para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para> Default: A 30-minute window selected at random from an 8-hour block of time per region,
+        /// <para>The weekly time range (in UTC) during which automated cluster maintenance can occur.</para><para> Format: <c>ddd:hh24:mi-ddd:hh24:mi</c></para><para> Default: A 30-minute window selected at random from an 8-hour block of time per region,
         /// occurring on a random day of the week. For more information about the time blocks
         /// for each region, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
         /// Windows</a> in Amazon Redshift Cluster Management Guide.</para><para>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</para><para>Constraints: Minimum 30-minute window.</para>
@@ -491,7 +490,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, the cluster can be accessed from a public network. </para>
+        /// <para>If <c>true</c>, the cluster can be accessed from a public network. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

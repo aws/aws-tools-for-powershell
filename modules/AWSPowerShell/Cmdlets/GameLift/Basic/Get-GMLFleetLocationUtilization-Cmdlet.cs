@@ -31,14 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Retrieves current usage data for a fleet location. Utilization data provides a snapshot
     /// of current game hosting activity at the requested location. Use this operation to
     /// retrieve utilization information for a fleet's remote location or home Region (you
-    /// can also retrieve home Region utilization by calling <code>DescribeFleetUtilization</code>).
+    /// can also retrieve home Region utilization by calling <c>DescribeFleetUtilization</c>).
     /// 
     ///  
     /// <para>
     /// To retrieve utilization data, identify a fleet and location. 
     /// </para><para>
-    /// If successful, a <code>FleetUtilization</code> object is returned for the requested
-    /// fleet location. 
+    /// If successful, a <c>FleetUtilization</c> object is returned for the requested fleet
+    /// location. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up Amazon GameLift fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift
     /// metrics for fleets</a></para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The fleet location to retrieve utilization information for. Specify a location in
-        /// the form of an Amazon Web Services Region code, such as <code>us-west-2</code>.</para>
+        /// the form of an Amazon Web Services Region code, such as <c>us-west-2</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

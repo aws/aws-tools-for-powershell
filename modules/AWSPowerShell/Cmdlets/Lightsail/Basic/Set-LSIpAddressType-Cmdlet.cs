@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The IP address type to set for the specified resource.</para><para>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code>
-        /// for IPv4 and IPv6.</para>
+        /// <para>The IP address type to set for the specified resource.</para><para>The possible values are <c>ipv4</c> for IPv4 only, and <c>dualstack</c> for IPv4 and
+        /// IPv6.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource type.</para><para>The resource values are <code>Distribution</code>, <code>Instance</code>, and <code>LoadBalancer</code>.</para><note><para>Distribution-related APIs are available only in the N. Virginia (<code>us-east-1</code>)
-        /// Amazon Web Services Region. Set your Amazon Web Services Region configuration to <code>us-east-1</code>
+        /// <para>The resource type.</para><para>The resource values are <c>Distribution</c>, <c>Instance</c>, and <c>LoadBalancer</c>.</para><note><para>Distribution-related APIs are available only in the N. Virginia (<c>us-east-1</c>)
+        /// Amazon Web Services Region. Set your Amazon Web Services Region configuration to <c>us-east-1</c>
         /// to create, view, or edit distributions.</para></note>
         /// </para>
         /// </summary>

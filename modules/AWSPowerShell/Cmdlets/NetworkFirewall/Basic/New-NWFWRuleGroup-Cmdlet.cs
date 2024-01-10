@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     /// 
     ///  
     /// <para>
-    /// You provide your rule group specification in your request using either <code>RuleGroup</code>
-    /// or <code>Rules</code>.
+    /// You provide your rule group specification in your request using either <c>RuleGroup</c>
+    /// or <c>Rules</c>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "NWFWRuleGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,10 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>Indicates whether you want Network Firewall to analyze the stateless rules in the
-        /// rule group for rule behavior such as asymmetric routing. If set to <code>TRUE</code>,
-        /// Network Firewall runs the analysis and then creates the rule group for you. To run
-        /// the stateless rule group analyzer without creating the rule group, set <code>DryRun</code>
-        /// to <code>TRUE</code>.</para>
+        /// rule group for rule behavior such as asymmetric routing. If set to <c>TRUE</c>, Network
+        /// Firewall runs the analysis and then creates the rule group for you. To run the stateless
+        /// rule group analyzer without creating the rule group, set <c>DryRun</c> to <c>TRUE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,11 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// is fixed at creation. When you update a rule group, you are limited to this capacity.
         /// When you reference a rule group from a firewall policy, Network Firewall reserves
         /// this capacity for the rule group. </para><para>You can retrieve the capacity that would be required for a rule group before you create
-        /// the rule group by calling <a>CreateRuleGroup</a> with <code>DryRun</code> set to <code>TRUE</code>.
+        /// the rule group by calling <a>CreateRuleGroup</a> with <c>DryRun</c> set to <c>TRUE</c>.
         /// </para><note><para>You can't change or exceed this capacity when you update the rule group, so leave
         /// room for your rule group to grow. </para></note><para><b>Capacity for a stateless rule group</b></para><para>For a stateless rule group, the capacity required is the sum of the capacity requirements
         /// of the individual rules that you expect to have in the rule group. </para><para>To calculate the capacity requirement of a single rule, multiply the capacity requirement
-        /// values of each of the rule's match settings:</para><ul><li><para>A match setting with no criteria specified has a value of 1. </para></li><li><para>A match setting with <code>Any</code> specified has a value of 1. </para></li><li><para>All other match settings have a value equal to the number of elements provided in
+        /// values of each of the rule's match settings:</para><ul><li><para>A match setting with no criteria specified has a value of 1. </para></li><li><para>A match setting with <c>Any</c> specified has a value of 1. </para></li><li><para>All other match settings have a value equal to the number of elements provided in
         /// the setting. For example, a protocol setting ["UDP"] and a source setting ["10.0.0.0/24"]
         /// each have a value of 1. A protocol setting ["UDP","TCP"] has a value of 2. A source
         /// setting ["10.0.0.0/24","10.0.0.1/24","10.0.0.2/24"] has a value of 3. </para></li></ul><para>A rule with no criteria specified in any of its match settings has a capacity requirement
@@ -97,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>Defines an array of individual custom action definitions that are available for use
-        /// by the stateless rules in this <code>StatelessRulesAndCustomActions</code> specification.
+        /// by the stateless rules in this <c>StatelessRulesAndCustomActions</c> specification.
         /// You name each custom action that you define, and then you can use it by name in your
-        /// <a>StatelessRule</a><a>RuleDefinition</a><code>Actions</code> specification.</para>
+        /// <a>StatelessRule</a><a>RuleDefinition</a><c>Actions</c> specification.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,13 +120,13 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>Indicates whether you want Network Firewall to just check the validity of the request,
-        /// rather than run the request. </para><para>If set to <code>TRUE</code>, Network Firewall checks whether the request can run successfully,
+        /// rather than run the request. </para><para>If set to <c>TRUE</c>, Network Firewall checks whether the request can run successfully,
         /// but doesn't actually make the requested changes. The call returns the value that the
-        /// request would return if you ran it with dry run set to <code>FALSE</code>, but doesn't
-        /// make additions or changes to your resources. This option allows you to make sure that
-        /// you have the required permissions to run the request and that your request parameters
-        /// are valid. </para><para>If set to <code>FALSE</code>, Network Firewall makes the requested changes to your
-        /// resources. </para>
+        /// request would return if you ran it with dry run set to <c>FALSE</c>, but doesn't make
+        /// additions or changes to your resources. This option allows you to make sure that you
+        /// have the required permissions to run the request and that your request parameters
+        /// are valid. </para><para>If set to <c>FALSE</c>, Network Firewall makes the requested changes to your resources.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter StatefulRuleOptions_RuleOrder
         /// <summary>
         /// <para>
-        /// <para>Indicates how to manage the order of the rule evaluation for the rule group. <code>DEFAULT_ACTION_ORDER</code>
+        /// <para>Indicates how to manage the order of the rule evaluation for the rule group. <c>DEFAULT_ACTION_ORDER</c>
         /// is the default behavior. Stateful rules are provided to the rule engine as Suricata
         /// compatible strings, and Suricata evaluates them based on certain settings. For more
         /// information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation
@@ -232,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>
         /// <para>A string containing stateful rule group rules specifications in Suricata flat format,
         /// with one rule per line. Use this to import your existing Suricata compatible rule
-        /// groups. </para><note><para>You must provide either this rules setting or a populated <code>RuleGroup</code> setting,
+        /// groups. </para><note><para>You must provide either this rules setting or a populated <c>RuleGroup</c> setting,
         /// but not both. </para></note><para>You can provide your rule group specification in Suricata flat format through this
         /// setting when you create or update your rule group. The call response returns a <a>RuleGroup</a>
         /// object that Network Firewall has populated from your string. </para>
@@ -249,8 +248,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>Stateful inspection criteria, provided in Suricata compatible rules. Suricata is an
         /// open-source threat detection framework that includes a standard rule-based language
         /// for network traffic inspection.</para><para>These rules contain the inspection criteria and the action to take for traffic that
-        /// matches the criteria, so this type of rule group doesn't have a separate action setting.</para><note><para>You can't use the <code>priority</code> keyword if the <code>RuleOrder</code> option
-        /// in <a>StatefulRuleOptions</a> is set to <code>STRICT_ORDER</code>.</para></note>
+        /// matches the criteria, so this type of rule group doesn't have a separate action setting.</para><note><para>You can't use the <c>priority</c> keyword if the <c>RuleOrder</c> option in <a>StatefulRuleOptions</a>
+        /// is set to <c>STRICT_ORDER</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>An array of individual stateful rules inspection criteria to be used together in a
         /// stateful rule group. Use this option to specify simple Suricata rules with protocol,
         /// source and destination, ports, direction, and rule options. For information about
-        /// the Suricata <code>Rules</code> format, see <a href="https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html">Rules
+        /// the Suricata <c>Rules</c> format, see <a href="https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html">Rules
         /// Format</a>. </para>
         /// </para>
         /// </summary>
@@ -322,11 +321,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>The domains that you want to inspect for in your traffic flows. Valid domain specifications
-        /// are the following:</para><ul><li><para>Explicit names. For example, <code>abc.example.com</code> matches only the domain
-        /// <code>abc.example.com</code>.</para></li><li><para>Names that use a domain wildcard, which you indicate with an initial '<code>.</code>'.
-        /// For example,<code>.example.com</code> matches <code>example.com</code> and matches
-        /// all subdomains of <code>example.com</code>, such as <code>abc.example.com</code> and
-        /// <code>www.example.com</code>. </para></li></ul>
+        /// are the following:</para><ul><li><para>Explicit names. For example, <c>abc.example.com</c> matches only the domain <c>abc.example.com</c>.</para></li><li><para>Names that use a domain wildcard, which you indicate with an initial '<c>.</c>'. For
+        /// example,<c>.example.com</c> matches <c>example.com</c> and matches all subdomains
+        /// of <c>example.com</c>, such as <c>abc.example.com</c> and <c>www.example.com</c>.
+        /// </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -337,9 +335,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter RulesSourceList_TargetType
         /// <summary>
         /// <para>
-        /// <para>The protocols you want to inspect. Specify <code>TLS_SNI</code> for <code>HTTPS</code>.
-        /// Specify <code>HTTP_HOST</code> for <code>HTTP</code>. You can specify either or both.
-        /// </para>
+        /// <para>The protocols you want to inspect. Specify <c>TLS_SNI</c> for <c>HTTPS</c>. Specify
+        /// <c>HTTP_HOST</c> for <c>HTTP</c>. You can specify either or both. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

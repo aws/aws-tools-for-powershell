@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The IP address type. The possible values are <code>ipv4</code> (for IPv4 addresses)
-        /// and <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify <code>dualstack</code>
+        /// <para>The IP address type. The possible values are <c>ipv4</c> (for IPv4 addresses) and
+        /// <c>dualstack</c> (for IPv4 and IPv6 addresses). You can’t specify <c>dualstack</c>
         /// for a load balancer with a UDP or TCP_UDP listener.</para>
         /// </para>
         /// </summary>

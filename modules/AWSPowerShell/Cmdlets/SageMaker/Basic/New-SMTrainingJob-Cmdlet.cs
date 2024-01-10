@@ -39,37 +39,37 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// them for inference. 
     /// </para><para>
     /// In the request body, you provide the following: 
-    /// </para><ul><li><para><code>AlgorithmSpecification</code> - Identifies the training algorithm to use. 
-    /// </para></li><li><para><code>HyperParameters</code> - Specify these algorithm-specific parameters to enable
-    /// the estimation of model parameters during training. Hyperparameters can be tuned to
-    /// optimize this learning process. For a list of hyperparameters for each training algorithm
-    /// provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
+    /// </para><ul><li><para><c>AlgorithmSpecification</c> - Identifies the training algorithm to use. 
+    /// </para></li><li><para><c>HyperParameters</c> - Specify these algorithm-specific parameters to enable the
+    /// estimation of model parameters during training. Hyperparameters can be tuned to optimize
+    /// this learning process. For a list of hyperparameters for each training algorithm provided
+    /// by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
     /// 
     /// </para><important><para>
     /// Do not include any security-sensitive information including account access IDs, secrets
     /// or tokens in any hyperparameter field. If the use of security-sensitive credentials
     /// are detected, SageMaker will reject your training job request and return an exception
     /// error.
-    /// </para></important></li><li><para><code>InputDataConfig</code> - Describes the input required by the training job and
-    /// the Amazon S3, EFS, or FSx location where it is stored.
-    /// </para></li><li><para><code>OutputDataConfig</code> - Identifies the Amazon S3 bucket where you want SageMaker
+    /// </para></important></li><li><para><c>InputDataConfig</c> - Describes the input required by the training job and the
+    /// Amazon S3, EFS, or FSx location where it is stored.
+    /// </para></li><li><para><c>OutputDataConfig</c> - Identifies the Amazon S3 bucket where you want SageMaker
     /// to save the results of model training. 
-    /// </para></li><li><para><code>ResourceConfig</code> - Identifies the resources, ML compute instances, and
-    /// ML storage volumes to deploy for model training. In distributed training, you specify
-    /// more than one instance. 
-    /// </para></li><li><para><code>EnableManagedSpotTraining</code> - Optimize the cost of training machine learning
+    /// </para></li><li><para><c>ResourceConfig</c> - Identifies the resources, ML compute instances, and ML storage
+    /// volumes to deploy for model training. In distributed training, you specify more than
+    /// one instance. 
+    /// </para></li><li><para><c>EnableManagedSpotTraining</c> - Optimize the cost of training machine learning
     /// models by up to 80% by using Amazon EC2 Spot instances. For more information, see
     /// <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html">Managed
     /// Spot Training</a>. 
-    /// </para></li><li><para><code>RoleArn</code> - The Amazon Resource Name (ARN) that SageMaker assumes to perform
+    /// </para></li><li><para><c>RoleArn</c> - The Amazon Resource Name (ARN) that SageMaker assumes to perform
     /// tasks on your behalf during model training. You must grant this role the necessary
     /// permissions so that SageMaker can successfully complete model training. 
-    /// </para></li><li><para><code>StoppingCondition</code> - To help cap training costs, use <code>MaxRuntimeInSeconds</code>
-    /// to set a time limit for training. Use <code>MaxWaitTimeInSeconds</code> to specify
-    /// how long a managed spot training job has to complete. 
-    /// </para></li><li><para><code>Environment</code> - The environment variables to set in the Docker container.
-    /// </para></li><li><para><code>RetryStrategy</code> - The number of times to retry the job when the job fails
-    /// due to an <code>InternalServerError</code>.
+    /// </para></li><li><para><c>StoppingCondition</c> - To help cap training costs, use <c>MaxRuntimeInSeconds</c>
+    /// to set a time limit for training. Use <c>MaxWaitTimeInSeconds</c> to specify how long
+    /// a managed spot training job has to complete. 
+    /// </para></li><li><para><c>Environment</c> - The environment variables to set in the Docker container.
+    /// </para></li><li><para><c>RetryStrategy</c> - The number of times to retry the job when the job fails due
+    /// to an <c>InternalServerError</c>.
     /// </para></li></ul><para>
     ///  For more information about SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How
     /// It Works</a>. 
@@ -111,8 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Configuration information for Amazon SageMaker Debugger tensor collections. To learn
-        /// more about how to configure the <code>CollectionConfiguration</code> parameter, see
-        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use
+        /// more about how to configure the <c>CollectionConfiguration</c> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use
         /// the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug
         /// Your Training Job</a>. </para>
         /// </para>
@@ -138,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Configuration to turn off Amazon SageMaker Debugger's system monitoring and profiling
-        /// functionality. To turn it off, set to <code>True</code>.</para>
+        /// functionality. To turn it off, set to <c>True</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>To encrypt all communications between ML compute instances in distributed training,
-        /// choose <code>True</code>. Encryption provides greater security for distributed training,
+        /// choose <c>True</c>. Encryption provides greater security for distributed training,
         /// but training might take longer. How long it takes depends on the amount of communication
         /// between compute instances, especially if you use a deep learning algorithm in distributed
         /// training. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-encrypt.html">Protect
@@ -173,10 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter EnableManagedSpotTraining
         /// <summary>
         /// <para>
-        /// <para>To train models using managed spot training, choose <code>True</code>. Managed spot
-        /// training provides a fully managed and scalable infrastructure for training machine
-        /// learning models. this option is useful when training jobs can be interrupted and when
-        /// there is flexibility when the training job is run. </para><para>The complete and intermediate results of jobs are stored in an Amazon S3 bucket, and
+        /// <para>To train models using managed spot training, choose <c>True</c>. Managed spot training
+        /// provides a fully managed and scalable infrastructure for training machine learning
+        /// models. this option is useful when training jobs can be interrupted and when there
+        /// is flexibility when the training job is run. </para><para>The complete and intermediate results of jobs are stored in an Amazon S3 bucket, and
         /// can be used as a starting point to train models incrementally. Amazon SageMaker provides
         /// metrics and logs in CloudWatch. They can be used to see when managed spot training
         /// jobs are running, interrupted, resumed, or completed. </para>
@@ -248,8 +247,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// before you start the learning process. For a list of hyperparameters for each training
         /// algorithm provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
         /// </para><para>You can specify a maximum of 100 hyperparameters. Each hyperparameter is a key-value
-        /// pair. Each key and value is limited to 256 characters, as specified by the <code>Length
-        /// Constraint</code>. </para><important><para>Do not include any security-sensitive information including account access IDs, secrets
+        /// pair. Each key and value is limited to 256 characters, as specified by the <c>Length
+        /// Constraint</c>. </para><important><para>Do not include any security-sensitive information including account access IDs, secrets
         /// or tokens in any hyperparameter field. If the use of security-sensitive credentials
         /// are detected, SageMaker will reject your training job request and return an exception
         /// error.</para></important>
@@ -263,9 +262,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter InputDataConfig
         /// <summary>
         /// <para>
-        /// <para>An array of <code>Channel</code> objects. Each channel is a named input source. <code>InputDataConfig</code>
+        /// <para>An array of <c>Channel</c> objects. Each channel is a named input source. <c>InputDataConfig</c>
         /// describes the input data and its location. </para><para>Algorithms can accept input data from one or more channels. For example, an algorithm
-        /// might have two channels of input data, <code>training_data</code> and <code>validation_data</code>.
+        /// might have two channels of input data, <c>training_data</c> and <c>validation_data</c>.
         /// The configuration for each channel provides the S3, EFS, or FSx location where the
         /// input data is stored. It also provides information about the stored data: the MIME
         /// type, compression method, and whether the data is wrapped in RecordIO format. </para><para>Depending on the input mode that the algorithm supports, SageMaker either copies input
@@ -282,7 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>(Optional) The local directory where checkpoints are written. The default directory
-        /// is <code>/opt/ml/checkpoints/</code>. </para>
+        /// is <c>/opt/ml/checkpoints/</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -292,7 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DebugHookConfig_LocalPath
         /// <summary>
         /// <para>
-        /// <para>Path to local storage location for metrics and tensors. Defaults to <code>/opt/ml/output/tensors/</code>.</para>
+        /// <para>Path to local storage location for metrics and tensors. Defaults to <c>/opt/ml/output/tensors/</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -302,7 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TensorBoardOutputConfig_LocalPath
         /// <summary>
         /// <para>
-        /// <para>Path to local storage location for tensorBoard output. Defaults to <code>/opt/ml/output/tensorboard</code>.</para>
+        /// <para>Path to local storage location for tensorBoard output. Defaults to <c>/opt/ml/output/tensorboard</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -312,8 +311,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RetryStrategy_MaximumRetryAttempt
         /// <summary>
         /// <para>
-        /// <para>The number of times to retry the job. When the job is retried, it's <code>SecondaryStatus</code>
-        /// is changed to <code>STARTING</code>.</para>
+        /// <para>The number of times to retry the job. When the job is retried, it's <c>SecondaryStatus</c>
+        /// is changed to <c>STARTING</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -337,14 +336,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The maximum length of time, in seconds, that a training or compilation job can run
-        /// before it is stopped.</para><para>For compilation jobs, if the job does not complete during this time, a <code>TimeOut</code>
+        /// before it is stopped.</para><para>For compilation jobs, if the job does not complete during this time, a <c>TimeOut</c>
         /// error is generated. We recommend starting with 900 seconds and increasing as necessary
         /// based on your model.</para><para>For all other jobs, if the job does not complete during this time, SageMaker ends
-        /// the job. When <code>RetryStrategy</code> is specified in the job request, <code>MaxRuntimeInSeconds</code>
+        /// the job. When <c>RetryStrategy</c> is specified in the job request, <c>MaxRuntimeInSeconds</c>
         /// specifies the maximum time for all of the attempts in total, not each individual attempt.
-        /// The default value is 1 day. The maximum value is 28 days.</para><para>The maximum time that a <code>TrainingJob</code> can run in total, including any time
-        /// spent publishing metrics or archiving and uploading models after it has been stopped,
-        /// is 30 days.</para>
+        /// The default value is 1 day. The maximum value is 28 days.</para><para>The maximum time that a <c>TrainingJob</c> can run in total, including any time spent
+        /// publishing metrics or archiving and uploading models after it has been stopped, is
+        /// 30 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -357,8 +356,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The maximum length of time, in seconds, that a managed Spot training job has to complete.
         /// It is the amount of time spent waiting for Spot capacity plus the amount of time the
-        /// job can run. It must be equal to or greater than <code>MaxRuntimeInSeconds</code>.
-        /// If the job does not complete during this time, SageMaker ends the job.</para><para>When <code>RetryStrategy</code> is specified in the job request, <code>MaxWaitTimeInSeconds</code>
+        /// job can run. It must be equal to or greater than <c>MaxRuntimeInSeconds</c>. If the
+        /// job does not complete during this time, SageMaker ends the job.</para><para>When <c>RetryStrategy</c> is specified in the job request, <c>MaxWaitTimeInSeconds</c>
         /// specifies the maximum time for all of the attempts in total, not each individual attempt.</para>
         /// </para>
         /// </summary>
@@ -413,10 +412,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Configuration information for capturing framework metrics. Available key strings for
-        /// different profiling options are <code>DetailedProfilingConfig</code>, <code>PythonProfilingConfig</code>,
-        /// and <code>DataLoaderProfilingConfig</code>. The following codes are configuration
-        /// structures for the <code>ProfilingParameters</code> parameter. To learn more about
-        /// how to configure the <code>ProfilingParameters</code> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use
+        /// different profiling options are <c>DetailedProfilingConfig</c>, <c>PythonProfilingConfig</c>,
+        /// and <c>DataLoaderProfilingConfig</c>. The following codes are configuration structures
+        /// for the <c>ProfilingParameters</c> parameter. To learn more about how to configure
+        /// the <c>ProfilingParameters</c> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use
         /// the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug
         /// Your Training Job</a>. </para>
         /// </para>
@@ -432,9 +431,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The resources, including the ML compute instances and ML storage volumes, to use for
         /// model training. </para><para>ML storage volumes store model artifacts and incremental states. Training algorithms
         /// might also use ML storage volumes for scratch space. If you want SageMaker to use
-        /// the ML storage volume to store the training data, choose <code>File</code> as the
-        /// <code>TrainingInputMode</code> in the algorithm specification. For distributed training
-        /// algorithms, specify an instance count greater than 1.</para>
+        /// the ML storage volume to store the training data, choose <c>File</c> as the <c>TrainingInputMode</c>
+        /// in the algorithm specification. For distributed training algorithms, specify an instance
+        /// count greater than 1.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -456,7 +455,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// to an S3 bucket, write logs to Amazon CloudWatch Logs, and publish metrics to Amazon
         /// CloudWatch. You grant permissions for all of these tasks to an IAM role. For more
         /// information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
-        /// Roles</a>. </para><note><para>To be able to pass this role to SageMaker, the caller of this API must have the <code>iam:PassRole</code>
+        /// Roles</a>. </para><note><para>To be able to pass this role to SageMaker, the caller of this API must have the <c>iam:PassRole</c>
         /// permission.</para></note>
         /// </para>
         /// </summary>
@@ -515,7 +514,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Identifies the S3 path where you want SageMaker to store checkpoints. For example,
-        /// <code>s3://bucket-name/key-name-prefix</code>.</para>
+        /// <c>s3://bucket-name/key-name-prefix</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -525,8 +524,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. Specify the security
-        /// groups for the VPC that is specified in the <code>Subnets</code> field.</para>
+        /// <para>The VPC security group IDs, in the form <c>sg-xxxxxxxx</c>. Specify the security groups
+        /// for the VPC that is specified in the <c>Subnets</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

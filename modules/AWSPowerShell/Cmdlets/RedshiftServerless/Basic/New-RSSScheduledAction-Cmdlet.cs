@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
 {
     /// <summary>
     /// Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift
-    /// API action. For example, you can create a schedule of when to run the <code>CreateSnapshot</code>
+    /// API action. For example, you can create a schedule of when to run the <c>CreateSnapshot</c>
     /// API operation.
     /// </summary>
     [Cmdlet("New", "RSSScheduledAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>The timestamp of when Amazon Redshift Serverless should run the scheduled action.
-        /// Format of at expressions is "<code>at(yyyy-mm-ddThh:mm:ss)</code>". For example, "<code>at(2016-03-04T17:27:00)</code>".</para>
+        /// Format of at expressions is "<c>at(yyyy-mm-ddThh:mm:ss)</c>". For example, "<c>at(2016-03-04T17:27:00)</c>".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>The cron expression to use to schedule a recurring scheduled action. Schedule invocations
-        /// must be separated by at least one hour.</para><para>Format of cron expressions is "<code>cron(Minutes Hours Day-of-month Month Day-of-week
-        /// Year)</code>". For example, "<code>cron(0 10 ? * MON *)</code>". For more information,
-        /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
+        /// must be separated by at least one hour.</para><para>Format of cron expressions is "<c>cron(Minutes Hours Day-of-month Month Day-of-week
+        /// Year)</c>". For example, "<c>cron(0 10 ? * MON *)</c>". For more information, see
+        /// <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
         /// Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -73,8 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>Indicates whether the schedule is enabled. If false, the scheduled action does not
-        /// trigger. For more information about <code>state</code> of the scheduled action, see
-        /// <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_ScheduledAction.html">ScheduledAction</a>.</para>
+        /// trigger. For more information about <c>state</c> of the scheduled action, see <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_ScheduledAction.html">ScheduledAction</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

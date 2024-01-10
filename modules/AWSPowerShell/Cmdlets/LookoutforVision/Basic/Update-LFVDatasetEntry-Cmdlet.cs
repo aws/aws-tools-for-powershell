@@ -33,21 +33,20 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// 
     ///  
     /// <para>
-    /// To update an existing JSON Line, use the <code>source-ref</code> field to identify
-    /// the JSON Line. The JSON line that you supply replaces the existing JSON line. Any
-    /// existing annotations that are not in the new JSON line are removed from the dataset.
-    /// 
+    /// To update an existing JSON Line, use the <c>source-ref</c> field to identify the JSON
+    /// Line. The JSON line that you supply replaces the existing JSON line. Any existing
+    /// annotations that are not in the new JSON line are removed from the dataset. 
     /// </para><para>
     /// For more information, see <i>Defining JSON lines for anomaly classification</i> in
     /// the Amazon Lookout for Vision Developer Guide. 
     /// </para><note><para>
-    /// The images you reference in the <code>source-ref</code> field of a JSON line, must
-    /// be in the same S3 bucket as the existing images in the dataset. 
+    /// The images you reference in the <c>source-ref</c> field of a JSON line, must be in
+    /// the same S3 bucket as the existing images in the dataset. 
     /// </para></note><para>
     /// Updating a dataset might take a while to complete. To check the current status, call
-    /// <a>DescribeDataset</a> and check the <code>Status</code> field in the response.
+    /// <a>DescribeDataset</a> and check the <c>Status</c> field in the response.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>lookoutvision:UpdateDatasetEntries</code>
+    /// This operation requires permissions to perform the <c>lookoutvision:UpdateDatasetEntries</c>
     /// operation.
     /// </para>
     /// </summary>
@@ -85,9 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         #region Parameter DatasetType
         /// <summary>
         /// <para>
-        /// <para>The type of the dataset that you want to update. Specify <code>train</code> to update
-        /// the training dataset. Specify <code>test</code> to update the test dataset. If you
-        /// have a single dataset project, specify <code>train</code>.</para>
+        /// <para>The type of the dataset that you want to update. Specify <c>train</c> to update the
+        /// training dataset. Specify <c>test</c> to update the test dataset. If you have a single
+        /// dataset project, specify <c>train</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -121,15 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>ClientToken is an idempotency token that ensures a call to <code>UpdateDatasetEntries</code>
+        /// <para>ClientToken is an idempotency token that ensures a call to <c>UpdateDatasetEntries</c>
         /// completes only once. You choose the value to pass. For example, An issue might prevent
-        /// you from getting a response from <code>UpdateDatasetEntries</code>. In this case,
-        /// safely retry your call to <code>UpdateDatasetEntries</code> by using the same <code>ClientToken</code>
-        /// parameter value.</para><para>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using
-        /// inserts a value for you. This prevents retries after a network error from making multiple
+        /// you from getting a response from <c>UpdateDatasetEntries</c>. In this case, safely
+        /// retry your call to <c>UpdateDatasetEntries</c> by using the same <c>ClientToken</c>
+        /// parameter value.</para><para>If you don't supply a value for <c>ClientToken</c>, the AWS SDK you are using inserts
+        /// a value for you. This prevents retries after a network error from making multiple
         /// updates with the same dataset entries. You'll need to provide your own value for other
         /// use cases. </para><para>An error occurs if the other input parameters are not the same as in the first request.
-        /// Using a different value for <code>ClientToken</code> is considered a new call to <code>UpdateDatasetEntries</code>.
+        /// Using a different value for <c>ClientToken</c> is considered a new call to <c>UpdateDatasetEntries</c>.
         /// An idempotency token is active for 8 hours. </para>
         /// </para>
         /// </summary>

@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// When the service provider and the consumer have different accounts in multiple Availability
     /// Zones, and the consumer views the VPC endpoint service information, the response only
     /// includes the common Availability Zones. For example, when the service provider account
-    /// uses <code>us-east-1a</code> and <code>us-east-1c</code> and the consumer uses <code>us-east-1a</code>
-    /// and <code>us-east-1b</code>, the response includes the VPC endpoint services in the
-    /// common Availability Zone, <code>us-east-1a</code>.
+    /// uses <c>us-east-1a</c> and <c>us-east-1c</c> and the consumer uses <c>us-east-1a</c>
+    /// and <c>us-east-1b</c>, the response includes the VPC endpoint services in the common
+    /// Availability Zone, <c>us-east-1a</c>.
     /// </para><br/><br/>In the AWS.Tools.EC2 module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2VpcEndpointService")]
@@ -54,15 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>owner</code> - The ID or alias of the Amazon Web Services account that owns
-        /// the service.</para></li><li><para><code>service-name</code> - The name of the service.</para></li><li><para><code>service-type</code> - The type of service (<code>Interface</code> | <code>Gateway</code>
-        /// | <code>GatewayLoadBalancer</code>).</para></li><li><para><code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code>
-        /// | <code>ipv6</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
-        /// resource. Use the tag key in the filter name and the tag value as the filter value.
-        /// For example, to find all resources that have a tag with the key <code>Owner</code>
-        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>owner</c> - The ID or alias of the Amazon Web Services account that owns the service.</para></li><li><para><c>service-name</c> - The name of the service.</para></li><li><para><c>service-type</c> - The type of service (<c>Interface</c> | <c>Gateway</c> | <c>GatewayLoadBalancer</c>).</para></li><li><para><c>supported-ip-address-types</c> - The IP address type (<c>ipv4</c> | <c>ipv6</c>).</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
+        /// Use the tag key in the filter name and the tag value as the filter value. For example,
+        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
     /// Returns list of collection IDs in your account. If the result is truncated, the response
-    /// also provides a <code>NextToken</code> that you can use in the subsequent request
-    /// to fetch the next set of collection IDs.
+    /// also provides a <c>NextToken</c> that you can use in the subsequent request to fetch
+    /// the next set of collection IDs.
     /// 
     ///  
     /// <para>
     /// For an example, see Listing collections in the Amazon Rekognition Developer Guide.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:ListCollections</code>
+    /// This operation requires permissions to perform the <c>rekognition:ListCollections</c>
     /// action.
     /// </para><br/><br/>In the AWS.Tools.Rekognition module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

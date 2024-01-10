@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.L4E
 {
     /// <summary>
     /// Generates a list of all model versions for a given model, including the model version,
-    /// model version ARN, and status. To list a subset of versions, use the <code>MaxModelVersion</code>
-    /// and <code>MinModelVersion</code> fields.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// model version ARN, and status. To list a subset of versions, use the <c>MaxModelVersion</c>
+    /// and <c>MinModelVersion</c> fields.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "L4EModelVersionList")]
     [OutputType("Amazon.LookoutEquipment.Model.ModelVersionSummary")]
@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         /// <para>
         /// <para>If the total number of results exceeds the limit that the response can display, the
         /// response returns an opaque pagination token indicating where to continue the listing
-        /// of machine learning model versions. Use this token in the <code>NextToken</code> field
-        /// in the request to list the next page of results.</para>
+        /// of machine learning model versions. Use this token in the <c>NextToken</c> field in
+        /// the request to list the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

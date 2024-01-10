@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Deletes a <code>Function</code>.
+    /// Deletes a <c>Function</c>.
     /// </summary>
     [Cmdlet("Remove", "ASYNFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter FunctionId
         /// <summary>
         /// <para>
-        /// <para>The <code>Function</code> ID.</para>
+        /// <para>The <c>Function</c> ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

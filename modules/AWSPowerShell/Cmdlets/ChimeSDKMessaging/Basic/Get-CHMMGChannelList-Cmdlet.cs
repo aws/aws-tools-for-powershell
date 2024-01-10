@@ -33,14 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// 
     ///  
     /// <para><b>Functionality &amp; restrictions</b></para><ul><li><para>
-    /// Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account.
+    /// Use privacy = <c>PUBLIC</c> to retrieve all public channels in the account.
     /// </para></li><li><para>
-    /// Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to list
-    /// the private channels in an account.
+    /// Only an <c>AppInstanceAdmin</c> can set privacy = <c>PRIVATE</c> to list the private
+    /// channels in an account.
     /// </para></li></ul><note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
-    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
-    /// as the value in the header.
+    /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the ARN of the <c>AppInstanceUser</c>
+    /// or <c>AppInstanceBot</c> that makes the API call as the value in the header.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CHMMGChannelList")]
@@ -62,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstance</code>.</para>
+        /// <para>The ARN of the <c>AppInstance</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        /// the API call.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c> or <c>AppInstanceBot</c> that makes the API
+        /// call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter Privacy
         /// <summary>
         /// <para>
-        /// <para>The privacy setting. <code>PUBLIC</code> retrieves all the public channels. <code>PRIVATE</code>
-        /// retrieves private channels. Only an <code>AppInstanceAdmin</code> can retrieve private
-        /// channels. </para>
+        /// <para>The privacy setting. <c>PUBLIC</c> retrieves all the public channels. <c>PRIVATE</c>
+        /// retrieves private channels. Only an <c>AppInstanceAdmin</c> can retrieve private channels.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

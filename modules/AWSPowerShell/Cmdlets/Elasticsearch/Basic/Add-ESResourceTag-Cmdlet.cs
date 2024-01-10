@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter ARN
         /// <summary>
         /// <para>
-        /// <para> Specify the <code>ARN</code> for which you want to add the tags.</para>
+        /// <para> Specify the <c>ARN</c> for which you want to add the tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter TagList
         /// <summary>
         /// <para>
-        /// <para> List of <code>Tag</code> that need to be added for the Elasticsearch domain. </para>
+        /// <para> List of <c>Tag</c> that need to be added for the Elasticsearch domain. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

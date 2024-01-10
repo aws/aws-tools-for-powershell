@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>A list of the operations that the certificate provider will use to generate certificates.
-        /// Valid value: <code>CreateCertificateFromCsr</code>.</para>
+        /// Valid value: <c>CreateCertificateFromCsr</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

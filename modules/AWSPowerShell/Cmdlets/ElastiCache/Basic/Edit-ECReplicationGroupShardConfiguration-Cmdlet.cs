@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Indicates that the shard reconfiguration process begins immediately. At present, the
-        /// only permitted value for this parameter is <code>true</code>.</para><para>Value: true</para>
+        /// only permitted value for this parameter is <c>true</c>.</para><para>Value: true</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,10 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter NodeGroupsToRemove
         /// <summary>
         /// <para>
-        /// <para>If the value of <code>NodeGroupCount</code> is less than the current number of node
-        /// groups (shards), then either <code>NodeGroupsToRemove</code> or <code>NodeGroupsToRetain</code>
-        /// is required. <code>NodeGroupsToRemove</code> is a list of <code>NodeGroupId</code>s
-        /// to remove from the cluster.</para><para>ElastiCache for Redis will attempt to remove all node groups listed by <code>NodeGroupsToRemove</code>
+        /// <para>If the value of <c>NodeGroupCount</c> is less than the current number of node groups
+        /// (shards), then either <c>NodeGroupsToRemove</c> or <c>NodeGroupsToRetain</c> is required.
+        /// <c>NodeGroupsToRemove</c> is a list of <c>NodeGroupId</c>s to remove from the cluster.</para><para>ElastiCache for Redis will attempt to remove all node groups listed by <c>NodeGroupsToRemove</c>
         /// from the cluster.</para>
         /// </para>
         /// </summary>
@@ -94,11 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter NodeGroupsToRetain
         /// <summary>
         /// <para>
-        /// <para>If the value of <code>NodeGroupCount</code> is less than the current number of node
-        /// groups (shards), then either <code>NodeGroupsToRemove</code> or <code>NodeGroupsToRetain</code>
-        /// is required. <code>NodeGroupsToRetain</code> is a list of <code>NodeGroupId</code>s
-        /// to retain in the cluster.</para><para>ElastiCache for Redis will attempt to remove all node groups except those listed by
-        /// <code>NodeGroupsToRetain</code> from the cluster.</para>
+        /// <para>If the value of <c>NodeGroupCount</c> is less than the current number of node groups
+        /// (shards), then either <c>NodeGroupsToRemove</c> or <c>NodeGroupsToRetain</c> is required.
+        /// <c>NodeGroupsToRetain</c> is a list of <c>NodeGroupId</c>s to retain in the cluster.</para><para>ElastiCache for Redis will attempt to remove all node groups except those listed by
+        /// <c>NodeGroupsToRetain</c> from the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Specifies the preferred availability zones for each node group in the cluster. If
-        /// the value of <code>NodeGroupCount</code> is greater than the current number of node
-        /// groups (shards), you can use this parameter to specify the preferred availability
-        /// zones of the cluster's shards. If you omit this parameter ElastiCache selects availability
-        /// zones for you.</para><para>You can specify this parameter only if the value of <code>NodeGroupCount</code> is
-        /// greater than the current number of node groups (shards).</para>
+        /// the value of <c>NodeGroupCount</c> is greater than the current number of node groups
+        /// (shards), you can use this parameter to specify the preferred availability zones of
+        /// the cluster's shards. If you omit this parameter ElastiCache selects availability
+        /// zones for you.</para><para>You can specify this parameter only if the value of <c>NodeGroupCount</c> is greater
+        /// than the current number of node groups (shards).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

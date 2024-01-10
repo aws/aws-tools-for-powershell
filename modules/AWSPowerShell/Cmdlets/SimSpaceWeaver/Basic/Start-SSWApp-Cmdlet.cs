@@ -120,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.SSW
         /// <summary>
         /// <para>
         /// <para>A value that you provide to ensure that repeated calls to this API operation using
-        /// the same parameters complete only once. A <code>ClientToken</code> is also known as
-        /// an <i>idempotency token</i>. A <code>ClientToken</code> expires after 24 hours.</para>
+        /// the same parameters complete only once. A <c>ClientToken</c> is also known as an <i>idempotency
+        /// token</i>. A <c>ClientToken</c> expires after 24 hours.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

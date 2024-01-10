@@ -39,14 +39,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// with the values that are provided in the request. You cannot update some fields independent
     /// of others. To update a continuous deployment policy configuration:
     /// </para><ol><li><para>
-    /// Use <code>GetContinuousDeploymentPolicyConfig</code> to get the current configuration.
+    /// Use <c>GetContinuousDeploymentPolicyConfig</c> to get the current configuration.
     /// </para></li><li><para>
     /// Locally modify the fields in the continuous deployment policy configuration that you
     /// want to update.
     /// </para></li><li><para>
-    /// Use <code>UpdateContinuousDeploymentPolicy</code>, providing the entire continuous
-    /// deployment policy configuration, including the fields that you modified and those
-    /// that you didn't.
+    /// Use <c>UpdateContinuousDeploymentPolicy</c>, providing the entire continuous deployment
+    /// policy configuration, including the fields that you modified and those that you didn't.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Update", "CFContinuousDeploymentPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A Boolean that indicates whether this continuous deployment policy is enabled (in
-        /// effect). When this value is <code>true</code>, this policy is enabled and in effect.
-        /// When this value is <code>false</code>, this policy is not enabled and has no effect.</para>
+        /// effect). When this value is <c>true</c>, this policy is enabled and in effect. When
+        /// this value is <c>false</c>, this policy is not enabled and has no effect.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The request header name that you want CloudFront to send to your staging distribution.
-        /// The header must contain the prefix <code>aws-cf-cd-</code>.</para>
+        /// The header must contain the prefix <c>aws-cf-cd-</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The amount of time after which you want sessions to cease if no requests are received.
-        /// Allowed values are 300–3600 seconds (5–60 minutes).</para><para>The value must be less than or equal to <code>MaximumTTL</code>.</para>
+        /// Allowed values are 300–3600 seconds (5–60 minutes).</para><para>The value must be less than or equal to <c>MaximumTTL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The current version (<code>ETag</code> value) of the continuous deployment policy
-        /// that you are updating.</para>
+        /// <para>The current version (<c>ETag</c> value) of the continuous deployment policy that you
+        /// are updating.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The maximum amount of time to consider requests from the viewer as being part of the
-        /// same session. Allowed values are 300–3600 seconds (5–60 minutes).</para><para>The value must be less than or equal to <code>IdleTTL</code>.</para>
+        /// same session. Allowed values are 300–3600 seconds (5–60 minutes).</para><para>The value must be less than or equal to <c>IdleTTL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

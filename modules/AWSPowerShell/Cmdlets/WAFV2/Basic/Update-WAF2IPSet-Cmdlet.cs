@@ -79,11 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>Contains an array of strings that specifies zero or more IP addresses or blocks of
         /// IP addresses that you want WAF to inspect for in incoming requests. All addresses
         /// must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports
-        /// all IPv4 and IPv6 CIDR ranges except for <code>/0</code>. </para><para>Example address strings: </para><ul><li><para>For requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</para></li><li><para>For requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify
-        /// <code>192.0.2.0/24</code>.</para></li><li><para>For requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111,
-        /// specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</para></li><li><para>For requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000
-        /// to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</para></li></ul><para>For more information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
-        /// Inter-Domain Routing</a>.</para><para>Example JSON <code>Addresses</code> specifications: </para><ul><li><para>Empty array: <code>"Addresses": []</code></para></li><li><para>Array with one address: <code>"Addresses": ["192.0.2.44/32"]</code></para></li><li><para>Array with three addresses: <code>"Addresses": ["192.0.2.44/32", "192.0.2.0/24", "192.0.0.0/16"]</code></para></li><li><para>INVALID specification: <code>"Addresses": [""]</code> INVALID </para></li></ul>
+        /// all IPv4 and IPv6 CIDR ranges except for <c>/0</c>. </para><para>Example address strings: </para><ul><li><para>For requests that originated from the IP address 192.0.2.44, specify <c>192.0.2.44/32</c>.</para></li><li><para>For requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify
+        /// <c>192.0.2.0/24</c>.</para></li><li><para>For requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111,
+        /// specify <c>1111:0000:0000:0000:0000:0000:0000:0111/128</c>.</para></li><li><para>For requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000
+        /// to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <c>1111:0000:0000:0000:0000:0000:0000:0000/64</c>.</para></li></ul><para>For more information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
+        /// Inter-Domain Routing</a>.</para><para>Example JSON <c>Addresses</c> specifications: </para><ul><li><para>Empty array: <c>"Addresses": []</c></para></li><li><para>Array with one address: <c>"Addresses": ["192.0.2.44/32"]</c></para></li><li><para>Array with three addresses: <c>"Addresses": ["192.0.2.44/32", "192.0.2.0/24", "192.0.0.0/16"]</c></para></li><li><para>INVALID specification: <c>"Addresses": [""]</c> INVALID </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,14 +143,13 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter LockToken
         /// <summary>
         /// <para>
-        /// <para>A token used for optimistic locking. WAF returns a token to your <code>get</code>
-        /// and <code>list</code> requests, to mark the state of the entity at the time of the
-        /// request. To make changes to the entity associated with the token, you provide the
-        /// token to operations like <code>update</code> and <code>delete</code>. WAF uses the
-        /// token to ensure that no changes have been made to the entity since you last retrieved
-        /// it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>.
-        /// If this happens, perform another <code>get</code>, and use the new token returned
-        /// by that operation. </para>
+        /// <para>A token used for optimistic locking. WAF returns a token to your <c>get</c> and <c>list</c>
+        /// requests, to mark the state of the entity at the time of the request. To make changes
+        /// to the entity associated with the token, you provide the token to operations like
+        /// <c>update</c> and <c>delete</c>. WAF uses the token to ensure that no changes have
+        /// been made to the entity since you last retrieved it. If a change has been made, the
+        /// update fails with a <c>WAFOptimisticLockException</c>. If this happens, perform another
+        /// <c>get</c>, and use the new token returned by that operation. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -167,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the IP set. You cannot change the name of an <code>IPSet</code> after
-        /// you create it.</para>
+        /// <para>The name of the IP set. You cannot change the name of an <c>IPSet</c> after you create
+        /// it.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -189,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// application. A regional application can be an Application Load Balancer (ALB), an
         /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
         /// an App Runner service, or an Amazon Web Services Verified Access instance. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
-        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
-        /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
+        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <c>--scope=CLOUDFRONT
+        /// --region=us-east-1</c>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

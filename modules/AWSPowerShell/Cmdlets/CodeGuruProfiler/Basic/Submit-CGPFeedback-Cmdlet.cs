@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter AnomalyInstanceId
         /// <summary>
         /// <para>
-        /// <para>The universally unique identifier (UUID) of the <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AnomalyInstance.html"><code>AnomalyInstance</code></a> object that is included in the analysis data.</para>
+        /// <para>The universally unique identifier (UUID) of the <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AnomalyInstance.html"><c>AnomalyInstance</c></a> object that is included in the analysis data.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para> The feedback tpye. Thee are two valid values, <code>Positive</code> and <code>Negative</code>.
+        /// <para> The feedback tpye. Thee are two valid values, <c>Positive</c> and <c>Negative</c>.
         /// </para>
         /// </para>
         /// </summary>

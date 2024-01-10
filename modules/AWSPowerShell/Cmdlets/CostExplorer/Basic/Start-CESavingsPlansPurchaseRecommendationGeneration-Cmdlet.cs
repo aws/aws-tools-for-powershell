@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// current Savings Plans inventory into account. You can refresh Savings Plans recommendations
     /// up to three times daily for a consolidated billing family.
     /// 
-    ///  <note><para><code>StartSavingsPlansPurchaseRecommendationGeneration</code> has no request syntax
-    /// because no input parameters are needed to support this operation.
+    ///  <note><para><c>StartSavingsPlansPurchaseRecommendationGeneration</c> has no request syntax because
+    /// no input parameters are needed to support this operation.
     /// </para></note>
     /// </summary>
     [Cmdlet("Start", "CESavingsPlansPurchaseRecommendationGeneration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

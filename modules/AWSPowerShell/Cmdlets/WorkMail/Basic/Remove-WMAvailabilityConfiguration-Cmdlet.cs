@@ -28,8 +28,8 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Deletes the <code>AvailabilityConfiguration</code> for the given WorkMail organization
-    /// and domain.
+    /// Deletes the <c>AvailabilityConfiguration</c> for the given WorkMail organization and
+    /// domain.
     /// </summary>
     [Cmdlet("Remove", "WMAvailabilityConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The domain for which the <code>AvailabilityConfiguration</code> will be deleted.</para>
+        /// <para>The domain for which the <c>AvailabilityConfiguration</c> will be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The WorkMail organization for which the <code>AvailabilityConfiguration</code> will
-        /// be deleted.</para>
+        /// <para>The WorkMail organization for which the <c>AvailabilityConfiguration</c> will be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

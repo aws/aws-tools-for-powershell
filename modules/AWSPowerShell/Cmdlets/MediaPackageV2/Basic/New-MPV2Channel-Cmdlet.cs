@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A comma-separated list of tag key:value pairs that you define. For example:</para><para><code>"Key1": "Value1",</code></para><para><code>"Key2": "Value2"</code></para>
+        /// <para>A comma-separated list of tag key:value pairs that you define. For example:</para><para><c>"Key1": "Value1",</c></para><para><c>"Key2": "Value2"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

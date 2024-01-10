@@ -52,9 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>Returns a list of all tags associated with the specified Amazon Resource Name (ARN).
-        /// ARNs have the format <code>arn:partition:service:region:account-id:resource-type/resource-id</code>.</para><para>For example, <code>arn:aws:transcribe:us-west-2:111122223333:transcription-job/transcription-job-name</code>.</para><para>Valid values for <code>resource-type</code> are: <code>transcription-job</code>, <code>medical-transcription-job</code>,
-        /// <code>vocabulary</code>, <code>medical-vocabulary</code>, <code>vocabulary-filter</code>,
-        /// and <code>language-model</code>.</para>
+        /// ARNs have the format <c>arn:partition:service:region:account-id:resource-type/resource-id</c>.</para><para>For example, <c>arn:aws:transcribe:us-west-2:111122223333:transcription-job/transcription-job-name</c>.</para><para>Valid values for <c>resource-type</c> are: <c>transcription-job</c>, <c>medical-transcription-job</c>,
+        /// <c>vocabulary</c>, <c>medical-vocabulary</c>, <c>vocabulary-filter</c>, and <c>language-model</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

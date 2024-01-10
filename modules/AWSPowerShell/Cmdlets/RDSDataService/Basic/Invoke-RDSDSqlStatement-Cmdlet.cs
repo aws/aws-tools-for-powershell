@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     ///  <note><para>
     /// This operation isn't supported for Aurora PostgreSQL Serverless v2 and provisioned
     /// DB clusters, and for Aurora Serverless v1 DB clusters, the operation is deprecated.
-    /// Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation.
+    /// Use the <c>BatchExecuteStatement</c> or <c>ExecuteStatement</c> operation.
     /// </para></note><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Invoke", "RDSDSqlStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para>An Amazon Resource Name (ARN) of the issued certificate. This must be of the form:</para><para><code>arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012</code></para>
+        /// <para>An Amazon Resource Name (ARN) of the issued certificate. This must be of the form:</para><para><c>arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <para>
         /// <para>Passphrase to associate with the encrypted exported private key. </para><note><para>When creating your passphrase, you can use any ASCII character except #, $, or %.</para></note><para>If you want to later decrypt the private key, you must have the passphrase. You can
         /// use the following OpenSSL command to decrypt a private key. After entering the command,
-        /// you are prompted for the passphrase.</para><para><code>openssl rsa -in encrypted_key.pem -out decrypted_key.pem</code></para>
+        /// you are prompted for the passphrase.</para><para><c>openssl rsa -in encrypted_key.pem -out decrypted_key.pem</c></para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

@@ -32,12 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// 
     ///  
     /// <para>
-    /// This call uses <code>GetWebACL</code>, to verify that your account has permission
-    /// to access the retrieved web ACL. If you get an error that indicates that your account
-    /// isn't authorized to perform <code>wafv2:GetWebACL</code> on the resource, that error
-    /// won't be included in your CloudTrail event history. 
+    /// This call uses <c>GetWebACL</c>, to verify that your account has permission to access
+    /// the retrieved web ACL. If you get an error that indicates that your account isn't
+    /// authorized to perform <c>wafv2:GetWebACL</c> on the resource, that error won't be
+    /// included in your CloudTrail event history. 
     /// </para><para>
-    /// For Amazon CloudFront, don't use this call. Instead, call the CloudFront action <code>GetDistributionConfig</code>.
+    /// For Amazon CloudFront, don't use this call. Instead, call the CloudFront action <c>GetDistributionConfig</c>.
     /// For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistributionConfig.html">GetDistributionConfig</a>
     /// in the <i>Amazon CloudFront API Reference</i>. 
     /// </para><para><b>Required permissions for customer-managed IAM policies</b></para><para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource whose web ACL you want to retrieve.
-        /// </para><para>The ARN must be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <code>arn:<i>partition</i>:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code></para></li><li><para>For an Amazon API Gateway REST API: <code>arn:<i>partition</i>:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i></code></para></li><li><para>For an AppSync GraphQL API: <code>arn:<i>partition</i>:appsync:<i>region</i>:<i>account-id</i>:apis/<i>GraphQLApiId</i></code></para></li><li><para>For an Amazon Cognito user pool: <code>arn:<i>partition</i>:cognito-idp:<i>region</i>:<i>account-id</i>:userpool/<i>user-pool-id</i></code></para></li><li><para>For an App Runner service: <code>arn:<i>partition</i>:apprunner:<i>region</i>:<i>account-id</i>:service/<i>apprunner-service-name</i>/<i>apprunner-service-id</i></code></para></li><li><para>For an Amazon Web Services Verified Access instance: <code>arn:<i>partition</i>:ec2:<i>region</i>:<i>account-id</i>:verified-access-instance/<i>instance-id</i></code></para></li></ul>
+        /// </para><para>The ARN must be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <c>arn:<i>partition</i>:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></c></para></li><li><para>For an Amazon API Gateway REST API: <c>arn:<i>partition</i>:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i></c></para></li><li><para>For an AppSync GraphQL API: <c>arn:<i>partition</i>:appsync:<i>region</i>:<i>account-id</i>:apis/<i>GraphQLApiId</i></c></para></li><li><para>For an Amazon Cognito user pool: <c>arn:<i>partition</i>:cognito-idp:<i>region</i>:<i>account-id</i>:userpool/<i>user-pool-id</i></c></para></li><li><para>For an App Runner service: <c>arn:<i>partition</i>:apprunner:<i>region</i>:<i>account-id</i>:service/<i>apprunner-service-name</i>/<i>apprunner-service-id</i></c></para></li><li><para>For an Amazon Web Services Verified Access instance: <c>arn:<i>partition</i>:ec2:<i>region</i>:<i>account-id</i>:verified-access-instance/<i>instance-id</i></c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

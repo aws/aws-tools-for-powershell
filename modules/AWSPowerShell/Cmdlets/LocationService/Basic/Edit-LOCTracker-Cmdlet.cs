@@ -54,9 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter EventBridgeEnabled
         /// <summary>
         /// <para>
-        /// <para>Whether to enable position <code>UPDATE</code> events from this tracker to be sent
-        /// to EventBridge.</para><note><para>You do not need enable this feature to get <code>ENTER</code> and <code>EXIT</code>
-        /// events for geofences with this tracker. Those events are always sent to EventBridge.</para></note>
+        /// <para>Whether to enable position <c>UPDATE</c> events from this tracker to be sent to EventBridge.</para><note><para>You do not need enable this feature to get <c>ENTER</c> and <c>EXIT</c> events for
+        /// geofences with this tracker. Those events are always sent to EventBridge.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter KmsKeyEnableGeospatialQuery
         /// <summary>
         /// <para>
-        /// <para>Enables <code>GeospatialQueries</code> for a tracker that uses a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon
+        /// <para>Enables <c>GeospatialQueries</c> for a tracker that uses a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon
         /// Web Services KMS customer managed key</a>.</para><para>This parameter is only used if you are using a KMS customer managed key.</para>
         /// </para>
         /// </summary>
@@ -78,17 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PositionFiltering
         /// <summary>
         /// <para>
-        /// <para>Updates the position filtering for the tracker resource.</para><para>Valid values:</para><ul><li><para><code>TimeBased</code> - Location updates are evaluated against linked geofence collections,
+        /// <para>Updates the position filtering for the tracker resource.</para><para>Valid values:</para><ul><li><para><c>TimeBased</c> - Location updates are evaluated against linked geofence collections,
         /// but not every location update is stored. If your update frequency is more often than
-        /// 30 seconds, only one update per 30 seconds is stored for each unique device ID. </para></li><li><para><code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location
+        /// 30 seconds, only one update per 30 seconds is stored for each unique device ID. </para></li><li><para><c>DistanceBased</c> - If the device has moved less than 30 m (98.4 ft), location
         /// updates are ignored. Location updates within this distance are neither evaluated against
         /// linked geofence collections, nor stored. This helps control costs by reducing the
         /// number of geofence evaluations and historical device positions to paginate through.
         /// Distance-based filtering can also reduce the effects of GPS noise when displaying
-        /// device trajectories on a map. </para></li><li><para><code>AccuracyBased</code> - If the device has moved less than the measured accuracy,
-        /// location updates are ignored. For example, if two consecutive updates from a device
-        /// have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device
-        /// has moved less than 15 m. Ignored location updates are neither evaluated against linked
+        /// device trajectories on a map. </para></li><li><para><c>AccuracyBased</c> - If the device has moved less than the measured accuracy, location
+        /// updates are ignored. For example, if two consecutive updates from a device have a
+        /// horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has
+        /// moved less than 15 m. Ignored location updates are neither evaluated against linked
         /// geofence collections, nor stored. This helps educe the effects of GPS noise when displaying
         /// device trajectories on a map, and can help control costs by reducing the number of
         /// geofence evaluations. </para></li></ul>
@@ -119,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// <para>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</para>
+        /// <para>No longer used. If included, the only allowed value is <c>RequestBasedUsage</c>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

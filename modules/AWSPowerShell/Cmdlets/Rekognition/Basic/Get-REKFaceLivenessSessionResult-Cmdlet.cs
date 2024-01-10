@@ -28,16 +28,16 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Retrieves the results of a specific Face Liveness session. It requires the <code>sessionId</code>
-    /// as input, which was created using <code>CreateFaceLivenessSession</code>. Returns
-    /// the corresponding Face Liveness confidence score, a reference image that includes
-    /// a face bounding box, and audit images that also contain face bounding boxes. The Face
-    /// Liveness confidence score ranges from 0 to 100. 
+    /// Retrieves the results of a specific Face Liveness session. It requires the <c>sessionId</c>
+    /// as input, which was created using <c>CreateFaceLivenessSession</c>. Returns the corresponding
+    /// Face Liveness confidence score, a reference image that includes a face bounding box,
+    /// and audit images that also contain face bounding boxes. The Face Liveness confidence
+    /// score ranges from 0 to 100. 
     /// 
     ///  
     /// <para>
-    /// The number of audit images returned by <code>GetFaceLivenessSessionResults</code>
-    /// is defined by the <code>AuditImagesLimit</code> paramater when calling <code>CreateFaceLivenessSession</code>.
+    /// The number of audit images returned by <c>GetFaceLivenessSessionResults</c> is defined
+    /// by the <c>AuditImagesLimit</c> paramater when calling <c>CreateFaceLivenessSession</c>.
     /// Reference images are always returned when possible.
     /// </para>
     /// </summary>

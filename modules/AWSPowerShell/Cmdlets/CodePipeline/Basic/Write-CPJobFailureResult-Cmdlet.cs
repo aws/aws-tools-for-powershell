@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <summary>
         /// <para>
         /// <para>The unique system-generated ID of the job that failed. This is the same ID returned
-        /// from <code>PollForJobs</code>.</para>
+        /// from <c>PollForJobs</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

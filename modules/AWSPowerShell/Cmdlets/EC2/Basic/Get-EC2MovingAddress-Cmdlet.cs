@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>moving-status</code> - The status of the Elastic IP address (<code>MovingToVpc</code>
-        /// | <code>RestoringToClassic</code>).</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><c>moving-status</c> - The status of the Elastic IP address (<c>MovingToVpc</c> |
+        /// <c>RestoringToClassic</c>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The maximum number of results to return for the request in a single page. The remaining
         /// results of the initial request can be seen by sending another request with the returned
-        /// <code>NextToken</code> value. This value can be between 5 and 1000; if <code>MaxResults</code>
+        /// <c>NextToken</c> value. This value can be between 5 and 1000; if <c>MaxResults</c>
         /// is given a value outside of this range, an error is returned.</para><para>Default: If no value is provided, the default is 1000.</para>
         /// </para>
         /// <para>

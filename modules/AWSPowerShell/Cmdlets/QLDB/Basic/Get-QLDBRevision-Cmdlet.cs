@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
 {
     /// <summary>
     /// Returns a revision data object for a specified document ID and block address. Also
-    /// returns a proof of the specified revision for verification if <code>DigestTipAddress</code>
+    /// returns a proof of the specified revision for verification if <c>DigestTipAddress</c>
     /// is provided.
     /// </summary>
     [Cmdlet("Get", "QLDBRevision")]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter BlockAddress_IonText
         /// <summary>
         /// <para>
-        /// <para>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</para>
+        /// <para>An Amazon Ion plaintext value contained in a <c>ValueHolder</c> structure.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter DigestTipAddress_IonText
         /// <summary>
         /// <para>
-        /// <para>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</para>
+        /// <para>An Amazon Ion plaintext value contained in a <c>ValueHolder</c> structure.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

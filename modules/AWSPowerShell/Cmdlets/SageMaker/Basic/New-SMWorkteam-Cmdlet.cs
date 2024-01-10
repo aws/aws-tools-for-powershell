@@ -69,19 +69,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MemberDefinition
         /// <summary>
         /// <para>
-        /// <para>A list of <code>MemberDefinition</code> objects that contains objects that identify
-        /// the workers that make up the work team. </para><para>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider
-        /// (IdP). For private workforces created using Amazon Cognito use <code>CognitoMemberDefinition</code>.
-        /// For workforces created using your own OIDC identity provider (IdP) use <code>OidcMemberDefinition</code>.
+        /// <para>A list of <c>MemberDefinition</c> objects that contains objects that identify the
+        /// workers that make up the work team. </para><para>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider
+        /// (IdP). For private workforces created using Amazon Cognito use <c>CognitoMemberDefinition</c>.
+        /// For workforces created using your own OIDC identity provider (IdP) use <c>OidcMemberDefinition</c>.
         /// Do not provide input for both of these parameters in a single request.</para><para>For workforces created using Amazon Cognito, private work teams correspond to Amazon
         /// Cognito <i>user groups</i> within the user pool used to create a workforce. All of
-        /// the <code>CognitoMemberDefinition</code> objects that make up the member definition
-        /// must have the same <code>ClientId</code> and <code>UserPool</code> values. To add
-        /// a Amazon Cognito user group to an existing worker pool, see <a href="">Adding groups
-        /// to a User Pool</a>. For more information about user pools, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">Amazon
+        /// the <c>CognitoMemberDefinition</c> objects that make up the member definition must
+        /// have the same <c>ClientId</c> and <c>UserPool</c> values. To add a Amazon Cognito
+        /// user group to an existing worker pool, see <a href="">Adding groups to a User Pool</a>.
+        /// For more information about user pools, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">Amazon
         /// Cognito User Pools</a>.</para><para>For workforces created using your own OIDC IdP, specify the user groups that you want
-        /// to include in your private work team in <code>OidcMemberDefinition</code> by listing
-        /// those groups in <code>Groups</code>.</para>
+        /// to include in your private work team in <c>OidcMemberDefinition</c> by listing those
+        /// groups in <c>Groups</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

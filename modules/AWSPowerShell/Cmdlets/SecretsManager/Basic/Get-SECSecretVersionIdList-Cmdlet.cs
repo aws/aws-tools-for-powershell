@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// include sensitive information in request parameters because it might be logged. For
     /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
     /// Secrets Manager events with CloudTrail</a>.
-    /// </para><para><b>Required permissions: </b><code>secretsmanager:ListSecretVersionIds</code>. For
-    /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+    /// </para><para><b>Required permissions: </b><c>secretsmanager:ListSecretVersionIds</c>. For more
+    /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
     /// and access control in Secrets Manager</a>. 
     /// </para><br/><br/>In the AWS.Tools.SecretsManager module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -92,9 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The number of results to include in the response.</para><para>If there are more results available, in the response, Secrets Manager includes <code>NextToken</code>.
-        /// To get the next results, call <code>ListSecretVersionIds</code> again with the value
-        /// from <code>NextToken</code>. </para>
+        /// <para>The number of results to include in the response.</para><para>If there are more results available, in the response, Secrets Manager includes <c>NextToken</c>.
+        /// To get the next results, call <c>ListSecretVersionIds</c> again with the value from
+        /// <c>NextToken</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>A token that indicates where the output should continue from, if a previous call did
-        /// not show all results. To get the next results, call <code>ListSecretVersionIds</code>
-        /// again with this value.</para>
+        /// not show all results. To get the next results, call <c>ListSecretVersionIds</c> again
+        /// with this value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.SecretsManager module, this parameter is only used if you are manually controlling output pagination of the service API call.

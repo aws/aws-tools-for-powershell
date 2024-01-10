@@ -47,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>Specify this parameter to limit how many groups are returned each time you use the
-        /// <code>ListGroups</code> operation. If you omit this parameter, the default of 20 is
-        /// used.</para>
+        /// <c>ListGroups</c> operation. If you omit this parameter, the default of 20 is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -35,15 +35,15 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// Any Kubernetes cluster can be connected to the Amazon EKS control plane to view current
     /// information about the cluster and its nodes. 
     /// </para><para>
-    /// Cluster connection requires two steps. First, send a <code><a>RegisterClusterRequest</a></code> to add it to the Amazon EKS control plane.
+    /// Cluster connection requires two steps. First, send a <c><a>RegisterClusterRequest</a></c> to add it to the Amazon EKS control plane.
     /// </para><para>
     /// Second, a <a href="https://amazon-eks.s3.us-west-2.amazonaws.com/eks-connector/manifests/eks-connector/latest/eks-connector.yaml">Manifest</a>
-    /// containing the <code>activationID</code> and <code>activationCode</code> must be applied
-    /// to the Kubernetes cluster through it's native provider to provide visibility.
+    /// containing the <c>activationID</c> and <c>activationCode</c> must be applied to the
+    /// Kubernetes cluster through it's native provider to provide visibility.
     /// </para><para>
     /// After the manifest is updated and applied, the connected cluster is visible to the
     /// Amazon EKS control plane. If the manifest isn't applied within three days, the connected
-    /// cluster will no longer be visible and must be deregistered using <code>DeregisterCluster</code>.
+    /// cluster will no longer be visible and must be deregistered using <c>DeregisterCluster</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "EKSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -54,10 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>Indicates whether you want Network Firewall to analyze the stateless rules in the
-        /// rule group for rule behavior such as asymmetric routing. If set to <code>TRUE</code>,
-        /// Network Firewall runs the analysis and then updates the rule group for you. To run
-        /// the stateless rule group analyzer without updating the rule group, set <code>DryRun</code>
-        /// to <code>TRUE</code>. </para>
+        /// rule group for rule behavior such as asymmetric routing. If set to <c>TRUE</c>, Network
+        /// Firewall runs the analysis and then updates the rule group for you. To run the stateless
+        /// rule group analyzer without updating the rule group, set <c>DryRun</c> to <c>TRUE</c>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>Defines an array of individual custom action definitions that are available for use
-        /// by the stateless rules in this <code>StatelessRulesAndCustomActions</code> specification.
+        /// by the stateless rules in this <c>StatelessRulesAndCustomActions</c> specification.
         /// You name each custom action that you define, and then you can use it by name in your
-        /// <a>StatelessRule</a><a>RuleDefinition</a><code>Actions</code> specification.</para>
+        /// <a>StatelessRule</a><a>RuleDefinition</a><c>Actions</c> specification.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,13 +92,13 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>Indicates whether you want Network Firewall to just check the validity of the request,
-        /// rather than run the request. </para><para>If set to <code>TRUE</code>, Network Firewall checks whether the request can run successfully,
+        /// rather than run the request. </para><para>If set to <c>TRUE</c>, Network Firewall checks whether the request can run successfully,
         /// but doesn't actually make the requested changes. The call returns the value that the
-        /// request would return if you ran it with dry run set to <code>FALSE</code>, but doesn't
-        /// make additions or changes to your resources. This option allows you to make sure that
-        /// you have the required permissions to run the request and that your request parameters
-        /// are valid. </para><para>If set to <code>FALSE</code>, Network Firewall makes the requested changes to your
-        /// resources. </para>
+        /// request would return if you ran it with dry run set to <c>FALSE</c>, but doesn't make
+        /// additions or changes to your resources. This option allows you to make sure that you
+        /// have the required permissions to run the request and that your request parameters
+        /// are valid. </para><para>If set to <c>FALSE</c>, Network Firewall makes the requested changes to your resources.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter StatefulRuleOptions_RuleOrder
         /// <summary>
         /// <para>
-        /// <para>Indicates how to manage the order of the rule evaluation for the rule group. <code>DEFAULT_ACTION_ORDER</code>
+        /// <para>Indicates how to manage the order of the rule evaluation for the rule group. <c>DEFAULT_ACTION_ORDER</c>
         /// is the default behavior. Stateful rules are provided to the rule engine as Suricata
         /// compatible strings, and Suricata evaluates them based on certain settings. For more
         /// information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>
         /// <para>A string containing stateful rule group rules specifications in Suricata flat format,
         /// with one rule per line. Use this to import your existing Suricata compatible rule
-        /// groups. </para><note><para>You must provide either this rules setting or a populated <code>RuleGroup</code> setting,
+        /// groups. </para><note><para>You must provide either this rules setting or a populated <c>RuleGroup</c> setting,
         /// but not both. </para></note><para>You can provide your rule group specification in Suricata flat format through this
         /// setting when you create or update your rule group. The call response returns a <a>RuleGroup</a>
         /// object that Network Firewall has populated from your string. </para>
@@ -223,8 +223,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>Stateful inspection criteria, provided in Suricata compatible rules. Suricata is an
         /// open-source threat detection framework that includes a standard rule-based language
         /// for network traffic inspection.</para><para>These rules contain the inspection criteria and the action to take for traffic that
-        /// matches the criteria, so this type of rule group doesn't have a separate action setting.</para><note><para>You can't use the <code>priority</code> keyword if the <code>RuleOrder</code> option
-        /// in <a>StatefulRuleOptions</a> is set to <code>STRICT_ORDER</code>.</para></note>
+        /// matches the criteria, so this type of rule group doesn't have a separate action setting.</para><note><para>You can't use the <c>priority</c> keyword if the <c>RuleOrder</c> option in <a>StatefulRuleOptions</a>
+        /// is set to <c>STRICT_ORDER</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>An array of individual stateful rules inspection criteria to be used together in a
         /// stateful rule group. Use this option to specify simple Suricata rules with protocol,
         /// source and destination, ports, direction, and rule options. For information about
-        /// the Suricata <code>Rules</code> format, see <a href="https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html">Rules
+        /// the Suricata <c>Rules</c> format, see <a href="https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html">Rules
         /// Format</a>. </para>
         /// </para>
         /// </summary>
@@ -285,11 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>The domains that you want to inspect for in your traffic flows. Valid domain specifications
-        /// are the following:</para><ul><li><para>Explicit names. For example, <code>abc.example.com</code> matches only the domain
-        /// <code>abc.example.com</code>.</para></li><li><para>Names that use a domain wildcard, which you indicate with an initial '<code>.</code>'.
-        /// For example,<code>.example.com</code> matches <code>example.com</code> and matches
-        /// all subdomains of <code>example.com</code>, such as <code>abc.example.com</code> and
-        /// <code>www.example.com</code>. </para></li></ul>
+        /// are the following:</para><ul><li><para>Explicit names. For example, <c>abc.example.com</c> matches only the domain <c>abc.example.com</c>.</para></li><li><para>Names that use a domain wildcard, which you indicate with an initial '<c>.</c>'. For
+        /// example,<c>.example.com</c> matches <c>example.com</c> and matches all subdomains
+        /// of <c>example.com</c>, such as <c>abc.example.com</c> and <c>www.example.com</c>.
+        /// </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -300,9 +299,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter RulesSourceList_TargetType
         /// <summary>
         /// <para>
-        /// <para>The protocols you want to inspect. Specify <code>TLS_SNI</code> for <code>HTTPS</code>.
-        /// Specify <code>HTTP_HOST</code> for <code>HTTP</code>. You can specify either or both.
-        /// </para>
+        /// <para>The protocols you want to inspect. Specify <c>TLS_SNI</c> for <c>HTTPS</c>. Specify
+        /// <c>HTTP_HOST</c> for <c>HTTP</c>. You can specify either or both. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -326,7 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <summary>
         /// <para>
         /// <para>Indicates whether the rule group is stateless or stateful. If the rule group is stateless,
-        /// it contains stateless rules. If it is stateful, it contains stateful rules. </para><note><para>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</para></note>
+        /// it contains stateless rules. If it is stateful, it contains stateful rules. </para><note><para>This setting is required for requests that do not include the <c>RuleGroupARN</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -341,7 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// that access the rule group. The token marks the state of the rule group resource at
         /// the time of the request. </para><para>To make changes to the rule group, you provide the token in your request. Network
         /// Firewall uses the token to ensure that the rule group hasn't changed since you last
-        /// retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>.
+        /// retrieved it. If it has changed, the operation fails with an <c>InvalidTokenException</c>.
         /// If this happens, retrieve the rule group again to get a current copy of it with a
         /// current token. Reapply your changes as needed, then try the operation again using
         /// the new token. </para>

@@ -37,13 +37,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon
     /// S3 Bucket Default Encryption</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
-    /// To use this operation, you must have permission to perform the <code>s3:GetEncryptionConfiguration</code>
+    /// To use this operation, you must have permission to perform the <c>s3:GetEncryptionConfiguration</c>
     /// action. The bucket owner has this permission by default. The bucket owner can grant
     /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// Access Permissions to Your Amazon S3 Resources</a>.
     /// </para><para>
-    /// The following operations are related to <code>GetBucketEncryption</code>:
+    /// The following operations are related to <c>GetBucketEncryption</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html">PutBucketEncryption</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html">DeleteBucketEncryption</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketEncryption")]

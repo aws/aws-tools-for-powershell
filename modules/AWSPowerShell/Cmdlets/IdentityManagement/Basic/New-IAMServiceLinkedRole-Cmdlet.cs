@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The service principal for the Amazon Web Services service to which this role is attached.
-        /// You use a string similar to a URL but without the http:// in front. For example: <code>elasticbeanstalk.amazonaws.com</code>.
+        /// You use a string similar to a URL but without the http:// in front. For example: <c>elasticbeanstalk.amazonaws.com</c>.
         /// </para><para>Service principals are unique and case-sensitive. To find the exact service principal
         /// for your service-linked role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">Amazon
         /// Web Services services that work with IAM</a> in the <i>IAM User Guide</i>. Look for
@@ -82,10 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>A string that you provide, which is combined with the service-provided prefix to form
         /// the complete role name. If you make multiple requests for the same service, then you
-        /// must supply a different <code>CustomSuffix</code> for each request. Otherwise the
-        /// request fails with a duplicate role name error. For example, you could add <code>-1</code>
-        /// or <code>-debug</code> to the suffix.</para><para>Some services do not support the <code>CustomSuffix</code> parameter. If you provide
-        /// an optional suffix and the operation fails, try the operation again without the suffix.</para>
+        /// must supply a different <c>CustomSuffix</c> for each request. Otherwise the request
+        /// fails with a duplicate role name error. For example, you could add <c>-1</c> or <c>-debug</c>
+        /// to the suffix.</para><para>Some services do not support the <c>CustomSuffix</c> parameter. If you provide an
+        /// optional suffix and the operation fails, try the operation again without the suffix.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

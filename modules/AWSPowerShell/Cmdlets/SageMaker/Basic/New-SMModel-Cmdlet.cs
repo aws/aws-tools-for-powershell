@@ -38,15 +38,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// Use this API to create a model if you want to use SageMaker hosting services or run
     /// a batch transform job.
     /// </para><para>
-    /// To host your model, you create an endpoint configuration with the <code>CreateEndpointConfig</code>
-    /// API, and then create an endpoint with the <code>CreateEndpoint</code> API. SageMaker
-    /// then deploys all of the containers that you defined for the model in the hosting environment.
+    /// To host your model, you create an endpoint configuration with the <c>CreateEndpointConfig</c>
+    /// API, and then create an endpoint with the <c>CreateEndpoint</c> API. SageMaker then
+    /// deploys all of the containers that you defined for the model in the hosting environment.
     /// 
     /// </para><para>
     /// For an example that calls this method when deploying a model to SageMaker hosting
     /// services, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-deployment.html#realtime-endpoints-deployment-create-model">Create
     /// a Model (Amazon Web Services SDK for Python (Boto 3)).</a></para><para>
-    /// To run a batch transform using your model, you start a job with the <code>CreateTransformJob</code>
+    /// To run a batch transform using your model, you start a job with the <c>CreateTransformJob</c>
     /// API. SageMaker uses your model and your dataset to get inferences which are then saved
     /// to a specified S3 location.
     /// </para><para>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// model artifacts and docker image for deployment on ML compute instances or for batch
         /// transform jobs. Deploying on ML compute instances is part of model hosting. For more
         /// information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
-        /// Roles</a>. </para><note><para>To be able to pass this role to SageMaker, the caller of this API must have the <code>iam:PassRole</code>
+        /// Roles</a>. </para><note><para>To be able to pass this role to SageMaker, the caller of this API must have the <c>iam:PassRole</c>
         /// permission.</para></note>
         /// </para>
         /// </summary>
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter InferenceExecutionConfig_Mode
         /// <summary>
         /// <para>
-        /// <para>How containers in a multi-container are run. The following values are valid.</para><ul><li><para><code>SERIAL</code> - Containers run as a serial pipeline.</para></li><li><para><code>DIRECT</code> - Only the individual container that you specify is run.</para></li></ul>
+        /// <para>How containers in a multi-container are run. The following values are valid.</para><ul><li><para><c>SERIAL</c> - Containers run as a serial pipeline.</para></li><li><para><c>DIRECT</c> - Only the individual container that you specify is run.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. Specify the security
-        /// groups for the VPC that is specified in the <code>Subnets</code> field.</para>
+        /// <para>The VPC security group IDs, in the form <c>sg-xxxxxxxx</c>. Specify the security groups
+        /// for the VPC that is specified in the <c>Subnets</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

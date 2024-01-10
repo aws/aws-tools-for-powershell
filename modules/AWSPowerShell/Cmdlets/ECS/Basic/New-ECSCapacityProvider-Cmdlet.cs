@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     ///  
     /// <para>
     /// Only capacity providers that use an Auto Scaling group can be created. Amazon ECS
-    /// tasks on Fargate use the <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity
-    /// providers. These providers are available to all accounts in the Amazon Web Services
-    /// Regions that Fargate supports.
+    /// tasks on Fargate use the <c>FARGATE</c> and <c>FARGATE_SPOT</c> capacity providers.
+    /// These providers are available to all accounts in the Amazon Web Services Regions that
+    /// Fargate supports.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ECSCapacityProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute
         /// to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default
-        /// value of <code>300</code> seconds is used.</para>
+        /// value of <c>300</c> seconds is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The managed draining option for the Auto Scaling group capacity provider. When you
         /// enable this, Amazon ECS manages and gracefully drains the EC2 container instances
-        /// that are in the Auto Scaling group capacity provider.</para><para>The default is <code>ENABLED</code>.</para>
+        /// that are in the Auto Scaling group capacity provider.</para><para>The default is <c>ENABLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time.
         /// The scale in process is not affected by this parameter. If this parameter is omitted,
-        /// the default value of <code>10000</code> is used.</para>
+        /// the default value of <c>10000</c> is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time.
         /// The scale in process is not affected by this parameter If this parameter is omitted,
-        /// the default value of <code>1</code> is used.</para><para>When additional capacity is required, Amazon ECS will scale up the minimum scaling
+        /// the default value of <c>1</c> is used.</para><para>When additional capacity is required, Amazon ECS will scale up the minimum scaling
         /// step size even if the actual demand is less than the minimum scaling step size.</para><para>If you use a capacity provider with an Auto Scaling group configured with more than
         /// one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the
         /// exact minimum scaling step size value and will ignore both the maximum scaling step
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The name of the capacity provider. Up to 255 characters are allowed. They include
         /// letters (both upper and lowercase letters), numbers, underscores (_), and hyphens
-        /// (-). The name can't be prefixed with "<code>aws</code>", "<code>ecs</code>", or "<code>fargate</code>".</para>
+        /// (-). The name can't be prefixed with "<c>aws</c>", "<c>ecs</c>", or "<c>fargate</c>".</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -185,10 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// value.</para></li><li><para>Maximum key length - 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length - 256 Unicode characters in UTF-8</para></li><li><para>If your tagging schema is used across multiple services and resources, remember that
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
-        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case-sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for either keys or values as it is reserved for Amazon Web Services
-        /// use. You cannot edit or delete tag keys or values with this prefix. Tags with this
-        /// prefix do not count against your tags per resource limit.</para></li></ul>
+        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case-sensitive.</para></li><li><para>Do not use <c>aws:</c>, <c>AWS:</c>, or any upper or lowercase combination of such
+        /// as a prefix for either keys or values as it is reserved for Amazon Web Services use.
+        /// You cannot edit or delete tag keys or values with this prefix. Tags with this prefix
+        /// do not count against your tags per resource limit.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -200,11 +200,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The target capacity utilization as a percentage for the capacity provider. The specified
-        /// value must be greater than <code>0</code> and less than or equal to <code>100</code>.
-        /// For example, if you want the capacity provider to maintain 10% spare capacity, then
-        /// that means the utilization is 90%, so use a <code>targetCapacity</code> of <code>90</code>.
-        /// The default value of <code>100</code> percent results in the Amazon EC2 instances
-        /// in your Auto Scaling group being completely used.</para>
+        /// value must be greater than <c>0</c> and less than or equal to <c>100</c>. For example,
+        /// if you want the capacity provider to maintain 10% spare capacity, then that means
+        /// the utilization is 90%, so use a <c>targetCapacity</c> of <c>90</c>. The default value
+        /// of <c>100</c> percent results in the Amazon EC2 instances in your Auto Scaling group
+        /// being completely used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

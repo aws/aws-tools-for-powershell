@@ -32,13 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.CA
     /// 
     ///  
     /// <para>
-    /// The <code>unfinished</code> flag can be used to keep the package version in the <code>Unfinished</code>
+    /// The <c>unfinished</c> flag can be used to keep the package version in the <c>Unfinished</c>
     /// state until all of its assets have been uploaded (see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package
     /// version status</a> in the <i>CodeArtifact user guide</i>). To set the package version’s
-    /// status to <code>Published</code>, omit the <code>unfinished</code> flag when uploading
-    /// the final asset, or set the status using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionStatus</a>.
-    /// Once a package version’s status is set to <code>Published</code>, it cannot change
-    /// back to <code>Unfinished</code>.
+    /// status to <c>Published</c>, omit the <c>unfinished</c> flag when uploading the final
+    /// asset, or set the status using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionStatus</a>.
+    /// Once a package version’s status is set to <c>Published</c>, it cannot change back
+    /// to <c>Unfinished</c>.
     /// </para><note><para>
     /// Only generic packages can be published using this API. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic.html">Using
     /// generic packages</a> in the <i>CodeArtifact User Guide</i>.
@@ -76,8 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para>The name of the asset to publish. Asset names can include Unicode letters and numbers,
-        /// and the following special characters: <code>~ ! @ ^ &amp; ( ) - ` _ + [ ] { } ; ,
-        /// . `</code></para>
+        /// and the following special characters: <c>~ ! @ ^ &amp; ( ) - ` _ + [ ] { } ; , . `</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,10 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter AssetSHA256
         /// <summary>
         /// <para>
-        /// <para>The SHA256 hash of the <code>assetContent</code> to publish. This value must be calculated
+        /// <para>The SHA256 hash of the <c>assetContent</c> to publish. This value must be calculated
         /// by the caller and provided with the request (see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic.html#publishing-generic-packages">Publishing
-        /// a generic package</a> in the <i>CodeArtifact User Guide</i>).</para><para>This value is used as an integrity check to verify that the <code>assetContent</code>
-        /// has not changed after it was originally sent.</para>
+        /// a generic package</a> in the <i>CodeArtifact User Guide</i>).</para><para>This value is used as an integrity check to verify that the <c>assetContent</c> has
+        /// not changed after it was originally sent.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Format
         /// <summary>
         /// <para>
-        /// <para>A format that specifies the type of the package version with the requested asset file.</para><para>The only supported value is <code>generic</code>.</para>
+        /// <para>A format that specifies the type of the package version with the requested asset file.</para><para>The only supported value is <c>generic</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -187,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter PackageVersion
         /// <summary>
         /// <para>
-        /// <para>The package version to publish (for example, <code>3.5.2</code>).</para>
+        /// <para>The package version to publish (for example, <c>3.5.2</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -221,10 +220,9 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Unfinished
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the package version should remain in the <code>unfinished</code>
-        /// state. If omitted, the package version status will be set to <code>Published</code>
-        /// (see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status">Package
-        /// version status</a> in the <i>CodeArtifact User Guide</i>).</para><para>Valid values: <code>unfinished</code></para>
+        /// <para>Specifies whether the package version should remain in the <c>unfinished</c> state.
+        /// If omitted, the package version status will be set to <c>Published</c> (see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status">Package
+        /// version status</a> in the <i>CodeArtifact User Guide</i>).</para><para>Valid values: <c>unfinished</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

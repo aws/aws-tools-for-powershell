@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
     /// Creates a mission profile.
     /// 
     ///  
-    /// <para><code>dataflowEdges</code> is a list of lists of strings. Each lower level list of
-    /// strings has two elements: a <i>from</i> ARN and a <i>to</i> ARN.
+    /// <para><c>dataflowEdges</c> is a list of lists of strings. Each lower level list of strings
+    /// has two elements: a <i>from</i> ARN and a <i>to</i> ARN.
     /// </para>
     /// </summary>
     [Cmdlet("New", "GSMissionProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter DataflowEdge
         /// <summary>
         /// <para>
-        /// <para>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i><code>Config</code>
-        /// and a <i>to</i><code>Config</code>.</para>
+        /// <para>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i><c>Config</c>
+        /// and a <i>to</i><c>Config</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter TrackingConfigArn
         /// <summary>
         /// <para>
-        /// <para>ARN of a tracking <code>Config</code>.</para>
+        /// <para>ARN of a tracking <c>Config</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

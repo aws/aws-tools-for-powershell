@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     /// 
     ///  
     /// <para>
-    /// To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code>
+    /// To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <c>SourceDBClusterSnapshotIdentifier</c>
     /// must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.
     /// </para>
     /// </summary>
@@ -66,10 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>The Amazon Amazon KMS key ID for an encrypted DB cluster snapshot. The KMS key ID
         /// is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the
         /// KMS encryption key.</para><para>If you copy an encrypted DB cluster snapshot from your Amazon account, you can specify
-        /// a value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key.
-        /// If you don't specify a value for <code>KmsKeyId</code>, then the copy of the DB cluster
-        /// snapshot is encrypted with the same KMS key as the source DB cluster snapshot.</para><para>If you copy an encrypted DB cluster snapshot that is shared from another Amazon account,
-        /// then you must specify a value for <code>KmsKeyId</code>.</para><para> KMS encryption keys are specific to the Amazon Region that they are created in, and
+        /// a value for <c>KmsKeyId</c> to encrypt the copy with a new KMS encryption key. If
+        /// you don't specify a value for <c>KmsKeyId</c>, then the copy of the DB cluster snapshot
+        /// is encrypted with the same KMS key as the source DB cluster snapshot.</para><para>If you copy an encrypted DB cluster snapshot that is shared from another Amazon account,
+        /// then you must specify a value for <c>KmsKeyId</c>.</para><para> KMS encryption keys are specific to the Amazon Region that they are created in, and
         /// you can't use encryption keys from one Amazon Region in another Amazon Region.</para><para>You cannot encrypt an unencrypted DB cluster snapshot when you copy it. If you try
         /// to copy an unencrypted DB cluster snapshot and specify a value for the KmsKeyId parameter,
         /// an error is returned.</para>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter SourceDBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive.</para><para>Constraints:</para><ul><li><para>Must specify a valid system snapshot in the "available" state.</para></li><li><para>Specify a valid DB snapshot identifier.</para></li></ul><para>Example: <code>my-cluster-snapshot1</code></para>
+        /// <para>The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive.</para><para>Constraints:</para><ul><li><para>Must specify a valid system snapshot in the "available" state.</para></li><li><para>Specify a valid DB snapshot identifier.</para></li></ul><para>Example: <c>my-cluster-snapshot1</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>The identifier of the new DB cluster snapshot to create from the source DB cluster
-        /// snapshot. This parameter is not case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster-snapshot2</code></para>
+        /// snapshot. This parameter is not case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <c>my-cluster-snapshot2</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

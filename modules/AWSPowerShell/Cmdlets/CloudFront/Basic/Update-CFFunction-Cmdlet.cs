@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// You can update a function's code or the comment that describes the function. You cannot
     /// update a function's name.
     /// </para><para>
-    /// To update a function, you provide the function's name and version (<code>ETag</code>
-    /// value) along with the updated function code. To get the name and version, you can
-    /// use <code>ListFunctions</code> and <code>DescribeFunction</code>.
+    /// To update a function, you provide the function's name and version (<c>ETag</c> value)
+    /// along with the updated function code. To get the name and version, you can use <c>ListFunctions</c>
+    /// and <c>DescribeFunction</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "CFFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The current version (<code>ETag</code> value) of the function that you are updating,
-        /// which you can get using <code>DescribeFunction</code>.</para>
+        /// <para>The current version (<c>ETag</c> value) of the function that you are updating, which
+        /// you can get using <c>DescribeFunction</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

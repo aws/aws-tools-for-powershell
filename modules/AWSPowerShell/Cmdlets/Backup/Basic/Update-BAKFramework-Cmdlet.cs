@@ -28,8 +28,8 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Updates an existing framework identified by its <code>FrameworkName</code> with the
-    /// input document in JSON format.
+    /// Updates an existing framework identified by its <c>FrameworkName</c> with the input
+    /// document in JSON format.
     /// </summary>
     [Cmdlet("Update", "BAKFramework", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Backup.Model.UpdateFrameworkResponse")]
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>A customer-chosen string that you can use to distinguish between otherwise identical
-        /// calls to <code>UpdateFrameworkInput</code>. Retrying a successful request with the
-        /// same idempotency token results in a success message with no action taken.</para>
+        /// calls to <c>UpdateFrameworkInput</c>. Retrying a successful request with the same
+        /// idempotency token results in a success message with no action taken.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

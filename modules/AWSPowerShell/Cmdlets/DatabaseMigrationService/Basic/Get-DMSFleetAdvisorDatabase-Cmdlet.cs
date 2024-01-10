@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> If you specify any of the following filters, the output includes information for
-        /// only those databases that meet the filter criteria: </para><ul><li><para><code>database-id</code> – The ID of the database.</para></li><li><para><code>database-name</code> – The name of the database.</para></li><li><para><code>database-engine</code> – The name of the database engine.</para></li><li><para><code>server-ip-address</code> – The IP address of the database server.</para></li><li><para><code>database-ip-address</code> – The IP address of the database.</para></li><li><para><code>collector-name</code> – The name of the associated Fleet Advisor collector.</para></li></ul><para>An example is: <code>describe-fleet-advisor-databases --filter Name="database-id",Values="45"</code></para>
+        /// only those databases that meet the filter criteria: </para><ul><li><para><c>database-id</c> – The ID of the database.</para></li><li><para><c>database-name</c> – The name of the database.</para></li><li><para><c>database-engine</c> – The name of the database engine.</para></li><li><para><c>server-ip-address</c> – The IP address of the database server.</para></li><li><para><c>database-ip-address</c> – The IP address of the database.</para></li><li><para><c>collector-name</c> – The name of the associated Fleet Advisor collector.</para></li></ul><para>An example is: <c>describe-fleet-advisor-databases --filter Name="database-id",Values="45"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,10 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If <code>NextToken</code> is returned by a previous response, there are more results
-        /// available. The value of <code>NextToken</code> is a unique pagination token for each
-        /// page. Make the call again using the returned token to retrieve the next page. Keep
-        /// all other arguments unchanged. </para>
+        /// <para>If <c>NextToken</c> is returned by a previous response, there are more results available.
+        /// The value of <c>NextToken</c> is a unique pagination token for each page. Make the
+        /// call again using the returned token to retrieve the next page. Keep all other arguments
+        /// unchanged. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

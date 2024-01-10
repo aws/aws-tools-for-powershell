@@ -28,16 +28,15 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// This method is deprecated. Instead, use <code>DisassociateFromAdministratorAccount</code>.
+    /// This method is deprecated. Instead, use <c>DisassociateFromAdministratorAccount</c>.
     /// 
     ///  
     /// <para>
-    /// The Security Hub console continues to use <code>DisassociateFromMasterAccount</code>.
-    /// It will eventually change to use <code>DisassociateFromAdministratorAccount</code>.
-    /// Any IAM policies that specifically control access to this function must continue to
-    /// use <code>DisassociateFromMasterAccount</code>. You should also add <code>DisassociateFromAdministratorAccount</code>
-    /// to your policies to ensure that the correct permissions are in place after the console
-    /// begins to use <code>DisassociateFromAdministratorAccount</code>.
+    /// The Security Hub console continues to use <c>DisassociateFromMasterAccount</c>. It
+    /// will eventually change to use <c>DisassociateFromAdministratorAccount</c>. Any IAM
+    /// policies that specifically control access to this function must continue to use <c>DisassociateFromMasterAccount</c>.
+    /// You should also add <c>DisassociateFromAdministratorAccount</c> to your policies to
+    /// ensure that the correct permissions are in place after the console begins to use <c>DisassociateFromAdministratorAccount</c>.
     /// </para><para>
     /// Disassociates the current Security Hub member account from the associated administrator
     /// account.

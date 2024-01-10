@@ -35,10 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// 
     ///  
     /// <para>
-    /// A node can can only be disassociated from a server that is in a <code>HEALTHY</code>
-    /// state. Otherwise, an <code>InvalidStateException</code> is thrown. A <code>ResourceNotFoundException</code>
-    /// is thrown when the server does not exist. A <code>ValidationException</code> is raised
-    /// when parameters of the request are not valid. 
+    /// A node can can only be disassociated from a server that is in a <c>HEALTHY</c> state.
+    /// Otherwise, an <c>InvalidStateException</c> is thrown. A <c>ResourceNotFoundException</c>
+    /// is thrown when the server does not exist. A <c>ValidationException</c> is raised when
+    /// parameters of the request are not valid. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "OWCMNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <summary>
         /// <para>
         /// <para>Engine attributes that are used for disassociating the node. No attributes are required
-        /// for Puppet. </para><para><b>Attributes required in a DisassociateNode request for Chef</b></para><ul><li><para><code>CHEF_ORGANIZATION</code>: The Chef organization with which the node was associated.
-        /// By default only one organization named <code>default</code> can exist. </para></li></ul>
+        /// for Puppet. </para><para><b>Attributes required in a DisassociateNode request for Chef</b></para><ul><li><para><c>CHEF_ORGANIZATION</c>: The Chef organization with which the node was associated.
+        /// By default only one organization named <c>default</c> can exist. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

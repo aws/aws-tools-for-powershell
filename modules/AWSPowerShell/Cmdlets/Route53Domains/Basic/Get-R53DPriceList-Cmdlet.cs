@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter Tld
         /// <summary>
         /// <para>
-        /// <para>The TLD for which you want to receive the pricing information. For example. <code>.net</code>.</para><para>If a <code>Tld</code> value is not provided, a list of prices for all TLDs supported
-        /// by Route 53 is returned.</para>
+        /// <para>The TLD for which you want to receive the pricing information. For example. <c>.net</c>.</para><para>If a <c>Tld</c> value is not provided, a list of prices for all TLDs supported by
+        /// Route 53 is returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -70,10 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>For an initial request for a list of prices, omit this element. If the number of prices
-        /// that are not yet complete is greater than the value that you specified for <code>MaxItems</code>,
-        /// you can use <code>Marker</code> to return additional prices. Get the value of <code>NextPageMarker</code>
+        /// that are not yet complete is greater than the value that you specified for <c>MaxItems</c>,
+        /// you can use <c>Marker</c> to return additional prices. Get the value of <c>NextPageMarker</c>
         /// from the previous response, and submit another request that includes the value of
-        /// <code>NextPageMarker</code> in the <code>Marker</code> element. </para><para>Used only for all TLDs. If you specify a TLD, don't specify a <code>Marker</code>.</para>
+        /// <c>NextPageMarker</c> in the <c>Marker</c> element. </para><para>Used only for all TLDs. If you specify a TLD, don't specify a <c>Marker</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>Number of <code>Prices</code> to be returned.</para><para>Used only for all TLDs. If you specify a TLD, don't specify a <code>MaxItems</code>.</para>
+        /// <para>Number of <c>Prices</c> to be returned.</para><para>Used only for all TLDs. If you specify a TLD, don't specify a <c>MaxItems</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

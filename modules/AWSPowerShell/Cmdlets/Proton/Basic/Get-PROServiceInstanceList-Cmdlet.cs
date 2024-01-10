@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The field that the result list is sorted by.</para><para>When you choose to sort by <code>serviceName</code>, service instances within each
-        /// service are sorted by service instance name.</para><para>Default: <code>serviceName</code></para>
+        /// <para>The field that the result list is sorted by.</para><para>When you choose to sort by <c>serviceName</c>, service instances within each service
+        /// are sorted by service instance name.</para><para>Default: <c>serviceName</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>Result list sort order.</para><para>Default: <code>ASCENDING</code></para>
+        /// <para>Result list sort order.</para><para>Default: <c>ASCENDING</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

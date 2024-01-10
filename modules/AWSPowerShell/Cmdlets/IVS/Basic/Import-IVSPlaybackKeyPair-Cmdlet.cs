@@ -28,10 +28,9 @@ using Amazon.IVS.Model;
 namespace Amazon.PowerShell.Cmdlets.IVS
 {
     /// <summary>
-    /// Imports the public portion of a new key pair and returns its <code>arn</code> and
-    /// <code>fingerprint</code>. The <code>privateKey</code> can then be used to generate
-    /// viewer authorization tokens, to grant viewers access to private channels. For more
-    /// information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting
+    /// Imports the public portion of a new key pair and returns its <c>arn</c> and <c>fingerprint</c>.
+    /// The <c>privateKey</c> can then be used to generate viewer authorization tokens, to
+    /// grant viewers access to private channels. For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting
     /// Up Private Channels</a> in the <i>Amazon IVS User Guide</i>.
     /// </summary>
     [Cmdlet("Import", "IVSPlaybackKeyPair", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

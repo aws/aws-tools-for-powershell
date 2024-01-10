@@ -32,18 +32,18 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// 
     ///  
     /// <para>
-    /// The number of streams may be too large to return from a single call to <code>ListStreams</code>.
-    /// You can limit the number of returned streams using the <code>Limit</code> parameter.
-    /// If you do not specify a value for the <code>Limit</code> parameter, Kinesis Data Streams
-    /// uses the default limit, which is currently 100.
+    /// The number of streams may be too large to return from a single call to <c>ListStreams</c>.
+    /// You can limit the number of returned streams using the <c>Limit</c> parameter. If
+    /// you do not specify a value for the <c>Limit</c> parameter, Kinesis Data Streams uses
+    /// the default limit, which is currently 100.
     /// </para><para>
-    /// You can detect if there are more streams available to list by using the <code>HasMoreStreams</code>
+    /// You can detect if there are more streams available to list by using the <c>HasMoreStreams</c>
     /// flag from the returned output. If there are more streams available, you can request
-    /// more streams by using the name of the last stream returned by the <code>ListStreams</code>
-    /// request in the <code>ExclusiveStartStreamName</code> parameter in a subsequent request
-    /// to <code>ListStreams</code>. The group of stream names returned by the subsequent
-    /// request is then added to the list. You can continue this process until all the stream
-    /// names have been collected in the list. 
+    /// more streams by using the name of the last stream returned by the <c>ListStreams</c>
+    /// request in the <c>ExclusiveStartStreamName</c> parameter in a subsequent request to
+    /// <c>ListStreams</c>. The group of stream names returned by the subsequent request is
+    /// then added to the list. You can continue this process until all the stream names have
+    /// been collected in the list. 
     /// </para><para><a>ListStreams</a> has a limit of five transactions per second per account.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

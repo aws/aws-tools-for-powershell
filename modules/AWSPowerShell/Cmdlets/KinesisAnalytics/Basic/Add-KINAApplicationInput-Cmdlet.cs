@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     /// results in a new version of the application. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
     /// operation to find the current application version. 
     /// </para><para>
-    /// This operation requires permissions to perform the <code>kinesisanalytics:AddApplicationInput</code>
+    /// This operation requires permissions to perform the <c>kinesisanalytics:AddApplicationInput</c>
     /// action.
     /// </para>
     /// </summary>
@@ -114,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// <para>
         /// <para>Name prefix to use when creating an in-application stream. Suppose that you specify
         /// a prefix "MyInApplicationStream." Amazon Kinesis Analytics then creates one or more
-        /// (as per the <code>InputParallelism</code> count you specified) in-application streams
-        /// with names "MyInApplicationStream_001," "MyInApplicationStream_002," and so on. </para>
+        /// (as per the <c>InputParallelism</c> count you specified) in-application streams with
+        /// names "MyInApplicationStream_001," "MyInApplicationStream_002," and so on. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter InputSchema_RecordColumn
         /// <summary>
         /// <para>
-        /// <para>A list of <code>RecordColumn</code> objects.</para>
+        /// <para>A list of <c>RecordColumn</c> objects.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

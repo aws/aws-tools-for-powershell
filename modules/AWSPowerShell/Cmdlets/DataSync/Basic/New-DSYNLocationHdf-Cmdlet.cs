@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>The data transfer protection setting configured on the HDFS cluster. This setting
-        /// corresponds to your <code>dfs.data.transfer.protection</code> setting in the <code>hdfs-site.xml</code>
+        /// corresponds to your <c>dfs.data.transfer.protection</c> setting in the <c>hdfs-site.xml</c>
         /// file on your Hadoop cluster.</para>
         /// </para>
         /// </summary>
@@ -108,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>The Kerberos key table (keytab) that contains mappings between the defined Kerberos
         /// principal and the encrypted keys. You can load the keytab from a file by providing
         /// the file's address. If you're using the CLI, it performs base64 encoding for you.
-        /// Otherwise, provide the base64-encoded text. </para><note><para>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter
-        /// is required. </para></note>
+        /// Otherwise, provide the base64-encoded text. </para><note><para>If <c>KERBEROS</c> is specified for <c>AuthenticationType</c>, this parameter is required.
+        /// </para></note>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -121,11 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter KerberosKrb5Conf
         /// <summary>
         /// <para>
-        /// <para>The <code>krb5.conf</code> file that contains the Kerberos configuration information.
-        /// You can load the <code>krb5.conf</code> file by providing the file's address. If you're
-        /// using the CLI, it performs the base64 encoding for you. Otherwise, provide the base64-encoded
-        /// text. </para><note><para>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter
-        /// is required.</para></note>
+        /// <para>The <c>krb5.conf</c> file that contains the Kerberos configuration information. You
+        /// can load the <c>krb5.conf</c> file by providing the file's address. If you're using
+        /// the CLI, it performs the base64 encoding for you. Otherwise, provide the base64-encoded
+        /// text. </para><note><para>If <c>KERBEROS</c> is specified for <c>AuthenticationType</c>, this parameter is required.</para></note>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -137,8 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter KerberosPrincipal
         /// <summary>
         /// <para>
-        /// <para>The Kerberos principal with access to the files and folders on the HDFS cluster. </para><note><para>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter
-        /// is required.</para></note>
+        /// <para>The Kerberos principal with access to the files and folders on the HDFS cluster. </para><note><para>If <c>KERBEROS</c> is specified for <c>AuthenticationType</c>, this parameter is required.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>The RPC protection setting configured on the HDFS cluster. This setting corresponds
-        /// to your <code>hadoop.rpc.protection</code> setting in your <code>core-site.xml</code>
-        /// file on your Hadoop cluster.</para>
+        /// to your <c>hadoop.rpc.protection</c> setting in your <c>core-site.xml</c> file on
+        /// your Hadoop cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,8 +200,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter SimpleUser
         /// <summary>
         /// <para>
-        /// <para>The user name used to identify the client on the host operating system. </para><note><para>If <code>SIMPLE</code> is specified for <code>AuthenticationType</code>, this parameter
-        /// is required. </para></note>
+        /// <para>The user name used to identify the client on the host operating system. </para><note><para>If <c>SIMPLE</c> is specified for <c>AuthenticationType</c>, this parameter is required.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>A subdirectory in the HDFS cluster. This subdirectory is used to read data from or
         /// write data to the HDFS cluster. If the subdirectory isn't specified, it will default
-        /// to <code>/</code>.</para>
+        /// to <c>/</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

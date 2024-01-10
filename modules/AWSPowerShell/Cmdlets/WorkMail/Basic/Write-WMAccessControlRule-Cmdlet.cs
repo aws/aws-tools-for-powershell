@@ -48,9 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>Access protocol actions to include in the rule. Valid values include <code>ActiveSync</code>,
-        /// <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>, <code>SMTP</code>,
-        /// <code>WindowsOutlook</code>, and <code>WebMail</code>.</para>
+        /// <para>Access protocol actions to include in the rule. Valid values include <c>ActiveSync</c>,
+        /// <c>AutoDiscover</c>, <c>EWS</c>, <c>IMAP</c>, <c>SMTP</c>, <c>WindowsOutlook</c>,
+        /// and <c>WebMail</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,9 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter NotAction
         /// <summary>
         /// <para>
-        /// <para>Access protocol actions to exclude from the rule. Valid values include <code>ActiveSync</code>,
-        /// <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>, <code>SMTP</code>,
-        /// <code>WindowsOutlook</code>, and <code>WebMail</code>.</para>
+        /// <para>Access protocol actions to exclude from the rule. Valid values include <c>ActiveSync</c>,
+        /// <c>AutoDiscover</c>, <c>EWS</c>, <c>IMAP</c>, <c>SMTP</c>, <c>WindowsOutlook</c>,
+        /// and <c>WebMail</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

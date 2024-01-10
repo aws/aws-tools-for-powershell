@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return. Default is 20. You can use <code>nextToken</code>
+        /// <para>The maximum number of results to return. Default is 20. You can use <c>nextToken</c>
         /// to get the next page of results.</para>
         /// </para>
         /// </summary>
@@ -84,9 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your initial <code>ListCollections</code> operation returns a <code>nextToken</code>,
-        /// you can include the returned <code>nextToken</code> in subsequent <code>ListCollections</code>
-        /// operations, which returns results in the next page.</para>
+        /// <para>If your initial <c>ListCollections</c> operation returns a <c>nextToken</c>, you can
+        /// include the returned <c>nextToken</c> in subsequent <c>ListCollections</c> operations,
+        /// which returns results in the next page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

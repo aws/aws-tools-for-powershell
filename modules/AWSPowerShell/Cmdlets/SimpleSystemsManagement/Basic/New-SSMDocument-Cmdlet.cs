@@ -109,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentType
         /// <summary>
         /// <para>
-        /// <para>The type of document to create.</para><note><para>The <code>DeploymentStrategy</code> document type is an internal-use-only document
-        /// type reserved for AppConfig.</para></note>
+        /// <para>The type of document to create.</para><note><para>The <c>DeploymentStrategy</c> document type is an internal-use-only document type
+        /// reserved for AppConfig.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>A name for the SSM document.</para><important><para>You can't use the following strings as document name prefixes. These are reserved
-        /// by Amazon Web Services for use as document name prefixes:</para><ul><li><para><code>aws</code></para></li><li><para><code>amazon</code></para></li><li><para><code>amzn</code></para></li></ul></important>
+        /// by Amazon Web Services for use as document name prefixes:</para><ul><li><para><c>aws</c></para></li><li><para><c>amazon</c></para></li><li><para><c>amzn</c></para></li></ul></important>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>A list of SSM documents required by a document. This parameter is used exclusively
         /// by AppConfig. When a user creates an AppConfig configuration in an SSM document, the
         /// user must also specify a required document for validation purposes. In this case,
-        /// an <code>ApplicationConfiguration</code> document requires an <code>ApplicationConfigurationSchema</code>
+        /// an <c>ApplicationConfiguration</c> document requires an <c>ApplicationConfigurationSchema</c>
         /// document for validation purposes. For more information, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html">What
         /// is AppConfig?</a> in the <i>AppConfig User Guide</i>.</para>
         /// </para>
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>Optional metadata that you assign to a resource. Tags enable you to categorize a resource
         /// in different ways, such as by purpose, owner, or environment. For example, you might
         /// want to tag an SSM document to identify the types of targets or the environment where
-        /// it will run. In this case, you could specify the following key-value pairs:</para><ul><li><para><code>Key=OS,Value=Windows</code></para></li><li><para><code>Key=Environment,Value=Production</code></para></li></ul><note><para>To add tags to an existing SSM document, use the <a>AddTagsToResource</a> operation.</para></note>
+        /// it will run. In this case, you could specify the following key-value pairs:</para><ul><li><para><c>Key=OS,Value=Windows</c></para></li><li><para><c>Key=Environment,Value=Production</c></para></li></ul><note><para>To add tags to an existing SSM document, use the <a>AddTagsToResource</a> operation.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Specify a target type to define the kinds of resources the document can run on. For
-        /// example, to run a document on EC2 instances, specify the following value: <code>/AWS::EC2::Instance</code>.
+        /// example, to run a document on EC2 instances, specify the following value: <c>/AWS::EC2::Instance</c>.
         /// If you specify a value of '/' the document can run on all types of resources. If you
         /// don't specify a value, the document can't run on any resources. For a list of valid
         /// resource types, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>An optional field specifying the version of the artifact you are creating with the
-        /// document. For example, <code>Release12.1</code>. This value is unique across all versions
+        /// document. For example, <c>Release12.1</c>. This value is unique across all versions
         /// of a document, and can't be changed.</para>
         /// </para>
         /// </summary>

@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role to disassociate from the Aurora DB
-        /// cluster, for example <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.</para>
+        /// cluster, for example <c>arn:aws:iam::123456789012:role/AuroraAccessRole</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

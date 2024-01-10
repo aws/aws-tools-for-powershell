@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EndpointType
         /// <summary>
         /// <para>
-        /// <para>The type of the endpoint, one of: <code>READER</code>, <code>WRITER</code>, <code>ANY</code>.</para>
+        /// <para>The type of the endpoint, one of: <c>READER</c>, <c>WRITER</c>, <c>ANY</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

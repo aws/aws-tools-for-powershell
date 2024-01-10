@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter Option
         /// <summary>
         /// <para>
-        /// <para>A list of <code>FieldOption</code> objects.</para>
+        /// <para>A list of <c>FieldOption</c> objects.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

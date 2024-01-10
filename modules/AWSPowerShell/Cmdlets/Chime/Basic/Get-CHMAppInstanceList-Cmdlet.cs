@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Lists all Amazon Chime <code>AppInstance</code>s created under a single AWS account.
+    /// Lists all Amazon Chime <c>AppInstance</c>s created under a single AWS account.
     /// 
     ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
     /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstances.html">ListAppInstances</a>,
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of <code>AppInstance</code>s that you want to return.</para>
+        /// <para>The maximum number of <c>AppInstance</c>s that you want to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token passed by previous API requests until you reach the maximum number of <code>AppInstance</code>s.</para>
+        /// <para>The token passed by previous API requests until you reach the maximum number of <c>AppInstance</c>s.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

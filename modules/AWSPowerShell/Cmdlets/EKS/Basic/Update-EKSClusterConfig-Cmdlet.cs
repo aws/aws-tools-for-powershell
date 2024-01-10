@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// <summary>
     /// Updates an Amazon EKS cluster configuration. Your cluster continues to function during
     /// the update. The response output includes an update ID that you can use to track the
-    /// status of your cluster update with <code>DescribeUpdate</code>"/&gt;.
+    /// status of your cluster update with <c>DescribeUpdate</c>"/&gt;.
     /// 
     ///  
     /// <para>
@@ -56,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// in the <i><i>Amazon EKS User Guide</i></i>.
     /// </para><para>
     /// Cluster updates are asynchronous, and they should finish within a few minutes. During
-    /// an update, the cluster status moves to <code>UPDATING</code> (this status transition
-    /// is eventually consistent). When the update is complete (either <code>Failed</code>
-    /// or <code>Successful</code>), the cluster status moves to <code>Active</code>.
+    /// an update, the cluster status moves to <c>UPDATING</c> (this status transition is
+    /// eventually consistent). When the update is complete (either <c>Failed</c> or <c>Successful</c>),
+    /// the cluster status moves to <c>Active</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "EKSClusterConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A filter that returns only the model packages of the specified type. This can be one
-        /// of the following values.</para><ul><li><para><code>UNVERSIONED</code> - List only unversioined models. This is the default value
-        /// if no <code>ModelPackageType</code> is specified.</para></li><li><para><code>VERSIONED</code> - List only versioned models.</para></li><li><para><code>BOTH</code> - List both versioned and unversioned models.</para></li></ul>
+        /// of the following values.</para><ul><li><para><c>UNVERSIONED</c> - List only unversioined models. This is the default value if
+        /// no <c>ModelPackageType</c> is specified.</para></li><li><para><c>VERSIONED</c> - List only versioned models.</para></li><li><para><c>BOTH</c> - List both versioned and unversioned models.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The parameter by which to sort the results. The default is <code>CreationTime</code>.</para>
+        /// <para>The parameter by which to sort the results. The default is <c>CreationTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order for the results. The default is <code>Ascending</code>.</para>
+        /// <para>The sort order for the results. The default is <c>Ascending</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,9 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the response to a previous <code>ListModelPackages</code> request was truncated,
-        /// the response includes a <code>NextToken</code>. To retrieve the next set of model
-        /// packages, use the token in the next request.</para>
+        /// <para>If the response to a previous <c>ListModelPackages</c> request was truncated, the
+        /// response includes a <c>NextToken</c>. To retrieve the next set of model packages,
+        /// use the token in the next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -35,11 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// <para>
     /// Tags can help you organize and categorize your resources. You can also use them to
     /// scope user permissions, by granting a user permission to access or change only resources
-    /// with certain tag values. You can use the <code>TagResource</code> operation with a
-    /// resource that already has tags. If you specify a new tag key for the resource, this
-    /// tag is appended to the list of tags associated with the resource. If you specify a
-    /// tag key that is already associated with the resource, the new tag value that you specify
-    /// replaces the previous value for that tag.
+    /// with certain tag values. You can use the <c>TagResource</c> operation with a resource
+    /// that already has tags. If you specify a new tag key for the resource, this tag is
+    /// appended to the list of tags associated with the resource. If you specify a tag key
+    /// that is already associated with the resource, the new tag value that you specify replaces
+    /// the previous value for that tag.
     /// </para><para>
     /// You can associate as many as 50 tags with a resource. Amazon QuickSight supports tagging
     /// on data set, data source, dashboard, template, topic, and user. 

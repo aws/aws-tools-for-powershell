@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  
     /// <para>
-    /// The <code>create domain entry</code> operation supports tag-based access control via
-    /// resource tags applied to the resource identified by <code>domain name</code>. For
-    /// more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// The <c>create domain entry</c> operation supports tag-based access control via resource
+    /// tags applied to the resource identified by <c>domain name</c>. For more information,
+    /// see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -55,8 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The domain name (<code>example.com</code>) for which you want to create the domain
-        /// entry.</para>
+        /// <para>The domain name (<c>example.com</c>) for which you want to create the domain entry.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,12 +82,12 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DomainEntry_IsAlias
         /// <summary>
         /// <para>
-        /// <para>When <code>true</code>, specifies whether the domain entry is an alias used by the
-        /// Lightsail load balancer, Lightsail container service, Lightsail content delivery network
-        /// (CDN) distribution, or another Amazon Web Services resource. You can include an alias
-        /// (A type) record in your request, which points to the DNS name of a load balancer,
-        /// container service, CDN distribution, or other Amazon Web Services resource and routes
-        /// traffic to that resource.</para>
+        /// <para>When <c>true</c>, specifies whether the domain entry is an alias used by the Lightsail
+        /// load balancer, Lightsail container service, Lightsail content delivery network (CDN)
+        /// distribution, or another Amazon Web Services resource. You can include an alias (A
+        /// type) record in your request, which points to the DNS name of a load balancer, container
+        /// service, CDN distribution, or other Amazon Web Services resource and routes traffic
+        /// to that resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,11 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DomainEntry_Target
         /// <summary>
         /// <para>
-        /// <para>The target IP address (<code>192.0.2.0</code>), or AWS name server (<code>ns-111.awsdns-22.com.</code>).</para><para>For Lightsail load balancers, the value looks like <code>ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com</code>.
-        /// For Lightsail distributions, the value looks like <code>exampled1182ne.cloudfront.net</code>.
-        /// For Lightsail container services, the value looks like <code>container-service-1.example23scljs.us-west-2.cs.amazonlightsail.com</code>.
-        /// Be sure to also set <code>isAlias</code> to <code>true</code> when setting up an A
-        /// record for a Lightsail load balancer, distribution, or container service.</para>
+        /// <para>The target IP address (<c>192.0.2.0</c>), or AWS name server (<c>ns-111.awsdns-22.com.</c>).</para><para>For Lightsail load balancers, the value looks like <c>ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com</c>.
+        /// For Lightsail distributions, the value looks like <c>exampled1182ne.cloudfront.net</c>.
+        /// For Lightsail container services, the value looks like <c>container-service-1.example23scljs.us-west-2.cs.amazonlightsail.com</c>.
+        /// Be sure to also set <c>isAlias</c> to <c>true</c> when setting up an A record for
+        /// a Lightsail load balancer, distribution, or container service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>
         /// <para>The type of domain entry, such as address for IPv4 (A), address for IPv6 (AAAA), canonical
         /// name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA), service
-        /// locator (SRV), or text (TXT).</para><para>The following domain entry types can be used:</para><ul><li><para><code>A</code></para></li><li><para><code>AAAA</code></para></li><li><para><code>CNAME</code></para></li><li><para><code>MX</code></para></li><li><para><code>NS</code></para></li><li><para><code>SOA</code></para></li><li><para><code>SRV</code></para></li><li><para><code>TXT</code></para></li></ul>
+        /// locator (SRV), or text (TXT).</para><para>The following domain entry types can be used:</para><ul><li><para><c>A</c></para></li><li><para><c>AAAA</c></para></li><li><para><c>CNAME</c></para></li><li><para><c>MX</c></para></li><li><para><c>NS</c></para></li><li><para><c>SOA</c></para></li><li><para><c>SRV</c></para></li><li><para><c>TXT</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

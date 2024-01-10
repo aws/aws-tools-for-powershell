@@ -28,18 +28,18 @@ using Amazon.MarketplaceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.MCAT
 {
     /// <summary>
-    /// Allows you to request changes for your entities. Within a single <code>ChangeSet</code>,
+    /// Allows you to request changes for your entities. Within a single <c>ChangeSet</c>,
     /// you can't start the same change type against the same entity multiple times. Additionally,
-    /// when a <code>ChangeSet</code> is running, all the entities targeted by the different
-    /// changes are locked until the change set has completed (either succeeded, cancelled,
-    /// or failed). If you try to start a change set containing a change against an entity
-    /// that is already locked, you will receive a <code>ResourceInUseException</code> error.
+    /// when a <c>ChangeSet</c> is running, all the entities targeted by the different changes
+    /// are locked until the change set has completed (either succeeded, cancelled, or failed).
+    /// If you try to start a change set containing a change against an entity that is already
+    /// locked, you will receive a <c>ResourceInUseException</c> error.
     /// 
     ///  
     /// <para>
-    /// For example, you can't start the <code>ChangeSet</code> described in the <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples">example</a>
-    /// later in this topic because it contains two changes to run the same change type (<code>AddRevisions</code>)
-    /// against the same entity (<code>entity-id@1</code>).
+    /// For example, you can't start the <c>ChangeSet</c> described in the <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples">example</a>
+    /// later in this topic because it contains two changes to run the same change type (<c>AddRevisions</c>)
+    /// against the same entity (<c>entity-id@1</c>).
     /// </para><para>
     /// For more information about working with change sets, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets">
     /// Working with change sets</a>. For information about change types for single-AMI products,
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para>The catalog related to the request. Fixed value: <code>AWSMarketplace</code></para>
+        /// <para>The catalog related to the request. Fixed value: <c>AWSMarketplace</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ChangeSet
         /// <summary>
         /// <para>
-        /// <para>Array of <code>change</code> object.</para>
+        /// <para>Array of <c>change</c> object.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter ChangeSetTag
         /// <summary>
         /// <para>
-        /// <para>A list of objects specifying each key name and value for the <code>ChangeSetTags</code>
+        /// <para>A list of objects specifying each key name and value for the <c>ChangeSetTags</c>
         /// property.</para>
         /// </para>
         /// </summary>

@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </para></important><note><para>
     /// If you want to associate a VPC that was created by using one Amazon Web Services account
     /// with a private hosted zone that was created by using a different account, the Amazon
-    /// Web Services account that created the private hosted zone must first submit a <code>CreateVPCAssociationAuthorization</code>
-    /// request. Then the account that created the VPC must submit an <code>AssociateVPCWithHostedZone</code>
+    /// Web Services account that created the private hosted zone must first submit a <c>CreateVPCAssociationAuthorization</c>
+    /// request. Then the account that created the VPC must submit an <c>AssociateVPCWithHostedZone</c>
     /// request.
     /// </para></note><note><para>
     /// When granting access, the hosted zone and the Amazon VPC must belong to the same partition.
@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// is scoped to one partition.
     /// </para><para>
     /// The following are the supported partitions:
-    /// </para><ul><li><para><code>aws</code> - Amazon Web Services Regions
-    /// </para></li><li><para><code>aws-cn</code> - China Regions
-    /// </para></li><li><para><code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region
+    /// </para><ul><li><para><c>aws</c> - Amazon Web Services Regions
+    /// </para></li><li><para><c>aws-cn</c> - China Regions
+    /// </para></li><li><para><c>aws-us-gov</c> - Amazon Web Services GovCloud (US) Region
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access
     /// Management</a> in the <i>Amazon Web Services General Reference</i>.

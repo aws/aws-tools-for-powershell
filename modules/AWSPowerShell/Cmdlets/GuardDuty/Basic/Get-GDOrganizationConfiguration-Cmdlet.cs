@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <para>
         /// <para>You can use this parameter when paginating results. Set the value of this parameter
         /// to null on your first call to the list action. For subsequent calls to the action,
-        /// fill <code>nextToken</code> in the request with the value of <code>NextToken</code>
-        /// from the previous response to continue listing data.</para>
+        /// fill <c>nextToken</c> in the request with the value of <c>NextToken</c> from the previous
+        /// response to continue listing data.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

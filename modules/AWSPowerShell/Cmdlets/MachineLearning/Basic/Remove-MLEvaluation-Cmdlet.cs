@@ -28,14 +28,13 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Assigns the <code>DELETED</code> status to an <code>Evaluation</code>, rendering it
-    /// unusable.
+    /// Assigns the <c>DELETED</c> status to an <c>Evaluation</c>, rendering it unusable.
     /// 
     ///  
     /// <para>
-    /// After invoking the <code>DeleteEvaluation</code> operation, you can use the <code>GetEvaluation</code>
-    /// operation to verify that the status of the <code>Evaluation</code> changed to <code>DELETED</code>.
-    /// </para><para><b>Caution:</b> The results of the <code>DeleteEvaluation</code> operation are irreversible.
+    /// After invoking the <c>DeleteEvaluation</c> operation, you can use the <c>GetEvaluation</c>
+    /// operation to verify that the status of the <c>Evaluation</c> changed to <c>DELETED</c>.
+    /// </para><para><b>Caution:</b> The results of the <c>DeleteEvaluation</c> operation are irreversible.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "MLEvaluation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -53,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter EvaluationId
         /// <summary>
         /// <para>
-        /// <para>A user-supplied ID that uniquely identifies the <code>Evaluation</code> to delete.</para>
+        /// <para>A user-supplied ID that uniquely identifies the <c>Evaluation</c> to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

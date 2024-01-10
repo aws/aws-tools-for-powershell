@@ -56,10 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The range of inside IP addresses that are used for BGP peering. You must specify a
-        /// size /29 IPv4 CIDR block from the <code>169.254.0.0/16</code> range. The first address
-        /// from the range must be configured on the appliance as the BGP IP address. You can
-        /// also optionally specify a size /125 IPv6 CIDR block from the <code>fd00::/8</code>
-        /// range.</para>
+        /// size /29 IPv4 CIDR block from the <c>169.254.0.0/16</c> range. The first address from
+        /// the range must be configured on the appliance as the BGP IP address. You can also
+        /// optionally specify a size /125 IPv6 CIDR block from the <c>fd00::/8</c> range.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ConnectionEvent
         /// <summary>
         /// <para>
-        /// <para>The events for the endpoint. Valid values are <code>Accept</code>, <code>Connect</code>,
-        /// <code>Delete</code>, and <code>Reject</code>.</para>
+        /// <para>The events for the endpoint. Valid values are <c>Accept</c>, <c>Connect</c>, <c>Delete</c>,
+        /// and <c>Reject</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

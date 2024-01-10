@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter MappedInputField
         /// <summary>
         /// <para>
-        /// <para>A list of <code>MappedInputFields</code>. Each <code>MappedInputField</code> corresponds
-        /// to a column the source data table, and contains column name plus additional information
+        /// <para>A list of <c>MappedInputFields</c>. Each <c>MappedInputField</c> corresponds to a
+        /// column the source data table, and contains column name plus additional information
         /// that Entity Resolution uses for matching.</para>
         /// </para>
         /// </summary>
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter SchemaName
         /// <summary>
         /// <para>
-        /// <para>The name of the schema. There can't be multiple <code>SchemaMappings</code> with the
-        /// same name.</para>
+        /// <para>The name of the schema. There can't be multiple <c>SchemaMappings</c> with the same
+        /// name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

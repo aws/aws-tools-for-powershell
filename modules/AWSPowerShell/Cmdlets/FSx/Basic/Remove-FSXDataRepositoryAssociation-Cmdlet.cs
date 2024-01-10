@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// When deleting a data repository association, you have the option of deleting the data
     /// in the file system that corresponds to the data repository association. Data repository
     /// associations are supported on all FSx for Lustre 2.12 and 2.15 file systems, excluding
-    /// <code>scratch_1</code> deployment type.
+    /// <c>scratch_1</c> deployment type.
     /// </summary>
     [Cmdlet("Remove", "FSXDataRepositoryAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.FSx.Model.DeleteDataRepositoryAssociationResponse")]
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter DeleteDataInFileSystem
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to delete the data in the file system that corresponds to
-        /// the data repository association.</para>
+        /// <para>Set to <c>true</c> to delete the data in the file system that corresponds to the data
+        /// repository association.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

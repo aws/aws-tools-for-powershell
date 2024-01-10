@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// in a monitoring account and view metrics from the linked source accounts. For more
     /// information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
     /// cross-account observability</a>.
-    /// </para><para><code>ListMetrics</code> doesn't return information about metrics if those metrics
-    /// haven't reported data in the past two weeks. To retrieve those metrics, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a>
+    /// </para><para><c>ListMetrics</c> doesn't return information about metrics if those metrics haven't
+    /// reported data in the past two weeks. To retrieve those metrics, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a>
     /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter IncludeLinkedAccount
         /// <summary>
         /// <para>
-        /// <para>If you are using this operation in a monitoring account, specify <code>true</code>
-        /// to include metrics from source accounts in the returned data.</para><para>The default is <code>false</code>.</para>
+        /// <para>If you are using this operation in a monitoring account, specify <c>true</c> to include
+        /// metrics from source accounts in the returned data.</para><para>The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>When you use this operation in a monitoring account, use this field to return metrics
         /// only from one source account. To do so, specify that source account ID in this field,
-        /// and also specify <code>true</code> for <code>IncludeLinkedAccounts</code>.</para>
+        /// and also specify <c>true</c> for <c>IncludeLinkedAccounts</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>To filter the results to show only metrics that have had data points published in
-        /// the past three hours, specify this parameter with a value of <code>PT3H</code>. This
-        /// is the only valid value for this parameter.</para><para>The results that are returned are an approximation of the value you specify. There
+        /// the past three hours, specify this parameter with a value of <c>PT3H</c>. This is
+        /// the only valid value for this parameter.</para><para>The results that are returned are an approximation of the value you specify. There
         /// is a low probability that the returned results include metrics with last published
         /// data as much as 40 minutes more than the specified time interval.</para>
         /// </para>

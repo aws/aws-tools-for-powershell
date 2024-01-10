@@ -36,10 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// <para>
     ///  This operation is synchronous. 
     /// </para><para>
-    ///  A <code>ValidationException</code> is raised when parameters of the request are not
-    /// valid. A <code>ResourceNotFoundException</code> is thrown when the server does not
-    /// exist. An <code>InvalidStateException</code> is thrown when the server is in any of
-    /// the following states: CREATING, TERMINATED, FAILED or DELETING. 
+    ///  A <c>ValidationException</c> is raised when parameters of the request are not valid.
+    /// A <c>ResourceNotFoundException</c> is thrown when the server does not exist. An <c>InvalidStateException</c>
+    /// is thrown when the server is in any of the following states: CREATING, TERMINATED,
+    /// FAILED or DELETING. 
     /// </para>
     /// </summary>
     [Cmdlet("Export", "OWCMServerEngineAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter ExportAttributeName
         /// <summary>
         /// <para>
-        /// <para>The name of the export attribute. Currently, the supported export attribute is <code>Userdata</code>.
+        /// <para>The name of the export attribute. Currently, the supported export attribute is <c>Userdata</c>.
         /// This exports a user data script that includes parameters and values provided in the
-        /// <code>InputAttributes</code> list.</para>
+        /// <c>InputAttributes</c> list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,12 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter InputAttribute
         /// <summary>
         /// <para>
-        /// <para>The list of engine attributes. The list type is <code>EngineAttribute</code>. An <code>EngineAttribute</code>
-        /// list item is a pair that includes an attribute name and its value. For the <code>Userdata</code>
+        /// <para>The list of engine attributes. The list type is <c>EngineAttribute</c>. An <c>EngineAttribute</c>
+        /// list item is a pair that includes an attribute name and its value. For the <c>Userdata</c>
         /// ExportAttributeName, the following are supported engine attribute names.</para><ul><li><para><b>RunList</b> In Chef, a list of roles or recipes that are run in the specified
         /// order. In Puppet, this parameter is ignored.</para></li><li><para><b>OrganizationName</b> In Chef, an organization name. AWS OpsWorks for Chef Automate
-        /// always creates the organization <code>default</code>. In Puppet, this parameter is
-        /// ignored.</para></li><li><para><b>NodeEnvironment</b> In Chef, a node environment (for example, development, staging,
+        /// always creates the organization <c>default</c>. In Puppet, this parameter is ignored.</para></li><li><para><b>NodeEnvironment</b> In Chef, a node environment (for example, development, staging,
         /// or one-box). In Puppet, this parameter is ignored.</para></li><li><para><b>NodeClientVersion</b> In Chef, the version of the Chef engine (three numbers separated
         /// by dots, such as 13.8.5). If this attribute is empty, OpsWorks for Chef Automate uses
         /// the most current version. In Puppet, this parameter is ignored.</para></li></ul>

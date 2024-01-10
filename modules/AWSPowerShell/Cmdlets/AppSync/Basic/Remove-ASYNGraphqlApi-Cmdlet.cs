@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Deletes a <code>GraphqlApi</code> object.
+    /// Deletes a <c>GraphqlApi</c> object.
     /// </summary>
     [Cmdlet("Remove", "ASYNGraphqlApi", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// <summary>
         /// <para>
         /// <para>The name of the Amazon S3 bucket to store the CloudFormation template in. The S3 bucket
-        /// must be configured as follows for the migration: </para><ul><li><para>The bucket name must start with <code>aws-waf-migration-</code>. For example, <code>aws-waf-migration-my-web-acl</code>.</para></li><li><para>The bucket must be in the Region where you are deploying the template. For example,
+        /// must be configured as follows for the migration: </para><ul><li><para>The bucket name must start with <c>aws-waf-migration-</c>. For example, <c>aws-waf-migration-my-web-acl</c>.</para></li><li><para>The bucket must be in the Region where you are deploying the template. For example,
         /// for a web ACL in us-west-2, you must use an Amazon S3 bucket in us-west-2 and you
         /// must deploy the template stack to us-west-2. </para></li><li><para>The bucket policies must permit the migration process to write data. For listings
         /// of the bucket policies, see the Examples section. </para></li></ul>

@@ -219,9 +219,9 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         /// log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default.
         /// For more information including the supported worker types for Hive and Spark, see
         /// <a href="https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/logging.html#jobs-log-storage-cw">Logging
-        /// for EMR Serverless with CloudWatch</a>.</para><ul><li><para><b>Key Valid Values</b>: <code>SPARK_DRIVER</code>, <code>SPARK_EXECUTOR</code>,
-        /// <code>HIVE_DRIVER</code>, <code>TEZ_TASK</code></para></li><li><para><b>Array Members Valid Values</b>: <code>STDOUT</code>, <code>STDERR</code>, <code>HIVE_LOG</code>,
-        /// <code>TEZ_AM</code>, <code>SYSTEM_LOGS</code></para></li></ul>
+        /// for EMR Serverless with CloudWatch</a>.</para><ul><li><para><b>Key Valid Values</b>: <c>SPARK_DRIVER</c>, <c>SPARK_EXECUTOR</c>, <c>HIVE_DRIVER</c>,
+        /// <c>TEZ_TASK</c></para></li><li><para><b>Array Members Valid Values</b>: <c>STDOUT</c>, <c>STDERR</c>, <c>HIVE_LOG</c>,
+        /// <c>TEZ_AM</c>, <c>SYSTEM_LOGS</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

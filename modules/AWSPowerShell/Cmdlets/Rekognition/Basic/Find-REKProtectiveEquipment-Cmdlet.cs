@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para></li></ul><para>
     /// You pass the input image as base64-encoded image bytes or as a reference to an image
     /// in an Amazon S3 bucket. The image must be either a PNG or JPG formatted file. 
-    /// </para><para><code>DetectProtectiveEquipment</code> detects PPE worn by up to 15 persons detected
-    /// in an image.
+    /// </para><para><c>DetectProtectiveEquipment</c> detects PPE worn by up to 15 persons detected in
+    /// an image.
     /// </para><para>
     /// For each person detected in the image the API returns an array of body parts (face,
     /// head, left-hand, right-hand). For each body part, an array of detected items of PPE
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// body part coverage). It also returns a bounding box (<a>BoundingBox</a>) for each
     /// detected person and each detected item of PPE. 
     /// </para><para>
-    /// You can optionally request a summary of detected PPE items with the <code>SummarizationAttributes</code>
+    /// You can optionally request a summary of detected PPE items with the <c>SummarizationAttributes</c>
     /// input parameter. The summary provides the following information. 
     /// </para><ul><li><para>
     /// The persons detected as wearing all of the types of PPE that you specify.
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para></li></ul><para>
     /// This is a stateless API operation. That is, the operation does not persist any data.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:DetectProtectiveEquipment</code>
+    /// This operation requires permissions to perform the <c>rekognition:DetectProtectiveEquipment</c>
     /// action. 
     /// </para>
     /// </summary>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Blob of image bytes up to 5 MBs. Note that the maximum image size you can pass to
-        /// <code>DetectCustomLabels</code> is 4MB. </para>
+        /// <c>DetectCustomLabels</c> is 4MB. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>The minimum confidence level for which you want summary information. The confidence
         /// level applies to person detection, body part detection, equipment detection, and body
         /// part coverage. Amazon Rekognition doesn't return summary information with a confidence
-        /// than this specified value. There isn't a default value.</para><para>Specify a <code>MinConfidence</code> value that is between 50-100% as <code>DetectProtectiveEquipment</code>
+        /// than this specified value. There isn't a default value.</para><para>Specify a <c>MinConfidence</c> value that is between 50-100% as <c>DetectProtectiveEquipment</c>
         /// returns predictions only where the detection confidence is between 50% - 100%. If
         /// you specify a value that is less than 50%, the results are the same specifying a value
         /// of 50%.</para>
@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>
         /// <para>An array of personal protective equipment types for which you want summary information.
         /// If a person is detected wearing a required requipment type, the person's ID is added
-        /// to the <code>PersonsWithRequiredEquipment</code> array field returned in <a>ProtectiveEquipmentSummary</a>
-        /// by <code>DetectProtectiveEquipment</code>. </para>
+        /// to the <c>PersonsWithRequiredEquipment</c> array field returned in <a>ProtectiveEquipmentSummary</a>
+        /// by <c>DetectProtectiveEquipment</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

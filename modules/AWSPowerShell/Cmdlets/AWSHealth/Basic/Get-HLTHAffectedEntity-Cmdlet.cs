@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// <para>
     /// At least one event ARN is required.
     /// </para><note><ul><li><para>
-    /// This API operation uses pagination. Specify the <code>nextToken</code> parameter in
-    /// the next request to return more results.
+    /// This API operation uses pagination. Specify the <c>nextToken</c> parameter in the
+    /// next request to return more results.
     /// </para></li><li><para>
     /// This operation supports resource-level permissions. You can use this operation to
     /// allow or deny access to specific Health events. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions">Resource-
@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventArn
         /// <summary>
         /// <para>
-        /// <para>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456",
-        /// "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code></para>
+        /// <para>A list of event ARNs (unique identifiers). For example: <c>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456",
+        /// "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,8 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_StatusCode
         /// <summary>
         /// <para>
-        /// <para>A list of entity status codes (<code>IMPAIRED</code>, <code>UNIMPAIRED</code>, or
-        /// <code>UNKNOWN</code>).</para>
+        /// <para>A list of entity status codes (<c>IMPAIRED</c>, <c>UNIMPAIRED</c>, or <c>UNKNOWN</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Tag
         /// <summary>
         /// <para>
-        /// <para>A map of entity tags attached to the affected entity.</para><note><para>Currently, the <code>tags</code> property isn't supported.</para></note>
+        /// <para>A map of entity tags attached to the affected entity.</para><note><para>Currently, the <c>tags</c> property isn't supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         /// <summary>
         /// <para>
         /// <para>If the results of a search are large, only a portion of the results are returned,
-        /// and a <code>nextToken</code> pagination token is returned in the response. To retrieve
-        /// the next batch of results, reissue the search request and include the returned token.
+        /// and a <c>nextToken</c> pagination token is returned in the response. To retrieve the
+        /// next batch of results, reissue the search request and include the returned token.
         /// When all results have been returned, the response does not contain a pagination token
         /// value.</para>
         /// </para>

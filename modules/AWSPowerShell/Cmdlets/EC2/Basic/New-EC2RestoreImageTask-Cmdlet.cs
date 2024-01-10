@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The tags to apply to the AMI and snapshots on restoration. You can tag the AMI, the
-        /// snapshots, or both.</para><ul><li><para>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>.</para></li><li><para>To tag the snapshots, the value for <code>ResourceType</code> must be <code>snapshot</code>.
-        /// The same tag is applied to all of the snapshots that are created.</para></li></ul>
+        /// snapshots, or both.</para><ul><li><para>To tag the AMI, the value for <c>ResourceType</c> must be <c>image</c>.</para></li><li><para>To tag the snapshots, the value for <c>ResourceType</c> must be <c>snapshot</c>. The
+        /// same tag is applied to all of the snapshots that are created.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

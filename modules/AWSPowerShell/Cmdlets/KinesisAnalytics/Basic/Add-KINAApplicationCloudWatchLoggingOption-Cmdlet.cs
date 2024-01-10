@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// <summary>
         /// <para>
         /// <para>IAM ARN of the role to use to send application messages. Note: To write application
-        /// messages to CloudWatch, the IAM role that is used must have the <code>PutLogEvents</code>
+        /// messages to CloudWatch, the IAM role that is used must have the <c>PutLogEvents</c>
         /// policy action enabled.</para>
         /// </para>
         /// </summary>

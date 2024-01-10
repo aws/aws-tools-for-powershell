@@ -40,34 +40,34 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// to encrypt the data key. You cannot use an asymmetric KMS key to encrypt data keys.
     /// To get the type of your KMS key, use the <a>DescribeKey</a> operation.
     /// </para><para>
-    /// You must also specify the length of the data key. Use either the <code>KeySpec</code>
-    /// or <code>NumberOfBytes</code> parameters (but not both). For 128-bit and 256-bit data
-    /// keys, use the <code>KeySpec</code> parameter.
+    /// You must also specify the length of the data key. Use either the <c>KeySpec</c> or
+    /// <c>NumberOfBytes</c> parameters (but not both). For 128-bit and 256-bit data keys,
+    /// use the <c>KeySpec</c> parameter.
     /// </para><para>
-    /// To generate a 128-bit SM4 data key (China Regions only), specify a <code>KeySpec</code>
-    /// value of <code>AES_128</code> or a <code>NumberOfBytes</code> value of <code>16</code>.
-    /// The symmetric encryption key used in China Regions to encrypt your data key is an
-    /// SM4 encryption key.
+    /// To generate a 128-bit SM4 data key (China Regions only), specify a <c>KeySpec</c>
+    /// value of <c>AES_128</c> or a <c>NumberOfBytes</c> value of <c>16</c>. The symmetric
+    /// encryption key used in China Regions to encrypt your data key is an SM4 encryption
+    /// key.
     /// </para><para>
     /// To get only an encrypted copy of the data key, use <a>GenerateDataKeyWithoutPlaintext</a>.
     /// To generate an asymmetric data key pair, use the <a>GenerateDataKeyPair</a> or <a>GenerateDataKeyPairWithoutPlaintext</a>
     /// operation. To get a cryptographically secure random byte string, use <a>GenerateRandom</a>.
     /// </para><para>
     /// You can use an optional encryption context to add additional security to the encryption
-    /// operation. If you specify an <code>EncryptionContext</code>, you must specify the
-    /// same encryption context (a case-sensitive exact match) when decrypting the encrypted
-    /// data key. Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>.
-    /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+    /// operation. If you specify an <c>EncryptionContext</c>, you must specify the same encryption
+    /// context (a case-sensitive exact match) when decrypting the encrypted data key. Otherwise,
+    /// the request to decrypt fails with an <c>InvalidCiphertextException</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
     /// Context</a> in the <i>Key Management Service Developer Guide</i>.
-    /// </para><para><code>GenerateDataKey</code> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon
+    /// </para><para><c>GenerateDataKey</c> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon
     /// Web Services Nitro Enclaves</a>, which provide an isolated compute environment in
-    /// Amazon EC2. To call <code>GenerateDataKey</code> for an Amazon Web Services Nitro
-    /// enclave, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon
-    /// Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code>
-    /// parameter to provide the attestation document for the enclave. <code>GenerateDataKey</code>
+    /// Amazon EC2. To call <c>GenerateDataKey</c> for an Amazon Web Services Nitro enclave,
+    /// use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon
+    /// Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <c>Recipient</c>
+    /// parameter to provide the attestation document for the enclave. <c>GenerateDataKey</c>
     /// returns a copy of the data key encrypted under the specified KMS key, as usual. But
     /// instead of a plaintext copy of the data key, the response includes a copy of the data
-    /// key encrypted under the public key from the attestation document (<code>CiphertextForRecipient</code>).
+    /// key encrypted under the public key from the attestation document (<c>CiphertextForRecipient</c>).
     /// For information about the interaction between KMS and Amazon Web Services Nitro Enclaves,
     /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How
     /// Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer
@@ -85,12 +85,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// To encrypt data outside of KMS:
     /// </para><ol><li><para>
-    /// Use the <code>GenerateDataKey</code> operation to get a data key.
+    /// Use the <c>GenerateDataKey</c> operation to get a data key.
     /// </para></li><li><para>
-    /// Use the plaintext data key (in the <code>Plaintext</code> field of the response) to
-    /// encrypt your data outside of KMS. Then erase the plaintext data key from memory.
+    /// Use the plaintext data key (in the <c>Plaintext</c> field of the response) to encrypt
+    /// your data outside of KMS. Then erase the plaintext data key from memory.
     /// </para></li><li><para>
-    /// Store the encrypted data key (in the <code>CiphertextBlob</code> field of the response)
+    /// Store the encrypted data key (in the <c>CiphertextBlob</c> field of the response)
     /// with the encrypted data.
     /// </para></li></ol><para>
     /// To decrypt data outside of KMS:
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// data key from memory.
     /// </para></li></ol><para><b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different
     /// Amazon Web Services account, specify the key ARN or alias ARN in the value of the
-    /// <code>KeyId</code> parameter.
+    /// <c>KeyId</c> parameter.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateDataKey</a>
     /// (key policy)
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>Decrypt</a></para></li><li><para><a>Encrypt</a></para></li><li><para><a>GenerateDataKeyPair</a></para></li><li><para><a>GenerateDataKeyPairWithoutPlaintext</a></para></li><li><para><a>GenerateDataKeyWithoutPlaintext</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
@@ -139,8 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.
-        /// </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
+        /// <para>Checks if your request will succeed. <c>DryRun</c> is an optional parameter. </para><para>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
         /// your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -184,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>The encryption algorithm that KMS should use with the public key for an Amazon Web
         /// Services Nitro Enclave to encrypt plaintext values for the response. The only valid
-        /// value is <code>RSAES_OAEP_SHA_256</code>.</para>
+        /// value is <c>RSAES_OAEP_SHA_256</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,8 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>Specifies the symmetric encryption KMS key that encrypts the data key. You cannot
         /// specify an asymmetric KMS key or a KMS key in a custom key store. To get the type
         /// and origin of your KMS key, use the <a>DescribeKey</a> operation.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
-        /// an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different
-        /// Amazon Web Services account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.
+        /// an alias name, prefix it with <c>"alias/"</c>. To specify a KMS key in a different
+        /// Amazon Web Services account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Alias name: <c>alias/ExampleAlias</c></para></li><li><para>Alias ARN: <c>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.
         /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>
         /// </para>
         /// </summary>
@@ -217,9 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeySpec
         /// <summary>
         /// <para>
-        /// <para>Specifies the length of the data key. Use <code>AES_128</code> to generate a 128-bit
-        /// symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</para><para>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code>
-        /// parameter (but not both) in every <code>GenerateDataKey</code> request.</para>
+        /// <para>Specifies the length of the data key. Use <c>AES_128</c> to generate a 128-bit symmetric
+        /// key, or <c>AES_256</c> to generate a 256-bit symmetric key.</para><para>You must specify either the <c>KeySpec</c> or the <c>NumberOfBytes</c> parameter (but
+        /// not both) in every <c>GenerateDataKey</c> request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,8 +231,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Specifies the length of the data key in bytes. For example, use the value 64 to generate
         /// a 512-bit data key (64 bytes is 512 bits). For 128-bit (16-byte) and 256-bit (32-byte)
-        /// data keys, use the <code>KeySpec</code> parameter.</para><para>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code>
-        /// parameter (but not both) in every <code>GenerateDataKey</code> request.</para>
+        /// data keys, use the <c>KeySpec</c> parameter.</para><para>You must specify either the <c>KeySpec</c> or the <c>NumberOfBytes</c> parameter (but
+        /// not both) in every <c>GenerateDataKey</c> request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

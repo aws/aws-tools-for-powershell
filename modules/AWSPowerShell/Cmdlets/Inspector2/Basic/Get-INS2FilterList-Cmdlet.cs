@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results the response can return. If your request would return
-        /// more than the maximum the response will return a <code>nextToken</code> value, use
-        /// this value when you call the action again to get the remaining results.</para>
+        /// more than the maximum the response will return a <c>nextToken</c> value, use this
+        /// value when you call the action again to get the remaining results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,10 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <para>
         /// <para>A token to use for paginating results that are returned in the response. Set the value
         /// of this parameter to null for the first request to a list action. If your response
-        /// returns more than the <code>maxResults</code> maximum value it will also return a
-        /// <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code>
-        /// value returned from the previous request to continue listing results after the first
-        /// page.</para>
+        /// returns more than the <c>maxResults</c> maximum value it will also return a <c>nextToken</c>
+        /// value. For subsequent calls, use the <c>nextToken</c> value returned from the previous
+        /// request to continue listing results after the first page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

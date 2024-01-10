@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the DB instance used to create the DB snapshots. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing <code>DBInstance</code>.</para></li></ul>
+        /// <para>The ID of the DB instance used to create the DB snapshots. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing <c>DBInstance</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The ID of a DB snapshot that contains the tenant databases to describe. This value
-        /// is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>If you specify this parameter, the value must match the ID of an existing DB snapshot.</para></li><li><para>If you specify an automatic snapshot, you must also specify <code>SnapshotType</code>.</para></li></ul>
+        /// is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>If you specify this parameter, the value must match the ID of an existing DB snapshot.</para></li><li><para>If you specify an automatic snapshot, you must also specify <c>SnapshotType</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,13 +85,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter that specifies one or more tenant databases to describe.</para><para>Supported filters:</para><ul><li><para><code>tenant-db-name</code> - Tenant database names. The results list only includes
-        /// information about the tenant databases that match these tenant DB names.</para></li><li><para><code>tenant-database-resource-id</code> - Tenant database resource identifiers.
-        /// The results list only includes information about the tenant databases contained within
-        /// the DB snapshots.</para></li><li><para><code>dbi-resource-id</code> - DB instance resource identifiers. The results list
-        /// only includes information about snapshots containing tenant databases contained within
-        /// the DB instances identified by these resource identifiers.</para></li><li><para><code>db-instance-id</code> - Accepts DB instance identifiers and DB instance Amazon
-        /// Resource Names (ARNs).</para></li><li><para><code>db-snapshot-id</code> - Accepts DB snapshot identifiers.</para></li><li><para><code>snapshot-type</code> - Accepts types of DB snapshots.</para></li></ul>
+        /// <para>A filter that specifies one or more tenant databases to describe.</para><para>Supported filters:</para><ul><li><para><c>tenant-db-name</c> - Tenant database names. The results list only includes information
+        /// about the tenant databases that match these tenant DB names.</para></li><li><para><c>tenant-database-resource-id</c> - Tenant database resource identifiers. The results
+        /// list only includes information about the tenant databases contained within the DB
+        /// snapshots.</para></li><li><para><c>dbi-resource-id</c> - DB instance resource identifiers. The results list only
+        /// includes information about snapshots containing tenant databases contained within
+        /// the DB instances identified by these resource identifiers.</para></li><li><para><c>db-instance-id</c> - Accepts DB instance identifiers and DB instance Amazon Resource
+        /// Names (ARNs).</para></li><li><para><c>db-snapshot-id</c> - Accepts DB snapshot identifiers.</para></li><li><para><c>snapshot-type</c> - Accepts types of DB snapshots.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,11 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SnapshotType
         /// <summary>
         /// <para>
-        /// <para>The type of DB snapshots to be returned. You can specify one of the following values:</para><ul><li><para><code>automated</code> – All DB snapshots that have been automatically taken by Amazon
-        /// RDS for my Amazon Web Services account.</para></li><li><para><code>manual</code> – All DB snapshots that have been taken by my Amazon Web Services
-        /// account.</para></li><li><para><code>shared</code> – All manual DB snapshots that have been shared to my Amazon
-        /// Web Services account.</para></li><li><para><code>public</code> – All DB snapshots that have been marked as public.</para></li><li><para><code>awsbackup</code> – All DB snapshots managed by the Amazon Web Services Backup
-        /// service.</para></li></ul>
+        /// <para>The type of DB snapshots to be returned. You can specify one of the following values:</para><ul><li><para><c>automated</c> – All DB snapshots that have been automatically taken by Amazon
+        /// RDS for my Amazon Web Services account.</para></li><li><para><c>manual</c> – All DB snapshots that have been taken by my Amazon Web Services account.</para></li><li><para><c>shared</c> – All manual DB snapshots that have been shared to my Amazon Web Services
+        /// account.</para></li><li><para><c>public</c> – All DB snapshots that have been marked as public.</para></li><li><para><c>awsbackup</c> – All DB snapshots managed by the Amazon Web Services Backup service.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,9 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>An optional pagination token provided by a previous <code>DescribeDBSnapshotTenantDatabases</code>
+        /// <para>An optional pagination token provided by a previous <c>DescribeDBSnapshotTenantDatabases</c>
         /// request. If this parameter is specified, the response includes only records beyond
-        /// the marker, up to the value specified by <code>MaxRecords</code>.</para>
+        /// the marker, up to the value specified by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -134,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
-        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that you can retrieve the remaining results.</para>
+        /// the specified <c>MaxRecords</c> value, a pagination token called a marker is included
+        /// in the response so that you can retrieve the remaining results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

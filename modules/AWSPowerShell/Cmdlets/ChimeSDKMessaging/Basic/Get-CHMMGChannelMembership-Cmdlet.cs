@@ -31,9 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// Returns the full details of a user's channel membership.
     /// 
     ///  <note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
-    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
-    /// as the value in the header.
+    /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the ARN of the <c>AppInstanceUser</c>
+    /// or <c>AppInstanceBot</c> that makes the API call as the value in the header.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CHMMGChannelMembership")]
@@ -70,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        /// the API call.</para>
+        /// <para>The ARN of the <c>AppInstanceUser</c> or <c>AppInstanceBot</c> that makes the API
+        /// call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter MemberArn
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the member.</para>
+        /// <para>The <c>AppInstanceUserArn</c> of the member.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter SubChannelId
         /// <summary>
         /// <para>
-        /// <para>The ID of the SubChannel in the request. The response contains an <code>ElasticChannelConfiguration</code>
+        /// <para>The ID of the SubChannel in the request. The response contains an <c>ElasticChannelConfiguration</c>
         /// object.</para><note><para>Only required to get a user’s SubChannel membership details.</para></note>
         /// </para>
         /// </summary>

@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
     /// Enables the integration of an Amazon Web Services service (the service that is specified
-    /// by <code>ServicePrincipal</code>) with Organizations. When you enable integration,
-    /// you allow the specified service to create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked
+    /// by <c>ServicePrincipal</c>) with Organizations. When you enable integration, you allow
+    /// the specified service to create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked
     /// role</a> in all the accounts in your organization. This allows the service to perform
     /// operations on your behalf in your organization and its accounts.
     /// 
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>
         /// <para>The service principal name of the Amazon Web Services service for which you want to
         /// enable integration with your organization. This is typically in the form of a URL,
-        /// such as <code><i>service-abbreviation</i>.amazonaws.com</code>.</para>
+        /// such as <c><i>service-abbreviation</i>.amazonaws.com</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

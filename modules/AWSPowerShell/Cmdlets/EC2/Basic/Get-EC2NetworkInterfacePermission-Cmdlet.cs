@@ -45,11 +45,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>network-interface-permission.network-interface-permission-id</code> - The ID
-        /// of the permission.</para></li><li><para><code>network-interface-permission.network-interface-id</code> - The ID of the network
-        /// interface.</para></li><li><para><code>network-interface-permission.aws-account-id</code> - The Amazon Web Services
-        /// account ID.</para></li><li><para><code>network-interface-permission.aws-service</code> - The Amazon Web Service.</para></li><li><para><code>network-interface-permission.permission</code> - The type of permission (<code>INSTANCE-ATTACH</code>
-        /// | <code>EIP-ASSOCIATE</code>).</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><c>network-interface-permission.network-interface-permission-id</c> - The ID of the
+        /// permission.</para></li><li><para><c>network-interface-permission.network-interface-id</c> - The ID of the network
+        /// interface.</para></li><li><para><c>network-interface-permission.aws-account-id</c> - The Amazon Web Services account
+        /// ID.</para></li><li><para><c>network-interface-permission.aws-service</c> - The Amazon Web Service.</para></li><li><para><c>network-interface-permission.permission</c> - The type of permission (<c>INSTANCE-ATTACH</c>
+        /// | <c>EIP-ASSOCIATE</c>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

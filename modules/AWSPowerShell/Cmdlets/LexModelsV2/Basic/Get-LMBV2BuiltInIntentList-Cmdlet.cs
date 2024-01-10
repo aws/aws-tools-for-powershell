@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     ///  
     /// <para>
     /// To use a built-in intent as a the base for your own intent, include the built-in intent
-    /// signature in the <code>parentIntentSignature</code> parameter when you call the <code>CreateIntent</code>
+    /// signature in the <c>parentIntentSignature</c> parameter when you call the <c>CreateIntent</c>
     /// operation. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateIntent.html">CreateIntent</a>.
     /// </para>
     /// </summary>
@@ -105,10 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the response from the <code>ListBuiltInIntents</code> operation contains more results
-        /// than specified in the <code>maxResults</code> parameter, a token is returned in the
-        /// response. Use that token in the <code>nextToken</code> parameter to return the next
-        /// page of results.</para>
+        /// <para>If the response from the <c>ListBuiltInIntents</c> operation contains more results
+        /// than specified in the <c>maxResults</c> parameter, a token is returned in the response.
+        /// Use that token in the <c>nextToken</c> parameter to return the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

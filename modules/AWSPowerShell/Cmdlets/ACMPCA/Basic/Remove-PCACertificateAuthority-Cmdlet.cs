@@ -38,21 +38,21 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// </para></note><para>
     /// Before you can delete a CA that you have created and activated, you must disable it.
     /// To do this, call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html">UpdateCertificateAuthority</a>
-    /// action and set the <b>CertificateAuthorityStatus</b> parameter to <code>DISABLED</code>.
+    /// action and set the <b>CertificateAuthorityStatus</b> parameter to <c>DISABLED</c>.
     /// 
     /// </para><para>
     /// Additionally, you can delete a CA if you are waiting for it to be created (that is,
-    /// the status of the CA is <code>CREATING</code>). You can also delete it if the CA has
-    /// been created but you haven't yet imported the signed certificate into Amazon Web Services
-    /// Private CA (that is, the status of the CA is <code>PENDING_CERTIFICATE</code>). 
+    /// the status of the CA is <c>CREATING</c>). You can also delete it if the CA has been
+    /// created but you haven't yet imported the signed certificate into Amazon Web Services
+    /// Private CA (that is, the status of the CA is <c>PENDING_CERTIFICATE</c>). 
     /// </para><para>
     /// When you successfully call <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeleteCertificateAuthority.html">DeleteCertificateAuthority</a>,
-    /// the CA's status changes to <code>DELETED</code>. However, the CA won't be permanently
-    /// deleted until the restoration period has passed. By default, if you do not set the
-    /// <code>PermanentDeletionTimeInDays</code> parameter, the CA remains restorable for
-    /// 30 days. You can set the parameter from 7 to 30 days. The <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DescribeCertificateAuthority.html">DescribeCertificateAuthority</a>
+    /// the CA's status changes to <c>DELETED</c>. However, the CA won't be permanently deleted
+    /// until the restoration period has passed. By default, if you do not set the <c>PermanentDeletionTimeInDays</c>
+    /// parameter, the CA remains restorable for 30 days. You can set the parameter from 7
+    /// to 30 days. The <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DescribeCertificateAuthority.html">DescribeCertificateAuthority</a>
     /// action returns the time remaining in the restoration window of a private CA in the
-    /// <code>DELETED</code> state. To restore an eligible CA, call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_RestoreCertificateAuthority.html">RestoreCertificateAuthority</a>
+    /// <c>DELETED</c> state. To restore an eligible CA, call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_RestoreCertificateAuthority.html">RestoreCertificateAuthority</a>
     /// action.
     /// </para>
     /// </summary>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>.
-        /// This must have the following form: </para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code>. </para>
+        /// This must have the following form: </para><para><c>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

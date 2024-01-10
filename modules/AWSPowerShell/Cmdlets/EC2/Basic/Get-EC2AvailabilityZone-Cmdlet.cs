@@ -67,19 +67,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>group-name</code> - For Availability Zones, use the Region name. For Local
-        /// Zones, use the name of the group associated with the Local Zone (for example, <code>us-west-2-lax-1</code>)
+        /// <para>The filters.</para><ul><li><para><c>group-name</c> - For Availability Zones, use the Region name. For Local Zones,
+        /// use the name of the group associated with the Local Zone (for example, <c>us-west-2-lax-1</c>)
         /// For Wavelength Zones, use the name of the group associated with the Wavelength Zone
-        /// (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</para></li><li><para><code>message</code> - The Zone message.</para></li><li><para><code>opt-in-status</code> - The opt-in status (<code>opted-in</code> | <code>not-opted-in</code>
-        /// | <code>opt-in-not-required</code>).</para></li><li><para><code>parent-zoneID</code> - The ID of the zone that handles some of the Local Zone
-        /// and Wavelength Zone control plane operations, such as API calls.</para></li><li><para><code>parent-zoneName</code> - The ID of the zone that handles some of the Local
-        /// Zone and Wavelength Zone control plane operations, such as API calls.</para></li><li><para><code>region-name</code> - The name of the Region for the Zone (for example, <code>us-east-1</code>).</para></li><li><para><code>state</code> - The state of the Availability Zone, the Local Zone, or the Wavelength
-        /// Zone (<code>available</code>).</para></li><li><para><code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>),
-        /// the Local Zone (for example, <code>usw2-lax1-az1</code>), or the Wavelength Zone (for
-        /// example, <code>us-east-1-wl1-bos-wlz-1</code>).</para></li><li><para><code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>),
-        /// the Local Zone (for example, <code>us-west-2-lax-1a</code>), or the Wavelength Zone
-        /// (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</para></li><li><para><code>zone-type</code> - The type of zone (<code>availability-zone</code> | <code>local-zone</code>
-        /// | <code>wavelength-zone</code>).</para></li></ul>
+        /// (for example, <c>us-east-1-wl1-bos-wlz-1</c>).</para></li><li><para><c>message</c> - The Zone message.</para></li><li><para><c>opt-in-status</c> - The opt-in status (<c>opted-in</c> | <c>not-opted-in</c> |
+        /// <c>opt-in-not-required</c>).</para></li><li><para><c>parent-zoneID</c> - The ID of the zone that handles some of the Local Zone and
+        /// Wavelength Zone control plane operations, such as API calls.</para></li><li><para><c>parent-zoneName</c> - The ID of the zone that handles some of the Local Zone and
+        /// Wavelength Zone control plane operations, such as API calls.</para></li><li><para><c>region-name</c> - The name of the Region for the Zone (for example, <c>us-east-1</c>).</para></li><li><para><c>state</c> - The state of the Availability Zone, the Local Zone, or the Wavelength
+        /// Zone (<c>available</c>).</para></li><li><para><c>zone-id</c> - The ID of the Availability Zone (for example, <c>use1-az1</c>),
+        /// the Local Zone (for example, <c>usw2-lax1-az1</c>), or the Wavelength Zone (for example,
+        /// <c>us-east-1-wl1-bos-wlz-1</c>).</para></li><li><para><c>zone-name</c> - The name of the Availability Zone (for example, <c>us-east-1a</c>),
+        /// the Local Zone (for example, <c>us-west-2-lax-1a</c>), or the Wavelength Zone (for
+        /// example, <c>us-east-1-wl1-bos-wlz-1</c>).</para></li><li><para><c>zone-type</c> - The type of zone (<c>availability-zone</c> | <c>local-zone</c>
+        /// | <c>wavelength-zone</c>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

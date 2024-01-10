@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Protocol
         /// <summary>
         /// <para>
-        /// <para>The protocols used to send notifications, such as <code>Email</code>, or <code>SMS</code>
-        /// (text messaging).</para><para>Specify a protocol in your request to return information about a specific contact
+        /// <para>The protocols used to send notifications, such as <c>Email</c>, or <c>SMS</c> (text
+        /// messaging).</para><para>Specify a protocol in your request to return information about a specific contact
         /// method protocol.</para>
         /// </para>
         /// </summary>

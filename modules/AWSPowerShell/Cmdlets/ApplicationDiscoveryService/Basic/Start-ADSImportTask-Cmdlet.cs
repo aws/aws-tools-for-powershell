@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// Upload your import file to an Amazon S3 bucket, and make a note of it's Object URL.
     /// Your import file must be in the CSV format.
     /// </para></li><li><para>
-    /// Use the console or the <code>StartImportTask</code> command with the Amazon Web Services
+    /// Use the console or the <c>StartImportTask</c> command with the Amazon Web Services
     /// CLI or one of the Amazon Web Services SDKs to import the records from your file.
     /// </para></li></ol><para>
     /// For more information, including step-by-step procedures, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-import.html">Migration
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para>Optional. A unique token that you can provide to prevent the same import request from
-        /// occurring more than once. If you don't provide a token, a token is automatically generated.</para><para>Sending more than one <code>StartImportTask</code> request with the same client request
+        /// occurring more than once. If you don't provide a token, a token is automatically generated.</para><para>Sending more than one <c>StartImportTask</c> request with the same client request
         /// token will return information about the original import task with that client request
         /// token.</para>
         /// </para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter ImportUrl
         /// <summary>
         /// <para>
-        /// <para>The URL for your import file that you've uploaded to Amazon S3.</para><note><para>If you're using the Amazon Web Services CLI, this URL is structured as follows: <code>s3://BucketName/ImportFileName.CSV</code></para></note>
+        /// <para>The URL for your import file that you've uploaded to Amazon S3.</para><note><para>If you're using the Amazon Web Services CLI, this URL is structured as follows: <c>s3://BucketName/ImportFileName.CSV</c></para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

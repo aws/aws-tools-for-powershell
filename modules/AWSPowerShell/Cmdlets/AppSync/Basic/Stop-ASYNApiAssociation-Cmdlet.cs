@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Removes an <code>ApiAssociation</code> object from a custom domain.
+    /// Removes an <c>ApiAssociation</c> object from a custom domain.
     /// </summary>
     [Cmdlet("Stop", "ASYNApiAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

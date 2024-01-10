@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The current version (<code>ETag</code> value) of the continuous deployment policy
-        /// that you are deleting.</para>
+        /// <para>The current version (<c>ETag</c> value) of the continuous deployment policy that you
+        /// are deleting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

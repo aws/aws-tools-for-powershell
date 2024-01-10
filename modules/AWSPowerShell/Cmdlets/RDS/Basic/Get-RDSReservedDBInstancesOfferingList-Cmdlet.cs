@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Duration filter value, specified in years or seconds. Specify this parameter to show
-        /// only reservations for this duration.</para><para>Valid Values: <code>1 | 3 | 31536000 | 94608000</code></para>
+        /// only reservations for this duration.</para><para>Valid Values: <c>1 | 3 | 31536000 | 94608000</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The offering type filter value. Specify this parameter to show only the available
-        /// offerings matching the specified offering type.</para><para>Valid Values: <code>"Partial Upfront" | "All Upfront" | "No Upfront" </code></para>
+        /// offerings matching the specified offering type.</para><para>Valid Values: <c>"Partial Upfront" | "All Upfront" | "No Upfront" </c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The offering identifier filter value. Specify this parameter to show only the available
-        /// offering that matches the specified reservation identifier.</para><para>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code></para>
+        /// offering that matches the specified reservation identifier.</para><para>Example: <c>438012d3-4052-4cc7-b2e3-8d3372e0e706</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>An optional pagination token provided by a previous request. If this parameter is
         /// specified, the response includes only records beyond the marker, up to the value specified
-        /// by <code>MaxRecords</code>.</para>
+        /// by <c>MaxRecords</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of records to include in the response. If more than the <code>MaxRecords</code>
+        /// <para>The maximum number of records to include in the response. If more than the <c>MaxRecords</c>
         /// value is available, a pagination token called a marker is included in the response
         /// so you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>

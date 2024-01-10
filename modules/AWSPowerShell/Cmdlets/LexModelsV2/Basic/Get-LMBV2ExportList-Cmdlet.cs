@@ -90,8 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// <summary>
         /// <para>
         /// <para>Specifies the resources that should be exported. If you don't specify a resource type
-        /// in the <code>filters</code> parameter, both bot locales and custom vocabularies are
-        /// exported.</para>
+        /// in the <c>filters</c> parameter, both bot locales and custom vocabularies are exported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,12 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the response from the <code>ListExports</code> operation contains more results
-        /// that specified in the <code>maxResults</code> parameter, a token is returned in the
-        /// response. </para><para>Use the returned token in the <code>nextToken</code> parameter of a <code>ListExports</code>
-        /// request to return the next page of results. For a complete set of results, call the
-        /// <code>ListExports</code> operation until the <code>nextToken</code> returned in the
-        /// response is null.</para>
+        /// <para>If the response from the <c>ListExports</c> operation contains more results that specified
+        /// in the <c>maxResults</c> parameter, a token is returned in the response. </para><para>Use the returned token in the <c>nextToken</c> parameter of a <c>ListExports</c> request
+        /// to return the next page of results. For a complete set of results, call the <c>ListExports</c>
+        /// operation until the <c>nextToken</c> returned in the response is null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

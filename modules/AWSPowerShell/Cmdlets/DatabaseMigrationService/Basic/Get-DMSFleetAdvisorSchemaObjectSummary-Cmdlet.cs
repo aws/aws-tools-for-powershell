@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> If you specify any of the following filters, the output includes information for
-        /// only those schema objects that meet the filter criteria:</para><ul><li><para><code>schema-id</code> – The ID of the schema, for example <code>d4610ac5-e323-4ad9-bc50-eaf7249dfe9d</code>.</para></li></ul><para>Example: <code>describe-fleet-advisor-schema-object-summary --filter Name="schema-id",Values="50"</code></para>
+        /// only those schema objects that meet the filter criteria:</para><ul><li><para><c>schema-id</c> – The ID of the schema, for example <c>d4610ac5-e323-4ad9-bc50-eaf7249dfe9d</c>.</para></li></ul><para>Example: <c>describe-fleet-advisor-schema-object-summary --filter Name="schema-id",Values="50"</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,10 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If <code>NextToken</code> is returned by a previous response, there are more results
-        /// available. The value of <code>NextToken</code> is a unique pagination token for each
-        /// page. Make the call again using the returned token to retrieve the next page. Keep
-        /// all other arguments unchanged. </para>
+        /// <para>If <c>NextToken</c> is returned by a previous response, there are more results available.
+        /// The value of <c>NextToken</c> is a unique pagination token for each page. Make the
+        /// call again using the returned token to retrieve the next page. Keep all other arguments
+        /// unchanged. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

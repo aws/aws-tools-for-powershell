@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ColumnLevelPermissionRule
         /// <summary>
         /// <para>
-        /// <para>A set of one or more definitions of a <code><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a></code>.</para>
+        /// <para>A set of one or more definitions of a <c><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a></c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,10 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The user or group rules associated with the dataset that contains permissions for
-        /// RLS.</para><para>By default, <code>FormatVersion</code> is <code>VERSION_1</code>. When <code>FormatVersion</code>
-        /// is <code>VERSION_1</code>, <code>UserName</code> and <code>GroupName</code> are required.
-        /// When <code>FormatVersion</code> is <code>VERSION_2</code>, <code>UserARN</code> and
-        /// <code>GroupARN</code> are required, and <code>Namespace</code> must not exist.</para>
+        /// RLS.</para><para>By default, <c>FormatVersion</c> is <c>VERSION_1</c>. When <c>FormatVersion</c> is
+        /// <c>VERSION_1</c>, <c>UserName</c> and <c>GroupName</c> are required. When <c>FormatVersion</c>
+        /// is <c>VERSION_2</c>, <c>UserARN</c> and <c>GroupARN</c> are required, and <c>Namespace</c>
+        /// must not exist.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter RowLevelPermissionDataSet_PermissionPolicy
         /// <summary>
         /// <para>
-        /// <para>The type of permissions to use when interpreting the permissions for RLS. <code>DENY_ACCESS</code>
+        /// <para>The type of permissions to use when interpreting the permissions for RLS. <c>DENY_ACCESS</c>
         /// is included for backward compatibility only.</para>
         /// </para>
         /// </summary>
@@ -280,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The status of the row-level security permission dataset. If enabled, the status is
-        /// <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</para>
+        /// <c>ENABLED</c>. If disabled, the status is <c>DISABLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -291,8 +291,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter RowLevelPermissionTagConfiguration_Status
         /// <summary>
         /// <para>
-        /// <para>The status of row-level security tags. If enabled, the status is <code>ENABLED</code>.
-        /// If disabled, the status is <code>DISABLED</code>.</para>
+        /// <para>The status of row-level security tags. If enabled, the status is <c>ENABLED</c>. If
+        /// disabled, the status is <c>DISABLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -46,11 +46,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// as circumstances change.
     /// </para><para>
     /// To apply your access control configuration to certain documents, you call the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a>
-    /// API with the <code>AccessControlConfigurationId</code> included in the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>
-    /// object. If you use an S3 bucket as a data source, you update the <code>.metadata.json</code>
-    /// with the <code>AccessControlConfigurationId</code> and synchronize your data source.
-    /// Amazon Kendra currently only supports access control configuration for S3 data sources
-    /// and documents indexed using the <code>BatchPutDocument</code> API.
+    /// API with the <c>AccessControlConfigurationId</c> included in the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>
+    /// object. If you use an S3 bucket as a data source, you update the <c>.metadata.json</c>
+    /// with the <c>AccessControlConfigurationId</c> and synchronize your data source. Amazon
+    /// Kendra currently only supports access control configuration for S3 data sources and
+    /// documents indexed using the <c>BatchPutDocument</c> API.
     /// </para>
     /// </summary>
     [Cmdlet("New", "KNDRAccessControlConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -136,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>A token that you provide to identify the request to create an access control configuration.
-        /// Multiple calls to the <code>CreateAccessControlConfiguration</code> API with the same
-        /// client token will create only one access control configuration.</para>
+        /// Multiple calls to the <c>CreateAccessControlConfiguration</c> API with the same client
+        /// token will create only one access control configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

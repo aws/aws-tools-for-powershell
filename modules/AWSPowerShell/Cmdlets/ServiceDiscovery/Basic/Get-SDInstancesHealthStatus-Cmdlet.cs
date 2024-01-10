@@ -28,7 +28,7 @@ using Amazon.ServiceDiscovery.Model;
 namespace Amazon.PowerShell.Cmdlets.SD
 {
     /// <summary>
-    /// Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or <code>Unknown</code>)
+    /// Gets the current health status (<c>Healthy</c>, <c>Unhealthy</c>, or <c>Unknown</c>)
     /// of one or more instances that are associated with a specified service.
     /// 
     ///  <note><para>
@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>An array that contains the IDs of all the instances that you want to get the health
-        /// status for.</para><para>If you omit <code>Instances</code>, Cloud Map returns the health status for all the
-        /// instances that are associated with the specified service.</para><note><para>To get the IDs for the instances that you've registered by using a specified service,
+        /// status for.</para><para>If you omit <c>Instances</c>, Cloud Map returns the health status for all the instances
+        /// that are associated with the specified service.</para><note><para>To get the IDs for the instances that you've registered by using a specified service,
         /// submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html">ListInstances</a>
         /// request.</para></note>
         /// </para>
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>The maximum number of instances that you want Cloud Map to return in the response
-        /// to a <code>GetInstancesHealthStatus</code> request. If you don't specify a value for
-        /// <code>MaxResults</code>, Cloud Map returns up to 100 instances.</para>
+        /// to a <c>GetInstancesHealthStatus</c> request. If you don't specify a value for <c>MaxResults</c>,
+        /// Cloud Map returns up to 100 instances.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -101,10 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>For the first <code>GetInstancesHealthStatus</code> request, omit this value.</para><para>If more than <code>MaxResults</code> instances match the specified criteria, you can
-        /// submit another <code>GetInstancesHealthStatus</code> request to get the next group
-        /// of results. Specify the value of <code>NextToken</code> from the previous response
-        /// in the next request.</para>
+        /// <para>For the first <c>GetInstancesHealthStatus</c> request, omit this value.</para><para>If more than <c>MaxResults</c> instances match the specified criteria, you can submit
+        /// another <c>GetInstancesHealthStatus</c> request to get the next group of results.
+        /// Specify the value of <c>NextToken</c> from the previous response in the next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon
         /// S3 bucket that contains your input files (in this case, your custom vocabulary filter).
         /// If the role that you specify doesn’t have the appropriate permissions to access the
-        /// specified Amazon S3 location, your request fails.</para><para>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>.
-        /// For example: <code>arn:aws:iam::111122223333:role/Admin</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
+        /// specified Amazon S3 location, your request fails.</para><para>IAM role ARNs have the format <c>arn:partition:iam::account:role/role-name-with-path</c>.
+        /// For example: <c>arn:aws:iam::111122223333:role/Admin</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
         /// ARNs</a>.</para>
         /// </para>
         /// </summary>
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>The Amazon S3 location of the text file that contains your custom vocabulary filter
         /// terms. The URI must be located in the same Amazon Web Services Region as the resource
-        /// you're calling.</para><para>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-filter-file.txt</code></para><para>Note that if you include <code>VocabularyFilterFileUri</code> in your request, you
-        /// cannot use <code>Words</code>; you must choose one or the other.</para>
+        /// you're calling.</para><para>Here's an example URI path: <c>s3://DOC-EXAMPLE-BUCKET/my-vocab-filter-file.txt</c></para><para>Note that if you include <c>VocabularyFilterFileUri</c> in your request, you cannot
+        /// use <c>Words</c>; you must choose one or the other.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>Use this parameter if you want to update your custom vocabulary filter by including
         /// all desired terms, as comma-separated values, within your request. The other option
         /// for updating your vocabulary filter is to save your entries in a text file and upload
-        /// them to an Amazon S3 bucket, then specify the location of your file using the <code>VocabularyFilterFileUri</code>
-        /// parameter.</para><para>Note that if you include <code>Words</code> in your request, you cannot use <code>VocabularyFilterFileUri</code>;
+        /// them to an Amazon S3 bucket, then specify the location of your file using the <c>VocabularyFilterFileUri</c>
+        /// parameter.</para><para>Note that if you include <c>Words</c> in your request, you cannot use <c>VocabularyFilterFileUri</c>;
         /// you must choose one or the other.</para><para>Each language has a character set that contains all allowed characters for that specific
         /// language. If you use unsupported characters, your custom vocabulary filter request
         /// fails. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character

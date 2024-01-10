@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Indicates that major version upgrades are allowed. Changing this parameter does not
-        /// result in an outage, and the change is asynchronously applied as soon as possible.</para><para>This parameter must be set to <code>true</code> when specifying a value for the <code>EngineVersion</code>
+        /// result in an outage, and the change is asynchronously applied as soon as possible.</para><para>This parameter must be set to <c>true</c> when specifying a value for the <c>EngineVersion</c>
         /// parameter that is a different major version than the replication instance's current
         /// version.</para>
         /// </para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>A value that indicates that minor version upgrades are applied automatically to the
         /// replication instance during the maintenance window. Changing this parameter doesn't
         /// result in an outage, except in the case described following. The change is asynchronously
-        /// applied as soon as possible. </para><para>An outage does result if these factors apply: </para><ul><li><para>This parameter is set to <code>true</code> during the maintenance window.</para></li><li><para>A newer minor version is available. </para></li><li><para>DMS has enabled automatic patching for the given engine version. </para></li></ul>
+        /// applied as soon as possible. </para><para>An outage does result if these factors apply: </para><ul><li><para>This parameter is set to <c>true</c> during the maintenance window.</para></li><li><para>A newer minor version is available. </para></li><li><para>DMS has enabled automatic patching for the given engine version. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The engine version number of the replication instance.</para><para>When modifying a major engine version of an instance, also set <code>AllowMajorVersionUpgrade</code>
-        /// to <code>true</code>.</para>
+        /// <para>The engine version number of the replication instance.</para><para>When modifying a major engine version of an instance, also set <c>AllowMajorVersionUpgrade</c>
+        /// to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> Specifies whether the replication instance is a Multi-AZ deployment. You can't set
-        /// the <code>AvailabilityZone</code> parameter if the Multi-AZ parameter is set to <code>true</code>.
+        /// the <c>AvailabilityZone</c> parameter if the Multi-AZ parameter is set to <c>true</c>.
         /// </para>
         /// </para>
         /// </summary>
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>The compute and memory capacity of the replication instance as defined for the specified
         /// replication instance class. For example to specify the instance class dms.c4.large,
-        /// set this parameter to <code>"dms.c4.large"</code>.</para><para>For more information on the settings and capacities for the available replication
+        /// set this parameter to <c>"dms.c4.large"</c>.</para><para>For more information on the settings and capacities for the available replication
         /// instance classes, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth">
         /// Selecting the right DMS replication instance for your migration</a>. </para>
         /// </para>

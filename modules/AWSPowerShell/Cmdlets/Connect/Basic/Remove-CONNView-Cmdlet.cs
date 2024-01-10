@@ -64,8 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ViewId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can
-        /// be used.</para>
+        /// <para>The identifier of the view. Both <c>ViewArn</c> and <c>ViewId</c> can be used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

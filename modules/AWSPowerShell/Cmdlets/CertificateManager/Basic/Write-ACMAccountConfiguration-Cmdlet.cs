@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// 
     ///  
     /// <para>
-    /// The supported configuration option is <code>DaysBeforeExpiry</code>. This option specifies
-    /// the number of days prior to certificate expiration when ACM starts generating <code>EventBridge</code>
+    /// The supported configuration option is <c>DaysBeforeExpiry</c>. This option specifies
+    /// the number of days prior to certificate expiration when ACM starts generating <c>EventBridge</c>
     /// events. ACM sends one event per day per certificate until the certificate expires.
     /// By default, accounts receive events starting 45 days before certificate expiration.
     /// </para>
@@ -54,9 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <summary>
         /// <para>
         /// <para>Specifies the number of days prior to certificate expiration when ACM starts generating
-        /// <code>EventBridge</code> events. ACM sends one event per day per certificate until
-        /// the certificate expires. By default, accounts receive events starting 45 days before
-        /// certificate expiration.</para>
+        /// <c>EventBridge</c> events. ACM sends one event per day per certificate until the certificate
+        /// expires. By default, accounts receive events starting 45 days before certificate expiration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para>Customer-chosen string used to distinguish between calls to <code>PutAccountConfiguration</code>.
-        /// Idempotency tokens time out after one hour. If you call <code>PutAccountConfiguration</code>
+        /// <para>Customer-chosen string used to distinguish between calls to <c>PutAccountConfiguration</c>.
+        /// Idempotency tokens time out after one hour. If you call <c>PutAccountConfiguration</c>
         /// multiple times with the same unexpired idempotency token, ACM treats it as the same
         /// request and returns the original result. If you change the idempotency token for each
         /// call, ACM treats each call as a new request.</para>

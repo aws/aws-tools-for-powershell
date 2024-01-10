@@ -94,14 +94,13 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>A key-value map specifying required or optional response parameters that API Gateway
         /// can send back to the caller. A key defines a method response header name and the associated
         /// value is a Boolean flag indicating whether the method response parameter is required
-        /// or not. The method response header names must match the pattern of <code>method.response.header.{name}</code>,
-        /// where <code>name</code> is a valid and unique header name. The response parameter
-        /// names defined here are available in the integration response to be mapped from an
-        /// integration response header expressed in <code>integration.response.header.{name}</code>,
-        /// a static value enclosed within a pair of single quotes (e.g., <code>'application/json'</code>),
-        /// or a JSON expression from the back-end response payload in the form of <code>integration.response.body.{JSON-expression}</code>,
-        /// where <code>JSON-expression</code> is a valid JSON expression without the <code>$</code>
-        /// prefix.)</para>
+        /// or not. The method response header names must match the pattern of <c>method.response.header.{name}</c>,
+        /// where <c>name</c> is a valid and unique header name. The response parameter names
+        /// defined here are available in the integration response to be mapped from an integration
+        /// response header expressed in <c>integration.response.header.{name}</c>, a static value
+        /// enclosed within a pair of single quotes (e.g., <c>'application/json'</c>), or a JSON
+        /// expression from the back-end response payload in the form of <c>integration.response.body.{JSON-expression}</c>,
+        /// where <c>JSON-expression</c> is a valid JSON expression without the <c>$</c> prefix.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

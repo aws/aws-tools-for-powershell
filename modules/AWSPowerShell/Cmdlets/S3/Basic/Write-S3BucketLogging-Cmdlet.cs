@@ -36,40 +36,40 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Web Services Region as the source bucket. To set the logging status of a bucket, you
     /// must be the bucket owner.
     /// </para><para>
-    /// The bucket owner is automatically granted FULL_CONTROL to all logs. You use the <code>Grantee</code>
-    /// request element to grant access to other people. The <code>Permissions</code> request
-    /// element specifies the kind of access the grantee has to the logs.
+    /// The bucket owner is automatically granted FULL_CONTROL to all logs. You use the <c>Grantee</c>
+    /// request element to grant access to other people. The <c>Permissions</c> request element
+    /// specifies the kind of access the grantee has to the logs.
     /// </para><important><para>
     /// If the target bucket for log delivery uses the bucket owner enforced setting for S3
-    /// Object Ownership, you can't use the <code>Grantee</code> request element to grant
-    /// access to others. Permissions can only be granted using policies. For more information,
-    /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions
+    /// Object Ownership, you can't use the <c>Grantee</c> request element to grant access
+    /// to others. Permissions can only be granted using policies. For more information, see
+    /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions
     /// for server access log delivery</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></important><dl><dt>Grantee Values</dt><dd><para>
     /// You can specify the person (grantee) to whom you're assigning access rights (by using
     /// request elements) in the following ways:
     /// </para><ul><li><para>
     /// By the person's ID:
-    /// </para><para><code>&lt;Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser"&gt;&lt;ID&gt;&lt;&gt;ID&lt;&gt;&lt;/ID&gt;&lt;DisplayName&gt;&lt;&gt;GranteesEmail&lt;&gt;&lt;/DisplayName&gt;
-    /// &lt;/Grantee&gt;</code></para><para><code>DisplayName</code> is optional and ignored in the request.
+    /// </para><para><c>&lt;Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser"&gt;&lt;ID&gt;&lt;&gt;ID&lt;&gt;&lt;/ID&gt;&lt;DisplayName&gt;&lt;&gt;GranteesEmail&lt;&gt;&lt;/DisplayName&gt;
+    /// &lt;/Grantee&gt;</c></para><para><c>DisplayName</c> is optional and ignored in the request.
     /// </para></li><li><para>
     /// By Email address:
-    /// </para><para><code> &lt;Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AmazonCustomerByEmail"&gt;&lt;EmailAddress&gt;&lt;&gt;Grantees@email.com&lt;&gt;&lt;/EmailAddress&gt;&lt;/Grantee&gt;</code></para><para>
-    /// The grantee is resolved to the <code>CanonicalUser</code> and, in a response to a
-    /// <code>GETObjectAcl</code> request, appears as the CanonicalUser.
+    /// </para><para><c> &lt;Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AmazonCustomerByEmail"&gt;&lt;EmailAddress&gt;&lt;&gt;Grantees@email.com&lt;&gt;&lt;/EmailAddress&gt;&lt;/Grantee&gt;</c></para><para>
+    /// The grantee is resolved to the <c>CanonicalUser</c> and, in a response to a <c>GETObjectAcl</c>
+    /// request, appears as the CanonicalUser.
     /// </para></li><li><para>
     /// By URI:
-    /// </para><para><code>&lt;Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group"&gt;&lt;URI&gt;&lt;&gt;http://acs.amazonaws.com/groups/global/AuthenticatedUsers&lt;&gt;&lt;/URI&gt;&lt;/Grantee&gt;</code></para></li></ul></dd></dl><para>
-    /// To enable logging, you use <code>LoggingEnabled</code> and its children request elements.
-    /// To disable logging, you use an empty <code>BucketLoggingStatus</code> request element:
-    /// </para><para><code>&lt;BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01" /&gt;</code></para><para>
+    /// </para><para><c>&lt;Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group"&gt;&lt;URI&gt;&lt;&gt;http://acs.amazonaws.com/groups/global/AuthenticatedUsers&lt;&gt;&lt;/URI&gt;&lt;/Grantee&gt;</c></para></li></ul></dd></dl><para>
+    /// To enable logging, you use <c>LoggingEnabled</c> and its children request elements.
+    /// To disable logging, you use an empty <c>BucketLoggingStatus</c> request element:
+    /// </para><para><c>&lt;BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01" /&gt;</c></para><para>
     /// For more information about server access logging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html">Server
     /// Access Logging</a> in the <i>Amazon S3 User Guide</i>. 
     /// </para><para>
     /// For more information about creating a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>.
     /// For more information about returning the logging status of a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html">GetBucketLogging</a>.
     /// </para><para>
-    /// The following operations are related to <code>PutBucketLogging</code>:
+    /// The following operations are related to <c>PutBucketLogging</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html">GetBucketLogging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketLogging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

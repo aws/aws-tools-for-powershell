@@ -28,8 +28,8 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Returns information on all imports, or a select set of imports by <code>ImportStatus</code>
-    /// or <code>Destination</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information on all imports, or a select set of imports by <c>ImportStatus</c>
+    /// or <c>Destination</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CTImportList")]
     [OutputType("Amazon.CloudTrail.Model.ImportsListItem")]

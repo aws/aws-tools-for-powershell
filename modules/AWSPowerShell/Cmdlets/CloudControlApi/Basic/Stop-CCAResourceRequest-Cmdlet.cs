@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CCA
     /// 
     ///  
     /// <para>
-    /// Only resource operations requests with a status of <code>PENDING</code> or <code>IN_PROGRESS</code>
+    /// Only resource operations requests with a status of <c>PENDING</c> or <c>IN_PROGRESS</c>
     /// can be canceled.
     /// </para>
     /// </summary>
@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.CCA
         #region Parameter RequestToken
         /// <summary>
         /// <para>
-        /// <para>The <code>RequestToken</code> of the <code>ProgressEvent</code> object returned by
-        /// the resource operation request.</para>
+        /// <para>The <c>RequestToken</c> of the <c>ProgressEvent</c> object returned by the resource
+        /// operation request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

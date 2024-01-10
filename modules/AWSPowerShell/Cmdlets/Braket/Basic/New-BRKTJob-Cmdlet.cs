@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         /// <summary>
         /// <para>
         /// <para>(Optional) The local directory where checkpoints are written. The default directory
-        /// is <code>/opt/braket/checkpoints/</code>.</para>
+        /// is <c>/opt/braket/checkpoints/</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         /// <summary>
         /// <para>
         /// <para>Identifies the S3 path where you want Amazon Braket to store the job training artifacts.
-        /// For example, <code>s3://bucket-name/key-name-prefix</code>.</para>
+        /// For example, <c>s3://bucket-name/key-name-prefix</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         /// <summary>
         /// <para>
         /// <para>Identifies the S3 path where you want Amazon Braket to store checkpoints. For example,
-        /// <code>s3://bucket-name/key-name-prefix</code>.</para>
+        /// <c>s3://bucket-name/key-name-prefix</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

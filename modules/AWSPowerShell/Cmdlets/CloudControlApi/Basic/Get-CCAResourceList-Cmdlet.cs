@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CCA
         /// <para>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role for
         /// Cloud Control API to use when performing this resource operation. The role specified
         /// must have the permissions required for this operation. The necessary permissions for
-        /// each event handler are defined in the <code><a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers">handlers</a></code> section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource
+        /// each event handler are defined in the <c><a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers">handlers</a></c> section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource
         /// type definition schema</a>.</para><para>If you do not specify a role, Cloud Control API uses a temporary session created using
         /// your Amazon Web Services user credentials.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying
         /// credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</para>
@@ -122,10 +122,10 @@ namespace Amazon.PowerShell.Cmdlets.CCA
         /// <summary>
         /// <para>
         /// <para>If the previous paginated request didn't return all of the remaining results, the
-        /// response object's <code>NextToken</code> parameter value is set to a token. To retrieve
+        /// response object's <c>NextToken</c> parameter value is set to a token. To retrieve
         /// the next set of results, call this action again and assign that token to the request
-        /// object's <code>NextToken</code> parameter. If there are no remaining results, the
-        /// previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</para>
+        /// object's <c>NextToken</c> parameter. If there are no remaining results, the previous
+        /// response object's <c>NextToken</c> parameter is set to <c>null</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

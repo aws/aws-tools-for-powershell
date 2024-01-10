@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         #region Parameter HsmType
         /// <summary>
         /// <para>
-        /// <para>The type of HSM to use in the cluster. Currently the only allowed value is <code>hsm1.medium</code>.</para>
+        /// <para>The type of HSM to use in the cluster. Currently the only allowed value is <c>hsm1.medium</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         #region Parameter BackupRetentionPolicy_Type
         /// <summary>
         /// <para>
-        /// <para>The type of backup retention policy. For the <code>DAYS</code> type, the value is
-        /// the number of days to retain backups.</para>
+        /// <para>The type of backup retention policy. For the <c>DAYS</c> type, the value is the number
+        /// of days to retain backups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

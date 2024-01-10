@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     /// 
     ///  
     /// <para>
-    /// To specify which VPCs you want to log queries for, you use <code>AssociateResolverQueryLogConfig</code>.
+    /// To specify which VPCs you want to log queries for, you use <c>AssociateResolverQueryLogConfig</c>.
     /// For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverQueryLogConfig.html">AssociateResolverQueryLogConfig</a>.
     /// 
     /// </para><para>
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and that allows failed requests to be
-        /// retried without the risk of running the operation twice. <code>CreatorRequestId</code>
-        /// can be any unique string, for example, a date/time stamp. </para>
+        /// retried without the risk of running the operation twice. <c>CreatorRequestId</c> can
+        /// be any unique string, for example, a date/time stamp. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>
         /// <para>The ARN of the resource that you want Resolver to send query logs. You can send query
         /// logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery
-        /// stream. Examples of valid values include the following:</para><ul><li><para><b>S3 bucket</b>: </para><para><code>arn:aws:s3:::examplebucket</code></para><para>You can optionally append a file prefix to the end of the ARN.</para><para><code>arn:aws:s3:::examplebucket/development/</code></para></li><li><para><b>CloudWatch Logs log group</b>: </para><para><code>arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*</code></para></li><li><para><b>Kinesis Data Firehose delivery stream</b>:</para><para><code>arn:aws:kinesis:us-east-2:0123456789:stream/my_stream_name</code></para></li></ul>
+        /// stream. Examples of valid values include the following:</para><ul><li><para><b>S3 bucket</b>: </para><para><c>arn:aws:s3:::examplebucket</c></para><para>You can optionally append a file prefix to the end of the ARN.</para><para><c>arn:aws:s3:::examplebucket/development/</c></para></li><li><para><b>CloudWatch Logs log group</b>: </para><para><c>arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*</c></para></li><li><para><b>Kinesis Data Firehose delivery stream</b>:</para><para><c>arn:aws:kinesis:us-east-2:0123456789:stream/my_stream_name</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

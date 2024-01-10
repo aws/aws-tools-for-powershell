@@ -28,8 +28,8 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Sets the schedule state of the specified crawler to <code>NOT_SCHEDULED</code>, but
-    /// does not stop the crawler if it is already running.
+    /// Sets the schedule state of the specified crawler to <c>NOT_SCHEDULED</c>, but does
+    /// not stop the crawler if it is already running.
     /// </summary>
     [Cmdlet("Stop", "GLUECrawlerSchedule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

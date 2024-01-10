@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>The ARNs of the insights to describe. If you do not provide any insight ARNs, then
-        /// <code>GetInsights</code> returns all of your custom insights. It does not return any
-        /// managed insights.</para>
+        /// <c>GetInsights</c> returns all of your custom insights. It does not return any managed
+        /// insights.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token that is required for pagination. On your first call to the <code>GetInsights</code>
-        /// operation, set the value of this parameter to <code>NULL</code>.</para><para>For subsequent calls to the operation, to continue listing data, set the value of
+        /// <para>The token that is required for pagination. On your first call to the <c>GetInsights</c>
+        /// operation, set the value of this parameter to <c>NULL</c>.</para><para>For subsequent calls to the operation, to continue listing data, set the value of
         /// this parameter to the value returned from the previous response.</para>
         /// </para>
         /// <para>

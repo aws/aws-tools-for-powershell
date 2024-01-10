@@ -47,10 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>Specifies whether the modifications in this request and any pending modifications
-        /// are asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code>
-        /// setting for the instance. </para><para> If this parameter is set to <code>false</code>, changes to the instance are applied
-        /// during the next maintenance window. Some parameter changes can cause an outage and
-        /// are applied on the next reboot.</para><para>Default: <code>false</code></para>
+        /// are asynchronously applied as soon as possible, regardless of the <c>PreferredMaintenanceWindow</c>
+        /// setting for the instance. </para><para> If this parameter is set to <c>false</c>, changes to the instance are applied during
+        /// the next maintenance window. Some parameter changes can cause an outage and are applied
+        /// on the next reboot.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,10 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para>The new compute and memory capacity of the instance; for example, <code>db.r5.large</code>.
+        /// <para>The new compute and memory capacity of the instance; for example, <c>db.r5.large</c>.
         /// Not all instance classes are available in all Amazon Web Services Regions. </para><para>If you modify the instance class, an outage occurs during the change. The change is
-        /// applied during the next maintenance window, unless <code>ApplyImmediately</code> is
-        /// specified as <code>true</code> for this request. </para><para>Default: Uses existing setting.</para>
+        /// applied during the next maintenance window, unless <c>ApplyImmediately</c> is specified
+        /// as <c>true</c> for this request. </para><para>Default: Uses existing setting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The instance identifier. This value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <code>DBInstance</code>.</para></li></ul>
+        /// <para>The instance identifier. This value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <c>DBInstance</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -149,10 +149,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para> The new instance identifier for the instance when renaming an instance. When you
-        /// change the instance identifier, an instance reboot occurs immediately if you set <code>Apply
-        /// Immediately</code> to <code>true</code>. It occurs during the next maintenance window
-        /// if you set <code>Apply Immediately</code> to <code>false</code>. This value is stored
-        /// as a lowercase string. </para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
+        /// change the instance identifier, an instance reboot occurs immediately if you set <c>Apply
+        /// Immediately</c> to <c>true</c>. It occurs during the next maintenance window if you
+        /// set <c>Apply Immediately</c> to <c>false</c>. This value is stored as a lowercase
+        /// string. </para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <c>mydbinstance</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// to include the current time, changing this parameter causes a reboot of the instance.
         /// If you are moving this window to the current time, there must be at least 30 minutes
         /// between the current time and end of the window to ensure that pending changes are
-        /// applied.</para><para>Default: Uses existing setting.</para><para>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Must be at least 30 minutes.</para>
+        /// applied.</para><para>Default: Uses existing setting.</para><para>Format: <c>ddd:hh24:mi-ddd:hh24:mi</c></para><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Must be at least 30 minutes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

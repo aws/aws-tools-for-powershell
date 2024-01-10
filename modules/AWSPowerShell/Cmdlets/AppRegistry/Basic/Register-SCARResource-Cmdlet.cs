@@ -33,13 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     /// 
     ///  
     /// <para><b>Minimum permissions</b></para><para>
-    ///  You must have the following permissions to associate a resource using the <code>OPTIONS</code>
-    /// parameter set to <code>APPLY_APPLICATION_TAG</code>. 
-    /// </para><ul><li><para><code>tag:GetResources</code></para></li><li><para><code>tag:TagResources</code></para></li></ul><para>
-    ///  You must also have these additional permissions if you don't use the <code>AWSServiceCatalogAppRegistryFullAccess</code>
+    ///  You must have the following permissions to associate a resource using the <c>OPTIONS</c>
+    /// parameter set to <c>APPLY_APPLICATION_TAG</c>. 
+    /// </para><ul><li><para><c>tag:GetResources</c></para></li><li><para><c>tag:TagResources</c></para></li></ul><para>
+    ///  You must also have these additional permissions if you don't use the <c>AWSServiceCatalogAppRegistryFullAccess</c>
     /// policy. For more information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/arguide/full.html">AWSServiceCatalogAppRegistryFullAccess</a>
     /// in the AppRegistry Administrator Guide. 
-    /// </para><ul><li><para><code>resource-groups:AssociateResource</code></para></li><li><para><code>cloudformation:UpdateStack</code></para></li><li><para><code>cloudformation:DescribeStacks</code></para></li></ul><note><para>
+    /// </para><ul><li><para><c>resource-groups:AssociateResource</c></para></li><li><para><c>cloudformation:UpdateStack</c></para></li><li><para><c>cloudformation:DescribeStacks</c></para></li></ul><note><para>
     ///  In addition, you must have the tagging permission defined by the Amazon Web Services
     /// service that creates the resource. For more information, see <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_TagResources.html">TagResources</a>
     /// in the <i>Resource Groups Tagging API Reference</i>. 

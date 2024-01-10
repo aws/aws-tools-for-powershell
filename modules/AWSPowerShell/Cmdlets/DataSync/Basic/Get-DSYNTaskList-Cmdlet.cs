@@ -45,10 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>You can use API filters to narrow down the list of resources returned by <code>ListTasks</code>.
-        /// For example, to retrieve all tasks on a specific source location, you can use <code>ListTasks</code>
-        /// with filter name <code>LocationId</code> and <code>Operator Equals</code> with the
-        /// ARN for the location.</para>
+        /// <para>You can use API filters to narrow down the list of resources returned by <c>ListTasks</c>.
+        /// For example, to retrieve all tasks on a specific source location, you can use <c>ListTasks</c>
+        /// with filter name <c>LocationId</c> and <c>Operator Equals</c> with the ARN for the
+        /// location.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AddressFamily
         /// <summary>
         /// <para>
-        /// <para>The IP address type.</para><para>Valid Values: <code>IPv4</code> | <code>IPv6</code></para>
+        /// <para>The IP address type.</para><para>Valid Values: <c>IPv4</c> | <c>IPv6</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PrefixListName
         /// <summary>
         /// <para>
-        /// <para>A name for the prefix list.</para><para>Constraints: Up to 255 characters in length. The name cannot start with <code>com.amazonaws</code>.</para>
+        /// <para>A name for the prefix list.</para><para>Constraints: Up to 255 characters in length. The name cannot start with <c>com.amazonaws</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

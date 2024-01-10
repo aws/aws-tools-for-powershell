@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <para>
         /// <para>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier
         /// that represents the log group to which CloudTrail logs will be delivered. You must
-        /// use a log group that exists in your account.</para><para>Not required unless you specify <code>CloudWatchLogsRoleArn</code>.</para><note><para>Only the management account can configure a CloudWatch Logs log group for an organization
+        /// use a log group that exists in your account.</para><para>Not required unless you specify <c>CloudWatchLogsRoleArn</c>.</para><note><para>Only the management account can configure a CloudWatch Logs log group for an organization
         /// trail. </para></note>
         /// </para>
         /// </summary>
@@ -123,10 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value
-        /// can be an alias name prefixed by <code>alias/</code>, a fully specified ARN to an
-        /// alias, a fully specified ARN to a key, or a globally unique identifier.</para><para>CloudTrail also supports KMS multi-Region keys. For more information about multi-Region
+        /// can be an alias name prefixed by <c>alias/</c>, a fully specified ARN to an alias,
+        /// a fully specified ARN to a key, or a globally unique identifier.</para><para>CloudTrail also supports KMS multi-Region keys. For more information about multi-Region
         /// keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Using
-        /// multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</para><para>Examples:</para><ul><li><para><code>alias/MyAliasName</code></para></li><li><para><code>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</code></para></li><li><para><code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code></para></li><li><para><code>12345678-1234-1234-1234-123456789012</code></para></li></ul>
+        /// multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</para><para>Examples:</para><ul><li><para><c>alias/MyAliasName</c></para></li><li><para><c>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</c></para></li><li><para><c>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</c></para></li><li><para><c>12345678-1234-1234-1234-123456789012</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies the name of the trail. The name must meet the following requirements:</para><ul><li><para>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_),
-        /// or dashes (-)</para></li><li><para>Start with a letter or number, and end with a letter or number</para></li><li><para>Be between 3 and 128 characters</para></li><li><para>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code>
-        /// and <code>my--namespace</code> are not valid.</para></li><li><para>Not be in IP address format (for example, 192.168.5.4)</para></li></ul>
+        /// or dashes (-)</para></li><li><para>Start with a letter or number, and end with a letter or number</para></li><li><para>Be between 3 and 128 characters</para></li><li><para>Have no adjacent periods, underscores or dashes. Names like <c>my-_namespace</c> and
+        /// <c>my--namespace</c> are not valid.</para></li><li><para>Not be in IP address format (for example, 192.168.5.4)</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

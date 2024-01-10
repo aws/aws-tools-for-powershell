@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         /// that dates and times for practice runs are in UTC. Separate multiple blocked dates
         /// with spaces.</para><para>For example, if you have an application update scheduled to launch on May 1, 2024,
         /// and you don't want practice runs to shift traffic away at that time, you could set
-        /// a blocked date for <code>2024-05-01</code>.</para>
+        /// a blocked date for <c>2024-05-01</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         /// time adjustments that might be required for daylight saving time differences. Separate
         /// multiple blocked windows with spaces.</para><para>For example, say you run business report summaries three days a week. For this scenario,
         /// you might set the following recurring days and times as blocked windows, for example:
-        /// <code>MON-20:30-21:30 WED-20:30-21:30 FRI-20:30-21:30</code>.</para>
+        /// <c>MON-20:30-21:30 WED-20:30-21:30 FRI-20:30-21:30</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,8 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         /// <para>
         /// <para>An Amazon CloudWatch alarm that you can specify for zonal autoshift practice runs.
         /// This alarm blocks Route 53 ARC from starting practice run zonal shifts, and ends a
-        /// practice run that's in progress, when the alarm is in an <code>ALARM</code> state.
-        /// </para>
+        /// practice run that's in progress, when the alarm is in an <c>ALARM</c> state. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,10 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         /// <summary>
         /// <para>
         /// <para>The <i>outcome alarm</i> for practice runs is a required Amazon CloudWatch alarm that
-        /// you specify that ends a practice run when the alarm is in an <code>ALARM</code> state.</para><para>Configure the alarm to monitor the health of your application when traffic is shifted
+        /// you specify that ends a practice run when the alarm is in an <c>ALARM</c> state.</para><para>Configure the alarm to monitor the health of your application when traffic is shifted
         /// away from an Availability Zone during each weekly practice run. You should configure
-        /// the alarm to go into an <code>ALARM</code> state if your application is impacted by
-        /// the zonal shift, and you want to stop the zonal shift, to let traffic for the resource
+        /// the alarm to go into an <c>ALARM</c> state if your application is impacted by the
+        /// zonal shift, and you want to stop the zonal shift, to let traffic for the resource
         /// return to the Availability Zone.</para>
         /// </para>
         /// </summary>

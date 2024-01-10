@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// include sensitive information in request parameters because it might be logged. For
     /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
     /// Secrets Manager events with CloudTrail</a>.
-    /// </para><para><b>Required permissions: </b><code>secretsmanager:ListSecrets</code>. For more information,
+    /// </para><para><b>Required permissions: </b><c>secretsmanager:ListSecrets</c>. For more information,
     /// see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
     /// and access control in Secrets Manager</a>. 
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>Secrets are listed by <code>CreatedDate</code>. </para>
+        /// <para>Secrets are listed by <c>CreatedDate</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The number of results to include in the response.</para><para>If there are more results available, in the response, Secrets Manager includes <code>NextToken</code>.
-        /// To get the next results, call <code>ListSecrets</code> again with the value from <code>NextToken</code>.</para>
+        /// <para>The number of results to include in the response.</para><para>If there are more results available, in the response, Secrets Manager includes <c>NextToken</c>.
+        /// To get the next results, call <c>ListSecrets</c> again with the value from <c>NextToken</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -120,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>A token that indicates where the output should continue from, if a previous call did
-        /// not show all results. To get the next results, call <code>ListSecrets</code> again
-        /// with this value.</para>
+        /// not show all results. To get the next results, call <c>ListSecrets</c> again with
+        /// this value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

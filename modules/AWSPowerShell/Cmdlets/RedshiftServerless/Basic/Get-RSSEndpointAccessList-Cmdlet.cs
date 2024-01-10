@@ -28,7 +28,7 @@ using Amazon.RedshiftServerless.Model;
 namespace Amazon.PowerShell.Cmdlets.RSS
 {
     /// <summary>
-    /// Returns an array of <code>EndpointAccess</code> objects and relevant information.
+    /// Returns an array of <c>EndpointAccess</c> objects and relevant information.
     /// </summary>
     [Cmdlet("Get", "RSSEndpointAccessList")]
     [OutputType("Amazon.RedshiftServerless.Model.EndpointAccess")]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>An optional parameter that specifies the maximum number of results to return. You
-        /// can use <code>nextToken</code> to display the next page of results.</para>
+        /// can use <c>nextToken</c> to display the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,9 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your initial <code>ListEndpointAccess</code> operation returns a <code>nextToken</code>,
-        /// you can include the returned <code>nextToken</code> in following <code>ListEndpointAccess</code>
-        /// operations, which returns results in the next page.</para>
+        /// <para>If your initial <c>ListEndpointAccess</c> operation returns a <c>nextToken</c>, you
+        /// can include the returned <c>nextToken</c> in following <c>ListEndpointAccess</c> operations,
+        /// which returns results in the next page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

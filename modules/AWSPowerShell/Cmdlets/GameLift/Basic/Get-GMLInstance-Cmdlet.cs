@@ -48,9 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li></ul><para>
     /// Use the pagination parameters to retrieve results as a set of sequential pages. 
     /// </para><para>
-    /// If successful, this operation returns <code>Instance</code> objects for each requested
-    /// instance, listed in no particular order. If you call this operation for an Anywhere
-    /// fleet, you receive an InvalidRequestException.
+    /// If successful, this operation returns <c>Instance</c> objects for each requested instance,
+    /// listed in no particular order. If you call this operation for an Anywhere fleet, you
+    /// receive an InvalidRequestException.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely
     /// connect to fleet instances</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug
     /// fleet issues</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The name of a location to retrieve instance information for, in the form of an Amazon
-        /// Web Services Region code such as <code>us-west-2</code>. </para>
+        /// Web Services Region code such as <c>us-west-2</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
+        /// <para>The maximum number of results to return. Use this parameter with <c>NextToken</c>
         /// to get results as a set of sequential pages.</para>
         /// </para>
         /// <para>

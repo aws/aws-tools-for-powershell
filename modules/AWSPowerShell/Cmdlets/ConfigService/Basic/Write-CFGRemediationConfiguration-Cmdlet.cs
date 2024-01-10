@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Adds or updates the remediation configuration with a specific Config rule with the
-    /// selected target or action. The API creates the <code>RemediationConfiguration</code>
-    /// object for the Config rule. The Config rule must already exist for you to add a remediation
+    /// selected target or action. The API creates the <c>RemediationConfiguration</c> object
+    /// for the Config rule. The Config rule must already exist for you to add a remediation
     /// configuration. The target (SSM document) must exist and have permissions to use the
     /// target. 
     /// 
@@ -42,13 +42,13 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// Rules such as Organization Config rules, the rules deployed by conformance packs,
     /// and rules deployed by Amazon Web Services Security Hub.
     /// </para></note><note><para>
-    /// For manual remediation configuration, you need to provide a value for <code>automationAssumeRole</code>
-    /// or use a value in the <code>assumeRole</code>field to remediate your resources. The
-    /// SSM automation document can use either as long as it maps to a valid parameter.
+    /// For manual remediation configuration, you need to provide a value for <c>automationAssumeRole</c>
+    /// or use a value in the <c>assumeRole</c>field to remediate your resources. The SSM
+    /// automation document can use either as long as it maps to a valid parameter.
     /// </para><para>
-    /// However, for automatic remediation configuration, the only valid <code>assumeRole</code>
-    /// field value is <code>AutomationAssumeRole</code> and you need to provide a value for
-    /// <code>AutomationAssumeRole</code> to remediate your resources.
+    /// However, for automatic remediation configuration, the only valid <c>assumeRole</c>
+    /// field value is <c>AutomationAssumeRole</c> and you need to provide a value for <c>AutomationAssumeRole</c>
+    /// to remediate your resources.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGRemediationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

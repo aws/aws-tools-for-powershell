@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Creates a custom <code>DomainName</code> object.
+    /// Creates a custom <c>DomainName</c> object.
     /// </summary>
     [Cmdlet("New", "ASYNDomainName", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppSync.Model.DomainNameConfig")]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the <code>DomainName</code>.</para>
+        /// <para>A description of the <c>DomainName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

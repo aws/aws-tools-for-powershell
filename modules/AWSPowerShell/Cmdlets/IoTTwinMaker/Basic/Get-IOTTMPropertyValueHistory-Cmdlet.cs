@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     /// 
     ///  
     /// <para>
-    /// You must specify a value for <code>workspaceId</code>. For entity-specific queries,
-    /// specify values for <code>componentName</code> and <code>entityId</code>. For cross-entity
-    /// quries, specify a value for <code>componentTypeId</code>.
+    /// You must specify a value for <c>workspaceId</c>. For entity-specific queries, specify
+    /// values for <c>componentName</c> and <c>entityId</c>. For cross-entity quries, specify
+    /// a value for <c>componentTypeId</c>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTTMPropertyValueHistory")]

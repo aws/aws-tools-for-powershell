@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// actions on the container service registry.
     /// </para></note><para>
     /// After you push your container images to the container image registry of your Lightsail
-    /// account, use the <code>RegisterContainerImage</code> action to register the pushed
-    /// images to a specific Lightsail container service.
+    /// account, use the <c>RegisterContainerImage</c> action to register the pushed images
+    /// to a specific Lightsail container service.
     /// </para><note><para>
     /// This action is not required if you install and use the Lightsail Control (lightsailctl)
     /// plugin to push container images to your Lightsail container service. For more information,

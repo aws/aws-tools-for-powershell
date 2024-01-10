@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter SyncSource
         /// <summary>
         /// <para>
-        /// <para>The sync source.</para><note><para>Currently the only supported syncSoource is <code>SITEWISE </code>.</para></note>
+        /// <para>The sync source.</para><note><para>Currently the only supported syncSoource is <c>SITEWISE </c>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -30,10 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// <summary>
     /// Invokes a Lambda function. You can invoke a function synchronously (and wait for the
     /// response), or asynchronously. By default, Lambda invokes your function synchronously
-    /// (i.e. the<code>InvocationType</code> is <code>RequestResponse</code>). To invoke a
-    /// function asynchronously, set <code>InvocationType</code> to <code>Event</code>. Lambda
-    /// passes the <code>ClientContext</code> object to your function for synchronous invocations
-    /// only.
+    /// (i.e. the<c>InvocationType</c> is <c>RequestResponse</c>). To invoke a function asynchronously,
+    /// set <c>InvocationType</c> to <c>Event</c>. Lambda passes the <c>ClientContext</c>
+    /// object to your function for synchronous invocations only.
     /// 
     ///  
     /// <para>
@@ -61,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// reserved for errors that prevent your function from executing, such as permissions
     /// errors, <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">quota</a>
     /// errors, or issues with your function's code and configuration. For example, Lambda
-    /// returns <code>TooManyRequestsException</code> if running the function would cause
-    /// you to exceed a concurrency limit at either the account level (<code>ConcurrentInvocationLimitExceeded</code>)
-    /// or function level (<code>ReservedFunctionConcurrentInvocationLimitExceeded</code>).
+    /// returns <c>TooManyRequestsException</c> if running the function would cause you to
+    /// exceed a concurrency limit at either the account level (<c>ConcurrentInvocationLimitExceeded</c>)
+    /// or function level (<c>ReservedFunctionConcurrentInvocationLimitExceeded</c>).
     /// </para><para>
     /// For functions with a long timeout, your client might disconnect during synchronous
     /// invocation while it waits for a response. Configure your HTTP client, SDK, firewall,
@@ -124,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The name of the Lambda function, version, or alias.</para><para><b>Name formats</b></para><ul><li><para><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code>
-        /// (with alias).</para></li><li><para><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</para></li><li><para><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</para></li></ul><para>You can append a version number or alias to any of the formats. The length constraint
+        /// <para>The name of the Lambda function, version, or alias.</para><para><b>Name formats</b></para><ul><li><para><b>Function name</b> – <c>my-function</c> (name-only), <c>my-function:v1</c> (with
+        /// alias).</para></li><li><para><b>Function ARN</b> – <c>arn:aws:lambda:us-west-2:123456789012:function:my-function</c>.</para></li><li><para><b>Partial ARN</b> – <c>123456789012:function:my-function</c>.</para></li></ul><para>You can append a version number or alias to any of the formats. The length constraint
         /// applies only to the full ARN. If you specify only the function name, it is limited
         /// to 64 characters in length.</para>
         /// </para>
@@ -144,12 +143,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter InvocationType
         /// <summary>
         /// <para>
-        /// <para>Choose from the following options.</para><ul><li><para><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep
-        /// the connection open until the function returns a response or times out. The API response
-        /// includes the function response and additional data.</para></li><li><para><code>Event</code> – Invoke the function asynchronously. Send events that fail multiple
+        /// <para>Choose from the following options.</para><ul><li><para><c>RequestResponse</c> (default) – Invoke the function synchronously. Keep the connection
+        /// open until the function returns a response or times out. The API response includes
+        /// the function response and additional data.</para></li><li><para><c>Event</c> – Invoke the function asynchronously. Send events that fail multiple
         /// times to the function's dead-letter queue (if one is configured). The API response
-        /// only includes a status code.</para></li><li><para><code>DryRun</code> – Validate parameter values and verify that the user or role
-        /// has permission to invoke the function.</para></li></ul>
+        /// only includes a status code.</para></li><li><para><c>DryRun</c> – Validate parameter values and verify that the user or role has permission
+        /// to invoke the function.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
@@ -160,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter LogType
         /// <summary>
         /// <para>
-        /// <para>Set to <code>Tail</code> to include the execution log in the response. Applies to
-        /// synchronously invoked functions only.</para>
+        /// <para>Set to <c>Tail</c> to include the execution log in the response. Applies to synchronously
+        /// invoked functions only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
@@ -185,8 +184,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter PayloadStream
         /// <summary>
         /// <para>
-        /// <para>The JSON that you want to provide to your Lambda function as input.</para><para>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>.
-        /// You can also specify a file path. For example, <code>--payload file://payload.json</code>.</para>
+        /// <para>The JSON that you want to provide to your Lambda function as input.</para><para>You can enter the JSON directly. For example, <c>--payload '{ "key": "value" }'</c>.
+        /// You can also specify a file path. For example, <c>--payload file://payload.json</c>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LocalTarget
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to reset the local route to its default target (<code>local</code>).</para>
+        /// <para>Specifies whether to reset the local route to its default target (<c>local</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

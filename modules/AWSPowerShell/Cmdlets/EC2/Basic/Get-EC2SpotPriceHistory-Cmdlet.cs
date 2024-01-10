@@ -74,15 +74,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone for which prices should be
-        /// returned.</para></li><li><para><code>instance-type</code> - The type of instance (for example, <code>m3.medium</code>).</para></li><li><para><code>product-description</code> - The product description for the Spot price (<code>Linux/UNIX</code>
-        /// | <code>Red Hat Enterprise Linux</code> | <code>SUSE Linux</code> | <code>Windows</code>
-        /// | <code>Linux/UNIX (Amazon VPC)</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code>
-        /// | <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon VPC)</code>).</para></li><li><para><code>spot-price</code> - The Spot price. The value must match exactly (or use wildcards;
-        /// greater than or less than comparison is not supported).</para></li><li><para><code>timestamp</code> - The time stamp of the Spot price history, in UTC format
-        /// (for example, <i>ddd MMM dd HH</i>:<i>mm</i>:<i>ss</i> UTC <i>YYYY</i>). You can use
-        /// wildcards (<code>*</code> and <code>?</code>). Greater than or less than comparison
-        /// is not supported.</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><c>availability-zone</c> - The Availability Zone for which prices should be returned.</para></li><li><para><c>instance-type</c> - The type of instance (for example, <c>m3.medium</c>).</para></li><li><para><c>product-description</c> - The product description for the Spot price (<c>Linux/UNIX</c>
+        /// | <c>Red Hat Enterprise Linux</c> | <c>SUSE Linux</c> | <c>Windows</c> | <c>Linux/UNIX
+        /// (Amazon VPC)</c> | <c>Red Hat Enterprise Linux (Amazon VPC)</c> | <c>SUSE Linux (Amazon
+        /// VPC)</c> | <c>Windows (Amazon VPC)</c>).</para></li><li><para><c>spot-price</c> - The Spot price. The value must match exactly (or use wildcards;
+        /// greater than or less than comparison is not supported).</para></li><li><para><c>timestamp</c> - The time stamp of the Spot price history, in UTC format (for example,
+        /// <i>ddd MMM dd HH</i>:<i>mm</i>:<i>ss</i> UTC <i>YYYY</i>). You can use wildcards (<c>*</c>
+        /// and <c>?</c>). Greater than or less than comparison is not supported.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

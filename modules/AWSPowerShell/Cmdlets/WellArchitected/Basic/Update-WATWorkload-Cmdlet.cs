@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter DiscoveryConfig_WorkloadResourceDefinition
         /// <summary>
         /// <para>
-        /// <para>The mode to use for identifying resources associated with the workload.</para><para>You can specify <code>WORKLOAD_METADATA</code>, <code>APP_REGISTRY</code>, or both.</para>
+        /// <para>The mode to use for identifying resources associated with the workload.</para><para>You can specify <c>WORKLOAD_METADATA</c>, <c>APP_REGISTRY</c>, or both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

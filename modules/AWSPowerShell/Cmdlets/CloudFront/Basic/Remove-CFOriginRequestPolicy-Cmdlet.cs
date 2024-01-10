@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// behaviors, then delete the origin request policy.
     /// </para><para>
     /// To delete an origin request policy, you must provide the policy's identifier and version.
-    /// To get the identifier, you can use <code>ListOriginRequestPolicies</code> or <code>GetOriginRequestPolicy</code>.
+    /// To get the identifier, you can use <c>ListOriginRequestPolicies</c> or <c>GetOriginRequestPolicy</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CFOriginRequestPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The unique identifier for the origin request policy that you are deleting. To get
-        /// the identifier, you can use <code>ListOriginRequestPolicies</code>.</para>
+        /// the identifier, you can use <c>ListOriginRequestPolicies</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The version of the origin request policy that you are deleting. The version is the
-        /// origin request policy's <code>ETag</code> value, which you can get using <code>ListOriginRequestPolicies</code>,
-        /// <code>GetOriginRequestPolicy</code>, or <code>GetOriginRequestPolicyConfig</code>.</para>
+        /// origin request policy's <c>ETag</c> value, which you can get using <c>ListOriginRequestPolicies</c>,
+        /// <c>GetOriginRequestPolicy</c>, or <c>GetOriginRequestPolicyConfig</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

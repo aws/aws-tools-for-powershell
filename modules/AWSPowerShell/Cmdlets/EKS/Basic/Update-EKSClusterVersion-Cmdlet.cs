@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     ///  
     /// <para>
     /// Cluster updates are asynchronous, and they should finish within a few minutes. During
-    /// an update, the cluster status moves to <code>UPDATING</code> (this status transition
-    /// is eventually consistent). When the update is complete (either <code>Failed</code>
-    /// or <code>Successful</code>), the cluster status moves to <code>Active</code>.
+    /// an update, the cluster status moves to <c>UPDATING</c> (this status transition is
+    /// eventually consistent). When the update is complete (either <c>Failed</c> or <c>Successful</c>),
+    /// the cluster status moves to <c>Active</c>.
     /// </para><para>
     /// If your cluster has managed node groups attached to it, all of your node groups’ Kubernetes
     /// versions must match the cluster’s Kubernetes version in order to update the cluster

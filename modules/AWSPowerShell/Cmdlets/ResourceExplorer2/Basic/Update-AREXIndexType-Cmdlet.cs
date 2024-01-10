@@ -34,42 +34,40 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     /// on cross-Region search by creating an aggregator index</a> in the <i>Amazon Web Services
     /// Resource Explorer User Guide</i>.
     /// 
-    ///  <ul><li><para><b><code>AGGREGATOR</code> index type</b></para><para>
+    ///  <ul><li><para><b><c>AGGREGATOR</c> index type</b></para><para>
     /// The index contains information about resources from all Amazon Web Services Regions
     /// in the Amazon Web Services account in which you've created a Resource Explorer index.
     /// Resource information from all other Regions is replicated to this Region's index.
     /// </para><para>
-    /// When you change the index type to <code>AGGREGATOR</code>, Resource Explorer turns
-    /// on replication of all discovered resource information from the other Amazon Web Services
-    /// Regions in your account to this index. You can then, from this Region only, perform
-    /// resource search queries that span all Amazon Web Services Regions in the Amazon Web
-    /// Services account. Turning on replication from all other Regions is performed by asynchronous
+    /// When you change the index type to <c>AGGREGATOR</c>, Resource Explorer turns on replication
+    /// of all discovered resource information from the other Amazon Web Services Regions
+    /// in your account to this index. You can then, from this Region only, perform resource
+    /// search queries that span all Amazon Web Services Regions in the Amazon Web Services
+    /// account. Turning on replication from all other Regions is performed by asynchronous
     /// background tasks. You can check the status of the asynchronous tasks by using the
-    /// <a>GetIndex</a> operation. When the asynchronous tasks complete, the <code>Status</code>
-    /// response of that operation changes from <code>UPDATING</code> to <code>ACTIVE</code>.
-    /// After that, you can start to see results from other Amazon Web Services Regions in
-    /// query results. However, it can take several hours for replication from all other Regions
-    /// to complete.
+    /// <a>GetIndex</a> operation. When the asynchronous tasks complete, the <c>Status</c>
+    /// response of that operation changes from <c>UPDATING</c> to <c>ACTIVE</c>. After that,
+    /// you can start to see results from other Amazon Web Services Regions in query results.
+    /// However, it can take several hours for replication from all other Regions to complete.
     /// </para><important><para>
     /// You can have only one aggregator index per Amazon Web Services account. Before you
     /// can promote a different index to be the aggregator index for the account, you must
-    /// first demote the existing aggregator index to type <code>LOCAL</code>.
-    /// </para></important></li><li><para><b><code>LOCAL</code> index type</b></para><para>
+    /// first demote the existing aggregator index to type <c>LOCAL</c>.
+    /// </para></important></li><li><para><b><c>LOCAL</c> index type</b></para><para>
     /// The index contains information about resources in only the Amazon Web Services Region
     /// in which the index exists. If an aggregator index in another Region exists, then information
     /// in this local index is replicated to the aggregator index.
     /// </para><para>
-    /// When you change the index type to <code>LOCAL</code>, Resource Explorer turns off
-    /// the replication of resource information from all other Amazon Web Services Regions
-    /// in the Amazon Web Services account to this Region. The aggregator index remains in
-    /// the <code>UPDATING</code> state until all replication with other Regions successfully
-    /// stops. You can check the status of the asynchronous task by using the <a>GetIndex</a>
-    /// operation. When Resource Explorer successfully stops all replication with other Regions,
-    /// the <code>Status</code> response of that operation changes from <code>UPDATING</code>
-    /// to <code>ACTIVE</code>. Separately, the resource information from other Regions that
-    /// was previously stored in the index is deleted within 30 days by another background
-    /// task. Until that asynchronous task completes, some results from other Regions can
-    /// continue to appear in search results.
+    /// When you change the index type to <c>LOCAL</c>, Resource Explorer turns off the replication
+    /// of resource information from all other Amazon Web Services Regions in the Amazon Web
+    /// Services account to this Region. The aggregator index remains in the <c>UPDATING</c>
+    /// state until all replication with other Regions successfully stops. You can check the
+    /// status of the asynchronous task by using the <a>GetIndex</a> operation. When Resource
+    /// Explorer successfully stops all replication with other Regions, the <c>Status</c>
+    /// response of that operation changes from <c>UPDATING</c> to <c>ACTIVE</c>. Separately,
+    /// the resource information from other Regions that was previously stored in the index
+    /// is deleted within 30 days by another background task. Until that asynchronous task
+    /// completes, some results from other Regions can continue to appear in search results.
     /// </para><important><para>
     /// After you demote an aggregator index to a local index, you must wait 24 hours before
     /// you can promote another index to be the new aggregator index for the account.
@@ -107,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.AREX
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the index. To understand the difference between <code>LOCAL</code> and
-        /// <code>AGGREGATOR</code>, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">Turning
+        /// <para>The type of the index. To understand the difference between <c>LOCAL</c> and <c>AGGREGATOR</c>,
+        /// see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">Turning
         /// on cross-Region search</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</para>
         /// </para>
         /// </summary>

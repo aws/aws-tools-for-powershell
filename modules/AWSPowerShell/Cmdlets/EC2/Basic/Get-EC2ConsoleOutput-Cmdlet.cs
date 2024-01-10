@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Latest
         /// <summary>
         /// <para>
-        /// <para>When enabled, retrieves the latest console output for the instance.</para><para>Default: disabled (<code>false</code>)</para>
+        /// <para>When enabled, retrieves the latest console output for the instance.</para><para>Default: disabled (<c>false</c>)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

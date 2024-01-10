@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
     /// </para><para>
     /// If the studio does not have a valid IAM Identity Center configuration currently associated
     /// with it, then a new IAM Identity Center application is created for the studio and
-    /// the studio is changed to the <code>READY</code> state.
+    /// the studio is changed to the <c>READY</c> state.
     /// </para><para>
     /// After the IAM Identity Center application is repaired, you must use the Amazon Nimble
     /// Studio console to add administrators and users to your studio.

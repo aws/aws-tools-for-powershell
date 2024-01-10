@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter TermRelations_IsA
         /// <summary>
         /// <para>
-        /// <para>The <code>isA</code> property of the term relations.</para>
+        /// <para>The <c>isA</c> property of the term relations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

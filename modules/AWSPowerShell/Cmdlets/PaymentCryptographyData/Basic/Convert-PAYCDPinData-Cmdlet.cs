@@ -39,10 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// PIN block data leaving Amazon Web Services Payment Cryptography. The encryption key
     /// transformation can be from PEK (Pin Encryption Key) to BDK (Base Derivation Key) for
     /// DUKPT or from BDK for DUKPT to PEK. Amazon Web Services Payment Cryptography supports
-    /// <code>TDES</code> and <code>AES</code> key derivation type for DUKPT tranlations.
-    /// You can use this operation for P2PE (Point to Point Encryption) use cases where the
-    /// encryption keys should change but the processing system either does not need to, or
-    /// is not permitted to, decrypt the data.
+    /// <c>TDES</c> and <c>AES</c> key derivation type for DUKPT tranlations. You can use
+    /// this operation for P2PE (Point to Point Encryption) use cases where the encryption
+    /// keys should change but the processing system either does not need to, or is not permitted
+    /// to, decrypt the data.
     /// </para><para>
     /// The allowed combinations of PIN block format translations are guided by PCI. It is
     /// important to note that not all encrypted PIN block formats (example, format 1) require
@@ -79,8 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// <para>
         /// <para>The key type derived using DUKPT from a Base Derivation Key (BDK) and Key Serial Number
         /// (KSN). This must be less than or equal to the strength of the BDK. For example, you
-        /// can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code>
-        /// or <code>TDES_2KEY</code></para>
+        /// can't use <c>AES_128</c> as a derivation type for a BDK of <c>AES_128</c> or <c>TDES_2KEY</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,8 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// <para>
         /// <para>The key type derived using DUKPT from a Base Derivation Key (BDK) and Key Serial Number
         /// (KSN). This must be less than or equal to the strength of the BDK. For example, you
-        /// can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code>
-        /// or <code>TDES_2KEY</code></para>
+        /// can't use <c>AES_128</c> as a derivation type for a BDK of <c>AES_128</c> or <c>TDES_2KEY</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter IncomingKeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>keyARN</code> of the encryption key under which incoming PIN block data
-        /// is encrypted. This key type can be PEK or BDK.</para>
+        /// <para>The <c>keyARN</c> of the encryption key under which incoming PIN block data is encrypted.
+        /// This key type can be PEK or BDK.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -208,8 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter OutgoingKeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <code>keyARN</code> of the encryption key for encrypting outgoing PIN block data.
-        /// This key type can be PEK or BDK.</para>
+        /// <para>The <c>keyARN</c> of the encryption key for encrypting outgoing PIN block data. This
+        /// key type can be PEK or BDK.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

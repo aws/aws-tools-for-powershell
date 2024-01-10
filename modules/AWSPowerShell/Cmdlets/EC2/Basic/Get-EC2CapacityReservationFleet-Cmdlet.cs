@@ -56,11 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>state</code> - The state of the Fleet (<code>submitted</code> | <code>modifying</code>
-        /// | <code>active</code> | <code>partially_fulfilled</code> | <code>expiring</code> |
-        /// <code>expired</code> | <code>cancelling</code> | <code>cancelled</code> | <code>failed</code>).</para></li><li><para><code>instance-match-criteria</code> - The instance matching criteria for the Fleet.
-        /// Only <code>open</code> is supported.</para></li><li><para><code>tenancy</code> - The tenancy of the Fleet (<code>default</code> | <code>dedicated</code>).</para></li><li><para><code>allocation-strategy</code> - The allocation strategy used by the Fleet. Only
-        /// <code>prioritized</code> is supported.</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><c>state</c> - The state of the Fleet (<c>submitted</c> | <c>modifying</c> | <c>active</c>
+        /// | <c>partially_fulfilled</c> | <c>expiring</c> | <c>expired</c> | <c>cancelling</c>
+        /// | <c>cancelled</c> | <c>failed</c>).</para></li><li><para><c>instance-match-criteria</c> - The instance matching criteria for the Fleet. Only
+        /// <c>open</c> is supported.</para></li><li><para><c>tenancy</c> - The tenancy of the Fleet (<c>default</c> | <c>dedicated</c>).</para></li><li><para><c>allocation-strategy</c> - The allocation strategy used by the Fleet. Only <c>prioritized</c>
+        /// is supported.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return for the request in a single page. The remaining
-        /// results can be seen by sending another request with the returned <code>nextToken</code>
-        /// value. This value can be between 5 and 500. If <code>maxResults</code> is given a
-        /// larger value than 500, you receive an error.</para>
+        /// results can be seen by sending another request with the returned <c>nextToken</c>
+        /// value. This value can be between 5 and 500. If <c>maxResults</c> is given a larger
+        /// value than 500, you receive an error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

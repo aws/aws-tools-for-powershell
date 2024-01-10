@@ -48,20 +48,19 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </para><ol><li><para>
     /// You create an event selector for a trail and specify that you want write-only events.
     /// </para></li><li><para>
-    /// The EC2 <code>GetConsoleOutput</code> and <code>RunInstances</code> API operations
-    /// occur in your account.
+    /// The EC2 <c>GetConsoleOutput</c> and <c>RunInstances</c> API operations occur in your
+    /// account.
     /// </para></li><li><para>
     /// CloudTrail evaluates whether the events match your event selectors.
     /// </para></li><li><para>
-    /// The <code>RunInstances</code> is a write-only event and it matches your event selector.
+    /// The <c>RunInstances</c> is a write-only event and it matches your event selector.
     /// The trail logs the event.
     /// </para></li><li><para>
-    /// The <code>GetConsoleOutput</code> is a read-only event that doesn't match your event
-    /// selector. The trail doesn't log the event. 
+    /// The <c>GetConsoleOutput</c> is a read-only event that doesn't match your event selector.
+    /// The trail doesn't log the event. 
     /// </para></li></ol><para>
-    /// The <code>PutEventSelectors</code> operation must be called from the Region in which
-    /// the trail was created; otherwise, an <code>InvalidHomeRegionException</code> exception
-    /// is thrown.
+    /// The <c>PutEventSelectors</c> operation must be called from the Region in which the
+    /// trail was created; otherwise, an <c>InvalidHomeRegionException</c> exception is thrown.
     /// </para><para>
     /// You can configure up to five event selectors for each trail. For more information,
     /// see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging
@@ -71,10 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </para><para>
     /// You can add advanced event selectors, and conditions for your advanced event selectors,
     /// up to a maximum of 500 values for all conditions and selectors on a trail. You can
-    /// use either <code>AdvancedEventSelectors</code> or <code>EventSelectors</code>, but
-    /// not both. If you apply <code>AdvancedEventSelectors</code> to a trail, any existing
-    /// <code>EventSelectors</code> are overwritten. For more information about advanced event
-    /// selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
+    /// use either <c>AdvancedEventSelectors</c> or <c>EventSelectors</c>, but not both. If
+    /// you apply <c>AdvancedEventSelectors</c> to a trail, any existing <c>EventSelectors</c>
+    /// are overwritten. For more information about advanced event selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
     /// data events</a> in the <i>CloudTrail User Guide</i>.
     /// </para>
     /// </summary>
@@ -94,9 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <para>
         /// <para> Specifies the settings for advanced event selectors. You can add advanced event selectors,
         /// and conditions for your advanced event selectors, up to a maximum of 500 values for
-        /// all conditions and selectors on a trail. You can use either <code>AdvancedEventSelectors</code>
-        /// or <code>EventSelectors</code>, but not both. If you apply <code>AdvancedEventSelectors</code>
-        /// to a trail, any existing <code>EventSelectors</code> are overwritten. For more information
+        /// all conditions and selectors on a trail. You can use either <c>AdvancedEventSelectors</c>
+        /// or <c>EventSelectors</c>, but not both. If you apply <c>AdvancedEventSelectors</c>
+        /// to a trail, any existing <c>EventSelectors</c> are overwritten. For more information
         /// about advanced event selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
         /// data events</a> in the <i>CloudTrail User Guide</i>. </para>
         /// </para>
@@ -110,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies the settings for your event selectors. You can configure up to five event
-        /// selectors for a trail. You can use either <code>EventSelectors</code> or <code>AdvancedEventSelectors</code>
-        /// in a <code>PutEventSelectors</code> request, but not both. If you apply <code>EventSelectors</code>
-        /// to a trail, any existing <code>AdvancedEventSelectors</code> are overwritten.</para>
+        /// selectors for a trail. You can use either <c>EventSelectors</c> or <c>AdvancedEventSelectors</c>
+        /// in a <c>PutEventSelectors</c> request, but not both. If you apply <c>EventSelectors</c>
+        /// to a trail, any existing <c>AdvancedEventSelectors</c> are overwritten.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <para>
         /// <para>Specifies the name of the trail or trail ARN. If you specify a trail name, the string
         /// must meet the following requirements:</para><ul><li><para>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_),
-        /// or dashes (-)</para></li><li><para>Start with a letter or number, and end with a letter or number</para></li><li><para>Be between 3 and 128 characters</para></li><li><para>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code>
-        /// and <code>my--namespace</code> are not valid.</para></li><li><para>Not be in IP address format (for example, 192.168.5.4)</para></li></ul><para>If you specify a trail ARN, it must be in the following format.</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
+        /// or dashes (-)</para></li><li><para>Start with a letter or number, and end with a letter or number</para></li><li><para>Be between 3 and 128 characters</para></li><li><para>Have no adjacent periods, underscores or dashes. Names like <c>my-_namespace</c> and
+        /// <c>my--namespace</c> are not valid.</para></li><li><para>Not be in IP address format (for example, 192.168.5.4)</para></li></ul><para>If you specify a trail ARN, it must be in the following format.</para><para><c>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

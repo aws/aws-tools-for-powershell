@@ -34,14 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     /// 
     ///  
     /// <para>
-    /// This consists of <code>RestoreTestingSelectionName</code>, <code>ProtectedResourceType</code>,
+    /// This consists of <c>RestoreTestingSelectionName</c>, <c>ProtectedResourceType</c>,
     /// and one of the following:
-    /// </para><ul><li><para><code>ProtectedResourceArns</code></para></li><li><para><code>ProtectedResourceConditions</code></para></li></ul><para>
+    /// </para><ul><li><para><c>ProtectedResourceArns</c></para></li><li><para><c>ProtectedResourceConditions</c></para></li></ul><para>
     /// Each protected resource type can have one single value.
     /// </para><para>
-    /// A restore testing selection can include a wildcard value ("*") for <code>ProtectedResourceArns</code>
-    /// along with <code>ProtectedResourceConditions</code>. Alternatively, you can include
-    /// up to 30 specific protected resource ARNs in <code>ProtectedResourceArns</code>.
+    /// A restore testing selection can include a wildcard value ("*") for <c>ProtectedResourceArns</c>
+    /// along with <c>ProtectedResourceConditions</c>. Alternatively, you can include up to
+    /// 30 specific protected resource ARNs in <c>ProtectedResourceArns</c>.
     /// </para><para>
     /// Cannot select by both protected resource types AND specific ARNs. Request will fail
     /// if both are included.
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that Backup uses to create the target
-        /// resource; for example: <code>arn:aws:iam::123456789012:role/S3Access</code>. </para>
+        /// resource; for example: <c>arn:aws:iam::123456789012:role/S3Access</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,9 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter RestoreTestingSelection_ProtectedResourceArn
         /// <summary>
         /// <para>
-        /// <para>Each protected resource can be filtered by its specific ARNs, such as <code>ProtectedResourceArns:
-        /// ["arn:aws:...", "arn:aws:..."]</code> or by a wildcard: <code>ProtectedResourceArns:
-        /// ["*"]</code>, but not both.</para>
+        /// <para>Each protected resource can be filtered by its specific ARNs, such as <c>ProtectedResourceArns:
+        /// ["arn:aws:...", "arn:aws:..."]</c> or by a wildcard: <c>ProtectedResourceArns: ["*"]</c>,
+        /// but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The type of Amazon Web Services resource included in a restore testing selection;
-        /// for example, an Amazon EBS volume or an Amazon RDS database.</para><para>Supported resource types accepted include:</para><ul><li><para><code>Aurora</code> for Amazon Aurora</para></li><li><para><code>DocumentDB</code> for Amazon DocumentDB (with MongoDB compatibility)</para></li><li><para><code>DynamoDB</code> for Amazon DynamoDB</para></li><li><para><code>EBS</code> for Amazon Elastic Block Store</para></li><li><para><code>EC2</code> for Amazon Elastic Compute Cloud</para></li><li><para><code>EFS</code> for Amazon Elastic File System</para></li><li><para><code>FSx</code> for Amazon FSx</para></li><li><para><code>Neptune</code> for Amazon Neptune</para></li><li><para><code>RDS</code> for Amazon Relational Database Service</para></li><li><para><code>S3</code> for Amazon S3</para></li></ul>
+        /// for example, an Amazon EBS volume or an Amazon RDS database.</para><para>Supported resource types accepted include:</para><ul><li><para><c>Aurora</c> for Amazon Aurora</para></li><li><para><c>DocumentDB</c> for Amazon DocumentDB (with MongoDB compatibility)</para></li><li><para><c>DynamoDB</c> for Amazon DynamoDB</para></li><li><para><c>EBS</c> for Amazon Elastic Block Store</para></li><li><para><c>EC2</c> for Amazon Elastic Compute Cloud</para></li><li><para><c>EFS</c> for Amazon Elastic File System</para></li><li><para><c>FSx</c> for Amazon FSx</para></li><li><para><c>Neptune</c> for Amazon Neptune</para></li><li><para><c>RDS</c> for Amazon Relational Database Service</para></li><li><para><c>S3</c> for Amazon S3</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter RestoreTestingSelection_RestoreMetadataOverride
         /// <summary>
         /// <para>
-        /// <para>You can override certain restore metadata keys by including the parameter <code>RestoreMetadataOverrides</code>
-        /// in the body of <code>RestoreTestingSelection</code>. Key values are not case sensitive.</para><para>See the complete list of <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html">restore
+        /// <para>You can override certain restore metadata keys by including the parameter <c>RestoreMetadataOverrides</c>
+        /// in the body of <c>RestoreTestingSelection</c>. Key values are not case sensitive.</para><para>See the complete list of <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html">restore
         /// testing inferred metadata</a>.</para>
         /// </para>
         /// </summary>

@@ -28,7 +28,7 @@ using Amazon.AppRegistry.Model;
 namespace Amazon.PowerShell.Cmdlets.SCAR
 {
     /// <summary>
-    /// Retrieves a <code>TagKey</code> configuration from an account.
+    /// Retrieves a <c>TagKey</c> configuration from an account.
     /// </summary>
     [Cmdlet("Get", "SCARConfiguration")]
     [OutputType("Amazon.AppRegistry.Model.AppRegistryConfiguration")]

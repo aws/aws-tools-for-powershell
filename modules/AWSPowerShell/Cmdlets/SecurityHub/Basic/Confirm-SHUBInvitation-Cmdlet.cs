@@ -28,15 +28,15 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// This method is deprecated. Instead, use <code>AcceptAdministratorInvitation</code>.
+    /// This method is deprecated. Instead, use <c>AcceptAdministratorInvitation</c>.
     /// 
     ///  
     /// <para>
-    /// The Security Hub console continues to use <code>AcceptInvitation</code>. It will eventually
-    /// change to use <code>AcceptAdministratorInvitation</code>. Any IAM policies that specifically
-    /// control access to this function must continue to use <code>AcceptInvitation</code>.
-    /// You should also add <code>AcceptAdministratorInvitation</code> to your policies to
-    /// ensure that the correct permissions are in place after the console begins to use <code>AcceptAdministratorInvitation</code>.
+    /// The Security Hub console continues to use <c>AcceptInvitation</c>. It will eventually
+    /// change to use <c>AcceptAdministratorInvitation</c>. Any IAM policies that specifically
+    /// control access to this function must continue to use <c>AcceptInvitation</c>. You
+    /// should also add <c>AcceptAdministratorInvitation</c> to your policies to ensure that
+    /// the correct permissions are in place after the console begins to use <c>AcceptAdministratorInvitation</c>.
     /// </para><para>
     /// Accepts the invitation to be a member account and be monitored by the Security Hub
     /// administrator account that the invitation was sent from.

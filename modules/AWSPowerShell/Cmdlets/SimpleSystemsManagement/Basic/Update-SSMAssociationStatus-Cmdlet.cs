@@ -32,10 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// associated with the specified managed node.
     /// 
     ///  
-    /// <para><code>UpdateAssociationStatus</code> is primarily used by the Amazon Web Services
-    /// Systems Manager Agent (SSM Agent) to report status updates about your associations
-    /// and is only used for associations created with the <code>InstanceId</code> legacy
-    /// parameter.
+    /// <para><c>UpdateAssociationStatus</c> is primarily used by the Amazon Web Services Systems
+    /// Manager Agent (SSM Agent) to report status updates about your associations and is
+    /// only used for associations created with the <c>InstanceId</c> legacy parameter.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SSMAssociationStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

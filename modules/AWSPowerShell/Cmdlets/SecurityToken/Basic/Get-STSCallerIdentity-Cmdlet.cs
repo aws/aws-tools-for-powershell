@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// 
     ///  <note><para>
     /// No permissions are required to perform this operation. If an administrator attaches
-    /// a policy to your identity that explicitly denies access to the <code>sts:GetCallerIdentity</code>
+    /// a policy to your identity that explicitly denies access to the <c>sts:GetCallerIdentity</c>
     /// action, you can still perform this operation. Permissions are not required because
     /// the same information is returned when access is denied. To view an example response,
     /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_access-denied-delete-mfa">I

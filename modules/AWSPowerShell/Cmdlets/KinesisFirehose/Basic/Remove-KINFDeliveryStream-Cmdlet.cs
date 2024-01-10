@@ -33,15 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     ///  
     /// <para>
     /// To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>. You can
-    /// delete a delivery stream only if it is in one of the following states: <code>ACTIVE</code>,
-    /// <code>DELETING</code>, <code>CREATING_FAILED</code>, or <code>DELETING_FAILED</code>.
-    /// You can't delete a delivery stream that is in the <code>CREATING</code> state. While
-    /// the deletion request is in process, the delivery stream is in the <code>DELETING</code>
-    /// state.
+    /// delete a delivery stream only if it is in one of the following states: <c>ACTIVE</c>,
+    /// <c>DELETING</c>, <c>CREATING_FAILED</c>, or <c>DELETING_FAILED</c>. You can't delete
+    /// a delivery stream that is in the <c>CREATING</c> state. While the deletion request
+    /// is in process, the delivery stream is in the <c>DELETING</c> state.
     /// </para><para>
-    /// While the delivery stream is in the <code>DELETING</code> state, the service might
-    /// continue to accept records, but it doesn't make any guarantees with respect to delivering
-    /// the data. Therefore, as a best practice, first stop any applications that are sending
+    /// While the delivery stream is in the <c>DELETING</c> state, the service might continue
+    /// to accept records, but it doesn't make any guarantees with respect to delivering the
+    /// data. Therefore, as a best practice, first stop any applications that are sending
     /// records before you delete a delivery stream.
     /// </para>
     /// </summary>

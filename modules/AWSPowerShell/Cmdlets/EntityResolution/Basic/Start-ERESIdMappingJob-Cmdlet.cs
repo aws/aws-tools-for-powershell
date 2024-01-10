@@ -28,8 +28,8 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Starts the <code>IdMappingJob</code> of a workflow. The workflow must have previously
-    /// been created using the <code>CreateIdMappingWorkflow</code> endpoint.
+    /// Starts the <c>IdMappingJob</c> of a workflow. The workflow must have previously been
+    /// created using the <c>CreateIdMappingWorkflow</c> endpoint.
     /// </summary>
     [Cmdlet("Start", "ERESIdMappingJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

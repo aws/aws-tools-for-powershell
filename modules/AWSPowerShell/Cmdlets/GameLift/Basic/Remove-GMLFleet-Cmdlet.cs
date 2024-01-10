@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Deletes all resources and information related a fleet. Any current fleet instances,
-    /// including those in remote locations, are shut down. You don't need to call <code>DeleteFleetLocations</code>
+    /// including those in remote locations, are shut down. You don't need to call <c>DeleteFleetLocations</c>
     /// separately.
     /// 
     ///  <note><para>
@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// You do not need to explicitly delete the VPC peering connection.
     /// </para></note><para>
     /// To delete a fleet, specify the fleet ID to be terminated. During the deletion process
-    /// the fleet status is changed to <code>DELETING</code>. When completed, the status switches
-    /// to <code>TERMINATED</code> and the fleet event <code>FLEET_DELETED</code> is sent.
+    /// the fleet status is changed to <c>DELETING</c>. When completed, the status switches
+    /// to <c>TERMINATED</c> and the fleet event <c>FLEET_DELETED</c> is sent.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up Amazon GameLift Fleets</a></para>
     /// </summary>

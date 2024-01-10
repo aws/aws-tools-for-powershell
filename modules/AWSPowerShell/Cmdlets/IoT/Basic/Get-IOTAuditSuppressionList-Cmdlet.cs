@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para> Determines whether suppressions are listed in ascending order by expiration date
-        /// or not. If parameter isn't provided, <code>ascendingOrder=true</code>. </para>
+        /// or not. If parameter isn't provided, <c>ascendingOrder=true</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

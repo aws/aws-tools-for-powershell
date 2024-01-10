@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DisassociateLifecycleConfig
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to remove the notebook instance lifecycle configuration currently
+        /// <para>Set to <c>true</c> to remove the notebook instance lifecycle configuration currently
         /// associated with the notebook instance. This operation is idempotent. If you specify
         /// a lifecycle configuration that is not associated with the notebook instance when you
         /// call this method, it does not throw an error.</para>
@@ -170,9 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Indicates the minimum IMDS version that the notebook instance supports. When passed
-        /// as part of <code>CreateNotebookInstance</code>, if no value is selected, then it defaults
+        /// as part of <c>CreateNotebookInstance</c>, if no value is selected, then it defaults
         /// to IMDSv1. This means that both IMDSv1 and IMDSv2 are supported. If passed as part
-        /// of <code>UpdateNotebookInstance</code>, there is no default.</para>
+        /// of <c>UpdateNotebookInstance</c>, there is no default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume to access
         /// the notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
-        /// Roles</a>. </para><note><para>To be able to pass this role to SageMaker, the caller of this API must have the <code>iam:PassRole</code>
+        /// Roles</a>. </para><note><para>To be able to pass this role to SageMaker, the caller of this API must have the <c>iam:PassRole</c>
         /// permission.</para></note>
         /// </para>
         /// </summary>
@@ -213,8 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Whether root access is enabled or disabled for users of the notebook instance. The
-        /// default value is <code>Enabled</code>.</para><note><para>If you set this to <code>Disabled</code>, users don't have root access on the notebook
-        /// instance, but lifecycle configuration scripts still run with root permissions.</para></note>
+        /// default value is <c>Enabled</c>.</para><note><para>If you set this to <c>Disabled</c>, users don't have root access on the notebook instance,
+        /// but lifecycle configuration scripts still run with root permissions.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

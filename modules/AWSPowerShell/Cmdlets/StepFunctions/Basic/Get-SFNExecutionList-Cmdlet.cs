@@ -42,16 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </para><para>
     /// Results are sorted by time, with the most recent execution first.
     /// </para><para>
-    /// If <code>nextToken</code> is returned, there are more results available. The value
-    /// of <code>nextToken</code> is a unique pagination token for each page. Make the call
-    /// again using the returned token to retrieve the next page. Keep all other arguments
-    /// unchanged. Each pagination token expires after 24 hours. Using an expired pagination
-    /// token will return an <i>HTTP 400 InvalidToken</i> error.
+    /// If <c>nextToken</c> is returned, there are more results available. The value of <c>nextToken</c>
+    /// is a unique pagination token for each page. Make the call again using the returned
+    /// token to retrieve the next page. Keep all other arguments unchanged. Each pagination
+    /// token expires after 24 hours. Using an expired pagination token will return an <i>HTTP
+    /// 400 InvalidToken</i> error.
     /// </para><note><para>
     /// This operation is eventually consistent. The results are best effort and may not reflect
     /// very recent updates and changes.
     /// </para></note><para>
-    /// This API action is not supported by <code>EXPRESS</code> state machines.
+    /// This API action is not supported by <c>EXPRESS</c> state machines.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SFNExecutionList")]
@@ -70,10 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Map Run that started the child workflow executions.
-        /// If the <code>mapRunArn</code> field is specified, a list of all of the child workflow
-        /// executions started by a Map Run is returned. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html">Examining
-        /// Map Run</a> in the <i>Step Functions Developer Guide</i>.</para><para>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>,
-        /// but not both.</para>
+        /// If the <c>mapRunArn</c> field is specified, a list of all of the child workflow executions
+        /// started by a Map Run is returned. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html">Examining
+        /// Map Run</a> in the <i>Step Functions Developer Guide</i>.</para><para>You can specify either a <c>mapRunArn</c> or a <c>stateMachineArn</c>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,10 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter RedriveFilter
         /// <summary>
         /// <para>
-        /// <para>Sets a filter to list executions based on whether or not they have been redriven.</para><para>For a Distributed Map, <code>redriveFilter</code> sets a filter to list child workflow
-        /// executions based on whether or not they have been redriven.</para><para>If you do not provide a <code>redriveFilter</code>, Step Functions returns a list
-        /// of both redriven and non-redriven executions.</para><para>If you provide a state machine ARN in <code>redriveFilter</code>, the API returns
-        /// a validation exception.</para>
+        /// <para>Sets a filter to list executions based on whether or not they have been redriven.</para><para>For a Distributed Map, <c>redriveFilter</c> sets a filter to list child workflow executions
+        /// based on whether or not they have been redriven.</para><para>If you do not provide a <c>redriveFilter</c>, Step Functions returns a list of both
+        /// redriven and non-redriven executions.</para><para>If you provide a state machine ARN in <c>redriveFilter</c>, the API returns a validation
+        /// exception.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,10 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter StateMachineArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the state machine whose executions is listed.</para><para>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>,
-        /// but not both.</para><para>You can also return a list of executions associated with a specific <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a>
+        /// <para>The Amazon Resource Name (ARN) of the state machine whose executions is listed.</para><para>You can specify either a <c>mapRunArn</c> or a <c>stateMachineArn</c>, but not both.</para><para>You can also return a list of executions associated with a specific <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a>
         /// or <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a>,
-        /// by specifying an alias ARN or a version ARN in the <code>stateMachineArn</code> parameter.</para>
+        /// by specifying an alias ARN or a version ARN in the <c>stateMachineArn</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -122,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results that are returned per call. You can use <code>nextToken</code>
+        /// <para>The maximum number of results that are returned per call. You can use <c>nextToken</c>
         /// to obtain further pages of results. The default is 100 and the maximum allowed page
         /// size is 1000. A value of 0 uses the default.</para><para>This is only an upper limit. The actual number of results returned per call might
         /// be fewer than the specified maximum.</para>
@@ -141,11 +139,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If <code>nextToken</code> is returned, there are more results available. The value
-        /// of <code>nextToken</code> is a unique pagination token for each page. Make the call
-        /// again using the returned token to retrieve the next page. Keep all other arguments
-        /// unchanged. Each pagination token expires after 24 hours. Using an expired pagination
-        /// token will return an <i>HTTP 400 InvalidToken</i> error.</para>
+        /// <para>If <c>nextToken</c> is returned, there are more results available. The value of <c>nextToken</c>
+        /// is a unique pagination token for each page. Make the call again using the returned
+        /// token to retrieve the next page. Keep all other arguments unchanged. Each pagination
+        /// token expires after 24 hours. Using an expired pagination token will return an <i>HTTP
+        /// 400 InvalidToken</i> error.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

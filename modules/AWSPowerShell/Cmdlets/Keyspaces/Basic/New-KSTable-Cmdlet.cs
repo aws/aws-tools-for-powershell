@@ -28,15 +28,14 @@ using Amazon.Keyspaces.Model;
 namespace Amazon.PowerShell.Cmdlets.KS
 {
     /// <summary>
-    /// The <code>CreateTable</code> operation adds a new table to the specified keyspace.
-    /// Within a keyspace, table names must be unique.
+    /// The <c>CreateTable</c> operation adds a new table to the specified keyspace. Within
+    /// a keyspace, table names must be unique.
     /// 
     ///  
-    /// <para><code>CreateTable</code> is an asynchronous operation. When the request is received,
-    /// the status of the table is set to <code>CREATING</code>. You can monitor the creation
-    /// status of the new table by using the <code>GetTable</code> operation, which returns
-    /// the current <code>status</code> of the table. You can start using a table when the
-    /// status is <code>ACTIVE</code>.
+    /// <para><c>CreateTable</c> is an asynchronous operation. When the request is received, the
+    /// status of the table is set to <c>CREATING</c>. You can monitor the creation status
+    /// of the new table by using the <c>GetTable</c> operation, which returns the current
+    /// <c>status</c> of the table. You can start using a table when the status is <c>ACTIVE</c>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-tables.html#tables-create">Creating
     /// tables</a> in the <i>Amazon Keyspaces Developer Guide</i>.
@@ -114,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter EncryptionSpecification_KmsKeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the customer managed KMS key, for example <code>kms_key_identifier:ARN</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the customer managed KMS key, for example <c>kms_key_identifier:ARN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter CapacitySpecification_ReadCapacityUnit
         /// <summary>
         /// <para>
-        /// <para>The throughput capacity specified for <code>read</code> operations defined in <code>read
-        /// capacity units</code><code>(RCUs)</code>.</para>
+        /// <para>The throughput capacity specified for <c>read</c> operations defined in <c>read capacity
+        /// units</c><c>(RCUs)</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter SchemaDefinition_StaticColumn
         /// <summary>
         /// <para>
-        /// <para>The columns that have been defined as <code>STATIC</code>. Static columns store values
-        /// that are shared by all rows in the same partition.</para>
+        /// <para>The columns that have been defined as <c>STATIC</c>. Static columns store values that
+        /// are shared by all rows in the same partition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter PointInTimeRecovery_Status
         /// <summary>
         /// <para>
-        /// <para>The options are:</para><ul><li><para><code>status=ENABLED</code></para></li><li><para><code>status=DISABLED</code></para></li></ul>
+        /// <para>The options are:</para><ul><li><para><c>status=ENABLED</c></para></li><li><para><c>status=DISABLED</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,8 +238,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter CapacitySpecification_ThroughputMode
         /// <summary>
         /// <para>
-        /// <para>The read/write throughput capacity mode for a table. The options are:</para><ul><li><para><code>throughputMode:PAY_PER_REQUEST</code> and </para></li><li><para><code>throughputMode:PROVISIONED</code> - Provisioned capacity mode requires <code>readCapacityUnits</code>
-        /// and <code>writeCapacityUnits</code> as input.</para></li></ul><para>The default is <code>throughput_mode:PAY_PER_REQUEST</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write
+        /// <para>The read/write throughput capacity mode for a table. The options are:</para><ul><li><para><c>throughputMode:PAY_PER_REQUEST</c> and </para></li><li><para><c>throughputMode:PROVISIONED</c> - Provisioned capacity mode requires <c>readCapacityUnits</c>
+        /// and <c>writeCapacityUnits</c> as input.</para></li></ul><para>The default is <c>throughput_mode:PAY_PER_REQUEST</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write
         /// capacity modes</a> in the <i>Amazon Keyspaces Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -253,9 +252,9 @@ namespace Amazon.PowerShell.Cmdlets.KS
         /// <summary>
         /// <para>
         /// <para>The encryption option specified for the table. You can choose one of the following
-        /// KMS keys (KMS keys):</para><ul><li><para><code>type:AWS_OWNED_KMS_KEY</code> - This key is owned by Amazon Keyspaces. </para></li><li><para><code>type:CUSTOMER_MANAGED_KMS_KEY</code> - This key is stored in your account and
-        /// is created, owned, and managed by you. This option requires the <code>kms_key_identifier</code>
-        /// of the KMS key in Amazon Resource Name (ARN) format as input. </para></li></ul><para>The default is <code>type:AWS_OWNED_KMS_KEY</code>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">Encryption
+        /// KMS keys (KMS keys):</para><ul><li><para><c>type:AWS_OWNED_KMS_KEY</c> - This key is owned by Amazon Keyspaces. </para></li><li><para><c>type:CUSTOMER_MANAGED_KMS_KEY</c> - This key is stored in your account and is
+        /// created, owned, and managed by you. This option requires the <c>kms_key_identifier</c>
+        /// of the KMS key in Amazon Resource Name (ARN) format as input. </para></li></ul><para>The default is <c>type:AWS_OWNED_KMS_KEY</c>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">Encryption
         /// at rest</a> in the <i>Amazon Keyspaces Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -267,8 +266,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter CapacitySpecification_WriteCapacityUnit
         /// <summary>
         /// <para>
-        /// <para>The throughput capacity specified for <code>write</code> operations defined in <code>write
-        /// capacity units</code><code>(WCUs)</code>.</para>
+        /// <para>The throughput capacity specified for <c>write</c> operations defined in <c>write
+        /// capacity units</c><c>(WCUs)</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

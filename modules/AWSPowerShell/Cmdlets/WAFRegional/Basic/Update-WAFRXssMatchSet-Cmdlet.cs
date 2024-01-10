@@ -36,33 +36,32 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// for regional and global use. 
     /// </para></note><para>
     /// Inserts or deletes <a>XssMatchTuple</a> objects (filters) in an <a>XssMatchSet</a>.
-    /// For each <code>XssMatchTuple</code> object, you specify the following values:
-    /// </para><ul><li><para><code>Action</code>: Whether to insert the object into or delete the object from
-    /// the array. To change an <code>XssMatchTuple</code>, you delete the existing object
-    /// and add a new one.
-    /// </para></li><li><para><code>FieldToMatch</code>: The part of web requests that you want AWS WAF to inspect
-    /// and, if you want AWS WAF to inspect a header or custom query parameter, the name of
-    /// the header or parameter.
-    /// </para></li><li><para><code>TextTransformation</code>: Which text transformation, if any, to perform on
-    /// the web request before inspecting the request for cross-site scripting attacks.
+    /// For each <c>XssMatchTuple</c> object, you specify the following values:
+    /// </para><ul><li><para><c>Action</c>: Whether to insert the object into or delete the object from the array.
+    /// To change an <c>XssMatchTuple</c>, you delete the existing object and add a new one.
+    /// </para></li><li><para><c>FieldToMatch</c>: The part of web requests that you want AWS WAF to inspect and,
+    /// if you want AWS WAF to inspect a header or custom query parameter, the name of the
+    /// header or parameter.
+    /// </para></li><li><para><c>TextTransformation</c>: Which text transformation, if any, to perform on the web
+    /// request before inspecting the request for cross-site scripting attacks.
     /// </para><para>
     /// You can only specify a single type of TextTransformation.
     /// </para></li></ul><para>
-    /// You use <code>XssMatchSet</code> objects to specify which CloudFront requests that
-    /// you want to allow, block, or count. For example, if you're receiving requests that
-    /// contain cross-site scripting attacks in the request body and you want to block the
-    /// requests, you can create an <code>XssMatchSet</code> with the applicable settings,
-    /// and then configure AWS WAF to block the requests. 
+    /// You use <c>XssMatchSet</c> objects to specify which CloudFront requests that you want
+    /// to allow, block, or count. For example, if you're receiving requests that contain
+    /// cross-site scripting attacks in the request body and you want to block the requests,
+    /// you can create an <c>XssMatchSet</c> with the applicable settings, and then configure
+    /// AWS WAF to block the requests. 
     /// </para><para>
-    /// To create and configure an <code>XssMatchSet</code>, perform the following steps:
+    /// To create and configure an <c>XssMatchSet</c>, perform the following steps:
     /// </para><ol><li><para>
     /// Submit a <a>CreateXssMatchSet</a> request.
     /// </para></li><li><para>
-    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <c>ChangeToken</c>
     /// parameter of an <a>UpdateIPSet</a> request.
     /// </para></li><li><para>
-    /// Submit an <code>UpdateXssMatchSet</code> request to specify the parts of web requests
-    /// that you want AWS WAF to inspect for cross-site scripting attacks.
+    /// Submit an <c>UpdateXssMatchSet</c> request to specify the parts of web requests that
+    /// you want AWS WAF to inspect for cross-site scripting attacks.
     /// </para></li></ol><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
     /// see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
@@ -101,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter Update
         /// <summary>
         /// <para>
-        /// <para>An array of <code>XssMatchSetUpdate</code> objects that you want to insert into or
-        /// delete from an <a>XssMatchSet</a>. For more information, see the applicable data types:</para><ul><li><para><a>XssMatchSetUpdate</a>: Contains <code>Action</code> and <code>XssMatchTuple</code></para></li><li><para><a>XssMatchTuple</a>: Contains <code>FieldToMatch</code> and <code>TextTransformation</code></para></li><li><para><a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code></para></li></ul>
+        /// <para>An array of <c>XssMatchSetUpdate</c> objects that you want to insert into or delete
+        /// from an <a>XssMatchSet</a>. For more information, see the applicable data types:</para><ul><li><para><a>XssMatchSetUpdate</a>: Contains <c>Action</c> and <c>XssMatchTuple</c></para></li><li><para><a>XssMatchTuple</a>: Contains <c>FieldToMatch</c> and <c>TextTransformation</c></para></li><li><para><a>FieldToMatch</a>: Contains <c>Data</c> and <c>Type</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter XssMatchSetId
         /// <summary>
         /// <para>
-        /// <para>The <code>XssMatchSetId</code> of the <code>XssMatchSet</code> that you want to update.
-        /// <code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</para>
+        /// <para>The <c>XssMatchSetId</c> of the <c>XssMatchSet</c> that you want to update. <c>XssMatchSetId</c>
+        /// is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

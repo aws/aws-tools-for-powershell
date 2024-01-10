@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     ///  
     /// <para>
     /// Each tag consists of a key and an optional value. If a tag with the same key is already
-    /// associated with the load balancer, <code>AddTags</code> updates its value.
+    /// associated with the load balancer, <c>AddTags</c> updates its value.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html">Tag
     /// Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.

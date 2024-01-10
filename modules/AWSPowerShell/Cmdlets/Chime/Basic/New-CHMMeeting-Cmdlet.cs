@@ -84,12 +84,11 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter MediaRegion
         /// <summary>
         /// <para>
-        /// <para> The Region in which to create the meeting. Default: <code>us-east-1</code>. </para><para> Available values: <code>af-south-1</code> , <code>ap-northeast-1</code> , <code>ap-northeast-2</code>
-        /// , <code>ap-south-1</code> , <code>ap-southeast-1</code> , <code>ap-southeast-2</code>
-        /// , <code>ca-central-1</code> , <code>eu-central-1</code> , <code>eu-north-1</code>
-        /// , <code>eu-south-1</code> , <code>eu-west-1</code> , <code>eu-west-2</code> , <code>eu-west-3</code>
-        /// , <code>sa-east-1</code> , <code>us-east-1</code> , <code>us-east-2</code> , <code>us-west-1</code>
-        /// , <code>us-west-2</code> . </para>
+        /// <para> The Region in which to create the meeting. Default: <c>us-east-1</c>. </para><para> Available values: <c>af-south-1</c> , <c>ap-northeast-1</c> , <c>ap-northeast-2</c>
+        /// , <c>ap-south-1</c> , <c>ap-southeast-1</c> , <c>ap-southeast-2</c> , <c>ca-central-1</c>
+        /// , <c>eu-central-1</c> , <c>eu-north-1</c> , <c>eu-south-1</c> , <c>eu-west-1</c> ,
+        /// <c>eu-west-2</c> , <c>eu-west-3</c> , <c>sa-east-1</c> , <c>us-east-1</c> , <c>us-east-2</c>
+        /// , <c>us-west-1</c> , <c>us-west-2</c> . </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

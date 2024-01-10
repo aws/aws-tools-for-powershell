@@ -31,11 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// Returns a set of DKIM tokens for a domain identity.
     /// 
     ///  <important><para>
-    /// When you execute the <code>VerifyDomainDkim</code> operation, the domain that you
-    /// specify is added to the list of identities that are associated with your account.
-    /// This is true even if you haven't already associated the domain with your account by
-    /// using the <code>VerifyDomainIdentity</code> operation. However, you can't send email
-    /// from the domain until you either successfully <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#verify-domain-procedure">verify
+    /// When you execute the <c>VerifyDomainDkim</c> operation, the domain that you specify
+    /// is added to the list of identities that are associated with your account. This is
+    /// true even if you haven't already associated the domain with your account by using
+    /// the <c>VerifyDomainIdentity</c> operation. However, you can't send email from the
+    /// domain until you either successfully <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#verify-domain-procedure">verify
     /// it</a> or you successfully <a href="https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html">set
     /// up DKIM for it</a>.
     /// </para></important><para>

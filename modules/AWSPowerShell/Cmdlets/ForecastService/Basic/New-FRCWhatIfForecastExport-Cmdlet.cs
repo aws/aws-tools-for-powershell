@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// conventions:
     /// 
     ///  
-    /// <para><code>≈&lt;ForecastExportJobName&gt;_&lt;ExportTimestamp&gt;_&lt;PartNumber&gt;</code></para><para>
+    /// <para><c>≈&lt;ForecastExportJobName&gt;_&lt;ExportTimestamp&gt;_&lt;PartNumber&gt;</c></para><para>
     /// The &lt;ExportTimestamp&gt; component is in Java SimpleDateFormat (yyyy-MM-ddTHH-mm-ssZ).
     /// </para><para>
     /// You must specify a <a>DataDestination</a> object that includes an Identity and Access
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// To get a list of all your what-if forecast export jobs, use the <a>ListWhatIfForecastExports</a>
     /// operation.
     /// </para><note><para>
-    /// The <code>Status</code> of the forecast export job must be <code>ACTIVE</code> before
-    /// you can access the forecast in your Amazon S3 bucket. To get the status, use the <a>DescribeWhatIfForecastExport</a>
+    /// The <c>Status</c> of the forecast export job must be <c>ACTIVE</c> before you can
+    /// access the forecast in your Amazon S3 bucket. To get the status, use the <a>DescribeWhatIfForecastExport</a>
     /// operation.
     /// </para></note>
     /// </summary>
@@ -108,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The ARN of the Identity and Access Management (IAM) role that Amazon Forecast can
-        /// assume to access the Amazon S3 bucket or files. If you provide a value for the <code>KMSKeyArn</code>
+        /// assume to access the Amazon S3 bucket or files. If you provide a value for the <c>KMSKeyArn</c>
         /// key, the role must allow access to the key.</para><para>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role
-        /// that isn't in your account, you get an <code>InvalidInputException</code> error.</para>
+        /// that isn't in your account, you get an <c>InvalidInputException</c> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

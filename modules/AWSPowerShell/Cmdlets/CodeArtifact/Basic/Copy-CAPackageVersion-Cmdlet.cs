@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
     /// 
     /// 
     ///  <note><para>
-    ///  You must specify <code>versions</code> or <code>versionRevisions</code>. You cannot
-    /// specify both. 
+    ///  You must specify <c>versions</c> or <c>versionRevisions</c>. You cannot specify both.
+    /// 
     /// </para></note>
     /// </summary>
     [Cmdlet("Copy", "CAPackageVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <para>
         /// <para> Set to true to overwrite a package version that already exists in the destination
         /// repository. If set to false and the package version already exists in the destination
-        /// repository, the package version is returned in the <code>failedVersions</code> field
-        /// of the response with an <code>ALREADY_EXISTS</code> error code. </para>
+        /// repository, the package version is returned in the <c>failedVersions</c> field of
+        /// the response with an <c>ALREADY_EXISTS</c> error code. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,9 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para>The namespace of the package versions to be copied. The package version component
-        /// that specifies its namespace depends on its type. For example:</para><ul><li><para> The namespace of a Maven package version is its <code>groupId</code>. The namespace
-        /// is required when copying Maven package versions. </para></li><li><para> The namespace of an npm package version is its <code>scope</code>. </para></li><li><para> Python and NuGet package versions do not contain a corresponding component, package
-        /// versions of those formats do not have a namespace. </para></li><li><para> The namespace of a generic package is its <code>namespace</code>. </para></li></ul>
+        /// that specifies its namespace depends on its type. For example:</para><ul><li><para> The namespace of a Maven package version is its <c>groupId</c>. The namespace is
+        /// required when copying Maven package versions. </para></li><li><para> The namespace of an npm package version is its <c>scope</c>. </para></li><li><para> Python and NuGet package versions do not contain a corresponding component, package
+        /// versions of those formats do not have a namespace. </para></li><li><para> The namespace of a generic package is its <c>namespace</c>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,9 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para> A list of key-value pairs. The keys are package versions and the values are package
-        /// version revisions. A <code>CopyPackageVersion</code> operation succeeds if the specified
-        /// versions in the source repository match the specified package version revision. </para><note><para> You must specify <code>versions</code> or <code>versionRevisions</code>. You cannot
-        /// specify both. </para></note>
+        /// version revisions. A <c>CopyPackageVersion</c> operation succeeds if the specified
+        /// versions in the source repository match the specified package version revision. </para><note><para> You must specify <c>versions</c> or <c>versionRevisions</c>. You cannot specify both.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,8 +199,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para> The versions of the package to be copied. </para><note><para> You must specify <code>versions</code> or <code>versionRevisions</code>. You cannot
-        /// specify both. </para></note>
+        /// <para> The versions of the package to be copied. </para><note><para> You must specify <c>versions</c> or <c>versionRevisions</c>. You cannot specify both.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

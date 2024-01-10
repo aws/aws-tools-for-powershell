@@ -28,7 +28,7 @@ using Amazon.ResourceGroupsTaggingAPI.Model;
 namespace Amazon.PowerShell.Cmdlets.RGT
 {
     /// <summary>
-    /// Describes the status of the <code>StartReportCreation</code> operation. 
+    /// Describes the status of the <c>StartReportCreation</c> operation. 
     /// 
     ///  
     /// <para>

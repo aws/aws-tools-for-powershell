@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
     /// Revokes the permission of another Amazon Web Services account to be able to put events
-    /// to the specified event bus. Specify the account to revoke by the <code>StatementId</code>
-    /// value that you associated with the account when you granted it permission with <code>PutPermission</code>.
-    /// You can find the <code>StatementId</code> by using <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventBus.html">DescribeEventBus</a>.
+    /// to the specified event bus. Specify the account to revoke by the <c>StatementId</c>
+    /// value that you associated with the account when you granted it permission with <c>PutPermission</c>.
+    /// You can find the <c>StatementId</c> by using <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventBus.html">DescribeEventBus</a>.
     /// </summary>
     [Cmdlet("Remove", "CWEPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters that you want to use to filter your forecast. The <code>GetUsageForecast</code>
-        /// API supports filtering by the following dimensions:</para><ul><li><para><code>AZ</code></para></li><li><para><code>INSTANCE_TYPE</code></para></li><li><para><code>LINKED_ACCOUNT</code></para></li><li><para><code>LINKED_ACCOUNT_NAME</code></para></li><li><para><code>OPERATION</code></para></li><li><para><code>PURCHASE_TYPE</code></para></li><li><para><code>REGION</code></para></li><li><para><code>SERVICE</code></para></li><li><para><code>USAGE_TYPE</code></para></li><li><para><code>USAGE_TYPE_GROUP</code></para></li><li><para><code>RECORD_TYPE</code></para></li><li><para><code>OPERATING_SYSTEM</code></para></li><li><para><code>TENANCY</code></para></li><li><para><code>SCOPE</code></para></li><li><para><code>PLATFORM</code></para></li><li><para><code>SUBSCRIPTION_ID</code></para></li><li><para><code>LEGAL_ENTITY_NAME</code></para></li><li><para><code>DEPLOYMENT_OPTION</code></para></li><li><para><code>DATABASE_ENGINE</code></para></li><li><para><code>INSTANCE_TYPE_FAMILY</code></para></li><li><para><code>BILLING_ENTITY</code></para></li><li><para><code>RESERVATION_ID</code></para></li><li><para><code>SAVINGS_PLAN_ARN</code></para></li></ul>
+        /// <para>The filters that you want to use to filter your forecast. The <c>GetUsageForecast</c>
+        /// API supports filtering by the following dimensions:</para><ul><li><para><c>AZ</c></para></li><li><para><c>INSTANCE_TYPE</c></para></li><li><para><c>LINKED_ACCOUNT</c></para></li><li><para><c>LINKED_ACCOUNT_NAME</c></para></li><li><para><c>OPERATION</c></para></li><li><para><c>PURCHASE_TYPE</c></para></li><li><para><c>REGION</c></para></li><li><para><c>SERVICE</c></para></li><li><para><c>USAGE_TYPE</c></para></li><li><para><c>USAGE_TYPE_GROUP</c></para></li><li><para><c>RECORD_TYPE</c></para></li><li><para><c>OPERATING_SYSTEM</c></para></li><li><para><c>TENANCY</c></para></li><li><para><c>SCOPE</c></para></li><li><para><c>PLATFORM</c></para></li><li><para><c>SUBSCRIPTION_ID</c></para></li><li><para><c>LEGAL_ENTITY_NAME</c></para></li><li><para><c>DEPLOYMENT_OPTION</c></para></li><li><para><c>DATABASE_ENGINE</c></para></li><li><para><c>INSTANCE_TYPE_FAMILY</c></para></li><li><para><c>BILLING_ENTITY</c></para></li><li><para><c>RESERVATION_ID</c></para></li><li><para><c>SAVINGS_PLAN_ARN</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Granularity
         /// <summary>
         /// <para>
-        /// <para>How granular you want the forecast to be. You can get 3 months of <code>DAILY</code>
-        /// forecasts or 12 months of <code>MONTHLY</code> forecasts.</para><para>The <code>GetUsageForecast</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code>
+        /// <para>How granular you want the forecast to be. You can get 3 months of <c>DAILY</c> forecasts
+        /// or 12 months of <c>MONTHLY</c> forecasts.</para><para>The <c>GetUsageForecast</c> operation supports only <c>DAILY</c> and <c>MONTHLY</c>
         /// granularities.</para>
         /// </para>
         /// </summary>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Metric
         /// <summary>
         /// <para>
-        /// <para>Which metric Cost Explorer uses to create your forecast.</para><para>Valid values for a <code>GetUsageForecast</code> call are the following:</para><ul><li><para>USAGE_QUANTITY</para></li><li><para>NORMALIZED_USAGE_AMOUNT</para></li></ul>
+        /// <para>Which metric Cost Explorer uses to create your forecast.</para><para>Valid values for a <c>GetUsageForecast</c> call are the following:</para><ul><li><para>USAGE_QUANTITY</para></li><li><para>NORMALIZED_USAGE_AMOUNT</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,11 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>
         /// <para>The start and end dates of the period that you want to retrieve usage forecast for.
         /// The start date is included in the period, but the end date isn't included in the period.
-        /// For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code>
-        /// is <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code>
-        /// up to and including <code>2017-04-30</code> but not including <code>2017-05-01</code>.
-        /// The start date must be equal to or later than the current date to avoid a validation
-        /// error.</para>
+        /// For example, if <c>start</c> is <c>2017-01-01</c> and <c>end</c> is <c>2017-05-01</c>,
+        /// then the cost and usage data is retrieved from <c>2017-01-01</c> up to and including
+        /// <c>2017-04-30</c> but not including <c>2017-05-01</c>. The start date must be equal
+        /// to or later than the current date to avoid a validation error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

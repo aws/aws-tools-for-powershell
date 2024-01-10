@@ -44,9 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         #region Parameter FindingIdentifier
         /// <summary>
         /// <para>
-        /// <para>A list of finding identifiers. Each identifier consists of a <code>scanName</code>
-        /// and a <code>findingId</code>. You retrieve the <code>findingId</code> when you call
-        /// <code>GetFindings</code>.</para>
+        /// <para>A list of finding identifiers. Each identifier consists of a <c>scanName</c> and a
+        /// <c>findingId</c>. You retrieve the <c>findingId</c> when you call <c>GetFindings</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.ApplicationInsights.Model;
 namespace Amazon.PowerShell.Cmdlets.CWAI
 {
     /// <summary>
-    /// Updates the visibility of the problem or specifies the problem as <code>RESOLVED</code>.
+    /// Updates the visibility of the problem or specifies the problem as <c>RESOLVED</c>.
     /// </summary>
     [Cmdlet("Update", "CWAIProblem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         /// <summary>
         /// <para>
         /// <para>The status of the problem. Arguments can be passed for only problems that show a status
-        /// of <code>RECOVERING</code>.</para>
+        /// of <c>RECOVERING</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         #region Parameter Visibility
         /// <summary>
         /// <para>
-        /// <para>The visibility of a problem. When you pass a value of <code>IGNORED</code>, the problem
+        /// <para>The visibility of a problem. When you pass a value of <c>IGNORED</c>, the problem
         /// is removed from the default view, and all notifications for the problem are suspended.
-        /// When <code>VISIBLE</code> is passed, the <code>IGNORED</code> action is reversed.</para>
+        /// When <c>VISIBLE</c> is passed, the <c>IGNORED</c> action is reversed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

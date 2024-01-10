@@ -29,28 +29,26 @@ namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
     /// Creates a state machine. A state machine consists of a collection of states that can
-    /// do work (<code>Task</code> states), determine to which states to transition next (<code>Choice</code>
-    /// states), stop an execution with an error (<code>Fail</code> states), and so on. State
-    /// machines are specified using a JSON-based, structured language. For more information,
-    /// see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon
+    /// do work (<c>Task</c> states), determine to which states to transition next (<c>Choice</c>
+    /// states), stop an execution with an error (<c>Fail</c> states), and so on. State machines
+    /// are specified using a JSON-based, structured language. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon
     /// States Language</a> in the Step Functions User Guide.
     /// 
     ///  
     /// <para>
-    /// If you set the <code>publish</code> parameter of this API action to <code>true</code>,
-    /// it publishes version <code>1</code> as the first revision of the state machine.
+    /// If you set the <c>publish</c> parameter of this API action to <c>true</c>, it publishes
+    /// version <c>1</c> as the first revision of the state machine.
     /// </para><note><para>
     /// This operation is eventually consistent. The results are best effort and may not reflect
     /// very recent updates and changes.
-    /// </para></note><note><para><code>CreateStateMachine</code> is an idempotent API. Subsequent requests won’t create
-    /// a duplicate resource if it was already created. <code>CreateStateMachine</code>'s
-    /// idempotency check is based on the state machine <code>name</code>, <code>definition</code>,
-    /// <code>type</code>, <code>LoggingConfiguration</code>, and <code>TracingConfiguration</code>.
-    /// The check is also based on the <code>publish</code> and <code>versionDescription</code>
-    /// parameters. If a following request has a different <code>roleArn</code> or <code>tags</code>,
-    /// Step Functions will ignore these differences and treat it as an idempotent request
-    /// of the previous. In this case, <code>roleArn</code> and <code>tags</code> will not
-    /// be updated, even if they are different.
+    /// </para></note><note><para><c>CreateStateMachine</c> is an idempotent API. Subsequent requests won’t create
+    /// a duplicate resource if it was already created. <c>CreateStateMachine</c>'s idempotency
+    /// check is based on the state machine <c>name</c>, <c>definition</c>, <c>type</c>, <c>LoggingConfiguration</c>,
+    /// and <c>TracingConfiguration</c>. The check is also based on the <c>publish</c> and
+    /// <c>versionDescription</c> parameters. If a following request has a different <c>roleArn</c>
+    /// or <c>tags</c>, Step Functions will ignore these differences and treat it as an idempotent
+    /// request of the previous. In this case, <c>roleArn</c> and <c>tags</c> will not be
+    /// updated, even if they are different.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "SFNStateMachine", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -88,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <summary>
         /// <para>
         /// <para>An array of objects that describes where your execution history events will be logged.
-        /// Limited to size 1. Required, if your log level is not set to <code>OFF</code>.</para>
+        /// Limited to size 1. Required, if your log level is not set to <c>OFF</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter TracingConfiguration_Enabled
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, X-Ray tracing is enabled.</para>
+        /// <para>When set to <c>true</c>, X-Ray tracing is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter LoggingConfiguration_IncludeExecutionData
         /// <summary>
         /// <para>
-        /// <para>Determines whether execution data is included in your log. When set to <code>false</code>,
+        /// <para>Determines whether execution data is included in your log. When set to <c>false</c>,
         /// data is excluded.</para>
         /// </para>
         /// </summary>
@@ -131,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the state machine. </para><para>A name must <i>not</i> contain:</para><ul><li><para>white space</para></li><li><para>brackets <code>&lt; &gt; { } [ ]</code></para></li><li><para>wildcard characters <code>? *</code></para></li><li><para>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code></para></li><li><para>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</para></li></ul><para>To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z,
+        /// <para>The name of the state machine. </para><para>A name must <i>not</i> contain:</para><ul><li><para>white space</para></li><li><para>brackets <c>&lt; &gt; { } [ ]</c></para></li><li><para>wildcard characters <c>? *</c></para></li><li><para>special characters <c>" # % \ ^ | ~ ` $ &amp; , ; : /</c></para></li><li><para>control characters (<c>U+0000-001F</c>, <c>U+007F-009F</c>)</para></li></ul><para>To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z,
         /// - and _.</para>
         /// </para>
         /// </summary>
@@ -149,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Publish
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to publish the first version of the state machine during
-        /// creation. The default is <code>false</code>.</para>
+        /// <para>Set to <c>true</c> to publish the first version of the state machine during creation.
+        /// The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,8 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <para>Tags to be added when creating a state machine.</para><para>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
         /// Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
         /// User Guide</i>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling
-        /// Access Using IAM Tags</a>.</para><para>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_
-        /// . : / = + - @</code>.</para>
+        /// Access Using IAM Tags</a>.</para><para>Tags may only contain Unicode letters, digits, white space, or these symbols: <c>_
+        /// . : / = + - @</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,8 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <summary>
         /// <para>
         /// <para>Determines whether a Standard or Express state machine is created. The default is
-        /// <code>STANDARD</code>. You cannot update the <code>type</code> of a state machine
-        /// once it has been created.</para>
+        /// <c>STANDARD</c>. You cannot update the <c>type</c> of a state machine once it has
+        /// been created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,9 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <summary>
         /// <para>
         /// <para>Sets description about the state machine version. You can only set the description
-        /// if the <code>publish</code> parameter is set to <code>true</code>. Otherwise, if you
-        /// set <code>versionDescription</code>, but <code>publish</code> to <code>false</code>,
-        /// this API action throws <code>ValidationException</code>.</para>
+        /// if the <c>publish</c> parameter is set to <c>true</c>. Otherwise, if you set <c>versionDescription</c>,
+        /// but <c>publish</c> to <c>false</c>, this API action throws <c>ValidationException</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

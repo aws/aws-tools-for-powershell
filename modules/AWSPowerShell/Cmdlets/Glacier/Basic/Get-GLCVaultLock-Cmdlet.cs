@@ -28,26 +28,26 @@ using Amazon.Glacier.Model;
 namespace Amazon.PowerShell.Cmdlets.GLC
 {
     /// <summary>
-    /// This operation retrieves the following attributes from the <code>lock-policy</code>
-    /// subresource set on the specified vault: 
+    /// This operation retrieves the following attributes from the <c>lock-policy</c> subresource
+    /// set on the specified vault: 
     /// 
     ///  <ul><li><para>
     /// The vault lock policy set on the vault.
     /// </para></li><li><para>
-    /// The state of the vault lock, which is either <code>InProgess</code> or <code>Locked</code>.
+    /// The state of the vault lock, which is either <c>InProgess</c> or <c>Locked</c>.
     /// </para></li><li><para>
     /// When the lock ID expires. The lock ID is used to complete the vault locking process.
     /// </para></li><li><para>
-    /// When the vault lock was initiated and put into the <code>InProgress</code> state.
+    /// When the vault lock was initiated and put into the <c>InProgress</c> state.
     /// </para></li></ul><para>
-    /// A vault lock is put into the <code>InProgress</code> state by calling <a>InitiateVaultLock</a>.
-    /// A vault lock is put into the <code>Locked</code> state by calling <a>CompleteVaultLock</a>.
+    /// A vault lock is put into the <c>InProgress</c> state by calling <a>InitiateVaultLock</a>.
+    /// A vault lock is put into the <c>Locked</c> state by calling <a>CompleteVaultLock</a>.
     /// You can abort the vault locking process by calling <a>AbortVaultLock</a>. For more
     /// information about the vault locking process, <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html">Amazon
     /// Glacier Vault Lock</a>. 
     /// </para><para>
-    /// If there is no vault lock policy set on the vault, the operation returns a <code>404
-    /// Not found</code> error. For more information about vault lock policies, <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html">Amazon
+    /// If there is no vault lock policy set on the vault, the operation returns a <c>404
+    /// Not found</c> error. For more information about vault lock policies, <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html">Amazon
     /// Glacier Access Control with Vault Lock Policies</a>. 
     /// </para>
     /// </summary>
@@ -65,11 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The <code>AccountId</code> value is the AWS account ID of the account that owns the
-        /// vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-        /// (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with
-        /// the credentials used to sign the request. If you use an account ID, do not include
-        /// any hyphens ('-') in the ID.</para>
+        /// <para>The <c>AccountId</c> value is the AWS account ID of the account that owns the vault.
+        /// You can either specify an AWS account ID or optionally a single '<c>-</c>' (hyphen),
+        /// in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials
+        /// used to sign the request. If you use an account ID, do not include any hyphens ('-')
+        /// in the ID.</para>
         /// </para>
         /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>-</b>'.</para>
         /// </summary>

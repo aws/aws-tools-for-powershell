@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// a file directory to an Amazon GameLift Amazon S3 location, and (2) it creates a new
     /// build resource.
     /// </para></important><para>
-    /// You can use the <code>CreateBuild</code> operation in the following scenarios:
+    /// You can use the <c>CreateBuild</c> operation in the following scenarios:
     /// </para><ul><li><para>
     /// Create a new game build with build files that are in an Amazon S3 location under an
     /// Amazon Web Services account that you control. To use this option, you give Amazon
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// to the Amazon GameLift Amazon S3 location, you can't update them. 
     /// </para></li></ul><para>
     /// If successful, this operation creates a new build resource with a unique build ID
-    /// and places it in <code>INITIALIZED</code> status. A build must be in <code>READY</code>
-    /// status before you can create fleets with it.
+    /// and places it in <c>INITIALIZED</c> status. A build must be in <c>READY</c> status
+    /// before you can create fleets with it.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">Uploading
     /// Your Game</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build">
     /// Create a Build with Files in Amazon S3</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A server SDK version you used when integrating your game server build with Amazon
         /// GameLift. For more information see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-custom-intro.html">Integrate
         /// games with custom game servers</a>. By default Amazon GameLift sets this value to
-        /// <code>4.0.2</code>.</para>
+        /// <c>4.0.2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

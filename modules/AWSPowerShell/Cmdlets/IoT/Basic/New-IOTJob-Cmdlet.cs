@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Document
         /// <summary>
         /// <para>
-        /// <para>The job document. Required if you don't specify a value for <code>documentSource</code>.</para>
+        /// <para>The job document. Required if you don't specify a value for <c>documentSource</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,9 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>Parameters of an Amazon Web Services managed template that you can specify to create
-        /// the job document.</para><note><para><code>documentParameters</code> can only be used when creating jobs from Amazon Web
-        /// Services managed templates. This parameter can't be used with custom job templates
-        /// or to create jobs from them.</para></note>
+        /// the job document.</para><note><para><c>documentParameters</c> can only be used when creating jobs from Amazon Web Services
+        /// managed templates. This parameter can't be used with custom job templates or to create
+        /// jobs from them.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object
-        /// URL and is required if you don't specify a value for <code>document</code>.</para><para>For example, <code>--document-source https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</code></para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html">Methods
+        /// URL and is required if you don't specify a value for <c>document</c>.</para><para>For example, <c>--document-source https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</c></para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html">Methods
         /// for accessing a bucket</a>.</para>
         /// </para>
         /// </summary>
@@ -131,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>Specifies the end behavior for all job executions after a job reaches the selected
-        /// <code>endTime</code>. If <code>endTime</code> is not selected when creating the job,
-        /// then <code>endBehavior</code> does not apply.</para>
+        /// <c>endTime</c>. If <c>endTime</c> is not selected when creating the job, then <c>endBehavior</c>
+        /// does not apply.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,13 +144,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The time a job will stop rollout of the job document to all devices in the target
-        /// group for a job. The <code>endTime</code> must take place no later than two years
-        /// from the current time and be scheduled a minimum of thirty minutes from the current
-        /// time. The minimum duration between <code>startTime</code> and <code>endTime</code>
-        /// is thirty minutes. The maximum duration between <code>startTime</code> and <code>endTime</code>
-        /// is two years. The date and time format for the <code>endTime</code> is YYYY-MM-DD
-        /// for the date and HH:MM for the time.</para><para>For more information on the syntax for <code>endTime</code> when using an API command
-        /// or the Command Line Interface, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a>.</para>
+        /// group for a job. The <c>endTime</c> must take place no later than two years from the
+        /// current time and be scheduled a minimum of thirty minutes from the current time. The
+        /// minimum duration between <c>startTime</c> and <c>endTime</c> is thirty minutes. The
+        /// maximum duration between <c>startTime</c> and <c>endTime</c> is two years. The date
+        /// and time format for the <c>endTime</c> is YYYY-MM-DD for the date and HH:MM for the
+        /// time.</para><para>For more information on the syntax for <c>endTime</c> when using an API command or
+        /// the Command Line Interface, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080
         /// minutes). The in progress timer can't be updated and will apply to all job executions
         /// for the job. Whenever a job execution remains in the IN_PROGRESS status for longer
-        /// than this interval, the job execution will fail and switch to the terminal <code>TIMED_OUT</code>
+        /// than this interval, the job execution will fail and switch to the terminal <c>TIMED_OUT</c>
         /// status.</para>
         /// </para>
         /// </summary>
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter SchedulingConfig_MaintenanceWindow
         /// <summary>
         /// <para>
-        /// <para>An optional configuration within the <code>SchedulingConfig</code> to setup a recurring
+        /// <para>An optional configuration within the <c>SchedulingConfig</c> to setup a recurring
         /// maintenance window with a predetermined start time and duration for the rollout of
         /// a job document to all devices in a target group for a job.</para>
         /// </para>
@@ -252,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The namespace used to indicate that a job is a customer-managed job.</para><para>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs
-        /// notifications to MQTT topics that contain the value in the following format.</para><para><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></para><note><para>The <code>namespaceId</code> feature is in public preview.</para></note>
+        /// notifications to MQTT topics that contain the value in the following format.</para><para><c>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</c></para><note><para>The <c>namespaceId</c> feature is in public preview.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,10 +276,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The time a job will begin rollout of the job document to all devices in the target
-        /// group for a job. The <code>startTime</code> can be scheduled up to a year in advance
-        /// and must be scheduled a minimum of thirty minutes from the current time. The date
-        /// and time format for the <code>startTime</code> is YYYY-MM-DD for the date and HH:MM
-        /// for the time.</para><para>For more information on the syntax for <code>startTime</code> when using an API command
+        /// group for a job. The <c>startTime</c> can be scheduled up to a year in advance and
+        /// must be scheduled a minimum of thirty minutes from the current time. The date and
+        /// time format for the <c>startTime</c> is YYYY-MM-DD for the date and HH:MM for the
+        /// time.</para><para>For more information on the syntax for <c>startTime</c> when using an API command
         /// or the Command Line Interface, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a>.</para>
         /// </para>
         /// </summary>

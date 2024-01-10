@@ -28,8 +28,8 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses
-    /// and domains associated with your account.
+    /// Deprecated. Use the <c>ListIdentities</c> operation to list the email addresses and
+    /// domains associated with your account.
     /// </summary>
     [Cmdlet("Get", "SESVerifiedEmailAddress")]
     [OutputType("System.String")]

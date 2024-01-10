@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     /// Deletes a package.
     /// 
     ///  <note><para>
-    /// To delete a package, you need permission to call <code>s3:DeleteObject</code> in addition
+    /// To delete a package, you need permission to call <c>s3:DeleteObject</c> in addition
     /// to permissions for the AWS Panorama API.
     /// </para></note>
     /// </summary>

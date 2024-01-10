@@ -28,10 +28,9 @@ using Amazon.Snowball.Model;
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
-    /// While a job's <code>JobState</code> value is <code>New</code>, you can update some
-    /// of the information associated with a job. Once the job changes to a different job
-    /// state, usually within 60 minutes of the job being created, this action is no longer
-    /// available.
+    /// While a job's <c>JobState</c> value is <c>New</c>, you can update some of the information
+    /// associated with a job. Once the job changes to a different job state, usually within
+    /// 60 minutes of the job being created, this action is no longer available.
     /// </summary>
     [Cmdlet("Update", "SNOWJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -125,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <para>
         /// <para>&gt;Fault tolerance level of the cluster. This indicates the number of nodes that
         /// can go down without degrading the performance of the cluster. This additional input
-        /// helps when the specified <code>StorageLimit</code> matches more than one Amazon S3
-        /// compatible storage on Snow family devices service configuration.</para>
+        /// helps when the specified <c>StorageLimit</c> matches more than one Amazon S3 compatible
+        /// storage on Snow family devices service configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The job ID of the job that you want to update, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</para>
+        /// <para>The job ID of the job that you want to update, for example <c>JID123e4567-e89b-12d3-a456-426655440000</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -269,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Resources_S3Resource
         /// <summary>
         /// <para>
-        /// <para>An array of <code>S3Resource</code> objects.</para>
+        /// <para>An array of <c>S3Resource</c> objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -304,8 +303,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter SnowballCapacityPreference
         /// <summary>
         /// <para>
-        /// <para>The updated <code>SnowballCapacityPreference</code> of this job's <a>JobMetadata</a>
-        /// object. The 50 TB Snowballs are only available in the US regions.</para><para>For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html"
+        /// <para>The updated <c>SnowballCapacityPreference</c> of this job's <a>JobMetadata</a> object.
+        /// The 50 TB Snowballs are only available in the US regions.</para><para>For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html"
         /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html"
         /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</para>
         /// </para>
@@ -318,8 +317,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Notification_SnsTopicARN
         /// <summary>
         /// <para>
-        /// <para>The new SNS <code>TopicArn</code> that you want to associate with this job. You can
-        /// create Amazon Resource Names (ARNs) for topics by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html">CreateTopic</a>
+        /// <para>The new SNS <c>TopicArn</c> that you want to associate with this job. You can create
+        /// Amazon Resource Names (ARNs) for topics by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html">CreateTopic</a>
         /// Amazon SNS API action.</para><para>You can subscribe email addresses to an Amazon SNS topic through the Amazon Web Services
         /// Management Console, or by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html">Subscribe</a>
         /// Amazon Simple Notification Service (Amazon SNS) API action.</para>

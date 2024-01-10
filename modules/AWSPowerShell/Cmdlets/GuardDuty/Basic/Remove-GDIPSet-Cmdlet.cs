@@ -28,8 +28,8 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called trusted
-    /// IP lists in the console user interface.
+    /// Deletes the IPSet specified by the <c>ipSetId</c>. IPSets are called trusted IP lists
+    /// in the console user interface.
     /// </summary>
     [Cmdlet("Remove", "GDIPSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
     /// Sets an account level monthly spend limit override for sending text messages. The
-    /// requested spend limit must be less than or equal to the <code>MaxLimit</code>, which
-    /// is set by Amazon Web Services.
+    /// requested spend limit must be less than or equal to the <c>MaxLimit</c>, which is
+    /// set by Amazon Web Services.
     /// </summary>
     [Cmdlet("Set", "SMSVTextMessageSpendLimitOverride", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.SetTextMessageSpendLimitOverrideResponse")]

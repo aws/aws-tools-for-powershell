@@ -28,12 +28,12 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Updates the <code>BatchPredictionName</code> of a <code>BatchPrediction</code>.
+    /// Updates the <c>BatchPredictionName</c> of a <c>BatchPrediction</c>.
     /// 
     ///  
     /// <para>
-    /// You can use the <code>GetBatchPrediction</code> operation to view the contents of
-    /// the updated data element.
+    /// You can use the <c>GetBatchPrediction</c> operation to view the contents of the updated
+    /// data element.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "MLBatchPrediction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter BatchPredictionId
         /// <summary>
         /// <para>
-        /// <para>The ID assigned to the <code>BatchPrediction</code> during creation.</para>
+        /// <para>The ID assigned to the <c>BatchPrediction</c> during creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter BatchPredictionName
         /// <summary>
         /// <para>
-        /// <para>A new user-supplied name or description of the <code>BatchPrediction</code>.</para>
+        /// <para>A new user-supplied name or description of the <c>BatchPrediction</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

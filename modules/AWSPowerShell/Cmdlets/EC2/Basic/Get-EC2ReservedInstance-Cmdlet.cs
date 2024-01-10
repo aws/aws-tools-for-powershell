@@ -51,24 +51,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone where the Reserved Instance
-        /// can be used.</para></li><li><para><code>duration</code> - The duration of the Reserved Instance (one year or three
-        /// years), in seconds (<code>31536000</code> | <code>94608000</code>).</para></li><li><para><code>end</code> - The time when the Reserved Instance expires (for example, 2015-08-07T11:54:42.000Z).</para></li><li><para><code>fixed-price</code> - The purchase price of the Reserved Instance (for example,
-        /// 9800.0).</para></li><li><para><code>instance-type</code> - The instance type that is covered by the reservation.</para></li><li><para><code>scope</code> - The scope of the Reserved Instance (<code>Region</code> or <code>Availability
-        /// Zone</code>).</para></li><li><para><code>product-description</code> - The Reserved Instance product platform description
-        /// (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> | <code>Linux
-        /// with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> | <code>SUSE
-        /// Linux</code> | <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux
-        /// with HA</code> | <code>Windows</code> | <code>Windows with SQL Server Standard</code>
-        /// | <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</para></li><li><para><code>reserved-instances-id</code> - The ID of the Reserved Instance.</para></li><li><para><code>start</code> - The time at which the Reserved Instance purchase request was
-        /// placed (for example, 2014-08-07T11:54:42.000Z).</para></li><li><para><code>state</code> - The state of the Reserved Instance (<code>payment-pending</code>
-        /// | <code>active</code> | <code>payment-failed</code> | <code>retired</code>).</para></li><li><para><code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the
-        /// resource. Use the tag key in the filter name and the tag value as the filter value.
-        /// For example, to find all resources that have a tag with the key <code>Owner</code>
-        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>usage-price</code> - The usage price of the Reserved Instance, per hour (for
-        /// example, 0.84).</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><c>availability-zone</c> - The Availability Zone where the Reserved Instance can
+        /// be used.</para></li><li><para><c>duration</c> - The duration of the Reserved Instance (one year or three years),
+        /// in seconds (<c>31536000</c> | <c>94608000</c>).</para></li><li><para><c>end</c> - The time when the Reserved Instance expires (for example, 2015-08-07T11:54:42.000Z).</para></li><li><para><c>fixed-price</c> - The purchase price of the Reserved Instance (for example, 9800.0).</para></li><li><para><c>instance-type</c> - The instance type that is covered by the reservation.</para></li><li><para><c>scope</c> - The scope of the Reserved Instance (<c>Region</c> or <c>Availability
+        /// Zone</c>).</para></li><li><para><c>product-description</c> - The Reserved Instance product platform description (<c>Linux/UNIX</c>
+        /// | <c>Linux with SQL Server Standard</c> | <c>Linux with SQL Server Web</c> | <c>Linux
+        /// with SQL Server Enterprise</c> | <c>SUSE Linux</c> | <c>Red Hat Enterprise Linux</c>
+        /// | <c>Red Hat Enterprise Linux with HA</c> | <c>Windows</c> | <c>Windows with SQL Server
+        /// Standard</c> | <c>Windows with SQL Server Web</c> | <c>Windows with SQL Server Enterprise</c>).</para></li><li><para><c>reserved-instances-id</c> - The ID of the Reserved Instance.</para></li><li><para><c>start</c> - The time at which the Reserved Instance purchase request was placed
+        /// (for example, 2014-08-07T11:54:42.000Z).</para></li><li><para><c>state</c> - The state of the Reserved Instance (<c>payment-pending</c> | <c>active</c>
+        /// | <c>payment-failed</c> | <c>retired</c>).</para></li><li><para><c>tag:&lt;key&gt;</c> - The key/value combination of a tag assigned to the resource.
+        /// Use the tag key in the filter name and the tag value as the filter value. For example,
+        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>usage-price</c> - The usage price of the Reserved Instance, per hour (for example,
+        /// 0.84).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -91,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01
-        /// API version, you only have access to the <code>Medium Utilization</code> Reserved
-        /// Instance offering type.</para>
+        /// API version, you only have access to the <c>Medium Utilization</c> Reserved Instance
+        /// offering type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

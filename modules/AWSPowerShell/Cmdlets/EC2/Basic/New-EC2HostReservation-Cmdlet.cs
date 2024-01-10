@@ -47,9 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CurrencyCode
         /// <summary>
         /// <para>
-        /// <para>The currency in which the <code>totalUpfrontPrice</code>, <code>LimitPrice</code>,
-        /// and <code>totalHourlyPrice</code> amounts are specified. At this time, the only supported
-        /// currency is <code>USD</code>.</para>
+        /// <para>The currency in which the <c>totalUpfrontPrice</c>, <c>LimitPrice</c>, and <c>totalHourlyPrice</c>
+        /// amounts are specified. At this time, the only supported currency is <c>USD</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// as the offering's upfront cost multiplied by the host count). If the total upfront
         /// cost is greater than the specified price limit, the request fails. This is used to
         /// ensure that the purchase does not exceed the expected upfront cost of the purchase.
-        /// At this time, the only supported currency is <code>USD</code>. For example, to indicate
+        /// At this time, the only supported currency is <c>USD</c>. For example, to indicate
         /// a limit price of USD 100, specify 100.00.</para>
         /// </para>
         /// </summary>

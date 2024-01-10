@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     ///  
     /// <para>
     /// It's not necessary to disassociate compute environments from a queue before submitting
-    /// a <code>DeleteJobQueue</code> request.
+    /// a <c>DeleteJobQueue</c> request.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "BATJobQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

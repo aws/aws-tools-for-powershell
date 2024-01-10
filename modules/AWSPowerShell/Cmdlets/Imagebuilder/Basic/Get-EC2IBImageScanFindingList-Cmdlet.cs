@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>An array of name value pairs that you can use to filter your results. You can use
-        /// the following filters to streamline results:</para><ul><li><para><code>imageBuildVersionArn</code></para></li><li><para><code>imagePipelineArn</code></para></li><li><para><code>vulnerabilityId</code></para></li><li><para><code>severity</code></para></li></ul><para>If you don't request a filter, then all findings in your account are listed.</para>
+        /// the following filters to streamline results:</para><ul><li><para><c>imageBuildVersionArn</c></para></li><li><para><c>imagePipelineArn</c></para></li><li><para><c>vulnerabilityId</c></para></li><li><para><c>severity</c></para></li></ul><para>If you don't request a filter, then all findings in your account are listed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

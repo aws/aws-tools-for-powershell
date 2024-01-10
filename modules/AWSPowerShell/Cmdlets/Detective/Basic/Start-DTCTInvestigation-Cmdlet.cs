@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         /// <summary>
         /// <para>
         /// <para>The data and time when the investigation began. The value is an UTC ISO8601 formatted
-        /// string. For example, <code>2021-08-18T16:35:56.284Z</code>.</para>
+        /// string. For example, <c>2021-08-18T16:35:56.284Z</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         /// <summary>
         /// <para>
         /// <para>The data and time when the investigation began. The value is an UTC ISO8601 formatted
-        /// string. For example, <code>2021-08-18T16:35:56.284Z</code>.</para>
+        /// string. For example, <c>2021-08-18T16:35:56.284Z</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -87,10 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// to an organization ID instead of granting permission to individual Amazon Web Services
         /// accounts. Before you update a destination policy this way, you must first update the
         /// subscription filters in the accounts that send logs to this destination. If you do
-        /// not, the subscription filters might stop working. By specifying <code>true</code>
-        /// for <code>forceUpdate</code>, you are affirming that you have already updated the
-        /// subscription filters. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Cross-Account-Log_Subscription-Update.html">
-        /// Updating an existing cross-account subscription</a></para><para>If you omit this parameter, the default of <code>false</code> is used.</para>
+        /// not, the subscription filters might stop working. By specifying <c>true</c> for <c>forceUpdate</c>,
+        /// you are affirming that you have already updated the subscription filters. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Cross-Account-Log_Subscription-Update.html">
+        /// Updating an existing cross-account subscription</a></para><para>If you omit this parameter, the default of <c>false</c> is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

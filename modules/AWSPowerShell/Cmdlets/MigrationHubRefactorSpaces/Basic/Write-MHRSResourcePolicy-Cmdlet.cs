@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     /// <summary>
     /// Attaches a resource-based permission policy to the Amazon Web Services Migration Hub
     /// Refactor Spaces environment. The policy must contain the same actions and condition
-    /// statements as the <code>arn:aws:ram::aws:permission/AWSRAMDefaultPermissionRefactorSpacesEnvironment</code>
+    /// statements as the <c>arn:aws:ram::aws:permission/AWSRAMDefaultPermissionRefactorSpacesEnvironment</c>
     /// permission in Resource Access Manager. The policy must not contain new lines or blank
     /// lines.
     /// </summary>

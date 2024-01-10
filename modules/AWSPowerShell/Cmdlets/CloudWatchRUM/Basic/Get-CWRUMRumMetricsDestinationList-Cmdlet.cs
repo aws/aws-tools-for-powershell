@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return in one operation. The default is 50. The maximum
-        /// that you can specify is 100.</para><para>To retrieve the remaining results, make another call with the returned <code>NextToken</code>
+        /// that you can specify is 100.</para><para>To retrieve the remaining results, make another call with the returned <c>NextToken</c>
         /// value. </para>
         /// </para>
         /// </summary>

@@ -69,8 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description to be updated as part of the <code>UpdateEnvironmentProfile</code>
-        /// action.</para>
+        /// <para>The description to be updated as part of the <c>UpdateEnvironmentProfile</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</para>
+        /// <para>The name to be updated as part of the <c>UpdateEnvironmentProfile</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,8 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter UserParameter
         /// <summary>
         /// <para>
-        /// <para>The user parameters to be updated as part of the <code>UpdateEnvironmentProfile</code>
-        /// action.</para>
+        /// <para>The user parameters to be updated as part of the <c>UpdateEnvironmentProfile</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

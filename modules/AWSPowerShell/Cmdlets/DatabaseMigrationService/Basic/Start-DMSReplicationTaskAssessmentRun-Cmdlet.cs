@@ -74,10 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Space-separated list of names for specific individual assessments that you want to
         /// exclude. These names come from the default list of individual assessments that DMS
-        /// supports for the associated migration task. This task is specified by <code>ReplicationTaskArn</code>.</para><note><para>You can't set a value for <code>Exclude</code> if you also set a value for <code>IncludeOnly</code>
+        /// supports for the associated migration task. This task is specified by <c>ReplicationTaskArn</c>.</para><note><para>You can't set a value for <c>Exclude</c> if you also set a value for <c>IncludeOnly</c>
         /// in the API operation.</para><para>To identify the names of the default individual assessments that DMS supports for
-        /// the associated migration task, run the <code>DescribeApplicableIndividualAssessments</code>
-        /// operation using its own <code>ReplicationTaskArn</code> request parameter.</para></note>
+        /// the associated migration task, run the <c>DescribeApplicableIndividualAssessments</c>
+        /// operation using its own <c>ReplicationTaskArn</c> request parameter.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,10 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Space-separated list of names for specific individual assessments that you want to
         /// include. These names come from the default list of individual assessments that DMS
-        /// supports for the associated migration task. This task is specified by <code>ReplicationTaskArn</code>.</para><note><para>You can't set a value for <code>IncludeOnly</code> if you also set a value for <code>Exclude</code>
+        /// supports for the associated migration task. This task is specified by <c>ReplicationTaskArn</c>.</para><note><para>You can't set a value for <c>IncludeOnly</c> if you also set a value for <c>Exclude</c>
         /// in the API operation. </para><para>To identify the names of the default individual assessments that DMS supports for
-        /// the associated migration task, run the <code>DescribeApplicableIndividualAssessments</code>
-        /// operation using its own <code>ReplicationTaskArn</code> request parameter.</para></note>
+        /// the associated migration task, run the <c>DescribeApplicableIndividualAssessments</c>
+        /// operation using its own <c>ReplicationTaskArn</c> request parameter.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,9 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Encryption mode that you can specify to encrypt the results of this assessment run.
         /// If you don't specify this request parameter, DMS stores the assessment run results
-        /// without encryption. You can specify one of the options following:</para><ul><li><para><code>"SSE_S3"</code> – The server-side encryption provided as a default by Amazon
-        /// S3.</para></li><li><para><code>"SSE_KMS"</code> – Key Management Service (KMS) encryption. This encryption
-        /// can use either a custom KMS encryption key that you specify or the default KMS encryption
+        /// without encryption. You can specify one of the options following:</para><ul><li><para><c>"SSE_S3"</c> – The server-side encryption provided as a default by Amazon S3.</para></li><li><para><c>"SSE_KMS"</c> – Key Management Service (KMS) encryption. This encryption can use
+        /// either a custom KMS encryption key that you specify or the default KMS encryption
         /// key that DMS provides.</para></li></ul>
         /// </para>
         /// </summary>
@@ -135,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ResultKmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>ARN of a custom KMS encryption key that you specify when you set <code>ResultEncryptionMode</code>
-        /// to <code>"SSE_KMS</code>".</para>
+        /// <para>ARN of a custom KMS encryption key that you specify when you set <c>ResultEncryptionMode</c>
+        /// to <c>"SSE_KMS</c>".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>ARN of the service role needed to start the assessment run. The role must allow the
-        /// <code>iam:PassRole</code> action.</para>
+        /// <c>iam:PassRole</c> action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -39,10 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCertificateProvider</a>
     /// action.
     /// </para><important><para>
-    /// After you create a certificate provider, the behavior of <a href="https://docs.aws.amazon.com/iot/latest/developerguide/fleet-provision-api.html#create-cert-csr"><code>CreateCertificateFromCsr</code> API for fleet provisioning</a> will change and
-    /// all API calls to <code>CreateCertificateFromCsr</code> will invoke the certificate
-    /// provider to create the certificates. It can take up to a few minutes for this behavior
-    /// to change after a certificate provider is created.
+    /// After you create a certificate provider, the behavior of <a href="https://docs.aws.amazon.com/iot/latest/developerguide/fleet-provision-api.html#create-cert-csr"><c>CreateCertificateFromCsr</c> API for fleet provisioning</a> will change and all
+    /// API calls to <c>CreateCertificateFromCsr</c> will invoke the certificate provider
+    /// to create the certificates. It can take up to a few minutes for this behavior to change
+    /// after a certificate provider is created.
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "IOTCertificateProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>A list of the operations that the certificate provider will use to generate certificates.
-        /// Valid value: <code>CreateCertificateFromCsr</code>.</para>
+        /// Valid value: <c>CreateCertificateFromCsr</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A string that you can optionally pass in the <code>CreateCertificateProvider</code>
-        /// request to make sure the request is idempotent.</para>
+        /// <para>A string that you can optionally pass in the <c>CreateCertificateProvider</c> request
+        /// to make sure the request is idempotent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

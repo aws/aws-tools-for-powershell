@@ -45,11 +45,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter AwsKmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.</para><para>If you use either <code>s3</code> or <code>s3-aws-kms</code> as your <code>Encryption:Mode</code>,
-        /// you don't need to provide a key with your job because a default key, known as an AWS-KMS
+        /// <para>The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.</para><para>If you use either <c>s3</c> or <c>s3-aws-kms</c> as your <c>Encryption:Mode</c>, you
+        /// don't need to provide a key with your job because a default key, known as an AWS-KMS
         /// key, is created for you automatically. You need to provide an AWS-KMS key only if
-        /// you want to use a non-default AWS-KMS key, or if you are using an <code>Encryption:Mode</code>
-        /// of <code>aes-cbc-pkcs7</code>, <code>aes-ctr</code>, or <code>aes-gcm</code>.</para>
+        /// you want to use a non-default AWS-KMS key, or if you are using an <c>Encryption:Mode</c>
+        /// of <c>aes-cbc-pkcs7</c>, <c>aes-ctr</c>, or <c>aes-gcm</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// storage class.</para></li></ul><para>If you want to save transcoded files and playlists in one bucket and thumbnails in
         /// another bucket, specify which users can access the transcoded files or the permissions
         /// the users have, or change the Amazon S3 storage class, omit OutputBucket and specify
-        /// values for <code>ContentConfig</code> and <code>ThumbnailConfig</code> instead. </para>
+        /// values for <c>ContentConfig</c> and <c>ThumbnailConfig</c> instead. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// storage class.</para></li></ul><para>If you want to save transcoded files and playlists in one bucket and thumbnails in
         /// another bucket, specify which users can access the transcoded files or the permissions
         /// the users have, or change the Amazon S3 storage class, omit OutputBucket and specify
-        /// values for <code>ContentConfig</code> and <code>ThumbnailConfig</code> instead. </para>
+        /// values for <c>ContentConfig</c> and <c>ThumbnailConfig</c> instead. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,13 +154,12 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// (Use this, or use ContentConfig:Bucket plus ThumbnailConfig:Bucket.)</para><para>Specify this value when all of the following are true:</para><ul><li><para>You want to save transcoded files, thumbnails (if any), and playlists (if any) together
         /// in one bucket.</para></li><li><para>You do not want to specify the users or groups who have access to the transcoded files,
         /// thumbnails, and playlists.</para></li><li><para>You do not want to specify the permissions that Elastic Transcoder grants to the files.
-        /// </para><important><para>When Elastic Transcoder saves files in <code>OutputBucket</code>, it grants full control
-        /// over the files only to the AWS account that owns the role that is specified by <code>Role</code>.</para></important></li><li><para>You want to associate the transcoded files and thumbnails with the Amazon S3 Standard
+        /// </para><important><para>When Elastic Transcoder saves files in <c>OutputBucket</c>, it grants full control
+        /// over the files only to the AWS account that owns the role that is specified by <c>Role</c>.</para></important></li><li><para>You want to associate the transcoded files and thumbnails with the Amazon S3 Standard
         /// storage class.</para></li></ul><para>If you want to save transcoded files and playlists in one bucket and thumbnails in
         /// another bucket, specify which users can access the transcoded files or the permissions
-        /// the users have, or change the Amazon S3 storage class, omit <code>OutputBucket</code>
-        /// and specify values for <code>ContentConfig</code> and <code>ThumbnailConfig</code>
-        /// instead.</para>
+        /// the users have, or change the Amazon S3 storage class, omit <c>OutputBucket</c> and
+        /// specify values for <c>ContentConfig</c> and <c>ThumbnailConfig</c> instead.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -170,15 +169,15 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter ContentConfig_Permission
         /// <summary>
         /// <para>
-        /// <para>Optional. The <code>Permissions</code> object specifies which users and/or predefined
-        /// Amazon S3 groups you want to have access to transcoded files and playlists, and the
-        /// type of access you want them to have. You can grant permissions to a maximum of 30
-        /// users and/or predefined Amazon S3 groups.</para><para>If you include <code>Permissions</code>, Elastic Transcoder grants only the permissions
+        /// <para>Optional. The <c>Permissions</c> object specifies which users and/or predefined Amazon
+        /// S3 groups you want to have access to transcoded files and playlists, and the type
+        /// of access you want them to have. You can grant permissions to a maximum of 30 users
+        /// and/or predefined Amazon S3 groups.</para><para>If you include <c>Permissions</c>, Elastic Transcoder grants only the permissions
         /// that you specify. It does not grant full permissions to the owner of the role specified
-        /// by <code>Role</code>. If you want that user to have full control, you must explicitly
-        /// grant full control to the user.</para><para> If you omit <code>Permissions</code>, Elastic Transcoder grants full control over
-        /// the transcoded files and playlists to the owner of the role specified by <code>Role</code>,
-        /// and grants no other permissions to any other user or group.</para>
+        /// by <c>Role</c>. If you want that user to have full control, you must explicitly grant
+        /// full control to the user.</para><para> If you omit <c>Permissions</c>, Elastic Transcoder grants full control over the transcoded
+        /// files and playlists to the owner of the role specified by <c>Role</c>, and grants
+        /// no other permissions to any other user or group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,15 +188,15 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter ThumbnailConfig_Permission
         /// <summary>
         /// <para>
-        /// <para>Optional. The <code>Permissions</code> object specifies which users and/or predefined
-        /// Amazon S3 groups you want to have access to transcoded files and playlists, and the
-        /// type of access you want them to have. You can grant permissions to a maximum of 30
-        /// users and/or predefined Amazon S3 groups.</para><para>If you include <code>Permissions</code>, Elastic Transcoder grants only the permissions
+        /// <para>Optional. The <c>Permissions</c> object specifies which users and/or predefined Amazon
+        /// S3 groups you want to have access to transcoded files and playlists, and the type
+        /// of access you want them to have. You can grant permissions to a maximum of 30 users
+        /// and/or predefined Amazon S3 groups.</para><para>If you include <c>Permissions</c>, Elastic Transcoder grants only the permissions
         /// that you specify. It does not grant full permissions to the owner of the role specified
-        /// by <code>Role</code>. If you want that user to have full control, you must explicitly
-        /// grant full control to the user.</para><para> If you omit <code>Permissions</code>, Elastic Transcoder grants full control over
-        /// the transcoded files and playlists to the owner of the role specified by <code>Role</code>,
-        /// and grants no other permissions to any other user or group.</para>
+        /// by <c>Role</c>. If you want that user to have full control, you must explicitly grant
+        /// full control to the user.</para><para> If you omit <c>Permissions</c>, Elastic Transcoder grants full control over the transcoded
+        /// files and playlists to the owner of the role specified by <c>Role</c>, and grants
+        /// no other permissions to any other user or group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -237,9 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter ContentConfig_StorageClass
         /// <summary>
         /// <para>
-        /// <para> The Amazon S3 storage class, <code>Standard</code> or <code>ReducedRedundancy</code>,
-        /// that you want Elastic Transcoder to assign to the video files and playlists that it
-        /// stores in your Amazon S3 bucket. </para>
+        /// <para> The Amazon S3 storage class, <c>Standard</c> or <c>ReducedRedundancy</c>, that you
+        /// want Elastic Transcoder to assign to the video files and playlists that it stores
+        /// in your Amazon S3 bucket. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -249,9 +248,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter ThumbnailConfig_StorageClass
         /// <summary>
         /// <para>
-        /// <para> The Amazon S3 storage class, <code>Standard</code> or <code>ReducedRedundancy</code>,
-        /// that you want Elastic Transcoder to assign to the video files and playlists that it
-        /// stores in your Amazon S3 bucket. </para>
+        /// <para> The Amazon S3 storage class, <c>Standard</c> or <c>ReducedRedundancy</c>, that you
+        /// want Elastic Transcoder to assign to the video files and playlists that it stores
+        /// in your Amazon S3 bucket. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

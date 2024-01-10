@@ -79,10 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Use this parameter if you receive a <code>NextToken</code> response in a previous
-        /// request that indicates that there is more output available. Set it to the value of
-        /// the previous call's <code>NextToken</code> response to indicate where the output should
-        /// continue from. </para>
+        /// <para>Use this parameter if you receive a <c>NextToken</c> response in a previous request
+        /// that indicates that there is more output available. Set it to the value of the previous
+        /// call's <c>NextToken</c> response to indicate where the output should continue from.
+        /// </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
