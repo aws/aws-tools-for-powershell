@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The managed draining option for the Auto Scaling group capacity provider. When you
         /// enable this, Amazon ECS manages and gracefully drains the EC2 container instances
-        /// that are in the Auto Scaling group capacity provider.</para><para>The default is <c>ENABLED</c>.</para>
+        /// that are in the Auto Scaling group capacity provider.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

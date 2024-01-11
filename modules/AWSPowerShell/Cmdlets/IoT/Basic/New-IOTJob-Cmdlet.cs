@@ -82,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The package version Amazon Resource Names (ARNs) that are installed on the device
-        /// when the job successfully completes. </para><para><b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package
+        /// when the job successfully completes. The package version must be in either the Published
+        /// or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package
+        /// version lifecycle</a>. </para><para><b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package
         /// version ARNs are allowed.</para>
         /// </para>
         /// </summary>

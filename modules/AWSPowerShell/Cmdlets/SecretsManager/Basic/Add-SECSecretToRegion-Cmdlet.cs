@@ -37,8 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// include sensitive information in request parameters because it might be logged. For
     /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
     /// Secrets Manager events with CloudTrail</a>.
-    /// </para><para><b>Required permissions: </b><c>secretsmanager:ReplicateSecretToRegions</c>. For
-    /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+    /// </para><para><b>Required permissions: </b><c>secretsmanager:ReplicateSecretToRegions</c>. If
+    /// the primary secret is encrypted with a KMS key other than <c>aws/secretsmanager</c>,
+    /// you also need <c>kms:Decrypt</c> permission to the key. To encrypt the replicated
+    /// secret with a KMS key other than <c>aws/secretsmanager</c>, you need <c>kms:GenerateDataKey</c>
+    /// and <c>kms:Encrypt</c> to the key. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
     /// and access control in Secrets Manager</a>. 
     /// </para>

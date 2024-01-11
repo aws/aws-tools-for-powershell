@@ -86,14 +86,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter HttpToken
         /// <summary>
         /// <para>
-        /// <para>IMDSv2 uses token-backed sessions. Set the use of HTTP tokens to <c>optional</c> (in
-        /// other words, set the use of IMDSv2 to <c>optional</c>) or <c>required</c> (in other
-        /// words, set the use of IMDSv2 to <c>required</c>).</para><ul><li><para><c>optional</c> - When IMDSv2 is optional, you can choose to retrieve instance metadata
-        /// with or without a session token in your request. If you retrieve the IAM role credentials
-        /// without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM
-        /// role credentials using a valid session token, the IMDSv2 role credentials are returned.</para></li><li><para><c>required</c> - When IMDSv2 is required, you must send a session token with any
-        /// instance metadata retrieval requests. In this state, retrieving the IAM role credentials
-        /// always returns IMDSv2 credentials; IMDSv1 credentials are not available.</para></li></ul><para>Default: <c>optional</c></para>
+        /// <para>Indicates whether IMDSv2 is required.</para><ul><li><para><c>optional</c> - IMDSv2 is optional. You can choose whether to send a session token
+        /// in your instance metadata retrieval requests. If you retrieve IAM role credentials
+        /// without a session token, you receive the IMDSv1 role credentials. If you retrieve
+        /// IAM role credentials using a valid session token, you receive the IMDSv2 role credentials.</para></li><li><para><c>required</c> - IMDSv2 is required. You must send a session token in your instance
+        /// metadata retrieval requests. With this option, retrieving the IAM role credentials
+        /// always returns IMDSv2 credentials; IMDSv1 credentials are not available.</para></li></ul><para>Default: If the value of <c>ImdsSupport</c> for the Amazon Machine Image (AMI) for
+        /// your instance is <c>v2.0</c>, the default is <c>required</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

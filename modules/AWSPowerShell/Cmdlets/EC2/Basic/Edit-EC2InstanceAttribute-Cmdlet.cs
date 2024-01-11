@@ -75,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Modifies the <c>DeleteOnTermination</c> attribute for volumes that are currently attached.
         /// The volume must be owned by the caller. If no value is specified for <c>DeleteOnTermination</c>,
-        /// the default is <c>true</c> and the volume is deleted when the instance is terminated.</para><para>To add instance store volumes to an Amazon EBS-backed instance, you must add them
+        /// the default is <c>true</c> and the volume is deleted when the instance is terminated.
+        /// You can't modify the <c>DeleteOnTermination</c> attribute for volumes that are attached
+        /// to Fargate tasks.</para><para>To add instance store volumes to an Amazon EBS-backed instance, you must add them
         /// when you launch the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Update
         /// the block device mapping when launching an instance</a> in the <i>Amazon EC2 User
         /// Guide</i>.</para>

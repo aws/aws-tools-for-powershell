@@ -48,6 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
     /// load balancing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
+    /// You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when
+    /// creating or updating a service. <c>volumeConfigurations</c> is only supported for
+    /// REPLICA service and not DAEMON service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon
+    /// EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+    /// </para><para>
     /// Tasks for services that don't use a load balancer are considered healthy if they're
     /// in the <c>RUNNING</c> state. Tasks for services that use a load balancer are considered
     /// healthy if they're in the <c>RUNNING</c> state and are reported as healthy by the
@@ -706,6 +711,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.DeploymentControllerType DeploymentController_Type { get; set; }
         #endregion
         
+        #region Parameter VolumeConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The configuration for a volume specified in the task definition as a volume that is
+        /// configured at launch time. Currently, the only supported volume type is an Amazon
+        /// EBS volume.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VolumeConfigurations")]
+        public Amazon.ECS.Model.ServiceVolumeConfiguration[] VolumeConfiguration { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -862,6 +880,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.Tag = new List<Amazon.ECS.Model.Tag>(this.Tag);
             }
             context.TaskDefinition = this.TaskDefinition;
+            if (this.VolumeConfiguration != null)
+            {
+                context.VolumeConfiguration = new List<Amazon.ECS.Model.ServiceVolumeConfiguration>(this.VolumeConfiguration);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -1220,6 +1242,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.TaskDefinition = cmdletContext.TaskDefinition;
             }
+            if (cmdletContext.VolumeConfiguration != null)
+            {
+                request.VolumeConfigurations = cmdletContext.VolumeConfiguration;
+            }
             
             CmdletOutput output;
             
@@ -1317,6 +1343,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public List<Amazon.ECS.Model.ServiceRegistry> ServiceRegistry { get; set; }
             public List<Amazon.ECS.Model.Tag> Tag { get; set; }
             public System.String TaskDefinition { get; set; }
+            public List<Amazon.ECS.Model.ServiceVolumeConfiguration> VolumeConfiguration { get; set; }
             public System.Func<Amazon.ECS.Model.CreateServiceResponse, NewECSServiceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Service;
         }

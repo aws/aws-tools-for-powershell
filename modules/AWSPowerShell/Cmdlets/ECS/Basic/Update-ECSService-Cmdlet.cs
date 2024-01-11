@@ -38,6 +38,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// and strategies, and task definition. When you update any of these parameters, Amazon
     /// ECS starts new tasks with the new configuration. 
     /// </para><para>
+    /// You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when
+    /// starting or running a task, or when creating or updating a service. For more infomation,
+    /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon
+    /// EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. You
+    /// can update your volume configurations and trigger a new deployment. <c>volumeConfigurations</c>
+    /// is only supported for REPLICA service and not DAEMON service. If you leave <c>volumeConfigurations</c><c>null</c>, it doesn't trigger a new deployment. For more infomation on volumes,
+    /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon
+    /// EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+    /// </para><para>
     /// For services using the blue/green (<c>CODE_DEPLOY</c>) deployment controller, only
     /// the desired count, deployment configuration, health check grace period, task placement
     /// constraints and strategies, enable ECS managed tags option, and propagate tags can
@@ -56,10 +65,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// in a service by specifying the cluster that the service is running in and a new <c>desiredCount</c>
     /// parameter.
     /// </para><para>
-    /// If you have updated the Docker image of your application, you can create a new task
-    /// definition with that image and deploy it to your service. The service scheduler uses
-    /// the minimum healthy percent and maximum percent parameters (in the service's deployment
-    /// configuration) to determine the deployment strategy.
+    /// You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when
+    /// starting or running a task, or when creating or updating a service. For more infomation,
+    /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon
+    /// EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+    /// </para><para>
+    /// If you have updated the container image of your application, you can create a new
+    /// task definition with that image and deploy it to your service. The service scheduler
+    /// uses the minimum healthy percent and maximum percent parameters (in the service's
+    /// deployment configuration) to determine the deployment strategy.
     /// </para><note><para>
     /// If your updated Docker image uses the same tag as what is in the existing task definition
     /// for your service (for example, <c>my_image:latest</c>), you don't need to create a
@@ -622,6 +636,21 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String TaskDefinition { get; set; }
         #endregion
         
+        #region Parameter VolumeConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The details of the volume that was <c>configuredAtLaunch</c>. You can configure the
+        /// size, volumeType, IOPS, throughput, snapshot and encryption in <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ServiceManagedEBSVolumeConfiguration.html">ServiceManagedEBSVolumeConfiguration</a>.
+        /// The <c>name</c> of the volume must match the <c>name</c> from the task definition.
+        /// If set to null, no new deployment is triggered. Otherwise, if this configuration differs
+        /// from the existing one, it triggers a new deployment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VolumeConfigurations")]
+        public Amazon.ECS.Model.ServiceVolumeConfiguration[] VolumeConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Service'.
@@ -758,6 +787,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.ServiceRegistry = new List<Amazon.ECS.Model.ServiceRegistry>(this.ServiceRegistry);
             }
             context.TaskDefinition = this.TaskDefinition;
+            if (this.VolumeConfiguration != null)
+            {
+                context.VolumeConfiguration = new List<Amazon.ECS.Model.ServiceVolumeConfiguration>(this.VolumeConfiguration);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -1081,6 +1114,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.TaskDefinition = cmdletContext.TaskDefinition;
             }
+            if (cmdletContext.VolumeConfiguration != null)
+            {
+                request.VolumeConfigurations = cmdletContext.VolumeConfiguration;
+            }
             
             CmdletOutput output;
             
@@ -1173,6 +1210,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public List<Amazon.ECS.Model.ServiceConnectService> ServiceConnectConfiguration_Service { get; set; }
             public List<Amazon.ECS.Model.ServiceRegistry> ServiceRegistry { get; set; }
             public System.String TaskDefinition { get; set; }
+            public List<Amazon.ECS.Model.ServiceVolumeConfiguration> VolumeConfiguration { get; set; }
             public System.Func<Amazon.ECS.Model.UpdateServiceResponse, UpdateECSServiceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Service;
         }

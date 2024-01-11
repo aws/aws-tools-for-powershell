@@ -1,4 +1,12 @@
-﻿### 4.1.491 (2024-01-10 21:42Z)
+﻿### 4.1.492 (2024-01-11 21:48Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.724.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSService: added parameter VolumeConfiguration.
+    * Modified cmdlet New-ECSTask: added parameter VolumeConfiguration.
+    * Modified cmdlet Start-ECSTask: added parameter VolumeConfiguration.
+    * Modified cmdlet Update-ECSService: added parameter VolumeConfiguration.
+
+### 4.1.491 (2024-01-10 21:42Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.723.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Logs
     * Modified cmdlet Write-CWLAccountPolicy: added parameter SelectionCriterion.

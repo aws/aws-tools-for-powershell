@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// Therefore, the attributes for these snapshots still indicate that they are publicly
         /// shared, even though they are not publicly available.</para></note></li><li><para><c>block-new-sharing</c> - Prevents only new public sharing of snapshots in the Region.
         /// Users in the account will no longer be able to request new public sharing. However,
-        /// snapshots that are already publicly shared, remain publicly available.</para></li></ul>
+        /// snapshots that are already publicly shared, remain publicly available.</para></li></ul><para><c>unblocked</c> is not a valid value for <b>EnableSnapshotBlockPublicAccess</b>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

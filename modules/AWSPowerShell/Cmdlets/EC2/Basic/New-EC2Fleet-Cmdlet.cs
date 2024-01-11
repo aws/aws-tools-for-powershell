@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TargetCapacitySpecification_DefaultTargetCapacityType
         /// <summary>
         /// <para>
-        /// <para>The default <c>TotalTargetCapacity</c>, which is either <c>Spot</c> or <c>On-Demand</c>.</para>
+        /// <para>The default target capacity type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -349,8 +349,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TargetCapacitySpecification_TargetCapacityUnitType
         /// <summary>
         /// <para>
-        /// <para>The unit for the target capacity. <c>TargetCapacityUnitType</c> can only be specified
-        /// when <c>InstanceRequirements</c> is specified.</para><para>Default: <c>units</c> (translates to number of instances)</para>
+        /// <para>The unit for the target capacity. You can specify this parameter only when using attributed-based
+        /// instance type selection.</para><para>Default: <c>units</c> (the number of instances)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -383,7 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TargetCapacitySpecification_TotalTargetCapacity
         /// <summary>
         /// <para>
-        /// <para>The number of units to request, filled using <c>DefaultTargetCapacityType</c>.</para>
+        /// <para>The number of units to request, filled using the default target capacity type.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

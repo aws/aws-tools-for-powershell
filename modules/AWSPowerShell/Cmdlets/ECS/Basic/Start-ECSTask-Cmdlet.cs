@@ -43,6 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Alternatively, you can use <a>RunTask</a> to place tasks for you. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling
     /// Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+    /// </para><para>
+    /// You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when
+    /// creating or updating a service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon
+    /// EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "ECSTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -317,6 +321,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String Overrides_TaskRoleArn { get; set; }
         #endregion
         
+        #region Parameter VolumeConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The details of the volume that was <c>configuredAtLaunch</c>. You can configure the
+        /// size, volumeType, IOPS, throughput, snapshot and encryption in <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TaskManagedEBSVolumeConfiguration.html">TaskManagedEBSVolumeConfiguration</a>.
+        /// The <c>name</c> of the volume must match the <c>name</c> from the task definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VolumeConfigurations")]
+        public Amazon.ECS.Model.TaskVolumeConfiguration[] VolumeConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -429,6 +446,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 WriteWarning("You are passing $null as a value for parameter TaskDefinition which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.VolumeConfiguration != null)
+            {
+                context.VolumeConfiguration = new List<Amazon.ECS.Model.TaskVolumeConfiguration>(this.VolumeConfiguration);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -633,6 +654,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.TaskDefinition = cmdletContext.TaskDefinition;
             }
+            if (cmdletContext.VolumeConfiguration != null)
+            {
+                request.VolumeConfigurations = cmdletContext.VolumeConfiguration;
+            }
             
             CmdletOutput output;
             
@@ -714,6 +739,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.String StartedBy { get; set; }
             public List<Amazon.ECS.Model.Tag> Tag { get; set; }
             public System.String TaskDefinition { get; set; }
+            public List<Amazon.ECS.Model.TaskVolumeConfiguration> VolumeConfiguration { get; set; }
             public System.Func<Amazon.ECS.Model.StartTaskResponse, StartECSTaskCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

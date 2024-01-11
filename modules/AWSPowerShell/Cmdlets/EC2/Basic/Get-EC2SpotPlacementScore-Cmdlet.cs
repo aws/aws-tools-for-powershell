@@ -517,7 +517,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TargetCapacityUnitType
         /// <summary>
         /// <para>
-        /// <para>The unit for the target capacity.</para><para>Default: <c>units</c> (translates to number of instances)</para>
+        /// <para>The unit for the target capacity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
