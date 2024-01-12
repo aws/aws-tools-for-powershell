@@ -1,4 +1,8 @@
-﻿### 4.1.492 (2024-01-11 21:48Z)
+﻿### 4.1.493 (2024-01-12 22:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.725.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Supply Chain. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SUPCH and can be listed using the command 'Get-AWSCmdletName -Service SUPCH'.
+
+### 4.1.492 (2024-01-11 21:48Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.724.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EC2 Container Service
     * Modified cmdlet New-ECSService: added parameter VolumeConfiguration.

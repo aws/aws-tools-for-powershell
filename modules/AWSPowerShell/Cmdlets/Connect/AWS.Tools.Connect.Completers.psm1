@@ -204,7 +204,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNInstanceAttribute/AttributeType")
         }
         {
-            $v = "AUTO_RESOLVE_BEST_VOICES","CONTACTFLOW_LOGS","CONTACT_LENS","EARLY_MEDIA","ENHANCED_CONTACT_MONITORING","HIGH_VOLUME_OUTBOUND","INBOUND_CALLS","MULTI_PARTY_CONFERENCE","OUTBOUND_CALLS","USE_CUSTOM_TTS_VOICES"
+            $v = "AUTO_RESOLVE_BEST_VOICES","CONTACTFLOW_LOGS","CONTACT_LENS","EARLY_MEDIA","ENHANCED_CHAT_MONITORING","ENHANCED_CONTACT_MONITORING","HIGH_VOLUME_OUTBOUND","INBOUND_CALLS","MULTI_PARTY_CONFERENCE","OUTBOUND_CALLS","USE_CUSTOM_TTS_VOICES"
             break
         }
 
@@ -258,7 +258,7 @@ $CONN_Completers = {
         # Amazon.Connect.ParticipantRole
         "New-CONNParticipant/ParticipantDetails_ParticipantRole"
         {
-            $v = "AGENT","CUSTOMER","CUSTOM_BOT","SYSTEM"
+            $v = "AGENT","CUSTOMER","CUSTOM_BOT","SUPERVISOR","SYSTEM"
             break
         }
 

@@ -69,7 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// contact</a></para></dd><dt>AGENTS_ONLINE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#online-real-time">Online</a></para></dd><dt>AGENTS_STAFFED</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#staffed-real-time">Staffed</a></para></dd><dt>CONTACTS_IN_QUEUE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#in-queue-real-time">In
         /// queue</a></para></dd><dt>CONTACTS_SCHEDULED</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#scheduled-real-time">Scheduled</a></para></dd><dt>OLDEST_CONTACT_AGE</dt><dd><para>Unit: SECONDS</para><para>When you use groupings, Unit says SECONDS and the Value is returned in SECONDS. </para><para>When you do not use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS.
         /// For example, if you get a response like this:</para><para><c>{ "Metric": { "Name": "OLDEST_CONTACT_AGE", "Unit": "SECONDS" }, "Value": 24113.0
-        /// </c>}</para><para>The actual OLDEST_CONTACT_AGE is 24 seconds.</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#oldest-real-time">Oldest</a></para></dd><dt>SLOTS_ACTIVE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#active-real-time">Active</a></para></dd><dt>SLOTS_AVAILABLE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#availability-real-time">Availability</a></para></dd></dl>
+        /// </c>}</para><para>The actual OLDEST_CONTACT_AGE is 24 seconds.</para><para>When the filter <c>RoutingStepExpression</c> is used, this metric is still calculated
+        /// from enqueue time. For example, if a contact that has been queued under <c>&lt;Expression
+        /// 1&gt;</c> for 10 seconds has expired and <c>&lt;Expression 2&gt;</c> becomes active,
+        /// then <c>OLDEST_CONTACT_AGE</c> for this queue will be counted starting from 10, not
+        /// 0.</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#oldest-real-time">Oldest</a></para></dd><dt>SLOTS_ACTIVE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#active-real-time">Active</a></para></dd><dt>SLOTS_AVAILABLE</dt><dd><para>Unit: COUNT</para><para>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#availability-real-time">Availability</a></para></dd></dl>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// the metrics returned apply to each queue rather than aggregated for all queues. </para><ul><li><para>If you group by <c>CHANNEL</c>, you should include a Channels filter. VOICE, CHAT,
         /// and TASK channels are supported.</para></li><li><para>If you group by <c>ROUTING_PROFILE</c>, you must include either a queue or routing
         /// profile filter. In addition, a routing profile filter is required for metrics <c>CONTACTS_SCHEDULED</c>,
-        /// <c>CONTACTS_IN_QUEUE</c>, and <c> OLDEST_CONTACT_AGE</c>.</para></li><li><para>If no <c>Grouping</c> is included in the request, a summary of metrics is returned.</para></li></ul>
+        /// <c>CONTACTS_IN_QUEUE</c>, and <c> OLDEST_CONTACT_AGE</c>.</para></li><li><para>If no <c>Grouping</c> is included in the request, a summary of metrics is returned.</para></li><li><para>When using the <c>RoutingStepExpression</c> filter, group by <c>ROUTING_STEP_EXPRESSION</c>
+        /// is required.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

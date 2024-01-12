@@ -26777,6 +26777,9 @@ Set-Alias -Name STS-GetCallerIdentity -Value Get-STSCallerIdentity
 Set-Alias -Name STS-GetFederationToken -Value Get-STSFederationToken
 Set-Alias -Name STS-GetSessionToken -Value Get-STSSessionToken
 Set-Alias -Name Assume-STSWebIdentityRole -Value Use-STSWebIdentityRole
+Set-Alias -Name Create-SUPCHBillOfMaterialsImportJob -Value New-SUPCHBillOfMaterialsImportJob
+Set-Alias -Name SUPCH-CreateBillOfMaterialsImportJob -Value New-SUPCHBillOfMaterialsImportJob
+Set-Alias -Name SUPCH-GetBillOfMaterialsImportJob -Value Get-SUPCHBillOfMaterialsImportJob
 Set-Alias -Name ASA-AddAttachmentsToSet -Value Add-ASAAttachmentsToSet
 Set-Alias -Name ASA-AddCommunicationToCase -Value Add-ASACommunicationToCase
 Set-Alias -Name Create-ASACase -Value New-ASACase

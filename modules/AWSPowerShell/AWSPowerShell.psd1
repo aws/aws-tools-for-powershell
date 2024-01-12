@@ -397,6 +397,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.SSOOIDC.dll',
         'AWSSDK.StepFunctions.dll',
         'AWSSDK.StorageGateway.dll',
+        'AWSSDK.SupplyChain.dll',
         'AWSSDK.SupportApp.dll',
         'AWSSDK.Synthetics.dll',
         'AWSSDK.Textract.dll',

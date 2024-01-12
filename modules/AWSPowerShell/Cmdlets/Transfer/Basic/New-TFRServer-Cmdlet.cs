@@ -89,7 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter IdentityProviderDetails_DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Directory Service directory that you want to stop sharing.</para>
+        /// <para>The identifier of the Directory Service directory that you want to use as your identity
+        /// provider.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

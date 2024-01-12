@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>supplychain</C2jFilename>
+    <AssemblyName>SupplyChain</AssemblyName>
+    <ServiceNounPrefix>SUPCH</ServiceNounPrefix>
+    <ServiceName>AWS Supply Chain</ServiceName>
+    <ServiceClientInterface>IAmazonSupplyChain</ServiceClientInterface>
+    <ServiceClient>AmazonSupplyChainClient</ServiceClient>
+    <ServiceModuleGuid>5752fd5e-8a74-4750-a98e-6d23ba076fa2</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateBillOfMaterialsImportJob" OutputProperty="JobId" Verb="New" Noun="BillOfMaterialsImportJob" ShouldProcessTarget="InstanceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBillOfMaterialsImportJob" OutputProperty="Job" Verb="Get" Noun="BillOfMaterialsImportJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

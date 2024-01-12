@@ -90,7 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>The grouping applied to the metrics returned. For example, when results are grouped
         /// by queue, the metrics returned are grouped by queue. The values returned apply to
-        /// the metrics for each queue rather than aggregated for all queues.</para><para>If no grouping is specified, a summary of metrics for all queues is returned.</para>
+        /// the metrics for each queue rather than aggregated for all queues.</para><para>If no grouping is specified, a summary of metrics for all queues is returned.</para><para>RoutingStepExpression is not a valid filter for GetMetricData and we recommend switching
+        /// to GetMetricDataV2 for more up-to-date features.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

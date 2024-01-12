@@ -105,7 +105,21 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter PlaceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the place to find.</para>
+        /// <para>The identifier of the place to find.</para><para>While you can use PlaceID in subsequent requests, PlaceID is not intended to be a
+        /// permanent identifier and the ID can change between consecutive API calls. Please see
+        /// the following PlaceID behaviour for each data provider:</para><ul><li><para>Esri: Place IDs will change every quarter at a minimum. The typical time period for
+        /// these changes would be March, June, September, and December. Place IDs might also
+        /// change between the typical quarterly change but that will be much less frequent.</para></li><li><para>HERE: We recommend that you cache data for no longer than a week to keep your data
+        /// data fresh. You can assume that less than 1% ID shifts will release over release which
+        /// is approximately 1 - 2 times per week.</para></li><li><para>Grab: Place IDs can expire or become invalid in the following situations.</para><ul><li><para>Data operations: The POI may be removed from Grab POI database by Grab Map Ops based
+        /// on the ground-truth, such as being closed in the real world, being detected as a duplicate
+        /// POI, or having incorrect information. Grab will synchronize data to the Waypoint environment
+        /// on weekly basis.</para></li><li><para>Interpolated POI: Interpolated POI is a temporary POI generated in real time when
+        /// serving a request, and it will be marked as derived in the <c>place.result_type</c>
+        /// field in the response. The information of interpolated POIs will be retained for at
+        /// least 30 days, which means that within 30 days, you are able to obtain POI details
+        /// by Place ID from Place Details API. After 30 days, the interpolated POIs(both Place
+        /// ID and details) may expire and inaccessible from the Places Details API.</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

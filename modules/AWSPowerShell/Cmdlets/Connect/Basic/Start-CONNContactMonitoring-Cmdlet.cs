@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>Specify which monitoring actions the user is allowed to take. For example, whether
-        /// the user is allowed to escalate from silent monitoring to barge.</para>
+        /// the user is allowed to escalate from silent monitoring to barge. AllowedMonitorCapabilities
+        /// is required if barge is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
