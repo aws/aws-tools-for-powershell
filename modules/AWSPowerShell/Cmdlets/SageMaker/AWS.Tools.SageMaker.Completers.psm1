@@ -93,7 +93,7 @@ $SM_Completers = {
         # Amazon.SageMaker.AdditionalS3DataSourceDataType
         "New-SMAlgorithm/TrainingSpecification_AdditionalS3DataSource_S3DataType"
         {
-            $v = "S3Object"
+            $v = "S3Object","S3Prefix"
             break
         }
 
@@ -170,7 +170,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMSpace/SpaceSettings_AppType")
         }
         {
-            $v = "Canvas","CodeEditor","DatasetManager","DetailedProfiler","JupyterLab","JupyterServer","KernelGateway","Local","RSession","RSessionGateway","RStudioServerPro","SageMakerLite","Savitur","TensorBoard","VSCode"
+            $v = "Canvas","CodeEditor","DetailedProfiler","JupyterLab","JupyterServer","KernelGateway","RSessionGateway","RStudioServerPro","TensorBoard"
             break
         }
 
@@ -1294,7 +1294,7 @@ $SM_Completers = {
             ($_ -eq "New-SMStudioLifecycleConfig/StudioLifecycleConfigAppType")
         }
         {
-            $v = "CodeEditor","JupyterLab","JupyterServer","KernelGateway","Savitur","VSCode"
+            $v = "CodeEditor","JupyterLab","JupyterServer","KernelGateway"
             break
         }
 
