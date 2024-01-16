@@ -39,16 +39,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// </para><para>
     /// For symmetric key exchange, Amazon Web Services Payment Cryptography uses the ANSI
     /// X9 TR-31 norm in accordance with PCI PIN guidelines. And for asymmetric key exchange,
-    /// Amazon Web Services Payment Cryptography supports ANSI X9 TR-34 norm . Asymmetric
-    /// key exchange methods are typically used to establish bi-directional trust between
-    /// the two parties exhanging keys and are used for initial key exchange such as Key Encryption
-    /// Key (KEK) or Zone Master Key (ZMK). After which you can import working keys using
-    /// symmetric method to perform various cryptographic operations within Amazon Web Services
-    /// Payment Cryptography.
+    /// Amazon Web Services Payment Cryptography supports ANSI X9 TR-34 norm and RSA wrap
+    /// and unwrap key exchange mechanisms. Asymmetric key exchange methods are typically
+    /// used to establish bi-directional trust between the two parties exhanging keys and
+    /// are used for initial key exchange such as Key Encryption Key (KEK) or Zone Master
+    /// Key (ZMK). After which you can import working keys using symmetric method to perform
+    /// various cryptographic operations within Amazon Web Services Payment Cryptography.
     /// </para><para>
     /// The TR-34 norm is intended for exchanging 3DES keys only and keys are imported in
     /// a WrappedKeyBlock format. Key attributes (such as KeyUsage, KeyAlgorithm, KeyModesOfUse,
-    /// Exportability) are contained within the key block. 
+    /// Exportability) are contained within the key block. With RSA wrap and unwrap, you can
+    /// exchange both 3DES and AES-128 keys. The keys are imported in a WrappedKeyCryptogram
+    /// format and you will need to specify the key attributes during import. 
     /// </para><para>
     /// You can also import a <i>root public key certificate</i>, used to sign other public
     /// key certificates, or a <i>trusted public key certificate</i> under an already established
@@ -75,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// to perform.
     /// </para></li><li><para><c>PublicKeyCertificate</c>: The trusted public key certificate in PEM format (base64
     /// encoded) under import.
-    /// </para></li></ul><para><b>To import KEK or ZMK using TR-34</b></para><para>
+    /// </para></li></ul><para><b>To import initial keys (KEK or ZMK or similar) using TR-34</b></para><para>
     /// Using this operation, you can import initial key using TR-34 asymmetric key exchange.
     /// In TR-34 terminology, the sending party of the key is called Key Distribution Host
     /// (KDH) and the receiving party of the key is called Key Receiving Device (KRD). During
@@ -109,7 +111,20 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// </para></li><li><para><c>SigningKeyCertificate</c>: The public key certificate in PEM format (base64 encoded)
     /// of the KDH signing key generated under the root certificate (CertificateAuthorityPublicKeyIdentifier)
     /// imported in Amazon Web Services Payment Cryptography.
-    /// </para></li></ul><para><b>To import WK (Working Key) using TR-31</b></para><para>
+    /// </para></li></ul><para><b>To import initial keys (KEK or ZMK or similar) using RSA Wrap and Unwrap</b></para><para>
+    /// Using this operation, you can import initial key using asymmetric RSA wrap and unwrap
+    /// key exchange method. To initiate import, call <a>GetParametersForImport</a> with <c>KeyMaterial</c>
+    /// set to <c>KEY_CRYPTOGRAM</c> to generate an import token. This operation also generates
+    /// an encryption keypair for the purpose of key import, signs the key and returns back
+    /// the wrapping key certificate in PEM format (base64 encoded) and its root certificate
+    /// chain. The import token and associated KRD wrapping certificate expires after 7 days.
+    /// 
+    /// </para><para>
+    /// You must trust and install the wrapping certificate and its certificate chain on the
+    /// sending HSM and use it to wrap the key under export for WrappedKeyCryptogram generation.
+    /// Next call <c>ImportKey</c> with <c>KeyMaterial</c> set to <c>KEY_CRYPTOGRAM</c> and
+    /// provide the <c>ImportToken</c> and <c>KeyAttributes</c> for the key under import.
+    /// </para><para><b>To import working keys using TR-31</b></para><para>
     /// Amazon Web Services Payment Cryptography uses TR-31 symmetric key exchange norm to
     /// import working keys. A KEK must be established within Amazon Web Services Payment
     /// Cryptography by using TR-34 key import or by using <a>CreateKey</a>. To initiate a
@@ -162,6 +177,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.String TrustedCertificatePublicKey_CertificateAuthorityPublicKeyIdentifier { get; set; }
         #endregion
         
+        #region Parameter KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Decrypt
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to decrypt
+        /// data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Decrypt { get; set; }
+        #endregion
+        
         #region Parameter KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Decrypt
         /// <summary>
         /// <para>
@@ -183,6 +209,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_Decrypt")]
         public System.Boolean? KeyModesOfUse_Decrypt { get; set; }
+        #endregion
+        
+        #region Parameter KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_DeriveKey
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to derive
+        /// new keys.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_DeriveKey { get; set; }
         #endregion
         
         #region Parameter KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_DeriveKey
@@ -218,6 +255,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.Boolean? Enabled { get; set; }
         #endregion
         
+        #region Parameter KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Encrypt
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to encrypt
+        /// data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Encrypt { get; set; }
+        #endregion
+        
         #region Parameter KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Encrypt
         /// <summary>
         /// <para>
@@ -239,6 +287,28 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_Encrypt")]
         public System.Boolean? KeyModesOfUse_Encrypt { get; set; }
+        #endregion
+        
+        #region Parameter KeyCryptogram_Exportable
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the key is exportable from the service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_KeyCryptogram_Exportable")]
+        public System.Boolean? KeyCryptogram_Exportable { get; set; }
+        #endregion
+        
+        #region Parameter KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Generate
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to generate
+        /// and verify other card and PIN verification keys.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Generate { get; set; }
         #endregion
         
         #region Parameter KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Generate
@@ -264,6 +334,19 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.Boolean? KeyModesOfUse_Generate { get; set; }
         #endregion
         
+        #region Parameter KeyCryptogram_ImportToken
+        /// <summary>
+        /// <para>
+        /// <para>The import token that initiates key import using the asymmetric RSA wrap and unwrap
+        /// key exchange method into AWS Payment Cryptography. It expires after 7 days. You can
+        /// use the same import token to import multiple keys to the same service account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_KeyCryptogram_ImportToken")]
+        public System.String KeyCryptogram_ImportToken { get; set; }
+        #endregion
+        
         #region Parameter Tr34KeyBlock_ImportToken
         /// <summary>
         /// <para>
@@ -275,6 +358,20 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KeyMaterial_Tr34KeyBlock_ImportToken")]
         public System.String Tr34KeyBlock_ImportToken { get; set; }
+        #endregion
+        
+        #region Parameter KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The key algorithm to be use during creation of an Amazon Web Services Payment Cryptography
+        /// key.</para><para>For symmetric keys, Amazon Web Services Payment Cryptography supports <c>AES</c> and
+        /// <c>TDES</c> algorithms. For asymmetric keys, Amazon Web Services Payment Cryptography
+        /// supports <c>RSA</c> and <c>ECC_NIST</c> algorithms.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PaymentCryptography.KeyAlgorithm")]
+        public Amazon.PaymentCryptography.KeyAlgorithm KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm { get; set; }
         #endregion
         
         #region Parameter KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyAlgorithm
@@ -333,6 +430,19 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public Amazon.PaymentCryptography.KeyCheckValueAlgorithm KeyCheckValueAlgorithm { get; set; }
         #endregion
         
+        #region Parameter KeyMaterial_KeyCryptogram_KeyAttributes_KeyClass
+        /// <summary>
+        /// <para>
+        /// <para>The type of Amazon Web Services Payment Cryptography key to create, which determines
+        /// the classiﬁcation of the cryptographic method and whether Amazon Web Services Payment
+        /// Cryptography key contains a symmetric key or an asymmetric key pair.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PaymentCryptography.KeyClass")]
+        public Amazon.PaymentCryptography.KeyClass KeyMaterial_KeyCryptogram_KeyAttributes_KeyClass { get; set; }
+        #endregion
+        
         #region Parameter KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyClass
         /// <summary>
         /// <para>
@@ -360,6 +470,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public Amazon.PaymentCryptography.KeyClass KeyAttributes_KeyClass { get; set; }
         #endregion
         
+        #region Parameter KeyMaterial_KeyCryptogram_KeyAttributes_KeyUsage
+        /// <summary>
+        /// <para>
+        /// <para>The cryptographic usage of an Amazon Web Services Payment Cryptography key as deﬁned
+        /// in section A.5.2 of the TR-31 spec.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PaymentCryptography.KeyUsage")]
+        public Amazon.PaymentCryptography.KeyUsage KeyMaterial_KeyCryptogram_KeyAttributes_KeyUsage { get; set; }
+        #endregion
+        
         #region Parameter KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyUsage
         /// <summary>
         /// <para>
@@ -383,6 +505,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         [Alias("KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyUsage")]
         [AWSConstantClassSource("Amazon.PaymentCryptography.KeyUsage")]
         public Amazon.PaymentCryptography.KeyUsage KeyAttributes_KeyUsage { get; set; }
+        #endregion
+        
+        #region Parameter KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_NoRestrictions
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key has no special restrictions
+        /// other than the restrictions implied by <c>KeyUsage</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_NoRestrictions { get; set; }
         #endregion
         
         #region Parameter KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_NoRestrictions
@@ -443,6 +576,16 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.String Tr34KeyBlock_RandomNonce { get; set; }
         #endregion
         
+        #region Parameter KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used for signing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign { get; set; }
+        #endregion
+        
         #region Parameter KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Sign
         /// <summary>
         /// <para>
@@ -495,6 +638,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public Amazon.PaymentCryptography.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to unwrap
+        /// other keys.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap { get; set; }
+        #endregion
+        
         #region Parameter KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Unwrap
         /// <summary>
         /// <para>
@@ -518,6 +672,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.Boolean? KeyModesOfUse_Unwrap { get; set; }
         #endregion
         
+        #region Parameter KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to verify
+        /// signatures.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify { get; set; }
+        #endregion
+        
         #region Parameter KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Verify
         /// <summary>
         /// <para>
@@ -539,6 +704,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_Verify")]
         public System.Boolean? KeyModesOfUse_Verify { get; set; }
+        #endregion
+        
+        #region Parameter KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to wrap
+        /// other keys.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap { get; set; }
         #endregion
         
         #region Parameter KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Wrap
@@ -586,6 +762,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.String Tr34KeyBlock_WrappedKeyBlock { get; set; }
         #endregion
         
+        #region Parameter KeyCryptogram_WrappedKeyCryptogram
+        /// <summary>
+        /// <para>
+        /// <para>The RSA wrapped key cryptogram under import.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_KeyCryptogram_WrappedKeyCryptogram")]
+        public System.String KeyCryptogram_WrappedKeyCryptogram { get; set; }
+        #endregion
+        
         #region Parameter Tr31KeyBlock_WrappingKeyIdentifier
         /// <summary>
         /// <para>
@@ -596,6 +783,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KeyMaterial_Tr31KeyBlock_WrappingKeyIdentifier")]
         public System.String Tr31KeyBlock_WrappingKeyIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter KeyCryptogram_WrappingSpec
+        /// <summary>
+        /// <para>
+        /// <para>The wrapping spec for the wrapped key cryptogram.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_KeyCryptogram_WrappingSpec")]
+        [AWSConstantClassSource("Amazon.PaymentCryptography.WrappingKeySpec")]
+        public Amazon.PaymentCryptography.WrappingKeySpec KeyCryptogram_WrappingSpec { get; set; }
         #endregion
         
         #region Parameter Select
@@ -642,6 +841,22 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             }
             context.Enabled = this.Enabled;
             context.KeyCheckValueAlgorithm = this.KeyCheckValueAlgorithm;
+            context.KeyCryptogram_Exportable = this.KeyCryptogram_Exportable;
+            context.KeyCryptogram_ImportToken = this.KeyCryptogram_ImportToken;
+            context.KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm = this.KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm;
+            context.KeyMaterial_KeyCryptogram_KeyAttributes_KeyClass = this.KeyMaterial_KeyCryptogram_KeyAttributes_KeyClass;
+            context.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Decrypt = this.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Decrypt;
+            context.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_DeriveKey = this.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_DeriveKey;
+            context.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Encrypt = this.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Encrypt;
+            context.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Generate = this.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Generate;
+            context.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_NoRestrictions = this.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_NoRestrictions;
+            context.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign = this.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign;
+            context.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap = this.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap;
+            context.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify = this.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify;
+            context.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap = this.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap;
+            context.KeyMaterial_KeyCryptogram_KeyAttributes_KeyUsage = this.KeyMaterial_KeyCryptogram_KeyAttributes_KeyUsage;
+            context.KeyCryptogram_WrappedKeyCryptogram = this.KeyCryptogram_WrappedKeyCryptogram;
+            context.KeyCryptogram_WrappingSpec = this.KeyCryptogram_WrappingSpec;
             context.KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyAlgorithm = this.KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyAlgorithm;
             context.KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyClass = this.KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyClass;
             context.KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Decrypt = this.KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Decrypt;
@@ -1104,6 +1319,211 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
                 request.KeyMaterial.TrustedCertificatePublicKey = requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey;
                 requestKeyMaterialIsNull = false;
             }
+            Amazon.PaymentCryptography.Model.ImportKeyCryptogram requestKeyMaterial_keyMaterial_KeyCryptogram = null;
+            
+             // populate KeyCryptogram
+            var requestKeyMaterial_keyMaterial_KeyCryptogramIsNull = true;
+            requestKeyMaterial_keyMaterial_KeyCryptogram = new Amazon.PaymentCryptography.Model.ImportKeyCryptogram();
+            System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_Exportable = null;
+            if (cmdletContext.KeyCryptogram_Exportable != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_Exportable = cmdletContext.KeyCryptogram_Exportable.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_Exportable != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram.Exportable = requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_Exportable.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogramIsNull = false;
+            }
+            System.String requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_ImportToken = null;
+            if (cmdletContext.KeyCryptogram_ImportToken != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_ImportToken = cmdletContext.KeyCryptogram_ImportToken;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_ImportToken != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram.ImportToken = requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_ImportToken;
+                requestKeyMaterial_keyMaterial_KeyCryptogramIsNull = false;
+            }
+            System.String requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_WrappedKeyCryptogram = null;
+            if (cmdletContext.KeyCryptogram_WrappedKeyCryptogram != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_WrappedKeyCryptogram = cmdletContext.KeyCryptogram_WrappedKeyCryptogram;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_WrappedKeyCryptogram != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram.WrappedKeyCryptogram = requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_WrappedKeyCryptogram;
+                requestKeyMaterial_keyMaterial_KeyCryptogramIsNull = false;
+            }
+            Amazon.PaymentCryptography.WrappingKeySpec requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_WrappingSpec = null;
+            if (cmdletContext.KeyCryptogram_WrappingSpec != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_WrappingSpec = cmdletContext.KeyCryptogram_WrappingSpec;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_WrappingSpec != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram.WrappingSpec = requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_WrappingSpec;
+                requestKeyMaterial_keyMaterial_KeyCryptogramIsNull = false;
+            }
+            Amazon.PaymentCryptography.Model.KeyAttributes requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes = null;
+            
+             // populate KeyAttributes
+            var requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributesIsNull = true;
+            requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes = new Amazon.PaymentCryptography.Model.KeyAttributes();
+            Amazon.PaymentCryptography.KeyAlgorithm requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm = null;
+            if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm = cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes.KeyAlgorithm = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributesIsNull = false;
+            }
+            Amazon.PaymentCryptography.KeyClass requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyClass = null;
+            if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyClass != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyClass = cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyClass;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyClass != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes.KeyClass = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyClass;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributesIsNull = false;
+            }
+            Amazon.PaymentCryptography.KeyUsage requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyUsage = null;
+            if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyUsage != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyUsage = cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyUsage;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyUsage != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes.KeyUsage = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyUsage;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributesIsNull = false;
+            }
+            Amazon.PaymentCryptography.Model.KeyModesOfUse requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse = null;
+            
+             // populate KeyModesOfUse
+            var requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = true;
+            requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse = new Amazon.PaymentCryptography.Model.KeyModesOfUse();
+            System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Decrypt = null;
+            if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Decrypt != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Decrypt = cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Decrypt.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Decrypt != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.Decrypt = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Decrypt.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_DeriveKey = null;
+            if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_DeriveKey != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_DeriveKey = cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_DeriveKey.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_DeriveKey != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.DeriveKey = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_DeriveKey.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Encrypt = null;
+            if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Encrypt != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Encrypt = cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Encrypt.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Encrypt != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.Encrypt = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Encrypt.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Generate = null;
+            if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Generate != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Generate = cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Generate.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Generate != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.Generate = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Generate.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_NoRestrictions = null;
+            if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_NoRestrictions != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_NoRestrictions = cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_NoRestrictions.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_NoRestrictions != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.NoRestrictions = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_NoRestrictions.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign = null;
+            if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign = cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.Sign = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap = null;
+            if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap = cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.Unwrap = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify = null;
+            if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify = cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.Verify = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap = null;
+            if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap = cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.Wrap = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse should be set to null
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse = null;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes.KeyModesOfUse = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributesIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes should be set to null
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributesIsNull)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes = null;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram.KeyAttributes = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes;
+                requestKeyMaterial_keyMaterial_KeyCryptogramIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_KeyCryptogram should be set to null
+            if (requestKeyMaterial_keyMaterial_KeyCryptogramIsNull)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram = null;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram != null)
+            {
+                request.KeyMaterial.KeyCryptogram = requestKeyMaterial_keyMaterial_KeyCryptogram;
+                requestKeyMaterialIsNull = false;
+            }
             Amazon.PaymentCryptography.Model.ImportTr34KeyBlock requestKeyMaterial_keyMaterial_Tr34KeyBlock = null;
             
              // populate Tr34KeyBlock
@@ -1251,6 +1671,22 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         {
             public System.Boolean? Enabled { get; set; }
             public Amazon.PaymentCryptography.KeyCheckValueAlgorithm KeyCheckValueAlgorithm { get; set; }
+            public System.Boolean? KeyCryptogram_Exportable { get; set; }
+            public System.String KeyCryptogram_ImportToken { get; set; }
+            public Amazon.PaymentCryptography.KeyAlgorithm KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm { get; set; }
+            public Amazon.PaymentCryptography.KeyClass KeyMaterial_KeyCryptogram_KeyAttributes_KeyClass { get; set; }
+            public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Decrypt { get; set; }
+            public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_DeriveKey { get; set; }
+            public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Encrypt { get; set; }
+            public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Generate { get; set; }
+            public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_NoRestrictions { get; set; }
+            public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign { get; set; }
+            public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap { get; set; }
+            public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify { get; set; }
+            public System.Boolean? KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap { get; set; }
+            public Amazon.PaymentCryptography.KeyUsage KeyMaterial_KeyCryptogram_KeyAttributes_KeyUsage { get; set; }
+            public System.String KeyCryptogram_WrappedKeyCryptogram { get; set; }
+            public Amazon.PaymentCryptography.WrappingKeySpec KeyCryptogram_WrappingSpec { get; set; }
             public Amazon.PaymentCryptography.KeyAlgorithm KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyAlgorithm { get; set; }
             public Amazon.PaymentCryptography.KeyClass KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyClass { get; set; }
             public System.Boolean? KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Decrypt { get; set; }

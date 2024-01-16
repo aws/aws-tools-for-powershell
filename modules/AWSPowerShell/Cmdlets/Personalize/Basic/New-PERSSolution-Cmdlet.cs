@@ -285,8 +285,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <important><para>We don't recommend enabling automated machine learning. Instead, match your use case
-        /// to the available Amazon Personalize recipes. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html">Determining
-        /// your use case.</a></para></important><para>Whether to perform automated machine learning (AutoML). The default is <c>false</c>.
+        /// to the available Amazon Personalize recipes. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/working-with-predefined-recipes.html">Choosing
+        /// a recipe</a>.</para></important><para>Whether to perform automated machine learning (AutoML). The default is <c>false</c>.
         /// For this case, you must specify <c>recipeArn</c>.</para><para>When set to <c>true</c>, Amazon Personalize analyzes your training data and selects
         /// the optimal USER_PERSONALIZATION recipe and hyperparameters. In this case, you must
         /// omit <c>recipeArn</c>. Amazon Personalize determines the optimal recipe by running
@@ -313,8 +313,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter RecipeArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the recipe to use for model training. This is required when <c>performAutoML</c>
-        /// is false.</para>
+        /// <para>The Amazon Resource Name (ARN) of the recipe to use for model training. This is required
+        /// when <c>performAutoML</c> is false. For information about different Amazon Personalize
+        /// recipes and their ARNs, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/working-with-predefined-recipes.html">Choosing
+        /// a recipe</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

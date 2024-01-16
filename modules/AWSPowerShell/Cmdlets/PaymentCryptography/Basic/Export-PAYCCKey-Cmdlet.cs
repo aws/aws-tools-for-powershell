@@ -41,15 +41,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// </para><para>
     /// For symmetric key exchange, Amazon Web Services Payment Cryptography uses the ANSI
     /// X9 TR-31 norm in accordance with PCI PIN guidelines. And for asymmetric key exchange,
-    /// Amazon Web Services Payment Cryptography supports ANSI X9 TR-34 norm . Asymmetric
-    /// key exchange methods are typically used to establish bi-directional trust between
-    /// the two parties exhanging keys and are used for initial key exchange such as Key Encryption
-    /// Key (KEK). After which you can export working keys using symmetric method to perform
-    /// various cryptographic operations within Amazon Web Services Payment Cryptography.
+    /// Amazon Web Services Payment Cryptography supports ANSI X9 TR-34 norm and RSA wrap
+    /// and unwrap key exchange mechanism. Asymmetric key exchange methods are typically used
+    /// to establish bi-directional trust between the two parties exhanging keys and are used
+    /// for initial key exchange such as Key Encryption Key (KEK). After which you can export
+    /// working keys using symmetric method to perform various cryptographic operations within
+    /// Amazon Web Services Payment Cryptography.
     /// </para><para>
     /// The TR-34 norm is intended for exchanging 3DES keys only and keys are imported in
     /// a WrappedKeyBlock format. Key attributes (such as KeyUsage, KeyAlgorithm, KeyModesOfUse,
-    /// Exportability) are contained within the key block.
+    /// Exportability) are contained within the key block. With RSA wrap and unwrap, you can
+    /// exchange both 3DES and AES-128 keys. The keys are imported in a WrappedKeyCryptogram
+    /// format and you will need to specify the key attributes during import. 
     /// </para><para>
     /// You can also use <c>ExportKey</c> functionality to generate and export an IPEK (Initial
     /// Pin Encryption Key) from Amazon Web Services Payment Cryptography using either TR-31
@@ -57,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// <c>ExportDukptInitialKey</c> attribute KSN (<c>KeySerialNumber</c>). The generated
     /// IPEK does not persist within Amazon Web Services Payment Cryptography and has to be
     /// re-generated each time during export.
-    /// </para><para><b>To export KEK or IPEK using TR-34</b></para><para>
+    /// </para><para><b>To export initial keys (KEK) or IPEK using TR-34</b></para><para>
     /// Using this operation, you can export initial key using TR-34 asymmetric key exchange.
     /// You can only export KEK generated within Amazon Web Services Payment Cryptography.
     /// In TR-34 terminology, the sending party of the key is called Key Distribution Host
@@ -101,7 +104,25 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// </para></li></ul><para>
     /// When this operation is successful, Amazon Web Services Payment Cryptography returns
     /// the KEK or IPEK as a TR-34 WrappedKeyBlock. 
-    /// </para><para><b>To export WK (Working Key) or IPEK using TR-31</b></para><para>
+    /// </para><para><b>To export initial keys (KEK) or IPEK using RSA Wrap and Unwrap</b></para><para>
+    /// Using this operation, you can export initial key using asymmetric RSA wrap and unwrap
+    /// key exchange method. To initiate export, generate an asymmetric key pair on the receiving
+    /// HSM and obtain the public key certificate in PEM format (base64 encoded) for the purpose
+    /// of wrapping and the root certifiate chain. Import the root certificate into Amazon
+    /// Web Services Payment Cryptography by calling <a>ImportKey</a> for <c>RootCertificatePublicKey</c>.
+    /// </para><para>
+    /// Next call <c>ExportKey</c> and set the following parameters:
+    /// </para><ul><li><para><c>CertificateAuthorityPublicKeyIdentifier</c>: The <c>KeyARN</c> of the certificate
+    /// chain that signed wrapping key certificate.
+    /// </para></li><li><para><c>KeyMaterial</c>: Set to <c>KeyCryptogram</c>.
+    /// </para></li><li><para><c>WrappingKeyCertificate</c>: The public key certificate in PEM format (base64 encoded)
+    /// obtained by the receiving HSM and signed by the root certificate (CertificateAuthorityPublicKeyIdentifier)
+    /// imported into Amazon Web Services Payment Cryptography. The receiving HSM uses its
+    /// private key component to unwrap the WrappedKeyCryptogram.
+    /// </para></li></ul><para>
+    /// When this operation is successful, Amazon Web Services Payment Cryptography returns
+    /// the WrappedKeyCryptogram. 
+    /// </para><para><b>To export working keys or IPEK using TR-31</b></para><para>
     /// Using this operation, you can export working keys or IPEK using TR-31 symmetric key
     /// exchange. In TR-31, you must use an initial key such as KEK to encrypt or wrap the
     /// key under export. To establish a KEK, you can use <a>CreateKey</a> or <a>ImportKey</a>.
@@ -115,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// </para></li><li><para><c>KeyMaterial</c>: Use <c>Tr31KeyBlock</c> parameters.
     /// </para></li></ul><para>
     /// When this operation is successful, Amazon Web Services Payment Cryptography returns
-    /// the WK or IPEK as a TR-31 WrappedKeyBlock.
+    /// the working key or IPEK as a TR-31 WrappedKeyBlock.
     /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>GetParametersForExport</a></para></li><li><para><a>ImportKey</a></para></li></ul>
@@ -135,6 +156,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter KeyCryptogram_CertificateAuthorityPublicKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The <c>KeyARN</c> of the certificate chain that signs the wrapping key certificate
+        /// during RSA wrap and unwrap key export.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_KeyCryptogram_CertificateAuthorityPublicKeyIdentifier")]
+        public System.String KeyCryptogram_CertificateAuthorityPublicKeyIdentifier { get; set; }
+        #endregion
         
         #region Parameter Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier
         /// <summary>
@@ -234,6 +267,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.String Tr34KeyBlock_RandomNonce { get; set; }
         #endregion
         
+        #region Parameter KeyCryptogram_WrappingKeyCertificate
+        /// <summary>
+        /// <para>
+        /// <para>The wrapping key certificate in PEM format (base64 encoded). Amazon Web Services Payment
+        /// Cryptography uses this certificate to wrap the key under export.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_KeyCryptogram_WrappingKeyCertificate")]
+        public System.String KeyCryptogram_WrappingKeyCertificate { get; set; }
+        #endregion
+        
         #region Parameter Tr34KeyBlock_WrappingKeyCertificate
         /// <summary>
         /// <para>
@@ -256,6 +301,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KeyMaterial_Tr31KeyBlock_WrappingKeyIdentifier")]
         public System.String Tr31KeyBlock_WrappingKeyIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter KeyCryptogram_WrappingSpec
+        /// <summary>
+        /// <para>
+        /// <para>The wrapping spec for the key under export.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_KeyCryptogram_WrappingSpec")]
+        [AWSConstantClassSource("Amazon.PaymentCryptography.WrappingKeySpec")]
+        public Amazon.PaymentCryptography.WrappingKeySpec KeyCryptogram_WrappingSpec { get; set; }
         #endregion
         
         #region Parameter Select
@@ -329,6 +386,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
                 WriteWarning("You are passing $null as a value for parameter ExportKeyIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.KeyCryptogram_CertificateAuthorityPublicKeyIdentifier = this.KeyCryptogram_CertificateAuthorityPublicKeyIdentifier;
+            context.KeyCryptogram_WrappingKeyCertificate = this.KeyCryptogram_WrappingKeyCertificate;
+            context.KeyCryptogram_WrappingSpec = this.KeyCryptogram_WrappingSpec;
             context.Tr31KeyBlock_WrappingKeyIdentifier = this.Tr31KeyBlock_WrappingKeyIdentifier;
             context.Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier = this.Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier;
             context.Tr34KeyBlock_ExportToken = this.Tr34KeyBlock_ExportToken;
@@ -426,6 +486,51 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_Tr31KeyBlock != null)
             {
                 request.KeyMaterial.Tr31KeyBlock = requestKeyMaterial_keyMaterial_Tr31KeyBlock;
+                requestKeyMaterialIsNull = false;
+            }
+            Amazon.PaymentCryptography.Model.ExportKeyCryptogram requestKeyMaterial_keyMaterial_KeyCryptogram = null;
+            
+             // populate KeyCryptogram
+            var requestKeyMaterial_keyMaterial_KeyCryptogramIsNull = true;
+            requestKeyMaterial_keyMaterial_KeyCryptogram = new Amazon.PaymentCryptography.Model.ExportKeyCryptogram();
+            System.String requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_CertificateAuthorityPublicKeyIdentifier = null;
+            if (cmdletContext.KeyCryptogram_CertificateAuthorityPublicKeyIdentifier != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_CertificateAuthorityPublicKeyIdentifier = cmdletContext.KeyCryptogram_CertificateAuthorityPublicKeyIdentifier;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_CertificateAuthorityPublicKeyIdentifier != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram.CertificateAuthorityPublicKeyIdentifier = requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_CertificateAuthorityPublicKeyIdentifier;
+                requestKeyMaterial_keyMaterial_KeyCryptogramIsNull = false;
+            }
+            System.String requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_WrappingKeyCertificate = null;
+            if (cmdletContext.KeyCryptogram_WrappingKeyCertificate != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_WrappingKeyCertificate = cmdletContext.KeyCryptogram_WrappingKeyCertificate;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_WrappingKeyCertificate != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram.WrappingKeyCertificate = requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_WrappingKeyCertificate;
+                requestKeyMaterial_keyMaterial_KeyCryptogramIsNull = false;
+            }
+            Amazon.PaymentCryptography.WrappingKeySpec requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_WrappingSpec = null;
+            if (cmdletContext.KeyCryptogram_WrappingSpec != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_WrappingSpec = cmdletContext.KeyCryptogram_WrappingSpec;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_WrappingSpec != null)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram.WrappingSpec = requestKeyMaterial_keyMaterial_KeyCryptogram_keyCryptogram_WrappingSpec;
+                requestKeyMaterial_keyMaterial_KeyCryptogramIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_KeyCryptogram should be set to null
+            if (requestKeyMaterial_keyMaterial_KeyCryptogramIsNull)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram = null;
+            }
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram != null)
+            {
+                request.KeyMaterial.KeyCryptogram = requestKeyMaterial_keyMaterial_KeyCryptogram;
                 requestKeyMaterialIsNull = false;
             }
             Amazon.PaymentCryptography.Model.ExportTr34KeyBlock requestKeyMaterial_keyMaterial_Tr34KeyBlock = null;
@@ -562,6 +667,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             public System.String ExportDukptInitialKey_KeySerialNumber { get; set; }
             public Amazon.PaymentCryptography.KeyCheckValueAlgorithm ExportAttributes_KeyCheckValueAlgorithm { get; set; }
             public System.String ExportKeyIdentifier { get; set; }
+            public System.String KeyCryptogram_CertificateAuthorityPublicKeyIdentifier { get; set; }
+            public System.String KeyCryptogram_WrappingKeyCertificate { get; set; }
+            public Amazon.PaymentCryptography.WrappingKeySpec KeyCryptogram_WrappingSpec { get; set; }
             public System.String Tr31KeyBlock_WrappingKeyIdentifier { get; set; }
             public System.String Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier { get; set; }
             public System.String Tr34KeyBlock_ExportToken { get; set; }

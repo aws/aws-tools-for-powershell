@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <para>Whether metadata with recommendations is enabled for the recommender. If enabled,
         /// you can specify the columns from your Items dataset in your request for recommendations.
         /// Amazon Personalize returns this data for each item in the recommendation response.
-        /// </para><para> If you enable metadata in recommendations, you will incur additional costs. For more
+        /// For information about enabling metadata for a recommender, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/creating-recommenders.html#create-recommender-return-metadata">Enabling
+        /// metadata in recommendations for a recommender</a>.</para><para> If you enable metadata in recommendations, you will incur additional costs. For more
         /// information, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize
         /// pricing</a>. </para>
         /// </para>

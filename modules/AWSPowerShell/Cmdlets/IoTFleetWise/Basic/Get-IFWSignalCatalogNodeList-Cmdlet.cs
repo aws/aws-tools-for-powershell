@@ -64,6 +64,17 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter SignalNodeType
+        /// <summary>
+        /// <para>
+        /// <para>The type of node in the signal catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTFleetWise.SignalNodeType")]
+        public Amazon.IoTFleetWise.SignalNodeType SignalNodeType { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -144,6 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             }
             #endif
             context.NextToken = this.NextToken;
+            context.SignalNodeType = this.SignalNodeType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -171,6 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.SignalNodeType != null)
+            {
+                request.SignalNodeType = cmdletContext.SignalNodeType;
             }
             
             CmdletOutput output;
@@ -236,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             public System.Int32? MaxResult { get; set; }
             public System.String Name { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.IoTFleetWise.SignalNodeType SignalNodeType { get; set; }
             public System.Func<Amazon.IoTFleetWise.Model.ListSignalCatalogNodesResponse, GetIFWSignalCatalogNodeListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Nodes;
         }

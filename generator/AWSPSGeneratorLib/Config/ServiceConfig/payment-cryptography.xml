@@ -72,6 +72,18 @@
                 <Param Name="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Unwrap" NewName="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Unwrap" />
                 <Param Name="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Verify" NewName="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Verify" />
                 <Param Name="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Wrap" NewName="KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Wrap" />
+                <Param Name="KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm" NewName="KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm" />
+                <Param Name="KeyMaterial_KeyCryptogram_KeyAttributes_KeyClass" NewName="KeyMaterial_KeyCryptogram_KeyAttributes_KeyClass" />
+                <Param Name="KeyMaterial_KeyCryptogram_KeyAttributes_KeyUsage" NewName="KeyMaterial_KeyCryptogram_KeyAttributes_KeyUsage" />
+                <Param Name="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Decrypt" NewName="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Decrypt" />
+                <Param Name="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_DeriveKey" NewName="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_DeriveKey" />
+                <Param Name="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Encrypt" NewName="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Encrypt" />
+                <Param Name="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Generate" NewName="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Generate" />
+                <Param Name="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_NoRestrictions" NewName="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_NoRestrictions" />
+                <Param Name="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign" NewName="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign" />
+                <Param Name="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap" NewName="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap" />
+                <Param Name="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify" NewName="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify" />
+                <Param Name="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap" NewName="KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

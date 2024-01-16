@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter ConditionBasedCollectionScheme_Expression
         /// <summary>
         /// <para>
-        /// <para>The logical expression used to recognize what data to collect. For example, <c>$variable.Vehicle.OutsideAirTemperature
+        /// <para>The logical expression used to recognize what data to collect. For example, <c>$variable.`Vehicle.OutsideAirTemperature`
         /// &gt;= 105.0</c>.</para>
         /// </para>
         /// </summary>

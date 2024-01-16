@@ -46,7 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// object in an array (<c>CustomLabels</c>). Each <c>CustomLabel</c> object provides
     /// the label name (<c>Name</c>), the level of confidence that the image contains the
     /// object (<c>Confidence</c>), and object location information, if it exists, for the
-    /// label on the image (<c>Geometry</c>). 
+    /// label on the image (<c>Geometry</c>). Note that for the <c>DetectCustomLabelsLabels</c>
+    /// operation, <c>Polygons</c> are not returned in the <c>Geometry</c> section of the
+    /// response.
     /// </para><para>
     /// To filter labels that are returned, specify a value for <c>MinConfidence</c>. <c>DetectCustomLabelsLabels</c>
     /// only returns labels with a confidence that's higher than the specified value. The

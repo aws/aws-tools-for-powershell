@@ -118,6 +118,13 @@ $IFW_Completers = {
             break
         }
 
+        # Amazon.IoTFleetWise.SignalNodeType
+        "Get-IFWSignalCatalogNodeList/SignalNodeType"
+        {
+            $v = "ACTUATOR","ATTRIBUTE","BRANCH","CUSTOM_PROPERTY","CUSTOM_STRUCT","SENSOR"
+            break
+        }
+
         # Amazon.IoTFleetWise.SpoolingMode
         "New-IFWCampaign/SpoolingMode"
         {
@@ -170,6 +177,7 @@ $IFW_map = @{
     "Compression"=@("New-IFWCampaign")
     "DiagnosticsMode"=@("New-IFWCampaign")
     "EncryptionType"=@("Write-IFWEncryptionConfiguration")
+    "SignalNodeType"=@("Get-IFWSignalCatalogNodeList")
     "SpoolingMode"=@("New-IFWCampaign")
     "Status"=@("Update-IFWDecoderManifest","Update-IFWModelManifest")
 }

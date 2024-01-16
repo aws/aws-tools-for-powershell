@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
 {
     /// <summary>
     /// Gets the import token and the wrapping key certificate in PEM format (base64 encoded)
-    /// to initiate a TR-34 WrappedKeyBlock.
+    /// to initiate a TR-34 WrappedKeyBlock or a RSA WrappedKeyCryptogram import into Amazon
+    /// Web Services Payment Cryptography.
     /// 
     ///  
     /// <para>
@@ -58,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <summary>
         /// <para>
         /// <para>The method to use for key material import. Import token is only required for TR-34
-        /// WrappedKeyBlock (<c>TR34_KEY_BLOCK</c>).</para><para>Import token is not required for TR-31, root public key cerificate or trusted public
+        /// WrappedKeyBlock (<c>TR34_KEY_BLOCK</c>) and RSA WrappedKeyCryptogram (<c>KEY_CRYPTOGRAM</c>).</para><para>Import token is not required for TR-31, root public key cerificate or trusted public
         /// key certificate.</para>
         /// </para>
         /// </summary>
@@ -77,8 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <summary>
         /// <para>
         /// <para>The wrapping key algorithm to generate a wrapping key certificate. This certificate
-        /// wraps the key under import.</para><para>At this time, <c>RSA_2048</c>, <c>RSA_3072</c>, <c>RSA_4096</c> are the only allowed
-        /// algorithms for TR-34 WrappedKeyBlock import.</para>
+        /// wraps the key under import.</para><para>At this time, <c>RSA_2048</c> is the allowed algorithm for TR-34 WrappedKeyBlock import.
+        /// Additionally, <c>RSA_2048</c>, <c>RSA_3072</c>, <c>RSA_4096</c> are the allowed algorithms
+        /// for RSA WrappedKeyCryptogram import.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

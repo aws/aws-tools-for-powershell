@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         /// <para>If you enabled metadata in recommendations when you created or updated the campaign,
         /// specify metadata columns from your Items dataset to include in the personalized ranking.
         /// The map key is <c>ITEMS</c> and the value is a list of column names from your Items
-        /// dataset. The maximum number of columns you can provide is 10.</para><para> For information about enabling metadata for a campaign, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/create-campaign-return-metadata.html">Enabling
+        /// dataset. The maximum number of columns you can provide is 10.</para><para> For information about enabling metadata for a campaign, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html#create-campaign-return-metadata">Enabling
         /// metadata in recommendations for a campaign</a>. </para>
         /// </para>
         /// </summary>
