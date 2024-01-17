@@ -216,6 +216,7 @@ $KS_SelectMap = @{
                "Remove-KSTable",
                "Get-KSKeyspace",
                "Get-KSTable",
+               "Get-KSTableAutoScalingSetting",
                "Get-KSKeyspaceList",
                "Get-KSTableList",
                "Get-KSResourceTag",

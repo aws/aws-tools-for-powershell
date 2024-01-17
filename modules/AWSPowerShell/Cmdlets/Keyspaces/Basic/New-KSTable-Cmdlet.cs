@@ -71,6 +71,28 @@ namespace Amazon.PowerShell.Cmdlets.KS
         public Amazon.Keyspaces.Model.ColumnDefinition[] SchemaDefinition_AllColumn { get; set; }
         #endregion
         
+        #region Parameter ReadCapacityAutoScaling_AutoScalingDisabled
+        /// <summary>
+        /// <para>
+        /// <para>This optional parameter enables auto scaling for the table if set to <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoScalingSpecification_ReadCapacityAutoScaling_AutoScalingDisabled")]
+        public System.Boolean? ReadCapacityAutoScaling_AutoScalingDisabled { get; set; }
+        #endregion
+        
+        #region Parameter WriteCapacityAutoScaling_AutoScalingDisabled
+        /// <summary>
+        /// <para>
+        /// <para>This optional parameter enables auto scaling for the table if set to <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoScalingSpecification_WriteCapacityAutoScaling_AutoScalingDisabled")]
+        public System.Boolean? WriteCapacityAutoScaling_AutoScalingDisabled { get; set; }
+        #endregion
+        
         #region Parameter SchemaDefinition_ClusteringKey
         /// <summary>
         /// <para>
@@ -91,6 +113,32 @@ namespace Amazon.PowerShell.Cmdlets.KS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? DefaultTimeToLive { get; set; }
+        #endregion
+        
+        #region Parameter ReadCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if <c>scale-in</c> is enabled.</para><para>When auto scaling automatically decreases capacity for a table, the table <i>scales
+        /// in</i>. When scaling policies are set, they can't scale in the table lower than its
+        /// minimum capacity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn")]
+        public System.Boolean? ReadCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn { get; set; }
+        #endregion
+        
+        #region Parameter WriteCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if <c>scale-in</c> is enabled.</para><para>When auto scaling automatically decreases capacity for a table, the table <i>scales
+        /// in</i>. When scaling policies are set, they can't scale in the table lower than its
+        /// minimum capacity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn")]
+        public System.Boolean? WriteCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn { get; set; }
         #endregion
         
         #region Parameter KeyspaceName
@@ -120,6 +168,32 @@ namespace Amazon.PowerShell.Cmdlets.KS
         public System.String EncryptionSpecification_KmsKeyIdentifier { get; set; }
         #endregion
         
+        #region Parameter ReadCapacityAutoScaling_MaximumUnit
+        /// <summary>
+        /// <para>
+        /// <para>Manage costs by specifying the maximum amount of throughput to provision. The value
+        /// must be between 1 and the max throughput per second quota for your account (40,000
+        /// by default).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoScalingSpecification_ReadCapacityAutoScaling_MaximumUnits")]
+        public System.Int64? ReadCapacityAutoScaling_MaximumUnit { get; set; }
+        #endregion
+        
+        #region Parameter WriteCapacityAutoScaling_MaximumUnit
+        /// <summary>
+        /// <para>
+        /// <para>Manage costs by specifying the maximum amount of throughput to provision. The value
+        /// must be between 1 and the max throughput per second quota for your account (40,000
+        /// by default).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoScalingSpecification_WriteCapacityAutoScaling_MaximumUnits")]
+        public System.Int64? WriteCapacityAutoScaling_MaximumUnit { get; set; }
+        #endregion
+        
         #region Parameter Comment_Message
         /// <summary>
         /// <para>
@@ -128,6 +202,32 @@ namespace Amazon.PowerShell.Cmdlets.KS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Comment_Message { get; set; }
+        #endregion
+        
+        #region Parameter ReadCapacityAutoScaling_MinimumUnit
+        /// <summary>
+        /// <para>
+        /// <para>The minimum level of throughput the table should always be ready to support. The value
+        /// must be between 1 and the max throughput per second quota for your account (40,000
+        /// by default).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoScalingSpecification_ReadCapacityAutoScaling_MinimumUnits")]
+        public System.Int64? ReadCapacityAutoScaling_MinimumUnit { get; set; }
+        #endregion
+        
+        #region Parameter WriteCapacityAutoScaling_MinimumUnit
+        /// <summary>
+        /// <para>
+        /// <para>The minimum level of throughput the table should always be ready to support. The value
+        /// must be between 1 and the max throughput per second quota for your account (40,000
+        /// by default).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoScalingSpecification_WriteCapacityAutoScaling_MinimumUnits")]
+        public System.Int64? WriteCapacityAutoScaling_MinimumUnit { get; set; }
         #endregion
         
         #region Parameter SchemaDefinition_PartitionKey
@@ -158,6 +258,72 @@ namespace Amazon.PowerShell.Cmdlets.KS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("CapacitySpecification_ReadCapacityUnits")]
         public System.Int64? CapacitySpecification_ReadCapacityUnit { get; set; }
+        #endregion
+        
+        #region Parameter ReplicaSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The optional Amazon Web Services Region specific settings of a multi-Region table.
+        /// These settings overwrite the general settings of the table for the specified Region.
+        /// </para><para>For a multi-Region table in provisioned capacity mode, you can configure the table's
+        /// read capacity differently for each Region's replica. The write capacity, however,
+        /// remains synchronized between all replicas to ensure that there's enough capacity to
+        /// replicate writes across all Regions. To define the read capacity for a table replica
+        /// in a specific Region, you can do so by configuring the following parameters.</para><ul><li><para><c>region</c>: The Region where these settings are applied. (Required)</para></li><li><para><c>readCapacityUnits</c>: The provisioned read capacity units. (Optional)</para></li><li><para><c>readCapacityAutoScaling</c>: The read capacity auto scaling settings for the table.
+        /// (Optional) </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReplicaSpecifications")]
+        public Amazon.Keyspaces.Model.ReplicaSpecification[] ReplicaSpecification { get; set; }
+        #endregion
+        
+        #region Parameter ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a <c>scale-in</c> cool down period.</para><para>A cooldown period in seconds between scaling activities that lets the table stabilize
+        /// before another scaling activity starts. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown")]
+        public System.Int32? ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown { get; set; }
+        #endregion
+        
+        #region Parameter WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a <c>scale-in</c> cool down period.</para><para>A cooldown period in seconds between scaling activities that lets the table stabilize
+        /// before another scaling activity starts. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown")]
+        public System.Int32? WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown { get; set; }
+        #endregion
+        
+        #region Parameter ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a scale out cool down period.</para><para>A cooldown period in seconds between scaling activities that lets the table stabilize
+        /// before another scaling activity starts. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown")]
+        public System.Int32? ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown { get; set; }
+        #endregion
+        
+        #region Parameter WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a scale out cool down period.</para><para>A cooldown period in seconds between scaling activities that lets the table stabilize
+        /// before another scaling activity starts. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown")]
+        public System.Int32? WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown { get; set; }
         #endregion
         
         #region Parameter SchemaDefinition_StaticColumn
@@ -233,6 +399,36 @@ namespace Amazon.PowerShell.Cmdlets.KS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.Keyspaces.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter ReadCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the target value for the target tracking auto scaling policy.</para><para>Amazon Keyspaces auto scaling scales up capacity automatically when traffic exceeds
+        /// this target utilization rate, and then back down when it falls below the target. This
+        /// ensures that the ratio of consumed capacity to provisioned capacity stays at or near
+        /// this value. You define <c>targetValue</c> as a percentage. A <c>double</c> between
+        /// 20 and 90.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue")]
+        public System.Double? ReadCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue { get; set; }
+        #endregion
+        
+        #region Parameter WriteCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the target value for the target tracking auto scaling policy.</para><para>Amazon Keyspaces auto scaling scales up capacity automatically when traffic exceeds
+        /// this target utilization rate, and then back down when it falls below the target. This
+        /// ensures that the ratio of consumed capacity to provisioned capacity stays at or near
+        /// this value. You define <c>targetValue</c> as a percentage. A <c>double</c> between
+        /// 20 and 90.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue")]
+        public System.Double? WriteCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue { get; set; }
         #endregion
         
         #region Parameter CapacitySpecification_ThroughputMode
@@ -317,6 +513,20 @@ namespace Amazon.PowerShell.Cmdlets.KS
                 context.Select = CreateSelectDelegate<Amazon.Keyspaces.Model.CreateTableResponse, NewKSTableCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ReadCapacityAutoScaling_AutoScalingDisabled = this.ReadCapacityAutoScaling_AutoScalingDisabled;
+            context.ReadCapacityAutoScaling_MaximumUnit = this.ReadCapacityAutoScaling_MaximumUnit;
+            context.ReadCapacityAutoScaling_MinimumUnit = this.ReadCapacityAutoScaling_MinimumUnit;
+            context.ReadCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn = this.ReadCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn;
+            context.ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown = this.ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown;
+            context.ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown = this.ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown;
+            context.ReadCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue = this.ReadCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue;
+            context.WriteCapacityAutoScaling_AutoScalingDisabled = this.WriteCapacityAutoScaling_AutoScalingDisabled;
+            context.WriteCapacityAutoScaling_MaximumUnit = this.WriteCapacityAutoScaling_MaximumUnit;
+            context.WriteCapacityAutoScaling_MinimumUnit = this.WriteCapacityAutoScaling_MinimumUnit;
+            context.WriteCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn = this.WriteCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn;
+            context.WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown = this.WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown;
+            context.WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown = this.WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown;
+            context.WriteCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue = this.WriteCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue;
             context.CapacitySpecification_ReadCapacityUnit = this.CapacitySpecification_ReadCapacityUnit;
             context.CapacitySpecification_ThroughputMode = this.CapacitySpecification_ThroughputMode;
             context.CapacitySpecification_WriteCapacityUnit = this.CapacitySpecification_WriteCapacityUnit;
@@ -333,6 +543,10 @@ namespace Amazon.PowerShell.Cmdlets.KS
             }
             #endif
             context.PointInTimeRecovery_Status = this.PointInTimeRecovery_Status;
+            if (this.ReplicaSpecification != null)
+            {
+                context.ReplicaSpecification = new List<Amazon.Keyspaces.Model.ReplicaSpecification>(this.ReplicaSpecification);
+            }
             if (this.SchemaDefinition_AllColumn != null)
             {
                 context.SchemaDefinition_AllColumn = new List<Amazon.Keyspaces.Model.ColumnDefinition>(this.SchemaDefinition_AllColumn);
@@ -389,6 +603,245 @@ namespace Amazon.PowerShell.Cmdlets.KS
             // create request
             var request = new Amazon.Keyspaces.Model.CreateTableRequest();
             
+            
+             // populate AutoScalingSpecification
+            var requestAutoScalingSpecificationIsNull = true;
+            request.AutoScalingSpecification = new Amazon.Keyspaces.Model.AutoScalingSpecification();
+            Amazon.Keyspaces.Model.AutoScalingSettings requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling = null;
+            
+             // populate ReadCapacityAutoScaling
+            var requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScalingIsNull = true;
+            requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling = new Amazon.Keyspaces.Model.AutoScalingSettings();
+            System.Boolean? requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_readCapacityAutoScaling_AutoScalingDisabled = null;
+            if (cmdletContext.ReadCapacityAutoScaling_AutoScalingDisabled != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_readCapacityAutoScaling_AutoScalingDisabled = cmdletContext.ReadCapacityAutoScaling_AutoScalingDisabled.Value;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_readCapacityAutoScaling_AutoScalingDisabled != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling.AutoScalingDisabled = requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_readCapacityAutoScaling_AutoScalingDisabled.Value;
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScalingIsNull = false;
+            }
+            System.Int64? requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_readCapacityAutoScaling_MaximumUnit = null;
+            if (cmdletContext.ReadCapacityAutoScaling_MaximumUnit != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_readCapacityAutoScaling_MaximumUnit = cmdletContext.ReadCapacityAutoScaling_MaximumUnit.Value;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_readCapacityAutoScaling_MaximumUnit != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling.MaximumUnits = requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_readCapacityAutoScaling_MaximumUnit.Value;
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScalingIsNull = false;
+            }
+            System.Int64? requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_readCapacityAutoScaling_MinimumUnit = null;
+            if (cmdletContext.ReadCapacityAutoScaling_MinimumUnit != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_readCapacityAutoScaling_MinimumUnit = cmdletContext.ReadCapacityAutoScaling_MinimumUnit.Value;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_readCapacityAutoScaling_MinimumUnit != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling.MinimumUnits = requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_readCapacityAutoScaling_MinimumUnit.Value;
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScalingIsNull = false;
+            }
+            Amazon.Keyspaces.Model.AutoScalingPolicy requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy = null;
+            
+             // populate ScalingPolicy
+            var requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicyIsNull = true;
+            requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy = new Amazon.Keyspaces.Model.AutoScalingPolicy();
+            Amazon.Keyspaces.Model.TargetTrackingScalingPolicyConfiguration requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration = null;
+            
+             // populate TargetTrackingScalingPolicyConfiguration
+            var requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfigurationIsNull = true;
+            requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration = new Amazon.Keyspaces.Model.TargetTrackingScalingPolicyConfiguration();
+            System.Boolean? requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_readCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn = null;
+            if (cmdletContext.ReadCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_readCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn = cmdletContext.ReadCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn.Value;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_readCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration.DisableScaleIn = requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_readCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn.Value;
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfigurationIsNull = false;
+            }
+            System.Int32? requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_readCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown = null;
+            if (cmdletContext.ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_readCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown = cmdletContext.ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown.Value;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_readCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration.ScaleInCooldown = requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_readCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown.Value;
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfigurationIsNull = false;
+            }
+            System.Int32? requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_readCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown = null;
+            if (cmdletContext.ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_readCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown = cmdletContext.ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown.Value;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_readCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration.ScaleOutCooldown = requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_readCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown.Value;
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfigurationIsNull = false;
+            }
+            System.Double? requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_readCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue = null;
+            if (cmdletContext.ReadCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_readCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue = cmdletContext.ReadCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue.Value;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_readCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration.TargetValue = requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_readCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue.Value;
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfigurationIsNull = false;
+            }
+             // determine if requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration should be set to null
+            if (requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfigurationIsNull)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration = null;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy.TargetTrackingScalingPolicyConfiguration = requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration;
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicyIsNull = false;
+            }
+             // determine if requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy should be set to null
+            if (requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicyIsNull)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy = null;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling.ScalingPolicy = requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling_autoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy;
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScalingIsNull = false;
+            }
+             // determine if requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling should be set to null
+            if (requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScalingIsNull)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling = null;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling != null)
+            {
+                request.AutoScalingSpecification.ReadCapacityAutoScaling = requestAutoScalingSpecification_autoScalingSpecification_ReadCapacityAutoScaling;
+                requestAutoScalingSpecificationIsNull = false;
+            }
+            Amazon.Keyspaces.Model.AutoScalingSettings requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling = null;
+            
+             // populate WriteCapacityAutoScaling
+            var requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScalingIsNull = true;
+            requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling = new Amazon.Keyspaces.Model.AutoScalingSettings();
+            System.Boolean? requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_writeCapacityAutoScaling_AutoScalingDisabled = null;
+            if (cmdletContext.WriteCapacityAutoScaling_AutoScalingDisabled != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_writeCapacityAutoScaling_AutoScalingDisabled = cmdletContext.WriteCapacityAutoScaling_AutoScalingDisabled.Value;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_writeCapacityAutoScaling_AutoScalingDisabled != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling.AutoScalingDisabled = requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_writeCapacityAutoScaling_AutoScalingDisabled.Value;
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScalingIsNull = false;
+            }
+            System.Int64? requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_writeCapacityAutoScaling_MaximumUnit = null;
+            if (cmdletContext.WriteCapacityAutoScaling_MaximumUnit != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_writeCapacityAutoScaling_MaximumUnit = cmdletContext.WriteCapacityAutoScaling_MaximumUnit.Value;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_writeCapacityAutoScaling_MaximumUnit != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling.MaximumUnits = requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_writeCapacityAutoScaling_MaximumUnit.Value;
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScalingIsNull = false;
+            }
+            System.Int64? requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_writeCapacityAutoScaling_MinimumUnit = null;
+            if (cmdletContext.WriteCapacityAutoScaling_MinimumUnit != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_writeCapacityAutoScaling_MinimumUnit = cmdletContext.WriteCapacityAutoScaling_MinimumUnit.Value;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_writeCapacityAutoScaling_MinimumUnit != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling.MinimumUnits = requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_writeCapacityAutoScaling_MinimumUnit.Value;
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScalingIsNull = false;
+            }
+            Amazon.Keyspaces.Model.AutoScalingPolicy requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy = null;
+            
+             // populate ScalingPolicy
+            var requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicyIsNull = true;
+            requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy = new Amazon.Keyspaces.Model.AutoScalingPolicy();
+            Amazon.Keyspaces.Model.TargetTrackingScalingPolicyConfiguration requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration = null;
+            
+             // populate TargetTrackingScalingPolicyConfiguration
+            var requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfigurationIsNull = true;
+            requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration = new Amazon.Keyspaces.Model.TargetTrackingScalingPolicyConfiguration();
+            System.Boolean? requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_writeCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn = null;
+            if (cmdletContext.WriteCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_writeCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn = cmdletContext.WriteCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn.Value;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_writeCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration.DisableScaleIn = requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_writeCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn.Value;
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfigurationIsNull = false;
+            }
+            System.Int32? requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_writeCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown = null;
+            if (cmdletContext.WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_writeCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown = cmdletContext.WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown.Value;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_writeCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration.ScaleInCooldown = requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_writeCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown.Value;
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfigurationIsNull = false;
+            }
+            System.Int32? requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_writeCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown = null;
+            if (cmdletContext.WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_writeCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown = cmdletContext.WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown.Value;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_writeCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration.ScaleOutCooldown = requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_writeCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown.Value;
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfigurationIsNull = false;
+            }
+            System.Double? requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_writeCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue = null;
+            if (cmdletContext.WriteCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_writeCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue = cmdletContext.WriteCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue.Value;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_writeCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration.TargetValue = requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_writeCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue.Value;
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfigurationIsNull = false;
+            }
+             // determine if requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration should be set to null
+            if (requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfigurationIsNull)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration = null;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy.TargetTrackingScalingPolicyConfiguration = requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration;
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicyIsNull = false;
+            }
+             // determine if requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy should be set to null
+            if (requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicyIsNull)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy = null;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy != null)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling.ScalingPolicy = requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling_autoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy;
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScalingIsNull = false;
+            }
+             // determine if requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling should be set to null
+            if (requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScalingIsNull)
+            {
+                requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling = null;
+            }
+            if (requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling != null)
+            {
+                request.AutoScalingSpecification.WriteCapacityAutoScaling = requestAutoScalingSpecification_autoScalingSpecification_WriteCapacityAutoScaling;
+                requestAutoScalingSpecificationIsNull = false;
+            }
+             // determine if request.AutoScalingSpecification should be set to null
+            if (requestAutoScalingSpecificationIsNull)
+            {
+                request.AutoScalingSpecification = null;
+            }
             
              // populate CapacitySpecification
             var requestCapacitySpecificationIsNull = true;
@@ -521,6 +974,10 @@ namespace Amazon.PowerShell.Cmdlets.KS
             if (requestPointInTimeRecoveryIsNull)
             {
                 request.PointInTimeRecovery = null;
+            }
+            if (cmdletContext.ReplicaSpecification != null)
+            {
+                request.ReplicaSpecifications = cmdletContext.ReplicaSpecification;
             }
             
              // populate SchemaDefinition
@@ -659,6 +1116,20 @@ namespace Amazon.PowerShell.Cmdlets.KS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? ReadCapacityAutoScaling_AutoScalingDisabled { get; set; }
+            public System.Int64? ReadCapacityAutoScaling_MaximumUnit { get; set; }
+            public System.Int64? ReadCapacityAutoScaling_MinimumUnit { get; set; }
+            public System.Boolean? ReadCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn { get; set; }
+            public System.Int32? ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown { get; set; }
+            public System.Int32? ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown { get; set; }
+            public System.Double? ReadCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue { get; set; }
+            public System.Boolean? WriteCapacityAutoScaling_AutoScalingDisabled { get; set; }
+            public System.Int64? WriteCapacityAutoScaling_MaximumUnit { get; set; }
+            public System.Int64? WriteCapacityAutoScaling_MinimumUnit { get; set; }
+            public System.Boolean? WriteCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn { get; set; }
+            public System.Int32? WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown { get; set; }
+            public System.Int32? WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown { get; set; }
+            public System.Double? WriteCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue { get; set; }
             public System.Int64? CapacitySpecification_ReadCapacityUnit { get; set; }
             public Amazon.Keyspaces.ThroughputMode CapacitySpecification_ThroughputMode { get; set; }
             public System.Int64? CapacitySpecification_WriteCapacityUnit { get; set; }
@@ -669,6 +1140,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
             public Amazon.Keyspaces.EncryptionType EncryptionSpecification_Type { get; set; }
             public System.String KeyspaceName { get; set; }
             public Amazon.Keyspaces.PointInTimeRecoveryStatus PointInTimeRecovery_Status { get; set; }
+            public List<Amazon.Keyspaces.Model.ReplicaSpecification> ReplicaSpecification { get; set; }
             public List<Amazon.Keyspaces.Model.ColumnDefinition> SchemaDefinition_AllColumn { get; set; }
             public List<Amazon.Keyspaces.Model.ClusteringKey> SchemaDefinition_ClusteringKey { get; set; }
             public List<Amazon.Keyspaces.Model.PartitionKey> SchemaDefinition_PartitionKey { get; set; }

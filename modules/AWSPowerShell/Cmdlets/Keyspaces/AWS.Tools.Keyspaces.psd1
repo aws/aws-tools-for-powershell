@@ -91,6 +91,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-KSKeyspaceList', 
         'Get-KSResourceTag', 
         'Get-KSTable', 
+        'Get-KSTableAutoScalingSetting', 
         'Get-KSTableList', 
         'New-KSKeyspace', 
         'New-KSTable', 

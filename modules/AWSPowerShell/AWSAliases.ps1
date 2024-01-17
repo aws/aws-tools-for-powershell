@@ -15669,6 +15669,8 @@ Set-Alias -Name Delete-KSTable -Value Remove-KSTable
 Set-Alias -Name KS-DeleteTable -Value Remove-KSTable
 Set-Alias -Name KS-GetKeyspace -Value Get-KSKeyspace
 Set-Alias -Name KS-GetTable -Value Get-KSTable
+Set-Alias -Name Get-KSTableAutoScalingSettings -Value Get-KSTableAutoScalingSetting
+Set-Alias -Name KS-GetTableAutoScalingSettings -Value Get-KSTableAutoScalingSetting
 Set-Alias -Name List-KSKeyspaces -Value Get-KSKeyspaceList
 Set-Alias -Name List-KSKeyspaceList -Value Get-KSKeyspaceList
 Set-Alias -Name KS-ListKeyspaces -Value Get-KSKeyspaceList

@@ -23,7 +23,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTable" OutputProperty="ResourceArn" Verb="New" Noun="Table" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteKeyspace" Verb="Remove" Noun="Keyspace" ShouldProcessTarget="KeyspaceName" PipelineParameter="KeyspaceName" NoPipelineParameter="false">
@@ -42,6 +51,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTableAutoScalingSettings" OutputProperty="*" Verb="Get" Noun="TableAutoScalingSetting" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListKeyspaces" OutputProperty="Keyspaces" Verb="Get" Noun="KeyspaceList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -55,7 +68,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RestoreTable" OutputProperty="RestoredTableARN" Verb="Restore" Noun="Table" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
@@ -67,7 +89,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTable" OutputProperty="ResourceArn" Verb="Update" Noun="Table" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" />
+                <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown" />
+                <Param Name="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" NewName="WriteCapacity_TargetTrackingScalingPolicyConfiguration_TargetValue" Alias="AutoScalingSpecification_WriteCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_TargetValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
