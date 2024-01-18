@@ -137,6 +137,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListInsightsMetricData" OutputProperty="*" Verb="Get" Noun="InsightsMetricData" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPublicKeys" OutputProperty="PublicKeyList" Verb="Get" Noun="PublicKey" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

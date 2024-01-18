@@ -59,6 +59,12 @@
                 <Param Name="AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_RoleARN" NewName="AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_RoleARN" AutoApplyAlias="false" />
                 <Param Name="AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds" NewName="AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds" AutoApplyAlias="false" />
                 <Param Name="AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds" NewName="AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds" AutoApplyAlias="false" />
+                <Param Name="SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_Enabled" NewName="SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_Enabled" />
+                <Param Name="SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName" NewName="SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName" />
+                <Param Name="SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName" NewName="SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName" />
+                <Param Name="SnowflakeDestinationConfiguration_ProcessingConfiguration_Enabled" NewName="SnowflakeDestinationConfiguration_ProcessingConfiguration_Enabled" />
+                <Param Name="SnowflakeDestinationConfiguration_ProcessingConfiguration_Processors" NewName="SnowflakeDestinationConfiguration_ProcessingConfiguration_Processors" />
+                <Param Name="SnowflakeDestinationConfiguration_RetryOptions_DurationInSeconds" NewName="SnowflakeDestinationConfiguration_RetryOptions_DurationInSeconds" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -140,6 +146,12 @@
                 <Param Name="AmazonOpenSearchServerlessDestinationUpdate_ProcessingConfiguration_Enabled" NewName="AmazonOpenSearchServerlessDestinationUpdate_ProcessingConfiguration_Enabled" AutoApplyAlias="false" />
                 <Param Name="AmazonOpenSearchServerlessDestinationUpdate_ProcessingConfiguration_Processors" NewName="AmazonOpenSearchServerlessDestinationUpdate_ProcessingConfiguration_Processors" AutoApplyAlias="false" />
                 <Param Name="AmazonOpenSearchServerlessDestinationUpdate_RetryOptions_DurationInSeconds" NewName="AmazonOpenSearchServerlessDestinationUpdate_RetryOptions_DurationInSeconds" AutoApplyAlias="false" />
+                <Param Name="SnowflakeDestinationUpdate_CloudWatchLoggingOptions_Enabled" NewName="SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_Enabled" />
+                <Param Name="SnowflakeDestinationUpdate_CloudWatchLoggingOptions_LogGroupName" NewName="SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName" />
+                <Param Name="SnowflakeDestinationUpdate_CloudWatchLoggingOptions_LogStreamName" NewName="SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName" />
+                <Param Name="SnowflakeDestinationUpdate_ProcessingConfiguration_Enabled" NewName="SnowflakeDestinationConfiguration_ProcessingConfiguration_Enabled" />
+                <Param Name="SnowflakeDestinationUpdate_ProcessingConfiguration_Processors" NewName="SnowflakeDestinationConfiguration_ProcessingConfiguration_Processors" />
+                <Param Name="SnowflakeDestinationUpdate_RetryOptions_DurationInSeconds" NewName="SnowflakeDestinationConfiguration_RetryOptions_DurationInSeconds" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

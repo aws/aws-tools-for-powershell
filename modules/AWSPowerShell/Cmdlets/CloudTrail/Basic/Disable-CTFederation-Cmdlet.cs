@@ -29,10 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
     /// Disables Lake query federation on the specified event data store. When you disable
-    /// federation, CloudTrail removes the metadata associated with the federated event data
-    /// store in the Glue Data Catalog and removes registration for the federation role ARN
-    /// and event data store in Lake Formation. No CloudTrail Lake data is deleted when you
-    /// disable federation.
+    /// federation, CloudTrail disables the integration with Glue, Lake Formation, and Amazon
+    /// Athena. After disabling Lake query federation, you can no longer query your event
+    /// data in Amazon Athena.
+    /// 
+    ///  
+    /// <para>
+    /// No CloudTrail Lake data is deleted when you disable federation and you can continue
+    /// to run queries in CloudTrail Lake.
+    /// </para>
     /// </summary>
     [Cmdlet("Disable", "CTFederation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudTrail.Model.DisableFederationResponse")]

@@ -180,6 +180,26 @@ $KINF_Completers = {
             break
         }
 
+        # Amazon.KinesisFirehose.SnowflakeDataLoadingOption
+        {
+            ($_ -eq "New-KINFDeliveryStream/SnowflakeDestinationConfiguration_DataLoadingOption") -Or
+            ($_ -eq "Update-KINFDestination/SnowflakeDestinationUpdate_DataLoadingOption")
+        }
+        {
+            $v = "JSON_MAPPING","VARIANT_CONTENT_AND_METADATA_MAPPING","VARIANT_CONTENT_MAPPING"
+            break
+        }
+
+        # Amazon.KinesisFirehose.SnowflakeS3BackupMode
+        {
+            ($_ -eq "New-KINFDeliveryStream/SnowflakeDestinationConfiguration_S3BackupMode") -Or
+            ($_ -eq "Update-KINFDestination/SnowflakeDestinationUpdate_S3BackupMode")
+        }
+        {
+            $v = "AllData","FailedDataOnly"
+            break
+        }
+
 
     }
 
@@ -207,6 +227,10 @@ $KINF_map = @{
     "HttpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding"=@("Update-KINFDestination")
     "HttpEndpointDestinationUpdate_S3BackupMode"=@("Update-KINFDestination")
     "MSKSourceConfiguration_AuthenticationConfiguration_Connectivity"=@("New-KINFDeliveryStream")
+    "SnowflakeDestinationConfiguration_DataLoadingOption"=@("New-KINFDeliveryStream")
+    "SnowflakeDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
+    "SnowflakeDestinationUpdate_DataLoadingOption"=@("Update-KINFDestination")
+    "SnowflakeDestinationUpdate_S3BackupMode"=@("Update-KINFDestination")
 }
 
 _awsArgumentCompleterRegistration $KINF_Completers $KINF_map

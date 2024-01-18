@@ -104,6 +104,20 @@ $CT_Completers = {
             break
         }
 
+        # Amazon.CloudTrail.InsightsMetricDataType
+        "Get-CTInsightsMetricData/DataType"
+        {
+            $v = "FillWithZeros","NonZeroData"
+            break
+        }
+
+        # Amazon.CloudTrail.InsightType
+        "Get-CTInsightsMetricData/InsightType"
+        {
+            $v = "ApiCallRateInsight","ApiErrorRateInsight"
+            break
+        }
+
         # Amazon.CloudTrail.QueryStatus
         "Get-CTQuerySummary/QueryStatus"
         {
@@ -121,8 +135,10 @@ $CT_Completers = {
 
 $CT_map = @{
     "BillingMode"=@("New-CTEventDataStore","Update-CTEventDataStore")
+    "DataType"=@("Get-CTInsightsMetricData")
     "EventCategory"=@("Find-CTEvent")
     "ImportStatus"=@("Get-CTImportList")
+    "InsightType"=@("Get-CTInsightsMetricData")
     "QueryStatus"=@("Get-CTQuerySummary")
 }
 
@@ -203,6 +219,7 @@ $CT_SelectMap = @{
                "Get-CTEventDataStoreSummary",
                "Get-CTImportFailure",
                "Get-CTImportList",
+               "Get-CTInsightsMetricData",
                "Get-CTPublicKey",
                "Get-CTQuerySummary",
                "Get-CTResourceTag",

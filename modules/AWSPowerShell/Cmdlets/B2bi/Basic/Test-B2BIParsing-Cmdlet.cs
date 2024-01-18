@@ -28,7 +28,8 @@ using Amazon.B2bi.Model;
 namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
-    /// Parses the input EDI (electronic data interchange) file.
+    /// Parses the input EDI (electronic data interchange) file. The input file has a file
+    /// size limit of 250 KB.
     /// </summary>
     [Cmdlet("Test", "B2BIParsing")]
     [OutputType("System.String")]

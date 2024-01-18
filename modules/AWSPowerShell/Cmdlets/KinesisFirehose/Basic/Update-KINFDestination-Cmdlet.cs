@@ -86,6 +86,17 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.String HttpEndpointDestinationUpdate_EndpointConfiguration_AccessKey { get; set; }
         #endregion
         
+        #region Parameter SnowflakeDestinationUpdate_AccountUrl
+        /// <summary>
+        /// <para>
+        /// <para>URL for accessing your Snowflake account. This URL must include your <a href="https://docs.snowflake.com/en/user-guide/admin-account-identifier">account
+        /// identifier</a>. Note that the protocol (https://) and port number are optional.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnowflakeDestinationUpdate_AccountUrl { get; set; }
+        #endregion
+        
         #region Parameter AmazonopensearchserviceDestinationUpdate_ClusterEndpoint
         /// <summary>
         /// <para>
@@ -129,6 +140,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public Amazon.KinesisFirehose.Model.HttpEndpointCommonAttribute[] HttpEndpointDestinationUpdate_RequestConfiguration_CommonAttributes { get; set; }
         #endregion
         
+        #region Parameter SnowflakeDestinationUpdate_ContentColumnName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the content metadata column</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnowflakeDestinationUpdate_ContentColumnName { get; set; }
+        #endregion
+        
         #region Parameter HttpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding
         /// <summary>
         /// <para>
@@ -161,6 +182,29 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CurrentDeliveryStreamVersionId { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeDestinationUpdate_Database
+        /// <summary>
+        /// <para>
+        /// <para>All data in Snowflake is maintained in databases.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnowflakeDestinationUpdate_Database { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeDestinationUpdate_DataLoadingOption
+        /// <summary>
+        /// <para>
+        /// <para> JSON keys mapped to table column names or choose to split the JSON payload where
+        /// content is mapped to a record content column and source metadata is mapped to a record
+        /// metadata column.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.KinesisFirehose.SnowflakeDataLoadingOption")]
+        public Amazon.KinesisFirehose.SnowflakeDataLoadingOption SnowflakeDestinationUpdate_DataLoadingOption { get; set; }
         #endregion
         
         #region Parameter AmazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat
@@ -317,6 +361,18 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.Int32? HttpEndpointDestinationUpdate_RetryOptions_DurationInSeconds { get; set; }
         #endregion
         
+        #region Parameter SnowflakeDestinationConfiguration_RetryOptions_DurationInSeconds
+        /// <summary>
+        /// <para>
+        /// <para>the time period where Kinesis Data Firehose will retry sending data to the chosen
+        /// HTTP endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SnowflakeDestinationUpdate_RetryOptions_DurationInSeconds")]
+        public System.Int32? SnowflakeDestinationConfiguration_RetryOptions_DurationInSeconds { get; set; }
+        #endregion
+        
         #region Parameter AmazonOpenSearchServerlessDestinationUpdate_CloudWatchLoggingOptions_Enabled
         /// <summary>
         /// <para>
@@ -397,6 +453,39 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? HttpEndpointDestinationUpdate_ProcessingConfiguration_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables CloudWatch logging.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SnowflakeDestinationUpdate_CloudWatchLoggingOptions_Enabled")]
+        public System.Boolean? SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeDestinationConfiguration_ProcessingConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables data processing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SnowflakeDestinationUpdate_ProcessingConfiguration_Enabled")]
+        public System.Boolean? SnowflakeDestinationConfiguration_ProcessingConfiguration_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeRoleConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enable Snowflake role</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SnowflakeDestinationUpdate_SnowflakeRoleConfiguration_Enabled")]
+        public System.Boolean? SnowflakeRoleConfiguration_Enabled { get; set; }
         #endregion
         
         #region Parameter ExtendedS3DestinationUpdate
@@ -509,6 +598,18 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.Int32? HttpEndpointDestinationUpdate_BufferingHints_IntervalInSeconds { get; set; }
         #endregion
         
+        #region Parameter SnowflakeDestinationUpdate_KeyPassphrase
+        /// <summary>
+        /// <para>
+        /// <para>Passphrase to decrypt the private key when the key is encrypted. For information,
+        /// see <a href="https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation">Using
+        /// Key Pair Authentication &amp; Key Rotation</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnowflakeDestinationUpdate_KeyPassphrase { get; set; }
+        #endregion
+        
         #region Parameter AmazonOpenSearchServerlessDestinationUpdate_CloudWatchLoggingOptions_LogGroupName
         /// <summary>
         /// <para>
@@ -552,6 +653,18 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogGroupName { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The CloudWatch group name for logging. This value is required if CloudWatch logging
+        /// is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SnowflakeDestinationUpdate_CloudWatchLoggingOptions_LogGroupName")]
+        public System.String SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName { get; set; }
         #endregion
         
         #region Parameter AmazonOpenSearchServerlessDestinationUpdate_CloudWatchLoggingOptions_LogStreamName
@@ -599,6 +712,28 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.String HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogStreamName { get; set; }
         #endregion
         
+        #region Parameter SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName
+        /// <summary>
+        /// <para>
+        /// <para>The CloudWatch log stream name for logging. This value is required if CloudWatch logging
+        /// is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SnowflakeDestinationUpdate_CloudWatchLoggingOptions_LogStreamName")]
+        public System.String SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeDestinationUpdate_MetaDataColumnName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the record metadata column</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnowflakeDestinationUpdate_MetaDataColumnName { get; set; }
+        #endregion
+        
         #region Parameter EndpointConfiguration_Name
         /// <summary>
         /// <para>
@@ -608,6 +743,17 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("HttpEndpointDestinationUpdate_EndpointConfiguration_Name")]
         public System.String EndpointConfiguration_Name { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeDestinationUpdate_PrivateKey
+        /// <summary>
+        /// <para>
+        /// <para>The private key used to encrypt your Snowflake client. For information, see <a href="https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation">Using
+        /// Key Pair Authentication &amp; Key Rotation</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnowflakeDestinationUpdate_PrivateKey { get; set; }
         #endregion
         
         #region Parameter AmazonOpenSearchServerlessDestinationUpdate_ProcessingConfiguration_Processors
@@ -649,6 +795,17 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.KinesisFirehose.Model.Processor[] HttpEndpointDestinationUpdate_ProcessingConfiguration_Processors { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeDestinationConfiguration_ProcessingConfiguration_Processors
+        /// <summary>
+        /// <para>
+        /// <para>The data processors.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SnowflakeDestinationUpdate_ProcessingConfiguration_Processors")]
+        public Amazon.KinesisFirehose.Model.Processor[] SnowflakeDestinationConfiguration_ProcessingConfiguration_Processors { get; set; }
         #endregion
         
         #region Parameter RedshiftDestinationUpdate
@@ -710,6 +867,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.String HttpEndpointDestinationUpdate_RoleARN { get; set; }
         #endregion
         
+        #region Parameter SnowflakeDestinationUpdate_RoleARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Snowflake role</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnowflakeDestinationUpdate_RoleARN { get; set; }
+        #endregion
+        
         #region Parameter HttpEndpointDestinationUpdate_S3BackupMode
         /// <summary>
         /// <para>
@@ -722,6 +889,17 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.KinesisFirehose.HttpEndpointS3BackupMode")]
         public Amazon.KinesisFirehose.HttpEndpointS3BackupMode HttpEndpointDestinationUpdate_S3BackupMode { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeDestinationUpdate_S3BackupMode
+        /// <summary>
+        /// <para>
+        /// <para>Choose an S3 backup mode</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.KinesisFirehose.SnowflakeS3BackupMode")]
+        public Amazon.KinesisFirehose.SnowflakeS3BackupMode SnowflakeDestinationUpdate_S3BackupMode { get; set; }
         #endregion
         
         #region Parameter AmazonOpenSearchServerlessDestinationUpdate_S3Update
@@ -762,6 +940,27 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.KinesisFirehose.Model.S3DestinationUpdate HttpEndpointDestinationUpdate_S3Update { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeDestinationUpdate_S3Update
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.KinesisFirehose.Model.S3DestinationUpdate SnowflakeDestinationUpdate_S3Update { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeDestinationUpdate_Schema
+        /// <summary>
+        /// <para>
+        /// <para>Each database consists of one or more schemas, which are logical groupings of database
+        /// objects, such as tables and views</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnowflakeDestinationUpdate_Schema { get; set; }
         #endregion
         
         #region Parameter AmazonOpenSearchServerlessDestinationUpdate_BufferingHints_SizeInMBs
@@ -817,6 +1016,17 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.Int32? HttpEndpointDestinationUpdate_BufferingHints_SizeInMBs { get; set; }
         #endregion
         
+        #region Parameter SnowflakeRoleConfiguration_SnowflakeRole
+        /// <summary>
+        /// <para>
+        /// <para>The Snowflake role you wish to configure</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SnowflakeDestinationUpdate_SnowflakeRoleConfiguration_SnowflakeRole")]
+        public System.String SnowflakeRoleConfiguration_SnowflakeRole { get; set; }
+        #endregion
+        
         #region Parameter SplunkDestinationUpdate
         /// <summary>
         /// <para>
@@ -825,6 +1035,17 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.KinesisFirehose.Model.SplunkDestinationUpdate SplunkDestinationUpdate { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeDestinationUpdate_Table
+        /// <summary>
+        /// <para>
+        /// <para>All data in Snowflake is stored in database tables, logically structured as collections
+        /// of columns and rows.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnowflakeDestinationUpdate_Table { get; set; }
         #endregion
         
         #region Parameter AmazonopensearchserviceDestinationUpdate_TypeName
@@ -867,6 +1088,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String HttpEndpointDestinationUpdate_EndpointConfiguration_Url { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeDestinationUpdate_User
+        /// <summary>
+        /// <para>
+        /// <para>User login name for the Snowflake account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnowflakeDestinationUpdate_User { get; set; }
         #endregion
         
         #region Parameter S3DestinationUpdate
@@ -1023,6 +1254,30 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.S3DestinationUpdate = this.S3DestinationUpdate;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.SnowflakeDestinationUpdate_AccountUrl = this.SnowflakeDestinationUpdate_AccountUrl;
+            context.SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_Enabled = this.SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_Enabled;
+            context.SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName = this.SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName;
+            context.SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName = this.SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName;
+            context.SnowflakeDestinationUpdate_ContentColumnName = this.SnowflakeDestinationUpdate_ContentColumnName;
+            context.SnowflakeDestinationUpdate_Database = this.SnowflakeDestinationUpdate_Database;
+            context.SnowflakeDestinationUpdate_DataLoadingOption = this.SnowflakeDestinationUpdate_DataLoadingOption;
+            context.SnowflakeDestinationUpdate_KeyPassphrase = this.SnowflakeDestinationUpdate_KeyPassphrase;
+            context.SnowflakeDestinationUpdate_MetaDataColumnName = this.SnowflakeDestinationUpdate_MetaDataColumnName;
+            context.SnowflakeDestinationUpdate_PrivateKey = this.SnowflakeDestinationUpdate_PrivateKey;
+            context.SnowflakeDestinationConfiguration_ProcessingConfiguration_Enabled = this.SnowflakeDestinationConfiguration_ProcessingConfiguration_Enabled;
+            if (this.SnowflakeDestinationConfiguration_ProcessingConfiguration_Processors != null)
+            {
+                context.SnowflakeDestinationConfiguration_ProcessingConfiguration_Processors = new List<Amazon.KinesisFirehose.Model.Processor>(this.SnowflakeDestinationConfiguration_ProcessingConfiguration_Processors);
+            }
+            context.SnowflakeDestinationConfiguration_RetryOptions_DurationInSeconds = this.SnowflakeDestinationConfiguration_RetryOptions_DurationInSeconds;
+            context.SnowflakeDestinationUpdate_RoleARN = this.SnowflakeDestinationUpdate_RoleARN;
+            context.SnowflakeDestinationUpdate_S3BackupMode = this.SnowflakeDestinationUpdate_S3BackupMode;
+            context.SnowflakeDestinationUpdate_S3Update = this.SnowflakeDestinationUpdate_S3Update;
+            context.SnowflakeDestinationUpdate_Schema = this.SnowflakeDestinationUpdate_Schema;
+            context.SnowflakeRoleConfiguration_Enabled = this.SnowflakeRoleConfiguration_Enabled;
+            context.SnowflakeRoleConfiguration_SnowflakeRole = this.SnowflakeRoleConfiguration_SnowflakeRole;
+            context.SnowflakeDestinationUpdate_Table = this.SnowflakeDestinationUpdate_Table;
+            context.SnowflakeDestinationUpdate_User = this.SnowflakeDestinationUpdate_User;
             context.SplunkDestinationUpdate = this.SplunkDestinationUpdate;
             
             // allow further manipulation of loaded context prior to processing
@@ -2002,6 +2257,285 @@ namespace Amazon.PowerShell.Cmdlets.KINF
                 request.S3DestinationUpdate = cmdletContext.S3DestinationUpdate;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            
+             // populate SnowflakeDestinationUpdate
+            var requestSnowflakeDestinationUpdateIsNull = true;
+            request.SnowflakeDestinationUpdate = new Amazon.KinesisFirehose.Model.SnowflakeDestinationUpdate();
+            System.String requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_AccountUrl = null;
+            if (cmdletContext.SnowflakeDestinationUpdate_AccountUrl != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_AccountUrl = cmdletContext.SnowflakeDestinationUpdate_AccountUrl;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_AccountUrl != null)
+            {
+                request.SnowflakeDestinationUpdate.AccountUrl = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_AccountUrl;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
+            System.String requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ContentColumnName = null;
+            if (cmdletContext.SnowflakeDestinationUpdate_ContentColumnName != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ContentColumnName = cmdletContext.SnowflakeDestinationUpdate_ContentColumnName;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ContentColumnName != null)
+            {
+                request.SnowflakeDestinationUpdate.ContentColumnName = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ContentColumnName;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
+            System.String requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_Database = null;
+            if (cmdletContext.SnowflakeDestinationUpdate_Database != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_Database = cmdletContext.SnowflakeDestinationUpdate_Database;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_Database != null)
+            {
+                request.SnowflakeDestinationUpdate.Database = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_Database;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.SnowflakeDataLoadingOption requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_DataLoadingOption = null;
+            if (cmdletContext.SnowflakeDestinationUpdate_DataLoadingOption != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_DataLoadingOption = cmdletContext.SnowflakeDestinationUpdate_DataLoadingOption;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_DataLoadingOption != null)
+            {
+                request.SnowflakeDestinationUpdate.DataLoadingOption = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_DataLoadingOption;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
+            System.String requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_KeyPassphrase = null;
+            if (cmdletContext.SnowflakeDestinationUpdate_KeyPassphrase != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_KeyPassphrase = cmdletContext.SnowflakeDestinationUpdate_KeyPassphrase;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_KeyPassphrase != null)
+            {
+                request.SnowflakeDestinationUpdate.KeyPassphrase = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_KeyPassphrase;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
+            System.String requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_MetaDataColumnName = null;
+            if (cmdletContext.SnowflakeDestinationUpdate_MetaDataColumnName != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_MetaDataColumnName = cmdletContext.SnowflakeDestinationUpdate_MetaDataColumnName;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_MetaDataColumnName != null)
+            {
+                request.SnowflakeDestinationUpdate.MetaDataColumnName = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_MetaDataColumnName;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
+            System.String requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_PrivateKey = null;
+            if (cmdletContext.SnowflakeDestinationUpdate_PrivateKey != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_PrivateKey = cmdletContext.SnowflakeDestinationUpdate_PrivateKey;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_PrivateKey != null)
+            {
+                request.SnowflakeDestinationUpdate.PrivateKey = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_PrivateKey;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
+            System.String requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RoleARN = null;
+            if (cmdletContext.SnowflakeDestinationUpdate_RoleARN != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RoleARN = cmdletContext.SnowflakeDestinationUpdate_RoleARN;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RoleARN != null)
+            {
+                request.SnowflakeDestinationUpdate.RoleARN = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RoleARN;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.SnowflakeS3BackupMode requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_S3BackupMode = null;
+            if (cmdletContext.SnowflakeDestinationUpdate_S3BackupMode != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_S3BackupMode = cmdletContext.SnowflakeDestinationUpdate_S3BackupMode;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_S3BackupMode != null)
+            {
+                request.SnowflakeDestinationUpdate.S3BackupMode = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_S3BackupMode;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.S3DestinationUpdate requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_S3Update = null;
+            if (cmdletContext.SnowflakeDestinationUpdate_S3Update != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_S3Update = cmdletContext.SnowflakeDestinationUpdate_S3Update;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_S3Update != null)
+            {
+                request.SnowflakeDestinationUpdate.S3Update = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_S3Update;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
+            System.String requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_Schema = null;
+            if (cmdletContext.SnowflakeDestinationUpdate_Schema != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_Schema = cmdletContext.SnowflakeDestinationUpdate_Schema;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_Schema != null)
+            {
+                request.SnowflakeDestinationUpdate.Schema = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_Schema;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
+            System.String requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_Table = null;
+            if (cmdletContext.SnowflakeDestinationUpdate_Table != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_Table = cmdletContext.SnowflakeDestinationUpdate_Table;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_Table != null)
+            {
+                request.SnowflakeDestinationUpdate.Table = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_Table;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
+            System.String requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_User = null;
+            if (cmdletContext.SnowflakeDestinationUpdate_User != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_User = cmdletContext.SnowflakeDestinationUpdate_User;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_User != null)
+            {
+                request.SnowflakeDestinationUpdate.User = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_User;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.SnowflakeRetryOptions requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RetryOptions = null;
+            
+             // populate RetryOptions
+            var requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RetryOptionsIsNull = true;
+            requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RetryOptions = new Amazon.KinesisFirehose.Model.SnowflakeRetryOptions();
+            System.Int32? requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RetryOptions_snowflakeDestinationConfiguration_RetryOptions_DurationInSeconds = null;
+            if (cmdletContext.SnowflakeDestinationConfiguration_RetryOptions_DurationInSeconds != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RetryOptions_snowflakeDestinationConfiguration_RetryOptions_DurationInSeconds = cmdletContext.SnowflakeDestinationConfiguration_RetryOptions_DurationInSeconds.Value;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RetryOptions_snowflakeDestinationConfiguration_RetryOptions_DurationInSeconds != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RetryOptions.DurationInSeconds = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RetryOptions_snowflakeDestinationConfiguration_RetryOptions_DurationInSeconds.Value;
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RetryOptionsIsNull = false;
+            }
+             // determine if requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RetryOptions should be set to null
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RetryOptionsIsNull)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RetryOptions = null;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RetryOptions != null)
+            {
+                request.SnowflakeDestinationUpdate.RetryOptions = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_RetryOptions;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.ProcessingConfiguration requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfiguration = null;
+            
+             // populate ProcessingConfiguration
+            var requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfigurationIsNull = true;
+            requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfiguration = new Amazon.KinesisFirehose.Model.ProcessingConfiguration();
+            System.Boolean? requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfiguration_snowflakeDestinationConfiguration_ProcessingConfiguration_Enabled = null;
+            if (cmdletContext.SnowflakeDestinationConfiguration_ProcessingConfiguration_Enabled != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfiguration_snowflakeDestinationConfiguration_ProcessingConfiguration_Enabled = cmdletContext.SnowflakeDestinationConfiguration_ProcessingConfiguration_Enabled.Value;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfiguration_snowflakeDestinationConfiguration_ProcessingConfiguration_Enabled != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfiguration.Enabled = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfiguration_snowflakeDestinationConfiguration_ProcessingConfiguration_Enabled.Value;
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfigurationIsNull = false;
+            }
+            List<Amazon.KinesisFirehose.Model.Processor> requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfiguration_snowflakeDestinationConfiguration_ProcessingConfiguration_Processors = null;
+            if (cmdletContext.SnowflakeDestinationConfiguration_ProcessingConfiguration_Processors != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfiguration_snowflakeDestinationConfiguration_ProcessingConfiguration_Processors = cmdletContext.SnowflakeDestinationConfiguration_ProcessingConfiguration_Processors;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfiguration_snowflakeDestinationConfiguration_ProcessingConfiguration_Processors != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfiguration.Processors = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfiguration_snowflakeDestinationConfiguration_ProcessingConfiguration_Processors;
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfigurationIsNull = false;
+            }
+             // determine if requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfiguration should be set to null
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfigurationIsNull)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfiguration = null;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfiguration != null)
+            {
+                request.SnowflakeDestinationUpdate.ProcessingConfiguration = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_ProcessingConfiguration;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.SnowflakeRoleConfiguration requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfiguration = null;
+            
+             // populate SnowflakeRoleConfiguration
+            var requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfigurationIsNull = true;
+            requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfiguration = new Amazon.KinesisFirehose.Model.SnowflakeRoleConfiguration();
+            System.Boolean? requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfiguration_snowflakeRoleConfiguration_Enabled = null;
+            if (cmdletContext.SnowflakeRoleConfiguration_Enabled != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfiguration_snowflakeRoleConfiguration_Enabled = cmdletContext.SnowflakeRoleConfiguration_Enabled.Value;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfiguration_snowflakeRoleConfiguration_Enabled != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfiguration.Enabled = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfiguration_snowflakeRoleConfiguration_Enabled.Value;
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfigurationIsNull = false;
+            }
+            System.String requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfiguration_snowflakeRoleConfiguration_SnowflakeRole = null;
+            if (cmdletContext.SnowflakeRoleConfiguration_SnowflakeRole != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfiguration_snowflakeRoleConfiguration_SnowflakeRole = cmdletContext.SnowflakeRoleConfiguration_SnowflakeRole;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfiguration_snowflakeRoleConfiguration_SnowflakeRole != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfiguration.SnowflakeRole = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfiguration_snowflakeRoleConfiguration_SnowflakeRole;
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfigurationIsNull = false;
+            }
+             // determine if requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfiguration should be set to null
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfigurationIsNull)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfiguration = null;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfiguration != null)
+            {
+                request.SnowflakeDestinationUpdate.SnowflakeRoleConfiguration = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SnowflakeRoleConfiguration;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.CloudWatchLoggingOptions requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions = null;
+            
+             // populate CloudWatchLoggingOptions
+            var requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptionsIsNull = true;
+            requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions = new Amazon.KinesisFirehose.Model.CloudWatchLoggingOptions();
+            System.Boolean? requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions_snowflakeDestinationConfiguration_CloudWatchLoggingOptions_Enabled = null;
+            if (cmdletContext.SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_Enabled != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions_snowflakeDestinationConfiguration_CloudWatchLoggingOptions_Enabled = cmdletContext.SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_Enabled.Value;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions_snowflakeDestinationConfiguration_CloudWatchLoggingOptions_Enabled != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions.Enabled = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions_snowflakeDestinationConfiguration_CloudWatchLoggingOptions_Enabled.Value;
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptionsIsNull = false;
+            }
+            System.String requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions_snowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName = null;
+            if (cmdletContext.SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions_snowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName = cmdletContext.SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions_snowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions.LogGroupName = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions_snowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName;
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptionsIsNull = false;
+            }
+            System.String requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions_snowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName = null;
+            if (cmdletContext.SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions_snowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName = cmdletContext.SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions_snowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions.LogStreamName = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions_snowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName;
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptionsIsNull = false;
+            }
+             // determine if requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions should be set to null
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptionsIsNull)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions = null;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions != null)
+            {
+                request.SnowflakeDestinationUpdate.CloudWatchLoggingOptions = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
+             // determine if request.SnowflakeDestinationUpdate should be set to null
+            if (requestSnowflakeDestinationUpdateIsNull)
+            {
+                request.SnowflakeDestinationUpdate = null;
+            }
             if (cmdletContext.SplunkDestinationUpdate != null)
             {
                 request.SplunkDestinationUpdate = cmdletContext.SplunkDestinationUpdate;
@@ -2134,6 +2668,27 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate RedshiftDestinationUpdate { get; set; }
             [System.ObsoleteAttribute]
             public Amazon.KinesisFirehose.Model.S3DestinationUpdate S3DestinationUpdate { get; set; }
+            public System.String SnowflakeDestinationUpdate_AccountUrl { get; set; }
+            public System.Boolean? SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_Enabled { get; set; }
+            public System.String SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName { get; set; }
+            public System.String SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName { get; set; }
+            public System.String SnowflakeDestinationUpdate_ContentColumnName { get; set; }
+            public System.String SnowflakeDestinationUpdate_Database { get; set; }
+            public Amazon.KinesisFirehose.SnowflakeDataLoadingOption SnowflakeDestinationUpdate_DataLoadingOption { get; set; }
+            public System.String SnowflakeDestinationUpdate_KeyPassphrase { get; set; }
+            public System.String SnowflakeDestinationUpdate_MetaDataColumnName { get; set; }
+            public System.String SnowflakeDestinationUpdate_PrivateKey { get; set; }
+            public System.Boolean? SnowflakeDestinationConfiguration_ProcessingConfiguration_Enabled { get; set; }
+            public List<Amazon.KinesisFirehose.Model.Processor> SnowflakeDestinationConfiguration_ProcessingConfiguration_Processors { get; set; }
+            public System.Int32? SnowflakeDestinationConfiguration_RetryOptions_DurationInSeconds { get; set; }
+            public System.String SnowflakeDestinationUpdate_RoleARN { get; set; }
+            public Amazon.KinesisFirehose.SnowflakeS3BackupMode SnowflakeDestinationUpdate_S3BackupMode { get; set; }
+            public Amazon.KinesisFirehose.Model.S3DestinationUpdate SnowflakeDestinationUpdate_S3Update { get; set; }
+            public System.String SnowflakeDestinationUpdate_Schema { get; set; }
+            public System.Boolean? SnowflakeRoleConfiguration_Enabled { get; set; }
+            public System.String SnowflakeRoleConfiguration_SnowflakeRole { get; set; }
+            public System.String SnowflakeDestinationUpdate_Table { get; set; }
+            public System.String SnowflakeDestinationUpdate_User { get; set; }
             public Amazon.KinesisFirehose.Model.SplunkDestinationUpdate SplunkDestinationUpdate { get; set; }
             public System.Func<Amazon.KinesisFirehose.Model.UpdateDestinationResponse, UpdateKINFDestinationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

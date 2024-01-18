@@ -33,9 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
     /// (default), feature columns are set to <c>null</c> and the record is no longer retrievable
     /// by <c>GetRecord</c> or <c>BatchGetRecord</c>. For <c>HardDelete</c>, the complete
     /// <c>Record</c> is removed from the <c>OnlineStore</c>. In both cases, Feature Store
-    /// appends the deleted record marker to the <c>OfflineStore</c> with feature values set
-    /// to <c>null</c>, <c>is_deleted</c> value set to <c>True</c>, and <c>EventTime</c> set
-    /// to the delete input <c>EventTime</c>.
+    /// appends the deleted record marker to the <c>OfflineStore</c>. The deleted record marker
+    /// is a record with the same <c>RecordIdentifer</c> as the original, but with <c>is_deleted</c>
+    /// value set to <c>True</c>, <c>EventTime</c> set to the delete input <c>EventTime</c>,
+    /// and other feature values set to <c>null</c>.
     /// 
     ///  
     /// <para>
@@ -43,11 +44,18 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
     /// than the <c>EventTime</c> of the existing record in the <c>OnlineStore</c> for that
     /// <c>RecordIdentifer</c>. If it is not, the deletion does not occur:
     /// </para><ul><li><para>
-    /// For <c>SoftDelete</c>, the existing (undeleted) record remains in the <c>OnlineStore</c>,
+    /// For <c>SoftDelete</c>, the existing (not deleted) record remains in the <c>OnlineStore</c>,
     /// though the delete record marker is still written to the <c>OfflineStore</c>.
     /// </para></li><li><para><c>HardDelete</c> returns <c>EventTime</c>: <c>400 ValidationException</c> to indicate
     /// that the delete operation failed. No delete record marker is written to the <c>OfflineStore</c>.
-    /// </para></li></ul>
+    /// </para></li></ul><para>
+    /// When a record is deleted from the <c>OnlineStore</c>, the deleted record marker is
+    /// appended to the <c>OfflineStore</c>. If you have the Iceberg table format enabled
+    /// for your <c>OfflineStore</c>, you can remove all history of a record from the <c>OfflineStore</c>
+    /// using Amazon Athena or Apache Spark. For information on how to hard delete a record
+    /// from the <c>OfflineStore</c> with the Iceberg table format enabled, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-delete-records-offline-store.html#feature-store-delete-records-offline-store">Delete
+    /// records from the offline store</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "SMFSRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

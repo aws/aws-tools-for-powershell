@@ -4367,6 +4367,8 @@ Set-Alias -Name CT-ListImportFailures -Value Get-CTImportFailure
 Set-Alias -Name List-CTImports -Value Get-CTImportList
 Set-Alias -Name List-CTImportList -Value Get-CTImportList
 Set-Alias -Name CT-ListImports -Value Get-CTImportList
+Set-Alias -Name List-CTInsightsMetricData -Value Get-CTInsightsMetricData
+Set-Alias -Name CT-ListInsightsMetricData -Value Get-CTInsightsMetricData
 Set-Alias -Name List-CTPublicKeys -Value Get-CTPublicKey
 Set-Alias -Name List-CTPublicKey -Value Get-CTPublicKey
 Set-Alias -Name CT-ListPublicKeys -Value Get-CTPublicKey
