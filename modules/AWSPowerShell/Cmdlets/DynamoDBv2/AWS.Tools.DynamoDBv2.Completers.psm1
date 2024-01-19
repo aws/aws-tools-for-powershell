@@ -80,6 +80,17 @@ $DDB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DynamoDBv2.ApproximateCreationDateTimePrecision
+        {
+            ($_ -eq "Disable-DDBKinesisStreamingDestination/EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision") -Or
+            ($_ -eq "Enable-DDBKinesisStreamingDestination/EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision") -Or
+            ($_ -eq "Update-DDBKinesisStreamingDestination/UpdateKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision")
+        }
+        {
+            $v = "MICROSECOND","MILLISECOND"
+            break
+        }
+
         # Amazon.DynamoDBv2.BackupTypeFilter
         "Get-DDBBackupList/BackupType"
         {
@@ -295,6 +306,7 @@ $DDB_map = @{
     "BillingModeOverride"=@("Restore-DDBTableFromBackup","Restore-DDBTableToPointInTime")
     "ConditionalOperator"=@("Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Set-DDBItem","Update-DDBItem")
     "ContributorInsightsAction"=@("Update-DDBContributorInsight")
+    "EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision"=@("Disable-DDBKinesisStreamingDestination","Enable-DDBKinesisStreamingDestination")
     "ExportFormat"=@("Export-DDBTableToPointInTime")
     "ExportType"=@("Export-DDBTableToPointInTime")
     "GlobalTableBillingMode"=@("Update-DDBGlobalTableSetting")
@@ -318,6 +330,7 @@ $DDB_map = @{
     "TableClass"=@("Update-DDBTable")
     "TableCreationParameters_BillingMode"=@("Import-DDBTable")
     "TableCreationParameters_SSESpecification_SSEType"=@("Import-DDBTable")
+    "UpdateKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision"=@("Update-DDBKinesisStreamingDestination")
 }
 
 _awsArgumentCompleterRegistration $DDB_Completers $DDB_map
@@ -419,6 +432,7 @@ $DDB_SelectMap = @{
                "Update-DDBGlobalTable",
                "Update-DDBGlobalTableSetting",
                "Update-DDBItem",
+               "Update-DDBKinesisStreamingDestination",
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",

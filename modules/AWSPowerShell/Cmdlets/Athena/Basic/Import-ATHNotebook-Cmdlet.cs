@@ -28,9 +28,11 @@ using Amazon.Athena.Model;
 namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Imports a single <c>ipynb</c> file to a Spark enabled workgroup. The maximum file
-    /// size that can be imported is 10 megabytes. If an <c>ipynb</c> file with the same name
-    /// already exists in the workgroup, throws an error.
+    /// Imports a single <c>ipynb</c> file to a Spark enabled workgroup. To import the notebook,
+    /// the request must specify a value for either <c>Payload</c> or <c>NoteBookS3LocationUri</c>.
+    /// If neither is specified or both are specified, an <c>InvalidRequestException</c> occurs.
+    /// The maximum file size that can be imported is 10 megabytes. If an <c>ipynb</c> file
+    /// with the same name already exists in the workgroup, throws an error.
     /// </summary>
     [Cmdlet("Import", "ATHNotebook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -75,20 +77,23 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter NotebookS3LocationUri
+        /// <summary>
+        /// <para>
+        /// <para>A URI that specifies the Amazon S3 location of a notebook file in <c>ipynb</c> format.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NotebookS3LocationUri { get; set; }
+        #endregion
+        
         #region Parameter Payload
         /// <summary>
         /// <para>
-        /// <para>The notebook content to be imported.</para>
+        /// <para>The notebook content to be imported. The payload must be in <c>ipynb</c> format.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Payload { get; set; }
         #endregion
         
@@ -196,13 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NotebookS3LocationUri = this.NotebookS3LocationUri;
             context.Payload = this.Payload;
-            #if MODULAR
-            if (this.Payload == null && ParameterWasBound(nameof(this.Payload)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Payload which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -240,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.NotebookS3LocationUri != null)
+            {
+                request.NotebookS3LocationUri = cmdletContext.NotebookS3LocationUri;
             }
             if (cmdletContext.Payload != null)
             {
@@ -316,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         {
             public System.String ClientRequestToken { get; set; }
             public System.String Name { get; set; }
+            public System.String NotebookS3LocationUri { get; set; }
             public System.String Payload { get; set; }
             public Amazon.Athena.NotebookType Type { get; set; }
             public System.String WorkGroup { get; set; }

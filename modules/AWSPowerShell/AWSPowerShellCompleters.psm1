@@ -11867,6 +11867,8 @@ $CB_Completers = {
 
         # Amazon.CodeBuild.ComputeType
         {
+            ($_ -eq "New-CBFleet/ComputeType") -Or
+            ($_ -eq "Update-CBFleet/ComputeType") -Or
             ($_ -eq "Start-CBBatch/ComputeTypeOverride") -Or
             ($_ -eq "Start-CBBuild/ComputeTypeOverride") -Or
             ($_ -eq "New-CBProject/Environment_ComputeType") -Or
@@ -11893,11 +11895,30 @@ $CB_Completers = {
         {
             ($_ -eq "New-CBProject/Environment_Type") -Or
             ($_ -eq "Update-CBProject/Environment_Type") -Or
+            ($_ -eq "New-CBFleet/EnvironmentType") -Or
+            ($_ -eq "Update-CBFleet/EnvironmentType") -Or
             ($_ -eq "Start-CBBatch/EnvironmentTypeOverride") -Or
             ($_ -eq "Start-CBBuild/EnvironmentTypeOverride")
         }
         {
             $v = "ARM_CONTAINER","ARM_LAMBDA_CONTAINER","LINUX_CONTAINER","LINUX_GPU_CONTAINER","LINUX_LAMBDA_CONTAINER","WINDOWS_CONTAINER","WINDOWS_SERVER_2019_CONTAINER"
+            break
+        }
+
+        # Amazon.CodeBuild.FleetScalingType
+        {
+            ($_ -eq "New-CBFleet/ScalingConfiguration_ScalingType") -Or
+            ($_ -eq "Update-CBFleet/ScalingConfiguration_ScalingType")
+        }
+        {
+            $v = "TARGET_TRACKING_SCALING"
+            break
+        }
+
+        # Amazon.CodeBuild.FleetSortByType
+        "Get-CBFleetList/SortBy"
+        {
+            $v = "CREATED_TIME","LAST_MODIFIED_TIME","NAME"
             break
         }
 
@@ -12032,6 +12053,7 @@ $CB_Completers = {
             ($_ -eq "Get-CBBuildIdList/SortOrder") -Or
             ($_ -eq "Get-CBBuildIdListForProject/SortOrder") -Or
             ($_ -eq "Get-CBCodeCoverage/SortOrder") -Or
+            ($_ -eq "Get-CBFleetList/SortOrder") -Or
             ($_ -eq "Get-CBProjectList/SortOrder") -Or
             ($_ -eq "Get-CBReportGroupList/SortOrder") -Or
             ($_ -eq "Get-CBReportList/SortOrder") -Or
@@ -12111,11 +12133,13 @@ $CB_map = @{
     "BuildType"=@("New-CBWebhook","Update-CBWebhook")
     "Cache_Type"=@("New-CBProject","Update-CBProject")
     "CacheOverride_Type"=@("Start-CBBatch","Start-CBBuild")
+    "ComputeType"=@("New-CBFleet","Update-CBFleet")
     "ComputeTypeOverride"=@("Start-CBBatch","Start-CBBuild")
     "Environment_ComputeType"=@("New-CBProject","Update-CBProject")
     "Environment_ImagePullCredentialsType"=@("New-CBProject","Update-CBProject")
     "Environment_RegistryCredential_CredentialProvider"=@("New-CBProject","Update-CBProject")
     "Environment_Type"=@("New-CBProject","Update-CBProject")
+    "EnvironmentType"=@("New-CBFleet","Update-CBFleet")
     "EnvironmentTypeOverride"=@("Start-CBBatch","Start-CBBuild")
     "ExportConfig_ExportConfigType"=@("New-CBReportGroup","Update-CBReportGroup")
     "ExportConfig_S3Destination_Packaging"=@("New-CBReportGroup","Update-CBReportGroup")
@@ -12130,9 +12154,10 @@ $CB_map = @{
     "ProjectVisibility"=@("Update-CBProjectVisibility")
     "RegistryCredentialOverride_CredentialProvider"=@("Start-CBBatch","Start-CBBuild")
     "RetryType"=@("Redo-CBBatch")
+    "ScalingConfiguration_ScalingType"=@("New-CBFleet","Update-CBFleet")
     "ServerType"=@("Import-CBSourceCredential")
-    "SortBy"=@("Get-CBCodeCoverage","Get-CBProjectList","Get-CBReportGroupList","Get-CBSharedProjectList","Get-CBSharedReportGroupList")
-    "SortOrder"=@("Get-CBBatchIdList","Get-CBBatchIdListForProject","Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBCodeCoverage","Get-CBProjectList","Get-CBReportGroupList","Get-CBReportList","Get-CBReportsForReportGroupList","Get-CBSharedProjectList","Get-CBSharedReportGroupList")
+    "SortBy"=@("Get-CBCodeCoverage","Get-CBFleetList","Get-CBProjectList","Get-CBReportGroupList","Get-CBSharedProjectList","Get-CBSharedReportGroupList")
+    "SortOrder"=@("Get-CBBatchIdList","Get-CBBatchIdListForProject","Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBCodeCoverage","Get-CBFleetList","Get-CBProjectList","Get-CBReportGroupList","Get-CBReportList","Get-CBReportsForReportGroupList","Get-CBSharedProjectList","Get-CBSharedReportGroupList")
     "Source_Auth_Type"=@("New-CBProject","Update-CBProject")
     "Source_Type"=@("New-CBProject","Update-CBProject")
     "SourceAuthOverride_Type"=@("Start-CBBatch","Start-CBBuild")
@@ -12194,13 +12219,16 @@ $CB_SelectMap = @{
     "Select"=@("Remove-CBBuildBatch",
                "Get-CBBatch",
                "Get-CBBuildBatch",
+               "Get-CBCBFleetBatch",
                "Get-CBProjectBatch",
                "Get-CBReportGroupBatch",
                "Get-CBReportBatch",
+               "New-CBFleet",
                "New-CBProject",
                "New-CBReportGroup",
                "New-CBWebhook",
                "Remove-CBBatch",
+               "Remove-CBFleet",
                "Remove-CBProject",
                "Remove-CBReport",
                "Remove-CBReportGroup",
@@ -12218,6 +12246,7 @@ $CB_SelectMap = @{
                "Get-CBBuildIdList",
                "Get-CBBuildIdListForProject",
                "Get-CBCuratedEnvironmentImageList",
+               "Get-CBFleetList",
                "Get-CBProjectList",
                "Get-CBReportGroupList",
                "Get-CBReportList",
@@ -12232,6 +12261,7 @@ $CB_SelectMap = @{
                "Start-CBBatch",
                "Stop-CBBuild",
                "Stop-CBBatch",
+               "Update-CBFleet",
                "Update-CBProject",
                "Update-CBProjectVisibility",
                "Update-CBReportGroup",
@@ -20779,6 +20809,17 @@ $DDB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DynamoDBv2.ApproximateCreationDateTimePrecision
+        {
+            ($_ -eq "Disable-DDBKinesisStreamingDestination/EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision") -Or
+            ($_ -eq "Enable-DDBKinesisStreamingDestination/EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision") -Or
+            ($_ -eq "Update-DDBKinesisStreamingDestination/UpdateKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision")
+        }
+        {
+            $v = "MICROSECOND","MILLISECOND"
+            break
+        }
+
         # Amazon.DynamoDBv2.BackupTypeFilter
         "Get-DDBBackupList/BackupType"
         {
@@ -20994,6 +21035,7 @@ $DDB_map = @{
     "BillingModeOverride"=@("Restore-DDBTableFromBackup","Restore-DDBTableToPointInTime")
     "ConditionalOperator"=@("Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Set-DDBItem","Update-DDBItem")
     "ContributorInsightsAction"=@("Update-DDBContributorInsight")
+    "EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision"=@("Disable-DDBKinesisStreamingDestination","Enable-DDBKinesisStreamingDestination")
     "ExportFormat"=@("Export-DDBTableToPointInTime")
     "ExportType"=@("Export-DDBTableToPointInTime")
     "GlobalTableBillingMode"=@("Update-DDBGlobalTableSetting")
@@ -21017,6 +21059,7 @@ $DDB_map = @{
     "TableClass"=@("Update-DDBTable")
     "TableCreationParameters_BillingMode"=@("Import-DDBTable")
     "TableCreationParameters_SSESpecification_SSEType"=@("Import-DDBTable")
+    "UpdateKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision"=@("Update-DDBKinesisStreamingDestination")
 }
 
 _awsArgumentCompleterRegistration $DDB_Completers $DDB_map
@@ -21118,6 +21161,7 @@ $DDB_SelectMap = @{
                "Update-DDBGlobalTable",
                "Update-DDBGlobalTableSetting",
                "Update-DDBItem",
+               "Update-DDBKinesisStreamingDestination",
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",

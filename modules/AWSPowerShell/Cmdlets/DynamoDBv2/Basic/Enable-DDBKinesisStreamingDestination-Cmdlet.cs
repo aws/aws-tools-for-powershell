@@ -44,6 +44,18 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision
+        /// <summary>
+        /// <para>
+        /// <para>Toggle for the precision of Kinesis data stream timestamp. The values are either <c>MILLISECOND</c>
+        /// or <c>MICROSECOND</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.ApproximateCreationDateTimePrecision")]
+        public Amazon.DynamoDBv2.ApproximateCreationDateTimePrecision EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision { get; set; }
+        #endregion
+        
         #region Parameter StreamArn
         /// <summary>
         /// <para>
@@ -140,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 context.Select = (response, cmdlet) => this.TableName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision = this.EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision;
             context.StreamArn = this.StreamArn;
             #if MODULAR
             if (this.StreamArn == null && ParameterWasBound(nameof(this.StreamArn)))
@@ -170,6 +183,25 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             // create request
             var request = new Amazon.DynamoDBv2.Model.EnableKinesisStreamingDestinationRequest();
             
+            
+             // populate EnableKinesisStreamingConfiguration
+            var requestEnableKinesisStreamingConfigurationIsNull = true;
+            request.EnableKinesisStreamingConfiguration = new Amazon.DynamoDBv2.Model.EnableKinesisStreamingConfiguration();
+            Amazon.DynamoDBv2.ApproximateCreationDateTimePrecision requestEnableKinesisStreamingConfiguration_enableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision = null;
+            if (cmdletContext.EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision != null)
+            {
+                requestEnableKinesisStreamingConfiguration_enableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision = cmdletContext.EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision;
+            }
+            if (requestEnableKinesisStreamingConfiguration_enableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision != null)
+            {
+                request.EnableKinesisStreamingConfiguration.ApproximateCreationDateTimePrecision = requestEnableKinesisStreamingConfiguration_enableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision;
+                requestEnableKinesisStreamingConfigurationIsNull = false;
+            }
+             // determine if request.EnableKinesisStreamingConfiguration should be set to null
+            if (requestEnableKinesisStreamingConfigurationIsNull)
+            {
+                request.EnableKinesisStreamingConfiguration = null;
+            }
             if (cmdletContext.StreamArn != null)
             {
                 request.StreamArn = cmdletContext.StreamArn;
@@ -239,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.DynamoDBv2.ApproximateCreationDateTimePrecision EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision { get; set; }
             public System.String StreamArn { get; set; }
             public System.String TableName { get; set; }
             public System.Func<Amazon.DynamoDBv2.Model.EnableKinesisStreamingDestinationResponse, EnableDDBKinesisStreamingDestinationCmdlet, object> Select { get; set; } =

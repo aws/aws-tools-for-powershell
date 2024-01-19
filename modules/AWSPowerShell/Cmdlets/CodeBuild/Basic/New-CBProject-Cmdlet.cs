@@ -157,7 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// on ARM-based processors for builds.</para></li></ul><para> If you use <c>BUILD_GENERAL1_LARGE</c>: </para><ul><li><para> For environment type <c>LINUX_CONTAINER</c>, you can use up to 15 GB memory and 8
         /// vCPUs for builds. </para></li><li><para> For environment type <c>LINUX_GPU_CONTAINER</c>, you can use up to 255 GB memory,
         /// 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.</para></li><li><para> For environment type <c>ARM_CONTAINER</c>, you can use up to 16 GB memory and 8 vCPUs
-        /// on ARM-based processors for builds.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build
+        /// on ARM-based processors for builds.</para></li></ul><note><para>If you're using compute fleets during project creation, <c>computeType</c> will be
+        /// ignored.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build
         /// Environment Compute Types</a> in the <i>CodeBuild User Guide.</i></para>
         /// </para>
         /// </summary>
@@ -321,6 +322,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("FileSystemLocations")]
         public Amazon.CodeBuild.Model.ProjectFileSystemLocation[] FileSystemLocation { get; set; }
+        #endregion
+        
+        #region Parameter Fleet_FleetArn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the compute fleet ARN for the build project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Environment_Fleet_FleetArn")]
+        public System.String Fleet_FleetArn { get; set; }
         #endregion
         
         #region Parameter Source_GitCloneDepth
@@ -895,11 +907,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para>The type of build environment to use for related builds.</para><ul><li><para>The environment type <c>ARM_CONTAINER</c> is available only in regions US East (N.
         /// Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai),
-        /// Asia Pacific (Tokyo), Asia Pacific (Sydney), and EU (Frankfurt).</para></li><li><para>The environment type <c>LINUX_CONTAINER</c> with compute type <c>build.general1.2xlarge</c>
-        /// is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon),
-        /// Canada (Central), EU (Ireland), EU (London), EU (Frankfurt), Asia Pacific (Tokyo),
-        /// Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), China (Beijing),
-        /// and China (Ningxia).</para></li><li><para>The environment type <c>LINUX_GPU_CONTAINER</c> is available only in regions US East
+        /// Asia Pacific (Tokyo), Asia Pacific (Sydney), and EU (Frankfurt).</para></li><li><para>The environment type <c>LINUX_CONTAINER</c> is available only in regions US East (N.
+        /// Virginia), US East (Ohio), US West (Oregon), Canada (Central), EU (Ireland), EU (London),
+        /// EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Singapore),
+        /// Asia Pacific (Sydney), China (Beijing), and China (Ningxia).</para></li><li><para>The environment type <c>LINUX_GPU_CONTAINER</c> is available only in regions US East
         /// (N. Virginia), US East (Ohio), US West (Oregon), Canada (Central), EU (Ireland), EU
         /// (London), EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific
         /// (Singapore), Asia Pacific (Sydney) , China (Beijing), and China (Ningxia).</para></li></ul><ul><li><para>The environment types <c>ARM_LAMBDA_CONTAINER</c> and <c>LINUX_LAMBDA_CONTAINER</c>
@@ -907,7 +918,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// Asia Pacific (Mumbai), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific
         /// (Tokyo), EU (Frankfurt), EU (Ireland), and South America (São Paulo).</para></li></ul><ul><li><para>The environment types <c>WINDOWS_CONTAINER</c> and <c>WINDOWS_SERVER_2019_CONTAINER</c>
         /// are available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon),
-        /// and EU (Ireland).</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build
+        /// and EU (Ireland).</para></li></ul><note><para>If you're using compute fleets during project creation, <c>type</c> will be ignored.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build
         /// environment compute types</a> in the <i>CodeBuild user guide</i>.</para>
         /// </para>
         /// </summary>
@@ -1072,6 +1083,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 context.Environment_EnvironmentVariable = new List<Amazon.CodeBuild.Model.EnvironmentVariable>(this.Environment_EnvironmentVariable);
             }
+            context.Fleet_FleetArn = this.Fleet_FleetArn;
             context.Environment_Image = this.Environment_Image;
             #if MODULAR
             if (this.Environment_Image == null && ParameterWasBound(nameof(this.Environment_Image)))
@@ -1497,6 +1509,31 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestEnvironment_environment_Type != null)
             {
                 request.Environment.Type = requestEnvironment_environment_Type;
+                requestEnvironmentIsNull = false;
+            }
+            Amazon.CodeBuild.Model.ProjectFleet requestEnvironment_environment_Fleet = null;
+            
+             // populate Fleet
+            var requestEnvironment_environment_FleetIsNull = true;
+            requestEnvironment_environment_Fleet = new Amazon.CodeBuild.Model.ProjectFleet();
+            System.String requestEnvironment_environment_Fleet_fleet_FleetArn = null;
+            if (cmdletContext.Fleet_FleetArn != null)
+            {
+                requestEnvironment_environment_Fleet_fleet_FleetArn = cmdletContext.Fleet_FleetArn;
+            }
+            if (requestEnvironment_environment_Fleet_fleet_FleetArn != null)
+            {
+                requestEnvironment_environment_Fleet.FleetArn = requestEnvironment_environment_Fleet_fleet_FleetArn;
+                requestEnvironment_environment_FleetIsNull = false;
+            }
+             // determine if requestEnvironment_environment_Fleet should be set to null
+            if (requestEnvironment_environment_FleetIsNull)
+            {
+                requestEnvironment_environment_Fleet = null;
+            }
+            if (requestEnvironment_environment_Fleet != null)
+            {
+                request.Environment.Fleet = requestEnvironment_environment_Fleet;
                 requestEnvironmentIsNull = false;
             }
             Amazon.CodeBuild.Model.RegistryCredential requestEnvironment_environment_RegistryCredential = null;
@@ -1988,6 +2025,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String Environment_Certificate { get; set; }
             public Amazon.CodeBuild.ComputeType Environment_ComputeType { get; set; }
             public List<Amazon.CodeBuild.Model.EnvironmentVariable> Environment_EnvironmentVariable { get; set; }
+            public System.String Fleet_FleetArn { get; set; }
             public System.String Environment_Image { get; set; }
             public Amazon.CodeBuild.ImagePullCredentialsType Environment_ImagePullCredentialsType { get; set; }
             public System.Boolean? Environment_PrivilegedMode { get; set; }

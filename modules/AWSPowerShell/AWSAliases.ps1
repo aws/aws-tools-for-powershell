@@ -4490,6 +4490,9 @@ Set-Alias -Name CB-BatchGetBuildBatches -Value Get-CBBatch
 Set-Alias -Name Batch-CBGetBuilds -Value Get-CBBuildBatch
 Set-Alias -Name Batch-CBBuildBatch -Value Get-CBBuildBatch
 Set-Alias -Name CB-BatchGetBuilds -Value Get-CBBuildBatch
+Set-Alias -Name Batch-CBGetFleets -Value Get-CBCBFleetBatch
+Set-Alias -Name Batch-CBCBFleetBatch -Value Get-CBCBFleetBatch
+Set-Alias -Name CB-BatchGetFleets -Value Get-CBCBFleetBatch
 Set-Alias -Name Batch-CBGetProjects -Value Get-CBProjectBatch
 Set-Alias -Name Batch-CBProjectBatch -Value Get-CBProjectBatch
 Set-Alias -Name CB-BatchGetProjects -Value Get-CBProjectBatch
@@ -4499,6 +4502,8 @@ Set-Alias -Name CB-BatchGetReportGroups -Value Get-CBReportGroupBatch
 Set-Alias -Name Batch-CBGetReports -Value Get-CBReportBatch
 Set-Alias -Name Batch-CBReportBatch -Value Get-CBReportBatch
 Set-Alias -Name CB-BatchGetReports -Value Get-CBReportBatch
+Set-Alias -Name Create-CBFleet -Value New-CBFleet
+Set-Alias -Name CB-CreateFleet -Value New-CBFleet
 Set-Alias -Name Create-CBProject -Value New-CBProject
 Set-Alias -Name CB-CreateProject -Value New-CBProject
 Set-Alias -Name Create-CBReportGroup -Value New-CBReportGroup
@@ -4508,6 +4513,8 @@ Set-Alias -Name CB-CreateWebhook -Value New-CBWebhook
 Set-Alias -Name Delete-CBBuildBatch -Value Remove-CBBatch
 Set-Alias -Name Delete-CBBatch -Value Remove-CBBatch
 Set-Alias -Name CB-DeleteBuildBatch -Value Remove-CBBatch
+Set-Alias -Name Delete-CBFleet -Value Remove-CBFleet
+Set-Alias -Name CB-DeleteFleet -Value Remove-CBFleet
 Set-Alias -Name Delete-CBProject -Value Remove-CBProject
 Set-Alias -Name CB-DeleteProject -Value Remove-CBProject
 Set-Alias -Name Delete-CBReport -Value Remove-CBReport
@@ -4548,6 +4555,9 @@ Set-Alias -Name CB-ListBuildsForProject -Value Get-CBBuildIdListForProject
 Set-Alias -Name List-CBCuratedEnvironmentImages -Value Get-CBCuratedEnvironmentImageList
 Set-Alias -Name List-CBCuratedEnvironmentImageList -Value Get-CBCuratedEnvironmentImageList
 Set-Alias -Name CB-ListCuratedEnvironmentImages -Value Get-CBCuratedEnvironmentImageList
+Set-Alias -Name List-CBFleets -Value Get-CBFleetList
+Set-Alias -Name List-CBFleetList -Value Get-CBFleetList
+Set-Alias -Name CB-ListFleets -Value Get-CBFleetList
 Set-Alias -Name List-CBProjects -Value Get-CBProjectList
 Set-Alias -Name List-CBProjectList -Value Get-CBProjectList
 Set-Alias -Name CB-ListProjects -Value Get-CBProjectList
@@ -4582,6 +4592,7 @@ Set-Alias -Name CB-StartBuildBatch -Value Start-CBBatch
 Set-Alias -Name CB-StopBuild -Value Stop-CBBuild
 Set-Alias -Name Stop-CBBuildBatch -Value Stop-CBBatch
 Set-Alias -Name CB-StopBuildBatch -Value Stop-CBBatch
+Set-Alias -Name CB-UpdateFleet -Value Update-CBFleet
 Set-Alias -Name CB-UpdateProject -Value Update-CBProject
 Set-Alias -Name CB-UpdateProjectVisibility -Value Update-CBProjectVisibility
 Set-Alias -Name CB-UpdateReportGroup -Value Update-CBReportGroup
@@ -8311,6 +8322,7 @@ Set-Alias -Name DDB-UpdateGlobalTable -Value Update-DDBGlobalTable
 Set-Alias -Name Update-DDBGlobalTableSettings -Value Update-DDBGlobalTableSetting
 Set-Alias -Name DDB-UpdateGlobalTableSettings -Value Update-DDBGlobalTableSetting
 Set-Alias -Name DDB-UpdateItem -Value Update-DDBItem
+Set-Alias -Name DDB-UpdateKinesisStreamingDestination -Value Update-DDBKinesisStreamingDestination
 Set-Alias -Name DDB-UpdateTable -Value Update-DDBTable
 Set-Alias -Name DDB-UpdateTableReplicaAutoScaling -Value Update-DDBTableReplicaAutoScaling
 Set-Alias -Name DDB-UpdateTimeToLive -Value Update-DDBTimeToLive

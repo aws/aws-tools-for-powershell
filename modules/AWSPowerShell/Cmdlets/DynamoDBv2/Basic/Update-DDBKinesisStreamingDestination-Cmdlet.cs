@@ -28,36 +28,34 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// Stops replication from the DynamoDB table to the Kinesis data stream. This is done
-    /// without deleting either of the resources.
+    /// The command to update the Kinesis stream destination.
     /// </summary>
-    [Cmdlet("Disable", "DDBKinesisStreamingDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DynamoDBv2.Model.DisableKinesisStreamingDestinationResponse")]
-    [AWSCmdlet("Calls the Amazon DynamoDB DisableKinesisStreamingDestination API operation.", Operation = new[] {"DisableKinesisStreamingDestination"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.DisableKinesisStreamingDestinationResponse))]
-    [AWSCmdletOutput("Amazon.DynamoDBv2.Model.DisableKinesisStreamingDestinationResponse",
-        "This cmdlet returns an Amazon.DynamoDBv2.Model.DisableKinesisStreamingDestinationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "DDBKinesisStreamingDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DynamoDBv2.Model.UpdateKinesisStreamingDestinationResponse")]
+    [AWSCmdlet("Calls the Amazon DynamoDB UpdateKinesisStreamingDestination API operation.", Operation = new[] {"UpdateKinesisStreamingDestination"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.UpdateKinesisStreamingDestinationResponse))]
+    [AWSCmdletOutput("Amazon.DynamoDBv2.Model.UpdateKinesisStreamingDestinationResponse",
+        "This cmdlet returns an Amazon.DynamoDBv2.Model.UpdateKinesisStreamingDestinationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class DisableDDBKinesisStreamingDestinationCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
+    public partial class UpdateDDBKinesisStreamingDestinationCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision
+        #region Parameter UpdateKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision
         /// <summary>
         /// <para>
-        /// <para>Toggle for the precision of Kinesis data stream timestamp. The values are either <c>MILLISECOND</c>
-        /// or <c>MICROSECOND</c>.</para>
+        /// <para>Enables updating the precision of Kinesis data stream timestamp. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.DynamoDBv2.ApproximateCreationDateTimePrecision")]
-        public Amazon.DynamoDBv2.ApproximateCreationDateTimePrecision EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision { get; set; }
+        public Amazon.DynamoDBv2.ApproximateCreationDateTimePrecision UpdateKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision { get; set; }
         #endregion
         
         #region Parameter StreamArn
         /// <summary>
         /// <para>
-        /// <para>The ARN for a Kinesis data stream.</para>
+        /// <para>The ARN for the Kinesis stream input.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TableName
         /// <summary>
         /// <para>
-        /// <para>The name of the DynamoDB table.</para>
+        /// <para>The table name for the Kinesis streaming destination input.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DynamoDBv2.Model.DisableKinesisStreamingDestinationResponse).
-        /// Specifying the name of a property of type Amazon.DynamoDBv2.Model.DisableKinesisStreamingDestinationResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DynamoDBv2.Model.UpdateKinesisStreamingDestinationResponse).
+        /// Specifying the name of a property of type Amazon.DynamoDBv2.Model.UpdateKinesisStreamingDestinationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TableName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-DDBKinesisStreamingDestination (DisableKinesisStreamingDestination)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DDBKinesisStreamingDestination (UpdateKinesisStreamingDestination)"))
             {
                 return;
             }
@@ -138,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DynamoDBv2.Model.DisableKinesisStreamingDestinationResponse, DisableDDBKinesisStreamingDestinationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DynamoDBv2.Model.UpdateKinesisStreamingDestinationResponse, UpdateDDBKinesisStreamingDestinationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -150,7 +148,6 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 context.Select = (response, cmdlet) => this.TableName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision = this.EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision;
             context.StreamArn = this.StreamArn;
             #if MODULAR
             if (this.StreamArn == null && ParameterWasBound(nameof(this.StreamArn)))
@@ -165,6 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 WriteWarning("You are passing $null as a value for parameter TableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UpdateKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision = this.UpdateKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -179,27 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DynamoDBv2.Model.DisableKinesisStreamingDestinationRequest();
+            var request = new Amazon.DynamoDBv2.Model.UpdateKinesisStreamingDestinationRequest();
             
-            
-             // populate EnableKinesisStreamingConfiguration
-            var requestEnableKinesisStreamingConfigurationIsNull = true;
-            request.EnableKinesisStreamingConfiguration = new Amazon.DynamoDBv2.Model.EnableKinesisStreamingConfiguration();
-            Amazon.DynamoDBv2.ApproximateCreationDateTimePrecision requestEnableKinesisStreamingConfiguration_enableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision = null;
-            if (cmdletContext.EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision != null)
-            {
-                requestEnableKinesisStreamingConfiguration_enableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision = cmdletContext.EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision;
-            }
-            if (requestEnableKinesisStreamingConfiguration_enableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision != null)
-            {
-                request.EnableKinesisStreamingConfiguration.ApproximateCreationDateTimePrecision = requestEnableKinesisStreamingConfiguration_enableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision;
-                requestEnableKinesisStreamingConfigurationIsNull = false;
-            }
-             // determine if request.EnableKinesisStreamingConfiguration should be set to null
-            if (requestEnableKinesisStreamingConfigurationIsNull)
-            {
-                request.EnableKinesisStreamingConfiguration = null;
-            }
             if (cmdletContext.StreamArn != null)
             {
                 request.StreamArn = cmdletContext.StreamArn;
@@ -207,6 +186,25 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.TableName != null)
             {
                 request.TableName = cmdletContext.TableName;
+            }
+            
+             // populate UpdateKinesisStreamingConfiguration
+            var requestUpdateKinesisStreamingConfigurationIsNull = true;
+            request.UpdateKinesisStreamingConfiguration = new Amazon.DynamoDBv2.Model.UpdateKinesisStreamingConfiguration();
+            Amazon.DynamoDBv2.ApproximateCreationDateTimePrecision requestUpdateKinesisStreamingConfiguration_updateKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision = null;
+            if (cmdletContext.UpdateKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision != null)
+            {
+                requestUpdateKinesisStreamingConfiguration_updateKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision = cmdletContext.UpdateKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision;
+            }
+            if (requestUpdateKinesisStreamingConfiguration_updateKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision != null)
+            {
+                request.UpdateKinesisStreamingConfiguration.ApproximateCreationDateTimePrecision = requestUpdateKinesisStreamingConfiguration_updateKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision;
+                requestUpdateKinesisStreamingConfigurationIsNull = false;
+            }
+             // determine if request.UpdateKinesisStreamingConfiguration should be set to null
+            if (requestUpdateKinesisStreamingConfigurationIsNull)
+            {
+                request.UpdateKinesisStreamingConfiguration = null;
             }
             
             CmdletOutput output;
@@ -241,15 +239,15 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #region AWS Service Operation Call
         
-        private Amazon.DynamoDBv2.Model.DisableKinesisStreamingDestinationResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.DisableKinesisStreamingDestinationRequest request)
+        private Amazon.DynamoDBv2.Model.UpdateKinesisStreamingDestinationResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.UpdateKinesisStreamingDestinationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "DisableKinesisStreamingDestination");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "UpdateKinesisStreamingDestination");
             try
             {
                 #if DESKTOP
-                return client.DisableKinesisStreamingDestination(request);
+                return client.UpdateKinesisStreamingDestination(request);
                 #elif CORECLR
-                return client.DisableKinesisStreamingDestinationAsync(request).GetAwaiter().GetResult();
+                return client.UpdateKinesisStreamingDestinationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -269,10 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.DynamoDBv2.ApproximateCreationDateTimePrecision EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision { get; set; }
             public System.String StreamArn { get; set; }
             public System.String TableName { get; set; }
-            public System.Func<Amazon.DynamoDBv2.Model.DisableKinesisStreamingDestinationResponse, DisableDDBKinesisStreamingDestinationCmdlet, object> Select { get; set; } =
+            public Amazon.DynamoDBv2.ApproximateCreationDateTimePrecision UpdateKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision { get; set; }
+            public System.Func<Amazon.DynamoDBv2.Model.UpdateKinesisStreamingDestinationResponse, UpdateDDBKinesisStreamingDestinationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

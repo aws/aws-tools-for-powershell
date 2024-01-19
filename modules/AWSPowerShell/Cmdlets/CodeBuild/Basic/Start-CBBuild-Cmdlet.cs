@@ -237,6 +237,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.Boolean? GitSubmodulesConfigOverride_FetchSubmodule { get; set; }
         #endregion
         
+        #region Parameter FleetOverride_FleetArn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the compute fleet ARN for the build project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FleetOverride_FleetArn { get; set; }
+        #endregion
+        
         #region Parameter GitCloneDepthOverride
         /// <summary>
         /// <para>
@@ -791,6 +801,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 context.EnvironmentVariablesOverride = new List<Amazon.CodeBuild.Model.EnvironmentVariable>(this.EnvironmentVariablesOverride);
             }
+            context.FleetOverride_FleetArn = this.FleetOverride_FleetArn;
             context.GitCloneDepthOverride = this.GitCloneDepthOverride;
             context.GitSubmodulesConfigOverride_FetchSubmodule = this.GitSubmodulesConfigOverride_FetchSubmodule;
             context.IdempotencyToken = this.IdempotencyToken;
@@ -1055,6 +1066,25 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.EnvironmentVariablesOverride != null)
             {
                 request.EnvironmentVariablesOverride = cmdletContext.EnvironmentVariablesOverride;
+            }
+            
+             // populate FleetOverride
+            var requestFleetOverrideIsNull = true;
+            request.FleetOverride = new Amazon.CodeBuild.Model.ProjectFleet();
+            System.String requestFleetOverride_fleetOverride_FleetArn = null;
+            if (cmdletContext.FleetOverride_FleetArn != null)
+            {
+                requestFleetOverride_fleetOverride_FleetArn = cmdletContext.FleetOverride_FleetArn;
+            }
+            if (requestFleetOverride_fleetOverride_FleetArn != null)
+            {
+                request.FleetOverride.FleetArn = requestFleetOverride_fleetOverride_FleetArn;
+                requestFleetOverrideIsNull = false;
+            }
+             // determine if request.FleetOverride should be set to null
+            if (requestFleetOverrideIsNull)
+            {
+                request.FleetOverride = null;
             }
             if (cmdletContext.GitCloneDepthOverride != null)
             {
@@ -1393,6 +1423,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String EncryptionKeyOverride { get; set; }
             public Amazon.CodeBuild.EnvironmentType EnvironmentTypeOverride { get; set; }
             public List<Amazon.CodeBuild.Model.EnvironmentVariable> EnvironmentVariablesOverride { get; set; }
+            public System.String FleetOverride_FleetArn { get; set; }
             public System.Int32? GitCloneDepthOverride { get; set; }
             public System.Boolean? GitSubmodulesConfigOverride_FetchSubmodule { get; set; }
             public System.String IdempotencyToken { get; set; }

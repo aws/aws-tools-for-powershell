@@ -1,4 +1,22 @@
-﻿### 4.1.497 (2024-01-18 21:47Z)
+﻿### 4.1.498 (2024-01-19 22:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.730.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Athena
+    * Modified cmdlet Import-ATHNotebook: added parameter NotebookS3LocationUri.
+  * Amazon CodeBuild
+    * Added cmdlet Get-CBCBFleetBatch leveraging the BatchGetFleets service API.
+    * Added cmdlet Get-CBFleetList leveraging the ListFleets service API.
+    * Added cmdlet New-CBFleet leveraging the CreateFleet service API.
+    * Added cmdlet Remove-CBFleet leveraging the DeleteFleet service API.
+    * Added cmdlet Update-CBFleet leveraging the UpdateFleet service API.
+    * Modified cmdlet New-CBProject: added parameter Fleet_FleetArn.
+    * Modified cmdlet Start-CBBuild: added parameter FleetOverride_FleetArn.
+    * Modified cmdlet Update-CBProject: added parameter Fleet_FleetArn.
+  * Amazon DynamoDB
+    * Added cmdlet Update-DDBKinesisStreamingDestination leveraging the UpdateKinesisStreamingDestination service API.
+    * Modified cmdlet Disable-DDBKinesisStreamingDestination: added parameter EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision.
+    * Modified cmdlet Enable-DDBKinesisStreamingDestination: added parameter EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision.
+
+### 4.1.497 (2024-01-18 21:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.729.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudTrail
     * Added cmdlet Get-CTInsightsMetricData leveraging the ListInsightsMetricData service API.
