@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The margin time, in seconds, before the phase 2 lifetime expires, during which the
         /// Amazon Web Services side of the VPN connection performs an IKE rekey. The exact time
-        /// of the rekey is randomly selected based on the value for <c>RekeyFuzzPercentage</c>.</para><para>Constraints: A value between 60 and half of <c>Phase2LifetimeSeconds</c>.</para><para>Default: <c>540</c></para>
+        /// of the rekey is randomly selected based on the value for <c>RekeyFuzzPercentage</c>.</para><para>Constraints: A value between 60 and half of <c>Phase2LifetimeSeconds</c>.</para><para>Default: <c>270</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

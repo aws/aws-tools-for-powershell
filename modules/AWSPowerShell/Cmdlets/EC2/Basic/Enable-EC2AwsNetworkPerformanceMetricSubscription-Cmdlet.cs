@@ -45,8 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Destination
         /// <summary>
         /// <para>
-        /// <para>The target Region or Availability Zone that the metric subscription is enabled for.
-        /// For example, <c>eu-west-1</c>.</para>
+        /// <para>The target Region (like <c>us-east-2</c>) or Availability Zone ID (like <c>use2-az2</c>)
+        /// that the metric subscription is enabled for. If you use Availability Zone IDs, the
+        /// Source and Destination Availability Zones must be in the same Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,8 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>The source Region or Availability Zone that the metric subscription is enabled for.
-        /// For example, <c>us-east-1</c>.</para>
+        /// <para>The source Region (like <c>us-east-1</c>) or Availability Zone ID (like <c>use1-az1</c>)
+        /// that the metric subscription is enabled for. If you use Availability Zone IDs, the
+        /// Source and Destination Availability Zones must be in the same Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

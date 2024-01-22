@@ -16267,7 +16267,7 @@ $CCAS_Completers = {
         # Amazon.ConnectCases.FieldType
         "New-CCASField/Type"
         {
-            $v = "Boolean","DateTime","Number","SingleSelect","Text","Url"
+            $v = "Boolean","DateTime","Number","SingleSelect","Text","Url","User"
             break
         }
 
@@ -16362,6 +16362,7 @@ $CCAS_SelectMap = @{
                "New-CCASTemplate",
                "Remove-CCASDomain",
                "Get-CCASCase",
+               "Get-CCASCaseAuditEvent",
                "Get-CCASCaseEventConfiguration",
                "Get-CCASDomain",
                "Get-CCASLayout",

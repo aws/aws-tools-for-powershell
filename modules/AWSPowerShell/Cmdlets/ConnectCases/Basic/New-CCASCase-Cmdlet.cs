@@ -28,14 +28,14 @@ using Amazon.ConnectCases.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// Creates a case in the specified Cases domain. Case system and custom fields are taken
-    /// as an array id/value pairs with a declared data types.
-    /// 
-    ///  
-    /// <para>
-    /// The following fields are required when creating a case:
-    /// </para><pre><c> &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;customer_id&lt;/code&gt; - You
-    /// must provide the full customer profile ARN in this format: &lt;code&gt;arn:aws:profile:your_AWS_Region:your_AWS_account
+    /// <note><para>
+    /// If you provide a value for <c>PerformedBy.UserArn</c> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a>
+    /// permission on the User ARN resource that you provide
+    /// </para></note><pre><c> &lt;p&gt;Creates a case in the specified Cases domain. Case system
+    /// and custom fields are taken as an array id/value pairs with a declared data types.&lt;/p&gt;
+    /// &lt;p&gt;The following fields are required when creating a case:&lt;/p&gt; &lt;ul&gt;
+    /// &lt;li&gt; &lt;p&gt; &lt;code&gt;customer_id&lt;/code&gt; - You must provide the full
+    /// customer profile ARN in this format: &lt;code&gt;arn:aws:profile:your_AWS_Region:your_AWS_account
     /// ID:domains/your_profiles_domain_name/profiles/profile_ID&lt;/code&gt; &lt;/p&gt; &lt;/li&gt;
     /// &lt;li&gt; &lt;p&gt; &lt;code&gt;title&lt;/code&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
     /// </c></pre>
@@ -102,6 +102,16 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TemplateId { get; set; }
+        #endregion
+        
+        #region Parameter PerformedBy_UserArn
+        /// <summary>
+        /// <para>
+        /// <para>Represents the Amazon Connect ARN of the user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PerformedBy_UserArn { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -197,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
                 WriteWarning("You are passing $null as a value for parameter Field which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PerformedBy_UserArn = this.PerformedBy_UserArn;
             context.TemplateId = this.TemplateId;
             #if MODULAR
             if (this.TemplateId == null && ParameterWasBound(nameof(this.TemplateId)))
@@ -231,6 +242,25 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (cmdletContext.Field != null)
             {
                 request.Fields = cmdletContext.Field;
+            }
+            
+             // populate PerformedBy
+            var requestPerformedByIsNull = true;
+            request.PerformedBy = new Amazon.ConnectCases.Model.UserUnion();
+            System.String requestPerformedBy_performedBy_UserArn = null;
+            if (cmdletContext.PerformedBy_UserArn != null)
+            {
+                requestPerformedBy_performedBy_UserArn = cmdletContext.PerformedBy_UserArn;
+            }
+            if (requestPerformedBy_performedBy_UserArn != null)
+            {
+                request.PerformedBy.UserArn = requestPerformedBy_performedBy_UserArn;
+                requestPerformedByIsNull = false;
+            }
+             // determine if request.PerformedBy should be set to null
+            if (requestPerformedByIsNull)
+            {
+                request.PerformedBy = null;
             }
             if (cmdletContext.TemplateId != null)
             {
@@ -300,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             public System.String ClientToken { get; set; }
             public System.String DomainId { get; set; }
             public List<Amazon.ConnectCases.Model.FieldValue> Field { get; set; }
+            public System.String PerformedBy_UserArn { get; set; }
             public System.String TemplateId { get; set; }
             public System.Func<Amazon.ConnectCases.Model.CreateCaseResponse, NewCCASCaseCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

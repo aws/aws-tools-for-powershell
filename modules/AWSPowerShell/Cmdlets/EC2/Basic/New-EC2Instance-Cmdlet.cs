@@ -274,10 +274,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ElasticGpuSpecification
         /// <summary>
         /// <para>
-        /// <para>An elastic GPU to associate with the instance. An Elastic GPU is a GPU resource that
-        /// you can attach to your Windows instance to accelerate the graphics performance of
-        /// your applications. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">Amazon
-        /// EC2 Elastic GPUs</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// <para>Deprecated.</para><note><para>Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that
+        /// require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or
+        /// G5 instances.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -756,7 +755,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>The tags to apply to the resources that are created during instance launch.</para><para>You can specify tags for the following resources only:</para><ul><li><para>Instances</para></li><li><para>Volumes</para></li><li><para>Elastic graphics</para></li><li><para>Spot Instance requests</para></li><li><para>Network interfaces</para></li></ul><para>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</para>
+        /// <para>The tags to apply to the resources that are created during instance launch.</para><para>You can specify tags for the following resources only:</para><ul><li><para>Instances</para></li><li><para>Volumes</para></li><li><para>Spot Instance requests</para></li><li><para>Network interfaces</para></li></ul><para>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

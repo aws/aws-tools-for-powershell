@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.730.0",
+    "ProductVersion"    : "3.7.731.0",
     "CoreVersion"       : "3.7.301.9",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -153,7 +153,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.312.5",
+            "Version" : "3.7.312.6",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.301.9"
@@ -161,7 +161,7 @@
             "InPreview"               : false
         },
         "ECS"               : {
-            "Version" : "3.7.304.5",
+            "Version" : "3.7.305.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.301.9"
@@ -283,7 +283,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.303.15",
+            "Version" : "3.7.304.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.301.9"
@@ -747,7 +747,7 @@
             "InPreview"               : false
         },
         "Organizations"                   : {
-            "Version" : "3.7.300.39",
+            "Version" : "3.7.300.40",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.301.9"
@@ -1019,7 +1019,7 @@
             "InPreview"               : false
         },
         "Cloud9"                          : {
-            "Version" : "3.7.301.26",
+            "Version" : "3.7.301.27",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.301.9"
@@ -2115,7 +2115,7 @@
             "InPreview"               : false
         },
         "Finspace"                        : {
-            "Version" : "3.7.303.23",
+            "Version" : "3.7.304.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.301.9"
@@ -2315,7 +2315,7 @@
             "InPreview"               : false
         },
         "AppConfigData"                       : {
-            "Version" : "3.7.300.39",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.301.9"
@@ -2531,7 +2531,7 @@
             "InPreview"               : false
         },
         "ConnectCases"                        : {
-            "Version" : "3.7.301.19",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.301.9"
@@ -2875,7 +2875,7 @@
             "InPreview"               : false
         },
         "CloudFrontKeyValueStore"             : {
-            "Version" : "3.7.300.32",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.301.9"

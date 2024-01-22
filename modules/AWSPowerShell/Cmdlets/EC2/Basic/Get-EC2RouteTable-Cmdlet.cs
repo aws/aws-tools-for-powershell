@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><c>association.route-table-association-id</c> - The ID of an association ID for the
+        /// <para>The filters.</para><ul><li><para><c>association.gateway-id</c> - The ID of the gateway involved in the association.</para></li><li><para><c>association.route-table-association-id</c> - The ID of an association ID for the
         /// route table.</para></li><li><para><c>association.route-table-id</c> - The ID of the route table involved in the association.</para></li><li><para><c>association.subnet-id</c> - The ID of the subnet involved in the association.</para></li><li><para><c>association.main</c> - Indicates whether the route table is the main route table
         /// for the VPC (<c>true</c> | <c>false</c>). Route tables that do not have an association
         /// ID are not returned in the response.</para></li><li><para><c>owner-id</c> - The ID of the Amazon Web Services account that owns the route table.</para></li><li><para><c>route-table-id</c> - The ID of the route table.</para></li><li><para><c>route.destination-cidr-block</c> - The IPv4 CIDR range specified in a route in

@@ -59,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <summary>
         /// <para>
         /// <para>The policy text content to add to the new policy. The text that you supply must adhere
-        /// to the rules of the policy type you specify in the <c>Type</c> parameter.</para>
+        /// to the rules of the policy type you specify in the <c>Type</c> parameter. </para><para>The maximum size of a policy document depends on the policy's type. For more information,
+        /// see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#min-max-values">Maximum
+        /// and minimum values</a> in the <i>Organizations User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

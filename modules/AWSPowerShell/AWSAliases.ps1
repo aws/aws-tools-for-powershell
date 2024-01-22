@@ -6438,6 +6438,8 @@ Set-Alias -Name CCAS-CreateTemplate -Value New-CCASTemplate
 Set-Alias -Name Delete-CCASDomain -Value Remove-CCASDomain
 Set-Alias -Name CCAS-DeleteDomain -Value Remove-CCASDomain
 Set-Alias -Name CCAS-GetCase -Value Get-CCASCase
+Set-Alias -Name Get-CCASCaseAuditEvents -Value Get-CCASCaseAuditEvent
+Set-Alias -Name CCAS-GetCaseAuditEvents -Value Get-CCASCaseAuditEvent
 Set-Alias -Name CCAS-GetCaseEventConfiguration -Value Get-CCASCaseEventConfiguration
 Set-Alias -Name CCAS-GetDomain -Value Get-CCASDomain
 Set-Alias -Name CCAS-GetLayout -Value Get-CCASLayout

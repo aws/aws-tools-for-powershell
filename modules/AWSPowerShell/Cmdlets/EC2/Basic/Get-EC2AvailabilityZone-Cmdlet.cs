@@ -71,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// use the name of the group associated with the Local Zone (for example, <c>us-west-2-lax-1</c>)
         /// For Wavelength Zones, use the name of the group associated with the Wavelength Zone
         /// (for example, <c>us-east-1-wl1-bos-wlz-1</c>).</para></li><li><para><c>message</c> - The Zone message.</para></li><li><para><c>opt-in-status</c> - The opt-in status (<c>opted-in</c> | <c>not-opted-in</c> |
-        /// <c>opt-in-not-required</c>).</para></li><li><para><c>parent-zoneID</c> - The ID of the zone that handles some of the Local Zone and
-        /// Wavelength Zone control plane operations, such as API calls.</para></li><li><para><c>parent-zoneName</c> - The ID of the zone that handles some of the Local Zone and
-        /// Wavelength Zone control plane operations, such as API calls.</para></li><li><para><c>region-name</c> - The name of the Region for the Zone (for example, <c>us-east-1</c>).</para></li><li><para><c>state</c> - The state of the Availability Zone, the Local Zone, or the Wavelength
+        /// <c>opt-in-not-required</c>).</para></li><li><para><c>parent-zone-id</c> - The ID of the zone that handles some of the Local Zone and
+        /// Wavelength Zone control plane operations, such as API calls.</para></li><li><para><c>parent-zone-name</c> - The ID of the zone that handles some of the Local Zone
+        /// and Wavelength Zone control plane operations, such as API calls.</para></li><li><para><c>region-name</c> - The name of the Region for the Zone (for example, <c>us-east-1</c>).</para></li><li><para><c>state</c> - The state of the Availability Zone, the Local Zone, or the Wavelength
         /// Zone (<c>available</c>).</para></li><li><para><c>zone-id</c> - The ID of the Availability Zone (for example, <c>use1-az1</c>),
         /// the Local Zone (for example, <c>usw2-lax1-az1</c>), or the Wavelength Zone (for example,
         /// <c>us-east-1-wl1-bos-wlz-1</c>).</para></li><li><para><c>zone-name</c> - The name of the Availability Zone (for example, <c>us-east-1a</c>),

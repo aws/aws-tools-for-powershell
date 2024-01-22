@@ -153,7 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Specify <c>true</c> to indicate that network interfaces attached to instances created
-        /// in the specified subnet should be assigned a public IPv4 address.</para>
+        /// in the specified subnet should be assigned a public IPv4 address.</para><para>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4
+        /// addresses, including public IPv4 addresses associated with running instances and Elastic
+        /// IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the
+        /// <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

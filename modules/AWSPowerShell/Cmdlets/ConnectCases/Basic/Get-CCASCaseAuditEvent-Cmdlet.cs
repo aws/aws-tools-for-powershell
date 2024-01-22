@@ -28,22 +28,16 @@ using Amazon.ConnectCases.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// <note><para>
-    /// If you provide a value for <c>PerformedBy.UserArn</c> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a>
-    /// permission on the User ARN resource that you provide
-    /// </para></note><pre><c> &lt;p&gt;Updates the values of fields on a case. Fields to be updated
-    /// are received as an array of id/value pairs identical to the &lt;code&gt;CreateCase&lt;/code&gt;
-    /// input .&lt;/p&gt; &lt;p&gt;If the action is successful, the service sends back an
-    /// HTTP 200 response with an empty HTTP body.&lt;/p&gt; </c></pre>
+    /// Returns the audit history about a specific case if it exists.
     /// </summary>
-    [Cmdlet("Update", "CCASCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Cases UpdateCase API operation.", Operation = new[] {"UpdateCase"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.UpdateCaseResponse))]
-    [AWSCmdletOutput("None or Amazon.ConnectCases.Model.UpdateCaseResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectCases.Model.UpdateCaseResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CCASCaseAuditEvent")]
+    [OutputType("Amazon.ConnectCases.Model.AuditEvent")]
+    [AWSCmdlet("Calls the Amazon Connect Cases GetCaseAuditEvents API operation.", Operation = new[] {"GetCaseAuditEvents"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.GetCaseAuditEventsResponse))]
+    [AWSCmdletOutput("Amazon.ConnectCases.Model.AuditEvent or Amazon.ConnectCases.Model.GetCaseAuditEventsResponse",
+        "This cmdlet returns a collection of Amazon.ConnectCases.Model.AuditEvent objects.",
+        "The service call response (type Amazon.ConnectCases.Model.GetCaseAuditEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateCCASCaseCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
+    public partial class GetCCASCaseAuditEventCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -68,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Cases domain. </para>
+        /// <para>The unique identifier of the Cases domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,43 +76,38 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public System.String DomainId { get; set; }
         #endregion
         
-        #region Parameter Field
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An array of objects with <c>fieldId</c> (matching ListFields/DescribeField) and value
-        /// union data, structured identical to <c>CreateCase</c>.</para>
+        /// <para>The maximum number of audit events to return. The current maximum supported value
+        /// is 25. This is also the default when no other value is provided.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Fields")]
-        public Amazon.ConnectCases.Model.FieldValue[] Field { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
-        #region Parameter PerformedBy_UserArn
+        #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Represents the Amazon Connect ARN of the user.</para>
+        /// <para>The token for the next set of results. Use the value returned in the previous response
+        /// in the next request to retrieve the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String PerformedBy_UserArn { get; set; }
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.UpdateCaseResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AuditEvents'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.GetCaseAuditEventsResponse).
+        /// Specifying the name of a property of type Amazon.ConnectCases.Model.GetCaseAuditEventsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "AuditEvents";
         #endregion
         
         #region Parameter PassThru
@@ -131,26 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public SwitchParameter PassThru { get; set; }
         #endregion
         
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CCASCase (UpdateCase)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -160,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.UpdateCaseResponse, UpdateCCASCaseCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.GetCaseAuditEventsResponse, GetCCASCaseAuditEventCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -186,17 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
                 WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Field != null)
-            {
-                context.Field = new List<Amazon.ConnectCases.Model.FieldValue>(this.Field);
-            }
-            #if MODULAR
-            if (this.Field == null && ParameterWasBound(nameof(this.Field)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Field which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.PerformedBy_UserArn = this.PerformedBy_UserArn;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -211,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectCases.Model.UpdateCaseRequest();
+            var request = new Amazon.ConnectCases.Model.GetCaseAuditEventsRequest();
             
             if (cmdletContext.CaseId != null)
             {
@@ -221,28 +185,13 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             {
                 request.DomainId = cmdletContext.DomainId;
             }
-            if (cmdletContext.Field != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.Fields = cmdletContext.Field;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            
-             // populate PerformedBy
-            var requestPerformedByIsNull = true;
-            request.PerformedBy = new Amazon.ConnectCases.Model.UserUnion();
-            System.String requestPerformedBy_performedBy_UserArn = null;
-            if (cmdletContext.PerformedBy_UserArn != null)
+            if (cmdletContext.NextToken != null)
             {
-                requestPerformedBy_performedBy_UserArn = cmdletContext.PerformedBy_UserArn;
-            }
-            if (requestPerformedBy_performedBy_UserArn != null)
-            {
-                request.PerformedBy.UserArn = requestPerformedBy_performedBy_UserArn;
-                requestPerformedByIsNull = false;
-            }
-             // determine if request.PerformedBy should be set to null
-            if (requestPerformedByIsNull)
-            {
-                request.PerformedBy = null;
+                request.NextToken = cmdletContext.NextToken;
             }
             
             CmdletOutput output;
@@ -277,15 +226,15 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectCases.Model.UpdateCaseResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.UpdateCaseRequest request)
+        private Amazon.ConnectCases.Model.GetCaseAuditEventsResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.GetCaseAuditEventsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "UpdateCase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "GetCaseAuditEvents");
             try
             {
                 #if DESKTOP
-                return client.UpdateCase(request);
+                return client.GetCaseAuditEvents(request);
                 #elif CORECLR
-                return client.UpdateCaseAsync(request).GetAwaiter().GetResult();
+                return client.GetCaseAuditEventsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -307,10 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             public System.String CaseId { get; set; }
             public System.String DomainId { get; set; }
-            public List<Amazon.ConnectCases.Model.FieldValue> Field { get; set; }
-            public System.String PerformedBy_UserArn { get; set; }
-            public System.Func<Amazon.ConnectCases.Model.UpdateCaseResponse, UpdateCCASCaseCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Func<Amazon.ConnectCases.Model.GetCaseAuditEventsResponse, GetCCASCaseAuditEventCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AuditEvents;
         }
         
     }

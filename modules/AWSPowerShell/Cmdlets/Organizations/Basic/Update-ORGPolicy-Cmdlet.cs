@@ -55,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>If provided, the new content for the policy. The text must be correctly formatted
         /// JSON that complies with the syntax for the policy's type. For more information, see
         /// <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html">SCP
-        /// syntax</a> in the <i>Organizations User Guide</i>.</para>
+        /// syntax</a> in the <i>Organizations User Guide</i>.</para><para>The maximum size of a policy document depends on the policy's type. For more information,
+        /// see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#min-max-values">Maximum
+        /// and minimum values</a> in the <i>Organizations User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

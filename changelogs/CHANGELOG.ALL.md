@@ -1,4 +1,11 @@
-﻿### 4.1.498 (2024-01-19 22:04Z)
+﻿### 4.1.499 (2024-01-22 21:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.731.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Cases
+    * Added cmdlet Get-CCASCaseAuditEvent leveraging the GetCaseAuditEvents service API.
+    * Modified cmdlet New-CCASCase: added parameter PerformedBy_UserArn.
+    * Modified cmdlet Update-CCASCase: added parameter PerformedBy_UserArn.
+
+### 4.1.498 (2024-01-19 22:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.730.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Athena
     * Modified cmdlet Import-ATHNotebook: added parameter NotebookS3LocationUri.

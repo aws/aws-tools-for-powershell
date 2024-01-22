@@ -60,6 +60,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCaseAuditEvents" OutputProperty="AuditEvents" Verb="Get" Noun="CaseAuditEvent" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCaseEventConfiguration" OutputProperty="EventBridge" Verb="Get" Noun="CaseEventConfiguration" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

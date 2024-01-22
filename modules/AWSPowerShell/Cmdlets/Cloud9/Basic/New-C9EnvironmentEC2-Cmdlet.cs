@@ -115,12 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.C9
         /// for the <c>CreateEnvironmentEC2</c> action. This change will be reflected across all
         /// direct methods of communicating with the API, such as Amazon Web Services SDK, Amazon
         /// Web Services CLI and Amazon Web Services CloudFormation. This change will only affect
-        /// direct API consumers, and not Cloud9 console users.</para><para>From January 22, 2024, Amazon Linux (AL1) will be removed from the list of available
-        /// image IDs for Cloud9. This is necessary as AL1 will reach the end of maintenance support
-        /// in December 2023, and as a result will no longer receive security updates. We recommend
-        /// using Amazon Linux 2023 as the AMI to create your environment as it is fully supported.
-        /// This change will only affect direct API consumers, and not Cloud9 console users.</para><para>Since Ubuntu 18.04 has ended standard support as of May 31, 2023, we recommend you
-        /// choose Ubuntu 22.04.</para><para><b>AMI aliases </b></para><ul><li><para>Amazon Linux: <c>amazonlinux-1-x86_64</c></para></li><li><para>Amazon Linux 2: <c>amazonlinux-2-x86_64</c></para></li><li><para>Amazon Linux 2023 (recommended): <c>amazonlinux-2023-x86_64</c></para></li><li><para>Ubuntu 18.04: <c>ubuntu-18.04-x86_64</c></para></li><li><para>Ubuntu 22.04: <c>ubuntu-22.04-x86_64</c></para></li></ul><para><b>SSM paths</b></para><ul><li><para>Amazon Linux: <c>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</c></para></li><li><para>Amazon Linux 2: <c>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</c></para></li><li><para>Amazon Linux 2023 (recommended): <c>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64</c></para></li><li><para>Ubuntu 18.04: <c>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</c></para></li><li><para>Ubuntu 22.04: <c>resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64</c></para></li></ul>
+        /// direct API consumers, and not Cloud9 console users.</para><para>We recommend using Amazon Linux 2023 as the AMI to create your environment as it is
+        /// fully supported. </para><para>Since Ubuntu 18.04 has ended standard support as of May 31, 2023, we recommend you
+        /// choose Ubuntu 22.04.</para><para><b>AMI aliases </b></para><ul><li><para>Amazon Linux 2: <c>amazonlinux-2-x86_64</c></para></li><li><para>Amazon Linux 2023 (recommended): <c>amazonlinux-2023-x86_64</c></para></li><li><para>Ubuntu 18.04: <c>ubuntu-18.04-x86_64</c></para></li><li><para>Ubuntu 22.04: <c>ubuntu-22.04-x86_64</c></para></li></ul><para><b>SSM paths</b></para><ul><li><para>Amazon Linux 2: <c>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</c></para></li><li><para>Amazon Linux 2023 (recommended): <c>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64</c></para></li><li><para>Ubuntu 18.04: <c>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</c></para></li><li><para>Ubuntu 22.04: <c>resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
