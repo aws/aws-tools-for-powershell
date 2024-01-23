@@ -1,4 +1,21 @@
-﻿### 4.1.499 (2024-01-22 21:47Z)
+﻿### 4.1.500 (2024-01-23 23:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.732.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Inspector2
+    * Added cmdlet Get-INS2CisScanConfigurationList leveraging the ListCisScanConfigurations service API.
+    * Added cmdlet Get-INS2CisScanList leveraging the ListCisScans service API.
+    * Added cmdlet Get-INS2CisScanReport leveraging the GetCisScanReport service API.
+    * Added cmdlet Get-INS2CisScanResultDetail leveraging the GetCisScanResultDetails service API.
+    * Added cmdlet Get-INS2CisScanResultsAggregatedByCheckList leveraging the ListCisScanResultsAggregatedByChecks service API.
+    * Added cmdlet Get-INS2CisScanResultsAggregatedByTargetResourceList leveraging the ListCisScanResultsAggregatedByTargetResource service API.
+    * Added cmdlet New-INS2CisScanConfiguration leveraging the CreateCisScanConfiguration service API.
+    * Added cmdlet Remove-INS2CisScanConfiguration leveraging the DeleteCisScanConfiguration service API.
+    * Added cmdlet Send-INS2CisSessionHealth leveraging the SendCisSessionHealth service API.
+    * Added cmdlet Send-INS2CisSessionTelemetry leveraging the SendCisSessionTelemetry service API.
+    * Added cmdlet Start-INS2CisSession leveraging the StartCisSession service API.
+    * Added cmdlet Stop-INS2CisSession leveraging the StopCisSession service API.
+    * Added cmdlet Update-INS2CisScanConfiguration leveraging the UpdateCisScanConfiguration service API.
+
+### 4.1.499 (2024-01-22 21:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.731.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Cases
     * Added cmdlet Get-CCASCaseAuditEvent leveraging the GetCaseAuditEvents service API.

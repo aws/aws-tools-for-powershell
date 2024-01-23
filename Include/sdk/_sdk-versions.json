@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.731.0",
+    "ProductVersion"    : "3.7.732.0",
     "CoreVersion"       : "3.7.301.9",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -315,7 +315,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "3.7.305.14",
+            "Version" : "3.7.305.15",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.301.9"
@@ -2331,7 +2331,7 @@
             "InPreview"               : false
         },
         "Inspector2"                          : {
-            "Version" : "3.7.300.39",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.301.9"

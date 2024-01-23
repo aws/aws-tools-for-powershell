@@ -32065,6 +32065,67 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.CisScanConfigurationsSortBy
+        "Get-INS2CisScanConfigurationList/SortBy"
+        {
+            $v = "SCAN_CONFIGURATION_ARN","SCAN_NAME"
+            break
+        }
+
+        # Amazon.Inspector2.CisScanResultDetailsSortBy
+        "Get-INS2CisScanResultDetail/SortBy"
+        {
+            $v = "CHECK_ID","STATUS"
+            break
+        }
+
+        # Amazon.Inspector2.CisScanResultsAggregatedByChecksSortBy
+        "Get-INS2CisScanResultsAggregatedByCheckList/SortBy"
+        {
+            $v = "CHECK_ID","FAILED_COUNTS","PLATFORM","SECURITY_LEVEL","TITLE"
+            break
+        }
+
+        # Amazon.Inspector2.CisScanResultsAggregatedByTargetResourceSortBy
+        "Get-INS2CisScanResultsAggregatedByTargetResourceList/SortBy"
+        {
+            $v = "ACCOUNT_ID","FAILED_COUNTS","PLATFORM","RESOURCE_ID","TARGET_STATUS","TARGET_STATUS_REASON"
+            break
+        }
+
+        # Amazon.Inspector2.CisSecurityLevel
+        {
+            ($_ -eq "New-INS2CisScanConfiguration/SecurityLevel") -Or
+            ($_ -eq "Update-INS2CisScanConfiguration/SecurityLevel")
+        }
+        {
+            $v = "LEVEL_1","LEVEL_2"
+            break
+        }
+
+        # Amazon.Inspector2.CisSortOrder
+        {
+            ($_ -eq "Get-INS2CisScanConfigurationList/SortOrder") -Or
+            ($_ -eq "Get-INS2CisScanList/SortOrder") -Or
+            ($_ -eq "Get-INS2CisScanResultDetail/SortOrder") -Or
+            ($_ -eq "Get-INS2CisScanResultsAggregatedByCheckList/SortOrder") -Or
+            ($_ -eq "Get-INS2CisScanResultsAggregatedByTargetResourceList/SortOrder")
+        }
+        {
+            $v = "ASC","DESC"
+            break
+        }
+
+        # Amazon.Inspector2.Day
+        {
+            ($_ -eq "New-INS2CisScanConfiguration/Schedule_Monthly_Day") -Or
+            ($_ -eq "Update-INS2CisScanConfiguration/Schedule_Monthly_Day")
+        }
+        {
+            $v = "FRI","MON","SAT","SUN","THU","TUE","WED"
+            break
+        }
+
         # Amazon.Inspector2.Ec2InstanceSortBy
         "Get-INS2FindingAggregationList/AggregationRequest_Ec2InstanceAggregation_SortBy"
         {
@@ -32122,6 +32183,20 @@ $INS2_Completers = {
         "Get-INS2FindingAggregationList/AggregationRequest_LambdaLayerAggregation_SortBy"
         {
             $v = "ALL","CRITICAL","HIGH"
+            break
+        }
+
+        # Amazon.Inspector2.ListCisScansDetailLevel
+        "Get-INS2CisScanList/DetailLevel"
+        {
+            $v = "MEMBER","ORGANIZATION"
+            break
+        }
+
+        # Amazon.Inspector2.ListCisScansSortBy
+        "Get-INS2CisScanList/SortBy"
+        {
+            $v = "FAILED_CHECKS","SCAN_START_DATE","SCHEDULED_BY","STATUS"
             break
         }
 
@@ -32209,6 +32284,13 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.StopCisSessionStatus
+        "Stop-INS2CisSession/Message_Status"
+        {
+            $v = "FAILED","INTERRUPTED","SUCCESS","UNSUPPORTED_OS"
+            break
+        }
+
         # Amazon.Inspector2.TitleSortBy
         "Get-INS2FindingAggregationList/AggregationRequest_TitleAggregation_SortBy"
         {
@@ -32255,14 +32337,20 @@ $INS2_map = @{
     "AggregationRequest_TitleAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_TitleAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "AggregationType"=@("Get-INS2FindingAggregationList")
+    "DetailLevel"=@("Get-INS2CisScanList")
     "EcrConfiguration_RescanDuration"=@("Update-INS2Configuration")
     "GroupBy"=@("Get-INS2CoverageStatisticList")
+    "Message_Status"=@("Stop-INS2CisSession")
     "ReportFormat"=@("New-INS2FindingsReport","New-INS2SbomExport")
     "ResourceType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")
     "ScanType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")
+    "Schedule_Monthly_Day"=@("New-INS2CisScanConfiguration","Update-INS2CisScanConfiguration")
+    "SecurityLevel"=@("New-INS2CisScanConfiguration","Update-INS2CisScanConfiguration")
     "Service"=@("Get-INS2AccountPermissionList")
+    "SortBy"=@("Get-INS2CisScanConfigurationList","Get-INS2CisScanList","Get-INS2CisScanResultDetail","Get-INS2CisScanResultsAggregatedByCheckList","Get-INS2CisScanResultsAggregatedByTargetResourceList")
     "SortCriteria_Field"=@("Get-INS2FindingList")
     "SortCriteria_SortOrder"=@("Get-INS2FindingList")
+    "SortOrder"=@("Get-INS2CisScanConfigurationList","Get-INS2CisScanList","Get-INS2CisScanResultDetail","Get-INS2CisScanResultsAggregatedByCheckList","Get-INS2CisScanResultsAggregatedByTargetResourceList")
 }
 
 _awsArgumentCompleterRegistration $INS2_Completers $INS2_map
@@ -32324,9 +32412,11 @@ $INS2_SelectMap = @{
                "Update-INS2BatchMemberEc2DeepInspectionStatus",
                "Stop-INS2FindingsReport",
                "Stop-INS2SbomExport",
+               "New-INS2CisScanConfiguration",
                "New-INS2Filter",
                "New-INS2FindingsReport",
                "New-INS2SbomExport",
+               "Remove-INS2CisScanConfiguration",
                "Remove-INS2Filter",
                "Get-INS2OrganizationConfiguration",
                "Stop-INS2Service",
@@ -32334,6 +32424,8 @@ $INS2_SelectMap = @{
                "Unregister-INS2Member",
                "Stop-INS2Inspector",
                "Enable-INS2DelegatedAdminAccount",
+               "Get-INS2CisScanReport",
+               "Get-INS2CisScanResultDetail",
                "Get-INS2Configuration",
                "Get-INS2DelegatedAdminAccount",
                "Get-INS2Ec2DeepInspectionConfiguration",
@@ -32342,6 +32434,10 @@ $INS2_SelectMap = @{
                "Get-INS2Member",
                "Get-INS2SbomExport",
                "Get-INS2AccountPermissionList",
+               "Get-INS2CisScanConfigurationList",
+               "Get-INS2CisScanResultsAggregatedByCheckList",
+               "Get-INS2CisScanResultsAggregatedByTargetResourceList",
+               "Get-INS2CisScanList",
                "Get-INS2CoverageList",
                "Get-INS2CoverageStatisticList",
                "Get-INS2DelegatedAdminAccountList",
@@ -32353,8 +32449,13 @@ $INS2_SelectMap = @{
                "Get-INS2UsageTotalList",
                "Reset-INS2EncryptionKey",
                "Search-INS2Vulnerability",
+               "Send-INS2CisSessionHealth",
+               "Send-INS2CisSessionTelemetry",
+               "Start-INS2CisSession",
+               "Stop-INS2CisSession",
                "Add-INS2ResourceTag",
                "Remove-INS2ResourceTag",
+               "Update-INS2CisScanConfiguration",
                "Update-INS2Configuration",
                "Update-INS2Ec2DeepInspectionConfiguration",
                "Update-INS2EncryptionKey",

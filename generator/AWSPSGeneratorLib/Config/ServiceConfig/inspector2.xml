@@ -54,6 +54,17 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCisScanConfiguration" OutputProperty="ScanConfigurationArn" Verb="New" Noun="CisScanConfiguration" ShouldProcessTarget="ScanName" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Schedule_Daily_StartTime_TimeOfDay" NewName="Schedule_Daily_StartTime_TimeOfDay" />
+                <Param Name="Schedule_Daily_StartTime_Timezone" NewName="Schedule_Daily_StartTime_Timezone" />
+                <Param Name="Schedule_Monthly_StartTime_TimeOfDay" NewName="Schedule_Monthly_StartTime_TimeOfDay" />
+                <Param Name="Schedule_Monthly_StartTime_Timezone" NewName="Schedule_Monthly_StartTime_Timezone" />
+                <Param Name="Schedule_Weekly_StartTime_TimeOfDay" NewName="Schedule_Weekly_StartTime_TimeOfDay" />
+                <Param Name="Schedule_Weekly_StartTime_Timezone" NewName="Schedule_Weekly_StartTime_Timezone" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateFilter" OutputProperty="Arn" Verb="New" Noun="Filter" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -63,6 +74,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSbomExport" OutputProperty="ReportId" Verb="New" Noun="SbomExport" ShouldProcessTarget="" PipelineParameter="ReportFormat" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCisScanConfiguration" OutputProperty="ScanConfigurationArn" Verb="Remove" Noun="CisScanConfiguration" ShouldProcessTarget="ScanConfigurationArn" PipelineParameter="ScanConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -91,6 +106,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableDelegatedAdminAccount" OutputProperty="DelegatedAdminAccountId" Verb="Enable" Noun="DelegatedAdminAccount" ShouldProcessTarget="DelegatedAdminAccountId" PipelineParameter="DelegatedAdminAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCisScanReport" OutputProperty="*" Verb="Get" Noun="CisScanReport" PipelineParameter="ScanArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCisScanResultDetails" OutputProperty="ScanResultDetails" Verb="Get" Noun="CisScanResultDetail" PipelineParameter="ScanArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -123,6 +146,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAccountPermissions" OutputProperty="Permissions" Verb="Get" Noun="AccountPermissionList" PipelineParameter="Service" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCisScanConfigurations" OutputProperty="ScanConfigurations" Verb="Get" Noun="CisScanConfigurationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCisScanResultsAggregatedByChecks" OutputProperty="CheckAggregations" Verb="Get" Noun="CisScanResultsAggregatedByCheckList" PipelineParameter="ScanArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCisScanResultsAggregatedByTargetResource" OutputProperty="TargetResourceAggregations" Verb="Get" Noun="CisScanResultsAggregatedByTargetResourceList" PipelineParameter="ScanArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCisScans" OutputProperty="Scans" Verb="Get" Noun="CisScanList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -170,12 +209,45 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SendCisSessionHealth" Verb="Send" Noun="CisSessionHealth" ShouldProcessTarget="ScanJobId" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="SessionToken" NewName="CisSessionToken" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendCisSessionTelemetry" Verb="Send" Noun="CisSessionTelemetry" ShouldProcessTarget="ScanJobId" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="SessionToken" NewName="CisSessionToken" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartCisSession" Verb="Start" Noun="CisSession" ShouldProcessTarget="ScanJobId" PipelineParameter="ScanJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopCisSession" Verb="Stop" Noun="CisSession" ShouldProcessTarget="ScanJobId" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="SessionToken" NewName="CisSessionToken" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCisScanConfiguration" OutputProperty="ScanConfigurationArn" Verb="Update" Noun="CisScanConfiguration" ShouldProcessTarget="ScanConfigurationArn" PipelineParameter="ScanConfigurationArn" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Schedule_Daily_StartTime_TimeOfDay" NewName="Schedule_Daily_StartTime_TimeOfDay" />
+                <Param Name="Schedule_Daily_StartTime_Timezone" NewName="Schedule_Daily_StartTime_Timezone" />
+                <Param Name="Schedule_Monthly_StartTime_TimeOfDay" NewName="Schedule_Monthly_StartTime_TimeOfDay" />
+                <Param Name="Schedule_Monthly_StartTime_Timezone" NewName="Schedule_Monthly_StartTime_Timezone" />
+                <Param Name="Schedule_Weekly_StartTime_TimeOfDay" NewName="Schedule_Weekly_StartTime_TimeOfDay" />
+                <Param Name="Schedule_Weekly_StartTime_Timezone" NewName="Schedule_Weekly_StartTime_Timezone" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfiguration" Verb="Update" Noun="Configuration" ShouldProcessTarget="EcrConfiguration_RescanDuration" PipelineParameter="EcrConfiguration_RescanDuration" NoPipelineParameter="false">
