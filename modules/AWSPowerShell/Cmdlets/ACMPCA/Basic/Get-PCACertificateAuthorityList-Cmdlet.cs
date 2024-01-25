@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <para>Use this parameter when paginating results to specify the maximum number of items
         /// to return in the response on each page. If additional items exist beyond the number
         /// you specify, the <c>NextToken</c> element is sent in the response. Use this <c>NextToken</c>
-        /// value in a subsequent request to retrieve additional items.</para>
+        /// value in a subsequent request to retrieve additional items.</para><para>Although the maximum value is 1000, the action only returns a maximum of 100 items.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

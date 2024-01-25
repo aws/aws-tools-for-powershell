@@ -1,4 +1,7 @@
-﻿### 4.1.501 (2024-01-25 00:42Z)
+﻿### 4.1.502 (2024-01-25 23:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.734.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.501 (2024-01-25 00:42Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.733.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet New-EC2NetworkAcl: added parameter ClientToken.
