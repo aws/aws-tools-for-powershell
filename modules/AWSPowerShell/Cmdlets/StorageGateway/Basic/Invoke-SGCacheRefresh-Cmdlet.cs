@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
     ///  
     /// <para>
     /// You can subscribe to be notified through an Amazon CloudWatch event when your <c>RefreshCache</c>
-    /// operation completes. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification">Getting
-    /// notified about file operations</a> in the <i>Storage Gateway User Guide</i>. This
-    /// operation is Only supported for S3 File Gateways.
+    /// operation completes. For more information, see <a href="https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification">Getting
+    /// notified about file operations</a> in the <i>Amazon S3 File Gateway User Guide</i>.
+    /// This operation is Only supported for S3 File Gateways.
     /// </para><para>
     /// When this API is called, it only initiates the refresh operation. When the API call
     /// completes and returns a success code, it doesn't necessarily mean that the file refresh
@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </para><para>
     /// Throttle limit: This API is asynchronous, so the gateway will accept no more than
     /// two refreshes at any time. We recommend using the refresh-complete CloudWatch event
-    /// notification before issuing additional requests. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification">Getting
-    /// notified about file operations</a> in the <i>Storage Gateway User Guide</i>.
+    /// notification before issuing additional requests. For more information, see <a href="https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification">Getting
+    /// notified about file operations</a> in the <i>Amazon S3 File Gateway User Guide</i>.
     /// </para><important><ul><li><para>
     /// Wait at least 60 seconds between consecutive RefreshCache API requests.
     /// </para></li><li><para>
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// The S3 bucket name does not need to be included when entering the list of folders
     /// in the FolderList parameter.
     /// </para></note><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification">Getting
-    /// notified about file operations</a> in the <i>Storage Gateway User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification">Getting
+    /// notified about file operations</a> in the <i>Amazon S3 File Gateway User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "SGCacheRefresh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

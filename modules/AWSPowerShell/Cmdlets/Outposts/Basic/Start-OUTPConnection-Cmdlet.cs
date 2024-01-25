@@ -91,14 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         /// <para> The serial number of the dongle. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DeviceSerialNumber { get; set; }
         #endregion
         
@@ -175,12 +168,6 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             }
             #endif
             context.DeviceSerialNumber = this.DeviceSerialNumber;
-            #if MODULAR
-            if (this.DeviceSerialNumber == null && ParameterWasBound(nameof(this.DeviceSerialNumber)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DeviceSerialNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.NetworkInterfaceDeviceIndex = this.NetworkInterfaceDeviceIndex;
             #if MODULAR
             if (this.NetworkInterfaceDeviceIndex == null && ParameterWasBound(nameof(this.NetworkInterfaceDeviceIndex)))

@@ -22,48 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.RDS;
+using Amazon.RDS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates a network ACL in a VPC. Network ACLs provide an optional layer of security
-    /// (in addition to security groups) for the instances in your VPC.
-    /// 
-    ///  
-    /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Network
-    /// ACLs</a> in the <i>Amazon VPC User Guide</i>.
-    /// </para>
+    /// Deletes an Aurora Limitless Database DB shard group.
     /// </summary>
-    [Cmdlet("New", "EC2NetworkAcl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.NetworkAcl")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateNetworkAcl API operation.", Operation = new[] {"CreateNetworkAcl"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateNetworkAclResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.NetworkAcl or Amazon.EC2.Model.CreateNetworkAclResponse",
-        "This cmdlet returns an Amazon.EC2.Model.NetworkAcl object.",
-        "The service call response (type Amazon.EC2.Model.CreateNetworkAclResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "RDSDBShardGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.RDS.Model.DeleteDBShardGroupResponse")]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DeleteDBShardGroup API operation.", Operation = new[] {"DeleteDBShardGroup"}, SelectReturnType = typeof(Amazon.RDS.Model.DeleteDBShardGroupResponse))]
+    [AWSCmdletOutput("Amazon.RDS.Model.DeleteDBShardGroupResponse",
+        "This cmdlet returns an Amazon.RDS.Model.DeleteDBShardGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewEC2NetworkAclCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class RemoveRDSDBShardGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter TagSpecification
+        #region Parameter DBShardGroupIdentifier
         /// <summary>
         /// <para>
-        /// <para>The tags to assign to the network ACL.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("TagSpecifications")]
-        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
-        #endregion
-        
-        #region Parameter VpcId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the VPC.</para>
+        /// <para>Teh name of the DB shard group to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,38 +55,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String VpcId { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring
-        /// idempotency</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        public System.String DBShardGroupIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'NetworkAcl'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.CreateNetworkAclResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.CreateNetworkAclResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RDS.Model.DeleteDBShardGroupResponse).
+        /// Specifying the name of a property of type Amazon.RDS.Model.DeleteDBShardGroupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "NetworkAcl";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the VpcId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^VpcId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DBShardGroupIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DBShardGroupIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^VpcId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DBShardGroupIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -125,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.VpcId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EC2NetworkAcl (CreateNetworkAcl)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DBShardGroupIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RDSDBShardGroup (DeleteDBShardGroup)"))
             {
                 return;
             }
@@ -139,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.CreateNetworkAclResponse, NewEC2NetworkAclCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RDS.Model.DeleteDBShardGroupResponse, RemoveRDSDBShardGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -148,19 +117,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.VpcId;
+                context.Select = (response, cmdlet) => this.DBShardGroupIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
-            if (this.TagSpecification != null)
-            {
-                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
-            }
-            context.VpcId = this.VpcId;
+            context.DBShardGroupIdentifier = this.DBShardGroupIdentifier;
             #if MODULAR
-            if (this.VpcId == null && ParameterWasBound(nameof(this.VpcId)))
+            if (this.DBShardGroupIdentifier == null && ParameterWasBound(nameof(this.DBShardGroupIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter VpcId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DBShardGroupIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -177,19 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.CreateNetworkAclRequest();
+            var request = new Amazon.RDS.Model.DeleteDBShardGroupRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.DBShardGroupIdentifier != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.TagSpecification != null)
-            {
-                request.TagSpecifications = cmdletContext.TagSpecification;
-            }
-            if (cmdletContext.VpcId != null)
-            {
-                request.VpcId = cmdletContext.VpcId;
+                request.DBShardGroupIdentifier = cmdletContext.DBShardGroupIdentifier;
             }
             
             CmdletOutput output;
@@ -224,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.CreateNetworkAclResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateNetworkAclRequest request)
+        private Amazon.RDS.Model.DeleteDBShardGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DeleteDBShardGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateNetworkAcl");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DeleteDBShardGroup");
             try
             {
                 #if DESKTOP
-                return client.CreateNetworkAcl(request);
+                return client.DeleteDBShardGroup(request);
                 #elif CORECLR
-                return client.CreateNetworkAclAsync(request).GetAwaiter().GetResult();
+                return client.DeleteDBShardGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -252,11 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
-            public System.String VpcId { get; set; }
-            public System.Func<Amazon.EC2.Model.CreateNetworkAclResponse, NewEC2NetworkAclCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.NetworkAcl;
+            public System.String DBShardGroupIdentifier { get; set; }
+            public System.Func<Amazon.RDS.Model.DeleteDBShardGroupResponse, RemoveRDSDBShardGroupCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

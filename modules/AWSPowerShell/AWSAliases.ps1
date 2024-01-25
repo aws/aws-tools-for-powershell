@@ -22024,6 +22024,8 @@ Set-Alias -Name Create-RDSDBProxyEndpoint -Value New-RDSDBProxyEndpoint
 Set-Alias -Name RDS-CreateDBProxyEndpoint -Value New-RDSDBProxyEndpoint
 Set-Alias -Name Create-RDSDBSecurityGroup -Value New-RDSDBSecurityGroup
 Set-Alias -Name RDS-CreateDBSecurityGroup -Value New-RDSDBSecurityGroup
+Set-Alias -Name Create-RDSDBShardGroup -Value New-RDSDBShardGroup
+Set-Alias -Name RDS-CreateDBShardGroup -Value New-RDSDBShardGroup
 Set-Alias -Name Create-RDSDBSnapshot -Value New-RDSDBSnapshot
 Set-Alias -Name RDS-CreateDBSnapshot -Value New-RDSDBSnapshot
 Set-Alias -Name Create-RDSDBSubnetGroup -Value New-RDSDBSubnetGroup
@@ -22064,6 +22066,8 @@ Set-Alias -Name Delete-RDSDBProxyEndpoint -Value Remove-RDSDBProxyEndpoint
 Set-Alias -Name RDS-DeleteDBProxyEndpoint -Value Remove-RDSDBProxyEndpoint
 Set-Alias -Name Delete-RDSDBSecurityGroup -Value Remove-RDSDBSecurityGroup
 Set-Alias -Name RDS-DeleteDBSecurityGroup -Value Remove-RDSDBSecurityGroup
+Set-Alias -Name Delete-RDSDBShardGroup -Value Remove-RDSDBShardGroup
+Set-Alias -Name RDS-DeleteDBShardGroup -Value Remove-RDSDBShardGroup
 Set-Alias -Name Delete-RDSDBSnapshot -Value Remove-RDSDBSnapshot
 Set-Alias -Name RDS-DeleteDBSnapshot -Value Remove-RDSDBSnapshot
 Set-Alias -Name Delete-RDSDBSubnetGroup -Value Remove-RDSDBSubnetGroup
@@ -22150,6 +22154,9 @@ Set-Alias -Name RDS-DescribeDBRecommendations -Value Get-RDSDBRecommendation
 Set-Alias -Name Describe-RDSDBSecurityGroups -Value Get-RDSDBSecurityGroup
 Set-Alias -Name Describe-RDSDBSecurityGroup -Value Get-RDSDBSecurityGroup
 Set-Alias -Name RDS-DescribeDBSecurityGroups -Value Get-RDSDBSecurityGroup
+Set-Alias -Name Describe-RDSDBShardGroups -Value Get-RDSDBShardGroup
+Set-Alias -Name Describe-RDSDBShardGroup -Value Get-RDSDBShardGroup
+Set-Alias -Name RDS-DescribeDBShardGroups -Value Get-RDSDBShardGroup
 Set-Alias -Name Describe-RDSDBSnapshotAttributes -Value Get-RDSDBSnapshotAttribute
 Set-Alias -Name Describe-RDSDBSnapshotAttribute -Value Get-RDSDBSnapshotAttribute
 Set-Alias -Name RDS-DescribeDBSnapshotAttributes -Value Get-RDSDBSnapshotAttribute
@@ -22254,6 +22261,8 @@ Set-Alias -Name Modify-RDSDBProxyTargetGroup -Value Edit-RDSDBProxyTargetGroup
 Set-Alias -Name RDS-ModifyDBProxyTargetGroup -Value Edit-RDSDBProxyTargetGroup
 Set-Alias -Name Modify-RDSDBRecommendation -Value Edit-RDSDBRecommendation
 Set-Alias -Name RDS-ModifyDBRecommendation -Value Edit-RDSDBRecommendation
+Set-Alias -Name Modify-RDSDBShardGroup -Value Edit-RDSDBShardGroup
+Set-Alias -Name RDS-ModifyDBShardGroup -Value Edit-RDSDBShardGroup
 Set-Alias -Name Modify-RDSDBSnapshot -Value Edit-RDSDBSnapshot
 Set-Alias -Name RDS-ModifyDBSnapshot -Value Edit-RDSDBSnapshot
 Set-Alias -Name Modify-RDSDBSnapshotAttribute -Value Edit-RDSDBSnapshotAttribute
@@ -22280,6 +22289,8 @@ Set-Alias -Name Reboot-RDSDBCluster -Value Restart-RDSDBCluster
 Set-Alias -Name RDS-RebootDBCluster -Value Restart-RDSDBCluster
 Set-Alias -Name Reboot-RDSDBInstance -Value Restart-RDSDBInstance
 Set-Alias -Name RDS-RebootDBInstance -Value Restart-RDSDBInstance
+Set-Alias -Name Reboot-RDSDBShardGroup -Value Restart-RDSDBShardGroup
+Set-Alias -Name RDS-RebootDBShardGroup -Value Restart-RDSDBShardGroup
 Set-Alias -Name Register-RDSDBProxyTargets -Value Register-RDSDBProxyTarget
 Set-Alias -Name RDS-RegisterDBProxyTargets -Value Register-RDSDBProxyTarget
 Set-Alias -Name RDS-RemoveFromGlobalCluster -Value Remove-RDSFromGlobalCluster

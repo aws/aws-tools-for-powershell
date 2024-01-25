@@ -28,9 +28,19 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes.
-    /// If a <c>TapeARN</c> is not specified, returns a description of all virtual tapes associated
-    /// with the specified gateway. This operation is only supported in the tape gateway type.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a description of virtual tapes that correspond to the specified Amazon Resource
+    /// Names (ARNs). If <c>TapeARN</c> is not specified, returns a description of the virtual
+    /// tapes associated with the specified gateway. This operation is only supported for
+    /// the tape gateway type.
+    /// 
+    ///  
+    /// <para>
+    /// The operation supports pagination. By default, the operation returns a maximum of
+    /// up to 100 tapes. You can optionally specify the <c>Limit</c> field in the body to
+    /// limit the number of tapes in the response. If the number of tapes returned in the
+    /// response is truncated, the response includes a <c>Marker</c> field. You can use this
+    /// <c>Marker</c> value in your subsequent request to retrieve the next set of tapes.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SGTapeList")]
     [OutputType("Amazon.StorageGateway.Model.Tape")]

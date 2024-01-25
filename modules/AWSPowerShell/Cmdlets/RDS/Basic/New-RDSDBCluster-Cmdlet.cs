@@ -314,6 +314,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
         #endregion
         
+        #region Parameter EnableLimitlessDatabase
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable Aurora Limitless Database. You must enable Aurora Limitless
+        /// Database to create a DB shard group.</para><para>Valid for: Aurora DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableLimitlessDatabase { get; set; }
+        #endregion
+        
         #region Parameter EnableLocalWriteForwarding
         /// <summary>
         /// <para>
@@ -932,6 +943,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EnableGlobalWriteForwarding = this.EnableGlobalWriteForwarding;
             context.EnableHttpEndpoint = this.EnableHttpEndpoint;
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
+            context.EnableLimitlessDatabase = this.EnableLimitlessDatabase;
             context.EnableLocalWriteForwarding = this.EnableLocalWriteForwarding;
             context.EnablePerformanceInsight = this.EnablePerformanceInsight;
             context.Engine = this.Engine;
@@ -1082,6 +1094,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.EnableIAMDatabaseAuthentication != null)
             {
                 request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
+            }
+            if (cmdletContext.EnableLimitlessDatabase != null)
+            {
+                request.EnableLimitlessDatabase = cmdletContext.EnableLimitlessDatabase.Value;
             }
             if (cmdletContext.EnableLocalWriteForwarding != null)
             {
@@ -1414,6 +1430,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? EnableGlobalWriteForwarding { get; set; }
             public System.Boolean? EnableHttpEndpoint { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
+            public System.Boolean? EnableLimitlessDatabase { get; set; }
             public System.Boolean? EnableLocalWriteForwarding { get; set; }
             public System.Boolean? EnablePerformanceInsight { get; set; }
             public System.String Engine { get; set; }

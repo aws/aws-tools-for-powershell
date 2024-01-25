@@ -1,4 +1,18 @@
-﻿### 4.1.500 (2024-01-23 23:01Z)
+﻿### 4.1.501 (2024-01-25 00:42Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.733.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2NetworkAcl: added parameter ClientToken.
+    * Modified cmdlet New-EC2RouteTable: added parameter ClientToken.
+  * Amazon Relational Database Service
+    * Added cmdlet Edit-RDSDBShardGroup leveraging the ModifyDBShardGroup service API.
+    * Added cmdlet Get-RDSDBShardGroup leveraging the DescribeDBShardGroups service API.
+    * Added cmdlet New-RDSDBShardGroup leveraging the CreateDBShardGroup service API.
+    * Added cmdlet Remove-RDSDBShardGroup leveraging the DeleteDBShardGroup service API.
+    * Added cmdlet Restart-RDSDBShardGroup leveraging the RebootDBShardGroup service API.
+    * Modified cmdlet Edit-RDSDBCluster: added parameter EnableLimitlessDatabase.
+    * Modified cmdlet New-RDSDBCluster: added parameter EnableLimitlessDatabase.
+
+### 4.1.500 (2024-01-23 23:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.732.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Inspector2
     * Added cmdlet Get-INS2CisScanConfigurationList leveraging the ListCisScanConfigurations service API.
