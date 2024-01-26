@@ -22,31 +22,33 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Inspector2;
-using Amazon.Inspector2.Model;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
 
-namespace Amazon.PowerShell.Cmdlets.INS2
+namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Updates an encryption key. A <c>ResourceNotFoundException</c> means that an Amazon
-    /// Web Services owned key is being used for encryption.
+    /// Deletes a hyperparameter tuning job. The <c>DeleteHyperParameterTuningJob</c> API
+    /// deletes only the tuning job entry that was created in SageMaker when you called the
+    /// <c>CreateHyperParameterTuningJob</c> API. It does not delete training jobs, artifacts,
+    /// or the IAM role that you specified when creating the model.
     /// </summary>
-    [Cmdlet("Update", "INS2EncryptionKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "SMHyperParameterTuningJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Inspector2 UpdateEncryptionKey API operation.", Operation = new[] {"UpdateEncryptionKey"}, SelectReturnType = typeof(Amazon.Inspector2.Model.UpdateEncryptionKeyResponse))]
-    [AWSCmdletOutput("None or Amazon.Inspector2.Model.UpdateEncryptionKeyResponse",
+    [AWSCmdlet("Calls the Amazon SageMaker Service DeleteHyperParameterTuningJob API operation.", Operation = new[] {"DeleteHyperParameterTuningJob"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteHyperParameterTuningJobResponse))]
+    [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteHyperParameterTuningJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Inspector2.Model.UpdateEncryptionKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeleteHyperParameterTuningJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateINS2EncryptionKeyCmdlet : AmazonInspector2ClientCmdlet, IExecutor
+    public partial class RemoveSMHyperParameterTuningJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter KmsKeyId
+        #region Parameter HyperParameterTuningJobName
         /// <summary>
         /// <para>
-        /// <para>A KMS key ID for the encryption key.</para>
+        /// <para>The name of the hyperparameter tuning job that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,47 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String KmsKeyId { get; set; }
-        #endregion
-        
-        #region Parameter ResourceType
-        /// <summary>
-        /// <para>
-        /// <para>The resource type for the encryption key.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.Inspector2.ResourceType")]
-        public Amazon.Inspector2.ResourceType ResourceType { get; set; }
-        #endregion
-        
-        #region Parameter ScanType
-        /// <summary>
-        /// <para>
-        /// <para>The scan type for the encryption key.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.Inspector2.ScanType")]
-        public Amazon.Inspector2.ScanType ScanType { get; set; }
+        public System.String HyperParameterTuningJobName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Inspector2.Model.UpdateEncryptionKeyResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DeleteHyperParameterTuningJobResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,10 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the KmsKeyId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^KmsKeyId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the HyperParameterTuningJobName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^HyperParameterTuningJobName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^KmsKeyId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^HyperParameterTuningJobName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -129,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.KmsKeyId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-INS2EncryptionKey (UpdateEncryptionKey)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.HyperParameterTuningJobName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SMHyperParameterTuningJob (DeleteHyperParameterTuningJob)"))
             {
                 return;
             }
@@ -143,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Inspector2.Model.UpdateEncryptionKeyResponse, UpdateINS2EncryptionKeyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DeleteHyperParameterTuningJobResponse, RemoveSMHyperParameterTuningJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -152,28 +120,14 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.KmsKeyId;
+                context.Select = (response, cmdlet) => this.HyperParameterTuningJobName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.KmsKeyId = this.KmsKeyId;
+            context.HyperParameterTuningJobName = this.HyperParameterTuningJobName;
             #if MODULAR
-            if (this.KmsKeyId == null && ParameterWasBound(nameof(this.KmsKeyId)))
+            if (this.HyperParameterTuningJobName == null && ParameterWasBound(nameof(this.HyperParameterTuningJobName)))
             {
-                WriteWarning("You are passing $null as a value for parameter KmsKeyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.ResourceType = this.ResourceType;
-            #if MODULAR
-            if (this.ResourceType == null && ParameterWasBound(nameof(this.ResourceType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.ScanType = this.ScanType;
-            #if MODULAR
-            if (this.ScanType == null && ParameterWasBound(nameof(this.ScanType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ScanType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter HyperParameterTuningJobName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -190,19 +144,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Inspector2.Model.UpdateEncryptionKeyRequest();
+            var request = new Amazon.SageMaker.Model.DeleteHyperParameterTuningJobRequest();
             
-            if (cmdletContext.KmsKeyId != null)
+            if (cmdletContext.HyperParameterTuningJobName != null)
             {
-                request.KmsKeyId = cmdletContext.KmsKeyId;
-            }
-            if (cmdletContext.ResourceType != null)
-            {
-                request.ResourceType = cmdletContext.ResourceType;
-            }
-            if (cmdletContext.ScanType != null)
-            {
-                request.ScanType = cmdletContext.ScanType;
+                request.HyperParameterTuningJobName = cmdletContext.HyperParameterTuningJobName;
             }
             
             CmdletOutput output;
@@ -237,15 +183,15 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         
         #region AWS Service Operation Call
         
-        private Amazon.Inspector2.Model.UpdateEncryptionKeyResponse CallAWSServiceOperation(IAmazonInspector2 client, Amazon.Inspector2.Model.UpdateEncryptionKeyRequest request)
+        private Amazon.SageMaker.Model.DeleteHyperParameterTuningJobResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DeleteHyperParameterTuningJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Inspector2", "UpdateEncryptionKey");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DeleteHyperParameterTuningJob");
             try
             {
                 #if DESKTOP
-                return client.UpdateEncryptionKey(request);
+                return client.DeleteHyperParameterTuningJob(request);
                 #elif CORECLR
-                return client.UpdateEncryptionKeyAsync(request).GetAwaiter().GetResult();
+                return client.DeleteHyperParameterTuningJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -265,10 +211,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String KmsKeyId { get; set; }
-            public Amazon.Inspector2.ResourceType ResourceType { get; set; }
-            public Amazon.Inspector2.ScanType ScanType { get; set; }
-            public System.Func<Amazon.Inspector2.Model.UpdateEncryptionKeyResponse, UpdateINS2EncryptionKeyCmdlet, object> Select { get; set; } =
+            public System.String HyperParameterTuningJobName { get; set; }
+            public System.Func<Amazon.SageMaker.Model.DeleteHyperParameterTuningJobResponse, RemoveSMHyperParameterTuningJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

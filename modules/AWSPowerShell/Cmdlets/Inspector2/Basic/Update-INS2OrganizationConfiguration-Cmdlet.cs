@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter AutoEnable_Lambda
         /// <summary>
         /// <para>
-        /// <para>Represents whether AWS Lambda standard scans are automatically enabled for new members
-        /// of your Amazon Inspector organization. </para>
+        /// <para>Represents whether Amazon Web Services Lambda standard scans are automatically enabled
+        /// for new members of your Amazon Inspector organization. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

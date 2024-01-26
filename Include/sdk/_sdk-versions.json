@@ -1,8 +1,8 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.734.0",
-    "CoreVersion"       : "3.7.302.0",
+    "ProductVersion"    : "3.7.735.0",
+    "CoreVersion"       : "3.7.302.1",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
     "ServiceVersions"     : {
@@ -947,7 +947,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.310.5",
+            "Version" : "3.7.311.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.0"
@@ -1059,7 +1059,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.311.3",
+            "Version" : "3.7.312.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.0"
@@ -2331,7 +2331,7 @@
             "InPreview"               : false
         },
         "Inspector2"                          : {
-            "Version" : "3.7.301.2",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.0"

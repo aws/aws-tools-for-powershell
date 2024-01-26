@@ -1722,6 +1722,7 @@ $SM_SelectMap = @{
                "Remove-SMHub",
                "Remove-SMHubContent",
                "Remove-SMHumanTaskUi",
+               "Remove-SMHyperParameterTuningJob",
                "Remove-SMImage",
                "Remove-SMImageVersion",
                "Remove-SMInferenceComponent",

@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Creates a <c>Domain</c>. A domain consists of an associated Amazon Elastic File System
-    /// (EFS) volume, a list of authorized users, and a variety of security, application,
-    /// policy, and Amazon Virtual Private Cloud (VPC) configurations. Users within a domain
-    /// can share notebook files and other artifacts with each other.
+    /// volume, a list of authorized users, and a variety of security, application, policy,
+    /// and Amazon Virtual Private Cloud (VPC) configurations. Users within a domain can share
+    /// notebook files and other artifacts with each other.
     /// 
     ///  
     /// <para><b>EFS storage</b></para><para>
@@ -45,10 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html">Protect
     /// Data at Rest Using Encryption</a>.
     /// </para><para><b>VPC configuration</b></para><para>
-    /// All traffic between the domain and the EFS volume is through the specified VPC and
-    /// subnets. For other traffic, you can specify the <c>AppNetworkAccessType</c> parameter.
-    /// <c>AppNetworkAccessType</c> corresponds to the network access type that you choose
-    /// when you onboard to the domain. The following options are available:
+    /// All traffic between the domain and the Amazon EFS volume is through the specified
+    /// VPC and subnets. For other traffic, you can specify the <c>AppNetworkAccessType</c>
+    /// parameter. <c>AppNetworkAccessType</c> corresponds to the network access type that
+    /// you choose when you onboard to the domain. The following options are available:
     /// </para><ul><li><para><c>PublicInternetOnly</c> - Non-EFS traffic goes through a VPC managed by Amazon
     /// SageMaker, which allows internet access. This is the default value.
     /// </para></li><li><para><c>VpcOnly</c> - All traffic is through the specified VPC and subnets. Internet access

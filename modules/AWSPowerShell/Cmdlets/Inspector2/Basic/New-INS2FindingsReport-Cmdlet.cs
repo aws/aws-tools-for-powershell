@@ -232,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_ExploitAvailable
         /// <summary>
         /// <para>
-        /// <para>Filters the list of AWS Lambda findings by the availability of exploits.</para>
+        /// <para>Filters the list of Amazon Web Services Lambda findings by the availability of exploits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -332,7 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_LambdaFunctionExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>Filters the list of AWS Lambda functions by execution role.</para>
+        /// <para>Filters the list of Amazon Web Services Lambda functions by execution role.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -342,8 +342,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_LambdaFunctionLastModifiedAt
         /// <summary>
         /// <para>
-        /// <para>Filters the list of AWS Lambda functions by the date and time that a user last updated
-        /// the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
+        /// <para>Filters the list of Amazon Web Services Lambda functions by the date and time that
+        /// a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
         /// 8601 format</a></para>
         /// </para>
         /// </summary>
@@ -354,7 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_LambdaFunctionLayer
         /// <summary>
         /// <para>
-        /// <para>Filters the list of AWS Lambda functions by the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
+        /// <para>Filters the list of Amazon Web Services Lambda functions by the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
         /// layers</a>. A Lambda function can have up to five layers.</para>
         /// </para>
         /// </summary>
@@ -366,7 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_LambdaFunctionName
         /// <summary>
         /// <para>
-        /// <para>Filters the list of AWS Lambda functions by the name of the function.</para>
+        /// <para>Filters the list of Amazon Web Services Lambda functions by the name of the function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -376,8 +376,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_LambdaFunctionRuntime
         /// <summary>
         /// <para>
-        /// <para>Filters the list of AWS Lambda functions by the runtime environment for the Lambda
-        /// function.</para>
+        /// <para>Filters the list of Amazon Web Services Lambda functions by the runtime environment
+        /// for the Lambda function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

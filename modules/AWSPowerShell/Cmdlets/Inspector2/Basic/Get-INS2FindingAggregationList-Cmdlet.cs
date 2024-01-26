@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter LambdaFunctionAggregation_FunctionName
         /// <summary>
         /// <para>
-        /// <para>The AWS Lambda function names to include in the aggregation results.</para>
+        /// <para>The Amazon Web Services Lambda function names to include in the aggregation results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter LambdaLayerAggregation_FunctionName
         /// <summary>
         /// <para>
-        /// <para>The names of the AWS Lambda functions associated with the layers.</para>
+        /// <para>The names of the Amazon Web Services Lambda functions associated with the layers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter LambdaLayerAggregation_LayerArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Lambda function layer. </para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Lambda function layer. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -329,7 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter LambdaLayerAggregation_ResourceId
         /// <summary>
         /// <para>
-        /// <para>The resource IDs for the AWS Lambda function layers.</para>
+        /// <para>The resource IDs for the Amazon Web Services Lambda function layers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -376,7 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter LambdaFunctionAggregation_Runtime
         /// <summary>
         /// <para>
-        /// <para>Returns findings aggregated by AWS Lambda function runtime environments.</para>
+        /// <para>Returns findings aggregated by Amazon Web Services Lambda function runtime environments.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

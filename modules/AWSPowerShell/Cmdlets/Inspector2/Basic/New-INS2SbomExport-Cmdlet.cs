@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter ResourceFilterCriteria_LambdaFunctionName
         /// <summary>
         /// <para>
-        /// <para>The AWS Lambda function name used as resource filter criteria.</para>
+        /// <para>The Amazon Web Services Lambda function name used as resource filter criteria.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter ResourceFilterCriteria_LambdaFunctionTag
         /// <summary>
         /// <para>
-        /// <para>The AWS Lambda function tags used as resource filter criteria.</para>
+        /// <para>The Amazon Web Services Lambda function tags used as resource filter criteria.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

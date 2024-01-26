@@ -441,6 +441,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteHyperParameterTuningJob" Verb="Remove" Noun="HyperParameterTuningJob" ShouldProcessTarget="HyperParameterTuningJobName" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteImage" Verb="Remove" Noun="Image" ShouldProcessTarget="ImageName" PipelineParameter="ImageName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

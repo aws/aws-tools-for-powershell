@@ -32133,10 +32133,17 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.EcrPullDateRescanDuration
+        "Update-INS2Configuration/EcrConfiguration_PullDateRescanDuration"
+        {
+            $v = "DAYS_14","DAYS_180","DAYS_30","DAYS_60","DAYS_90"
+            break
+        }
+
         # Amazon.Inspector2.EcrRescanDuration
         "Update-INS2Configuration/EcrConfiguration_RescanDuration"
         {
-            $v = "DAYS_180","DAYS_30","LIFETIME"
+            $v = "DAYS_14","DAYS_180","DAYS_30","DAYS_60","DAYS_90","LIFETIME"
             break
         }
 
@@ -32338,6 +32345,7 @@ $INS2_map = @{
     "AggregationRequest_TitleAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "AggregationType"=@("Get-INS2FindingAggregationList")
     "DetailLevel"=@("Get-INS2CisScanList")
+    "EcrConfiguration_PullDateRescanDuration"=@("Update-INS2Configuration")
     "EcrConfiguration_RescanDuration"=@("Update-INS2Configuration")
     "GroupBy"=@("Get-INS2CoverageStatisticList")
     "Message_Status"=@("Stop-INS2CisSession")
@@ -58838,6 +58846,7 @@ $SM_SelectMap = @{
                "Remove-SMHub",
                "Remove-SMHubContent",
                "Remove-SMHumanTaskUi",
+               "Remove-SMHyperParameterTuningJob",
                "Remove-SMImage",
                "Remove-SMImageVersion",
                "Remove-SMInferenceComponent",

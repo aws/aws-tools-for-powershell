@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelPackageGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of gthe model group to describe.</para>
+        /// <para>The name of the model group to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

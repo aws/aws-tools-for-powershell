@@ -94,10 +94,21 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.GroupKey GroupBy { get; set; }
         #endregion
         
+        #region Parameter FilterCriteria_ImagePulledAt
+        /// <summary>
+        /// <para>
+        /// <para>The date an image was last pulled at.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.CoverageDateFilter[] FilterCriteria_ImagePulledAt { get; set; }
+        #endregion
+        
         #region Parameter FilterCriteria_LambdaFunctionName
         /// <summary>
         /// <para>
-        /// <para>Returns coverage statistics for AWS Lambda functions filtered by function names.</para>
+        /// <para>Returns coverage statistics for Amazon Web Services Lambda functions filtered by function
+        /// names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_LambdaFunctionRuntime
         /// <summary>
         /// <para>
-        /// <para>Returns coverage statistics for AWS Lambda functions filtered by runtime.</para>
+        /// <para>Returns coverage statistics for Amazon Web Services Lambda functions filtered by runtime.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter FilterCriteria_LambdaFunctionTag
         /// <summary>
         /// <para>
-        /// <para>Returns coverage statistics for AWS Lambda functions filtered by tag.</para>
+        /// <para>Returns coverage statistics for Amazon Web Services Lambda functions filtered by tag.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -264,6 +275,10 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             {
                 context.FilterCriteria_EcrRepositoryName = new List<Amazon.Inspector2.Model.CoverageStringFilter>(this.FilterCriteria_EcrRepositoryName);
             }
+            if (this.FilterCriteria_ImagePulledAt != null)
+            {
+                context.FilterCriteria_ImagePulledAt = new List<Amazon.Inspector2.Model.CoverageDateFilter>(this.FilterCriteria_ImagePulledAt);
+            }
             if (this.FilterCriteria_LambdaFunctionName != null)
             {
                 context.FilterCriteria_LambdaFunctionName = new List<Amazon.Inspector2.Model.CoverageStringFilter>(this.FilterCriteria_LambdaFunctionName);
@@ -360,6 +375,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_EcrRepositoryName != null)
             {
                 request.FilterCriteria.EcrRepositoryName = requestFilterCriteria_filterCriteria_EcrRepositoryName;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.CoverageDateFilter> requestFilterCriteria_filterCriteria_ImagePulledAt = null;
+            if (cmdletContext.FilterCriteria_ImagePulledAt != null)
+            {
+                requestFilterCriteria_filterCriteria_ImagePulledAt = cmdletContext.FilterCriteria_ImagePulledAt;
+            }
+            if (requestFilterCriteria_filterCriteria_ImagePulledAt != null)
+            {
+                request.FilterCriteria.ImagePulledAt = requestFilterCriteria_filterCriteria_ImagePulledAt;
                 requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.CoverageStringFilter> requestFilterCriteria_filterCriteria_LambdaFunctionName = null;
@@ -530,6 +555,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.CoverageMapFilter> FilterCriteria_Ec2InstanceTag { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_EcrImageTag { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_EcrRepositoryName { get; set; }
+            public List<Amazon.Inspector2.Model.CoverageDateFilter> FilterCriteria_ImagePulledAt { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_LambdaFunctionName { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_LambdaFunctionRuntime { get; set; }
             public List<Amazon.Inspector2.Model.CoverageMapFilter> FilterCriteria_LambdaFunctionTag { get; set; }

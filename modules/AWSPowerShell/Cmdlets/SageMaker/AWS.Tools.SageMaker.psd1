@@ -318,6 +318,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SMHub', 
         'Remove-SMHubContent', 
         'Remove-SMHumanTaskUi', 
+        'Remove-SMHyperParameterTuningJob', 
         'Remove-SMImage', 
         'Remove-SMImageVersion', 
         'Remove-SMInferenceComponent', 

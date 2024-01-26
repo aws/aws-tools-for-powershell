@@ -24183,6 +24183,8 @@ Set-Alias -Name Delete-SMHubContent -Value Remove-SMHubContent
 Set-Alias -Name SM-DeleteHubContent -Value Remove-SMHubContent
 Set-Alias -Name Delete-SMHumanTaskUi -Value Remove-SMHumanTaskUi
 Set-Alias -Name SM-DeleteHumanTaskUi -Value Remove-SMHumanTaskUi
+Set-Alias -Name Delete-SMHyperParameterTuningJob -Value Remove-SMHyperParameterTuningJob
+Set-Alias -Name SM-DeleteHyperParameterTuningJob -Value Remove-SMHyperParameterTuningJob
 Set-Alias -Name Delete-SMImage -Value Remove-SMImage
 Set-Alias -Name SM-DeleteImage -Value Remove-SMImage
 Set-Alias -Name Delete-SMImageVersion -Value Remove-SMImageVersion

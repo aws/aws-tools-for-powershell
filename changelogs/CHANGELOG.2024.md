@@ -1,4 +1,13 @@
-﻿### 4.1.502 (2024-01-25 23:17Z)
+﻿### 4.1.503 (2024-01-26 21:49Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.735.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Inspector2
+    * Modified cmdlet Get-INS2CoverageList: added parameter FilterCriteria_ImagePulledAt.
+    * Modified cmdlet Get-INS2CoverageStatisticList: added parameter FilterCriteria_ImagePulledAt.
+    * Modified cmdlet Update-INS2Configuration: added parameter EcrConfiguration_PullDateRescanDuration.
+  * Amazon SageMaker Service
+    * Added cmdlet Remove-SMHyperParameterTuningJob leveraging the DeleteHyperParameterTuningJob service API.
+
+### 4.1.502 (2024-01-25 23:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.734.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.501 (2024-01-25 00:42Z)

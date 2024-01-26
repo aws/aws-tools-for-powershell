@@ -28,9 +28,12 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Deploys the new <c>EndpointConfig</c> specified in the request, switches to using
-    /// newly created endpoint, and then deletes resources provisioned for the endpoint using
-    /// the previous <c>EndpointConfig</c> (there is no availability loss). 
+    /// Deploys the <c>EndpointConfig</c> specified in the request to a new fleet of instances.
+    /// SageMaker shifts endpoint traffic to the new instances with the updated endpoint configuration
+    /// and then deletes the old instances using the previous <c>EndpointConfig</c> (there
+    /// is no availability loss). For more information about how to control the update and
+    /// traffic shifting process, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/deployment-guardrails.html">
+    /// Update models in production</a>.
     /// 
     ///  
     /// <para>
