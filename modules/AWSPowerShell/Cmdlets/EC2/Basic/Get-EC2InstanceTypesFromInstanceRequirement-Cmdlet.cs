@@ -321,6 +321,27 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? VCpuCount_Max { get; set; }
         #endregion
         
+        #region Parameter InstanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+        /// <summary>
+        /// <para>
+        /// <para>[Price protection] The price protection threshold for Spot Instances, as a percentage
+        /// of an identified On-Demand price. The identified On-Demand price is the price of the
+        /// lowest priced current generation C, M, or R instance type with your specified attributes.
+        /// If no current generation C, M, or R instance type matches your attributes, then the
+        /// identified price is from the lowest priced current generation instance types, and
+        /// failing that, from the lowest priced previous generation instance types that match
+        /// your attributes. When Amazon EC2 selects instance types with your attributes, it will
+        /// exclude instance types whose price exceeds your specified threshold.</para><para>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</para><para>To indicate no price protection threshold, specify a high value, such as <c>999999</c>.</para><para>If you set <c>DesiredCapacityType</c> to <c>vcpu</c> or <c>memory-mib</c>, the price
+        /// protection threshold is based on the per vCPU or per memory price instead of the per
+        /// instance price.</para><note><para>Only one of <c>SpotMaxPricePercentageOverLowestPrice</c> or <c>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</c>
+        /// can be specified. If you don't specify either, then <c>SpotMaxPricePercentageOverLowestPrice</c>
+        /// is used and the value for that parameter defaults to <c>100</c>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? InstanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice { get; set; }
+        #endregion
+        
         #region Parameter AcceleratorCount_Min
         /// <summary>
         /// <para>
@@ -439,11 +460,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice
         /// <summary>
         /// <para>
-        /// <para>The price protection threshold for On-Demand Instances. This is the maximum you’ll
-        /// pay for an On-Demand Instance, expressed as a percentage above the least expensive
-        /// current generation M, C, or R instance type with your specified attributes. When Amazon
-        /// EC2 selects instance types with your attributes, it excludes instance types priced
-        /// above your threshold.</para><para>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</para><para>To turn off price protection, specify a high value, such as <c>999999</c>.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>
+        /// <para>[Price protection] The price protection threshold for On-Demand Instances, as a percentage
+        /// higher than an identified On-Demand price. The identified On-Demand price is the price
+        /// of the lowest priced current generation C, M, or R instance type with your specified
+        /// attributes. When Amazon EC2 selects instance types with your attributes, it will exclude
+        /// instance types whose price exceeds your specified threshold.</para><para>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</para><para>To indicate no price protection threshold, specify a high value, such as <c>999999</c>.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>
         /// and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</para><note><para>If you set <c>TargetCapacityUnitType</c> to <c>vcpu</c> or <c>memory-mib</c>, the
         /// price protection threshold is applied based on the per-vCPU or per-memory price instead
         /// of the per-instance price.</para></note><para>Default: <c>20</c></para>
@@ -466,13 +487,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceRequirements_SpotMaxPricePercentageOverLowestPrice
         /// <summary>
         /// <para>
-        /// <para>The price protection threshold for Spot Instance. This is the maximum you’ll pay for
-        /// an Spot Instance, expressed as a percentage above the least expensive current generation
-        /// M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance
-        /// types with your attributes, it excludes instance types priced above your threshold.</para><para>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</para><para>To turn off price protection, specify a high value, such as <c>999999</c>.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>
-        /// and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</para><note><para>If you set <c>TargetCapacityUnitType</c> to <c>vcpu</c> or <c>memory-mib</c>, the
+        /// <para>[Price protection] The price protection threshold for Spot Instances, as a percentage
+        /// higher than an identified Spot price. The identified Spot price is the Spot price
+        /// of the lowest priced current generation C, M, or R instance type with your specified
+        /// attributes. If no current generation C, M, or R instance type matches your attributes,
+        /// then the identified Spot price is from the lowest priced current generation instance
+        /// types, and failing that, from the lowest priced previous generation instance types
+        /// that match your attributes. When Amazon EC2 selects instance types with your attributes,
+        /// it will exclude instance types whose Spot price exceeds your specified threshold.</para><para>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</para><para>To indicate no price protection threshold, specify a high value, such as <c>999999</c>.</para><para>If you set <c>TargetCapacityUnitType</c> to <c>vcpu</c> or <c>memory-mib</c>, the
         /// price protection threshold is applied based on the per-vCPU or per-memory price instead
-        /// of the per-instance price.</para></note><para>Default: <c>100</c></para>
+        /// of the per-instance price.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>
+        /// and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</para><note><para>Only one of <c>SpotMaxPricePercentageOverLowestPrice</c> or <c>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</c>
+        /// can be specified. If you don't specify either, then <c>SpotMaxPricePercentageOverLowestPrice</c>
+        /// is used and the value for that parameter defaults to <c>100</c>.</para></note><para>Default: <c>100</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -612,6 +639,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.InstanceRequirements_LocalStorageType = new List<System.String>(this.InstanceRequirements_LocalStorageType);
             }
+            context.InstanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice = this.InstanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice;
             context.MemoryGiBPerVCpu_Max = this.MemoryGiBPerVCpu_Max;
             context.MemoryGiBPerVCpu_Min = this.MemoryGiBPerVCpu_Min;
             context.MemoryMiB_Max = this.MemoryMiB_Max;
@@ -785,6 +813,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestInstanceRequirements_instanceRequirements_LocalStorageType != null)
             {
                 request.InstanceRequirements.LocalStorageTypes = requestInstanceRequirements_instanceRequirements_LocalStorageType;
+                requestInstanceRequirementsIsNull = false;
+            }
+            System.Int32? requestInstanceRequirements_instanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice = null;
+            if (cmdletContext.InstanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice != null)
+            {
+                requestInstanceRequirements_instanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice = cmdletContext.InstanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice.Value;
+            }
+            if (requestInstanceRequirements_instanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice != null)
+            {
+                request.InstanceRequirements.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice = requestInstanceRequirements_instanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice.Value;
                 requestInstanceRequirementsIsNull = false;
             }
             System.Int32? requestInstanceRequirements_instanceRequirements_OnDemandMaxPricePercentageOverLowestPrice = null;
@@ -1248,6 +1286,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<System.String> InstanceRequirements_InstanceGeneration { get; set; }
             public Amazon.EC2.LocalStorage InstanceRequirements_LocalStorage { get; set; }
             public List<System.String> InstanceRequirements_LocalStorageType { get; set; }
+            public System.Int32? InstanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice { get; set; }
             public System.Double? MemoryGiBPerVCpu_Max { get; set; }
             public System.Double? MemoryGiBPerVCpu_Min { get; set; }
             public System.Int32? MemoryMiB_Max { get; set; }
