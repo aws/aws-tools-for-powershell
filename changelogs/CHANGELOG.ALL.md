@@ -1,4 +1,10 @@
-﻿### 4.1.504 (2024-01-29 21:40Z)
+﻿### 4.1.505 (2024-01-30 21:38Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.737.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Modified cmdlet Remove-DZDomain: added parameter SkipDeletionCheck.
+    * Modified cmdlet Remove-DZProject: added parameter SkipDeletionCheck.
+
+### 4.1.504 (2024-01-29 21:40Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.736.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet Get-EC2InstanceTypesFromInstanceRequirement: added parameter InstanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice.

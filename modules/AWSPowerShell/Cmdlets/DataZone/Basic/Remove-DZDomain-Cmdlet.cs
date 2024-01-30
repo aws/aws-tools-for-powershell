@@ -59,6 +59,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String Identifier { get; set; }
         #endregion
         
+        #region Parameter SkipDeletionCheck
+        /// <summary>
+        /// <para>
+        /// <para>Optional flag to delete all child entities within the domain</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SkipDeletionCheck { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -140,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SkipDeletionCheck = this.SkipDeletionCheck;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -163,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.Identifier != null)
             {
                 request.Identifier = cmdletContext.Identifier;
+            }
+            if (cmdletContext.SkipDeletionCheck != null)
+            {
+                request.SkipDeletionCheck = cmdletContext.SkipDeletionCheck.Value;
             }
             
             CmdletOutput output;
@@ -227,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             public System.String ClientToken { get; set; }
             public System.String Identifier { get; set; }
+            public System.Boolean? SkipDeletionCheck { get; set; }
             public System.Func<Amazon.DataZone.Model.DeleteDomainResponse, RemoveDZDomainCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Status;
         }
