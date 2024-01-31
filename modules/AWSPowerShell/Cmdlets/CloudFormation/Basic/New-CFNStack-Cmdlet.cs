@@ -339,9 +339,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TimeoutInMinutes
         /// <summary>
         /// <para>
-        /// <para>The amount of time that can pass before the stack status becomes CREATE_FAILED; if
-        /// <c>DisableRollback</c> is not set or is set to <c>false</c>, the stack will be rolled
-        /// back.</para>
+        /// <para>The amount of time that can pass before the stack status becomes <c>CREATE_FAILED</c>;
+        /// if <c>DisableRollback</c> is not set or is set to <c>false</c>, the stack will be
+        /// rolled back.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

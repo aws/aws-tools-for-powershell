@@ -192,6 +192,22 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String DocumentVersion { get; set; }
         #endregion
         
+        #region Parameter Duration
+        /// <summary>
+        /// <para>
+        /// <para>The number of hours the association can run before it is canceled. Duration applies
+        /// to associations that are currently running, and any pending and in progress commands
+        /// on all targets. If a target was taken offline for the association to run, it is made
+        /// available again immediately, without a reboot. </para><para>The <c>Duration</c> parameter applies only when both these conditions are true:</para><ul><li><para>The association for which you specify a duration is cancelable according to the parameters
+        /// of the SSM command document or Automation runbook associated with this execution.
+        /// </para></li><li><para>The command specifies the <c><a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateAssociation.html#systemsmanager-UpdateAssociation-request-ApplyOnlyAtCronInterval">ApplyOnlyAtCronInterval</a></c> parameter, which means that the association doesn't run immediately after it
+        /// is updated, but only according to the specified schedule.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Duration { get; set; }
+        #endregion
+        
         #region Parameter AlarmConfiguration_IgnorePollAlarmFailure
         /// <summary>
         /// <para>
@@ -468,6 +484,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             context.ComplianceSeverity = this.ComplianceSeverity;
             context.DocumentVersion = this.DocumentVersion;
+            context.Duration = this.Duration;
             context.MaxConcurrency = this.MaxConcurrency;
             context.MaxError = this.MaxError;
             context.Name = this.Name;
@@ -606,6 +623,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.DocumentVersion != null)
             {
                 request.DocumentVersion = cmdletContext.DocumentVersion;
+            }
+            if (cmdletContext.Duration != null)
+            {
+                request.Duration = cmdletContext.Duration.Value;
             }
             if (cmdletContext.MaxConcurrency != null)
             {
@@ -772,6 +793,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public List<System.String> CalendarName { get; set; }
             public Amazon.SimpleSystemsManagement.AssociationComplianceSeverity ComplianceSeverity { get; set; }
             public System.String DocumentVersion { get; set; }
+            public System.Int32? Duration { get; set; }
             public System.String MaxConcurrency { get; set; }
             public System.String MaxError { get; set; }
             public System.String Name { get; set; }

@@ -1,4 +1,22 @@
-﻿### 4.1.505 (2024-01-30 21:38Z)
+﻿### 4.1.506 (2024-01-31 22:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.738.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudFormation
+    * Added cmdlet Get-CFNGeneratedTemplate leveraging the GetGeneratedTemplate service API.
+    * Added cmdlet Get-CFNGeneratedTemplateInformation leveraging the DescribeGeneratedTemplate service API.
+    * Added cmdlet Get-CFNGeneratedTemplateList leveraging the ListGeneratedTemplates service API.
+    * Added cmdlet Get-CFNResourceScan leveraging the DescribeResourceScan service API.
+    * Added cmdlet Get-CFNResourceScanList leveraging the ListResourceScans service API.
+    * Added cmdlet Get-CFNResourceScanRelatedResource leveraging the ListResourceScanRelatedResources service API.
+    * Added cmdlet Get-CFNResourceScanResource leveraging the ListResourceScanResources service API.
+    * Added cmdlet New-CFNGeneratedTemplate leveraging the CreateGeneratedTemplate service API.
+    * Added cmdlet Remove-CFNGeneratedTemplate leveraging the DeleteGeneratedTemplate service API.
+    * Added cmdlet Start-CFNResourceScan leveraging the StartResourceScan service API.
+    * Added cmdlet Update-CFNGeneratedTemplate leveraging the UpdateGeneratedTemplate service API.
+  * Amazon Systems Manager
+    * Modified cmdlet New-SSMAssociation: added parameter Duration.
+    * Modified cmdlet Update-SSMAssociation: added parameter Duration.
+
+### 4.1.505 (2024-01-30 21:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.737.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataZone
     * Modified cmdlet Remove-DZDomain: added parameter SkipDeletionCheck.

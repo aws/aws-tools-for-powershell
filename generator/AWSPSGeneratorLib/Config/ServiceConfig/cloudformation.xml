@@ -59,6 +59,10 @@
                 <Type>Amazon.CloudFormation.Model.RollbackConfiguration</Type>
             </TypesNotToFlatten>
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateGeneratedTemplate" OutputProperty="GeneratedTemplateId" Verb="New" Noun="GeneratedTemplate" ShouldProcessTarget="GeneratedTemplateName" PipelineParameter="StackName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateStack" OutputProperty="StackId" Verb="New" Noun="Stack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params>
                 <Param Name="TimeoutInMinutes" AutoRename="false" />
@@ -84,6 +88,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteChangeSet" Verb="Remove" Noun="ChangeSet" ShouldProcessTarget="ChangeSetName" PositionalParameters="StackName" PipelineParameter="ChangeSetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGeneratedTemplate" Verb="Remove" Noun="GeneratedTemplate" ShouldProcessTarget="GeneratedTemplateName" PipelineParameter="GeneratedTemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -117,11 +125,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGeneratedTemplate" OutputProperty="*" Verb="Get" Noun="GeneratedTemplateInformation" PipelineParameter="GeneratedTemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeOrganizationsAccess" OutputProperty="Status" Verb="Get" Noun="OrganizationsAccess" PipelineParameter="CallAs" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribePublisher" OutputProperty="*" Verb="Get" Noun="Publisher" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeResourceScan" OutputProperty="*" Verb="Get" Noun="ResourceScan" PipelineParameter="ResourceScanId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -189,6 +205,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetGeneratedTemplate" OutputProperty="*" Verb="Get" Noun="GeneratedTemplate" PipelineParameter="GeneratedTemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetStackPolicy" OutputProperty="StackPolicyBody" Verb="Get" Noun="StackPolicy" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -213,7 +233,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListGeneratedTemplates" OutputProperty="Summaries" Verb="Get" Noun="GeneratedTemplateList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListImports" OutputProperty="Imports" Verb="Get" Noun="ImportList" PipelineParameter="ExportName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceScanRelatedResources" OutputProperty="RelatedResources" Verb="Get" Noun="ResourceScanRelatedResource" PipelineParameter="ResourceScanId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceScanResources" OutputProperty="Resources" Verb="Get" Noun="ResourceScanResource" PipelineParameter="ResourceScanId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceScans" OutputProperty="ResourceScanSummaries" Verb="Get" Noun="ResourceScanList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -297,11 +333,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartResourceScan" OutputProperty="ResourceScanId" Verb="Start" Noun="ResourceScan" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopStackSetOperation" Verb="Stop" Noun="StackSetOperation" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TestType" OutputProperty="TypeVersionArn" Verb="Test" Noun="Type" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGeneratedTemplate" OutputProperty="GeneratedTemplateId" Verb="Update" Noun="GeneratedTemplate" ShouldProcessTarget="GeneratedTemplateName" PipelineParameter="GeneratedTemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

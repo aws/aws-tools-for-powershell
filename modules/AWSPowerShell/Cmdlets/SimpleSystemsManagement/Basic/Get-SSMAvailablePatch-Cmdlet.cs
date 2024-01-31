@@ -28,7 +28,12 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Lists all patches eligible to be included in a patch baseline.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all patches eligible to be included in a patch baseline.
+    /// 
+    ///  <note><para>
+    /// Currently, <c>DescribeAvailablePatches</c> supports only the Amazon Linux 1, Amazon
+    /// Linux 2, and Windows Server operating systems.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMAvailablePatch")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Patch")]

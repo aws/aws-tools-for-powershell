@@ -143,6 +143,26 @@ $CFN_Completers = {
             break
         }
 
+        # Amazon.CloudFormation.GeneratedTemplateDeletionPolicy
+        {
+            ($_ -eq "New-CFNGeneratedTemplate/TemplateConfiguration_DeletionPolicy") -Or
+            ($_ -eq "Update-CFNGeneratedTemplate/TemplateConfiguration_DeletionPolicy")
+        }
+        {
+            $v = "DELETE","RETAIN"
+            break
+        }
+
+        # Amazon.CloudFormation.GeneratedTemplateUpdateReplacePolicy
+        {
+            ($_ -eq "New-CFNGeneratedTemplate/TemplateConfiguration_UpdateReplacePolicy") -Or
+            ($_ -eq "Update-CFNGeneratedTemplate/TemplateConfiguration_UpdateReplacePolicy")
+        }
+        {
+            $v = "DELETE","RETAIN"
+            break
+        }
+
         # Amazon.CloudFormation.HandlerErrorCode
         "Write-CFNHandlerProgress/ErrorCode"
         {
@@ -237,6 +257,13 @@ $CFN_Completers = {
             break
         }
 
+        # Amazon.CloudFormation.TemplateFormat
+        "Get-CFNGeneratedTemplate/Format"
+        {
+            $v = "JSON","YAML"
+            break
+        }
+
         # Amazon.CloudFormation.TemplateStage
         "Get-CFNTemplate/TemplateStage"
         {
@@ -287,6 +314,7 @@ $CFN_map = @{
     "DeprecatedStatus"=@("Get-CFNTypeList","Get-CFNTypeVersion")
     "ErrorCode"=@("Write-CFNHandlerProgress")
     "Filters_Category"=@("Get-CFNTypeList")
+    "Format"=@("Get-CFNGeneratedTemplate")
     "OnFailure"=@("New-CFNStack")
     "OnStackFailure"=@("New-CFNChangeSet")
     "OperationStatus"=@("Write-CFNHandlerProgress")
@@ -294,6 +322,8 @@ $CFN_map = @{
     "ProvisioningType"=@("Get-CFNTypeList")
     "RegistrationStatusFilter"=@("Get-CFNTypeRegistrationList")
     "Status"=@("Get-CFNStackSetList","Send-CFNResourceSignal","Test-CFNStack","Wait-CFNStack")
+    "TemplateConfiguration_DeletionPolicy"=@("New-CFNGeneratedTemplate","Update-CFNGeneratedTemplate")
+    "TemplateConfiguration_UpdateReplacePolicy"=@("New-CFNGeneratedTemplate","Update-CFNGeneratedTemplate")
     "TemplateStage"=@("Get-CFNTemplate")
     "Type"=@("Disable-CFNType","Enable-CFNType","Get-CFNType","Get-CFNTypeList","Get-CFNTypeRegistrationList","Get-CFNTypeVersion","Publish-CFNType","Register-CFNType","Set-CFNTypeConfiguration","Set-CFNTypeDefaultVersion","Test-CFNType","Unregister-CFNType")
     "VersionBump"=@("Enable-CFNType")
@@ -356,12 +386,14 @@ $CFN_SelectMap = @{
                "Stop-CFNUpdateStack",
                "Resume-CFNUpdateRollback",
                "New-CFNChangeSet",
+               "New-CFNGeneratedTemplate",
                "New-CFNStack",
                "New-CFNStackInstance",
                "New-CFNStackSet",
                "Disable-CFNOrganizationsAccess",
                "Disable-CFNType",
                "Remove-CFNChangeSet",
+               "Remove-CFNGeneratedTemplate",
                "Remove-CFNStack",
                "Remove-CFNStackInstance",
                "Remove-CFNStackSet",
@@ -369,8 +401,10 @@ $CFN_SelectMap = @{
                "Get-CFNAccountLimit",
                "Get-CFNChangeSet",
                "Get-CFNChangeSetHook",
+               "Get-CFNGeneratedTemplateInformation",
                "Get-CFNOrganizationsAccess",
                "Get-CFNPublisher",
+               "Get-CFNResourceScan",
                "Get-CFNStackDriftDetectionStatus",
                "Get-CFNStackEvent",
                "Get-CFNStackInstance",
@@ -387,13 +421,18 @@ $CFN_SelectMap = @{
                "Start-CFNStackSetDriftDetection",
                "Measure-CFNTemplateCost",
                "Start-CFNChangeSet",
+               "Get-CFNGeneratedTemplate",
                "Get-CFNStackPolicy",
                "Get-CFNTemplate",
                "Get-CFNTemplateSummary",
                "Import-CFNStacksToStackSet",
                "Get-CFNChangeSetList",
                "Get-CFNExport",
+               "Get-CFNGeneratedTemplateList",
                "Get-CFNImportList",
+               "Get-CFNResourceScanRelatedResource",
+               "Get-CFNResourceScanResource",
+               "Get-CFNResourceScanList",
                "Get-CFNStackInstanceResourceDrift",
                "Get-CFNStackInstanceList",
                "Get-CFNStackResourceSummary",
@@ -413,8 +452,10 @@ $CFN_SelectMap = @{
                "Set-CFNTypeConfiguration",
                "Set-CFNTypeDefaultVersion",
                "Send-CFNResourceSignal",
+               "Start-CFNResourceScan",
                "Stop-CFNStackSetOperation",
                "Test-CFNType",
+               "Update-CFNGeneratedTemplate",
                "Update-CFNStack",
                "Update-CFNStackInstance",
                "Update-CFNStackSet",

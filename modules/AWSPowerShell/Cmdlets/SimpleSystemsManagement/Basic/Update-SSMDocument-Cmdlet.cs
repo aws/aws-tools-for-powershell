@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>An optional field specifying the version of the artifact you are updating with the
-        /// document. For example, "Release 12, Update 6". This value is unique across all versions
-        /// of a document, and can't be changed.</para>
+        /// document. For example, 12.6. This value is unique across all versions of a document,
+        /// and can't be changed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
