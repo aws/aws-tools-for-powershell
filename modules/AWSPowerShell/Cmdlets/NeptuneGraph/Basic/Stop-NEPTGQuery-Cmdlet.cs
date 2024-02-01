@@ -22,48 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CognitoIdentityProvider;
-using Amazon.CognitoIdentityProvider.Model;
+using Amazon.NeptuneGraph;
+using Amazon.NeptuneGraph.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGIP
+namespace Amazon.PowerShell.Cmdlets.NEPTG
 {
     /// <summary>
-    /// <i>This action is no longer supported.</i> You can use it to configure only SMS MFA.
-    /// You can't use it to configure time-based one-time password (TOTP) software token MFA.
-    /// To configure either type of MFA, use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html">SetUserMFAPreference</a>
-    /// instead.
-    /// 
-    ///  
-    /// <para>
-    /// Authorize this action with a signed-in user's access token. It must include the scope
-    /// <c>aws.cognito.signin.user.admin</c>.
-    /// </para><note><para>
-    /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
-    /// for this API operation. For this operation, you can't use IAM credentials to authorize
-    /// requests, and you can't grant IAM permissions in policies. For more information about
-    /// authorization models in Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
-    /// the Amazon Cognito user pools API and user pool endpoints</a>.
-    /// </para></note>
+    /// Cancels a specified query.
     /// </summary>
-    [Cmdlet("Set", "CGIPUserSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Stop", "NEPTGQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Cognito Identity Provider SetUserSettings API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"SetUserSettings"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.SetUserSettingsResponse))]
-    [AWSCmdletOutput("None or Amazon.CognitoIdentityProvider.Model.SetUserSettingsResponse",
+    [AWSCmdlet("Calls the Amazon Neptune Graph CancelQuery API operation.", Operation = new[] {"CancelQuery"}, SelectReturnType = typeof(Amazon.NeptuneGraph.Model.CancelQueryResponse))]
+    [AWSCmdletOutput("None or Amazon.NeptuneGraph.Model.CancelQueryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.SetUserSettingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.NeptuneGraph.Model.CancelQueryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class SetCGIPUserSettingCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class StopNEPTGQueryCmdlet : AmazonNeptuneGraphClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AccessToken
+        #region Parameter GraphIdentifier
         /// <summary>
         /// <para>
-        /// <para>A valid access token that Amazon Cognito issued to the user whose user settings you
-        /// want to configure.</para>
+        /// <para>The unique identifier of the Neptune Analytics graph.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,31 +56,30 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AccessToken { get; set; }
+        public System.String GraphIdentifier { get; set; }
         #endregion
         
-        #region Parameter MFAOption
+        #region Parameter QueryId
         /// <summary>
         /// <para>
-        /// <para>You can use this parameter only to set an SMS configuration that uses SMS for delivery.</para>
+        /// <para>The unique identifier of the query to cancel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("MFAOptions")]
-        public Amazon.CognitoIdentityProvider.Model.MFAOptionType[] MFAOption { get; set; }
+        public System.String QueryId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.SetUserSettingsResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NeptuneGraph.Model.CancelQueryResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,10 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AccessToken parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AccessToken' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the GraphIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^GraphIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AccessToken' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GraphIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -130,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccessToken), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-CGIPUserSetting (SetUserSettings)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueryId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-NEPTGQuery (CancelQuery)"))
             {
                 return;
             }
@@ -144,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.SetUserSettingsResponse, SetCGIPUserSettingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NeptuneGraph.Model.CancelQueryResponse, StopNEPTGQueryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -153,24 +134,21 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AccessToken;
+                context.Select = (response, cmdlet) => this.GraphIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccessToken = this.AccessToken;
+            context.GraphIdentifier = this.GraphIdentifier;
             #if MODULAR
-            if (this.AccessToken == null && ParameterWasBound(nameof(this.AccessToken)))
+            if (this.GraphIdentifier == null && ParameterWasBound(nameof(this.GraphIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter AccessToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter GraphIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.MFAOption != null)
-            {
-                context.MFAOption = new List<Amazon.CognitoIdentityProvider.Model.MFAOptionType>(this.MFAOption);
-            }
+            context.QueryId = this.QueryId;
             #if MODULAR
-            if (this.MFAOption == null && ParameterWasBound(nameof(this.MFAOption)))
+            if (this.QueryId == null && ParameterWasBound(nameof(this.QueryId)))
             {
-                WriteWarning("You are passing $null as a value for parameter MFAOption which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter QueryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -187,21 +165,21 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.SetUserSettingsRequest();
+            var request = new Amazon.NeptuneGraph.Model.CancelQueryRequest();
             
-            if (cmdletContext.AccessToken != null)
+            if (cmdletContext.GraphIdentifier != null)
             {
-                request.AccessToken = cmdletContext.AccessToken;
+                request.GraphIdentifier = cmdletContext.GraphIdentifier;
             }
-            if (cmdletContext.MFAOption != null)
+            if (cmdletContext.QueryId != null)
             {
-                request.MFAOptions = cmdletContext.MFAOption;
+                request.QueryId = cmdletContext.QueryId;
             }
             
             CmdletOutput output;
             
             // issue call
-            var client = Client ?? CreateClient(_RegionEndpoint);
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             try
             {
                 var response = CallAWSServiceOperation(client, request);
@@ -230,15 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.SetUserSettingsResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.SetUserSettingsRequest request)
+        private Amazon.NeptuneGraph.Model.CancelQueryResponse CallAWSServiceOperation(IAmazonNeptuneGraph client, Amazon.NeptuneGraph.Model.CancelQueryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "SetUserSettings");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Neptune Graph", "CancelQuery");
             try
             {
                 #if DESKTOP
-                return client.SetUserSettings(request);
+                return client.CancelQuery(request);
                 #elif CORECLR
-                return client.SetUserSettingsAsync(request).GetAwaiter().GetResult();
+                return client.CancelQueryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -258,9 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccessToken { get; set; }
-            public List<Amazon.CognitoIdentityProvider.Model.MFAOptionType> MFAOption { get; set; }
-            public System.Func<Amazon.CognitoIdentityProvider.Model.SetUserSettingsResponse, SetCGIPUserSettingCmdlet, object> Select { get; set; } =
+            public System.String GraphIdentifier { get; set; }
+            public System.String QueryId { get; set; }
+            public System.Func<Amazon.NeptuneGraph.Model.CancelQueryResponse, StopNEPTGQueryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

@@ -34,6 +34,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePlaybackRestrictionPolicy" OutputProperty="PlaybackRestrictionPolicy" Verb="New" Noun="PlaybackRestrictionPolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateRecordingConfiguration" OutputProperty="RecordingConfiguration" Verb="New" Noun="RecordingConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -50,6 +54,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeletePlaybackRestrictionPolicy" Verb="Remove" Noun="PlaybackRestrictionPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteRecordingConfiguration" Verb="Remove" Noun="RecordingConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -63,6 +71,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetPlaybackKeyPair" OutputProperty="KeyPair" Verb="Get" Noun="PlaybackKeyPair" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPlaybackRestrictionPolicy" OutputProperty="PlaybackRestrictionPolicy" Verb="Get" Noun="PlaybackRestrictionPolicy" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -91,6 +103,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPlaybackKeyPairs" OutputProperty="KeyPairs" Verb="Get" Noun="PlaybackKeyPairList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPlaybackRestrictionPolicies" OutputProperty="PlaybackRestrictionPolicies" Verb="Get" Noun="PlaybackRestrictionPolicyList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -135,6 +151,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateChannel" OutputProperty="Channel" Verb="Update" Noun="Channel" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePlaybackRestrictionPolicy" OutputProperty="PlaybackRestrictionPolicy" Verb="Update" Noun="PlaybackRestrictionPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

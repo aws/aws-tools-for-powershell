@@ -22,61 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CognitoIdentityProvider;
-using Amazon.CognitoIdentityProvider.Model;
+using Amazon.IVS;
+using Amazon.IVS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGIP
+namespace Amazon.PowerShell.Cmdlets.IVS
 {
     /// <summary>
-    /// Invalidates the identity, access, and refresh tokens that Amazon Cognito issued to
-    /// a user. Call this operation when your user signs out of your app. This results in
-    /// the following behavior. 
-    /// 
-    ///  <ul><li><para>
-    /// Amazon Cognito no longer accepts <i>token-authorized</i> user operations that you
-    /// authorize with a signed-out user's access tokens. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
-    /// the Amazon Cognito user pools API and user pool endpoints</a>.
-    /// </para><para>
-    /// Amazon Cognito returns an <c>Access Token has been revoked</c> error when your app
-    /// attempts to authorize a user pools API request with a revoked access token that contains
-    /// the scope <c>aws.cognito.signin.user.admin</c>.
-    /// </para></li><li><para>
-    /// Amazon Cognito no longer accepts a signed-out user's ID token in a <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetId.html">GetId
-    /// </a> request to an identity pool with <c>ServerSideTokenCheck</c> enabled for its
-    /// user pool IdP configuration in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_CognitoIdentityProvider.html">CognitoIdentityProvider</a>.
-    /// </para></li><li><para>
-    /// Amazon Cognito no longer accepts a signed-out user's refresh tokens in refresh requests.
-    /// </para></li></ul><para>
-    /// Other requests might be valid until your user's token expires.
-    /// </para><para>
-    /// Authorize this action with a signed-in user's access token. It must include the scope
-    /// <c>aws.cognito.signin.user.admin</c>.
-    /// </para><note><para>
-    /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
-    /// for this API operation. For this operation, you can't use IAM credentials to authorize
-    /// requests, and you can't grant IAM permissions in policies. For more information about
-    /// authorization models in Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
-    /// the Amazon Cognito user pools API and user pool endpoints</a>.
-    /// </para></note>
+    /// Deletes the specified playback restriction policy.
     /// </summary>
-    [Cmdlet("Disconnect", "CGIPDeviceGlobal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "IVSPlaybackRestrictionPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Cognito Identity Provider GlobalSignOut API operation.", Operation = new[] {"GlobalSignOut"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.GlobalSignOutResponse))]
-    [AWSCmdletOutput("None or Amazon.CognitoIdentityProvider.Model.GlobalSignOutResponse",
+    [AWSCmdlet("Calls the Amazon Interactive Video Service DeletePlaybackRestrictionPolicy API operation.", Operation = new[] {"DeletePlaybackRestrictionPolicy"}, SelectReturnType = typeof(Amazon.IVS.Model.DeletePlaybackRestrictionPolicyResponse))]
+    [AWSCmdletOutput("None or Amazon.IVS.Model.DeletePlaybackRestrictionPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.GlobalSignOutResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IVS.Model.DeletePlaybackRestrictionPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class DisconnectCGIPDeviceGlobalCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class RemoveIVSPlaybackRestrictionPolicyCmdlet : AmazonIVSClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AccessToken
+        #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>A valid access token that Amazon Cognito issued to the user who you want to sign out.</para>
+        /// <para>ARN of the playback restriction policy to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,13 +56,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AccessToken { get; set; }
+        public System.String Arn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.GlobalSignOutResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IVS.Model.DeletePlaybackRestrictionPolicyResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AccessToken parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AccessToken' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Arn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AccessToken' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -125,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccessToken), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disconnect-CGIPDeviceGlobal (GlobalSignOut)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Arn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IVSPlaybackRestrictionPolicy (DeletePlaybackRestrictionPolicy)"))
             {
                 return;
             }
@@ -139,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.GlobalSignOutResponse, DisconnectCGIPDeviceGlobalCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IVS.Model.DeletePlaybackRestrictionPolicyResponse, RemoveIVSPlaybackRestrictionPolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -148,14 +117,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AccessToken;
+                context.Select = (response, cmdlet) => this.Arn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccessToken = this.AccessToken;
+            context.Arn = this.Arn;
             #if MODULAR
-            if (this.AccessToken == null && ParameterWasBound(nameof(this.AccessToken)))
+            if (this.Arn == null && ParameterWasBound(nameof(this.Arn)))
             {
-                WriteWarning("You are passing $null as a value for parameter AccessToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -172,11 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.GlobalSignOutRequest();
+            var request = new Amazon.IVS.Model.DeletePlaybackRestrictionPolicyRequest();
             
-            if (cmdletContext.AccessToken != null)
+            if (cmdletContext.Arn != null)
             {
-                request.AccessToken = cmdletContext.AccessToken;
+                request.Arn = cmdletContext.Arn;
             }
             
             CmdletOutput output;
@@ -211,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.GlobalSignOutResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.GlobalSignOutRequest request)
+        private Amazon.IVS.Model.DeletePlaybackRestrictionPolicyResponse CallAWSServiceOperation(IAmazonIVS client, Amazon.IVS.Model.DeletePlaybackRestrictionPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "GlobalSignOut");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Interactive Video Service", "DeletePlaybackRestrictionPolicy");
             try
             {
                 #if DESKTOP
-                return client.GlobalSignOut(request);
+                return client.DeletePlaybackRestrictionPolicy(request);
                 #elif CORECLR
-                return client.GlobalSignOutAsync(request).GetAwaiter().GetResult();
+                return client.DeletePlaybackRestrictionPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -239,8 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccessToken { get; set; }
-            public System.Func<Amazon.CognitoIdentityProvider.Model.GlobalSignOutResponse, DisconnectCGIPDeviceGlobalCmdlet, object> Select { get; set; } =
+            public System.String Arn { get; set; }
+            public System.Func<Amazon.IVS.Model.DeletePlaybackRestrictionPolicyResponse, RemoveIVSPlaybackRestrictionPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

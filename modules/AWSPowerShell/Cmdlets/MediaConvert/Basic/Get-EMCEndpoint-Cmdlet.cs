@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
 {
     /// <summary>
     /// Send an request with an empty body to the regional API endpoint to get your account
-    /// API endpoint.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// API endpoint.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "EMCEndpoint")]
     [OutputType("Amazon.MediaConvert.Model.Endpoint")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         "This cmdlet returns a collection of Amazon.MediaConvert.Model.Endpoint objects.",
         "The service call response (type Amazon.MediaConvert.Model.DescribeEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("DescribeEndpoints and account specific endpoints are no longer required. We recommend that you send your requests directly to the regional endpoint instead.")]
     public partial class GetEMCEndpointCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {
         

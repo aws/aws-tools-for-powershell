@@ -1,4 +1,24 @@
-﻿### 4.1.506 (2024-01-31 22:58Z)
+﻿### 4.1.507 (2024-02-01 21:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.739.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Interactive Video Service
+    * Added cmdlet Get-IVSPlaybackRestrictionPolicy leveraging the GetPlaybackRestrictionPolicy service API.
+    * Added cmdlet Get-IVSPlaybackRestrictionPolicyList leveraging the ListPlaybackRestrictionPolicies service API.
+    * Added cmdlet New-IVSPlaybackRestrictionPolicy leveraging the CreatePlaybackRestrictionPolicy service API.
+    * Added cmdlet Remove-IVSPlaybackRestrictionPolicy leveraging the DeletePlaybackRestrictionPolicy service API.
+    * Added cmdlet Update-IVSPlaybackRestrictionPolicy leveraging the UpdatePlaybackRestrictionPolicy service API.
+    * Modified cmdlet Get-IVSChannelList: added parameter FilterByPlaybackRestrictionPolicyArn.
+    * Modified cmdlet New-IVSChannel: added parameter PlaybackRestrictionPolicyArn.
+    * Modified cmdlet Update-IVSChannel: added parameter PlaybackRestrictionPolicyArn.
+  * Amazon Managed Blockchain Query
+    * Modified cmdlet Get-MBCQTransactionList: added parameter ConfirmationStatusFilter_Include.
+  * Amazon Neptune Graph
+    * Added cmdlet Get-NEPTGGraphSummary leveraging the GetGraphSummary service API.
+    * Added cmdlet Get-NEPTGQuery leveraging the GetQuery service API.
+    * Added cmdlet Get-NEPTGQueryList leveraging the ListQueries service API.
+    * Added cmdlet Invoke-NEPTGQuery leveraging the ExecuteQuery service API.
+    * Added cmdlet Stop-NEPTGQuery leveraging the CancelQuery service API.
+
+### 4.1.506 (2024-01-31 22:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.738.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudFormation
     * Added cmdlet Get-CFNGeneratedTemplate leveraging the GetGeneratedTemplate service API.

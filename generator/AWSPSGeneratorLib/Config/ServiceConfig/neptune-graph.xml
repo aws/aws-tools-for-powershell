@@ -22,6 +22,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelQuery" Verb="Stop" Noun="Query" ShouldProcessTarget="QueryId" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateGraph" OutputProperty="*" Verb="New" Noun="Graph" ShouldProcessTarget="GraphName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -50,6 +54,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ExecuteQuery" OutputProperty="Payload" Verb="Invoke" Noun="Query" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetGraph" OutputProperty="*" Verb="Get" Noun="Graph" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -58,11 +66,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetGraphSummary" OutputProperty="*" Verb="Get" Noun="GraphSummary" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetImportTask" OutputProperty="*" Verb="Get" Noun="ImportTask" PipelineParameter="TaskIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetPrivateGraphEndpoint" OutputProperty="*" Verb="Get" Noun="PrivateGraphEndpoint" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQuery" OutputProperty="*" Verb="Get" Noun="Query" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -79,6 +95,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPrivateGraphEndpoints" OutputProperty="PrivateGraphEndpoints" Verb="Get" Noun="PrivateGraphEndpointList" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListQueries" OutputProperty="Queries" Verb="Get" Noun="QueryList" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

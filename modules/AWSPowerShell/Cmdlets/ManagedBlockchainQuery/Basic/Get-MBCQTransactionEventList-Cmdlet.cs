@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
     /// <summary>
     /// An array of <c>TransactionEvent</c> objects. Each object contains details about the
     /// transaction event.
+    /// 
+    ///  <note><para>
+    /// This action will return transaction details for all transactions that are <i>confirmed</i>
+    /// on the blockchain, even if they have not reached <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality">finality</a>.
+    /// 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "MBCQTransactionEventList")]
     [OutputType("Amazon.ManagedBlockchainQuery.Model.TransactionEvent")]
@@ -81,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of transaction events to list.</para><note><para>Even if additional results can be retrieved, the request can return less results than
+        /// <para>The maximum number of transaction events to list.</para><para>Default:<c>100</c></para><note><para>Even if additional results can be retrieved, the request can return less results than
         /// <c>maxResults</c> or an empty array of results.</para><para>To retrieve the next set of results, make another request with the returned <c>nextToken</c>
         /// value. The value of <c>nextToken</c> is <c>null</c> when there are no more results
         /// to return</para></note>

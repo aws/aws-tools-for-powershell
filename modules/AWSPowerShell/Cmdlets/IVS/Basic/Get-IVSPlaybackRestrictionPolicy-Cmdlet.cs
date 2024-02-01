@@ -22,45 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CognitoIdentityProvider;
-using Amazon.CognitoIdentityProvider.Model;
+using Amazon.IVS;
+using Amazon.IVS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGIP
+namespace Amazon.PowerShell.Cmdlets.IVS
 {
     /// <summary>
-    /// Gets the user attributes and metadata for a user.
-    /// 
-    ///  
-    /// <para>
-    /// Authorize this action with a signed-in user's access token. It must include the scope
-    /// <c>aws.cognito.signin.user.admin</c>.
-    /// </para><note><para>
-    /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
-    /// for this API operation. For this operation, you can't use IAM credentials to authorize
-    /// requests, and you can't grant IAM permissions in policies. For more information about
-    /// authorization models in Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
-    /// the Amazon Cognito user pools API and user pool endpoints</a>.
-    /// </para></note>
+    /// Gets the specified playback restriction policy.
     /// </summary>
-    [Cmdlet("Get", "CGIPUser")]
-    [OutputType("Amazon.CognitoIdentityProvider.Model.GetUserResponse")]
-    [AWSCmdlet("Calls the Amazon Cognito Identity Provider GetUser API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"GetUser"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.GetUserResponse))]
-    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.GetUserResponse",
-        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.GetUserResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "IVSPlaybackRestrictionPolicy")]
+    [OutputType("Amazon.IVS.Model.PlaybackRestrictionPolicy")]
+    [AWSCmdlet("Calls the Amazon Interactive Video Service GetPlaybackRestrictionPolicy API operation.", Operation = new[] {"GetPlaybackRestrictionPolicy"}, SelectReturnType = typeof(Amazon.IVS.Model.GetPlaybackRestrictionPolicyResponse))]
+    [AWSCmdletOutput("Amazon.IVS.Model.PlaybackRestrictionPolicy or Amazon.IVS.Model.GetPlaybackRestrictionPolicyResponse",
+        "This cmdlet returns an Amazon.IVS.Model.PlaybackRestrictionPolicy object.",
+        "The service call response (type Amazon.IVS.Model.GetPlaybackRestrictionPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCGIPUserCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class GetIVSPlaybackRestrictionPolicyCmdlet : AmazonIVSClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AccessToken
+        #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>A non-expired access token for the user whose information you want to query.</para>
+        /// <para>ARN of the playback restriction policy to be returned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,26 +56,26 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AccessToken { get; set; }
+        public System.String Arn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.GetUserResponse).
-        /// Specifying the name of a property of type Amazon.CognitoIdentityProvider.Model.GetUserResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PlaybackRestrictionPolicy'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IVS.Model.GetPlaybackRestrictionPolicyResponse).
+        /// Specifying the name of a property of type Amazon.IVS.Model.GetPlaybackRestrictionPolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "PlaybackRestrictionPolicy";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AccessToken parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AccessToken' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Arn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AccessToken' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -108,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.GetUserResponse, GetCGIPUserCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IVS.Model.GetPlaybackRestrictionPolicyResponse, GetIVSPlaybackRestrictionPolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -117,14 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AccessToken;
+                context.Select = (response, cmdlet) => this.Arn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccessToken = this.AccessToken;
+            context.Arn = this.Arn;
             #if MODULAR
-            if (this.AccessToken == null && ParameterWasBound(nameof(this.AccessToken)))
+            if (this.Arn == null && ParameterWasBound(nameof(this.Arn)))
             {
-                WriteWarning("You are passing $null as a value for parameter AccessToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -141,17 +126,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.GetUserRequest();
+            var request = new Amazon.IVS.Model.GetPlaybackRestrictionPolicyRequest();
             
-            if (cmdletContext.AccessToken != null)
+            if (cmdletContext.Arn != null)
             {
-                request.AccessToken = cmdletContext.AccessToken;
+                request.Arn = cmdletContext.Arn;
             }
             
             CmdletOutput output;
             
             // issue call
-            var client = Client ?? CreateClient(_RegionEndpoint);
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             try
             {
                 var response = CallAWSServiceOperation(client, request);
@@ -180,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.GetUserResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.GetUserRequest request)
+        private Amazon.IVS.Model.GetPlaybackRestrictionPolicyResponse CallAWSServiceOperation(IAmazonIVS client, Amazon.IVS.Model.GetPlaybackRestrictionPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "GetUser");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Interactive Video Service", "GetPlaybackRestrictionPolicy");
             try
             {
                 #if DESKTOP
-                return client.GetUser(request);
+                return client.GetPlaybackRestrictionPolicy(request);
                 #elif CORECLR
-                return client.GetUserAsync(request).GetAwaiter().GetResult();
+                return client.GetPlaybackRestrictionPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -208,9 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccessToken { get; set; }
-            public System.Func<Amazon.CognitoIdentityProvider.Model.GetUserResponse, GetCGIPUserCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String Arn { get; set; }
+            public System.Func<Amazon.IVS.Model.GetPlaybackRestrictionPolicyResponse, GetIVSPlaybackRestrictionPolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PlaybackRestrictionPolicy;
         }
         
     }

@@ -92,6 +92,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IVSChannelList', 
         'Get-IVSPlaybackKeyPair', 
         'Get-IVSPlaybackKeyPairList', 
+        'Get-IVSPlaybackRestrictionPolicy', 
+        'Get-IVSPlaybackRestrictionPolicyList', 
         'Get-IVSRecordingConfiguration', 
         'Get-IVSRecordingConfigurationList', 
         'Get-IVSResourceTag', 
@@ -104,10 +106,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IVSStreamSessionList', 
         'Import-IVSPlaybackKeyPair', 
         'New-IVSChannel', 
+        'New-IVSPlaybackRestrictionPolicy', 
         'New-IVSRecordingConfiguration', 
         'New-IVSStreamKey', 
         'Remove-IVSChannel', 
         'Remove-IVSPlaybackKeyPair', 
+        'Remove-IVSPlaybackRestrictionPolicy', 
         'Remove-IVSRecordingConfiguration', 
         'Remove-IVSResourceTag', 
         'Remove-IVSStreamKey', 
@@ -115,6 +119,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-IVSViewerSessionRevocation', 
         'Stop-IVSStream', 
         'Update-IVSChannel', 
+        'Update-IVSPlaybackRestrictionPolicy', 
         'Write-IVSMetadata')
 
     # Variables to export from this module

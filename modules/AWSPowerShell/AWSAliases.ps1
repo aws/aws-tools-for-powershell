@@ -15322,6 +15322,8 @@ Set-Alias -Name Batch-IVSStartViewerSessionRevocation -Value Start-IVSStartViewe
 Set-Alias -Name IVS-BatchStartViewerSessionRevocation -Value Start-IVSStartViewerSessionRevocation
 Set-Alias -Name Create-IVSChannel -Value New-IVSChannel
 Set-Alias -Name IVS-CreateChannel -Value New-IVSChannel
+Set-Alias -Name Create-IVSPlaybackRestrictionPolicy -Value New-IVSPlaybackRestrictionPolicy
+Set-Alias -Name IVS-CreatePlaybackRestrictionPolicy -Value New-IVSPlaybackRestrictionPolicy
 Set-Alias -Name Create-IVSRecordingConfiguration -Value New-IVSRecordingConfiguration
 Set-Alias -Name IVS-CreateRecordingConfiguration -Value New-IVSRecordingConfiguration
 Set-Alias -Name Create-IVSStreamKey -Value New-IVSStreamKey
@@ -15330,12 +15332,15 @@ Set-Alias -Name Delete-IVSChannel -Value Remove-IVSChannel
 Set-Alias -Name IVS-DeleteChannel -Value Remove-IVSChannel
 Set-Alias -Name Delete-IVSPlaybackKeyPair -Value Remove-IVSPlaybackKeyPair
 Set-Alias -Name IVS-DeletePlaybackKeyPair -Value Remove-IVSPlaybackKeyPair
+Set-Alias -Name Delete-IVSPlaybackRestrictionPolicy -Value Remove-IVSPlaybackRestrictionPolicy
+Set-Alias -Name IVS-DeletePlaybackRestrictionPolicy -Value Remove-IVSPlaybackRestrictionPolicy
 Set-Alias -Name Delete-IVSRecordingConfiguration -Value Remove-IVSRecordingConfiguration
 Set-Alias -Name IVS-DeleteRecordingConfiguration -Value Remove-IVSRecordingConfiguration
 Set-Alias -Name Delete-IVSStreamKey -Value Remove-IVSStreamKey
 Set-Alias -Name IVS-DeleteStreamKey -Value Remove-IVSStreamKey
 Set-Alias -Name IVS-GetChannel -Value Get-IVSChannel
 Set-Alias -Name IVS-GetPlaybackKeyPair -Value Get-IVSPlaybackKeyPair
+Set-Alias -Name IVS-GetPlaybackRestrictionPolicy -Value Get-IVSPlaybackRestrictionPolicy
 Set-Alias -Name IVS-GetRecordingConfiguration -Value Get-IVSRecordingConfiguration
 Set-Alias -Name IVS-GetStream -Value Get-IVSStream
 Set-Alias -Name IVS-GetStreamKey -Value Get-IVSStreamKey
@@ -15347,6 +15352,9 @@ Set-Alias -Name IVS-ListChannels -Value Get-IVSChannelList
 Set-Alias -Name List-IVSPlaybackKeyPairs -Value Get-IVSPlaybackKeyPairList
 Set-Alias -Name List-IVSPlaybackKeyPairList -Value Get-IVSPlaybackKeyPairList
 Set-Alias -Name IVS-ListPlaybackKeyPairs -Value Get-IVSPlaybackKeyPairList
+Set-Alias -Name List-IVSPlaybackRestrictionPolicies -Value Get-IVSPlaybackRestrictionPolicyList
+Set-Alias -Name List-IVSPlaybackRestrictionPolicyList -Value Get-IVSPlaybackRestrictionPolicyList
+Set-Alias -Name IVS-ListPlaybackRestrictionPolicies -Value Get-IVSPlaybackRestrictionPolicyList
 Set-Alias -Name List-IVSRecordingConfigurations -Value Get-IVSRecordingConfigurationList
 Set-Alias -Name List-IVSRecordingConfigurationList -Value Get-IVSRecordingConfigurationList
 Set-Alias -Name IVS-ListRecordingConfigurations -Value Get-IVSRecordingConfigurationList
@@ -15367,6 +15375,7 @@ Set-Alias -Name IVS-StopStream -Value Stop-IVSStream
 Set-Alias -Name IVS-TagResource -Value Add-IVSResourceTag
 Set-Alias -Name IVS-UntagResource -Value Remove-IVSResourceTag
 Set-Alias -Name IVS-UpdateChannel -Value Update-IVSChannel
+Set-Alias -Name IVS-UpdatePlaybackRestrictionPolicy -Value Update-IVSPlaybackRestrictionPolicy
 Set-Alias -Name Create-IVSCChatToken -Value New-IVSCChatToken
 Set-Alias -Name IVSC-CreateChatToken -Value New-IVSCChatToken
 Set-Alias -Name Create-IVSCLoggingConfiguration -Value New-IVSCLoggingConfiguration
@@ -19172,6 +19181,8 @@ Set-Alias -Name NEPT-StartMLModelTrainingJob -Value Start-NEPTMLModelTrainingJob
 Set-Alias -Name NEPT-StartMLModelTransformJob -Value Start-NEPTMLModelTransformJob
 Set-Alias -Name Cancel-NEPTGImportTask -Value Stop-NEPTGImportTask
 Set-Alias -Name NEPTG-CancelImportTask -Value Stop-NEPTGImportTask
+Set-Alias -Name Cancel-NEPTGQuery -Value Stop-NEPTGQuery
+Set-Alias -Name NEPTG-CancelQuery -Value Stop-NEPTGQuery
 Set-Alias -Name Create-NEPTGGraph -Value New-NEPTGGraph
 Set-Alias -Name NEPTG-CreateGraph -Value New-NEPTGGraph
 Set-Alias -Name Create-NEPTGGraphSnapshot -Value New-NEPTGGraphSnapshot
@@ -19186,10 +19197,14 @@ Set-Alias -Name Delete-NEPTGGraphSnapshot -Value Remove-NEPTGGraphSnapshot
 Set-Alias -Name NEPTG-DeleteGraphSnapshot -Value Remove-NEPTGGraphSnapshot
 Set-Alias -Name Delete-NEPTGPrivateGraphEndpoint -Value Remove-NEPTGPrivateGraphEndpoint
 Set-Alias -Name NEPTG-DeletePrivateGraphEndpoint -Value Remove-NEPTGPrivateGraphEndpoint
+Set-Alias -Name Execute-NEPTGQuery -Value Invoke-NEPTGQuery
+Set-Alias -Name NEPTG-ExecuteQuery -Value Invoke-NEPTGQuery
 Set-Alias -Name NEPTG-GetGraph -Value Get-NEPTGGraph
 Set-Alias -Name NEPTG-GetGraphSnapshot -Value Get-NEPTGGraphSnapshot
+Set-Alias -Name NEPTG-GetGraphSummary -Value Get-NEPTGGraphSummary
 Set-Alias -Name NEPTG-GetImportTask -Value Get-NEPTGImportTask
 Set-Alias -Name NEPTG-GetPrivateGraphEndpoint -Value Get-NEPTGPrivateGraphEndpoint
+Set-Alias -Name NEPTG-GetQuery -Value Get-NEPTGQuery
 Set-Alias -Name List-NEPTGGraphs -Value Get-NEPTGGraphList
 Set-Alias -Name List-NEPTGGraphList -Value Get-NEPTGGraphList
 Set-Alias -Name NEPTG-ListGraphs -Value Get-NEPTGGraphList
@@ -19202,6 +19217,9 @@ Set-Alias -Name NEPTG-ListImportTasks -Value Get-NEPTGImportTaskList
 Set-Alias -Name List-NEPTGPrivateGraphEndpoints -Value Get-NEPTGPrivateGraphEndpointList
 Set-Alias -Name List-NEPTGPrivateGraphEndpointList -Value Get-NEPTGPrivateGraphEndpointList
 Set-Alias -Name NEPTG-ListPrivateGraphEndpoints -Value Get-NEPTGPrivateGraphEndpointList
+Set-Alias -Name List-NEPTGQueries -Value Get-NEPTGQueryList
+Set-Alias -Name List-NEPTGQueryList -Value Get-NEPTGQueryList
+Set-Alias -Name NEPTG-ListQueries -Value Get-NEPTGQueryList
 Set-Alias -Name NEPTG-ListTagsForResource -Value Get-NEPTGResourceTag
 Set-Alias -Name NEPTG-ResetGraph -Value Reset-NEPTGGraph
 Set-Alias -Name NEPTG-RestoreGraphFromSnapshot -Value Restore-NEPTGGraphFromSnapshot

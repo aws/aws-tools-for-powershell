@@ -22,54 +22,46 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ManagedBlockchainQuery;
-using Amazon.ManagedBlockchainQuery.Model;
+using Amazon.NeptuneGraph;
+using Amazon.NeptuneGraph.Model;
 
-namespace Amazon.PowerShell.Cmdlets.MBCQ
+namespace Amazon.PowerShell.Cmdlets.NEPTG
 {
     /// <summary>
-    /// Gets the details of a transaction.
-    /// 
-    ///  <note><para>
-    /// This action will return transaction details for all transactions that are <i>confirmed</i>
-    /// on the blockchain, even if they have not reached <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality">finality</a>.
-    /// 
-    /// </para></note>
+    /// Retrieves the status of a specified query.
     /// </summary>
-    [Cmdlet("Get", "MBCQTransaction")]
-    [OutputType("Amazon.ManagedBlockchainQuery.Model.Transaction")]
-    [AWSCmdlet("Calls the Amazon Managed Blockchain Query GetTransaction API operation.", Operation = new[] {"GetTransaction"}, SelectReturnType = typeof(Amazon.ManagedBlockchainQuery.Model.GetTransactionResponse))]
-    [AWSCmdletOutput("Amazon.ManagedBlockchainQuery.Model.Transaction or Amazon.ManagedBlockchainQuery.Model.GetTransactionResponse",
-        "This cmdlet returns an Amazon.ManagedBlockchainQuery.Model.Transaction object.",
-        "The service call response (type Amazon.ManagedBlockchainQuery.Model.GetTransactionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "NEPTGQuery")]
+    [OutputType("Amazon.NeptuneGraph.Model.GetQueryResponse")]
+    [AWSCmdlet("Calls the Amazon Neptune Graph GetQuery API operation.", Operation = new[] {"GetQuery"}, SelectReturnType = typeof(Amazon.NeptuneGraph.Model.GetQueryResponse))]
+    [AWSCmdletOutput("Amazon.NeptuneGraph.Model.GetQueryResponse",
+        "This cmdlet returns an Amazon.NeptuneGraph.Model.GetQueryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetMBCQTransactionCmdlet : AmazonManagedBlockchainQueryClientCmdlet, IExecutor
+    public partial class GetNEPTGQueryCmdlet : AmazonNeptuneGraphClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Network
+        #region Parameter GraphIdentifier
         /// <summary>
         /// <para>
-        /// <para>The blockchain network where the transaction occurred.</para>
+        /// <para>The unique identifier of the Neptune Analytics graph.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.ManagedBlockchainQuery.QueryNetwork")]
-        public Amazon.ManagedBlockchainQuery.QueryNetwork Network { get; set; }
+        public System.String GraphIdentifier { get; set; }
         #endregion
         
-        #region Parameter TransactionHash
+        #region Parameter QueryId
         /// <summary>
         /// <para>
-        /// <para>The hash of the transaction. It is generated whenever a transaction is verified and
-        /// added to the blockchain.</para>
+        /// <para>The ID of the query in question.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,18 +72,28 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TransactionHash { get; set; }
+        public System.String QueryId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Transaction'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ManagedBlockchainQuery.Model.GetTransactionResponse).
-        /// Specifying the name of a property of type Amazon.ManagedBlockchainQuery.Model.GetTransactionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NeptuneGraph.Model.GetQueryResponse).
+        /// Specifying the name of a property of type Amazon.NeptuneGraph.Model.GetQueryResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Transaction";
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the GraphIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^GraphIdentifier' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GraphIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -104,23 +106,33 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ManagedBlockchainQuery.Model.GetTransactionResponse, GetMBCQTransactionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NeptuneGraph.Model.GetQueryResponse, GetNEPTGQueryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            context.Network = this.Network;
-            #if MODULAR
-            if (this.Network == null && ParameterWasBound(nameof(this.Network)))
+            else if (this.PassThru.IsPresent)
             {
-                WriteWarning("You are passing $null as a value for parameter Network which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Select = (response, cmdlet) => this.GraphIdentifier;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.GraphIdentifier = this.GraphIdentifier;
+            #if MODULAR
+            if (this.GraphIdentifier == null && ParameterWasBound(nameof(this.GraphIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter GraphIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.TransactionHash = this.TransactionHash;
+            context.QueryId = this.QueryId;
             #if MODULAR
-            if (this.TransactionHash == null && ParameterWasBound(nameof(this.TransactionHash)))
+            if (this.QueryId == null && ParameterWasBound(nameof(this.QueryId)))
             {
-                WriteWarning("You are passing $null as a value for parameter TransactionHash which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter QueryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -137,15 +149,15 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ManagedBlockchainQuery.Model.GetTransactionRequest();
+            var request = new Amazon.NeptuneGraph.Model.GetQueryRequest();
             
-            if (cmdletContext.Network != null)
+            if (cmdletContext.GraphIdentifier != null)
             {
-                request.Network = cmdletContext.Network;
+                request.GraphIdentifier = cmdletContext.GraphIdentifier;
             }
-            if (cmdletContext.TransactionHash != null)
+            if (cmdletContext.QueryId != null)
             {
-                request.TransactionHash = cmdletContext.TransactionHash;
+                request.QueryId = cmdletContext.QueryId;
             }
             
             CmdletOutput output;
@@ -180,15 +192,15 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         
         #region AWS Service Operation Call
         
-        private Amazon.ManagedBlockchainQuery.Model.GetTransactionResponse CallAWSServiceOperation(IAmazonManagedBlockchainQuery client, Amazon.ManagedBlockchainQuery.Model.GetTransactionRequest request)
+        private Amazon.NeptuneGraph.Model.GetQueryResponse CallAWSServiceOperation(IAmazonNeptuneGraph client, Amazon.NeptuneGraph.Model.GetQueryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Blockchain Query", "GetTransaction");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Neptune Graph", "GetQuery");
             try
             {
                 #if DESKTOP
-                return client.GetTransaction(request);
+                return client.GetQuery(request);
                 #elif CORECLR
-                return client.GetTransactionAsync(request).GetAwaiter().GetResult();
+                return client.GetQueryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -208,10 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.ManagedBlockchainQuery.QueryNetwork Network { get; set; }
-            public System.String TransactionHash { get; set; }
-            public System.Func<Amazon.ManagedBlockchainQuery.Model.GetTransactionResponse, GetMBCQTransactionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Transaction;
+            public System.String GraphIdentifier { get; set; }
+            public System.String QueryId { get; set; }
+            public System.Func<Amazon.NeptuneGraph.Model.GetQueryResponse, GetNEPTGQueryCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

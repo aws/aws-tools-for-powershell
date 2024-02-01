@@ -55,6 +55,16 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         public System.String FilterByName { get; set; }
         #endregion
         
+        #region Parameter FilterByPlaybackRestrictionPolicyArn
+        /// <summary>
+        /// <para>
+        /// <para>Filters the channel list to match the specified policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FilterByPlaybackRestrictionPolicyArn { get; set; }
+        #endregion
+        
         #region Parameter FilterByRecordingConfigurationArn
         /// <summary>
         /// <para>
@@ -134,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.FilterByName = this.FilterByName;
+            context.FilterByPlaybackRestrictionPolicyArn = this.FilterByPlaybackRestrictionPolicyArn;
             context.FilterByRecordingConfigurationArn = this.FilterByRecordingConfigurationArn;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -156,6 +167,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             if (cmdletContext.FilterByName != null)
             {
                 request.FilterByName = cmdletContext.FilterByName;
+            }
+            if (cmdletContext.FilterByPlaybackRestrictionPolicyArn != null)
+            {
+                request.FilterByPlaybackRestrictionPolicyArn = cmdletContext.FilterByPlaybackRestrictionPolicyArn;
             }
             if (cmdletContext.FilterByRecordingConfigurationArn != null)
             {
@@ -231,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String FilterByName { get; set; }
+            public System.String FilterByPlaybackRestrictionPolicyArn { get; set; }
             public System.String FilterByRecordingConfigurationArn { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

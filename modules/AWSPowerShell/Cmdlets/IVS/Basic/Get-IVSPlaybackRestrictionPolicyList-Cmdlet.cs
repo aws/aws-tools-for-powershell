@@ -22,51 +22,57 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ManagedBlockchainQuery;
-using Amazon.ManagedBlockchainQuery.Model;
+using Amazon.IVS;
+using Amazon.IVS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.MBCQ
+namespace Amazon.PowerShell.Cmdlets.IVS
 {
     /// <summary>
-    /// Gets the token balance for a batch of tokens by using the <c>BatchGetTokenBalance</c>
-    /// action for every token in the request.
-    /// 
-    ///  <note><para>
-    /// Only the native tokens BTC and ETH, and the ERC-20, ERC-721, and ERC 1155 token standards
-    /// are supported.
-    /// </para></note>
+    /// Gets summary information about playback restriction policies.
     /// </summary>
-    [Cmdlet("Get", "MBCQBatchTokenBalance")]
-    [OutputType("Amazon.ManagedBlockchainQuery.Model.BatchGetTokenBalanceResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Blockchain Query BatchGetTokenBalance API operation.", Operation = new[] {"BatchGetTokenBalance"}, SelectReturnType = typeof(Amazon.ManagedBlockchainQuery.Model.BatchGetTokenBalanceResponse))]
-    [AWSCmdletOutput("Amazon.ManagedBlockchainQuery.Model.BatchGetTokenBalanceResponse",
-        "This cmdlet returns an Amazon.ManagedBlockchainQuery.Model.BatchGetTokenBalanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "IVSPlaybackRestrictionPolicyList")]
+    [OutputType("Amazon.IVS.Model.PlaybackRestrictionPolicySummary")]
+    [AWSCmdlet("Calls the Amazon Interactive Video Service ListPlaybackRestrictionPolicies API operation.", Operation = new[] {"ListPlaybackRestrictionPolicies"}, SelectReturnType = typeof(Amazon.IVS.Model.ListPlaybackRestrictionPoliciesResponse))]
+    [AWSCmdletOutput("Amazon.IVS.Model.PlaybackRestrictionPolicySummary or Amazon.IVS.Model.ListPlaybackRestrictionPoliciesResponse",
+        "This cmdlet returns a collection of Amazon.IVS.Model.PlaybackRestrictionPolicySummary objects.",
+        "The service call response (type Amazon.IVS.Model.ListPlaybackRestrictionPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetMBCQBatchTokenBalanceCmdlet : AmazonManagedBlockchainQueryClientCmdlet, IExecutor
+    public partial class GetIVSPlaybackRestrictionPolicyListCmdlet : AmazonIVSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter GetTokenBalanceInput
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An array of <c>BatchGetTokenBalanceInputItem</c> objects whose balance is being requested.</para>
+        /// <para>Maximum number of policies to return. Default: 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("GetTokenBalanceInputs")]
-        public Amazon.ManagedBlockchainQuery.Model.BatchGetTokenBalanceInputItem[] GetTokenBalanceInput { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The first policy to retrieve. This is used for pagination; see the <c>nextToken</c>
+        /// response field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ManagedBlockchainQuery.Model.BatchGetTokenBalanceResponse).
-        /// Specifying the name of a property of type Amazon.ManagedBlockchainQuery.Model.BatchGetTokenBalanceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PlaybackRestrictionPolicies'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IVS.Model.ListPlaybackRestrictionPoliciesResponse).
+        /// Specifying the name of a property of type Amazon.IVS.Model.ListPlaybackRestrictionPoliciesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "PlaybackRestrictionPolicies";
         #endregion
         
         protected override void ProcessRecord()
@@ -81,13 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ManagedBlockchainQuery.Model.BatchGetTokenBalanceResponse, GetMBCQBatchTokenBalanceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IVS.Model.ListPlaybackRestrictionPoliciesResponse, GetIVSPlaybackRestrictionPolicyListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.GetTokenBalanceInput != null)
-            {
-                context.GetTokenBalanceInput = new List<Amazon.ManagedBlockchainQuery.Model.BatchGetTokenBalanceInputItem>(this.GetTokenBalanceInput);
-            }
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -102,11 +106,15 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ManagedBlockchainQuery.Model.BatchGetTokenBalanceRequest();
+            var request = new Amazon.IVS.Model.ListPlaybackRestrictionPoliciesRequest();
             
-            if (cmdletContext.GetTokenBalanceInput != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.GetTokenBalanceInputs = cmdletContext.GetTokenBalanceInput;
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
             }
             
             CmdletOutput output;
@@ -141,15 +149,15 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         
         #region AWS Service Operation Call
         
-        private Amazon.ManagedBlockchainQuery.Model.BatchGetTokenBalanceResponse CallAWSServiceOperation(IAmazonManagedBlockchainQuery client, Amazon.ManagedBlockchainQuery.Model.BatchGetTokenBalanceRequest request)
+        private Amazon.IVS.Model.ListPlaybackRestrictionPoliciesResponse CallAWSServiceOperation(IAmazonIVS client, Amazon.IVS.Model.ListPlaybackRestrictionPoliciesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Blockchain Query", "BatchGetTokenBalance");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Interactive Video Service", "ListPlaybackRestrictionPolicies");
             try
             {
                 #if DESKTOP
-                return client.BatchGetTokenBalance(request);
+                return client.ListPlaybackRestrictionPolicies(request);
                 #elif CORECLR
-                return client.BatchGetTokenBalanceAsync(request).GetAwaiter().GetResult();
+                return client.ListPlaybackRestrictionPoliciesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -169,9 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.ManagedBlockchainQuery.Model.BatchGetTokenBalanceInputItem> GetTokenBalanceInput { get; set; }
-            public System.Func<Amazon.ManagedBlockchainQuery.Model.BatchGetTokenBalanceResponse, GetMBCQBatchTokenBalanceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Func<Amazon.IVS.Model.ListPlaybackRestrictionPoliciesResponse, GetIVSPlaybackRestrictionPolicyListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PlaybackRestrictionPolicies;
         }
         
     }

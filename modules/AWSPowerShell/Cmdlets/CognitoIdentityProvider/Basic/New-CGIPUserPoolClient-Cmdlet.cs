@@ -92,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AllowedOAuthFlow
         /// <summary>
         /// <para>
-        /// <para>The allowed OAuth flows.</para><dl><dt>code</dt><dd><para>Use a code grant flow, which provides an authorization code as the response. This
+        /// <para>The OAuth grant types that you want your app client to generate. To create an app
+        /// client that generates client credentials grants, you must add <c>client_credentials</c>
+        /// as the only allowed OAuth flow.</para><dl><dt>code</dt><dd><para>Use a code grant flow, which provides an authorization code as the response. This
         /// code can be exchanged for access tokens with the <c>/oauth2/token</c> endpoint.</para></dd><dt>implicit</dt><dd><para>Issue the access token (and, optionally, ID token, based on scopes) directly to your
         /// user.</para></dd><dt>client_credentials</dt><dd><para>Issue the access token from the <c>/oauth2/token</c> endpoint directly to a non-person
         /// user using a combination of the client ID and client secret.</para></dd></dl>

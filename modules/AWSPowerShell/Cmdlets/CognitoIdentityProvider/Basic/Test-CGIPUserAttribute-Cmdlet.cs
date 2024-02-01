@@ -36,12 +36,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// value, VerifyUserAttribute updates the affected attribute to its pending value. For
     /// more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserAttributeUpdateSettingsType.html">
     /// UserAttributeUpdateSettingsType</a>. 
+    /// </para><para>
+    /// Authorize this action with a signed-in user's access token. It must include the scope
+    /// <c>aws.cognito.signin.user.admin</c>.
     /// </para><note><para>
     /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you can't use IAM credentials to authorize
     /// requests, and you can't grant IAM permissions in policies. For more information about
     /// authorization models in Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
-    /// the Amazon Cognito native and OIDC APIs</a>.
+    /// the Amazon Cognito user pools API and user pool endpoints</a>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Test", "CGIPUserAttribute")]

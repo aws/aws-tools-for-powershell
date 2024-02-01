@@ -28,23 +28,24 @@ using Amazon.NeptuneGraph.Model;
 namespace Amazon.PowerShell.Cmdlets.NEPTG
 {
     /// <summary>
-    /// Deletes the specified import task.
+    /// Lists active openCypher queries.
     /// </summary>
-    [Cmdlet("Stop", "NEPTGImportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.NeptuneGraph.Model.CancelImportTaskResponse")]
-    [AWSCmdlet("Calls the Amazon Neptune Graph CancelImportTask API operation.", Operation = new[] {"CancelImportTask"}, SelectReturnType = typeof(Amazon.NeptuneGraph.Model.CancelImportTaskResponse))]
-    [AWSCmdletOutput("Amazon.NeptuneGraph.Model.CancelImportTaskResponse",
-        "This cmdlet returns an Amazon.NeptuneGraph.Model.CancelImportTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "NEPTGQueryList")]
+    [OutputType("Amazon.NeptuneGraph.Model.QuerySummary")]
+    [AWSCmdlet("Calls the Amazon Neptune Graph ListQueries API operation.", Operation = new[] {"ListQueries"}, SelectReturnType = typeof(Amazon.NeptuneGraph.Model.ListQueriesResponse))]
+    [AWSCmdletOutput("Amazon.NeptuneGraph.Model.QuerySummary or Amazon.NeptuneGraph.Model.ListQueriesResponse",
+        "This cmdlet returns a collection of Amazon.NeptuneGraph.Model.QuerySummary objects.",
+        "The service call response (type Amazon.NeptuneGraph.Model.ListQueriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopNEPTGImportTaskCmdlet : AmazonNeptuneGraphClientCmdlet, IExecutor
+    public partial class GetNEPTGQueryListCmdlet : AmazonNeptuneGraphClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter TaskIdentifier
+        #region Parameter GraphIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the import task.</para>
+        /// <para>The unique identifier of the Neptune Analytics graph.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,50 +56,62 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TaskIdentifier { get; set; }
+        public System.String GraphIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter State
+        /// <summary>
+        /// <para>
+        /// <para>Filtered list of queries based on state.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NeptuneGraph.QueryStateInput")]
+        public Amazon.NeptuneGraph.QueryStateInput State { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of results to be fetched by the API.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NeptuneGraph.Model.CancelImportTaskResponse).
-        /// Specifying the name of a property of type Amazon.NeptuneGraph.Model.CancelImportTaskResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Queries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NeptuneGraph.Model.ListQueriesResponse).
+        /// Specifying the name of a property of type Amazon.NeptuneGraph.Model.ListQueriesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Queries";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the TaskIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^TaskIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the GraphIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^GraphIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TaskIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GraphIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TaskIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-NEPTGImportTask (CancelImportTask)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -108,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NeptuneGraph.Model.CancelImportTaskResponse, StopNEPTGImportTaskCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NeptuneGraph.Model.ListQueriesResponse, GetNEPTGQueryListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -117,16 +130,24 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.TaskIdentifier;
+                context.Select = (response, cmdlet) => this.GraphIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.TaskIdentifier = this.TaskIdentifier;
+            context.GraphIdentifier = this.GraphIdentifier;
             #if MODULAR
-            if (this.TaskIdentifier == null && ParameterWasBound(nameof(this.TaskIdentifier)))
+            if (this.GraphIdentifier == null && ParameterWasBound(nameof(this.GraphIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter TaskIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter GraphIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MaxResult = this.MaxResult;
+            #if MODULAR
+            if (this.MaxResult == null && ParameterWasBound(nameof(this.MaxResult)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MaxResult which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.State = this.State;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -141,11 +162,19 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.NeptuneGraph.Model.CancelImportTaskRequest();
+            var request = new Amazon.NeptuneGraph.Model.ListQueriesRequest();
             
-            if (cmdletContext.TaskIdentifier != null)
+            if (cmdletContext.GraphIdentifier != null)
             {
-                request.TaskIdentifier = cmdletContext.TaskIdentifier;
+                request.GraphIdentifier = cmdletContext.GraphIdentifier;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.State != null)
+            {
+                request.State = cmdletContext.State;
             }
             
             CmdletOutput output;
@@ -180,15 +209,15 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         
         #region AWS Service Operation Call
         
-        private Amazon.NeptuneGraph.Model.CancelImportTaskResponse CallAWSServiceOperation(IAmazonNeptuneGraph client, Amazon.NeptuneGraph.Model.CancelImportTaskRequest request)
+        private Amazon.NeptuneGraph.Model.ListQueriesResponse CallAWSServiceOperation(IAmazonNeptuneGraph client, Amazon.NeptuneGraph.Model.ListQueriesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Neptune Graph", "CancelImportTask");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Neptune Graph", "ListQueries");
             try
             {
                 #if DESKTOP
-                return client.CancelImportTask(request);
+                return client.ListQueries(request);
                 #elif CORECLR
-                return client.CancelImportTaskAsync(request).GetAwaiter().GetResult();
+                return client.ListQueriesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -208,9 +237,11 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String TaskIdentifier { get; set; }
-            public System.Func<Amazon.NeptuneGraph.Model.CancelImportTaskResponse, StopNEPTGImportTaskCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String GraphIdentifier { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public Amazon.NeptuneGraph.QueryStateInput State { get; set; }
+            public System.Func<Amazon.NeptuneGraph.Model.ListQueriesResponse, GetNEPTGQueryListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Queries;
         }
         
     }

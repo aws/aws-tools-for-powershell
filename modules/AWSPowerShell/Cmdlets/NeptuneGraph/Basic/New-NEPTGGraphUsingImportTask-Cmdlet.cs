@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// <para>
         /// <para>Neptune Analytics currently does not support user defined edge ids. The edge ids are
         /// not imported by default. They are imported if <i>preserveEdgeIds</i> is set to true,
-        /// and ids are stored as properties on the relationships with the property name neptuneEdgeId.</para>
+        /// and ids are stored as properties on the relationships with the property name <i>neptuneEdgeId</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// <summary>
         /// <para>
         /// <para>Specifies whether or not the graph can be reachable over the internet. All access
-        /// to graphs IAM authenticated. (<c>true</c> to enable, or <c>false</c> to disable.</para>
+        /// to graphs IAM authenticated. (<c>true</c> to enable, or <c>false</c> to disable).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

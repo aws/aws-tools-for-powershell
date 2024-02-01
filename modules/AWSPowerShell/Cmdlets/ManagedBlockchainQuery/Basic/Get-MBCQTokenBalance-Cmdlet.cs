@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
     /// (wallet or contract) on the blockchain.
     /// 
     ///  <note><para>
-    /// Only the native tokens BTC,ETH, and the ERC-20, ERC-721, and ERC 1155 token standards
+    /// Only the native tokens BTC and ETH, and the ERC-20, ERC-721, and ERC 1155 token standards
     /// are supported.
     /// </para></note>
     /// </summary>
@@ -104,9 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         #region Parameter TokenIdentifier_TokenId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the token.</para><note><para>You must specify this container with <c>btc</c> for the native BTC token, and <c>eth</c>
-        /// for the native ETH token. For all other token types you must specify the <c>tokenId</c>
-        /// in the 64 character hexadecimal <c>tokenid</c> format.</para></note>
+        /// <para>The unique identifier of the token.</para><note><para>For native tokens, use the 3 character abbreviation that best matches your token.
+        /// For example, btc for Bitcoin, eth for Ether, etc. For all other token types you must
+        /// specify the <c>tokenId</c> in the 64 character hexadecimal <c>tokenid</c> format.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

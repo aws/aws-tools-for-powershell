@@ -210,14 +210,17 @@ $IVS_SelectMap = @{
                "Get-IVSStreamKeyBatch",
                "Start-IVSStartViewerSessionRevocation",
                "New-IVSChannel",
+               "New-IVSPlaybackRestrictionPolicy",
                "New-IVSRecordingConfiguration",
                "New-IVSStreamKey",
                "Remove-IVSChannel",
                "Remove-IVSPlaybackKeyPair",
+               "Remove-IVSPlaybackRestrictionPolicy",
                "Remove-IVSRecordingConfiguration",
                "Remove-IVSStreamKey",
                "Get-IVSChannel",
                "Get-IVSPlaybackKeyPair",
+               "Get-IVSPlaybackRestrictionPolicy",
                "Get-IVSRecordingConfiguration",
                "Get-IVSStream",
                "Get-IVSStreamKey",
@@ -225,6 +228,7 @@ $IVS_SelectMap = @{
                "Import-IVSPlaybackKeyPair",
                "Get-IVSChannelList",
                "Get-IVSPlaybackKeyPairList",
+               "Get-IVSPlaybackRestrictionPolicyList",
                "Get-IVSRecordingConfigurationList",
                "Get-IVSStreamKeyList",
                "Get-IVSStreamList",
@@ -235,7 +239,8 @@ $IVS_SelectMap = @{
                "Stop-IVSStream",
                "Add-IVSResourceTag",
                "Remove-IVSResourceTag",
-               "Update-IVSChannel")
+               "Update-IVSChannel",
+               "Update-IVSPlaybackRestrictionPolicy")
 }
 
 _awsArgumentCompleterRegistration $IVS_SelectCompleters $IVS_SelectMap

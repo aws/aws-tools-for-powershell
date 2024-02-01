@@ -59,6 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         public System.String Address { get; set; }
         #endregion
         
+        #region Parameter ConfirmationStatusFilter_Include
+        /// <summary>
+        /// <para>
+        /// <para>The container to determine whether to list results that have only reached <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality"><i>finality</i></a>. Transactions that have reached finality are always part of the
+        /// response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] ConfirmationStatusFilter_Include { get; set; }
+        #endregion
+        
         #region Parameter Network
         /// <summary>
         /// <para>
@@ -123,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of transactions to list.</para><note><para>Even if additional results can be retrieved, the request can return less results than
+        /// <para>The maximum number of transactions to list.</para><para>Default:<c>100</c></para><note><para>Even if additional results can be retrieved, the request can return less results than
         /// <c>maxResults</c> or an empty array of results.</para><para>To retrieve the next set of results, make another request with the returned <c>nextToken</c>
         /// value. The value of <c>nextToken</c> is <c>null</c> when there are no more results
         /// to return</para></note>
@@ -177,6 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
                 WriteWarning("You are passing $null as a value for parameter Address which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ConfirmationStatusFilter_Include != null)
+            {
+                context.ConfirmationStatusFilter_Include = new List<System.String>(this.ConfirmationStatusFilter_Include);
+            }
             context.FromBlockchainInstant_Time = this.FromBlockchainInstant_Time;
             context.MaxResult = this.MaxResult;
             context.Network = this.Network;
@@ -209,6 +224,25 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
             if (cmdletContext.Address != null)
             {
                 request.Address = cmdletContext.Address;
+            }
+            
+             // populate ConfirmationStatusFilter
+            var requestConfirmationStatusFilterIsNull = true;
+            request.ConfirmationStatusFilter = new Amazon.ManagedBlockchainQuery.Model.ConfirmationStatusFilter();
+            List<System.String> requestConfirmationStatusFilter_confirmationStatusFilter_Include = null;
+            if (cmdletContext.ConfirmationStatusFilter_Include != null)
+            {
+                requestConfirmationStatusFilter_confirmationStatusFilter_Include = cmdletContext.ConfirmationStatusFilter_Include;
+            }
+            if (requestConfirmationStatusFilter_confirmationStatusFilter_Include != null)
+            {
+                request.ConfirmationStatusFilter.Include = requestConfirmationStatusFilter_confirmationStatusFilter_Include;
+                requestConfirmationStatusFilterIsNull = false;
+            }
+             // determine if request.ConfirmationStatusFilter should be set to null
+            if (requestConfirmationStatusFilterIsNull)
+            {
+                request.ConfirmationStatusFilter = null;
             }
             
              // populate FromBlockchainInstant
@@ -351,6 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Address { get; set; }
+            public List<System.String> ConfirmationStatusFilter_Include { get; set; }
             public System.DateTime? FromBlockchainInstant_Time { get; set; }
             public System.Int32? MaxResult { get; set; }
             public Amazon.ManagedBlockchainQuery.QueryNetwork Network { get; set; }

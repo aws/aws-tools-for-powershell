@@ -91,11 +91,15 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-NEPTGGraphList', 
         'Get-NEPTGGraphSnapshot', 
         'Get-NEPTGGraphSnapshotList', 
+        'Get-NEPTGGraphSummary', 
         'Get-NEPTGImportTask', 
         'Get-NEPTGImportTaskList', 
         'Get-NEPTGPrivateGraphEndpoint', 
         'Get-NEPTGPrivateGraphEndpointList', 
+        'Get-NEPTGQuery', 
+        'Get-NEPTGQueryList', 
         'Get-NEPTGResourceTag', 
+        'Invoke-NEPTGQuery', 
         'New-NEPTGGraph', 
         'New-NEPTGGraphSnapshot', 
         'New-NEPTGGraphUsingImportTask', 
@@ -107,6 +111,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Reset-NEPTGGraph', 
         'Restore-NEPTGGraphFromSnapshot', 
         'Stop-NEPTGImportTask', 
+        'Stop-NEPTGQuery', 
         'Update-NEPTGGraph')
 
     # Variables to export from this module

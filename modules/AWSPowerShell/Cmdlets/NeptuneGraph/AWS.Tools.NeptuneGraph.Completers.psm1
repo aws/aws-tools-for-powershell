@@ -80,10 +80,45 @@ $NEPTG_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.NeptuneGraph.ExplainMode
+        "Invoke-NEPTGQuery/ExplainMode"
+        {
+            $v = "DETAILS","STATIC"
+            break
+        }
+
         # Amazon.NeptuneGraph.Format
         "New-NEPTGGraphUsingImportTask/Format"
         {
             $v = "CSV","OPEN_CYPHER"
+            break
+        }
+
+        # Amazon.NeptuneGraph.GraphSummaryMode
+        "Get-NEPTGGraphSummary/Mode"
+        {
+            $v = "BASIC","DETAILED"
+            break
+        }
+
+        # Amazon.NeptuneGraph.PlanCacheType
+        "Invoke-NEPTGQuery/PlanCache"
+        {
+            $v = "AUTO","DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.NeptuneGraph.QueryLanguage
+        "Invoke-NEPTGQuery/Language"
+        {
+            $v = "OPEN_CYPHER"
+            break
+        }
+
+        # Amazon.NeptuneGraph.QueryStateInput
+        "Get-NEPTGQueryList/State"
+        {
+            $v = "ALL","CANCELLING","RUNNING","WAITING"
             break
         }
 
@@ -96,7 +131,12 @@ $NEPTG_Completers = {
 }
 
 $NEPTG_map = @{
+    "ExplainMode"=@("Invoke-NEPTGQuery")
     "Format"=@("New-NEPTGGraphUsingImportTask")
+    "Language"=@("Invoke-NEPTGQuery")
+    "Mode"=@("Get-NEPTGGraphSummary")
+    "PlanCache"=@("Invoke-NEPTGQuery")
+    "State"=@("Get-NEPTGQueryList")
 }
 
 _awsArgumentCompleterRegistration $NEPTG_Completers $NEPTG_map
@@ -150,6 +190,7 @@ $NEPTG_SelectCompleters = {
 
 $NEPTG_SelectMap = @{
     "Select"=@("Stop-NEPTGImportTask",
+               "Stop-NEPTGQuery",
                "New-NEPTGGraph",
                "New-NEPTGGraphSnapshot",
                "New-NEPTGGraphUsingImportTask",
@@ -157,14 +198,18 @@ $NEPTG_SelectMap = @{
                "Remove-NEPTGGraph",
                "Remove-NEPTGGraphSnapshot",
                "Remove-NEPTGPrivateGraphEndpoint",
+               "Invoke-NEPTGQuery",
                "Get-NEPTGGraph",
                "Get-NEPTGGraphSnapshot",
+               "Get-NEPTGGraphSummary",
                "Get-NEPTGImportTask",
                "Get-NEPTGPrivateGraphEndpoint",
+               "Get-NEPTGQuery",
                "Get-NEPTGGraphList",
                "Get-NEPTGGraphSnapshotList",
                "Get-NEPTGImportTaskList",
                "Get-NEPTGPrivateGraphEndpointList",
+               "Get-NEPTGQueryList",
                "Get-NEPTGResourceTag",
                "Reset-NEPTGGraph",
                "Restore-NEPTGGraphFromSnapshot",

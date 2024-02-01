@@ -87,6 +87,18 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter PlaybackRestrictionPolicyArn
+        /// <summary>
+        /// <para>
+        /// <para>Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and
+        /// enables playback restriction. Default: "" (empty string, no playback restriction policy
+        /// is applied).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PlaybackRestrictionPolicyArn { get; set; }
+        #endregion
+        
         #region Parameter Preset
         /// <summary>
         /// <para>
@@ -104,7 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter RecordingConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>Recording-configuration ARN. Default: "" (empty string, recording is disabled).</para>
+        /// <para>Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables
+        /// recording. Default: "" (empty string, recording is disabled).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             context.InsecureIngest = this.InsecureIngest;
             context.LatencyMode = this.LatencyMode;
             context.Name = this.Name;
+            context.PlaybackRestrictionPolicyArn = this.PlaybackRestrictionPolicyArn;
             context.Preset = this.Preset;
             context.RecordingConfigurationArn = this.RecordingConfigurationArn;
             if (this.Tag != null)
@@ -247,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.PlaybackRestrictionPolicyArn != null)
+            {
+                request.PlaybackRestrictionPolicyArn = cmdletContext.PlaybackRestrictionPolicyArn;
             }
             if (cmdletContext.Preset != null)
             {
@@ -329,6 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             public System.Boolean? InsecureIngest { get; set; }
             public Amazon.IVS.ChannelLatencyMode LatencyMode { get; set; }
             public System.String Name { get; set; }
+            public System.String PlaybackRestrictionPolicyArn { get; set; }
             public Amazon.IVS.TranscodePreset Preset { get; set; }
             public System.String RecordingConfigurationArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
