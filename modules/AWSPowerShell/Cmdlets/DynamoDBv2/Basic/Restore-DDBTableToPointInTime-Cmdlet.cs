@@ -30,17 +30,17 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// <summary>
     /// Restores the specified table to the specified point in time within <c>EarliestRestorableDateTime</c>
     /// and <c>LatestRestorableDateTime</c>. You can restore your table to any point in time
-    /// during the last 35 days. Any number of users can execute up to 4 concurrent restores
+    /// during the last 35 days. Any number of users can execute up to 50 concurrent restores
     /// (any type of restore) in a given account. 
     /// 
     ///  
     /// <para>
-    ///  When you restore using point in time recovery, DynamoDB restores your table data
-    /// to the state based on the selected date and time (day:hour:minute:second) to a new
-    /// table. 
+    /// When you restore using point in time recovery, DynamoDB restores your table data to
+    /// the state based on the selected date and time (day:hour:minute:second) to a new table.
+    /// 
     /// </para><para>
-    ///  Along with data, the following are also included on the new restored table using
-    /// point in time recovery: 
+    /// Along with data, the following are also included on the new restored table using point
+    /// in time recovery: 
     /// </para><ul><li><para>
     /// Global secondary indexes (GSIs)
     /// </para></li><li><para>

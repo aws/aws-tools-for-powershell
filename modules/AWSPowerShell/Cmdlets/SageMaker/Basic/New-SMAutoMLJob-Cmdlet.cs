@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OutputDataConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Key Management Service (KMS) encryption key ID.</para>
+        /// <para>The Key Management Service encryption key ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -293,7 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Defines the type of supervised learning problem available for the candidates. For
         /// more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types">
-        /// Amazon SageMaker Autopilot problem types</a>.</para>
+        /// SageMaker Autopilot problem types</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

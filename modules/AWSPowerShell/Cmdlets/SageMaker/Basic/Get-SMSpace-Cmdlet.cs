@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The ID of the associated Domain.</para>
+        /// <para>The ID of the associated domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

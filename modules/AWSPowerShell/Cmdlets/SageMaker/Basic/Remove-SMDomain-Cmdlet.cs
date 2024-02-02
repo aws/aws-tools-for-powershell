@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RetentionPolicy_HomeEfsFileSystem
         /// <summary>
         /// <para>
-        /// <para>The default is <c>Retain</c>, which specifies to keep the data stored on the EFS volume.</para><para>Specify <c>Delete</c> to delete the data stored on the EFS volume.</para>
+        /// <para>The default is <c>Retain</c>, which specifies to keep the data stored on the Amazon
+        /// EFS volume.</para><para>Specify <c>Delete</c> to delete the data stored on the Amazon EFS volume.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

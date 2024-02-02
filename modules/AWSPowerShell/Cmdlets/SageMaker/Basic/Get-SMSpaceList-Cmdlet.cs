@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DomainIdEqual
         /// <summary>
         /// <para>
-        /// <para>A parameter to search for the Domain ID.</para>
+        /// <para>A parameter to search for the domain ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

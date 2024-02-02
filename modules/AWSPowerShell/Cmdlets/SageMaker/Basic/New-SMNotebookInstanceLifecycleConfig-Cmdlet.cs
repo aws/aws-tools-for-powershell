@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// The value of the <c>$PATH</c> environment variable that is available to both scripts
     /// is <c>/sbin:bin:/usr/sbin:/usr/bin</c>.
     /// </para><para>
-    /// View CloudWatch Logs for notebook instance lifecycle configurations in log group <c>/aws/sagemaker/NotebookInstances</c>
-    /// in log stream <c>[notebook-instance-name]/[LifecycleConfigHook]</c>.
+    /// View Amazon CloudWatch Logs for notebook instance lifecycle configurations in log
+    /// group <c>/aws/sagemaker/NotebookInstances</c> in log stream <c>[notebook-instance-name]/[LifecycleConfigHook]</c>.
     /// </para><para>
     /// Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script
     /// runs for longer than 5 minutes, it fails and the notebook instance is not created

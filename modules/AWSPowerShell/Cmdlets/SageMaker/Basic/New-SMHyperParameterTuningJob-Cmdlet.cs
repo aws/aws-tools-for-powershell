@@ -422,11 +422,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The maximum number of resources (such as epochs) that can be used by a training job
         /// launched by a hyperparameter tuning job. Once a job reaches the <c>MaxResource</c>
         /// value, it is stopped. If a value for <c>MaxResource</c> is not provided, and <c>Hyperband</c>
-        /// is selected as the hyperparameter tuning strategy, <c>HyperbandTrainingJ</c> attempts
+        /// is selected as the hyperparameter tuning strategy, <c>HyperbandTraining</c> attempts
         /// to infer <c>MaxResource</c> from the following keys (if present) in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-StaticHyperParameters">StaticsHyperParameters</a>:</para><ul><li><para><c>epochs</c></para></li><li><para><c>numepochs</c></para></li><li><para><c>n-epochs</c></para></li><li><para><c>n_epochs</c></para></li><li><para><c>num_epochs</c></para></li></ul><para>If <c>HyperbandStrategyConfig</c> is unable to infer a value for <c>MaxResource</c>,
         /// it generates a validation error. The maximum value is 20,000 epochs. All metrics that
         /// correspond to an objective metric are used to derive <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html">early
-        /// stopping decisions</a>. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/distributed-training.html">distributive</a>
+        /// stopping decisions</a>. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/distributed-training.html">distributed</a>
         /// training jobs, ensure that duplicate metrics are not printed in the logs across the
         /// individual nodes in a training job. If multiple nodes are publishing duplicate or
         /// incorrect metrics, training jobs may make an incorrect stopping decision and stop

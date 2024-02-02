@@ -29,8 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Creates a version of the SageMaker image specified by <c>ImageName</c>. The version
-    /// represents the Amazon Elastic Container Registry (ECR) container image specified by
-    /// <c>BaseImage</c>.
+    /// represents the Amazon ECR container image specified by <c>BaseImage</c>.
     /// </summary>
     [Cmdlet("New", "SMImageVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -59,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The registry path of the container image to use as the starting point for this version.
-        /// The path is an Amazon Elastic Container Registry (ECR) URI in the following format:</para><para><c>&lt;acct-id&gt;.dkr.ecr.&lt;region&gt;.amazonaws.com/&lt;repo-name[:tag] or [@digest]&gt;</c></para>
+        /// The path is an Amazon ECR URI in the following format:</para><para><c>&lt;acct-id&gt;.dkr.ecr.&lt;region&gt;.amazonaws.com/&lt;repo-name[:tag] or [@digest]&gt;</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a space used for real time collaboration in a Domain.
+    /// Creates a space used for real time collaboration in a domain.
     /// </summary>
     [Cmdlet("New", "SMSpace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The ID of the associated Domain.</para>
+        /// <para>The ID of the associated domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
