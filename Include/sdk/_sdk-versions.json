@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.740.0",
+    "ProductVersion"    : "3.7.741.0",
     "CoreVersion"       : "3.7.302.6",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -387,7 +387,7 @@
             "InPreview"               : false
         },
         "WorkSpaces"                : {
-            "Version" : "3.7.301.38",
+            "Version" : "3.7.301.39",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.6"
@@ -827,7 +827,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.306.2",
+            "Version" : "3.7.307.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.6"

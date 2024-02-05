@@ -69,6 +69,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public Amazon.Glue.CatalogEncryptionMode EncryptionAtRest_CatalogEncryptionMode { get; set; }
         #endregion
         
+        #region Parameter EncryptionAtRest_CatalogEncryptionServiceRole
+        /// <summary>
+        /// <para>
+        /// <para>The role that Glue assumes to encrypt and decrypt the Data Catalog objects on the
+        /// caller's behalf.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionServiceRole")]
+        public System.String EncryptionAtRest_CatalogEncryptionServiceRole { get; set; }
+        #endregion
+        
         #region Parameter CatalogId
         /// <summary>
         /// <para>
@@ -169,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.ConnectionPasswordEncryption_AwsKmsKeyId = this.ConnectionPasswordEncryption_AwsKmsKeyId;
             context.ConnectionPasswordEncryption_ReturnConnectionPasswordEncrypted = this.ConnectionPasswordEncryption_ReturnConnectionPasswordEncrypted;
             context.EncryptionAtRest_CatalogEncryptionMode = this.EncryptionAtRest_CatalogEncryptionMode;
+            context.EncryptionAtRest_CatalogEncryptionServiceRole = this.EncryptionAtRest_CatalogEncryptionServiceRole;
             context.EncryptionAtRest_SseAwsKmsKeyId = this.EncryptionAtRest_SseAwsKmsKeyId;
             
             // allow further manipulation of loaded context prior to processing
@@ -242,6 +255,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_EncryptionAtRest_encryptionAtRest_CatalogEncryptionMode != null)
             {
                 requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_EncryptionAtRest.CatalogEncryptionMode = requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_EncryptionAtRest_encryptionAtRest_CatalogEncryptionMode;
+                requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_EncryptionAtRestIsNull = false;
+            }
+            System.String requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_EncryptionAtRest_encryptionAtRest_CatalogEncryptionServiceRole = null;
+            if (cmdletContext.EncryptionAtRest_CatalogEncryptionServiceRole != null)
+            {
+                requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_EncryptionAtRest_encryptionAtRest_CatalogEncryptionServiceRole = cmdletContext.EncryptionAtRest_CatalogEncryptionServiceRole;
+            }
+            if (requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_EncryptionAtRest_encryptionAtRest_CatalogEncryptionServiceRole != null)
+            {
+                requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_EncryptionAtRest.CatalogEncryptionServiceRole = requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_EncryptionAtRest_encryptionAtRest_CatalogEncryptionServiceRole;
                 requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_EncryptionAtRestIsNull = false;
             }
             System.String requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_EncryptionAtRest_encryptionAtRest_SseAwsKmsKeyId = null;
@@ -334,6 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String ConnectionPasswordEncryption_AwsKmsKeyId { get; set; }
             public System.Boolean? ConnectionPasswordEncryption_ReturnConnectionPasswordEncrypted { get; set; }
             public Amazon.Glue.CatalogEncryptionMode EncryptionAtRest_CatalogEncryptionMode { get; set; }
+            public System.String EncryptionAtRest_CatalogEncryptionServiceRole { get; set; }
             public System.String EncryptionAtRest_SseAwsKmsKeyId { get; set; }
             public System.Func<Amazon.Glue.Model.PutDataCatalogEncryptionSettingsResponse, SetGLUEDataCatalogEncryptionSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

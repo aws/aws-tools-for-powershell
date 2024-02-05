@@ -29341,7 +29341,7 @@ $GLUE_Completers = {
         # Amazon.Glue.CatalogEncryptionMode
         "Set-GLUEDataCatalogEncryptionSetting/DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionMode"
         {
-            $v = "DISABLED","SSE-KMS"
+            $v = "DISABLED","SSE-KMS","SSE-KMS-WITH-SERVICE-ROLE"
             break
         }
 
