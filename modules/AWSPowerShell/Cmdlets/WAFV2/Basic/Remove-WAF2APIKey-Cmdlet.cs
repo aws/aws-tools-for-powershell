@@ -28,31 +28,42 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// Creates an API key that contains a set of token domains.
+    /// Deletes the specified API key. 
     /// 
     ///  
     /// <para>
-    /// API keys are required for the integration of the CAPTCHA API in your JavaScript client
-    /// applications. The API lets you customize the placement and characteristics of the
-    /// CAPTCHA puzzle for your end users. For more information about the CAPTCHA JavaScript
-    /// integration, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
-    /// client application integration</a> in the <i>WAF Developer Guide</i>.
-    /// </para><para>
-    /// You can use a single key for up to 5 domains. After you generate a key, you can copy
-    /// it for use in your JavaScript integration. 
+    /// After you delete a key, it can take up to 24 hours for WAF to disallow use of the
+    /// key in all regions. 
     /// </para>
     /// </summary>
-    [Cmdlet("New", "WAF2APIKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS WAF V2 CreateAPIKey API operation.", Operation = new[] {"CreateAPIKey"}, SelectReturnType = typeof(Amazon.WAFV2.Model.CreateAPIKeyResponse))]
-    [AWSCmdletOutput("System.String or Amazon.WAFV2.Model.CreateAPIKeyResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WAFV2.Model.CreateAPIKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "WAF2APIKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS WAF V2 DeleteAPIKey API operation.", Operation = new[] {"DeleteAPIKey"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DeleteAPIKeyResponse))]
+    [AWSCmdletOutput("None or Amazon.WAFV2.Model.DeleteAPIKeyResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.WAFV2.Model.DeleteAPIKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewWAF2APIKeyCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
+    public partial class RemoveWAF2APIKeyCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter APIKey
+        /// <summary>
+        /// <para>
+        /// <para>The encrypted API key that you want to delete. </para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String APIKey { get; set; }
+        #endregion
         
         #region Parameter Scope
         /// <summary>
@@ -66,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
@@ -76,42 +87,22 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public Amazon.WAFV2.Scope Scope { get; set; }
         #endregion
         
-        #region Parameter TokenDomain
-        /// <summary>
-        /// <para>
-        /// <para>The client application domains that you want to use this API key for. </para><para>Example JSON: <c>"TokenDomains": ["abc.com", "store.abc.com"]</c></para><para>Public suffixes aren't allowed. For example, you can't use <c>gov.au</c> or <c>co.uk</c>
-        /// as token domains.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TokenDomains")]
-        public System.String[] TokenDomain { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'APIKey'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WAFV2.Model.CreateAPIKeyResponse).
-        /// Specifying the name of a property of type Amazon.WAFV2.Model.CreateAPIKeyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WAFV2.Model.DeleteAPIKeyResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "APIKey";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Scope parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Scope' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the APIKey parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^APIKey' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Scope' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^APIKey' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -131,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Scope), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-WAF2APIKey (CreateAPIKey)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WAF2APIKey (DeleteAPIKey)"))
             {
                 return;
             }
@@ -145,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.WAFV2.Model.CreateAPIKeyResponse, NewWAF2APIKeyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WAFV2.Model.DeleteAPIKeyResponse, RemoveWAF2APIKeyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -154,24 +145,21 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Scope;
+                context.Select = (response, cmdlet) => this.APIKey;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.APIKey = this.APIKey;
+            #if MODULAR
+            if (this.APIKey == null && ParameterWasBound(nameof(this.APIKey)))
+            {
+                WriteWarning("You are passing $null as a value for parameter APIKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Scope = this.Scope;
             #if MODULAR
             if (this.Scope == null && ParameterWasBound(nameof(this.Scope)))
             {
                 WriteWarning("You are passing $null as a value for parameter Scope which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.TokenDomain != null)
-            {
-                context.TokenDomain = new List<System.String>(this.TokenDomain);
-            }
-            #if MODULAR
-            if (this.TokenDomain == null && ParameterWasBound(nameof(this.TokenDomain)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TokenDomain which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -188,15 +176,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WAFV2.Model.CreateAPIKeyRequest();
+            var request = new Amazon.WAFV2.Model.DeleteAPIKeyRequest();
             
+            if (cmdletContext.APIKey != null)
+            {
+                request.APIKey = cmdletContext.APIKey;
+            }
             if (cmdletContext.Scope != null)
             {
                 request.Scope = cmdletContext.Scope;
-            }
-            if (cmdletContext.TokenDomain != null)
-            {
-                request.TokenDomains = cmdletContext.TokenDomain;
             }
             
             CmdletOutput output;
@@ -231,15 +219,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         #region AWS Service Operation Call
         
-        private Amazon.WAFV2.Model.CreateAPIKeyResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.CreateAPIKeyRequest request)
+        private Amazon.WAFV2.Model.DeleteAPIKeyResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.DeleteAPIKeyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "CreateAPIKey");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "DeleteAPIKey");
             try
             {
                 #if DESKTOP
-                return client.CreateAPIKey(request);
+                return client.DeleteAPIKey(request);
                 #elif CORECLR
-                return client.CreateAPIKeyAsync(request).GetAwaiter().GetResult();
+                return client.DeleteAPIKeyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -259,10 +247,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String APIKey { get; set; }
             public Amazon.WAFV2.Scope Scope { get; set; }
-            public List<System.String> TokenDomain { get; set; }
-            public System.Func<Amazon.WAFV2.Model.CreateAPIKeyResponse, NewWAF2APIKeyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.APIKey;
+            public System.Func<Amazon.WAFV2.Model.DeleteAPIKeyResponse, RemoveWAF2APIKeyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

@@ -1458,6 +1458,8 @@ Set-Alias -Name ASYN-GetDataSourceIntrospection -Value Get-ASYNDataSourceIntrosp
 Set-Alias -Name ASYN-GetDomainName -Value Get-ASYNDomainName
 Set-Alias -Name ASYN-GetFunction -Value Get-ASYNFunction
 Set-Alias -Name ASYN-GetGraphqlApi -Value Get-ASYNGraphqlApi
+Set-Alias -Name Get-ASYNGraphqlApiEnvironmentVariables -Value Get-ASYNGraphqlApiEnvironmentVariable
+Set-Alias -Name ASYN-GetGraphqlApiEnvironmentVariables -Value Get-ASYNGraphqlApiEnvironmentVariable
 Set-Alias -Name ASYN-GetIntrospectionSchema -Value Get-ASYNIntrospectionSchema
 Set-Alias -Name ASYN-GetResolver -Value Get-ASYNResolver
 Set-Alias -Name ASYN-GetSchemaCreationStatus -Value Get-ASYNSchemaCreationStatus
@@ -1494,6 +1496,9 @@ Set-Alias -Name ASYN-ListTypes -Value Get-ASYNTypeList
 Set-Alias -Name List-ASYNTypesByAssociation -Value Get-ASYNTypesByAssociationList
 Set-Alias -Name List-ASYNTypesByAssociationList -Value Get-ASYNTypesByAssociationList
 Set-Alias -Name ASYN-ListTypesByAssociation -Value Get-ASYNTypesByAssociationList
+Set-Alias -Name Put-ASYNGraphqlApiEnvironmentVariables -Value Write-ASYNGraphqlApiEnvironmentVariable
+Set-Alias -Name Put-ASYNGraphqlApiEnvironmentVariable -Value Write-ASYNGraphqlApiEnvironmentVariable
+Set-Alias -Name ASYN-PutGraphqlApiEnvironmentVariables -Value Write-ASYNGraphqlApiEnvironmentVariable
 Set-Alias -Name ASYN-StartDataSourceIntrospection -Value Start-ASYNDataSourceIntrospection
 Set-Alias -Name ASYN-StartSchemaCreation -Value Start-ASYNSchemaCreation
 Set-Alias -Name ASYN-StartSchemaMerge -Value Start-ASYNSchemaMerge
@@ -10946,6 +10951,8 @@ Set-Alias -Name Associate-ESAssociatePackage -Value Start-ESAssociatePackage
 Set-Alias -Name ES-AssociatePackage -Value Start-ESAssociatePackage
 Set-Alias -Name Authorize-ESVpcEndpointAccess -Value Approve-ESVpcEndpointAccess
 Set-Alias -Name ES-AuthorizeVpcEndpointAccess -Value Approve-ESVpcEndpointAccess
+Set-Alias -Name Cancel-ESDomainConfigChange -Value Stop-ESDomainConfigChange
+Set-Alias -Name ES-CancelDomainConfigChange -Value Stop-ESDomainConfigChange
 Set-Alias -Name Cancel-ESElasticsearchServiceSoftwareUpdate -Value Stop-ESElasticsearchServiceSoftwareUpdate
 Set-Alias -Name ES-CancelElasticsearchServiceSoftwareUpdate -Value Stop-ESElasticsearchServiceSoftwareUpdate
 Set-Alias -Name Create-ESElasticsearchDomain -Value New-ESDomain
@@ -19737,6 +19744,8 @@ Set-Alias -Name Associate-OSAssociatePackage -Value Start-OSAssociatePackage
 Set-Alias -Name OS-AssociatePackage -Value Start-OSAssociatePackage
 Set-Alias -Name Authorize-OSVpcEndpointAccess -Value Approve-OSVpcEndpointAccess
 Set-Alias -Name OS-AuthorizeVpcEndpointAccess -Value Approve-OSVpcEndpointAccess
+Set-Alias -Name Cancel-OSDomainConfigChange -Value Stop-OSDomainConfigChange
+Set-Alias -Name OS-CancelDomainConfigChange -Value Stop-OSDomainConfigChange
 Set-Alias -Name Cancel-OSServiceSoftwareUpdate -Value Stop-OSServiceSoftwareUpdate
 Set-Alias -Name OS-CancelServiceSoftwareUpdate -Value Stop-OSServiceSoftwareUpdate
 Set-Alias -Name Create-OSDomain -Value New-OSDomain
@@ -27939,6 +27948,8 @@ Set-Alias -Name Create-WAF2RuleGroup -Value New-WAF2RuleGroup
 Set-Alias -Name WAF2-CreateRuleGroup -Value New-WAF2RuleGroup
 Set-Alias -Name Create-WAF2WebACL -Value New-WAF2WebACL
 Set-Alias -Name WAF2-CreateWebACL -Value New-WAF2WebACL
+Set-Alias -Name Delete-WAF2APIKey -Value Remove-WAF2APIKey
+Set-Alias -Name WAF2-DeleteAPIKey -Value Remove-WAF2APIKey
 Set-Alias -Name Delete-WAF2FirewallManagerRuleGroups -Value Remove-WAF2FirewallManagerRuleGroup
 Set-Alias -Name Delete-WAF2FirewallManagerRuleGroup -Value Remove-WAF2FirewallManagerRuleGroup
 Set-Alias -Name WAF2-DeleteFirewallManagerRuleGroups -Value Remove-WAF2FirewallManagerRuleGroup

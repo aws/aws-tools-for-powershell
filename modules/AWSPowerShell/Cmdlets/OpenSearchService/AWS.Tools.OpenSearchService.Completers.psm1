@@ -303,6 +303,7 @@ $OS_SelectMap = @{
                "Add-OSResourceTag",
                "Start-OSAssociatePackage",
                "Approve-OSVpcEndpointAccess",
+               "Stop-OSDomainConfigChange",
                "Stop-OSServiceSoftwareUpdate",
                "New-OSDomain",
                "New-OSOutboundConnection",

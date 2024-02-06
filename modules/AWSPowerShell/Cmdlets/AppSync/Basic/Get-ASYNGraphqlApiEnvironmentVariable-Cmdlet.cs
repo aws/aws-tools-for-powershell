@@ -22,43 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudWatchLogs;
-using Amazon.CloudWatchLogs.Model;
+using Amazon.AppSync;
+using Amazon.AppSync.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CWL
+namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Returns complete information about one logical <i>delivery</i>. A delivery is a connection
-    /// between a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html"><i>delivery source</i></a> and a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html"><i>delivery destination</i></a>.
-    /// 
-    ///  
-    /// <para>
-    /// A delivery source represents an Amazon Web Services resource that sends logs to an
-    /// logs delivery destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis
-    /// Data Firehose. Only some Amazon Web Services services support being configured as
-    /// a delivery source. These services are listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enable
-    /// logging from Amazon Web Services services.</a></para><para>
-    /// You need to specify the delivery <c>id</c> in this operation. You can find the IDs
-    /// of the deliveries in your account with the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html">DescribeDeliveries</a>
-    /// operation.
-    /// </para>
+    /// Retrieves the list of environmental variable key-value pairs associated with an API
+    /// by its ID value.
     /// </summary>
-    [Cmdlet("Get", "CWLDelivery")]
-    [OutputType("Amazon.CloudWatchLogs.Model.Delivery")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Logs GetDelivery API operation.", Operation = new[] {"GetDelivery"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.GetDeliveryResponse))]
-    [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.Delivery or Amazon.CloudWatchLogs.Model.GetDeliveryResponse",
-        "This cmdlet returns an Amazon.CloudWatchLogs.Model.Delivery object.",
-        "The service call response (type Amazon.CloudWatchLogs.Model.GetDeliveryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "ASYNGraphqlApiEnvironmentVariable")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS AppSync GetGraphqlApiEnvironmentVariables API operation.", Operation = new[] {"GetGraphqlApiEnvironmentVariables"}, SelectReturnType = typeof(Amazon.AppSync.Model.GetGraphqlApiEnvironmentVariablesResponse))]
+    [AWSCmdletOutput("System.String or Amazon.AppSync.Model.GetGraphqlApiEnvironmentVariablesResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.AppSync.Model.GetGraphqlApiEnvironmentVariablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCWLDeliveryCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class GetASYNGraphqlApiEnvironmentVariableCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Id
+        #region Parameter ApiId
         /// <summary>
         /// <para>
-        /// <para>The ID of the delivery that you want to retrieve.</para>
+        /// <para>The ID of the API from which the environmental variable list will be retrieved.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,26 +57,26 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
+        public System.String ApiId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Delivery'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.GetDeliveryResponse).
-        /// Specifying the name of a property of type Amazon.CloudWatchLogs.Model.GetDeliveryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'EnvironmentVariables'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppSync.Model.GetGraphqlApiEnvironmentVariablesResponse).
+        /// Specifying the name of a property of type Amazon.AppSync.Model.GetGraphqlApiEnvironmentVariablesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Delivery";
+        public string Select { get; set; } = "EnvironmentVariables";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ApiId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ApiId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ApiId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -106,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.GetDeliveryResponse, GetCWLDeliveryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AppSync.Model.GetGraphqlApiEnvironmentVariablesResponse, GetASYNGraphqlApiEnvironmentVariableCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -115,14 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Id;
+                context.Select = (response, cmdlet) => this.ApiId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Id = this.Id;
+            context.ApiId = this.ApiId;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.ApiId == null && ParameterWasBound(nameof(this.ApiId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ApiId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -139,11 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudWatchLogs.Model.GetDeliveryRequest();
+            var request = new Amazon.AppSync.Model.GetGraphqlApiEnvironmentVariablesRequest();
             
-            if (cmdletContext.Id != null)
+            if (cmdletContext.ApiId != null)
             {
-                request.Id = cmdletContext.Id;
+                request.ApiId = cmdletContext.ApiId;
             }
             
             CmdletOutput output;
@@ -178,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudWatchLogs.Model.GetDeliveryResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.GetDeliveryRequest request)
+        private Amazon.AppSync.Model.GetGraphqlApiEnvironmentVariablesResponse CallAWSServiceOperation(IAmazonAppSync client, Amazon.AppSync.Model.GetGraphqlApiEnvironmentVariablesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "GetDelivery");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppSync", "GetGraphqlApiEnvironmentVariables");
             try
             {
                 #if DESKTOP
-                return client.GetDelivery(request);
+                return client.GetGraphqlApiEnvironmentVariables(request);
                 #elif CORECLR
-                return client.GetDeliveryAsync(request).GetAwaiter().GetResult();
+                return client.GetGraphqlApiEnvironmentVariablesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -206,9 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Id { get; set; }
-            public System.Func<Amazon.CloudWatchLogs.Model.GetDeliveryResponse, GetCWLDeliveryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Delivery;
+            public System.String ApiId { get; set; }
+            public System.Func<Amazon.AppSync.Model.GetGraphqlApiEnvironmentVariablesResponse, GetASYNGraphqlApiEnvironmentVariableCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.EnvironmentVariables;
         }
         
     }

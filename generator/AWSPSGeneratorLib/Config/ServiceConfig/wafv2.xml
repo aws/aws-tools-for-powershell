@@ -53,6 +53,10 @@
                 <Type>Amazon.WAFV2.Model.BlockAction</Type>
             </TypesNotToFlatten>
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAPIKey" Verb="Remove" Noun="APIKey" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="APIKey" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteFirewallManagerRuleGroups" OutputProperty="NextWebACLLockToken" Verb="Remove" Noun="FirewallManagerRuleGroup" ShouldProcessTarget="WebACLArn" PipelineParameter="WebACLArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

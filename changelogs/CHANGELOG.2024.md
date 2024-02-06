@@ -1,4 +1,16 @@
-﻿### 4.1.509 (2024-02-05 21:46Z)
+﻿### 4.1.510 (2024-02-06 21:43Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.742.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppSync
+    * Added cmdlet Get-ASYNGraphqlApiEnvironmentVariable leveraging the GetGraphqlApiEnvironmentVariables service API.
+    * Added cmdlet Write-ASYNGraphqlApiEnvironmentVariable leveraging the PutGraphqlApiEnvironmentVariables service API.
+  * Amazon Elasticsearch
+    * Added cmdlet Stop-ESDomainConfigChange leveraging the CancelDomainConfigChange service API.
+  * Amazon OpenSearch Service
+    * Added cmdlet Stop-OSDomainConfigChange leveraging the CancelDomainConfigChange service API.
+  * Amazon WAF V2
+    * Added cmdlet Remove-WAF2APIKey leveraging the DeleteAPIKey service API.
+
+### 4.1.509 (2024-02-05 21:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.741.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Glue
     * Modified cmdlet Set-GLUEDataCatalogEncryptionSetting: added parameter EncryptionAtRest_CatalogEncryptionServiceRole.

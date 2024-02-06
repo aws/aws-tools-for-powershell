@@ -121,6 +121,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-WAF2RegexPatternSet', 
         'New-WAF2RuleGroup', 
         'New-WAF2WebACL', 
+        'Remove-WAF2APIKey', 
         'Remove-WAF2FirewallManagerRuleGroup', 
         'Remove-WAF2IPSet', 
         'Remove-WAF2LoggingConfiguration', 

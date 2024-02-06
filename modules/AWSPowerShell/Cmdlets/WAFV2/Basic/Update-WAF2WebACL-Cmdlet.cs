@@ -329,7 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// uses the domain of the Amazon Web Services resource that the web ACL is protecting.
         /// If you don't specify a list of token domains, WAF accepts tokens only for the domain
         /// of the protected resource. With a token domain list, WAF accepts the resource's host
-        /// domain plus all domains in the token domain list, including their prefixed subdomains.</para><para>Example JSON: <c>"TokenDomains": { "mywebsite.com", "myotherwebsite.com" }</c></para><para>Public suffixes aren't allowed. For example, you can't use <c>usa.gov</c> or <c>co.uk</c>
+        /// domain plus all domains in the token domain list, including their prefixed subdomains.</para><para>Example JSON: <c>"TokenDomains": { "mywebsite.com", "myotherwebsite.com" }</c></para><para>Public suffixes aren't allowed. For example, you can't use <c>gov.au</c> or <c>co.uk</c>
         /// as token domains.</para>
         /// </para>
         /// </summary>

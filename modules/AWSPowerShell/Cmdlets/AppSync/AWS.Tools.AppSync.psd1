@@ -99,6 +99,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ASYNFunction', 
         'Get-ASYNFunctionList', 
         'Get-ASYNGraphqlApi', 
+        'Get-ASYNGraphqlApiEnvironmentVariable', 
         'Get-ASYNGraphqlApiList', 
         'Get-ASYNIntrospectionSchema', 
         'Get-ASYNResolver', 
@@ -147,7 +148,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-ASYNGraphqlApi', 
         'Update-ASYNResolver', 
         'Update-ASYNSourceApiAssociation', 
-        'Update-ASYNType')
+        'Update-ASYNType', 
+        'Write-ASYNGraphqlApiEnvironmentVariable')
 
     # Variables to export from this module
     VariablesToExport = '*'

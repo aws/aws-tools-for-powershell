@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogType
         /// <summary>
         /// <para>
-        /// <para>Defines the type of log that the source is sending. For valid values for this parameter,
-        /// see the documentation for the source service.</para>
+        /// <para>Defines the type of log that the source is sending. For Amazon CodeWhisperer, the
+        /// valid value is <c>EVENT_LOGS</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

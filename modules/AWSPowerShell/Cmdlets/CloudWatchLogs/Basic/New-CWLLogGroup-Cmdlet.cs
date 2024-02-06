@@ -41,7 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </para></li><li><para>
     /// Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore),
     /// '-' (hyphen), '/' (forward slash), '.' (period), and '#' (number sign)
-    /// </para></li></ul><para>
+    /// </para></li><li><para>
+    /// Log group names can't start with the string <c>aws/</c></para></li></ul><para>
     /// When you create a log group, by default the log events in the log group do not expire.
     /// To set a retention policy so that events expire and are deleted after a specified
     /// time, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html">PutRetentionPolicy</a>.

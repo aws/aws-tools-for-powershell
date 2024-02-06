@@ -131,6 +131,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-ESAssociatePackage', 
         'Start-ESDissociatePackage', 
         'Start-ESElasticsearchServiceSoftwareUpdate', 
+        'Stop-ESDomainConfigChange', 
         'Stop-ESElasticsearchServiceSoftwareUpdate', 
         'Update-ESDomainConfig', 
         'Update-ESElasticsearchDomain', 

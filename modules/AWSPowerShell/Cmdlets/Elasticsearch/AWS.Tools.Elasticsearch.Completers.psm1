@@ -229,6 +229,7 @@ $ES_SelectMap = @{
                "Add-ESResourceTag",
                "Start-ESAssociatePackage",
                "Approve-ESVpcEndpointAccess",
+               "Stop-ESDomainConfigChange",
                "Stop-ESElasticsearchServiceSoftwareUpdate",
                "New-ESDomain",
                "New-ESOutboundCrossClusterSearchConnection",

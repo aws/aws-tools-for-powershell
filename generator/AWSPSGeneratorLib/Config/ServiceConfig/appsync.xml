@@ -150,6 +150,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetGraphqlApiEnvironmentVariables" OutputProperty="EnvironmentVariables" Verb="Get" Noun="GraphqlApiEnvironmentVariable" PipelineParameter="ApiId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetIntrospectionSchema" OutputProperty="Schema" Verb="Get" Noun="IntrospectionSchema" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -211,6 +215,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTypesByAssociation" OutputProperty="Types" Verb="Get" Noun="TypesByAssociationList" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutGraphqlApiEnvironmentVariables" OutputProperty="EnvironmentVariables" Verb="Write" Noun="GraphqlApiEnvironmentVariable" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
