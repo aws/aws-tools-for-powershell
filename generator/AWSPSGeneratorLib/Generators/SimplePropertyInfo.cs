@@ -15,6 +15,7 @@ namespace AWSPowerShellGenerator.Generators
     public class SimplePropertyInfo
     {
         const string ConstantClassBaseTypeName = "Amazon.Runtime.ConstantClass";
+        internal const string DocumentTypeFullName = "Amazon.Runtime.Documents.Document";
 
         #region Properties
 
@@ -411,7 +412,7 @@ namespace AWSPowerShellGenerator.Generators
             DocumentationSource = documentationSource;
             IsMemoryStreamType = typeof(System.IO.MemoryStream).IsAssignableFrom(PropertyType);
             IsStreamType = typeof(System.IO.Stream).IsAssignableFrom(PropertyType);
-            IsDocumentType = PropertyType.FullName == "Amazon.Runtime.Documents.Document";
+            IsDocumentType = PropertyType.FullName == DocumentTypeFullName;
 
             UseParameterValueOnlyIfBound = IsNullableValueType(propertyInfo.PropertyType);
 
@@ -449,7 +450,7 @@ namespace AWSPowerShellGenerator.Generators
 
         private static bool IsNullableValueType(Type type)
         {
-            if (type == typeof(PSObject) || type.FullName == "Amazon.Runtime.Documents.Document")
+            if (type == typeof(PSObject) || type.FullName == DocumentTypeFullName)
                 return false;
 
             if (!type.IsValueType)

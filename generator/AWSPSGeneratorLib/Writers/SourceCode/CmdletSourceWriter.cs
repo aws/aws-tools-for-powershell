@@ -1017,7 +1017,17 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                             // value is enumerable
                                             if (!property.GenericCollectionTypes[1].Name.StartsWith("List`", StringComparison.Ordinal))
                                             {
-                                                writer.WriteLine($"context.{property.CmdletParameterName}.Add(({property.GenericCollectionTypes[0].Name})hashKey, ({property.GenericCollectionTypes[1].GetTypeFullCodeName()})(this.{property.CmdletParameterName}[hashKey]));");
+                                                var keyTypeName = property.GenericCollectionTypes[0].Name;
+                                                var valueTypeName = property.GenericCollectionTypes[1].GetTypeFullCodeName();
+
+                                                if (valueTypeName == SimplePropertyInfo.DocumentTypeFullName)
+                                                {
+                                                    writer.WriteLine($"context.{property.CmdletParameterName}.Add(({keyTypeName})hashKey, Amazon.PowerShell.Common.DocumentHelper.ToDocument(this.{property.CmdletParameterName}[hashKey]));");
+                                                }
+                                                else
+                                                {
+                                                    writer.WriteLine($"context.{property.CmdletParameterName}.Add(({keyTypeName})hashKey, ({valueTypeName})(this.{property.CmdletParameterName}[hashKey]));");
+                                                }
                                             }
                                             else
                                             {

@@ -30,10 +30,15 @@ namespace Amazon.PowerShell.Common
     {
         public static Document ToDocument(PSObject obj)
         {
-            return ToDocument(obj.BaseObject);
+            return ToDocumentInternal(obj.BaseObject);
         }
 
-        private static Document ToDocument(object obj)
+        public static Document ToDocument(object obj)
+        {
+            return ToDocumentInternal(obj);
+        }
+
+        private static Document ToDocumentInternal(object obj)
         {
             if (null == obj)
                 return new Document();
@@ -63,14 +68,14 @@ namespace Amazon.PowerShell.Common
                 return new Document(s);
 
             if (obj is object[] array)
-                return new Document(array.AsEnumerable().Select(ToDocument).ToList());
+                return new Document(array.AsEnumerable().Select(ToDocumentInternal).ToList());
 
             if (obj is Hashtable ht)
             {
                 return new Document(
                     ht.Keys.Cast<object>().ToDictionary(
                         key => key.ToString(),
-                        key => ToDocument(ht[key])));
+                        key => ToDocumentInternal(ht[key])));
             }
 
             throw new ArgumentException(

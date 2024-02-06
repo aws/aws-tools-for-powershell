@@ -34,7 +34,9 @@ namespace AWSPowerShellGenerator.Utils
         {
             if (!t.IsGenericType)
             {
-                return t.Name;
+                // Return the full name of the type. This is redundant for primitive types ("System.String" will be used instead of "String"), but
+                // it's necessary when using a custom type defined in the .NET SDK (e.g. the document type).
+                return t.FullName;
             }
             string typeName = t.GetGenericTypeDefinition().Name;
 
