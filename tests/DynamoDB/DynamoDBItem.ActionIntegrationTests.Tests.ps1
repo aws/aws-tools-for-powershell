@@ -26,19 +26,21 @@ BeforeAll {
     }
     $null = Add-DDBIndexSchema @addDdbIndexSchema
     $null = New-DDBTable -TableName $table1Name -ReadCapacity 10 -WriteCapacity 5 -Schema $schema
-
+    
     # Wait for DDB Table to create
-    :waitTable for ($index = 0; $index -le 10; $index++)
+    $maxWaitSeconds = 300
+    $sleepSeconds = 5
+    $maxIterations = $maxWaitSeconds / $sleepSeconds
+    :waitTable for ($index = 0; $index -le $maxIterations; $index++)
     {
-        if ($index -eq 10)
+        if ($index -eq $maxIterations)
         {
             throw "Test DynamoDB table creation timed out."
         }
 
         if ((Get-DDBTable -TableName $table1Name).TableStatus -ne 'ACTIVE')
         {
-            $index++
-            Start-Sleep -Seconds $index
+            Start-Sleep -Seconds $sleepSeconds
         }
         else
         {
